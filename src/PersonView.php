@@ -980,7 +980,7 @@ if (!empty($person->getDateDeactivated())) {
                       <!-- Info box -->
                       <div class="box box-info">
                         <div class="box-header">
-                          <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
+                          <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
 
                           <div class="box-tools pull-right">
                             <div class="label bg-aqua"><?= _($ormAssignedGroup->getRoleName()) ?></div>
@@ -991,7 +991,7 @@ if (!empty($person->getDateDeactivated())) {
                               if (SessionUser::getUser()->isManageGroupsEnabled()) {
                             ?>
                              <code>
-                              <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
+                              <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
                               <div class="btn-group">
                                 <button type="button" class="btn btn-default"><?= _('Action') ?></button>
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">

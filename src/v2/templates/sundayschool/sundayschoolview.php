@@ -54,9 +54,9 @@ require $sRootDocument . '/Include/Header.php';
       <?php
     }
     ?>
-    <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...
-    <a class="btn btn-app" href="<?= $sRootPath ?>/GroupView.php?GroupID=<?= $iGroupId ?>"><i
-        class="fa fa-user-plus"></i><?= _('Add Students') ?> </a>-->
+    <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...-->
+    <a class="btn btn-app bg-yellow" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
+        class="fa fa-info-circle"></i><?= _('Show More Props') ?> </a>
   <?php
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
   ?>
@@ -66,7 +66,8 @@ require $sRootDocument . '/Include/Header.php';
     }
   ?>
   <?php
-  if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
+  if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+      || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
   ?>
     <a class="btn btn-app bg-aqua makeCheckOut disabled" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
   <?php

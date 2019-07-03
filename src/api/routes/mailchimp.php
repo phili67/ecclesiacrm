@@ -75,7 +75,7 @@ function searchList (Request $request, Response $response, array $args) {
           
     $data = ['children' => [$elt],
         'id' => 0,
-        'text' => gettext('All People')];
+        'text' => _('All People')];
 
     array_push($resultsArray, $data);
   }
@@ -89,7 +89,7 @@ function searchList (Request $request, Response $response, array $args) {
           
     $data = ['children' => [$elt],
         'id' => 1,
-        'text' => gettext('newsletter')];
+        'text' => _('newsletter')];
 
     array_push($resultsArray, $data);
   }
@@ -124,7 +124,7 @@ function searchList (Request $request, Response $response, array $args) {
       {
         $dataPerson = ['children' => $data,
         'id' => 2,
-        'text' => gettext('Persons')];
+        'text' => _('Persons')];
 
         $resultsArray = array ($dataPerson);
       }
@@ -164,7 +164,7 @@ function searchList (Request $request, Response $response, array $args) {
         {
           $dataFamilies = ['children' => $data,
             'id' => 3,
-            'text' => gettext('Families')];
+            'text' => _('Families')];
 
           array_push($resultsArray, $dataFamilies);
         }
@@ -181,7 +181,7 @@ function searchList (Request $request, Response $response, array $args) {
           ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
           ->withColumn('grp_Name', 'displayName')
           ->withColumn('grp_ID', 'id')
-          ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/GroupView.php?GroupID=",Group.Id)', 'uri')
+          ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
           ->select(['displayName', 'uri', 'id'])
           ->find();
   
@@ -202,7 +202,7 @@ function searchList (Request $request, Response $response, array $args) {
         {
           $dataGroup = ['children' => $data,
             'id' => 4,
-            'text' => gettext('Groups')];
+            'text' => _('Groups')];
 
           array_push($resultsArray, $dataGroup);
         }
@@ -993,7 +993,7 @@ function testEmailConnectionMVC(Request $request, Response $response, array $arg
         $mailer->Body = "test email";
         $mailer->Debugoutput = "html";
     } else {
-        $message = gettext("SMTP Host is not setup, please visit the settings page");
+        $message = _("SMTP Host is not setup, please visit the settings page");
     }
     
     if (empty($message)) {  

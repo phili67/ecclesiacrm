@@ -735,7 +735,7 @@
               selectionCallback({"RoleID": $("#targetRoleSelection option:selected").val()});
             };
             options.buttons.cancel.callback = function(){
-              if (window.CRM.DataTableGroupView) {// this part is important in the GroupView.php/js select2 textfield when you cancel the action
+              if (window.CRM.DataTableGroupView) {// this part is important in the v2/groups/22/view /js select2 textfield when you cancel the action
                 $(".personSearch").val(null).trigger('change');
                 window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
               }

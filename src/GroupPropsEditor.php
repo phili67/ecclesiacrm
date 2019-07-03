@@ -46,7 +46,7 @@ $groups = GroupQuery::Create()->orderByName()->find();
 
 // Abort if user tries to load with group having no special properties.
 if ($group->getHasSpecialProps() == false) {
-    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
+    RedirectUtils::Redirect('v2/group/'.$iGroupID.'/view');
 }
 
 $sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$group->getName().'" '._("for")." : ".$person->getFullName();

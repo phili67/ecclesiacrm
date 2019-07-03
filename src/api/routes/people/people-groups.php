@@ -221,7 +221,7 @@ function searchGroup($request, $response, $args) {
       $values['id'] = $id++;
       $values['objid'] = $group->getId();
       $values['text'] = $group->getName();
-      $values['uri'] = SystemURLs::getRootPath()."/GroupView.php?GroupID=".$group->getId();
+      $values['uri'] = SystemURLs::getRootPath()."/v2/group/".$group->getId()."/view";
   
       array_push($return, $values);
 
@@ -458,7 +458,7 @@ function removePersonFromGroup ($request, $response, $args) {
             $groupService->removeUserFromGroup($groupID, $person->getId());
             //$groupRoleMembership->delete();
             $note = new Note();
-            $note->setText(gettext("Deleted from group"). ": " . $group->getName());
+            $note->setText(_("Deleted from group"). ": " . $group->getName());
             $note->setType("group");
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setPerId($person->getId());
@@ -490,7 +490,7 @@ function addPersonToGroup ($request, $response, $args) {
     $group->addPerson2group2roleP2g2r($p2g2r);
     $group->save();
     $note = new Note();
-    $note->setText(gettext("Added to group"). ": " . $group->getName());
+    $note->setText(_("Added to group"). ": " . $group->getName());
     $note->setType("group");
     $note->setEntered(SessionUser::getUser()->getPersonId());
     $note->setPerId($person->getId());
@@ -524,7 +524,7 @@ function addTeacherToGroup ($request, $response, $args) {
     $group->addPerson2group2roleP2g2r($p2g2r);
     $group->save();
     $note = new Note();
-    $note->setText(gettext("Added to group"). ": " . $group->getName());
+    $note->setText(_("Added to group"). ": " . $group->getName());
     $note->setType("group");
     $note->setEntered(SessionUser::getUser()->getPersonId());
     $note->setPerId($person->getId());
@@ -709,11 +709,13 @@ function downactionGroupField (Request $request, Response $response, array $args
 }
 
 function groupSundaySchool (Request $request, Response $response, array $args) {
-    if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-        return $response->withStatus(404);
-    }
 
     $iGroupId = $args['groupID'];
+
+    if ( !(SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+        || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) ) {
+        return $response->withStatus(404);
+    }
 
     $sundaySchoolService = new SundaySchoolService();
 

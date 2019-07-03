@@ -78,7 +78,7 @@ class MenuBar {
                     $str = substr($str, 0, $this->_maxStr-3)." ...";
                 }
 
-                $menuItemItem = new Menu ($str,"fa fa-circle-o","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
+                $menuItemItem = new Menu ($str,"fa fa-circle-o","v2/group/" . $group->getID() . "/view" ,true,$menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                 
@@ -102,7 +102,7 @@ class MenuBar {
           $menuItem = new Menu (_("Unassigned"),"fa fa-user-o","#",true,$menu);
 
           foreach ($groups as $group) {
-              $menuItemItem = new Menu ( $group->getName(),"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
+              $menuItemItem = new Menu ( $group->getName(),"fa fa-angle-double-right","v2/group/" . $group->getID() . "/view" ,true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
               $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
           }
@@ -181,7 +181,7 @@ class MenuBar {
               
               $menuItemItem = new Menu ($str,"fa fa-angle-double-right","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
-              $menuItemItem->addLink("GroupView.php?GroupID=" . $group->getID());
+              $menuItemItem->addLink("v2/group/" . $group->getID() . "/view" );
           }
       }
       
