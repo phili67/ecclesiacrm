@@ -401,8 +401,10 @@ class Cart
         ->filterByGroupId($GroupID)
         ->filterByPersonId($element)
         ->findOneOrCreate()
-        ->setRoleId($RoleID)
-        ->save();  
+        ->setRoleId($RoleID);
+
+        $group->addPerson2group2roleP2g2r($personGroupRole);
+        $group->save();
         
       /*
       This part of code should be done 
