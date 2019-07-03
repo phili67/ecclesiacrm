@@ -36,13 +36,13 @@ if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
     exit;
 }
 
-$sPageTitle = gettext('Custom Family Fields Editor');
+$sPageTitle = _('Custom Family Fields Editor');
 
 require 'Include/Header.php'; ?>
 
 <div class="alert alert-warning">
     <i class="fa fa-ban"></i>
-    <?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
+    <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
 </div>
 
 <div class="box box-body">
@@ -190,7 +190,7 @@ if (isset($_POST['SaveChanges'])) {
                     $lst->setId($newListID);
                     $lst->setOptionId(1);
                     $lst->setOptionSequence(1);
-                    $lst->setOptionName(gettext("Default Option"));
+                    $lst->setOptionName(_("Default Option"));
                     
                     $lst->save();
                     
@@ -325,7 +325,7 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 if ($numRows == 0) {
     ?>
     <center>
-       <h2><?= gettext('No custom Family fields have been added yet') ?></h2>
+       <h2><?= _('No custom Family fields have been added yet') ?></h2>
     </center>
 <?php
 } else {
@@ -334,18 +334,18 @@ if ($numRows == 0) {
     <?php
     if ($bErrorFlag) {
     ?>
-        <span class="LargeText" style="color: red;"><BR><?= gettext('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
+        <span class="LargeText" style="color: red;"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
     <?php
     } ?>
     </td></tr>
         <tr>
             <th></th>
             <th></th>
-            <th><?= gettext('Type') ?></th>
-            <th><?= gettext('Name') ?></th>
-            <th><?= gettext('Special option') ?></th>
-            <th><?= gettext('Security Option') ?></th>
-            <th><?= gettext('Family-View Side') ?></th>
+            <th><?= _('Type') ?></th>
+            <th><?= _('Name') ?></th>
+            <th><?= _('Special option') ?></th>
+            <th><?= _('Security Option') ?></th>
+            <th><?= _('Family-View Side') ?></th>
         </tr>
     <?php
 
@@ -357,15 +357,15 @@ if ($numRows == 0) {
                 <?php
                 if ($row > 1) {
                 ?>
-                    <a href="#" class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                    <img class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0">
                 <?php
                 }
         if ($row < $numRows) {
         ?>
-            <a href="#" class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+            <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0">
         <?php
         } ?>
-                <a href="#" class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
+                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
             </td>
             <td class="TextColumn">
                 <?= $aPropTypes[$aTypeFields[$row]] ?>
@@ -375,7 +375,7 @@ if ($numRows == 0) {
                 <?php
                 if ($aNameErrors[$row]) {
                 ?>
-                    <span style="color: red;"><BR><?= gettext('You must enter a name')?> </span>
+                    <span style="color: red;"><BR><?= _('You must enter a name')?> </span>
                 <?php
                 } 
                 ?>
@@ -386,7 +386,7 @@ if ($numRows == 0) {
             if ($aTypeFields[$row] == 9) {
             ?>
                 <select name="<?= $row ?>special" class="form-control  input-sm">
-                <option value="0" selected><?= gettext("Select a group")?></option>
+                <option value="0" selected><?= _("Select a group")?></option>
             <?php
                 $ormGroupList = GroupQuery::Create()->orderByName()->find();
                 
@@ -400,13 +400,13 @@ if ($numRows == 0) {
             <?php
                 if ($aSpecialErrors[$row]) {
             ?>
-                    <span style="color: red;"><BR><?= gettext('You must select a group.') ?></span>
+                    <span style="color: red;"><BR><?= _('You must select a group.') ?></span>
             <?php
                 }
             } elseif ($aTypeFields[$row] == 12) {
                 // TLH 6-23-07 Added scrollbars to the popup so long lists can be edited.
             ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=famcustom&ListID=<?=$aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')"><?= gettext('Edit List Options') ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=famcustom&ListID=<?=$aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')"><?= _('Edit List Options') ?></a>
             <?php
             } else {
             ?>
@@ -429,8 +429,8 @@ if ($numRows == 0) {
               } ?>
             </td>
             <td class="TextColumn" align="center" nowrap>
-                <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= gettext('Left') ?>
-                <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= gettext('Right') ?>
+                <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= _('Left') ?>
+                <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= _('Right') ?>
             </td>
 
         </tr>
@@ -443,7 +443,7 @@ if ($numRows == 0) {
                 <tr>
                     <td width="30%"></td>
                     <td width="40%" align="center" valign="bottom">
-                        <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
+                        <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
                     </td>
                     <td width="30%"></td>
                 </tr>
@@ -461,16 +461,16 @@ if ($numRows == 0) {
                     <td>
                     </td>
                     <td>
-                      <div><?= gettext('Type') ?>:</div>
+                      <div><?= _('Type') ?>:</div>
                     </td>
                     <td>
-                      <div><?= gettext('Name') ?>:</div>
+                      <div><?= _('Name') ?>:</div>
                     </td>
                     <td>
-                        <div><?= gettext('Security Option') ?></div>
+                        <div><?= _('Security Option') ?></div>
                     </td>
                     <td nowrap>
-                        <div><?= gettext('Side') ?>:</div>
+                        <div><?= _('Side') ?>:</div>
                     </td>
                     <td>
                     </td>
@@ -491,19 +491,19 @@ if ($numRows == 0) {
                       ?>
                         </select>
                     <BR>
-                    <a href="<?= SystemURLs::getSupportURL() ?>"><?= gettext('Help on types..') ?></a>
+                    <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
                     </td>
                     <td valign="top">
                         <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                         <?php
                             if ($bNewNameError) {
                         ?>
-                                <div><span style="color: red;"><BR><?= gettext('You must enter a name') ?></span></div>
+                                <div><span style="color: red;"><BR><?= _('You must enter a name') ?></span></div>
                         <?php
                             }
                             if ($bDuplicateNameError) {
                         ?>
-                                <div><span style="color: red;"><BR><?= gettext('That field name already exists.') ?></span></div>
+                                <div><span style="color: red;"><BR><?= _('That field name already exists.') ?></span></div>
                         <?php
                             }
                         ?>
@@ -513,12 +513,12 @@ if ($numRows == 0) {
                         <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
                     </td>
                     <td valign="top" nowrap>
-                        <input type="radio" name="newFieldSide" value="0" checked><?= gettext('Left') ?>
-                        <input type="radio" name="newFieldSide" value="1"><?= gettext('Right') ?>
+                        <input type="radio" name="newFieldSide" value="0" checked><?= _('Left') ?>
+                        <input type="radio" name="newFieldSide" value="1"><?= _('Right') ?>
                         &nbsp;
                     </td>
                     <td valign="top">
-                        <input type="submit" class="btn btn-primary" <?= 'value="'.gettext('Add New Field').'"' ?> Name="AddField">
+                        <input type="submit" class="btn btn-primary" <?= 'value="'._('Add New Field').'"' ?> Name="AddField">
                     </td>
                     <td width="15%"></td>
                 </tr>

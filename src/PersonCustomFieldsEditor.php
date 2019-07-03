@@ -26,7 +26,6 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Map\PersonCustomMasterTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 
 // Security: user must be administrator to use this page
@@ -355,15 +354,15 @@ require 'Include/Header.php'; ?>
               <?php
               if ($row != 1) {
               ?>
-                  <a href="#" class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <img class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0">
               <?php
               }
             if ($row < $numRows) {
               ?>
-                <a href="#" class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <img class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0">
             <?php
             } ?>
-              <a href="#" class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
+                <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
             </td>
             <td class="TextColumnFam">
               <?= $aPropTypes[$aTypeFields[$row]] ?>
