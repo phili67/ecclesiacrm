@@ -55,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
     }
     ?>
     <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...
-    <a class="btn btn-app" href="<?= $sRootPath ?>/GroupView.php?GroupID=<?= $iGroupId ?>"><i
+    <a class="btn btn-app" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
         class="fa fa-user-plus"></i><?= _('Add Students') ?> </a>-->
   <?php
     if (SessionUser::getUser()->isManageGroupsEnabled()) {

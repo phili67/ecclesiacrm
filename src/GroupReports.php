@@ -175,7 +175,7 @@ require 'Include/Header.php';
                         <p align="center">
                             <BR>
                             <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Create Report') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $iGroupID ?>';">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/v2/group/<?= $iGroupID ?>/view';">
                         </p>
                     </form>
 

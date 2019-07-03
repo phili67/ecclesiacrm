@@ -2,21 +2,20 @@
 
 /*******************************************************************************
  *
- *  filename    : grouplist.php
- *  last change : 2019-06-23
- *  description : manage the group list
+ *  filename    : groupview.php
+ *  last change : 2019-07-03
+ *  description : manage a group view
  *
  *  http://www.ecclesiacrm.com/
  *
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorizaion
+ *                This code can't be incorporated in another software without authorizaion
  *
  ******************************************************************************/
 
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
