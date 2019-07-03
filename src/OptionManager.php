@@ -5,6 +5,7 @@
  *  last change : 2003-04-16
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt
+ *                Copyright 2019 Philippe Logel
  *
  *  OptionName : Interface for editing simple selection options such as those
  *              : used for Family Roles, Classifications, and Group Types
@@ -24,9 +25,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -418,20 +417,20 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
             if ($row != 1) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
             <?php
             }
             if ($row < $numRows) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
             <?php
             }
-            if ($numRows > 0) {
+            if ($numRows > 1) {
             ?>
               <?php
               if ($embedded) {
               ?>                
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=delete"><img src="Images/x.gif" border="0"></a>
+                <img src="Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete">
               <?php
                 } else {
               ?>
@@ -460,7 +459,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         <?php
         if ($mode == 'grproles') {//dead code
         ?>
-            <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
+            <td class="TextColumn"><input class="btn btn-success btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="makedefault" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default"></td>
         <?php
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);

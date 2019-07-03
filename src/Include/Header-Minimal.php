@@ -11,6 +11,7 @@
  ******************************************************************************/
 require_once 'Header-Security.php';
 
+use EcclesiaCRM\dto\SystemURLs;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -21,6 +22,12 @@ require_once 'Header-Security.php';
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
   <?php require 'Header-HTML-Scripts.php'; ?>
+
+    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+        window.CRM = {
+            root: "<?= SystemURLs::getRootPath() ?>",
+        };
+    </script>
 </head>
 
 <body>
