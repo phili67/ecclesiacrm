@@ -66,7 +66,8 @@ require $sRootDocument . '/Include/Header.php';
     }
   ?>
   <?php
-  if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
+  if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+      || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
   ?>
     <a class="btn btn-app bg-aqua makeCheckOut disabled" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
   <?php

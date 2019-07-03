@@ -709,11 +709,13 @@ function downactionGroupField (Request $request, Response $response, array $args
 }
 
 function groupSundaySchool (Request $request, Response $response, array $args) {
-    if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-        return $response->withStatus(404);
-    }
 
     $iGroupId = $args['groupID'];
+
+    if ( !(SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+        || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) ) {
+        return $response->withStatus(404);
+    }
 
     $sundaySchoolService = new SundaySchoolService();
 
