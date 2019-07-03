@@ -417,20 +417,20 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
             if ($row != 1) {
             ?>
-                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
             <?php
             }
             if ($row < $numRows) {
             ?>
-                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
             <?php
             }
-            if ($numRows > 0) {
+            if ($numRows > 1) {
             ?>
               <?php
               if ($embedded) {
               ?>                
-                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete"><img src="Images/x.gif" border="0"></a>
+                <img src="Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete">
               <?php
                 } else {
               ?>

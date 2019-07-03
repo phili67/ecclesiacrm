@@ -1,7 +1,7 @@
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2018/06/28
+//  copyright   : 2019 Philippe Logel all right reserved not MIT licence
+//  Updated     : 2019/07/03
 //
 
 $('.checkOnlyPersonView').click('focus', function (e) {

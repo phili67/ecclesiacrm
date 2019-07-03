@@ -1,22 +1,28 @@
 <?php
 
-use EcclesiaCRM\GroupTypeQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use Propel\Runtime\Propel;
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\SessionUser;
+
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
+
+use EcclesiaCRM\FamilyCustomMasterQuery;
+
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\GroupTypeQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
+
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
+
 use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\SessionUser;
 use LogicException;
 
 
@@ -25,7 +31,7 @@ $app->group('/generalrole', function () {
     $this->get('/all/{mode}', 'getAllGeneralRoles' );
 /*
  * @! set gerneral role for the family, classification, etc ...
- * #! param: ref->str :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'grproles' 'famcustom' 'groupcustom'
+ * #! param: ref->str :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)
  * #! param: ref->int :: Order
  * #! param: id->int  :: ID as id
  * #! param: res->str :: Action 'up' 'down'
@@ -280,10 +286,15 @@ function getAllGeneralRoles (Request $request, Response $response, array $args) 
             $aSeqs[$row]          = $ormList->getOptionSequence();
 
             $aNameFields[$row]    = InputUtils::LegacyFilterInput($_POST[$row.'name']);
-            
+
             $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
-            
-            $aIcon[$row]          = $icon->toArray();
+
+            if (!is_null ($icon) && $icon->getUrl() != '') {
+                $aIcon[$row]          = ['isOnlyPersonViewVisible' => true, 'url' => $icon->getUrl()];
+            } else {
+
+                $aIcon[$row] = null;
+            }
 
             $row++;
         }
@@ -353,7 +364,7 @@ function getAllGeneralRoles (Request $request, Response $response, array $args) 
 
 
 
-    return $response->withJson(['noun' => $noun, 'adjplusname' => $adjplusname, 'adjplusnameplural'=> $adjplusnameplural, 'iNewNameError' => $iNewNameError, 'embedded' => $embedded, 'listID' => $listID, 'iDefaultRole' => $iDefaultRole, 'numRows' => $numRows, 'aIDs' => $aIDs, 'aIcon' => $aIcon, 'aSeqs' => $aSeqs, 'aNameFields' => $aNameFields]);
+    return $response->withJson(['sPageTitle' => $sPageTitle, 'bDuplicateFound' => $bDuplicateFound, 'noun' => $noun, 'adjplusname' => $adjplusname, 'adjplusnameplural'=> $adjplusnameplural, 'iNewNameError' => $iNewNameError, 'embedded' => $embedded, 'listID' => $listID, 'iDefaultRole' => $iDefaultRole, 'numRows' => $numRows, 'aIDs' => $aIDs, 'aIcon' => $aIcon, 'aSeqs' => $aSeqs, 'aNameFields' => $aNameFields]);
 }
 
 function generalRoleAssign (Request $request, Response $response, array $args) {
@@ -379,7 +390,7 @@ function generalRoleAssign (Request $request, Response $response, array $args) {
 
             case 'grptypes':
             case 'grptypesSundSchool':
-            case 'grproles':
+            case 'grproles': // dead code for grproles
                 if (!SessionUser::getUser()->isManageGroupsEnabled()) {
                     return $response->withJson(['success' => false]);
                 }
@@ -420,7 +431,7 @@ function generalRoleAssign (Request $request, Response $response, array $args) {
                 $listID = 3;
                 $list_type = ($mode == 'grptypesSundSchool') ? 'sunday_school' : 'normal';
                 break;
-            case 'grproles':
+            case 'grproles': // dead code
                 $listID = InputUtils::LegacyFilterInput($input->ListID, 'int');
 
                 // Validate that this list ID is really for a group roles list. (for security)
