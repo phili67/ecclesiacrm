@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-30 23:23+0200\n"
+"POT-Creation-Date: 2019-07-03 18:40+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,7 +204,7 @@ msgstr "Numerar"
 msgid "Checks"
 msgstr "Verifica"
 
-#: api/routes/mailchimp.php:78 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:78 v2/templates/people/peopledashboard.php:25
 #, fuzzy
 msgid "All People"
 msgstr "Oameni"
@@ -214,26 +214,27 @@ msgstr "Oameni"
 msgid "newsletter"
 msgstr "Trimite Newsletter"
 
-#: api/routes/mailchimp.php:127 api/routes/people/people.php:72
-#: api/routes/people/people.php:124 api/routes/search.php:72
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: api/routes/mailchimp.php:127 api/routes/people/people.php:66
+#: api/routes/people/people.php:118 api/routes/search.php:72
+#: EcclesiaCRM/MenuBar/MenuBar.php:290
 #, fuzzy
 msgid "Persons"
 msgstr "Persoană"
 
-#: api/routes/mailchimp.php:167 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:167 api/routes/people/people.php:157
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:275
-#: EcclesiaCRM/MenuBar/MenuBar.php:299 members/online-pending-verify.php:24
+#: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
-#: PeopleDashboard.php:163
+#: v2/templates/people/peopledashboard.php:84
 #: v2/templates/sundayschool/sundayschooldashboard.php:59
 msgid "Families"
 msgstr "Familiile"
 
-#: api/routes/mailchimp.php:205 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:205 api/routes/people/people.php:194
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
-#: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
+#: v2/templates/calendar/calendar.php:153
+#: v2/templates/people/peopledashboard.php:147
 #, fuzzy
 msgid "Groups"
 msgstr "Grup"
@@ -274,13 +275,13 @@ msgstr "Este nevoie de această valoare."
 msgid "Family Activated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-groups.php:460
+#: api/routes/people/people-groups.php:461
 #, fuzzy
 msgid "Deleted from group"
 msgstr "din grup"
 
-#: api/routes/people/people-groups.php:492
-#: api/routes/people/people-groups.php:526
+#: api/routes/people/people-groups.php:493
+#: api/routes/people/people-groups.php:527
 #, fuzzy
 msgid "Added to group"
 msgstr "Adauga la grup"
@@ -293,14 +294,14 @@ msgstr "Adauga la grup"
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:187
+#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:186
 #: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
 #: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
 #: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
 #: SelectList.php:65 SelectList.php:1239 SelectList.php:1319
-#: SystemSettings.php:213 v2/templates/group/grouplist.php:31
-#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
-#: v2/templates/map/MapUsingGoogle.php:67
+#: SystemSettings.php:213 v2/routes/group/groups.php:63
+#: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
+#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
 #: v2/templates/map/MapUsingGoogle.php:112
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
@@ -375,6 +376,191 @@ msgstr "Toate plățile"
 msgid "Pastoral Care"
 msgstr ""
 
+#: api/routes/sidebar/sidebar-general-roles.php:108
+#: api/routes/sidebar/sidebar-general-roles.php:149 FamilyEditor.php:1054
+#: FamilyView.php:473 OptionManager.php:100 OptionManager.php:141
+#: PersonView.php:881 PrintPastoralCare.php:449 PrintPastoralCare.php:516
+#: PrintView.php:460 PrintView.php:525 Reports/CanvassReports.php:236
+#: Reports/GroupReport.php:107 sundayschool/SundaySchoolClassListExport.php:48
+msgid "Role"
+msgstr "Rol"
+
+#: api/routes/sidebar/sidebar-general-roles.php:110 CSVExport.php:173
+#: CSVExport.php:308 OptionManager.php:102 PrintPastoralCare.php:338
+#: PrintView.php:349 queryparameters_qrp.php:5
+#, fuzzy
+msgid "Family Role"
+msgstr "Rolul familiei"
+
+#: api/routes/sidebar/sidebar-general-roles.php:111 Include/Footer.php:62
+#: OptionManager.php:103 v2/templates/people/peopledashboard.php:248
+#, fuzzy
+msgid "Family Roles"
+msgstr "Rolul familiei"
+
+#: api/routes/sidebar/sidebar-general-roles.php:112 OptionManager.php:104
+#, fuzzy
+msgid "Family Roles Editor"
+msgstr "Editor de familie"
+
+#: api/routes/sidebar/sidebar-general-roles.php:117 CSVExport.php:168
+#: CSVExport.php:283 CSVImport.php:403 FamilyEditor.php:1058 FamilyView.php:474
+#: FinancialReports.php:153 OptionManager.php:109 PersonEditor.php:1480
+#: PrintPastoralCare.php:400 PrintView.php:411
+#: v2/templates/people/peopledashboard.php:298 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "Clasificare"
+
+#: api/routes/sidebar/sidebar-general-roles.php:118 OptionManager.php:110
+#, fuzzy
+msgid "Person Classification"
+msgstr "Clasificare"
+
+#: api/routes/sidebar/sidebar-general-roles.php:119 OptionManager.php:111
+#, fuzzy
+msgid "Person Classifications"
+msgstr "Toate Clasificări"
+
+#: api/routes/sidebar/sidebar-general-roles.php:120 OptionManager.php:112
+#, fuzzy
+msgid "Person Classifications Editor"
+msgstr "Toate Clasificări"
+
+#: api/routes/sidebar/sidebar-general-roles.php:125
+#: api/routes/sidebar/sidebar-general-roles.php:133
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
+#: GroupPropsFormEditor.php:475 GroupView.php:421 OptionManager.php:117
+#: OptionManager.php:125 PersonCustomFieldsEditor.php:340
+#: PersonCustomFieldsEditor.php:465 Reports/GDPR/GDPRDataStructureExport.php:74
+#: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
+#: v2/templates/gdpr/gdprdatastructure.php:42
+#: v2/templates/group/groupview.php:366
+msgid "Type"
+msgstr "Tip"
+
+#: api/routes/sidebar/sidebar-general-roles.php:126 OptionManager.php:118
+#, fuzzy
+msgid "Sunday School Group Type"
+msgstr "Rapoarte de Școală Duminicală"
+
+#: api/routes/sidebar/sidebar-general-roles.php:127 Include/Footer.php:121
+#: OptionManager.php:119
+#, fuzzy
+msgid "Sunday School Group Types"
+msgstr "Rapoarte de Școală Duminicală"
+
+#: api/routes/sidebar/sidebar-general-roles.php:128 OptionManager.php:120
+#, fuzzy
+msgid "Sunday School Group Types Editor"
+msgstr "Group Editor"
+
+#: api/routes/sidebar/sidebar-general-roles.php:134 OptionManager.php:126
+#, fuzzy
+msgid "Group Type"
+msgstr "Toate Tipurile grupului"
+
+#: api/routes/sidebar/sidebar-general-roles.php:135 Include/Footer.php:111
+#: OptionManager.php:127
+#, fuzzy
+msgid "Group Types"
+msgstr "Toate Tipurile grupului"
+
+#: api/routes/sidebar/sidebar-general-roles.php:136 OptionManager.php:128
+#, fuzzy
+msgid "Group Types Editor"
+msgstr "Group Editor"
+
+#: api/routes/sidebar/sidebar-general-roles.php:141
+#: api/routes/sidebar/sidebar-properties.php:72
+#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:94
+#: OptionManager.php:133 v2/routes/sidebar/propertylist.php:40
+msgid "Group"
+msgstr "Grup"
+
+#: api/routes/sidebar/sidebar-general-roles.php:142 OptionManager.php:134
+#, fuzzy
+msgid "Security Group"
+msgstr "Selectați Grupa"
+
+#: api/routes/sidebar/sidebar-general-roles.php:143 OptionManager.php:135
+#, fuzzy
+msgid "Security Groups"
+msgstr "Selectați Grupa"
+
+#: api/routes/sidebar/sidebar-general-roles.php:144 OptionManager.php:136
+#, fuzzy
+msgid "Security Groups Editor"
+msgstr "Group Editor"
+
+#: api/routes/sidebar/sidebar-general-roles.php:150 OptionManager.php:142
+#, fuzzy
+msgid "Group Member Role"
+msgstr "Grupa Roluri membre"
+
+#: api/routes/sidebar/sidebar-general-roles.php:151 GroupEditor.php:121
+#: OptionManager.php:143
+#, fuzzy
+msgid "Group Member Roles"
+msgstr "Grupa Roluri membre"
+
+#: api/routes/sidebar/sidebar-general-roles.php:152 OptionManager.php:144
+#, fuzzy
+msgid "Group Member Roles Editor"
+msgstr "Grupa Roluri membre"
+
+#: api/routes/sidebar/sidebar-general-roles.php:165
+#: api/routes/sidebar/sidebar-general-roles.php:180
+#: api/routes/sidebar/sidebar-general-roles.php:195 OptionManager.php:158
+#: OptionManager.php:174 OptionManager.php:190
+msgid "Option"
+msgstr "Opțiune"
+
+#: api/routes/sidebar/sidebar-general-roles.php:166 OptionManager.php:159
+#, fuzzy
+msgid "Person Custom List Option"
+msgstr "Listarea persoană"
+
+#: api/routes/sidebar/sidebar-general-roles.php:167 OptionManager.php:160
+#, fuzzy
+msgid "Person Custom List Options"
+msgstr "Edita lista de opțiuni"
+
+#: api/routes/sidebar/sidebar-general-roles.php:168 OptionManager.php:161
+#, fuzzy
+msgid "Person Custom List Options Editor"
+msgstr "Câmpurile Persoana personalizate Editor"
+
+#: api/routes/sidebar/sidebar-general-roles.php:181 OptionManager.php:175
+#, fuzzy
+msgid "Custom List Option"
+msgstr "Edita lista de opțiuni"
+
+#: api/routes/sidebar/sidebar-general-roles.php:182 OptionManager.php:176
+#, fuzzy
+msgid "Custom List Options"
+msgstr "Edita lista de opțiuni"
+
+#: api/routes/sidebar/sidebar-general-roles.php:183 OptionManager.php:177
+#, fuzzy
+msgid "Custom List Options Editor"
+msgstr "Personalizat de familie Fields Editor"
+
+#: api/routes/sidebar/sidebar-general-roles.php:196 OptionManager.php:191
+#, fuzzy
+msgid "Family Custom List Option"
+msgstr "Edita lista de opțiuni"
+
+#: api/routes/sidebar/sidebar-general-roles.php:197 OptionManager.php:192
+#, fuzzy
+msgid "Family Custom List Options"
+msgstr "Edita lista de opțiuni"
+
+#: api/routes/sidebar/sidebar-general-roles.php:198 OptionManager.php:193
+#, fuzzy
+msgid "Family Custom List Options Editor"
+msgstr "Personalizat de familie Fields Editor"
+
 #: api/routes/sidebar/sidebar-properties.php:72
 #: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:808
 #: AutoPaymentEditor.php:817 Include/Footer.php:76 PledgeEditor.php:586
@@ -398,12 +584,6 @@ msgstr "Persoană"
 #: v2/templates/gdpr/gdprdatastructure.php:100
 msgid "Family"
 msgstr "Familie"
-
-#: api/routes/sidebar/sidebar-properties.php:72
-#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:94
-#: OptionManager.php:134 v2/routes/sidebar/propertylist.php:40
-msgid "Group"
-msgstr "Grup"
 
 #: api/routes/sidebar/sidebar-properties.php:336
 #: api/routes/sidebar/sidebar-properties.php:399
@@ -485,7 +665,7 @@ msgid "Account Activated"
 msgstr "Este nevoie de această valoare."
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: Include/Functions.php:148
+#: Include/Functions.php:149
 msgid "Cannot execute query."
 msgstr "Nu se poate executa interogarea."
 
@@ -625,7 +805,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:396 CSVExport.php:143
-#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:321
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:318
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:72
@@ -689,7 +869,7 @@ msgstr ""
 #: DonatedItemEditor.php:292 FamilyEditor.php:714 FamilyEditor.php:801
 #: FamilyEditor.php:862 FamilyEditor.php:937 FamilyEditor.php:957
 #: FamilyEditor.php:1031 FamilyEditor.php:1235 FundRaiserEditor.php:147
-#: GroupEditor.php:176 PaddleNumEditor.php:154 PersonEditor.php:823
+#: GroupEditor.php:176 PaddleNumEditor.php:153 PersonEditor.php:823
 #: PersonEditor.php:956 PersonEditor.php:1065 PersonEditor.php:1474
 #: PersonEditor.php:1547 PersonEditor.php:1633 PledgeEditor.php:771
 #: UserEditor.php:866 UserPasswordChange.php:224
@@ -702,7 +882,7 @@ msgstr "Salva"
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:148
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1581
+#: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1583
 #: PledgeEditor.php:778 ReminderReport.php:55 SettingsIndividual.php:127
 #: SettingsIndividual.php:218 TaxReport.php:53 UserEditor.php:867
 #: UserEditor.php:1011 v2/templates/sundayschool/sundayschooldashboard.php:263
@@ -829,7 +1009,7 @@ msgstr "Introduceți Câștigătorii"
 msgid "File Manager"
 msgstr "Plic Manager de"
 
-#: browser/browse.php:34 PersonView.php:1489
+#: browser/browse.php:34 PersonView.php:1491
 #, fuzzy
 msgid "Upload a file in EDrive"
 msgstr "Încărcați CSV"
@@ -838,7 +1018,7 @@ msgstr "Încărcați CSV"
 msgid "Download"
 msgstr ""
 
-#: browser/browse.php:47 PersonView.php:1498
+#: browser/browse.php:47 PersonView.php:1500
 #, fuzzy
 msgid "Create a Folder"
 msgstr "Creați fișiere"
@@ -848,7 +1028,7 @@ msgstr "Creați fișiere"
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:951
 #: FindDepositSlip.php:131 FundRaiserEditor.php:206 ListEvents.php:415
-#: PaddleNumList.php:55 PersonView.php:1505 PersonView.php:1582
+#: PaddleNumList.php:55 PersonView.php:1507 PersonView.php:1584
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
 #: v2/templates/email/mailchimp/managelist.php:94
@@ -857,15 +1037,15 @@ msgstr "Creați fișiere"
 msgid "Delete"
 msgstr "Șterge"
 
-#: browser/browse.php:61 PersonView.php:1512
+#: browser/browse.php:61 PersonView.php:1514
 msgid "Up One Level"
 msgstr ""
 
-#: browser/browse.php:67 PersonView.php:1518
+#: browser/browse.php:67 PersonView.php:1520
 msgid "Actualize files"
 msgstr ""
 
-#: browser/browse.php:80 PersonView.php:1536
+#: browser/browse.php:80 PersonView.php:1538
 #, fuzzy
 msgid "Preview"
 msgstr "Pagina anterioară"
@@ -1154,9 +1334,9 @@ msgstr "și"
 msgid "Image Position"
 msgstr ""
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:427
-#: FamilyCustomFieldsEditor.php:511 PersonCustomFieldsEditor.php:425
-#: PersonCustomFieldsEditor.php:510
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
+#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
+#: PersonCustomFieldsEditor.php:514
 #: v2/templates/sundayschool/sundayschoolbadge.php:149
 msgid "Left"
 msgstr "Stânga"
@@ -1166,9 +1346,9 @@ msgstr "Stânga"
 msgid "Center"
 msgstr "Iarnă"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:428
-#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:426
-#: PersonCustomFieldsEditor.php:511
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
+#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
+#: PersonCustomFieldsEditor.php:515
 #: v2/templates/sundayschool/sundayschoolbadge.php:151
 msgid "Right"
 msgstr "Dreapta"
@@ -1196,18 +1376,19 @@ msgstr "Adauga in cos pentru a Familiei"
 #: CartToFamily.php:223 Checkin.php:548 Checkin.php:549
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:57 EditEventAttendees.php:71 EventAttendance.php:184
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:340
-#: FamilyCustomFieldsEditor.php:462 GeoPage.php:358 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:346
-#: GroupPropsFormEditor.php:473 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:337
-#: PersonCustomFieldsEditor.php:464 PrintPastoralCare.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:345
+#: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
+#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:476 GroupView.php:422 ListEvents.php:300
+#: ListEvents.php:302 PersonCustomFieldsEditor.php:341
+#: PersonCustomFieldsEditor.php:468 PrintPastoralCare.php:447
 #: PrintPastoralCare.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
 #: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
 #: Reports/PDFLabel.php:859 SelectList.php:1087
-#: v2/templates/people/familylist.php:48 v2/templates/people/personlist.php:48
-#: v2/templates/user/userlist.php:48 queryparameteroptions_qpo.php:4
+#: v2/templates/group/groupview.php:367 v2/templates/people/familylist.php:48
+#: v2/templates/people/personlist.php:48 v2/templates/user/userlist.php:48
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Nume"
 
@@ -1356,6 +1537,7 @@ msgid "Email Cart"
 msgstr "E-mail Cosul"
 
 #: CartView.php:149 FamilyView.php:413 GroupView.php:184 PersonView.php:608
+#: v2/templates/group/groupview.php:129
 #: v2/templates/sundayschool/sundayschoolview.php:47
 msgid "Email (BCC)"
 msgstr "E-mail (CCA)"
@@ -1431,12 +1613,12 @@ msgstr "Selectați Eveniment"
 msgid "Select event"
 msgstr "Selectați Eveniment"
 
-#: Checkin.php:245 FamilyView.php:778 PersonView.php:1252
+#: Checkin.php:245 FamilyView.php:778 PersonView.php:1254
 #, fuzzy
 msgid "From"
 msgstr "De la:"
 
-#: Checkin.php:245 FamilyView.php:784 PersonView.php:1258
+#: Checkin.php:245 FamilyView.php:784 PersonView.php:1260
 #, fuzzy
 msgid "To"
 msgstr "Pentru a:"
@@ -1529,8 +1711,8 @@ msgstr "Listarea utilizator"
 #: Checkin.php:550 CSVExport.php:333 CSVImport.php:241 FamilyEditor.php:1053
 #: PersonEditor.php:830 PrintPastoralCare.php:311 PrintPastoralCare.php:448
 #: PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:186
-#: v2/templates/sundayschool/sundayschoolview.php:277 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:187
+#: v2/templates/sundayschool/sundayschoolview.php:278 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Gen"
 
@@ -1661,19 +1843,6 @@ msgstr "Nasterii / Aniversare Data"
 #, fuzzy
 msgid "Age / Years Married"
 msgstr "Vârsta / ani Casatorit"
-
-#: CSVExport.php:168 CSVExport.php:283 CSVImport.php:403 FamilyEditor.php:1058
-#: FamilyView.php:474 FinancialReports.php:153 OptionManager.php:110
-#: PeopleDashboard.php:377 PersonEditor.php:1480 PrintPastoralCare.php:400
-#: PrintView.php:411 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "Clasificare"
-
-#: CSVExport.php:173 CSVExport.php:308 OptionManager.php:103
-#: PrintPastoralCare.php:338 PrintView.php:349 queryparameters_qrp.php:5
-#, fuzzy
-msgid "Family Role"
-msgstr "Rolul familiei"
 
 #: CSVExport.php:176
 #, fuzzy
@@ -1832,7 +2001,7 @@ msgstr "Munca / Alte e-mail"
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:193
-#: v2/templates/sundayschool/sundayschoolview.php:276
+#: v2/templates/sundayschool/sundayschoolview.php:277
 msgid "Birth Date"
 msgstr "Data nașterii"
 
@@ -2108,7 +2277,7 @@ msgid "Return to Deposit Listing"
 msgstr "Listarea depozit"
 
 #: DepositSlipEditor.php:282 FamilyView.php:943 FindDepositSlip.php:121
-#: PersonView.php:1571
+#: PersonView.php:1573
 msgid "Confirm Delete"
 msgstr "Confirmați ștergerea"
 
@@ -2136,7 +2305,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:290
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:287
 msgid "Directory reports"
 msgstr "Rapoarte Director"
 
@@ -2288,7 +2457,7 @@ msgstr "Valoarea materialului"
 msgid "Minimum Price"
 msgstr "Pret minim"
 
-#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:183
+#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:182
 #: PaddleNumList.php:54
 msgid "Buyer"
 msgstr "Cumpărător"
@@ -2312,8 +2481,9 @@ msgid "Go"
 msgstr "Merge"
 
 #: DonatedItemEditor.php:273 EditEventAttendees.php:59 FundRaiserEditor.php:180
-#: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:347
-#: GroupPropsFormEditor.php:474 GroupView.php:423 ListEvents.php:360
+#: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 GroupView.php:423 ListEvents.php:360
+#: v2/templates/group/groupview.php:368
 msgid "Description"
 msgstr "Descriere"
 
@@ -2321,7 +2491,7 @@ msgstr "Descriere"
 msgid "Picture URL"
 msgstr ""
 
-#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:157
+#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:156
 #: PersonEditor.php:1637 PledgeEditor.php:773
 msgid "Save and Add"
 msgstr "Salvați și Adăugați"
@@ -4526,7 +4696,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31 GroupView.php:289
-#: v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:234 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
 msgstr "De stat"
@@ -4552,7 +4722,7 @@ msgstr "Nu Școală Duminicală"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:120 EcclesiaCRM/MenuBar/MenuBar.php:215
 #: EcclesiaCRM/MenuBar/MenuBar.php:245 EcclesiaCRM/MenuBar/MenuBar.php:277
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:324 Include/Header.php:201
 msgid "Dashboard"
 msgstr ""
 
@@ -4601,12 +4771,12 @@ msgstr ""
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:247 EcclesiaCRM/MenuBar/MenuBar.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:247 EcclesiaCRM/MenuBar/MenuBar.php:294
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:303
+#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:300
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "CSV Combine Familiile"
@@ -4626,7 +4796,7 @@ msgstr "Eveniment Desc"
 msgid "Calendar"
 msgstr "An calendaristic"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/MenuBar/MenuBar.php:287
+#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/MenuBar/MenuBar.php:284
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
@@ -4646,125 +4816,126 @@ msgstr "Editare Tipuri de evenimente"
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:415 PeopleDashboard.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:415
+#: v2/templates/people/peopledashboard.php:105
 msgid "People"
 msgstr "Oameni"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:285
+#: EcclesiaCRM/MenuBar/MenuBar.php:282
 #, fuzzy
 msgid "View All Persons"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:294 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:291 v2/templates/people/personlist.php:23
 #, fuzzy
 msgid "Add New Person"
 msgstr "Adaugă eveniment nou"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:295
+#: EcclesiaCRM/MenuBar/MenuBar.php:292
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:297
 #, fuzzy
 msgid "Add New Family"
 msgstr "Adăugare câmp nou"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:301
+#: EcclesiaCRM/MenuBar/MenuBar.php:298
 #, fuzzy
 msgid "View Active Families"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:305
+#: EcclesiaCRM/MenuBar/MenuBar.php:302
 #, fuzzy
 msgid "Empty Addresses"
 msgstr "Adresa bisericii"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:325 FamilyView.php:352 UserEditor.php:837
+#: EcclesiaCRM/MenuBar/MenuBar.php:322 FamilyView.php:352 UserEditor.php:837
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:332
+#: EcclesiaCRM/MenuBar/MenuBar.php:329
 #, fuzzy
 msgid "Email Lists"
 msgstr "Editor de familie"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:356 FinancialReports.php:437
+#: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
 #: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
 #: Reports/AdvancedDeposit.php:523
 msgid "Deposit"
 msgstr "Depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:370
+#: EcclesiaCRM/MenuBar/MenuBar.php:367
 #, fuzzy
 msgid "Current"
 msgstr "Rolul curent"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:373 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:370 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Plic Manager de"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:375 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:372 ElectronicPaymentList.php:55
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "Electronice detaliile tranzactiei"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376
+#: EcclesiaCRM/MenuBar/MenuBar.php:373
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Depozit Raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Slip depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384 FundRaiserEditor.php:36
+#: EcclesiaCRM/MenuBar/MenuBar.php:381 FundRaiserEditor.php:36
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Strangere de fonduri Listarea"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:386
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Toate fondurile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:387
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Crearea de noi strângerea de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:388
+#: EcclesiaCRM/MenuBar/MenuBar.php:385
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "Editare utilizator"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:389
+#: EcclesiaCRM/MenuBar/MenuBar.php:386
 #, fuzzy
 msgid "View Buyers"
 msgstr "Cumpărător"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:387
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:396
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 #, fuzzy
 msgid "Data/Reports"
 msgstr "A crea un raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:395
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Raportul Meniu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 UserEditor.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:396 UserEditor.php:773
 #, fuzzy
 msgid "Query Menu"
 msgstr "Vezi interogare"
@@ -5016,10 +5187,10 @@ msgstr "Director"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:98
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
-#: Reports/ClassList.php:173 Reports/PhotoBook.php:68
+#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:36
 #: v2/templates/sundayschool/sundayschooldashboard.php:141
-#: v2/templates/sundayschool/sundayschoolview.php:117
+#: v2/templates/sundayschool/sundayschoolview.php:118
 #, fuzzy
 msgid "Teachers"
 msgstr "Profesorii Extra"
@@ -5037,11 +5208,11 @@ msgid "Girl"
 msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:194
-#: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70
+#: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:47
 #: v2/templates/sundayschool/sundayschooldashboard.php:142
-#: v2/templates/sundayschool/sundayschoolview.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:210
 #, fuzzy
 msgid "Students"
 msgstr "Elevii Extra"
@@ -5501,7 +5672,7 @@ msgid "Delele All Attendees"
 msgstr "Participanții la eveniment"
 
 #: EditEventAttendees.php:147 EditEventAttendees.php:149 ListEvents.php:493
-#: ListEvents.php:494 v2/templates/sundayschool/sundayschoolview.php:71
+#: ListEvents.php:494 v2/templates/sundayschool/sundayschoolview.php:72
 #, fuzzy
 msgid "Make Check-out"
 msgstr "CheckOut"
@@ -5636,16 +5807,6 @@ msgstr "Adauga un nou plată automată"
 msgid "Edit"
 msgstr "Edita"
 
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:339
-#: FamilyCustomFieldsEditor.php:459 GroupPropsFormEditor.php:345
-#: GroupPropsFormEditor.php:472 GroupView.php:421 OptionManager.php:118
-#: OptionManager.php:126 PersonCustomFieldsEditor.php:336
-#: PersonCustomFieldsEditor.php:461 Reports/GDPR/GDPRDataStructureExport.php:74
-#: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
-#: v2/templates/gdpr/gdprdatastructure.php:42
-msgid "Type"
-msgstr "Tip"
-
 #: ElectronicPaymentList.php:220
 #, fuzzy
 msgid "Next Date"
@@ -5694,6 +5855,7 @@ msgid "Bank ACH"
 msgstr "Bancă"
 
 #: ElectronicPaymentList.php:271 GroupEditor.php:166 GroupView.php:289
+#: v2/templates/group/groupview.php:234
 msgid "Disabled"
 msgstr ""
 
@@ -5860,9 +6022,9 @@ msgstr ""
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:441 GroupPropsEditor.php:302
-#: GroupPropsFormEditor.php:445 OptionManager.php:496
-#: PersonCustomFieldsEditor.php:438
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:446 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:448 OptionManager.php:495
+#: PersonCustomFieldsEditor.php:442
 msgid "Save Changes"
 msgstr "Salvați modificările"
 
@@ -6087,7 +6249,7 @@ msgstr ""
 msgid "Custom Family Fields Editor"
 msgstr "Personalizat de familie Fields Editor"
 
-#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:44
+#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:43
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
@@ -6097,18 +6259,18 @@ msgstr ""
 "nume vor fi pierdute dacă nu \"Salvați modificările\" înainte de a utiliza o "
 "în sus, în jos, șterge sau adăuga &#39;nou&#39; buton!"
 
-#: FamilyCustomFieldsEditor.php:188 GroupPropsFormEditor.php:217
-#: PersonCustomFieldsEditor.php:182
+#: FamilyCustomFieldsEditor.php:193 GroupPropsFormEditor.php:220
+#: PersonCustomFieldsEditor.php:186
 msgid "Default Option"
 msgstr "Opțiunea implicită"
 
-#: FamilyCustomFieldsEditor.php:323
+#: FamilyCustomFieldsEditor.php:328
 msgid "No custom Family fields have been added yet"
 msgstr "Nu câmpuri de familie personalizate au fost încă adăugate"
 
-#: FamilyCustomFieldsEditor.php:332 GroupPropsEditor.php:227
-#: GroupPropsFormEditor.php:336 OptionManager.php:390
-#: PersonCustomFieldsEditor.php:326 PersonEditor.php:815
+#: FamilyCustomFieldsEditor.php:337 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:339 OptionManager.php:389
+#: PersonCustomFieldsEditor.php:330 PersonEditor.php:815
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6116,59 +6278,59 @@ msgstr ""
 "Câmpuri nevalide sau selecții. Modificările nu au fost salvate! Vă rugăm să "
 "corectați și încercați din nou!"
 
-#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:348 PersonCustomFieldsEditor.php:338
+#: FamilyCustomFieldsEditor.php:346 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:351 PersonCustomFieldsEditor.php:342
 msgid "Special option"
 msgstr "Opțiune specială"
 
-#: FamilyCustomFieldsEditor.php:342 FamilyCustomFieldsEditor.php:465
-#: PersonCustomFieldsEditor.php:339 PersonCustomFieldsEditor.php:470
+#: FamilyCustomFieldsEditor.php:347 FamilyCustomFieldsEditor.php:470
+#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:474
 msgid "Security Option"
 msgstr "Opțiunea de securitate"
 
-#: FamilyCustomFieldsEditor.php:343
+#: FamilyCustomFieldsEditor.php:348
 msgid "Family-View Side"
 msgstr "Familie-Side View"
 
-#: FamilyCustomFieldsEditor.php:373 FamilyCustomFieldsEditor.php:496
-#: FamilyEditor.php:259 GroupPropsFormEditor.php:381
-#: GroupPropsFormEditor.php:497 OptionManager.php:452
-#: PersonCustomFieldsEditor.php:373 PersonCustomFieldsEditor.php:498
+#: FamilyCustomFieldsEditor.php:378 FamilyCustomFieldsEditor.php:501
+#: FamilyEditor.php:259 GroupPropsFormEditor.php:384
+#: GroupPropsFormEditor.php:500 OptionManager.php:451
+#: PersonCustomFieldsEditor.php:377 PersonCustomFieldsEditor.php:502
 msgid "You must enter a name"
 msgstr "Trebuie să introduceți un nume"
 
-#: FamilyCustomFieldsEditor.php:384 GroupEditor.php:129
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:399
-#: PersonCustomFieldsEditor.php:383
+#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:129
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:402
+#: PersonCustomFieldsEditor.php:387
 msgid "Select a group"
 msgstr "Selectați un grup"
 
-#: FamilyCustomFieldsEditor.php:398 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:416 PersonCustomFieldsEditor.php:397
+#: FamilyCustomFieldsEditor.php:403 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:419 PersonCustomFieldsEditor.php:401
 msgid "You must select a group."
 msgstr "Trebuie să selectați un grup."
 
-#: FamilyCustomFieldsEditor.php:404 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:421 PersonCustomFieldsEditor.php:402
+#: FamilyCustomFieldsEditor.php:409 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:424 PersonCustomFieldsEditor.php:406
 msgid "Edit List Options"
 msgstr "Edita lista de opțiuni"
 
-#: FamilyCustomFieldsEditor.php:468 PersonCustomFieldsEditor.php:467
+#: FamilyCustomFieldsEditor.php:473 PersonCustomFieldsEditor.php:471
 msgid "Side"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:489 GroupPropsFormEditor.php:490
-#: PersonCustomFieldsEditor.php:491
+#: FamilyCustomFieldsEditor.php:494 GroupPropsFormEditor.php:493
+#: PersonCustomFieldsEditor.php:495
 msgid "Help on types.."
 msgstr "Ajuta pe tipuri .."
 
-#: FamilyCustomFieldsEditor.php:501 GroupPropsFormEditor.php:502
-#: PersonCustomFieldsEditor.php:503
+#: FamilyCustomFieldsEditor.php:506 GroupPropsFormEditor.php:505
+#: PersonCustomFieldsEditor.php:507
 msgid "That field name already exists."
 msgstr "Că numele de câmp există deja."
 
-#: FamilyCustomFieldsEditor.php:516 GroupPropsFormEditor.php:513
-#: PersonCustomFieldsEditor.php:518
+#: FamilyCustomFieldsEditor.php:521 GroupPropsFormEditor.php:516
+#: PersonCustomFieldsEditor.php:522
 msgid "Add New Field"
 msgstr "Adăugare câmp nou"
 
@@ -6280,14 +6442,6 @@ msgstr "De mijloc"
 #: FamilyEditor.php:1051
 msgid "Last"
 msgstr "Trecut"
-
-#: FamilyEditor.php:1054 FamilyView.php:473 OptionManager.php:101
-#: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:449
-#: PrintPastoralCare.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:236 Reports/GroupReport.php:107
-#: sundayschool/SundaySchoolClassListExport.php:48
-msgid "Role"
-msgstr "Rol"
 
 #: FamilyEditor.php:1056
 msgid "Day"
@@ -6406,10 +6560,12 @@ msgid "EcclesiaCRM text message"
 msgstr ""
 
 #: FamilyView.php:395 GroupView.php:100 PersonView.php:595
+#: v2/templates/group/groupview.php:45
 msgid "Remove from Cart"
 msgstr "Elimină din coș"
 
 #: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1346
+#: v2/templates/group/groupview.php:49
 msgid "Add to Cart"
 msgstr "Adauga in cos"
 
@@ -6454,6 +6610,7 @@ msgstr ""
 
 #: FamilyView.php:575 GroupView.php:348 GroupView.php:406 PersonView.php:732
 #: PrintPastoralCare.php:594 PrintView.php:603
+#: v2/templates/group/groupview.php:293 v2/templates/group/groupview.php:351
 #, fuzzy
 msgid "Assigned Properties"
 msgstr "Proprietăți atribuite"
@@ -6467,57 +6624,58 @@ msgstr "Tipul de plată automată"
 msgid "Pledges and Payments"
 msgstr "Angajamente și plăți"
 
-#: FamilyView.php:715 GroupView.php:361 PersonView.php:1124
+#: FamilyView.php:715 GroupView.php:361 PersonView.php:1126
+#: v2/templates/group/groupview.php:306
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Atribui o nouă proprietate"
 
-#: FamilyView.php:720 PaddleNumList.php:52 PersonView.php:1128
-#: PersonView.php:1183 PersonView.php:1310
+#: FamilyView.php:720 PaddleNumList.php:52 PersonView.php:1130
+#: PersonView.php:1185 PersonView.php:1312
 msgid "Select"
 msgstr "Selecta"
 
-#: FamilyView.php:721 GroupView.php:366 PersonView.php:1129 QueryView.php:333
-#: QueryView.php:350
+#: FamilyView.php:721 GroupView.php:366 PersonView.php:1131 QueryView.php:331
+#: QueryView.php:348 v2/templates/group/groupview.php:311
 #, fuzzy
 msgid "select an option"
 msgstr "Opțiune specială"
 
-#: FamilyView.php:736 GroupView.php:382 PersonView.php:1145 PersonView.php:1197
-#: SelectList.php:1190
+#: FamilyView.php:736 GroupView.php:382 PersonView.php:1147 PersonView.php:1199
+#: SelectList.php:1190 v2/templates/group/groupview.php:327
 msgid "Assign"
 msgstr "Atribui"
 
-#: FamilyView.php:762 PersonView.php:1225
+#: FamilyView.php:762 PersonView.php:1227
 msgid "Add a new automatic payment"
 msgstr "Adauga un nou plată automată"
 
-#: FamilyView.php:771 PersonView.php:1245
+#: FamilyView.php:771 PersonView.php:1247
 msgid "Show Pledges"
 msgstr "Prezinte angajamentele"
 
-#: FamilyView.php:775 PersonView.php:1249
+#: FamilyView.php:775 PersonView.php:1251
 msgid "Show Payments"
 msgstr "Arata Plăți"
 
-#: FamilyView.php:802 PersonView.php:1267
+#: FamilyView.php:802 PersonView.php:1269
 msgid "Add a new pledge"
 msgstr "Adauga un nou angajament"
 
-#: FamilyView.php:804 PersonView.php:1269
+#: FamilyView.php:804 PersonView.php:1271
 msgid "Add a new payment"
 msgstr "Adauga un nou plată"
 
-#: FamilyView.php:812 PersonView.php:1285
+#: FamilyView.php:812 PersonView.php:1287
 msgid " Canvass Entry"
 msgstr "Propagandă electorală de intrare"
 
-#: FamilyView.php:946 PersonView.php:1575
+#: FamilyView.php:946 PersonView.php:1577
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:947 PersonView.php:1577
+#: FamilyView.php:947 PersonView.php:1579
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -6725,7 +6883,8 @@ msgstr "Genera:"
 msgid "Only Families with unpaid pledges"
 msgstr "Numai familiile cu angajamentele neplătite"
 
-#: FinancialReports.php:406 GeoPage.php:313 PeopleDashboard.php:140
+#: FinancialReports.php:406 GeoPage.php:313
+#: v2/templates/people/peopledashboard.php:61
 msgid "All Families"
 msgstr "Toate familiile"
 
@@ -6767,7 +6926,7 @@ msgid ""
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:488 PaddleNumEditor.php:159
+#: FinancialReports.php:488 PaddleNumEditor.php:158
 msgid "Back"
 msgstr "Înapoi"
 
@@ -6850,7 +7009,7 @@ msgid "Fundraiser Listing"
 msgstr "Strangere de fonduri Listarea"
 
 #: FindFundRaiser.php:82 FindFundRaiser.php:311 Include/Functions.php:94
-#: PaddleNumEditor.php:174 PaddleNumList.php:53
+#: PaddleNumEditor.php:173 PaddleNumList.php:53
 msgid "Number"
 msgstr "Număr"
 
@@ -7032,11 +7191,6 @@ msgstr "Listarea grup"
 msgid "Type of Group and Menu Category"
 msgstr ""
 
-#: GroupEditor.php:121 OptionManager.php:144
-#, fuzzy
-msgid "Group Member Roles"
-msgstr "Grupa Roluri membre"
-
 #: GroupEditor.php:123
 #, fuzzy
 msgid "Clone roles"
@@ -7061,7 +7215,7 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupEditor.php:160 GroupView.php:455
+#: GroupEditor.php:160 GroupView.php:455 v2/templates/group/groupview.php:400
 msgid "Edit Group-Specific Properties Form"
 msgstr "Editare grup proprietăți specifice Form"
 
@@ -7110,7 +7264,7 @@ msgstr ""
 msgid "Group-Person-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:325
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:328
 msgid "No properties have been added yet"
 msgstr "Nici o proprietate au fost încă adăugate"
 
@@ -7120,30 +7274,31 @@ msgid "Return to Person"
 msgstr "Return to înregistrare Persoana"
 
 #: GroupPropsFormEditor.php:69 GroupView.php:400
+#: v2/templates/group/groupview.php:345
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupPropsFormEditor.php:326 GroupPropsFormEditor.php:442
+#: GroupPropsFormEditor.php:329 GroupPropsFormEditor.php:445
 #, fuzzy
 msgid "Return to Group"
 msgstr "Adauga Persoana de grup"
 
-#: GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:352
 msgid "Show in"
 msgstr "Arată în"
 
-#: GroupPropsFormEditor.php:349 PersonView.php:304
+#: GroupPropsFormEditor.php:352 PersonView.php:304
 #, fuzzy
 msgid "Person Profile"
 msgstr "Persoana Vezi"
 
-#: GroupPropsFormEditor.php:462
+#: GroupPropsFormEditor.php:465
 #, fuzzy
 msgid "Add Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupReports.php:38 GroupView.php:122
+#: GroupReports.php:38 GroupView.php:122 v2/templates/group/groupview.php:67
 msgid "Group reports"
 msgstr "Rapoarte de grup"
 
@@ -7209,173 +7364,176 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Specific de grup câmpuri de proprietate"
 
-#: GroupView.php:79
+#: GroupView.php:79 v2/routes/group/groups.php:95
 msgid "Group View"
 msgstr "Group Vezi"
 
-#: GroupView.php:86
+#: GroupView.php:86 v2/templates/group/groupview.php:31
 #, fuzzy
 msgid "Group Functions"
 msgstr "Listarea grup"
 
-#: GroupView.php:92
+#: GroupView.php:92 v2/templates/group/groupview.php:37
 msgid "Map this group"
 msgstr "Harta acestui grup"
 
-#: GroupView.php:111
+#: GroupView.php:111 v2/templates/group/groupview.php:56
 msgid "Edit this Group"
 msgstr "Editează acest grup"
 
-#: GroupView.php:112
+#: GroupView.php:112 v2/templates/group/groupview.php:57
 msgid "Delete this Group"
 msgstr "Șterge acest grup"
 
-#: GroupView.php:173
+#: GroupView.php:173 v2/templates/group/groupview.php:118
 msgid "Email Group"
 msgstr "E-mail Group"
 
-#: GroupView.php:231
+#: GroupView.php:231 v2/templates/group/groupview.php:176
 #, fuzzy
 msgid "Text Group"
 msgstr "Selectați Grupa"
 
-#: GroupView.php:232
+#: GroupView.php:232 v2/templates/group/groupview.php:177
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 
-#: GroupView.php:244
+#: GroupView.php:244 v2/templates/group/groupview.php:189
 #, fuzzy
 msgid "Type of Group"
 msgstr "Tipul Grupa"
 
-#: GroupView.php:250
+#: GroupView.php:250 v2/templates/group/groupview.php:195
 #, fuzzy
 msgid "Default Role"
 msgstr "Implicit Rol"
 
-#: GroupView.php:256
+#: GroupView.php:256 v2/templates/group/groupview.php:201
 #, fuzzy
 msgid "Total Members"
 msgstr "Total membri"
 
-#: GroupView.php:262
+#: GroupView.php:262 v2/templates/group/groupview.php:207
 #, fuzzy
 msgid "Address Book"
 msgstr "Adresa"
 
-#: GroupView.php:282
+#: GroupView.php:282 v2/templates/group/groupview.php:227
 #, fuzzy
 msgid "Quick Settings"
 msgstr "Salvare setări"
 
 #: GroupView.php:289 KioskManager.php:30 ListEvents.php:367
+#: v2/templates/group/groupview.php:234
 msgid "Active"
 msgstr "Activ"
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 #, fuzzy
 msgid "Email export"
 msgstr "E-mail Cosul"
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 #, fuzzy
 msgid "Include"
 msgstr "Includ:"
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 #, fuzzy
 msgid "Exclude"
 msgstr "Includ:"
 
-#: GroupView.php:298
+#: GroupView.php:298 v2/templates/group/groupview.php:243
 msgid ""
 "Assign a group manager only for This Group. He can add or remove member from "
 "This Group, but not create Members."
 msgstr ""
 
-#: GroupView.php:298
+#: GroupView.php:298 v2/templates/group/groupview.php:243
 #, fuzzy
 msgid "Group Managers"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:304
+#: GroupView.php:304 v2/templates/group/groupview.php:249
 #, fuzzy
 msgid "Assigned Managers"
 msgstr "Atribuirea colportori"
 
-#: GroupView.php:319
+#: GroupView.php:319 v2/templates/group/groupview.php:264
 #, fuzzy
 msgid "No assigned Manager"
 msgstr "Nu este alocat"
 
-#: GroupView.php:324
+#: GroupView.php:324 v2/templates/group/groupview.php:269
 #, fuzzy
 msgid "Add Manager"
 msgstr "Adauga Cumparator"
 
-#: GroupView.php:342
+#: GroupView.php:342 v2/templates/group/groupview.php:287
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
 #: GroupView.php:342 Include/Footer.php:101
+#: v2/templates/group/groupview.php:287
 #, fuzzy
 msgid "Group Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupView.php:400
+#: GroupView.php:400 v2/templates/group/groupview.php:345
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: GroupView.php:414
+#: GroupView.php:414 v2/templates/group/groupview.php:359
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Nici o proprietate au fost încă adăugate"
 
-#: GroupView.php:446
+#: GroupView.php:446 v2/templates/group/groupview.php:391
 msgid "Disabled for this group."
 msgstr "Dezactivată pentru acest grup."
 
-#: GroupView.php:446
+#: GroupView.php:446 v2/templates/group/groupview.php:391
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: GroupView.php:470
+#: GroupView.php:470 v2/templates/group/groupview.php:415
 msgid "Group Members:"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:484
+#: GroupView.php:484 v2/templates/group/groupview.php:429
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:489 v2/templates/sundayschool/sundayschooldashboard.php:265
-#: v2/templates/sundayschool/sundayschoolview.php:138
-#: v2/templates/sundayschool/sundayschoolview.php:252
+#: GroupView.php:489 v2/templates/group/groupview.php:434
+#: v2/templates/sundayschool/sundayschooldashboard.php:265
+#: v2/templates/sundayschool/sundayschoolview.php:139
+#: v2/templates/sundayschool/sundayschoolview.php:253
 #, fuzzy
 msgid "Add"
 msgstr "Adresa"
 
-#: GroupView.php:495
+#: GroupView.php:495 v2/templates/group/groupview.php:440
 msgid "Remove Selected Members from group"
 msgstr ""
 
-#: GroupView.php:502
+#: GroupView.php:502 v2/templates/group/groupview.php:447
 #, fuzzy
 msgid "Add Selected Members to Cart"
 msgstr "Adauga Membrii grupului in cos"
 
-#: GroupView.php:508
+#: GroupView.php:508 v2/templates/group/groupview.php:453
 #, fuzzy
 msgid "Add Selected Members to Group"
 msgstr "Adauga Persoana de grup"
 
-#: GroupView.php:509
+#: GroupView.php:509 v2/templates/group/groupview.php:454
 msgid "Move Selected Members to Group"
 msgstr ""
 
@@ -7391,11 +7549,6 @@ msgstr ""
 #, fuzzy
 msgid "Version"
 msgstr "Permisiune"
-
-#: Include/Footer.php:62 OptionManager.php:104 PeopleDashboard.php:327
-#, fuzzy
-msgid "Family Roles"
-msgstr "Rolul familiei"
 
 #: Include/Footer.php:67
 #, fuzzy
@@ -7421,16 +7574,6 @@ msgstr "Proprietăți"
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "Custom fields Persoana"
-
-#: Include/Footer.php:111 OptionManager.php:128
-#, fuzzy
-msgid "Group Types"
-msgstr "Toate Tipurile grupului"
-
-#: Include/Footer.php:121 OptionManager.php:120
-#, fuzzy
-msgid "Sunday School Group Types"
-msgstr "Rapoarte de Școală Duminicală"
 
 #: Include/Footer.php:132
 #, fuzzy
@@ -7547,7 +7690,7 @@ msgstr "Grupa adăugat cu succes în coș."
 msgid "Failed to email PDF to family members."
 msgstr ""
 
-#: Include/Functions.php:134
+#: Include/Functions.php:135
 msgid "item(s) added to the Cart."
 msgstr "produs (e) adăugat în coș."
 
@@ -7767,7 +7910,7 @@ msgstr "inactiv"
 msgid "Active Kiosks"
 msgstr "Activ"
 
-#: LettersAndLabels.php:26 PeopleDashboard.php:274
+#: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:195
 msgid "Letters and Mailing Labels"
 msgstr "Scrisori și etichete poștale"
 
@@ -8021,7 +8164,8 @@ msgstr ""
 msgid "return to member dashboard"
 msgstr "Return to înregistrare Persoana"
 
-#: members/online-pending-verify.php:13 PeopleDashboard.php:315
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:236
 msgid "Pending Self Verify"
 msgstr ""
 
@@ -8096,12 +8240,12 @@ msgstr "Aniversare Data"
 msgid "Unclassified birthdates"
 msgstr ""
 
-#: Menu.php:403 PeopleDashboard.php:170
+#: Menu.php:403 v2/templates/people/peopledashboard.php:91
 #, fuzzy
 msgid "See all Families"
 msgstr "Toate familiile"
 
-#: Menu.php:422 PeopleDashboard.php:191
+#: Menu.php:422 v2/templates/people/peopledashboard.php:112
 #, fuzzy
 msgid "See All People"
 msgstr "Toate rolurile"
@@ -8111,8 +8255,9 @@ msgstr "Toate rolurile"
 msgid "Sunday School Classes"
 msgstr "Rapoarte de Școală Duminicală"
 
-#: Menu.php:444 Menu.php:466 Menu.php:493 PeopleDashboard.php:212
-#: PeopleDashboard.php:233
+#: Menu.php:444 Menu.php:466 Menu.php:493
+#: v2/templates/people/peopledashboard.php:133
+#: v2/templates/people/peopledashboard.php:154
 msgid "More info"
 msgstr ""
 
@@ -8151,121 +8296,7 @@ msgstr "Participarea membrilor"
 msgid "Tracking"
 msgstr "Listarea depozit"
 
-#: OptionManager.php:105
-#, fuzzy
-msgid "Family Roles Editor"
-msgstr "Editor de familie"
-
-#: OptionManager.php:111
-#, fuzzy
-msgid "Person Classification"
-msgstr "Clasificare"
-
-#: OptionManager.php:112
-#, fuzzy
-msgid "Person Classifications"
-msgstr "Toate Clasificări"
-
-#: OptionManager.php:113
-#, fuzzy
-msgid "Person Classifications Editor"
-msgstr "Toate Clasificări"
-
-#: OptionManager.php:119
-#, fuzzy
-msgid "Sunday School Group Type"
-msgstr "Rapoarte de Școală Duminicală"
-
-#: OptionManager.php:121
-#, fuzzy
-msgid "Sunday School Group Types Editor"
-msgstr "Group Editor"
-
-#: OptionManager.php:127
-#, fuzzy
-msgid "Group Type"
-msgstr "Toate Tipurile grupului"
-
-#: OptionManager.php:129
-#, fuzzy
-msgid "Group Types Editor"
-msgstr "Group Editor"
-
-#: OptionManager.php:135
-#, fuzzy
-msgid "Security Group"
-msgstr "Selectați Grupa"
-
-#: OptionManager.php:136
-#, fuzzy
-msgid "Security Groups"
-msgstr "Selectați Grupa"
-
-#: OptionManager.php:137
-#, fuzzy
-msgid "Security Groups Editor"
-msgstr "Group Editor"
-
-#: OptionManager.php:143
-#, fuzzy
-msgid "Group Member Role"
-msgstr "Grupa Roluri membre"
-
-#: OptionManager.php:145
-#, fuzzy
-msgid "Group Member Roles Editor"
-msgstr "Grupa Roluri membre"
-
-#: OptionManager.php:159 OptionManager.php:175 OptionManager.php:191
-msgid "Option"
-msgstr "Opțiune"
-
-#: OptionManager.php:160
-#, fuzzy
-msgid "Person Custom List Option"
-msgstr "Listarea persoană"
-
-#: OptionManager.php:161
-#, fuzzy
-msgid "Person Custom List Options"
-msgstr "Edita lista de opțiuni"
-
-#: OptionManager.php:162
-#, fuzzy
-msgid "Person Custom List Options Editor"
-msgstr "Câmpurile Persoana personalizate Editor"
-
-#: OptionManager.php:176
-#, fuzzy
-msgid "Custom List Option"
-msgstr "Edita lista de opțiuni"
-
-#: OptionManager.php:177
-#, fuzzy
-msgid "Custom List Options"
-msgstr "Edita lista de opțiuni"
-
-#: OptionManager.php:178
-#, fuzzy
-msgid "Custom List Options Editor"
-msgstr "Personalizat de familie Fields Editor"
-
-#: OptionManager.php:192
-#, fuzzy
-msgid "Family Custom List Option"
-msgstr "Edita lista de opțiuni"
-
-#: OptionManager.php:193
-#, fuzzy
-msgid "Family Custom List Options"
-msgstr "Edita lista de opțiuni"
-
-#: OptionManager.php:194
-#, fuzzy
-msgid "Family Custom List Options Editor"
-msgstr "Personalizat de familie Fields Editor"
-
-#: OptionManager.php:357
+#: OptionManager.php:356
 msgid ""
 "Warning: Removing will reset all assignments for all persons with the "
 "assignment!"
@@ -8273,7 +8304,7 @@ msgstr ""
 "Avertisment: Demontarea va reseta toate sarcinile pentru toate persoanele cu "
 "atribuire!"
 
-#: OptionManager.php:361
+#: OptionManager.php:360
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all family roles with the "
@@ -8282,7 +8313,7 @@ msgstr ""
 "Avertisment: Demontarea va reseta toate sarcinile pentru toate persoanele cu "
 "atribuire!"
 
-#: OptionManager.php:365
+#: OptionManager.php:364
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all menus with the "
@@ -8291,7 +8322,7 @@ msgstr ""
 "Avertisment: Demontarea va reseta toate sarcinile pentru toate persoanele cu "
 "atribuire!"
 
-#: OptionManager.php:369
+#: OptionManager.php:368
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all group roles with the "
@@ -8300,61 +8331,61 @@ msgstr ""
 "Avertisment: Demontarea va reseta toate sarcinile pentru toate persoanele cu "
 "atribuire!"
 
-#: OptionManager.php:386
+#: OptionManager.php:385
 msgid "Error: Duplicate"
 msgstr "Eroare: Duplicate"
 
-#: OptionManager.php:386
+#: OptionManager.php:385
 msgid "are not allowed."
 msgstr ""
 
-#: OptionManager.php:407
+#: OptionManager.php:406
 msgid "Default"
 msgstr "Lipsă"
 
-#: OptionManager.php:456
+#: OptionManager.php:455
 msgid "Duplicate name found."
 msgstr "Duplicat nume de găsit."
 
-#: OptionManager.php:463
+#: OptionManager.php:462
 msgid "Make Default"
 msgstr "Face Implicit"
 
-#: OptionManager.php:474 OptionManager.php:482
+#: OptionManager.php:473 OptionManager.php:481
 msgid "Visible only in PersonView"
 msgstr ""
 
-#: OptionManager.php:501 OptionManager.php:505
+#: OptionManager.php:500 OptionManager.php:504
 #: v2/templates/sundayschool/sundayschoolview.php:23
 msgid "Exit"
 msgstr "Ieșire"
 
-#: OptionManager.php:513
+#: OptionManager.php:512
 msgid "Name for New"
 msgstr ""
 
-#: OptionManager.php:518
+#: OptionManager.php:517
 msgid "Add New"
 msgstr "Adăugați noi"
 
-#: OptionManager.php:526
+#: OptionManager.php:525
 #, fuzzy
 msgid "Error: You must enter a name"
 msgstr "Trebuie să introduceți un nume"
 
-#: OptionManager.php:530
+#: OptionManager.php:529
 msgid "Error: A "
 msgstr "Eroare: A"
 
-#: OptionManager.php:530
+#: OptionManager.php:529
 msgid " by that name already exists."
 msgstr "cu acest nume există deja."
 
-#: PaddleNumEditor.php:52
+#: PaddleNumEditor.php:51
 msgid "Buyer Number Editor"
 msgstr "Cumpărător număr Editor"
 
-#: PaddleNumEditor.php:155
+#: PaddleNumEditor.php:154
 msgid "Generate Statement"
 msgstr "Genera Declarația"
 
@@ -8378,177 +8409,15 @@ msgstr "Adauga Cumparator"
 msgid "Generate Statements for Selected"
 msgstr "Genera declarații pentru selectia"
 
-#: PeopleDashboard.php:93
-msgid "People Dashboard"
-msgstr ""
-
-#: PeopleDashboard.php:101
-msgid "People Functions"
-msgstr ""
-
-#: PeopleDashboard.php:116
-#, fuzzy
-msgid "Email All"
-msgstr "E-mail"
-
-#: PeopleDashboard.php:126
-#, fuzzy
-msgid "Email All (BCC)"
-msgstr "E-mail (CCA)"
-
-#: PeopleDashboard.php:144
-#, fuzzy
-msgid "Family Geographic"
-msgstr "Familie Geographic Utilități"
-
-#: PeopleDashboard.php:145
-#, fuzzy
-msgid "Family Map"
-msgstr "Numele de familie"
-
-#: PeopleDashboard.php:146
-msgid "Update All Family Coordinates"
-msgstr "Actualizare toate coordonatele de familie"
-
-#: PeopleDashboard.php:205
-#, fuzzy
-msgid "Sunday School Kids"
-msgstr "Rapoarte de Școală Duminicală"
-
-#: PeopleDashboard.php:244 PeopleDashboard.php:297 PeopleDashboard.php:305
-#: v2/templates/sundayschool/sundayschooldashboard.php:109
-#, fuzzy
-msgid "Reports"
-msgstr "Darea de seamă fiscală"
-
-#: PeopleDashboard.php:251
-msgid "Reports on groups and roles"
-msgstr "Rapoarte cu privire la grupuri și roluri"
-
-#: PeopleDashboard.php:253
-msgid "Report on group and roles selected (it may be a multi-page PDF)."
-msgstr ""
-"Raport privind grup și roluri selectat (acesta poate fi un PDF cu mai multe "
-"pagini)."
-
-#: PeopleDashboard.php:259
-#, fuzzy
-msgid "People Directory"
-msgstr "Agenda de Grup"
-
-#: PeopleDashboard.php:259
-msgid "Printable directory of all people, grouped by family where assigned"
-msgstr ""
-
-#: PeopleDashboard.php:268 ReminderReport.php:28
-msgid "Pledge Reminder Report"
-msgstr "Raportul Memento gaj"
-
-#: PeopleDashboard.php:268
-msgid ""
-"Printable Pledge Reminder of all people, grouped by family where assigned"
-msgstr ""
-
-#: PeopleDashboard.php:275
-msgid "Generate letters and mailing labels."
-msgstr "Genera scrisori și etichete poștale."
-
-#: PeopleDashboard.php:282
-msgid "US Address Verification Report"
-msgstr "SUA Raportul de verificare Adresa"
-
-#: PeopleDashboard.php:285
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-
-#: PeopleDashboard.php:297
-#, fuzzy
-msgid "Self Update"
-msgstr "Actualizare"
-
-#: PeopleDashboard.php:305
-msgid "Self Register"
-msgstr ""
-
-#: PeopleDashboard.php:307
-msgid "List families that were created via self registration."
-msgstr ""
-
-#: PeopleDashboard.php:311
-msgid "Self Verify Updates"
-msgstr ""
-
-#: PeopleDashboard.php:311
-msgid "Families who commented via self verify links"
-msgstr ""
-
-#: PeopleDashboard.php:315
-#, fuzzy
-msgid "Families with valid self verify links"
-msgstr "Numai familiile cu angajamentele neplătite"
-
-#: PeopleDashboard.php:338
-#, fuzzy
-msgid "Role / Gender"
-msgstr "Selectați de gen"
-
-#: PeopleDashboard.php:339 PeopleDashboard.php:378
-#, fuzzy
-msgid "of People"
-msgstr "Oameni"
-
-#: PeopleDashboard.php:340 PeopleDashboard.php:379
-#, fuzzy
-msgid "Count"
-msgstr "Țară"
-
-#: PeopleDashboard.php:367
-#, fuzzy
-msgid "People Classification"
-msgstr "Toate Clasificări"
-
-#: PeopleDashboard.php:406
-msgid "Gender Demographics"
-msgstr ""
-
-#: PeopleDashboard.php:423
-msgid "# Age Histogram"
-msgstr ""
-
-#: PeopleDashboard.php:452
-msgid "Men"
-msgstr ""
-
-#: PeopleDashboard.php:457
-msgid "Women"
-msgstr ""
-
-#: PeopleDashboard.php:466
-#: v2/templates/sundayschool/sundayschooldashboard.php:71
-msgid "Boys"
-msgstr ""
-
-#: PeopleDashboard.php:471
-#: v2/templates/sundayschool/sundayschooldashboard.php:83
-msgid "Girls"
-msgstr ""
-
-#: PeopleDashboard.php:537
-#, fuzzy
-msgid "# number of people"
-msgstr "Numărul maxim de vecini:"
-
-#: PersonCustomFieldsEditor.php:38
+#: PersonCustomFieldsEditor.php:37
 msgid "Custom Person Fields Editor"
 msgstr "Câmpurile Persoana personalizate Editor"
 
-#: PersonCustomFieldsEditor.php:317
+#: PersonCustomFieldsEditor.php:321
 msgid "No custom person fields have been added yet"
 msgstr "Nu câmpuri persoană personalizate au fost încă adăugate"
 
-#: PersonCustomFieldsEditor.php:340
+#: PersonCustomFieldsEditor.php:344
 msgid "Person-View Side"
 msgstr "Persoana-Side View"
 
@@ -8776,54 +8645,54 @@ msgstr "Proprietăți"
 msgid "Group Informations"
 msgstr "Rapoarte de grup"
 
-#: PersonView.php:1060
+#: PersonView.php:1061
 #, fuzzy
 msgid "Person Informations"
 msgstr "Persoană de la Grupul"
 
-#: PersonView.php:1077
+#: PersonView.php:1079
 #, fuzzy
 msgid "Modify Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: PersonView.php:1111 PrintPastoralCare.php:606 PrintView.php:615
+#: PersonView.php:1113 PrintPastoralCare.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Nu misiuni de proprietate."
 
-#: PersonView.php:1167
+#: PersonView.php:1169
 msgid "No volunteer opportunity assignments."
 msgstr "Nici o ocazie de misiuni de voluntariat."
 
-#: PersonView.php:1179
+#: PersonView.php:1181
 #, fuzzy
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Atribui o oportunitate Voluntar nou"
 
-#: PersonView.php:1230 PersonView.php:1274
+#: PersonView.php:1232 PersonView.php:1276
 #, fuzzy
 msgid "You must set an address for this person"
 msgstr "Trebuie să introduceți un nume"
 
-#: PersonView.php:1307
+#: PersonView.php:1309
 #, fuzzy
 msgid "Show"
 msgstr "Arată în"
 
-#: PersonView.php:1311
+#: PersonView.php:1313
 #, fuzzy
 msgid "All type"
 msgstr "Toate datele"
 
-#: PersonView.php:1316
+#: PersonView.php:1318
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1421
+#: PersonView.php:1423
 #, fuzzy
 msgid "Last modification by"
 msgstr "Familie Ștergere Confirmarea"
 
-#: PersonView.php:1482
+#: PersonView.php:1484
 #, fuzzy
 msgid "All Files"
 msgstr "Toate familiile"
@@ -8983,7 +8852,7 @@ msgstr "Executa SQL"
 msgid "An error occured: "
 msgstr "A apărut o eroare:"
 
-#: QuerySQL.php:119 QueryView.php:187 QueryView.php:258
+#: QuerySQL.php:119 QueryView.php:188 QueryView.php:255
 msgid " record(s) returned"
 msgstr "înregistrări (e) a revenit"
 
@@ -9003,56 +8872,60 @@ msgstr "Scoateți Rezultate din coș"
 msgid "Return to Query Menu"
 msgstr "Revenirea la meniul Query"
 
-#: QueryView.php:30
+#: QueryView.php:31
 msgid "Query View"
 msgstr "Vezi interogare"
 
-#: QueryView.php:100
+#: QueryView.php:101
 msgid "This value is required."
 msgstr "Este nevoie de această valoare."
 
-#: QueryView.php:113
+#: QueryView.php:114
 msgid "This value must be numeric."
 msgstr "Această valoare trebuie să fie numeric."
 
-#: QueryView.php:118
+#: QueryView.php:119
 msgid "This value must be at least "
 msgstr "Această valoare trebuie să fie de cel puțin"
 
-#: QueryView.php:123 QueryView.php:136
+#: QueryView.php:124 QueryView.php:137
 msgid "This value cannot be more than "
 msgstr "Această valoare nu poate fi mai mult decât"
 
-#: QueryView.php:136 QueryView.php:141
+#: QueryView.php:137 QueryView.php:142
 msgid " characters long"
 msgstr "caractere"
 
-#: QueryView.php:141
+#: QueryView.php:142
 msgid "This value cannot be less than "
 msgstr "Această valoare nu poate fi mai mică"
 
-#: QueryView.php:268
+#: QueryView.php:265
 #, fuzzy
 msgid "Add To Cart"
 msgstr "Adauga in cos"
 
-#: QueryView.php:269
+#: QueryView.php:266
 #, fuzzy
 msgid "Intersect With Cart"
 msgstr "Se intersectează cu Coșul"
 
-#: QueryView.php:270
+#: QueryView.php:267
 #, fuzzy
 msgid "Remove From Cart"
 msgstr "Elimină din coș"
 
-#: QueryView.php:277
+#: QueryView.php:274
 msgid "Run Query Again"
 msgstr "Rulați din nou interogarea"
 
-#: QueryView.php:395
+#: QueryView.php:393
 msgid "Execute Query"
 msgstr "Executa interogări"
+
+#: ReminderReport.php:28 v2/templates/people/peopledashboard.php:189
+msgid "Pledge Reminder Report"
+msgstr "Raportul Memento gaj"
 
 #: ReportList.php:31
 msgid "Report Menu"
@@ -9216,7 +9089,7 @@ msgid "Canvass Not Interested Report"
 msgstr "Raportul nu este interesat"
 
 #: Reports/ClassAttendance.php:228 Reports/ClassAttendance.php:229
-#: Reports/ClassList.php:142 Reports/ClassList.php:143
+#: Reports/ClassList.php:187 Reports/ClassList.php:188
 msgid "Liaison"
 msgstr "Legătură"
 
@@ -9503,7 +9376,7 @@ msgstr ""
 msgid "Greeting"
 msgstr "Listarea grup"
 
-#: Reports/PhotoBook.php:159 Reports/PhotoBook.php:171
+#: Reports/PhotoBook.php:167 Reports/PhotoBook.php:208
 #: v2/templates/sundayschool/sundayschoolreports.php:142
 #, fuzzy
 msgid "PhotoBook"
@@ -10467,7 +10340,7 @@ msgstr ""
 msgid "GDPR Data Structure"
 msgstr ""
 
-#: v2/routes/group/groups.php:27
+#: v2/routes/group/groups.php:34
 msgid "Group Listing"
 msgstr "Listarea grup"
 
@@ -10478,6 +10351,10 @@ msgstr "Adresa"
 
 #: v2/routes/people/pastoralcare.php:69
 msgid "Pastoral care for"
+msgstr ""
+
+#: v2/routes/people/people.php:112
+msgid "People Dashboard"
 msgstr ""
 
 #: v2/routes/sidebar/fundlist.php:32
@@ -10932,6 +10809,164 @@ msgstr ""
 msgid "Modify"
 msgstr ""
 
+#: v2/templates/people/peopledashboard.php:22
+msgid "People Functions"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:37
+#, fuzzy
+msgid "Email All"
+msgstr "E-mail"
+
+#: v2/templates/people/peopledashboard.php:47
+#, fuzzy
+msgid "Email All (BCC)"
+msgstr "E-mail (CCA)"
+
+#: v2/templates/people/peopledashboard.php:65
+#, fuzzy
+msgid "Family Geographic"
+msgstr "Familie Geographic Utilități"
+
+#: v2/templates/people/peopledashboard.php:66
+#, fuzzy
+msgid "Family Map"
+msgstr "Numele de familie"
+
+#: v2/templates/people/peopledashboard.php:67
+msgid "Update All Family Coordinates"
+msgstr "Actualizare toate coordonatele de familie"
+
+#: v2/templates/people/peopledashboard.php:126
+#, fuzzy
+msgid "Sunday School Kids"
+msgstr "Rapoarte de Școală Duminicală"
+
+#: v2/templates/people/peopledashboard.php:165
+#: v2/templates/people/peopledashboard.php:218
+#: v2/templates/people/peopledashboard.php:226
+#: v2/templates/sundayschool/sundayschooldashboard.php:109
+#, fuzzy
+msgid "Reports"
+msgstr "Darea de seamă fiscală"
+
+#: v2/templates/people/peopledashboard.php:172
+msgid "Reports on groups and roles"
+msgstr "Rapoarte cu privire la grupuri și roluri"
+
+#: v2/templates/people/peopledashboard.php:174
+msgid "Report on group and roles selected (it may be a multi-page PDF)."
+msgstr ""
+"Raport privind grup și roluri selectat (acesta poate fi un PDF cu mai multe "
+"pagini)."
+
+#: v2/templates/people/peopledashboard.php:180
+#, fuzzy
+msgid "People Directory"
+msgstr "Agenda de Grup"
+
+#: v2/templates/people/peopledashboard.php:180
+msgid "Printable directory of all people, grouped by family where assigned"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:189
+msgid ""
+"Printable Pledge Reminder of all people, grouped by family where assigned"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:196
+msgid "Generate letters and mailing labels."
+msgstr "Genera scrisori și etichete poștale."
+
+#: v2/templates/people/peopledashboard.php:203
+msgid "US Address Verification Report"
+msgstr "SUA Raportul de verificare Adresa"
+
+#: v2/templates/people/peopledashboard.php:206
+msgid ""
+"Generate report comparing all US family addresses with United States Postal "
+"Service Standard Address Format.<br>"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:218
+#, fuzzy
+msgid "Self Update"
+msgstr "Actualizare"
+
+#: v2/templates/people/peopledashboard.php:226
+msgid "Self Register"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:228
+msgid "List families that were created via self registration."
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:232
+msgid "Self Verify Updates"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:232
+msgid "Families who commented via self verify links"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:236
+#, fuzzy
+msgid "Families with valid self verify links"
+msgstr "Numai familiile cu angajamentele neplătite"
+
+#: v2/templates/people/peopledashboard.php:259
+#, fuzzy
+msgid "Role / Gender"
+msgstr "Selectați de gen"
+
+#: v2/templates/people/peopledashboard.php:260
+#: v2/templates/people/peopledashboard.php:299
+#, fuzzy
+msgid "of People"
+msgstr "Oameni"
+
+#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:300
+#, fuzzy
+msgid "Count"
+msgstr "Țară"
+
+#: v2/templates/people/peopledashboard.php:288
+#, fuzzy
+msgid "People Classification"
+msgstr "Toate Clasificări"
+
+#: v2/templates/people/peopledashboard.php:327
+msgid "Gender Demographics"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:344
+msgid "# Age Histogram"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:373
+msgid "Men"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:378
+msgid "Women"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:387
+#: v2/templates/sundayschool/sundayschooldashboard.php:71
+msgid "Boys"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:392
+#: v2/templates/sundayschool/sundayschooldashboard.php:83
+msgid "Girls"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:458
+#, fuzzy
+msgid "# number of people"
+msgstr "Numărul maxim de vecini:"
+
 #: v2/templates/people/personlist.php:36
 #, fuzzy
 msgid ""
@@ -11147,8 +11182,8 @@ msgstr ""
 
 #: v2/templates/sundayschool/sundayschoolview.php:59
 #, fuzzy
-msgid "Add Students"
-msgstr "Elevii Extra"
+msgid "Show More Props"
+msgstr "Arată în"
 
 #: v2/templates/sundayschool/sundayschoolview.php:63
 #, fuzzy
@@ -11160,78 +11195,78 @@ msgstr "Editează acest grup"
 msgid "Delete this Class"
 msgstr "Editează acest grup"
 
-#: v2/templates/sundayschool/sundayschoolview.php:78
-#: v2/templates/sundayschool/sundayschoolview.php:83
+#: v2/templates/sundayschool/sundayschoolview.php:79
+#: v2/templates/sundayschool/sundayschoolview.php:84
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Creați foaia de prezență"
 
-#: v2/templates/sundayschool/sundayschoolview.php:85
+#: v2/templates/sundayschool/sundayschoolview.php:86
 #, fuzzy
 msgid "Student Badges"
 msgstr "Elevii Extra"
 
-#: v2/templates/sundayschool/sundayschoolview.php:92
+#: v2/templates/sundayschool/sundayschoolview.php:93
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Elimină din coș"
 
-#: v2/templates/sundayschool/sundayschoolview.php:96
+#: v2/templates/sundayschool/sundayschoolview.php:97
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Adauga in cos Rezultate"
 
-#: v2/templates/sundayschool/sundayschoolview.php:103
+#: v2/templates/sundayschool/sundayschoolview.php:104
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Elimină din coș"
 
-#: v2/templates/sundayschool/sundayschoolview.php:107
+#: v2/templates/sundayschool/sundayschoolview.php:108
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Adauga Membrii grupului in cos"
 
-#: v2/templates/sundayschool/sundayschoolview.php:133
+#: v2/templates/sundayschool/sundayschoolview.php:134
 #, fuzzy
 msgid "Add Teachers to the Team"
 msgstr "Adauga Membrii grupului in cos"
 
-#: v2/templates/sundayschool/sundayschoolview.php:156
+#: v2/templates/sundayschool/sundayschoolview.php:157
 msgid "Quick Status"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:171
+#: v2/templates/sundayschool/sundayschoolview.php:172
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "Data nasterii Data"
 
-#: v2/templates/sundayschool/sundayschoolview.php:198
+#: v2/templates/sundayschool/sundayschoolview.php:199
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Expirare Luna"
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 #, fuzzy
 msgid "On"
 msgstr "Dată"
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 msgid "Off"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:216
+#: v2/templates/sundayschool/sundayschoolview.php:217
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:217
+#: v2/templates/sundayschool/sundayschoolview.php:218
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:247
+#: v2/templates/sundayschool/sundayschoolview.php:248
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Adauga Persoana de grup"
@@ -11974,6 +12009,10 @@ msgstr ""
 #, fuzzy
 msgid "Empty"
 msgstr "Gol Cart"
+
+#, fuzzy
+#~ msgid "Add Students"
+#~ msgstr "Elevii Extra"
 
 #, fuzzy
 #~ msgid "Send Message"
