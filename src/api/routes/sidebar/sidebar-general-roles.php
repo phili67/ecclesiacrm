@@ -28,7 +28,7 @@ use LogicException;
 
 $app->group('/generalrole', function () {
     
-    $this->get('/all/{mode}', 'getAllGeneralRoles' );
+    $this->get('/all/{mode}', 'getAllGeneralRoles' );// this is to finish !!! All in JS
 /*
  * @! set gerneral role for the family, classification, etc ...
  * #! param: ref->str :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)
