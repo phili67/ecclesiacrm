@@ -14,6 +14,7 @@ require '../../Include/Config.php';*/
   $logger->info("Start to delete : all unusefull files");
   
   unlink(SystemURLs::getDocumentRoot()."/OptionManagerRowOps.php");
+  unlink(SystemURLs::getDocumentRoot()."/GroupView.php");
 
   $logger->info("End of delete :  all unusefull files");
 ?>
