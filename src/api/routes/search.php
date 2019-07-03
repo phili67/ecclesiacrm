@@ -69,7 +69,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             {
               $dataPerson = ['children' => $data,
               'id' => 0,
-              'text' => gettext('Persons')];
+              'text' => _('Persons')];
           
               $resultsArray = array ($dataPerson);
             }
@@ -115,7 +115,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             {
               $dataAddress = ['children' => $data,
               'id' => 1,
-              'text' => gettext('Address')];
+              'text' => _('Address')];
           
               array_push($resultsArray,$dataAddress);
             }
@@ -166,7 +166,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             {
               $dataFamilies = ['children' => $data,
                 'id' => 2,
-                'text' => gettext('Families')];
+                'text' => _('Families')];
       
               array_push($resultsArray, $dataFamilies);
             }
@@ -183,7 +183,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 ->filterByName("%$query%", Criteria::LIKE)
                 ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
                 ->withColumn('grp_Name', 'displayName')
-                ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/GroupView.php?GroupID=",Group.Id)', 'uri')
+                ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
                 ->select(['displayName', 'uri'])
                 ->find();
             
@@ -205,7 +205,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               {
                 $dataGroup = ['children' => $data,
                   'id' => 3,
-                  'text' => gettext('Groups')];
+                  'text' => _('Groups')];
   
                 array_push($resultsArray, $dataGroup);
               }
@@ -251,7 +251,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 {
                   $dataDeposit = ['children' => $data,
                   'id' => 4,
-                  'text' => gettext('Deposits')];
+                  'text' => _('Deposits')];
 
                   array_push($resultsArray, $dataDeposit);
                 }
@@ -286,7 +286,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 {
                   $dataDeposit = ['children' => $data,
                   'id' => 4,
-                  'text' => gettext('Deposits')];
+                  'text' => _('Deposits')];
 
                   array_push($resultsArray, $dataDeposit);
                 }
@@ -319,7 +319,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 {
                   $dataPayements = ['children' => $data,
                   'id' => 5,
-                  'text' => gettext('Payments')];
+                  'text' => _('Payments')];
 
                   array_push($resultsArray, $dataPayements);
                 }
@@ -367,7 +367,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 {
                   $dataPayements = ['children' => $data,
                   'id' => 6,
-                  'text' => gettext('Pastoral Care')];
+                  'text' => _('Pastoral Care')];
 
                   array_push($resultsArray, $dataPayements);
                 }

@@ -55,7 +55,7 @@ $groupInfo = GroupQuery::Create()->findOneById ($iGroupID);
 
 // Abort if user tries to load with group having no special properties.
 if ($groupInfo->getHasSpecialProps() == false) {
-    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
+    RedirectUtils::Redirect('v2/group/'.$iGroupID.'/view');
 }
 
 $sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->getName();
@@ -326,7 +326,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= _('No properties have been added yet') ?></h2>
-            <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $iGroupID ?>" class="btn btn-success"><?= _("Return to Group") ?></a>
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-success"><?= _("Return to Group") ?></a>
   </center>
 <?php
 } else {
@@ -442,7 +442,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $iGroupID ?>" class="btn btn-default"><?= _("Return to Group") ?></a>
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $iGroupID ?>/view" class="btn btn-default"><?= _("Return to Group") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">

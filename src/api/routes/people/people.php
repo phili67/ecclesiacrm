@@ -8,19 +8,13 @@
 *                 groups, families, etc...
 *
 ******************************************************************************/
-use EcclesiaCRM\DepositQuery;
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\NoteQuery;
-use EcclesiaCRM\NoteShareQuery;
-use EcclesiaCRM\NoteShare;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Emails\DocumentEmail;
-use EcclesiaCRM\UserQuery;
 
 
 
@@ -69,7 +63,7 @@ $app->group('/people', function () {
           {
             $dataPerson = ['children' => $data,
             'id' => 0,
-            'text' => gettext('Persons')];
+            'text' => _('Persons')];
       
             $resultsArray = array ($dataPerson);
           }
@@ -121,7 +115,7 @@ $app->group('/people', function () {
           {
             $dataPerson = ['children' => $data,
             'id' => 0,
-            'text' => gettext('Persons')];
+            'text' => _('Persons')];
       
             $resultsArray = array ($dataPerson);
           }
@@ -160,7 +154,7 @@ $app->group('/people', function () {
             {
               $dataFamilies = ['children' => $data,
                 'id' => 1,
-                'text' => gettext('Families')];
+                'text' => _('Families')];
       
               array_push($resultsArray, $dataFamilies);
             }
@@ -176,7 +170,7 @@ $app->group('/people', function () {
               ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
               ->withColumn('grp_Name', 'displayName')
               ->withColumn('grp_ID', 'id')
-              ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/GroupView.php?GroupID=",Group.Id)', 'uri')
+              ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
               ->select(['displayName', 'uri', 'id'])
               ->find();
         
@@ -197,7 +191,7 @@ $app->group('/people', function () {
             {
               $dataGroup = ['children' => $data,
                 'id' => 2,
-                'text' => gettext('Groups')];
+                'text' => _('Groups')];
 
               array_push($resultsArray, $dataGroup);
             }

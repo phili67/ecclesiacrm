@@ -73,7 +73,7 @@ $("document").ready(function()
       }
       else
       {
-        window.location.href = window.CRM.root + "/GroupView.php?GroupID=" + window.CRM.groupID;
+        window.location.href = window.CRM.root + "/v2/group/" + window.CRM.groupID + "/view";
       }
     });
 
