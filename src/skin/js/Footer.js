@@ -83,7 +83,7 @@ $("document").ready(function(){
         +'        <tr>'
         +'          <td class="LabelColumn">'+i18next.t('Select Group')+':</td>'
         +'          <td class="TextColumn">'
-        +'            <select id="GroupID" name="GroupID" style="width:100%" class="form-control">'
+        +'            <select id="PopupGroupID" name="PopupGroupID" style="width:100%" class="form-control">'
         +'            </select>'
         +'          </td>'
         +'        </tr>'
@@ -122,7 +122,7 @@ $("document").ready(function(){
             method:"GET"
         }).done(function(data) {
             var Groups = data.Groups;                 
-            var elt = document.getElementById("GroupID");
+            var elt = document.getElementById("PopupGroupID");
             if (elt != null) {
               var len = Groups.length;
 
@@ -146,8 +146,8 @@ $("document").ready(function(){
     }
     
     // I have to do this because EventGroup isn't yet present when you load the page the first time
-    $(document).on('change','#GroupID',function () {
-     var e = document.getElementById("GroupID");
+    $(document).on('change','#PopupGroupID',function () {
+     var e = document.getElementById("PopupGroupID");
      
      if (e.selectedIndex > 0) {
          var option = e.options[e.selectedIndex];
@@ -214,7 +214,7 @@ $("document").ready(function(){
            callback: function() {
              var e = document.getElementById("GroupSelector");
              if (e.selectedIndex == 0) {
-                 var e = document.getElementById("GroupID");
+                 var e = document.getElementById("PopupGroupID");
                  
                  if (e.selectedIndex > 0) {
                      var option = e.options[e.selectedIndex];
@@ -228,10 +228,10 @@ $("document").ready(function(){
                         method: 'POST',
                         path: 'cart/emptyToGroup',
                         data: JSON.stringify({"groupID":GroupID,"groupRoleID":RoleID})
-                        }).done(function(data) {
+                     }).done(function(data) {
                           window.CRM.cart.refresh();
                           location.href = window.CRM.root + '/v2/group/' + GroupID + '/view';
-                      });
+                     });
                       
                       return true
                 } else {
