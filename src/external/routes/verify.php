@@ -2,9 +2,7 @@
 
 use Slim\Views\PhpRenderer;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\TokenQuery;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Person;
 
