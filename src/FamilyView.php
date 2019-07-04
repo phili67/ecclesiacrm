@@ -417,7 +417,7 @@ require 'Include/Header.php';
         if (SessionUser::getUser()->isAdmin()) {
           $buttons++;
       ?>
-      <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
+      <a class="btn btn-app bg-aqua" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
       <?php
         }
       ?>
