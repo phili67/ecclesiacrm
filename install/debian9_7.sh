@@ -7,7 +7,7 @@ sudo apt install tasksel
 sudo tasksel install lamp-server
 
 # install php
-sudo apt install php php-cli php-curl php-gd php-intl php-mcrypt php-memcache php-xml php-zip php-mbstring php-json php-gettext 
+sudo apt install php php-cli php-curl php-gd php-intl php-mcrypt php-memcache php-xml php-zip php-mbstring php-json php-gettext
 
 # set the default php.ini settings
 sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 100M/' /etc/php/7.2/apache2/php.ini
