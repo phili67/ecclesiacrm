@@ -120,13 +120,19 @@ $app->group('/families', function () {
  * @! Verify the family for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->post('/{familyId}/verify', "verifyFamily" );
+    $this->post('/{familyId:[0-9]+}/verify', "verifyFamily" );
 
  /*
  * @! Verify the family for the familyId now
  * #! param: id->int :: familyId as id
  */
-    $this->post('/verify/{familyId}/now', "verifyFamilyNow" );
+    $this->post('/verify/{familyId:[0-9]+}/now', "verifyFamilyNow" );
+
+/*
+ * @! Verify the family for the familyId now
+ * #! param: id->int :: family
+ */
+    $this->post('/verify/url', 'verifyFamilyURL' );
 
 /*
  * @! Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
@@ -319,6 +325,22 @@ function verifyFamilyNow (Request $request, Response $response, array $args) {
     }
     return $response;
 }
+
+
+function verifyFamilyURL (Request $request, Response $response, array $args) {
+    $input = (object)$request->getParsedBody();
+
+    if ( isset ($input->famId) ) {
+        $family = FamilyQuery::create()->findOneById($input->famId);
+        TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($family->getId())->delete();
+        $token = new Token();
+        $token->build("verifyFamily", $family->getId());
+        $token->save();
+        $family->createTimeLineNote("verify-URL");
+        return $response->withJSON(["url" => "external/verify/" . $token->getToken()]);
+    }
+}
+
 
 function familyActivateStatus (Request $request, Response $response, array $args) {
     $familyId = $args["familyId"];

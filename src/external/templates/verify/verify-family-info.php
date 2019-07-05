@@ -3,6 +3,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family Verification");
@@ -10,14 +11,6 @@ $sPageTitle = _("Family Verification");
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
 $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
-
-$dateFormat = SystemConfig::getValue("sDateFormatLong");
-
-$dateFormatLong = str_replace("/"," ",$dateFormat);
-$dateFormatLong = str_replace("m","M",$dateFormatLong);
-
-$dateFormatShort = str_replace(" Y","",$dateFormatLong);
-
 ?>
   <div class="row">
     <div id="right-buttons" class="btn-group" role="group">
@@ -85,12 +78,21 @@ $dateFormatShort = str_replace(" Y","",$dateFormatLong);
                     <i class="fa fa-fw fa-envelope-o" title="<?= _("Work Email")?>"></i>(W) <?= $person->getWorkEmail() ?><br/>
                       <?php }  ?>
                     <i class="fa fa-fw fa-birthday-cake" title="<?= _("Birthday")?>"></i>
-                      <?php if ($person->hideAge()) { ?>
-                          <?= $person->getBirthDate()->format($dateFormatShort) ?>
+                      <?php
+
+                      if ($person->hideAge()) {
+                          $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-',0);
+                      ?>
+                          <?= $birthDate ?>
                           <i class="fa fa-fw fa-eye-slash" title="<?= _("Age Hidden")?>"></i>
-                      <?php } else {?>
-                          <?= $person->getBirthDate()->format($dateFormatLong) ?>
-                      <?php } ?>
+                      <?php
+                      } else {
+                          $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
+                      ?>
+                          <?= $birthDate ?>
+                      <?php
+                      }
+                      ?>
                       <br/>
                   </li>
                   <li class="list-group-item">
