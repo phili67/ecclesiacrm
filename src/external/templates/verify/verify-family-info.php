@@ -15,11 +15,11 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 $dateFormat = SystemConfig::getValue("sDateFormatLong");
 
 $sLanguage = SystemConfig::getValue("sLanguage");
-
 $dateFormatLong = str_replace("/"," ",$dateFormat);
 $dateFormatLong = str_replace("m","M",$dateFormatLong);
 
 $dateFormatShort = str_replace(" Y","",$dateFormatLong);
+
 ?>
   <div class="row">
     <div id="right-buttons" class="btn-group" role="group">
