@@ -11,15 +11,6 @@ $sPageTitle = _("Family Verification");
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
 $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
-
-$dateFormat = SystemConfig::getValue("sDateFormatLong");
-
-$sLanguage = SystemConfig::getValue("sLanguage");
-$dateFormatLong = str_replace("/"," ",$dateFormat);
-$dateFormatLong = str_replace("m","M",$dateFormatLong);
-
-$dateFormatShort = str_replace(" Y","",$dateFormatLong);
-
 ?>
   <div class="row">
     <div id="right-buttons" class="btn-group" role="group">
@@ -90,7 +81,7 @@ $dateFormatShort = str_replace(" Y","",$dateFormatLong);
                       <?php
 
                       if ($person->hideAge()) {
-                          $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), ' ',0);
+                          $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-',0);
                       ?>
                           <?= $birthDate ?>
                           <i class="fa fa-fw fa-eye-slash" title="<?= _("Age Hidden")?>"></i>
