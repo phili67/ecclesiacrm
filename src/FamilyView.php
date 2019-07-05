@@ -993,6 +993,8 @@ require 'Include/Header.php';
     <?php
       } 
     ?>
+          <button type="button" id="verifyURL"
+                  class="btn btn-default"><i class="fa fa-chain"></i> <?= _("URL") ?></button>
         <button type="button" id="verifyDownloadPDF" class="btn btn-info">
           <i class="fa fa-download"></i> 
           <?= _("PDF Report") ?>

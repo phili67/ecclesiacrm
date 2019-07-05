@@ -343,6 +343,20 @@ $(document).ready(function () {
     window.open(window.CRM.root + '/Reports/ConfirmReport.php?familyId=' + window.CRM.currentFamily, '_blank');
     $('#confirm-verify').modal('hide');
   });
+
+  $("#verifyURL").click(function () {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'families/verify/url',
+      data: JSON.stringify({"famId": window.CRM.currentFamily})
+    }).done(function(data) {
+      $('#confirm-verify').modal('hide');
+      bootbox.alert({
+        title: i18next.t("Verification URL"),
+        message: "<a href='" + window.CRM.root + "/" + data.url+"'>" + window.CRM.root + "/" + data.url+"</a>"
+      });
+    });
+  });
   
      
     
