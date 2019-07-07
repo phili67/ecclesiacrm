@@ -32,45 +32,6 @@ use EcclesiaCRM\dto\SystemURLs;
     </div>
 </div>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/online-pending-verify.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function () {
-        var familiesTableConfig = {
-            ajax: {
-                url: window.CRM.root + "/api/families/pending-self-verify",
-                dataSrc: 'families'
-            },
-            columns: [
-                {
-                    title: i18next.t('Family Id'),
-                    data: 'FamilyId',
-                    searchable: false,
-                    render: function (data, type, full, meta) {
-                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + data + '>' + data + '</a>';
-                    }
-                },
-                {
-                    title: i18next.t('Family'),
-                    data: 'FamilyName',
-                    searchable: true
-                },
-                {
-                    title: i18next.t('Valid Until'),
-                    data: 'ValidUntilDate',
-                    searchable: false,
-                    render: function (data, type, full, meta) {
-                        return moment(data).format("MM-DD-YY");
-                    }
-                }
-            ],
-            order: [[2, "desc"]]
-        }
-    
-        $.extend(familiesTableConfig,window.CRM.plugin.dataTable);
-        
-        $("#families").DataTable(familiesTableConfig);
-    });
-</script>
-<?php
-require '../Include/Footer.php';
-?>
+<?php require '../Include/Footer.php'; ?>
