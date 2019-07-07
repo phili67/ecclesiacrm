@@ -61,6 +61,8 @@ pages:
     - 'Gestion des familles': 
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
+        - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-create-family-auto.md'
+        - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-verify-family-auto.md'
         - 'Désactiver supprimer une famille': 'user-guide/doc-admin/family/doc-delete-family.md'
         - 'Personnalisation':
             - 'Rôles de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
@@ -126,12 +128,12 @@ pages:
     - "Introduction": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
     - "Faire l'appel": 'user-guide/doc-sunday-school/doc-sunday-school-attendance.md'
     - "Créer - Editer - trier": 'user-guide/doc-sunday-school/doc-sunday-school-add-edit.md'
-    - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-export.md'
+    - "Aide moniteur": 'user-guide/doc-sunday-school/doc-sunday-school-help-teacher.md'
+    - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-badges.md'
     - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
     - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
-      #- "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
-
-- "Campagne de Publipostage":
+    
+- "Manuel : Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
         - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
@@ -142,7 +144,7 @@ pages:
     - "Import de données": 'user-guide/doc-tools/doc-import.md'
     - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Panier": 'user-guide/doc-tools/doc-cart.md'
-- "Manuel du développeur":
+- "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/api.md'
 - "À propos":
     - 'A propos': 'about/about.md'

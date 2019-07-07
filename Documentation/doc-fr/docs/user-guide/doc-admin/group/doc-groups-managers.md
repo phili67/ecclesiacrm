@@ -1,6 +1,14 @@
 # <center><big>Gestion d'un groupe & Ecclesia**CRM** </big></center>
 
+
 Un manager de groupe peut ajouter ou retirer des membres du groupes ou gérer son groupe.
+
+Un manager peut être défini de manière 
+
+- Globale : ce manager pourra définir l'appartenance d'un membre pour tous les groupes
+- Locale  : on peut ici définir un manager que pour un groupe spécifique
+
+> Note : un manager de groupe peut ajouter un membre, prééxistant dans le CRM, dans un groupe, mais ne peut créer un membre. Il est possible de qu'une famille s'inscrive de manière automatique dans le CRM (voir pour cela la section famille : auto-inscription).
 
 ##Gestion global d'un groupe
 

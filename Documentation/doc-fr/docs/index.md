@@ -9,7 +9,7 @@ Ecclesia**CRM** est un CRM (Customer Relationship Management).
 
 ## Vue d'ensemble
 
-[EcclesiaCRM](https://www.ecclesiacrm.com) est basé [ChurchCRM](http://churchcrm.io/) qui lui même est basé sur InfoCentral.
+[EcclesiaCRM](https://www.ecclesiacrm.com) est basé sur [ChurchCRM](http://churchcrm.io/) qui lui même est basé sur InfoCentral.
 
 Le logiciel a été développé par une équipe de volontaires, dans leurs temps libre, pour proposer aux églises et avec une très grande qualité un logiciel libre.
 
