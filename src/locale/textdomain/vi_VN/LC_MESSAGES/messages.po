@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 18:40+0200\n"
+"POT-Creation-Date: 2019-07-07 18:50+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -224,7 +224,7 @@ msgstr "Gia đình"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:194
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
-#: external/templates/verify/verify-family-info.php:108 Menu.php:459
+#: external/templates/verify/verify-family-info.php:110 Menu.php:459
 #: v2/templates/calendar/calendar.php:153
 #: v2/templates/people/peopledashboard.php:147
 msgid "Groups"
@@ -256,12 +256,12 @@ msgstr "Ghi chú tham dự: "
 msgid "POST to cart requires a EventID"
 msgstr ""
 
-#: api/routes/people/people-families.php:355
+#: api/routes/people/people-families.php:377
 #, fuzzy
 msgid "Family Deactivated"
 msgstr "Không hoạt động"
 
-#: api/routes/people/people-families.php:357
+#: api/routes/people/people-families.php:379
 #, fuzzy
 msgid "Family Activated"
 msgstr "Kích hoạt"
@@ -794,7 +794,7 @@ msgstr "Điện thoại"
 #: EventAttendance.php:185
 #: external/templates/registration/family-register-members.php:84
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:83 FamilyEditor.php:839
+#: external/templates/verify/verify-family-info.php:76 FamilyEditor.php:839
 #: FamilyView.php:346 FamilyView.php:412 FamilyView.php:476
 #: GroupReports.php:152 PersonEditor.php:1356 PersonEditor.php:1360
 #: PersonView.php:514 PersonView.php:607 PersonView.php:883
@@ -861,7 +861,7 @@ msgstr "Lưu lại"
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:113 CanvassEditor.php:268
 #: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:314
 #: DonatedItemEditor.php:296 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
+#: external/templates/verify/verify-family-info.php:167 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:148
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
 #: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1583
@@ -1395,7 +1395,7 @@ msgid "Family Name"
 msgstr "Tên gia đình"
 
 #: CartToFamily.php:293 CSVImport.php:256 DirectoryReports.php:189
-#: external/templates/verify/verify-family-info.php:41 FamilyEditor.php:872
+#: external/templates/verify/verify-family-info.php:34 FamilyEditor.php:872
 #: FamilyView.php:310
 msgid "Wedding Date"
 msgstr "Ngày cưới"
@@ -1417,8 +1417,8 @@ msgstr "(Sử dụng hộp văn bản cho các quốc gia khác ngoài Mỹ và 
 #: EditEventAttendees.php:73 EventAttendance.php:186
 #: external/templates/registration/family-register-done.php:30
 #: external/templates/registration/family-register.php:68
-#: external/templates/verify/verify-family-info.php:34
-#: external/templates/verify/verify-family-info.php:77 FamilyEditor.php:807
+#: external/templates/verify/verify-family-info.php:27
+#: external/templates/verify/verify-family-info.php:70 FamilyEditor.php:807
 #: FamilyView.php:324 GroupReports.php:149 PersonEditor.php:1267
 #: PersonEditor.php:1271 PersonView.php:501 PrintPastoralCare.php:257
 #: PrintView.php:268 Reports/ConfirmReportEmail.php:140
@@ -1437,7 +1437,7 @@ msgid "Do not auto-format"
 msgstr "Không theo định dạng này"
 
 #: CartToFamily.php:376 CSVExport.php:133 CSVImport.php:250
-#: external/templates/verify/verify-family-info.php:79 FamilyEditor.php:817
+#: external/templates/verify/verify-family-info.php:72 FamilyEditor.php:817
 #: FamilyView.php:330 GroupReports.php:150 PersonEditor.php:1292
 #: PersonEditor.php:1296 PersonView.php:525 PrintPastoralCare.php:262
 #: PrintView.php:273 Reports/ConfirmReportEmail.php:238
@@ -1446,7 +1446,7 @@ msgid "Work Phone"
 msgstr "Điện thoại công việc"
 
 #: CartToFamily.php:386 CSVExport.php:138 CSVImport.php:251
-#: external/templates/verify/verify-family-info.php:81 FamilyEditor.php:827
+#: external/templates/verify/verify-family-info.php:74 FamilyEditor.php:827
 #: FamilyView.php:337 PersonEditor.php:1319 PersonEditor.php:1323
 #: PersonView.php:494 PrintPastoralCare.php:267 PrintView.php:278
 msgid "Mobile Phone"
@@ -2314,7 +2314,7 @@ msgid "Information to Include"
 msgstr ""
 
 #: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:42
-#: external/templates/verify/verify-family-info.php:87 FamilyView.php:475
+#: external/templates/verify/verify-family-info.php:80 FamilyView.php:475
 #: PersonView.php:882 Reports/ConfirmReportEmail.php:192
 #: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:191
 #: Reports/ConfirmReport.php:210
@@ -2335,7 +2335,7 @@ msgstr "Điện thoại gia đình"
 msgid "Family Cell Phone"
 msgstr "Điện thoại gia đình"
 
-#: DirectoryReports.php:195 external/templates/verify/verify-family-info.php:36
+#: DirectoryReports.php:195 external/templates/verify/verify-family-info.php:29
 #: Reports/ConfirmReportEmail.php:161 Reports/ConfirmReport.php:163
 msgid "Family Email"
 msgstr "Email gia đình"
@@ -6011,11 +6011,11 @@ msgstr "Thêm sự kiện mới"
 msgid "Unable to reset password"
 msgstr ""
 
-#: external/routes/verify.php:29
+#: external/routes/verify.php:27
 msgid "Unable to load verification info"
 msgstr ""
 
-#: external/routes/verify.php:43
+#: external/routes/verify.php:41
 #, fuzzy
 msgid "No Changes"
 msgstr "Lưu thay đổi"
@@ -6132,60 +6132,60 @@ msgstr ""
 msgid "Please enter the following to start your family's verification"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:8
+#: external/templates/verify/verify-family-info.php:9
 #, fuzzy
 msgid "Family Verification"
 msgstr "Trợ giúp địa lý"
 
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:148 ManageEnvelopes.php:143
+#: external/templates/verify/verify-family-info.php:17
+#: external/templates/verify/verify-family-info.php:150 ManageEnvelopes.php:143
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: external/templates/verify/verify-family-info.php:32
+#: external/templates/verify/verify-family-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/sundayschool/sundayschooldashboard.php:195
 #, fuzzy
 msgid "Home Address"
 msgstr "Địa chỉ"
 
-#: external/templates/verify/verify-family-info.php:46 FamilyEditor.php:849
+#: external/templates/verify/verify-family-info.php:39 FamilyEditor.php:849
 #: FamilyView.php:302 PersonEditor.php:1341 PersonView.php:507
 #: Reports/ConfirmReportEmail.php:145 Reports/ConfirmReport.php:147
 msgid "Send Newsletter"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:59
+#: external/templates/verify/verify-family-info.php:52
 #, fuzzy
 msgid "Family Member(s)"
 msgstr "Thành viên gia đình"
 
-#: external/templates/verify/verify-family-info.php:85
+#: external/templates/verify/verify-family-info.php:78
 #, fuzzy
 msgid "Work Email"
 msgstr "Email công việc/khác"
 
-#: external/templates/verify/verify-family-info.php:90
+#: external/templates/verify/verify-family-info.php:87
 msgid "Age Hidden"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:152
+#: external/templates/verify/verify-family-info.php:154
 msgid "Please let us know what information to update if any"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:157
+#: external/templates/verify/verify-family-info.php:159
 msgid "Your verification request is complete"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:161
+#: external/templates/verify/verify-family-info.php:163
 msgid "We encountered an error submitting with your verification data"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:166
+#: external/templates/verify/verify-family-info.php:168
 msgid "Verify"
 msgstr ""
 
-#: external/templates/verify/verify-family-info.php:167
+#: external/templates/verify/verify-family-info.php:169
 msgid "Visit our Site"
 msgstr ""
 
@@ -6644,12 +6644,16 @@ msgstr ""
 msgid "Online Verification"
 msgstr "Phân loại:"
 
-#: FamilyView.php:998
+#: FamilyView.php:997
+msgid "URL"
+msgstr ""
+
+#: FamilyView.php:1000
 #, fuzzy
 msgid "PDF Report"
 msgstr "Báo cáo"
 
-#: FamilyView.php:1002
+#: FamilyView.php:1004
 #, fuzzy
 msgid "Verified In Person"
 msgstr "Xem tất cả thành viên"
