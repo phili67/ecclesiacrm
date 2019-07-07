@@ -376,6 +376,46 @@
             "title": "Informations"
         }, 
         {
+            "location": "/user-guide/doc-admin/family/doc-create-family-auto/", 
+            "text": "Vous pouvez demander aux familles de s'inscrire ainsi que ses membres.\n\n\nActiver l'auto-inscription\n\n\nPour cela aller dans les r\u00e9glages\n\n\n\n\nPuis aller dans la partie Installation de personnes\n\n\n\n\nIl faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"\n\n\n\n\nEn faisant passer l'option \u00e0 \"Vrai\"\n\n\n\n\nOn valide en bas de page\n\n\n\n\nPuis on peut quitter sa session, pour voir le r\u00e9sultat\n\n\n\n\nInscription de Familles\n\n\nEn allant sur le CRM, la fen\u00eatre de login sera\n\n\n\n\nIl est possible d'utiliser \"Inscrire une nouvelle famille\"\n\n\n\n\nVous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants\n\n\nEn validant, vous devrez valider chaque membres (conjoint(e) et enfants) \n\n\n\n\nVotre famille sera maintenant inscrite\n\n\n\n\nVisualiser les nouveaux inscrits en tant qu'administrateur\n\n\nAller dans \n\n\n\n\nPuis s\u00e9lectionner\n\n\n\n\nVous aurez l'ensemble des familles qui se sont auto-inscrites\n\n\n\n\nOn peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.\n\n\n\n\nNote : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
+            "title": "Auto-inscription de famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family-auto/#activer-lauto-inscription", 
+            "text": "Pour cela aller dans les r\u00e9glages   Puis aller dans la partie Installation de personnes   Il faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"   En faisant passer l'option \u00e0 \"Vrai\"   On valide en bas de page   Puis on peut quitter sa session, pour voir le r\u00e9sultat", 
+            "title": "Activer l'auto-inscription"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family-auto/#inscription-de-familles", 
+            "text": "En allant sur le CRM, la fen\u00eatre de login sera   Il est possible d'utiliser \"Inscrire une nouvelle famille\"   Vous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants  En validant, vous devrez valider chaque membres (conjoint(e) et enfants)    Votre famille sera maintenant inscrite", 
+            "title": "Inscription de Familles"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family-auto/#visualiser-les-nouveaux-inscrits-en-tant-quadministrateur", 
+            "text": "Aller dans    Puis s\u00e9lectionner   Vous aurez l'ensemble des familles qui se sont auto-inscrites   On peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.   Note : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
+            "title": "Visualiser les nouveaux inscrits en tant qu'administrateur"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/", 
+            "text": "Vous pouvez demander aux familles de s'inscrire ainsi que ses membres.\n\n\nActiver l'auto-inscription\n\n\nPour cela aller dans les r\u00e9glages\n\n\n\n\nPuis aller dans la partie Installation de personnes\n\n\n\n\nIl faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"\n\n\n\n\nEn faisant passer l'option \u00e0 \"Vrai\"\n\n\n\n\nOn valide en bas de page\n\n\n\n\nPuis on peut quitter sa session, pour voir le r\u00e9sultat\n\n\n\n\nInscription de Familles\n\n\nEn allant sur le CRM, la fen\u00eatre de login sera\n\n\n\n\nIl est possible d'utiliser \"Inscrire une nouvelle famille\"\n\n\n\n\nVous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants\n\n\nEn validant, vous devrez valider chaque membres (conjoint(e) et enfants) \n\n\n\n\nVotre famille sera maintenant inscrite\n\n\n\n\nVisualiser les nouveaux inscrits en tant qu'administrateur\n\n\nAller dans \n\n\n\n\nPuis s\u00e9lectionner\n\n\n\n\nVous aurez l'ensemble des familles qui se sont auto-inscrites\n\n\n\n\nOn peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.\n\n\n\n\nNote : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
+            "title": "Auto-inscription de famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#activer-lauto-inscription", 
+            "text": "Pour cela aller dans les r\u00e9glages   Puis aller dans la partie Installation de personnes   Il faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"   En faisant passer l'option \u00e0 \"Vrai\"   On valide en bas de page   Puis on peut quitter sa session, pour voir le r\u00e9sultat", 
+            "title": "Activer l'auto-inscription"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#inscription-de-familles", 
+            "text": "En allant sur le CRM, la fen\u00eatre de login sera   Il est possible d'utiliser \"Inscrire une nouvelle famille\"   Vous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants  En validant, vous devrez valider chaque membres (conjoint(e) et enfants)    Votre famille sera maintenant inscrite", 
+            "title": "Inscription de Familles"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#visualiser-les-nouveaux-inscrits-en-tant-quadministrateur", 
+            "text": "Aller dans    Puis s\u00e9lectionner   Vous aurez l'ensemble des familles qui se sont auto-inscrites   On peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.   Note : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
+            "title": "Visualiser les nouveaux inscrits en tant qu'administrateur"
+        }, 
+        {
             "location": "/user-guide/doc-admin/family/doc-delete-family/", 
             "text": "Supprimer d\u00e9sactiver une famille \n Ecclesia\nCRM\n \n\n\nPour supprimer une famille\n\n\nVous recherchez une famille via le lien de recherche dans le menu de gauche.\n\n\nVous obtiendrez la vue suivante avec ses boutons\n\n\n\n\nLa suppression d'une famille peut avoir des impacts au niveau l\u00e9gal\n\n\n\n\ndans le cas de d\u00e9p\u00f4t fait par la famille\n\n\nde note prise par la famille\n\n\n\n\nD\u00e9sactiver une famille\n\n\nD\u00e9sactiver une famille, placera la famille dans les familles d\u00e9sactiv\u00e9es et ne fera plus partie d'aucune recherche possible dans le cas du RGPD.\n\n\n\n\nAu bout de deux ann\u00e9es, la famille passera dans la gestion RGPD et sera administrable via le DPO g\u00e9rant la partie RGPD.\n\n\nRGPD : ATTENTION\n\n\nAttention\n une famille inactive ne doit pas \u00eatre r\u00e9activ\u00e9e comme cela, sa date de d\u00e9sactivation sera alors fausse. Cela peut engendrer des poursuites judiciares, en raison du RGPD.", 
             "title": "D\u00e9sactiver supprimer une famille"

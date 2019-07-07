@@ -61,7 +61,8 @@ pages:
     - 'Gestion des familles': 
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
-          - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-create-family-auto.md'
+        - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-create-family-auto.md'
+        - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-verify-family-auto.md'
         - 'Désactiver supprimer une famille': 'user-guide/doc-admin/family/doc-delete-family.md'
         - 'Personnalisation':
             - 'Rôles de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
