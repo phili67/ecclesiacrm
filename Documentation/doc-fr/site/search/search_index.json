@@ -398,7 +398,7 @@
         {
             "location": "/user-guide/doc-admin/family/doc-verify-family-auto/", 
             "text": "Vous pouvez demander aux familles de valider les donn\u00e9es que vous avez saisies\n\n\nPour envoyer une auto-v\u00e9rification\n\n\nPour cela chercher une famille via le menu rechercher, on tombera sur la vue suivante. Il suffira ensuite de cliquer le bouton : \"V\u00e9rifier les Infos\"\n\n\n\n\nOn obtient\n\n\n\n\nUn mail sera envoy\u00e9 \u00e0 chacun des membres de la famille sous la forme\n\n\nR\u00e9ponse pour les utilisateurs\n\n\n\n\nIls peuvent rajouter un commentaire\n\n\nAdministrateur\n\n\nPour voir les r\u00e9ponses des utilisateurs, aller dans \n\n\n\n\nPuis s\u00e9lectionner\n\n\n\n\nOn obtient alors les r\u00e9sultats\n\n\n\n\nAvec les commentaires.", 
-            "title": "Auto-inscription de famille"
+            "title": "Auto-v\u00e9rification de famille"
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#pour-envoyer-une-auto-verification", 

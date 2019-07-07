@@ -147,3 +147,6 @@ msgstr "En pause"
 
 msgid "cleaned"
 msgstr "nettoyé"
+
+msgid "pending"
+msgstr "en attente"

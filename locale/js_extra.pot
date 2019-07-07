@@ -142,3 +142,6 @@ msgstr ""
 
 msgid "cleaned"
 msgstr ""
+
+msgid "pending"
+msgstr ""
