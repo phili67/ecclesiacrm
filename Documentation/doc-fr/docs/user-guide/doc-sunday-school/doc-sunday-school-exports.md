@@ -39,8 +39,9 @@ Il faut cliquer le bouton ad'hoc
 ![Screenshot](../../img/sundayschool/sundayschoolExport4.png)
 
 Il y a deux types différents
+
 - La feuille de présence (qui est définie en fonction des exceptions de date au dessus), elle permet de faire un émargement à la main, elle ne tient pas compte des enregistrements dans la base de données.
-- La feuille de présence réel, elle est fonction des appels fait durant l'année ou la portée au niveau des dates et permet de faire une extraction.
+- La feuille de présence réel, elle est fonction des appels fait durant l'année ou la portée au niveau des dates et permet de faire une extraction. Voir pour cela la section : "Faire l'appel".
 
 
 > **Note** : vous pourrez rajouter le fait qu'un enfant est allergique ou qu'il ne veut pas de photos.
