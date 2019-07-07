@@ -21,7 +21,7 @@ use EcclesiaCRM\dto\SystemURLs;
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title"><?= gettext("Families") ?></h3>
+                <h3 class="box-title"><?= _("Families") ?></h3>
             </div>
             <div class="box-body">
                 <table id="families" class="table table-striped table-bordered table-responsive data-table">
@@ -32,50 +32,6 @@ use EcclesiaCRM\dto\SystemURLs;
     </div>
 </div>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/self-verify-updates.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function () {
-        var familiesTableConfig = {
-            ajax: {
-                url: window.CRM.root + "/api/families/self-verify",
-                dataSrc: 'families'
-            },
-            columns: [
-                {
-                    title: i18next.t('Family Id'),
-                    data: 'Family.Id',
-                    searchable: false,
-                    render: function (data, type, full, meta) {
-                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + data + '>' + data + '</a>';
-                    }
-                },
-                {
-                    title: i18next.t('Family'),
-                    data: 'Family.FamilyString',
-                    searchable: true
-                },
-                {
-                    title: i18next.t('Comments'),
-                    data: 'Text',
-                    searchable: true
-                },
-                {
-                    title: i18next.t('Date'),
-                    data: 'DateEntered',
-                    searchable: false,
-                    render: function (data, type, full, meta) {
-                        return moment(data).format(window.CRM.datePickerformat.toUpperCase());
-                    }
-                }
-            ],
-            order: [[2, "desc"]]
-        };
-        
-        $.extend(familiesTableConfig,window.CRM.plugin.dataTable);
-        
-        $("#families").DataTable(familiesTableConfig);
-    });
-</script>
-<?php
-require '../Include/Footer.php';
-?>
+<?php require '../Include/Footer.php'; ?>
