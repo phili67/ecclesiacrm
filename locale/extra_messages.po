@@ -85,7 +85,6 @@ msgstr ""
 msgid "save"
 msgstr ""
 
-
 msgid "schedule"
 msgstr ""
 
@@ -93,4 +92,7 @@ msgid "paused"
 msgstr ""
 
 msgid "Empty"
+msgstr ""
+
+msgid "pending"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 18:50+0200\n"
+"POT-Creation-Date: 2019-07-07 20:16+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11415,6 +11415,10 @@ msgstr ""
 #, fuzzy
 msgid "Empty"
 msgstr "Vaciar Carrito"
+
+#, fuzzy
+msgid "pending"
+msgstr "Boda"
 
 #~ msgid "Add Students"
 #~ msgstr "Agregar Estudiantes"

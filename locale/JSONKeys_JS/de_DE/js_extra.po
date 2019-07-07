@@ -145,3 +145,6 @@ msgstr "pausiert"
 
 msgid "cleaned"
 msgstr "geleert"
+
+msgid "pending"
+msgstr "steht aus"
