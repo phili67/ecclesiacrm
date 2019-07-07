@@ -397,23 +397,23 @@
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-verify-family-auto/", 
-            "text": "Vous pouvez demander aux familles de s'inscrire ainsi que ses membres.\n\n\nActiver l'auto-inscription\n\n\nPour cela aller dans les r\u00e9glages\n\n\n\n\nPuis aller dans la partie Installation de personnes\n\n\n\n\nIl faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"\n\n\n\n\nEn faisant passer l'option \u00e0 \"Vrai\"\n\n\n\n\nOn valide en bas de page\n\n\n\n\nPuis on peut quitter sa session, pour voir le r\u00e9sultat\n\n\n\n\nInscription de Familles\n\n\nEn allant sur le CRM, la fen\u00eatre de login sera\n\n\n\n\nIl est possible d'utiliser \"Inscrire une nouvelle famille\"\n\n\n\n\nVous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants\n\n\nEn validant, vous devrez valider chaque membres (conjoint(e) et enfants) \n\n\n\n\nVotre famille sera maintenant inscrite\n\n\n\n\nVisualiser les nouveaux inscrits en tant qu'administrateur\n\n\nAller dans \n\n\n\n\nPuis s\u00e9lectionner\n\n\n\n\nVous aurez l'ensemble des familles qui se sont auto-inscrites\n\n\n\n\nOn peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.\n\n\n\n\nNote : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
+            "text": "Vous pouvez demander aux familles de valider les donn\u00e9es que vous avez saisies\n\n\nPour envoyer une auto-v\u00e9rification\n\n\nPour cela chercher une famille via le menu rechercher, on tombera sur la vue suivante. Il suffira ensuite de cliquer le bouton : \"V\u00e9rifier les Infos\"\n\n\n\n\nOn obtient\n\n\n\n\nUn mail sera envoy\u00e9 \u00e0 chacun des membres de la famille sous la forme\n\n\nR\u00e9ponse pour les utilisateurs\n\n\n\n\nIls peuvent rajouter un commentaire\n\n\nAdministrateur\n\n\nPour voir les r\u00e9ponses des utilisateurs, aller dans \n\n\n\n\nPuis s\u00e9lectionner\n\n\n\n\nOn obtient alors les r\u00e9sultats\n\n\n\n\nAvec les commentaires.", 
             "title": "Auto-inscription de famille"
         }, 
         {
-            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#activer-lauto-inscription", 
-            "text": "Pour cela aller dans les r\u00e9glages   Puis aller dans la partie Installation de personnes   Il faut activer la fonctionnalit\u00e9 : \"bEnableSelfRegistration\"   En faisant passer l'option \u00e0 \"Vrai\"   On valide en bas de page   Puis on peut quitter sa session, pour voir le r\u00e9sultat", 
-            "title": "Activer l'auto-inscription"
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#pour-envoyer-une-auto-verification", 
+            "text": "Pour cela chercher une famille via le menu rechercher, on tombera sur la vue suivante. Il suffira ensuite de cliquer le bouton : \"V\u00e9rifier les Infos\"   On obtient   Un mail sera envoy\u00e9 \u00e0 chacun des membres de la famille sous la forme", 
+            "title": "Pour envoyer une auto-v\u00e9rification"
         }, 
         {
-            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#inscription-de-familles", 
-            "text": "En allant sur le CRM, la fen\u00eatre de login sera   Il est possible d'utiliser \"Inscrire une nouvelle famille\"   Vous saisissez le nom de famille, et toutes les donn\u00e9es n\u00e9cessaires, en pr\u00e9cisant le nombre d'enfants  En validant, vous devrez valider chaque membres (conjoint(e) et enfants)    Votre famille sera maintenant inscrite", 
-            "title": "Inscription de Familles"
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#reponse-pour-les-utilisateurs", 
+            "text": "Ils peuvent rajouter un commentaire", 
+            "title": "R\u00e9ponse pour les utilisateurs"
         }, 
         {
-            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#visualiser-les-nouveaux-inscrits-en-tant-quadministrateur", 
-            "text": "Aller dans    Puis s\u00e9lectionner   Vous aurez l'ensemble des familles qui se sont auto-inscrites   On peut cliquer sur l'ID de la famille pour la visualiser, ou la supprimer.   Note : il est donc possible de visualiser, pr\u00e9cis\u00e9ment chaque famille et surtout de d'activer ou de d\u00e9sactiver la fonctionnalit\u00e9 en fonction des p\u00e9riodes d'inscription des familles et des membres.", 
-            "title": "Visualiser les nouveaux inscrits en tant qu'administrateur"
+            "location": "/user-guide/doc-admin/family/doc-verify-family-auto/#administrateur", 
+            "text": "Pour voir les r\u00e9ponses des utilisateurs, aller dans    Puis s\u00e9lectionner   On obtient alors les r\u00e9sultats   Avec les commentaires.", 
+            "title": "Administrateur"
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-delete-family/", 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 18:40+0200\n"
+"POT-Creation-Date: 2019-07-07 18:50+0200\n"
 "Language: fr-CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,7 +219,7 @@ msgstr "Familles"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:194
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
-#: external/templates/verify/verify-family-info.php:108 Menu.php:459
+#: external/templates/verify/verify-family-info.php:110 Menu.php:459
 #: v2/templates/calendar/calendar.php:153
 #: v2/templates/people/peopledashboard.php:147
 msgid "Groups"
@@ -252,11 +252,11 @@ msgid "POST to cart requires a EventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: api/routes/people/people-families.php:355
+#: api/routes/people/people-families.php:377
 msgid "Family Deactivated"
 msgstr " Famille désactivée"
 
-#: api/routes/people/people-families.php:357
+#: api/routes/people/people-families.php:379
 msgid "Family Activated"
 msgstr " Famille désactivée"
 
@@ -754,7 +754,7 @@ msgstr "Téléphone"
 #: EventAttendance.php:185
 #: external/templates/registration/family-register-members.php:84
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:83 FamilyEditor.php:839
+#: external/templates/verify/verify-family-info.php:76 FamilyEditor.php:839
 #: FamilyView.php:346 FamilyView.php:412 FamilyView.php:476
 #: GroupReports.php:152 PersonEditor.php:1356 PersonEditor.php:1360
 #: PersonView.php:514 PersonView.php:607 PersonView.php:883
@@ -819,7 +819,7 @@ msgstr "Enregistrer"
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:113 CanvassEditor.php:268
 #: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:314
 #: DonatedItemEditor.php:296 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
+#: external/templates/verify/verify-family-info.php:167 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:148
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
 #: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1583
@@ -1356,7 +1356,7 @@ msgid "Family Name"
 msgstr "Nom de Famille"
 
 #: CartToFamily.php:293 CSVImport.php:256 DirectoryReports.php:189
-#: external/templates/verify/verify-family-info.php:41 FamilyEditor.php:872
+#: external/templates/verify/verify-family-info.php:34 FamilyEditor.php:872
 #: FamilyView.php:310
 msgid "Wedding Date"
 msgstr "Date de mariage"
@@ -1378,8 +1378,8 @@ msgstr ""
 #: EditEventAttendees.php:73 EventAttendance.php:186
 #: external/templates/registration/family-register-done.php:30
 #: external/templates/registration/family-register.php:68
-#: external/templates/verify/verify-family-info.php:34
-#: external/templates/verify/verify-family-info.php:77 FamilyEditor.php:807
+#: external/templates/verify/verify-family-info.php:27
+#: external/templates/verify/verify-family-info.php:70 FamilyEditor.php:807
 #: FamilyView.php:324 GroupReports.php:149 PersonEditor.php:1267
 #: PersonEditor.php:1271 PersonView.php:501 PrintPastoralCare.php:257
 #: PrintView.php:268 Reports/ConfirmReportEmail.php:140
@@ -1398,7 +1398,7 @@ msgid "Do not auto-format"
 msgstr "Ne pas utiliser le format automatique"
 
 #: CartToFamily.php:376 CSVExport.php:133 CSVImport.php:250
-#: external/templates/verify/verify-family-info.php:79 FamilyEditor.php:817
+#: external/templates/verify/verify-family-info.php:72 FamilyEditor.php:817
 #: FamilyView.php:330 GroupReports.php:150 PersonEditor.php:1292
 #: PersonEditor.php:1296 PersonView.php:525 PrintPastoralCare.php:262
 #: PrintView.php:273 Reports/ConfirmReportEmail.php:238
@@ -1407,7 +1407,7 @@ msgid "Work Phone"
 msgstr "Tél. Professionnel"
 
 #: CartToFamily.php:386 CSVExport.php:138 CSVImport.php:251
-#: external/templates/verify/verify-family-info.php:81 FamilyEditor.php:827
+#: external/templates/verify/verify-family-info.php:74 FamilyEditor.php:827
 #: FamilyView.php:337 PersonEditor.php:1319 PersonEditor.php:1323
 #: PersonView.php:494 PrintPastoralCare.php:267 PrintView.php:278
 msgid "Mobile Phone"
@@ -2236,7 +2236,7 @@ msgid "Information to Include"
 msgstr "Information à inclure"
 
 #: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:42
-#: external/templates/verify/verify-family-info.php:87 FamilyView.php:475
+#: external/templates/verify/verify-family-info.php:80 FamilyView.php:475
 #: PersonView.php:882 Reports/ConfirmReportEmail.php:192
 #: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:191
 #: Reports/ConfirmReport.php:210
@@ -2255,7 +2255,7 @@ msgstr "Téléphone professionnel de la famille"
 msgid "Family Cell Phone"
 msgstr "Téléphone portable de la famille"
 
-#: DirectoryReports.php:195 external/templates/verify/verify-family-info.php:36
+#: DirectoryReports.php:195 external/templates/verify/verify-family-info.php:29
 #: Reports/ConfirmReportEmail.php:161 Reports/ConfirmReport.php:163
 msgid "Family Email"
 msgstr "Email de la famille"
@@ -5889,11 +5889,11 @@ msgstr "Ajouter un type d&#39;événement"
 msgid "Unable to reset password"
 msgstr "Impossible de réinitialiser le Mot de Passe"
 
-#: external/routes/verify.php:29
+#: external/routes/verify.php:27
 msgid "Unable to load verification info"
 msgstr "Impossible de charger les infos de vérification"
 
-#: external/routes/verify.php:43
+#: external/routes/verify.php:41
 msgid "No Changes"
 msgstr "Pas de changements"
 
@@ -6007,56 +6007,56 @@ msgstr "Ce sera mon église principale."
 msgid "Please enter the following to start your family's verification"
 msgstr "Veuillez compléter les champs suivants pour vérification de la famille"
 
-#: external/templates/verify/verify-family-info.php:8
+#: external/templates/verify/verify-family-info.php:9
 msgid "Family Verification"
 msgstr "Vérification de la Famille"
 
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:148 ManageEnvelopes.php:143
+#: external/templates/verify/verify-family-info.php:17
+#: external/templates/verify/verify-family-info.php:150 ManageEnvelopes.php:143
 msgid "Confirm"
 msgstr "Confirmer"
 
-#: external/templates/verify/verify-family-info.php:32
+#: external/templates/verify/verify-family-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/sundayschool/sundayschooldashboard.php:195
 msgid "Home Address"
 msgstr "Adresse personnelle"
 
-#: external/templates/verify/verify-family-info.php:46 FamilyEditor.php:849
+#: external/templates/verify/verify-family-info.php:39 FamilyEditor.php:849
 #: FamilyView.php:302 PersonEditor.php:1341 PersonView.php:507
 #: Reports/ConfirmReportEmail.php:145 Reports/ConfirmReport.php:147
 msgid "Send Newsletter"
 msgstr "Envoyer Newsletter"
 
-#: external/templates/verify/verify-family-info.php:59
+#: external/templates/verify/verify-family-info.php:52
 msgid "Family Member(s)"
 msgstr "Membre(s) de la Famille"
 
-#: external/templates/verify/verify-family-info.php:85
+#: external/templates/verify/verify-family-info.php:78
 msgid "Work Email"
 msgstr "Email professionnel"
 
-#: external/templates/verify/verify-family-info.php:90
+#: external/templates/verify/verify-family-info.php:87
 msgid "Age Hidden"
 msgstr "Âge masqué"
 
-#: external/templates/verify/verify-family-info.php:152
+#: external/templates/verify/verify-family-info.php:154
 msgid "Please let us know what information to update if any"
 msgstr "Faîtes nous part des informations éventuelles à mettre à jour"
 
-#: external/templates/verify/verify-family-info.php:157
+#: external/templates/verify/verify-family-info.php:159
 msgid "Your verification request is complete"
 msgstr "Votre requête de vérification est terminée"
 
-#: external/templates/verify/verify-family-info.php:161
+#: external/templates/verify/verify-family-info.php:163
 msgid "We encountered an error submitting with your verification data"
 msgstr "Nous avons rencontré une erreur durant la vérification de vos données"
 
-#: external/templates/verify/verify-family-info.php:166
+#: external/templates/verify/verify-family-info.php:168
 msgid "Verify"
 msgstr "Vérifier"
 
-#: external/templates/verify/verify-family-info.php:167
+#: external/templates/verify/verify-family-info.php:169
 msgid "Visit our Site"
 msgstr "Visiter notre site"
 
@@ -6496,11 +6496,15 @@ msgstr ""
 msgid "Online Verification"
 msgstr "Vérification en ligne"
 
-#: FamilyView.php:998
+#: FamilyView.php:997
+msgid "URL"
+msgstr ""
+
+#: FamilyView.php:1000
 msgid "PDF Report"
 msgstr "Rapport PDF"
 
-#: FamilyView.php:1002
+#: FamilyView.php:1004
 msgid "Verified In Person"
 msgstr "Vérifier en personne"
 

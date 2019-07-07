@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-30T19:16:44.558Z\n"
+"POT-Creation-Date: 2019-07-07T16:50:05.555Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1154,6 +1154,9 @@ msgstr "Échec de l'envoi de l'email de vérification"
 msgid "Failed to add verification"
 msgstr "Échec d'ajout de vérification"
 
+msgid "Verification URL"
+msgstr "Vérification URL"
+
 msgid "Bank Draft"
 msgstr "Traitement bancaire"
 
@@ -1221,6 +1224,12 @@ msgstr "Enregistrer votre note"
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Voulez-vous enregistrer votre note en format Word dans votre EDrive ?"
 
+msgid "Family Id"
+msgstr "ID Famille"
+
+msgid "Valid Until"
+msgstr "Valide jusqu'au"
+
 msgid "Delete Pastoral Care Type"
 msgstr "Effacer ce Type de suivi pastoral"
 
@@ -1277,6 +1286,10 @@ msgstr "Changer rôle"
 
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Confirmer la suppression du bénévolat"
+
+#, fuzzy
+msgid "Comments"
+msgstr "Commentaire"
 
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
