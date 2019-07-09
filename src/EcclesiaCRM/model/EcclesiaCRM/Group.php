@@ -154,6 +154,18 @@ END:VCARD';
             $defaultRole = 2;
         }
         $newListID = ListOptionQuery::create()->withColumn('MAX(ListOption.Id)', 'newListId')->find()->getColumnValues('newListId')[0] + 1;
+
+        do { // we loop to find a good listID to avoid a bug when a list is empty : not present in list_lst
+            $group = GroupQuery::create()->findOneByRoleListId($newListID);
+
+            if (is_null ($group)) {
+                break;
+            }
+
+            $newListID++;
+        } while (1);
+
+
         $this->setRoleListId($newListID);
         $this->setDefaultRole($defaultRole);
         parent::preInsert($con);
