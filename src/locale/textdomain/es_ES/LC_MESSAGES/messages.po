@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 20:16+0200\n"
+"POT-Creation-Date: 2019-07-09 08:38+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,14 +275,14 @@ msgstr "Agregado al grupo"
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:186
-#: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
-#: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
-#: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
-#: SelectList.php:65 SelectList.php:1239 SelectList.php:1319
-#: SystemSettings.php:213 v2/routes/group/groups.php:63
-#: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
-#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
+#: GroupEditor.php:103 PaddleNumEditor.php:186 PersonEditor.php:963
+#: PersonEditor.php:978 PersonEditor.php:1482 PrintPastoralCare.php:332
+#: PrintPastoralCare.php:345 PrintView.php:343 PrintView.php:356
+#: SelectDelete.php:233 SelectList.php:45 SelectList.php:54 SelectList.php:65
+#: SelectList.php:1239 SelectList.php:1319 SystemSettings.php:213
+#: v2/routes/group/groups.php:63 v2/templates/group/grouplist.php:31
+#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
+#: v2/templates/map/MapUsingGoogle.php:67
 #: v2/templates/map/MapUsingGoogle.php:112
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
@@ -401,9 +401,9 @@ msgstr "Editor de Clasificaciones de Persona"
 #: api/routes/sidebar/sidebar-general-roles.php:133
 #: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
 #: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
-#: GroupPropsFormEditor.php:475 GroupView.php:421 OptionManager.php:117
-#: OptionManager.php:125 PersonCustomFieldsEditor.php:340
-#: PersonCustomFieldsEditor.php:465 Reports/GDPR/GDPRDataStructureExport.php:74
+#: GroupPropsFormEditor.php:475 OptionManager.php:117 OptionManager.php:125
+#: PersonCustomFieldsEditor.php:340 PersonCustomFieldsEditor.php:465
+#: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
 #: v2/templates/gdpr/gdprdatastructure.php:42
 #: v2/templates/group/groupview.php:366
@@ -1316,13 +1316,12 @@ msgstr "Agregar el Carrito a Familia"
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:345
 #: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
 #: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
-#: GroupPropsFormEditor.php:476 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:341
-#: PersonCustomFieldsEditor.php:468 PrintPastoralCare.php:447
-#: PrintPastoralCare.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
-#: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
-#: Reports/PDFLabel.php:859 SelectList.php:1087
+#: GroupPropsFormEditor.php:476 ListEvents.php:300 ListEvents.php:302
+#: PersonCustomFieldsEditor.php:341 PersonCustomFieldsEditor.php:468
+#: PrintPastoralCare.php:447 PrintPastoralCare.php:612 PrintView.php:458
+#: PrintView.php:621 Reports/CanvassReports.php:69
+#: Reports/CanvassReports.php:234 Reports/FamilyPledgeSummary.php:220
+#: Reports/FRBidSheets.php:87 Reports/PDFLabel.php:859 SelectList.php:1087
 #: v2/templates/group/groupview.php:367 v2/templates/people/familylist.php:48
 #: v2/templates/people/personlist.php:48 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -1471,7 +1470,7 @@ msgstr "Insignias"
 msgid "Email Cart"
 msgstr "Enviar Carrito por Email"
 
-#: CartView.php:149 FamilyView.php:413 GroupView.php:184 PersonView.php:608
+#: CartView.php:149 FamilyView.php:413 PersonView.php:608
 #: v2/templates/group/groupview.php:129
 #: v2/templates/sundayschool/sundayschoolview.php:47
 msgid "Email (BCC)"
@@ -1685,7 +1684,7 @@ msgstr "Validar el Asistencia"
 msgid "Return to Events"
 msgstr "Volver a Eventos"
 
-#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:166
+#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:178
 #: PersonView.php:406 Reports/CanvassReports.php:238
 #: Reports/VotingMembers.php:84 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
@@ -2356,7 +2355,7 @@ msgstr "Ir"
 
 #: DonatedItemEditor.php:273 EditEventAttendees.php:59 FundRaiserEditor.php:180
 #: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 GroupView.php:423 ListEvents.php:360
+#: GroupPropsFormEditor.php:477 ListEvents.php:360
 #: v2/templates/group/groupview.php:368
 msgid "Description"
 msgstr "Descripción"
@@ -4587,7 +4586,7 @@ msgstr "Su Cuenta"
 msgid "Your EcclesiaCRM account was updated"
 msgstr "Su cuenta de EcclesiaCRM fue cambiada"
 
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31 GroupView.php:289
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/group/groupview.php:234 v2/templates/user/userlist.php:55
 msgid "Status"
 msgstr "Estado"
@@ -5655,7 +5654,7 @@ msgstr "Vanco CC"
 msgid "Bank ACH"
 msgstr "Banco ACH"
 
-#: ElectronicPaymentList.php:271 GroupEditor.php:166 GroupView.php:289
+#: ElectronicPaymentList.php:271 GroupEditor.php:166
 #: v2/templates/group/groupview.php:234
 msgid "Disabled"
 msgstr "Deshabilitado"
@@ -6326,12 +6325,11 @@ msgstr "Mensaje de Texto"
 msgid "EcclesiaCRM text message"
 msgstr "EcclesiaCRM Mensaje de Texto"
 
-#: FamilyView.php:395 GroupView.php:100 PersonView.php:595
-#: v2/templates/group/groupview.php:45
+#: FamilyView.php:395 PersonView.php:595 v2/templates/group/groupview.php:45
 msgid "Remove from Cart"
 msgstr "Remover del Carrito"
 
-#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1346
+#: FamilyView.php:399 PersonView.php:600 SelectList.php:1346
 #: v2/templates/group/groupview.php:49
 msgid "Add to Cart"
 msgstr "Agregar al Carrito"
@@ -6369,9 +6367,9 @@ msgstr "Borrar esta Familia"
 msgid "Timeline"
 msgstr "Línea de Tiempo"
 
-#: FamilyView.php:575 GroupView.php:348 GroupView.php:406 PersonView.php:732
-#: PrintPastoralCare.php:594 PrintView.php:603
-#: v2/templates/group/groupview.php:293 v2/templates/group/groupview.php:351
+#: FamilyView.php:575 PersonView.php:732 PrintPastoralCare.php:594
+#: PrintView.php:603 v2/templates/group/groupview.php:293
+#: v2/templates/group/groupview.php:351
 msgid "Assigned Properties"
 msgstr "Propiedades Asignadas"
 
@@ -6383,8 +6381,7 @@ msgstr "Pagos Automáticos"
 msgid "Pledges and Payments"
 msgstr "Promesas y Pagos"
 
-#: FamilyView.php:715 GroupView.php:361 PersonView.php:1126
-#: v2/templates/group/groupview.php:306
+#: FamilyView.php:715 PersonView.php:1126 v2/templates/group/groupview.php:306
 msgid "Assign a New Property"
 msgstr "Asignar una Nueva Propiedad"
 
@@ -6393,12 +6390,12 @@ msgstr "Asignar una Nueva Propiedad"
 msgid "Select"
 msgstr "Seleccionar"
 
-#: FamilyView.php:721 GroupView.php:366 PersonView.php:1131 QueryView.php:331
-#: QueryView.php:348 v2/templates/group/groupview.php:311
+#: FamilyView.php:721 PersonView.php:1131 QueryView.php:331 QueryView.php:348
+#: v2/templates/group/groupview.php:311
 msgid "select an option"
 msgstr "seleccione una opción"
 
-#: FamilyView.php:736 GroupView.php:382 PersonView.php:1147 PersonView.php:1199
+#: FamilyView.php:736 PersonView.php:1147 PersonView.php:1199
 #: SelectList.php:1190 v2/templates/group/groupview.php:327
 msgid "Assign"
 msgstr "Asignar"
@@ -6946,7 +6943,7 @@ msgstr "Habilitado"
 msgid "Disable Group Specific Properties"
 msgstr "Deshabilitar Propiedades Específicas de Grupo"
 
-#: GroupEditor.php:160 GroupView.php:455 v2/templates/group/groupview.php:400
+#: GroupEditor.php:160 v2/templates/group/groupview.php:400
 msgid "Edit Group-Specific Properties Form"
 msgstr "Editar el formato de propiedades específicas de grupo"
 
@@ -7000,8 +6997,7 @@ msgstr "no se han añadido propiedades aún"
 msgid "Return to Person"
 msgstr "Regresar al persona"
 
-#: GroupPropsFormEditor.php:69 GroupView.php:400
-#: v2/templates/group/groupview.php:345
+#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:345
 msgid "Group-Specific Properties"
 msgstr "Propiedades Específicas de Grupo"
 
@@ -7021,7 +7017,7 @@ msgstr "Perfil de Persona"
 msgid "Add Group-Specific Properties"
 msgstr "Agregar Propiedades Específicas de Grupo"
 
-#: GroupReports.php:38 GroupView.php:122 v2/templates/group/groupview.php:67
+#: GroupReports.php:38 v2/templates/group/groupview.php:67
 msgid "Group reports"
 msgstr "Reporte de grupo"
 
@@ -7079,161 +7075,6 @@ msgstr "Rol de Grupo"
 msgid "Group-Specific Property Fields"
 msgstr "Campos de Propiedad de Grupos Específicos"
 
-#: GroupView.php:79 v2/routes/group/groups.php:95
-msgid "Group View"
-msgstr "Vista de grupo"
-
-#: GroupView.php:86 v2/templates/group/groupview.php:31
-msgid "Group Functions"
-msgstr "Funciones de Grupo"
-
-#: GroupView.php:92 v2/templates/group/groupview.php:37
-msgid "Map this group"
-msgstr "Ubicación del grupo"
-
-#: GroupView.php:111 v2/templates/group/groupview.php:56
-msgid "Edit this Group"
-msgstr "Editar este grupo"
-
-#: GroupView.php:112 v2/templates/group/groupview.php:57
-msgid "Delete this Group"
-msgstr "Borrar este grupo"
-
-#: GroupView.php:173 v2/templates/group/groupview.php:118
-msgid "Email Group"
-msgstr "Email del grupo"
-
-#: GroupView.php:231 v2/templates/group/groupview.php:176
-msgid "Text Group"
-msgstr "Grupo de Texto"
-
-#: GroupView.php:232 v2/templates/group/groupview.php:177
-msgid "Press CTRL + C to copy all group members\\' phone numbers"
-msgstr ""
-"Presione CTRL + C para copiar todos teléfonos de los miembros del grupo"
-
-#: GroupView.php:244 v2/templates/group/groupview.php:189
-msgid "Type of Group"
-msgstr "Tipo de Grupo"
-
-#: GroupView.php:250 v2/templates/group/groupview.php:195
-msgid "Default Role"
-msgstr "Rol Por Defecto"
-
-#: GroupView.php:256 v2/templates/group/groupview.php:201
-msgid "Total Members"
-msgstr "Total de Miembros"
-
-#: GroupView.php:262 v2/templates/group/groupview.php:207
-#, fuzzy
-msgid "Address Book"
-msgstr "Dirección 1"
-
-#: GroupView.php:282 v2/templates/group/groupview.php:227
-msgid "Quick Settings"
-msgstr "Ajustes Rápidos"
-
-#: GroupView.php:289 KioskManager.php:30 ListEvents.php:367
-#: v2/templates/group/groupview.php:234
-msgid "Active"
-msgstr "Activo"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-msgid "Email export"
-msgstr "Exportar email"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-msgid "Include"
-msgstr "Incluir"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-msgid "Exclude"
-msgstr "Excluir"
-
-#: GroupView.php:298 v2/templates/group/groupview.php:243
-msgid ""
-"Assign a group manager only for This Group. He can add or remove member from "
-"This Group, but not create Members."
-msgstr ""
-
-#: GroupView.php:298 v2/templates/group/groupview.php:243
-msgid "Group Managers"
-msgstr "Administradores de grupos"
-
-#: GroupView.php:304 v2/templates/group/groupview.php:249
-msgid "Assigned Managers"
-msgstr "Asignar Administradores"
-
-#: GroupView.php:319 v2/templates/group/groupview.php:264
-msgid "No assigned Manager"
-msgstr "No Asignar Administradores"
-
-#: GroupView.php:324 v2/templates/group/groupview.php:269
-msgid "Add Manager"
-msgstr "Agregar Administrador"
-
-#: GroupView.php:342 v2/templates/group/groupview.php:287
-msgid ""
-"Assign properties for This Group. This properties are global properties and "
-"this can be changed in the admin right side bar &rarr; Group Properties"
-msgstr ""
-
-#: GroupView.php:342 Include/Footer.php:101
-#: v2/templates/group/groupview.php:287
-msgid "Group Properties"
-msgstr "Propiedades de Grupos"
-
-#: GroupView.php:400 v2/templates/group/groupview.php:345
-msgid ""
-"Assign properties for all members of the group. This properties are visible "
-"in each Person Profile &rarr; Assigned Group"
-msgstr ""
-
-#: GroupView.php:414 v2/templates/group/groupview.php:359
-msgid "No member properties have been created"
-msgstr "no se han añadido propiedades de Miembros aún"
-
-#: GroupView.php:446 v2/templates/group/groupview.php:391
-msgid "Disabled for this group."
-msgstr "Desactivado para este grupo."
-
-#: GroupView.php:446 v2/templates/group/groupview.php:391
-msgid ""
-"You should Edit the group and \"Enable Group Specific Properties\". To do "
-"this, press the button above : \"Edit this Group\""
-msgstr ""
-
-#: GroupView.php:470 v2/templates/group/groupview.php:415
-msgid "Group Members:"
-msgstr "Miembros del grupo:"
-
-#: GroupView.php:484 v2/templates/group/groupview.php:429
-msgid "Manage Group Members"
-msgstr "Gestionar Miembros del grupo"
-
-#: GroupView.php:489 v2/templates/group/groupview.php:434
-#: v2/templates/sundayschool/sundayschooldashboard.php:265
-#: v2/templates/sundayschool/sundayschoolview.php:139
-#: v2/templates/sundayschool/sundayschoolview.php:253
-msgid "Add"
-msgstr "Agregar"
-
-#: GroupView.php:495 v2/templates/group/groupview.php:440
-msgid "Remove Selected Members from group"
-msgstr "Borrar Miembros Seleccionados del Grupo"
-
-#: GroupView.php:502 v2/templates/group/groupview.php:447
-msgid "Add Selected Members to Cart"
-msgstr "Agregar Miembros Seleccionados al Carrito"
-
-#: GroupView.php:508 v2/templates/group/groupview.php:453
-msgid "Add Selected Members to Group"
-msgstr "Agregar Miembros Seleccionados al Grupo"
-
-#: GroupView.php:509 v2/templates/group/groupview.php:454
-msgid "Move Selected Members to Group"
-msgstr "Mover Miembros Seleccionados al Grupo"
-
 #: Include/FooterNotLoggedIn.php:9 Include/Footer.php:28
 msgid "Copyright"
 msgstr "Derechos de autor"
@@ -7265,6 +7106,10 @@ msgstr "Propiedades de Personas"
 #: Include/Footer.php:90
 msgid "Edit Custom Person Fields"
 msgstr "Editar Campos personalizados para Personas"
+
+#: Include/Footer.php:101 v2/templates/group/groupview.php:287
+msgid "Group Properties"
+msgstr "Propiedades de Grupos"
 
 #: Include/Footer.php:132
 msgid "Property Types"
@@ -7588,6 +7433,10 @@ msgstr ""
 #: KioskManager.php:29
 msgid "Enable New Kiosk Registration"
 msgstr "Activar Nuevo Registro de Quiosco"
+
+#: KioskManager.php:30 ListEvents.php:367 v2/templates/group/groupview.php:234
+msgid "Active"
+msgstr "Activo"
 
 #: KioskManager.php:30
 msgid "Inactive"
@@ -9851,6 +9700,10 @@ msgstr "Estructuras de los datos del GDPR"
 msgid "Group Listing"
 msgstr "Listado de grupo"
 
+#: v2/routes/group/groups.php:95
+msgid "Group View"
+msgstr "Vista de grupo"
+
 #: v2/routes/people/familylist.php:140
 #, fuzzy
 msgid "Addresses"
@@ -10206,6 +10059,147 @@ msgstr "Grupo suma:"
 #: v2/templates/group/grouplist.php:59 v2/templates/group/grouplist.php:62
 msgid "Add New Group"
 msgstr "Agregar Nuevo Grupo"
+
+#: v2/templates/group/groupview.php:31
+msgid "Group Functions"
+msgstr "Funciones de Grupo"
+
+#: v2/templates/group/groupview.php:37
+msgid "Map this group"
+msgstr "Ubicación del grupo"
+
+#: v2/templates/group/groupview.php:56
+msgid "Edit this Group"
+msgstr "Editar este grupo"
+
+#: v2/templates/group/groupview.php:57
+msgid "Delete this Group"
+msgstr "Borrar este grupo"
+
+#: v2/templates/group/groupview.php:118
+msgid "Email Group"
+msgstr "Email del grupo"
+
+#: v2/templates/group/groupview.php:176
+msgid "Text Group"
+msgstr "Grupo de Texto"
+
+#: v2/templates/group/groupview.php:177
+msgid "Press CTRL + C to copy all group members\\' phone numbers"
+msgstr ""
+"Presione CTRL + C para copiar todos teléfonos de los miembros del grupo"
+
+#: v2/templates/group/groupview.php:189
+msgid "Type of Group"
+msgstr "Tipo de Grupo"
+
+#: v2/templates/group/groupview.php:195
+msgid "Default Role"
+msgstr "Rol Por Defecto"
+
+#: v2/templates/group/groupview.php:201
+msgid "Total Members"
+msgstr "Total de Miembros"
+
+#: v2/templates/group/groupview.php:207
+#, fuzzy
+msgid "Address Book"
+msgstr "Dirección 1"
+
+#: v2/templates/group/groupview.php:227
+msgid "Quick Settings"
+msgstr "Ajustes Rápidos"
+
+#: v2/templates/group/groupview.php:235
+msgid "Email export"
+msgstr "Exportar email"
+
+#: v2/templates/group/groupview.php:235
+msgid "Include"
+msgstr "Incluir"
+
+#: v2/templates/group/groupview.php:235
+msgid "Exclude"
+msgstr "Excluir"
+
+#: v2/templates/group/groupview.php:243
+msgid ""
+"Assign a group manager only for This Group. He can add or remove member from "
+"This Group, but not create Members."
+msgstr ""
+
+#: v2/templates/group/groupview.php:243
+msgid "Group Managers"
+msgstr "Administradores de grupos"
+
+#: v2/templates/group/groupview.php:249
+msgid "Assigned Managers"
+msgstr "Asignar Administradores"
+
+#: v2/templates/group/groupview.php:264
+msgid "No assigned Manager"
+msgstr "No Asignar Administradores"
+
+#: v2/templates/group/groupview.php:269
+msgid "Add Manager"
+msgstr "Agregar Administrador"
+
+#: v2/templates/group/groupview.php:287
+msgid ""
+"Assign properties for This Group. This properties are global properties and "
+"this can be changed in the admin right side bar &rarr; Group Properties"
+msgstr ""
+
+#: v2/templates/group/groupview.php:345
+msgid ""
+"Assign properties for all members of the group. This properties are visible "
+"in each Person Profile &rarr; Assigned Group"
+msgstr ""
+
+#: v2/templates/group/groupview.php:359
+msgid "No member properties have been created"
+msgstr "no se han añadido propiedades de Miembros aún"
+
+#: v2/templates/group/groupview.php:391
+msgid "Disabled for this group."
+msgstr "Desactivado para este grupo."
+
+#: v2/templates/group/groupview.php:391
+msgid ""
+"You should Edit the group and \"Enable Group Specific Properties\". To do "
+"this, press the button above : \"Edit this Group\""
+msgstr ""
+
+#: v2/templates/group/groupview.php:415
+msgid "Group Members:"
+msgstr "Miembros del grupo:"
+
+#: v2/templates/group/groupview.php:429
+msgid "Manage Group Members"
+msgstr "Gestionar Miembros del grupo"
+
+#: v2/templates/group/groupview.php:434
+#: v2/templates/sundayschool/sundayschooldashboard.php:265
+#: v2/templates/sundayschool/sundayschoolview.php:139
+#: v2/templates/sundayschool/sundayschoolview.php:253
+msgid "Add"
+msgstr "Agregar"
+
+#: v2/templates/group/groupview.php:440
+msgid "Remove Selected Members from group"
+msgstr "Borrar Miembros Seleccionados del Grupo"
+
+#: v2/templates/group/groupview.php:447
+msgid "Add Selected Members to Cart"
+msgstr "Agregar Miembros Seleccionados al Carrito"
+
+#: v2/templates/group/groupview.php:453
+msgid "Add Selected Members to Group"
+msgstr "Agregar Miembros Seleccionados al Grupo"
+
+#: v2/templates/group/groupview.php:454
+msgid "Move Selected Members to Group"
+msgstr "Mover Miembros Seleccionados al Grupo"
 
 #: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
 #: v2/templates/map/MapUsingLeaflet.php:21
