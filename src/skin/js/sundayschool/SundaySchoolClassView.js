@@ -60,11 +60,11 @@ $("document").ready(function(){
 
         }
         res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" type="button" class="btn btn-primary btn-sm btn-block"><i\n' +
-            '      class="fa fa-envelope"></i>' + i18next.t('Send Message') + '</a>' +
+            '      class="fa fa-envelope"></i> ' + i18next.t('Send Message') + '</a>' +
             '        <a href="' +  window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" type="button"\n' +
-            '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-q"></i>' + i18next.t('View Profile') +'</a>\n' +
+            '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-user"></i> ' + i18next.t('View Profile') +'</a>\n' +
             '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" "type="button"\n' +
-            '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-q"></i>' + i18next.t('Delete') +'</a>\n' +
+            '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-trash"></i> ' + i18next.t('Delete') +'</a>\n' +
             '        </div>\n' +
             '        </div>\n' +
             '        </div>'
