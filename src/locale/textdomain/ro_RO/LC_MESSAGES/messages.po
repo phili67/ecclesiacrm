@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 20:16+0200\n"
+"POT-Creation-Date: 2019-07-09 08:38+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,14 +294,14 @@ msgstr "Adauga la grup"
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:186
-#: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
-#: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
-#: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
-#: SelectList.php:65 SelectList.php:1239 SelectList.php:1319
-#: SystemSettings.php:213 v2/routes/group/groups.php:63
-#: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
-#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
+#: GroupEditor.php:103 PaddleNumEditor.php:186 PersonEditor.php:963
+#: PersonEditor.php:978 PersonEditor.php:1482 PrintPastoralCare.php:332
+#: PrintPastoralCare.php:345 PrintView.php:343 PrintView.php:356
+#: SelectDelete.php:233 SelectList.php:45 SelectList.php:54 SelectList.php:65
+#: SelectList.php:1239 SelectList.php:1319 SystemSettings.php:213
+#: v2/routes/group/groups.php:63 v2/templates/group/grouplist.php:31
+#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
+#: v2/templates/map/MapUsingGoogle.php:67
 #: v2/templates/map/MapUsingGoogle.php:112
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
@@ -430,9 +430,9 @@ msgstr "Toate Clasificări"
 #: api/routes/sidebar/sidebar-general-roles.php:133
 #: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
 #: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
-#: GroupPropsFormEditor.php:475 GroupView.php:421 OptionManager.php:117
-#: OptionManager.php:125 PersonCustomFieldsEditor.php:340
-#: PersonCustomFieldsEditor.php:465 Reports/GDPR/GDPRDataStructureExport.php:74
+#: GroupPropsFormEditor.php:475 OptionManager.php:117 OptionManager.php:125
+#: PersonCustomFieldsEditor.php:340 PersonCustomFieldsEditor.php:465
+#: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
 #: v2/templates/gdpr/gdprdatastructure.php:42
 #: v2/templates/group/groupview.php:366
@@ -1379,13 +1379,12 @@ msgstr "Adauga in cos pentru a Familiei"
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:345
 #: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
 #: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
-#: GroupPropsFormEditor.php:476 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:341
-#: PersonCustomFieldsEditor.php:468 PrintPastoralCare.php:447
-#: PrintPastoralCare.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
-#: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
-#: Reports/PDFLabel.php:859 SelectList.php:1087
+#: GroupPropsFormEditor.php:476 ListEvents.php:300 ListEvents.php:302
+#: PersonCustomFieldsEditor.php:341 PersonCustomFieldsEditor.php:468
+#: PrintPastoralCare.php:447 PrintPastoralCare.php:612 PrintView.php:458
+#: PrintView.php:621 Reports/CanvassReports.php:69
+#: Reports/CanvassReports.php:234 Reports/FamilyPledgeSummary.php:220
+#: Reports/FRBidSheets.php:87 Reports/PDFLabel.php:859 SelectList.php:1087
 #: v2/templates/group/groupview.php:367 v2/templates/people/familylist.php:48
 #: v2/templates/people/personlist.php:48 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -1536,7 +1535,7 @@ msgstr "Label Type"
 msgid "Email Cart"
 msgstr "E-mail Cosul"
 
-#: CartView.php:149 FamilyView.php:413 GroupView.php:184 PersonView.php:608
+#: CartView.php:149 FamilyView.php:413 PersonView.php:608
 #: v2/templates/group/groupview.php:129
 #: v2/templates/sundayschool/sundayschoolview.php:47
 msgid "Email (BCC)"
@@ -1770,7 +1769,7 @@ msgstr "Creați foaia de prezență"
 msgid "Return to Events"
 msgstr "Revenirea la meniul Query"
 
-#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:166
+#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:178
 #: PersonView.php:406 Reports/CanvassReports.php:238
 #: Reports/VotingMembers.php:84 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
@@ -2482,7 +2481,7 @@ msgstr "Merge"
 
 #: DonatedItemEditor.php:273 EditEventAttendees.php:59 FundRaiserEditor.php:180
 #: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 GroupView.php:423 ListEvents.php:360
+#: GroupPropsFormEditor.php:477 ListEvents.php:360
 #: v2/templates/group/groupview.php:368
 msgid "Description"
 msgstr "Descriere"
@@ -4695,7 +4694,7 @@ msgstr "Valoare"
 msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31 GroupView.php:289
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/group/groupview.php:234 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
@@ -5854,7 +5853,7 @@ msgstr ""
 msgid "Bank ACH"
 msgstr "Bancă"
 
-#: ElectronicPaymentList.php:271 GroupEditor.php:166 GroupView.php:289
+#: ElectronicPaymentList.php:271 GroupEditor.php:166
 #: v2/templates/group/groupview.php:234
 msgid "Disabled"
 msgstr ""
@@ -6559,12 +6558,11 @@ msgstr "Mesaj"
 msgid "EcclesiaCRM text message"
 msgstr ""
 
-#: FamilyView.php:395 GroupView.php:100 PersonView.php:595
-#: v2/templates/group/groupview.php:45
+#: FamilyView.php:395 PersonView.php:595 v2/templates/group/groupview.php:45
 msgid "Remove from Cart"
 msgstr "Elimină din coș"
 
-#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1346
+#: FamilyView.php:399 PersonView.php:600 SelectList.php:1346
 #: v2/templates/group/groupview.php:49
 msgid "Add to Cart"
 msgstr "Adauga in cos"
@@ -6608,9 +6606,9 @@ msgstr "Selectați familia:"
 msgid "Timeline"
 msgstr ""
 
-#: FamilyView.php:575 GroupView.php:348 GroupView.php:406 PersonView.php:732
-#: PrintPastoralCare.php:594 PrintView.php:603
-#: v2/templates/group/groupview.php:293 v2/templates/group/groupview.php:351
+#: FamilyView.php:575 PersonView.php:732 PrintPastoralCare.php:594
+#: PrintView.php:603 v2/templates/group/groupview.php:293
+#: v2/templates/group/groupview.php:351
 #, fuzzy
 msgid "Assigned Properties"
 msgstr "Proprietăți atribuite"
@@ -6624,8 +6622,7 @@ msgstr "Tipul de plată automată"
 msgid "Pledges and Payments"
 msgstr "Angajamente și plăți"
 
-#: FamilyView.php:715 GroupView.php:361 PersonView.php:1126
-#: v2/templates/group/groupview.php:306
+#: FamilyView.php:715 PersonView.php:1126 v2/templates/group/groupview.php:306
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Atribui o nouă proprietate"
@@ -6635,13 +6632,13 @@ msgstr "Atribui o nouă proprietate"
 msgid "Select"
 msgstr "Selecta"
 
-#: FamilyView.php:721 GroupView.php:366 PersonView.php:1131 QueryView.php:331
-#: QueryView.php:348 v2/templates/group/groupview.php:311
+#: FamilyView.php:721 PersonView.php:1131 QueryView.php:331 QueryView.php:348
+#: v2/templates/group/groupview.php:311
 #, fuzzy
 msgid "select an option"
 msgstr "Opțiune specială"
 
-#: FamilyView.php:736 GroupView.php:382 PersonView.php:1147 PersonView.php:1199
+#: FamilyView.php:736 PersonView.php:1147 PersonView.php:1199
 #: SelectList.php:1190 v2/templates/group/groupview.php:327
 msgid "Assign"
 msgstr "Atribui"
@@ -7219,7 +7216,7 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupEditor.php:160 GroupView.php:455 v2/templates/group/groupview.php:400
+#: GroupEditor.php:160 v2/templates/group/groupview.php:400
 msgid "Edit Group-Specific Properties Form"
 msgstr "Editare grup proprietăți specifice Form"
 
@@ -7277,8 +7274,7 @@ msgstr "Nici o proprietate au fost încă adăugate"
 msgid "Return to Person"
 msgstr "Return to înregistrare Persoana"
 
-#: GroupPropsFormEditor.php:69 GroupView.php:400
-#: v2/templates/group/groupview.php:345
+#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:345
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
@@ -7302,7 +7298,7 @@ msgstr "Persoana Vezi"
 msgid "Add Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupReports.php:38 GroupView.php:122 v2/templates/group/groupview.php:67
+#: GroupReports.php:38 v2/templates/group/groupview.php:67
 msgid "Group reports"
 msgstr "Rapoarte de grup"
 
@@ -7368,179 +7364,6 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Specific de grup câmpuri de proprietate"
 
-#: GroupView.php:79 v2/routes/group/groups.php:95
-msgid "Group View"
-msgstr "Group Vezi"
-
-#: GroupView.php:86 v2/templates/group/groupview.php:31
-#, fuzzy
-msgid "Group Functions"
-msgstr "Listarea grup"
-
-#: GroupView.php:92 v2/templates/group/groupview.php:37
-msgid "Map this group"
-msgstr "Harta acestui grup"
-
-#: GroupView.php:111 v2/templates/group/groupview.php:56
-msgid "Edit this Group"
-msgstr "Editează acest grup"
-
-#: GroupView.php:112 v2/templates/group/groupview.php:57
-msgid "Delete this Group"
-msgstr "Șterge acest grup"
-
-#: GroupView.php:173 v2/templates/group/groupview.php:118
-msgid "Email Group"
-msgstr "E-mail Group"
-
-#: GroupView.php:231 v2/templates/group/groupview.php:176
-#, fuzzy
-msgid "Text Group"
-msgstr "Selectați Grupa"
-
-#: GroupView.php:232 v2/templates/group/groupview.php:177
-msgid "Press CTRL + C to copy all group members\\' phone numbers"
-msgstr ""
-
-#: GroupView.php:244 v2/templates/group/groupview.php:189
-#, fuzzy
-msgid "Type of Group"
-msgstr "Tipul Grupa"
-
-#: GroupView.php:250 v2/templates/group/groupview.php:195
-#, fuzzy
-msgid "Default Role"
-msgstr "Implicit Rol"
-
-#: GroupView.php:256 v2/templates/group/groupview.php:201
-#, fuzzy
-msgid "Total Members"
-msgstr "Total membri"
-
-#: GroupView.php:262 v2/templates/group/groupview.php:207
-#, fuzzy
-msgid "Address Book"
-msgstr "Adresa"
-
-#: GroupView.php:282 v2/templates/group/groupview.php:227
-#, fuzzy
-msgid "Quick Settings"
-msgstr "Salvare setări"
-
-#: GroupView.php:289 KioskManager.php:30 ListEvents.php:367
-#: v2/templates/group/groupview.php:234
-msgid "Active"
-msgstr "Activ"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-#, fuzzy
-msgid "Email export"
-msgstr "E-mail Cosul"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-#, fuzzy
-msgid "Include"
-msgstr "Includ:"
-
-#: GroupView.php:290 v2/templates/group/groupview.php:235
-#, fuzzy
-msgid "Exclude"
-msgstr "Includ:"
-
-#: GroupView.php:298 v2/templates/group/groupview.php:243
-msgid ""
-"Assign a group manager only for This Group. He can add or remove member from "
-"This Group, but not create Members."
-msgstr ""
-
-#: GroupView.php:298 v2/templates/group/groupview.php:243
-#, fuzzy
-msgid "Group Managers"
-msgstr "Membrii grupului:"
-
-#: GroupView.php:304 v2/templates/group/groupview.php:249
-#, fuzzy
-msgid "Assigned Managers"
-msgstr "Atribuirea colportori"
-
-#: GroupView.php:319 v2/templates/group/groupview.php:264
-#, fuzzy
-msgid "No assigned Manager"
-msgstr "Nu este alocat"
-
-#: GroupView.php:324 v2/templates/group/groupview.php:269
-#, fuzzy
-msgid "Add Manager"
-msgstr "Adauga Cumparator"
-
-#: GroupView.php:342 v2/templates/group/groupview.php:287
-msgid ""
-"Assign properties for This Group. This properties are global properties and "
-"this can be changed in the admin right side bar &rarr; Group Properties"
-msgstr ""
-
-#: GroupView.php:342 Include/Footer.php:101
-#: v2/templates/group/groupview.php:287
-#, fuzzy
-msgid "Group Properties"
-msgstr "Proprietăți grup-specifice"
-
-#: GroupView.php:400 v2/templates/group/groupview.php:345
-msgid ""
-"Assign properties for all members of the group. This properties are visible "
-"in each Person Profile &rarr; Assigned Group"
-msgstr ""
-
-#: GroupView.php:414 v2/templates/group/groupview.php:359
-#, fuzzy
-msgid "No member properties have been created"
-msgstr "Nici o proprietate au fost încă adăugate"
-
-#: GroupView.php:446 v2/templates/group/groupview.php:391
-msgid "Disabled for this group."
-msgstr "Dezactivată pentru acest grup."
-
-#: GroupView.php:446 v2/templates/group/groupview.php:391
-msgid ""
-"You should Edit the group and \"Enable Group Specific Properties\". To do "
-"this, press the button above : \"Edit this Group\""
-msgstr ""
-
-#: GroupView.php:470 v2/templates/group/groupview.php:415
-msgid "Group Members:"
-msgstr "Membrii grupului:"
-
-#: GroupView.php:484 v2/templates/group/groupview.php:429
-#, fuzzy
-msgid "Manage Group Members"
-msgstr "Membrii grupului:"
-
-#: GroupView.php:489 v2/templates/group/groupview.php:434
-#: v2/templates/sundayschool/sundayschooldashboard.php:265
-#: v2/templates/sundayschool/sundayschoolview.php:139
-#: v2/templates/sundayschool/sundayschoolview.php:253
-#, fuzzy
-msgid "Add"
-msgstr "Adresa"
-
-#: GroupView.php:495 v2/templates/group/groupview.php:440
-msgid "Remove Selected Members from group"
-msgstr ""
-
-#: GroupView.php:502 v2/templates/group/groupview.php:447
-#, fuzzy
-msgid "Add Selected Members to Cart"
-msgstr "Adauga Membrii grupului in cos"
-
-#: GroupView.php:508 v2/templates/group/groupview.php:453
-#, fuzzy
-msgid "Add Selected Members to Group"
-msgstr "Adauga Persoana de grup"
-
-#: GroupView.php:509 v2/templates/group/groupview.php:454
-msgid "Move Selected Members to Group"
-msgstr ""
-
 #: Include/FooterNotLoggedIn.php:9 Include/Footer.php:28
 msgid "Copyright"
 msgstr ""
@@ -7578,6 +7401,11 @@ msgstr "Proprietăți"
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "Custom fields Persoana"
+
+#: Include/Footer.php:101 v2/templates/group/groupview.php:287
+#, fuzzy
+msgid "Group Properties"
+msgstr "Proprietăți grup-specifice"
 
 #: Include/Footer.php:132
 #, fuzzy
@@ -7903,6 +7731,10 @@ msgstr ""
 #: KioskManager.php:29
 msgid "Enable New Kiosk Registration"
 msgstr ""
+
+#: KioskManager.php:30 ListEvents.php:367 v2/templates/group/groupview.php:234
+msgid "Active"
+msgstr "Activ"
 
 #: KioskManager.php:30
 #, fuzzy
@@ -10348,6 +10180,10 @@ msgstr ""
 msgid "Group Listing"
 msgstr "Listarea grup"
 
+#: v2/routes/group/groups.php:95
+msgid "Group View"
+msgstr "Group Vezi"
+
 #: v2/routes/people/familylist.php:140
 #, fuzzy
 msgid "Addresses"
@@ -10717,6 +10553,164 @@ msgstr "Listarea grup"
 #, fuzzy
 msgid "Add New Group"
 msgstr "Adauga la grup"
+
+#: v2/templates/group/groupview.php:31
+#, fuzzy
+msgid "Group Functions"
+msgstr "Listarea grup"
+
+#: v2/templates/group/groupview.php:37
+msgid "Map this group"
+msgstr "Harta acestui grup"
+
+#: v2/templates/group/groupview.php:56
+msgid "Edit this Group"
+msgstr "Editează acest grup"
+
+#: v2/templates/group/groupview.php:57
+msgid "Delete this Group"
+msgstr "Șterge acest grup"
+
+#: v2/templates/group/groupview.php:118
+msgid "Email Group"
+msgstr "E-mail Group"
+
+#: v2/templates/group/groupview.php:176
+#, fuzzy
+msgid "Text Group"
+msgstr "Selectați Grupa"
+
+#: v2/templates/group/groupview.php:177
+msgid "Press CTRL + C to copy all group members\\' phone numbers"
+msgstr ""
+
+#: v2/templates/group/groupview.php:189
+#, fuzzy
+msgid "Type of Group"
+msgstr "Tipul Grupa"
+
+#: v2/templates/group/groupview.php:195
+#, fuzzy
+msgid "Default Role"
+msgstr "Implicit Rol"
+
+#: v2/templates/group/groupview.php:201
+#, fuzzy
+msgid "Total Members"
+msgstr "Total membri"
+
+#: v2/templates/group/groupview.php:207
+#, fuzzy
+msgid "Address Book"
+msgstr "Adresa"
+
+#: v2/templates/group/groupview.php:227
+#, fuzzy
+msgid "Quick Settings"
+msgstr "Salvare setări"
+
+#: v2/templates/group/groupview.php:235
+#, fuzzy
+msgid "Email export"
+msgstr "E-mail Cosul"
+
+#: v2/templates/group/groupview.php:235
+#, fuzzy
+msgid "Include"
+msgstr "Includ:"
+
+#: v2/templates/group/groupview.php:235
+#, fuzzy
+msgid "Exclude"
+msgstr "Includ:"
+
+#: v2/templates/group/groupview.php:243
+msgid ""
+"Assign a group manager only for This Group. He can add or remove member from "
+"This Group, but not create Members."
+msgstr ""
+
+#: v2/templates/group/groupview.php:243
+#, fuzzy
+msgid "Group Managers"
+msgstr "Membrii grupului:"
+
+#: v2/templates/group/groupview.php:249
+#, fuzzy
+msgid "Assigned Managers"
+msgstr "Atribuirea colportori"
+
+#: v2/templates/group/groupview.php:264
+#, fuzzy
+msgid "No assigned Manager"
+msgstr "Nu este alocat"
+
+#: v2/templates/group/groupview.php:269
+#, fuzzy
+msgid "Add Manager"
+msgstr "Adauga Cumparator"
+
+#: v2/templates/group/groupview.php:287
+msgid ""
+"Assign properties for This Group. This properties are global properties and "
+"this can be changed in the admin right side bar &rarr; Group Properties"
+msgstr ""
+
+#: v2/templates/group/groupview.php:345
+msgid ""
+"Assign properties for all members of the group. This properties are visible "
+"in each Person Profile &rarr; Assigned Group"
+msgstr ""
+
+#: v2/templates/group/groupview.php:359
+#, fuzzy
+msgid "No member properties have been created"
+msgstr "Nici o proprietate au fost încă adăugate"
+
+#: v2/templates/group/groupview.php:391
+msgid "Disabled for this group."
+msgstr "Dezactivată pentru acest grup."
+
+#: v2/templates/group/groupview.php:391
+msgid ""
+"You should Edit the group and \"Enable Group Specific Properties\". To do "
+"this, press the button above : \"Edit this Group\""
+msgstr ""
+
+#: v2/templates/group/groupview.php:415
+msgid "Group Members:"
+msgstr "Membrii grupului:"
+
+#: v2/templates/group/groupview.php:429
+#, fuzzy
+msgid "Manage Group Members"
+msgstr "Membrii grupului:"
+
+#: v2/templates/group/groupview.php:434
+#: v2/templates/sundayschool/sundayschooldashboard.php:265
+#: v2/templates/sundayschool/sundayschoolview.php:139
+#: v2/templates/sundayschool/sundayschoolview.php:253
+#, fuzzy
+msgid "Add"
+msgstr "Adresa"
+
+#: v2/templates/group/groupview.php:440
+msgid "Remove Selected Members from group"
+msgstr ""
+
+#: v2/templates/group/groupview.php:447
+#, fuzzy
+msgid "Add Selected Members to Cart"
+msgstr "Adauga Membrii grupului in cos"
+
+#: v2/templates/group/groupview.php:453
+#, fuzzy
+msgid "Add Selected Members to Group"
+msgstr "Adauga Persoana de grup"
+
+#: v2/templates/group/groupview.php:454
+msgid "Move Selected Members to Group"
+msgstr ""
 
 #: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
 #: v2/templates/map/MapUsingLeaflet.php:21

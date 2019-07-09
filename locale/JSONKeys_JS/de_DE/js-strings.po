@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-07-07T16:50:05.555Z\n"
+"POT-Creation-Date: 2019-07-09T06:38:04.215Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -965,6 +965,9 @@ msgstr "Rolle Löschen bestätigen"
 msgid "This will also delete all persons membership associated with this role."
 msgstr ""
 "Diese Aktion wird alle personnen Mitgliedschaft mit diesem Rolle löschen."
+
+msgid "A group should have at least one role!"
+msgstr "Sie müssen mindestens ein role in dieser Gruppe lassen !"
 
 msgid "Role Name"
 msgstr "Rolle Name"

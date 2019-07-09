@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-07-07T16:50:05.555Z\n"
+"POT-Creation-Date: 2019-07-09T06:38:04.215Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -981,6 +981,9 @@ msgstr ""
 "Ceci supprimera également tous les appartenances de personnes associées à ce "
 "rôle."
 
+msgid "A group should have at least one role!"
+msgstr "Un groupe devrait avoir au moins un rôle !"
+
 msgid "Role Name"
 msgstr "Nom du rôle"
 
@@ -1452,7 +1455,7 @@ msgid "Add New Volunteer Opportunity"
 msgstr "Ajouter une nouvelle opportunité de bénévolat"
 
 msgid "Send Message"
-msgstr "Evoyer Message"
+msgstr "Envoyer Message"
 
 msgid "View Profile"
 msgstr "Voir Profil"
