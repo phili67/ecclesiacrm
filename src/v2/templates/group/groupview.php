@@ -192,7 +192,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 if (!empty($defaultRole)) {
                     ?>
-                    <?= _('Default Role') ?> <span class="badge"><?= $defaultRole->getOptionName() ?></span>
+                    <?= _('Default Role') ?> <span class="badge"><?= _($defaultRole->getOptionName()) ?></span>
                     <?php
                 }
                 ?>
