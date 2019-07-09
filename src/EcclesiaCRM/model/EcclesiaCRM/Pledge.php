@@ -17,22 +17,22 @@ use Propel\Runtime\Connection\ConnectionInterface;
  */
 class Pledge extends BasePledge
 {
-    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
+    public function preDelete(ConnectionInterface $con = NULL)
     {
       $deposit = DepositQuery::create()->findOneById($this->getDepid());
       
-      if (parent::preDelete($con)) {        
+      if ( ($ret = parent::preDelete($con)) ) {
           if ($deposit != null && $deposit->getClosed()) {
             throw new PropelException('Cannot delete a payment from a closed deposit', 500);
           }
           
-          return true;
+          return $ret;
       }
     }
     
-    public function toArray()
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
-      $array = parent::toArray();
+      $array = parent::toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, $includeForeignObjects);
       $family = $this->getFamily();
       
       if($family)
