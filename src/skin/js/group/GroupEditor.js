@@ -38,6 +38,7 @@ $("document").ready(function()
 
 
   $("#selectGroupIDDiv").hide();
+
   $("#cloneGroupRole").click(function(e)
   {
     if(e.target.checked)
@@ -102,29 +103,36 @@ $("document").ready(function()
   $(document).on('click', '.deleteRole', function(e)
   {
     var roleID = e.currentTarget.id.split("-")[1];
-    
-    bootbox.confirm({
-      title: i18next.t("Confirm Delete Role"),
-      message: '<p style="color: red">'+
-        i18next.t("This will also delete all persons membership associated with this role.")+
-        "</p>",
-      callback: function (result) {
-        if (result) {
-          $.ajax({
-            method: "POST",
-            url: window.CRM.root + "/api/groups/" + window.CRM.groupID + "/roles/" + roleID,
-            encode: true,
-            data: {"_METHOD":"DELETE"},
-            dataType: "json"
-          }).done(function(data) {
-            window.CRM.dataT.ajax.reload();
-            window.CRM.roleCount--;
-            if(roleID == defaultRoleID)        // if we delete the default group role, set the default group role to 1 before we tell the table to re-render so that the buttons work correctly
-              defaultRoleID = 1;
-          });
+
+    var numberOfRows = window.CRM.dataT.data().count();
+
+    if (numberOfRows > 1) {
+      bootbox.confirm({
+        title: i18next.t("Confirm Delete Role"),
+        message: '<p style="color: red">' +
+            i18next.t("This will also delete all persons membership associated with this role.") +
+            "</p>",
+        callback: function (result) {
+          if (result) {
+            $.ajax({
+              method: "POST",
+              url: window.CRM.root + "/api/groups/" + window.CRM.groupID + "/roles/" + roleID,
+              encode: true,
+              data: {"_METHOD": "DELETE"},
+              dataType: "json"
+            }).done(function (data) {
+              window.CRM.dataT.ajax.reload();
+              window.CRM.roleCount--;
+              if (roleID == defaultRoleID)        // if we delete the default group role, set the default group role to 1 before we tell the table to re-render so that the buttons work correctly
+                defaultRoleID = 1;
+            });
+          }
         }
-      }
-    });
+      });
+    } else {
+      bootbox.alert(i18next.t("A group should have at least one role!"));
+    }
+
   });
 
   $(document).on('click', '.rollOrder', function(e)
