@@ -28,7 +28,7 @@ use EcclesiaCRM\SessionUser;
 class MenuBar {
     private $_title;
     private $_menus  = [];
-    private $_maxStr = 25;// maximum numbers of char in the menu items
+    private $_maxStr = 22;// maximum numbers of char in the menu items
     
     
     // Simple : Constructor
