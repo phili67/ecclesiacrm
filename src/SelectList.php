@@ -272,8 +272,9 @@ if ($iMode == 2) {
     if (isset($iGroupType)) {
         if ($iGroupType >= 0) {
             $sJoinExt = ' LEFT JOIN person2group2role_p2g2r ON per_ID = p2g2r_per_ID '.
-                        ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID ';
-            $sGroupWhereExt = ' AND grp_type = '.$iGroupType.' ';
+                        ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID '.
+                        ' LEFT JOIN group_type ON grptp_grp_ID=grp_ID';
+            $sGroupWhereExt = ' AND grptp_lst_OptionID = '.$iGroupType.' ';
 
             if ($iGroupID >= 0) {
                 if ($iRoleID >= 0) {
@@ -293,8 +294,9 @@ if ($iMode == 2) {
             } else {
                 $sJoinExt = ' LEFT JOIN person2group2role_p2g2r '.
                             ' ON per_ID = p2g2r_per_ID '.
-                            ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID ';
-                $sGroupWhereExt = ' AND grp_type='.$iGroupType.' '.
+                            ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID '.
+                            ' LEFT JOIN group_type ON grptp_grp_ID=grp_ID';
+                $sGroupWhereExt = ' AND grptp_lst_OptionID='.$iGroupType.' '.
                                     ' AND per_ID NOT IN '.
                                     ' (SELECT p2g2r_per_ID FROM person2group2role_p2g2r '.
                                     '  WHERE p2g2r_grp_ID='.($iGroupID + $iTenThousand).') ';
@@ -304,10 +306,12 @@ if ($iMode == 2) {
             $sGroupWhereExt = ' AND per_ID NOT IN (SELECT p2g2r_per_ID '.
                                 ' FROM person2group2role_p2g2r '.
                                 ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID '.
-                                ' WHERE grp_type = '.($iGroupType + $iTenThousand).')';
+                                ' LEFT JOIN group_type ON grptp_grp_ID=grp_ID'.
+                                ' WHERE grptp_lst_OptionID = '.($iGroupType + $iTenThousand).')';
         }
     }
 }
+
 
 $sPersonPropertyWhereExt = ''; // Person Property Filtering Logic
 $sJoinExt2 = '';
