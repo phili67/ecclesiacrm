@@ -406,6 +406,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             
               $family->save();
+
+              $iFamily = $family->getId();
             }
         }
 
@@ -443,8 +445,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setSendNewsletter($bSendNewsLetterString);
             
             // bSendNewsLetterString : When you activated a single person the family is deactivated
-            if ($bSendNewsLetterString == "TRUE") {
-              $person->getFamily()->setSendNewsletter("FALSE");
+            if ($bSendNewsLetterString == "TRUE" && $iFamily > 0 && !is_null ($family) ) {
+                $family->setSendNewsletter("FALSE");
             }
             
             if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
