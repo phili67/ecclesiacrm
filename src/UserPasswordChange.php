@@ -17,7 +17,8 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Emails\PasswordChangeEmail;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -76,7 +77,7 @@ if (isset($_POST['Submit'])) {
             if (!empty($curUser->getEmail())) {
                 $email = new PasswordChangeEmail($curUser, $sNewPassword1);
                 if (!$email->send()) {
-                    $logger->warn($email->getError());
+                    LoggerUtils::getAppLogger()->warn($email->getError());
                 }
             }
 

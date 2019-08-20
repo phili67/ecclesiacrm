@@ -22,7 +22,8 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 class EmailPDF_ConfirmReport extends ChurchInfoReport
 {
@@ -342,7 +343,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         if ($mail->send()) {
             $familiesEmailed = $familiesEmailed + 1;
         } else {
-            $logger->error($mail->getError());
+            LoggerUtils::getAppLogger()->error($mail->getError());
         }
     }
 }

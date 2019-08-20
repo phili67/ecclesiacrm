@@ -22,6 +22,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
@@ -487,7 +488,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs"))) {
                 $NotificationEmail = new NewPersonOrFamilyEmail($family);
                 if (!$NotificationEmail->send()) {
-                    $logger->warn($NotificationEmail->getError());
+                    LoggerUtils::getAppLogger()->warn($NotificationEmail->getError());
                 }
             }
         } else {

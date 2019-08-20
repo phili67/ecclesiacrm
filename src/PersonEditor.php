@@ -18,6 +18,7 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
@@ -565,7 +566,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                 $person = PersonQuery::create()->findOneByID($iPersonID);
                 $NotificationEmail = new NewPersonOrFamilyEmail($person);
                 if (!$NotificationEmail->send()) {
-                    $logger->warn($NotificationEmail->getError());
+                    LoggerUtils::getAppLogger()->warn($NotificationEmail->getError());
                 }
             }
         }
