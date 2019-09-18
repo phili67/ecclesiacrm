@@ -716,5 +716,13 @@
         "scripts": [
         ],
         "dbVersion": "5.8.5"
+    },
+    "current": {
+        "versions": [
+            "5.8.5"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "5.8.6"
     }
 }
