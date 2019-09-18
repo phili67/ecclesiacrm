@@ -183,7 +183,7 @@ function Header_body_scripts()
                     "buttons": [ <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'copy', ":""?> <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf', 'print', ":""?> 'colvis'  ],
                 }
             },
-            PageName:"<?= $_SERVER['PHP_SELF']?>"
+            PageName:"<?= $_SERVER['REQUEST_URI']?>"
         };
     </script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CRMJSOM.js"></script>
