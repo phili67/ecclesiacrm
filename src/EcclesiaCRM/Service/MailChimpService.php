@@ -899,4 +899,40 @@ class MailChimpService
         
         return $result;
     }
+    private function update_member_email ($list_id,$member,$newEmail) {
+      $mcLists = $_SESSION['MailChimpLists'];
+      
+      $i = 0;
+      foreach ($mcLists as $list) {
+
+        if ($list['id'] == $list_id) {
+          $j = 0;
+          foreach ($_SESSION['MailChimpLists'][$i]['members'] as $memb) {
+            if ($memb['email_address'] == $member) {
+              $_SESSION['MailChimpLists'][$i]['members'][$j]['email_address'] = $newEmail;
+              break;
+            }
+            $j++;
+          }
+          
+          break;
+        }
+        $i++;
+      }
+    }
+    public function updateMemberEmail($oldEmail,$newEmail) // status : Unsubscribed , Subscribed
+    {
+        $subscriber_hash = $this->myMailchimp->subscriberHash($oldEmail);
+
+        $lists = $this->getListsFromCache();
+        
+        foreach ($lists as $list) {
+           $result = $this->myMailchimp->patch("lists/".$list['id']."/members/$subscriber_hash", [
+                'email_address' => $newEmail,
+           ]);
+           
+           $this->update_member_email ($list['id'],$oldEmail,$newEmail);
+        }
+        return $result;
+    }
 }
