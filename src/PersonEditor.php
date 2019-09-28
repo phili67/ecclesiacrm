@@ -35,6 +35,8 @@ use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Service\MailChimpService;
+
 
 use Propel\Runtime\Propel;
 
@@ -491,7 +493,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
             $person = PersonQuery::Create()
                 ->findOneByID($iPersonID);
-                
+
+            $oldEmail = $person->getEmail();
+
+            if ($person->getSendNewsletter() && $oldEmail != $sEmail) {// in any cases we've to update the Lists
+              $mailchimp = new MailChimpService();
+              $mailchimp->updateMemberEmail ($oldEmail,$sEmail);
+            }
+
             $person->setTitle($sTitle);
             $person->setFirstName($sFirstName);
             $person->setMiddleName($sMiddleName);
