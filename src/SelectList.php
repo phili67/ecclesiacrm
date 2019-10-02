@@ -1438,6 +1438,7 @@ if (!isset($sPersonColumn5)) {
   </form>
 </div>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 
 <?php require 'Include/Footer.php' ?>
