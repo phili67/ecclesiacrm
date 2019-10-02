@@ -51,6 +51,9 @@ $pastoralCareTypes = PastoralCareTypeQuery::Create()->find();
 
 $res = [];
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
@@ -58,9 +61,6 @@ header('Content-Description: File Transfer');
 header('Content-Type: text/csv;charset='.$charset);
 header('Content-Disposition: attachment; filename=GDPRList-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
-
-$delimiter = SessionUser::getUser()->CSVExportDelemiter();
-$charset   = SessionUser::getUser()->CSVExportCharset();
 
 $out = fopen('php://output', 'w');
 
