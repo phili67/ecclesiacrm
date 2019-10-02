@@ -65,15 +65,15 @@ if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
         ProcessSQL();
         DoQuery();
     } else {
-        //Yes, there were errors; re-display the parameter form (the DisplayParameterform function will
+        //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
         //pick up and display any error messages)
         DisplayQueryInfo();
-        DisplayParameterform();
+        DisplayParameterForm();
     }
 } else {
     //Display the parameter form
     DisplayQueryInfo();
-    DisplayParameterform();
+    DisplayParameterForm();
 }
 
 //Loops through all the parameters and ensures validation rules have been followed
@@ -378,7 +378,7 @@ function DisplayQueryInfo()
 }
 
 
-function getQueryformInput($queryParameters)
+function getQueryFormInput($queryParameters)
 {
     global $aErrorText;
     
@@ -441,7 +441,7 @@ function getQueryformInput($queryParameters)
 }
 
 //Displays a form to enter values for each parameter, creating INPUT boxes and SELECT drop-downs as necessary
-function DisplayParameterform()
+function DisplayParameterForm()
 {
     global $rsParameters;
     global $iQueryID; ?>
@@ -459,7 +459,7 @@ if (mysqli_num_rows($rsParameters)) {
     mysqli_data_seek($rsParameters, 0);
 }
     while ($aRow = mysqli_fetch_array($rsParameters)) {
-        echo getQueryformInput($aRow);
+        echo getQueryFormInput($aRow);
     } ?>
                     
                     <div class="form-group text-right">
