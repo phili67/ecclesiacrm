@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -64,15 +65,15 @@ if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
         ProcessSQL();
         DoQuery();
     } else {
-        //Yes, there were errors; re-display the parameter form (the DisplayParameterForm function will
+        //Yes, there were errors; re-display the parameter form (the DisplayParameterform function will
         //pick up and display any error messages)
         DisplayQueryInfo();
-        DisplayParameterForm();
+        DisplayParameterform();
     }
 } else {
     //Display the parameter form
     DisplayQueryInfo();
-    DisplayParameterForm();
+    DisplayParameterform();
 }
 
 //Loops through all the parameters and ensures validation rules have been followed
@@ -211,16 +212,23 @@ function DoQuery()
                 <?php
                     //Loop through the fields and write the header row
                     for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-                        //If this field is called "AddToCart", don't display this field...
+                        //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
                         $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
                         if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
                             echo '<th>'._($fieldInfo->name).'</th>';
+                        } elseif ($fieldInfo->name == 'AddToCart') {
+                  ?>
+                        <th>
+                         <?= _("Add to Cart") ?>
+                        </th>
+                  <?php
                         }
-                    } ?>
+                    } 
+                  ?>
             </thead>
             <tbody>
 <?php
-    $aHiddenFormField = [];
+    $aAddToCartIDs = [];
     
     $qry_real_Count = 0;
 
@@ -234,10 +242,34 @@ function DoQuery()
 
         //Loop through the fields and write each one
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-            //If this field is called "AddToCart", add this to the hidden form field...
+            // If this field is called "AddToCart", add a cart button to the form
             $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
+            
             if ( $fieldInfo->name == 'AddToCart' ) {
-                $aHiddenFormField[] = $aRow[$iCount];
+              if (!Cart::PersonInCart ($aRow[$iCount])) {
+        ?>
+                 <td>
+                     <a class="AddToPeopleCart"  data-cartpersonid="<?= $aRow[$iCount] ?>">
+                         <span class="fa-stack">
+                         <i class="fa fa-square fa-stack-2x"></i>
+                         <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
+                         </span>
+                     </a>
+                 </td>
+        <?php
+              } else {
+        ?>
+                 <td>
+                     <a class="removeResultsFromCart"  data-cartpersonid="<?= $aRow[$iCount] ?>">
+                         <span class="fa-stack">
+                         <i class="fa fa-square fa-stack-2x"></i>
+                         <i class="fa fa-remove fa-stack-1x fa-inverse"></i>
+                         </span>
+                     </a>
+                 </td>
+        <?php        
+              }
+              $aAddToCartIDs[] = $aRow[$iCount];
             }
             //...otherwise just render the field
             else if ($fieldInfo->name != 'GDPR') {
@@ -258,18 +290,15 @@ function DoQuery()
     
     <div class="box-footer">
         <p>
-        <?php if (count($aHiddenFormField)): ?>
-            <form method="post" action="CartView.php">
+        <?php if (count($aAddToCartIDs)) { ?>
             <div class="col-sm-offset-1">
-                <input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
-                <input type="submit" class="btn btn-primary btn-sm" name="AddToCartSubmit" value="<?= _('Add To Cart') ?>">
-                <input type="submit" class="btn btn-warning btn-sm" name="AndToCartSubmit" value="<?= _('Intersect With Cart') ?>">
-                <input type="submit" class="btn btn-danger btn-sm" name="NotToCartSubmit" value="<?= _('Remove From Cart') ?>">
-            </div>
-            </form>
-        <?php endif; ?>
+                 <input type="hidden" value="<?= implode(',', $aAddToCartIDs) ?>" name="BulkAddToCart">
+                 <button type="button" id="addResultsToCart" class="btn btn-success btn-sm" > <?= _('Add To Cart') ?></button>
+                 <button type="button" id="intersectResultsToCart" class="btn btn-warning btn-sm"><?= _('Intersect With Cart') ?></button>
+                 <button type="button" id="removeResultsFromCart" class="btn btn-danger btn-sm" > <?= _('Remove From Cart') ?></button>
+             </div>
         </p>
-        
+        <?php } ?>
         <p class="text-right">
             <?= '<a href="QueryView.php?QueryID='.$iQueryID.'">'._('Run Query Again').'</a>'; ?>
         </p>
@@ -286,7 +315,51 @@ function DoQuery()
     </div>
 </div>
 
+    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+       $("#addResultsToCart").click(function () {
+           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
+           window.CRM.cart.addPerson(selectedPersons,function(data) {
+             if (data.status == "success") {
+               // broadcaster
+               $.event.trigger({
+                    type: "updateCartMessage",
+                    people:data.cart
+               });
+              }
+           });
+           
+       });
+       
+       $("#intersectResultsToCart").click(function () {
+           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
+           window.CRM.cart.intersectPerson(selectedPersons,function(data) {
+             if (data.status == "success") {
+               // broadcaster
+               $.event.trigger({
+                    type: "updateCartMessage",
+                    people:data.cart
+               });
+              }
+           });
+       });
+
+       $("#removeResultsFromCart").click(function(){
+           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
+           window.CRM.cart.removePerson(selectedPersons,function(data) {
+             if (data.status == "success") {
+               // broadcaster
+               $.event.trigger({
+                    type: "updateCartMessage",
+                    people:data.cart
+               });
+              }
+           });
+       });
+    </script>
+
+
 <?php
+
 }
 
 
@@ -305,7 +378,7 @@ function DisplayQueryInfo()
 }
 
 
-function getQueryFormInput($queryParameters)
+function getQueryformInput($queryParameters)
 {
     global $aErrorText;
     
@@ -368,7 +441,7 @@ function getQueryFormInput($queryParameters)
 }
 
 //Displays a form to enter values for each parameter, creating INPUT boxes and SELECT drop-downs as necessary
-function DisplayParameterForm()
+function DisplayParameterform()
 {
     global $rsParameters;
     global $iQueryID; ?>
@@ -386,7 +459,7 @@ if (mysqli_num_rows($rsParameters)) {
     mysqli_data_seek($rsParameters, 0);
 }
     while ($aRow = mysqli_fetch_array($rsParameters)) {
-        echo getQueryFormInput($aRow);
+        echo getQueryformInput($aRow);
     } ?>
                     
                     <div class="form-group text-right">
@@ -405,9 +478,11 @@ if (mysqli_num_rows($rsParameters)) {
 }
 ?>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     $(document).ready(function () {
-        $("#query-table").DataTable(window.CRM.plugin.dataTable);
+      $("#query-table").DataTable(window.CRM.plugin.dataTable);
     });
 </script>
 

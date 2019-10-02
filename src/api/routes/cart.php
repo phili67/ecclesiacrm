@@ -23,6 +23,7 @@ $app->group('/cart', function () {
  * #! param: id->int :: teacherGroup id
  */
     $this->post('/', 'cartOperation' );
+    $this->post('/interectPerson', 'cartIntersectPersons' );
     $this->post('/emptyToGroup', 'emptyCartToGroup' );
     $this->post('/emptyToEvent', 'emptyCartToEvent' );
     $this->post('/emptyToNewGroup', 'emptyCartToNewGroup' );
@@ -41,6 +42,23 @@ $app->group('/cart', function () {
 
 function getAllPeopleInCart (Request $request, Response $response, array $args) {
   return $response->withJSON(['PeopleCart' =>  $_SESSION['aPeopleCart']]);
+}
+
+function cartIntersectPersons ($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+      $cartPayload = (object)$request->getParsedBody();
+      
+      if ( isset ($cartPayload->Persons) )
+      {
+        Cart::IntersectArrayWithPeopleCart($cartPayload->Persons);
+        
+        return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
+      }
+      
+      return $response->withJson(['status' => "failed"]);
 }
 
 function cartOperation ($request, $response, $args) {
@@ -78,7 +96,7 @@ function cartOperation ($request, $response, $args) {
       {
         throw new \Exception(_("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
       }
-      return $response->withJson(['status' => "success"]);
+      return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
   }
 
 function emptyCartToGroup ($request, $response, $args) {

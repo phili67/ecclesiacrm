@@ -349,7 +349,21 @@
           {
             callback(data);
           }
-        });        
+        });
+      },
+      'intersectPerson' : function (Persons, callback)
+      {
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'cart/interectPerson',
+          data: JSON.stringify({"Persons":Persons})
+        }).done(function(data) {
+          window.CRM.cart.refresh();
+          if(callback)
+          {
+            callback(data);
+          }
+        });
       },
       'removePerson' : function (Persons, callback)
       {
