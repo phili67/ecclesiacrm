@@ -4,6 +4,13 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\map\Person2group2roleP2g2rTableMap;
+use EcclesiaCRM\map\PersonTableMap;
+use EcclesiaCRM\map\GroupTableMap;
+use EcclesiaCRM\map\ListOptionTableMap;
+
+use Propel\Runtime\Propel;
+
 
 class PersonService
 {
@@ -50,44 +57,44 @@ class PersonService
 
     public function getPeopleEmailsAndGroups()
     {
-        $sSQL = "SELECT per_FirstName, per_LastName, per_Email, per_ID, group_grp.grp_Name, lst_OptionName
-	            from person_per
-    		        left JOIN person2group2role_p2g2r on
-                  person2group2role_p2g2r.p2g2r_per_ID = person_per.per_id
+        $persons = PersonQuery::Create()
+              ->addJoin(PersonTableMap::COL_PER_ID,Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID,Criteria::LEFT_JOIN)
+              ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
+              ->addMultipleJoin(array(array(GroupTableMap::COL_GRP_ROLELISTID,ListOptionTableMap::COL_LST_ID),
+                              array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID,ListOptionTableMap::COL_LST_OPTIONID)),
+                              Criteria::LEFT_JOIN)
+              ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
+              ->addAsColumn("OptionName",ListOptionTableMap::COL_LST_OPTIONNAME)
+              ->filterByEmail('',Criteria::NOT_EQUAL)
+              ->_and()->filterByDateDeactivated (null)
+              ->orderById()
+              ->find();
 
-                left JOIN group_grp ON
-                  person2group2role_p2g2r.p2g2r_grp_ID = group_grp.grp_ID
-
-                left JOIN list_lst ON
-                  group_grp.grp_RoleListID = list_lst.lst_ID AND
-                  person2group2role_p2g2r.p2g2r_rle_ID =  list_lst.lst_OptionID
-
-              where per_email != '' AND per_DateDeactivated is null
-
-              order by per_id;";
-        $rsPeopleWithEmails = RunQuery($sSQL);
-        $people = [];
+        $people       = [];
         $lastPersonId = 0;
-        $person = [];
-        while ($row = mysqli_fetch_array($rsPeopleWithEmails)) {
-            if ($lastPersonId != $row['per_ID']) {
-                if ($lastPersonId != 0) {
-                    array_push($people, $person);
-                }
-                $person = [];
-                $person['id'] = $row['per_ID'];
-                $person['email'] = $row['per_Email'];
-                $person['firstName'] = $row['per_FirstName'];
-                $person['lastName'] = $row['per_LastName'];
+        $per          = [];
+        foreach ($persons as $person) {
+          if ($lastPersonId != $person->getId()) {
+            if ($lastPersonId != 0) {
+                $people[] = $per;
             }
+            $per              = [];
+            $per['id']        = $person->getId();
+            $per['email']     = $person->getEmail();
+            $per['firstName'] = $person->getFirstName();
+            $per['lastName']  = $person->getLastName();
+          }
 
-            $person[$row['grp_Name']] = $row['lst_OptionName'];
-
-            if ($lastPersonId != $row['per_ID']) {
-                $lastPersonId = $row['per_ID'];
-            }
+          if (!is_null($person->getGroupName()) && !is_null($person->getOptionName()) ) {
+             $per[$person->getGroupName()] = _($person->getOptionName());
+          }
+            
+          if ($lastPersonId != $person->getId()) {
+             $lastPersonId = $person->getId();
+          }
         }
-        array_push($people, $person);
+
+        $people[] =  $per;
 
         return $people;
     }
