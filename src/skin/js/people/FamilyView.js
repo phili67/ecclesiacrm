@@ -469,7 +469,7 @@ $(document).ready(function () {
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function(index,personButton){
           personID = $(personButton).data("cartpersonid")
-          if (cartPeople.includes(personID)) {
+          if (cartPeople.length > 0 && cartPeople.includes(personID)) {
             personPresent = true;
             $(personButton).addClass("RemoveFromPeopleCart");
             $(personButton).removeClass("AddToPeopleCart");
