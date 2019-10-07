@@ -2,18 +2,29 @@
 /*******************************************************************************
 *
 *  filename    : Reports/VotingMembers.php
-*  last change : 2005-03-26
+*  last change : 2019-10-07
 *  description : Creates a PDF with names of voting members for a particular fiscal year
-
+*  updated by : Philippe Logel
+*
 ******************************************************************************/
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+
+use EcclesiaCRM\Reports\ChurchInfoReport;
+
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\PersonQuery;
+
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 
 //Get the Fiscal Year ID out of the querystring
@@ -48,50 +59,55 @@ $curY += 10;
 $votingMemberCount = 0;
 
 // Get all the families
-$sSQL = 'SELECT fam_ID, fam_Name FROM family_fam WHERE 1 ORDER BY fam_Name';
-$rsFamilies = RunQuery($sSQL);
+$families = FamilyQuery::Create()
+                ->orderByName()
+                ->find();
 
 // Loop through families
-while ($aFam = mysqli_fetch_array($rsFamilies)) {
-    extract($aFam);
-
+foreach ($families as $family) {
     // Get pledge date ranges
     $donation = 'no';
     if ($iRequireDonationYears > 0) {
         $startdate = $iFYID + 1995 - $iRequireDonationYears;
         $startdate .= '-'.SystemConfig::getValue('iFYMonth').'-'.'01';
-        $enddate = $iFYID + 1995 + 1;
-        $enddate .= '-'.SystemConfig::getValue('iFYMonth').'-'.'01';
+        // With the Filter : plg_date >= '$startdate' AND plg_date < '$enddate' and with propel you get  plg_date >= '$startdate' AND plg_date <= '$enddate'
+        // That's why the end date are rewritten from
+        // $enddate = $iFYID + 1995 + 1;
+        // $enddate .= '-'.SystemConfig::getValue('iFYMonth').'-'.'01';
+        // to
+        $enddate = $iFYID + 1995 + (((SystemConfig::getValue('iFYMonth')-1)==0)?0:1);
+        $enddate .= '-'.(((SystemConfig::getValue('iFYMonth')-1)==0)?12:SystemConfig::getValue('iFYMonth')).'-'.(((SystemConfig::getValue('iFYMonth')-1)==0)?'31':'01');
 
         // Get payments only
-        $sSQL = 'SELECT COUNT(plg_plgID) AS count FROM pledge_plg
-			WHERE plg_FamID = '.$fam_ID." AND plg_PledgeOrPayment = 'Payment' AND
-				 plg_date >= '$startdate' AND plg_date < '$enddate'";
-        $rsPledges = RunQuery($sSQL);
-        list($count) = mysqli_fetch_row($rsPledges);
-        if ($count > 0) {
+        $pledges = PledgeQuery::Create()
+                    ->filterByFamId ($family->getId())
+                    ->filterByPledgeorpayment ('Payment')
+                    ->filterByDate(array('min' => $startdate,'max' => $enddate))
+                    ->find();
+
+        if ($pledges->count()) {
             $donation = 'yes';
         }
     }
 
     if (($iRequireDonationYears == 0) || $donation == 'yes') {
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $fam_Name);
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getName());
 
-        //Get the family members for this family
-        $sSQL = 'SELECT per_FirstName, per_LastName, cls.lst_OptionName AS sClassName
-				FROM person_per
-				INNER JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-				WHERE per_fam_ID = '.$fam_ID." AND cls.lst_OptionName='"._('Member')."'";
 
-        $rsFamilyMembers = RunQuery($sSQL);
+        $famMembers = PersonQuery::Create()
+            ->addMultipleJoin(array(array(PersonTableMap::COL_PER_CLS_ID,ListOptionTableMap::COL_LST_OPTIONID),
+                array(ListOptionTableMap::COL_LST_ID,1)),
+                Criteria::INNER_JOIN)
+            ->filterByFamId($family->getId())
+            ->_and()->Where(ListOptionTableMap::COL_LST_OPTIONNAME." = '"._('Member')."'")
+            ->find();
 
-        if (mysqli_num_rows($rsFamilyMembers) == 0) {
+        if ($famMembers->count() == 0) {
             $curY += 5;
         }
 
-        while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
-            extract($aMember);
-            $pdf->WriteAt(SystemConfig::getValue('leftX') + 30, $curY, ($per_FirstName.' '.$per_LastName));
+        foreach ($famMembers as $member) {
+            $pdf->WriteAt(SystemConfig::getValue('leftX') + 30, $curY, ($member->getFirstName().' '.$member->getLastName()));
             $curY += 5;
             if ($curY > 245) {
                 $pdf->AddPage();
@@ -107,7 +123,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 }
 
 $curY += 5;
-$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, 'Number of Voting Members: '.$votingMemberCount);
+$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _("Number of Voting Members").":".$votingMemberCount);
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
