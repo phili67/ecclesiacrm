@@ -119,7 +119,7 @@ $user = SessionUser::getUser();
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/select2/select2.min.js"></script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootbox/bootbox.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootbox/bootbox.all.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/fastclick/fastclick.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/Tooltips.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-toggle/bootstrap-toggle.js"></script>
