@@ -717,20 +717,12 @@
         ],
         "dbVersion": "5.8.5"
     },
-    "5.8.6": {
+    "current": {
         "versions": [
             "5.8.5"
         ],
         "scripts": [
         ],
         "dbVersion": "5.8.6"
-    },
-    "current": {
-        "versions": [
-            "5.8.6"
-        ],
-        "scripts": [
-        ],
-        "dbVersion": "5.8.7"
     }
 }
