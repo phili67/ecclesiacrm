@@ -61,7 +61,7 @@ class AppIntegrityService
   public static function getApplicationPrerequisites()
   {
     $prerequisites = array(
-      'PHP 7.1+'                                  => version_compare(PHP_VERSION, '7.1.0', '>='),
+      'PHP 7.0+'                                  => version_compare(PHP_VERSION, '7.0.0', '>='),
       'PCRE Support'                              => function_exists('preg_match'),
       'UTF-8 Support'                             => @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A'),
       'Multibyte Encoding'                        => extension_loaded('mbstring'),
