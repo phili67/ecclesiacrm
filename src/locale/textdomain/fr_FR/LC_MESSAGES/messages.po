@@ -3477,7 +3477,7 @@ msgstr "Nom du groupe"
 #: EcclesiaCRM/dto/CanvassUtilities.php:100
 #: EcclesiaCRM/dto/CanvassUtilities.php:136
 msgid "doesn't exist !"
-msgstr ""
+msgstr "n'existe pas !"
 
 #: EcclesiaCRM/dto/CanvassUtilities.php:115
 msgid "No families need canvassers assigned"
@@ -6498,7 +6498,7 @@ msgstr "Vérification en ligne"
 
 #: FamilyView.php:997
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: FamilyView.php:1000
 msgid "PDF Report"
@@ -8775,7 +8775,6 @@ msgid "Deactivated"
 msgstr "Désactivé"
 
 #: Reports/MemberEmailExport.php:71
-#, fuzzy
 msgid "Parent"
 msgstr "Parents"
 
@@ -8908,9 +8907,8 @@ msgid "Voting members "
 msgstr "Les membres votants "
 
 #: Reports/VotingMembers.php:126
-#, fuzzy
 msgid "Number of Voting Members"
-msgstr "Membres votants"
+msgstr "Nombre de Membres votants"
 
 #: RestoreDatabase.php:35
 msgid "Select Database Files"

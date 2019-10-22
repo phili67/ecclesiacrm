@@ -8674,7 +8674,6 @@ msgid "Deactivated"
 msgstr "Deaktiviert"
 
 #: Reports/MemberEmailExport.php:71
-#, fuzzy
 msgid "Parent"
 msgstr "Eltern"
 
@@ -8808,9 +8807,8 @@ msgid "Voting members "
 msgstr "Wahlmitglieder: "
 
 #: Reports/VotingMembers.php:126
-#, fuzzy
 msgid "Number of Voting Members"
-msgstr "Stimmberechtigten Mitglieder"
+msgstr "Stimmberechtigten Mitglieder Zahl"
 
 #: RestoreDatabase.php:35
 msgid "Select Database Files"
