@@ -150,3 +150,6 @@ msgstr "nettoyé"
 
 msgid "pending"
 msgstr "en attente"
+
+msgid "Invalid date"
+msgstr "Date incorrecte"

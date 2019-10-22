@@ -148,3 +148,6 @@ msgstr "geleert"
 
 msgid "pending"
 msgstr "steht aus"
+
+msgid "Invalid date"
+msgstr "Ungültiges Datum"
