@@ -420,7 +420,7 @@ $("document").ready(function(){
           var birthDate = full.birthYear+'-'+((full.birthMonth<10)?'0':'')+full.birthMonth+'-'+((full.birthDay<10)?'0':'')+full.birthDay+'T00:00:00';
           var outPut = moment(birthDate).format(momentDateFormat);
           
-          return outPut;
+          return i18next.t(outPut);
         }
       },
       {

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-07-09T06:38:04.215Z\n"
+"POT-Creation-Date: 2019-10-22T18:11:23.241Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -437,12 +437,6 @@ msgstr "Attention"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Le dossier d'images courant est maintenant le dossier public !!!"
-
-msgid "Remove from Cart"
-msgstr "Retirer du panier"
-
-msgid "Add to Cart"
-msgstr "Ajouter au Panier"
 
 msgid "Wrong address format."
 msgstr "Format d'Adresse non valide."
@@ -1088,6 +1082,12 @@ msgstr "Membre(s) au panier"
 
 msgid "Move"
 msgstr "Déplacer"
+
+msgid "Remove from Cart"
+msgstr "Retirer du panier"
+
+msgid "Add to Cart"
+msgstr "Ajouter au Panier"
 
 msgid "No assigned Manager"
 msgstr "Acun Manager assigné"

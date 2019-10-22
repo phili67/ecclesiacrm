@@ -145,3 +145,6 @@ msgstr ""
 
 msgid "pending"
 msgstr ""
+
+msgid "Invalid date"
+msgstr ""
