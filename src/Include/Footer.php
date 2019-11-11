@@ -323,6 +323,8 @@ use EcclesiaCRM\Bootstrapper;
 </div>
 
 <!-- Bootstrap 3.3.5 -->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/popper/popper.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.js"></script>
 
 <!-- AdminLTE App -->
