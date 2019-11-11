@@ -29,7 +29,5 @@ use EcclesiaCRM\dto\SystemConfig;
 
 <!-- jQuery 2.1.4 -->
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
-<!-- jQuery UI -->
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/moment/moment-with-locales.min.js"></script>
