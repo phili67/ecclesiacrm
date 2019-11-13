@@ -60,8 +60,11 @@ class AppIntegrityService
   
   public static function getApplicationPrerequisites()
   {
+    # this code avoid the problem with ondrej package version
+    $sys_version = explode("-",explode ("+",PHP_VERSION)[0]);
+
     $prerequisites = array(
-      'PHP 7.0+'                                  => version_compare(PHP_VERSION, '7.0.0', '>='),
+      'PHP 7.1+'                                  => version_compare($sys_version[0], '7.1.0', '>='),
       'PCRE Support'                              => function_exists('preg_match'),
       'UTF-8 Support'                             => @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A'),
       'Multibyte Encoding'                        => extension_loaded('mbstring'),
