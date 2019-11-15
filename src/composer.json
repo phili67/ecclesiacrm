@@ -45,7 +45,8 @@
         "slim/http-cache": "^0.4.0",
         "sabre/dav": "^4.0.1",
         "tuupola/slim-jwt-auth": "^2.4",
-        "phpoffice/phpword": "v0.17.*"
+        "phpoffice/phpword": "v0.17.*",
+        "symfony/yaml":"^3.4"
     },
     "autoload": {
         "classmap": [
