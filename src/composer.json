@@ -27,6 +27,7 @@
         "php": ">=7.1.0",
         "drewm/mailchimp-api": "^2.5",
         "symfony/dependency-injection": "3.4.26",
+        "symfony/framework-bundle": "3.4.26",
         "symfony/yaml": "^3.4",
         "slim/slim": "3.9.2",
         "slim/php-view": "2.2",
