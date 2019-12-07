@@ -10,6 +10,7 @@ use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Bootstrapper;
 
 use Exception;
 use Github\Client;
@@ -133,7 +134,6 @@ class SystemService
     public function getDatabaseBackup($params)
     {
         MiscUtils::requireUserGroupMembership('bAdmin');
-        global $sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD;
         $backup = new \stdClass();
         $backup->backupRoot = SystemURLs::getDocumentRoot() . "/tmp_attach";
         $backup->backupDir = $backup->backupRoot."/EcclesiaCRMBackups";
@@ -145,7 +145,7 @@ class SystemService
         $backup->SQLFile = "$backup->backupDir/EcclesiaCRM-Database.sql";
 
         try {
-            $dump = new Mysqldump('mysql:host=' . $sSERVERNAME . ';dbname=' . $sDATABASE, $sUSER, $sPASSWORD, ['add-drop-table' => true]);
+            $dump = new Mysqldump(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword(), ['add-drop-table' => true]);
             $dump->start($backup->SQLFile);
         } catch (\Exception $e) {
            throw new Exception("Unable to create backup archive at ". $backup->SQLFile,500);
@@ -490,17 +490,17 @@ class SystemService
 
         // Returns a file size limit in bytes based on the PHP upload_max_filesize
     // and post_max_size
-    public function getMaxUploadFileSize($humanFormat=true) {
+    public static function getMaxUploadFileSize($humanFormat=true) {
       //select maximum upload size
-      $max_upload = $this->parse_size(ini_get('upload_max_filesize'));
+      $max_upload = SystemService::parse_size(ini_get('upload_max_filesize'));
       //select post limit
-      $max_post = $this->parse_size(ini_get('post_max_size'));
+      $max_post = SystemService::parse_size(ini_get('post_max_size'));
       //select memory limit
-      $memory_limit = $this->parse_size(ini_get('memory_limit'));
+      $memory_limit = SystemService::parse_size(ini_get('memory_limit'));
       // return the smallest of them, this defines the real limit
       if ($humanFormat)
       {
-        return $this->human_filesize(min($max_upload, $max_post, $memory_limit));
+        return SystemService::human_filesize(min($max_upload, $max_post, $memory_limit));
       }
       else
       {
@@ -508,7 +508,7 @@ class SystemService
       }
     }
 
-    private function parse_size($size) {
+    private static function parse_size($size) {
       $unit = preg_replace('/[^bkmgtpezy]/i', '', $size); // Remove the non-unit characters from the size.
       $size = preg_replace('/[^0-9\.]/', '', $size); // Remove the non-numeric characters from the size.
       if ($unit) {
@@ -520,7 +520,7 @@ class SystemService
       }
     }
 
-    function human_filesize($bytes, $decimals = 2) {
+    static function human_filesize($bytes, $decimals = 2) {
       $size = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
       $factor = floor((strlen($bytes) - 1) / 3);
       return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];

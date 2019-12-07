@@ -48,31 +48,31 @@ require 'Include/Header.php';
 ?>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
+        <h3 class="box-title"><?= _('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
     </div>
     <div class="box-body">
       <ul>
-        <li><?= gettext('You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems.') ?></li>
-        <li><?= gettext('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li>
-        <li><?= gettext('If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li>
-        <li><?= gettext('For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however.') ?></li>
+        <li><?= _('You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems.') ?></li>
+        <li><?= _('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li>
+        <li><?= _('If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li>
+        <li><?= _('For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however.') ?></li>
       </ul>
       <form method="post" action="<?= sRootPath ?>/api/database/backup" id="BackupDatabase">
         <div class="row">
           <div class="col-lg-12">
-        <?= gettext('Select archive type') ?>:&nbsp;
+        <?= _('Select archive type') ?>:&nbsp;
         <?php 
           if ($hasGZIP) {
         ?>
-            <input type="radio" name="archiveType" value="0"> <?= gettext('GZip') ?>
+            <input type="radio" name="archiveType" value="0"> <?= _('GZip') ?>
         <?php
           } 
         ?>
         <!--<?php if ($hasZIP) {
-        ?><input type="radio" name="archiveType" value="1"><?= gettext('Zip') ?><?php
+        ?><input type="radio" name="archiveType" value="1"><?= _('Zip') ?><?php
     } ?>-->
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= gettext('Uncompressed') ?>
-            &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3" checked> <?= gettext('tar.gz (Include Photos)') ?>
+            &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
+            &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3" checked> <?= _('tar.gz (Include Photos)') ?>
           </div>
         </div>
       
@@ -83,7 +83,7 @@ require 'Include/Header.php';
         ?>
         <div class="row">
           <div class="col-lg-12">
-            <input type="checkbox" name="encryptBackup" value="1"><?= gettext('Encrypt backup file with a password?') ?>
+            <input type="checkbox" name="encryptBackup" value="1"><?= _('Encrypt backup file with a password?') ?>
           </div>
         </div>
         
@@ -91,13 +91,13 @@ require 'Include/Header.php';
         
         <div class="row">
           <div class="col-lg-1">
-            <?= gettext('Password') ?>:
+            <?= _('Password') ?>:
           </div>
           <div class="col-lg-2">
             <input type="password" name="pw1" class="form-control input-sm">
           </div>
           <div class="col-lg-2">
-            <?= gettext('Re-type Password') ?>:
+            <?= _('Re-type Password') ?>:
           </div>
           <div class="col-lg-2">
             <input type="password" name="pw2" class="form-control input-sm">
@@ -114,10 +114,10 @@ require 'Include/Header.php';
         ?>
         <div class="row">
           <div class="col-lg-3">
-            <input type="button" class="btn btn-primary" id="doBackup" <?= 'value="'.gettext('Generate and Download Backup').'"' ?>>
+            <input type="button" class="btn btn-primary" id="doBackup" <?= 'value="'._('Generate and Download Backup').'"' ?>>
           </div>
           <div class="col-lg-5">
-            <input type="button" class="btn btn-primary" id="doRemoteBackup" <?= 'value="'.gettext('Generate and Ship Backup to External Storage').'"' ?>>
+            <input type="button" class="btn btn-primary" id="doRemoteBackup" <?= 'value="'._('Generate and Ship Backup to External Storage').'"' ?>>
           </div>
         </div>
       </form>
@@ -125,7 +125,7 @@ require 'Include/Header.php';
 </div>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title"><?= gettext('Backup Status:') ?> </h3>&nbsp;<h3 class="box-title" id="backupstatus" style="color:red"> <?= gettext('No Backup Running') ?></h3>
+        <h3 class="box-title"><?= _('Backup Status:') ?> </h3>&nbsp;<h3 class="box-title" id="backupstatus" style="color:red"> <?= _('No Backup Running') ?></h3>
     </div>
      <div class="box-body" id="resultFiles">
      </div>

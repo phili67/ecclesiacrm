@@ -140,7 +140,7 @@ function Header_modals()
 function Header_body_scripts()
 {
     $localeInfo = Bootstrapper::GetCurrentLocale();
-    $systemService = new SystemService(); ?>
+?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     
         var Allbuttons = [ 'copy', 'pdf', 'colvis', 'print' ];
@@ -151,8 +151,8 @@ function Header_body_scripts()
             locale: "<?= $localeInfo->getLocale() ?>",
             shortLocale: "<?= $localeInfo->getShortLocale() ?>",
             currency: "<?= SystemConfig::getValue('sCurrency') ?>",
-            maxUploadSize: "<?= $systemService->getMaxUploadFileSize(true) ?>",
-            maxUploadSizeBytes: "<?= $systemService->getMaxUploadFileSize(false) ?>",
+            maxUploadSize: "<?= SystemService::getMaxUploadFileSize(true) ?>",
+            maxUploadSizeBytes: "<?= SystemService::getMaxUploadFileSize(false) ?>",
             datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",
             timeEnglish:<?= (SystemConfig::getBooleanValue("bTimeEnglish"))?"true":"false" ?>,
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",

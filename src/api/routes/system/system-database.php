@@ -39,7 +39,7 @@ $app->group('/database', function () {
             empty($_FILES) && $_SERVER['CONTENT_LENGTH'] > 0 )
         {  
           $systemService = new SystemService();
-          throw new \Exception(gettext('The selected file exceeds this servers maximum upload size of').": ". $systemService->getMaxUploadFileSize()  , 500);
+          throw new \Exception(gettext('The selected file exceeds this servers maximum upload size of').": ". SystemService::getMaxUploadFileSize()  , 500);
         }
         $fileName = $_FILES['restoreFile'];
         $restore = $this->SystemService->restoreDatabaseFromBackup($fileName);
@@ -49,6 +49,7 @@ $app->group('/database', function () {
     $this->get('/download/{filename}', function ($request, $response, $args) {
         $filename = $args['filename'];
         $this->SystemService->download($filename);
+        exit;// bug resolution for safari
     });
     
     $this->delete('/people/clear', 'clearPeopleTables');

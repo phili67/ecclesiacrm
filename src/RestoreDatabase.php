@@ -66,7 +66,8 @@ require 'Include/Header.php';
          return false;
        }
     }
-     $("#restorestatus").css("color", "orange");
+    
+    $("#restorestatus").css("color", "orange");
     $("#restorestatus").html("<?= gettext('Restore Running, Please wait.')?>");
     $.ajax({
       url: window.CRM.root + '/api/database/restore',
@@ -89,9 +90,9 @@ require 'Include/Header.php';
         $("#restorestatus").html("<?= gettext('Restore Complete')?>");
         $("#restoreNextStep").html('<a href="Logoff.php" class="btn btn-primary"><?= gettext('Login to restored Database')?></a>');
       }).fail(function () {
-      $("#restorestatus").css("color", "red");
-      $("#restorestatus").html("<?= gettext('Restore Error.')?>");
-    });
+        $("#restorestatus").css("color", "red");
+        $("#restorestatus").html("<?= gettext('Restore Error.')?>");
+      });
     return false;
   });
 </script>
