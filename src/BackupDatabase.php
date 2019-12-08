@@ -68,9 +68,9 @@ require 'Include/Header.php';
         <?php
           } 
         ?>
-        <!--<?php if ($hasZIP) {
+           <?php if ($hasZIP) {
         ?><input type="radio" name="archiveType" value="1"><?= _('Zip') ?><?php
-    } ?>-->
+    } ?>
             &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
             &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3" checked> <?= _('tar.gz (Include Photos)') ?>
           </div>
