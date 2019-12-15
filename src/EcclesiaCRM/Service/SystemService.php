@@ -6,16 +6,15 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FileSystemUtils;
 use EcclesiaCRM\VersionQuery;
-use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\Backup\CreateBackup;
 
 use Exception;
 use Github\Client;
 use Ifsnop\Mysqldump\Mysqldump;
-use PharData;
 use Propel\Runtime\Propel;
 use PDO;
 
@@ -28,7 +27,7 @@ class SystemService
     {
        $_SESSION['tLastOperation'] = time();
     }
-    
+
     public function isSessionStillValid ()
     {
       // Basic security: If the UserID isn't set (no session), redirect to the login page
@@ -42,15 +41,15 @@ class SystemService
               return false; // we have to return to the login page
           }// the time is set in the function page
       }
-      
+
       return true;
     }
-    
+
     public function getSessionTimeout ()
     {
       return  SystemConfig::getValue('iSessionTimeout')-(time() - $_SESSION['tLastOperation']);
     }
-    
+
     public function getLatestRelese()
     {
         $client = new Client();
@@ -61,7 +60,7 @@ class SystemService
             $release = $client->api('repo')->releases()->latest('phili67', 'ecclesiacrm');
         } catch (\Exception $e) {
         }
-        
+
         return $release;
     }
 
@@ -72,63 +71,6 @@ class SystemService
         $version = $composerJson['version'];
 
         return $version;
-    }
-    
-    public function restoreDatabaseFromBackup($file)
-    {
-        MiscUtils::requireUserGroupMembership('bAdmin');
-        $restoreResult = new \stdClass();
-        $restoreResult->Messages = [];
-        $connection = Propel::getConnection();
-        $restoreResult->file = $file;
-        $restoreResult->type = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $restoreResult->type2 = pathinfo(mb_substr($file['name'], 0, strlen($file['name']) - 3), PATHINFO_EXTENSION);
-        $restoreResult->root = SystemURLs::getDocumentRoot();
-        $restoreResult->headers = [];
-        $restoreResult->backupRoot = SystemURLs::getDocumentRoot() . '/tmp_attach/';
-        $restoreResult->backupDir = $restoreResult->backupRoot  . '/EcclesiaCRMRestores/';
-        $restoreResult->uploadedFileDestination =  $restoreResult->backupDir . '/' . $file['name'];
-        // Delete any old backup files
-        FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupRoot,true);
-        mkdir($restoreResult->backupDir);
-        move_uploaded_file($file['tmp_name'], $restoreResult->uploadedFileDestination);
-        if ($restoreResult->type == 'gz') {
-            if ($restoreResult->type2 == 'tar') {
-                $phar = new PharData($restoreResult->uploadedFileDestination);
-                $phar->extractTo($restoreResult->backupDir);
-                $restoreResult->SQLfile = "$restoreResult->backupDir/EcclesiaCRM-Database.sql";
-                if (file_exists($restoreResult->SQLfile))
-                {
-                  SQLUtils::sqlImport($restoreResult->SQLfile, $connection);
-                  FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/Images');
-                  FileSystemUtils::recursiveCopyDirectory($restoreResult->backupDir . '/Images/', SystemURLs::getImagesRoot());
-                }
-                else
-                {
-                  FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupDir,true);
-                  throw new Exception(_("Backup archive does not contain a database").": " . $file['name']);
-                }
-
-            } elseif ($restoreResult->type2 == 'sql') {
-                $restoreResult->SQLfile = $restoreResult->backupDir . str_replace('.gz', '', $file['name']);
-                file_put_contents($restoreResult->SQLfile, gzopen($restoreResult->uploadedFileDestination, r));
-                SQLUtils::sqlImport($restoreResult->SQLfile, $connection);
-            }
-        } elseif ($restoreResult->type == 'sql') {
-            SQLUtils::sqlImport($restoreResult->uploadedFileDestination, $connection);
-        } else {
-            FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupDir,true);
-            throw new Exception(_("Unknown File Type").": " . $restoreResult->type . " "._("from file").": " . $file['name']);
-        }
-        FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupRoot,true);
-        $restoreResult->UpgradeStatus = UpgradeService::upgradeDatabaseVersion();
-        //When restoring a database, do NOT let the database continue to create remote backups.
-        //This can be very troublesome for users in a testing environment.
-        SystemConfig::setValue('bEnableExternalBackupTarget', '0');
-        array_push($restoreResult->Messages, _('As part of the restore, external backups have been disabled.  If you wish to continue automatic backups, you must manuall re-enable the bEnableExternalBackupTarget setting.'));
-        SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
-
-        return $restoreResult;
     }
 
     public function getDatabaseBackup($params)
@@ -305,16 +247,16 @@ class SystemService
     {
         $version = VersionQuery::Create()
             ->orderById('DESC')->findOne();
-      
+
         return $version->getVersion();
     }
-    
+
     static public function getDBMainVersion() // the main part of the version 2.3.10 will give : 2
     {
         return strstr(self::getDBVersion(),".",true);
     }
-    
-    
+
+
     static public function getPackageMainVersion() // the main part of the version 2.3.10 will give : 2
     {
         return strstr(self::getInstalledVersion(),".",true);
@@ -395,7 +337,8 @@ class SystemService
                 $previous = new \DateTime(SystemConfig::getValue('sLastBackupTimeStamp')); // get a DateTime object for the last time a backup was done.
                 $diff = $previous->diff($now);  // calculate the difference.
                 if (!SystemConfig::getValue('sLastBackupTimeStamp') || $diff->h >= SystemConfig::getValue('sExternalBackupAutoInterval')) {  // if there was no previous backup, or if the interval suggests we do a backup now.
-                    $this->copyBackupToExternalStorage();  // Tell system service to do an external storage backup.
+                    $createBackup = new CreateBackup();
+                    $createBackup->run();
                     $now = new \DateTime();  // update the LastBackupTimeStamp.
                     SystemConfig::setValue('sLastBackupTimeStamp', $now->format('Y-m-d H:i:s'));
                 }
@@ -416,27 +359,27 @@ class SystemService
             }
         }
     }
-    
+
     private function download_remote_file_with_curl($file_url, $save_to)
     {
       $ch = curl_init();
-      curl_setopt($ch, CURLOPT_POST, 0); 
-      curl_setopt($ch,CURLOPT_URL,$file_url); 
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+      curl_setopt($ch, CURLOPT_POST, 0);
+      curl_setopt($ch,CURLOPT_URL,$file_url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       $file_content = curl_exec($ch);
       curl_close($ch);
- 
+
       $downloaded_file = fopen($save_to, 'w');
       fwrite($downloaded_file, $file_content);
       fclose($downloaded_file);
- 
+
     }
 
     public function downloadLatestRelease()
     {
         $release = $this->getLatestRelese();
         $UpgradeDir = SystemURLs::getDocumentRoot() . '/Upgrade';
-        foreach ($release['assets'] as $asset) {        
+        foreach ($release['assets'] as $asset) {
             if ($asset['name'] == "EcclesiaCRM-" . $release['name'] . ".zip") {
                 $url = $asset['browser_download_url'];
             }
@@ -478,7 +421,7 @@ class SystemService
                 $zip->close();
                 $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
             }
-            
+
             unlink($zipFilename);
             SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
 
@@ -525,7 +468,7 @@ class SystemService
       $factor = floor((strlen($bytes) - 1) / 3);
       return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
     }
-    
+
     static public function getCopyrightDate()
      {
          $composerFile = file_get_contents(SystemURLs::getDocumentRoot() . '/composer.json');

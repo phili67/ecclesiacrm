@@ -20,7 +20,7 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
-// Security: User must be an Admin to access this page.
+// Security: User must be an Admin to access this page.doRemoteBackup
 // Otherwise, re-direct them to the main menu.
 if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
@@ -61,24 +61,24 @@ require 'Include/Header.php';
         <div class="row">
           <div class="col-lg-12">
         <?= _('Select archive type') ?>:&nbsp;
-        <?php 
+        <?php
           if ($hasGZIP) {
         ?>
-            <input type="radio" name="archiveType" value="0"> <?= _('GZip') ?>
+            <input type="radio" name="archiveType" value="0"> GZip
         <?php
-          } 
+          }
         ?>
            <?php if ($hasZIP) {
-        ?><input type="radio" name="archiveType" value="1"><?= _('Zip') ?><?php
+        ?><input type="radio" name="archiveType" value="1"> Zip<?php
     } ?>
             &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
             &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3" checked> <?= _('tar.gz (Include Photos)') ?>
           </div>
         </div>
-      
+
         <BR>
-        
-        <?php 
+
+        <?php
           if ($hasPGP) {
         ?>
         <div class="row">
@@ -86,9 +86,9 @@ require 'Include/Header.php';
             <input type="checkbox" name="encryptBackup" value="1"><?= _('Encrypt backup file with a password?') ?>
           </div>
         </div>
-        
+
         <br>
-        
+
         <div class="row">
           <div class="col-lg-1">
             <?= _('Password') ?>:
@@ -110,7 +110,7 @@ require 'Include/Header.php';
           </div>
         </div>
         <?php
-          } 
+          }
         ?>
         <div class="row">
           <div class="col-lg-3">
@@ -194,7 +194,7 @@ function doBackup(isRemote)
         $("#backupstatus").html("Backup Complete, Ready for Download.");
         $("#resultFiles").html(downloadButton);
       }
-    }).fail(function()  {
+    }).fail(function(data)  {
       $("#backupstatus").css("color","red");
       $("#backupstatus").html("Backup Error.");
     });
