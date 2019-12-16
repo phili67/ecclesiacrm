@@ -21,7 +21,7 @@ use Slim\Http\Response;
 
 use EcclesiaCRM\Backup\RestoreBackup;
 use EcclesiaCRM\Backup\CreateBackup;
-use EcclesiaCRM\Backup\BackupType;
+use EcclesiaCRM\Backup\DownloadManager;
 
 // Routes
 
@@ -56,7 +56,7 @@ $app->group('/database', function () {
 
     $this->get('/download/{filename}', function ($request, $response, $args) {
         $filename = $args['filename'];
-        $this->SystemService->download($filename);
+        DownloadManager::run($filename);
         exit;// bug resolution for safari
     });
 
