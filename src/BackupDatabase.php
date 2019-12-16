@@ -164,9 +164,10 @@ function doBackup(isRemote)
     // get the form data
     // there are many ways to get this data using jQuery (you can use the class or id also)
     var formData = {
-      'iArchiveType'              : $('input[name=archiveType]:checked').val(),
-      'bEncryptBackup'            : $("input[name=encryptBackup]").is(':checked'),
-      'password'                  : $('input[name=pw1]').val()
+        'iRemote'                   : isRemote,
+        'iArchiveType'              : $('input[name=archiveType]:checked').val(),
+        'bEncryptBackup'            : $("input[name=encryptBackup]").is(':checked'),
+        'password'                  : $('input[name=pw1]').val()
     };
     $("#backupstatus").css("color","orange");
     $("#backupstatus").html("Backup Running, Please wait.");
@@ -183,16 +184,18 @@ function doBackup(isRemote)
     })
     .done(function(data) {
       console.log(data);
-      var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('"+data.filename+"')\"><i class='fa fa-download'></i>  "+data.filename+"</button>";
-      $("#backupstatus").css("color","green");
-      if(isRemote)
-      {
-        $("#backupstatus").html("Backup Generated and copied to remote server");
-      }
-      else
-      {
-        $("#backupstatus").html("Backup Complete, Ready for Download.");
-        $("#resultFiles").html(downloadButton);
+      if (data.result === 1) {
+          var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fa fa-download'></i>  " + data.filename + "</button>";
+          $("#backupstatus").css("color", "green");
+          if (isRemote) {
+              $("#backupstatus").html("Backup Generated and copied to remote server");
+          } else {
+              $("#backupstatus").html("Backup Complete, Ready for Download.");
+              $("#resultFiles").html(downloadButton);
+          }
+      } else {
+          $("#backupstatus").css("color","red");
+          $("#backupstatus").html("Backup Error.");
       }
     }).fail(function(data)  {
       $("#backupstatus").css("color","red");

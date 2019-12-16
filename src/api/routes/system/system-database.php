@@ -32,16 +32,17 @@ $app->group('/database', function () {
         $createBackup = new CreateBackup($input);
         $backup = $createBackup->run();
 
-        echo json_encode($backup);
+        echo json_encode(get_object_vars($backup));
     });
 
-    $this->post('/backupRemote', function() use ($app, $systemService) {
+    $this->post('/backupRemote', function($request, $response, $args) use ($app, $systemService) {
         // without parameters the backup is done on the remote server
+        $input = (object) $request->getParsedBody();
 
-        $createBackup = new CreateBackup();
+        $createBackup = new CreateBackup($input);
         $backup = $createBackup->run();
 
-        echo json_encode($backup);
+        echo json_encode(get_object_vars($backup));
     });
 
     $this->post('/restore', function ($request, $response, $args) {
