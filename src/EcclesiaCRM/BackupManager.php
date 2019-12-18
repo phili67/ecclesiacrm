@@ -12,21 +12,23 @@ use EcclesiaCRM\Service\UpgradeService;
 
 use EcclesiaCRM\FileSystemUtils;
 use EcclesiaCRM\SQLUtils;
+use EcclesiaCRM\utils\InputUtils;
 
 use EcclesiaCRM\Utils\MiscUtils;
 use PharData;
 use Ifsnop\Mysqldump\Mysqldump;
 use Propel\Runtime\Propel;
 use ZipArchive;
+use Defuse\Crypto\File;
 
 abstract class BackupType
 {
     // archive type : archiveType in BackupDatabae.php
-    const GZSQL                 = 0;
-    const Zip                   = 1;// for the zip
-    const SQL                   = 2;
-    const FullBackup            = 3;
-    const FullBackupEncrypted   = 4;
+    const GZSQL = 0;
+    const Zip = 1;// for the zip
+    const SQL = 2;
+    const FullBackup = 3;
+    const FullBackupEncrypted = 4;
 }
 
 class JobBase
@@ -78,14 +80,14 @@ class RestoreBackup extends JobBase
 {
     /**
      *
-     * @var SplFileInfo
+     * @var string
      */
     protected $file;
     /**
      *
      * @var array
      */
-    public $Messages;
+    protected $Messages;
 
     /**
      *
@@ -107,16 +109,30 @@ class RestoreBackup extends JobBase
 
     /**
      *
-     * @bool
+     * @var bool
      */
-
-    public $UpgradeStatus;
+    protected $gpg_encrypted=false;
 
     /**
      *
-     * @var
+     * @bool
      */
-    protected $SQLfile;
+
+    protected $gpg_forgotten_password=false;
+
+    /**
+     *
+     * @bool
+     */
+
+    protected $UpgradeStatus;
+
+    /**
+     *
+     * @string
+     */
+    protected $restorePassword;
+
 
     private function IsIncomingFileFailed()
     {
@@ -135,50 +151,133 @@ class RestoreBackup extends JobBase
         $this->Messages = [];
 
         $this->file = $file;
-        $this->type = pathinfo($file['name'], PATHINFO_EXTENSION);
-        $this->type2 = pathinfo(mb_substr($file['name'], 0, strlen($file['name']) - 3), PATHINFO_EXTENSION);
+        $this->restorePassword = InputUtils::FilterString($_POST['restorePassword']);
+
+        $path = $file['name'];
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        if ($type == "gpg") {// in the case of a GPG encryption
+            $this->gpg_encrypted = true;
+            if (strlen($this->restorePassword) > 0) {
+                // we get now the real file ....
+                $path = mb_substr($this->file['name'], 0, strlen($this->file['name']) - 4);
+            } else {
+                // we are in a case of a problem
+                $this->gpg_forgotten_password = true;
+                throw new \Exception(_("GPG Backup need a password to work") . ": " . $this->file['name']);
+            }
+        }
+
+        $this->type = pathinfo($path, PATHINFO_EXTENSION);
+        $this->type2 = pathinfo(mb_substr($path, 0, strlen($path) - 3), PATHINFO_EXTENSION);
 
         $this->backupDir = $this->CreateEmptyTempFolder('EcclesiaCRMRestores');
     }
 
-    public function run()
+    private function DecryptBackupFileGPG()
+    {
+        LoggerUtils::getAppLogger()->info("Decrypting backup file: " . $this->file);
+        putenv('GNUPGHOME=/tmp');
+        $this->encryptCommand = SystemConfig::getValue('sPGPname') . " --batch --passphrase " . $this->restorePassword . " " . $this->uploadedFileDestination;
+        system($this->encryptCommand);
+        LoggerUtils::getAppLogger()->info("Finished decrypting backup file");
+
+        // now the path is without gpg extension
+        $this->uploadedFileDestination = $path = mb_substr($this->uploadedFileDestination, 0, strlen($this->uploadedFileDestination) - 4);
+    }
+
+    private function DecryptBackupFileInternal()
+    {
+        LoggerUtils::getAppLogger()->info("Decrypting file: " . $this->uploadedFileDestination);
+        $tempfile = $this->uploadedFileDestination . "temp";
+
+        try {
+            File::decryptFileWithPassword($this->uploadedFileDestination, $tempfile, $this->restorePassword);
+            rename($tempfile, $this->uploadedFileDestination);
+            LoggerUtils::getAppLogger()->info("File decrypted");
+        } catch (\Defuse\Crypto\Exception\WrongKeyOrModifiedCiphertextException $ex) {
+            if ($ex->getMessage() == 'Bad version header.') {
+                LoggerUtils::getAppLogger()->info("Bad version header; this file probably wasn't encrypted");
+            } else {
+                LoggerUtils::getAppLogger()->error($ex->getMessage());
+                throw $ex;
+            }
+        }
+    }
+
+    private function RestoreFullArchive_TAR_GZ()
     {
         $connection = Propel::getConnection();
 
+        $phar = new PharData($this->uploadedFileDestination);
+        $phar->extractTo($this->backupDir);
+        $SQLfile = $this->backupDir . "/EcclesiaCRM-Database.sql";
+        if (file_exists($SQLfile)) {
+            SQLUtils::sqlImport($SQLfile, $connection);
+            FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/Images');
+            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
+        } else {
+            FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
+            throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
+        }
+    }
+
+    private function RestoreArchive_SQL_GZ()
+    {
+        $connection = Propel::getConnection();
+
+        $SQLfile = $this->backupDir . str_replace('.gz', '', $this->file['name']);
+        file_put_contents($SQLfile, gzopen($this->uploadedFileDestination, r));
+        SQLUtils::sqlImport($SQLfile, $connection);
+    }
+
+    private function RestoreArchive_ZIP()
+    {
+        $connection = Propel::getConnection();
+
+        $zip = new ZipArchive;
+        $SQLfile = $this->backupDir . str_replace('.zip', '', $this->file['name']);
+        if ($zip->open($this->uploadedFileDestination) === TRUE) {
+            $zip->extractTo($this->backupDir);
+            $zip->close();
+            SQLUtils::sqlImport($this->backupDir . "EcclesiaCRM-Database.sql", $connection);
+        } else {
+            throw new \Exception(_("Impossible to open") . $this->saveTo);
+        }
+    }
+
+    private function RestoreArchive_SQL()
+    {
+        $connection = Propel::getConnection();
+
+        SQLUtils::sqlImport($this->uploadedFileDestination, $connection);
+    }
+
+    public function run()
+    {
         $this->uploadedFileDestination = $this->backupDir . $this->file['name'];
 
         move_uploaded_file($this->file['tmp_name'], $this->uploadedFileDestination);
+
+        if ( $this->restorePassword == true ) {
+            if ( $this->gpg_encrypted == true)  {
+                // we've have to decode the archive
+                $this->DecryptBackupFileGPG();
+            } else {
+                // the way of ChurchCRM.io
+                $this->DecryptBackupFileInternal();
+            }
+        }
+
         if ($this->type == 'gz') {
             if ($this->type2 == 'tar') {
-                $phar = new PharData($this->uploadedFileDestination);
-                $phar->extractTo($this->backupDir);
-                $this->SQLfile = "$this->backupDir/EcclesiaCRM-Database.sql";
-                if (file_exists($this->SQLfile)) {
-                    SQLUtils::sqlImport($this->SQLfile, $connection);
-                    FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/Images');
-                    FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
-                } else {
-                    FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
-                    throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
-                }
-
+                $this->RestoreFullArchive_TAR_GZ();
             } elseif ($this->type2 == 'sql') {
-                $this->SQLfile = $this->backupDir . str_replace('.gz', '', $this->file['name']);
-                file_put_contents($this->SQLfile, gzopen($this->uploadedFileDestination, r));
-                SQLUtils::sqlImport($this->SQLfile, $connection);
+               $this->RestoreArchive_SQL_GZ();
             }
         } elseif ($this->type == 'sql') {
-            SQLUtils::sqlImport($this->uploadedFileDestination, $connection);
+            $this->RestoreArchive_SQL();
         } elseif ($this->type == 'zip') {
-            $zip = new ZipArchive;
-            $this->SQLfile = $this->backupDir . str_replace('.zip', '', $this->file['name']);
-            if ($zip->open($this->uploadedFileDestination) === TRUE) {
-                $zip->extractTo($this->backupDir);
-                $zip->close();
-                SQLUtils::sqlImport($this->backupDir."EcclesiaCRM-Database.sql", $connection);
-            } else {
-                throw new \Exception(_("Impossible to open"). $this->saveTo);
-            }
+            $this->RestoreArchive_ZIP();
         } else {
             FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
             throw new \Exception(_("Unknown File Type") . ": " . $this->type . " " . _("from file") . ": " . $this->file['name']);
@@ -204,14 +303,9 @@ class CreateBackup extends JobBase
     protected $params;
     /**
      *
-     * @var
+     * @string
      */
     protected $saveTo;
-    /**
-     *
-     * @var
-     */
-    protected $SQLFile;
     /**
      *
      * @var array
@@ -259,9 +353,74 @@ class CreateBackup extends JobBase
 
         $this->headers = [];
         $this->params = $params;
-        $this->saveTo = "$this->backupDir/EcclesiaCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
-        $this->SQLFile = "$this->backupDir/EcclesiaCRM-Database.sql";
+        $this->saveTo = $this->backupDir . "/EcclesiaCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
+        $this->SQLFile = $this->backupDir . "/EcclesiaCRM-Database.sql";
 
+    }
+
+    private function GZBackupFile()
+    {
+        LoggerUtils::getAppLogger()->info("GZ backup file: " . $this->saveTo);
+        $this->saveTo .= '.sql.gz';
+        $gzf = gzopen($this->saveTo, 'w6');
+        gzwrite($gzf, file_get_contents($this->SQLFile));
+        gzclose($gzf);
+        LoggerUtils::getAppLogger()->info("GZ backup file");
+    }
+
+    private function ZipBackupFile()
+    {
+        LoggerUtils::getAppLogger()->info("Zip backup file: " . $this->saveTo);
+        $zip = new \ZipArchive();
+        $this->saveTo .= '.sql.zip';
+
+        if ($zip->open($this->saveTo, ZipArchive::CREATE) === TRUE) {
+            $zip->addFromString('EcclesiaCRM-Database.sql', file_get_contents($this->SQLFile));
+            $zip->close();
+        } else {
+            throw new \Exception(_("Impossible to open") . $this->saveTo);
+        }
+        LoggerUtils::getAppLogger()->info("Zip backup file");
+    }
+
+    private function FullBackupFile()
+    {
+        LoggerUtils::getAppLogger()->info("Full backup file: " . $this->saveTo);
+        $this->saveTo .= '.tar';
+        $phar = new \PharData($this->saveTo);
+        $phar->startBuffering();
+        $phar->addFile($this->SQLFile, 'EcclesiaCRM-Database.sql');
+        $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
+        foreach ($imageFiles as $imageFile) {
+            if (!$imageFile->isDir()) {
+                $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $imageFile->getRealPath());
+                $phar->addFile($imageFile->getRealPath(), $localName);
+            }
+        }
+        $phar->stopBuffering();
+        $phar->compress(\Phar::GZ);
+        unlink($this->saveTo);
+        $this->saveTo .= '.gz';
+        LoggerUtils::getAppLogger()->info("Full backup file");
+    }
+
+    private function EncryptBackupFileGPG()
+    {
+        LoggerUtils::getAppLogger()->info("Encrypting backup file: " . $this->saveTo);
+        putenv('GNUPGHOME=/tmp');
+        $this->encryptCommand = "echo " . $this->params->password . " | gpg -q -c --batch --no-tty --passphrase-fd 0 " . $this->saveTo;
+        $this->saveTo .= '.gpg';
+        system($this->encryptCommand);
+        LoggerUtils::getAppLogger()->info("Finished encrypting backup file");
+    }
+
+    private function EncryptBackupFileInternal()
+    {
+        LoggerUtils::getAppLogger()->info("Encrypting backup file: " . $this->saveTo);
+        $tempfile = $this->saveTo . "temp";
+        rename($this->saveTo, $tempfile);
+        File::encryptFileWithPassword($tempfile, $this->saveTo, $this->params->password);
+        LoggerUtils::getAppLogger()->info("Finished encrypting backup file");
     }
 
     private function getDatabaseBackup()
@@ -275,52 +434,30 @@ class CreateBackup extends JobBase
 
         switch ($this->params->iArchiveType) {
             case BackupType::GZSQL: // The user wants a gzip'd SQL file.
-                $this->saveTo .= '.sql.gz';
-                $gzf = gzopen($this->saveTo, 'w6');
-                gzwrite($gzf, file_get_contents($this->SQLFile));
-                gzclose($gzf);
+                $this->GZBackupFile();
                 break;
             case BackupType::Zip:
-                //todo
-                $zip = new \ZipArchive();
-                $this->saveTo.= '.sql.zip';
-
-                if ($zip->open($this->saveTo, ZipArchive::CREATE)===TRUE) {
-                    $zip->addFromString('EcclesiaCRM-Database.sql', file_get_contents($this->SQLFile));
-                    $zip->close();
-                } else {
-                    throw new \Exception(_("Impossible to open"). $this->saveTo);
-                }
+                $this->ZipBackupFile();
                 break;
             case BackupType::SQL : //The user wants a plain ol' SQL file
                 $this->saveTo .= '.sql';
                 rename($this->SQLFile, $this->saveTo);
                 break;
             case BackupType::FullBackup : //the user wants a .tar.gz file
-                $this->saveTo .= '.tar';
-                $phar = new \PharData($this->saveTo);
-                $phar->startBuffering();
-                $phar->addFile($this->SQLFile, 'EcclesiaCRM-Database.sql');
-                $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
-                foreach ($imageFiles as $imageFile) {
-                    if (!$imageFile->isDir()) {
-                        $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $imageFile->getRealPath());
-                        $phar->addFile($imageFile->getRealPath(), $localName);
-                    }
-                }
-                $phar->stopBuffering();
-                $phar->compress(\Phar::GZ);
-                unlink($this->saveTo);
-                $this->saveTo .= '.gz';
+                $this->FullBackupFile();
                 break;
         }
 
 
         if ($this->params->bEncryptBackup) {  //the user has selected an encrypted backup
-            putenv('GNUPGHOME=/tmp');
-            $this->encryptCommand = "echo ".$this->params->password." | " . SystemConfig::getValue('sPGPname') . " -q -c --batch --no-tty --passphrase-fd 0 ".$this->saveTo;
-            $this->saveTo .= '.gpg';
-            system($this->encryptCommand);
+            LoggerUtils::getAppLogger()->info("Encrypting backup file: " . SystemConfig::getValue('sPGPname'));
+            $this->algo = SystemConfig::getValue('sPGPname');
+            if (SystemConfig::getValue('sPGPname') == "gpg") {
+                $this->EncryptBackupFileGPG();
+            } else {
+                $this->EncryptBackupFileInternal();
+            }
+
             $this->params->iArchiveType = BackupType::FullBackupEncrypted;
         }
 
@@ -391,7 +528,7 @@ class CreateBackup extends JobBase
             LoggerUtils::getAppLogger()->debug("End backup : run");
 
             // everything is OK
-            $this->result = 1;
+            $this->result = true;
 
             return $this;
         } else {
@@ -408,7 +545,8 @@ class CreateBackup extends JobBase
     }
 }
 
-class DownloadManager {
+class DownloadManager
+{
     static function run($filename)
     {
         set_time_limit(0);
@@ -453,7 +591,7 @@ class DownloadManager {
                 }
             }
             fclose($fd);
-            FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/tmp_attach/',true);
+            FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/tmp_attach/', true);
         }
     }
 }

@@ -35,7 +35,7 @@ $app->group('/database', function () {
         echo json_encode(get_object_vars($backup));
     });
 
-    $this->post('/backupRemote', function($request, $response, $args) use ($app, $systemService) {
+    $this->post('/backupRemote', function($request, $response, $args) {
         // without parameters the backup is done on the remote server
         $input = (object) $request->getParsedBody();
 

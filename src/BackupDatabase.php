@@ -184,7 +184,7 @@ function doBackup(isRemote)
     })
     .done(function(data) {
       console.log(data);
-      if (data.result === 1) {
+      if (data.result === true) {
           var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fa fa-download'></i>  " + data.filename + "</button>";
           $("#backupstatus").css("color", "green");
           if (isRemote) {

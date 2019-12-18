@@ -57,7 +57,7 @@ class SystemConfig
             ]
         ];
     }
-    
+
     public static function getAddressChoices()
     {
         return [
@@ -66,7 +66,7 @@ class SystemConfig
                 _("Address zip city state").":1"
             ]
         ];
-    }    
+    }
 
     private static function buildConfigs()
   {
@@ -96,7 +96,7 @@ class SystemConfig
         "bShowFamilyData" => new ConfigItem(33, "bShowFamilyData", "boolean", "1", _("Unavailable person info inherited from assigned family for display?. This option causes certain info from a person's assigned family record to be. displayed IF the corresponding info has NOT been entered for that person. ")),
         "sGZIPname" => new ConfigItem(36, "sGZIPname", "text", "gzip"),
         "sZIPname" => new ConfigItem(37, "sZIPname", "text", "zip"),
-        "sPGPname" => new ConfigItem(38, "sPGPname", "text", "gpg"),
+        "sPGPname" => new ConfigItem(38, "sPGPname", "choice", "gpg",_("By default gpg algorithm, in the other case internal algorithm."),"",'{"Choices":["GPG","Internal"]}'),
         "sLanguage" => new ConfigItem(39, "sLanguage", "choice", "en_US", _("Internationalization (I18n) support"), "", json_encode(SystemConfig::getSupportedLocales())),
         "iFYMonth" => new ConfigItem(40, "iFYMonth", "choice", "1", _("First month of the fiscal year"),"",'{"Choices":["1","2","3","4","5","6","7","8","9","10","11","12"]}'),
         "sNominatimLink" => new ConfigItem(41, "sNominatimLink", "text", "https://nominatim.openstreetmap.org", _("Link of the nominatim server : https://nominatim.openstreetmap.org") , "https://OpenStreetMap.openstreetmap.org"),
@@ -214,7 +214,7 @@ class SystemConfig
         "bSearchIncludeGroups" => new ConfigItem(2023, "bSearchIncludeGroups", "boolean", "1", _("Search Groups")),
         "bSearchIncludeDeposits" => new ConfigItem(2024, "bSearchIncludeDeposits", "boolean", "1", _("Search Deposits")),
         "bSearchIncludePayments" => new ConfigItem(2025, "bSearchIncludePayments", "boolean", "1", _("Search Payments")),
-        "bSearchIncludeAddresses" => new ConfigItem(2026, "bSearchIncludeAddresses", "boolean", "1", _("Search Addresses")),        
+        "bSearchIncludeAddresses" => new ConfigItem(2026, "bSearchIncludeAddresses", "boolean", "1", _("Search Addresses")),
         "iSearchIncludePersonsMax" => new ConfigItem(2027, "iSearchIncludePersonsMax", "text", "15", _("Maximum number of People")),
         "iSearchIncludeFamiliesMax" => new ConfigItem(2028, "iSearchIncludeFamiliesMax", "text", "15", _("Maximum number of Families")),
         "iSearchIncludeFamilyHOHMax" => new ConfigItem(2029, "iSearchIncludeFamilyHOHMax", "text", "15", _("Maximum number of Family H.O.H Names")),
@@ -293,7 +293,7 @@ class SystemConfig
         self::scrapeDBConfigs($configs);
       }
   }
-  
+
   public static function isInitialized() {
     return isset(self::$configs);
   }
