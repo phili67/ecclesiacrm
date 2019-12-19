@@ -13,8 +13,8 @@ use EcclesiaCRM\Service\UpgradeService;
 use EcclesiaCRM\FileSystemUtils;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\utils\InputUtils;
-
 use EcclesiaCRM\Utils\MiscUtils;
+
 use PharData;
 use Ifsnop\Mysqldump\Mysqldump;
 use Propel\Runtime\Propel;
@@ -111,14 +111,14 @@ class RestoreBackup extends JobBase
      *
      * @var bool
      */
-    protected $gpg_encrypted=false;
+    protected $gpg_encrypted = false;
 
     /**
      *
      * @bool
      */
 
-    protected $gpg_forgotten_password=false;
+    protected $gpg_forgotten_password = false;
 
     /**
      *
@@ -177,7 +177,7 @@ class RestoreBackup extends JobBase
     {
         LoggerUtils::getAppLogger()->info("Decrypting backup file: " . $this->file);
         putenv('GNUPGHOME=/tmp');
-        $this->encryptCommand = SystemConfig::getValue('sPGPname') . " --batch --passphrase " . $this->restorePassword . " " . $this->uploadedFileDestination;
+        $this->encryptCommand = "gpg --batch --passphrase " . $this->restorePassword . " " . $this->uploadedFileDestination;
         system($this->encryptCommand);
         LoggerUtils::getAppLogger()->info("Finished decrypting backup file");
 
@@ -258,8 +258,8 @@ class RestoreBackup extends JobBase
 
         move_uploaded_file($this->file['tmp_name'], $this->uploadedFileDestination);
 
-        if ( $this->restorePassword == true ) {
-            if ( $this->gpg_encrypted == true)  {
+        if ($this->restorePassword == true) {
+            if ($this->gpg_encrypted == true) {
                 // we've have to decode the archive
                 $this->DecryptBackupFileGPG();
             } else {
@@ -272,7 +272,7 @@ class RestoreBackup extends JobBase
             if ($this->type2 == 'tar') {
                 $this->RestoreFullArchive_TAR_GZ();
             } elseif ($this->type2 == 'sql') {
-               $this->RestoreArchive_SQL_GZ();
+                $this->RestoreArchive_SQL_GZ();
             }
         } elseif ($this->type == 'sql') {
             $this->RestoreArchive_SQL();
@@ -450,9 +450,8 @@ class CreateBackup extends JobBase
 
 
         if ($this->params->bEncryptBackup) {  //the user has selected an encrypted backup
-            LoggerUtils::getAppLogger()->info("Encrypting backup file: " . SystemConfig::getValue('sPGPname'));
-            $this->algo = SystemConfig::getValue('sPGPname');
-            if (SystemConfig::getValue('sPGPname') == "gpg") {
+            LoggerUtils::getAppLogger()->info("Encrypting backup file: " . SystemConfig::getValue('sPGP'));
+            if (SystemConfig::getValue('sPGP') == "GPG") {
                 $this->EncryptBackupFileGPG();
             } else {
                 $this->EncryptBackupFileInternal();

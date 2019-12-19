@@ -31,16 +31,6 @@ if (strtoupper(mb_substr(PHP_OS, 0, 3)) === 'WIN') {
     die('The Backup Utility will not work on a Windows based Server');
 }
 
-if (SystemConfig::getValue('sGZIPname')) {
-    $hasGZIP = true;
-}
-if (SystemConfig::getValue('sZIPname')) {
-    $hasZIP = true;
-}
-if (SystemConfig::getValue('sPGPname')) {
-    $hasPGP = true;
-}
-
 // Set the page title and include HTML header
 $sPageTitle = gettext('Backup Database');
 require 'Include/Header.php';
@@ -62,13 +52,13 @@ require 'Include/Header.php';
           <div class="col-lg-12">
         <?= _('Select archive type') ?>:&nbsp;
         <?php
-          if ($hasGZIP) {
+          if (SystemConfig::getBooleanValue('bGZIP')) {
         ?>
             <input type="radio" name="archiveType" value="0"> GZip
         <?php
           }
         ?>
-           <?php if ($hasZIP) {
+           <?php if (SystemConfig::getBooleanValue('bZIP')) {
         ?><input type="radio" name="archiveType" value="1"> Zip<?php
     } ?>
             &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
@@ -79,7 +69,7 @@ require 'Include/Header.php';
         <BR>
 
         <?php
-          if ($hasPGP) {
+          if (SystemConfig::getValue('sPGP')) {
         ?>
         <div class="row">
           <div class="col-lg-12">
