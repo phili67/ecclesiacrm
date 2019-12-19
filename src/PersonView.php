@@ -76,9 +76,9 @@ if (!is_null($user)) {
   $realNoteDir = $userDir = $user->getUserRootDir();
   $userName    = $user->getUserName();
   $currentpath = $user->getCurrentpath();
-  
+
   $currentNoteDir =  SystemURLs::getRootPath()."/".$realNoteDir."/".$userName;
-                    
+
   $directories = MiscUtils::getDirectoriesInPath($currentNoteDir.$currentpath);
 }
 
@@ -108,7 +108,7 @@ $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') A
       FROM person_per a
       LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
       LEFT JOIN list_lst  cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-      LEFT JOIN list_icon clsicon ON clsicon.lst_ic_lst_Option_ID = cls.lst_OptionID 
+      LEFT JOIN list_icon clsicon ON clsicon.lst_ic_lst_Option_ID = cls.lst_OptionID
       LEFT JOIN list_lst fmr ON a.per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
       LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
       LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
@@ -130,8 +130,8 @@ if (empty($person)) {
 
 if ($person->getDateDeactivated() != null) {
     $time = new DateTime('now');
-    $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
-    
+    $new_time = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+
     if ( $new_time > $person->getDateDeactivated() ) {
       if ( !SessionUser::getUser()->isGdrpDpoEnabled() ) {
         RedirectUtils::Redirect('members/404.php?type=Person');
@@ -176,7 +176,7 @@ $ormAutoPayments = AutoPaymentQuery::create()
 $ormPersonCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-                     
+
 // Get the custom field data for this person.
 $rawQry =  PersonCustomQuery::create();
 foreach ($ormPersonCustomFields as $customfield ) {
@@ -213,7 +213,7 @@ $ormProperties = PropertyQuery::Create()
                   ->filterByProClass('p')
                   ->orderByProName()
                   ->find();
-              
+
 $dBirthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', $person->getFlags());
 
 // Assign the values locally, after selecting whether to display the family or person information
@@ -336,7 +336,7 @@ if (!empty($person->getDateDeactivated())) {
         <strong><?= _("This Person is Deactivated") ?> </strong>
     </div>
     <?php
-} 
+}
 ?>
 
 
@@ -364,7 +364,7 @@ if (!empty($person->getDateDeactivated())) {
             <?php endif; ?>
         </div>
         <h3 class="profile-username text-center">
-      <?php 
+      <?php
         if ($person->isMale()) {
       ?>
           <i class="fa fa-male"></i>
@@ -373,7 +373,7 @@ if (!empty($person->getDateDeactivated())) {
       ?>
           <i class="fa fa-female"></i>
       <?php
-        } 
+        }
       ?>
       <?= $person->getFullName() ?></h3>
 
@@ -392,7 +392,7 @@ if (!empty($person->getDateDeactivated())) {
         }
       ?>
         <p class="text-muted text-center">
-        
+
           <?php
             if (!empty($sClassIcon)) {
           ?>
@@ -405,15 +405,15 @@ if (!empty($person->getDateDeactivated())) {
         ?>
               <br><?= _('Member')." "._(' Since:').' '.OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
         <?php
-          } 
+          }
         ?>
         </p>
-      <?php 
+      <?php
         if ($bOkToEdit) {
       ?>
           <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
       <?php
-        } 
+        }
       ?>
       </div>
       <!-- /.box-body -->
@@ -421,7 +421,7 @@ if (!empty($person->getDateDeactivated())) {
     <!-- /.box -->
 
     <!-- About Me Box -->
-    <?php 
+    <?php
       $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()  || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled())?true:false;
     ?>
     <div class="box box-primary">
@@ -451,58 +451,58 @@ if (!empty($person->getDateDeactivated())) {
             ?>
                 <?= _('(No assigned family)') ?>
             <?php
-              } 
+              }
             ?>
             </span>
         </li>
       <?php
         }
-      
+
         if (!empty($formattedMailingAddress)) {
       ?>
-          <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>: 
+          <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
             <span>
               <?= OutputUtils::GetLinkMapFromAddress ($plaintextMailingAddress) ?>
             </span>
           </li>
       <?php
         }
-        
+
         if ($dBirthDate) {
       ?>
           <li>
             <i class="fa-li fa fa-calendar"></i><?= _('Birth Date') ?>:
             <span><?= $dBirthDate ?></span>
-          <?php 
+          <?php
             if (!$person->hideAge()) {
           ?>
             (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
           <?php
-            } 
+            }
           ?>
           </li>
   <?php
     }
-    if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */ 
+    if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
   ?>
           <li><i class="fa-li fa fa-tasks"></i><?= _('Friend Date') ?>: <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span></li>
   <?php
     }
-    
+
     if ($sCellPhone) {
   ?>
           <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
           <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
   <?php
     }
-    
+
     if ($sHomePhone) {
   ?>
           <li><i class="fa-li fa fa-phone"></i><?= _('Home Phone') ?>: <span><a href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
   <?php
     }
-    
-    if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
+
+    if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
       ?>
           <li><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>
@@ -512,24 +512,24 @@ if (!empty($person->getDateDeactivated())) {
     if ($sEmail != '') {
   ?>
           <li><i class="fa-li fa fa-envelope"></i><?= _('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
-        <?php 
+        <?php
           if ($isMailChimpActive) {
         ?>
           <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserNormal"></span></li>
         <?php
           }
     }
-    
+
     if ($sWorkPhone) {
   ?>
           <li><i class="fa-li fa fa-phone"></i><?= _('Work Phone') ?>: <span><a href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
   <?php
-    } 
-   
+    }
+
     if ($person->getWorkEmail() != '') {
   ?>
           <li><i class="fa-li fa fa-envelope"></i><?= _('Work/Other Email') ?>: <span><a href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span></li>
-  <?php 
+  <?php
      if ($isMailChimpActive) {
   ?>
         <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserWork"></span></li>
@@ -554,7 +554,7 @@ if (!empty($person->getDateDeactivated())) {
         <li><i class="fa-li fa fa-linkedin"></i><?= _('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span></li>
   <?php
     }
-    
+
   } // end of $can_see_privatedata
 
     // Display the right-side custom fields
@@ -567,13 +567,13 @@ if (!empty($person->getDateDeactivated())) {
           } else {
             $custom_Special = $rowCustomField->getCustomSpecial();
           }
-              
+
           echo '<li><i class="fa-li '.(($rowCustomField->getTypeId() == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$rowCustomField->getCustomName().': <span>';
               $temp_string=nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
               echo $temp_string;
               echo '</span></li>';
           }
-        }    
+        }
     }
 ?>
         </ul>
@@ -582,23 +582,23 @@ if (!empty($person->getDateDeactivated())) {
     <div class="alert alert-info alert-dismissable">
         <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
     </div>
-    
+
   </div>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-primary box-body">
       <?php
         $buttons = 0;
-        
+
         if (Cart::PersonInCart($iPersonID) && SessionUser::getUser()->isShowCartEnabled()) {
            $buttons++;
       ?>
         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
-      <?php 
+      <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
            $buttons++;
       ?>
           <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
-      <?php 
+      <?php
        }
 
        if ( SessionUser::getUser()->isEmailEnabled() ) {
@@ -611,7 +611,7 @@ if (!empty($person->getDateDeactivated())) {
 
        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
           if ($person->getId() == SessionUser::getUser()->getPersonId()) {
-          
+
             $buttons++;
       ?>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= _("Change Settings") ?></a>
@@ -621,8 +621,8 @@ if (!empty($person->getDateDeactivated())) {
       ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
       <?php
-       } 
-      
+       }
+
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
           $buttons++;
       ?>
@@ -654,7 +654,7 @@ if (!empty($person->getDateDeactivated())) {
           <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= _('Edit User') ?></a>
       <?php
         }
-    } 
+    }
 
     if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
        $buttons++;
@@ -663,13 +663,13 @@ if (!empty($person->getDateDeactivated())) {
             <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " ._(' this Person')); ?>
         </button>
     <?php
-      } 
-      
+      }
+
     if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
       $buttons++;
-      
+
       if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
-    ?>        
+    ?>
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= _("Delete this Record") ?></a>
   <?php
       } else {
@@ -678,7 +678,7 @@ if (!empty($person->getDateDeactivated())) {
   <?php
       }
     }
-    
+
     if ( !$buttons ) {
   ?>
        <?= _("Private Data") ?>
@@ -687,18 +687,18 @@ if (!empty($person->getDateDeactivated())) {
   ?>
     </div>
   </div>
-  
-  <?php 
+
+  <?php
     if (SessionUser::getUser()->isManageGroupsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() )) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <?php 
+        <?php
           $activeTab = "";
-          if ( ($person->getId() == SessionUser::getUser()->getPersonId() 
-               || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+          if ( ($person->getId() == SessionUser::getUser()->getPersonId()
+               || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
                ||  SessionUser::getUser()->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
@@ -735,7 +735,7 @@ if (!empty($person->getDateDeactivated())) {
             if (empty($activeTab)) {
               $activeTab = 'properties';
             }
-            
+
             if ($bGroup) $activeTab = 'group';
           }
         ?>
@@ -748,7 +748,7 @@ if (!empty($person->getDateDeactivated())) {
             if (empty($activeTab)) {
               $activeTab = 'finance';
             }
-          } 
+          }
         ?>
         <?php
           if ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isNotesEnabled() ) {
@@ -761,7 +761,7 @@ if (!empty($person->getDateDeactivated())) {
         <?php
           if ( SessionUser::getUser()->isEDriveEnabled($iPersonID) ) {
             if ($bEDrive) $activeTab = 'edrive';
-        ?>        
+        ?>
         <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= _("EDrive") ?></a></li>
         <?php
           }
@@ -770,7 +770,7 @@ if (!empty($person->getDateDeactivated())) {
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <?php 
+        <?php
           if ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isSeePrivacyDataEnabled() ) {
         ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline')?"active":"" ?>" id="timeline">
@@ -780,7 +780,7 @@ if (!empty($person->getDateDeactivated())) {
                 <tr>
                   <td>
                   <span class="time-line-head-red">
-                    <?php 
+                    <?php
                       $now = new DateTime('');
                       echo $now->format(SystemConfig::getValue('sDateFormatLong'))
                     ?>
@@ -804,15 +804,15 @@ if (!empty($person->getDateDeactivated())) {
             </li>-->
             <li class="time-label">
             </li>
-            <!-- /.timeline-label -->        
-                
+            <!-- /.timeline-label -->
+
             <!-- timeline item -->
             <?php
               $countMainTimeLine = 0;  // number of items in the MainTimeLines
 
               foreach ($timelineServiceItems as $item) {
                  $countMainTimeLine++;
-                 
+
                  if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
             ?>
               <li>
@@ -830,9 +830,9 @@ if (!empty($person->getDateDeactivated())) {
                   <?php
                     }
                   ?>
-                
+
                   <h3 class="timeline-header">
-                    <?php 
+                    <?php
                       if (in_array('headerlink', $item)) {
                     ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
@@ -841,28 +841,28 @@ if (!empty($person->getDateDeactivated())) {
                     ?>
                       <?= $item['header'] ?>
                     <?php
-                      } 
+                      }
                     ?>
                   </h3>
-                  
+
 
                   <div class="timeline-body">
-                     <?php 
-                       if ($item['type'] != 'file') { 
+                     <?php
+                       if ($item['type'] != 'file') {
                      ?>
                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?></pre>
-                     <?php 
+                     <?php
                        } else {
                       ?>
                        <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").'<a href="'.SystemURLs::getRootPath().'/api/filemanager/getFile/'.$item['perID']."/".$item['text'].'"><i class="fa '.$item['style2'].'share-type-2"></i> "'._("click to download").'"</a>' ?></pre>
-                      <?php 
-                        } 
+                      <?php
+                        }
                       ?>
                   </div>
                 </div>
               </li>
             <?php
-              } 
+              }
             ?>
             <!-- END timeline item -->
           </ul>
@@ -871,7 +871,7 @@ if (!empty($person->getDateDeactivated())) {
           }
         ?>
         <div role="tab-pane fade <?= ($activeTab == 'family')?"active":"" ?>" class="tab-pane" id="family">
-      <?php 
+      <?php
         if ($person->getFamId() != '') {
       ?>
           <table class="table user-list table-hover">
@@ -885,9 +885,9 @@ if (!empty($person->getDateDeactivated())) {
             </tr>
             </thead>
             <tbody>
-            <?php 
+            <?php
               foreach ($person->getOtherFamilyMembers() as $familyMember) {
-              $tmpPersonId = $familyMember->getId(); 
+              $tmpPersonId = $familyMember->getId();
             ?>
               <tr>
                 <td>
@@ -901,14 +901,14 @@ if (!empty($person->getDateDeactivated())) {
                   <?= OutputUtils::FormatBirthDate($familyMember->getBirthYear(), $familyMember->getBirthMonth(), $familyMember->getBirthDay(), '-', $familyMember->getFlags()); ?>
                 </td>
                 <td>
-              <?php 
+              <?php
                 $tmpEmail = $familyMember->getEmail();
-                
+
                 if ($tmpEmail != '') {
               ?>
                   <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
               <?php
-                } 
+                }
               ?>
                 </td>
                 <td style="width: 20%;">
@@ -921,9 +921,9 @@ if (!empty($person->getDateDeactivated())) {
                       <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
                     </span>
                   </a>
-                  <?php 
+                  <?php
                     }
-                 
+
                     if ($bOkToEdit) {
                   ?>
                     <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
@@ -939,17 +939,17 @@ if (!empty($person->getDateDeactivated())) {
                       </span>
                     </a>
                 <?php
-                 } 
+                 }
                 ?>
                 </td>
               </tr>
             <?php
-             } 
+             }
             ?>
             </tbody>
           </table>
         <?php
-          } 
+          }
         ?>
         </div>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'group')?"active":"" ?>" id="groups">
@@ -987,7 +987,7 @@ if (!empty($person->getDateDeactivated())) {
                           </div>
                         </div>
                         <div class="box-footer" style="width:275px">
-                            <?php 
+                            <?php
                               if (SessionUser::getUser()->isManageGroupsEnabled()) {
                             ?>
                              <code>
@@ -1000,12 +1000,12 @@ if (!empty($person->getDateDeactivated())) {
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                   <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= _('Change Role') ?></a></li>
-                                  <?php 
+                                  <?php
                                     if ($ormAssignedGroup->getHasSpecialProps()) {
                                   ?>
                                     <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= _('Update Properties') ?></a></li>
                                   <?php
-                                    } 
+                                    }
                                   ?>
                                 </ul>
                               </div>
@@ -1014,7 +1014,7 @@ if (!empty($person->getDateDeactivated())) {
                               </div>
                           </code>
                         <?php
-                          } 
+                          }
                         ?>
                         </div>
 
@@ -1027,10 +1027,10 @@ if (!empty($person->getDateDeactivated())) {
 
                         <div class="box-body">
                         <small>
-                        <?php  
+                        <?php
                             if ( $ormPropLists->count() > 0 ) {
                         ?>
-                          
+
                             <h4><?= _("Group Informations") ?></h4>
                             <ul>
                         <?php
@@ -1038,7 +1038,7 @@ if (!empty($person->getDateDeactivated())) {
                                 $prop_Special = $ormPropList->getSpecial();
                                 if ($ormPropList->getTypeId() == 11) {
                                   $prop_Special = $sPhoneCountry;
-                                }  
+                                }
                         ?>
                                 <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?></li>
                         <?php
@@ -1049,9 +1049,9 @@ if (!empty($person->getDateDeactivated())) {
                             }
 
                             $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
-                          
+
                             $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
-                            
+
                             $statement = $connection->prepare($sSQL);
                             $statement->execute();
                             $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );
@@ -1073,7 +1073,7 @@ if (!empty($person->getDateDeactivated())) {
                             <?php
                                 }
                               }
-                          
+
                         ?>
                             </ul>
                           <a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary btn-xs"><?= _("Modify Specific Properties")?></a>
@@ -1081,12 +1081,12 @@ if (!empty($person->getDateDeactivated())) {
                             }
                         ?>
                           </small>
- 
+
                           </div><!-- /.box-body -->
                         <?php
-                          } 
+                          }
                         ?>
-                      
+
                         <!-- /.box-footer-->
                       </div>
                       <!-- /.box -->
@@ -1113,9 +1113,9 @@ if (!empty($person->getDateDeactivated())) {
                 <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= _('No property assignments.') ?></span>
             </div>
             <?php
-               $sAssignedProperties = ','; 
+               $sAssignedProperties = ',';
             ?>
-            
+
             <div id="properties-table" <?= ($ormAssignedProperties->count() == 0)?'style="display: none;"':''?>>
               <table class="table table-condensed dt-responsive" id="assigned-properties-table" width="100%"></table>
             </div>
@@ -1134,9 +1134,9 @@ if (!empty($person->getDateDeactivated())) {
                                       $attributes = "value=\"{$ormProperty->getProId()}\" ";
                                           if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
                                           ?>
-                                              <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>    
-                                        <?php }      
-          
+                                              <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>
+                                        <?php }
+
                                 } ?>
                                 </select>
                             </div>
@@ -1168,13 +1168,13 @@ if (!empty($person->getDateDeactivated())) {
               <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
                 <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= _('No volunteer opportunity assignments.') ?></span>
               </div>
-        
+
               <div id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0)?'style="display: none;"':''?>>
                  <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%"></table>
               </div>
 
-              <?php 
-                if (SessionUser::getUser()->isEditRecordsEnabled() && $ormVolunteerOpps->count()) { 
+              <?php
+                if (SessionUser::getUser()->isEditRecordsEnabled() && $ormVolunteerOpps->count()) {
               ?>
                 <div class="alert alert-info">
                   <div>
@@ -1186,12 +1186,12 @@ if (!empty($person->getDateDeactivated())) {
                       <?php
                         foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
                             //If the property doesn't already exist for this Person, write the <OPTION> tag
-                            if (strlen(strstr($sAssignedVolunteerOpps, ','.$vol_ID.',')) == 0) {
+                            if (strlen(strstr($sAssignedVolunteerOpps, ','.$ormVolunteerOpp->getId().',')) == 0) {
                       ?>
                           <option value="<?= $ormVolunteerOpp->getId() ?>"><?= $ormVolunteerOpp->getName() ?></option>
                       <?php
                             }
-                        } 
+                        }
                       ?>
                         </select>
                       </div>
@@ -1201,23 +1201,23 @@ if (!empty($person->getDateDeactivated())) {
                     </div>
                 </div>
               </div>
-            <?php 
-              } 
+            <?php
+              }
             ?>
           </div>
         </div>
       </div>
-      <?php 
+      <?php
         if (SessionUser::getUser()->isFinanceEnabled() ) {
       ?>
        <div role="tab-pane fade" class="tab-pane" id="finance">
           <div class="main-box clearfix">
               <div class="main-box-body clearfix">
-              
-            <?php 
+
+            <?php
               if ( !is_null ($person->getFamily()) ) {
                 if ( $ormAutoPayments->count() > 0 ) {
-            ?>    
+            ?>
                   <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
             <?php
                 }
@@ -1277,9 +1277,9 @@ if (!empty($person->getDateDeactivated())) {
                 <?php
                   }
                 ?>
-                    
 
-              <?php 
+
+              <?php
                 if (SessionUser::getUser()->isCanvasserEnabled()  && !is_null ($person->getFamily())) {
               ?>
                   <p align="center">
@@ -1287,13 +1287,13 @@ if (!empty($person->getDateDeactivated())) {
                          href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
               <?php
-                } 
+                }
               ?>
                 </div>
             </div>
         </div>
       <?php
-        } 
+        }
       ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'notes')?"active":"" ?>" id="notes" >
           <div class="row filter-note-type">
@@ -1306,7 +1306,7 @@ if (!empty($person->getDateDeactivated())) {
                     </span>
                     </td>
                     <td style="vertical-align: middle;">
-                        <labe><?= _("Show") ?> : </label>
+                        <label><?= _("Show") ?> : </label>
                     </td>
                     <td>
                         <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= _("Select") ?> ...">
@@ -1328,23 +1328,23 @@ if (!empty($person->getDateDeactivated())) {
             <!-- /.note-label -->
 
             <!-- note item -->
-            <?php 
+            <?php
               $note_content = "";// this assume only the last note is visible
-              
+
               foreach ($timelineNotesServiceItems as $item) {
                 if ( $note_content != $item['text'] && $item['type'] != 'file') {// this assume only the last note is visible
-                 
+
                  $note_content = $item['text']; // this assume only the last note is visible
             ?>
               <li class="type-<?= $item['type'] ?><?= (isset($item['style2'])?" type-shared":"") ?>">
                 <!-- timeline icon -->
                 <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2'])?" icon-shared":"") ?>" ></i>
- 
+
                 <div class="timeline-item">
                   <span class="time">
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
-                     <?php 
+                     <?php
                      if ( $item['slim'] && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
@@ -1397,7 +1397,7 @@ if (!empty($person->getDateDeactivated())) {
                 ?>
                   <h3 class="timeline-header">
 
-                    <?php 
+                    <?php
                       if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
                     ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
@@ -1406,11 +1406,11 @@ if (!empty($person->getDateDeactivated())) {
                     ?>
                       <?= $item['header'] ?>
                     <?php
-                      } 
+                      }
                     ?>
                   </h3>
-                  
-                  
+
+
 
                   <div class="timeline-body">
                   <?php
@@ -1427,11 +1427,11 @@ if (!empty($person->getDateDeactivated())) {
                       <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
                   </div>
 
-                  <?php 
+                  <?php
                     if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                   ?>
                     <div class="timeline-footer">
-                  <?php 
+                  <?php
                     if (!$item['slim']) {
                       if ($item['editLink'] != '') {
                   ?>
@@ -1440,7 +1440,7 @@ if (!empty($person->getDateDeactivated())) {
                         </a>
                   <?php
                       }
-                            
+
                       if ($item['deleteLink'] != '') {
                   ?>
                         <?= $item['deleteLink'] ?>
@@ -1448,15 +1448,15 @@ if (!empty($person->getDateDeactivated())) {
                         </a>
                   <?php
                         }
-                         
+
                         if (!isset($item['sharePersonID']) ) {
                   ?>
-                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default"
                         ?> shareNote"><i class="fa fa-share-square-o"></i></button>
                   <?php
                         }
                   ?>
-                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default"
                         ?> shareNote"><i class="fa fa-share-square-o"></i></button>
                     </div>
                   <?php
@@ -1466,7 +1466,7 @@ if (!empty($person->getDateDeactivated())) {
               </li>
             <?php
                 }
-              } 
+              }
             ?>
             <!-- END timeline item -->
           </ul>
@@ -1484,7 +1484,7 @@ if (!empty($person->getDateDeactivated())) {
                         <?= _("All Files") ?>
                       </span>
                       &nbsp;&nbsp;&nbsp;
-                      <?php 
+                      <?php
                         if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                       ?>
                         <a href="#" id="uploadFile">
@@ -1493,7 +1493,7 @@ if (!empty($person->getDateDeactivated())) {
                             <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                           </span>
                         </a>
-                      <?php 
+                      <?php
                         }
                       ?>
 
@@ -1616,7 +1616,7 @@ if (!empty($person->getDateDeactivated())) {
   window.CRM.normalMail      = "<?= $sEmail ?>";
   window.CRM.workMail        = "<?= $person->getWorkEmail() ?>";
   window.CRM.browserImage    = false;
-  
+
   if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
     $( ".fa-special-icon" ).addClass( "fa-2x" );
