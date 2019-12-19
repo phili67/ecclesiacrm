@@ -116,6 +116,12 @@ $user = SessionUser::getUser();
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.print.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/Select/dataTables.select.min.js"></script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
+<!-- Drag and drop -->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<!-- !Drag and Drop -->
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/select2/select2.min.js"></script>
 
