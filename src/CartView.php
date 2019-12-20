@@ -102,7 +102,7 @@ if (!Cart::HasPeople()) {
                 <?php
         } ?>
             <a href="<?= SystemURLs::getRootPath() ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app bg-aqua"><i
-                        class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>      
+                        class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>
             <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/CartToBadge.php" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
         <?php
             if (Cart::CountPeople() != 0) {
@@ -115,13 +115,13 @@ if (!Cart::HasPeople()) {
                         LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
                         LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
                     WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
-                
+
                 $statementEmails = $connection->prepare($sSQL);
                 $statementEmails->execute();
 
                 $sEmailLink = '';
                 while ($row = $statementEmails->fetch( \PDO::FETCH_BOTH )) {
-                    $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $per_Email['fam_Email'], false);
+                    $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $row['fam_Email'], false);
                     if ($sEmail) {
                         /* if ($sEmailLink) // Don't put delimiter before first email
                             $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
@@ -131,32 +131,32 @@ if (!Cart::HasPeople()) {
                         }
                     }
                 }
-                
+
                 $sEmailLink = mb_substr($sEmailLink, 0, -1);
-                
+
                 if ($sEmailLink) {
                     // Add default email if default email has been set and is not already in string
                     if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
                         $sEmailLink .= SessionUser::getUser()->MailtoDelimiter() . SystemConfig::getValue('sToEmailAddress');
                     }
-                    
+
                     $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
                     if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                         // Display link
                     ?>
-                        <a href="mailto:<?= $sEmailLink?>" class="btn btn-app"><i class='fa fa-send-o'></i><?= _('Email Cart') ?></a>
-                        <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                        <a href="mailto:<?= $sEmailLink?>" class="btn btn-app" id="emailLink"><i class='fa fa-send-o'></i><?= _('Email Cart') ?></a>
+                        <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app" id="emailCCIlink"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
                     <?php
                     }
                 }
 
                 //Text Cart Link
-                $sSQL = "SELECT per_CellPhone, fam_CellPhone 
-                            FROM person_per LEFT 
-                            JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID 
+                $sSQL = "SELECT per_CellPhone, fam_CellPhone
+                            FROM person_per LEFT
+                            JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID
                         WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
-                
+
                 $statement = $connection->prepare($sSQL);
                 $statement->execute();
 
@@ -188,7 +188,6 @@ if (!Cart::HasPeople()) {
                       </button>
                       <ul class="dropdown-menu" role="menu">
                              <li> <a href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a></li>
-                             <script nonce="<?= SystemURLs::getCSPNonce() ?>">function allPhonesCommaD() {prompt("Press CTRL + C to copy all group members\' phone numbers", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
                              <li> <a href="sms:<?= str_replace(' ', '',mb_substr($sPhoneLinkSMS, 0, -2)) ?>"><i class="fa fa-mobile-phone"></i><?= _("Text Cart") ?></li>
                           </ul>
                     </div>
@@ -197,12 +196,12 @@ if (!Cart::HasPeople()) {
                 } ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
                             class="fa fa-book"></i><?= _('Create Directory From Cart') ?></a>
-                            
+
              <?php   if (SessionUser::getUser()->isAddRecordsEnabled()) {
             ?>
                 <a href="#" id="deleteCart" class="btn btn-app bg-red"><i
                             class="fa fa-trash"></i><?= _('Delete Persons From CRM') ?></a>
-                            
+
                 <a href="#" id="deactivateCart" class="btn btn-app bg-orange"><i
                             class="fa fa-trash"></i><?= _('Deactivate Persons From Cart') ?></a>
                 <?php
@@ -226,7 +225,7 @@ if (!Cart::HasPeople()) {
                 </div>
                 <!-- /.box -->
             <?php
-            } 
+            }
             ?>
             <!-- Default box -->
             <div class="box">
@@ -241,7 +240,7 @@ if (!Cart::HasPeople()) {
                       <div class="row">
                         <div class="col-md-6">
                             <?= _('Bulk Mail Presort') ?>
-                        </div>                           
+                        </div>
                         <div class="col-md-6">
                             <input name="bulkmailpresort" type="checkbox" onclick="codename()" id="BulkMailPresort" value="1" <?= (array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>><br>
                         </div>
@@ -263,7 +262,7 @@ if (!Cart::HasPeople()) {
                               LabelUtils::FontSizeSelect('labelfontsize');
                               LabelUtils::StartRowStartColumn();
                               LabelUtils::IgnoreIncompleteAddresses();
-                              LabelUtils::LabelFileType(); 
+                              LabelUtils::LabelFileType();
                             ?>
                   </div>
                   <div class="row">
@@ -302,6 +301,10 @@ if (!Cart::HasPeople()) {
     <!-- END CART LISTING -->
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CartView.js"></script>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    window.CRM.sPhoneLink = "<?= mb_substr($sPhoneLink, 0, -2) ?>";
+</script>
 
 <?php
 require 'Include/Footer.php';

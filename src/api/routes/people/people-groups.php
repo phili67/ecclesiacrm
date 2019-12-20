@@ -39,12 +39,12 @@ $app->group('/groups', function () {
  * @! Get all the Groups
  */
     $this->get('/', "getAllGroups" );
-    
+
  /*
  * @! Get the first Group of the list
  */
     $this->get('/defaultGroup' , "defaultGroup");
-    
+
  /*
  * @! Get all the properties of a group
  */
@@ -56,17 +56,17 @@ $app->group('/groups', function () {
     $this->get('/addressbook/extract/{groupId:[0-9]+}', function ($request, $response, $args) {
       // we get the group
       $group = GroupQuery::create()->findOneById ($args['groupId']);
-      
+
       // we'll connect to sabre to create the group
       $pdo = Propel::getConnection();
-        
+
       // We set the BackEnd for sabre Backends
       $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
-      
+
       $addressbook = $carddavBackend->getAddressBookForGroup ($args['groupId']);
-      
+
       $filename = $group->getName().".vcf";
-      
+
       $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
       $size = strlen($output);
 
@@ -78,7 +78,7 @@ $app->group('/groups', function () {
                 ->withHeader('Content-Transfer-Encoding', 'binary')
                 ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
                 ->withHeader('Expires', '0');
-                
+
 
       $response->getBody()->write($output);
 
@@ -86,12 +86,12 @@ $app->group('/groups', function () {
     });
 
     $this->get('/search/{query}', "searchGroup" );
-    
+
     $this->post('/deleteAllManagers', "deleteAllManagers" );
     $this->post('/deleteManager', "deleteManager" );
     $this->post('/getmanagers', "getManagers" );
     $this->post('/addManager', "addManager" );
-    
+
     $this->get('/groupsInCart', "groupsInCart" );
 
     $this->post('/', "newGroup" );
@@ -100,7 +100,7 @@ $app->group('/groups', function () {
     $this->get('/{groupID:[0-9]+}/cartStatus', "groupCartStatus" );
     $this->delete('/{groupID:[0-9]+}', "deleteGroup" );
     $this->get('/{groupID:[0-9]+}/members', "groupMembers" );
-    
+
     $this->get('/{groupID:[0-9]+}/events', "groupEvents" );
 
     $this->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', "removePersonFromGroup" );
@@ -110,8 +110,8 @@ $app->group('/groups', function () {
     $this->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', "userRoleByUserId" );
     $this->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', "rolesByRoleId" );
     $this->get('/{groupID:[0-9]+}/roles', "allRoles" );
-    
-    
+
+
     $this->post('/{groupID:[0-9]+}/defaultRole', "defaultRoleForGroup" );
 
     $this->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {
@@ -176,8 +176,8 @@ function getAllGroups () {
 
 function defaultGroup ($request, $response, $args) {
   $res = GroupQuery::create()->orderByName()->findOne()->getId();
-    
-  return $response->withJson($res); 
+
+  return $response->withJson($res);
 }
 
 function groupproperties ($request, $response, $args) {
@@ -203,123 +203,123 @@ function searchGroup($request, $response, $args) {
 
   $searchLikeString = '%'.$query.'%';
 
-    
+
   $groups = GroupQuery::create()
             ->filterByName($searchLikeString, Criteria::LIKE)
             //->orderByName()
             ->find();
-        
-        
-  $return = [];        
+
+
+  $return = [];
 
   if (!empty($groups))
-  { 
-    $data = [];   
+  {
+    $data = [];
     $id++;
-    
-    foreach ($groups as $group) {                  
+
+    foreach ($groups as $group) {
       $values['id'] = $id++;
       $values['objid'] = $group->getId();
       $values['text'] = $group->getName();
       $values['uri'] = SystemURLs::getRootPath()."/v2/group/".$group->getId()."/view";
-  
+
       array_push($return, $values);
 
       array_push($data, $elt);
     }
   }
-  return $response->withJson($return);    
+  return $response->withJson($return);
 }
 
 function deleteAllManagers ($request, $response, $args) {
     $options = (object) $request->getParsedBody();
-    
+
     if ( isset ($options->groupID) ) {
       $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
-      
+
       if ($managers != null) {
         $managers->delete();
       }
-      return $response->withJson(['status' => "success"]);        
+      return $response->withJson(['status' => "success"]);
     }
-        
-    return $response->withJson(['status' => "failed"]);        
+
+    return $response->withJson(['status' => "failed"]);
 }
 
 function deleteManager ($request, $response, $args) {
     $options = (object) $request->getParsedBody();
-    
+
     if ( isset ($options->groupID) && isset ($options->personID) ) {
       $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
-      
+
       if ($manager != null) {
         $manager->delete();
       }
-      
+
       $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
-      
+
       if ($managers->count()) {
         $data = [];
-      
+
         foreach ($managers as $manager) {
-      
+
          $elt = ['name'=> $manager->getPerson()->getFullName(),
               'personID'=>$manager->getPerson()->getId()];
-            
+
          array_push($data, $elt);
-        
+
         }
-      
+
         return $response->withJson($data);
       } else {
         return $response->withJson(['status' => "empty"]);
       }
     }
-        
-    return $response->withJson(['status' => "failed"]);        
+
+    return $response->withJson(['status' => "failed"]);
 }
 
 function getManagers ($request, $response, $args) {
     $option = (object) $request->getParsedBody();
-    
+
     if (isset ($option->groupID)) {
       $managers = GroupManagerPersonQuery::Create()->findByGroupId($option->groupID);
-      
+
       if ($managers->count()) {
         $data = [];
-      
+
         foreach ($managers as $manager) {
           if (!$manager->getPerson()->isDeactivated()) {
              $elt = ['name'=> $manager->getPerson()->getFullName(),
                   'personID'=>$manager->getPerson()->getId()];
-            
+
              array_push($data, $elt);
-          }            
+          }
         }
-      
+
         return $response->withJson($data);
       } else {
         return $response->withJson(['status' => "empty"]);
       }
     }
-        
-    return $response->withJson(['status' => "failed"]);        
+
+    return $response->withJson(['status' => "failed"]);
 }
 
 function addManager ($request, $response, $args) {
     $options = (object)$request->getParsedBody();
-    
+
     if (isset ($options->personID) && isset($options->groupID)) {
       $groupManager = new GroupManagerPerson();
-    
+
       $groupManager->setPersonId($options->personID);
       $groupManager->setGroupId($options->groupID);
-      
+
       $groupManager->save();
-      
+
       return $response->withJson(['status' => "success".$options->groupID." ".$options->personID]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -342,13 +342,13 @@ function newGroup ($request, $response, $args) {
     } else {
         $group->setType(3);// now each normal group has a type of 3
     }
-    
+
     $group->setName($groupSettings->groupName);
     $group->save();
-    
-    
+
+
     $groupType = new GroupType();
-    
+
     if (!is_null($groupType)) {
       $groupType->setGroupId ($group->getId());
       $groupType->setListOptionId (0);
@@ -363,25 +363,25 @@ function updateGroup ($request, $response, $args) {
     $input = (object) $request->getParsedBody();
     $group = GroupQuery::create()->findOneById($groupID);
     $group->setName($input->groupName);
-    
+
     $groupType = GroupTypeQuery::Create()->findOneByGroupId ($groupID);
-    
+
     if (!is_null($groupType)) {
       $groupType->setListOptionId ($input->groupType);
       $groupType->save();
     } else {
       $groupType = new GroupType();
-      
+
       $groupType->setGroupId ($groupID);
       $groupType->setListOptionId ($input->groupType);
-  
+
       $groupType->save();
     }
-    
+
     $group->setDescription($input->description);
-    
+
     $group->save();
-    
+
     echo $group->toJSON();
 }
 
@@ -407,17 +407,17 @@ function groupMembers ($request, $response, $args) {
           ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
         ->endUse()
         ->findByGroupId($groupID);
-    
-        
-    // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically        
+
+
+    // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically
     foreach ($members as $member)
     {
       $p = $member->getPerson();
-      $fam = $p->getFamily();   
-  
+      $fam = $p->getFamily();
+
       // Philippe Logel : this is usefull when a person don't have a family : ie not an address
-      if (!is_null($fam) 
-        && !is_null($fam->getAddress1()) 
+      if (!is_null($fam)
+        && !is_null($fam->getAddress1())
         && !is_null($fam->getAddress2())
         && !is_null($fam->getCity())
         && !is_null($fam->getState())
@@ -426,13 +426,13 @@ function groupMembers ($request, $response, $args) {
       {
         $p->setAddress1 ($fam->getAddress1());
         $p->setAddress2 ($fam->getAddress2());
-  
+
         $p->setCity($fam->getCity());
         $p->setState($fam->getState());
-        $p->setZip($fam->getZip());    
-      }      
+        $p->setZip($fam->getZip());
+      }
     }
-    
+
     echo $members->toJSON();
 }
 
@@ -450,9 +450,9 @@ function removePersonFromGroup ($request, $response, $args) {
     $person = PersonQuery::create()->findPk($userID);
     $group = GroupQuery::create()->findPk($groupID);
     $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
-            
+
     $groupService = new GroupService();
-    
+
     foreach ($groupRoleMemberships as $groupRoleMembership) {
         if ($groupRoleMembership->getPersonId() == $person->getId()) {
             $groupService->removeUserFromGroup($groupID, $person->getId());
@@ -486,7 +486,7 @@ function addPersonToGroup ($request, $response, $args) {
     {
       $p2g2r->setRoleId($group->getDefaultRole());
     }
-            
+
     $group->addPerson2group2roleP2g2r($p2g2r);
     $group->save();
     $note = new Note();
@@ -620,25 +620,25 @@ function deleteGroupField(Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
-  
+
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $groupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
-    
+
     if ( !is_null ($groupPropMstr) && $groupPropMstr->getTypeId() == 12 ) {
        $list = ListOptionQuery::Create()->findById($groupPropMstr->getSpecial());
        if( !is_null($list) ) {
          $list->delete();
        }
-    } 
+    }
 
     // this can't be propeled
     $connection = Propel::getConnection();
     $sSQL = 'ALTER TABLE `groupprop_'.$values->GroupID.'` DROP `'.$values->Field.'` ;';
-    $connection->exec($sSQL); 
+    $connection->exec($sSQL);
 
     // now we can delete the GroupPropMasterQuery
     $groupPropMstr->delete();
@@ -651,16 +651,16 @@ function deleteGroupField(Request $request, Response $response, array $args) {
     if ($numRows != 0) {
         for ($reorderRow = $values->PropID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
             $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($reorderRow);
-            
+
             if ( !is_null ($fisrtGroupPropMstr) ){
               $fisrtGroupPropMstr->setPropId($reorderRow - 1)->save();
             }
         }
     }
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -670,19 +670,19 @@ function upactionGroupField (Request $request, Response $response, array $args) 
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID - 1);
     $fisrtGroupPropMstr->setPropId($values->PropID)->save();
-    
+
     $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
     $secondGroupPropMstr->setPropId($values->PropID - 1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -692,19 +692,19 @@ function downactionGroupField (Request $request, Response $response, array $args
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID + 1);
     $fisrtGroupPropMstr->setPropId($values->PropID)->save();
-    
+
     $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
     $secondGroupPropMstr->setPropId($values->PropID+1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 

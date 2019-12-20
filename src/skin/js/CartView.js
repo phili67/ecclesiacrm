@@ -1,5 +1,9 @@
 /* Copyright 2019 : Philippe Logel */
 
+function allPhonesCommaD() {
+    prompt(i18next.t("Press CTRL + C to copy all group members\' phone numbers"), window.CRM.sPhoneLink)
+}
+
 $(document).ready(function () {
     window.CRM.dataTableListing = $("#cart-listing-table").DataTable({
         "language": {
@@ -15,18 +19,18 @@ $(document).ready(function () {
         columns: [
             {
                 width: 'auto',
-                title:i18next.t('Name'),
+                title: i18next.t('Name'),
                 data: 'personID',
                 render: function (data, type, full, meta) {
-                    return '<img src="' + full.thumbnail+ '" class="direct-chat-img initials-image">&nbsp'
-                        +'<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.personID + '">'
+                    return '<img src="' + full.thumbnail + '" class="direct-chat-img initials-image">&nbsp'
+                        + '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.personID + '">'
                         + full.fullName
                         + '</a>';
                 }
             },
             {
                 width: 'auto',
-                title:i18next.t('Address'),
+                title: i18next.t('Address'),
                 data: 'sValidAddy',
                 render: function (data, type, full, meta) {
                     return data;
@@ -34,7 +38,7 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title:i18next.t('Email'),
+                title: i18next.t('Email'),
                 data: 'sValidEmail',
                 render: function (data, type, full, meta) {
                     return data;
@@ -42,7 +46,7 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title:i18next.t('Remove'),
+                title: i18next.t('Remove'),
                 data: 'personID',
                 render: function (data, type, full, meta) {
                     return '<a class="RemoveFromPeopleCart" data-personid="' + data + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
@@ -50,7 +54,7 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title:i18next.t('Classification'),
+                title: i18next.t('Classification'),
                 data: 'ClassificationName',
                 render: function (data, type, full, meta) {
                     return data;
@@ -58,7 +62,7 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title:i18next.t('Family Role'),
+                title: i18next.t('Family Role'),
                 data: 'FamilyRoleName',
                 render: function (data, type, full, meta) {
                     return data;
@@ -68,19 +72,19 @@ $(document).ready(function () {
     });
 
     $("#cart-label-table").DataTable({
-        responsive:true,
+        responsive: true,
         paging: false,
         searching: false,
         ordering: false,
-        info:     false,
+        info: false,
         //dom: window.CRM.plugin.dataTable.dom,
-        fnDrawCallback: function( settings ) {
+        fnDrawCallback: function (settings) {
             $("#selector thead").remove();
         }
     });
 
     $(document).on("click", ".emptyCart", function (e) {
-        window.CRM.cart.empty(function(){
+        window.CRM.cart.empty(function () {
             document.location.reload();
         });
     });
@@ -88,8 +92,20 @@ $(document).ready(function () {
     $(document).on("click", ".RemoveFromPeopleCart", function (e) {
         clickedButton = $(this);
         e.stopPropagation();
-        window.CRM.cart.removePerson([clickedButton.data("personid")],function() {
-            window.CRM.dataTableListing.ajax.reload();// PL : We should reload the table after we add a group so the button add to group is disabled
+        window.CRM.cart.removePerson([clickedButton.data("personid")], function (data) {
+            window.CRM.dataTableListing.ajax.reload(function ( ) {
+                if (window.CRM.dataTableListing.data().count() == 0) {
+                    bootbox.alert(i18next.t("You have no more items in your cart."), function(){ 
+                       window.location.href = window.CRM.root + "/Menu.php"
+                    });
+                }
+            });
+
+            // we have to update the links
+            $('#emailLink').attr("href","mailto:"+data.sEmailLink);
+            $('#emailCCIlink').attr("href","mailto:?bcc="+data.sEmailLink);
+            
+            window.CRM.sPhoneLink = data.sPhoneLink;
         });
     });
 
