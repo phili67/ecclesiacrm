@@ -451,7 +451,7 @@ class CreateBackup extends JobBase
 
         if ($this->params->bEncryptBackup) {  //the user has selected an encrypted backup
             LoggerUtils::getAppLogger()->info("Encrypting backup file: " . SystemConfig::getValue('sPGP'));
-            if (SystemConfig::getValue('sPGP') == "GPG") {
+            if (strtolower (SystemConfig::getValue('sPGP')) == "gpg") {
                 $this->EncryptBackupFileGPG();
             } else {
                 $this->EncryptBackupFileInternal();
