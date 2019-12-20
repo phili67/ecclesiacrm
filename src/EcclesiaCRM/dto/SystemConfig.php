@@ -96,7 +96,7 @@ class SystemConfig
         "bShowFamilyData" => new ConfigItem(33, "bShowFamilyData", "boolean", "1", _("Unavailable person info inherited from assigned family for display?. This option causes certain info from a person's assigned family record to be. displayed IF the corresponding info has NOT been entered for that person. ")),
         "bGZIP" => new ConfigItem(36, "bGZIP", "boolean", "gzip",_("gzip format export allowed")),
         "bZIP" => new ConfigItem(37, "bZIP", "boolean", "zip",_("zip format export allowed")),
-        "sPGP" => new ConfigItem(38, "sPGP", "choice", "gpg",_("By default gpg algorithm, in the other case internal algorithm."),"",'{"Choices":["GPG","Internal"]}'),
+        "sPGP" => new ConfigItem(38, "sPGP", "choice", "gpg",_("By default GPG (GnuPG) a hybrid-encryption software program, in the other case internal encryption software."),"",'{"Choices":["GPG","Internal"]}'),
         "sLanguage" => new ConfigItem(39, "sLanguage", "choice", "en_US", _("Internationalization (I18n) support"), "", json_encode(SystemConfig::getSupportedLocales())),
         "iFYMonth" => new ConfigItem(40, "iFYMonth", "choice", "1", _("First month of the fiscal year"),"",'{"Choices":["1","2","3","4","5","6","7","8","9","10","11","12"]}'),
         "sNominatimLink" => new ConfigItem(41, "sNominatimLink", "text", "https://nominatim.openstreetmap.org", _("Link of the nominatim server : https://nominatim.openstreetmap.org") , "https://OpenStreetMap.openstreetmap.org"),
