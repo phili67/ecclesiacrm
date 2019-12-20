@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-22 20:11+0200\n"
+"POT-Creation-Date: 2019-12-20 05:58+0100\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,44 +63,44 @@ msgstr "Alte setări"
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/cart.php:97
+#: api/routes/cart.php:100
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:111 api/routes/cart.php:124
+#: api/routes/cart.php:114 api/routes/cart.php:127
 #, fuzzy
 msgid "records(s) successfully added to selected Group."
 msgstr "Grupa adăugat cu succes în coș."
 
-#: api/routes/cart.php:152 api/routes/cart.php:165 api/routes/cart.php:178
+#: api/routes/cart.php:155 api/routes/cart.php:168 api/routes/cart.php:181
 #, fuzzy
 msgid "records(s) successfully deleted from the selected Group."
 msgstr "Înregistrarea selectată eliminat cu succes din Cart."
 
-#: api/routes/cart.php:194 api/routes/cart.php:227 api/routes/cart.php:258
+#: api/routes/cart.php:197 api/routes/cart.php:230 api/routes/cart.php:324
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Cosul dvs. este gol!"
 
-#: api/routes/cart.php:202
+#: api/routes/cart.php:205
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:205
+#: api/routes/cart.php:208
 #, fuzzy
 msgid "Your cart and CRM has been successfully deleted"
 msgstr "Cosul tau a fost golit cu succes"
 
-#: api/routes/cart.php:235
+#: api/routes/cart.php:238
 msgid "You can't deactivate admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:238
+#: api/routes/cart.php:241
 #, fuzzy
 msgid "Your cart and CRM has been successfully deactivated"
 msgstr "Cosul tau a fost golit cu succes"
 
-#: api/routes/cart.php:261
+#: api/routes/cart.php:327
 #, fuzzy
 msgid "Your cart has been successfully emptied"
 msgstr "Cosul tau a fost golit cu succes"
@@ -1544,7 +1544,7 @@ msgstr "E-mail Cosul"
 msgid "Email (BCC)"
 msgstr "E-mail (CCA)"
 
-#: CartView.php:184 CartView.php:192
+#: CartView.php:184 CartView.php:191
 #, fuzzy
 msgid "Text Cart"
 msgstr "Gol Cart"
@@ -1553,41 +1553,41 @@ msgstr "Gol Cart"
 msgid "Copy Paste the Texts"
 msgstr ""
 
-#: CartView.php:199
+#: CartView.php:198
 msgid "Create Directory From Cart"
 msgstr "Creați director din coș"
 
-#: CartView.php:204
+#: CartView.php:203
 #, fuzzy
 msgid "Delete Persons From CRM"
 msgstr "Ștergeți această înregistrare"
 
-#: CartView.php:207
+#: CartView.php:206
 #, fuzzy
 msgid "Deactivate Persons From Cart"
 msgstr "Creați o nouă familie"
 
-#: CartView.php:234 CartView.php:272
+#: CartView.php:233 CartView.php:271
 msgid "Generate Labels"
 msgstr "Genera Etichete"
 
-#: CartView.php:243
+#: CartView.php:242
 msgid "Bulk Mail Presort"
 msgstr "Bulk Mail Presort"
 
-#: CartView.php:251
+#: CartView.php:250
 msgid "Quiet Presort"
 msgstr "Presort liniștit"
 
-#: CartView.php:292
+#: CartView.php:291
 msgid "Your cart contains"
 msgstr "Cosul de cumparaturi contine"
 
-#: CartView.php:292
+#: CartView.php:291
 msgid "persons from"
 msgstr "persoane din"
 
-#: CartView.php:292 Include/Functions.php:108
+#: CartView.php:291 Include/Functions.php:108
 #, fuzzy
 msgid "families"
 msgstr "Familiile"
