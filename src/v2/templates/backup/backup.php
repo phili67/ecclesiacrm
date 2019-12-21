@@ -2,9 +2,9 @@
 
 /*******************************************************************************
  *
- *  filename    : templates/Calendar.php
- *  last change : 2019-02-5
- *  description : manage the full Calendar
+ *  filename    : templates/backup.php
+ *  last change : 2019-11-21
+ *  description : manage the backup
  *
  *  http://www.ecclesiacrm.com/
  *

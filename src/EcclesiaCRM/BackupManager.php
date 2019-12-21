@@ -25,7 +25,7 @@ abstract class BackupType
 {
     // archive type : archiveType in BackupDatabae.php
     const GZSQL = 0;
-    const Zip = 1;// for the zip
+    const Zip = 1;
     const SQL = 2;
     const FullBackup = 3;
     const FullBackupEncrypted = 4;
