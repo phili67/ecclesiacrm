@@ -23,7 +23,7 @@ use Defuse\Crypto\File;
 
 abstract class BackupType
 {
-    // archive type : archiveType in BackupDatabae.php
+    // archive type
     const GZSQL = 0;
     const Zip = 1;
     const SQL = 2;
@@ -33,11 +33,6 @@ abstract class BackupType
 
 class JobBase
 {
-    /**
-     *
-     * @var BackupType
-     */
-    protected $BackupType;
 
     /**
      *
