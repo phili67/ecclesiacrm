@@ -43,18 +43,20 @@ require $sRootDocument . '/Include/Header.php';
                         ?><input type="radio" name="archiveType" value="1"> Zip<?php
                     } ?>
                     &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="2" checked> <?= _('Uncompressed') ?>
-                    &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3" checked> <?= _('tar.gz (Include Photos)') ?>
+                    &nbsp;&nbsp;&nbsp;<input type="radio" name="archiveType" value="3"
+                                             checked> <?= _('tar.gz (Include Photos)') ?>
                 </div>
             </div>
 
             <BR>
 
             <?php
-            if ($encryptionMethod) {
+            if ($encryptionMethod != "None") {
                 ?>
                 <div class="row">
                     <div class="col-lg-12">
-                        <input type="checkbox" name="encryptBackup" value="1"><?= _('Encrypt backup file with a password?') ?>
+                        <input type="checkbox" name="encryptBackup"
+                               value="1"><?= _('Encrypt backup file with a password?') ?>
                     </div>
                 </div>
 
@@ -85,10 +87,12 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <div class="row">
                 <div class="col-lg-3">
-                    <input type="button" class="btn btn-primary" id="doBackup" <?= 'value="'._('Generate and Download Backup').'"' ?>>
+                    <input type="button" class="btn btn-primary" id="doBackup"
+                           <?= 'value="' . _('Generate and Download Backup') . '"' ?>>
                 </div>
                 <div class="col-lg-5">
-                    <input type="button" class="btn btn-primary" id="doRemoteBackup" <?= 'value="'._('Generate and Ship Backup to External Storage').'"' ?>>
+                    <input type="button" class="btn btn-primary" id="doRemoteBackup"
+                           <?= 'value="' . _('Generate and Ship Backup to External Storage') . '"' ?>>
                 </div>
             </div>
         </form>
@@ -96,7 +100,8 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title"><?= _('Backup Status:') ?> </h3>&nbsp;<h3 class="box-title" id="backupstatus" style="color:red"> <?= _('No Backup Running') ?></h3>
+        <h3 class="box-title"><?= _('Backup Status:') ?> </h3>&nbsp;<h3 class="box-title" id="backupstatus"
+                                                                        style="color:red"> <?= _('No Backup Running') ?></h3>
     </div>
     <div class="box-body" id="resultFiles">
     </div>

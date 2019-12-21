@@ -28,11 +28,17 @@ require $sRootDocument . '/Include/Header.php';
         <form id="restoredatabase" action="<?= $sRootPath ?>/api/database/restore" method="POST"
               enctype="multipart/form-data">
             <input type="file" name="restoreFile" id="restoreFile" multiple="">
-            <label for="restorePassword">
-                (<?= $encryptionMethod ?>) <?= _("encryption") ?>, <?= _("Password (if any)") ?>:
-            </label>
-            <input type="text" name="restorePassword" /><br/><br/>
-            <button type="submit" class="btn btn-primary btn-small"><?= _('Upload Files') ?></button>
+            <?php
+            if ($encryptionMethod != "None") {
+                ?>
+                <label for="restorePassword">
+                    (<?= $encryptionMethod ?>) <?= _("encryption") ?>, <?= _("Password (if any)") ?>:
+                </label>
+                <input type="text" name="restorePassword"/><br/><br/>
+                <button type="submit" class="btn btn-primary btn-small"><?= _('Upload Files') ?></button>
+                <?php
+            }
+            ?>
         </form>
     </div>
 </div>
