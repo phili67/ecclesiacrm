@@ -730,6 +730,7 @@
             "5.8.6"
         ],
         "scripts": [
+            "/mysql/upgrade/5.8.7-upgrade.php"
         ],
         "dbVersion": "5.8.7"
     }

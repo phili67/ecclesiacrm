@@ -42,10 +42,20 @@ class SystemURLs
     {
         return self::$documentRoot;
     }
-    
+
     public static function getImagesRoot()
     {
       return self::$documentRoot."/Images";
+    }
+
+    public static function getEDrivePrivateRoot()
+    {
+        return self::$documentRoot."/private";
+    }
+
+    public static function getEDrivePublicRoot()
+    {
+        return self::$documentRoot."/public";
     }
 
     public static function getURLs()
@@ -56,7 +66,7 @@ class SystemURLs
     public static function getSupportURL()
     {
         $lang = Bootstrapper::GetCurrentLocale()->getShortLocale();
-        
+
         return self::$supportURL."/".$lang."/";
     }
 
@@ -102,7 +112,7 @@ class SystemURLs
             }
         }
     }
-    
+
     public static function getCSPNonce()
     {
       return self::$CSPNonce;

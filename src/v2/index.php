@@ -68,6 +68,10 @@ require __DIR__ . '/routes/people/personlist.php';
 
 require __DIR__ . '/routes/group/groups.php';
 
+// backup route
+require __DIR__ . '/routes/backup/backup.php';
+require __DIR__ . '/routes/backup/restore.php';
+
 // email routes
 // mailchimp
 require __DIR__ . '/routes/email/mailchimp/mailchimp.php';

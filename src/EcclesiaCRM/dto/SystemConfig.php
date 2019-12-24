@@ -57,7 +57,7 @@ class SystemConfig
             ]
         ];
     }
-    
+
     public static function getAddressChoices()
     {
         return [
@@ -66,7 +66,7 @@ class SystemConfig
                 _("Address zip city state").":1"
             ]
         ];
-    }    
+    }
 
     private static function buildConfigs()
   {
@@ -94,9 +94,9 @@ class SystemConfig
         "sSMTPUser" => new ConfigItem(29, "sSMTPUser", "text", "", _("SMTP Username")),
         "sSMTPPass" => new ConfigItem(30, "sSMTPPass", "password", "", _("SMTP Password")),
         "bShowFamilyData" => new ConfigItem(33, "bShowFamilyData", "boolean", "1", _("Unavailable person info inherited from assigned family for display?. This option causes certain info from a person's assigned family record to be. displayed IF the corresponding info has NOT been entered for that person. ")),
-        "sGZIPname" => new ConfigItem(36, "sGZIPname", "text", "gzip"),
-        "sZIPname" => new ConfigItem(37, "sZIPname", "text", "zip"),
-        "sPGPname" => new ConfigItem(38, "sPGPname", "text", "gpg"),
+        "bGZIP" => new ConfigItem(36, "bGZIP", "boolean", "gzip",_("gzip format export allowed")),
+        "bZIP" => new ConfigItem(37, "bZIP", "boolean", "zip",_("zip format export allowed")),
+        "sPGP" => new ConfigItem(38, "sPGP", "choice", "GPG",_("By default GPG (GnuPG) a hybrid-encryption software program or Internal encryption software. You could avoid to use with the None choice."),"",'{"Choices":["None", "GPG","Internal"]}'),
         "sLanguage" => new ConfigItem(39, "sLanguage", "choice", "en_US", _("Internationalization (I18n) support"), "", json_encode(SystemConfig::getSupportedLocales())),
         "iFYMonth" => new ConfigItem(40, "iFYMonth", "choice", "1", _("First month of the fiscal year"),"",'{"Choices":["1","2","3","4","5","6","7","8","9","10","11","12"]}'),
         "sNominatimLink" => new ConfigItem(41, "sNominatimLink", "text", "https://nominatim.openstreetmap.org", _("Link of the nominatim server : https://nominatim.openstreetmap.org") , "https://OpenStreetMap.openstreetmap.org"),
@@ -214,7 +214,7 @@ class SystemConfig
         "bSearchIncludeGroups" => new ConfigItem(2023, "bSearchIncludeGroups", "boolean", "1", _("Search Groups")),
         "bSearchIncludeDeposits" => new ConfigItem(2024, "bSearchIncludeDeposits", "boolean", "1", _("Search Deposits")),
         "bSearchIncludePayments" => new ConfigItem(2025, "bSearchIncludePayments", "boolean", "1", _("Search Payments")),
-        "bSearchIncludeAddresses" => new ConfigItem(2026, "bSearchIncludeAddresses", "boolean", "1", _("Search Addresses")),        
+        "bSearchIncludeAddresses" => new ConfigItem(2026, "bSearchIncludeAddresses", "boolean", "1", _("Search Addresses")),
         "iSearchIncludePersonsMax" => new ConfigItem(2027, "iSearchIncludePersonsMax", "text", "15", _("Maximum number of People")),
         "iSearchIncludeFamiliesMax" => new ConfigItem(2028, "iSearchIncludeFamiliesMax", "text", "15", _("Maximum number of Families")),
         "iSearchIncludeFamilyHOHMax" => new ConfigItem(2029, "iSearchIncludeFamilyHOHMax", "text", "15", _("Maximum number of Family H.O.H Names")),
@@ -271,9 +271,9 @@ class SystemConfig
       _('Map Settings')  => ["sMapProvider","sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
       _('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       _('Financial Settings') => ["sCurrency","sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
-      _('System Settings')  => ["sLogLevel", "bRegistered","sGZIPname","sZIPname","sPGPname","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
+      _('System Settings')  => ["sLogLevel", "bRegistered","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
       _('Quick Search') => ["bSearchIncludePersons","iSearchIncludePersonsMax","bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies","iSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","iSearchIncludeFamilyHOHMax","bSearchIncludeGroups","iSearchIncludeGroupsMax","bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax","bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
-      _('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
+      _('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","bGZIP","bZIP","sPGP","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       _('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
       _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
       _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
@@ -293,7 +293,7 @@ class SystemConfig
         self::scrapeDBConfigs($configs);
       }
   }
-  
+
   public static function isInitialized() {
     return isset(self::$configs);
   }

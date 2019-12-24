@@ -52,7 +52,7 @@ use EcclesiaCRM\Bootstrapper;
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-settings-other-tab">
-      <?php 
+      <?php
         if (SessionUser::getUser()->isMenuOptionsEnabled()) {
       ?>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Family') ?></h4>
@@ -141,8 +141,8 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
               <?php
-                } 
-              
+                }
+
                 if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
               ?>
                     <li>
@@ -151,8 +151,8 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
               <?php
-                 } 
-                
+                 }
+
                  if (SessionUser::getUser()->isPastoralCareEnabled()) {
               ?>
                     <li>
@@ -162,7 +162,7 @@ use EcclesiaCRM\Bootstrapper;
                     </li>
               <?php
                 }
-                
+
                 if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
               ?>
                     <li>
@@ -171,10 +171,10 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
               <?php
-                } 
+                }
               ?>
             </ul>
-         
+
             <!-- /.control-sidebar-menu -->
 
       <?php
@@ -191,7 +191,7 @@ use EcclesiaCRM\Bootstrapper;
         <div id="control-sidebar-settings-tab" class="tab-pane">
             <div><h4 class="control-sidebar-heading"><?= _('System Settings') ?></h4>
                 <ul class="control-sidebar-menu">
-                  <?php 
+                  <?php
                   if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
@@ -203,9 +203,9 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
                   <?php
-                   } 
+                   }
                   ?>
-                  <?php 
+                  <?php
                   if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
@@ -217,16 +217,16 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
                   <?php
-                  } 
+                  }
                   ?>
                 </ul>
                 <hr/>
                 <ul class="control-sidebar-menu">
-                  <?php 
+                  <?php
                     if (SessionUser::getUser()->isAdmin()) {
                   ?>
                         <li>
-                            <a href="<?= SystemURLs::getRootPath() ?>/RestoreDatabase.php">
+                            <a href="<?= SystemURLs::getRootPath() ?>/v2/restore">
                                 <i class="menu-icon fa fa-database bg-yellow-gradient"></i>
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading"><?= _('Restore Database') ?></h4>
@@ -234,7 +234,7 @@ use EcclesiaCRM\Bootstrapper;
                             </a>
                         </li>
                         <li>
-                            <a href="<?= SystemURLs::getRootPath() ?>/BackupDatabase.php">
+                            <a href="<?= SystemURLs::getRootPath() ?>/v2/backup">
                                 <i class="menu-icon fa fa-database bg-green"></i>
                                 <div class="menu-info">
                                     <h4 class="control-sidebar-subheading"><?= _('Backup Database') ?></h4>
@@ -262,8 +262,8 @@ use EcclesiaCRM\Bootstrapper;
                   ?>
                         <li><div class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div></li>
                   <?php
-                    } 
-                    
+                    }
+
                     if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
@@ -275,7 +275,7 @@ use EcclesiaCRM\Bootstrapper;
                         </a>
                     </li>
                   <?php
-                    } 
+                    }
                   ?>
                 </ul>
             </div>
@@ -293,7 +293,7 @@ use EcclesiaCRM\Bootstrapper;
                   $taskIcon = 'fa-info bg-green';
                   if ($task['admin']) {
                     $taskIcon = 'fa-lock bg-yellow-gradient';
-                  } 
+                  }
                 ?>
                     <!-- Task item -->
                     <li>
@@ -308,7 +308,7 @@ use EcclesiaCRM\Bootstrapper;
                     </li>
                     <!-- end task item -->
                 <?php
-                  } 
+                  }
                 ?>
             </ul>
             <!-- /.control-sidebar-menu -->
