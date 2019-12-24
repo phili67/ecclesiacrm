@@ -25,10 +25,11 @@ i18next-extract-gettext --files=skin/js/user/*.js --output=../locale/js-strings1
 
 i18next-extract-gettext --files=skin/js/email/MailChimp/*.js --output=../locale/js-strings14.pot
 i18next-extract-gettext --files=skin/js/ckeditor/*.js --output=../locale/js-strings15.pot
+i18next-extract-gettext --files=skin/js/backup/*.js --output=../locale/js-strings16.pot
 
-msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot -o ../locale/js-strings.pot
+msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot -o ../locale/js-strings.pot
 
-rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot
 
 cd ../locale
 
@@ -51,9 +52,9 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
    _jq() {
      echo ${row} | base64 --decode | jq -r ${1}
    }
-   
+
    lang=$(echo $(_jq '.locale'))
-   
+
    echo "Merge '${lang}'"
 
    if [ "${lang}" == "en_US" ] || [ "${lang}" == "en_GB" ] || [ "${lang}" == "en_CA" ] || [ "${lang}" == "en_AU" ] ; then
@@ -61,56 +62,56 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      continue
    fi
 
-   
+
    if [ ! -d "JSONKeys_JS/${lang}" ]; then
      mkdir "JSONKeys_JS/${lang}"
    fi
-   
+
    #cp messages.pot messages.po
-   
+
    # backup file
    cp .."/src/locale/textdomain/${lang}/LC_MESSAGES/messages.po" "backup/message_${lang}_"`date '+%Y-%m-%d_%H:%M:%S'`".po"
-   
-   # We start the merge 
+
+   # We start the merge
    msgmerge -U .."/src/locale/textdomain/${lang}/LC_MESSAGES/messages.po"  messages.pot
 
    msgfmt -o "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.mo" "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po"
-   
+
    if [ -f "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po~" ]; then
         rm "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po~"
    fi
-   
+
    if [ -f "JSONKeys_JS/${lang}/js-strings.po" ]; then
      echo "traduction exist for ${lang}"
      # To do
      cp js-strings.pot js-strings.po
-     
+
      # backup file
      cp JSONKeys_JS/${lang}/js-strings.po "backup/js-strings_${lang}_"`date '+%Y-%m-%d_%H:%M:%S'`".po"
-     
-     # We start the merge 
+
+     # We start the merge
      msgmerge -U JSONKeys_JS/${lang}/js-strings.po js-strings.po
      msgmerge -U JSONKeys_JS/${lang}/js_extra.po js_extra.pot
-     
+
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js-strings.po" -t "JSONKeys_JS/${lang}.json"
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js_extra.po" -t "JSONKeys_JS/${lang}/js_extra.json"
-     
+
      # now we add the extra terms
      mergeJson=$(jq -s '.[0] * .[1]' "JSONKeys_JS/${lang}.json" "JSONKeys_JS/${lang}/js_extra.json")
-     
+
      echo $mergeJson > "JSONKeys_JS/${lang}.json"
-     
+
      # cleanup
      rm "JSONKeys_JS/${lang}/js_extra.json"
-     
+
      if [ -f "JSONKeys_JS/${lang}/js-strings.po~" ]; then
         rm "JSONKeys_JS/${lang}/js-strings.po~"
      fi
-     
+
      if [ -f "JSONKeys_JS/${lang}/js_extra.po~" ]; then
         rm "JSONKeys_JS/${lang}/js_extra.po~"
      fi
-   fi 
+   fi
 
 done
 
