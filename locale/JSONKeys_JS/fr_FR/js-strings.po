@@ -1917,7 +1917,7 @@ msgid "Passwords must match"
 msgstr "Les mots de passe doivent correspondre"
 
 msgid "Backup Running, Please wait."
-msgstr "Backup en cours, Veulliez patienter."
+msgstr "Backup en cours, Veuillez patienter."
 
 msgid "Backup Generated and copied to remote server"
 msgstr "Backup généré et copié sur le serveur distant"
@@ -1932,7 +1932,7 @@ msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du serveur de"
 
 msgid "Restore Running, Please wait."
-msgstr "Restauration en cours, veulliez patienter."
+msgstr "Restauration en cours, Veuillez patienter."
 
 msgid "Restore Complete"
 msgstr "Restauration terminée"

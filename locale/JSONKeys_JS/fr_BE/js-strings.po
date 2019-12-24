@@ -1911,38 +1911,37 @@ msgid "Deleting Subscribers..."
 msgstr "Effacement des abonnés..."
 
 msgid "You must enter a password"
-msgstr ""
+msgstr "Vous devez saisir un mot de passe"
 
-#, fuzzy
 msgid "Passwords must match"
-msgstr "Réinitialisation Mot de Passe pour"
+msgstr "Les mots de passe doivent correspondre"
 
 msgid "Backup Running, Please wait."
-msgstr ""
+msgstr "Backup en cours, Veuillez patienter."
 
 msgid "Backup Generated and copied to remote server"
-msgstr ""
+msgstr "Backup généré et copié sur le serveur distant"
 
 msgid "Backup Complete, Ready for Download."
-msgstr ""
+msgstr "Backup terminé et prêt pour le téléchargement."
 
 msgid "Backup Downloaded, Copy on server removed"
-msgstr ""
+msgstr "Backup téléchargé et supprimé sur le serveur"
 
 msgid "The selected file exceeds this servers maximum upload size of"
-msgstr ""
+msgstr "Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du serveur de"
 
 msgid "Restore Running, Please wait."
-msgstr ""
+msgstr "Restauration en cours, Veuillez patienter."
 
 msgid "Restore Complete"
-msgstr ""
+msgstr "Restauration terminée"
 
 msgid "Login to restored Database"
-msgstr ""
+msgstr "Connectez-vous à la base restaurée"
 
 msgid "Restore Error."
-msgstr ""
+msgstr "Erreur de restauration."
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "Ajouter toutes les étiquettes pour les membres sélectionnés ..."
