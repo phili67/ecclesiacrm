@@ -4,17 +4,13 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\FileSystemUtils;
 use EcclesiaCRM\VersionQuery;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Backup\CreateBackup;
 
-use Exception;
 use Github\Client;
-use Ifsnop\Mysqldump\Mysqldump;
 use Propel\Runtime\Propel;
 use PDO;
 

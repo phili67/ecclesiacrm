@@ -10,7 +10,6 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
-use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Slim\Middleware\Request\Auth\AdminRoleAuthMiddleware;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\LoggerUtils;

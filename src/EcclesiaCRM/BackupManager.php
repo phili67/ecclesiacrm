@@ -55,10 +55,10 @@ class JobBase
     protected function CreateEmptyTempFolder($contentDir)
     {
         // both backup and restore operations require a clean temporary working folder.  Create it.
-        $this->backupRoot = SystemURLs::getDocumentRoot() . '/tmp_attach/';
-        $this->TempFolder = $this->backupRoot . $contentDir . "/";
+        $this->backupRoot = SystemURLs::getDocumentRoot() . '/tmp_attach';
+        $this->TempFolder = $this->backupRoot . "/". $contentDir . "/";
         LoggerUtils::getAppLogger()->debug("Removing temp folder tree at " . $this->TempFolder);
-        FileSystemUtils::recursiveRemoveDirectory($this->backupRoot, true);
+        $this->DeleteTempFolder();
         LoggerUtils::getAppLogger()->debug("Creating temp folder at " . $this->TempFolder);
         mkdir($this->TempFolder, 0750, true);
         LoggerUtils::getAppLogger()->debug("Temp folder created");
@@ -67,7 +67,7 @@ class JobBase
 
     protected function DeleteTempFolder()
     {
-        FileSystemUtils::recursiveRemoveDirectory($this->backupRoot, true);
+        MiscUtils::delTree($this->TempFolder);
     }
 }
 
@@ -199,22 +199,7 @@ class RestoreBackup extends JobBase
         }
     }
 
-    private function RestoreFullArchive_TAR_GZ()
-    {
-        $connection = Propel::getConnection();
 
-        $phar = new PharData($this->uploadedFileDestination);
-        $phar->extractTo($this->backupDir);
-        $SQLfile = $this->backupDir . "/EcclesiaCRM-Database.sql";
-        if (file_exists($SQLfile)) {
-            SQLUtils::sqlImport($SQLfile, $connection);
-            FileSystemUtils::recursiveRemoveDirectory(SystemURLs::getDocumentRoot() . '/Images');
-            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
-        } else {
-            FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
-            throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
-        }
-    }
 
     private function RestoreArchive_SQL_GZ()
     {
@@ -245,6 +230,30 @@ class RestoreBackup extends JobBase
         $connection = Propel::getConnection();
 
         SQLUtils::sqlImport($this->uploadedFileDestination, $connection);
+    }
+
+    private function RestoreFullArchive_TAR_GZ()
+    {
+        $connection = Propel::getConnection();
+
+        $phar = new PharData($this->uploadedFileDestination);
+        $phar->extractTo($this->backupDir);
+        $SQLfile = $this->backupDir . "/EcclesiaCRM-Database.sql";
+        if (file_exists($SQLfile)) {
+            SQLUtils::sqlImport($SQLfile, $connection);
+            // restore the Images folder
+            MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/Images');
+            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/Images/', SystemURLs::getImagesRoot());
+            // restore the Webdav private folder
+            MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/private');
+            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/private/', SystemURLs::getEDrivePrivateRoot());
+            // restore the Webdav public folder
+            MiscUtils::delTree(SystemURLs::getDocumentRoot() . '/public');
+            FileSystemUtils::recursiveCopyDirectory($this->backupDir . '/public/', SystemURLs::getEDrivePublicRoot());
+        } else {
+            FileSystemUtils::recursiveRemoveDirectory($this->backupDir, true);
+            throw new \Exception(_("Backup archive does not contain a database") . ": " . $this->file['name']);
+        }
     }
 
     public function run()
@@ -341,15 +350,33 @@ class CreateBackup extends JobBase
      */
     protected $encryptCommand;
 
-    public function __construct($params)
+    /**
+     * CreateBackup constructor.
+     * @param null $params
+     * @throws \Exception
+     */
+
+    protected $SQLFile;
+
+    public function __construct($params=null)
     {
         //MiscUtils::requireUserGroupMembership('bAdmin');
         $this->backupDir = $this->CreateEmptyTempFolder('EcclesiaCRMBackups');
 
+        if ($params == null) {
+            // we're in the case of a scheduled backup
+            $this->params = new class {
+                public $iArchiveType=BackupType::FullBackup;
+                public $bEncryptBackup=false;
+                public $iRemote=1;
+            };
+        } else {
+            $this->params = $params;
+        }
+
         $this->headers = [];
-        $this->params = $params;
-        $this->saveTo = $this->backupDir . "/EcclesiaCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
-        $this->SQLFile = $this->backupDir . "/EcclesiaCRM-Database.sql";
+        $this->saveTo = $this->backupDir . "EcclesiaCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
+        $this->SQLFile = $this->backupDir . "EcclesiaCRM-Database.sql";
 
     }
 
@@ -384,12 +411,39 @@ class CreateBackup extends JobBase
         $this->saveTo .= '.tar';
         $phar = new \PharData($this->saveTo);
         $phar->startBuffering();
+        // the sql DB
         $phar->addFile($this->SQLFile, 'EcclesiaCRM-Database.sql');
+        // the images files
         $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
         foreach ($imageFiles as $imageFile) {
             if (!$imageFile->isDir()) {
                 $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $imageFile->getRealPath());
                 $phar->addFile($imageFile->getRealPath(), $localName);
+            }
+        }
+
+        // the eDrive(s) for all the users
+        // 1) the private Webdav folder
+        $privateFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getEDrivePrivateRoot(),\FilesystemIterator::SKIP_DOTS));
+        foreach ($privateFiles as $privateFile) {
+            if ($privateFile->isFile() && $privateFile->getBasename() === '.DS_Store' || $privateFile->isLink()) {
+                continue;
+            }
+            if (!$privateFile->isDir()) {
+                $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $privateFile->getRealPath());
+                $phar->addFile($privateFile->getRealPath(), $localName);
+            }
+        }
+        // 2) the public Webdav folder
+        $publicFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getEDrivePublicRoot(),\FilesystemIterator::SKIP_DOTS));
+        foreach ($publicFiles as $publicFile) {
+            if ($publicFile->isLink()) {
+                continue;
+            }
+
+            if (!$publicFile->isDir()) {
+                $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $publicFile->getRealPath());
+                $phar->addFile($publicFile->getRealPath(), $localName);
             }
         }
         $phar->stopBuffering();
@@ -482,8 +536,6 @@ class CreateBackup extends JobBase
                 $this->credentials = SystemConfig::getValue('sExternalBackupUsername') . ':' . SystemConfig::getValue('sExternalBackupPassword');
                 $this->filesize = filesize($this->saveTo);
 
-                LoggerUtils::getAppLogger()->debug("file size : " . $this->filesize);
-
                 $fh = fopen($this->saveTo, 'r');
                 $this->remoteUrl = SystemConfig::getValue('sExternalBackupEndpoint');
                 $ch = curl_init($this->remoteUrl . $this->filename);
@@ -532,7 +584,7 @@ class CreateBackup extends JobBase
             LoggerUtils::getAppLogger()->debug("End remote backup : run");
 
             // everything is done in the : copyBackupToExternalStorage
-            //$this->result = 1;
+            //$this->result = true;
 
             return $this;
         }

@@ -42,7 +42,7 @@ function argumentsRestoreArray ()
 {
     $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
         'sRootDocument' => SystemURLs::getDocumentRoot(),
-        'sPageTitle'  => _('Backup Database'),
+        'sPageTitle'  => _('Restore Database'),
         'encryptionMethod' => SystemConfig::getValue('sPGP')
     ];
 
