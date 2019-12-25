@@ -130,5 +130,4 @@ $(document).ready(function () {
             window.CRM.sPhoneLink = data.sPhoneLink;
         });
     });
-
 });
