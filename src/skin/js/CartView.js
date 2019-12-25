@@ -85,7 +85,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".emptyCart", function (e) {
         window.CRM.cart.empty(function () {
-            document.location.reload();
+            window.CRM.dataTableListing.ajax.reload(function ( ) {
+                if (window.CRM.dataTableListing.data().count() == 0) {
+                    bootbox.alert(i18next.t("You have no more items in your cart."), function(){
+                        window.location.href = window.CRM.root + "/Menu.php"
+                    });
+                }
+            });
         });
     });
 
@@ -95,7 +101,7 @@ $(document).ready(function () {
         window.CRM.cart.removePerson([clickedButton.data("personid")], function (data) {
             window.CRM.dataTableListing.ajax.reload(function ( ) {
                 if (window.CRM.dataTableListing.data().count() == 0) {
-                    bootbox.alert(i18next.t("You have no more items in your cart."), function(){ 
+                    bootbox.alert(i18next.t("You have no more items in your cart."), function(){
                        window.location.href = window.CRM.root + "/Menu.php"
                     });
                 }
@@ -104,7 +110,7 @@ $(document).ready(function () {
             // we have to update the links
             $('#emailLink').attr("href","mailto:"+data.sEmailLink);
             $('#emailCCIlink').attr("href","mailto:?bcc="+data.sEmailLink);
-            
+
             window.CRM.sPhoneLink = data.sPhoneLink;
         });
     });
