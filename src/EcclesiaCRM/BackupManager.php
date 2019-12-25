@@ -337,7 +337,7 @@ class CreateBackup extends JobBase
      *
      * @bool
      */
-    public $result;
+    public $result = false;
     /**
      *
      * @string
@@ -355,6 +355,8 @@ class CreateBackup extends JobBase
      * @param null $params
      * @throws \Exception
      */
+
+    public $error = "";
 
     protected $SQLFile;
 
@@ -538,14 +540,25 @@ class CreateBackup extends JobBase
 
                 $fh = fopen($this->saveTo, 'r');
                 $this->remoteUrl = SystemConfig::getValue('sExternalBackupEndpoint');
-                $ch = curl_init($this->remoteUrl . $this->filename);
-                curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_URL, $this->remoteUrl . basename($this->filename));
                 curl_setopt($ch, CURLOPT_USERPWD, $this->credentials);
                 curl_setopt($ch, CURLOPT_PUT, true);
+
                 curl_setopt($ch, CURLOPT_INFILE, $fh);
                 curl_setopt($ch, CURLOPT_INFILESIZE, $this->filesize);
-                $this->result = curl_exec($ch);
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE); // --data-binary
+
+                $this->error = curl_exec ($ch);
                 fclose($fh);
+
+                if ($this->error == "") {
+                    $this->result = true;
+                }
 
                 LoggerUtils::getAppLogger()->debug("Return : " . $this->result);
 
