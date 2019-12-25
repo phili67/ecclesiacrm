@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "admin-lte": "^2.4.18",
-    "bootbox": "^5.3.4",
+    "bootbox": "^5.4.0",
     "bootstrap": "^3.4.1",
     "bootstrap-colorpicker": "^2.5.3",
     "bootstrap-datepicker": "^1.9.0",
@@ -72,7 +72,7 @@
     "jquery-ui-touch-punch": "^0.2.3",
     "jquery-validation": "^1.19.1",
     "jszip": "^3.2.2",
-    "leaflet": "^1.5.1",
+    "leaflet": "^1.6.0",
     "morris.js.so": "^0.5.1",
     "node-sass": "^4.13.0",
     "pace-js": "^1.0.2",
