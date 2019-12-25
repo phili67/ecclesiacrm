@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-20 05:58+0100\n"
+"POT-Creation-Date: 2019-12-24 21:50+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -580,11 +580,7 @@ msgstr "Die Rolle wurde zugewiesen."
 msgid "The role could not be assigned."
 msgstr "Die Rolle konnte nicht zugewiesen werden."
 
-#: api/routes/system/system-database.php:42 RestoreDatabase.php:65
-msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "Die Datei überschreitet die maximale Dateigröße"
-
-#: api/routes/system/system-database.php:103
+#: api/routes/system/system-database.php:111
 msgid "The people and families has been cleared from the database."
 msgstr "Menschen und famielien wurde von die Datenbank gelöscht."
 
@@ -715,8 +711,8 @@ msgstr "Stadt"
 msgid "State"
 msgstr "Bundesland"
 
-#: AutoPaymentEditor.php:956 BackupDatabase.php:72 CartToFamily.php:347
-#: CSVExport.php:113 CSVImport.php:247 DirectoryReports.php:286
+#: AutoPaymentEditor.php:956 CartToFamily.php:347 CSVExport.php:113
+#: CSVImport.php:247 DirectoryReports.php:286
 #: external/templates/registration/family-register.php:57
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:760
 #: PersonEditor.php:1051 PersonEditor.php:1207 Reports/PDFLabel.php:859
@@ -822,97 +818,6 @@ msgstr "Speichern"
 #: v2/templates/sundayschool/sundayschoolreports.php:151
 msgid "Cancel"
 msgstr "Abbrechen"
-
-#: BackupDatabase.php:45 Include/Footer.php:240
-msgid "Backup Database"
-msgstr "Datenbank sichern"
-
-#: BackupDatabase.php:51
-msgid ""
-"This tool will assist you in manually backing up the EcclesiaCRM database."
-msgstr ""
-"Dieses Werkzeug hilft, ein manuelles Backup der EcclesiaCRM Datenbank zu "
-"machen."
-
-#: BackupDatabase.php:55
-msgid ""
-"You should make a manual backup at least once a week unless you already have "
-"a regular backup procedule for your systems."
-msgstr ""
-"Wenn du sonst keine Sicherungen von deinem System fährst solltest du "
-"mindestens wöchentlich eine manuelle Sicherung machen."
-
-#: BackupDatabase.php:56
-msgid ""
-"After you download the backup file, you should make two copies. Put one of "
-"them in a fire-proof safe on-site and the other in a safe location off-site."
-msgstr ""
-"Nachdem du die Sicherung heruntergeladen hast solltest du zwei kopien "
-"erzeugen. Speichere die eine an einem sicheren Platz online und die andere "
-"lokal ab."
-
-#: BackupDatabase.php:57
-msgid ""
-"If you are concerned about confidentiality of data stored in the EcclesiaCRM "
-"database, you should encrypt the backup data if it will be stored somewhere "
-"potentially accessible to others"
-msgstr ""
-
-#: BackupDatabase.php:58
-msgid ""
-"For added backup security, you can e-mail the backup to yourself at an e-"
-"mail account hosted off-site or to a trusted friend.  Be sure to use "
-"encryption if you do this, however."
-msgstr ""
-"Zusätzliche Sicherheit kann dadurch erreicht werden, dass du die "
-"Datenbanksicherung dir selbst an eine e-mail Adresse zusendest, die nicht  "
-"auf dem selben Server verwaltet wird,  oder an eine Person deines  "
-"Vertrauens. Die Datei sollte vorher verschlüsselt werden."
-
-#: BackupDatabase.php:63
-msgid "Select archive type"
-msgstr "Wähle den Archivierungstyp"
-
-#: BackupDatabase.php:67
-msgid "GZip"
-msgstr "Gzip"
-
-#: BackupDatabase.php:74
-msgid "Uncompressed"
-msgstr "Nichtkomprimiert"
-
-#: BackupDatabase.php:75
-msgid "tar.gz (Include Photos)"
-msgstr "tar.gz (Fotos enthalten)"
-
-#: BackupDatabase.php:86
-msgid "Encrypt backup file with a password?"
-msgstr "Soll die Sicherung mit einem Kennwort verschlüsselt werden?"
-
-#: BackupDatabase.php:94 Login.php:254 Login.php:332
-#: v2/templates/user/userlist.php:54
-msgid "Password"
-msgstr "Kennwort"
-
-#: BackupDatabase.php:100
-msgid "Re-type Password"
-msgstr "Wiederholung des Kennworts"
-
-#: BackupDatabase.php:117
-msgid "Generate and Download Backup"
-msgstr "Erstellen und Herunterladen einer Sicherung"
-
-#: BackupDatabase.php:120
-msgid "Generate and Ship Backup to External Storage"
-msgstr "Backup für externen Speicher erstellen und speichern"
-
-#: BackupDatabase.php:128
-msgid "Backup Status:"
-msgstr "Backup status:"
-
-#: BackupDatabase.php:128
-msgid "No Backup Running"
-msgstr "Kein Backup läuft"
 
 #: BatchWinnerEntry.php:36 FundRaiserEditor.php:159
 msgid "Batch Winner Entry"
@@ -2362,6 +2267,37 @@ msgstr "Bild URL"
 msgid "Save and Add"
 msgstr "Speichern und hinzufügen"
 
+#: EcclesiaCRM/BackupManager.php:141
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "Die Datei überschreitet die maximale Dateigröße"
+
+#: EcclesiaCRM/BackupManager.php:161
+msgid "GPG Backup need a password to work"
+msgstr ""
+
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:403
+msgid "Impossible to open"
+msgstr ""
+
+#: EcclesiaCRM/BackupManager.php:255
+msgid "Backup archive does not contain a database"
+msgstr "Backup archiv enthält keine Datenbank"
+
+#: EcclesiaCRM/BackupManager.php:287
+msgid "Unknown File Type"
+msgstr "unbekannter Dateityp"
+
+#: EcclesiaCRM/BackupManager.php:287
+msgid "from file"
+msgstr "Personenprofil"
+
+#: EcclesiaCRM/BackupManager.php:294
+msgid ""
+"As part of the restore, external backups have been disabled.  If you wish to "
+"continue automatic backups, you must manuall re-enable the "
+"bEnableExternalBackupTarget setting."
+msgstr ""
+
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:52
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:81 FamilyView.php:457
 #: PersonView.php:684 PrintPastoralCare.php:654 SelectList.php:1304
@@ -3675,6 +3611,20 @@ msgid ""
 "Unavailable person info inherited from assigned family for display?. This "
 "option causes certain info from a person's assigned family record to be. "
 "displayed IF the corresponding info has NOT been entered for that person. "
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:97
+msgid "gzip format export allowed"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:98
+msgid "zip format export allowed"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:99
+msgid ""
+"By default GPG (GnuPG) a hybrid-encryption software program or Internal "
+"encryption software. You could avoid to use with the None choice."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:100
@@ -5051,25 +5001,6 @@ msgstr "Kontonummer nicht gültig für Barzahlung"
 #: EcclesiaCRM/Service/PersonService.php:44
 msgid "Part"
 msgstr "Teil"
-
-#: EcclesiaCRM/Service/SystemService.php:108
-msgid "Backup archive does not contain a database"
-msgstr "Backup archiv enthält keine Datenbank"
-
-#: EcclesiaCRM/Service/SystemService.php:120
-msgid "Unknown File Type"
-msgstr "unbekannter Dateityp"
-
-#: EcclesiaCRM/Service/SystemService.php:120
-msgid "from file"
-msgstr "Personenprofil"
-
-#: EcclesiaCRM/Service/SystemService.php:127
-msgid ""
-"As part of the restore, external backups have been disabled.  If you wish to "
-"continue automatic backups, you must manuall re-enable the "
-"bEnableExternalBackupTarget setting."
-msgstr ""
 
 #: EcclesiaCRM/Service/TimelineService.php:218
 msgid "Self Registration"
@@ -7090,9 +7021,13 @@ msgstr "General Einstellung Editieren"
 msgid "System Users"
 msgstr "Systembenutzer"
 
-#: Include/Footer.php:232 RestoreDatabase.php:30
+#: Include/Footer.php:232 v2/routes/backup/restore.php:45
 msgid "Restore Database"
 msgstr "Datenbank wiederherstellen"
+
+#: Include/Footer.php:240 v2/routes/backup/backup.php:45
+msgid "Backup Database"
+msgstr "Datenbank sichern"
 
 #: Include/Footer.php:256 KioskManager.php:17 KioskManager.php:25
 msgid "Kiosk Manager"
@@ -7542,6 +7477,11 @@ msgstr "Bitte anmelden"
 #: Login.php:235 Login.php:300
 msgid "Your previous session timed out.  Please login again."
 msgstr "Ihre Sitzung ist abgelaufen. Melden Sie sich bitte neu an."
+
+#: Login.php:254 Login.php:332 v2/templates/backup/backup.php:67
+#: v2/templates/user/userlist.php:54
+msgid "Password"
+msgstr "Kennwort"
 
 #: Login.php:259
 msgid "I forgot my password"
@@ -8810,62 +8750,6 @@ msgstr "Wahlmitglieder: "
 msgid "Number of Voting Members"
 msgstr "Stimmberechtigten Mitglieder Zahl"
 
-#: RestoreDatabase.php:35
-msgid "Select Database Files"
-msgstr "Datenbankdateien auswählen"
-
-#: RestoreDatabase.php:38
-msgid "Select a backup file to restore"
-msgstr "Eine Backupdatei zur Wiederherstellung auswählen"
-
-#: RestoreDatabase.php:39
-msgid ""
-"CAUTION: This will completely erase the existing database, and replace it "
-"with the backup"
-msgstr ""
-"Achtung: Die existierende Datenbank wird komplett gelöscht und durch das "
-"Backup ersetzt."
-
-#: RestoreDatabase.php:40
-msgid ""
-"If you upload a backup from ChurchInfo, or a previous version of "
-"EcclesiaCRM, it will be automatically upgraded to the current database schema"
-msgstr ""
-"Lädt man ein Backup von ChurchInfo oder einer alten Version von ChurchCRm "
-"hoch, wird es automatisch auf die aktuelle Version übertragen."
-
-#: RestoreDatabase.php:41
-msgid "Maximum upload size"
-msgstr "Maximale Uploadgröße"
-
-#: RestoreDatabase.php:45
-msgid "Upload Files"
-msgstr "Dateien zum Hochladen"
-
-#: RestoreDatabase.php:51
-msgid "Restore Status:"
-msgstr "Datenbank wiederherstellen"
-
-#: RestoreDatabase.php:52
-msgid "No Restore Running"
-msgstr "Keine Wiederherstellung läuft"
-
-#: RestoreDatabase.php:70
-msgid "Restore Running, Please wait."
-msgstr "Wiederherstellung läuft. Bitte warte."
-
-#: RestoreDatabase.php:89
-msgid "Restore Complete"
-msgstr "Registrierung vollständig."
-
-#: RestoreDatabase.php:90
-msgid "Login to restored Database"
-msgstr "Datenbank wiederherstellen"
-
-#: RestoreDatabase.php:93
-msgid "Restore Error."
-msgstr "Wiederherstellung Fehler"
-
 #: RPCdummy.php:62
 msgid "Address Info:"
 msgstr "Adresseninfo:"
@@ -9684,6 +9568,134 @@ msgstr "Sonntagsschule Ausweis für"
 #: v2/routes/user/user.php:53
 msgid "System Users Listing"
 msgstr "Auflistung Systembenutzer"
+
+#: v2/templates/backup/backup.php:22
+msgid ""
+"This tool will assist you in manually backing up the EcclesiaCRM database."
+msgstr ""
+"Dieses Werkzeug hilft, ein manuelles Backup der EcclesiaCRM Datenbank zu "
+"machen."
+
+#: v2/templates/backup/backup.php:26
+msgid ""
+"You should make a manual backup at least once a week unless you already have "
+"a regular backup procedule for your systems."
+msgstr ""
+"Wenn du sonst keine Sicherungen von deinem System fährst solltest du "
+"mindestens wöchentlich eine manuelle Sicherung machen."
+
+#: v2/templates/backup/backup.php:27
+msgid ""
+"After you download the backup file, you should make two copies. Put one of "
+"them in a fire-proof safe on-site and the other in a safe location off-site."
+msgstr ""
+"Nachdem du die Sicherung heruntergeladen hast solltest du zwei kopien "
+"erzeugen. Speichere die eine an einem sicheren Platz online und die andere "
+"lokal ab."
+
+#: v2/templates/backup/backup.php:28
+msgid ""
+"If you are concerned about confidentiality of data stored in the EcclesiaCRM "
+"database, you should encrypt the backup data if it will be stored somewhere "
+"potentially accessible to others"
+msgstr ""
+
+#: v2/templates/backup/backup.php:29
+msgid ""
+"For added backup security, you can e-mail the backup to yourself at an e-"
+"mail account hosted off-site or to a trusted friend.  Be sure to use "
+"encryption if you do this, however."
+msgstr ""
+"Zusätzliche Sicherheit kann dadurch erreicht werden, dass du die "
+"Datenbanksicherung dir selbst an eine e-mail Adresse zusendest, die nicht  "
+"auf dem selben Server verwaltet wird,  oder an eine Person deines  "
+"Vertrauens. Die Datei sollte vorher verschlüsselt werden."
+
+#: v2/templates/backup/backup.php:34
+msgid "Select archive type"
+msgstr "Wähle den Archivierungstyp"
+
+#: v2/templates/backup/backup.php:45
+msgid "Uncompressed"
+msgstr "Nichtkomprimiert"
+
+#: v2/templates/backup/backup.php:47
+msgid "tar.gz (Include Photos)"
+msgstr "tar.gz (Fotos enthalten)"
+
+#: v2/templates/backup/backup.php:59
+msgid "Encrypt backup file with a password?"
+msgstr "Soll die Sicherung mit einem Kennwort verschlüsselt werden?"
+
+#: v2/templates/backup/backup.php:67 v2/templates/backup/restore.php:35
+#, fuzzy
+msgid "encryption"
+msgstr "Beschreibung"
+
+#: v2/templates/backup/backup.php:73
+msgid "Re-type Password"
+msgstr "Wiederholung des Kennworts"
+
+#: v2/templates/backup/backup.php:91
+msgid "Generate and Download Backup"
+msgstr "Erstellen und Herunterladen einer Sicherung"
+
+#: v2/templates/backup/backup.php:95
+msgid "Generate and Ship Backup to External Storage"
+msgstr "Backup für externen Speicher erstellen und speichern"
+
+#: v2/templates/backup/backup.php:103
+msgid "Backup Status:"
+msgstr "Backup status:"
+
+#: v2/templates/backup/backup.php:104
+msgid "No Backup Running"
+msgstr "Kein Backup läuft"
+
+#: v2/templates/backup/restore.php:21
+msgid "Select Database Files"
+msgstr "Datenbankdateien auswählen"
+
+#: v2/templates/backup/restore.php:24
+msgid "Select a backup file to restore"
+msgstr "Eine Backupdatei zur Wiederherstellung auswählen"
+
+#: v2/templates/backup/restore.php:25
+msgid ""
+"CAUTION: This will completely erase the existing database, and replace it "
+"with the backup"
+msgstr ""
+"Achtung: Die existierende Datenbank wird komplett gelöscht und durch das "
+"Backup ersetzt."
+
+#: v2/templates/backup/restore.php:26
+msgid ""
+"If you upload a backup from ChurchInfo, or a previous version of "
+"EcclesiaCRM, it will be automatically upgraded to the current database schema"
+msgstr ""
+"Lädt man ein Backup von ChurchInfo oder einer alten Version von ChurchCRm "
+"hoch, wird es automatisch auf die aktuelle Version übertragen."
+
+#: v2/templates/backup/restore.php:27
+msgid "Maximum upload size"
+msgstr "Maximale Uploadgröße"
+
+#: v2/templates/backup/restore.php:35
+#, fuzzy
+msgid "Password (if any)"
+msgstr "Kennwort geändert"
+
+#: v2/templates/backup/restore.php:38
+msgid "Upload Files"
+msgstr "Dateien zum Hochladen"
+
+#: v2/templates/backup/restore.php:47
+msgid "Restore Status:"
+msgstr "Datenbank wiederherstellen"
+
+#: v2/templates/backup/restore.php:48
+msgid "No Restore Running"
+msgstr "Keine Wiederherstellung läuft"
 
 #: v2/templates/calendar/calendar.php:35
 msgid "By Types"
@@ -11286,6 +11298,21 @@ msgstr "Leeren"
 
 msgid "pending"
 msgstr "steht aus"
+
+#~ msgid "GZip"
+#~ msgstr "Gzip"
+
+#~ msgid "Restore Running, Please wait."
+#~ msgstr "Wiederherstellung läuft. Bitte warte."
+
+#~ msgid "Restore Complete"
+#~ msgstr "Registrierung vollständig."
+
+#~ msgid "Login to restored Database"
+#~ msgstr "Login zum wiederherstellen Datenbank"
+
+#~ msgid "Restore Error."
+#~ msgstr "Wiederherstellung Fehler"
 
 #~ msgid "Add Students"
 #~ msgstr "Students hinzufügen"
