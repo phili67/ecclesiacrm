@@ -67,7 +67,7 @@ if ($iPersonID > 0) {
     }
 
     if ($person->getDateDeactivated() != null && !SessionUser::getUser()->isGdrpDpoEnabled()) {
-      RedirectUtils::Redirect('members/404.php?type=Person');
+        RedirectUtils::Redirect('members/404.php?type=Person');
     }
 
     if (!(
@@ -86,27 +86,27 @@ if ($iPersonID > 0) {
 
 // All the custom fields
 $ormCustomFields = PersonCustomMasterQuery::Create()
-                     ->orderByCustomOrder()
-                     ->find();
+    ->orderByCustomOrder()
+    ->find();
 
 // only the left custom fields
 $ormLeftCustomFields = PersonCustomMasterQuery::Create()
-                     ->orderByCustomOrder()
-                     ->filterByCustomSide('left')
-                     ->find()->toArray();
+    ->orderByCustomOrder()
+    ->filterByCustomSide('left')
+    ->find()->toArray();
 
 // only the right custom fields
 $ormRightCustomFields = PersonCustomMasterQuery::Create()
-                     ->orderByCustomOrder()
-                     ->filterByCustomSide('right')
-                     ->find()->toArray();
+    ->orderByCustomOrder()
+    ->filterByCustomSide('right')
+    ->find()->toArray();
 
 $numLeftCustomFields = count($ormLeftCustomFields);
 $numRightCustomFields = count($ormRightCustomFields);
 
-$maxCustomFields = max($numRightCustomFields,$numLeftCustomFields);
+$maxCustomFields = max($numRightCustomFields, $numLeftCustomFields);
 
-$numCustomFields = $numRightCustomFields+$numLeftCustomFields;
+$numCustomFields = $numRightCustomFields + $numLeftCustomFields;
 
 //Initialize the error flag
 $bErrorFlag = false;
@@ -161,7 +161,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
 
     // Person address stuff is normally surpressed in favor of family address info
-    $sFamName  = '';
+    $sFamName = '';
     $sFamAddress1 = '';
     $sFamAddress2 = '';
     $sFamCity = '';
@@ -171,14 +171,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $bSendNewsLetter = isset($_POST['SendNewsLetter']);
 
     if ($bSendNewsLetter) {
-      $bSendNewsLetterString = "TRUE";
+        $bSendNewsLetterString = "TRUE";
     } else {
-      $bSendNewsLetterString = "FALSE";
+        $bSendNewsLetterString = "FALSE";
     }
     if (array_key_exists('FamName', $_POST)) {
         $sFamName = InputUtils::FilterString($_POST['FamName']);
         if ($sFamName == "") {
-          $sFamName = $sLastName;
+            $sFamName = $sLastName;
         }
     }
     if (array_key_exists('FamAddress1', $_POST)) {
@@ -288,7 +288,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $dateString = InputUtils::parseAndValidateDate($dFriendDate, $locale = 'US', $pasfut = 'past');
         if ($dateString === false) {
             $sFriendDateError = '<span style="color: red; ">'
-                ._('Not a valid Friend Date').'</span>';
+                . _('Not a valid Friend Date') . '</span>';
             $bErrorFlag = true;
         } else {
             $dFriendDate = $dateString;
@@ -299,7 +299,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $dateString = InputUtils::parseAndValidateDate($dMembershipDate, $locale = 'US', $pasfut = 'past');
         if ($dateString === false) {
             $sMembershipDateError = '<span style="color: red; ">'
-                ._('Not a valid Membership Date').'</span>';
+                . _('Not a valid Membership Date') . '</span>';
             $bErrorFlag = true;
         } else {
             $dMembershipDate = $dateString;
@@ -310,7 +310,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (strlen($sEmail) > 0) {
         if (MiscUtils::checkEmail($sEmail) == false) {
             $sEmailError = '<span style="color: red; ">'
-                ._('Email is Not Valid').'</span>';
+                . _('Email is Not Valid') . '</span>';
             $bErrorFlag = true;
         } else {
             $sEmail = $sEmail;
@@ -321,7 +321,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (strlen($sWorkEmail) > 0) {
         if (MiscUtils::checkEmail($sWorkEmail) == false) {
             $sWorkEmailError = '<span style="color: red; ">'
-                ._('Work Email is Not Valid').'</span>';
+                . _('Work Email is Not Valid') . '</span>';
             $bErrorFlag = true;
         } else {
             $sWorkEmail = $sWorkEmail;
@@ -390,27 +390,27 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             // in the case the family is changing we have to check if the old family has still a member.
             // maybe we have to deactivate the family
             $family = FamilyQuery::Create()
-                  ->findOneById($iFamily);
+                ->findOneById($iFamily);
 
             // a member change to a new familly, but the name of the family, shouldn't be changed
-            if ( !is_null($family) ) {//
-              $family->setName($sFamName);
-              $family->setAddress1($sFamAddress1);
-              $family->setAddress2($sFamAddress2);
-              $family->setCity($sFamCity);
-              $family->setState($sFamState);
-              $family->setZip($sFamZip);
-              $family->setCountry($sFamCountry);
-              $family->setHomePhone($sHomePhone);
-              $family->setWorkPhone($sWorkPhone);
-              $family->setCellPhone($sCellPhone);
-              $family->setEmail($sEmail);
-              $family->setDateEntered(date('YmdHis'));
-              $family->setEnteredBy(SessionUser::getUser()->getPersonId());
+            if (!is_null($family)) {//
+                $family->setName($sFamName);
+                $family->setAddress1($sFamAddress1);
+                $family->setAddress2($sFamAddress2);
+                $family->setCity($sFamCity);
+                $family->setState($sFamState);
+                $family->setZip($sFamZip);
+                $family->setCountry($sFamCountry);
+                $family->setHomePhone($sHomePhone);
+                $family->setWorkPhone($sWorkPhone);
+                $family->setCellPhone($sCellPhone);
+                $family->setEmail($sEmail);
+                $family->setDateEntered(date('YmdHis'));
+                $family->setEnteredBy(SessionUser::getUser()->getPersonId());
 
-              $family->save();
+                $family->save();
 
-              $iFamily = $family->getId();
+                $iFamily = $family->getId();
             }
         }
 
@@ -448,11 +448,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setSendNewsletter($bSendNewsLetterString);
 
             // bSendNewsLetterString : When you activated a single person the family is deactivated
-            if ($bSendNewsLetterString == "TRUE" && $iFamily > 0 && !is_null ($family) ) {
+            if ($bSendNewsLetterString == "TRUE" && $iFamily > 0 && !is_null($family)) {
                 $family->setSendNewsletter("FALSE");
             }
 
-            if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+            if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                 $person->setEnvelope($iEnvelope);
             }
 
@@ -485,10 +485,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             // Existing person (update)
         } else {
             // we change the email of the User if the user exists
-            $user = UserQuery::Create()->findOneByPersonId ($iPersonID);
+            $user = UserQuery::Create()->findOneByPersonId($iPersonID);
 
-            if ( !is_null ($user) ) {
-              $user->changePrincipalEmail ($sEmail);
+            if (!is_null($user)) {
+                $user->changePrincipalEmail($sEmail);
             }
 
             $person = PersonQuery::Create()
@@ -497,8 +497,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $oldEmail = $person->getEmail();
 
             if ($person->getSendNewsletter() && $oldEmail != $sEmail) {// in any cases we've to update the Lists
-              $mailchimp = new MailChimpService();
-              $mailchimp->updateMemberEmail ($oldEmail,$sEmail);
+                $mailchimp = new MailChimpService();
+                $mailchimp->updateMemberEmail($oldEmail, $sEmail);
             }
 
             $person->setTitle($sTitle);
@@ -524,11 +524,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setSendNewsletter($bSendNewsLetterString);
 
             // bSendNewsLetterString : When you activated a single person the family is deactivated
-            if ( $bSendNewsLetterString == "TRUE" && !is_null ($person->getFamily()) ) {
-              $person->getFamily()->setSendNewsletter("FALSE");
+            if ($bSendNewsLetterString == "TRUE" && !is_null($person->getFamily())) {
+                $person->getFamily()->setSendNewsletter("FALSE");
             }
 
-            if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+            if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                 $person->setEnvelope($iEnvelope);
             }
 
@@ -587,15 +587,15 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if ($numCustomFields > 0) {
             $sSQL = '';
             foreach ($ormCustomFields as $rowCustomField) {
-              if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
                     $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
                     MiscUtils::sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
-              }
+                }
             }
 
             // chop off the last 2 characters (comma and space) added in the last while loop iteration.
             if ($sSQL > '') {
-                $sSQL = 'REPLACE INTO person_custom SET '.$sSQL.' per_ID = '.$iPersonID;
+                $sSQL = 'REPLACE INTO person_custom SET ' . $sSQL . ' per_ID = ' . $iPersonID;
                 //Execute the SQL
 
                 $connection = Propel::getConnection();
@@ -608,10 +608,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // Check for redirection to another page after saving information: (ie. PersonEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($sPreviousPage != '') {
             $sPreviousPage = str_replace(';', '&', $sPreviousPage);
-            RedirectUtils::Redirect($sPreviousPage.$iPersonID);
+            RedirectUtils::Redirect($sPreviousPage . $iPersonID);
         } elseif (isset($_POST['PersonSubmit'])) {
             //Send to the view of this person
-            RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
+            RedirectUtils::Redirect('PersonView.php?PersonID=' . $iPersonID);
         } else {
             //Reload to editor to add another record
             RedirectUtils::Redirect('PersonEditor.php');
@@ -631,40 +631,40 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             ->leftJoinWithFamily()
             ->findOneById($iPersonID);
 
-        $sTitle          = $person->getTitle();
-        $sFirstName      = $person->getFirstName();
-        $sMiddleName     = $person->getMiddleName();
-        $sLastName       = $person->getLastName();
-        $sSuffix         = $person->getSuffix();
-        $iGender         = $person->getGender();
-        $sAddress1       = $person->getAddress1();
-        $sAddress2       = $person->getAddress2();
-        $sCity           = $person->getCity();
-        $sState          = $person->getState();
-        $sZip            = $person->getZip();
-        $sCountry        = $person->getCountry();
-        $sHomePhone      = $person->getHomePhone();
-        $sWorkPhone      = $person->getWorkPhone();
-        $sCellPhone      = $person->getCellPhone();
-        $sEmail          = $person->getEmail();
-        $sWorkEmail      = $person->getWorkEmail();
-        $iBirthMonth     = $person->getBirthMonth();
-        $iBirthDay       = $person->getBirthDay();
-        $iBirthYear      = $person->getBirthYear();
-        $bHideAge        = ($person->getFlags() & 1) != 0;
+        $sTitle = $person->getTitle();
+        $sFirstName = $person->getFirstName();
+        $sMiddleName = $person->getMiddleName();
+        $sLastName = $person->getLastName();
+        $sSuffix = $person->getSuffix();
+        $iGender = $person->getGender();
+        $sAddress1 = $person->getAddress1();
+        $sAddress2 = $person->getAddress2();
+        $sCity = $person->getCity();
+        $sState = $person->getState();
+        $sZip = $person->getZip();
+        $sCountry = $person->getCountry();
+        $sHomePhone = $person->getHomePhone();
+        $sWorkPhone = $person->getWorkPhone();
+        $sCellPhone = $person->getCellPhone();
+        $sEmail = $person->getEmail();
+        $sWorkEmail = $person->getWorkEmail();
+        $iBirthMonth = $person->getBirthMonth();
+        $iBirthDay = $person->getBirthDay();
+        $iBirthYear = $person->getBirthYear();
+        $bHideAge = ($person->getFlags() & 1) != 0;
         $iOriginalFamily = $person->getFamId();
-        $iFamily         = $person->getFamId();
-        $iFamilyRole     = $person->getFmrId();
-        $dMembershipDate = ($person->getMembershipDate() != null)?$person->getMembershipDate()->format('Y-m-d'):"";
-        $dFriendDate     = ($person->getFriendDate() != null)?$person->getFriendDate()->format('Y-m-d'):"";
+        $iFamily = $person->getFamId();
+        $iFamilyRole = $person->getFmrId();
+        $dMembershipDate = ($person->getMembershipDate() != null) ? $person->getMembershipDate()->format('Y-m-d') : "";
+        $dFriendDate = ($person->getFriendDate() != null) ? $person->getFriendDate()->format('Y-m-d') : "";
         $iClassification = $person->getClsId();
-        $iViewAgeFlag    = $person->getFlags();
+        $iViewAgeFlag = $person->getFlags();
         $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
 
 
         $iFacebookID = $person->getFacebookID();
-        $sTwitter    = $person->getTwitter();
-        $sLinkedIn   = $person->getLinkedIn();
+        $sTwitter = $person->getTwitter();
+        $sLinkedIn = $person->getLinkedIn();
 
         $sPhoneCountry = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
 
@@ -674,20 +674,24 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
         //The following values are True booleans if the family record has a value for the
         //indicated field.  These are used to highlight field headers in red.
-        $bFamilyAddress1  = strlen($fam_Address1);
-        $bFamilyAddress2  = strlen($fam_Address2);
-        $bFamilyCity      = strlen($fam_City);
-        $bFamilyState     = strlen($fam_State);
-        $bFamilyZip       = strlen($fam_Zip);
-        $bFamilyCountry   = strlen($fam_Country);
-        $bFamilyHomePhone = strlen($fam_HomePhone);
-        $bFamilyWorkPhone = strlen($fam_WorkPhone);
-        $bFamilyCellPhone = strlen($fam_CellPhone);
-        $bFamilyEmail     = strlen($fam_Email);
+        if ($iFamily > 0) {
+            $fam = FamilyQuery::Create()->findOneById($iFamily);
+
+            $bFamilyAddress1 = strlen($fam->getAddress1());
+            $bFamilyAddress2 = strlen($fam->getAddress2());
+            $bFamilyCity = strlen($fam->getCity());
+            $bFamilyState = strlen($fam->getState());
+            $bFamilyZip = strlen($fam->getZip());
+            $bFamilyCountry = strlen($fam->getCountry());
+            $bFamilyHomePhone = strlen($fam->getHomePhone());
+            $bFamilyWorkPhone = strlen($fam->getWorkPhone());
+            $bFamilyCellPhone = strlen($fam->getCellPhone());
+            $bFamilyEmail = strlen($fam->getEmail());
+        }
 
         $bFacebookID = $iFacebookID != 0;
-        $bTwitter    =  strlen($sTwitter);
-        $bLinkedIn   = strlen($sLinkedIn);
+        $bTwitter = strlen($sTwitter);
+        $bLinkedIn = strlen($sLinkedIn);
 
         $aCustomData = [];
 
@@ -695,14 +699,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $aCustomData['per_ID'] = $iPersonID;
 
         foreach ($ormCustomFields as $ormCustomField) {
-          $personCustom = PersonCustomQuery::Create()
-                          ->withcolumn($ormCustomField->getCustomField())
-                          ->findOneByPerId($iPersonID);
+            $personCustom = PersonCustomQuery::Create()
+                ->withcolumn($ormCustomField->getCustomField())
+                ->findOneByPerId($iPersonID);
 
-          if (!is_null($personCustom)) {
-            $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
-            $aCustomData[$ormCustomField->getCustomField()] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
-          }
+            if (!is_null($personCustom)) {
+                $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
+                $aCustomData[$ormCustomField->getCustomField()] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
+            }
         }
     } else {
         //Adding....
@@ -767,46 +771,46 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 //Get Classifications for the drop-down
 // Get Field Security List Matrix
 $ormClassifications = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(1);
+    ->orderByOptionSequence()
+    ->findById(1);
 
 //Get Families for the drop-down
 if (SessionUser::getUser()->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
-   $ormFamilies = FamilyQuery::Create()
-                  ->orderByName()
-                  ->find();
+    $ormFamilies = FamilyQuery::Create()
+        ->orderByName()
+        ->find();
 } else {
-   $ormFamilies = FamilyQuery::Create()
-                  ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
-                  ->orderByName()
-                  ->find();
+    $ormFamilies = FamilyQuery::Create()
+        ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
+        ->orderByName()
+        ->find();
 }
 
 //Get Family Roles for the drop-down
 $ormFamilyRoles = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(2);
+    ->orderByOptionSequence()
+    ->findById(2);
 
 
 $bShowAddress = false;
 if ($iFamily == 0 && isset($_GET['FamilyID'])) {
-  $iFamily      = $_GET['FamilyID'];
+    $iFamily = $_GET['FamilyID'];
 }
 
 if ($iFamily != 0) {
-  $bShowAddress = true;
-  $theFamily = FamilyQuery::Create()
-                  ->findOneById($iFamily);
+    $bShowAddress = true;
+    $theFamily = FamilyQuery::Create()
+        ->findOneById($iFamily);
 
-  if (!is_null($theFamily)) {
-    $sFamName        = $theFamily->getName();
-    $sAddress1       = $theFamily->getAddress1();
-    $sAddress2       = $theFamily->getAddress2();
-    $sCity           = $theFamily->getCity();
-    $sState          = $theFamily->getState();
-    $sCountry        = $theFamily->getCountry();
-    $sZip            = $theFamily->getZip();
-  }
+    if (!is_null($theFamily)) {
+        $sFamName = $theFamily->getName();
+        $sAddress1 = $theFamily->getAddress1();
+        $sAddress2 = $theFamily->getAddress2();
+        $sCity = $theFamily->getCity();
+        $sState = $theFamily->getState();
+        $sCountry = $theFamily->getCountry();
+        $sZip = $theFamily->getZip();
+    }
 }
 
 require 'Include/Header.php';
@@ -820,14 +824,14 @@ require 'Include/Header.php';
                 style="color: red;"><?= _('Red text') ?></span></strong> <?= _('indicates items inherited from the associated family record.') ?>
     </div>
     <?php if ($bErrorFlag) {
-    ?>
+        ?>
         <div class="alert alert-danger alert-dismissable">
             <i class="fa fa-ban"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?>
         </div>
-    <?php
-} ?>
+        <?php
+    } ?>
     <div class="box box-info clearfix">
         <div class="box-header with-border">
             <h3 class="box-title"><?= _('Personal Info') ?></h3>
@@ -843,8 +847,8 @@ require 'Include/Header.php';
                         <select name="Gender" class="form-control input-sm">
                             <option value="0"><?= _('Select Gender') ?></option>
                             <option value="0" disabled>-----------------------</option>
-                            <option value="1" <?= ($iGender == 1)?'selected':'' ?>><?= _('Male') ?></option>
-                            <option value="2" <?= ($iGender == 2)?'selected':'' ?>><?= _('Female') ?></option>
+                            <option value="1" <?= ($iGender == 1) ? 'selected' : '' ?>><?= _('Male') ?></option>
+                            <option value="2" <?= ($iGender == 2) ? 'selected' : '' ?>><?= _('Female') ?></option>
                         </select>
                     </div>
                     <div class="col-md-3">
@@ -862,9 +866,9 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sFirstName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class="form-control">
                         <?php if ($sFirstNameError) {
-        ?><br><font
-                            color="red"><?= $sFirstNameError ?></font><?php
-    } ?>
+                            ?><br><font
+                                color="red"><?= $sFirstNameError ?></font><?php
+                        } ?>
                     </div>
 
                     <div class="col-md-2">
@@ -873,9 +877,9 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sMiddleName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class="form-control">
                         <?php if ($sMiddleNameError) {
-        ?><br><font
-                            color="red"><?= $sMiddleNameError ?></font><?php
-    } ?>
+                            ?><br><font
+                                color="red"><?= $sMiddleNameError ?></font><?php
+                        } ?>
                     </div>
 
                     <div class="col-md-4">
@@ -884,9 +888,9 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sLastName), ENT_NOQUOTES, 'UTF-8') ?>"
                                class="form-control">
                         <?php if ($sLastNameError) {
-        ?><br><font
-                            color="red"><?= $sLastNameError ?></font><?php
-    } ?>
+                            ?><br><font
+                                color="red"><?= $sLastNameError ?></font><?php
+                        } ?>
                     </div>
 
                     <div class="col-md-1">
@@ -901,19 +905,25 @@ require 'Include/Header.php';
                     <div class="col-md-2">
                         <label><?= _('Birth Month') ?>:</label>
                         <select name="BirthMonth" class="form-control input-sm">
-                            <option value="0" <?= ($iBirthMonth == 0)?'selected':''?>><?= _('Select Month') ?></option>
-                            <option value="01" <?= ($iBirthMonth == 1)?'selected':'' ?>><?= _('January') ?></option>
-                            <option value="02" <?= ($iBirthMonth == 2)?'selected':'' ?>><?= _('February') ?></option>
-                            <option value="03" <?= ($iBirthMonth == 3)?'selected':'' ?>><?= _('March') ?></option>
-                            <option value="04" <?= ($iBirthMonth == 4)?'selected':'' ?>><?= _('April') ?></option>
-                            <option value="05" <?= ($iBirthMonth == 5)?'selected':'' ?>><?= _('May') ?></option>
-                            <option value="06" <?= ($iBirthMonth == 6)?'selected':'' ?>><?= _('June') ?></option>
-                            <option value="07" <?= ($iBirthMonth == 7)?'selected':'' ?>><?= _('July') ?></option>
-                            <option value="08" <?= ($iBirthMonth == 8)?'selected':'' ?>><?= _('August') ?></option>
-                            <option value="09" <?= ($iBirthMonth == 9)?'selected':'' ?>><?= _('September') ?></option>
-                            <option value="10" <?= ($iBirthMonth == 10)?'selected':'' ?>><?= _('October') ?></option>
-                            <option value="11" <?= ($iBirthMonth == 11)?'selected':'' ?>><?= _('November') ?></option>
-                            <option value="12" <?= ($iBirthMonth == 12)?'selected':'' ?>><?= _('December') ?></option>
+                            <option value="0"
+                                    <?= ($iBirthMonth == 0) ? 'selected' : '' ?>><?= _('Select Month') ?></option>
+                            <option value="01" <?= ($iBirthMonth == 1) ? 'selected' : '' ?>><?= _('January') ?></option>
+                            <option value="02"
+                                    <?= ($iBirthMonth == 2) ? 'selected' : '' ?>><?= _('February') ?></option>
+                            <option value="03" <?= ($iBirthMonth == 3) ? 'selected' : '' ?>><?= _('March') ?></option>
+                            <option value="04" <?= ($iBirthMonth == 4) ? 'selected' : '' ?>><?= _('April') ?></option>
+                            <option value="05" <?= ($iBirthMonth == 5) ? 'selected' : '' ?>><?= _('May') ?></option>
+                            <option value="06" <?= ($iBirthMonth == 6) ? 'selected' : '' ?>><?= _('June') ?></option>
+                            <option value="07" <?= ($iBirthMonth == 7) ? 'selected' : '' ?>><?= _('July') ?></option>
+                            <option value="08" <?= ($iBirthMonth == 8) ? 'selected' : '' ?>><?= _('August') ?></option>
+                            <option value="09"
+                                    <?= ($iBirthMonth == 9) ? 'selected' : '' ?>><?= _('September') ?></option>
+                            <option value="10"
+                                    <?= ($iBirthMonth == 10) ? 'selected' : '' ?>><?= _('October') ?></option>
+                            <option value="11"
+                                    <?= ($iBirthMonth == 11) ? 'selected' : '' ?>><?= _('November') ?></option>
+                            <option value="12"
+                                    <?= ($iBirthMonth == 12) ? 'selected' : '' ?>><?= _('December') ?></option>
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -921,41 +931,43 @@ require 'Include/Header.php';
                         <select name="BirthDay" class="form-control input-sm">
                             <option value="0"><?= _('Select Day') ?></option>
                             <?php
-                              for ($x = 1; $x < 32; $x++) {
-                                  if ($x < 10) {
-                                      $sDay = '0'.$x;
-                                  } else {
-                                      $sDay = $x;
-                                  } ?>
-                                <option value="<?= $sDay ?>" <?=($iBirthDay == $x)?'selected':'' ?>><?= $x ?></option>
-                            <?php
-                              }
+                            for ($x = 1; $x < 32; $x++) {
+                                if ($x < 10) {
+                                    $sDay = '0' . $x;
+                                } else {
+                                    $sDay = $x;
+                                } ?>
+                                <option value="<?= $sDay ?>"
+                                        <?= ($iBirthDay == $x) ? 'selected' : '' ?>><?= $x ?></option>
+                                <?php
+                            }
                             ?>
                         </select>
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Birth Year') ?>:</label>
-                        <input type="text" name="BirthYear" value="<?= $iBirthYear ?>" maxlength="4" size="5" placeholder="yyyy" class="form-control input-sm">
+                        <input type="text" name="BirthYear" value="<?= $iBirthYear ?>" maxlength="4" size="5"
+                               placeholder="yyyy" class="form-control input-sm">
                         <?php
-                          if ($sBirthYearError) {
-                        ?>
+                        if ($sBirthYearError) {
+                            ?>
                             <font color="red">
-                              <br><?= $sBirthYearError ?>
+                                <br><?= $sBirthYearError ?>
                             </font>
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                         <?php
-                          if ($sBirthDateError) {
-                        ?>
-                          <font color="red"><?= $sBirthDateError ?></font>
-                        <?php
-                          }
+                        if ($sBirthDateError) {
+                            ?>
+                            <font color="red"><?= $sBirthDateError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Hide Age') ?></label><br/>
-                        <input type="checkbox" name="HideAge" value="1" <?= ($bHideAge)?' checked':'' ?>/>
+                        <input type="checkbox" name="HideAge" value="1" <?= ($bHideAge) ? ' checked' : '' ?>/>
                     </div>
                 </div>
             </div>
@@ -974,101 +986,121 @@ require 'Include/Header.php';
                 <select name="FamilyRole" class="form-control input-sm">
                     <option value="0"><?= _("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
-                <?php
-                  foreach ($ormFamilyRoles as $ormFamilyRole) {
-                ?>
-                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= ($iFamilyRole == $ormFamilyRole->getOptionId())?' selected':''?>><?= $ormFamilyRole->getOptionName() ?>&nbsp;
-                <?php
-                  }
-                ?>
+                    <?php
+                    foreach ($ormFamilyRoles
+
+                    as $ormFamilyRole) {
+                    ?>
+                    <option value="<?= $ormFamilyRole->getOptionId() ?>"
+                            <?= ($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '' ?>><?= $ormFamilyRole->getOptionName() ?>
+                        &nbsp;
+                        <?php
+                        }
+                        ?>
                 </select>
             </div>
 
-            <div class="form-group col-md-9"  <?= (!SessionUser::getUser()->isEditRecordsEnabled())?'style="display: none;"':''?>>
+            <div class="form-group col-md-9"
+                 <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
                 <label><?= _('Person or Family address'); ?>:</label>
                 <select name="Family" size="8" class="form-control" id="optionFamily">
                     <option value="0" selected><?= _('Unassigned') ?></option>
-                    <option value="-1" ><?= _("Create a new Address or A new family (using last name)") ?></option>
+                    <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
-                <?php
-                  foreach ($ormFamilies as $ormFamily) {
-                ?>
-                    <option value="<?= $ormFamily->getId() ?>" <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId())?' selected':'' ?>><?= $ormFamily->getName() ?>&nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
-                <?php
-                  }
-                ?>
+                    <?php
+                    foreach ($ormFamilies
+
+                    as $ormFamily) {
+                    ?>
+                    <option value="<?= $ormFamily->getId() ?>"
+                            <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
+                        &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
+                        <?php
+                        }
+                        ?>
                 </select>
             </div>
 
             <!-- start of the new code PL -->
             <div id="familyAddress">
-              <div class="form-group">
-                <div class="row">
-                    <div class="col-md-12">
-                      <div class="box-header with-border">
-                        <h3 class="box-title"><?= _('Person or Family Address') ?></h3>
-                      </div>
-                    </div><!-- /.box-header -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"><?= _('Person or Family Address') ?></h3>
+                            </div>
+                        </div><!-- /.box-header -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><?= _('Person Name') ?> <?= _('or') ?> <?= _('Family Name') ?>:</label>
+                            <input type="text" id="FamName" name="FamName"
+                                   value="<?= htmlentities(stripslashes($sFamName), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
+                                   maxlength="250" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <b><?= _('A person could have a different name as his family.<br>• In this case set the Family Name in this field.<br>• In the other case, leave this field blank.') ?></b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><?= _('Address') ?> 1:</label>
+                            <input type="text" id="FamAddress1" name="FamAddress1"
+                                   value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"
+                                   size="50" maxlength="250" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label><?= _('Address') ?> 2:</label>
+                            <input type="text" id="FamAddress2" name="FamAddress2"
+                                   value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"
+                                   size="50" maxlength="250" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label><?= _('City') ?>:</label>
+                            <input type="text" id="FamCity" name="FamCity"
+                                   value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"
+                                   maxlength="50" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div
+                            <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
+                            <label for="StatleTextBox"><?= _('State') ?>: </label><br>
+                            <?php
+                            $statesDDF = new StateDropDown();
+                            echo $statesDDF->getDropDown($sState, "FamState");
+                            ?>
+                        </div>
+                        <div
+                            <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : 'class="form-group col-md-3" ' ?>>
+                            <label><?= _('None US/CND State') ?>:</label>
+                            <input type="text" class="form-control" id="FamStateTextbox" name="FamStateTextbox"
+                                   value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+                                       echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
+                                   } ?>" size="20" maxlength="30">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label><?= _('Zip') ?>:</label>
+                            <input type="text" id="FamZip" name="FamZip" class="form-control" <?php
+                            // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
+                            if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
+                                echo 'style="text-transform:uppercase" ';
+                            }
+                            echo 'value="' . htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') . '" '; ?>
+                                   maxlength="10" size="8">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label> <?= _('Country') ?>:</label><br>
+                            <?php
+                            $countriesDDF = new CountryDropDown();
+                            echo $countriesDDF->getDropDown($sCountry, "FamCountry");
+                            ?>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label><?= _('Person Name') ?> <?= _('or') ?> <?= _('Family Name') ?>:</label>
-                      <input type="text" id="FamName" name="FamName" value="<?= htmlentities(stripslashes($sFamName), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
-                  </div>
-                  <div class="col-md-6">
-                    <b><?= _('A person could have a different name as his family.<br>• In this case set the Family Name in this field.<br>• In the other case, leave this field blank.') ?></b>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label><?= _('Address') ?> 1:</label>
-                      <input type="text" id="FamAddress1" name="FamAddress1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
-                  </div>
-                  <div class="col-md-6">
-                    <label><?= _('Address') ?> 2:</label>
-                    <input type="text" id="FamAddress2" name="FamAddress2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
-                  </div>
-                  <div class="col-md-6">
-                    <label><?= _('City') ?>:</label>
-                    <input type="text" id="FamCity" name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
-                  </div>
-                </div>
-                <div class="row">
-                  <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
-                    <label for="StatleTextBox"><?= _('State') ?>: </label><br>
-                    <?php
-                        $statesDDF = new StateDropDown();
-                        echo $statesDDF->getDropDown($sState,"FamState");
-                     ?>
-                  </div>
-                <div <?= (SystemConfig::getValue('bStateUnusefull'))?'style="display: none;"':'class="form-group col-md-3" '?>>
-                    <label><?= _('None US/CND State') ?>:</label>
-                    <input type="text"  class="form-control" id="FamStateTextbox" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
-                        echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
-                    } ?>" size="20" maxlength="30">
-                </div>
-                <div class="form-group col-md-3">
-                    <label><?= _('Zip') ?>:</label>
-                    <input type="text" id="FamZip" name="FamZip"  class="form-control" <?php
-                                    // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
-                                    if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
-                                        echo 'style="text-transform:uppercase" ';
-                                    }
-                                    echo 'value="'.htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8').'" '; ?>
-                      maxlength="10" size="8">
-                </div>
-                <div class="form-group col-md-3">
-                    <label> <?= _('Country') ?>:</label><br>
-                    <?php
-                      $countriesDDF = new CountryDropDown();
-                      echo $countriesDDF->getDropDown($sCountry, "FamCountry");
-                    ?>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- end of the new code PL -->
-      </div>
+            <!-- end of the new code PL -->
+        </div>
     </div>
     <div class="box box-info clearfix">
         <div class="box-header with-border">
@@ -1078,211 +1110,211 @@ require 'Include/Header.php';
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
-           <div id="personAddress">
-            <?php
-              if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
-            ?>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-4">
-                            <label>
+            <div id="personAddress">
+                <?php
+                if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
+                    ?>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <label>
+                                    <?php
+                                    if ($bFamilyAddress1) {
+                                    ?>
+                                    <span style="color: red;">
                           <?php
-                            if ($bFamilyAddress1) {
-                          ?>
-                              <span style="color: red;">
-                          <?php
-                            }
-                          ?>
-
-                               <?= _('Address').' 1:' ?>
-
-                        <?php
-                          if ($bFamilyAddress1) {
-                        ?>
-                            </span>
-                        <?php
                           }
-                        ?>
-                            </label>
-                            <input type="text" name="Address1"
-                                   value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   size="30" maxlength="50" class="form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label>
+                          ?>
+
+                          <?= _('Address') . ' 1:' ?>
+
+                          <?php
+                          if ($bFamilyAddress1) {
+                          ?>
+                            </span>
+                                <?php
+                                }
+                                ?>
+                                </label>
+                                <input type="text" name="Address1"
+                                       value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"
+                                       size="30" maxlength="50" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label>
+                                    <?php
+                                    if ($bFamilyAddress2) {
+                                    ?>
+                                    <span style="color: red;">
                             <?php
-                              if ($bFamilyAddress2) {
-                            ?>
-                               <span style="color: red;">
-                            <?php
-                              }
+                            }
                             ?>
 
-                                 <?= _('Address').' 2:' ?>
+                            <?= _('Address') . ' 2:' ?>
 
                             <?php
-                              if ($bFamilyAddress2) {
+                            if ($bFamilyAddress2) {
                             ?>
                                </span>
+                                <?php
+                                }
+                                ?>
+                                </label>
+                                <input type="text" name="Address2"
+                                       value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"
+                                       size="30" maxlength="50" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label>
+                                    <?php
+                                    if ($bFamilyCity) {
+                                    ?>
+                                    <span style="color: red;">
+                          <?php
+                          }
+                          ?>
+
+                          <?= _('City') . ':' ?>
+
+                          <?php
+                          if ($bFamilyCity) {
+                          ?>
+                            </span>
+                                <?php
+                                }
+                                ?>
+                                </label>
+                                <input type="text" name="City"
+                                       value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"
+                                       class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <p/>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="StatleTextBox">
+                                <?php
+                                if ($bFamilyState) {
+                                ?>
+                                <span style="color: red;">
+                        <?php
+                        }
+                        ?>
+
+                        <?= _('State') . ':' ?>
+
+                        <?php
+                        if ($bFamilyState) {
+                        ?>
+                            </span>
                             <?php
-                              }
+                            }
                             ?>
                             </label>
-                            <input type="text" name="Address2"
-                                   value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   size="30" maxlength="50" class="form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label>
-                          <?php
-                            if ($bFamilyCity) {
-                          ?>
-                            <span style="color: red;">
-                          <?php
-                            }
-                          ?>
-
-                        <?=  _('City').':' ?>
-
-                          <?php
-                            if ($bFamilyCity) {
-                          ?>
-                            </span>
-                          <?php
-                            }
-                          ?>
-                            </label>
-                            <input type="text" name="City"
-                                   value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <p/>
-                <div class="row">
-                    <div class="form-group col-md-2">
-                        <label for="StatleTextBox">
-                        <?php
-                          if ($bFamilyState) {
-                        ?>
-                            <span style="color: red;">
-                        <?php
-                          }
-                        ?>
-
-                        <?= _('State').':' ?>
-
-                        <?php
-                          if ($bFamilyState) {
-                        ?>
-                            </span>
-                        <?php
-                          }
-                        ?>
-                        </label>
-                        <?php
-                          $statesDD = new StateDropDown();
-                          echo $statesDD->getDropDown($sState);
-                        ?>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label><?= _('None US/CND State') ?>:</label>
-                        <input type="text" name="StateTextbox"
-                               value="<?php if ($sPhoneCountry != 'United States' && $sPhoneCountry != 'Canada') {
-                            echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
-                        } ?>"
-                               size="20" maxlength="30" class="form-control">
-                    </div>
-
-                    <div class="form-group col-md-1">
-                        <label for="Zip">
-                        <?php
-                          if ($bFamilyZip) {
-                        ?>
-                            <span style="color: red;">
-                        <?php
-                          }
-                        ?>
-
-                        <?= _('Zip').':'?>
-
-                        <?php
-                          if ($bFamilyZip) {
-                        ?>
-                            </span>
-                        <?php
-                          }
-                        ?>
-                        </label>
-                        <input type="text" name="Zip" class="form-control"
                             <?php
-                            // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
-                            if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
-                                echo 'style="text-transform:uppercase" ';
-                            }
+                            $statesDD = new StateDropDown();
+                            echo $statesDD->getDropDown($sState);
+                            ?>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label><?= _('None US/CND State') ?>:</label>
+                            <input type="text" name="StateTextbox"
+                                   value="<?php if ($sPhoneCountry != 'United States' && $sPhoneCountry != 'Canada') {
+                                       echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
+                                   } ?>"
+                                   size="20" maxlength="30" class="form-control">
+                        </div>
 
-                        echo 'value="'.htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8').'" '; ?>
-                               maxlength="10" size="8">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="Zip">
+                        <div class="form-group col-md-1">
+                            <label for="Zip">
+                                <?php
+                                if ($bFamilyZip) {
+                                ?>
+                                <span style="color: red;">
                         <?php
-                          if ($bFamilyCountry) {
+                        }
                         ?>
-                            <span style="color: red;">
-                        <?php
-                          }
-                        ?>
 
-                        <?= _('Country').':' ?>
+                        <?= _('Zip') . ':' ?>
 
                         <?php
-                          if ($bFamilyCountry) {
+                        if ($bFamilyZip) {
                         ?>
                             </span>
+                            <?php
+                            }
+                            ?>
+                            </label>
+                            <input type="text" name="Zip" class="form-control"
+                                <?php
+                                // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
+                                if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
+                                    echo 'style="text-transform:uppercase" ';
+                                }
+
+                                echo 'value="' . htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') . '" '; ?>
+                                   maxlength="10" size="8">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="Zip">
+                                <?php
+                                if ($bFamilyCountry) {
+                                ?>
+                                <span style="color: red;">
                         <?php
-                          }
+                        }
                         ?>
-                        </label>
+
+                        <?= _('Country') . ':' ?>
+
                         <?php
-                          $countriesDD = new CountryDropDown();
-                          echo $countriesDD->getDropDown($sCountry);
+                        if ($bFamilyCountry) {
                         ?>
+                            </span>
+                            <?php
+                            }
+                            ?>
+                            </label>
+                            <?php
+                            $countriesDD = new CountryDropDown();
+                            echo $countriesDD->getDropDown($sCountry);
+                            ?>
+                        </div>
                     </div>
-                </div>
-                <p/>
-            <?php
-                    } else { // put the current values in hidden controls so they are not lost if hiding the person-specific info?>
-                <input type="hidden" name="Address1"
-                       value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="Address2"
-                       value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="City"
-                       value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="State"
-                       value="<?= htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="StateTextbox"
-                       value="<?= htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="Zip"
-                       value="<?= htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-                <input type="hidden" name="Country"
-                       value="<?= htmlentities(stripslashes($sCountry), ENT_NOQUOTES, 'UTF-8') ?>"></input>
-            <?php
-                    } ?>
+                    <p/>
+                    <?php
+                } else { // put the current values in hidden controls so they are not lost if hiding the person-specific info?>
+                    <input type="hidden" name="Address1"
+                           value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="Address2"
+                           value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="City"
+                           value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="State"
+                           value="<?= htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="StateTextbox"
+                           value="<?= htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="Zip"
+                           value="<?= htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <input type="hidden" name="Country"
+                           value="<?= htmlentities(stripslashes($sCountry), ENT_NOQUOTES, 'UTF-8') ?>"></input>
+                    <?php
+                } ?>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
                     <label for="HomePhone">
                         <?php
-                          if ($bFamilyHomePhone) {
-                        ?>
+                        if ($bFamilyHomePhone) {
+                            ?>
                             <span style="color: red;"><?= _('Home Phone') ?>:</span>
-                        <?php
-                          } else {
-                        ?>
+                            <?php
+                        } else {
+                            ?>
                             <?= _('Home Phone') ?>:
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                     </label>
                     <div class="input-group">
@@ -1291,23 +1323,25 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="HomePhone"
                                value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
+                               maxlength="30" class="form-control"
+                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                         <br>
-                        <input type="checkbox" name="NoFormat_HomePhone" value="1" <?= ($bNoFormat_HomePhone)?' checked':''?>><?= _('Do not auto-format') ?>
+                        <input type="checkbox" name="NoFormat_HomePhone" value="1"
+                               <?= ($bNoFormat_HomePhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="WorkPhone">
                         <?php
-                          if ($bFamilyWorkPhone) {
-                        ?>
+                        if ($bFamilyWorkPhone) {
+                            ?>
                             <span style="color: red;"><?= _('Work Phone') ?>:</span>
-                        <?php
-                          } else {
-                        ?>
+                            <?php
+                        } else {
+                            ?>
                             <?= _('Work Phone') ?>:
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                     </label>
                     <div class="input-group">
@@ -1317,24 +1351,26 @@ require 'Include/Header.php';
                         <input type="text" name="WorkPhone"
                                value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="30" class="form-control"
-                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"' data-mask/>
+                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"'
+                               data-mask/>
                         <br>
-                        <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?= ($bNoFormat_WorkPhone)?' checked':'' ?>><?= _('Do not auto-format') ?>
+                        <input type="checkbox" name="NoFormat_WorkPhone" value="1"
+                               <?= ($bNoFormat_WorkPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="CellPhone">
                         <?php
-                          if ($bFamilyCellPhone) {
-                        ?>
+                        if ($bFamilyCellPhone) {
+                            ?>
                             <span style="color: red;"><?= _('Mobile Phone') ?>:</span>
-                        <?php
-                          } else {
-                        ?>
+                            <?php
+                        } else {
+                            ?>
                             <?= _('Mobile Phone') ?>:
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                     </label>
                     <div class="input-group">
@@ -1343,8 +1379,10 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="CellPhone"
                                value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
-                        <br><input type="checkbox" name="NoFormat_CellPhone" value="1" <?= ($bNoFormat_CellPhone)?' checked':'' ?>><?= _('Do not auto-format') ?>
+                               maxlength="30" class="form-control"
+                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
+                        <br><input type="checkbox" name="NoFormat_CellPhone" value="1"
+                                   <?= ($bNoFormat_CellPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
@@ -1353,25 +1391,26 @@ require 'Include/Header.php';
                             <label><?= _('Send Newsletter') ?>:</label>
                         </div>
                         <div class="form-group col-md-4">
-                            <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?> style="margin-top:10px">
+                            <input type="checkbox" Name="SendNewsLetter" value="1"
+                                   <?= ($bSendNewsLetter) ? ' checked' : '' ?> style="margin-top:10px">
                         </div>
                     </div>
-              </div>
+                </div>
             </div>
             <p/>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label for="Email">
                         <?php
-                          if ($bFamilyEmail) {
-                        ?>
+                        if ($bFamilyEmail) {
+                            ?>
                             <span style="color: red;"><?= _('Email') ?>:</span>
-                        <?php
-                          } else {
-                        ?>
+                            <?php
+                        } else {
+                            ?>
                             <?= _('Email') ?>:
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                     </label>
                     <div class="input-group">
@@ -1382,11 +1421,11 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
                         <?php
-                          if ($sEmailError) {
-                        ?>
-                           <font color="red"><?= $sEmailError ?></font>
-                        <?php
-                          }
+                        if ($sEmailError) {
+                            ?>
+                            <font color="red"><?= $sEmailError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                 </div>
@@ -1400,11 +1439,11 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sWorkEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
                         <?php
-                           if ($sWorkEmailError) {
-                        ?>
-                        <font color="red"><?= $sWorkEmailError ?></font>
-                        <?php
-                           }
+                        if ($sWorkEmailError) {
+                            ?>
+                            <font color="red"><?= $sWorkEmailError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                 </div>
@@ -1413,15 +1452,15 @@ require 'Include/Header.php';
                 <div class="form-group col-md-4">
                     <label for="FacebookID">
                         <?php
-                          if ($bFacebookID) {
-                        ?>
+                        if ($bFacebookID) {
+                            ?>
                             <span style="color: red;"><?= _('Facebook') ?> ID:</span>
-                        <?php
-                          } else {
-                        ?>
+                            <?php
+                        } else {
+                            ?>
                             <?= _('Facebook') ?> ID:
-                        <?php
-                          }
+                            <?php
+                        }
                         ?>
                     </label>
                     <div class="input-group">
@@ -1432,11 +1471,11 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($iFacebookID), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
                         <?php
-                          if ($sFacebookError) {
-                        ?>
-                           <font color="red"><?= $sFacebookError ?></font>
-                        <?php
-                          }
+                        if ($sFacebookError) {
+                            ?>
+                            <font color="red"><?= $sFacebookError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                 </div>
@@ -1450,32 +1489,32 @@ require 'Include/Header.php';
                                value="<?= htmlentities(stripslashes($sTwitter), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
                         <?php
-                          if ($sTwitterError) {
-                        ?>
-                          <font color="red"><?= $sTwitterError ?></font>
-                        <?php
-                           }
+                        if ($sTwitterError) {
+                            ?>
+                            <font color="red"><?= $sTwitterError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                 </div>
                 <div class="form-group col-md-4">
-                      <label for="LinkedIn"><?= _('LinkedIn') ?>:</label>
-                      <div class="input-group">
-                          <div class="input-group-addon">
-                              <i class="fa fa-linkedin"></i>
-                          </div>
-                          <input type="text" name="LinkedIn"
-                                 value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                                 maxlength="100" class="form-control">
-                          <?php
-                            if ($sLinkedInError) {
-                          ?>
+                    <label for="LinkedIn"><?= _('LinkedIn') ?>:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-linkedin"></i>
+                        </div>
+                        <input type="text" name="LinkedIn"
+                               value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
+                               maxlength="100" class="form-control">
+                        <?php
+                        if ($sLinkedInError) {
+                            ?>
                             <font color="red"><?= $sLinkedInError ?></font>
-                          <?php
-                            }
-                          ?>
-                      </div>
-                  </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1488,21 +1527,25 @@ require 'Include/Header.php';
         </div><!-- /.box-header -->
         <div class="box-body">
             <div class="row">
-              <div class="form-group col-md-3 col-lg-3">
-                <label><?= _('Classification') ?>:</label>
-                <select name="Classification" class="form-control">
-                  <option value="0"><?= _('Unassigned') ?></option>
-                  <option value="0" disabled>-----------------------</option>
+                <div class="form-group col-md-3 col-lg-3">
+                    <label><?= _('Classification') ?>:</label>
+                    <select name="Classification" class="form-control">
+                        <option value="0"><?= _('Unassigned') ?></option>
+                        <option value="0" disabled>-----------------------</option>
 
-                <?php
-                   foreach ($ormClassifications as $ormClassification) {
-                ?>
-                  <option value="<?= $ormClassification->getOptionId() ?>" <?=($iClassification == $ormClassification->getOptionId())?' selected':'' ?>><?= $ormClassification->getOptionName() ?>&nbsp;
-                <?php
-                   }
-                ?>
-                </select>
-              </div>
+                        <?php
+                        foreach ($ormClassifications
+
+                        as $ormClassification) {
+                        ?>
+                        <option value="<?= $ormClassification->getOptionId() ?>"
+                                <?= ($iClassification == $ormClassification->getOptionId()) ? ' selected' : '' ?>><?= $ormClassification->getOptionName() ?>
+                            &nbsp;
+                            <?php
+                            }
+                            ?>
+                    </select>
+                </div>
                 <div class="form-group col-md-3 col-lg-3">
                     <label><?= _('Membership Date') ?>:</label>
                     <div class="input-group">
@@ -1511,151 +1554,155 @@ require 'Include/Header.php';
                         </div>
                         <!-- Philippe Logel -->
                         <input type="text" name="MembershipDate" class="form-control date-picker"
-                               value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
+                               value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10"
+                               id="sel1" size="11"
                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                         <?php
-                          if ($sMembershipDateError) {
-                        ?>
-                          <font color="red"><?= $sMembershipDateError ?></font>
-                        <?php
-                          }
+                        if ($sMembershipDateError) {
+                            ?>
+                            <font color="red"><?= $sMembershipDateError ?></font>
+                            <?php
+                        }
                         ?>
                     </div>
                 </div>
-              <?php
+                <?php
                 if (!SystemConfig::getBooleanValue('bHideFriendDate')) { /* Friend Date can be hidden - General Settings */
-              ?>
-                <div class="form-group col-md-3 col-lg-3">
-                  <label><?= _('Friend Date') ?>:</label>
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
+                    ?>
+                    <div class="form-group col-md-3 col-lg-3">
+                        <label><?= _('Friend Date') ?>:</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" name="FriendDate" class="form-control date-picker"
+                                   value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10"
+                                   id="sel2" size="10"
+                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                            <?php
+                            if ($sFriendDateError) {
+                                ?>
+                                <font color="red"><?= $sFriendDateError ?></font>
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
-                    <input type="text" name="FriendDate" class="form-control date-picker"
-                           value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10" id="sel2" size="10"
-                           placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     <?php
-                      if ($sFriendDateError) {
-                    ?>
-                      <font color="red"><?= $sFriendDateError ?></font>
-                    <?php
-                      }
-                    ?>
-                  </div>
-                </div>
-              <?php
                 }
-              ?>
+                ?>
             </div>
         </div>
     </div>
-  <?php
+    <?php
     if ($numCustomFields > 0) {
-  ?>
-    <div class="box box-info clearfix">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Custom Fields') ?></h3>
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
-            </div>
-        </div><!-- /.box-header -->
-        <div class="box-body">
-          <?php
-            if ($numCustomFields > 0) {
-              for ($i=0;$i < $maxCustomFields;$i++) {
-          ?>
-            <div class="row">
-
-                <div class="form-group col-md-6">
-                <?php
-                  if ($i < $numLeftCustomFields) {
-                    $customField = $ormLeftCustomFields[$i];
-
-                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
-                ?>
-                    <label><?= $customField['CustomName'] ?></label>
-                    <br>
-                    <?php
-
-                      if (array_key_exists($customField['CustomField'], $aCustomData)) {
-                          $currentFieldData = trim($aCustomData[$customField['CustomField']]);
-                      } else {
-                          $currentFieldData = '';
-                      }
-
-                      if ($type_ID == 11) {// in the case of a phone number
-                          $custom_Special = $sPhoneCountry;
-                      } else {
-                          $custom_Special = $customField['CustomSpecial'];
-                      }
-
-                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
-                      if (isset($aCustomErrors[$customField['TypeId']])) {
-                    ?>
-                    <span style="color: red; "><?= $aCustomErrors[$customField['TypeId']] ?></span>
-                    <?php
-                      }
-                    }
-                  }
-                  ?>
-                </div>
-
-                <div class="form-group col-md-6">
-                <?php
-                  if ($i < $numRightCustomFields) {
-                    $customField = $ormRightCustomFields[$i];
-
-                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
-                ?>
-                      <label><?= $customField['CustomName'] ?></label><br>
-                      <?php
-                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
-                            $currentFieldData = trim($aCustomData[$customField['CustomField']]);
-                        } else {
-                            $currentFieldData = '';
-                        }
-
-                        if ($type_ID == 11) {// in the case of a phone number
-                            $custom_Special = $sPhoneCountry;
-                        } else {
-                            $custom_Special = $customField['CustomSpecial'];
-                        }
-
-                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
-
-                        if (isset($aCustomErrors[$customField['TypeId']])) {
-                      ?>
-                            <span style="color: red; "><?= $aCustomErrors[$customField['TypeId']] ?></span>
-                      <?php
-                        }
-                    }
-                  }
-                  ?>
-                </div>
-              </div>
-        <?php
-              }
-          }
         ?>
+        <div class="box box-info clearfix">
+            <div class="box-header with-border">
+                <h3 class="box-title"><?= _('Custom Fields') ?></h3>
+                <div class="pull-right">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
+                </div>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <?php
+                if ($numCustomFields > 0) {
+                    for ($i = 0; $i < $maxCustomFields; $i++) {
+                        ?>
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                if ($i < $numLeftCustomFields) {
+                                    $customField = $ormLeftCustomFields[$i];
+
+                                    if (OutputUtils::securityFilter($customField['CustomFieldSec'])) {
+                                        ?>
+                                        <label><?= $customField['CustomName'] ?></label>
+                                        <br>
+                                        <?php
+
+                                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                            $currentFieldData = trim($aCustomData[$customField['CustomField']]);
+                                        } else {
+                                            $currentFieldData = '';
+                                        }
+
+                                        if ($type_ID == 11) {// in the case of a phone number
+                                            $custom_Special = $sPhoneCountry;
+                                        } else {
+                                            $custom_Special = $customField['CustomSpecial'];
+                                        }
+
+                                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+                                        if (isset($aCustomErrors[$customField['TypeId']])) {
+                                            ?>
+                                            <span
+                                                style="color: red; "><?= $aCustomErrors[$customField['TypeId']] ?></span>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                if ($i < $numRightCustomFields) {
+                                    $customField = $ormRightCustomFields[$i];
+
+                                    if (OutputUtils::securityFilter($customField['CustomFieldSec'])) {
+                                        ?>
+                                        <label><?= $customField['CustomName'] ?></label><br>
+                                        <?php
+                                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                                            $currentFieldData = trim($aCustomData[$customField['CustomField']]);
+                                        } else {
+                                            $currentFieldData = '';
+                                        }
+
+                                        if ($type_ID == 11) {// in the case of a phone number
+                                            $custom_Special = $sPhoneCountry;
+                                        } else {
+                                            $custom_Special = $customField['CustomSpecial'];
+                                        }
+
+                                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
+
+                                        if (isset($aCustomErrors[$customField['TypeId']])) {
+                                            ?>
+                                            <span
+                                                style="color: red; "><?= $aCustomErrors[$customField['TypeId']] ?></span>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
         </div>
-    </div>
-  <?php
+        <?php
     }
-  ?>
+    ?>
     <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
-  <?php
+    <?php
     if (SessionUser::getUser()->isAddRecordsEnabled()) {
-  ?>
-    <input type="submit" class="btn btn-success" value="<?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
-  <?php
+        ?>
+        <input type="submit" class="btn btn-success" value="<?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
+        <?php
     }
-  ?>
+    ?>
     <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="PersonCancel"
            onclick="javascript:document.location='SelectList.php?mode=person';">
 </form>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  window.CRM.bShowAddress = <?= ($bShowAddress)?'true':'false' ?>;
+    window.CRM.bShowAddress = <?= ($bShowAddress) ? 'true' : 'false' ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonEditor.js"></script>
