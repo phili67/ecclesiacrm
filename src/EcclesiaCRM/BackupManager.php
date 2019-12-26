@@ -431,6 +431,10 @@ class CreateBackup extends JobBase
             if ($privateFile->isFile() && $privateFile->getBasename() === '.DS_Store' || $privateFile->isLink()) {
                 continue;
             }
+            if ($privateFile->isFile() && $privateFile->getBasename() == "public") {
+                // the symlink public is forbidden.
+                continue;
+            }
             if (!$privateFile->isDir()) {
                 $localName = str_replace(SystemURLs::getDocumentRoot() . '/', '', $privateFile->getRealPath());
                 $phar->addFile($privateFile->getRealPath(), $localName);
