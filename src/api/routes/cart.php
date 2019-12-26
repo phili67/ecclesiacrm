@@ -266,7 +266,7 @@ function removePersonCart ($request, $response, $args) {
         if (Cart::CountPeople() > 0) {
             $connection = Propel::getConnection();
 
-            // we get the emails for the CartView.php
+            // we get the emails for the /v2/cart/view
             $sSQL = "SELECT per_Email, fam_Email
                         FROM person_per
                         LEFT JOIN person2group2role_p2g2r ON per_ID = p2g2r_per_ID
@@ -291,7 +291,7 @@ function removePersonCart ($request, $response, $args) {
             }
 
             $sEmailLink = mb_substr($sEmailLink, 0, -1);
-            
+
             //Text Cart Link
             $sSQL = "SELECT per_CellPhone, fam_CellPhone
                             FROM person_per LEFT
@@ -315,7 +315,7 @@ function removePersonCart ($request, $response, $args) {
                     }
                 }
             }
-            
+
             $sPhoneLink = mb_substr($sPhoneLink, 0, -2);
         }
     }

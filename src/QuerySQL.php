@@ -179,7 +179,7 @@ function RunFreeQuery()
 
         if (count($aHiddenFormField) > 0) {
             ?>
-			<form method="post" action="CartView.php"><p align="center">
+			<form method="post" action="<?= SystemURLs::getRootPath() ?>/v2/cart/view"><p align="center">
 				<input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
 				<input type="submit" class="btn" name="AddToCartSubmit" value="<?php echo _('Add Results To Cart'); ?>">&nbsp;
 				<input type="submit" class="btn" name="AndToCartSubmit" value="<?php echo _('Intersect Results With Cart'); ?>">&nbsp;
@@ -188,7 +188,7 @@ function RunFreeQuery()
 			<?php
         }
 
-        echo '<p align="center"><a href="QueryList.php">'._('Return to Query Menu').'</a></p>';
+        echo '<p align="center"><a href="<?= SystemURLs::getRootPath() ?>/QueryList.php">'._('Return to Query Menu').'</a></p>';
         echo '<br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50 px; border-width: 1px;"><span class="SmallText">'.str_replace(chr(13), '<br>', htmlspecialchars($sSQL)).'</span></p>';
     }
 }

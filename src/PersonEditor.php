@@ -8,7 +8,7 @@
  *                2017 Philippe Logel
  *
  ******************************************************************************/
- 
+
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
@@ -60,16 +60,16 @@ if (array_key_exists('previousPage', $_GET)) {
 if ($iPersonID > 0) {
     $person = PersonQuery::Create()
         ->findOneById($iPersonID);
-        
+
     if (empty($person)) {
         RedirectUtils::Redirect('Menu.php');
         exit();
     }
-    
+
     if ($person->getDateDeactivated() != null && !SessionUser::getUser()->isGdrpDpoEnabled()) {
       RedirectUtils::Redirect('members/404.php?type=Person');
     }
-    
+
     if (!(
         SessionUser::getUser()->isEditRecordsEnabled() ||
         (SessionUser::getUser()->isEditSelfEnabled() && $iPersonID == SessionUser::getUser()->getPersonId()) ||
@@ -88,7 +88,7 @@ if ($iPersonID > 0) {
 $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-                     
+
 // only the left custom fields
 $ormLeftCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
@@ -132,18 +132,18 @@ $bNoFormat_CellPhone = false;
 //Is this the second pass?
 if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     //Get all the variables from the request object and assign them locally
-    
+
     $sTitle = InputUtils::LegacyFilterInput($_POST['Title']);
     $sFirstName = InputUtils::FilterString($_POST['FirstName']);
     $sMiddleName = InputUtils::FilterString($_POST['MiddleName']);
     $sLastName = InputUtils::FilterString($_POST['LastName']);
     $sSuffix = InputUtils::FilterString($_POST['Suffix']);
     $iGender = InputUtils::LegacyFilterInput($_POST['Gender'], 'int');
-    
+
     // Person address stuff is normally surpressed in favor of family address info
     $sAddress1 = '';
     $sAddress2 = '';
-    
+
     $sCity = '';
     $sZip = '';
     $sCountry = '';
@@ -159,7 +159,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (array_key_exists('Zip', $_POST)) {
         $sZip = InputUtils::LegacyFilterInput($_POST['Zip']);
     }
-    
+
     // Person address stuff is normally surpressed in favor of family address info
     $sFamName  = '';
     $sFamAddress1 = '';
@@ -196,26 +196,26 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (array_key_exists('FamState', $_POST)) {
         $sFamState = InputUtils::FilterString($_POST['FamState']);
     }
-    
+
     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
     if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
         $sFamZip = strtoupper($sFamZip);
     }
-    
+
     if (array_key_exists('FamCountry', $_POST)) {
         $sFamCountry = InputUtils::FilterString($_POST['FamCountry']);
     }
-    
+
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family'], 'int');
     $iFamilyRole = InputUtils::LegacyFilterInput($_POST['FamilyRole'], 'int');
-    
+
     // Get their family's country in case person's country was not entered
     if ($iFamily > 0) {
         $fam = FamilyQuery::Create()->findOneById($iFamily);
-        
+
         $fam_Country = $fam->getCountry();
     }
-    
+
     $sCountryTest = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
     $sState = '';
     if ($sCountryTest == 'United States' || $sCountryTest == 'Canada') {
@@ -227,7 +227,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sState = InputUtils::LegacyFilterInput($_POST['StateTextbox']);
         }
     }
-    
+
     $sHomePhone = InputUtils::LegacyFilterInput($_POST['HomePhone']);
     $sWorkPhone = InputUtils::LegacyFilterInput($_POST['WorkPhone']);
     $sCellPhone = InputUtils::LegacyFilterInput($_POST['CellPhone']);
@@ -236,7 +236,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $iBirthMonth = InputUtils::LegacyFilterInput($_POST['BirthMonth'], 'int');
     $iBirthDay = InputUtils::LegacyFilterInput($_POST['BirthDay'], 'int');
     $iBirthYear = InputUtils::LegacyFilterInput($_POST['BirthYear'], 'int');
-    
+
     $bHideAge = isset($_POST['HideAge']);
     // Philippe Logel
     $dFriendDate = InputUtils::FilterDate($_POST['FriendDate']);
@@ -246,18 +246,18 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (array_key_exists('EnvID', $_POST)) {
         $iEnvelope = InputUtils::LegacyFilterInput($_POST['EnvID'], 'int');
     }
-    
+
     if (array_key_exists('updateBirthYear', $_POST)) {
         $iupdateBirthYear = InputUtils::LegacyFilterInput($_POST['updateBirthYear'], 'int');
     }
     $iFacebook = InputUtils::FilterInt($_POST['Facebook']);
     $sTwitter = InputUtils::FilterString($_POST['Twitter']);
     $sLinkedIn = InputUtils::FilterString($_POST['LinkedIn']);
-    
+
     $bNoFormat_HomePhone = isset($_POST['NoFormat_HomePhone']);
     $bNoFormat_WorkPhone = isset($_POST['NoFormat_WorkPhone']);
     $bNoFormat_CellPhone = isset($_POST['NoFormat_CellPhone']);
-    
+
     //Validate the Last Name.  If family selected, but no last name, inherit from family.
     if (strlen($sLastName) < 1 && !SystemConfig::getValue('bAllowEmptyLastName')) {
         if ($iFamily < 1) {
@@ -282,7 +282,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             }
         }
     }
-    
+
     // Validate Friend Date if one was entered
     if (strlen($dFriendDate) > 0) {
         $dateString = InputUtils::parseAndValidateDate($dFriendDate, $locale = 'US', $pasfut = 'past');
@@ -305,7 +305,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $dMembershipDate = $dateString;
         }
     }
-    
+
     // Validate Email
     if (strlen($sEmail) > 0) {
         if (MiscUtils::checkEmail($sEmail) == false) {
@@ -316,7 +316,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sEmail = $sEmail;
         }
     }
-    
+
     // Validate Work Email
     if (strlen($sWorkEmail) > 0) {
         if (MiscUtils::checkEmail($sWorkEmail) == false) {
@@ -327,25 +327,25 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sWorkEmail = $sWorkEmail;
         }
     }
-    
+
     // Validate all the custom fields
     $aCustomData = [];
-    
+
     foreach ($ormCustomFields as $rowCustomField) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
-            
+
             $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
-            
+
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
             $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
-        }      
+        }
     }
-    
+
     //If no errors, then let's update...
     if (!$bErrorFlag) {
         $sPhoneCountry = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
-        
+
         if (!$bNoFormat_HomePhone) {
             $sHomePhone = MiscUtils::CollapsePhoneNumber($sHomePhone, $sPhoneCountry);
         }
@@ -355,7 +355,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if (!$bNoFormat_CellPhone) {
             $sCellPhone = MiscUtils::CollapsePhoneNumber($sCellPhone, $sPhoneCountry);
         }
-        
+
         //If no birth year, set to NULL
         if ((strlen($iBirthYear) != 4)) {
             $iBirthYear = 'NULL';
@@ -367,7 +367,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // Family will be named by the Last Name of the Person
         if ($iFamily == -1) {
             $family = new Family();
-            
+
             $family->setName($sFamName);
             $family->setAddress1($sFamAddress1);
             $family->setAddress2($sFamAddress2);
@@ -381,17 +381,17 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
             $family->save();
-            
-            //Get the key back You use the same code in CartView.php
+
+            //Get the key back You use the same code in /v2/cart/view
             $iFamily = $family->getId();
         } else {// the Family still exist
             // in the case the family is changing we have to check if the old family has still a member.
             // maybe we have to deactivate the family
             $family = FamilyQuery::Create()
                   ->findOneById($iFamily);
-            
+
             // a member change to a new familly, but the name of the family, shouldn't be changed
             if ( !is_null($family) ) {//
               $family->setName($sFamName);
@@ -407,7 +407,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->setEmail($sEmail);
               $family->setDateEntered(date('YmdHis'));
               $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
               $family->save();
 
               $iFamily = $family->getId();
@@ -423,7 +423,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // New Person (add)
         if ($iPersonID < 1) {
             $iEnvelope = 0;
-            
+
             $person = new Person();
             $person->setTitle($sTitle);
             $person->setFirstName($sFirstName);
@@ -446,38 +446,38 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             $person->setSendNewsletter($bSendNewsLetterString);
-            
+
             // bSendNewsLetterString : When you activated a single person the family is deactivated
             if ($bSendNewsLetterString == "TRUE" && $iFamily > 0 && !is_null ($family) ) {
                 $family->setSendNewsletter("FALSE");
             }
-            
+
             if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
-            
+
             $person->setFamId($iFamily);
             $person->setFmrId($iFamilyRole);
-            
+
             if (strlen($dMembershipDate) > 0) {
                 $person->setMembershipDate($dMembershipDate);
             }
-            
+
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
             $person->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
             }
-            
+
             $person->setFlags($per_Flags);
             $person->setFacebookID($iFacebook);
             $person->setTwitter($sTwitter);
             $person->setLinkedIn($sLinkedIn);
-            
+
             $person->save();
-            
+
             $iPersonID = $person->getId();
 
             $bGetKeyBack = true;
@@ -486,7 +486,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         } else {
             // we change the email of the User if the user exists
             $user = UserQuery::Create()->findOneByPersonId ($iPersonID);
-            
+
             if ( !is_null ($user) ) {
               $user->changePrincipalEmail ($sEmail);
             }
@@ -531,46 +531,46 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
-            
+
             $person->setFamId($iFamily);
             $person->setFmrId($iFamilyRole);
-            
+
             if (strlen($dMembershipDate) > 0) {
                 $person->setMembershipDate($dMembershipDate);
             }
-            
+
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
             $person->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
             $person->setDateLastEdited(new DateTime());
             $person->setEditedBy(SessionUser::getUser()->getPersonId());
-            
+
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
             }
-            
+
             $person->setFlags($per_Flags);
             $person->setFacebookID($iFacebook);
             $person->setTwitter($sTwitter);
             $person->setLinkedIn($sLinkedIn);
-            
+
             $person->save();
-            
+
             $bGetKeyBack = false;
         }
 
         $person = PersonQuery::create()->findOneByID($iPersonID);
-        
+
         // the Part with note is no more useful :PL
         // If this is a new person, get the key back and insert a blank row into the person_custom table
         if ($bGetKeyBack) {
             $personCustom = new PersonCustom();
-            
+
             $personCustom->setPerId($iPersonID);
-            
+
             $personCustom->save();
-                          
+
             if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs"))) {
                 $person = PersonQuery::create()->findOneByID($iPersonID);
                 $NotificationEmail = new NewPersonOrFamilyEmail($person);
@@ -579,7 +579,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                 }
             }
         }
-        
+
         $photo = new Photo("Person", $iPersonID);
         $photo->refresh();
 
@@ -592,12 +592,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                     MiscUtils::sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
               }
             }
-            
+
             // chop off the last 2 characters (comma and space) added in the last while loop iteration.
             if ($sSQL > '') {
                 $sSQL = 'REPLACE INTO person_custom SET '.$sSQL.' per_ID = '.$iPersonID;
                 //Execute the SQL
-                
+
                 $connection = Propel::getConnection();
 
                 $statement = $connection->prepare($sSQL);
@@ -661,7 +661,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iViewAgeFlag    = $person->getFlags();
         $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
 
-        
+
         $iFacebookID = $person->getFacebookID();
         $sTwitter    = $person->getTwitter();
         $sLinkedIn   = $person->getLinkedIn();
@@ -690,15 +690,15 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $bLinkedIn   = strlen($sLinkedIn);
 
         $aCustomData = [];
-        
+
         $aCustomData[] = $iPersonID;
         $aCustomData['per_ID'] = $iPersonID;
-                
+
         foreach ($ormCustomFields as $ormCustomField) {
           $personCustom = PersonCustomQuery::Create()
                           ->withcolumn($ormCustomField->getCustomField())
                           ->findOneByPerId($iPersonID);
-                          
+
           if (!is_null($personCustom)) {
             $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
             $aCustomData[$ormCustomField->getCustomField()] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
@@ -797,7 +797,7 @@ if ($iFamily != 0) {
   $bShowAddress = true;
   $theFamily = FamilyQuery::Create()
                   ->findOneById($iFamily);
-  
+
   if (!is_null($theFamily)) {
     $sFamName        = $theFamily->getName();
     $sAddress1       = $theFamily->getAddress1();
@@ -920,7 +920,7 @@ require 'Include/Header.php';
                         <label><?= _('Birth Day') ?>:</label>
                         <select name="BirthDay" class="form-control input-sm">
                             <option value="0"><?= _('Select Day') ?></option>
-                            <?php 
+                            <?php
                               for ($x = 1; $x < 32; $x++) {
                                   if ($x < 10) {
                                       $sDay = '0'.$x;
@@ -929,28 +929,28 @@ require 'Include/Header.php';
                                   } ?>
                                 <option value="<?= $sDay ?>" <?=($iBirthDay == $x)?'selected':'' ?>><?= $x ?></option>
                             <?php
-                              } 
+                              }
                             ?>
                         </select>
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Birth Year') ?>:</label>
                         <input type="text" name="BirthYear" value="<?= $iBirthYear ?>" maxlength="4" size="5" placeholder="yyyy" class="form-control input-sm">
-                        <?php 
+                        <?php
                           if ($sBirthYearError) {
                         ?>
                             <font color="red">
                               <br><?= $sBirthYearError ?>
                             </font>
                         <?php
-                          } 
+                          }
                         ?>
-                        <?php 
+                        <?php
                           if ($sBirthDateError) {
                         ?>
                           <font color="red"><?= $sBirthDateError ?></font>
                         <?php
-                          } 
+                          }
                         ?>
                     </div>
                     <div class="col-md-2">
@@ -974,7 +974,7 @@ require 'Include/Header.php';
                 <select name="FamilyRole" class="form-control input-sm">
                     <option value="0"><?= _("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
-                <?php 
+                <?php
                   foreach ($ormFamilyRoles as $ormFamilyRole) {
                 ?>
                     <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= ($iFamilyRole == $ormFamilyRole->getOptionId())?' selected':''?>><?= $ormFamilyRole->getOptionName() ?>&nbsp;
@@ -990,7 +990,7 @@ require 'Include/Header.php';
                     <option value="0" selected><?= _('Unassigned') ?></option>
                     <option value="-1" ><?= _("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
-                <?php 
+                <?php
                   foreach ($ormFamilies as $ormFamily) {
                 ?>
                     <option value="<?= $ormFamily->getId() ?>" <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId())?' selected':'' ?>><?= $ormFamily->getName() ?>&nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
@@ -999,7 +999,7 @@ require 'Include/Header.php';
                 ?>
                 </select>
             </div>
-            
+
             <!-- start of the new code PL -->
             <div id="familyAddress">
               <div class="form-group">
@@ -1036,8 +1036,8 @@ require 'Include/Header.php';
                 <div class="row">
                   <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label for="StatleTextBox"><?= _('State') ?>: </label><br>
-                    <?php                          
-                        $statesDDF = new StateDropDown();     
+                    <?php
+                        $statesDDF = new StateDropDown();
                         echo $statesDDF->getDropDown($sState,"FamState");
                      ?>
                   </div>
@@ -1060,13 +1060,13 @@ require 'Include/Header.php';
                 <div class="form-group col-md-3">
                     <label> <?= _('Country') ?>:</label><br>
                     <?php
-                      $countriesDDF = new CountryDropDown();     
+                      $countriesDDF = new CountryDropDown();
                       echo $countriesDDF->getDropDown($sCountry, "FamCountry");
                     ?>
                 </div>
               </div>
             </div>
-          </div>            
+          </div>
           <!-- end of the new code PL -->
       </div>
     </div>
@@ -1079,14 +1079,14 @@ require 'Include/Header.php';
         </div><!-- /.box-header -->
         <div class="box-body">
            <div id="personAddress">
-            <?php 
+            <?php
               if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
             ?>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-4">
                             <label>
-                          <?php 
+                          <?php
                             if ($bFamilyAddress1) {
                           ?>
                               <span style="color: red;">
@@ -1095,13 +1095,13 @@ require 'Include/Header.php';
                           ?>
 
                                <?= _('Address').' 1:' ?>
-                             
+
                         <?php
                           if ($bFamilyAddress1) {
                         ?>
                             </span>
                         <?php
-                          } 
+                          }
                         ?>
                             </label>
                             <input type="text" name="Address1"
@@ -1110,7 +1110,7 @@ require 'Include/Header.php';
                         </div>
                         <div class="col-md-4">
                             <label>
-                            <?php 
+                            <?php
                               if ($bFamilyAddress2) {
                             ?>
                                <span style="color: red;">
@@ -1120,12 +1120,12 @@ require 'Include/Header.php';
 
                                  <?= _('Address').' 2:' ?>
 
-                            <?php 
+                            <?php
                               if ($bFamilyAddress2) {
                             ?>
                                </span>
                             <?php
-                              } 
+                              }
                             ?>
                             </label>
                             <input type="text" name="Address2"
@@ -1134,7 +1134,7 @@ require 'Include/Header.php';
                         </div>
                         <div class="col-md-4">
                             <label>
-                          <?php 
+                          <?php
                             if ($bFamilyCity) {
                           ?>
                             <span style="color: red;">
@@ -1144,7 +1144,7 @@ require 'Include/Header.php';
 
                         <?=  _('City').':' ?>
 
-                          <?php 
+                          <?php
                             if ($bFamilyCity) {
                           ?>
                             </span>
@@ -1162,7 +1162,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="form-group col-md-2">
                         <label for="StatleTextBox">
-                        <?php 
+                        <?php
                           if ($bFamilyState) {
                         ?>
                             <span style="color: red;">
@@ -1172,16 +1172,16 @@ require 'Include/Header.php';
 
                         <?= _('State').':' ?>
 
-                        <?php 
+                        <?php
                           if ($bFamilyState) {
                         ?>
                             </span>
                         <?php
-                          } 
+                          }
                         ?>
                         </label>
-                        <?php                          
-                          $statesDD = new StateDropDown();     
+                        <?php
+                          $statesDD = new StateDropDown();
                           echo $statesDD->getDropDown($sState);
                         ?>
                     </div>
@@ -1196,7 +1196,7 @@ require 'Include/Header.php';
 
                     <div class="form-group col-md-1">
                         <label for="Zip">
-                        <?php 
+                        <?php
                           if ($bFamilyZip) {
                         ?>
                             <span style="color: red;">
@@ -1206,12 +1206,12 @@ require 'Include/Header.php';
 
                         <?= _('Zip').':'?>
 
-                        <?php 
+                        <?php
                           if ($bFamilyZip) {
-                        ?> 
+                        ?>
                             </span>
                         <?php
-                          } 
+                          }
                         ?>
                         </label>
                         <input type="text" name="Zip" class="form-control"
@@ -1226,7 +1226,7 @@ require 'Include/Header.php';
                     </div>
                     <div class="form-group col-md-2">
                         <label for="Zip">
-                        <?php 
+                        <?php
                           if ($bFamilyCountry) {
                         ?>
                             <span style="color: red;">
@@ -1236,16 +1236,16 @@ require 'Include/Header.php';
 
                         <?= _('Country').':' ?>
 
-                        <?php 
+                        <?php
                           if ($bFamilyCountry) {
-                        ?> 
+                        ?>
                             </span>
                         <?php
-                          } 
+                          }
                         ?>
                         </label>
                         <?php
-                          $countriesDD = new CountryDropDown();     
+                          $countriesDD = new CountryDropDown();
                           echo $countriesDD->getDropDown($sCountry);
                         ?>
                     </div>
@@ -1381,12 +1381,12 @@ require 'Include/Header.php';
                         <input type="text" name="Email"
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
-                        <?php 
+                        <?php
                           if ($sEmailError) {
                         ?>
                            <font color="red"><?= $sEmailError ?></font>
                         <?php
-                          } 
+                          }
                         ?>
                     </div>
                 </div>
@@ -1399,12 +1399,12 @@ require 'Include/Header.php';
                         <input type="text" name="WorkEmail"
                                value="<?= htmlentities(stripslashes($sWorkEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
-                        <?php 
+                        <?php
                            if ($sWorkEmailError) {
                         ?>
                         <font color="red"><?= $sWorkEmailError ?></font>
                         <?php
-                           } 
+                           }
                         ?>
                     </div>
                 </div>
@@ -1431,12 +1431,12 @@ require 'Include/Header.php';
                         <input type="text" name="Facebook"
                                value="<?= htmlentities(stripslashes($iFacebookID), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
-                        <?php 
+                        <?php
                           if ($sFacebookError) {
                         ?>
                            <font color="red"><?= $sFacebookError ?></font>
                         <?php
-                          } 
+                          }
                         ?>
                     </div>
                 </div>
@@ -1449,12 +1449,12 @@ require 'Include/Header.php';
                         <input type="text" name="Twitter"
                                value="<?= htmlentities(stripslashes($sTwitter), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="100" class="form-control">
-                        <?php 
+                        <?php
                           if ($sTwitterError) {
                         ?>
                           <font color="red"><?= $sTwitterError ?></font>
                         <?php
-                           } 
+                           }
                         ?>
                     </div>
                 </div>
@@ -1467,12 +1467,12 @@ require 'Include/Header.php';
                           <input type="text" name="LinkedIn"
                                  value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                  maxlength="100" class="form-control">
-                          <?php 
+                          <?php
                             if ($sLinkedInError) {
                           ?>
                             <font color="red"><?= $sLinkedInError ?></font>
                           <?php
-                            } 
+                            }
                           ?>
                       </div>
                   </div>
@@ -1493,8 +1493,8 @@ require 'Include/Header.php';
                 <select name="Classification" class="form-control">
                   <option value="0"><?= _('Unassigned') ?></option>
                   <option value="0" disabled>-----------------------</option>
-                  
-                <?php 
+
+                <?php
                    foreach ($ormClassifications as $ormClassification) {
                 ?>
                   <option value="<?= $ormClassification->getOptionId() ?>" <?=($iClassification == $ormClassification->getOptionId())?' selected':'' ?>><?= $ormClassification->getOptionName() ?>&nbsp;
@@ -1513,17 +1513,17 @@ require 'Include/Header.php';
                         <input type="text" name="MembershipDate" class="form-control date-picker"
                                value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                        <?php 
+                        <?php
                           if ($sMembershipDateError) {
                         ?>
                           <font color="red"><?= $sMembershipDateError ?></font>
                         <?php
-                          } 
+                          }
                         ?>
                     </div>
                 </div>
-              <?php 
-                if (!SystemConfig::getBooleanValue('bHideFriendDate')) { /* Friend Date can be hidden - General Settings */ 
+              <?php
+                if (!SystemConfig::getBooleanValue('bHideFriendDate')) { /* Friend Date can be hidden - General Settings */
               ?>
                 <div class="form-group col-md-3 col-lg-3">
                   <label><?= _('Friend Date') ?>:</label>
@@ -1534,22 +1534,22 @@ require 'Include/Header.php';
                     <input type="text" name="FriendDate" class="form-control date-picker"
                            value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10" id="sel2" size="10"
                            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                    <?php 
+                    <?php
                       if ($sFriendDateError) {
                     ?>
                       <font color="red"><?= $sFriendDateError ?></font>
                     <?php
-                      } 
+                      }
                     ?>
                   </div>
                 </div>
               <?php
-                } 
+                }
               ?>
             </div>
         </div>
     </div>
-  <?php 
+  <?php
     if ($numCustomFields > 0) {
   ?>
     <div class="box box-info clearfix">
@@ -1560,17 +1560,17 @@ require 'Include/Header.php';
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <?php 
+          <?php
             if ($numCustomFields > 0) {
               for ($i=0;$i < $maxCustomFields;$i++) {
           ?>
             <div class="row">
-                  
+
                 <div class="form-group col-md-6">
                 <?php
                   if ($i < $numLeftCustomFields) {
                     $customField = $ormLeftCustomFields[$i];
-                     
+
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                 ?>
                     <label><?= $customField['CustomName'] ?></label>
@@ -1599,12 +1599,12 @@ require 'Include/Header.php';
                   }
                   ?>
                 </div>
-                  
+
                 <div class="form-group col-md-6">
                 <?php
                   if ($i < $numRightCustomFields) {
                     $customField = $ormRightCustomFields[$i];
-                     
+
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                 ?>
                       <label><?= $customField['CustomName'] ?></label><br>
@@ -1635,20 +1635,20 @@ require 'Include/Header.php';
               </div>
         <?php
               }
-          } 
+          }
         ?>
         </div>
     </div>
   <?php
-    } 
+    }
   ?>
     <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
-  <?php 
+  <?php
     if (SessionUser::getUser()->isAddRecordsEnabled()) {
   ?>
     <input type="submit" class="btn btn-success" value="<?= _('Save and Add') ?>" name="PersonSubmitAndAdd">
   <?php
-    } 
+    }
   ?>
     <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="PersonCancel"
            onclick="javascript:document.location='SelectList.php?mode=person';">
