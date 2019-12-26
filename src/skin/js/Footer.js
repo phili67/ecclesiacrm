@@ -317,7 +317,7 @@ $(document).on("click", "#deleteCart", function (e) {
         // be careful not to call box.hide() here, which will invoke jQuery's hide method
         box.modal('hide');
 
-        if ((path == "PersonView.php" || path == "/v2/cart/view") && data != 'nothing was done') {
+        if ((path == "PersonView.php" || path == "v2/cart/view") && data != 'nothing was done') {
           location.reload();
         }
       }, 7000);
@@ -348,7 +348,7 @@ $(document).on("click", "#deactivateCart", function (e) {
         }
       }, 7000);
     } else {
-      if ((path == "PersonView.php" || path == "/v2/cart/view") && data != 'nothing was done') {
+      if ((path == "PersonView.php" || path == "v2/cart/view") && data != 'nothing was done') {
           location.reload();
       }
     }
