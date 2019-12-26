@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-12-24T18:21:25.208Z\n"
+"POT-Creation-Date: 2019-12-26T17:35:09.272Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -445,6 +445,12 @@ msgstr "Attention"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Le dossier d'images courant est maintenant le dossier public !!!"
+
+msgid "Add People"
+msgstr "Ajouter une Personne"
+
+msgid "This page is still in the cart."
+msgstr "Cette page est déjà dans le panier."
 
 msgid "Wrong address format."
 msgstr "Format d'Adresse non valide."
@@ -1929,7 +1935,9 @@ msgid "Backup Downloaded, Copy on server removed"
 msgstr "Backup téléchargé et supprimé sur le serveur"
 
 msgid "The selected file exceeds this servers maximum upload size of"
-msgstr "Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du serveur de"
+msgstr ""
+"Les fichiers sélectionnés dépassent la capacité fixée de téléchargement du "
+"serveur de"
 
 msgid "Restore Running, Please wait."
 msgstr "Restauration en cours, Veuillez patienter."
