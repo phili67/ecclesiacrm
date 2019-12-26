@@ -107,6 +107,8 @@ function emptyCartToGroup ($request, $response, $args) {
         return $response->withStatus(401);
     }
 
+    $iCount = Cart::CountPeople();
+
     $cartPayload = (object)$request->getParsedBody();
     Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
     return $response->withJson([
@@ -119,6 +121,8 @@ function emptyCartToEvent ($request, $response, $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
+
+    $iCount = Cart::CountPeople();
 
     $cartPayload = (object)$request->getParsedBody();
     Cart::EmptyToEvent($cartPayload->eventID);
@@ -148,6 +152,8 @@ function removeGroupFromCart($request, $response, $args) {
         return $response->withStatus(401);
     }
 
+    $iCount = Cart::CountPeople();
+
     $cartPayload = (object)$request->getParsedBody();
     Cart::RemoveGroup($cartPayload->Group);
     return $response->withJson([
@@ -161,6 +167,8 @@ function removeStudentsGroupFromCart ($request, $response, $args) {
         return $response->withStatus(401);
     }
 
+    $iCount = Cart::CountPeople();
+
     $cartPayload = (object)$request->getParsedBody();
     Cart::RemoveStudents($cartPayload->Group);
     return $response->withJson([
@@ -173,6 +181,8 @@ function removeTeachersGroupFromCart ($request, $response, $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
+
+    $iCount = Cart::CountPeople();
 
     $cartPayload = (object)$request->getParsedBody();
     Cart::RemoveTeachers($cartPayload->Group);
