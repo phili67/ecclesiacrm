@@ -102,7 +102,9 @@ class CalDavPDO extends SabreCalDavBase\PDO
                     'DESCRIPTION' => $component->VALARM->DESCRIPTION->getValue(),
                     'ACTION' => $component->VALARM->ACTION->getValue(),
                 ];
+            }
 
+            if (isset($component->ORGANIZER)) {
                 $organiser = $component->ORGANIZER->getValue();
             }
 
