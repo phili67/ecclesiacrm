@@ -32,52 +32,52 @@
         message: message
       });
     };
-    
+
     window.CRM.DisplayAlert = function(title,message,callback) {
       return bootbox.alert({
         title:  title,
         message:message
       });
     }
-    
+
     window.CRM.DisplayNormalAlert = function(title,message,callback) {
       alert(title + "\n\n" + message);
     }
-    
+
     window.CRM.renderMailchimpLists = function  () {
-        
+
         window.CRM.APIRequest({
           method: 'GET',
           path: 'mailchimp/lists'
         }).done(function(data) {
-        
+
           if (data.isActive) {
             var len = data.MailChimpLists.length;
-      
+
             // now we empty the menubar lists
             $(".lists_class_menu").removeClass("hidden");
             var lists_menu = $(".lists_class_menu").parent();
             var real_listMenu = $( lists_menu ).find (".treeview-menu");
-      
+
             real_listMenu.html("");
             var listItems  = "";
 
             for (i=0;i<len;i++) {
               var list = data.MailChimpLists[i];
-        
+
               listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
             }
-    
+
             real_listMenu.html(listItems);
-          
+
             if ( data.firstLoaded == true ) {
               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top");
             }
           }
-          
+
         });
     }
-    
+
     window.CRM.showGlobalMessage = function (message, callOutClass) {
         $("#globalMessageText").text(message);
         $("#globalMessageCallOut").removeClass("callout-danger");
@@ -88,18 +88,18 @@
         $("#globalMessage").show("slow");
     }
 
-    
+
     window.CRM.dialogLoadingFunction =  function (message) {
       window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
    }
-   
+
    window.CRM.closeDialogLoadingFunction = function () {
      if (window.CRM.dialogLoading != null) {
         window.CRM.dialogLoading.modal('hide');
       }
    }
 
-    
+
     window.CRM.notify = function(icon,title,message,link,type,place,delay,target,horizontal) {
       if (delay === undefined) {
         delay = 4000;
@@ -162,7 +162,7 @@
         }
       });
     }
-    
+
     window.CRM.cart={
       'empty' : function (callback)
       {
@@ -218,7 +218,7 @@
               }
             }
         });
-        
+
       },
       'delete' : function (callback)
       {
@@ -257,7 +257,7 @@
               }
             }
         });
-        
+
       },
       'emptyToGroup' : function (callback)
       {
@@ -277,7 +277,7 @@
       },
       'emptytoFamily' : function ()
       {
-          
+
       },
       'emptytoEvent' : function (callback)
       {
@@ -287,12 +287,12 @@
         }).done(function(eventNames) {
            var lenType = eventNames.length;
            var options = new Array();
-           
+
            var boxOptions ={
              title: i18next.t('Select the event to which you would like to add your cart'),
              message: '<div class="modal-body">',
              buttons: {
-               addEvent: {  
+               addEvent: {
                    label: i18next.t('Create First A New Event'),
                    className: 'btn-info',
                    callback: function() {
@@ -309,7 +309,7 @@
                    callback: function() {
                         var e = document.getElementById("eventChosen");
                         var EventID = e.options[e.selectedIndex].value;
-                        
+
                         window.CRM.APIRequest({
                           method: 'POST',
                           path: 'cart/emptyToEvent',
@@ -324,16 +324,16 @@
                }
              }
           };
-          
+
           boxOptions.message +='<center>'+i18next.t('You can add the content of the cart to the selected event below<br> - OR - <br>Create first an event and add them after.')+'</center><br>';
           boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="eventChosen">';
           for (i=0;i<lenType;i++) {
              boxOptions.message +='<option value="'+eventNames[i].eventTypeID+'">'+eventNames[i].name+'</option>';
            }
-                      
+
           boxOptions.message +='</select>\
                              </div>';
-          
+
           bootbox.dialog(boxOptions).show();
         });
       },
@@ -376,7 +376,7 @@
           if(callback)
           {
             callback(data);
-          } 
+          }
         });
       },
       'addFamily' : function (FamilyID, callback)
@@ -419,7 +419,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'removeGroup' : function (GroupID, callback)
@@ -434,7 +434,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'addStudentGroup' : function (GroupID, callback)
@@ -449,7 +449,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'removeStudentGroup' : function (GroupID, callback)
@@ -464,7 +464,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'addTeacherGroup' : function (GroupID, callback)
@@ -479,7 +479,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'removeTeacherGroup' : function (GroupID, callback)
@@ -494,7 +494,7 @@
             {
               callback(data);
             }
-            
+
         });
       },
       'updateLocalePage' : function () {
@@ -512,7 +512,7 @@
                window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Register")+".","<br>"+i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\">" + i18next.t("link") + "</a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"left");
             }
           });
-          
+
           window.CRM.APIRequest({
            method: 'POST',
            path:"systemupgrade/isUpdateRequired"
@@ -521,14 +521,14 @@
                window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
             }
           });
-          
+
           if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && window.CRM.showCart) {// the first time it's unusefull
             return;
           }
-        
+
           if (window.CRM.showCart == false)// in this cas all the broadcast system is deactivated
             return;
-        
+
           window.CRM.APIRequest({
             method: 'GET',
             path:"cart/"
@@ -536,20 +536,20 @@
             window.CRM.cart.updatePage(data.PeopleCart);
             //window.scrollTo(0, 0);
             $("#iconCount").text(data.PeopleCart.length);
-          
+
             // broadcaster
             $.event.trigger({
               type: "emptyCartMessage",
               cartPeople: data.PeopleCart
             });
-        
+
             var cartDropdownMenu;
             if (data.PeopleCart.length > 0) {
               cartDropdownMenu = '\
                 <li id="showWhenCartNotEmpty">\
                     <ul class="menu">\
                         <li>\
-                            <a href="' + window.CRM.root+ '/CartView.php">\
+                            <a href="' + window.CRM.root+ '/v2/cart/view">\
                                 <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
                             </a>\
                         </li>\
@@ -605,7 +605,7 @@
           });
       },
       'updatePage' : function (cartPeople){
-      
+
         // broadcaster
         $.event.trigger({
             type: "updateCartMessage",
@@ -613,7 +613,7 @@
         });
       }
     };
-    
+
     window.CRM.kiosks = {
         assignmentTypes: {
             "1":"Event Attendance",
@@ -634,7 +634,7 @@
           return window.CRM.APIRequest({
             "path":"kiosks/allowRegistration",
             "method":"POST"
-          })  
+          })
         },
         accept: function (id)
         {
@@ -675,7 +675,7 @@
           })
         }
     }
-    
+
     window.CRM.events = {
        getFutureEventes: function()
         {
@@ -688,13 +688,13 @@
           });
         }
     };
-    
-    window.CRM.groups = {      
+
+    window.CRM.groups = {
       'get': function() {
         return  window.CRM.APIRequest({
           path:"groups/",
           method:"GET"
-        }); 
+        });
       },
       'defaultGroup': function (callback) {
         var res = window.CRM.APIRequest({
@@ -708,7 +708,7 @@
         return window.CRM.APIRequest({
           path:"groups/"+GroupID+"/roles",
           method:"GET"
-        }); 
+        });
       },
       'selectTypes': {
         'Group': 1,
@@ -730,7 +730,7 @@
              }
           };
           initFunction = function() {};
-          
+
           if (selectOptions.Type & window.CRM.groups.selectTypes.Group)
           {
             options.title = i18next.t("Select Group");
@@ -755,7 +755,7 @@
               }
             };
           }
-          
+
           if (selectOptions.Type === window.CRM.groups.selectTypes.Role || selectOptions.Role === window.CRM.groups.selectTypes.Role)
           {
             if (!selectOptions.GroupID)
@@ -791,7 +791,7 @@
           }
           options.message +='</div>';
           bootbox.dialog(options).init(initFunction).show();
-          
+
           // this will ensure that image and table can be focused Philippe Logel
           $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
@@ -808,7 +808,7 @@
               data: groupsList
             });
 
-            $groupSelect2.on("select2:select", function (e) { 
+            $groupSelect2.on("select2:select", function (e) {
                var targetGroupId = $("#targetGroupSelection option:selected").val();
                $parent = $("#targetRoleSelection").parent();
                $("#targetRoleSelection").empty();
@@ -867,7 +867,7 @@
             if (result)
             {
               var newGroup = {'groupName': result};
-        
+
               $.ajax({
                 method: "POST",
                 url: window.CRM.root + "/api/groups/",               //call the groups api handler located at window.CRM.root
@@ -879,14 +879,14 @@
                   if(callbackM)
                   {
                     callbackM(data);
-                  }                
+                  }
               });
             }
            }
         });
       }
     };
-    
+
     window.CRM.system = {
       'runTimerJobs' : function () {
         $.ajax({
@@ -895,7 +895,7 @@
         });
       }
     };
-    
+
     window.CRM.tools = {
       'getLinkMapFromAddress' : function(address) {
          if (window.CRM.sMapExternalProvider == "AppleMaps") {
@@ -907,7 +907,7 @@
          }
       }
     };
-    
+
     window.CRM.dashboard = {
       renderers: {
         EventsCounters: function (data) {
@@ -916,10 +916,10 @@
             document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
             document.getElementById('EventsNumber').innerText = data.Events;
           }
-        }, 
+        },
         FamilyCount: function (data) {
           var dashBoardFam = document.getElementById('familyCountDashboard');
-          
+
           if (dashBoardFam) { // we have to test if we are on the dashboard or not
             dashBoardFam.innerText = data.familyCount;
             latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
@@ -941,7 +941,7 @@
                   data: 'Address1',
                   render: function (data, type, row, meta) {
                     return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                  }                  
+                  }
                 },
                 {
                   data: 'DateEntered',
@@ -1001,9 +1001,9 @@
           if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
             dashBoardStatsSundaySchool.innerText = data.sundaySchoolClasses;
           }
-          
+
           var dashBoardGroupsCountDashboard = document.getElementById('groupsCountDashboard');
-          
+
           if (dashBoardGroupsCountDashboard) {// We have to check if we are on the dashboard menu
             dashBoardGroupsCountDashboard.innerText = data.groups;
           }

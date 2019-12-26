@@ -204,7 +204,7 @@ if ($sFormat == 'addtocart') {
         extract($aRow);
         Cart::AddPerson($per_ID);
     }
-    RedirectUtils::Redirect('CartView.php');
+    RedirectUtils::Redirect('v2/cart/view');
 } else {
     // Build the complete SQL statement
 
@@ -338,7 +338,7 @@ if ($sFormat == 'addtocart') {
 
     header('Content-type: text/x-csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=ecclesiacrm-export-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
-    
+
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
     if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";

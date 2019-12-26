@@ -33,19 +33,19 @@ $("document").ready(function(){
     $(".multiSearch").on("select2:select",function (e) { window.location.href= e.params.data.uri;});
 
     window.CRM.system.runTimerJobs();
-       
+
     $(".date-picker").datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
 
     $(".maxUploadSize").text(window.CRM.maxUploadSize);
-  
-  
+
+
     /* IMPORTANT : be careful
        You have to be careful with this part of code !!!!!
        this part of code will work in two different js code : PersonView.js and GroupList.js */
     $(document).on("click", ".emptyCart", function (e) {
       window.CRM.cart.empty(function(data){
         window.CRM.cart.refresh();
-        
+
         if (window.CRM.dataTableList) {
             window.CRM.dataTableList.ajax.reload();
             window.CRM.dataTableList.ajax.reload();
@@ -61,10 +61,10 @@ $("document").ready(function(){
         }
       });
     });
-    
+
     /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentCartTogroup(){    
+    function BootboxContentCartTogroup(){
       var frm_str = '<form id="some-form">'
         +'<table border=0 cellpadding=2 width="100%">'
         +'<tr>'
@@ -105,7 +105,7 @@ $("document").ready(function(){
         +'        <tr>'
         +'           <td>'+ i18next.t('Group Name') + ':</td>'
         +'           <td><input type="text" id="GroupName" value="" size="30" maxlength="100" class="form-control"  width="100%" style="width: 100%" placeholder="'+i18next.t("Default Name Group")+'" required></td>'
-        +'        </tr>'        
+        +'        </tr>'
         +'        </table>'
         +'      </p>'
         +'</div>';
@@ -114,14 +114,14 @@ $("document").ready(function(){
 
         return object
     }
-    
+
     function addGroups()
     {
         window.CRM.APIRequest({
             path:"groups/",
             method:"GET"
         }).done(function(data) {
-            var Groups = data.Groups;                 
+            var Groups = data.Groups;
             var elt = document.getElementById("PopupGroupID");
             if (elt != null) {
               var len = Groups.length;
@@ -130,35 +130,35 @@ $("document").ready(function(){
               var option = document.createElement("option");
               option.text = i18next.t("None");
               option.value = 0;
-              option.title = ""; 
+              option.title = "";
               elt.appendChild(option);
-      
+
               for (i=0; i<len; ++i) {
                 var option = document.createElement("option");
                 // there is a groups.type in function of the new plan of schema
                 option.text = Groups[i].Name;
-                option.title = Groups[i].RoleListId;        
+                option.title = Groups[i].RoleListId;
                 option.value = Groups[i].Id;
                 elt.appendChild(option);
               }
-            }       
-      });  
+            }
+      });
     }
-    
+
     // I have to do this because EventGroup isn't yet present when you load the page the first time
     $(document).on('change','#PopupGroupID',function () {
      var e = document.getElementById("PopupGroupID");
-     
+
      if (e.selectedIndex > 0) {
          var option = e.options[e.selectedIndex];
          var GroupID = option.value;
-   
+
           window.CRM.APIRequest({
               path:"groups/"+GroupID+"/roles",
               method:"GET"
           }).done(function(data) {
-              var ListOptions = data.ListOptions;                 
-              $("#GroupRole").empty();        
+              var ListOptions = data.ListOptions;
+              $("#GroupRole").empty();
               var elt = document.getElementById("GroupRole");
               if (elt != null) {
                 var len = ListOptions.length;
@@ -167,9 +167,9 @@ $("document").ready(function(){
                 var option = document.createElement("option");
                 option.text = i18next.t("None");
                 option.value = 0;
-                option.title = ""; 
+                option.title = "";
                 elt.appendChild(option);
-    
+
                 for (i=0; i<len; ++i) {
                   var option = document.createElement("option");
                   // there is a groups.type in function of the new plan of schema
@@ -179,9 +179,9 @@ $("document").ready(function(){
                 }
               }
           });
-      } 
+      }
     });
-  
+
     // I have to do this because EventGroup isn't yet present when you load the page the first time
     $(document).on('change','#GroupSelector',function () {
        var e = document.getElementById("GroupSelector");
@@ -190,11 +190,11 @@ $("document").ready(function(){
            $("#GroupSelect").show();
        } else {
            $("#GroupSelect").hide();
-           $("#GroupCreation").show();           
+           $("#GroupCreation").show();
        }
     });
-    
-    
+
+
     $(document).on("click", "#emptyCartToEvent", function (e) {
       window.CRM.cart.emptytoEvent(function(data){
         window.CRM.cart.refresh();
@@ -202,7 +202,7 @@ $("document").ready(function(){
       });
     });
 
-    
+
     $(document).on("click", "#emptyCartToGroup", function (e) {
       var modal = bootbox.dialog({
          message: BootboxContentCartTogroup,
@@ -215,15 +215,15 @@ $("document").ready(function(){
              var e = document.getElementById("GroupSelector");
              if (e.selectedIndex == 0) {
                  var e = document.getElementById("PopupGroupID");
-                 
+
                  if (e.selectedIndex > 0) {
                      var option = e.options[e.selectedIndex];
-                     var GroupID = option.value;             
+                     var GroupID = option.value;
 
                      var e = document.getElementById("GroupRole");
                      var option = e.options[e.selectedIndex];
                      var RoleID = option.value;
-                     
+
                      window.CRM.APIRequest({
                         method: 'POST',
                         path: 'cart/emptyToGroup',
@@ -232,22 +232,22 @@ $("document").ready(function(){
                           window.CRM.cart.refresh();
                           location.href = window.CRM.root + '/v2/group/' + GroupID + '/view';
                      });
-                      
+
                       return true
                 } else {
                     var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Error")+"</span>",message : i18next.t("You have to select one group and a group role if you want")});
-                
+
                     setTimeout(function() {
                         // be careful not to call box.hide() here, which will invoke jQuery's hide method
                         box.modal('hide');
                     }, 3000);
-                    
+
                     return false;
-                }                    
+                }
               } else {
-          
+
                   var newGroupName = document.getElementById("GroupName").value;
-                  
+
                   if (newGroupName) {
                       window.CRM.APIRequest({
                         method: 'POST',
@@ -257,16 +257,16 @@ $("document").ready(function(){
                           window.CRM.cart.refresh();
                           location.href = window.CRM.root + '/v2/group/'+data.Id+'/view';
                       });
-                      
+
                       return true;
                   } else {
                     var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Error")+"</span>",message : i18next.t("You have to set a Group Name")});
-                
+
                     setTimeout(function() {
                         // be careful not to call box.hide() here, which will invoke jQuery's hide method
                         box.modal('hide');
                     }, 3000);
-                    
+
                     return false;
                   }
               }
@@ -285,20 +285,20 @@ $("document").ready(function(){
             modal.modal("hide");
          }
        });
-  
+
        modal.modal("show");
-       
+
        // we hide by default the GroupCreation
        $("#GroupCreation").hide();
-       
+
        // we add the group and roles
        addGroups();
     });
-    
+
     window.CRM.cart.refresh();
     window.CRM.dashboard.refresh();
     DashboardRefreshTimer=setInterval(window.CRM.dashboard.refresh, window.CRM.iDasbhoardServiceIntervalTime * 1000);
-    
+
     // all bootbox are now localized
     bootbox.setDefaults({locale: window.CRM.lang});
 });
@@ -307,17 +307,17 @@ $(document).on("click", "#deleteCart", function (e) {
   window.CRM.cart.delete(function(data) {
     var path = location.href;
     path = path.substring(path.lastIndexOf("/") + 1);
-    path = path.split("?")[0].split("#")[0]; 
+    path = path.split("?")[0].split("#")[0];
 
     if (data.status == "failure")
     {
       var box = window.CRM.DisplayAlert(i18next.t("Error text"),data.message);
-      
+
       setTimeout(function() {
         // be careful not to call box.hide() here, which will invoke jQuery's hide method
         box.modal('hide');
-        
-        if ((path == "PersonView.php" || path == "CartView.php") && data != 'nothing was done') {
+
+        if ((path == "PersonView.php" || path == "/v2/cart/view") && data != 'nothing was done') {
           location.reload();
         }
       }, 7000);
@@ -325,7 +325,7 @@ $(document).on("click", "#deleteCart", function (e) {
       if (path == "PersonView.php" && data != 'nothing was done') {
           location.reload();
       }
-    }    
+    }
   });
 });
 
@@ -333,25 +333,25 @@ $(document).on("click", "#deactivateCart", function (e) {
   window.CRM.cart.deactivate(function(data) {
     var path = location.href;
     path = path.substring(path.lastIndexOf("/") + 1);
-    path = path.split("?")[0].split("#")[0]; 
+    path = path.split("?")[0].split("#")[0];
 
     if (data.status == "failure")
     {
       var box = window.CRM.DisplayAlert(i18next.t("Error text"),data.message);
-      
+
       setTimeout(function() {
         // be careful not to call box.hide() here, which will invoke jQuery's hide method
         box.modal('hide');
-        
+
         if (path == "PersonView.php" && data != 'nothing was done') {
           location.reload();
         }
       }, 7000);
     } else {
-      if ((path == "PersonView.php" || path == "CartView.php") && data != 'nothing was done') {
+      if ((path == "PersonView.php" || path == "/v2/cart/view") && data != 'nothing was done') {
           location.reload();
       }
-    }    
+    }
   });
 });
 
@@ -370,7 +370,7 @@ function suspendSession(){
         window.CRM.DisplayErrorMessage(url, {message: error});
       }
     }
-  });     
+  });
 };
 
 function BootboxContentRegister(data){
