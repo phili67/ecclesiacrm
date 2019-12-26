@@ -39,6 +39,8 @@ if (isset($_POST['CSV'])) {
     exit;
 }
 
+$rsQueryResults = "";
+
 require 'Include/Header.php';
 ?>
 
@@ -50,7 +52,7 @@ require 'Include/Header.php';
 </tr></table></center>
 
 <p align="center">
-	<textarea style="font-family:courier,fixed; font-size:9pt; padding:1;" cols="60" rows="10" name="SQL"><?= $sSQL ?></textarea>
+	<textarea style="font-family:courier,fixed; font-size:9pt; padding:1px;" cols="60" rows="10" name="SQL"><?= $sSQL ?></textarea>
 </p>
 <p align="center">
 	<input type="submit" class="btn" name="Submit" value="<?= _('Execute SQL') ?>">
@@ -189,7 +191,7 @@ function RunFreeQuery()
         }
 
         echo '<p align="center"><a href="<?= SystemURLs::getRootPath() ?>/QueryList.php">'._('Return to Query Menu').'</a></p>';
-        echo '<br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50 px; border-width: 1px;"><span class="SmallText">'.str_replace(chr(13), '<br>', htmlspecialchars($sSQL)).'</span></p>';
+        echo '<br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50px; border-width: 1px;"><span class="SmallText">'.str_replace(chr(13), '<br>', htmlspecialchars($sSQL)).'</span></p>';
     }
 }
 
