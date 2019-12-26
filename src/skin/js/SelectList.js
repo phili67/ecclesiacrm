@@ -11,7 +11,11 @@ $(document).ready(function () {
       listPagePeople.push(personId);
     });
 
-    window.CRM.cart.addPerson(listPagePeople);
+    if (listPagePeople.length > 0) {
+        window.CRM.cart.addPerson(listPagePeople);
+    } else {
+        window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
+    }
   });
 
 
