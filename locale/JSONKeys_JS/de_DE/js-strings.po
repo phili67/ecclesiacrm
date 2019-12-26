@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-12-24T18:21:25.208Z\n"
+"POT-Creation-Date: 2019-12-26T17:35:09.272Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -442,6 +442,12 @@ msgstr "Warnung"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Der aktuelle Bilder Ordner ist jetzt dem Öffentlichen Ordner !!!"
+
+msgid "Add People"
+msgstr "Menschen hinzufügen"
+
+msgid "This page is still in the cart."
+msgstr "Diese Menschen sind schon im Korb."
 
 msgid "Wrong address format."
 msgstr "Falsches Adresse-Format"
