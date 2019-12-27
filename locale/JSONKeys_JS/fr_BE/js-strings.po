@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-12-26T17:35:09.272Z\n"
+"POT-Creation-Date: 2019-12-27T21:42:42.543Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -446,12 +446,11 @@ msgstr "Attention"
 msgid "The current images folder is now the public folder !!!"
 msgstr "Le dossier d'images courant est maintenant le dossier public !!!"
 
-#, fuzzy
 msgid "Add People"
-msgstr "Personne"
+msgstr "Ajouter une Personne"
 
 msgid "This page is still in the cart."
-msgstr ""
+msgstr "Cette page est déjà dans le panier."
 
 msgid "Wrong address format."
 msgstr "Format d'Adresse non valide."
@@ -705,6 +704,39 @@ msgstr "Annuel"
 
 msgid "End"
 msgstr "Fin"
+
+msgid "Alarm"
+msgstr "Alarme"
+
+msgid "NONE"
+msgstr "Aucune"
+
+msgid "At time of event"
+msgstr "à l'heure de l'événement"
+
+msgid "5 minutes before"
+msgstr "5 minutes avant"
+
+msgid "10 minutes before"
+msgstr "10 minutes avant"
+
+msgid "15 minutes before"
+msgstr "15 minutes avant"
+
+msgid "30 minutes before"
+msgstr "30 minutes avant"
+
+msgid "1 hour before"
+msgstr "1 heure avant"
+
+msgid "2 hour before"
+msgstr "2 heures avant"
+
+msgid "1 day before"
+msgstr "1 jour avant"
+
+msgid "2 day before"
+msgstr "2 jours avant"
 
 msgid "Calendar"
 msgstr "Calendrier"
