@@ -8,7 +8,7 @@
  *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
- 
+
 namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\EventQuery;
@@ -47,7 +47,7 @@ class CalendarService
     {
         $origStart = $start;
         $origEnd   = $end;
-        
+
         $events = [];
         $startDate = date_create($start);
         $endDate = date_create($end);
@@ -58,21 +58,21 @@ class CalendarService
             $endsNextYear = true;
         }
         $firstYear = $startDate->format('Y');
-        
-        
+
+
         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
           $peopleWithBirthDays = PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->JoinWithFamily();
-          
+
           // get the first and the last month
           $firstMonth = $startDate->format('m');
           $endMonth = $endDate->format('m');
-        
+
           $month = $firstMonth;
-          
+
           $peopleWithBirthDays->filterByBirthMonth($firstMonth);// the event aren't more than a month
-        
+
           while ($month != $endMonth) {// we loop to have all the months from the first in the start to the end
             $month += 1;
             if ($month == 13) {
@@ -83,7 +83,7 @@ class CalendarService
             }
             $peopleWithBirthDays->_or()->filterByBirthMonth($month);// the event aren't more than a month
           }
-        
+
           $peopleWithBirthDays->find();
           foreach ($peopleWithBirthDays as $person) {
               $year = $firstYear;
@@ -95,13 +95,13 @@ class CalendarService
               $person->getFullName()." ".$person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
               array_push($events, $event);
           }
-        
+
           // we search the Anniversaries
           $Anniversaries = FamilyQuery::create()
             ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
             ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
             ->find();
-      
+
           $curYear = date('Y');
           $curMonth = date('m');
           foreach ($Anniversaries as $anniversary) {
@@ -114,19 +114,19 @@ class CalendarService
               array_push($events, $event);
           }
         }
-        
-        
+
+
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();         
-        
+        $pdo = Propel::getConnection();
+
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
-        
+
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
-        
+
         foreach ($calendars as $calendar) {
           $calendarName        = $calendar['{DAV:}displayname'];
           $calendarColor       = $calendar['{http://apple.com/ns/ical/}calendar-color'];
@@ -134,7 +134,7 @@ class CalendarService
           $calendarUri         = $calendar['uri'];
           $calendarID          = $calendar['id'];
           $groupID             = $calendar['grpid'];
-          
+
           $icon = "";
 
           if ($writeable) {
@@ -143,14 +143,14 @@ class CalendarService
 
           if ($groupID > 0) {
             $icon .= '<i class="fa fa-users"></i>';
-          } 
-          
+          }
+
           if ($calendar['share-access'] == 2 || $calendar['share-access'] == 3) {
             $icon .= '<i class="fa  fa-share"></i>';
           } else if ($calendar['share-access'] == 1 && $groupID == 0 && $calendar['cal_type'] == 1) {
             $icon .= '<i class="fa fa-user"></i>';
           }
-          
+
           // we test the resources
           if ($calendar['cal_type'] == 2) {// room
             $icon .= ' <i class="fa fa-building"></i>&nbsp';
@@ -159,27 +159,27 @@ class CalendarService
           } else if ($calendar['cal_type'] == 4) {// video
             $icon .= ' <i class="fa fa-video-camera"></i>&nbsp;';
           }
-          
+
           if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the calendars are present or not
             continue;
           }
-          
+
           // we get all the events for the Cal
           $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
-          
+
           foreach ($eventsForCal as $eventForCal) {
             $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
-            
+
             if ($evnt != null) {
-            
+
               $calObj = $calendarBackend->getCalendarObject($calendar['id'],$eventForCal['uri']);
-      
+
               $freqEvents = $calendarBackend->extractCalendarData($calObj['calendardata'],$origStart,$origEnd);
-              
+
               if ($freqEvents == null) {
                 continue;
               }
-            
+
               $title = $evnt->getTitle();
               $desc  = $evnt->getDesc();
               $start = $evnt->getStart('Y-m-d H:i:s');
@@ -192,45 +192,47 @@ class CalendarService
               $long  = $evnt->getLongitude();
               $text  = $evnt->getText();
               $calID = $calendar['id'];
+              $alarm = $evnt->getAlarm();
               $fEvnt = false;
               $subid = 1;
-    
-              foreach ($freqEvents as $key => $value) {      
-                if ($key == 'freq' && $value != 'none') {        
-                  $fEvnt = true;              
+
+              foreach ($freqEvents as $key => $value) {
+                if ($key == 'freq' && $value != 'none') {
+                  $fEvnt = true;
                 } elseif ($key == 'freqEvents' && $fEvnt == true) { // we are in front of a recurrence event !!!
                   foreach ($value as $freqValue) {
                     $title          = $freqValue['SUMMARY'];
                     $start          = $freqValue['DTSTART'];
                     $end            = $freqValue['DTEND'];
                     $reccurenceID   = $freqValue['RECURRENCE-ID'];
-                  
+
                     $event = $this->createCalendarItem('event',$icon,
-                      $title, $start, $end, 
+                      $title, $start, $end,
                      '',$id,$type,$grpID,
-                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable,$loc,$lat,$long);// only the event id sould be edited and moved and have custom color
-            
+                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable,$loc,$lat,$long,$alarm);// only the event id sould be edited and moved and have custom color
+
                     array_push($events, $event);
                   }
                 }
               }
-            
+
               if ($fEvnt == false) {
                 $event = $this->createCalendarItem('event',$icon,
-                  $title, $start, $end, 
+                  $title, $start, $end,
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable,$loc,$lat,$long);// only the event id sould be edited and moved and have custom color
-            
+                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable,$loc,$lat,$long,$alarm);// only the event id sould be edited and moved and have custom color
+
                 array_push($events, $event);
               }
-              
-            }            
+
+            }
           }
         }
         return $events;
     }
-    
-    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0)
+
+    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,
+                                       $recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "")
     {
         $event = [];
         switch ($type) {
@@ -243,13 +245,13 @@ class CalendarService
           default:
             $event['backgroundColor'] = '#eeeeee';
         }
-        
+
         $event['title']     = $title;
         $event['start']     = $start;
         $event['origStart'] = $start;
         $event['icon']      = $icon;
         $event['type']      = $type;
-        
+
         if ($end != '') {
             $event['end'] = $end;
             $event['allDay'] = false;
@@ -265,35 +267,35 @@ class CalendarService
           $event['eventTypeID'] = $eventTypeID;
           $event['groupID']     = $groupID;
           $event['Desc']        = $desc;
-          $event['Text']        = $text;   
+          $event['Text']        = $text;
           $event['recurrent']   = $recurrent;
           $event['writeable']   = $writeable;
           $event['location']    = $location;
           $event['longitude']   = $longitude;
           $event['latitude']    = $latitude;
-          
+          $event['alarm']       = $alarm;
+
           if ($calendarid != null) {
-            $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;   
+            $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;
           }
-          
+
           if ($backgroundColor != null) {
             $event['backgroundColor'] = $backgroundColor;
           }
-          
-          $event['subID'] = $subid; 
-          
+
+          $event['subID'] = $subid;
+
           $event['reccurenceID'] = '';
-          if (!empty($reccurenceID) ) {  
-            $event['reccurenceID'] = $reccurenceID; 
+          if (!empty($reccurenceID) ) {
+            $event['reccurenceID'] = $reccurenceID;
           }
-          
-          
+
+
           $eventCounts = EventCountsQuery::Create()->findByEvtcntEventid($eventID);
-          
+
           $event['EventCounts'] = $eventCounts->toArray();
         }
-        
-        
+
         return $event;
     }
 }

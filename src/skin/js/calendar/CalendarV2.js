@@ -298,10 +298,17 @@ $(document).ready(function () {
                    $('form #EventDesc').val(calEvent.Desc);
                    $('form #eventNotes').val(calEvent.Text);
                    $('form #EventLocation').val(calEvent.location);
+                   $("form #addGroupAttendees").prop("disabled", (calEvent.groupID == "0") ? true : false);
+                   $("form #addGroupAttendees").prop('checked', (calEvent.groupID == "0") ? false : true);
+
+
+                   if (calEvent.alarm !== null) {
+                       $("form #EventAlarm").val(calEvent.alarm.trigger).trigger('change');
+                   }
 
                    // we add the calendars and the types
                    addCalendars(calEvent.calendarID);
-                   addCalendarEventTypes(calEvent.eventTypeID,false);
+                   addCalendarEventTypes(calEvent.eventTypeID,true);
                    addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
 
                    //Timepicker
