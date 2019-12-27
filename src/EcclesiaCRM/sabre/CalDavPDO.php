@@ -13,8 +13,6 @@ namespace EcclesiaCRM\MyPDO;
 use Sabre\CalDAV;
 use Sabre\DAV;
 use Sabre\VObject;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Xml\Element\Sharee;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
 
@@ -166,7 +164,7 @@ class CalDavPDO extends SabreCalDavBase\PDO
                             $sub_attentees = [];
 
                             if (isset($componentSubObject->ATTENDEE)) {
-                                foreach ($vcalendar->VEVENT->ATTENDEE as $attendee) {
+                                foreach ($componentSubObject->ATTENDEE as $attendee) {
                                     //echo 'Attendee ', (string)$attendee;
                                     array_push($sub_attentees, (string)$attendee);
                                 }

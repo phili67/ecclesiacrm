@@ -99,7 +99,7 @@ $app->group('/events', function () {
     */
     $this->post('/attendees', "eventCount" );
     /*
-    * @! manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+    * @! manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
     * #! param: id->int       :: eventID
     * #! param: id->int       :: type ID
     * #! param: ref->array    :: calendarID
@@ -341,7 +341,7 @@ function eventCount (Request $request, Response $response, array $args) {
 function manageEvent (Request $request, Response $response, array $args) {
       $input = (object) $request->getParsedBody();
 
-      if (!strcmp($input->evntAction,'createEvent'))
+      if (!strcmp($input->eventAction,'createEvent'))
       {
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
@@ -524,7 +524,7 @@ function manageEvent (Request $request, Response $response, array $args) {
         return $response->withJson(["status" => "success"]);
 
      }
-     else if (!strcmp($input->evntAction,'moveEvent'))
+     else if (!strcmp($input->eventAction,'moveEvent'))
      {
 
         $pdo = Propel::getConnection();
@@ -710,7 +710,7 @@ function manageEvent (Request $request, Response $response, array $args) {
 
         return  $response->withJson(["status" => "failed"]);
      }
-     else if (!strcmp($input->evntAction,'resizeEvent'))
+     else if (!strcmp($input->eventAction,'resizeEvent'))
      {
         $pdo = Propel::getConnection();
 
@@ -819,7 +819,7 @@ function manageEvent (Request $request, Response $response, array $args) {
 
         return $response->withJson(['status' => "failed"]);
      }
-     else if (!strcmp($input->evntAction,'attendeesCheckinEvent'))
+     else if (!strcmp($input->eventAction,'attendeesCheckinEvent'))
      {
         $event = EventQuery::Create()
           ->findOneById($input->eventID);
@@ -835,7 +835,7 @@ function manageEvent (Request $request, Response $response, array $args) {
 
         return $response->withJson(['status' => "success"]);
      }
-     else if (!strcmp($input->evntAction,'suppress'))
+     else if (!strcmp($input->eventAction,'suppress'))
      {
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
@@ -871,7 +871,7 @@ function manageEvent (Request $request, Response $response, array $args) {
 
         return $response->withJson(['status' => "success"]);
      }
-     else if (!strcmp($input->evntAction,'modifyEvent'))
+     else if (!strcmp($input->eventAction,'modifyEvent'))
      {
         $old_event = EventQuery::Create()->findOneById($input->eventID);
 

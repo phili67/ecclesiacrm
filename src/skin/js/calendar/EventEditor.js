@@ -763,7 +763,7 @@
                   window.CRM.APIRequest({
                       method: 'POST',
                       path: 'events/',
-                      data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
+                      data: JSON.stringify({"eventAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
                           "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,
