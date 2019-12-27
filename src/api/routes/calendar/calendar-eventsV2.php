@@ -49,57 +49,57 @@ $app->group('/events', function () {
     /*
       * @! Get all events for all calendars for a specified range
       */
-    $this->get('/', "getAllEvents");
+    $this->get('/', "getAllEvents" );
     /*
       * @! Get all events after now
       */
-    $this->get('/notDone', "getNotDoneEvents");
+    $this->get('/notDone', "getNotDoneEvents" );
     /*
      * @! Get all events from today
      */
-    $this->get('/numbers', "numbersOfEventOfToday");
+    $this->get('/numbers', "numbersOfEventOfToday") ;
     /*
      * @! Get all event type
      */
-    $this->get('/types', "getEventTypes");
+    $this->get('/types', "getEventTypes" );
     /*
      * @! Get all event names
      */
-    $this->get('/names', "eventNames");
+    $this->get('/names', "eventNames" );
     /*
      * @! delete event type
      * #! param: id->int  :: type ID
      */
-    $this->post('/deleteeventtype', "deleteeventtype");
+    $this->post('/deleteeventtype', "deleteeventtype" );
     /*
      * @! get event info
      * #! param: id->int  :: event ID
      */
-    $this->post('/info', "eventInfo");
+    $this->post('/info', "eventInfo" );
     /*
     * @! Set a person for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: person ID
     */
-    $this->post('/person', "personCheckIn");
+    $this->post('/person', "personCheckIn" );
     /*
     * @! Set the group persons for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: group ID
     */
-    $this->post('/group', "groupCheckIn");
+    $this->post('/group', "groupCheckIn" );
     /*
     * @! Set the family persons for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: family ID
     */
-    $this->post('/family', "familyCheckIn");
+    $this->post('/family', "familyCheckIn" );
     /*
     * @! get event count
     * #! param: id->int  :: event ID
     * #! param: id->int  :: type ID
     */
-    $this->post('/attendees', "eventCount");
+    $this->post('/attendees', "eventCount" );
     /*
     * @! manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
     * #! param: id->int       :: eventID
@@ -110,7 +110,7 @@ $app->group('/events', function () {
     * #! param: ref->start    :: the end date : YYYY-MM-DD
     * #! param: ref->location :: location
     */
-    $this->post('/', "manageEvent");
+    $this->post('/', "manageEvent" );
 
 });
 
