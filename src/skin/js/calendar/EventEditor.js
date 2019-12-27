@@ -3,22 +3,22 @@
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //  Updated     : 2019/04/14
 //
-  
+
   var anniversary    = true;
   var birthday       = true;
   var withlimit      = false;
-  var eventCreated   = false; 
-  var eventAttendees = false; 
- 
+  var eventCreated   = false;
+  var eventAttendees = false;
+
   var birthD = localStorage.getItem("birthday");
   if (birthD != null)
   {
-    if (birthD == 'checked'){ 
+    if (birthD == 'checked'){
       birthday=true;
     } else {
       birthday=false;
     }
-      
+
     $('#isBirthdateActive').prop('checked', birthday);
   }
 
@@ -30,10 +30,10 @@
     } else {
       anniversary=false;
     }
-    
+
     $('#isAnniversaryActive').prop('checked', anniversary);
   }
-  
+
   var wLimit = localStorage.getItem("withlimit");
   if (wLimit != null)
   {
@@ -42,160 +42,160 @@
     } else {
       withlimit=false;
     }
-    
+
     $('#isWithLimit').prop('checked', withlimit);
   }
-  
+
   var wAgendaName = localStorage.getItem("wAgendaName");
   if (wAgendaName == null) {
     localStorage.setItem("wAgendaName","month");
     wAgendaName = "month";
   }
-  
+
   $("#isBirthdateActive").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
-     
+
      if (_val == 'checked'){
        birthday = true;
-     } else { 
+     } else {
       birthday = false;
      }
      $('#calendar').fullCalendar( 'refetchEvents' );
-     
+
      localStorage.setItem("birthday",_val);
   });
-  
+
   $("#isAnniversaryActive").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
      if (_val == 'checked'){
       anniversary = true;
-     } else { 
+     } else {
       anniversary = false;
      }
 
      $('#calendar').fullCalendar( 'refetchEvents' );
-     
-     localStorage.setItem("anniversary",_val); 
+
+     localStorage.setItem("anniversary",_val);
   });
-  
+
   $("#isWithLimit").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
      if (_val == 'checked'){
         withlimit = true;
-     } else { 
+     } else {
         withlimit = false;
      }
-   
+
      var options = $('#calendar').fullCalendar('getView').options;
      options.eventLimit = withlimit;
      $('#calendar').fullCalendar('destroy');
      $('#calendar').fullCalendar(options);
-     
+
      localStorage.setItem("withlimit",_val);
   });
-  
+
   window.calendarFilterID     = 0;
   window.EventTypeFilterID = 0;
-  
+
   localStorage.setItem("calendarFilterID",calendarFilterID);
-  localStorage.setItem("EventTypeFilterID",EventTypeFilterID);  
-  
+  localStorage.setItem("EventTypeFilterID",EventTypeFilterID);
+
   $("#EventCalendarFilter").on('change',function () {
      var e = document.getElementById("EventCalendarFilter");
      window.calendarFilterID = e.options[e.selectedIndex].value;
-   
+
     $('#calendar').fullCalendar( 'refetchEvents' );
-    
+
     if (window.calendarFilterID == 0)
       $("#ATTENDENCES").parents("tr").hide();
-     
-     localStorage.setItem("calendarFilterID",calendarFilterID); 
+
+     localStorage.setItem("calendarFilterID",calendarFilterID);
   });
-  
-  
+
+
   $("#EventTypeFilter").on('change',function () {
      var e = document.getElementById("EventTypeFilter");
      window.EventTypeFilterID = e.options[e.selectedIndex].value;
-      
+
      $('#calendar').fullCalendar( 'refetchEvents' );
-     
-     localStorage.setItem("EventTypeFilterID",EventTypeFilterID); 
+
+     localStorage.setItem("EventTypeFilterID",EventTypeFilterID);
   });
-  
-  $('body').on('click','.date-title, .date-range', function(){ 
+
+  $('body').on('click','.date-title, .date-range', function(){
       $( ".date-title").slideUp();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
-      $('.date-recurrence').slideDown();      
+      $('.date-recurrence').slideDown();
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
-    
-  $('body').on('click','#EventTitle, .EventTitle', function(){ 
+
+  $('body').on('click','#EventTitle, .EventTitle', function(){
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrence').slideUp();
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
-  
-  $('body').on('click','#EventLocation, .EventLocation', function(){ 
+
+  $('body').on('click','#EventLocation, .EventLocation', function(){
       $( ".map-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrence').slideUp();
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
-      
+
       updateMap();
   });
 
-  
-  $('body').on('click','#EventDesc, .EventDesc', function(){ 
+
+  $('body').on('click','#EventDesc, .EventDesc', function(){
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrence').slideUp();
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "3");
   });
-  
-  $('body').on('click','#ATTENDENCES-title, .ATTENDENCES-title', function(){ 
+
+  $('body').on('click','#ATTENDENCES-title, .ATTENDENCES-title', function(){
     $( ".date-title").slideDown();
     //$('.ATTENDENCES-title').slideUp();
     $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();      
+    $('.date-recurrence').slideUp();
     $( ".eventNotes").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
     $('#EventDesc').attr("rows", "1");
   });
-  
-  $('body').on('click','.calendar-title', function(){ 
+
+  $('body').on('click','.calendar-title', function(){
     $( ".date-title").slideDown();
     //$('.ATTENDENCES-title').slideUp();
     $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();      
+    $('.date-recurrence').slideUp();
     $( ".eventNotes").slideUp();
     $( ".ATTENDENCES" ).slideUp( "slow");
     $('#EventDesc').attr("rows", "1");
   });
-  
+
   // I have to do this because EventCalendar isn't yet present when you load the page the first time
   $(document).on('change','#EventCalendar',function () {
     $( ".date-title").slideDown();
@@ -204,94 +204,94 @@
     $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();      
+    $('.date-recurrence').slideUp();
     $( ".eventNotes").slideUp();
     $('#EventDesc').attr("rows", "1");
 
     var e = document.getElementById("EventCalendar");
     var _val = e.options[e.selectedIndex].value;
     var _grpID = e.options[e.selectedIndex].getAttribute("data-calendar-id");
-   
+
     /*if (_val == 0)
       $( ".ATTENDENCES" ).slideUp();
     else
       $( ".ATTENDENCES" ).slideDown( "slow");*/
-      
+
     $("#addGroupAttendees").prop("disabled", (_grpID == "0")?true:false);
     $("#addGroupAttendees").prop('checked', (_grpID == "0")?false:true);
-     
-    localStorage.setItem("calendarFilterID",calendarFilterID); 
+
+    localStorage.setItem("calendarFilterID",calendarFilterID);
   });
 
-  $('body').on('click','.eventNotesTitle', function(){ 
+  $('body').on('click','.eventNotesTitle', function(){
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrence').slideUp();
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventNotes").slideDown();
       $('#EventDesc').attr("rows", "1");
   });
-  
+
   // I have to do this because EventCalendar isn't yet present when you load the page the first time
   $(document).on('change','#checkboxEventrecurrence',function (value) {
     var _val = $('#checkboxEventrecurrence').is(":checked");
-    
+
     $("#typeEventrecurrence").prop("disabled", (_val == 0)?true:false);
     $("#endDateEventrecurrence").prop("disabled", (_val == 0)?true:false);
   });
-  
+
   $(document).on('change','#eventType',function (val) {
     var e = document.getElementById("eventType");
     var typeID = e.options[e.selectedIndex].value;
-    
+
     addAttendees(typeID);
   });
-  
+
   function addAttendees(typeID,first_time,eventID)
   {
     if (first_time === undefined) {
       first_time = true;
-    } 
-    
+    }
+
     if (eventID === undefined) {
       eventID = 0;
-    } 
-    
+    }
+
 
     if (first_time) {
       $('.ATTENDENCES-title').slideDown();
     }
-    
+
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
     $('.eventNotes').slideUp();
     $( ".map-title").slideUp();
-        
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'events/attendees',
       data: JSON.stringify({"typeID":typeID,"eventID":eventID})
-    }).done(function(eventTypes) {      
+    }).done(function(eventTypes) {
       var len = eventTypes.length;
-    
+
       if (len == 0) {
         $('.ATTENDENCES-title').slideDown();
-        $(".ATTENDENCES-fields" ).empty();  
-        $(".ATTENDENCES").slideUp();  
+        $(".ATTENDENCES-fields" ).empty();
+        $(".ATTENDENCES").slideUp();
         $(".ATTENDENCES-fields" ).html('<input id="countFieldsId" name="countFieldsId" type="hidden" value="0"><br>'+i18next.t('No attendees')+'<br>');
-        
+
       } else {
         $(".ATTENDENCES-fields" ).empty();
         //$('.ATTENDENCES-title').slideUp();
 
         var innerHtml = '<input id="countFieldsId" name="countFieldsId" type="hidden" value="'+len+'">';
-        
+
         innerHtml += '<table>';
-        
+
         var notes = "";
 
         for (i=0; i<len; ++i) {
@@ -303,91 +303,91 @@
                     +'</tr>'
           notes = eventTypes[i].notes;
         }  //typeID
-        
-        
+
+
         innerHtml +='<tr>'
           +"<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
           +'<td><input type="text" id="EventCountNotes" value="'+notes+'" class="form-control input-sm">'
           +'</td>'
         +'</tr>';
-        
+
         innerHtml += '</table><br>';
-        
+
         $(".ATTENDENCES-fields" ).html(innerHtml);
-        
-        //$(".ATTENDENCES").slideDown();  
+
+        //$(".ATTENDENCES").slideDown();
       }
-    }); 
+    });
   }
-  
+
   function addCalendarEventTypes(typeId,bAddAttendees)
   {
     if (typeId === undefined) {
       typeId = 0;
     }
-    
+
     if (bAddAttendees === undefined) {
       bAddAttendees = false;
-    } 
-      
+    }
+
     window.CRM.APIRequest({
           method: 'GET',
           path: 'events/types',
-    }).done(function(eventTypes) {    
+    }).done(function(eventTypes) {
       var elt = document.getElementById("eventType");
       var len = eventTypes.length;
-      var passed = false;      
-      
+      var passed = false;
+
       var global_typeID = 0;
-      
-      for (i=0; i<len; ++i) {      
+
+      for (i=0; i<len; ++i) {
         var option = document.createElement("option");
         option.text = eventTypes[i].name;
         option.value = eventTypes[i].eventTypeID;
-        
+
         if (typeId && typeId === eventTypes[i].eventTypeID) {
           option.setAttribute('selected','selected');
         }
-        
+
         elt.appendChild(option);
-        
-        if (!passed) {       
+
+        if (!passed) {
           global_typeID = eventTypes[i].eventTypeID;
           passed = true;
         }
-      }     
-      
+      }
+
       if (bAddAttendees) {
         addAttendees(global_typeID);
       }
-    });  
-  } 
-  
+    });
+  }
+
   function addCalendars(calendarId)
   {
     if (typeof calendarId === 'undefined') {
       calendarId = [0,0];
     }
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/getallforuser',
       data: JSON.stringify({"type":"all","onlyvisible":true,"allCalendars":false})
-    }).done(function(calendars) {    
+    }).done(function(calendars) {
       var elt = document.getElementById("EventCalendar");
       var len = calendars.length;
-      
+
       var option = document.createElement("option");
       option.text  = i18next.t("None");
-      option.title = 'none';        
-      option.value = -1;        
+      option.title = 'none';
+      option.value = -1;
       elt.appendChild(option);
 
       for (i=0; i<len; ++i) {
         if (calendars[i].calendarShareAccess != 2) {
           var option = document.createElement("option");
           var typeSup = "";
-          
+
           switch (calendars[i].calType) {
             case "2":
               typeSup = " : "+i18next.t("Room");
@@ -401,43 +401,43 @@
           }
           // there is a calendars.type in function of the new plan of schema
           option.text  = "("+i18next.t(calendars[i].type.charAt(0).toUpperCase()+ calendars[i].type.slice(1))+ typeSup +") "+calendars[i].calendarName;
-          option.title = calendars[i].type;        
+          option.title = calendars[i].type;
           option.value = calendars[i].calendarID;
           option.setAttribute("data-calendar-id",calendars[i].grpid);
-          
+
           var aCalendarId = calendars[i].calendarID.split(",");
-        
+
           if (calendarId[0] == Number(aCalendarId[0])) {
             option.setAttribute('selected','selected');
           }
-        
+
           elt.appendChild(option);
         }
-      }       
-    });  
+      }
+    });
   }
-  
+
   function setActiveState(value)
   {
     $("input[name='EventStatus'][value='"+value+"']").prop('checked', true);
   }
-  
-  
-  function BootboxContent(start,end){  
+
+
+  function BootboxContent(start,end){
     var time_format;
     var fmt = window.CRM.datePickerformat.toUpperCase();
-    
+
     if (window.CRM.timeEnglish == 'true') {
       time_format = 'h:mm A';
     } else {
       time_format = 'H:mm';
     }
-    
+
     var dateStart = moment(start).format(fmt);
     var timeStart = moment(start).format(time_format);
     var dateEnd = moment(end).format(fmt);
     var timeEnd = moment(end).format(time_format);
-    
+
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Event Creation")+'</h3><form id="some-form">'
        + '<div>'
             +'<div class="row div-title EventTitle">'
@@ -461,13 +461,13 @@
               +'<div class="col-md-9">'
                 +'<div id="MyMap"></div>'
               +'</div>'
-            +'</div>'       
+            +'</div>'
             +'<div class="row div-title EventDesc">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
               +'<div class="col-md-9">'
                 +"<textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
               +'</div>'
-            +'</div>'          
+            +'</div>'
             +'<div class="row date-title div-title">'
                +'<div class="date-range">'
                + i18next.t('From')+' : '+dateStart+' '+timeStart
@@ -482,7 +482,7 @@
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'  
+                     +'<div class="col-md-3">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -501,19 +501,19 @@
                                  +'</div>'
                                  +'<input type="text" class="form-control timepicker input-sm" id="timeEventStart" name="timeEventStart" value="'+timeStart+'">'
                               +'</div>'
-                            +'</div> '           
+                            +'</div> '
                          +'</div>'
                      +'</div>'
                   +'</div>'
                 +'</div>'
             +'</div>'
-            +'<div class="row date-end div-block" style="padding-top:0px;padding-bottom:0px">'            
+            +'<div class="row date-end div-block" style="padding-top:0px;padding-bottom:0px">'
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       +i18next.t('End Date')+' :'
                     +'</div>'
-                    +'<div class="col-md-3"> '   
+                    +'<div class="col-md-3"> '
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -537,8 +537,8 @@
                      +'</div>'
                   +'</div>'
                 +'</div>'
-            +'</div>'            
-            +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'            
+            +'</div>'
+            +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3">'
@@ -553,11 +553,11 @@
                     +   '<option value="FREQ=MONTHLY;INTERVAL=6">'+i18next.t("Semesterly")+'</option>'
                     +   '<option value="FREQ=YEARLY">'+i18next.t("Yearly")+'</option>'
                     + '</select>'
-                    +'</div>'                    
+                    +'</div>'
                     +'<div class="col-md-2">'
                       +i18next.t('End')+' :'
                     +'</div>'
-                    +'<div class="col-md-3"  style=""> '   
+                    +'<div class="col-md-3"  style=""> '
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -568,8 +568,27 @@
                         +'</div>'
                       +'</div>'
                   +'</div>'
-               +'</div>'
-            +'</div>'  
+                +'</div>'
+                +'<div class="col-md-12" style="padding-top:10px">'
+                    +'<div class="row">'
+                        +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
+                            +'<div class="col-md-9">'
+                            + '<select class="form-control input-sm" id="EventAlarm" name="EventAlarm">'
+                            +   '<option value="NONE">'+i18next.t("NONE")+'</option>'
+                            +   '<option value="PT0S">'+i18next.t("At time of event")+'</option>'
+                            +   '<option value="-PT5M">'+i18next.t("5 minutes before")+'</option>'
+                            +   '<option value="-PT10M">'+i18next.t("10 minutes before")+'</option>'
+                            +   '<option value="-PT15M">'+i18next.t("15 minutes before")+'</option>'
+                            +   '<option value="-PT30M">'+i18next.t("30 minutes before")+'</option>'
+                            +   '<option value="-PT1H">'+i18next.t("1 hour before")+'</option>'
+                            +   '<option value="-PT2H">'+i18next.t("2 hour before")+'</option>'
+                            +   '<option value="-P1D">'+i18next.t("1 day before")+'</option>'
+                            +   '<option value="-P2D">'+i18next.t("2 day before")+'</option>'
+                            + '</select>'
+                        +'</div>'
+                    +'</div>'
+                +'</div>'
+            +'</div>'
             +'<div class="row  div-title calendar-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
               +'<div class="col-md-4">'
@@ -594,11 +613,11 @@
             +'</div>'
             +'<div class="row div-block ATTENDENCES">'
               +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
-                +'<div class="col-md-9 ATTENDENCES-fields">'                
+                +'<div class="col-md-9 ATTENDENCES-fields">'
                 +'</div>'
                 +'<hr/>'
               +'</div>'
-            +'</div>'            
+            +'</div>'
             +'<div class="row div-title eventNotesTitle">'
               +'<div class="col-md-12">'
                 +i18next.t('Notes')
@@ -627,17 +646,17 @@
 
         return object
     }
-    
+
     function createEventEditorWindow (start,end,dialogType,eventID,reccurenceID,page) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
       if (dialogType === undefined) {
         dialogType = 'createEvent';
       }
-      
+
       if (reccurenceID === undefined) {
         reccurenceID = '';
       }
-      
+
       if (page === undefined) {
         page = window.CRM.root + '/v2/calendar';
       }
@@ -645,12 +664,12 @@
       if (eventID === undefined) {
         eventID = -1;
       }
-      
+
       if (end == null) {
         end = start;
       }
-      
-      
+
+
       var modal = bootbox.dialog({
          message: BootboxContent(start,end),
          buttons: [
@@ -666,64 +685,64 @@
            className: "btn btn-primary",
            callback: function() {
               var EventTitle =  $('form #EventTitle').val();
-              
+
               if (EventTitle) {
                   var e                 = document.getElementById("EventCalendar");
                   var EventCalendarID   = e.options[e.selectedIndex].value;
-                  
+
                   if (EventCalendarID == -1) {
                     window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You've to chose a calendar."));
-                    
-                    return false;                    
+
+                    return false;
                   }
-                  
+
                   var loc       = $('form #EventLocation').val();
 
                   var e = document.getElementById("eventType");
                   var eventTypeID = e.options[e.selectedIndex].value;
-                                                       
+
                   var EventDesc =  $('form #EventDesc').val();
-                  
+
                   var dateStart = $('form #dateEventStart').val();
                   var timeStart = $('form #timeEventStart').val();
                   var dateEnd   = $('form #dateEventEnd').val();
                   var timeEnd   = $('form #timeEventEnd').val();
-                  
+
                   var recurrenceValid = $('#checkboxEventrecurrence').is(":checked");
                   var recurrenceType  = $("#typeEventrecurrence").val();
                   var endrecurrence   = $("#endDateEventrecurrence").val();
-                  
+
+                  var alarm           = $("#EventAlarm").val();
+
                   var fmt = window.CRM.datePickerformat.toUpperCase();
-    
+
                   if (window.CRM.timeEnglish == 'true') {
                     time_format = 'h:mm A';
                   } else {
                     time_format = 'H:mm';
                   }
-                  
+
                   fmt = fmt+' '+time_format;
-                                    
+
                   var real_start         = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                   var real_end           = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
                   var real_endrecurrence = moment(endrecurrence+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
-                             
+
                   var addGroupAttendees = document.getElementById("addGroupAttendees").checked;
-                  
+
                   var eventInActive     = $('input[name="EventStatus"]:checked').val();
-                  
+
                   if (addGroupAttendees) {
                     eventAttendees = true;
                   }
-                              
-                  var EventCalendarType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
-                  
+
                   var countFieldsId     = $('form #countFieldsId').val();
-                  
+
                   var fields = new Array();
-                  
+
                   for (i=0;i<countFieldsId;i++) {
-                    var myObj = new Object();  
-                                  
+                    var myObj = new Object();
+
                     var name      = $('form #field'+i).data('name');
                     var countid   = $('form #field'+i).data('countid');
                     var value     = $('form #field'+i).val();
@@ -731,55 +750,56 @@
                     myObj.name    = name;
                     myObj.countid = countid;
                     myObj.value   = value;
-                    
+
                     fields[i]     = myObj;
                   }
-                  
+
                   var EventCountNotes  = $('form #EventCountNotes').val();
-                             
+
                   var eventNotes = CKEDITOR.instances['eventNotes'].getData();//$('form #eventNotes').val();
-              
+
                   var add = false;
-                                                            
+
                   window.CRM.APIRequest({
                       method: 'POST',
                       path: 'events/',
-                      data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
+                      data: JSON.stringify({"eventAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,
+                          "reccurenceID":reccurenceID,"location":loc,"alarm":alarm})
                   }).done(function(data) {
                      var cal = $('#calendar');
                      if (cal.length !== 0) {
                        $('#calendar').fullCalendar('unselect');
                      }
-                     add = true;              
-                     modal.modal("hide");   
-                    
+                     add = true;
+                     modal.modal("hide");
+
                      // we reload all the events
                      if (cal.length !== 0) {
                        $('#calendar').fullCalendar( 'refetchEvents' );
                      }
-                    
+
                      if (dialogType == 'createEvent') {
                        eventCreated = true;
                      }
-                     
+
                      if (page == 'ListEvent.php') {
                        location.reload();
                      } else if (page == 'Checkin.php') {
                        window.location.href = window.CRM.root + '/Checkin.php';
                      }
-                    
+
                      return true;
                   });
 
-                  return add;  
+                  return add;
               } else {
                   window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You have to set a Title for your event"));
-                
+
                   return false;
-              }    
+              }
             }
           }
          ],
@@ -788,9 +808,9 @@
             modal.modal("hide");
          }*/
        });
-       
+
        // this will ensure that image and table can be focused
-       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
-              
+       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+
        return modal;
     }

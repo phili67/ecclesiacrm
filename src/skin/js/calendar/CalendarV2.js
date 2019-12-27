@@ -73,7 +73,7 @@ $(document).ready(function () {
               window.CRM.APIRequest({
                  method: 'POST',
                  path: 'events/',
-                 data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd})
+                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd})
               }).done(function(data) {
                 // now we can refresh the calendar
                 $('#calendar').fullCalendar('refetchEvents');
@@ -110,7 +110,7 @@ $(document).ready(function () {
                   window.CRM.APIRequest({
                      method: 'POST',
                      path: 'events/',
-                     data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                   }).done(function(data) {
                     // now we can refresh the calendar
                     $('#calendar').fullCalendar('refetchEvents');
@@ -126,7 +126,7 @@ $(document).ready(function () {
                   window.CRM.APIRequest({
                      method: 'POST',
                      path: 'events/',
-                     data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
+                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
                   }).done(function(data) {
                     // now we can refresh the calendar
                     $('#calendar').fullCalendar('refetchEvents');
@@ -154,7 +154,7 @@ $(document).ready(function () {
               window.CRM.APIRequest({
                  method: 'POST',
                  path: 'events/',
-                 data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
               }).done(function(data) {
                 // now we can refresh the calendar
                 $('#calendar').fullCalendar('refetchEvents');
@@ -199,7 +199,7 @@ $(document).ready(function () {
                         window.CRM.APIRequest({
                            method: 'POST',
                            path: 'events/',
-                           data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
+                           data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID})
                         }).done(function(data) {
                            $('#calendar').fullCalendar( 'refetchEvents' );
                            $('#calendar').fullCalendar('unselect');
@@ -224,7 +224,7 @@ $(document).ready(function () {
                                window.CRM.APIRequest({
                                  method: 'POST',
                                  path: 'events/',
-                                 data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart,"reccurenceID":reccurenceID})
+                                 data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart,"reccurenceID":reccurenceID})
                               }).done(function(data) {
                                  $('#calendar').fullCalendar( 'refetchEvents' );
                                  $('#calendar').fullCalendar('unselect');
@@ -238,7 +238,7 @@ $(document).ready(function () {
                                 window.CRM.APIRequest({
                                    method: 'POST',
                                    path: 'events/',
-                                   data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
+                                   data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID})
                                 }).done(function(data) {
                                    $('#calendar').fullCalendar( 'refetchEvents' );
                                    $('#calendar').fullCalendar('unselect');
@@ -263,7 +263,7 @@ $(document).ready(function () {
                     window.CRM.APIRequest({
                      method: 'POST',
                      path: 'events/',
-                     data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                     data: JSON.stringify({"eventAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
                     }).done(function(data) {
                        location.href = window.CRM.root + '/EditEventAttendees.php';
                     });
@@ -276,7 +276,7 @@ $(document).ready(function () {
                     window.CRM.APIRequest({
                      method: 'POST',
                      path: 'events/',
-                     data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                     data: JSON.stringify({"eventAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
                     }).done(function(data) {
                        location.href = window.CRM.root + '/Checkin.php';
                     });
@@ -298,10 +298,17 @@ $(document).ready(function () {
                    $('form #EventDesc').val(calEvent.Desc);
                    $('form #eventNotes').val(calEvent.Text);
                    $('form #EventLocation').val(calEvent.location);
+                   $("form #addGroupAttendees").prop("disabled", (calEvent.groupID == "0") ? true : false);
+                   $("form #addGroupAttendees").prop('checked', (calEvent.groupID == "0") ? false : true);
+
+
+                   if (calEvent.alarm !== null) {
+                       $("form #EventAlarm").val(calEvent.alarm.trigger).trigger('change');
+                   }
 
                    // we add the calendars and the types
                    addCalendars(calEvent.calendarID);
-                   addCalendarEventTypes(calEvent.eventTypeID,false);
+                   addCalendarEventTypes(calEvent.eventTypeID,true);
                    addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
 
                    //Timepicker
@@ -399,7 +406,7 @@ $(document).ready(function () {
             window.CRM.APIRequest({
                method: 'POST',
                path: 'events/',
-               data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
+               data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
             }).done(function(data) {
                // now we can refresh the calendar
                $('#calendar').fullCalendar( 'refetchEvents' );
@@ -430,7 +437,7 @@ $(document).ready(function () {
                 window.CRM.APIRequest({
                    method: 'POST',
                    path: 'events/',
-                   data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                   data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                 }).done(function(data) {
                    // now we can refresh the calendar
                    $('#calendar').fullCalendar( 'refetchEvents' );
@@ -445,7 +452,7 @@ $(document).ready(function () {
                 window.CRM.APIRequest({
                  method: 'POST',
                  path: 'events/',
-                 data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
+                 data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
                 }).done(function(data) {
                    // now we can refresh the calendar
                    $('#calendar').fullCalendar( 'refetchEvents' );

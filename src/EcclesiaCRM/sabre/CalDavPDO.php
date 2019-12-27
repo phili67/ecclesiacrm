@@ -13,34 +13,34 @@ namespace EcclesiaCRM\MyPDO;
 use Sabre\CalDAV;
 use Sabre\DAV;
 use Sabre\VObject;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Xml\Element\Sharee;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
 
-class CalDavPDO extends SabreCalDavBase\PDO {        
+class CalDavPDO extends SabreCalDavBase\PDO
+{
 
-    function __construct(\PDO $pdo) {
+    function __construct(\PDO $pdo)
+    {
 
         parent::__construct($pdo);
-        
+
         $this->calendarObjectTableName = 'events_event';
     }
-    
-    public function extractCalendarData ($calendarData,$start='2010-01-01 00:00:00',$end='2070-12-31 23:59:59')
+
+    public function extractCalendarData($calendarData, $start = '2010-01-01 00:00:00', $end = '2070-12-31 23:59:59')
     {
-        
+
         // first version*/
         $vObject = VObject\Reader::read($calendarData);
-        
+
         // new version
         $realStartDate = new \DateTime($start);
-        $realEndDate   = new \DateTime($end);
-        
+        $realEndDate = new \DateTime($end);
+
         /*try {
           $vcalendar = VObject\Reader::read($calendarData);
           $vObject = $vcalendar->expand($realStartDate, $realEndDate);
-        
+
           if (!empty($vObject)) {
             return nil;
           }
@@ -60,8 +60,10 @@ class CalDavPDO extends SabreCalDavBase\PDO {
         $freq = 'none';
         $location = null;
         $description = null;
+        $alarm = null;
+        $organiser = null;
         $attentees = null;
-        
+
 
         foreach ($vObject->getComponents() as $component) {
             if ($component->name !== 'VTIMEZONE') {
@@ -70,28 +72,48 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                 break;
             }
         }
-        
+
         if (!$componentType) {
             throw new \Sabre\DAV\Exception\BadRequest('Calendar objects must have a VJOURNAL, VEVENT or VTODO component');
         }
-        
-        
+
+
         if ($componentType === 'VEVENT') {
 
             $firstOccurence = $component->DTSTART->getDateTime()->format('Y-m-d H:i:s');
-            
+
             if (isset($component->SUMMARY)) {
-               $title = $component->SUMMARY->getValue();       
+                $title = $component->SUMMARY->getValue();
             }
-            
+
             if (isset($component->LOCATION)) {
-               $location = $component->LOCATION->getValue();       
+                $location = $component->LOCATION->getValue();
             }
-            
+
             if (isset($component->DESCRIPTION)) {
-               $description = $component->DESCRIPTION->getValue();       
+                $description = $component->DESCRIPTION->getValue();
             }
-                        
+
+            if (isset($component->VALARM)) {
+                $alarm = [
+                    'trigger' => $component->VALARM->TRIGGER->getValue(),
+                    'DESCRIPTION' => $component->VALARM->DESCRIPTION->getValue(),
+                    'ACTION' => $component->VALARM->ACTION->getValue(),
+                ];
+            }
+
+            if (isset($component->ORGANIZER)) {
+                $organiser = $component->ORGANIZER->getValue();
+            }
+
+            // we check if we've global attendees
+            if (isset($component->ATTENDEE)) {
+                foreach ($component->ATTENDEE as $attendee) {
+                    $attentees[] = (string)$attendee;
+                }
+            }
+
+
             // Finding the last occurence is a bit harder
             if (!isset($component->RRULE)) {
                 if (isset($component->DTEND)) {
@@ -102,7 +124,7 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                     $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
                 } elseif (!$component->DTSTART->hasTime()) {
                     $endDate = clone $component->DTSTART->getDateTime();
-                    
+
                     $endDate = $endDate->modify('+1 day');
                     $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
                 } else {
@@ -110,9 +132,9 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                 }
             } else {
                 if (isset($component->RRULE)) {
-                  $freq = $component->RRULE->getValue();       
+                    $freq = $component->RRULE->getValue();
                 }
-                
+
                 if (isset($component->DTEND)) {
                     $lastOccurence = $component->DTEND->getDateTime()->format('Y-m-d H:i:s');
                 }
@@ -123,80 +145,85 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                     $freqlastOccurence = $maxDate->format('Y-m-d H:i:s');//->getTimeStamp();
                 } else {
                     $end = $it->getDtEnd();
-                    $i=0;
+                    $i = 0;
                     while ($it->valid() && $end < $maxDate) {
                         $componentSubObject = $it->getEventObject();
-                        
+
                         //print_r($componentSubObject->name);
-                        if ($componentSubObject->name == 'VEVENT') { 
-                           //echo "le nom : ".$componentSubObject->SUMMARY->getValue()."<br>";
-                           //echo "le date : ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')."<br>";
-                           //echo "le date : ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
-                           $extras = [];
-                                       
-                           if (isset($componentSubObject->LOCATION)) {
-                             $extras['LOCATION'] = $componentSubObject->LOCATION->getValue(); 
-                           }
-                           
-                           if (isset($componentSubObject->ATTENDEE)) {
-                             foreach($vcalendar->VEVENT->ATTENDEE as $attendee) {
-                                //echo 'Attendee ', (string)$attendee;
-                                array_push($attendees,(string)$attendee);
-                             }
-                           }
+                        if ($componentSubObject->name == 'VEVENT') {
+                            //echo "le nom : ".$componentSubObject->SUMMARY->getValue()."<br>";
+                            //echo "le date : ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')."<br>";
+                            //echo "le date : ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
+                            $extras = [];
 
-                           if (isset($componentSubObject->DESCRIPTION)) {
-                             $extras['DESCRIPTION'] = $componentSubObject->DESCRIPTION->getValue(); 
-                           }
-                           
-                           if (isset($componentSubObject->{'RECURRENCE-ID'})) {
-                             $extras['RECURRENCE-ID'] = $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s');
-                           }
-                           
-                           if (isset($componentSubObject->{'UID'})) {
-                             $extras['UID'] = $componentSubObject->{'UID'}->getValue();
-                           }
-                           
-                           if (!empty($extras)) {
+                            if (isset($componentSubObject->LOCATION)) {
+                                $extras['LOCATION'] = $componentSubObject->LOCATION->getValue();
+                            }
 
-                             if ( !( $realStartDate <= (new \DateTime($componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')))
-                               && (new \DateTime($componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'))) <= $realEndDate  ) ) {
-                               
-                               $end = $it->getDtEnd();
-                               $it->next();
+                            // we search the sub attendees
+                            $sub_attentees = [];
 
-                               continue;
-                             }
+                            if (isset($componentSubObject->ATTENDEE)) {
+                                foreach ($componentSubObject->ATTENDEE as $attendee) {
+                                    //echo 'Attendee ', (string)$attendee;
+                                    array_push($sub_attentees, (string)$attendee);
+                                }
+                            }
 
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
-                                          'EVENT' => $componentSubObject->serialize()];
-                                          
-                                          
-                             $subEvent = array_merge($subEvent,$extras);
+                            if (isset($componentSubObject->DESCRIPTION)) {
+                                $extras['DESCRIPTION'] = $componentSubObject->DESCRIPTION->getValue();
+                            }
 
-                           } else {
-                               //echo $realStartDate->format('Y-m-d H:i:s')." ".$realEndDate->format('Y-m-d H:i:s')."<br>";
-                               //echo "dates = ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')." ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
-                               
-                             if ( !( $realStartDate <= (new \DateTime($componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')))
-                               && (new \DateTime($componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'))) <= $realEndDate  ) ) {
-                               
-                               $end = $it->getDtEnd();
-                               $it->next();
-                               continue;
-                             }
-                             
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
-                                          'EVENT' => $componentSubObject->serialize()];
-                           }
-                           
-                           if ( isset($subEvent['RECURRENCE-ID']) && !array_search($subEvent['RECURRENCE-ID'],$freqEvents) || !isset($subEvent['RECURRENCE-ID']) ) {
-                             array_push($freqEvents,$subEvent);
-                           }
+                            if (isset($componentSubObject->{'RECURRENCE-ID'})) {
+                                $extras['RECURRENCE-ID'] = $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s');
+                            }
+
+                            if (isset($componentSubObject->{'UID'})) {
+                                $extras['UID'] = $componentSubObject->{'UID'}->getValue();
+                            }
+
+                            if (!empty($extras)) {
+
+                                if (!($realStartDate <= (new \DateTime($componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')))
+                                    && (new \DateTime($componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'))) <= $realEndDate)) {
+
+                                    $end = $it->getDtEnd();
+                                    $it->next();
+
+                                    continue;
+                                }
+
+                                $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
+                                    'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                    'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                    'EVENT' => $componentSubObject->serialize(),
+                                    'SUBATTENDEES' => $sub_attentees];
+
+
+                                $subEvent = array_merge($subEvent, $extras);
+
+                            } else {
+                                //echo $realStartDate->format('Y-m-d H:i:s')." ".$realEndDate->format('Y-m-d H:i:s')."<br>";
+                                //echo "dates = ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')." ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
+
+                                if (!($realStartDate <= (new \DateTime($componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')))
+                                    && (new \DateTime($componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'))) <= $realEndDate)) {
+
+                                    $end = $it->getDtEnd();
+                                    $it->next();
+                                    continue;
+                                }
+
+                                $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
+                                    'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                    'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                    'EVENT' => $componentSubObject->serialize(),
+                                    'SUBATTENDEES' => $sub_attentees];
+                            }
+
+                            if (isset($subEvent['RECURRENCE-ID']) && !array_search($subEvent['RECURRENCE-ID'], $freqEvents) || !isset($subEvent['RECURRENCE-ID'])) {
+                                array_push($freqEvents, $subEvent);
+                            }
                         }
 
                         $end = $it->getDtEnd();
@@ -215,62 +242,65 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 
         // Destroy circular references to PHP will GC the object.
         $vObject->destroy();
-        
-        
+
+
         /*if ( !( $realStartDate <= (new \DateTime($firstOccurence))
             && (new \DateTime($lastOccurence)) <= $realEndDate  ) ) {
             // this code has to be finished
-        
+
         } else {*/
 
-          return [
-              'freq'           => $freq,
-              'title'          => $title,
-              'etag'           => md5($calendarData),
-              'size'           => strlen($calendarData),
-              'componentType'  => $componentType,
-              'firstOccurence' => $firstOccurence,
-              'lastOccurence'  => $lastOccurence,            
-              'freqlastOccurence'  => $freqlastOccurence,
-              'freqEvents'     => $freqEvents,
-              'uid'            => $uid,
-              'location'       => $location,
-              'description'    => $description,
-              'attentees'      => $attentees
-          ];
-          
-      //}
+        return [
+            'freq' => $freq,
+            'title' => $title,
+            'etag' => md5($calendarData),
+            'size' => strlen($calendarData),
+            'componentType' => $componentType,
+            'firstOccurence' => $firstOccurence,
+            'lastOccurence' => $lastOccurence,
+            'freqlastOccurence' => $freqlastOccurence,
+            'freqEvents' => $freqEvents,
+            'uid' => $uid,
+            'location' => $location,
+            'description' => $description,
+            'alarm' => $alarm,
+            'organiser' => $organiser,
+            'attentees' => $attentees
+        ];
+
+        //}
     }
-    
-    function getFullCalendar ($calendarId) {
-       if (!is_array($calendarId)) {
+
+    function getFullCalendar($calendarId)
+    {
+        if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
         }
-        
+
         list($calendarId, $instanceId) = $calendarId;
-        
+
         $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->calendarInstancesTableName . ' WHERE calendarid = ? AND id = ?');
-        $stmt->execute([$calendarId,$instanceId]);
-        
+        $stmt->execute([$calendarId, $instanceId]);
+
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (!$row) return null;
-        
+
         return [
-            'id'           => $row['id'],
-            'uri'          => $row['uri'],
+            'id' => $row['id'],
+            'uri' => $row['uri'],
             'lastmodified' => (int)$row['lastmodified'],
-            'etag'         => '"' . $row['etag'] . '"',
-            'size'         => (int)$row['size'],
+            'etag' => '"' . $row['etag'] . '"',
+            'size' => (int)$row['size'],
             'calendardata' => $row['calendardata'],
-            'description'  => $row['description'],
-            'present'      => $row['present'],
-            'visible'      => $row['visible'],
-            'grpid'        => $row['grpid'],
-            'cal_type'     => $row['cal_type']
-         ];
+            'description' => $row['description'],
+            'present' => $row['present'],
+            'visible' => $row['visible'],
+            'grpid' => $row['grpid'],
+            'cal_type' => $row['cal_type']
+        ];
     }
-        
+
     /**
      * Updates the list of shares.
      *
@@ -278,7 +308,8 @@ class CalDavPDO extends SabreCalDavBase\PDO {
      * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
      * @return void
      */
-    function updateInvites($calendarId, array $sharees) {
+    function updateInvites($calendarId, array $sharees)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -379,14 +410,15 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
         }
 
     }
-    
+
     /**
      * Delete a calendar and all it's objects
      *
      * @param mixed $calendarId
      * @return void
      */
-    function deleteCalendar($calendarId) {
+    function deleteCalendar($calendarId)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -426,20 +458,21 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
 
         }
     }
-    
-    function searchAndDeleteOneEvent ($vcalendar,$reccurenceID) {
-      $i=0;
-    
-      foreach ($vcalendar->VEVENT as $sevent) {
-        if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($reccurenceID))->format('Ymd\THis')) {
-          $vcalendar->remove($vcalendar->VEVENT[$i]);
-          break;
+
+    function searchAndDeleteOneEvent($vcalendar, $reccurenceID)
+    {
+        $i = 0;
+
+        foreach ($vcalendar->VEVENT as $sevent) {
+            if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($reccurenceID))->format('Ymd\THis')) {
+                $vcalendar->remove($vcalendar->VEVENT[$i]);
+                break;
+            }
+            $i++;
         }
-        $i++;
-      }
     }
-    
-    
+
+
     /**
      * Returns a list of calendars for a principal.
      *
@@ -462,10 +495,11 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
      * ACL will automatically be put in read-only mode.
      *
      * @param string $principalUri
-     * @param bool   $all (for all the calendar : order by type)
+     * @param bool $all (for all the calendar : order by type)
      * @return array
      */
-     function getCalendarsForUser($principalUri,$all=false) {
+    function getCalendarsForUser($principalUri, $all = false)
+    {
 
         $fields = array_values($this->propertyMap);
         $fields[] = 'calendarid';
@@ -480,11 +514,11 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
         $fields[] = 'grpid';
         $fields[] = 'cal_type';
         $fields[] = 'description';
-        
+
         $ordering = 'displayname';//'calendarorder';
-        
+
         if ($all) {// this is usefull for the calendar popup in the EventEditor window
-          $ordering = 'cal_type';  
+            $ordering = 'cal_type';
         }
 
         // Making fields a comma-delimited list
@@ -507,19 +541,19 @@ SQL
             }
 
             $calendar = [
-                'id'                                                                 => [(int)$row['calendarid'], (int)$row['id']],
-                'uri'                                                                => $row['uri'],
-                'principaluri'                                                       => $row['principaluri'],
-                '{' . CalDAV\Plugin::NS_CALENDARSERVER . '}getctag'                  => 'http://sabre.io/ns/sync/' . ($row['synctoken'] ? $row['synctoken'] : '0'),
-                '{http://sabredav.org/ns}sync-token'                                 => $row['synctoken'] ? $row['synctoken'] : '0',
+                'id' => [(int)$row['calendarid'], (int)$row['id']],
+                'uri' => $row['uri'],
+                'principaluri' => $row['principaluri'],
+                '{' . CalDAV\Plugin::NS_CALENDARSERVER . '}getctag' => 'http://sabre.io/ns/sync/' . ($row['synctoken'] ? $row['synctoken'] : '0'),
+                '{http://sabredav.org/ns}sync-token' => $row['synctoken'] ? $row['synctoken'] : '0',
                 '{' . CalDAV\Plugin::NS_CALDAV . '}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet($components),
-                '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp($row['transparent'] ? 'transparent' : 'opaque'),
-                'share-resource-uri'                                                 => '/ns/share/' . $row['calendarid'],
-                'present'                                                            =>  $row['present'],
-                'visible'                                                            =>  $row['visible'],
-                'grpid'                                                              =>  $row['grpid'],
-                'cal_type'                                                           =>  $row['cal_type'],
-                'description'                                                        =>  $row['description'],
+                '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-calendar-transp' => new CalDAV\Xml\Property\ScheduleCalendarTransp($row['transparent'] ? 'transparent' : 'opaque'),
+                'share-resource-uri' => '/ns/share/' . $row['calendarid'],
+                'present' => $row['present'],
+                'visible' => $row['visible'],
+                'grpid' => $row['grpid'],
+                'cal_type' => $row['cal_type'],
+                'description' => $row['description'],
             ];
 
             $calendar['share-access'] = (int)$row['access'];
@@ -545,7 +579,7 @@ SQL
         return $calendars;
 
     }
-    
+
     /**
      * Returns all calendar objects within a calendar.
      *
@@ -577,7 +611,8 @@ SQL
      * @param mixed $calendarId
      * @return array
      */
-    function getCalendarObjects($calendarId) {
+    function getCalendarObjects($calendarId)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -590,20 +625,20 @@ SQL
         $result = [];
         foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $row) {
             $result[] = [
-                'id'           => $row['event_id'],
-                'uri'          => $row['event_uri'],
+                'id' => $row['event_id'],
+                'uri' => $row['event_uri'],
                 'lastmodified' => (int)$row['event_lastmodified'],
-                'etag'         => '"' . $row['event_etag'] . '"',
-                'size'         => (int)$row['event_size'],
-                'location'     => $row['event_location'],
-                'component'    => strtolower($row['event_componenttype']),
+                'etag' => '"' . $row['event_etag'] . '"',
+                'size' => (int)$row['event_size'],
+                'location' => $row['event_location'],
+                'component' => strtolower($row['event_componenttype']),
             ];
         }
 
         return $result;
 
     }
-    
+
     /**
      * Returns information from a single calendar object, based on it's object
      * uri.
@@ -620,7 +655,8 @@ SQL
      * @param string $objectUri
      * @return array|null
      */
-    function getCalendarObjectById($calendarId, $objectId) {
+    function getCalendarObjectById($calendarId, $objectId)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -634,19 +670,20 @@ SQL
         if (!$row) return null;
 
         return [
-            'id'           => $row['event_id'],
-            'uri'          => $row['event_uri'],
+            'id' => $row['event_id'],
+            'uri' => $row['event_uri'],
             'lastmodified' => (int)$row['event_lastmodified'],
-            'etag'         => '"' . $row['event_etag'] . '"',
-            'size'         => (int)$row['event_size'],
-            'location'     => $row['event_location'],
+            'etag' => '"' . $row['event_etag'] . '"',
+            'size' => (int)$row['event_size'],
+            'location' => $row['event_location'],
             'calendardata' => $row['event_calendardata'],
-            'component'    => strtolower($row['event_componenttype']),
-         ];
+            'component' => strtolower($row['event_componenttype']),
+        ];
 
     }
-    
-    function getCalendarObject($calendarId, $objectUri) {
+
+    function getCalendarObject($calendarId, $objectUri)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -660,18 +697,18 @@ SQL
         if (!$row) return null;
 
         return [
-            'id'           => $row['event_id'],
-            'uri'          => $row['event_uri'],
+            'id' => $row['event_id'],
+            'uri' => $row['event_uri'],
             'lastmodified' => (int)$row['event_lastmodified'],
-            'etag'         => '"' . $row['event_etag'] . '"',
-            'size'         => (int)$row['event_size'],
-            'location'     => $row['event_location'],
+            'etag' => '"' . $row['event_etag'] . '"',
+            'size' => (int)$row['event_size'],
+            'location' => $row['event_location'],
             'calendardata' => $row['event_calendardata'],
-            'component'    => strtolower($row['event_componenttype']),
-         ];
+            'component' => strtolower($row['event_componenttype']),
+        ];
 
     }
-    
+
     /**
      * Returns a list of calendar objects.
      *
@@ -684,7 +721,8 @@ SQL
      * @param array $uris
      * @return array
      */
-    function getMultipleCalendarObjects($calendarId, array $uris) {
+    function getMultipleCalendarObjects($calendarId, array $uris)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -704,14 +742,14 @@ SQL
             while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 
                 $result[] = [
-                    'id'           => $row['event_id'],
-                    'uri'          => $row['event_uri'],
+                    'id' => $row['event_id'],
+                    'uri' => $row['event_uri'],
                     'lastmodified' => (int)$row['event_lastmodified'],
-                    'etag'         => '"' . $row['event_etag'] . '"',
-                    'size'         => (int)$row['event_size'],
-                    'location'     => $row['event_location'],
+                    'etag' => '"' . $row['event_etag'] . '"',
+                    'size' => (int)$row['event_size'],
+                    'location' => $row['event_location'],
                     'calendardata' => $row['event_calendardata'],
-                    'component'    => strtolower($row['event_componenttype']),
+                    'component' => strtolower($row['event_componenttype']),
                 ];
 
             }
@@ -719,8 +757,8 @@ SQL
         return $result;
 
     }
-    
-        /**
+
+    /**
      * Returns the list of people whom a calendar is shared with.
      *
      * Every item in the returned list must be a Sharee object with at
@@ -735,7 +773,8 @@ SQL
      * @param mixed $calendarId
      * @return \Sabre\DAV\Xml\Element\Sharee[]
      */
-    function getGroupId ($calendarId) {
+    function getGroupId($calendarId)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to getGroupId() is expected to be an array with a calendarId and an instanceId');
@@ -755,11 +794,11 @@ SQL;
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (!$row) return 0;
-        
+
         return $row['grpid'];
     }
-    
-   /**
+
+    /**
      * Creates a new calendar for a principal.
      *
      * If the creation was a success, an id must be returned that can be used
@@ -771,7 +810,8 @@ SQL;
      * @param int : 1 = personal, 2 = room, 3 = computer, 4 = video
      * @return string
      */
-    function createCalendar($principalUri, $calendarUri, array $properties,$cal_type=1,$desc=null) {
+    function createCalendar($principalUri, $calendarUri, array $properties, $cal_type = 1, $desc = null)
+    {
 
         $fieldNames = [
             'principaluri',
@@ -783,10 +823,10 @@ SQL;
         ];
         $values = [
             ':principaluri' => $principalUri,
-            ':uri'          => $calendarUri,
-            ':transparent'  => 0,
-            ':cal_type'     => $cal_type,
-            ':description'  => $desc,
+            ':uri' => $calendarUri,
+            ':transparent' => 0,
+            ':cal_type' => $cal_type,
+            ':description' => $desc,
         ];
 
 
@@ -820,7 +860,7 @@ SQL;
                 $fieldNames[] = $dbName;
             }
         }
-        
+
         $stmt = $this->pdo->prepare("INSERT INTO " . $this->calendarInstancesTableName . " (" . implode(', ', $fieldNames) . ") VALUES (" . implode(', ', array_keys($values)) . ")");
 
         $stmt->execute($values);
@@ -830,8 +870,8 @@ SQL;
             $this->pdo->lastInsertId($this->calendarInstancesTableName . '_id_seq')
         ];
 
-    }    
-    
+    }
+
     /**
      * Creates a new calendar object.
      *
@@ -850,16 +890,17 @@ SQL;
      * @param string $calendarData
      * @return string|null
      */
-    function createCalendarObject($calendarId, $objectUri, $calendarData) {
+    function createCalendarObject($calendarId, $objectUri, $calendarData)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
         }
-        
+
         $groupId = $this->getGroupId($calendarId);
 
         list($calendarId, $instanceId) = $calendarId;
-        
+
 
         $extraData = $this->extractCalendarData($calendarData);
 
@@ -886,9 +927,9 @@ SQL;
         return '"' . $extraData['etag'] . '"';
 
     }
-    
-    
-     /**
+
+
+    /**
      * Updates an existing calendarobject, based on it's uri.
      *
      * The object uri is only the basename, or filename and not a full path.
@@ -906,7 +947,8 @@ SQL;
      * @param string $calendarData
      * @return string|null
      */
-    function updateCalendarObject($calendarId, $objectUri, $calendarData) {
+    function updateCalendarObject($calendarId, $objectUri, $calendarData)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -917,22 +959,22 @@ SQL;
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
-        
+
         // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
         //error_log("La date est = ".$extraData['firstOccurence']."\n\n", 3, "/var/log/mes-erreurs.log");
         //error_log("Le blob = ".$calendarData."\n\n", 3, "/var/log/mes-erreurs.log");
-        
+
         /*foreach ($extraData as $key => $val) {
            error_log("Key = ".$key." val = ".$val."\n\n", 3, "/var/log/mes-erreurs.log");
         }*/
-        
+
 
         $this->addChange($calendarId, $objectUri, 2);
 
         return '"' . $extraData['etag'] . '"';
 
     }
-    
+
     /**
      * Deletes an existing calendar object.
      *
@@ -942,7 +984,8 @@ SQL;
      * @param string $objectUri
      * @return void
      */
-    function deleteCalendarObject($calendarId, $objectUri) {
+    function deleteCalendarObject($calendarId, $objectUri)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -956,7 +999,7 @@ SQL;
 
     }
 
-   /**
+    /**
      * Performs a calendar-query on the contents of this calendar.
      *
      * The calendar-query is defined in RFC4791 : CalDAV. Using the
@@ -1008,7 +1051,8 @@ SQL;
      * @param array $filters
      * @return array
      */
-    function calendarQuery($calendarId, array $filters) {
+    function calendarQuery($calendarId, array $filters)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -1086,9 +1130,9 @@ SQL;
         return $result;
 
     }
-    
-    
-   /**
+
+
+    /**
      * Searches through all of a users calendars and calendar objects to find
      * an object with a specific UID.
      *
@@ -1107,7 +1151,8 @@ SQL;
      * @param string $uid
      * @return string|null
      */
-    function getCalendarObjectByUID($principalUri, $uid) {
+    function getCalendarObjectByUID($principalUri, $uid)
+    {
 
         $query = <<<SQL
 SELECT
@@ -1131,9 +1176,9 @@ SQL;
         }
 
     }
-    
 
-/**
+
+    /**
      * The getChanges method returns all the changes that have happened, since
      * the specified syncToken in the specified calendar.
      *
@@ -1189,7 +1234,8 @@ SQL;
      * @param int $limit
      * @return array
      */
-    function getChangesForCalendar($calendarId, $syncToken, $syncLevel, $limit = null) {
+    function getChangesForCalendar($calendarId, $syncToken, $syncLevel, $limit = null)
+    {
 
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -1205,9 +1251,9 @@ SQL;
 
         $result = [
             'syncToken' => $currentToken,
-            'added'     => [],
-            'modified'  => [],
-            'deleted'   => [],
+            'added' => [],
+            'modified' => [],
+            'deleted' => [],
         ];
 
         if ($syncToken) {
@@ -1255,19 +1301,19 @@ SQL;
         return $result;
 
     }
-    
-   /**
+
+    /**
      * The moveCalendarToNewPrincipal
      *
      *
      * @param int $new_principaluri
      * @return nothing
-     */    
-    public function moveCalendarToNewPrincipal ($old_principaluri,$new_principaluri)
-    {    
+     */
+    public function moveCalendarToNewPrincipal($old_principaluri, $new_principaluri)
+    {
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarInstancesTableName . ' SET principaluri = ? WHERE principaluri = ?');
-        $stmt->execute([$new_principaluri,$old_principaluri]);
+        $stmt->execute([$new_principaluri, $old_principaluri]);
 
     }
 
