@@ -736,7 +736,7 @@
                     eventAttendees = true;
                   }
 
-                  var EventCalendarType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
+                  var EventCalendarType = e.options[e.selectedIndex].index;// we get the type of the group : personal or group for future dev, for example to create preformated event
 
                   var countFieldsId     = $('form #countFieldsId').val();
 

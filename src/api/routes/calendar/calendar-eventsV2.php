@@ -31,6 +31,7 @@ use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserQuery;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
@@ -448,9 +449,11 @@ function manageEvent (Request $request, Response $response, array $args) {
         // Now we move to propel, to finish the put extra infos
         $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
 
+        // we get the real event in th DB
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
 
+        // unuseful at this point
         $EventCalendarType = $input->EventCalendarType;
 
 
