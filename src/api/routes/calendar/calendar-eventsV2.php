@@ -220,6 +220,7 @@ function eventInfo(Request $request, Response $response, array $args)
         $arr['location'] = $event->getLocation();
         $arr['latitude'] = $event->getLatitude();
         $arr['longitude'] = $event->getLongitude();
+        $arr['alarm'] = $event->getAlarm();
 
         return $response->withJson($arr);
 

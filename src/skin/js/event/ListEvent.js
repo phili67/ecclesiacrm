@@ -14,9 +14,9 @@ function addEvent(dateStart,dateEnd)
       CKEDITOR.remove(window.CRM.editor);
       window.CRM.editor = null;
    }
-       
+
    modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','ListEvent.php');
-       
+
    // we add the calendars and the types
    addCalendars();
    addCalendarEventTypes(-1,true);
@@ -62,24 +62,24 @@ function addEvent(dateStart,dateEnd)
           width : '100%'
        });
     }
-   
+
      add_ckeditor_buttons(window.CRM.editor);
    }
 
    $(".ATTENDENCES").hide();
 
    modal.modal("show");
-   
+
    initMap();
 }
 
 
 $('#add-event').click('focus', function (e) {
   var fmt = 'YYYY-MM-DD HH:mm:ss';
-  
+
   var dateStart = moment().format(fmt);
   var dateEnd = moment().format(fmt);
-          
+
   addEvent(dateStart,dateEnd);
 });
 
@@ -102,22 +102,22 @@ $('#add-event').click('focus', function (e) {
           return moment ( d, format, locale, true ).unix();
       };
     };
-    
+
 
     $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
 
-    
+
     $(".eventsTable").DataTable({
        "language": {
          "url": window.CRM.plugin.dataTable.language.url
        },
        responsive: true
     });
-    
+
     $('.listEvents').DataTable({"language": {
       "url": window.CRM.plugin.dataTable.language.url
     }});
-    
+
     $('.DeleteEvent').submit(function(e) {
         var currentForm = this;
         e.preventDefault();
@@ -140,10 +140,10 @@ $('#add-event').click('focus', function (e) {
             }
         }});
     });
-    
+
     $(".EditEvent").click('focus', function (e) {
        var eventID    = $(this).data("id");
-       
+
        window.CRM.APIRequest({
           method: 'POST',
           path: 'events/info',
@@ -153,13 +153,21 @@ $('#add-event').click('focus', function (e) {
            CKEDITOR.remove(window.CRM.editor);
            window.CRM.editor = null;
          }
-         
+
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
-       
+
          $('form #EventTitle').val(calEvent.Title);
          $('form #EventDesc').val(calEvent.Desc);
          $('form #eventNotes').val(calEvent.Text);
          $('form #EventLocation').val(calEvent.location);
+
+         $("form #addGroupAttendees").prop("disabled", (calEvent.groupID == "0") ? true : false);
+         $("form #addGroupAttendees").prop('checked', (calEvent.groupID == "0") ? false : true);
+
+
+         if (calEvent.alarm !== null) {
+             $("form #EventAlarm").val(calEvent.alarm.trigger).trigger('change');
+         }
 
          // we add the calendars and the types
          addCalendars(calEvent.calendarID);
@@ -205,16 +213,16 @@ $('#add-event').click('focus', function (e) {
                   width : '100%'
                });
             }
-   
+
            add_ckeditor_buttons(window.CRM.editor);
          }
 
          $(".ATTENDENCES").hide();
 
          modal.modal("show");
-         
-         initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);                   
+
+         initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);
       });
     });
-    
+
   });
