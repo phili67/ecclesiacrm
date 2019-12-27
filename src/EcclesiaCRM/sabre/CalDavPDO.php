@@ -97,8 +97,8 @@ class CalDavPDO extends SabreCalDavBase\PDO
             if (isset($component->VALARM)) {
                 $alarm = [
                     'trigger' => $component->VALARM->TRIGGER->getValue(),
-                    'DESCRIPTION' => $component->VALARM->DESCRIPTION->getValue(),
-                    'ACTION' => $component->VALARM->ACTION->getValue(),
+                    'DESCRIPTION' => (!is_null($component->VALARM->DESCRIPTION))?$component->VALARM->DESCRIPTION->getValue():"",
+                    'ACTION' => (!is_null($component->VALARM->ACTION))?$component->VALARM->ACTION->getValue():"",
                 ];
             }
 
