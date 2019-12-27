@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-26 19:01+0100\n"
+"POT-Creation-Date: 2019-12-27 22:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,6 +68,12 @@ msgstr ""
 #: api/routes/calendar/calendar-calendarV2.php:659
 #: api/routes/calendar/calendar-calendarV2.php:713
 msgid "You can visualize it in your account, in the Calendar."
+msgstr ""
+
+#: api/routes/calendar/calendar-eventsV2.php:457
+#: api/routes/calendar/calendar-eventsV2.php:1010
+#: EcclesiaCRM/dto/SystemConfig.php:33
+msgid "NONE"
 msgstr ""
 
 #: api/routes/cart.php:100
@@ -1983,7 +1989,7 @@ msgstr ""
 msgid "Information to Include"
 msgstr ""
 
-#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:42
+#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:30
 #: external/templates/verify/verify-family-info.php:80 FamilyView.php:475
 #: PersonView.php:882 Reports/ConfirmReportEmail.php:193
 #: Reports/ConfirmReportEmail.php:211 Reports/ConfirmReport.php:191
@@ -3296,10 +3302,6 @@ msgstr ""
 
 #: EcclesiaCRM/dto/ReportUtilities.php:34
 msgid "Invalid Family"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:33
-msgid "NONE"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:34
@@ -4795,11 +4797,11 @@ msgstr ""
 msgid "One or more files failed signature validation"
 msgstr ""
 
-#: EcclesiaCRM/Service/CalendarService.php:41
+#: EcclesiaCRM/Service/CalendarService.php:29
 msgid "Event"
 msgstr ""
 
-#: EcclesiaCRM/Service/CalendarService.php:43
+#: EcclesiaCRM/Service/CalendarService.php:31
 msgid "Anniversary"
 msgstr ""
 

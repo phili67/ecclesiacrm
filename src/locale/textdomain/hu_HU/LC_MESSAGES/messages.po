@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-26 18:35+0100\n"
+"POT-Creation-Date: 2019-12-27 22:42+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,12 @@ msgstr "Egyéb beállítások"
 #: api/routes/calendar/calendar-calendarV2.php:659
 #: api/routes/calendar/calendar-calendarV2.php:713
 msgid "You can visualize it in your account, in the Calendar."
+msgstr ""
+
+#: api/routes/calendar/calendar-eventsV2.php:457
+#: api/routes/calendar/calendar-eventsV2.php:1010
+#: EcclesiaCRM/dto/SystemConfig.php:33
+msgid "NONE"
 msgstr ""
 
 #: api/routes/cart.php:100
@@ -2136,7 +2142,7 @@ msgstr "Milyen szerepet a gyerek?"
 msgid "Information to Include"
 msgstr "Információ Beleértve"
 
-#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:42
+#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:30
 #: external/templates/verify/verify-family-info.php:80 FamilyView.php:475
 #: PersonView.php:882 Reports/ConfirmReportEmail.php:193
 #: Reports/ConfirmReportEmail.php:211 Reports/ConfirmReport.php:191
@@ -3470,10 +3476,6 @@ msgstr "Besorolás"
 #, fuzzy
 msgid "Invalid Family"
 msgstr "Érvénytelen év"
-
-#: EcclesiaCRM/dto/SystemConfig.php:33
-msgid "NONE"
-msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:34
 msgid "DEBUG"
@@ -5076,12 +5078,12 @@ msgstr ""
 msgid "One or more files failed signature validation"
 msgstr ""
 
-#: EcclesiaCRM/Service/CalendarService.php:41
+#: EcclesiaCRM/Service/CalendarService.php:29
 #, fuzzy
 msgid "Event"
 msgstr "Esemény típusa"
 
-#: EcclesiaCRM/Service/CalendarService.php:43
+#: EcclesiaCRM/Service/CalendarService.php:31
 #, fuzzy
 msgid "Anniversary"
 msgstr "Évforduló dátuma"

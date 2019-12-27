@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-12-26T17:35:09.272Z\n"
+"POT-Creation-Date: 2019-12-27T21:42:42.543Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -693,6 +693,39 @@ msgstr "Jährlich"
 
 msgid "End"
 msgstr "Ende"
+
+msgid "Alarm"
+msgstr "Wegzeit"
+
+msgid "NONE"
+msgstr "Ohne"
+
+msgid "At time of event"
+msgstr "Bei Ereignisstart"
+
+msgid "5 minutes before"
+msgstr "5 minuten davor"
+
+msgid "10 minutes before"
+msgstr "10 minuten davor"
+
+msgid "15 minutes before"
+msgstr "15 minuten davor"
+
+msgid "30 minutes before"
+msgstr "30 minuten davor"
+
+msgid "1 hour before"
+msgstr "1 Stunde davor"
+
+msgid "2 hour before"
+msgstr "2 Stunden davor"
+
+msgid "1 day before"
+msgstr "1 Tag davor"
+
+msgid "2 day before"
+msgstr "2 Tage davor./mk"
 
 msgid "Calendar"
 msgstr "Kalendar"

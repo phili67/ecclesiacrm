@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-26 18:35+0100\n"
+"POT-Creation-Date: 2019-12-27 22:42+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,6 +62,12 @@ msgstr "General Einstellung/Integration"
 #: api/routes/calendar/calendar-calendarV2.php:713
 msgid "You can visualize it in your account, in the Calendar."
 msgstr "Man kann es sich visualisieren in Ihrem Kalendar."
+
+#: api/routes/calendar/calendar-eventsV2.php:457
+#: api/routes/calendar/calendar-eventsV2.php:1010
+#: EcclesiaCRM/dto/SystemConfig.php:33
+msgid "NONE"
+msgstr "KEIN"
 
 #: api/routes/cart.php:100
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
@@ -2014,7 +2020,7 @@ msgstr "Welche Rolle ist ein Kind?"
 msgid "Information to Include"
 msgstr "Informationen zum Einfügen"
 
-#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:42
+#: DirectoryReports.php:190 EcclesiaCRM/Service/CalendarService.php:30
 #: external/templates/verify/verify-family-info.php:80 FamilyView.php:475
 #: PersonView.php:882 Reports/ConfirmReportEmail.php:193
 #: Reports/ConfirmReportEmail.php:211 Reports/ConfirmReport.php:191
@@ -3331,10 +3337,6 @@ msgstr "Benachrichtigung für"
 #: EcclesiaCRM/dto/ReportUtilities.php:34
 msgid "Invalid Family"
 msgstr "Ungültiges Familien"
-
-#: EcclesiaCRM/dto/SystemConfig.php:33
-msgid "NONE"
-msgstr "KEIN"
 
 #: EcclesiaCRM/dto/SystemConfig.php:34
 msgid "DEBUG"
@@ -4875,11 +4877,11 @@ msgstr "Signaturdefinition datei vermisst"
 msgid "One or more files failed signature validation"
 msgstr "Einer oder Mehr Dateien signature war nicht erfolgreich"
 
-#: EcclesiaCRM/Service/CalendarService.php:41
+#: EcclesiaCRM/Service/CalendarService.php:29
 msgid "Event"
 msgstr "Ereignis"
 
-#: EcclesiaCRM/Service/CalendarService.php:43
+#: EcclesiaCRM/Service/CalendarService.php:31
 msgid "Anniversary"
 msgstr "Jahrestag"
 
