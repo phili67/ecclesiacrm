@@ -921,12 +921,14 @@ function manageEvent(Request $request, Response $response, array $args)
             $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
         }*/
 
+
         // Now we start to work with the new calendar
         $calIDs = explode(",", $input->calendarID);
 
         $calendarId = $calIDs[0];
         $Id = $calIDs[1];
 
+        // get the calendar we want to work with
         $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
 
         $coordinates = "";
@@ -984,7 +986,6 @@ function manageEvent(Request $request, Response $response, array $args)
 
         unset($vcalendar->ORGANIZER);
         unset($vcalendar->ATTENDEE);
-
         if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
             $persons = Person2group2roleP2g2rQuery::create()
                 ->filterByGroupId($calendar->getGroupId())
@@ -1009,7 +1010,18 @@ function manageEvent(Request $request, Response $response, array $args)
             $realVevent->add('VALARM', ['TRIGGER' => $input->alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
         }
 
-        $calendarBackend->updateCalendarObject($calIDs, $event['uri'], $vcalendar->serialize());
+        /*if ($old_event->getEventCalendarid() != $calendarId) {
+            // in the case the calendar is changing we've to delete the last entry in the calendar
+            $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
+
+            // now we create a new event in the calendar
+            $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
+
+            $old_event = EventQuery::Create()->findOneByEtag(str_replace('"', "", $etag));
+        } else {*/
+            // we simply update the event in the current calendar
+            $calendarBackend->updateCalendarObject($calIDs, $event['uri'], $vcalendar->serialize());
+        //}
 
         // Now we move to propel, to finish the put extra infos
         $eventTypeName = "";
@@ -1031,6 +1043,7 @@ function manageEvent(Request $request, Response $response, array $args)
 
         // we set the groupID to manage correctly the attendees : Historical
         $old_event->setGroupId($calendar->getGroupId());
+        $old_event->setEventCalendarid($calendarId);
 
         // we first delete the old attendences
         $eventCountsOld = EventCountsQuery::create()->findByEvtcntEventid($old_event->getID());
@@ -1087,6 +1100,6 @@ function manageEvent(Request $request, Response $response, array $args)
 
         LoggerUtils::getAppLogger()->debug("Le calendrier " . $realVevent->serialize());
 
-        return $response->withJson(["status" => "success", "res2" => print_r($realVevent->serialize(), true)]);
+        return $response->withJson(["status" => "success", "res2" => $calendar->getGroupId()]);
     }
 }

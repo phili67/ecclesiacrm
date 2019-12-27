@@ -12,22 +12,10 @@
 namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\EventQuery;
-use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
-use EcclesiaCRM\Utils\MiscUtils;
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
