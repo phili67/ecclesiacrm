@@ -453,10 +453,6 @@ function manageEvent (Request $request, Response $response, array $args) {
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
 
-        // unuseful at this point
-        $EventCalendarType = $input->EventCalendarType;
-
-
         if ($input->eventTypeID)
         {
            $type = EventTypesQuery::Create()
@@ -997,9 +993,6 @@ function manageEvent (Request $request, Response $response, array $args) {
 
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
-
-        $EventCalendarType = $input->EventCalendarType;
-
 
         if ($input->eventTypeID)
         {

@@ -736,8 +736,6 @@
                     eventAttendees = true;
                   }
 
-                  var EventCalendarType = e.options[e.selectedIndex].index;// we get the type of the group : personal or group for future dev, for example to create preformated event
-
                   var countFieldsId     = $('form #countFieldsId').val();
 
                   var fields = new Array();
@@ -765,7 +763,7 @@
                   window.CRM.APIRequest({
                       method: 'POST',
                       path: 'events/',
-                      data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
+                      data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
                           "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,
