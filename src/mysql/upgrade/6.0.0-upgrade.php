@@ -1,5 +1,5 @@
 <?php
-// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/5.8.7-upgrade.php
+// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/6.0.0-upgrade.php
 // et il faut décommenter
 /*define("webdav", "1");
 require '../../Include/Config.php';*/
