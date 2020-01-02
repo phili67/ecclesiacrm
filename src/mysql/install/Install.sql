@@ -734,7 +734,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
 
   --
 -- A person classification can have an icon
--- 
+--
 CREATE TABLE list_icon (
     `lst_ic_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
     `lst_ic_lst_ID` mediumint(9) unsigned NOT NULL,
@@ -1080,19 +1080,19 @@ INSERT INTO `queryparameters_qrp` (`qrp_ID`, `qrp_qry_ID`, `qrp_Type`, `qrp_Opti
   (101, 100, 2, 'SELECT vol_ID AS Value, vol_Name AS Display FROM volunteeropportunity_vol ORDER BY vol_Name', 'Volunteer opportunities', 'Second volunteer opportunity choice', 'volopp2', '1', 1, 0, '', 12, 1, 1, 2),
   (200, 200, 2, 'SELECT custom_field as Value, custom_Name as Display FROM person_custom_master', 'Custom field', 'Choose customer person field', 'custom', '1', 0, 0, '', 0, 0, 0, 0),
   (201, 200, 0, '', 'Field value', 'Match custom field to this value', 'value', '1', 0, 0, '', 0, 0, 0, 0);
-  
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `query_type`
 --
-  
+
 CREATE TABLE `query_type` (
   `qry_type_id` int(11) NOT NULL AUTO_INCREMENT,
   `qry_type_Category` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`qry_type_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-  
+
 INSERT IGNORE INTO `query_type` (`qry_type_id`, `qry_type_Category`) VALUES
 (1, 'Person'),
 (2, 'Family'),
@@ -1207,7 +1207,7 @@ CREATE TABLE `result_res` (
 --
 
 CREATE TABLE `userconfig_choices_ucfg_ch` (
-  `ucfg_ch_id` mediumint(9) unsigned NOT NULL,  
+  `ucfg_ch_id` mediumint(9) unsigned NOT NULL,
   `ucfg_name` text,
   `ucfg_choices` varchar(200) NOT NULL,
   PRIMARY KEY  (`ucfg_ch_id`)
@@ -1269,13 +1269,13 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
 (0, 15, 'sStyle', 'skin-blue-light', 'choice', '1', 'AdminLTE style ', 'TRUE', ''),
 (1, 15, 'sStyle', 'skin-red-light', 'choice', '1','AdminLTE style', 'TRUE', '');
 
-  
-  
+
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `userrole_usrrol`
---  
+--
 
 CREATE TABLE userrole_usrrol (
     `usrrol_id` mediumint(11) unsigned  NOT NULL AUTO_INCREMENT,
@@ -1376,7 +1376,7 @@ CREATE TABLE `user_usr` (
 INSERT INTO `user_usr` (`usr_per_ID`, `usr_Password`, `usr_NeedPasswordChange`, `usr_LastLogin`,
                         `usr_LoginCount`, `usr_FailedLogins`, `usr_AddRecords`, `usr_EditRecords`, `usr_DeleteRecords`,
                         `usr_MenuOptions`, `usr_ManageGroups`, `usr_Finance`, `usr_Notes`, `usr_Admin`,
-                        `usr_PastoralCare`, `usr_GDRP_DPO`, `usr_MailChimp`, `usr_MainDashboard`, `usr_SeePrivacyData`, 
+                        `usr_PastoralCare`, `usr_GDRP_DPO`, `usr_MailChimp`, `usr_MainDashboard`, `usr_SeePrivacyData`,
                         `usr_showMenuQuery`, `usr_CanSendEmail`, `usr_ExportSundaySchoolCSV`, `usr_ExportSundaySchoolPDF`, `usr_CreateDirectory`, `usr_ExportCSV`,
                         `usr_ShowCart`, `usr_ShowMap`, `usr_EDrive`,
                         `usr_SearchLimit`, `usr_showPledges`,
@@ -1595,7 +1595,7 @@ CREATE TABLE `note_nte` (
   `nte_Type` varchar(50) DEFAULT NULL,
   `nte_Info` varchar(500) DEFAULT NULL,
   PRIMARY KEY  (`nte_ID`),
-  CONSTRAINT fk_nte_per_ID 
+  CONSTRAINT fk_nte_per_ID
     FOREIGN KEY (nte_per_ID) REFERENCES person_per(per_ID)
     ON DELETE CASCADE,
   CONSTRAINT fk_nte_fam_ID
@@ -1618,16 +1618,16 @@ CREATE TABLE note_nte_share (
     `nte_sh_share_to_family_ID` mediumint(9) unsigned NULL,
     `nte_sh_share_rights` smallint(2) NOT NULL default '1',
     PRIMARY KEY(nte_sh_id),
-    CONSTRAINT fk_nte_note_ID 
-      FOREIGN KEY (nte_sh_note_ID) 
+    CONSTRAINT fk_nte_note_ID
+      FOREIGN KEY (nte_sh_note_ID)
       REFERENCES note_nte(nte_ID)
       ON DELETE CASCADE,
-    CONSTRAINT fk_nte_share_from_person_ID 
-      FOREIGN KEY (nte_sh_share_to_person_ID) 
+    CONSTRAINT fk_nte_share_from_person_ID
+      FOREIGN KEY (nte_sh_share_to_person_ID)
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE,
-    CONSTRAINT fk_nte_share_from_family_ID 
-      FOREIGN KEY (nte_sh_share_to_family_ID) 
+    CONSTRAINT fk_nte_share_from_family_ID
+      FOREIGN KEY (nte_sh_share_to_family_ID)
       REFERENCES family_fam(fam_ID)
       ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1645,11 +1645,11 @@ CREATE TABLE group_manager_person (
     `grp_mgr_per_group_ID` mediumint(9) unsigned NOT NULL,
     PRIMARY KEY(grp_mgr_per_id),
     CONSTRAINT fk_grp_mgr_per_person_ID
-      FOREIGN KEY (grp_mgr_per_person_ID) 
+      FOREIGN KEY (grp_mgr_per_person_ID)
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE,
     CONSTRAINT fk_grp_mgr_per_group_ID
-      FOREIGN KEY (grp_mgr_per_group_ID) 
+      FOREIGN KEY (grp_mgr_per_group_ID)
       REFERENCES group_grp(grp_ID)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -1658,7 +1658,7 @@ CREATE TABLE group_manager_person (
 
 --
 -- We create ckeditor_templates table
--- 
+--
 CREATE TABLE ckeditor_templates (
     `cke_tmp_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
     `cke_tmp_per_ID` mediumint(9) unsigned NOT NULL,
@@ -1668,7 +1668,7 @@ CREATE TABLE ckeditor_templates (
     `cke_tmp_image` varchar(255) default NULL,
     PRIMARY KEY(cke_tmp_id),
     CONSTRAINT fk_cke_tmp_per_ID
-      FOREIGN KEY (cke_tmp_per_ID) 
+      FOREIGN KEY (cke_tmp_per_ID)
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -1677,7 +1677,7 @@ CREATE TABLE ckeditor_templates (
 
 --
 -- Pastoral care type for a person
--- 
+--
 CREATE TABLE pastoral_care_type (
     `pst_cr_tp_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
     `pst_cr_tp_title` varchar(255) NOT NULL default '',
@@ -1699,10 +1699,11 @@ INSERT INTO `pastoral_care_type` (`pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_t
 
 --
 -- Pastoral care for a person
--- 
+--
 CREATE TABLE pastoral_care (
     `pst_cr_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
-    `pst_cr_person_id` mediumint(9) unsigned NOT NULL,
+    `pst_cr_person_id` mediumint(9) unsigned NULL,
+    `pst_cr_family_id` mediumint(9) unsigned NULL,
     `pst_cr_pastor_id` mediumint(9) unsigned NULL,
     `pst_cr_pastor_Name` varchar(255) NOT NULL default '',
     `pst_cr_Type_id` mediumint(9) unsigned NOT NULL,
@@ -1711,15 +1712,19 @@ CREATE TABLE pastoral_care (
     `pst_cr_Text` text,
     PRIMARY KEY(pst_cr_id),
     CONSTRAINT fk_pst_cr_person_id
-      FOREIGN KEY (pst_cr_person_id) 
+      FOREIGN KEY (pst_cr_person_id)
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE,
+    CONSTRAINT fk_pst_cr_family_id
+      FOREIGN KEY (pst_cr_family_id)
+      REFERENCES family_fam(fam_ID)
+      ON DELETE CASCADE,
     CONSTRAINT fk_pst_cr_pastor_id
-      FOREIGN KEY (pst_cr_pastor_id) 
+      FOREIGN KEY (pst_cr_pastor_id)
       REFERENCES person_per(per_ID)
       ON DELETE SET NULL,
     CONSTRAINT fk_pst_cr_Type_id
-      FOREIGN KEY (pst_cr_Type_id) 
+      FOREIGN KEY (pst_cr_Type_id)
       REFERENCES pastoral_care_type(pst_cr_tp_id)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -1736,7 +1741,7 @@ CREATE TABLE `menu_links` (
   `linkOrder` INT NOT NULL,
   PRIMARY KEY (`linkId`),
   CONSTRAINT fk_linkPersonId
-    FOREIGN KEY (linkPersonId) 
+    FOREIGN KEY (linkPersonId)
     REFERENCES person_per(per_ID)
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1808,7 +1813,7 @@ CREATE TABLE `gdpr_infos` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 -- the default value for the CRM : family and person DN Tables
-INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`, `gdpr_info_comment`) VALUES 
+INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`, `gdpr_info_comment`) VALUES
 ('Person', 'Gender', '3', ''),
 ('Person', 'Title', '3', ''),
 ('Person', 'First Name', '3', ''),

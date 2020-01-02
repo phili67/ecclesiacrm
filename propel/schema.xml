@@ -1263,7 +1263,8 @@
       
       <table name="pastoral_care" idMethod="native" phpName="PastoralCare">
         <column name="pst_cr_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="pst_cr_person_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
+        <column name="pst_cr_person_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
+        <column name="pst_cr_family_id" phpName="FamilyId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="pst_cr_pastor_id" phpName="PastorId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="pst_cr_pastor_Name" phpName="PastorName" type="VARCHAR" size="255" required="true" defaultValue=""/>
         <column name="pst_cr_Type_id" phpName="TypeId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
@@ -1279,8 +1280,14 @@
         <foreign-key foreignTable="person_per" name="fk_pst_cr_person_id" onDelete="CASCADE">
           <reference local="pst_cr_person_id" foreign="per_ID"/>
         </foreign-key>
+        <foreign-key foreignTable="family_fam" name="fk_pst_cr_family_id" onDelete="CASCADE">
+          <reference local="pst_cr_family_id" foreign="fam_ID"/>
+        </foreign-key>
         <index name="fk_pst_cr_person_id">
           <index-column name="pst_cr_person_id"/>
+        </index>
+        <index name="fk_pst_cr_family_id">
+          <index-column name="pst_cr_family_id"/>
         </index>
         <index name="fk_pst_cr_pastor_id">
           <index-column name="pst_cr_pastor_id"/>
