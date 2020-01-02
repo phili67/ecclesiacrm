@@ -70,7 +70,7 @@ $persons = PersonQuery::Create()->findByFamId($iFamilyID);
 
 if ( !is_null ($persons) && $persons->count() == 1 ) {
     $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
-    
+
     RedirectUtils::Redirect("PersonView.php?PersonID=" . $person->getId());
 }
 
@@ -117,7 +117,7 @@ $iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-                     
+
 // get family with all the extra columns created
 $rawQry =  FamilyCustomQuery::create();
 foreach ($ormFamCustomFields as $customfield ) {
@@ -140,7 +140,7 @@ if (empty($family)) {
 if ($family->getDateDeactivated() != null) {
     $time = new DateTime('now');
     $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
-    
+
     if ( $new_time > $family->getDateDeactivated() ) {
       if ( !SessionUser::getUser()->isGdrpDpoEnabled() ) {
         RedirectUtils::Redirect('members/404.php?type=Person');
@@ -233,8 +233,8 @@ require 'Include/Header.php';
       <div class="box-body">
         <div class="image-container">
           <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo" class="initials-image img-rounded img-responsive profile-user-img profile-family-img"/>
-        <?php 
-          if ($bOkToEdit) { 
+        <?php
+          if ($bOkToEdit) {
         ?>
           <div class="after">
             <div class="buttons">
@@ -252,21 +252,21 @@ require 'Include/Header.php';
               </a>
             </div>
           </div>
-        <?php 
-          } 
+        <?php
+          }
         ?>
         </div>
         <h3 class="profile-username text-center"><?= _('Family') . ': ' . $family->getName() ?></h3>
-      <?php 
+      <?php
         if ($bOkToEdit) {
       ?>
         <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
            class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
       <?php
-        } 
+        }
       ?>
         <hr/>
-      <?php 
+      <?php
          $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled())?true:false;
       ?>
         <ul class="fa-ul">
@@ -278,7 +278,7 @@ require 'Include/Header.php';
              <?= OutputUtils::GetLinkMapFromAddress ($family->getAddress()) ?>
           </span><br>
 
-        <?php 
+        <?php
           if ($family->getLatitude() && $family->getLongitude()) {
             if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
               $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
@@ -287,9 +287,9 @@ require 'Include/Header.php';
             }
           } else {
             $bHideLatLon = true;
-          } 
+          }
         ?>
-      <?php 
+      <?php
         if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
           <li><i class="fa-li fa fa-compass"></i><?= _("Latitude/Longitude") ?>
               <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
@@ -297,14 +297,14 @@ require 'Include/Header.php';
       <?php
         }
 
-        if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
+        if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
       ?>
           <li><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>
           </li>
       <?php
         }
-        if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */ 
+        if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */
       ?>
           <li>
             <i class="fa-li fa fa-magic"></i><?= _("Wedding Date") ?>:
@@ -336,7 +336,7 @@ require 'Include/Header.php';
       ?>
           <li><i class="fa-li fa fa-mobile"></i><?= _("Mobile Phone") ?>: <span><a
                           href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
-          <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a 
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a
                           href="sms:<?= $sCellPhone ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
 
       <?php
@@ -346,7 +346,7 @@ require 'Include/Header.php';
           <li><i class="fa-li fa fa-envelope"></i><?= _("Email") ?>:
             <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
           </li>
-        <?php 
+        <?php
           if ($mailchimp->isActive()) {
         ?>
           <li><i class="fa-li fa fa-send"></i><?= _("MailChimp") ?>:
@@ -362,9 +362,9 @@ require 'Include/Header.php';
   foreach ($ormFamCustomFields as $rowCustomField) {
     if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
       $currentData = trim($aFamCustomDataArr[$rowCustomField->getCustomField()]);
-      
+
       if ( empty($currentData) ) continue;
-      
+
       if ($rowCustomField->getTypeId() == 11) {
         $fam_custom_Special = $sPhoneCountry;
       } else {
@@ -372,12 +372,12 @@ require 'Include/Header.php';
       }
     ?>
           <li><i class="fa-li fa fa-tag"></i>
-            <?= $rowCustomField->getCustomName() ?>: 
+            <?= $rowCustomField->getCustomName() ?>:
             <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special)  ?>
             </span>
           </li>
     <?php
-      }      
+      }
     }
   ?>
         </ul>
@@ -388,16 +388,16 @@ require 'Include/Header.php';
     <div class="box box-success box-body">
       <?php
         $buttons = 0;
-        
+
         if (Cart::FamilyInCart($iFamilyID) && SessionUser::getUser()->isShowCartEnabled()) {
           $buttons++;
       ?>
         <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
-      <?php 
+      <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
         <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
-      <?php 
+      <?php
        }
 
        if ( SessionUser::getUser()->isEmailEnabled() ) {
@@ -406,12 +406,18 @@ require 'Include/Header.php';
           foreach ($family->getActivatedPeople() as $person) {
             $emails .= $person->getEmail().SessionUser::getUser()->MailtoDelimiter();
           }
-          
+
            $emails = mb_substr($emails, 0, -1)
       ?>
           <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= _('Email') ?></a>
           <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
       <?php
+        }
+        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+          $buttons++;
+          ?>
+          <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
+          <?php
         }
 
         if (SessionUser::getUser()->isAdmin()) {
@@ -420,8 +426,7 @@ require 'Include/Header.php';
       <a class="btn btn-app bg-aqua" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
       <?php
         }
-      ?>
-      <?php
+
         if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
           $buttons++;
     ?>
@@ -434,7 +439,7 @@ require 'Include/Header.php';
       ?>
           <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
       <?php
-        } 
+        }
 
       if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
         $buttons++;
@@ -443,15 +448,15 @@ require 'Include/Header.php';
               <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
           </button>
           <?php
-      } 
-      
+      }
+
       if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
         $buttons++;
     ?>
           <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
     <?php
       }
-      
+
       if ( !$buttons ) {
     ?>
        <?= _("Private Data") ?>
@@ -461,7 +466,7 @@ require 'Include/Header.php';
   </div>
 </div>
 
-<?php 
+<?php
   if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
@@ -478,7 +483,7 @@ require 'Include/Header.php';
               </tr>
             </thead>
           <tbody>
-        <?php 
+        <?php
           foreach ($family->getActivatedPeople() as $person) {
         ?>
             <tr>
@@ -498,7 +503,7 @@ require 'Include/Header.php';
                   $labelColor = 'label-info';
               } elseif ($famRole == _('Child')) {
                   $labelColor = 'label-warning';
-              } 
+              }
             ?>
                 <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
               </td>
@@ -512,11 +517,11 @@ require 'Include/Header.php';
               <td>
             <?php $tmpEmail = $person->getEmail();
                     if ($tmpEmail != "") {
-                      array_push($sFamilyEmails, $tmpEmail); 
+                      array_push($sFamilyEmails, $tmpEmail);
                   ?>
                       <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
                   <?php
-                    } 
+                    }
                   ?>
               </td>
               <td style="width: 20%;">
@@ -532,7 +537,7 @@ require 'Include/Header.php';
                 <?php
                   }
                 ?>
-                <?php 
+                <?php
                   if ($bOkToEdit) {
                 ?>
                   <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
@@ -549,12 +554,12 @@ require 'Include/Header.php';
                     </span>
                   </a>
                 <?php
-                  } 
+                  }
                 ?>
               </td>
             </tr>
           <?php
-            } 
+            }
           ?>
           </tbody>
         </table>
@@ -573,13 +578,13 @@ require 'Include/Header.php';
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= _("Timeline") ?></a></li>
           <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= _("Assigned Properties") ?></a></li>
-        <?php 
+        <?php
           if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
         ?>
           <li role="presentation"><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
           <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= _("Pledges and Payments") ?></a></li>
           <?php
-            } 
+            }
           ?>
           <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
         </ul>
@@ -596,15 +601,15 @@ require 'Include/Header.php';
               <!-- /.timeline-label -->
 
               <!-- timeline item -->
-              <?php 
+              <?php
                 $countMainTimeLine    = 0;  // number of items in the MainTimeLines
 
                 foreach ($timelineServiceItems as $item) {
                  $countMainTimeLine++;
-       
+
                  if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
                   if ($curYear != $item['year']) {
-                    $curYear = $item['year']; 
+                    $curYear = $item['year'];
               ?>
                 <li class="time-label">
                     <span class="bg-gray">
@@ -612,19 +617,19 @@ require 'Include/Header.php';
                     </span>
                 </li>
               <?php
-                } 
+                }
               ?>
                 <li>
                   <!-- timeline icon -->
                   <i class="fa <?= $item['style'] ?>"></i>
 
                   <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i><?= $item['datetime'] ?> 
-                    <?php 
+                    <span class="time"><i class="fa fa-clock-o"></i><?= $item['datetime'] ?>
+                    <?php
                         if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && $item['slim']) {
                     ?>
                     &nbsp;
-                  <?php 
+                  <?php
                     if (isset($item["editLink"])) {
                   ?>
                     <?= $item["editLink"] ?>
@@ -635,7 +640,7 @@ require 'Include/Header.php';
                     </a>
                   <?php
                     }
-                    
+
                     if (isset($item["deleteLink"])) {
                   ?>
                     <?= $item["deleteLink"] ?>
@@ -645,12 +650,12 @@ require 'Include/Header.php';
                       </span>
                     </a>
               <?php
-                } 
+                }
               } ?>
                   </span>
 
                   <h3 class="timeline-header">
-                <?php 
+                <?php
                   if (in_array('headerlink', $item)) {
                 ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
@@ -659,7 +664,7 @@ require 'Include/Header.php';
                 ?>
                       <?= _($item['header']) ?>
                 <?php
-                  } 
+                  }
                 ?>
                   </h3>
 
@@ -667,11 +672,11 @@ require 'Include/Header.php';
                      <pre><?= $item['text'] ?></pre>
                   </div>
 
-                <?php 
+                <?php
                    if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && !$item['slim']) {
                 ?>
                   <div class="timeline-footer">
-                <?php 
+                <?php
                   if (isset($item["editLink"])) {
                 ?>
                     <?= $item["editLink"] ?>
@@ -679,23 +684,23 @@ require 'Include/Header.php';
                     </a>
                 <?php
                   }
-                  
+
                   if (isset($item["deleteLink"])) {
                 ?>
                     <?= $item["deleteLink"] ?>
                       <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </a>
                 <?php
-                  } 
+                  }
                 ?>
                   </div>
                 <?php
-                  } 
+                  }
                 ?>
               </div>
             </li>
           <?php
-            } 
+            }
           ?>
             <!-- END timeline item -->
           </ul>
@@ -727,7 +732,7 @@ require 'Include/Header.php';
                           <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>*/
                         <?php
                             }
-                          } 
+                          }
                         ?>
                         </select>
                       </div>
@@ -739,18 +744,18 @@ require 'Include/Header.php';
                 </div>
               </div>
             <?php
-                } 
+                }
             ?>
             </div>
           </div>
         </div>
-      <?php 
+      <?php
         if (SessionUser::getUser()->isFinanceEnabled()) {
       ?>
         <div role="tab-pane fade" class="tab-pane" id="finance">
             <div class="main-box clearfix">
               <div class="main-box-body clearfix">
-            <?php 
+            <?php
               if ($ormAutoPayments->count() > 0) {
             ?>
                 <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
@@ -789,14 +794,14 @@ require 'Include/Header.php';
                   </div>
                 <?php
                   $tog = 0;
-                  if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {        
+                  if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
                 ?>
-        
+
                    <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
                 <?php
                   } // if bShowPledges
                 ?>
-                            
+
                   <p align="center">
                     <a class="btn btn-primary"
                        href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
@@ -804,7 +809,7 @@ require 'Include/Header.php';
                        href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                   </p>
 
-                <?php 
+                <?php
                   if (SessionUser::getUser()->isCanvasserEnabled()) {
                 ?>
                   <p align="center">
@@ -812,13 +817,13 @@ require 'Include/Header.php';
                          href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
                 <?php
-                  } 
+                  }
                 ?>
                 </div>
               </div>
             </div>
       <?php
-        } 
+        }
       ?>
         <div role="tab-pane fade" class="tab-pane" id="notes">
               <ul class="timeline">
@@ -831,7 +836,7 @@ require 'Include/Header.php';
                 <!-- /.note-label -->
 
                 <!-- note item -->
-              <?php 
+              <?php
                 foreach ($timelineNotesServiceItems as $item) {
               ?>
                 <li>
@@ -843,7 +848,7 @@ require 'Include/Header.php';
                       <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
 
-                    <?php 
+                    <?php
                      if ($item['slim']) {
                        if ($item['editLink'] != '') {
                     ?>
@@ -855,7 +860,7 @@ require 'Include/Header.php';
                       </a>
                     <?php
                       }
-                      
+
                       if ($item['deleteLink'] != '') {
                     ?>
                       <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
@@ -870,7 +875,7 @@ require 'Include/Header.php';
                    ?>
                   </span>
                     <h3 class="timeline-header">
-                    <?php 
+                    <?php
                       if (in_array('headerlink', $item)) {
                     ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
@@ -879,7 +884,7 @@ require 'Include/Header.php';
                     ?>
                       <?= $item['header'] ?>
                     <?php
-                      } 
+                      }
                     ?>
                     </h3>
 
@@ -889,10 +894,10 @@ require 'Include/Header.php';
 
                   <?php if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {                                            ?>
                     <div class="timeline-footer">
-                    <?php 
+                    <?php
                       if (!$item['slim']) {
                     ?>
-                      <?php 
+                      <?php
                         if ($item['editLink'] != '') {
                       ?>
                         <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
@@ -900,24 +905,24 @@ require 'Include/Header.php';
                         </a>
                       <?php
                         }
-                        
+
                         if ($item['deleteLink'] != '') {
                       ?>
                         <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                       <?php
-                        } 
+                        }
                       ?>
                     </div>
                   <?php
-                    } 
-                  } 
+                    }
+                  }
                 ?>
                 </div>
               </li>
             <?php
-              } 
+              }
             ?>
             <!-- END timeline item -->
           </ul>
@@ -927,8 +932,8 @@ require 'Include/Header.php';
   </div>
 </div>
 
-<?php 
-  } 
+<?php
+  }
 ?>
 
 <!-- Modal -->
@@ -964,39 +969,39 @@ require 'Include/Header.php';
       <div class="modal-body">
         <b><?= _("Select how do you want to request the family information to be verified") ?></b>
         <p>
-        <?php 
+        <?php
           if (count($sFamilyEmails) > 0) {
         ?>
           <p><?= _("You are about to email copy of the family information in pdf to the following emails") ?>
           <ul>
-        <?php 
+        <?php
           foreach ($sFamilyEmails as $tmpEmail) {
         ?>
             <li><?= $tmpEmail ?></li>
         <?php
-          } 
+          }
         ?>
           </ul>
         </p>
       </div>
     <?php
-      } 
+      }
     ?>
       <div class="modal-footer text-center">
-    <?php 
+    <?php
       if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
     ?>
         <button type="button" id="onlineVerify" class="btn btn-warning warning">
-          <i class="fa fa-envelope"></i> 
+          <i class="fa fa-envelope"></i>
           <?= _("Online Verification") ?>
         </button>
     <?php
-      } 
+      }
     ?>
           <button type="button" id="verifyURL"
                   class="btn btn-default"><i class="fa fa-chain"></i> <?= _("URL") ?></button>
         <button type="button" id="verifyDownloadPDF" class="btn btn-info">
-          <i class="fa fa-download"></i> 
+          <i class="fa fa-download"></i>
           <?= _("PDF Report") ?>
         </button>
         <button type="button" id="verifyNow" class="btn btn-success">
@@ -1016,7 +1021,7 @@ require 'Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
-  
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = 0;
   window.CRM.currentFamily   = <?= $iFamilyID ?>;
@@ -1026,7 +1031,7 @@ require 'Include/Header.php';
   window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
   window.CRM.familyMail      = "<?= $family->getEmail() ?>";
-  
+
   var dataT                  = 0;
   var dataPaymentTable       = 0;
   var pledgePaymentTable     = 0;

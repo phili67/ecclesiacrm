@@ -626,7 +626,7 @@ if (!empty($person->getDateDeactivated())) {
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
           $buttons++;
       ?>
-        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
+        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
       <?php
        }
 
