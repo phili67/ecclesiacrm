@@ -727,10 +727,12 @@
     },
     "current": {
         "versions": [
-            "5.8.6"
+            "5.8.6",
+            "5.8.7"
         ],
         "scripts": [
-            "/mysql/upgrade/6.0.0-upgrade.php"
+            "/mysql/upgrade/6.0.0-upgrade.php",
+            "/mysql/upgrade/6.0.0-upgrade.sql"
         ],
         "dbVersion": "6.0.0"
     }
