@@ -10,24 +10,24 @@ window.CRM.editor = null;
 
 $(document).ready(function () {
   $( ".filterByPastor" ).click(function() {
-    var ID = $(this).data("personid");
-    
+    var ID = $(this).data("pastorid");
+
     $(".all-items").hide();
     $(".item-"+ID).show();
   });
-  
+
   $( ".filterByPastorAll" ).click(function() {
     $(".all-items").show();
   });
-  
-  
-  
+
+
+
   $( ".modify-pastoral" ).click(function() {
     var ID = $(this).data("id");
-    
+
     window.CRM.APIRequest({
         method: 'POST',
-        path: 'pastoralcare/getinfo',
+        path: 'pastoralcare/person/getinfo',
         data: JSON.stringify({"ID":ID})
     }).done(function(data) {
         var id       = data.id;
@@ -35,17 +35,17 @@ $(document).ready(function () {
         var typeDesc = data.typedesc;
         var visible  = data.visible;
         var text     = data.text;
-    
+
         if (window.CRM.editor != null) {
           CKEDITOR.remove(window.CRM.editor);
-          window.CRM.editor = null;              
+          window.CRM.editor = null;
         }
 
         // this will create the toolbar for the textarea
         modal = createPastoralCareWindow (typeid,typeDesc,visible,id);
-    
+
         $('form #NoteText').val(text);
-    
+
         if (window.CRM.editor == null) {
           if (window.CRM.bEDrive) {
              window.CRM.editor = CKEDITOR.replace('NoteText',{
@@ -65,17 +65,17 @@ $(document).ready(function () {
                width : '100%'
              });
           }
-   
+
          add_ckeditor_buttons(window.CRM.editor);
        }
-   
+
        modal.modal("show");
     });
   });
-    
+
   $( ".delete-pastoral" ).click(function() {
     var ID = $(this).data("id");
-    
+
     bootbox.confirm({
        title:  i18next.t("Delete Pastoral Care Type") + "?",
         message: i18next.t("This action can never be undone !!!!"),
@@ -92,33 +92,30 @@ $(document).ready(function () {
           {
              window.CRM.APIRequest({
                 method: 'POST',
-                path: 'pastoralcare/delete',
+                path: 'pastoralcare/person/delete',
                 data: JSON.stringify({"ID":ID})
             }).done(function(data) {
                location.reload();
                return true;
             });
-          } 
-        }        
+          }
+        }
     });
   });
-  
+
   $( ".newPastorCare" ).click(function() {
     var typeid   = $(this).data('typeid');
     var typeDesc = $(this).data('typedesc');
     var visible  = $(this).data('visible');
-    
+
     if (window.CRM.editor != null) {
         CKEDITOR.remove(window.CRM.editor);
-        window.CRM.editor = null;              
+        window.CRM.editor = null;
     }
 
     // this will create the toolbar for the textarea
     modal = createPastoralCareWindow (typeid,typeDesc,visible);
-    
-    /*var text = "coucou";
-    $('form #NoteText').val(text);*/
-    
+
     if (window.CRM.editor == null) {
       if (window.CRM.bEDrive) {
          window.CRM.editor = CKEDITOR.replace('NoteText',{
@@ -138,14 +135,14 @@ $(document).ready(function () {
             width : '100%'
          });
       }
-   
+
      add_ckeditor_buttons(window.CRM.editor);
    }
-   
+
    modal.modal("show");
   });
-  
-  function BootboxContent(type,visible){      
+
+  function BootboxContent(type,visible){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Pastoral Care Note Creation")+'</h3><form id="some-form">'
       +'<div class="row div-title">'
         +'<div class="col-md-3">' + i18next.t('Type') + ":</div>"
@@ -177,12 +174,12 @@ $(document).ready(function () {
 
     return object
   }
-    
+
   function createPastoralCareWindow (typeID,typeDesc,visible,id) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
   {
     if (id === undefined) {
       id = -1;
-    } 
+    }
 
     var modal = bootbox.dialog({
        message: BootboxContent(typeDesc,visible),
@@ -201,11 +198,11 @@ $(document).ready(function () {
          callback: function() {
             var visibilityStatus  = $('input[name="visibilityStatus"]:checked').val();
             var NoteText          = CKEDITOR.instances['NoteText'].getData();//$('form #NoteText').val();
-            
+
             if (id == -1) {
               window.CRM.APIRequest({
                   method: 'POST',
-                  path: 'pastoralcare/add',
+                  path: 'pastoralcare/person/add',
                   data: JSON.stringify({"typeID":typeID,"personID":currentPersonID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText})
               }).done(function(data) {
                  location.reload();
@@ -214,7 +211,7 @@ $(document).ready(function () {
             } else {
               window.CRM.APIRequest({
                   method: 'POST',
-                  path: 'pastoralcare/modify',
+                  path: 'pastoralcare/person/modify',
                   data: JSON.stringify({"ID":id,"typeID":typeID,"personID":currentPersonID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText})
               }).done(function(data) {
                  location.reload();
@@ -230,13 +227,89 @@ $(document).ready(function () {
           modal.modal("hide");
        }*/
      });
-     
-             
+
+
     // this will ensure that image and table can be focused
     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-      
+
     return modal;
   }
-  
 
+    function addEvent(dateStart,dateEnd)
+    {
+        if (window.CRM.editor != null) {
+            CKEDITOR.remove(window.CRM.editor);
+            window.CRM.editor = null;
+        }
+
+        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','Checkin.php');
+
+        // we add the calendars and the types
+        addCalendars();
+        addCalendarEventTypes(-1,true);
+
+        //Timepicker
+        $('.timepicker').timepicker({
+            showInputs: false,
+            showMeridian: (window.CRM.timeEnglish == "true")?true:false
+        });
+
+        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+
+        $('.date-picker').click('focus', function (e) {
+            e.preventDefault();
+            $(this).datepicker('show');
+        });
+
+        $('.date-start').hide();
+        $('.date-end').hide();
+        $('.date-recurrence').hide();
+        $(".eventNotes").hide();
+
+        $("#typeEventrecurrence").prop("disabled", true);
+        $("#endDateEventrecurrence").prop("disabled", true);
+
+        // this will create the toolbar for the textarea
+        if (window.CRM.editor == null) {
+            if (window.CRM.bEDrive) {
+                window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                    customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    language : window.CRM.lang,
+                    width : '100%',
+                    extraPlugins : 'uploadfile,uploadimage,filebrowser',
+                    uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                    imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+                    filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                    filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
+                });
+            } else {
+                window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                    customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                    language : window.CRM.lang,
+                    width : '100%'
+                });
+            }
+
+            add_ckeditor_buttons(window.CRM.editor);
+        }
+
+
+        $(".ATTENDENCES").hide();
+
+        $('#EventCalendar option:first-child').attr("selected", "selected");
+
+        modal.modal("show");
+
+        initMap();
+    }
+
+
+    $('#add-event').click('focus', function (e) {
+        var fmt = 'YYYY-MM-DD HH:mm:ss';
+
+        var dateStart = moment().format(fmt);
+        var dateEnd = moment().format(fmt);
+
+        addEvent(dateStart,dateEnd);
+    });
 });
