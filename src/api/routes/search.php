@@ -3,7 +3,7 @@
 *
 *  filename    : api/routes/search.php
 *  last change : 2017/10/29 Philippe Logel
-*  description : Search terms like : Firstname, Lastname, phone, address, 
+*  description : Search terms like : Firstname, Lastname, phone, address,
 *                 groups, families, etc...
 *
 ******************************************************************************/
@@ -24,20 +24,20 @@ use EcclesiaCRM\SessionUser;
 /*
  * @! a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
  * #! param: ref->string :: query string as ref
- */  
+ */
 
 $app->get('/search/{query}', function ($request, $response, $args) {
     $query = $args['query'];
     $resultsArray = [];
-    
+
     $id = 1;
-    
+
     //Person Search
     if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
         try {
           $searchLikeString = '%'.$query.'%';
           $people = PersonQuery::create();
-          
+
           if (SystemConfig::getBooleanValue('bGDPR')) {
              $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
           }
@@ -50,27 +50,27 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->
             limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
-      
-    
+
+
           if (!is_null($people))
           {
             $data = [];
             $id++;
-            
+
             foreach ($people as $person) {
               $elt = ['id'=>$id++,
                   'text'=>$person->getFullName(),
                   'uri'=>$person->getViewURI()];
-          
+
               array_push($data, $elt);
-            }          
-      
+            }
+
             if (!empty($data))
             {
               $dataPerson = ['children' => $data,
               'id' => 0,
               'text' => _('Persons')];
-          
+
               $resultsArray = array ($dataPerson);
             }
           }
@@ -78,45 +78,45 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             $this->Logger->warn($e->getMessage());
         }
     }
-    
+
     //Person Search by address
     if (SystemConfig::getBooleanValue("bSearchIncludeAddresses")) {
         try {
           $searchLikeString = '%'.$query.'%';
           $addresses = FamilyQuery::create();
-          
+
           if (SystemConfig::getBooleanValue('bGDPR')) {
              $addresses->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
           }
 
-          
+
           $addresses->filterByCity($searchLikeString, Criteria::LIKE)->
             _or()->filterByAddress1($searchLikeString, Criteria::LIKE)->
             _or()->filterByAddress2($searchLikeString, Criteria::LIKE)->
             _or()->filterByZip($searchLikeString, Criteria::LIKE)->
             _or()->filterByState($searchLikeString, Criteria::LIKE)->
             limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
-      
+
           if (!is_null($addresses))
-          {          
+          {
             $data = [];
             $id++;
-          
+
             foreach ($addresses as $address) {
               $elt = ['id'=>$id++,
                   'text'=>$address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                   'uri'=>$address->getViewURI()
               ];
-          
+
               array_push($data, $elt);
-            }          
-      
+            }
+
             if (!empty($data))
             {
               $dataAddress = ['children' => $data,
               'id' => 1,
               'text' => _('Address')];
-          
+
               array_push($resultsArray,$dataAddress);
             }
           }
@@ -124,18 +124,18 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             $this->Logger->warn($e->getMessage());
         }
     }
-    
-    
+
+
     //family search
     if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
         try {
           $results = [];
           $families = FamilyQuery::create();
-          
+
           if (SystemConfig::getBooleanValue('bGDPR')) {
             $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
           }
-          
+
           $families->filterByName("%$query%", Criteria::LIKE)->
               _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
@@ -144,30 +144,30 @@ $app->get('/search/{query}', function ($request, $response, $args) {
 
           if (!is_null($families))
           {
-            $data = []; 
-            $id++;          
-          
+            $data = [];
+            $id++;
+
             foreach ($families as $family)
-            {    
+            {
               if ($family->getPeople()->count() == 1) {// we avoid a one person family
                 continue;
               }
-              
+
               $searchArray=[
                 "id" => $id++,
                 "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                 "uri" => $family->getViewURI()
               ];
-          
+
               array_push($data,$searchArray);
             }
-            
+
             if (!empty($data))
             {
               $dataFamilies = ['children' => $data,
                 'id' => 2,
                 'text' => _('Families')];
-      
+
               array_push($resultsArray, $dataFamilies);
             }
           }
@@ -175,7 +175,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             $this->Logger->warn($e->getMessage());
         }
     }
-    
+
     // Group Search
     if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {
         try {
@@ -186,27 +186,27 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
                 ->select(['displayName', 'uri'])
                 ->find();
-            
-            
+
+
             if (!is_null($groups))
-            { 
-              $data = [];   
+            {
+              $data = [];
               $id++;
-              
+
               foreach ($groups as $group) {
                 $elt = ['id'=>$id++,
                   'text'=>$group['displayName'],
                   'uri'=>$group['uri']];
-          
+
                 array_push($data, $elt);
               }
-      
+
               if (!empty($data))
               {
                 $dataGroup = ['children' => $data,
                   'id' => 3,
                   'text' => _('Groups')];
-  
+
                 array_push($resultsArray, $dataGroup);
               }
             }
@@ -214,12 +214,12 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             $this->Logger->warn($e->getMessage());
         }
     }
-    
-    
-    if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) 
+
+
+    if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') )
     {
         //Deposits Search
-        if (SystemConfig::getBooleanValue("bSearchIncludeDeposits")) 
+        if (SystemConfig::getBooleanValue("bSearchIncludeDeposits"))
         {
           try {
              /* $Deposits = DepositQuery::create();
@@ -233,20 +233,20 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                     ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
                     ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
                     ->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
-              
+
               if (!is_null($Deposits))
-              {      
-                $data = [];               
-                $id++;        
-              
-                foreach ($Deposits as $Deposit) {        
+              {
+                $data = [];
+                $id++;
+
+                foreach ($Deposits as $Deposit) {
                   $elt = ['id'=>$id++,
                     'text'=>$Deposit['displayName'],
                     'uri'=>$Deposit['uri']];
-        
+
                   array_push($data, $elt);
                 }
-        
+
                 if (!empty($data))
                 {
                   $dataDeposit = ['children' => $data,
@@ -268,20 +268,20 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                          ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
                          ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
                          ->find();
-                         
+
               if (!is_null($Deposits))
-              {      
-                $data = [];               
-                $id++;        
-              
-                foreach ($Deposits as $Deposit) {        
+              {
+                $data = [];
+                $id++;
+
+                foreach ($Deposits as $Deposit) {
                   $elt = ['id'=>$id++,
                     'text'=>$Deposit->getComment(),
                     'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId()];
-        
+
                   array_push($data, $elt);
                 }
-        
+
                 if (!empty($data))
                 {
                   $dataDeposit = ['children' => $data,
@@ -290,31 +290,31 @@ $app->get('/search/{query}', function ($request, $response, $args) {
 
                   array_push($resultsArray, $dataDeposit);
                 }
-              }       
+              }
             } catch (Exception $e) {
                 $this->Logger->warn($e->getMessage());
             }
           }
 
           //Search Payments
-          if (SystemConfig::getBooleanValue("bSearchIncludePayments")) 
+          if (SystemConfig::getBooleanValue("bSearchIncludePayments"))
           {
             try {
               $Payments = $this->FinancialService->searchPayments($query);
-                  
+
               if (!is_null($Payments))
-              {  
-                $data = [];   
+              {
+                $data = [];
                 $id++;
-        
+
                 foreach ($Payments as $Payment) {
                   $elt = ['id'=>$id++,
                     'text'=>$Payment['displayName'],
                     'uri'=>$Payment['uri']];
-        
+
                   array_push($data, $elt);
                 }
-        
+
                 if (!empty($data))
                 {
                   $dataPayements = ['children' => $data,
@@ -324,50 +324,57 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                   array_push($resultsArray, $dataPayements);
                 }
               }
-        
+
             } catch (Exception $e) {
                 $this->Logger->warn($e->getMessage());
             }
         }
-        
-        //Search PastoralCare
+
+        //Search PastoralCare person
         if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
           try {
             $searchLikeString = '%'.$query.'%';
             $cares = PastoralCareQuery::Create()
-                     ->filterByText($searchLikeString, Criteria::LIKE)
-                     ->leftJoinPastoralCareType()
-                     ->joinPersonRelatedByPersonId()                     
-                     ->_or()
-                     ->usePastoralCareTypeQuery()
+                ->leftJoinPastoralCareType()
+                ->joinPersonRelatedByPersonId()
+                ->filterByPersonId(null, Criteria::NOT_EQUAL)
+                ->filterByText($searchLikeString, Criteria::LIKE)
+                ->_or()
+                ->usePastoralCareTypeQuery()
                        ->filterByTitle($searchLikeString, Criteria::LIKE)
-                     ->endUse()
-                     ->orderByDate(Criteria::DESC)
-                     ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
-                     
+                ->endUse()
+                ->_or()
+                ->usePersonRelatedByPersonIdQuery()
+                      ->filterByLastName($searchLikeString, Criteria::LIKE)
+                    ->_or()
+                      ->filterByFirstName($searchLikeString, Criteria::LIKE)
+                ->endUse()
+                ->orderByDate(Criteria::DESC)
+                ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
+
             if (SessionUser::getUser()->isAdmin()) {
               $cares->find();
             } else {
               $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
             }
-                   
+
             if (!is_null($cares)) {
-                $data = [];   
+                $data = [];
                 $id++;
-        
+
                 foreach ($cares as $care) {
                   $elt = ['id'=>$id++,
-                    'text'=>$care->getPersonRelatedByPersonId()->getFullName(),
-                    'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/".$care->getPersonId()];
-        
+                    'text'=>$care->getPastoralCareType()->getTitle() . " : " . $care->getPersonRelatedByPersonId()->getFullName(),
+                    'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/person/".$care->getPersonId()];
+
                   array_push($data, $elt);
                 }
-        
+
                 if (!empty($data))
                 {
                   $dataPayements = ['children' => $data,
                   'id' => 6,
-                  'text' => _('Pastoral Care')];
+                  'text' => _('Individual Pastoral Care')];
 
                   array_push($resultsArray, $dataPayements);
                 }
@@ -375,8 +382,60 @@ $app->get('/search/{query}', function ($request, $response, $args) {
           } catch (Exception $e) {
             $this->Logger->warn($e->getMessage());
           }
+
+          // now we search the families
+            try {
+                $searchLikeString = '%'.$query.'%';
+                $cares = PastoralCareQuery::Create()
+                    ->leftJoinPastoralCareType()
+                    ->leftJoinFamily()
+                    ->filterByFamilyId(null, Criteria::NOT_EQUAL)
+                    ->filterByText($searchLikeString, Criteria::LIKE)
+                    ->_or()
+                    ->useFamilyQuery()
+                        ->filterByName($searchLikeString, Criteria::LIKE)
+                    ->endUse()
+                    ->_or()
+                    ->usePastoralCareTypeQuery()
+                        ->filterByTitle($searchLikeString, Criteria::LIKE)
+                    ->endUse()
+                    ->orderByDate(Criteria::DESC)
+                    ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
+
+                if (SessionUser::getUser()->isAdmin()) {
+                    $cares->find();
+                } else {
+                    $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
+                }
+
+                $this->Logger->info($cares->count());
+
+                if (!is_null($cares)) {
+                    $data = [];
+                    $id++;
+
+                    foreach ($cares as $care) {
+                        $elt = ['id'=>$id++,
+                            'text'=>$care->getPastoralCareType()->getTitle() . " : " . $care->getFamily()->getName(),
+                            'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/family/".$care->getFamilyId()];
+
+                        array_push($data, $elt);
+                    }
+
+                    if (!empty($data))
+                    {
+                        $dataPayements = ['children' => $data,
+                            'id' => 7,
+                            'text' => _('Family Pastoral Care')];
+
+                        array_push($resultsArray, $dataPayements);
+                    }
+                }
+            } catch (Exception $e) {
+                $this->Logger->warn($e->getMessage());
+            }
         }
     }
-    
+
     return $response->withJson(array_filter($resultsArray));
 });
