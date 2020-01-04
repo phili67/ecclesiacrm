@@ -63,7 +63,7 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
     //Get name
     $person = PersonQuery::Create()->findOneById ($currentPersonID);
 
-    $sPageTitle = gettext("Pastoral care for person")."  : \"".$person->getFullName()."\"";
+    $sPageTitle = _("Individual Pastoral care")."  : \"".$person->getFullName()."\"";
 
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
@@ -117,7 +117,7 @@ function argumentsPastoralFamilyListArray ($currentFamilyID=0)
     //Get name
     $family = FamilyQuery::Create()->findOneById ($currentFamilyID);
 
-    $sPageTitle = gettext("Pastoral care for family")."  : \"".$family->getName()."\"";
+    $sPageTitle = _("Family Pastoral care")."  : \"".$family->getName()."\"";
 
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
