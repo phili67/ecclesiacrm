@@ -1,18 +1,17 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : PastoralCare.php
- *  last change : 2019-03-23
+ *  filename    : pastoralcarefamily.php
+ *  last change : 2020-01-03
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorization
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
 use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
-
 
 <?php
   if ($ormPastoralCares->count() == 0) {
@@ -48,6 +47,8 @@ require $sRootDocument . '/Include/Header.php';
          }
       ?>
     </ul>
+
+    <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
   </div>
   <!--<a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCare.php?PersonID=<?= $currentFamilyID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>-->
 
@@ -139,6 +140,9 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
@@ -148,4 +152,5 @@ require $sRootDocument . '/Include/Header.php';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/people/PastoralCareFamily.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 
