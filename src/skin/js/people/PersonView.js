@@ -1,8 +1,6 @@
 $(document).ready(function () {
 // mailChimp management
   if (window.CRM.normalMail != undefined) {
-    window.CRM.renderMailchimpLists();
-    
     window.CRM.APIRequest({
       method: 'POST',
       path: 'persons/isMailChimpActive',
@@ -26,7 +24,7 @@ $(document).ready(function () {
       }
     });
   }
-  
+
   if (window.CRM.workMail != undefined) {
     window.CRM.APIRequest({
       method: 'POST',
@@ -50,7 +48,7 @@ $(document).ready(function () {
     });
   }
   // end mailChimp management
-  
+
   $("#activateDeactivate").click(function () {
       console.log("click activateDeactivate");
       popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
@@ -113,11 +111,11 @@ $(document).ready(function () {
 
 
   $(document).ready(function() {
-      
-      $("#input-volunteer-opportunities").select2({ 
+
+      $("#input-volunteer-opportunities").select2({
         language: window.CRM.shortLocale
       });
-      $("#input-person-properties").select2({ 
+      $("#input-person-properties").select2({
         language: window.CRM.shortLocale
       });
 
@@ -136,7 +134,7 @@ $(document).ready(function () {
       });
 
   });
-  
+
   // the assigned properties
   window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
     ajax:{
@@ -161,9 +159,9 @@ $(document).ready(function () {
           } else {
             ret += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }
-            
+
           ret += '<a href="" class="remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
-          
+
           return ret;
         }
       },
@@ -189,11 +187,11 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
+
   $('body').on('click','.assign-property-btn',function(){
    var property_id = $('.input-person-properties').val();
-   var property_pro_value = $('.property-value').val();     
-   
+   var property_pro_value = $('.property-value').val();
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'properties/persons/assign',
@@ -202,7 +200,7 @@ $(document).ready(function () {
       if (data && data.success) {
          window.CRM.dataPropertiesTable.ajax.reload();
          promptBox.removeClass('form-group').html('');
-         
+
          if (data.count > 0) {
             $("#properties-warning").hide();
             $("#properties-table").show();
@@ -211,21 +209,21 @@ $(document).ready(function () {
     });
   });
 
-  
+
   $('.changeRole').click(function(event) {
     var GroupID = $(this).data("groupid");
     window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:GroupID},function(selection){
       window.CRM.groups.addPerson(GroupID,window.CRM.currentPersonID,selection.RoleID).done(function(){
         location.reload();
       })
-      
+
     });
   });
 
   $(".groupRemove").click(function(event){
     var targetGroupID = event.currentTarget.dataset.groupid;
     var targetGroupName = event.currentTarget.dataset.groupname;
-    
+
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove this person's membership from") + " " + targetGroupName + "?",
       buttons: {
@@ -246,71 +244,71 @@ $(document).ready(function () {
             function(){
               window.location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&group=true';
             }
-          ); 
+          );
         }
       }
     });
   });
-  
+
 // notes management
   function addPersonsFromNotes(noteId)
   {
       $('#select-share-persons').find('option').remove();
-      
+
       window.CRM.APIRequest({
             method: 'POST',
             path: 'sharedocument/getallperson',
             data: JSON.stringify({"noteId": noteId})
-      }).done(function(data) {    
+      }).done(function(data) {
         var elt = document.getElementById("select-share-persons");
         var len = data.length;
-      
+
         for (i=0; i<len; ++i) {
           var option = document.createElement("option");
           // there is a groups.type in function of the new plan of schema
           option.text = data[i].name;
-          //option.title = data[i].type;        
+          //option.title = data[i].type;
           option.value = data[i].id;
-        
+
           elt.appendChild(option);
         }
-      });  
-      
+      });
+
       //addProfilesToMainDropdown();
   }
-  
-  
+
+
   $(".shareNote").click(function(event){
     var noteId = event.currentTarget.dataset.id;
     var isShared = event.currentTarget.dataset.shared;
-    
+
     var button = $(this); //Assuming first tab is selected by default
     var state  = button.find('.fa-stack-2x');
-        
+
     var modal = bootbox.dialog({
        message: window.CRM.BootboxContentShareFiles(),
        buttons: [
         {
          label: i18next.t("Delete"),
          className: "btn btn-warning",
-         callback: function() {                        
-            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){ 
+         callback: function() {
+            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
               if (result) {
-                $('#select-share-persons :selected').each(function(i, sel){ 
+                $('#select-share-persons :selected').each(function(i, sel){
                   var personID = $(sel).val();
-                  
+
                   window.CRM.APIRequest({
                      method: 'POST',
                      path: 'sharedocument/deleteperson',
                      data: JSON.stringify({"noteId":noteId,"personID": personID})
                   }).done(function(data) {
-                    $("#select-share-persons option[value='"+personID+"']").remove(); 
-                    
+                    $("#select-share-persons option[value='"+personID+"']").remove();
+
                     if (data.count == 0) {
                       $(state).css('color', '#777');
                       $(button).data('shared',0);
                     }
-                    
+
                     $("#person-group-Id").val("").trigger("change");
                   });
                 });
@@ -323,7 +321,7 @@ $(document).ready(function () {
          label: i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
-          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){ 
+          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
             if (result) {
               window.CRM.APIRequest({
                  method: 'POST',
@@ -354,90 +352,90 @@ $(document).ready(function () {
           modal.modal("hide");
        }
      });
-     
+
     window.CRM.addSharedButtonsActions(noteId,isShared,button,state,modal);
   });
-  
+
   $(".filter-timeline").change(function() {
        switch ($(this).val()) {
          case 'shared':
            $(".type-file").hide();
-           $(".icon-file").hide();       
+           $(".icon-file").hide();
            $(".type-note").hide();
-           $(".icon-note").hide();       
+           $(".icon-note").hide();
            $(".type-video").hide();
-           $(".icon-video").hide();       
+           $(".icon-video").hide();
            $(".type-audio").hide();
-           $(".icon-audio").hide();       
+           $(".icon-audio").hide();
            $(".type-shared").show();
-           $(".icon-shared").show();      
+           $(".icon-shared").show();
            break;
          case 'file':
            $(".type-file").show();
-           $(".icon-file").show();       
+           $(".icon-file").show();
            $(".type-shared").hide();
-           $(".icon-shared").hide();       
+           $(".icon-shared").hide();
            $(".type-note").hide();
-           $(".icon-note").hide();       
+           $(".icon-note").hide();
            $(".type-video").hide();
-           $(".icon-video").hide();       
+           $(".icon-video").hide();
            $(".type-audio").hide();
-           $(".icon-audio").hide();       
+           $(".icon-audio").hide();
            break;
          case 'note':
            $(".type-shared").hide();
-           $(".icon-shared").hide();       
+           $(".icon-shared").hide();
            $(".type-file").hide();
-           $(".icon-file").hide();       
+           $(".icon-file").hide();
            $(".type-note").show();
-           $(".icon-note").show();       
+           $(".icon-note").show();
            $(".type-video").hide();
-           $(".icon-video").hide();       
+           $(".icon-video").hide();
            $(".type-audio").hide();
-           $(".icon-audio").hide();       
+           $(".icon-audio").hide();
            break;
          case 'audio':
            $(".type-shared").hide();
-           $(".icon-shared").hide();       
+           $(".icon-shared").hide();
            $(".type-file").hide();
-           $(".icon-file").hide();       
+           $(".icon-file").hide();
            $(".type-note").hide();
-           $(".icon-note").hide();       
+           $(".icon-note").hide();
            $(".type-audio").show();
-           $(".icon-audio").show();       
+           $(".icon-audio").show();
            $(".type-video").hide();
-           $(".icon-video").hide();       
+           $(".icon-video").hide();
            break;
          case 'video':
            $(".type-shared").hide();
-           $(".icon-shared").hide();       
+           $(".icon-shared").hide();
            $(".type-file").hide();
-           $(".icon-file").hide();       
+           $(".icon-file").hide();
            $(".type-note").hide();
-           $(".icon-note").hide();       
+           $(".icon-note").hide();
            $(".type-audio").hide();
-           $(".icon-audio").hide();       
+           $(".icon-audio").hide();
            $(".type-video").show();
-           $(".icon-video").show();       
+           $(".icon-video").show();
            break;
          case 'all':
            $(".type-shared").hide();
-           $(".icon-shared").hide();       
+           $(".icon-shared").hide();
            $(".type-file").show();
-           $(".icon-file").show();       
+           $(".icon-file").show();
            $(".type-note").show();
-           $(".icon-note").show();       
+           $(".icon-note").show();
            $(".type-video").show();
-           $(".icon-video").show();       
+           $(".icon-video").show();
            $(".type-audio").show();
-           $(".icon-audio").show();       
+           $(".icon-audio").show();
            break;
        }
-       
+
   });
-  
+
 // end of note management
-  
+
     $("#input-person-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
         promptBox.removeClass('form-group').html('');
@@ -477,7 +475,7 @@ $(document).ready(function () {
 
     });
 
-    $('body').on('click','.remove-property-btn',function(){ 
+    $('body').on('click','.remove-property-btn',function(){
         event.preventDefault();
         var thisLink = $(this);
         var dataToSend = {
@@ -509,7 +507,7 @@ $(document).ready(function () {
                     success: function (data, status, xmlHttpReq) {
                         if (data && data.success) {
                           window.CRM.dataPropertiesTable.ajax.reload();
-                          
+
                           if (data.count == 0) {
                               $("#properties-warning").show();
                               $("#properties-table").hide();
@@ -521,8 +519,8 @@ $(document).ready(function () {
           }
         });
     });
-    
-    $('body').on('click','.edit-property-btn',function(){ 
+
+    $('body').on('click','.edit-property-btn',function(){
         event.preventDefault();
         var thisLink = $(this);
         var person_id = thisLink.data('person_id');
@@ -540,7 +538,7 @@ $(document).ready(function () {
               className: 'btn btn-default'
             }
           },
-          title: i18next.t('Are you sure you want to change this property?'),          
+          title: i18next.t('Are you sure you want to change this property?'),
           value: property_name,
           callback: function (result) {
             if (result) {
@@ -557,14 +555,14 @@ $(document).ready(function () {
           }
         });
     });
-    
+
     $('#edit-role-btn').click(function (event) {
         event.preventDefault();
         var thisLink = $(this);
         var personId = thisLink.data('person_id');
         var familyRoleId = thisLink.data('family_role_id');
         var familyRole = thisLink.data('family_role');
-        
+
         $.ajax({
             type: 'GET',
             dataType: 'json',
@@ -576,13 +574,13 @@ $(document).ready(function () {
                       if (data[i].OptionId == familyRoleId) {
                           continue;
                       }
-                      
+
                       roles[roles.length] = {
                           text: data[i].OptionName,
                           value: data[i].OptionId
                       };
                     }
-                    
+
                     bootbox.prompt({
                       title:i18next.t('Change role'),
                       inputType: 'select',
@@ -601,16 +599,16 @@ $(document).ready(function () {
                               }
                           });
                         }
-                          
+
                       }
                     });
-                    
+
                 }
             }
         });
-        
+
     });
-    
+
     $(document).on("click",".AddOneToPeopleCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addPerson([clickedButton.data("onecartpersonid")],function()
@@ -625,7 +623,7 @@ $(document).ready(function () {
         }
       });
     });
-    
+
     $(document).on("click",".RemoveOneFromPeopleCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removePerson([clickedButton.data("onecartpersonid")],function()
@@ -643,7 +641,7 @@ $(document).ready(function () {
 
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
-    
+
     // newMessage event handler
     function updateButtons(e) {
       if (e.cartPeople.length == 0) {
@@ -657,18 +655,18 @@ $(document).ready(function () {
         }
       }
     }
-    
+
     // end of newMessage event subscribers : Listener CRJSOM.js
-    
-    
-  // this part allows to render the dataTable responsive in Tab  
+
+
+  // this part allows to render the dataTable responsive in Tab
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         $($.fn.dataTable.tables(true)).DataTable()
            .columns.adjust()
            .responsive.recalc();
   });
 
-  
+
   assignedVolunteerTable = $("#assigned-volunteer-opps-table").DataTable({
     ajax:{
       url: window.CRM.root + "/api/persons/volunteers/"+window.CRM.currentPersonID,
@@ -711,10 +709,10 @@ $(document).ready(function () {
       $(row).addClass("assignedVolunteerRow");
     }
   });
-  
+
   $(document).on("click",".delete-volunteerOpportunityId", function(){
      var volunteerOpportunityId = $(this).data("volunteeropportunityid");
-    
+
      bootbox.confirm(i18next.t("Confirm Delete volunteer Opportunity"), function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
@@ -735,11 +733,11 @@ $(document).ready(function () {
         }
      });
   });
-  
-  $(document).on("click",".VolunteerOpportunityAssign", function(){     
-     $('#input-volunteer-opportunities').each(function(i, sel){ 
+
+  $(document).on("click",".VolunteerOpportunityAssign", function(){
+     $('#input-volunteer-opportunities').each(function(i, sel){
         var volIDs = $(sel).val();
-        
+
         if (volIDs != null) {
           volIDs.forEach(function(volID) {
             window.CRM.APIRequest({
@@ -761,8 +759,8 @@ $(document).ready(function () {
         }
      });
   });
-  
-  
+
+
   automaticPaymentsTable = $("#automaticPaymentsTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/payments/family",
@@ -797,7 +795,7 @@ $(document).ready(function () {
         data:'NextPayDate',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-          
+
           return moment(data).format(fmt);
         }
       },
@@ -840,13 +838,13 @@ $(document).ready(function () {
         data:'DateLastEdited',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-    
+
           if (window.CRM.timeEnglish == 'true') {
             time_format = 'h:mm A';
           } else {
             time_format = 'H:mm';
           }
-    
+
           return moment(data).format(fmt+' '+time_format);;
         }
       },
@@ -864,12 +862,12 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
-  
+
+
   $(document).on("click",".delete-payment", function(){
-     clickedButton = $(this);         
+     clickedButton = $(this);
      var autoPaymentId = clickedButton.data("id");
-    
+
      bootbox.confirm(i18next.t("Confirm Delete Automatic payment"), function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
@@ -882,8 +880,8 @@ $(document).ready(function () {
         }
      });
   });
-  
-  
+
+
   pledgePaymentTable = $("#pledgePaymentTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/pledges/family",
@@ -936,7 +934,7 @@ $(document).ready(function () {
         data:'Date',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-          
+
           return moment(data).format(fmt);
         }
       },
@@ -979,10 +977,10 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (full.Method == "CHECK")
             return i18next.t(data);
-          else 
+          else
             return i18next.t('None');
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Comment'),
@@ -991,27 +989,27 @@ $(document).ready(function () {
           return i18next.t(data);
         }
       },
-      
+
       {
         width: 'auto',
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
           var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-          
+
           if (full.Closed != "1") {
             ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
           }
-          
+
           return ret;
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Date Updated'),
         data:'Datelastedited',
         render: function(data, type, full, meta) {
-          var fmt = window.CRM.datePickerformat.toUpperCase();          
+          var fmt = window.CRM.datePickerformat.toUpperCase();
           return moment(data).format(fmt);
         }
       },
@@ -1029,11 +1027,11 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
+
   $(document).on("click",".delete-pledge", function(){
-     clickedButton = $(this);         
+     clickedButton = $(this);
      var paymentId = clickedButton.data("id");
-    
+
      bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
@@ -1046,15 +1044,15 @@ $(document).ready(function () {
         }
      });
   });
-  
+
    $('#ShowPledges').change(function() {
-      applyFilter();      
+      applyFilter();
     });
-    
+
    $('#ShowPayments').change(function() {
        applyFilter();
     });
-    
+
     $("#date-picker-period").change(function () {
       alert($('#date-picker-period').val());
     });
@@ -1064,13 +1062,13 @@ $(document).ready(function () {
         if (settings.nTable.id == "automaticPaymentsTable" || settings.nTable.id  == "edrive-table" ) {
           return true;
         }
-        
+
         var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
         var min = moment($('#Min').val(),fmt);
         var max = moment($('#Max').val(),fmt);
         var age = moment(data[4],fmt);
- 
+
         if ( ( isNaN( min ) && isNaN( max ) ) ||
              ( isNaN( min ) && age <= max ) ||
              ( min <= age   && isNaN( max ) ) ||
@@ -1084,9 +1082,9 @@ $(document).ready(function () {
     $("#Min").on('change', function(){
       pledgePaymentTable.draw();
       var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
       var min = moment($(this).val(),fmt).format('YYYY-MM-DD');
-      
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'users/showsince',
@@ -1100,7 +1098,7 @@ $(document).ready(function () {
       var fmt = window.CRM.datePickerformat.toUpperCase();
 
       var max = moment($(this).val(),fmt).format('YYYY-MM-DD');
-      
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'users/showto',
@@ -1114,7 +1112,7 @@ $(document).ready(function () {
     {
       var showPledges = $('#ShowPledges').prop('checked');
       var showPayments = $('#ShowPayments').prop('checked');
-      
+
       if (showPledges && showPayments) {
         pledgePaymentTable.column(0).search(i18next.t("Pledge")+"|"+i18next.t("Payment"), true, false).draw();
       } else if (showPledges) {
@@ -1123,7 +1121,7 @@ $(document).ready(function () {
         pledgePaymentTable.column(0).search(i18next.t("Payment")).draw();
       }
     }
-    
+
     applyFilter();
 });
 

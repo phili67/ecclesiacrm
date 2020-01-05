@@ -3,7 +3,7 @@
 namespace EcclesiaCRM\Service;
 class NewDashboardService
 {
-  
+
   public static function getDashboardItems($PageName) {
      $DashboardItems = array (
        "EcclesiaCRM\Dashboard\EventsDashboardItem",
@@ -12,6 +12,7 @@ class NewDashboardService
        "EcclesiaCRM\Dashboard\GroupsDashboardItem",
        "EcclesiaCRM\Dashboard\PersonDashboardItem",
        "EcclesiaCRM\Dashboard\PersonDemographicDashboardItem",
+       "EcclesiaCRM\Dashboard\MailchimpDashboardItem",
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {
@@ -20,7 +21,7 @@ class NewDashboardService
       }
     }
     return $ReturnValues;
-    
+
   }
   public static function getValues($PageName) {
     $ReturnValues = array ();

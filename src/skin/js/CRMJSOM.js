@@ -1,5 +1,5 @@
 /*
- * ChurcmCRM JavaScript Object Model Initailizaion Script
+ * EcclesiaCRM JavaScript Object Model Initializaion Script
  */
 
     window.CRM.APIRequest = function(options) {
@@ -1004,7 +1004,8 @@
             updatedFamiliesTable.rows.add(data.UpdatedFamilies);
             updatedFamiliesTable.draw(true);
           }
-        }, GroupsDisplay: function (data) {
+        },
+        GroupsDisplay: function (data) {
           var dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
           if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
             dashBoardStatsSundaySchool.innerText = data.sundaySchoolClasses;
@@ -1015,6 +1016,31 @@
           if (dashBoardGroupsCountDashboard) {// We have to check if we are on the dashboard menu
             dashBoardGroupsCountDashboard.innerText = data.groups;
           }
+        },
+        MailchimpDisplay:function (data) {
+            if (data.isActive) {
+                var len = data.MailChimpLists.length;
+
+                // now we empty the menubar lists
+                $(".lists_class_menu").removeClass("hidden");
+                var lists_menu = $(".lists_class_menu").parent();
+                var real_listMenu = $(lists_menu).find(".treeview-menu");
+
+                real_listMenu.html("");
+                var listItems = "";
+
+                for (i = 0; i < len; i++) {
+                    var list = data.MailChimpLists[i];
+
+                    listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>' + list.name + '</a>';
+                }
+
+                real_listMenu.html(listItems);
+
+                if (data.firstLoaded == true) {
+                    window.CRM.notify('glyphicon glyphicon-info-sign', i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top");
+                }
+            }
         },
         PersonCount: function (data) {
           var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');

@@ -10,8 +10,6 @@ $(document).ready(function () {
         $("#Menu_Banner").slideUp(500);
     });
 
-    window.CRM.renderMailchimpLists();
-
     if (window.CRM.depositData && window.CRM.bEnabledFinance) {
         //---------------
         //- LINE CHART  -
