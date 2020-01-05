@@ -257,7 +257,7 @@ class SystemConfig
         "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", _("Enable WebDav, CardDav and CalDav support through a Browser.")),
         "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", _("Max count of members in a MailChimp List.")),
         "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", _("Add Address, Phone.")),
-        "bThumbnailIconPresence" => new ConfigItem(2081, "bThumbnailIconPresence", "boolean", "0", _("Add a thumbnal icon in the datatable.")),
+        "bThumbnailIconPresence" => new ConfigItem(2081, "bThumbnailIconPresence", "boolean", "0", _("Add a thumbnail icon for the people in the datatables.")),
       );
   }
 
