@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-04 21:03+0100\n"
+"POT-Creation-Date: 2020-01-05 22:30+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -211,7 +211,7 @@ msgstr "Personen"
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:157
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:275
 #: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
-#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:479
+#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:470
 #: v2/templates/people/peopledashboard.php:84
 #: v2/templates/sundayschool/sundayschooldashboard.php:59
 msgid "Families"
@@ -219,7 +219,7 @@ msgstr "Familien"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:194
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
-#: external/templates/verify/verify-family-info.php:110 Menu.php:542
+#: external/templates/verify/verify-family-info.php:110 Menu.php:533
 #: v2/templates/calendar/calendar.php:153
 #: v2/templates/people/peopledashboard.php:147
 msgid "Groups"
@@ -250,11 +250,11 @@ msgstr "Teilnahme"
 msgid "POST to cart requires a EventID"
 msgstr "POST zum Korb erfordert en EventID"
 
-#: api/routes/people/people-families.php:377
+#: api/routes/people/people-families.php:380
 msgid "Family Deactivated"
 msgstr " Familie deaktiviert."
 
-#: api/routes/people/people-families.php:379
+#: api/routes/people/people-families.php:382
 msgid "Family Activated"
 msgstr " Familie aktiviert."
 
@@ -329,11 +329,11 @@ msgstr "Personaktiviert."
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:37 FamilyEditor.php:732
 #: FamilyEditor.php:736 FamilyView.php:276 GeoPage.php:359 GroupReports.php:148
-#: Menu.php:626 Menu.php:653 PersonEditor.php:1047 PersonEditor.php:1053
-#: PersonEditor.php:1129 PersonEditor.php:1153 PersonView.php:463
-#: Reports/ConfirmReportEmail.php:126 Reports/ConfirmReportEmail.php:131
-#: Reports/PDFLabel.php:859 v2/templates/people/familylist.php:49
-#: v2/templates/people/personlist.php:50
+#: Menu.php:617 Menu.php:644 Menu.php:675 Menu.php:707 PersonEditor.php:1047
+#: PersonEditor.php:1053 PersonEditor.php:1129 PersonEditor.php:1153
+#: PersonView.php:463 Reports/ConfirmReportEmail.php:126
+#: Reports/ConfirmReportEmail.php:131 Reports/PDFLabel.php:859
+#: v2/templates/people/familylist.php:49 v2/templates/people/personlist.php:50
 msgid "Address"
 msgstr "Adresse"
 
@@ -346,11 +346,11 @@ msgstr "Einlagen"
 msgid "Payments"
 msgstr "Zahlungen"
 
-#: api/routes/search.php:377 Menu.php:356
+#: api/routes/search.php:377 Menu.php:347
 msgid "Individual Pastoral Care"
 msgstr "Individual Pastoral Pflege "
 
-#: api/routes/search.php:429 Menu.php:413
+#: api/routes/search.php:429 Menu.php:404
 msgid "Family Pastoral Care"
 msgstr "Familien Pastoral Pflege"
 
@@ -873,10 +873,10 @@ msgstr "Ordner Erstellen"
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
 #: v2/templates/email/mailchimp/managelist.php:94
-#: v2/templates/people/pastoralcarefamily.php:108
-#: v2/templates/people/pastoralcarefamily.php:117
-#: v2/templates/people/pastoralcareperson.php:108
-#: v2/templates/people/pastoralcareperson.php:117
+#: v2/templates/people/pastoralcarefamily.php:111
+#: v2/templates/people/pastoralcarefamily.php:120
+#: v2/templates/people/pastoralcareperson.php:112
+#: v2/templates/people/pastoralcareperson.php:121
 msgid "Delete"
 msgstr "Löschen"
 
@@ -1212,11 +1212,12 @@ msgstr "Korb zur Familie hinzufügen"
 #: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
 #: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 ListEvents.php:300 ListEvents.php:302
-#: PersonCustomFieldsEditor.php:341 PersonCustomFieldsEditor.php:468
-#: PrintPastoralCarePerson.php:447 PrintPastoralCarePerson.php:612
-#: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:69
-#: Reports/CanvassReports.php:234 Reports/FamilyPledgeSummary.php:220
-#: Reports/FRBidSheets.php:87 Reports/PDFLabel.php:859 SelectList.php:1091
+#: Menu.php:674 Menu.php:706 PersonCustomFieldsEditor.php:341
+#: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
+#: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
+#: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
+#: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
+#: Reports/PDFLabel.php:859 SelectList.php:1091
 #: v2/templates/group/groupview.php:367 v2/templates/people/familylist.php:48
 #: v2/templates/people/personlist.php:48 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -1247,7 +1248,7 @@ msgstr ""
 #: CartToFamily.php:288
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:33 FamilyEditor.php:722
-#: LettersAndLabels.php:71 Menu.php:625 Menu.php:652 PersonEditor.php:1036
+#: LettersAndLabels.php:71 Menu.php:616 Menu.php:643 PersonEditor.php:1036
 #: Reports/ConfirmReportEmail.php:121 Reports/ConfirmReport.php:122
 #: SelectDelete.php:224 SelectDelete.php:367
 msgid "Family Name"
@@ -1566,8 +1567,8 @@ msgstr "Benutzerdefinierte Familienfelder"
 
 #: CSVExport.php:252 FinancialReports.php:137
 #: v2/templates/calendar/calendar.php:27
-#: v2/templates/people/pastoralcarefamily.php:73
-#: v2/templates/people/pastoralcareperson.php:73
+#: v2/templates/people/pastoralcarefamily.php:76
+#: v2/templates/people/pastoralcareperson.php:77
 msgid "Filters"
 msgstr "Filtern"
 
@@ -4201,78 +4202,82 @@ msgstr "Mitglieder Maximale Anzahl für MailChimp Listen."
 msgid "Add Address, Phone."
 msgstr "Adresse Tel. hinzufügen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:260
+msgid "Add a thumbnail icon for the people in the datatables."
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Church Information"
 msgstr "Kirche Informationen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "User setup"
 msgstr "Benutzer Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Email Setup"
 msgstr "Email Gruppe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "People Setup"
 msgstr "Menschen Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Enabled Features"
 msgstr "Aktivierten Funktionen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid "Map Settings"
 msgstr "Karte Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Report Settings"
 msgstr "Bericht Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Financial Settings"
 msgstr "Finanzielle Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274 Include/Footer.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:275 Include/Footer.php:192
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Quick Search"
 msgstr "Schnellsuche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Backup"
 msgstr "Datensicherung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Lokalisierung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:244
-#: Menu.php:109 v2/routes/email/mailchimp/mailchimp.php:141
+#: EcclesiaCRM/dto/SystemConfig.php:279 EcclesiaCRM/MenuBar/MenuBar.php:244
+#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Integration"
 msgstr "Integration"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Users Specific Schedule Tasks"
 msgstr "Benutzern bestimmte Aufgaben planen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Sundayschool Attendance"
 msgstr "Sonntagsschule Teilnahme"
 
-#: EcclesiaCRM/dto/SystemConfig.php:337 EcclesiaCRM/dto/SystemConfig.php:349
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:338 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:363
 msgid "An invalid configuration name has been requested"
 msgstr "Eine ungültige Konfiguration Name wurde angefordert"
 
-#: EcclesiaCRM/dto/SystemConfig.php:380
+#: EcclesiaCRM/dto/SystemConfig.php:381
 msgid "An invalid configuration id has been requested"
 msgstr "Eine ungültige Konfiguration ID wurde angefordert"
 
@@ -4507,7 +4512,7 @@ msgstr "Ereignis Typen Liste"
 msgid "Check-in and Check-out"
 msgstr "Einchecken / Auschecken"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:498
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:489
 #: v2/templates/people/peopledashboard.php:105
 msgid "People"
 msgstr "Menschen"
@@ -4701,13 +4706,14 @@ msgid "Witness"
 msgstr "Zeuge"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:232
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:627
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:618
 #: v2/templates/people/familylist.php:53 v2/templates/people/personlist.php:54
 msgid "Created"
 msgstr "Erstellt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:237
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:654
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:645 Menu.php:676
+#: Menu.php:708
 msgid "Updated"
 msgstr "Aktualisiert"
 
@@ -7090,11 +7096,11 @@ msgstr "Problem auf GitHub anzeigen"
 msgid "OK"
 msgstr "Ok"
 
-#: Include/Header-function.php:177
+#: Include/Header-function.php:178
 msgid "Change columns"
 msgstr "Spalten ändern"
 
-#: Include/Header-function.php:178 SelectList.php:1190 SelectList.php:1397
+#: Include/Header-function.php:179 SelectList.php:1190 SelectList.php:1397
 msgid "Print"
 msgstr "Drucken"
 
@@ -7498,108 +7504,104 @@ msgstr "Selbst überprüft"
 msgid "Welcome to"
 msgstr "Willkommen zu"
 
-#: Menu.php:109
+#: Menu.php:100
 msgid "message for the DPO"
 msgstr "Nachricht für den DPO"
 
-#: Menu.php:120
+#: Menu.php:111
 msgid "person must be deleted from the CRM."
 msgstr "Person muß von der CRM gelöschte werden."
 
-#: Menu.php:122
+#: Menu.php:113
 msgid "persons must be deleted from the CRM."
 msgstr "Personen müssen von der CRM gelöschte werden."
 
-#: Menu.php:127 Menu.php:152
+#: Menu.php:118 Menu.php:143
 msgid "Click the"
 msgstr "Klicken Sie auf den folgenden"
 
-#: Menu.php:128 Menu.php:153
+#: Menu.php:119 Menu.php:144
 msgid "link"
 msgstr "Link"
 
-#: Menu.php:128 Menu.php:153 v2/templates/map/MapUsingBing.php:46
+#: Menu.php:119 Menu.php:144 v2/templates/map/MapUsingBing.php:46
 #: v2/templates/map/MapUsingGoogle.php:39
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "für das Problem zu lösen."
 
-#: Menu.php:133
+#: Menu.php:124
 msgid "No Person to remove in the CRM."
 msgstr "Keine Person von CRM zu entfernen."
 
-#: Menu.php:145
+#: Menu.php:136
 msgid "family must be deleted from the CRM."
 msgstr "Familie muß von der CRM gelöschte werden."
 
-#: Menu.php:147
+#: Menu.php:138
 msgid "families must be deleted from the CRM."
 msgstr "Familien müssen von der CRM gelöschte werden."
 
-#: Menu.php:158
+#: Menu.php:149
 msgid "No Family to remove in the CRM."
 msgstr "Keine Familie im CRM zu entfernen"
 
-#: Menu.php:249
+#: Menu.php:240
 msgid "Birthdates of the day"
 msgstr "Geburtstage des Tages"
 
-#: Menu.php:265
+#: Menu.php:256
 msgid "Anniversaries of the day"
 msgstr "Horzheit Jahrestag des Tages"
 
-#: Menu.php:314
+#: Menu.php:305
 msgid "Unclassified birthdates"
 msgstr "nicht klassifizierte Geburtstage"
 
-#: Menu.php:486 v2/templates/people/peopledashboard.php:91
+#: Menu.php:477 v2/templates/people/peopledashboard.php:91
 msgid "See all Families"
 msgstr "Alle Familien anzeigen"
 
-#: Menu.php:505 v2/templates/people/peopledashboard.php:112
+#: Menu.php:496 v2/templates/people/peopledashboard.php:112
 msgid "See All People"
 msgstr "Alle Menschen anzeigen"
 
-#: Menu.php:520 v2/templates/sundayschool/sundayschooldashboard.php:127
+#: Menu.php:511 v2/templates/sundayschool/sundayschooldashboard.php:127
 msgid "Sunday School Classes"
 msgstr "Sonntagsschule Klassen"
 
-#: Menu.php:527 Menu.php:549 Menu.php:576
+#: Menu.php:518 Menu.php:540 Menu.php:567
 #: v2/templates/people/peopledashboard.php:133
 #: v2/templates/people/peopledashboard.php:154
 msgid "More info"
 msgstr "Mehr Anzeigen"
 
-#: Menu.php:569
+#: Menu.php:560
 msgid "Attendees Checked In"
 msgstr "Teilnehmer Eingecheckt"
 
-#: Menu.php:593
+#: Menu.php:584
 msgid "Deposit Tracking"
 msgstr "Einzahlung Verfolgung"
 
 #
 # Mise à jour des éléments
 # 2018
-#: Menu.php:613
+#: Menu.php:604
 msgid "Latest Families"
 msgstr "Neueste Familien"
 
-#: Menu.php:640
+#: Menu.php:631
 msgid "Updated Families"
 msgstr "Aktualisiert Familien"
 
-#: Menu.php:669
+#: Menu.php:660
 msgid "Latest Members"
 msgstr "Neueste Mitglieder"
 
-#: Menu.php:706
+#: Menu.php:692
 msgid "Updated Members"
 msgstr "Aktualisiert Mitglieder"
-
-#: Menu.php:773
-msgid "Tracking"
-msgstr "Verfolgung"
 
 #: OptionManager.php:356
 msgid ""
@@ -7874,8 +7876,8 @@ msgstr "Familie:"
 
 #: PersonView.php:622 v2/templates/gdpr/dashboard.php:23
 #: v2/templates/gdpr/gdprdatastructure.php:19
-#: v2/templates/people/pastoralcarefamily.php:53
-#: v2/templates/people/pastoralcareperson.php:52
+#: v2/templates/people/pastoralcarefamily.php:56
+#: v2/templates/people/pastoralcareperson.php:56
 msgid "Printable Page"
 msgstr "Druckbare Seite"
 
@@ -8043,8 +8045,8 @@ msgstr "finde Familie nach Kontonummer"
 msgid "Set default check account number for family"
 msgstr "Setze die Kontonummer als Vorgabe für die Familie"
 
-#: PledgeEditor.php:780 v2/templates/people/pastoralcarefamily.php:138
-#: v2/templates/people/pastoralcareperson.php:138
+#: PledgeEditor.php:780 v2/templates/people/pastoralcarefamily.php:141
+#: v2/templates/people/pastoralcareperson.php:142
 msgid "Return"
 msgstr "Zurück"
 
@@ -10205,28 +10207,28 @@ msgstr "Deaktivierungsdatum"
 msgid "Remove All"
 msgstr "Entfernen Alle"
 
-#: v2/templates/people/pastoralcarefamily.php:19
-#: v2/templates/people/pastoralcareperson.php:20
+#: v2/templates/people/pastoralcarefamily.php:22
+#: v2/templates/people/pastoralcareperson.php:24
 msgid "Please add some records with the button below."
 msgstr "Fügen Sie einige Einträge mit dem Knopf unter."
 
-#: v2/templates/people/pastoralcarefamily.php:31
-#: v2/templates/people/pastoralcareperson.php:32
+#: v2/templates/people/pastoralcarefamily.php:34
+#: v2/templates/people/pastoralcareperson.php:36
 msgid "Add Pastoral Care Notes"
 msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
-#: v2/templates/people/pastoralcarefamily.php:51
-#: v2/templates/people/pastoralcareperson.php:53
+#: v2/templates/people/pastoralcarefamily.php:54
+#: v2/templates/people/pastoralcareperson.php:57
 msgid "Appointment"
 msgstr "Verabredung"
 
-#: v2/templates/people/pastoralcarefamily.php:62
-#: v2/templates/people/pastoralcareperson.php:62
+#: v2/templates/people/pastoralcarefamily.php:65
+#: v2/templates/people/pastoralcareperson.php:66
 msgid "Everyone"
 msgstr "Jeder"
 
-#: v2/templates/people/pastoralcarefamily.php:107
-#: v2/templates/people/pastoralcareperson.php:107
+#: v2/templates/people/pastoralcarefamily.php:110
+#: v2/templates/people/pastoralcareperson.php:111
 msgid "Modify"
 msgstr "Bearbeiten"
 
@@ -11318,6 +11320,9 @@ msgstr "Leeren"
 
 msgid "pending"
 msgstr "steht aus"
+
+#~ msgid "Tracking"
+#~ msgstr "Verfolgung"
 
 #~ msgid "Pastoral care for"
 #~ msgstr "Pastoral Pflege für"

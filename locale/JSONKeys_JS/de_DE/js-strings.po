@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-12-27T21:42:42.543Z\n"
+"POT-Creation-Date: 2020-01-05T21:20:41.534Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -437,6 +437,9 @@ msgstr "Senden"
 msgid "Your software is now registered. Thank you !"
 msgstr "Ihre Software ist jetzt registriert. Vielen Dank !"
 
+msgid "Tracking"
+msgstr "Verfolgung"
+
 msgid "Attention"
 msgstr "Warnung"
 
@@ -631,9 +634,6 @@ msgstr "Keine Teilnehmer"
 msgid "Attendance Notes: "
 msgstr "Beteiligung Notizen:"
 
-msgid "Event Creation"
-msgstr "Ereigniserstellung"
-
 msgid "Title"
 msgstr "Titel"
 
@@ -753,6 +753,9 @@ msgstr "Aktiv"
 
 msgid "inactive"
 msgstr "inaktiv"
+
+msgid "Event Creation"
+msgstr "Ereigniserstellung"
 
 msgid "You've to chose a calendar."
 msgstr "Sie müssen ein Kalendar wählen."
@@ -1276,6 +1279,9 @@ msgstr "Einblenden"
 
 msgid "Hide"
 msgstr "Ausblenden"
+
+msgid "Appointment"
+msgstr "Verabredung"
 
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Wollen Sie diese Person wirklich aus Ihrer CRM löschen?"
