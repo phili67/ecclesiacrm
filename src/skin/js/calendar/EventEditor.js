@@ -423,7 +423,7 @@
   }
 
 
-  function BootboxContent(start,end){
+  function BootboxContent(start,end,windowtitle,title){
     var time_format;
     var fmt = window.CRM.datePickerformat.toUpperCase();
 
@@ -438,12 +438,12 @@
     var dateEnd = moment(end).format(fmt);
     var timeEnd = moment(end).format(time_format);
 
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Event Creation")+'</h3><form id="some-form">'
+    var frm_str = '<h3 style="margin-top:-5px">'+ windowtitle +'</h3><form id="some-form">'
        + '<div>'
             +'<div class="row div-title EventTitle">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Title') + ":</div>"
               +'<div class="col-md-9">'
-                +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required " + ((title != undefined)?("value='" + title + "'"):"") + ">"
               +'</div>'
             +'</div>'
             +'<div class="row  div-title EventLocation">'
@@ -647,7 +647,7 @@
         return object
     }
 
-    function createEventEditorWindow (start,end,dialogType,eventID,reccurenceID,page) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+    function createEventEditorWindow (start,end,dialogType,eventID,reccurenceID,page,windowtitle,title) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
       if (dialogType === undefined) {
         dialogType = 'createEvent';
@@ -669,9 +669,12 @@
         end = start;
       }
 
+      if (windowtitle == undefined) {
+          windowtitle = i18next.t("Event Creation");
+      }
 
-      var modal = bootbox.dialog({
-         message: BootboxContent(start,end),
+        var modal = bootbox.dialog({
+         message: BootboxContent(start,end,windowtitle,title),
          buttons: [
           {
            label: i18next.t("Close"),
