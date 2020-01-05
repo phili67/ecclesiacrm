@@ -720,11 +720,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 
 <!-- this page specific inline scripts -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-
     window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance'))?'true':'false' ?>;
-    window.CRM.depositData = <?= ($depositData)?"true":"false" ?>;
+    window.CRM.depositData = <?= ($depositData)?$depositData:"false" ?>;
     window.CRM.timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
-
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/menu.js"></script>
