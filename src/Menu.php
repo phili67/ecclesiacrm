@@ -40,15 +40,6 @@ $sPageTitle = _('Welcome to') . ' ' . ChurchMetaData::getChurchName();
 require 'Include/Header.php';
 
 $financialService = new FinancialService();
-$dashboardService = new DashboardService();
-//Last edited active families
-$updatedFamilies = $dashboardService->getUpdatedFamilies(10);
-//Newly added active families
-$latestFamilies = $dashboardService->getLatestFamilies(10);
-//last Edited members from Active families
-$updatedMembers = $dashboardService->getUpdatedMembers(12);
-//Newly added members from Active families
-$latestMembers = $dashboardService->getLatestMembers(12);
 
 if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled())) {
     RedirectUtils::Redirect('PersonView.php?PersonID=' . SessionUser::getUser()->getPersonId());
@@ -609,7 +600,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="box box-solid">
             <div class="box-header with-border">
-                <i class="fa fa-user-plus"></i>
+                <i class="fa fa-group"></i><i class="fa fa-plus"></i>
                 <h3 class="box-title"><?= _('Latest Families') ?></h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -666,7 +657,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= _('Latest Members') ?></h3>
+                    <i class="fa fa-user-plus"></i></i><h3 class="box-title"><?= _('Latest Members') ?></h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
                                 class="fa fa-minus"></i>
@@ -677,23 +668,17 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
-                    <ul class="users-list clearfix">
-                        <?php foreach ($latestMembers as $person) {
-                            ?>
-                            <li>
-                                <a class="users-list" href="PersonView.php?PersonID=<?= $person->getId() ?>">
-                                    <img
-                                        src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                        alt="<?= $person->getFullName() ?>" class="user-image initials-image"
-                                        width="85" height="85"/><br/>
-                                    <?= $person->getFullName() ?></a>
-                                <span
-                                    class="users-list-date"><?= date_format($person->getDateEntered(), SystemConfig::getValue('sDateFormatLong')); ?>&nbsp;</span>
-                            </li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
+                    <table class=" dataTable table table-striped table-condensed" id="latestPersonsDashboardItem">
+                        <thead>
+                        <tr>
+                            <th data-field="lastname"><?= _('Name') ?></th>
+                            <th data-field="address"><?= _('Address') ?></th>
+                            <th data-field="city"><?= _('Updated') ?></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                     <!-- /.users-list -->
                 </div>
             </div>
@@ -703,6 +688,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box box-danger">
                 <div class="box-header with-border">
+                    <i class="fa fa-check"></i>
                     <h3 class="box-title"><?= _('Updated Members') ?></h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -714,23 +700,17 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body no-padding">
-                    <ul class="users-list clearfix">
-                        <?php foreach ($updatedMembers as $person) {
-                            ?>
-                            <li>
-                                <a class="users-list" href="PersonView.php?PersonID=<?= $person->getId() ?>">
-                                    <img
-                                        src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                        alt="<?= $person->getFullName() ?>" class="user-image initials-image"
-                                        width="85" height="85"/><br/>
-                                    <?= $person->getFullName() ?></a>
-                                <span
-                                    class="users-list-date"><?= date_format($person->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')); ?>&nbsp;</span>
-                            </li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
+                    <table class=" dataTable table table-striped table-condensed" id="updatedPersonsDashboardItem">
+                        <thead>
+                        <tr>
+                            <th data-field="lastname"><?= _('Name') ?></th>
+                            <th data-field="address"><?= _('Address') ?></th>
+                            <th data-field="city"><?= _('Updated') ?></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                     <!-- /.users-list -->
                 </div>
             </div>
@@ -740,83 +720,12 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 
 <!-- this page specific inline scripts -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-
-    <?php
-    if (SystemConfig::getBooleanValue('bEnabledFinance')) {
-    if ($depositData) { // If the user has Finance permissions, then let's display the deposit line chart
-    ?>
-    //---------------
-    //- LINE CHART  -
-    //---------------
-    var lineDataRaw = <?= $depositData ?>;
-
-    var lineData = {
-        labels: [],
-        datasets: [
-            {
-                data: [],
-                backgroundColor: [],
-                borderColor: []
-            }
-        ]
-    };
-
-
-    $(document).ready(function () {
-        $.each(lineDataRaw.Deposits, function (i, val) {
-            lineData.labels.push(moment(val.Date).format(window.CRM.datePickerformat.toUpperCase()));
-            lineData.datasets[0].data.push(val.totalAmount);
-            lineData.datasets[0].backgroundColor.push("rgba(189, 245, 109, 0.8)");
-            lineData.datasets[0].borderColor.push("rgba(108, 139, 65, 0.8)");
-        });
-
-        lineData.datasets[0].label = "<?= _("Tracking") ?>";
-
-        options = {
-            responsive: true,
-            maintainAspectRatio: false
-        };
-
-
-        var lineChartCanvas = $("#deposit-lineGraph").get(0).getContext("2d");
-        var lineChart = new Chart(lineChartCanvas, {
-            type: 'line',
-            data: lineData,
-            options: {
-                scales: {
-                    yAxes: [{
-                        stacked: true
-                    }]
-                }
-            }
-        });
-
-    });
-    <?php
-    }  //END IF block for Finance permissions to include JS for Deposit Chart
-    } // END of bEnabledFinance
-    ?>
+    window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance'))?'true':'false' ?>;
+    window.CRM.depositData = <?= ($depositData)?$depositData:"false" ?>;
+    window.CRM.timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
 </script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    var timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
-
-    $(document).ready(function () {
-        $("#myWish").click(function showAlert() {
-            $("#Menu_Banner").alert();
-            window.setTimeout(function () {
-                $("#Menu_Banner").alert('close');
-            }, timeOut);
-        });
-    });
-
-    $("#Menu_Banner").fadeTo(timeOut, 500).slideUp(500, function () {
-        $("#Menu_Banner").slideUp(500);
-
-        window.CRM.renderMailchimpLists();
-    });
-</script>
-
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/menu.js"></script>
 
 <?php
 require 'Include/Footer.php';

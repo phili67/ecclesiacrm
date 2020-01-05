@@ -256,7 +256,8 @@ class SystemConfig
         "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", _("Enable WebDav, CardDav and CalDav support.")),
         "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", _("Enable WebDav, CardDav and CalDav support through a Browser.")),
         "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", _("Max count of members in a MailChimp List.")),
-        "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", _("Add Address, Phone."))
+        "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", _("Add Address, Phone.")),
+        "bThumbnailIconPresence" => new ConfigItem(2081, "bThumbnailIconPresence", "boolean", "0", _("Add a thumbnal icon in the datatable.")),
       );
   }
 
@@ -271,7 +272,7 @@ class SystemConfig
       _('Map Settings')  => ["sMapProvider","sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
       _('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       _('Financial Settings') => ["sCurrency","sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
-      _('System Settings')  => ["sLogLevel", "bRegistered","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
+      _('System Settings')  => ["sLogLevel", "bRegistered","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft", "bThumbnailIconPresence"],
       _('Quick Search') => ["bSearchIncludePersons","iSearchIncludePersonsMax","bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies","iSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","iSearchIncludeFamilyHOHMax","bSearchIncludeGroups","iSearchIncludeGroupsMax","bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax","bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
       _('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","bGZIP","bZIP","sPGP","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       _('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],

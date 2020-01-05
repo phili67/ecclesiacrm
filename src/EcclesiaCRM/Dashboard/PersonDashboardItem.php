@@ -17,9 +17,12 @@ class PersonDashboardItem implements DashboardItemInterface {
                 ->filterByDateDeactivated(null)
             ->endUse()
             ->count();
-        $data = ['personCount' => $personCount];
 
-        return $data;
+     $data = ['personCount' => $personCount,
+         'LatestPersons' => self::getLatestMembers()->toArray(),
+         'UpdatedPerson' => self::getUpdatedMembers()->toArray()];
+
+     return $data;
   }
    /**
      * Return last edited members. Only from active families selected
@@ -53,7 +56,7 @@ class PersonDashboardItem implements DashboardItemInterface {
             ->limit($limit)
             ->find();
     }
-  
+
 
   public static function shouldInclude($PageName) {
     return $PageName=="/Menu.php" || $PageName == "/menu"; // this ID would be found on all pages.
