@@ -242,7 +242,7 @@ $(document).ready(function () {
             window.CRM.editor = null;
         }
 
-        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','Checkin.php',windowTitle,title);
+        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','v2/calendar',windowTitle,title);
 
         // we add the calendars and the types
         addCalendars();
