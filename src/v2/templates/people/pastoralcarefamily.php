@@ -149,6 +149,7 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= $sCSPNonce ?>">
   var currentFamilyID = <?= $currentFamilyID ?>;
   var currentPastorId = <?= $currentPastorId ?>;
+  var sPageTitle      = '<?= $sPageTitle ?>';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/people/PastoralCareFamily.js"></script>
