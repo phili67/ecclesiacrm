@@ -36,7 +36,9 @@ class MailchimpDashboardItem implements DashboardItemInterface {
     }
 
     public static function shouldInclude($PageName) {
-        return ((SessionUser::getUser()->isMailChimpEnabled())?true:false) && ($PageName=="/Menu.php" || $PageName == "/menu");
+        $mailchimp = new MailChimpService();
+
+        return ((SessionUser::getUser()->isMailChimpEnabled())?true:false) && ($PageName=="/Menu.php" || $PageName == "/menu") && !$mailchimp->isLoaded();
     }
 
 }
