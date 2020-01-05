@@ -9,6 +9,10 @@
  *
  ******************************************************************************/
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\ChurchMetaData;
+
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -149,8 +153,32 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= $sCSPNonce ?>">
   var currentPersonID = <?= $currentPersonID ?>;
   var currentPastorId = <?= $currentPastorId ?>;
+  var sPageTitle      = '<?= $sPageTitle ?>';
+
+  window.CRM.churchloc = {
+      lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+      lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
+  window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/people/PastoralCarePerson.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 
+<?php
+if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <?php
+} else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+    ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+} else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <?php
+}
+?>

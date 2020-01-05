@@ -235,14 +235,14 @@ $(document).ready(function () {
     return modal;
   }
 
-    function addEvent(dateStart,dateEnd)
+    function addEvent(dateStart,dateEnd,windowTitle,title)
     {
         if (window.CRM.editor != null) {
             CKEDITOR.remove(window.CRM.editor);
             window.CRM.editor = null;
         }
 
-        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','Checkin.php');
+        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','v2/calendar',windowTitle,title);
 
         // we add the calendars and the types
         addCalendars();
@@ -310,6 +310,6 @@ $(document).ready(function () {
         var dateStart = moment().format(fmt);
         var dateEnd = moment().format(fmt);
 
-        addEvent(dateStart,dateEnd);
+        addEvent(dateStart,dateEnd,i18next.t("Appointment"),sPageTitle);
     });
 });
