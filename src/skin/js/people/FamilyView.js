@@ -2,8 +2,6 @@ $(document).ready(function () {
 
 // mailchimp management
   if (window.CRM.familyMail != undefined) {
-    window.CRM.renderMailchimpLists();
-    
     window.CRM.APIRequest({
       method: 'POST',
       path: 'families/isMailChimpActive',
@@ -97,12 +95,12 @@ $(document).ready(function () {
         });
       }
     });
-    
-    $(".input-family-properties").select2({ 
+
+    $(".input-family-properties").select2({
         language: window.CRM.shortLocale
     });
-      
-        
+
+
     window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
       ajax:{
         url: window.CRM.root + "/api/families/familyproperties/"+window.CRM.currentFamily,
@@ -120,10 +118,10 @@ $(document).ready(function () {
           title:i18next.t('Edit'),
           data:'ProId',
           render: function(data, type, full, meta) {
-            if (full.ProPrompt != '') {       
+            if (full.ProPrompt != '') {
               return '<a href="#" class="edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></a>';
             }
-          
+
             return "";
           }
         },
@@ -157,8 +155,8 @@ $(document).ready(function () {
         $(row).addClass("paymentRow");
       }
     });
-    
-    
+
+
     $(".input-family-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
         promptBox.removeClass('form-group').html('');
@@ -176,8 +174,8 @@ $(document).ready(function () {
             );
         }
     });
-    
-    $('body').on('click','.remove-property-btn',function(){ 
+
+    $('body').on('click','.remove-property-btn',function(){
         event.preventDefault();
         var thisLink = $(this);
         var family_id = thisLink.data('family_id');
@@ -211,8 +209,8 @@ $(document).ready(function () {
           }
        });
     });
-    
-    $('body').on('click','.edit-property-btn',function(){ 
+
+    $('body').on('click','.edit-property-btn',function(){
       event.preventDefault();
       var thisLink = $(this);
       var family_id = thisLink.data('family_id');
@@ -230,7 +228,7 @@ $(document).ready(function () {
             className: 'btn btn-default'
           }
         },
-        title: i18next.t('Are you sure you want to change this property?'),          
+        title: i18next.t('Are you sure you want to change this property?'),
         value: property_name,
         callback: function (result) {
           if (result) {
@@ -247,11 +245,11 @@ $(document).ready(function () {
         }
       });
     });
-    
+
   $('body').on('click','.assign-property-btn',function(){
    var property_id = $('.input-family-properties').val();
-   var property_pro_value = $('.property-value').val();     
-   
+   var property_pro_value = $('.property-value').val();
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'properties/families/assign',
@@ -264,7 +262,7 @@ $(document).ready(function () {
     });
   });
 
-    
+
 
    $('#assign-property-form').submit(function (event) {
       event.preventDefault();
@@ -291,23 +289,23 @@ $(document).ready(function () {
       "url": window.CRM.plugin.dataTable.language.url
     },
     responsive: true});
-    
-  
+
+
    $(".data-person").DataTable({"language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
     searching: false,
     responsive: true,
-    paging: false});  
-  
-  
-  // this part allows to render the dataTable responsive in Tab  
+    paging: false});
+
+
+  // this part allows to render the dataTable responsive in Tab
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         $($.fn.dataTable.tables(true)).DataTable()
            .columns.adjust()
            .responsive.recalc();
   });
-  
+
   $("#onlineVerify").click(function () {
     $.ajax({
       type: 'POST',
@@ -357,9 +355,9 @@ $(document).ready(function () {
       });
     });
   });
-  
-     
-    
+
+
+
     $(document).on("click",".AddToFamilyCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addFamily(clickedButton.data("cartfamilyid"),function()
@@ -374,7 +372,7 @@ $(document).ready(function () {
         }
       });
     });
-    
+
     $(document).on("click",".RemoveFromFamilyCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removeFamily(clickedButton.data("cartfamilyid"),function()
@@ -389,7 +387,7 @@ $(document).ready(function () {
         }
       });
     });
-    
+
     $(document).on("click",".RemoveFromPeopleCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removePerson([clickedButton.data("cartpersonid")],function()
@@ -400,7 +398,7 @@ $(document).ready(function () {
         $('span i:nth-child(2)',clickedButton).addClass("fa-cart-plus");
       });
     });
-    
+
     $(document).on("click",".AddToPeopleCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addPerson([clickedButton.data("cartpersonid")],function()
@@ -414,11 +412,11 @@ $(document).ready(function () {
 
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
-    
+
     // newMessage event handler
     function updateButtons(e) {
       var cartPeople = e.cartPeople;
-      
+
       if (cartPeople.length == 0) {
         $("#AddToFamilyCart").addClass("AddToFamilyCart");
         $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
@@ -437,7 +435,7 @@ $(document).ready(function () {
             peopleInCart = true;
           }
         });
-        
+
         if (peopleInCart) {
           $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
           $("#AddToFamilyCart").removeClass("AddToFamilyCart");
@@ -458,14 +456,14 @@ $(document).ready(function () {
           }
         }
       }
-    }  
-    
+    }
+
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("updateCartMessage", updateLittleButtons);
-    
+
     function updateLittleButtons(e) {
         var cartPeople = e.people;
-        
+
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function(index,personButton){
           personID = $(personButton).data("cartpersonid")
@@ -484,7 +482,7 @@ $(document).ready(function () {
             $(personButton).addClass("AddToPeopleCart");
             $(personButton).removeClass("RemoveFromPeopleCart");
             fa = $(personButton).find("i.fa.fa-inverse");
-            
+
             $(fa).removeClass("fa-remove");
             $(fa).addClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
@@ -494,7 +492,7 @@ $(document).ready(function () {
           }
         });
     }
-    
+
   automaticPaymentsTable = $("#automaticPaymentsTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/payments/family",
@@ -529,7 +527,7 @@ $(document).ready(function () {
         data:'NextPayDate',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-          
+
           return moment(data).format(fmt);
         }
       },
@@ -572,13 +570,13 @@ $(document).ready(function () {
         data:'DateLastEdited',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-    
+
           if (window.CRM.timeEnglish == 'true') {
             time_format = 'h:mm A';
           } else {
             time_format = 'H:mm';
           }
-    
+
           return moment(data).format(fmt+' '+time_format);;
         }
       },
@@ -596,12 +594,12 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
-  
+
+
   $(document).on("click",".delete-payment", function(){
-     clickedButton = $(this);         
+     clickedButton = $(this);
      var autoPaymentId = clickedButton.data("id");
-    
+
      bootbox.confirm(i18next.t("Confirm Delete Automatic payment"), function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
@@ -614,8 +612,8 @@ $(document).ready(function () {
         }
      });
   });
-  
-  
+
+
   pledgePaymentTable = $("#pledgePaymentTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/pledges/family",
@@ -668,7 +666,7 @@ $(document).ready(function () {
         data:'Date',
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
-          
+
           return moment(data).format(fmt);
         }
       },
@@ -711,10 +709,10 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (full.Method == "CHECK")
             return i18next.t(data);
-          else 
+          else
             return i18next.t('None');
         }
-      },  
+      },
       {
         width: 'auto',
         title:i18next.t('Comment'),
@@ -732,7 +730,7 @@ $(document).ready(function () {
           if (full.Closed != "1") {
             ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
           }
-          
+
           return ret;
         }
       },
@@ -741,7 +739,7 @@ $(document).ready(function () {
         title:i18next.t('Date Updated'),
         data:'Datelastedited',
         render: function(data, type, full, meta) {
-          var fmt = window.CRM.datePickerformat.toUpperCase();          
+          var fmt = window.CRM.datePickerformat.toUpperCase();
           return moment(data).format(fmt);
         }
       },
@@ -759,11 +757,11 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
+
   $(document).on("click",".delete-pledge", function(){
-     clickedButton = $(this);         
+     clickedButton = $(this);
      var paymentId = clickedButton.data("id");
-    
+
      bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
         if (confirmed) {
           window.CRM.APIRequest({
@@ -776,15 +774,15 @@ $(document).ready(function () {
         }
      });
   });
-  
+
    $('#ShowPledges').change(function() {
-      applyFilter();      
+      applyFilter();
     });
-    
+
    $('#ShowPayments').change(function() {
        applyFilter();
     });
-    
+
     $("#date-picker-period").change(function () {
       alert($('#date-picker-period').val());
     });
@@ -795,13 +793,13 @@ $(document).ready(function () {
         if (settings.nTable.id == "automaticPaymentsTable") {
           return true;
         }
-        
+
         var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
         var min = moment($('#Min').val(),fmt);
         var max = moment($('#Max').val(),fmt);
         var age = moment(data[4],fmt);
- 
+
         if ( ( isNaN( min ) && isNaN( max ) ) ||
              ( isNaN( min ) && age <= max ) ||
              ( min <= age   && isNaN( max ) ) ||
@@ -815,9 +813,9 @@ $(document).ready(function () {
     $("#Min").on('change', function(){
       pledgePaymentTable.draw();
       var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
       var min = moment($(this).val(),fmt).format('YYYY-MM-DD');
-      
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'users/showsince',
@@ -831,7 +829,7 @@ $(document).ready(function () {
       var fmt = window.CRM.datePickerformat.toUpperCase();
 
       var max = moment($(this).val(),fmt).format('YYYY-MM-DD');
-      
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'users/showto',
@@ -844,7 +842,7 @@ $(document).ready(function () {
     {
       var showPledges = $('#ShowPledges').prop('checked');
       var showPayments = $('#ShowPayments').prop('checked');
-      
+
       if (showPledges && showPayments) {
         pledgePaymentTable.column(0).search(i18next.t("Pledge")+"|"+i18next.t("Payment"), true, false).draw();
       } else if (showPledges) {
@@ -855,7 +853,7 @@ $(document).ready(function () {
         pledgePaymentTable.column(0).search("toto").draw();
       }
     }
-    
+
     applyFilter();
-  
+
 });
