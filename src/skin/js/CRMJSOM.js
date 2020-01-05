@@ -934,7 +934,11 @@
                 {
                   data: 'Name',
                   render: function (data, type, row, meta) {
-                    return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      if (window.CRM.bThumbnailIconPresence) {
+                          return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      } else {
+                          return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      }
                   }
                 },
                 {
@@ -971,7 +975,11 @@
                 {
                   data: 'Name',
                   render: function (data, type, row, meta) {
-                    return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      if (window.CRM.bThumbnailIconPresence) {
+                          return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      } else {
+                          return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                      }
                   }
                 },
                 {
@@ -1025,7 +1033,11 @@
                       {
                           data: 'LastName',
                           render: function (data, type, row, meta) {
-                              return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              if (window.CRM.bThumbnailIconPresence) {
+                                  return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              } else {
+                                  return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              }
                           }
                       },
                       {
@@ -1068,7 +1080,11 @@
                       {
                           data: 'LastName',
                           render: function (data, type, row, meta) {
-                              return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              if (window.CRM.bThumbnailIconPresence) {
+                                  return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              } else {
+                                  return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                              }
                           }
                       },
                       {
