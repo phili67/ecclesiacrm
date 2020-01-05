@@ -430,7 +430,7 @@ require 'Include/Header.php';
         if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
           $buttons++;
     ?>
-         <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
+         <a class="btn btn-app bg-blue" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
       <?php
         }
 
