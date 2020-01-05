@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npm install
+npm install --unsafe-perm
 
 npm run install
 npm run postinstall
