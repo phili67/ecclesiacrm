@@ -9571,7 +9571,7 @@ msgstr "Suivi pastoral individuel"
 
 #: v2/routes/people/pastoralcare.php:120
 msgid "Family Pastoral care"
-msgstr "Suivi pastoral familiale"
+msgstr "Suivi pastoral familial"
 
 #: v2/routes/people/people.php:112
 msgid "People Dashboard"
