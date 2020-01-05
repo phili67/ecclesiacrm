@@ -32,6 +32,7 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Service\FinancialService;
 
 
 $app->group('/families', function () {
@@ -141,11 +142,11 @@ $app->group('/families', function () {
  */
     $this->post('/{familyId:[0-9]+}/activate/{status}', "familyActivateStatus" );
  /*
- * @! Return the location for the family 
+ * @! Return the location for the family
  * #! param: id->int :: familyId as id
  */
     $this->get('/{familyId:[0-9]+}/geolocation', "familyGeolocation" );
-    
+
  /*
  * @! delete familyField custom field
  * #! param: id->int :: orderID as id
@@ -190,19 +191,19 @@ function isMailChimpActiveFamily (Request $request, Response $response, array $a
   $input = (object)$request->getParsedBody();
 
   if ( isset ($input->familyId) && isset ($input->email)){
-  
+
     // we get the MailChimp Service
     $mailchimp = new MailChimpService();
     $family = FamilyQuery::create()->findPk($input->familyId);
     $isIncludedInMailing = $family->getSendNewsletter();
-    
+
     if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
     } else {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -213,7 +214,7 @@ function getFamily (Request $request, Response $response, array $args) {
 
 function familyInfo (Request $request, Response $response, array $args) {
     $values = (object)$request->getParsedBody();
-  
+
     if ( isset ($values->familyId) )
     {
       $family = FamilyQuery::create()->findPk($values->familyId);
@@ -275,7 +276,9 @@ function pendingSelfVerify(Request $request, Response $response, array $args) {
 
 function byCheckNumberScan (Request $request, Response $response, array $args) {
     $scanString = $args['scanString'];
-    echo $this->FinancialService->getMemberByScanString($scanString);
+
+    $fService = new FinancialService();
+    echo $fService->getMemberByScanString($scanString);
 }
 
 function postFamilyPhoto(Request $request, Response $response, array $args) {
@@ -283,7 +286,7 @@ function postFamilyPhoto(Request $request, Response $response, array $args) {
     $family = FamilyQuery::create()->findPk($args['familyId']);
     $family->setImageFromBase64($input->imgBase64);
 
-    $response->withJSON(array("status" => "success", "upload" => $upload));
+    $response->withJSON(array("status" => "success"));
 }
 
 function deleteFamilyPhoto (Request $request, Response $response, array $args) {
@@ -357,9 +360,9 @@ function familyActivateStatus (Request $request, Response $response, array $args
             $family->setDateDeactivated(Null);
         }
         $family->save();
-        
+
         $persons = $family->getPeople();
-        
+
         // all person from the family should be deactivated too
         foreach ($persons as $person) {
           if ($newStatus == "false") {
@@ -374,9 +377,9 @@ function familyActivateStatus (Request $request, Response $response, array $args
         $note = new Note();
         $note->setFamId($familyId);
         if ($newStatus == 'false') {
-            $note->setText(gettext('Family Deactivated'));
+            $note->setText(_('Family Deactivated'));
         } else {
-            $note->setText(gettext('Family Activated'));
+            $note->setText(_('Family Activated'));
         }
         $note->setType('edit');
         $note->setEntered(SessionUser::getUser()->getPersonId());
@@ -405,25 +408,25 @@ function deleteFamilyField(Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
-  
+
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $famCus = FamilyCustomMasterQuery::Create()->findOneByCustomField($values->field);
-    
+
     if ( !is_null ($famCus) && $famCus->getTypeId() == 12 ) {
        $list = ListOptionQuery::Create()->findById($famCus->getCustomSpecial());
        if( !is_null($list) ) {
          $list->delete();
        }
     }
-    
+
     // this can't be propeled
     $connection = Propel::getConnection();
     $sSQL = 'ALTER TABLE `family_custom` DROP `'.$values->field.'` ;';
-    $connection->exec($sSQL); 
+    $connection->exec($sSQL);
 
     // now we can delete the FamilyCustomMaster
     $famCus->delete();
@@ -440,10 +443,10 @@ function deleteFamilyField(Request $request, Response $response, array $args) {
             }
         }
     }
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -453,19 +456,19 @@ function upactionFamilyField (Request $request, Response $response, array $args)
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $firstFamCus = FamilyCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID - 1);
     $firstFamCus->setCustomOrder($values->orderID)->save();
-    
+
     $secondFamCus = FamilyCustomMasterQuery::Create()->findOneByCustomField($values->field);
     $secondFamCus->setCustomOrder($values->orderID - 1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -475,18 +478,18 @@ function downactionFamilyField (Request $request, Response $response, array $arg
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $firstFamCus = FamilyCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID + 1);
     $firstFamCus->setCustomOrder($values->orderID)->save();
-    
+
     $secondFamCus = FamilyCustomMasterQuery::Create()->findOneByCustomField($values->field);
     $secondFamCus->setCustomOrder($values->orderID + 1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
