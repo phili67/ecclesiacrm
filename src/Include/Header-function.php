@@ -40,7 +40,7 @@ function Header_system_notifications()
 function Header_fav_icons ()
 {
 ?>
-    
+
 <link rel="shortcut icon" href="<?= SystemURLs::getRootPath() ?>/Favicons/favicon.ico" type="image/x-icon">
 <link rel="icon" href="<?= SystemURLs::getRootPath() ?>/Favicons/favicon.png" type="image/png">
 <link rel="icon" sizes="32x32" href="<?= SystemURLs::getRootPath() ?>/Favicons/favicon-32.png" type="image/png">
@@ -126,7 +126,7 @@ function Header_modals()
                 <div class="modal-footer">
                           <button type="button" class="btn btn-primary" id="submitIssueDone"><?= gettext('OK') ?></button>
                 </div>
-                </div>              
+                </div>
               </div>
             </div>
 
@@ -142,9 +142,9 @@ function Header_body_scripts()
     $localeInfo = Bootstrapper::GetCurrentLocale();
 ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    
+
         var Allbuttons = [ 'copy', 'pdf', 'colvis', 'print' ];
-        
+
         window.CRM = {
             root: "<?= SystemURLs::getRootPath() ?>",
             lang: "<?= $localeInfo->getLanguageCode() ?>",
@@ -169,6 +169,7 @@ function Header_body_scripts()
             sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,
             sChurchCountry:"<?= SystemConfig::getValue('sChurchCountry') ?>",
             bEDrive:<?= (SessionUser::getUser()->isEDrive())?"true":"false" ?>,
+            bThumbnailIconPresence:<?= (SystemConfig::getBooleanValue("bThumbnailIconPresence"))?"true":"false" ?>,
             plugin: {
                 dataTable : {
                    "language": {
@@ -180,7 +181,7 @@ function Header_body_scripts()
                     },
                     responsive: true,
                     "dom": 'Bfrtip',
-                    "buttons": [ <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'copy', ":""?> <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf', 'print', ":""?> 'colvis'  ],
+                    "buttons": [ <?= ( (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'copy', ":"" ) . ( (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":"" ) . ( (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf', 'print', ":"" ) ?> 'colvis'  ],
                 }
             },
             PageName:"<?= $_SERVER['REQUEST_URI']?>"
