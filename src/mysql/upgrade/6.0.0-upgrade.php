@@ -15,7 +15,7 @@ $logger->info("Start to delete : all unusefull files");
 
 unlink(SystemURLs::getDocumentRoot()."/BackupDatabase.php");
 unlink(SystemURLs::getDocumentRoot()."/RestoreDatabase.php");
-unlink(SystemURLs::getDocumentRoot()."/CartView.php.php");
+unlink(SystemURLs::getDocumentRoot()."/CartView.php");
 
 unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCare.php");
 
