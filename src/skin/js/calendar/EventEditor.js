@@ -792,6 +792,8 @@
                        location.reload();
                      } else if (page == 'Checkin.php') {
                        window.location.href = window.CRM.root + '/Checkin.php';
+                     } else {
+                         window.location.href = window.CRM.root + '/'+ page;
                      }
 
                      return true;
