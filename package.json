@@ -57,7 +57,7 @@
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.10.1",
     "grunt-git": "^1.0.14",
-    "grunt-http": "^2.3.2",
+    "grunt-http": "^2.3.3",
     "grunt-sass": "^3.1.0",
     "i18n": "^0.8.4",
     "i18next": "8.2.1",
