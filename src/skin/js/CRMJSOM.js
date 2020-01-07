@@ -1,5 +1,5 @@
 /*
- * EcclesiaCRM JavaScript Object Model Initializaion Script
+ * EcclesiaCRM JavaScript Object Model Initialization Script
  */
 
     window.CRM.APIRequest = function(options) {
@@ -1009,6 +1009,11 @@
           var dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
           if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
             dashBoardStatsSundaySchool.innerText = data.sundaySchoolClasses;
+          }
+
+          var dashBoardStatsSundaySchoolKids = document.getElementById('groupStatsSundaySchoolKids');
+          if (dashBoardStatsSundaySchoolKids) {// We have to check if we are on the dashboard menu
+              dashBoardStatsSundaySchoolKids.innerText = data.sundaySchoolkids;
           }
 
           var dashBoardGroupsCountDashboard = document.getElementById('groupsCountDashboard');
