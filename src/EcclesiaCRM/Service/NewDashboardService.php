@@ -13,6 +13,7 @@ class NewDashboardService
        "EcclesiaCRM\Dashboard\PersonDashboardItem",
        "EcclesiaCRM\Dashboard\PersonDemographicDashboardItem",
        "EcclesiaCRM\Dashboard\MailchimpDashboardItem",
+       "EcclesiaCRM\Dashboard\SundaySchoolDashboardItem",
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {
