@@ -7,6 +7,7 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
 
@@ -19,4 +20,4 @@ $container['ReportingService'] = new ReportingService();
 $container['SystemService'] = new SystemService();
 
 $container['CalendarService'] = new CalendarService();
-$container['Logger'] = $logger;
+$container['Logger'] = LoggerUtils::getAppLogger();;
