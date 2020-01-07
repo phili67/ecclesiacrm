@@ -1022,6 +1022,43 @@
             dashBoardGroupsCountDashboard.innerText = data.groups;
           }
         },
+        SundaySchoolDisplay  :function(data) {
+            var sundaySchoolClassesDasBoard = document.getElementById('sundaySchoolClassesDasBoard');
+
+            if (sundaySchoolClassesDasBoard) {
+                sundaySchoolClassesDasBoard.innerText = data.sundaySchoolClasses;
+            }
+
+            var sundaySchoolTeachersCNTDasBoard = document.getElementById('sundaySchoolTeachersCNTDasBoard');
+
+            if (sundaySchoolTeachersCNTDasBoard) {
+                sundaySchoolTeachersCNTDasBoard.innerText = data.teachersCNT;
+            }
+
+            var sundaySchoolKidsCNTDasBoard = document.getElementById('sundaySchoolKidsCNTDasBoard');
+
+            if (sundaySchoolKidsCNTDasBoard) {
+                sundaySchoolKidsCNTDasBoard.innerText = data.kidsCNT;
+            }
+
+            var sundaySchoolFamiliesCNTDasBoard = document.getElementById('sundaySchoolFamiliesCNTDasBoard');
+
+            if (sundaySchoolFamiliesCNTDasBoard) {
+                sundaySchoolFamiliesCNTDasBoard.innerText = data.SundaySchoolFamiliesCNT;
+            }
+
+            var sundaySchoolMaleKidsCNTDasBoard = document.getElementById('sundaySchoolMaleKidsCNTDasBoard');
+
+            if (sundaySchoolMaleKidsCNTDasBoard) {
+                sundaySchoolMaleKidsCNTDasBoard.innerText = data.maleKidsCNT;
+            }
+
+            var sundaySchoolFemaleKidsCNTDasBoard = document.getElementById('sundaySchoolFemaleKidsCNTDasBoard');
+
+            if (sundaySchoolFemaleKidsCNTDasBoard) {
+                sundaySchoolFemaleKidsCNTDasBoard.innerText = data.femaleKidsCNT;
+            }
+        },
         MailchimpDisplay:function (data) {
             if (data.isActive) {
                 var len = data.MailChimpLists.length;

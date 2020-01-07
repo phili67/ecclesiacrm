@@ -2,16 +2,16 @@
 
 namespace EcclesiaCRM\Dashboard;
 
-use Propel\Runtime\Propel;
-
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use Propel\Runtime\Propel;
+use EcclesiaCRM\Service\SundaySchoolService;
 
-class GroupsDashboardItem implements DashboardItemInterface
+class SundaySchoolDashboardItem implements DashboardItemInterface
 {
 
     public static function getDashboardItemName()
     {
-        return "GroupsDisplay";
+        return "SundaySchoolDisplay";
     }
 
     public static function getDashboardItemValue()
@@ -43,9 +43,38 @@ class GroupsDashboardItem implements DashboardItemInterface
         $statement->execute();
         $groupsAndSundaySchoolStats = $statement->fetch(\PDO::FETCH_ASSOC);
 
-        $data = ['groups' => $groupsAndSundaySchoolStats['Groups'] - $groupsAndSundaySchoolStats['SundaySchoolClasses'],
-            'sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
-            'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount'])
+        // now we get the sundayschool group stats
+        $sundaySchoolService = new SundaySchoolService();
+
+        $kidsWithoutClasses = $sundaySchoolService->getKidsWithoutClasses();
+        $classStats = $sundaySchoolService->getClassStats();
+        $teachersCNT = 0;
+        $kidsCNT = 0;
+        $maleKidsCNT = 0;
+        $femaleKidsCNT = 0;
+
+        foreach ($classStats as $class) {
+            $kidsCNT = $kidsCNT + $class['kids'];
+            $teachersCNT = $teachersCNT + $class['teachers'];
+            $classKids = $sundaySchoolService->getKidsFullDetails($class['id']);
+            foreach ($classKids as $kid) {
+                if ($kid['kidGender'] == '1') {
+                    $maleKidsCNT++;
+                } elseif ($kid['kidGender'] == '2') {
+                    $femaleKidsCNT++;
+                }
+            }
+        }
+
+        $data = ['sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
+            'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount']),
+            'SundaySchoolFamiliesCNT' => intval($groupsAndSundaySchoolStats['SundaySchoolFamiliesCount']),
+            'kidsWithoutClasses' => $kidsWithoutClasses,
+            'classStats' => $classStats,
+            'teachersCNT' => $teachersCNT,
+            'kidsCNT' => $kidsCNT,
+            'maleKidsCNT' => $maleKidsCNT,
+            'femaleKidsCNT' => $femaleKidsCNT
         ];
 
         return $data;
@@ -53,6 +82,6 @@ class GroupsDashboardItem implements DashboardItemInterface
 
     public static function shouldInclude($PageName)
     {
-        return $PageName == "/Menu.php" || $PageName == "/menu" || $PageName == "/v2/people/dashboard";
+        return $PageName == "/v2/sundayschool/dashboard";
     }
 }

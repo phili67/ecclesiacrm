@@ -20,7 +20,6 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -51,31 +50,10 @@ function sundayschoolDashboard (Request $request, Response $response, array $arg
 
 function argumentsSundayschoolDashboardArray ()
 {
-    $dashboardService = new DashboardService();
     $sundaySchoolService = new SundaySchoolService();
-    $groupStats = $dashboardService->getGroupStats();
 
     $kidsWithoutClasses = $sundaySchoolService->getKidsWithoutClasses();
     $classStats         = $sundaySchoolService->getClassStats();
-    $classes            = $groupStats['sundaySchoolClasses'];
-    $teachersCNT        = 0;
-    $kidsCNT            = 0;
-    $familiesCNT        = $groupStats['SundaySchoolFamiliesCount'];
-    $maleKidsCNT        = 0;
-    $femaleKidsCNT      = 0;
-
-    foreach ($classStats as $class) {
-        $kidsCNT = $kidsCNT + $class['kids'];
-        $teachersCNT = $teachersCNT + $class['teachers'];
-        $classKids = $sundaySchoolService->getKidsFullDetails($class['id']);
-        foreach ($classKids as $kid) {
-            if ($kid['kidGender'] == '1') {
-                $maleKidsCNT++;
-            } elseif ($kid['kidGender'] == '2') {
-                $femaleKidsCNT++;
-            }
-        }
-    }
 
     //Set the page title
     $sPageTitle    = _('Sunday School Dashboard');
@@ -87,16 +65,8 @@ function argumentsSundayschoolDashboardArray ()
         'sRootDocument'             => $sRootDocument,
         'CSPNonce'                  => $CSPNonce,
         'sPageTitle'                => $sPageTitle,
-        'classes'                   => $classes,
         'classStats'                => $classStats,
         'kidsWithoutClasses'        => $kidsWithoutClasses,
-        'maleKidsCNT'               => $maleKidsCNT,
-        'femaleKidsCNT'             => $femaleKidsCNT,
-        'teachersCNT'               => $teachersCNT,
-        'familiesCNT'               => $familiesCNT,
-        'kidsCNT'                   => $kidsCNT,
-        'groupStats'                => $groupStats,
-        'classKids'                 => $classKids,
         'isVolunteerOpportunityEnabled' => SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()
     ];
 
@@ -105,13 +75,13 @@ function argumentsSundayschoolDashboardArray ()
 
 function sundayschoolView (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sundayschool/');
-    
+
     if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
 
     $groupId = $args['groupId'];
-    
+
     return $renderer->render($response, 'sundayschoolview.php', argumentsSundayschoolViewArray($groupId));
 }
 

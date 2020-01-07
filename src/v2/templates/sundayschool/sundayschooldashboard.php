@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Classes') ?></span>
-                <span class="info-box-number"> <?= $classes ?> <br/></span>
+                <span class="info-box-number" id="sundaySchoolClassesDasBoard"> 0 <br/></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
-                <span class="info-box-number"> <?= $teachersCNT ?></span>
+                <span class="info-box-number" id="sundaySchoolTeachersCNTDasBoard"> 0 </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -45,7 +45,7 @@ require $sRootDocument . '/Include/Header.php';
             <span class="info-box-icon bg-orange"><i class="fa fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
-                <span class="info-box-number"> <?= $kidsCNT ?></span>
+                <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> 0 </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -57,7 +57,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
-                <span class="info-box-number"> <?= $familiesCNT ?></span>
+                <span class="info-box-number" id="sundaySchoolFamiliesCNTDasBoard"> 0 </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -69,7 +69,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
-                <span class="info-box-number"> <?= $maleKidsCNT ?></span>
+                <span class="info-box-number" id="sundaySchoolMaleKidsCNTDasBoard"> 0 </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -81,7 +81,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
-                <span class="info-box-number"> <?= $femaleKidsCNT ?></span>
+                <span class="info-box-number" id="sundaySchoolFemaleKidsCNTDasBoard"> 0 </span>
             </div>
             <!-- /.info-box-content -->
         </div>
