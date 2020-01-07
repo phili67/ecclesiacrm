@@ -19,7 +19,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
         'LatestFamilies' => self::getLatestFamilies(),
         'UpdatedFamilies' => self::getUpdatedFamilies()
         );
-    
+
 
 
     return $data;
@@ -44,18 +44,18 @@ class FamilyDashboardItem implements DashboardItemInterface {
                     ->limit($limit)
                     ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
                     ->find()->toArray();
-                    
+
     if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       $res = [];
-  
+
       foreach ($families as $family) {
           $family["Address1"] = gettext("Private Data");
           $res[] = $family;
       }
-  
+
       return $res;
     }
-    
+
     return $families;
   }
 
@@ -73,23 +73,23 @@ class FamilyDashboardItem implements DashboardItemInterface {
                     ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
                     ->find()->toArray();
 
-                    
+
     if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       $res = [];
-  
+
       foreach ($families as $family) {
           $family["Address1"] = gettext("Private Data");
           $res[] = $family;
       }
-  
+
       return $res;
     }
-    
+
     return $families;
   }
 
   public static function shouldInclude($PageName) {
-    return $PageName == "/Menu.php" || $PageName == "/menu"; // this ID would be found on all pages.
+    return $PageName == "/Menu.php" || $PageName == "/menu" || $PageName == "/v2/people/dashboard"; // this ID would be found on all pages.
   }
 
 }
