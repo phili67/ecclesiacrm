@@ -9,7 +9,7 @@
  *
  *  Additional Contributors:
  *  2006 Ed Davis
- *  2017 Philippe Logel
+ *  2020 Philippe Logel
  *
  ******************************************************************************/
 
@@ -18,7 +18,6 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\DepositQuery;
-use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\FinancialService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
