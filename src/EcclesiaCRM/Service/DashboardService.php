@@ -1,7 +1,8 @@
 <?php
 
 namespace EcclesiaCRM\Service;
-class NewDashboardService
+
+class DashboardService
 {
 
   public static function getDashboardItems($PageName) {
