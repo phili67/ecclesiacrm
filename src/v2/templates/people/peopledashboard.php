@@ -5,7 +5,7 @@
  *  last change : 2019-07-01
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorization
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
 
@@ -76,8 +76,8 @@ require $sRootDocument . '/Include/Header.php';
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>
-                    <?= $familyCount['familyCount'] ?>
+                <h3 id="familyCountDashboard">
+                    0
                 </h3>
 
                 <p>
@@ -97,8 +97,8 @@ require $sRootDocument . '/Include/Header.php';
         <!-- small box -->
         <div class="small-box bg-purple">
             <div class="inner">
-                <h3>
-                    <?= $personCount['personCount'] ?>
+                <h3 id="peopleStatsDashboard">
+                    0
                 </h3>
 
                 <p>
@@ -118,8 +118,8 @@ require $sRootDocument . '/Include/Header.php';
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>
-                    <?= $groupStats['sundaySchoolkids'] ?>
+                <h3 id="groupStatsSundaySchoolKids">
+                    0
                 </h3>
 
                 <p>
@@ -139,8 +139,8 @@ require $sRootDocument . '/Include/Header.php';
         <!-- small box -->
         <div class="small-box bg-maroon">
             <div class="inner">
-                <h3>
-                    <?= $groupStats['groups'] - $groupStats['sundaySchoolClasses'] ?>
+                <h3 id="groupsCountDashboard">
+                    0
                 </h3>
 
                 <p>

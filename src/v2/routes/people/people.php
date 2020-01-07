@@ -9,13 +9,15 @@
  *                This code can't be incoprorated in another software without any authorization
  *
  ******************************************************************************/
- 
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Service\DashboardService;
+
+use EcclesiaCRM\Dashboard\PersonDashboardItem;
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -32,19 +34,16 @@ $app->group('/people', function () {
 
 function peopleDashboard (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/people/');
-    
+
     return $renderer->render($response, 'peopledashboard.php', argumentsPeopleDashboardArray());
 }
 
 function argumentsPeopleDashboardArray ()
 {
-    $dashboardService = new DashboardService();
-    $personCount      = $dashboardService->getPersonCount();
-    $personStats      = $dashboardService->getPersonStats();
-    $familyCount      = $dashboardService->getFamilyCount();
-    $groupStats       = $dashboardService->getGroupStats();
-    $demographicStats = $dashboardService->getDemographic();
-    $ageStats         = $dashboardService->getAgeStats();
+    $personCount      = PersonDashboardItem::getMembersCount();
+    $personStats      = PersonDashboardItem::getPersonStats();
+    $demographicStats = PersonDashboardItem::getDemographic();
+    $ageStats         = PersonDashboardItem::getAgeStats();
 
     $adultsGender = PersonQuery::Create()
         ->filterByGender(array('1', '2'), Criteria::IN) // criteria Criteria::IN not usefull
@@ -113,16 +112,14 @@ function argumentsPeopleDashboardArray ()
 
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sCSPNonce       = SystemURLs::getCSPNonce();
-          
+
     $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
                        'sRootDocument'        => $sRootDocument,
                        'sPageTitle'           => $sPageTitle,
                        'sCSPNonce'            => $sCSPNonce,
                        'personCount'          => $personCount,
                        'personStats'          => $personStats,
-                       'familyCount'          => $familyCount,
                        'demographicStats'     => $demographicStats,
-                       'groupStats'           => $groupStats,
                        'ageStats'             => $ageStats,
                        'kidsGender'           => $kidsGender,
                        'adultsGender'         => $adultsGender,
@@ -130,6 +127,6 @@ function argumentsPeopleDashboardArray ()
                        'sEmailLink'           => $sEmailLink,
                        'roleEmails'           => $roleEmails
                        ];
-                       
+
    return $paramsArguments;
 }
