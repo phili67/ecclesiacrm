@@ -6,14 +6,17 @@ use Propel\Runtime\Propel;
 
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
 
-class GroupsDashboardItem implements DashboardItemInterface {
+class GroupsDashboardItem implements DashboardItemInterface
+{
 
-  public static function getDashboardItemName() {
-    return "GroupsDisplay";
-  }
+    public static function getDashboardItemName()
+    {
+        return "GroupsDisplay";
+    }
 
-  public static function getDashboardItemValue() {
-      $sSQL = 'select
+    public static function getDashboardItemValue()
+    {
+        $sSQL = 'select
         (select count(*) from group_grp) as Groups,
         (select count(*) from group_grp where grp_Type = 4 ) as SundaySchoolClasses,
         (Select count(*) from person_per
@@ -38,15 +41,18 @@ class GroupsDashboardItem implements DashboardItemInterface {
         $connection = Propel::getConnection();
         $statement = $connection->prepare($sSQL);
         $statement->execute();
-        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+        $groupsAndSundaySchoolStats = $statement->fetch(\PDO::FETCH_ASSOC);
 
-        $data = ['groups' => $row['Groups'] - $row['SundaySchoolClasses'], 'sundaySchoolClasses' => $row['SundaySchoolClasses'], 'sundaySchoolkids' => $row['SundaySchoolKidsCount']];
+        $data = ['groups' => $groupsAndSundaySchoolStats['Groups'] - $groupsAndSundaySchoolStats['SundaySchoolClasses'],
+            'sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
+            'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount'])
+        ];
 
         return $data;
-  }
+    }
 
-  public static function shouldInclude($PageName) {
-    return $PageName=="/Menu.php" || $PageName == "/menu" || $PageName == "/v2/people/dashboard";
-  }
-
+    public static function shouldInclude($PageName)
+    {
+        return $PageName == "/Menu.php" || $PageName == "/menu" || $PageName == "/v2/people/dashboard";
+    }
 }
