@@ -22,5 +22,7 @@ unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCare.php");
 unlink(SystemURLs::getDocumentRoot()."/v2/templates/people/pastoralcare.php");
 unlink(SystemURLs::getDocumentRoot()."/skin/js/people/PastoralCare.js");
 
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Service/DashboardService.php");
+
 $logger->info("End of delete :  all unusefull files");
 ?>

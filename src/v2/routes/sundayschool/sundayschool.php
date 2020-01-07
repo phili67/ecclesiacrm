@@ -20,7 +20,6 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -51,14 +50,10 @@ function sundayschoolDashboard (Request $request, Response $response, array $arg
 
 function argumentsSundayschoolDashboardArray ()
 {
-    $dashboardService = new DashboardService();
     $sundaySchoolService = new SundaySchoolService();
-
-    $groupStats = $dashboardService->getGroupStats();
 
     $kidsWithoutClasses = $sundaySchoolService->getKidsWithoutClasses();
     $classStats         = $sundaySchoolService->getClassStats();
-    $classes            = $groupStats['sundaySchoolClasses'];
 
     //Set the page title
     $sPageTitle    = _('Sunday School Dashboard');
@@ -70,7 +65,6 @@ function argumentsSundayschoolDashboardArray ()
         'sRootDocument'             => $sRootDocument,
         'CSPNonce'                  => $CSPNonce,
         'sPageTitle'                => $sPageTitle,
-        'classes'                   => $classes,
         'classStats'                => $classStats,
         'kidsWithoutClasses'        => $kidsWithoutClasses,
         'isVolunteerOpportunityEnabled' => SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()
