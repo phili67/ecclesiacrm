@@ -6,15 +6,20 @@ use EcclesiaCRM\Service\NewDashboardService;
 use EcclesiaCRM\Service\SystemService;
 
 $app->group('/dashboard', function () {
-   $this->get('/page', function ($request,$response,$args) {
+
+/*
+ * @! Returns the dashboard items in function of the current page name : for CRMJsom.js
+ * #! param: page->string :: current page name
+ */
+    $this->get('/page', function ($request,$response,$args) {
       $dataFull = [];
-  
+
       if ($this->SystemService->getSessionTimeout() < 10) {
         $dataTimeout = ['timeOut' => 1,'availableTime' =>  $this->SystemService->getSessionTimeout()];
       } else {
         $dataTimeout = ['timeOut' => 0,'availableTime' =>  $this->SystemService->getSessionTimeout()];
       }
-  
+
       array_push ($dataFull,$dataTimeout);
 
       if ($this->SystemService->getSessionTimeout() > 0) {
@@ -22,7 +27,7 @@ $app->group('/dashboard', function () {
           $DashboardValues = NewDashboardService::getValues($pageName);
           array_push ($dataFull,$DashboardValues);
       }
-  
+
       return $response->withJson($dataFull);
     });
 });

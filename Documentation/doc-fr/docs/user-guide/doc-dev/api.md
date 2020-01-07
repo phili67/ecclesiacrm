@@ -165,12 +165,12 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | numbersOfEventOfToday | Get all events from today
+`/types` | GET | getEventTypes | Get all event type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/types` | GET | getEventTypes | Get all event type
+`/names` | GET | eventNames | Get all event names
 
 ---
 Route | Method | function | Description
@@ -221,7 +221,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | manageEvent | manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+`/` | POST | manageEvent | manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
 
 * `{id}`->`int` :: eventID
 * `{id}`->`int` :: type ID
@@ -251,6 +251,11 @@ Route | Method | function | Description
 * `{id}`->`int` :: removeFamily id
 * `{id}`->`int` :: studentGroup id
 * `{id}`->`int` :: teacherGroup id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/interectPerson` | POST | cartIntersectPersons | No description
 
 ---
 Route | Method | function | Description
@@ -946,16 +951,23 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId}/verify` | POST | verifyFamily | Verify the family for the familyId
+`/{familyId:[0-9]+}/verify` | POST | verifyFamily | Verify the family for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/verify/{familyId}/now` | POST | verifyFamilyNow | Verify the family for the familyId now
+`/verify/{familyId:[0-9]+}/now` | POST | verifyFamilyNow | Verify the family for the familyId now
 
 * `{id}`->`int` :: familyId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify/url` | POST | verifyFamilyURL | Verify the family for the familyId now
+
+* `{id}`->`int` :: family
 
 ---
 Route | Method | function | Description
@@ -968,7 +980,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/geolocation` | GET | familyGeolocation | Return the location for the family 
+`/{familyId:[0-9]+}/geolocation` | GET | familyGeolocation | Return the location for the family
 
 * `{id}`->`int` :: familyId as id
 
@@ -1184,6 +1196,11 @@ Route | Method | function | Description
 `/search/{query}` | GET | searchPerson | Returns a list of the persons who's first name or last name matches the :query parameter
 
 * `{ref}`->`string` :: query string ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/cart/view` | GET | personCartView | Returns a list of the persons who are in the cart
 
 ---
 Route | Method | function | Description
@@ -1433,22 +1450,42 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/add` | POST | addPastoralCare | No description
+`/person/add` | POST | addPastoralCarePerson | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/delete` | POST | deletePastoralCare | No description
+`/person/delete` | POST | deletePastoralCarePerson | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getinfo` | POST | getPastoralCareInfo | No description
+`/person/getinfo` | POST | getPastoralCareInfoPerson | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/modify` | POST | modifyPastoralCare | No description
+`/person/modify` | POST | modifyPastoralCarePerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/add` | POST | addPastoralCareFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/delete` | POST | deletePastoralCareFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/getinfo` | POST | getPastoralCareInfoFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/modify` | POST | modifyPastoralCareFamily | No description
 
 ---
 ## API "properties"
@@ -1641,7 +1678,9 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/page` | GET | function ($request,$response,$args) | No description
+`/page` | GET | function ($request,$response,$args) | Returns the dashboard items in function of the current page name : for CRMJsom.js
+
+* `{page}`->`string` :: current page name
 
 ---
 ## API "database"
@@ -1655,7 +1694,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/backupRemote` | POST | function() use ($app, $systemService) | No description
+`/backupRemote` | POST | function($request, $response, $args) | No description
 
 ---
 Route | Method | function | Description

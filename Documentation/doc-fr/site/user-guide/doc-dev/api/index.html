@@ -2723,10 +2723,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/numbers</code></td>
+<td><code>/types</code></td>
 <td>GET</td>
-<td>numbersOfEventOfToday</td>
-<td>Get all events from today</td>
+<td>getEventTypes</td>
+<td>Get all event type</td>
 </tr>
 </tbody>
 </table>
@@ -2742,10 +2742,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/types</code></td>
+<td><code>/names</code></td>
 <td>GET</td>
-<td>getEventTypes</td>
-<td>Get all event type</td>
+<td>eventNames</td>
+<td>Get all event names</td>
 </tr>
 </tbody>
 </table>
@@ -2900,7 +2900,7 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>manageEvent</td>
-<td>manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]</td>
+<td>manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]</td>
 </tr>
 </tbody>
 </table>
@@ -2961,6 +2961,25 @@
 <li><code>{id}</code>-&gt;<code>int</code> :: studentGroup id</li>
 <li><code>{id}</code>-&gt;<code>int</code> :: teacherGroup id</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/interectPerson</code></td>
+<td>POST</td>
+<td>cartIntersectPersons</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <table>
 <thead>
@@ -5356,7 +5375,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{familyId}/verify</code></td>
+<td><code>/{familyId:[0-9]+}/verify</code></td>
 <td>POST</td>
 <td>verifyFamily</td>
 <td>Verify the family for the familyId</td>
@@ -5378,7 +5397,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/verify/{familyId}/now</code></td>
+<td><code>/verify/{familyId:[0-9]+}/now</code></td>
 <td>POST</td>
 <td>verifyFamilyNow</td>
 <td>Verify the family for the familyId now</td>
@@ -5387,6 +5406,28 @@
 </table>
 <ul>
 <li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/url</code></td>
+<td>POST</td>
+<td>verifyFamilyURL</td>
+<td>Verify the family for the familyId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: family</li>
 </ul>
 <hr />
 <table>
@@ -6154,6 +6195,25 @@
 <ul>
 <li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/cart/view</code></td>
+<td>GET</td>
+<td>personCartView</td>
+<td>Returns a list of the persons who are in the cart</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <table>
 <thead>
@@ -6979,9 +7039,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/add</code></td>
+<td><code>/person/add</code></td>
 <td>POST</td>
-<td>addPastoralCare</td>
+<td>addPastoralCarePerson</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -6998,9 +7058,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/delete</code></td>
+<td><code>/person/delete</code></td>
 <td>POST</td>
-<td>deletePastoralCare</td>
+<td>deletePastoralCarePerson</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -7017,9 +7077,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/getinfo</code></td>
+<td><code>/person/getinfo</code></td>
 <td>POST</td>
-<td>getPastoralCareInfo</td>
+<td>getPastoralCareInfoPerson</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -7036,9 +7096,85 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/modify</code></td>
+<td><code>/person/modify</code></td>
 <td>POST</td>
-<td>modifyPastoralCare</td>
+<td>modifyPastoralCarePerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/add</code></td>
+<td>POST</td>
+<td>addPastoralCareFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/delete</code></td>
+<td>POST</td>
+<td>deletePastoralCareFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/getinfo</code></td>
+<td>POST</td>
+<td>getPastoralCareInfoFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/modify</code></td>
+<td>POST</td>
+<td>modifyPastoralCareFamily</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -7680,10 +7816,13 @@
 <td><code>/page</code></td>
 <td>GET</td>
 <td>function ($request,$response,$args)</td>
-<td>No description</td>
+<td>Returns the dashboard items in function of the current page name : for CRMJsom.js</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{page}</code>-&gt;<code>string</code> :: current page name</li>
+</ul>
 <hr />
 <h2 id="api-database">API "database"<a class="headerlink" href="#api-database" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-database.php</p>
@@ -7719,7 +7858,7 @@
 <tr>
 <td><code>/backupRemote</code></td>
 <td>POST</td>
-<td>function() use ($app, $systemService)</td>
+<td>function($request, $response, $args)</td>
 <td>No description</td>
 </tr>
 </tbody>
