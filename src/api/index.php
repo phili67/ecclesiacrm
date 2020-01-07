@@ -11,7 +11,6 @@ use Slim\App;
 use Slim\HttpCache\Cache;
 use Slim\HttpCache\CacheProvider;
 use EcclesiaCRM\TokenQuery;
-use EcclesiaCRM\Utils\LoggerUtils;
 
 // Instantiate the app
 $settings = require __DIR__.'/../Include/slim/settings.php';
@@ -38,8 +37,6 @@ $app->add(new JwtAuthentication([
             ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
 ]));
-
-$logger = LoggerUtils::getAppLogger();
 
 // Set up
 require __DIR__.'/dependencies.php';
