@@ -9,11 +9,11 @@
 // Last this code was two times in different parts
 //
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 
-class CalendarDashboardItem implements DashboardItemInterface {
+class CalendarPageItem implements DashboardItemInterface {
 
     public static function getDashboardItemName() {
         return "CalendarDisplay";

@@ -1,12 +1,12 @@
 <?php
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
 use Propel\Runtime\Propel;
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 
 class PersonDemographicDashboardItem implements DashboardItemInterface {
-  
+
   public static function getDashboardItemName() {
     return "PersonDemographics";
   }

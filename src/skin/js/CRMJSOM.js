@@ -908,7 +908,7 @@
       }
     };
 
-    window.CRM.dashboard = {
+    window.CRM.synchronize = {
       renderers: {
         EventsCounters: function (data) {
           if (document.getElementById('BirthdateNumber') != null) {
@@ -1201,14 +1201,14 @@
         }
         window.CRM.APIRequest({
           method: 'GET',
-          path: 'dashboard/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
+          path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
         }).done(function (data) {
           if (data[0].timeOut) {
             window.location.replace(window.CRM.root+'/Login.php?session=Lock');
           } else {
             for (var key in data[1]) {
                 try {
-                  window["CRM"]["dashboard"]["renderers"][key](data[1][key]);
+                  window["CRM"]["synchronize"]["renderers"][key](data[1][key]);
                 } catch (e) {
                   console.log(e);
                 }

@@ -296,8 +296,8 @@ $("document").ready(function(){
     });
 
     window.CRM.cart.refresh();
-    window.CRM.dashboard.refresh();
-    DashboardRefreshTimer=setInterval(window.CRM.dashboard.refresh, window.CRM.iDasbhoardServiceIntervalTime * 1000);
+    window.CRM.synchronize.refresh();
+    DashboardRefreshTimer=setInterval(window.CRM.synchronize.refresh, window.CRM.iDasbhoardServiceIntervalTime * 1000);
 
     // all bootbox are now localized
     bootbox.setDefaults({locale: window.CRM.lang});

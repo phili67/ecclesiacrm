@@ -1,8 +1,8 @@
 <?php
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Service\SundaySchoolService;
 

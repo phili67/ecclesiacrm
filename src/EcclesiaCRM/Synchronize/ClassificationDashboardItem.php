@@ -1,9 +1,9 @@
 <?php
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
 use Propel\Runtime\Propel;
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 
 class ClassificationDashboardItem implements DashboardItemInterface {
 
@@ -18,9 +18,9 @@ class ClassificationDashboardItem implements DashboardItemInterface {
                 LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
                 WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null and person_per.per_DateDeactivated is null
                 group by per_cls_ID, lst_OptionName order by count desc;';
-        
+
         $connection = Propel::getConnection();
-        
+
         $statement = $connection->prepare($sSQL);
         $statement->execute();
 

@@ -9,9 +9,9 @@
 // Last this code was two times in different parts
 //
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use EcclesiaCRM\dto\MenuEventsCount;
 
 class EventsDashboardItem implements DashboardItemInterface {
