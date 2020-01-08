@@ -1005,6 +1005,14 @@
             updatedFamiliesTable.draw(true);
           }
         },
+        CalendarDisplay: function (data) {
+            var calendarView = document.getElementById('calendar');
+
+            if (calendarView) {
+                $('#calendar').fullCalendar( 'refetchEvents' );
+                window.CRM.addAllCalendars();
+            }
+        },
         GroupsDisplay: function (data) {
           var dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
           if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
