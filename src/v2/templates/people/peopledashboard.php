@@ -269,7 +269,7 @@ require $sRootDocument . '/Include/Header.php';
                             <td>
                                 <div class="progress progress-xs progress-striped active">
                                     <div class="progress-bar progress-bar-success"
-                                         style="width: <?= round($demStat['value'] / $personCount['personCount'] * 100) ?>%"></div>
+                                         style="width: <?= round($demStat['value'] / $personCount * 100) ?>%"></div>
                                 </div>
                             </td>
                             <td><span class="badge bg-green"><?= $demStat['value'] ?></span></td>
