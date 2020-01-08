@@ -15,6 +15,7 @@ class DashboardService
        "EcclesiaCRM\Dashboard\PersonDemographicDashboardItem",
        "EcclesiaCRM\Dashboard\MailchimpDashboardItem",
        "EcclesiaCRM\Dashboard\SundaySchoolDashboardItem",
+       "EcclesiaCRM\Dashboard\CalendarDashboardItem",
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {
