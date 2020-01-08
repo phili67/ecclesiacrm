@@ -792,7 +792,7 @@
                        location.reload();
                      } else if (page == 'Checkin.php') {
                        window.location.href = window.CRM.root + '/Checkin.php';
-                     } else {
+                     } else if (page != "/v2/calendar") {
                          window.location.href = window.CRM.root + '/'+ page;
                      }
 
