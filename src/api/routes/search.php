@@ -43,11 +43,8 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     ];
 
     foreach ($resMethods as $resMethod) {
-        $res = $resMethod->getRes($query);
-        if (!empty ($res)) {
-            $resultsArray[] = $res;
-        }
+        $resultsArray[] = $resMethod->getRes($query);
     }
 
-    return $response->withJson(array_filter($resultsArray));
+    return $response->withJson(array_values(array_filter($resultsArray)));
 });

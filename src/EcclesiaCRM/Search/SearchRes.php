@@ -2,7 +2,6 @@
 
 namespace EcclesiaCRM\Search;
 
-
 use EcclesiaCRM\Utils\LoggerUtils;
 
 class SearchRes implements \JsonSerializable {
@@ -15,7 +14,7 @@ class SearchRes implements \JsonSerializable {
     }
 
     public function jsonSerialize() {
-        return @['children' => $this->array,
-            'text' => $this->name];
+        return ['children' => $this->array,
+                'text' => $this->name];
     }
 }
