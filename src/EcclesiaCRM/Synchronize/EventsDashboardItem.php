@@ -1,25 +1,21 @@
 <?php
 
 //
-// Philippe Logel : 
-// I re-put the code at the right place it was : 
+// Philippe Logel :
+// I re-put the code at the right place it was :
 // Menu events should be in MenuEventsCount.php
 // It's important for a new dev
 // It was my code ...
 // Last this code was two times in different parts
 //
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
-use EcclesiaCRM\EventQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use EcclesiaCRM\dto\MenuEventsCount;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 class EventsDashboardItem implements DashboardItemInterface {
-  
+
   public static function getDashboardItemName() {
     return "EventsCounters";
   }

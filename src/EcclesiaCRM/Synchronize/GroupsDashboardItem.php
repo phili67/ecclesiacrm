@@ -1,10 +1,10 @@
 <?php
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
 use Propel\Runtime\Propel;
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 
 class GroupsDashboardItem implements DashboardItemInterface
 {

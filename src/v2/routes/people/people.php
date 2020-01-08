@@ -16,7 +16,7 @@ use Slim\Http\Response;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 
-use EcclesiaCRM\Dashboard\PersonDashboardItem;
+use EcclesiaCRM\Synchronize\PersonDashboardItem;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;

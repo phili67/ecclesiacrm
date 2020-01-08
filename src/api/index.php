@@ -81,7 +81,7 @@ require __DIR__.'/routes/sidebar/sidebar-volunteeropportunity.php';
 // system routes
 require __DIR__.'/routes/system/system.php';
 require __DIR__.'/routes/system/system-custom-fields.php';
-require __DIR__.'/routes/system/system-dashboard.php';
+require __DIR__.'/routes/system/system-synchronize.php';
 require __DIR__.'/routes/system/system-database.php';
 require __DIR__.'/routes/system/system-gdrp.php';
 require __DIR__.'/routes/system/system-issues.php';

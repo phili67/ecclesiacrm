@@ -1,9 +1,9 @@
 <?php
 
-namespace EcclesiaCRM\Dashboard;
+namespace EcclesiaCRM\Synchronize;
 
 
-use EcclesiaCRM\Dashboard\DashboardItemInterface;
+use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\SessionUser;
 

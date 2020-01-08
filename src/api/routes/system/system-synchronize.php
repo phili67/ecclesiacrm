@@ -2,9 +2,9 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use EcclesiaCRM\Service\DashboardService;
+use EcclesiaCRM\Service\Synchronize;
 
-$app->group('/dashboard', function () {
+$app->group('/synchronize', function () {
 
 /*
  * @! Returns the dashboard items in function of the current page name : for CRMJsom.js
@@ -23,7 +23,7 @@ $app->group('/dashboard', function () {
 
       if ($this->SystemService->getSessionTimeout() > 0) {
           $pageName = $request->getQueryParam("currentpagename","");
-          $DashboardValues = DashboardService::getValues($pageName);
+          $DashboardValues = Synchronize::getValues($pageName);
           array_push ($dataFull,$DashboardValues);
       }
 

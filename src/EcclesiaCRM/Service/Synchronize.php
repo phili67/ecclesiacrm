@@ -2,19 +2,20 @@
 
 namespace EcclesiaCRM\Service;
 
-class DashboardService
+class Synchronize
 {
 
   public static function getDashboardItems($PageName) {
      $DashboardItems = array (
-       "EcclesiaCRM\Dashboard\EventsDashboardItem",
-       "EcclesiaCRM\Dashboard\ClassificationDashboardItem",
-       "EcclesiaCRM\Dashboard\FamilyDashboardItem",
-       "EcclesiaCRM\Dashboard\GroupsDashboardItem",
-       "EcclesiaCRM\Dashboard\PersonDashboardItem",
-       "EcclesiaCRM\Dashboard\PersonDemographicDashboardItem",
-       "EcclesiaCRM\Dashboard\MailchimpDashboardItem",
-       "EcclesiaCRM\Dashboard\SundaySchoolDashboardItem",
+       "EcclesiaCRM\Synchronize\EventsDashboardItem",
+       "EcclesiaCRM\Synchronize\ClassificationDashboardItem",
+       "EcclesiaCRM\Synchronize\FamilyDashboardItem",
+       "EcclesiaCRM\Synchronize\GroupsDashboardItem",
+       "EcclesiaCRM\Synchronize\PersonDashboardItem",
+       "EcclesiaCRM\Synchronize\PersonDemographicDashboardItem",
+       "EcclesiaCRM\Synchronize\MailchimpDashboardItem",
+       "EcclesiaCRM\Synchronize\SundaySchoolDashboardItem",
+       "EcclesiaCRM\Synchronize\CalendarPageItem",
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {
