@@ -22,5 +22,11 @@ unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCare.php");
 unlink(SystemURLs::getDocumentRoot()."/v2/templates/people/pastoralcare.php");
 unlink(SystemURLs::getDocumentRoot()."/skin/js/people/PastoralCare.js");
 
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Service/DashboardService.php");
+unlink(SystemURLs::getDocumentRoot()."/api/routes/system/system-dashboard.php");
+
+// now the folder is called synchronize
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Dashboard/");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
