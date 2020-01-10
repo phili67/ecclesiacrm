@@ -396,7 +396,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
         if ($caresFamilies->count() > 0) {
             if ($caresPersons->count() > 0) {
                 ?>
-                <hr style="background-color: orange; height: 1px; border: 0;">
+                <hr style="background-color: #7c633e; height: 1px; border: 0;">
                 <?php
             }
             ?>
