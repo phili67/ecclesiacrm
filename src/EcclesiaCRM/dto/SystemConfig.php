@@ -235,7 +235,7 @@ class SystemConfig
         "iEventsOnDashboardPresenceTimeOut" => new ConfigItem(2043, "iEventsOnDashboardPresenceTimeOut", "number", "10", _("Number of seconds after page load until the banner disappears, default 10 seconds")),
         "bPHPMailerAutoTLS" => new ConfigItem(2045, "bPHPMailerAutoTLS", "boolean", "0", _("Automatically enable SMTP encryption if offered by the relaying server.")),
         "sPHPMailerSMTPSecure" => new ConfigItem(2046, "sPHPMailerSMTPSecure", "choice", " ", _("Set the encryption system to use - ssl (deprecated) or tls"),"",'{"Choices":["None: ","TLS:tls","SSL:ssl"]}'),
-        "iDasbhoardServiceIntervalTime" => new ConfigItem(2047, "iDasbhoardServiceIntervalTime", "number", "60", _("Dashboard Service dynamic asynchronous refresh interval, default 60 second")),
+        "iDashboardPageServiceIntervalTime" => new ConfigItem(2047, "iDashboardPageServiceIntervalTime", "number", "60", _("Dashboard & page Service dynamic asynchronous refresh interval, default 60 second")),
         "bCheckedAttendees" => new ConfigItem(2048, "bCheckedAttendees", "boolean", "1", _("When you make the attendance all the kids are checked by default")),
         "bCheckedAttendeesCurrentUser" => new ConfigItem(2049, "bCheckedAttendeesCurrentUser", "boolean", "0", _("When you make the attendance the current user isn't choosed by default")),
         "bStateUnusefull" => new ConfigItem(2050, "bStateUnusefull", "boolean", "0", _("Hide dropdown states when they are unusefull")),
@@ -278,7 +278,7 @@ class SystemConfig
       _('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
       _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
       _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
-      _('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
+      _('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDashboardPageServiceIntervalTime"],
       _('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
     );
   }
