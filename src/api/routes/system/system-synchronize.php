@@ -11,6 +11,8 @@ $app->group('/synchronize', function () {
  * #! param: page->string :: current page name
  */
     $this->get('/page', function ($request,$response,$args) {
+      $this->cache->withExpires($response, 0);
+
       $dataFull = [];
 
       if ($this->SystemService->getSessionTimeout() < 10) {

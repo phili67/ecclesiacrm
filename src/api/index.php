@@ -25,6 +25,8 @@ $app = new App($container);
 
 $app->add(new VersionMiddleware());
 
+$app->add(new Cache('public', 60));
+
 $app->add(new JwtAuthentication([
     "secret" => TokenQuery::Create()->findOneByType("secret")->getToken(),
     "path" => "/api",
