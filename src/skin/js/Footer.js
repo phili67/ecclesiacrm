@@ -68,4 +68,9 @@ $("document").ready(function(){
 
     // run all the jobs
     window.CRM.system.runTimerJobs();
+
+    // when the window if focused
+    window.onfocus = function() {
+        window.CRM.synchronize.refresh();
+    }
 });
