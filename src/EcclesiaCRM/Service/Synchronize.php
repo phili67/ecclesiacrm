@@ -16,6 +16,7 @@ class Synchronize
        "EcclesiaCRM\Synchronize\MailchimpDashboardItem",
        "EcclesiaCRM\Synchronize\SundaySchoolDashboardItem",
        "EcclesiaCRM\Synchronize\CalendarPageItem",
+       "EcclesiaCRM\Synchronize\EDrivePageItem"
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {

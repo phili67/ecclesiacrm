@@ -1337,6 +1337,13 @@
                 window.CRM.addAllCalendars();
             }
         },
+        EDriveDisplay: function(data) {
+            var edriveView = document.getElementById('edrive-table');
+
+            if (edriveView) {
+                window.CRM.reloadEDriveTable();
+            }
+        },
         GroupsDisplay: function (data) {
           var dashBoardStatsSundaySchool = document.getElementById('groupStatsSundaySchool');
           if (dashBoardStatsSundaySchool) {// We have to check if we are on the dashboard menu
