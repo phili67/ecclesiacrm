@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-01-05T21:20:41.534Z\n"
+"POT-Creation-Date: 2020-01-18T17:17:42.428Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Rôle Familial"
 msgid "You have no more items in your cart."
 msgstr "Vous n'avez plus d'items dans le panier."
 
-msgid "Error making API Call to"
-msgstr "Erreur de communication de l'API avec"
-
 msgid "Error text"
 msgstr "Message erreur"
+
+msgid "Error making API Call to"
+msgstr "Erreur de communication de l'API avec"
 
 msgid "Stack Trace"
 msgstr "Trace de données"
@@ -61,6 +61,51 @@ msgstr ""
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Il y a eu un problème lors de la récupération de l'objet demandé"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Select the method to add to a group"
+msgstr "Sélectionner la méthode pour ajouter à un groupe"
+
+msgid "Select an existing Group"
+msgstr "Sélectionner à un groupe existant"
+
+msgid "or Create a new Group from the Cart"
+msgstr "ou créer un nouveau groupe du panier"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Sélectionner le groupe auquel vous voulez ajouter le panier"
+
+msgid "Select Group"
+msgstr "Sélectionner le groupe"
+
+msgid "Select Role"
+msgstr "Sélectionner un rôle"
+
+msgid "Group Name"
+msgstr "Nom du Groupe"
+
+msgid "Default Name Group"
+msgstr "Nom par défaut du Groupe"
+
+msgid "Add Cart to Group"
+msgstr "Ajouter le panier au groupe"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Vous devriez sélectionner un groupe et un rôle de groupe"
+
+msgid "You have to set a Group Name"
+msgstr "Saisissez un un nom de groupe"
+
+msgid "Close"
+msgstr "Fermer"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Etes-vous sûr de vouloir désactiver ces personnes ?"
@@ -157,17 +202,64 @@ msgstr "Tout afficher"
 msgid "Your Cart is Empty"
 msgstr "Votre panier est vide!"
 
+msgid "If you need to make changes to registration data, go to "
+msgstr "Si vous devez modifier votre inscription, aller dans "
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin->Modifier les réglages généraux"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+"Veuillez enregistrer votre copie de EcclesiaCRM en vérifiant les "
+"informations et en appuyant sur le bouton Envoyer."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Cette information est utilisée uniquement pour faire le suivi de ce logiciel."
+
+msgid "Church Name"
+msgstr "Nom Église"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "City"
+msgstr "Ville"
+
+msgid "State"
+msgstr "Etat"
+
+msgid "Zip"
+msgstr "Code postal"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "Church Email"
+msgstr "Email de l'église"
+
+msgid "Base URL"
+msgstr "URL de base"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Software Registration"
+msgstr "Enregistrement du logiciel"
+
+msgid "Send"
+msgstr "Envoyer"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Votre logiciel est maintenant enregistré. Merci !"
+
 msgid "OK"
 msgstr "OK"
 
-msgid "Select Group"
-msgstr "Sélectionner le groupe"
-
 msgid "Please select target group for members"
 msgstr "Veuillez sélectionner le groupe cible pour les membres"
-
-msgid "Select Role"
-msgstr "Sélectionner un rôle"
 
 msgid "Please select target Role for members"
 msgstr "Veuillez sélectionner le rôle cible pour ce(s) membre(s)"
@@ -180,9 +272,6 @@ msgstr "Sélectionner Groupe et Rôle"
 
 msgid "Add A Group Name"
 msgstr "Ajouter nom de Groupe"
-
-msgid "Default Name Group"
-msgstr "Nom par défaut du Groupe"
 
 msgid "Yes"
 msgstr "Oui"
@@ -222,9 +311,6 @@ msgstr "Vous avez sélectionné deux fois le même nom"
 msgid "for this field. Chose another one."
 msgstr "pour ce champ. Choisissez-en un autre."
 
-msgid "Error"
-msgstr "Erreur"
-
 msgid "Please confirm deletion of this document"
 msgstr "Merci de confirmer la suppression de ce document"
 
@@ -254,12 +340,6 @@ msgstr "Audio"
 
 msgid "Private"
 msgstr "Privée"
-
-msgid "Close"
-msgstr "Fermer"
-
-msgid "Save"
-msgstr "Enregistrer"
 
 msgid "You have to set a Title for your document"
 msgstr "Vous devez saisir un titre de pour votre document"
@@ -359,86 +439,6 @@ msgstr "Êtes-vous sûr de vouloir arrêter le partage du document ?"
 
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Select the method to add to a group"
-msgstr "Sélectionner la méthode pour ajouter à un groupe"
-
-msgid "Select an existing Group"
-msgstr "Sélectionner à un groupe existant"
-
-msgid "or Create a new Group from the Cart"
-msgstr "ou créer un nouveau groupe du panier"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Sélectionner le groupe auquel vous voulez ajouter le panier"
-
-msgid "None"
-msgstr "Aucun"
-
-msgid "Group Name"
-msgstr "Nom du Groupe"
-
-msgid "Add Cart to Group"
-msgstr "Ajouter le panier au groupe"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Vous devriez sélectionner un groupe et un rôle de groupe"
-
-msgid "You have to set a Group Name"
-msgstr "Saisissez un un nom de groupe"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr "Si vous devez modifier votre inscription, aller dans "
-
-msgid "Admin->Edit General Settings"
-msgstr "Admin->Modifier les réglages généraux"
-
-msgid ""
-"Please register your copy of EcclesiaCRM by checking over this information "
-"and pressing the Send button."
-msgstr ""
-"Veuillez enregistrer votre copie de EcclesiaCRM en vérifiant les "
-"informations et en appuyant sur le bouton Envoyer."
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-"Cette information est utilisée uniquement pour faire le suivi de ce logiciel."
-
-msgid "Church Name"
-msgstr "Nom Église"
-
-msgid "Version"
-msgstr "Version"
-
-msgid "City"
-msgstr "Ville"
-
-msgid "State"
-msgstr "Etat"
-
-msgid "Zip"
-msgstr "Code postal"
-
-msgid "Country"
-msgstr "Pays"
-
-msgid "Church Email"
-msgstr "Email de l'église"
-
-msgid "Base URL"
-msgstr "URL de base"
-
-msgid "Message"
-msgstr "Message"
-
-msgid "Software Registration"
-msgstr "Enregistrement du logiciel"
-
-msgid "Send"
-msgstr "Envoyer"
-
-msgid "Your software is now registered. Thank you !"
-msgstr "Votre logiciel est maintenant enregistré. Merci !"
 
 msgid "Tracking"
 msgstr "Suivi"
