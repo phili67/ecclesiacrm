@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-01-05T21:20:41.534Z\n"
+"POT-Creation-Date: 2020-01-18T17:17:42.428Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Familia"
 msgid "You have no more items in your cart."
 msgstr "Tienes un Título para su Documento"
 
-msgid "Error making API Call to"
-msgstr "Error making API Call to"
-
 msgid "Error text"
 msgstr "Mensaje de error"
+
+msgid "Error making API Call to"
+msgstr "Error making API Call to"
 
 msgid "Stack Trace"
 msgstr "Stack Trace"
@@ -59,6 +59,51 @@ msgstr ""
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Hubo un problema al obtener el objeto solicitado"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Select the method to add to a group"
+msgstr "Seleccione el método Para añadir a un grupo"
+
+msgid "Select an existing Group"
+msgstr "Seleccionar un Grupo ya existente"
+
+msgid "or Create a new Group from the Cart"
+msgstr "o Crear un nuevo Grupo del carrito,"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Seleccione el grupo que desea Agregar al Carrito"
+
+msgid "Select Group"
+msgstr "Seleccionar uno grupo "
+
+msgid "Select Role"
+msgstr "Seleccione Rol"
+
+msgid "Group Name"
+msgstr "Nombre de Grupo"
+
+msgid "Default Name Group"
+msgstr "Nombre de Grupo por Defecto"
+
+msgid "Add Cart to Group"
+msgstr "Agregar Carrito al Grupo"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Debe seleccionar uno Grupo e une rol de grupo si quiere"
+
+msgid "You have to set a Group Name"
+msgstr "Tienes que uno Grupo Nombre"
+
+msgid "Close"
+msgstr "Cerrar"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "¿Está seguro que desactivar todas las personas?"
@@ -158,17 +203,63 @@ msgstr "Mostrar todos"
 msgid "Your Cart is Empty"
 msgstr "Su Carrito está vacío"
 
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+
+msgid "Admin->Edit General Settings"
+msgstr ""
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+
+#, fuzzy
+msgid "Church Name"
+msgstr "Nombre Completo "
+
+msgid "Version"
+msgstr ""
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Zip"
+msgstr ""
+
+#, fuzzy
+msgid "Country"
+msgstr "Cantidad"
+
+msgid "Church Email"
+msgstr ""
+
+msgid "Base URL"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Software Registration"
+msgstr ""
+
+msgid "Send"
+msgstr ""
+
+msgid "Your software is now registered. Thank you !"
+msgstr ""
+
 msgid "OK"
 msgstr "Si"
 
-msgid "Select Group"
-msgstr "Seleccionar uno grupo "
-
 msgid "Please select target group for members"
 msgstr "Por favor seleccione el grupo objetivo para miembros"
-
-msgid "Select Role"
-msgstr "Seleccione Rol"
 
 msgid "Please select target Role for members"
 msgstr "Por favor seleccione el Rol objetivo para miembros"
@@ -181,9 +272,6 @@ msgstr "Seleccione Grupo y Rol"
 
 msgid "Add A Group Name"
 msgstr "Agregar un Nombre de Grupo"
-
-msgid "Default Name Group"
-msgstr "Nombre de Grupo por Defecto"
 
 msgid "Yes"
 msgstr "Si"
@@ -223,9 +311,6 @@ msgstr "Has seleccionado dos veces a la misma"
 msgid "for this field. Chose another one."
 msgstr "para este campo. Eligió otro."
 
-msgid "Error"
-msgstr "Error"
-
 msgid "Please confirm deletion of this document"
 msgstr "Por favor confirme que desea borrar esto documento"
 
@@ -255,12 +340,6 @@ msgstr "audio"
 
 msgid "Private"
 msgstr "Privado"
-
-msgid "Close"
-msgstr "Cerrar"
-
-msgid "Save"
-msgstr "Guardar"
 
 msgid "You have to set a Title for your document"
 msgstr "Tienes un Título para su Documento"
@@ -360,85 +439,6 @@ msgstr "¿Estás seguro de Dejar de Compartir su documento ?"
 
 msgid "Ok"
 msgstr "Aceptar"
-
-msgid "Select the method to add to a group"
-msgstr "Seleccione el método Para añadir a un grupo"
-
-msgid "Select an existing Group"
-msgstr "Seleccionar un Grupo ya existente"
-
-msgid "or Create a new Group from the Cart"
-msgstr "o Crear un nuevo Grupo del carrito,"
-
-msgid "Select the group to which you would like to add your cart"
-msgstr "Seleccione el grupo que desea Agregar al Carrito"
-
-msgid "None"
-msgstr "Ninguno"
-
-msgid "Group Name"
-msgstr "Nombre de Grupo"
-
-msgid "Add Cart to Group"
-msgstr "Agregar Carrito al Grupo"
-
-msgid "You have to select one group and a group role if you want"
-msgstr "Debe seleccionar uno Grupo e une rol de grupo si quiere"
-
-msgid "You have to set a Group Name"
-msgstr "Tienes que uno Grupo Nombre"
-
-msgid "If you need to make changes to registration data, go to "
-msgstr ""
-
-msgid "Admin->Edit General Settings"
-msgstr ""
-
-msgid ""
-"Please register your copy of EcclesiaCRM by checking over this information "
-"and pressing the Send button."
-msgstr ""
-
-msgid "This information is used only to track the usage of this software."
-msgstr ""
-
-#, fuzzy
-msgid "Church Name"
-msgstr "Nombre Completo "
-
-msgid "Version"
-msgstr ""
-
-msgid "City"
-msgstr "Ciudad"
-
-msgid "State"
-msgstr "Estado"
-
-msgid "Zip"
-msgstr ""
-
-#, fuzzy
-msgid "Country"
-msgstr "Cantidad"
-
-msgid "Church Email"
-msgstr ""
-
-msgid "Base URL"
-msgstr ""
-
-msgid "Message"
-msgstr ""
-
-msgid "Software Registration"
-msgstr ""
-
-msgid "Send"
-msgstr ""
-
-msgid "Your software is now registered. Thank you !"
-msgstr ""
 
 msgid "Tracking"
 msgstr ""

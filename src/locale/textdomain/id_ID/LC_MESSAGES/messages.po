@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 22:30+0100\n"
+"POT-Creation-Date: 2020-01-18 18:17+0100\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,24 +216,25 @@ msgid "newsletter"
 msgstr "Buat label"
 
 #: api/routes/mailchimp.php:127 api/routes/people/people.php:66
-#: api/routes/people/people.php:118 api/routes/search.php:72
-#: EcclesiaCRM/MenuBar/MenuBar.php:290
+#: api/routes/people/people.php:118 EcclesiaCRM/MenuBar/MenuBar.php:290
+#: EcclesiaCRM/Search/PersonSearchRes.php:16
 #, fuzzy
 msgid "Persons"
 msgstr "orang dari"
 
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:157
-#: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:275
-#: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
-#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:470
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 EcclesiaCRM/MenuBar/MenuBar.php:296
+#: EcclesiaCRM/Search/FamilySearchRes.php:17
+#: members/online-pending-verify.php:24 members/self-register.php:24
+#: members/self-verify-updates.php:24 Menu.php:469
 #: v2/templates/people/peopledashboard.php:84
 #: v2/templates/sundayschool/sundayschooldashboard.php:59
 msgid "Families"
 msgstr "Keluarga"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:194
-#: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
-#: external/templates/verify/verify-family-info.php:110 Menu.php:533
+#: EcclesiaCRM/MenuBar/MenuBar.php:49 EcclesiaCRM/Search/GroupSearchRes.php:17
+#: external/templates/verify/verify-family-info.php:110 Menu.php:532
 #: v2/templates/calendar/calendar.php:153
 #: v2/templates/people/peopledashboard.php:147
 msgid "Groups"
@@ -342,42 +343,6 @@ msgstr "Non-aktif"
 #, fuzzy
 msgid "Person Activated"
 msgstr "Non-aktif"
-
-#: api/routes/search.php:118 AutoPaymentEditor.php:924
-#: AutoPaymentEditor.php:932 CartToFamily.php:317 CartToFamily.php:322
-#: CSVExport.php:93 CSVExport.php:98 CSVImport.php:243 CSVImport.php:244
-#: DirectoryReports.php:188 DirectoryReports.php:274
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:37 FamilyEditor.php:732
-#: FamilyEditor.php:736 FamilyView.php:276 GeoPage.php:359 GroupReports.php:148
-#: Menu.php:617 Menu.php:644 Menu.php:675 Menu.php:707 PersonEditor.php:1047
-#: PersonEditor.php:1053 PersonEditor.php:1129 PersonEditor.php:1153
-#: PersonView.php:463 Reports/ConfirmReportEmail.php:126
-#: Reports/ConfirmReportEmail.php:131 Reports/PDFLabel.php:859
-#: v2/templates/people/familylist.php:49 v2/templates/people/personlist.php:50
-msgid "Address"
-msgstr "Alamat"
-
-#: api/routes/search.php:289
-#, fuzzy
-msgid "Deposits"
-msgstr "Rincian Setoran"
-
-#: api/routes/search.php:322 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
-#, fuzzy
-msgid "Payments"
-msgstr "Tambah Pembayaran"
-
-#: api/routes/search.php:377 Menu.php:347
-#, fuzzy
-msgid "Individual Pastoral Care"
-msgstr "Tambahkan Individu ke Keranjang."
-
-#: api/routes/search.php:429 Menu.php:404
-#, fuzzy
-msgid "Family Pastoral Care"
-msgstr "Orang"
 
 #: api/routes/sidebar/sidebar-general-roles.php:108
 #: api/routes/sidebar/sidebar-general-roles.php:149 FamilyEditor.php:1055
@@ -749,6 +714,21 @@ msgstr "Nama Depan"
 #: v2/templates/sundayschool/sundayschooldashboard.php:192
 msgid "Last Name"
 msgstr "Nama Belakang"
+
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:317
+#: CartToFamily.php:322 CSVExport.php:93 CSVExport.php:98 CSVImport.php:243
+#: CSVImport.php:244 DirectoryReports.php:188 DirectoryReports.php:274
+#: EcclesiaCRM/Search/AddressSearchRes.php:16
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:37 FamilyEditor.php:732
+#: FamilyEditor.php:736 FamilyView.php:276 GeoPage.php:359 GroupReports.php:148
+#: Menu.php:616 Menu.php:643 Menu.php:674 Menu.php:706 PersonEditor.php:1047
+#: PersonEditor.php:1053 PersonEditor.php:1129 PersonEditor.php:1153
+#: PersonView.php:463 Reports/ConfirmReportEmail.php:126
+#: Reports/ConfirmReportEmail.php:131 Reports/PDFLabel.php:859
+#: v2/templates/people/familylist.php:49 v2/templates/people/personlist.php:50
+msgid "Address"
+msgstr "Alamat"
 
 #: AutoPaymentEditor.php:940 CartToFamily.php:327 CSVExport.php:103
 #: CSVImport.php:245 DirectoryReports.php:278
@@ -1262,7 +1242,7 @@ msgstr "Tambahkan Cart di Keluarga"
 #: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
 #: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 ListEvents.php:300 ListEvents.php:302
-#: Menu.php:674 Menu.php:706 PersonCustomFieldsEditor.php:341
+#: Menu.php:673 Menu.php:705 PersonCustomFieldsEditor.php:341
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
@@ -1297,7 +1277,7 @@ msgstr "Jika menambah keluarga baru, masukkan data di bawah ini"
 #: CartToFamily.php:288
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:33 FamilyEditor.php:722
-#: LettersAndLabels.php:71 Menu.php:616 Menu.php:643 PersonEditor.php:1036
+#: LettersAndLabels.php:71 Menu.php:615 Menu.php:642 PersonEditor.php:1036
 #: Reports/ConfirmReportEmail.php:121 Reports/ConfirmReport.php:122
 #: SelectDelete.php:224 SelectDelete.php:367
 #, fuzzy
@@ -1657,9 +1637,8 @@ msgstr "Gunakan tombol Ctrl untuk pilih banyak"
 msgid "Don't Filter"
 msgstr "Jangan disaring"
 
-#: CSVExport.php:343
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:30
-#: EcclesiaCRM/Service/DashboardService.php:75
+#: CSVExport.php:343 EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1104 PersonEditor.php:850 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
@@ -1667,9 +1646,8 @@ msgstr "Jangan disaring"
 msgid "Male"
 msgstr "Pria"
 
-#: CSVExport.php:344
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:33
-#: EcclesiaCRM/Service/DashboardService.php:78
+#: CSVExport.php:344 EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
 #: external/templates/registration/family-register-members.php:61
 #: FamilyEditor.php:1107 PersonEditor.php:851 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
@@ -2265,58 +2243,6 @@ msgid ""
 "As part of the restore, external backups have been disabled.  If you wish to "
 "continue automatic backups, you must manuall re-enable the "
 "bEnableExternalBackupTarget setting."
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:52
-#: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:81 FamilyView.php:462
-#: PersonView.php:684 PrintPastoralCarePerson.php:654 SelectList.php:1304
-#: SelectList.php:1327 SelectList.php:1416
-#: v2/templates/people/familylist.php:99 v2/templates/people/familylist.php:100
-#: v2/templates/people/familylist.php:101
-#: v2/templates/people/familylist.php:102
-#: v2/templates/people/familylist.php:103
-#: v2/templates/people/familylist.php:104 v2/templates/people/personlist.php:95
-#: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
-#: v2/templates/people/personlist.php:98 v2/templates/people/personlist.php:99
-#: v2/templates/people/personlist.php:100
-#: v2/templates/sundayschool/sundayschooldashboard.php:229
-#: v2/templates/sundayschool/sundayschooldashboard.php:230
-#: v2/templates/sundayschool/sundayschooldashboard.php:231
-msgid "Private Data"
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:600
-#: EcclesiaCRM/Service/DashboardService.php:72
-#: EcclesiaCRM/Service/DashboardService.php:86
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/utils/OutputUtils.php:311 EcclesiaCRM/utils/OutputUtils.php:551
-#: EcclesiaCRM/utils/OutputUtils.php:569 FamilyEditor.php:1131
-msgid "Unknown"
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:53
-#: EcclesiaCRM/Service/DashboardService.php:81
-#: EcclesiaCRM/Service/DashboardService.php:98 Include/Footer.php:128
-#: PledgeEditor.php:638
-msgid "Other"
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:44
-#: EcclesiaCRM/Service/DashboardService.php:89 FamilyView.php:501
-msgid "Head of Household"
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:47
-#: EcclesiaCRM/Service/DashboardService.php:92 FamilyView.php:502
-msgid "Spouse"
-msgstr ""
-
-#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:50
-#: EcclesiaCRM/Service/DashboardService.php:95 FamilyView.php:504
-msgid "Child"
 msgstr ""
 
 #: EcclesiaCRM/data/Countries.php:15
@@ -4145,7 +4071,8 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:238
 msgid ""
-"Dashboard Service dynamic asynchronous refresh interval, default 60 second"
+"Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
+"second"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:239
@@ -4288,7 +4215,7 @@ msgid "Localization"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:279 EcclesiaCRM/MenuBar/MenuBar.php:244
-#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:141
+#: Menu.php:99 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr ""
@@ -4464,7 +4391,7 @@ msgid "Group Assignment Helper"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:118
-#: v2/routes/sundayschool/sundayschool.php:141
+#: v2/routes/sundayschool/sundayschool.php:111
 msgid "Sunday School"
 msgstr ""
 
@@ -4559,7 +4486,7 @@ msgstr ""
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:489
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:488
 #: v2/templates/people/peopledashboard.php:105
 #, fuzzy
 msgid "People"
@@ -4774,15 +4701,15 @@ msgid "Witness"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:232
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:618
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:617
 #: v2/templates/people/familylist.php:53 v2/templates/people/personlist.php:54
 #, fuzzy
 msgid "Created"
 msgstr "Buat File"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:237
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:645 Menu.php:676
-#: Menu.php:708
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:644 Menu.php:675
+#: Menu.php:707
 msgid "Updated"
 msgstr ""
 
@@ -4802,6 +4729,17 @@ msgstr ""
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:336
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
 msgid "Profile Image uploaded"
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:600
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:107
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:121
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/utils/OutputUtils.php:311 EcclesiaCRM/utils/OutputUtils.php:551
+#: EcclesiaCRM/utils/OutputUtils.php:569 FamilyEditor.php:1131
+msgid "Unknown"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:607
@@ -4951,6 +4889,27 @@ msgstr ""
 msgid "Students"
 msgstr ""
 
+#: EcclesiaCRM/Search/DepositSearchRes.php:18
+#, fuzzy
+msgid "Deposits"
+msgstr "Rincian Setoran"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:18 Menu.php:403
+#, fuzzy
+msgid "Family Pastoral Care"
+msgstr "Orang"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:16 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
+#, fuzzy
+msgid "Payments"
+msgstr "Tambah Pembayaran"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
+#, fuzzy
+msgid "Individual Pastoral Care"
+msgstr "Tambahkan Individu ke Keranjang."
+
 #: EcclesiaCRM/Service/AppIntegrityService.php:28
 msgid "Signature definition file signature failed validation"
 msgstr ""
@@ -5013,6 +4972,50 @@ msgstr "Pengedit rincian donasi"
 
 #: EcclesiaCRM/Service/UpgradeService.php:64
 msgid "Databse upgrade failed"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:52
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:81 FamilyView.php:462
+#: PersonView.php:684 PrintPastoralCarePerson.php:654 SelectList.php:1304
+#: SelectList.php:1327 SelectList.php:1416
+#: v2/templates/people/familylist.php:99 v2/templates/people/familylist.php:100
+#: v2/templates/people/familylist.php:101
+#: v2/templates/people/familylist.php:102
+#: v2/templates/people/familylist.php:103
+#: v2/templates/people/familylist.php:104 v2/templates/people/personlist.php:95
+#: v2/templates/people/personlist.php:96 v2/templates/people/personlist.php:97
+#: v2/templates/people/personlist.php:98 v2/templates/people/personlist.php:99
+#: v2/templates/people/personlist.php:100
+#: v2/templates/sundayschool/sundayschooldashboard.php:229
+#: v2/templates/sundayschool/sundayschooldashboard.php:230
+#: v2/templates/sundayschool/sundayschooldashboard.php:231
+msgid "Private Data"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:128 PledgeEditor.php:638
+msgid "Other"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:501
+msgid "Head of Household"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:502
+msgid "Spouse"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:504
+msgid "Child"
 msgstr ""
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
@@ -7712,110 +7715,110 @@ msgstr ""
 msgid "Self Verify"
 msgstr "Periksa"
 
-#: Menu.php:38
+#: Menu.php:37
 msgid "Welcome to"
 msgstr ""
 
-#: Menu.php:100
+#: Menu.php:99
 msgid "message for the DPO"
 msgstr ""
 
-#: Menu.php:111
+#: Menu.php:110
 msgid "person must be deleted from the CRM."
 msgstr ""
 
-#: Menu.php:113
+#: Menu.php:112
 msgid "persons must be deleted from the CRM."
 msgstr ""
 
-#: Menu.php:118 Menu.php:143
+#: Menu.php:117 Menu.php:142
 msgid "Click the"
 msgstr ""
 
-#: Menu.php:119 Menu.php:144
+#: Menu.php:118 Menu.php:143
 msgid "link"
 msgstr ""
 
-#: Menu.php:119 Menu.php:144 v2/templates/map/MapUsingBing.php:46
+#: Menu.php:118 Menu.php:143 v2/templates/map/MapUsingBing.php:46
 #: v2/templates/map/MapUsingGoogle.php:39
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr ""
 
-#: Menu.php:124
+#: Menu.php:123
 msgid "No Person to remove in the CRM."
 msgstr ""
 
-#: Menu.php:136
+#: Menu.php:135
 msgid "family must be deleted from the CRM."
 msgstr ""
 
-#: Menu.php:138
+#: Menu.php:137
 msgid "families must be deleted from the CRM."
 msgstr ""
 
-#: Menu.php:149
+#: Menu.php:148
 msgid "No Family to remove in the CRM."
 msgstr ""
 
-#: Menu.php:240
+#: Menu.php:239
 msgid "Birthdates of the day"
 msgstr ""
 
-#: Menu.php:256
+#: Menu.php:255
 #, fuzzy
 msgid "Anniversaries of the day"
 msgstr "Tanggal Jadian"
 
-#: Menu.php:305
+#: Menu.php:304
 msgid "Unclassified birthdates"
 msgstr ""
 
-#: Menu.php:477 v2/templates/people/peopledashboard.php:91
+#: Menu.php:476 v2/templates/people/peopledashboard.php:91
 msgid "See all Families"
 msgstr "Lihat semua Keluarga"
 
-#: Menu.php:496 v2/templates/people/peopledashboard.php:112
+#: Menu.php:495 v2/templates/people/peopledashboard.php:112
 #, fuzzy
 msgid "See All People"
 msgstr "Orang"
 
-#: Menu.php:511 v2/templates/sundayschool/sundayschooldashboard.php:127
+#: Menu.php:510 v2/templates/sundayschool/sundayschooldashboard.php:127
 msgid "Sunday School Classes"
 msgstr ""
 
-#: Menu.php:518 Menu.php:540 Menu.php:567
+#: Menu.php:517 Menu.php:539 Menu.php:566
 #: v2/templates/people/peopledashboard.php:133
 #: v2/templates/people/peopledashboard.php:154
 msgid "More info"
 msgstr ""
 
-#: Menu.php:560
+#: Menu.php:559
 #, fuzzy
 msgid "Attendees Checked In"
 msgstr "Diisi oleh "
 
-#: Menu.php:584
+#: Menu.php:583
 #, fuzzy
 msgid "Deposit Tracking"
 msgstr "Rincian Setoran"
 
-#: Menu.php:604
+#: Menu.php:603
 #, fuzzy
 msgid "Latest Families"
 msgstr "Keluarga"
 
-#: Menu.php:631
+#: Menu.php:630
 #, fuzzy
 msgid "Updated Families"
 msgstr "Keluarga"
 
-#: Menu.php:660
+#: Menu.php:659
 #, fuzzy
 msgid "Latest Members"
 msgstr "Anggota"
 
-#: Menu.php:692
+#: Menu.php:691
 msgid "Updated Members"
 msgstr ""
 
@@ -9777,7 +9780,7 @@ msgstr "Tambahkan Individu ke Keranjang."
 msgid "Family Pastoral care"
 msgstr "Orang"
 
-#: v2/routes/people/people.php:112
+#: v2/routes/people/people.php:111
 msgid "People Dashboard"
 msgstr "Dasbor Orang"
 
@@ -9807,21 +9810,21 @@ msgstr ""
 msgid "Volunteer Opportunity Editor"
 msgstr ""
 
-#: v2/routes/sundayschool/sundayschool.php:81
+#: v2/routes/sundayschool/sundayschool.php:59
 #, fuzzy
 msgid "Sunday School Dashboard"
 msgstr "Dasbor Orang"
 
-#: v2/routes/sundayschool/sundayschool.php:281
+#: v2/routes/sundayschool/sundayschool.php:251
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr ""
 
-#: v2/routes/sundayschool/sundayschool.php:335
+#: v2/routes/sundayschool/sundayschool.php:305
 msgid "Sunday School Reports"
 msgstr ""
 
-#: v2/routes/sundayschool/sundayschool.php:392
+#: v2/routes/sundayschool/sundayschool.php:362
 #, fuzzy
 msgid "Sunday School Badge for"
 msgstr "Dasbor Orang"
