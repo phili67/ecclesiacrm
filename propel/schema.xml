@@ -73,7 +73,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  
+
   <table name="calendarinstances" idMethod="native" phpName="Calendarinstances" description="Calendar management">
     <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
     <column name="calendarid" phpName="Calendarid" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
@@ -117,7 +117,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  
+
   <table name="calendarsubscriptions" idMethod="native" phpName="Calendarsubscriptions" description="Calendar management">
     <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
     <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)" required="true"/>
@@ -314,6 +314,9 @@
     <table name="family_custom" idMethod="native" phpName="FamilyCustom">
         <column name="fam_ID" phpName="FamId" type="SMALLINT" size="9" primaryKey="true" required="true"
                 defaultValue="0"/>
+        <foreign-key foreignTable="family_fam">
+            <reference local="fam_ID" foreign="fam_ID"/>
+        </foreign-key>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
@@ -356,7 +359,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
     <table name="note_nte_share" idMethod="native" phpName="NoteShare">
       <column name="nte_sh_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="nte_sh_note_ID" phpName="NoteId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
@@ -428,7 +431,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
     <table name="group_type" idMethod="native" phpName="GroupType">
       <column name="grptp_id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="grptp_grp_ID" phpName="GroupId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true"/>
@@ -456,7 +459,7 @@
         <parameter name="Engine" value="InnoDB"/>
       </vendor>
     </table>
-    
+
     <table name="groupprop_master" idMethod="native" phpName="GroupPropMaster" description="This contains definitions for the group-specific fields">
         <column name="grp_mster_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="grp_ID" phpName="GroupId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"
@@ -494,7 +497,7 @@
         <foreign-key foreignTable="group_grp">
             <reference local="p2g2r_grp_ID" foreign="grp_ID"/>
         </foreign-key>
-         
+
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
@@ -756,7 +759,7 @@
         <column name="evtcnt_notes" phpName="EvtcntNotes" type="VARCHAR" size="20"/>
         <foreign-key foreignTable="eventcountnames_evctnm" name="fk_evtcnt_countid" onDelete="CASCADE">
            <reference local="evtcnt_countid" foreign="evctnm_countid"/>
-        </foreign-key>        
+        </foreign-key>
         <foreign-key foreignTable="events_event" name="fk_evtcnt_event_ID" onDelete="CASCADE">
            <reference local="evtcnt_eventid" foreign="event_id"/>
         </foreign-key>
@@ -764,7 +767,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-          
+
     <table name="events_event" idMethod="native" phpName="Event" description="This contains events">
         <column name="event_id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="event_type" phpName="Type" type="INTEGER" required="true" defaultValue="0"/>
@@ -797,7 +800,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-  
+
     <table name="fundraiser_fr" idMethod="native" phpName="FundRaiser">
         <column name="fr_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
                 autoIncrement="true" required="true"/>
@@ -867,7 +870,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
     <table name="list_icon" idMethod="native" phpName="ListOptionIcon">
       <column name="lst_ic_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="lst_ic_lst_ID" phpName="ListId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
@@ -899,7 +902,7 @@
         <parameter name="Engine" value="InnoDB"/>
       </vendor>
     </table>
-    
+
     <table name="userrole_usrrol" idMethod="native" phpName="UserRole">
       <column name="usrrol_id" phpName="Id" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="usrrol_name" phpName="Name" type="VARCHAR" size="256" required="true"/>
@@ -989,7 +992,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
     <table name="userconfig_choices_ucfg_ch" idMethod="native" phpName="UserConfigChoices">
       <column name="ucfg_ch_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true"/>
       <column name="ucfg_name" phpName="Name" type="LONGVARCHAR"/>
@@ -1013,7 +1016,7 @@
         <foreign-key foreignTable="user_usr">
             <reference local="ucfg_per_id" foreign="usr_per_ID"/>
         </foreign-key>
-        
+
         <foreign-key foreignTable="userconfig_choices_ucfg_ch" name="fk_ucfg_choices_id" onDelete="SET NULL">
            <reference local="ucfg_choices_id" foreign="ucfg_ch_id"/>
         </foreign-key>
@@ -1066,7 +1069,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
      <table name="kioskdevice_kdev" idMethod="native" phpName="KioskDevice" description="This contains a list of all (un)registered kiosk devices">
       <column name="kdev_ID" phpName="Id" type="INTEGER" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="kdev_GUIDHash" phpName="GUIDHash" type="VARCHAR" size="36" description="SHA256 Hash of the GUID stored in the kiosk's cookie"/>
@@ -1079,8 +1082,8 @@
         <index-column name="kdev_ID"/>
       </index>
      </table>
-     
-     
+
+
     <table name="kioskassginment_kasm" idMethod="native" phpName="KioskAssignment">
       <column name="kasm_ID" phpName="Id" type="INTEGER" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="kasm_kdevId" phpName="KioskId" type="INTEGER" size="9" />
@@ -1093,7 +1096,7 @@
       <foreign-key foreignTable="kioskdevice_kdev">
         <reference local="kasm_kdevId" foreign="kdev_ID"/>
       </foreign-key>
-      
+
       <foreign-key foreignTable="events_event">
         <reference local="kasm_EventId" foreign="event_id"/>
       </foreign-key>
@@ -1169,7 +1172,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
   <table name="propertystorage" idMethod="native" phpName="Propertystorage" description="Calendar management">
     <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
     <column name="path" phpName="Path" type="VARCHAR" size="1024" sqlType="varbinary(1024)" required="true"/>
@@ -1224,7 +1227,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    
+
     <table name="group_manager_person" idMethod="native" phpName="GroupManagerPerson">
       <column name="grp_mgr_per_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="grp_mgr_per_person_ID" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
@@ -1242,7 +1245,7 @@
         <parameter name="Engine" value="InnoDB"/>
       </vendor>
     </table>
-    
+
       <table name="ckeditor_templates" idMethod="native" phpName="CKEditorTemplates">
         <column name="cke_tmp_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="cke_tmp_per_ID" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
@@ -1260,7 +1263,7 @@
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
-      
+
       <table name="pastoral_care" idMethod="native" phpName="PastoralCare">
         <column name="pst_cr_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="pst_cr_person_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
@@ -1299,7 +1302,7 @@
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
-      
+
       <table name="pastoral_care_type" idMethod="native" phpName="PastoralCareType">
         <column name="pst_cr_tp_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="pst_cr_tp_title" phpName="Title" type="VARCHAR" size="255" required="true" defaultValue=""/>
@@ -1310,7 +1313,7 @@
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
-      
+
       <table name="menu_links" idMethod="native" phpName="MenuLink">
         <column name="linkId" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="linkPersonId" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
@@ -1333,7 +1336,7 @@
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
-      
+
       <table name="gdpr_infos" idMethod="native" phpName="GdprInfo">
         <column name="gdpr_info_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="gdpr_info_About" phpName="About" type="CHAR" sqlType="enum('Person','Family')" required="true" defaultValue="Person"/>
