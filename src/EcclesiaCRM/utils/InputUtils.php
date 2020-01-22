@@ -6,9 +6,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use \DateTime;
 
 class InputUtils {
-  
+
   private static $AllowedHTMLTags = '<a><b><i><u><h1><h2><h3><h4><h5><h6><pre><address><img><table><td><tr><ol><li><ul><p><sub><sup><s><hr><span><blockquote><div><small><big><tt><code><kbd><samp><del><ins><cite><q><iframe><caption><thead><th>';//<input>';
-  
+
   // Processes and Validates custom field data based on its type.
   //
   // Returns false if the data is not valid, true otherwise.
@@ -25,7 +25,7 @@ class InputUtils {
           // this part will work with each date format
           // Philippe logel
           $data = InputUtils::FilterDate($data);
-        
+
         if (strlen($data) > 0) {
             $dateString = InputUtils::parseAndValidateDate($data);
             if ($dateString === false) {
@@ -89,7 +89,7 @@ class InputUtils {
 
       return !$bErrorFlag;
   }
-  
+
   public static function LegacyFilterInputArr($arr, $key, $type = 'string', $size = 1)
   {
       if (array_key_exists($key, $arr)) {
@@ -98,7 +98,7 @@ class InputUtils {
           return InputUtils::LegacyFilterInput('', $type, $size);
       }
   }
-  
+
   public static function assembleYearMonthDay($sYear, $sMonth, $sDay, $pasfut = 'future')
   {
     // This function takes a year, month and day from parseAndValidateDate.  On success this
@@ -169,7 +169,7 @@ class InputUtils {
         return false;
     }
 }
-  
+
   public static function parseAndValidateDate($data, $locale = 'US', $pasfut = 'future')
   {
     // This function was written because I had no luck finding a PHP
@@ -270,14 +270,14 @@ class InputUtils {
     // Should not have made it this far.  Something is wrong so bail.
     return false;
   }
-  
+
   public static function translate_special_charset ($string,$sCSVExportCharset = "UTF-8")
   {
     if (empty($string))
       return "";
-      
+
     return ($sCSVExportCharset == "UTF-8")?gettext($string):iconv('UTF-8', $sCSVExportCharset, gettext($string));
-  }    
+  }
 
   public static function FilterString($sInput)
   {
@@ -304,7 +304,7 @@ class InputUtils {
       if (get_magic_quotes_gpc()) {
         $sInput = stripslashes($sInput);
       }
-      
+
       return $sInput;
   }
 
@@ -316,7 +316,7 @@ class InputUtils {
   public static function FilterFloat($sInput)
   {
     $sInput = str_replace("," , ".", $sInput);
-    
+
     return (float) floatval(trim($sInput));
   }
 
@@ -328,7 +328,11 @@ class InputUtils {
       return "";
     else {
       $date = DateTime::createFromFormat(SystemConfig::getValue('sDatePickerFormat'), $sInput);
-      return $date->format('Y-m-d');
+      if ($date != false) {
+          return $date->format('Y-m-d');
+      } else {
+          return null;
+      }
     }
   }
 
@@ -353,10 +357,10 @@ class InputUtils {
         case 'date':
           return self::FilterDate($sInput);
       }
-    } 
+    }
     else {
       return '';
     }
-  } 
+  }
 }
 ?>
