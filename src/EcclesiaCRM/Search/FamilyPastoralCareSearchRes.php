@@ -51,7 +51,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                     $id=1;
 
                     foreach ($cares as $care) {
-                        $elt = ['id'=>"family-custom-".$id++,
+                        $elt = ['id'=>"family-pastoral-care-id-".$id++,
                             'text'=>$care->getPastoralCareType()->getTitle() . " : " . $care->getFamily()->getName(),
                             'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/family/".$care->getFamilyId()];
 
