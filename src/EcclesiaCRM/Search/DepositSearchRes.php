@@ -4,11 +4,13 @@ namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use WebDriver\Exception;
 
 
 class DepositSearchRes extends BaseSearchRes
@@ -26,19 +28,33 @@ class DepositSearchRes extends BaseSearchRes
             //Deposits Search
             if (SystemConfig::getBooleanValue("bSearchIncludeDeposits"))
             {
-                try {
+                /*try {
+                    $date = InputUtils::FilterDate($qry);
+                } catch (Exception $e) {
+                    $date = "";
+                }*/
 
+                LoggerUtils::getAppLogger()->info("date = ".$date);
+
+                try {
                     $Deposits = DepositQuery::create()
-                        ->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"))
                         ->filterByComment("%$qry%", Criteria::LIKE)
                         ->_or()
-                        ->filterById($qry)
-                        ->_or()
-                        ->usePledgeQuery()
-                        ->filterByCheckno("%$qry%", Criteria::LIKE)
-                        ->endUse()
+                            ->filterById($qry);
+
+                    /*if (is_null($date)) {
+                            $Deposits->_or()
+                                ->filterByDate($date, Criteria::LIKE);
+
+                    }*/
+
+                    $Deposits->_or()
+                            ->usePledgeQuery()
+                                ->filterByCheckno("%$qry%", Criteria::LIKE)
+                            ->endUse()
                         ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
                         ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
+                        ->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"))
                         ->find();
 
                     if (!is_null($Deposits))
