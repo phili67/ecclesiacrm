@@ -23,7 +23,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
     {
         if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
             try {
-                $searchLikeString = '%' . $$qry . '%';
+                $searchLikeString = '%' . $qry . '%';
                 $cares = PastoralCareQuery::Create()
                     ->leftJoinPastoralCareType()
                     ->joinPersonRelatedByPersonId()

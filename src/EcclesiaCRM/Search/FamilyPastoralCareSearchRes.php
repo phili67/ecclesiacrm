@@ -24,7 +24,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
         if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
             // now we search the families
             try {
-                $searchLikeString = '%'.$query.'%';
+                $searchLikeString = '%'.$qry.'%';
                 $cares = PastoralCareQuery::Create()
                     ->leftJoinPastoralCareType()
                     ->leftJoinFamily()
@@ -51,7 +51,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                     $id=1;
 
                     foreach ($cares as $care) {
-                        $elt = ['id'=>"family-pastoralcare-".$id++,
+                        $elt = ['id'=>"family-custom-".$id++,
                             'text'=>$care->getPastoralCareType()->getTitle() . " : " . $care->getFamily()->getName(),
                             'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/family/".$care->getFamilyId()];
 
