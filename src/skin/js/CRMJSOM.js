@@ -1423,6 +1423,9 @@
                 }
             }
         },
+        EventAttendeesDisplay: function (data) {
+            window.CRM.notify('glyphicon glyphicon-info-sign',"<b>" + data.EventCountAttend + "</b> " + i18next.t("Attendees Checked In")+".", "<br><b>"  + i18next.t("More info") + ' <a href="' + window.CRM.root + '/ListEvents.php"><i class="fa fa-arrow-circle-right"></i> </a> ' +  '</b>', null, "danger","bottom",Math.min(window.CRM.iDashboardPageServiceIntervalTime*100,window.CRM.timeOut),'_blank',"right");
+        },
         PersonCount: function (data) {
           var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
           if (dashBoardPeopleStats) {
