@@ -2,7 +2,7 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use EcclesiaCRM\Service\Synchronize;
+use EcclesiaCRM\Service\SynchronizeService;
 
 $app->group('/synchronize', function () {
 
@@ -11,6 +11,8 @@ $app->group('/synchronize', function () {
  * #! param: page->string :: current page name
  */
     $this->get('/page', function ($request,$response,$args) {
+      $this->cache->withExpires($response, 0);
+
       $dataFull = [];
 
       if ($this->SystemService->getSessionTimeout() < 10) {
@@ -23,7 +25,7 @@ $app->group('/synchronize', function () {
 
       if ($this->SystemService->getSessionTimeout() > 0) {
           $pageName = $request->getQueryParam("currentpagename","");
-          $DashboardValues = Synchronize::getValues($pageName);
+          $DashboardValues = SynchronizeService::getValues($pageName);
           array_push ($dataFull,$DashboardValues);
       }
 
