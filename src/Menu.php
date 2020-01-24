@@ -540,36 +540,6 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             </a>
         </div>
     </div><!-- ./col -->
-    <?php
-    $countAttend = EcclesiaCRM\Base\EventAttendQuery::create()
-        ->filterByCheckoutId(null, \Propel\Runtime\ActiveQuery\Criteria::EQUAL)
-        ->find()
-        ->count();
-
-    if ($countAttend > 0) {
-        ?>
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-light-blue">
-                <div class="inner">
-                    <h3>
-                        <?= $countAttend ?>
-                    </h3>
-                    <p>
-                        <?= _('Attendees Checked In') ?>
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-gg"></i>
-                </div>
-                <a href="<?= SystemURLs::getRootPath() ?>/ListEvents.php" class="small-box-footer">
-                    <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div><!-- ./col -->
-        <?php
-    }
-    ?>
 </div><!-- /.row -->
 
 <?php
