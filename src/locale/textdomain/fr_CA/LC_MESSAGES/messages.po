@@ -4928,7 +4928,7 @@ msgstr "Paiements"
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:18
 msgid "Person Custom Search"
-msgstr "Par champ personnalisé de personne"
+msgstr "Champ personnalisé de personne"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
 msgid "Individual Pastoral Care"

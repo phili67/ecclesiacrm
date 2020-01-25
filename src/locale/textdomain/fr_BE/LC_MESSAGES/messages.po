@@ -4915,7 +4915,7 @@ msgstr "Dépôts"
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:19
 msgid "Family Custom Search"
-msgstr "Par champ personnalisé de famille"
+msgstr "Champ personnalisé de famille"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:18 Menu.php:403
 msgid "Family Pastoral Care"
@@ -4928,7 +4928,7 @@ msgstr "Paiements"
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:18
 msgid "Person Custom Search"
-msgstr "Par champ personnalisé de personne"
+msgstr "Champ personnalisé de personne"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
 msgid "Individual Pastoral Care"
