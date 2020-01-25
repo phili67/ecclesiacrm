@@ -2,7 +2,7 @@
 
 namespace EcclesiaCRM\Service;
 
-class Synchronize
+class SynchronizeService
 {
 
   public static function getDashboardItems($PageName) {
@@ -16,7 +16,8 @@ class Synchronize
        "EcclesiaCRM\Synchronize\MailchimpDashboardItem",
        "EcclesiaCRM\Synchronize\SundaySchoolDashboardItem",
        "EcclesiaCRM\Synchronize\CalendarPageItem",
-       "EcclesiaCRM\Synchronize\EDrivePageItem"
+       "EcclesiaCRM\Synchronize\EDrivePageItem",
+       "EcclesiaCRM\Synchronize\AttendeesPageItem"
     );
     $ReturnValues = array ();
     Foreach ($DashboardItems as $DashboardItem) {
