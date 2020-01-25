@@ -4138,14 +4138,12 @@ msgid "Add a thumbnail icon for the people in the datatables."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:261
-#, fuzzy
 msgid "Search Pledges"
 msgstr "Zusagen anzeigen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:262
-#, fuzzy
 msgid "Maximum number of Pledges results"
-msgstr "Pastoral Pflege Maximale Anzahl Ergebnis"
+msgstr "Zusagen Maximale Anzahl Ergebnis"
 
 #: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Church Information"
@@ -4835,9 +4833,8 @@ msgid "Deposits"
 msgstr "Einlagen"
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:19
-#, fuzzy
 msgid "Family Custom Search"
-msgstr "Benutzerdefinierte Suche"
+msgstr "Familien Benutzerdefinierte Suche"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:18 Menu.php:403
 msgid "Family Pastoral Care"
@@ -4848,10 +4845,9 @@ msgstr "Familien Pastoral Pflege"
 msgid "Payments"
 msgstr "Zahlungen"
 
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:18
-#, fuzzy
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:18#, fuzzy
 msgid "Person Custom Search"
-msgstr "Benutzerdefinierte Suche"
+msgstr "Personen Benutzerdefinierte Suche"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
 msgid "Individual Pastoral Care"
@@ -10307,7 +10303,7 @@ msgstr ""
 "zugeteilt"
 
 #: v2/templates/people/peopledashboard.php:189
-#, fuzzy
+
 msgid ""
 "Printable Pledge Reminder of all people, grouped by family where assigned"
 msgstr ""

@@ -4115,12 +4115,11 @@ msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "Activer le système de cryptage pour utiliser SSL (deprecated) ou TLS"
 
 #: EcclesiaCRM/dto/SystemConfig.php:238
-#, fuzzy
 msgid ""
 "Dashboard & page Service dynamic asynchronous refresh interval, default 60 "
 "second"
 msgstr ""
-"Service de gestion dynamique des événements sur la page accueil, par défaut "
+"Service de gestion dynamique des événements sur les, par défaut "
 "60 secondes"
 
 #: EcclesiaCRM/dto/SystemConfig.php:239
@@ -4218,14 +4217,12 @@ msgid "Add a thumbnail icon for the people in the datatables."
 msgstr "Ajouter des vignettes pour les personnes dans les tableaux."
 
 #: EcclesiaCRM/dto/SystemConfig.php:261
-#, fuzzy
 msgid "Search Pledges"
-msgstr "Montrer les engagements"
+msgstr "Rechercher les engagements"
 
 #: EcclesiaCRM/dto/SystemConfig.php:262
-#, fuzzy
 msgid "Maximum number of Pledges results"
-msgstr "Nombre maximum de résultats pour le suivi pastoral"
+msgstr "Nombre maximum de résultats pour les engagements"
 
 #: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Church Information"
@@ -4917,9 +4914,8 @@ msgid "Deposits"
 msgstr "Dépôts"
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:19
-#, fuzzy
 msgid "Family Custom Search"
-msgstr "Recherche par champ personnalisé"
+msgstr "Par champ personnalisé de famille"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:18 Menu.php:403
 msgid "Family Pastoral Care"
@@ -4931,9 +4927,8 @@ msgid "Payments"
 msgstr "Paiements"
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:18
-#, fuzzy
 msgid "Person Custom Search"
-msgstr "Recherche par champ personnalisé"
+msgstr "Par champ personnalisé de personne"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
 msgid "Individual Pastoral Care"
