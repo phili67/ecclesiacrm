@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-18 18:17+0100\n"
+"POT-Creation-Date: 2020-01-25 12:12+0100\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -742,7 +742,7 @@ msgstr "Mbiemër"
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:37 FamilyEditor.php:732
 #: FamilyEditor.php:736 FamilyView.php:276 GeoPage.php:359 GroupReports.php:148
-#: Menu.php:616 Menu.php:643 Menu.php:674 Menu.php:706 PersonEditor.php:1047
+#: Menu.php:586 Menu.php:613 Menu.php:644 Menu.php:676 PersonEditor.php:1047
 #: PersonEditor.php:1053 PersonEditor.php:1129 PersonEditor.php:1153
 #: PersonView.php:463 Reports/ConfirmReportEmail.php:126
 #: Reports/ConfirmReportEmail.php:131 Reports/PDFLabel.php:859
@@ -1281,7 +1281,7 @@ msgstr "Shto te Shporta Family"
 #: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
 #: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 ListEvents.php:300 ListEvents.php:302
-#: Menu.php:673 Menu.php:705 PersonCustomFieldsEditor.php:341
+#: Menu.php:643 Menu.php:675 PersonCustomFieldsEditor.php:341
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
@@ -1317,7 +1317,7 @@ msgstr ""
 #: CartToFamily.php:288
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:33 FamilyEditor.php:722
-#: LettersAndLabels.php:71 Menu.php:615 Menu.php:642 PersonEditor.php:1036
+#: LettersAndLabels.php:71 Menu.php:585 Menu.php:612 PersonEditor.php:1036
 #: Reports/ConfirmReportEmail.php:121 Reports/ConfirmReport.php:122
 #: SelectDelete.php:224 SelectDelete.php:367
 msgid "Family Name"
@@ -4249,85 +4249,95 @@ msgstr ""
 msgid "Add a thumbnail icon for the people in the datatables."
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:261
+#, fuzzy
+msgid "Search Pledges"
+msgstr "Shfaq premton"
+
+#: EcclesiaCRM/dto/SystemConfig.php:262
+#, fuzzy
+msgid "Maximum number of Pledges results"
+msgstr "Numri maksimal i fqinjëve:"
+
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "Church Information"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:270
 #, fuzzy
 msgid "User setup"
 msgstr "User Listing"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:271
 #, fuzzy
 msgid "Email Setup"
 msgstr "Email Group"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:272
 #, fuzzy
 msgid "People Setup"
 msgstr "Njerëz"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Enabled Features"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:274
 #, fuzzy
 msgid "Map Settings"
 msgstr "Save Settings"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Report Settings"
 msgstr "Raporti Cilësimet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:276
 #, fuzzy
 msgid "Financial Settings"
 msgstr "Raportet financiare"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275 Include/Footer.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:192
 #, fuzzy
 msgid "System Settings"
 msgstr "Save Settings"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Quick Search"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:279
 #, fuzzy
 msgid "Backup"
 msgstr "Mbrapa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 EcclesiaCRM/MenuBar/MenuBar.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:281 EcclesiaCRM/MenuBar/MenuBar.php:244
 #: Menu.php:99 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Users Specific Schedule Tasks"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:338 EcclesiaCRM/dto/SystemConfig.php:350
-#: EcclesiaCRM/dto/SystemConfig.php:363
+#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:352
+#: EcclesiaCRM/dto/SystemConfig.php:365
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:381
+#: EcclesiaCRM/dto/SystemConfig.php:383
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
@@ -4626,7 +4636,8 @@ msgstr ""
 msgid "Email Lists"
 msgstr "Editor Family"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:437
+#: EcclesiaCRM/MenuBar/MenuBar.php:353
+#: EcclesiaCRM/Search/PledgeSearchRes.php:48 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
 #: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
 #: Reports/AdvancedDeposit.php:523
@@ -4803,15 +4814,15 @@ msgid "Witness"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:232
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:617
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:587
 #: v2/templates/people/familylist.php:53 v2/templates/people/personlist.php:54
 #, fuzzy
 msgid "Created"
 msgstr "Krijo Skedar"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:237
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:644 Menu.php:675
-#: Menu.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:614 Menu.php:645
+#: Menu.php:677
 #, fuzzy
 msgid "Updated"
 msgstr "Përmirso"
@@ -4993,10 +5004,15 @@ msgstr ""
 msgid "Students"
 msgstr ""
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:18
+#: EcclesiaCRM/Search/DepositSearchRes.php:20
 #, fuzzy
 msgid "Deposits"
 msgstr "Depozitë"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:19
+#, fuzzy
+msgid "Family Custom Search"
+msgstr "Njerëz"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:18 Menu.php:403
 #, fuzzy
@@ -5009,10 +5025,21 @@ msgstr "Njerëz"
 msgid "Payments"
 msgstr "Të gjitha Pagesat"
 
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:18
+#, fuzzy
+msgid "Person Custom Search"
+msgstr "Person Listing"
+
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:18 Menu.php:346
 #, fuzzy
 msgid "Individual Pastoral Care"
 msgstr "Shtoni në kartën e individëve"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+#, fuzzy
+msgid "Pledges"
+msgstr "U zotua"
 
 #: EcclesiaCRM/Service/AppIntegrityService.php:28
 msgid "Signature definition file signature failed validation"
@@ -7916,38 +7943,32 @@ msgstr "Të gjitha Rolet"
 msgid "Sunday School Classes"
 msgstr "Raportet e diela Shkolla"
 
-#: Menu.php:517 Menu.php:539 Menu.php:566
-#: v2/templates/people/peopledashboard.php:133
+#: Menu.php:517 Menu.php:539 v2/templates/people/peopledashboard.php:133
 #: v2/templates/people/peopledashboard.php:154
 msgid "More info"
 msgstr ""
 
-#: Menu.php:559
-#, fuzzy
-msgid "Attendees Checked In"
-msgstr "Pjesëmarrësit ("
-
-#: Menu.php:583
+#: Menu.php:553
 #, fuzzy
 msgid "Deposit Tracking"
 msgstr "Depozita Listing"
 
-#: Menu.php:603
+#: Menu.php:573
 #, fuzzy
 msgid "Latest Families"
 msgstr "Familjet"
 
-#: Menu.php:630
+#: Menu.php:600
 #, fuzzy
 msgid "Updated Families"
 msgstr "Update Records familjare"
 
-#: Menu.php:659
+#: Menu.php:629
 #, fuzzy
 msgid "Latest Members"
 msgstr "Anëtarët"
 
-#: Menu.php:691
+#: Menu.php:661
 #, fuzzy
 msgid "Updated Members"
 msgstr "Të pranishëm Anëtarët"
@@ -9037,11 +9058,6 @@ msgstr "Listing Group"
 #, fuzzy
 msgid "PhotoBook"
 msgstr "Photos"
-
-#: Reports/PledgeSummary.php:251 Reports/PledgeSummary.php:253
-#, fuzzy
-msgid "Pledges"
-msgstr "U zotua"
 
 #: Reports/PledgeSummary.php:255
 msgid "Overpaid"
@@ -11989,6 +12005,10 @@ msgstr "Shporta Empty"
 #, fuzzy
 msgid "pending"
 msgstr "Martesë"
+
+#, fuzzy
+#~ msgid "Attendees Checked In"
+#~ msgstr "Pjesëmarrësit ("
 
 #, fuzzy
 #~ msgid "Tracking"
