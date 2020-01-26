@@ -13,7 +13,7 @@ namespace EcclesiaCRM\MyPDO;
 use Sabre\CalDAV;
 use Sabre\DAV;
 use Sabre\VObject;
-use EcclesiaCRM\MyPDO\DataExtract;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
 
@@ -659,7 +659,7 @@ SQL;
         list($calendarId, $instanceId) = $calendarId;
 
 
-        $extraData = DataExtract::extractCalendarData($calendarData);
+        $extraData = VObjectExtract::calendarData($calendarData);
 
         $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
         $stmt->execute([
@@ -712,7 +712,7 @@ SQL;
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $extraData = DataExtract::extractCalendarData($calendarData);
+        $extraData = VObjectExtract::calendarData($calendarData);
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);

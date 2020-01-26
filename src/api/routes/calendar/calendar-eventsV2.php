@@ -38,7 +38,7 @@ use EcclesiaCRM\CalendarinstancesQuery;
 use Sabre\VObject;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use EcclesiaCRM\MyPDO\DataExtract;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -646,7 +646,7 @@ function manageEvent(Request $request, Response $response, array $args)
                 $old_LOCATION = '';
                 $old_UID = '';
 
-                $returnValues = DataExtract::extractCalendarData($event['calendardata']);
+                $returnValues = VObjectExtract::calendarData($event['calendardata']);
 
                 foreach ($returnValues as $key => $value) {
                     if ($key == 'freqEvents') {
@@ -757,7 +757,7 @@ function manageEvent(Request $request, Response $response, array $args)
                 $old_LOCATION = '';
                 $old_UID = '';
 
-                $returnValues = DataExtract::extractCalendarData($event['calendardata']);
+                $returnValues = VObjectExtract::calendarData($event['calendardata']);
 
                 foreach ($returnValues as $key => $value) {
                     if ($key == 'freqEvents') {

@@ -20,7 +20,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\MyPDO\DataExtract;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 
 class CalendarService
 {
@@ -163,7 +163,7 @@ class CalendarService
 
               $calObj = $calendarBackend->getCalendarObject($calendar['id'],$eventForCal['uri']);
 
-              $freqEvents = DataExtract::extractCalendarData($calObj['calendardata'],$origStart,$origEnd);
+              $freqEvents = VObjectExtract::calendarData($calObj['calendardata'],$origStart,$origEnd);
 
               if ($freqEvents == null) {
                 continue;
