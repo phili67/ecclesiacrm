@@ -2,7 +2,7 @@
 
 /*******************************************************************************
  *
- *  filename    : DataExtract.php
+ *  filename    : VObjectExtract.php
  *  last change : 2020-01-26
  *  description : manage the full sabre VObject
  *
@@ -19,8 +19,8 @@ namespace EcclesiaCRM\MyPDO;
 
 use Sabre\VObject;
 
-class DataExtract {
-    static function extractCalendarData($calendarData, $start = '2010-01-01 00:00:00', $end = '2070-12-31 23:59:59')
+class VObjectExtract {
+    static function calendarData($calendarData, $start = '2010-01-01 00:00:00', $end = '2070-12-31 23:59:59')
     {
 
         // first version*/
@@ -263,5 +263,4 @@ class DataExtract {
 
         //}
     }
-
 }
