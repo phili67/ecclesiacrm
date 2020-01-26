@@ -3,13 +3,13 @@
 /*******************************************************************************
  *
  *  filename    : events.php
- *  last change : 2018-05-1
+ *  last change : 2020-01-26
  *  description : manage the full calendar with events
  *
  *  http://www.ecclesiacrm.com/
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorizaion
+ *                This code can't be incorporated in another software without authorization
  *  Updated : 2018/05/13
  *
  ******************************************************************************/
@@ -38,6 +38,7 @@ use EcclesiaCRM\CalendarinstancesQuery;
 use Sabre\VObject;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -645,7 +646,7 @@ function manageEvent(Request $request, Response $response, array $args)
                 $old_LOCATION = '';
                 $old_UID = '';
 
-                $returnValues = $calendarBackend->extractCalendarData($event['calendardata']);
+                $returnValues = VObjectExtract::calendarData($event['calendardata']);
 
                 foreach ($returnValues as $key => $value) {
                     if ($key == 'freqEvents') {
@@ -756,7 +757,7 @@ function manageEvent(Request $request, Response $response, array $args)
                 $old_LOCATION = '';
                 $old_UID = '';
 
-                $returnValues = $calendarBackend->extractCalendarData($event['calendardata']);
+                $returnValues = VObjectExtract::calendarData($event['calendardata']);
 
                 foreach ($returnValues as $key => $value) {
                     if ($key == 'freqEvents') {

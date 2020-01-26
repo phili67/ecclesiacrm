@@ -5,9 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\Base\Event as BaseEvent;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\MyPDO\CalDavPDO;
-
-use Propel\Runtime\Propel;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 
 
 /**
@@ -56,12 +54,7 @@ class Event extends BaseEvent
   public function getAlarm()
   {
       // we get the PDO for the Sabre connection from the Propel connection
-      $pdo = Propel::getConnection();
-
-      // We set the BackEnd for sabre Backends
-      $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-
-      $data = $calendarBackend->extractCalendarData($this->getCalendardata());
+      $data = VObjectExtract::calendarData($this->getCalendardata());
 
       return $data['alarm'];
   }

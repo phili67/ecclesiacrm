@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : CalendarService.php
- *  last change : 2018-05-04
+ *  last change : 2020-01-25
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *                This code can't be incorporated in another software without authorization
@@ -20,6 +20,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\MyPDO\VObjectExtract;
 
 class CalendarService
 {
@@ -162,7 +163,7 @@ class CalendarService
 
               $calObj = $calendarBackend->getCalendarObject($calendar['id'],$eventForCal['uri']);
 
-              $freqEvents = $calendarBackend->extractCalendarData($calObj['calendardata'],$origStart,$origEnd);
+              $freqEvents = VObjectExtract::calendarData($calObj['calendardata'],$origStart,$origEnd);
 
               if ($freqEvents == null) {
                 continue;
