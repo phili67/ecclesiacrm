@@ -2,14 +2,12 @@
 
 namespace EcclesiaCRM\Search;
 
-use EcclesiaCRM\Base\FamilyCustomMasterQuery;
 use EcclesiaCRM\Search\BaseSearchRes;
-use EcclesiaCRM\FamilyCustomMaster;
-use EcclesiaCRM\Base\FamilyQuery;
+use EcclesiaCRM\Base\FamilyCustomMasterQuery;
+use EcclesiaCRM\Base\FamilyCustomQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 
 class FamilyCustomSearchRes extends BaseSearchRes
@@ -31,10 +29,13 @@ class FamilyCustomSearchRes extends BaseSearchRes
                     ->orderByCustomOrder()
                     ->find();
 
-                $familiesCustom = FamilyQuery::create()
-                    ->leftJoinFamilyCustom()
-                    ->useFamilyCustomQuery();
+                $familiesCustom = FamilyCustomQuery::create();
 
+                if (SystemConfig::getBooleanValue('bGDPR')) {
+                    $familiesCustom->useFamilyQuery()
+                        ->filterByDateDeactivated(null)
+                        ->endUse();
+                }
 
                 foreach ($ormFamiliesCustomFields as $customfield ) {
                     $familiesCustom->withColumn($customfield->getCustomField());
@@ -42,8 +43,9 @@ class FamilyCustomSearchRes extends BaseSearchRes
                     $familiesCustom->_or();
                 }
 
-                $familiesCustom->endUse()
-                    ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))->find();
+                $familiesCustom
+                    ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
+                    ->find();
 
 
                 if (!is_null($familiesCustom))

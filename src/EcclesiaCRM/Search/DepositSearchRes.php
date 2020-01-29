@@ -28,13 +28,13 @@ class DepositSearchRes extends BaseSearchRes
             //Deposits Search
             if (SystemConfig::getBooleanValue("bSearchIncludeDeposits"))
             {
-                /*try {
+                try {
                     $date = InputUtils::FilterDate($qry);
                 } catch (Exception $e) {
                     $date = "";
-                }*/
+                }
 
-                LoggerUtils::getAppLogger()->info("date = ".$date);
+                //LoggerUtils::getAppLogger()->info("date = ".$date);
 
                 try {
                     $Deposits = DepositQuery::create()
@@ -42,7 +42,7 @@ class DepositSearchRes extends BaseSearchRes
                         ->_or()
                             ->filterById($qry);
 
-                    /*if (is_null($date)) {
+                    /*if (is_null($date)) {// only US date can work through api links
                             $Deposits->_or()
                                 ->filterByDate($date, Criteria::LIKE);
 
