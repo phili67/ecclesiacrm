@@ -19,6 +19,7 @@ use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
 use EcclesiaCRM\Search\PersonCustomSearchRes;
 use EcclesiaCRM\Search\FamilyCustomSearchRes;
 use EcclesiaCRM\Search\PledgeSearchRes;
+use EcclesiaCRM\Search\PersonPropsSearchRes;
 
 // Routes search
 
@@ -42,6 +43,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         new DepositSearchRes(),
         new PaymentSearchRes(),
         new PledgeSearchRes(),
+        new PersonPropsSearchRes(),
         new PersonPastoralCareSearchRes(),
         new PersonCustomSearchRes(),
         new FamilyPastoralCareSearchRes(),
