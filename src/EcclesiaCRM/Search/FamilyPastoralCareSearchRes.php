@@ -25,8 +25,17 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
             // now we search the families
             try {
                 $searchLikeString = '%'.$qry.'%';
-                $cares = PastoralCareQuery::Create()
-                    ->leftJoinPastoralCareType()
+                $cares = PastoralCareQuery::Create();
+
+                if (SystemConfig::getBooleanValue('bGDPR')) {
+                    $cares
+                        ->useFamilyQuery()
+                        ->filterByDateDeactivated(null)
+                        ->endUse()
+                        ->_and();
+                }
+
+                $cares->leftJoinPastoralCareType()
                     ->leftJoinFamily()
                     ->filterByFamilyId(null, Criteria::NOT_EQUAL)
                     ->filterByText($searchLikeString, Criteria::LIKE)

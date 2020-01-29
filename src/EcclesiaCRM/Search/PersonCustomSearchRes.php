@@ -3,12 +3,11 @@
 namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\Search\BaseSearchRes;
+use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\Base\PersonQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 
 class PersonCustomSearchRes extends BaseSearchRes
@@ -30,10 +29,13 @@ class PersonCustomSearchRes extends BaseSearchRes
                     ->orderByCustomOrder()
                     ->find();
 
-                $personsCustom = PersonQuery::create()
-                    ->leftJoinPersonCustom()
-                    ->usePersonCustomQuery();
+                $personsCustom = PersonCustomQuery::create();
 
+                if (SystemConfig::getBooleanValue('bGDPR')) {
+                    $personsCustom->usePersonQuery()
+                        ->filterByDateDeactivated(null)
+                        ->endUse();
+                }
 
                 foreach ($ormPersonCustomFields as $customfield ) {
                     $personsCustom->withColumn($customfield->getCustomField());
@@ -41,9 +43,8 @@ class PersonCustomSearchRes extends BaseSearchRes
                     $personsCustom->_or();
                 }
 
-                $personsCustom->endUse()
-                    ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
-
+                $personsCustom->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
+                    ->find();
 
                 if (!is_null($personsCustom))
                 {

@@ -44,10 +44,10 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         new PaymentSearchRes(),
         new PledgeSearchRes(),
         new PersonPropsSearchRes(),
-        new PersonPastoralCareSearchRes(),
         new PersonCustomSearchRes(),
-        new FamilyPastoralCareSearchRes(),
-        new FamilyCustomSearchRes()
+        new FamilyCustomSearchRes(),
+        new PersonPastoralCareSearchRes(),
+        new FamilyPastoralCareSearchRes()
     ];
 
     foreach ($resMethods as $resMethod) {

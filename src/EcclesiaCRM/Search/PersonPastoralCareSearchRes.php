@@ -24,11 +24,20 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
         if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
             try {
                 $searchLikeString = '%' . $qry . '%';
-                $cares = PastoralCareQuery::Create()
-                    ->leftJoinPastoralCareType()
+                $cares = PastoralCareQuery::Create();
+
+                if (SystemConfig::getBooleanValue('bGDPR')) {
+                    $cares
+                        ->usePersonRelatedByPersonIdQuery()
+                            ->filterByDateDeactivated(null)
+                        ->endUse()
+                        ->_and();
+                }
+
+                $cares->leftJoinPastoralCareType()
                     ->joinPersonRelatedByPersonId()
-                    ->filterByPersonId(null, Criteria::NOT_EQUAL)
-                    ->filterByText($searchLikeString, Criteria::LIKE)
+                        ->filterByPersonId(null, Criteria::NOT_EQUAL)
+                        ->filterByText($searchLikeString, Criteria::LIKE)
                     ->_or()
                     ->usePastoralCareTypeQuery()
                     ->filterByTitle($searchLikeString, Criteria::LIKE)
@@ -41,6 +50,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                     ->endUse()
                     ->orderByDate(Criteria::DESC)
                     ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
+
 
                 if (SessionUser::getUser()->isAdmin()) {
                     $cares->find();

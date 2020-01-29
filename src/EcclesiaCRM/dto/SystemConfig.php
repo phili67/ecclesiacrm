@@ -260,6 +260,7 @@ class SystemConfig
         "bThumbnailIconPresence" => new ConfigItem(2081, "bThumbnailIconPresence", "boolean", "0", _("Add a thumbnail icon for the people in the datatables.")),
         "bSearchIncludePledges" => new ConfigItem(2082, "bSearchIncludePledges", "boolean", "0", _("Search Pledges")),
         "iSearchIncludePledgesMax" => new ConfigItem(2083, "bSearchIncludePledgesMax", "number", "5", _("Maximum number of Pledges results")),
+        "bSearchFinancesGDPR" => new ConfigItem(2084, "bSearchFinancesGDPR", "boolean", "1", _("Allow to get the name in the search sequence in case of pledges and deposits")),
       );
   }
 
@@ -278,7 +279,7 @@ class SystemConfig
       _('Quick Search') => ["bSearchIncludePersons","iSearchIncludePersonsMax","bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies","iSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","iSearchIncludeFamilyHOHMax","bSearchIncludeGroups","iSearchIncludeGroupsMax","bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePledges", "iSearchIncludePledgesMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax","bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
       _('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","bGZIP","bZIP","sPGP","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       _('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
-      _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
+      _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate", "bSearchFinancesGDPR"],
       _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
       _('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDashboardPageServiceIntervalTime"],
       _('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]

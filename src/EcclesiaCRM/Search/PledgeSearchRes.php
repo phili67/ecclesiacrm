@@ -29,11 +29,21 @@ class PledgeSearchRes extends BaseSearchRes
                 try {
                     $searchLikeString = '%'.$qry.'%';
 
-                    $Pledges = PledgeQuery::create()
-                        ->useFamilyQuery()
+                    $Pledges = PledgeQuery::create();
+
+                    if (SystemConfig::getBooleanValue('bGDPR') && !SystemConfig::getBooleanValue('bSearchFinancesGDPR')) {// normally gdpr is more important than finances ??? Plogel, a deposit can always be seen but not a pledge
+                        $Pledges
+                            ->useFamilyQuery()
+                            ->filterByDateDeactivated(null)
+                            ->endUse()
+                            ->_and();
+                    }
+
+                    $Pledges->useFamilyQuery()
                             ->filterByName($searchLikeString, Criteria::LIKE)
-                        ->endUse()
-                        ->leftJoinDeposit()
+                        ->endUse();
+
+                    $Pledges->leftJoinDeposit()
                         ->withColumn('Deposit.Id', 'DepositId')
                         ->groupByDepositId()
                         ->limit (SystemConfig::getValue("iSearchIncludePledgesMax"))
