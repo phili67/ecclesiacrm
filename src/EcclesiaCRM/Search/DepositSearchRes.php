@@ -31,7 +31,7 @@ class DepositSearchRes extends BaseSearchRes
                 try {
                     $date = InputUtils::FilterDate($qry);
                 } catch (Exception $e) {
-                    $date = "";
+                    $date = null;
                 }
 
                 //LoggerUtils::getAppLogger()->info("date = ".$date);
