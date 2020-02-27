@@ -7,14 +7,20 @@ use EcclesiaCRM\Utils\LoggerUtils;
 class SearchRes implements \JsonSerializable {
     protected $name;
     protected $array;
+    protected $type;
 
-    public function __construct(string $name, array $array) {
+    public function __construct(string $name, array $array, $type = "normal") {
         $this->name  = $name;
         $this->array = $array;
+        $this->type  = $type;
     }
 
     public function jsonSerialize() {
-        return ['children' => $this->array,
+        if ($this->type == "normal") {
+            return ['children' => $this->array,
                 'text' => $this->name];
+        } else {
+            return $this->array;
+        }
     }
 }
