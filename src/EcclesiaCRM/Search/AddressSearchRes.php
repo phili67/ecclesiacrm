@@ -11,10 +11,10 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 class AddressSearchRes extends BaseSearchRes
 {
-    public function __construct()
+    public function __construct($global = false)
     {
         $this->name = _('Address');
-        parent::__construct();
+        parent::__construct($global, "Adresses");
     }
 
     public function buildSearch(string $qry)
@@ -33,8 +33,11 @@ class AddressSearchRes extends BaseSearchRes
                 _or()->filterByAddress1($searchLikeString, Criteria::LIKE)->
                 _or()->filterByAddress2($searchLikeString, Criteria::LIKE)->
                 _or()->filterByZip($searchLikeString, Criteria::LIKE)->
-                _or()->filterByState($searchLikeString, Criteria::LIKE)->
-                limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
+                _or()->filterByState($searchLikeString, Criteria::LIKE);
+
+                if (!$this->global_search) {
+                    $addresses->limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
+                }
 
                 if (!is_null($addresses))
                 {
@@ -45,6 +48,10 @@ class AddressSearchRes extends BaseSearchRes
                             'text'=>$address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                             'uri'=>$address->getViewURI()
                         ];
+
+                        if ($this->global_search) {
+                            $elt["type"] = $this->getGlobalSearchType();
+                        }
 
                         array_push($this->results, $elt);
                     }

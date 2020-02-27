@@ -11,10 +11,10 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 class PersonSearchRes extends BaseSearchRes
 {
-    public function __construct()
+    public function __construct($global = false)
     {
         $this->name = _('Persons');
-        parent::__construct();
+        parent::__construct($global, "Persons");
     }
 
     public function buildSearch(string $qry)
@@ -35,8 +35,11 @@ class PersonSearchRes extends BaseSearchRes
                 _or()->filterByWorkEmail($searchLikeString, Criteria::LIKE)->
                 _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
                 _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
-                _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->
-                limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
+
+                if (!$this->global_search) {
+                    $people->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                }
 
                 if (!is_null($people)) {
                     $id = 1;
@@ -45,6 +48,10 @@ class PersonSearchRes extends BaseSearchRes
                         $elt = ['id' => 'person-id-'.$id++,
                             'text' => $person->getFullName(),
                             'uri' => $person->getViewURI()];
+
+                        if ($this->global_search) {
+                            $elt["type"] = $elt["type"] = $this->getGlobalSearchType();
+                        }
 
                         array_push($this->results, $elt);
                     }
