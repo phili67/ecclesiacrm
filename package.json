@@ -54,6 +54,8 @@
     "datatables.net-buttons-dt": "^1.6.1",
     "datatables.net-dt": "^1.10.20",
     "datatables.net-responsive": "^2.2.3",
+    "datatables.net-rowgroup": "^1.1.1",
+    "datatables.net-rowgroup-dt": "^1.1.1",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.10.1",
     "grunt-git": "^1.0.14",
