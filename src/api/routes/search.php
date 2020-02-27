@@ -28,6 +28,8 @@ use EcclesiaCRM\Search\PersonPastoralCareSearchRes;
 use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
 use EcclesiaCRM\GroupQuery;
 
+use EcclesiaCRM\Utils\LoggerUtils;
+
 // Routes search
 
 // search for a string in Persons, families, groups, Financial Deposits and Payments
@@ -41,7 +43,43 @@ $app->group('/search', function () {
     $this->get('/{query}', 'quickSearch' );
     $this->post('/comboElements/', 'comboElements' );
     $this->post('/getGroupForTypeID/', 'getGroupForTypeID' );
+    $this->post('/getresult/', 'getSearchResult' );
+    $this->get('/getresult/', 'getSearchResult' );
 });
+
+function getSearchResult (Request $request, Response $response, array $args) {
+    $req = (object)$request->getParsedBody();
+
+    /*$logger = LoggerUtils::getAppLogger();
+    $logger->info("Search term : ".print_r($req->SearchTerm,true));
+    $logger->info("Search term : ".print_r($req->Elements,true));
+    $logger->info("Search term : ".print_r($req->GroupElements,true));*/
+
+    $query = $req->SearchTerm;
+
+    $resultsArray = [];
+
+    $resMethods = [
+        new PersonSearchRes(true),
+        new AddressSearchRes(true),
+        /*new FamilySearchRes(),
+        new GroupSearchRes(),
+        new DepositSearchRes(),
+        new PaymentSearchRes(),
+        new PledgeSearchRes(),
+        new PersonPropsSearchRes(),
+        new PersonCustomSearchRes(),
+        new FamilyCustomSearchRes(),
+        new PersonPastoralCareSearchRes(),
+        new FamilyPastoralCareSearchRes()*/
+    ];
+
+    foreach ($resMethods as $resMethod) {
+        $resultsArray = array_merge($resultsArray,$resMethod->getRes($query));
+    }
+
+    return $response->withJson(["SearchResults" => $resultsArray]);
+}
 
 function quickSearch (Request $request, Response $response, array $args) {
     $query = $args['query'];
