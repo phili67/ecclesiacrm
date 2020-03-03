@@ -51,6 +51,11 @@ class AddressSearchRes extends BaseSearchRes
 
                         if ($this->global_search) {
                             $elt["type"] = $this->getGlobalSearchType();
+                            $elt["Gender"] = "";
+                            $elt["Classification"] = "";
+                            $elt["ProNames"] = "";
+                            $elt["FamilyRole"] = "";
+
                         }
 
                         array_push($this->results, $elt);
