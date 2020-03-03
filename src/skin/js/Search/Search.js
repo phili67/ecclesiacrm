@@ -37,7 +37,13 @@ $(document).ready(function () {
                 }
             }
 
-            window.CRM.dataSearchTable.ajax.reload(null, false);
+            $('.progress').css("color", "red");
+            $('.progress').html("  "+ i18next.t("In progress...."));
+            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+                $('.progress').css("color", "green");
+                $('.progress').html("  "+i18next.t("one !"));
+                loadAllPeople()
+            }, false);
         }
 
         if (has_group_in_elements === false) {
@@ -134,6 +140,29 @@ $(document).ready(function () {
         columns: [
             {
                 width: 'auto',
+                title: i18next.t('Actions'),
+                data: 'text',
+                render: function (data, type, full, meta) {
+                        return "<a class=\"AddToPeopleCart\" data-cartpersonid=\""+full.id+"\">\n" +
+                            "\n" +
+                            "                <span class=\"fa-stack\">\n" +
+                            "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                            "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                            "                </span>\n" +
+                            "                </a>  ";
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('id'),
+                visible: false,
+                data: 'id',
+                render: function (data, type, full, meta) {
+                    return data;
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t('Search result'),
                 data: 'text',
                 render: function (data, type, full, meta) {
@@ -190,9 +219,59 @@ $(document).ready(function () {
     });
 
     $(document).on("click","#search_OK", function() {
-        window.CRM.dataSearchTable.ajax.reload(null, false);
+        //window.CRM.dataSearchTable.ajax.reload(null, false);
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            alert("Do something");
+            loadAllPeople()
+        }, false);
     });
 
+    function loadAllPeople()
+    {
+        listPeople = window.CRM.dataSearchTable
+            .column( 1 )
+            .data()
+            .toArray();
+    }
+
+    $("#AddAllToCart").click(function(){
+        loadAllPeople()
+        window.CRM.cart.addPerson(listPeople);
+    });
+
+    $("#AddAllPageToCart").click(function(){
+        var listPagePeople  = [];
+        $(".AddToPeopleCart").each(function(res) {
+            var personId= $(this).data("cartpersonid");
+
+            listPagePeople.push(personId);
+        });
+
+        if (listPagePeople.length > 0) {
+            window.CRM.cart.addPerson(listPagePeople);
+        } else {
+            window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
+        }
+    });
+
+
+    $("#RemoveAllFromCart").click(function(){
+        loadAllPeople()
+        window.CRM.cart.removePerson(listPeople);
+    });
+
+    $("#RemoveAllPageFromCart").click(function(){
+        var listPagePeople  = [];
+        $(".RemoveFromPeopleCart").each(function(res) {
+            var personId= $(this).data("cartpersonid");
+
+            listPagePeople.push(personId);
+        });
+
+        window.CRM.cart.removePerson(listPagePeople);
+    });
+
+    // the main part
     $("#group_search_filters").hide()
     loadSearchCombo();
 
