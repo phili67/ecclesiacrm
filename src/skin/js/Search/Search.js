@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var elements = [];
+    var elements = {};
     var group_elements = [];
     var available_search_type = [];
     var buildMenu = false;
@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
         var data = $(this).select2('data');
 
-        elements.length = 0;
+        elements = {};
         var has_group_in_elements = false;
 
         $.each(available_search_type, function (index, val) {
@@ -25,7 +25,8 @@ $(document).ready(function () {
                 var element = data[i].id;
                 var pos = element.indexOf("-");
                 var option_Type = element.substr(0, pos);
-                elements.push(element);
+                var index = element.substr(pos+1);
+                elements[option_Type]=index;
 
                 $('#' + option_Type).prop('disabled', true);
 
@@ -35,6 +36,8 @@ $(document).ready(function () {
                     has_group_in_elements = true;
                 }
             }
+
+            window.CRM.dataSearchTable.ajax.reload(null, false);
         }
 
         if (has_group_in_elements === false) {
@@ -131,7 +134,7 @@ $(document).ready(function () {
         columns: [
             {
                 width: 'auto',
-                title: i18next.t('Name'),
+                title: i18next.t('Search result'),
                 data: 'text',
                 render: function (data, type, full, meta) {
                     return i18next.t(data);
@@ -145,6 +148,42 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     return i18next.t(data);
                 }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Gender'),
+                visible: true,
+                data: 'Gender',
+                render: function (data, type, full, meta) {
+                    return i18next.t(data);
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Classification'),
+                visible: true,
+                data: 'Classification',
+                render: function (data, type, full, meta) {
+                    return data;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Family Role'),
+                visible: true,
+                data: 'FamilyRole',
+                render: function (data, type, full, meta) {
+                    return data;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Property Name'),
+                visible: true,
+                data: 'ProNames',
+                render: function (data, type, full, meta) {
+                    return data;
+                }
             }
         ],
         responsive: true
@@ -156,4 +195,13 @@ $(document).ready(function () {
 
     $("#group_search_filters").hide()
     loadSearchCombo();
+
+
+    /* Custom filtering function which will search data in column four between two values */
+    $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
+        if (buildMenu == false) {
+            return true;
+        }
+        return true;
+    });
 });
