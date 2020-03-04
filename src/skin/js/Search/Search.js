@@ -1,11 +1,13 @@
 $(document).ready(function () {
     var elements = {};
-    var group_elements = [];
+    var group_elements = {};
+    var group_role_elements = {}
     var available_search_type = [];
     var buildMenu = false;
 
     $("#searchCombo").select2();
     $("#searchComboGroup").select2();
+    $("#searchComboGroupRole").select2();
 
     $("#searchCombo").select2().on("change", function (e) {
         if (buildMenu == true) {
@@ -41,29 +43,57 @@ $(document).ready(function () {
             $('.progress').html("  "+ i18next.t("In progress...."));
             window.CRM.dataSearchTable.ajax.reload(function ( json ) {
                 $('.progress').css("color", "green");
-                $('.progress').html("  "+i18next.t("one !"));
+                $('.progress').html("  "+i18next.t("Done !"));
                 loadAllPeople()
             }, false);
         }
 
         if (has_group_in_elements === false) {
-            group_elements.length = 0;
+            group_elements = {};
+            group_role_elements = {}
             $("#searchComboGroup").empty();
+            $("#searchComboGroupRole").empty();
             $("#group_search_filters").hide();
         }
     });
 
     $("#searchComboGroup").select2().on("change", function (e) {
         var data = $(this).select2('data');
-        group_elements.length = 0;
+        group_elements = {};
+        group_role_elements = {}
 
         if (data.length > 0) {
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < data.length; i++) {// it's planned to work with more than one group
                 var group_element = data[i].id;
-                var pos = group_element.indexOf("-");
-                var option_Type = group_element.substr(0, pos);
-                group_elements.push(group_element);
+                group_elements['Group'] = group_element;
+                loadGroupRole (group_element)
             }
+            $('.progress').css("color", "red");
+            $('.progress').html("  "+ i18next.t("In progress...."));
+            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+                $('.progress').css("color", "green");
+                $('.progress').html("  "+i18next.t("Done !"));
+                loadAllPeople()
+            }, false);
+        }
+    });
+    
+    $("#searchComboGroupRole").select2().on("change", function (e) {
+        var data = $(this).select2('data');
+        group_role_elements = {}
+
+        if (data.length > 0) {
+            for (i = 0; i < data.length; i++) {// it's planned to work with more than one group
+                var group_element_role = data[i].id;
+                group_role_elements['Role'] = group_element_role;
+            }
+            $('.progress').css("color", "red");
+            $('.progress').html("  "+ i18next.t("In progress...."));
+            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+                $('.progress').css("color", "green");
+                $('.progress').html("  "+i18next.t("Done !"));
+                loadAllPeople()
+            }, false);
         }
     });
 
@@ -77,14 +107,32 @@ $(document).ready(function () {
         }).done(function (data) {
             if ( real_GroupType >= 0 && $('#group_search_filters').is(":visible") === false ) {
                 // we create the group popup menu
-                group_elements.length = 0;
+                group_elements = {};
+                group_role_elements = {}
                 $("#searchComboGroup").empty();
+                $("#searchComboGroupRole").empty();
                 $.each(data, function (index, value) {
                     var option = new Option(value.Name, value.Id, false, false);
                     $("#searchComboGroup").append(option);
                 });
                 $("#group_search_filters").show()
             }
+        });
+    }
+    
+    function loadGroupRole (group) {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'search/getGroupRoleForGroupID/',
+            data: JSON.stringify({"Group": group})
+        }).done(function (data) {
+            // we create the group popup menu
+            group_role_elements = {};
+            $("#searchComboGroupRole").empty();
+            $.each(data, function (index, value) {
+                var option = new Option(i18next.t(value), index, false, false);
+                $("#searchComboGroupRole").append(option);
+            });
         });
     }
 
@@ -127,7 +175,8 @@ $(document).ready(function () {
                 return JSON.stringify({
                     "SearchTerm": search_Term,
                     "Elements" : elements,
-                    "GroupElements": group_elements});
+                    "GroupElements": group_elements,
+                    "GroupRoleElements": group_role_elements});
             }
         },
         rowGroup: {
@@ -137,36 +186,19 @@ $(document).ready(function () {
             "url": window.CRM.plugin.dataTable.language.url
         },
         "searching": true,
+        "deferRender": true,
+        orderFixed: [1, 'dsc'],
         columns: [
-            {
-                width: 'auto',
-                title: i18next.t('Actions'),
-                data: 'text',
-                render: function (data, type, full, meta) {
-                        return "<a class=\"AddToPeopleCart\" data-cartpersonid=\""+full.id+"\">\n" +
-                            "\n" +
-                            "                <span class=\"fa-stack\">\n" +
-                            "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                            "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                            "                </span>\n" +
-                            "                </a>  ";
-                }
-            },
             {
                 width: 'auto',
                 title: i18next.t('id'),
                 visible: false,
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    return data;
-                }
-            },
-            {
-                width: 'auto',
-                title: i18next.t('Search result'),
-                data: 'text',
-                render: function (data, type, full, meta) {
-                    return i18next.t(data);
+                    if (full.realType == 'Persons') {
+                        return data;// only persons can be added to the cart
+                    }
+                    return null;
                 }
             },
             {
@@ -175,6 +207,95 @@ $(document).ready(function () {
                 visible: false,
                 data: 'type',
                 render: function (data, type, full, meta) {
+                    return i18next.t(data);
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Photos'),
+                data: 'img',
+                render: function (data, type, full, meta) {
+                    if (full.realType == 'Persons') {
+                        return '<img src="/api/persons/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
+                    } else if (full.realType == 'Addresses') {
+                        return '<img src="/api/families/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
+                    } else {
+                        return null;
+                    }
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Actions'),
+                data: 'text',
+                render: function (data, type, full, meta) {
+                    var res = ''
+
+                    if (full.realType == 'Persons') {
+                        res += '<a href="' + window.CRM.root + '/PersonEditor.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+
+                        if (full.inCart === false) {
+                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        } else {
+                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        }
+
+                        res += '&nbsp;<a href="' + window.CRM.root +'/PrintView.php?PersonID=' + full.id + '"  data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Print') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>';
+
+                    } else if (full.realType == 'Addresses') {
+                        res += '<a href="' + window.CRM.root + '/FamilyEditor.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+
+                        res += '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+                    } else {
+                        return null;
+                    }
+
+
+                    return res;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Search result'),
+                data: 'text',
+                render: function (data, type, full, meta) {
+                    if (full.realType == "Persons") {
+                        return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
+                    } else if (full.realType == 'Addresses') {
+                        return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
+                    }
                     return i18next.t(data);
                 }
             },
@@ -221,22 +342,28 @@ $(document).ready(function () {
     $(document).on("click","#search_OK", function() {
         //window.CRM.dataSearchTable.ajax.reload(null, false);
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            alert("Do something");
             loadAllPeople()
         }, false);
     });
 
     function loadAllPeople()
     {
-        listPeople = window.CRM.dataSearchTable
-            .column( 1 )
+        window.CRM.listPeople = window.CRM.dataSearchTable
+            .column( 0 )
             .data()
             .toArray();
     }
 
     $("#AddAllToCart").click(function(){
         loadAllPeople()
-        window.CRM.cart.addPerson(listPeople);
+        window.CRM.cart.addPerson(window.CRM.listPeople);
+
+        /*$('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("Loading people in cart...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+ i18next.t("Loading finished...."));
+        }, false);*/
     });
 
     $("#AddAllPageToCart").click(function(){
@@ -257,7 +384,14 @@ $(document).ready(function () {
 
     $("#RemoveAllFromCart").click(function(){
         loadAllPeople()
-        window.CRM.cart.removePerson(listPeople);
+        window.CRM.cart.removePerson(window.CRM.listPeople);
+
+        /*$('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("Loading people in cart...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+ i18next.t("Loading finished...."));
+        }, false);*/
     });
 
     $("#RemoveAllPageFromCart").click(function(){

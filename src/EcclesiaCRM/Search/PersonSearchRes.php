@@ -1,13 +1,20 @@
 <?php
 
+/* copyright Philippe Logel all right reserved */
+
 namespace EcclesiaCRM\Search;
 
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\Map\GroupTableMap;
+use EcclesiaCRM\Map\GroupTypeTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Map\PersonCustomTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
@@ -18,16 +25,18 @@ use EcclesiaCRM\Record2propertyR2pQuery;
 
 class PersonSearchRes extends BaseSearchRes
 {
-    protected $query_elements = null;
-    protected $group_elements = null;
+    protected $query_elements      = null;
+    protected $group_elements      = null;
+    protected $group_role_elements = null;
 
-    public function __construct($global = false, $query_elements = null, $group_elements = null)
+    public function __construct($global = false, $query_elements = null, $group_elements = null, $group_role_elements = null)
     {
         $this->name = _('Persons');
 
         # only available in this subclass
-        $this->query_elements = $query_elements;
-        $this->group_elements = $group_elements;
+        $this->query_elements      = $query_elements;
+        $this->group_elements      = $group_elements;
+        $this->group_role_elements = $group_role_elements;
 
         parent::__construct($global, "Persons");
     }
@@ -39,6 +48,8 @@ class PersonSearchRes extends BaseSearchRes
             try {
                 $searchLikeString = '%' . $qry . '%';
                 $people = PersonQuery::create();
+
+                $iTenThousand = 10000;
 
                 if ($this->global_search) {// we are in the search project
                     /*
@@ -105,7 +116,7 @@ class PersonSearchRes extends BaseSearchRes
                         if (!is_null($this->query_elements['Classification'])) {
                             if ($this->query_elements['Classification'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
-                                $this->query_elements['Classification'] += 10000;
+                                $this->query_elements['Classification'] += $iTenThousand;
                                 $people->_and()->filterByClsId($this->query_elements['Classification'],$criteria);
                             } else {
                                 $people->_and()->filterByClsId($this->query_elements['Classification']);
@@ -114,15 +125,87 @@ class PersonSearchRes extends BaseSearchRes
                         if (!is_null($this->query_elements['FamilyRole'])) {
                             if ($this->query_elements['FamilyRole'] < 0) {
                                 $criteria = Criteria::NOT_EQUAL;
-                                $this->query_elements['FamilyRole'] += 10000;
+                                $this->query_elements['FamilyRole'] += $iTenThousand;
                                 $people->_and()->filterByFmrId($this->query_elements['FamilyRole'],$criteria);
                             } else {
                                 $people->_and()->filterByFmrId($this->query_elements['FamilyRole']);
                             }
                         }
+
+                        if (!is_null($this->query_elements['GroupType'])) {
+
+                            if ($this->query_elements['GroupType'] < 0) {
+                                /*$sGroupWhereExt = ' AND per_ID NOT IN (SELECT p2g2r_per_ID '.
+                                ' FROM person2group2role_p2g2r '.
+                                ' LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID '.
+                                ' LEFT JOIN group_type ON grptp_grp_ID=grp_ID'.
+                                ' WHERE grptp_lst_OptionID = '.($iGroupType + $iTenThousand).')';*/
+
+                                $people->where(PersonTableMap::COL_PER_ID . ' NOT IN (SELECT p2g2r_per_ID
+                                        FROM person2group2role_p2g2r
+                                        LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
+                                        LEFT JOIN group_type ON grptp_grp_ID=grp_ID
+                                        WHERE grptp_lst_OptionID = '.($this->query_elements['GroupType'] + $iTenThousand).')');
+
+                            } else {
+                                /*$sSQLsub = 'SELECT per_ID
+                                    FROM person_per
+                                    LEFT JOIN person2group2role_p2g2r  ON p2g2r_per_ID = per_ID
+                                    LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
+                                    LEFT JOIN group_type ON grptp_grp_ID=grp_ID
+                                    WHERE grptp_lst_OptionID = ' . $iGroupTypeMissing .' GROUP BY per_ID';*/
+
+                                $sGroupWhereExt = GroupTypeTableMap::COL_GRPTP_LST_OPTIONID . " = " . $this->query_elements['GroupType'];
+                                    
+                                if (!is_null($this->group_elements['Group']) && $this->group_elements['Group'] >= 0) {
+                                    if (!is_null($this->group_role_elements['Role']) && $this->group_role_elements['Role'] >= 0) {
+                                        /*$sJoinExt = ' LEFT JOIN person2group2role_p2g2r '.
+                                                    ' ON per_ID = p2g2r_per_ID '.
+                                                    ' LEFT JOIN list_lst '.
+                                                    ' ON p2g2r_grp_ID = lst_ID ';
+                                                    
+                                        $sGroupWhereExt = ' AND p2g2r_grp_ID='.$iGroupID.' '.
+                                                            ' AND p2g2r_per_ID=per_ID '.
+                                                            ' AND p2g2r_rle_ID='.$iRoleID.' ';*/
+                                       
+                                        $people->addJoin(PersonTableMap::COL_PER_ID, Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID, Criteria::LEFT_JOIN)
+                                          ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                                          ->addJoin(GroupTableMap::COL_GRP_ID, GroupTypeTableMap::COL_GRPTP_GRP_ID, Criteria::LEFT_JOIN)
+                                          ->addJoin (Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, ListOptionTableMap::COL_LST_ID, Criteria::LEFT_JOIN);
+                                       
+                                       $sGroupWhereExt .= ' AND p2g2r_grp_ID='.$this->group_elements['Group'].' '.
+                                        ' AND p2g2r_per_ID = per_ID'.
+                                        ' AND p2g2r_rle_ID=' . $this->group_role_elements['Role'] .' ';
+
+                                    } else {
+                                      /*$sJoinExt = ' LEFT JOIN person2group2role_p2g2r '.
+                                        ' ON per_ID = p2g2r_per_ID ';
+                                        
+                                          $sGroupWhereExt = ' AND p2g2r_grp_ID='.$iGroupID.' '.
+                                        ' AND p2g2r_per_ID = per_ID ';*/
+                                      
+                                       $people->addJoin(PersonTableMap::COL_PER_ID, Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID, Criteria::LEFT_JOIN)
+                                          ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                                          ->addJoin(GroupTableMap::COL_GRP_ID, GroupTypeTableMap::COL_GRPTP_GRP_ID, Criteria::LEFT_JOIN);
+                                        
+                                       $sGroupWhereExt .= ' AND p2g2r_grp_ID='.$this->group_elements['Group'].' '.
+                                        ' AND p2g2r_per_ID = per_ID';
+                                    }
+                                } else {
+                                  $people->addJoin(PersonTableMap::COL_PER_ID, Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID, Criteria::LEFT_JOIN)
+                                    ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                                    ->addJoin(GroupTableMap::COL_GRP_ID, GroupTypeTableMap::COL_GRPTP_GRP_ID, Criteria::LEFT_JOIN);
+
+                                }
+                                
+                                $people->where($sGroupWhereExt);
+                            }
+                        }
+
+
                         if (!is_null($this->query_elements['PersonProperty'])) {
                             if ($this->query_elements['PersonProperty'] < 0) {
-                                $this->query_elements['PersonProperty'] += 10000;
+                                $this->query_elements['PersonProperty'] += $iTenThousand;
 
                                 $people->addJoin(PersonTableMap::COL_PER_ID, Record2propertyR2pTableMap::COL_R2P_RECORD_ID, Criteria::LEFT_JOIN)
                                     ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
@@ -140,6 +223,9 @@ class PersonSearchRes extends BaseSearchRes
                     $people->find();
 
                     LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->query_elements,1));
+                    LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->group_elements,1));
+                    LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->group_role_elements,1));
+                    
                     LoggerUtils::getAppLogger()->warn("coucou : ".$people->toString());
 
                     if (!is_null($people)) {
@@ -164,11 +250,13 @@ class PersonSearchRes extends BaseSearchRes
                             $elt = ['id' => $person->getId(),
                                 'text' => $person->getFullName(),
                                 'uri' => $person->getViewURI(),
+                                'type' => _($this->getGlobalSearchType()),
+                                'realType' => $this->getGlobalSearchType(),
                                 'Gender' => ($person->getGender() == 1)?_('Male'):_('Female'),
-                                'FamilyRole' => $person->getFamilyRoleName(),
                                 'Classification' => _($person->getClassName()),
                                 'ProNames' => $properties,
-                                'type' => _($this->getGlobalSearchType())];
+                                'FamilyRole' => $person->getFamilyRoleName(),
+                                'inCart' => Cart::PersonInCart($person->getId())];
 
                             array_push($this->results, $elt);
                         }

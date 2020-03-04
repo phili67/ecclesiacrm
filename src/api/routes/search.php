@@ -43,6 +43,7 @@ $app->group('/search', function () {
     $this->get('/{query}', 'quickSearch' );
     $this->post('/comboElements/', 'comboElements' );
     $this->post('/getGroupForTypeID/', 'getGroupForTypeID' );
+    $this->post('/getGroupRoleForGroupID/', 'getGroupRoleForGroupID' );
     $this->post('/getresult/', 'getSearchResult' );
     $this->get('/getresult/', 'getSearchResult' );
 });
@@ -54,16 +55,18 @@ function getSearchResult (Request $request, Response $response, array $args) {
     $logger->info("Search term : ".print_r($req->SearchTerm,true));
     $logger->info("Search term : ".print_r($req->Elements,true));
     $logger->info("Search term : ".print_r($req->GroupElements,true));
+    $logger->info("Search term : ".print_r($req->GroupRoleElements,true));
 
     $query = $req->SearchTerm;
     $query_elements = $req->Elements;
     $group_elements = $req->GroupElements;
+    $group_role_elements = $req->GroupRoleElements;
 
     $resultsArray = [];
 
     if (mb_strlen($query) > 0) {
         $resMethods = [
-            new PersonSearchRes(true, $query_elements, $group_elements),
+            new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements),
             new AddressSearchRes(true),
             /*new FamilySearchRes(),
             new GroupSearchRes(),
@@ -78,7 +81,7 @@ function getSearchResult (Request $request, Response $response, array $args) {
         ];
     } else {
         $resMethods = [
-            new PersonSearchRes(true, $query_elements, $group_elements)
+            new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements)
         ];
     }
 
@@ -117,6 +120,9 @@ function quickSearch (Request $request, Response $response, array $args) {
 }
 
 function  comboElements (Request $request, Response $response, array $args) {
+
+    $iTenThousand = 10000;
+
     // Create array with Classification Information (lst_ID = 1)
     $gender = ["Gender-1" => _("Male"), "Gender-2" =>_("Female"), ];
 
@@ -128,7 +134,7 @@ function  comboElements (Request $request, Response $response, array $args) {
     }
 
     foreach ($ormClassifications as $classification) {
-        $aClassificationName["Classification-".(intval($classification->getOptionId())-10000)] = "!".$classification->getOptionName();
+        $aClassificationName["Classification-".(intval($classification->getOptionId())-$iTenThousand)] = "!".$classification->getOptionName();
     }
 
     // Create array with Family Role Information (lst_ID = 2)
@@ -139,7 +145,7 @@ function  comboElements (Request $request, Response $response, array $args) {
     }
 
     foreach ($ormFamilyRole as $role) {
-        $aFamilyRoleName["FamilyRole-".(intval($role->getOptionId())-10000)] = "!".$role->getOptionName();
+        $aFamilyRoleName["FamilyRole-".(intval($role->getOptionId())-$iTenThousand)] = "!".$role->getOptionName();
     }
 
     // Get the total number of Person Properties (p) in table Property_pro
@@ -150,7 +156,7 @@ function  comboElements (Request $request, Response $response, array $args) {
     }
 
     foreach ($ormPro as $pro) {
-        $aPersonPropertyName["PersonProperty-".(intval($pro->getProId())-10000)] = "!".$pro->getProName();
+        $aPersonPropertyName["PersonProperty-".(intval($pro->getProId())-$iTenThousand)] = "!".$pro->getProName();
     }
 
     // Create array with Group Type Information (lst_ID = 3)
@@ -165,7 +171,7 @@ function  comboElements (Request $request, Response $response, array $args) {
     }
 
     foreach ($ormGroupTypes  as $type) {
-        $aGroupTypes["GroupType-".(intval($type->getOptionId())-10000)] = "!".$type->getOptionName();
+        $aGroupTypes["GroupType-".(intval($type->getOptionId())-$iTenThousand)] = "!".$type->getOptionName();
     }
 
     $arr = array_merge([_("Gender") => ['Gender', $gender]],
@@ -179,11 +185,7 @@ function  comboElements (Request $request, Response $response, array $args) {
 
 function getGroupForTypeID (Request $request, Response $response, array $args) {
     // Create array with Classification Information (lst_ID = 1)
-
     $req = (object)$request->getParsedBody();
-
-
-    \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("GroupID : ".$req->GroupType);
 
     $groups=GroupQuery::Create()
         ->useGroupTypeQuery()
@@ -194,7 +196,32 @@ function getGroupForTypeID (Request $request, Response $response, array $args) {
         ->find();
 
     return $response->withJson($groups->toArray());
+}
 
+function getGroupRoleForGroupID (Request $request, Response $response, array $args) {
+    // Create array with Classification Information (lst_ID = 1)
+
+    $req = (object)$request->getParsedBody();
+
+
+    \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("GroupID : ".$req->Group);
+
+    // Get the group's role list ID
+    $grp = GroupQuery::create()->findOneById($req->Group);
+
+    if (!is_null ($grp)) {
+        $iRoleListID  = $grp->getRoleListId();
+    }
+
+    // Get the roles
+    $ormRoles = ListOptionQuery::create()->filterById($iRoleListID)->orderByOptionSequence()->find();
+
+    unset($aGroupRoles);
+    foreach ($ormRoles as $role) {
+        $aGroupRoles[intval($role->getOptionId())] = $role->getOptionName();
+    }
+
+    return $response->withJson($aGroupRoles);
 }
 
 

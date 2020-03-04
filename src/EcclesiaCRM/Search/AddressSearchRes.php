@@ -14,7 +14,7 @@ class AddressSearchRes extends BaseSearchRes
     public function __construct($global = false)
     {
         $this->name = _('Address');
-        parent::__construct($global, "Adresses");
+        parent::__construct($global, "Addresses");
     }
 
     public function buildSearch(string $qry)
@@ -50,12 +50,14 @@ class AddressSearchRes extends BaseSearchRes
                         ];
 
                         if ($this->global_search) {
-                            $elt["type"] = $this->getGlobalSearchType();
+                            $elt["id"] = $address->getId();
+                            $elt["type"] = _($this->getGlobalSearchType());
+                            $elt["realType"] = $this->getGlobalSearchType();
                             $elt["Gender"] = "";
                             $elt["Classification"] = "";
                             $elt["ProNames"] = "";
                             $elt["FamilyRole"] = "";
-
+                            $elt["inCart"] = "";
                         }
 
                         array_push($this->results, $elt);
