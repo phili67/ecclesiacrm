@@ -45,12 +45,13 @@ class AddressSearchRes extends BaseSearchRes
 
                     foreach ($addresses as $address) {
                         $elt = ['id' => 'address-id-'.$id++,
-                            'text'=>$address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                            'text'=>$address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH"),false),
                             'uri'=>$address->getViewURI()
                         ];
 
                         if ($this->global_search) {
                             $elt["id"] = $address->getId();
+                            $elt["address"] = $address->getAddress();
                             $elt["type"] = _($this->getGlobalSearchType());
                             $elt["realType"] = $this->getGlobalSearchType();
                             $elt["Gender"] = "";
