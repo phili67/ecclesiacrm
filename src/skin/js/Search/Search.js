@@ -38,15 +38,15 @@ $(document).ready(function () {
                     has_group_in_elements = true;
                 }
             }
-
-            $('.progress').css("color", "red");
-            $('.progress').html("  "+ i18next.t("In progress...."));
-            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-                $('.progress').css("color", "green");
-                $('.progress').html("  "+i18next.t("Done !"));
-                loadAllPeople()
-            }, false);
         }
+
+        $('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("In progress...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+i18next.t("Done !"));
+            loadAllPeople()
+        }, false);
 
         if (has_group_in_elements === false) {
             group_elements = {};
@@ -68,16 +68,19 @@ $(document).ready(function () {
                 group_elements['Group'] = group_element;
                 loadGroupRole (group_element)
             }
-            $('.progress').css("color", "red");
-            $('.progress').html("  "+ i18next.t("In progress...."));
-            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-                $('.progress').css("color", "green");
-                $('.progress').html("  "+i18next.t("Done !"));
-                loadAllPeople()
-            }, false);
+        } else {
+            $("#searchComboGroupRole").empty();
         }
+
+        $('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("In progress...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+i18next.t("Done !"));
+            loadAllPeople()
+        }, false);
     });
-    
+
     $("#searchComboGroupRole").select2().on("change", function (e) {
         var data = $(this).select2('data');
         group_role_elements = {}
@@ -87,14 +90,15 @@ $(document).ready(function () {
                 var group_element_role = data[i].id;
                 group_role_elements['Role'] = group_element_role;
             }
-            $('.progress').css("color", "red");
-            $('.progress').html("  "+ i18next.t("In progress...."));
-            window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-                $('.progress').css("color", "green");
-                $('.progress').html("  "+i18next.t("Done !"));
-                loadAllPeople()
-            }, false);
         }
+
+        $('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("In progress...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+i18next.t("Done !"));
+            loadAllPeople()
+        }, false);
     });
 
     function loadGroupByType(GroupType) {
@@ -119,7 +123,7 @@ $(document).ready(function () {
             }
         });
     }
-    
+
     function loadGroupRole (group) {
         window.CRM.APIRequest({
             method: 'POST',
@@ -297,6 +301,14 @@ $(document).ready(function () {
                         return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
                     }
                     return i18next.t(data);
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Address'),
+                data: 'address',
+                render: function (data, type, full, meta) {
+                    return data;
                 }
             },
             {
