@@ -199,7 +199,7 @@ $(document).ready(function () {
                 visible: false,
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         return data;// only persons can be added to the cart
                     }
                     return null;
@@ -219,7 +219,7 @@ $(document).ready(function () {
                 title: i18next.t('Photos'),
                 data: 'img',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons') {
+                    if (full.realType == 'Persons'  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         return '<img src="/api/persons/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
                     } else if (full.realType == 'Addresses') {
                         return '<img src="/api/families/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
@@ -235,7 +235,7 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     var res = ''
 
-                    if (full.realType == 'Persons') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         res += '<a href="' + window.CRM.root + '/PersonEditor.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
@@ -295,7 +295,7 @@ $(document).ready(function () {
                 title: i18next.t('Search result'),
                 data: 'text',
                 render: function (data, type, full, meta) {
-                    if (full.realType == "Persons") {
+                    if (full.realType == "Persons"  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
                     } else if (full.realType == 'Addresses') {
                         return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
@@ -314,7 +314,7 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 title: i18next.t('Gender'),
-                visible: true,
+                visible: false,
                 data: 'Gender',
                 render: function (data, type, full, meta) {
                     return i18next.t(data);
@@ -332,7 +332,7 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 title: i18next.t('Family Role'),
-                visible: true,
+                visible: false,
                 data: 'FamilyRole',
                 render: function (data, type, full, meta) {
                     return data;
@@ -341,7 +341,7 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 title: i18next.t('Property Name'),
-                visible: true,
+                visible: false,
                 data: 'ProNames',
                 render: function (data, type, full, meta) {
                     return data;
@@ -349,6 +349,11 @@ $(document).ready(function () {
             }
         ],
         responsive: true
+    });
+
+    $("#DataSearchTable").on( 'search.dt', function () {
+        var info = window.CRM.dataSearchTable.page.info();
+        $('#numberOfPersons').html(info.recordsDisplay);
     });
 
     $(document).on("click","#search_OK", function() {
