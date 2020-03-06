@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d96d949b3dee327176877e5f6fa36647",
+    "content-hash": "f8b5141f73dccc167674e07107c517b3",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -490,7 +490,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -609,7 +609,7 @@
             ],
             "authors": [
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -3386,16 +3386,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v3.4.26",
+            "version": "v3.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "380b8395b43f60e7d26a32f84f80c0a7ba93e7c5"
+                "reference": "8d5db9c0cecf8b6f79fa96583fae652224d897da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/380b8395b43f60e7d26a32f84f80c0a7ba93e7c5",
-                "reference": "380b8395b43f60e7d26a32f84f80c0a7ba93e7c5",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/8d5db9c0cecf8b6f79fa96583fae652224d897da",
+                "reference": "8d5db9c0cecf8b6f79fa96583fae652224d897da",
                 "shasum": ""
             },
             "require": {
@@ -3452,7 +3452,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-04-16T09:03:16+00:00"
+            "time": "2019-11-12T12:50:33+00:00"
         },
         {
             "name": "symfony/class-loader",
