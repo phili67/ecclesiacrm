@@ -13,7 +13,7 @@ class AddressSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _('Address');
+        $this->name = _('Addresses');
         parent::__construct($global, "Addresses");
     }
 
