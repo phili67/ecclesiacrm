@@ -56,7 +56,7 @@ class PersonSearchRes extends BaseSearchRes
 
                 $iTenThousand = 10000;
 
-                if ($this->global_search) {// we are in the search project
+                if ($this->global_search) {// we are in the global search project
                     /*
                      * $sSQL = "SELECT COALESCE(cls.lst_OptionName, 'Unassigned') AS ClassName, p.per_LastName, p.per_FirstName
                             FROM person_per p
@@ -80,11 +80,6 @@ class PersonSearchRes extends BaseSearchRes
                     $people->addAsColumn('ClassName', "COALESCE(" . ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_OPTIONNAME) . ", 'Unassigned')" );
                 }
 
-
-                if (SystemConfig::getBooleanValue('bGDPR')) {
-                    $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
-                }
-
                 if ($this->global_search) {// we are in the search project
 
                     if ( mb_strlen($qry) > 0 ) {
@@ -93,7 +88,7 @@ class PersonSearchRes extends BaseSearchRes
                         $criteria = Criteria::LIKE; // Criteria::NOT_LIKE
 
                         // Get the lists of custom person fields
-                        $ormPersonCustomFields = PersonCustomMasterQuery::create()
+                        /*$ormPersonCustomFields = PersonCustomMasterQuery::create()
                             ->orderByCustomOrder()
                             ->find();
 
@@ -103,7 +98,7 @@ class PersonSearchRes extends BaseSearchRes
                             $people->withColumn($customfield->getCustomField());
                             $people->where($customfield->getCustomField()." ".$not_like." LIKE ?",$searchLikeString,\PDO::PARAM_STR );
                             $people->_or();
-                        }
+                        }*/
 
                         $people->_or()->filterByFirstName($searchLikeString, $criteria)
                             ->_or()->filterByLastName($searchLikeString, $criteria)
@@ -223,6 +218,10 @@ class PersonSearchRes extends BaseSearchRes
                                     ->where(PropertyTableMap::COL_PRO_CLASS . "='p' AND " . Record2propertyR2pTableMap::COL_R2P_PRO_ID . " LIKE '" . $this->query_elements['PersonProperty'] . "'"); //NOT LIKE 'a%';
                             }
                         }
+                    }
+
+                    if (SystemConfig::getBooleanValue('bGDPR')) {
+                        $people->_and()->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
                     }
 
                     $people->find();
