@@ -11,10 +11,10 @@ use EcclesiaCRM\Service\FinancialService;
 
 class PaymentSearchRes extends BaseSearchRes
 {
-    public function __construct()
+    public function __construct($global = false)
     {
         $this->name = _('Payments');
-        parent::__construct();
+        parent::__construct($global, 'Payments');
     }
 
     public function buildSearch(string $qry)
@@ -36,6 +36,18 @@ class PaymentSearchRes extends BaseSearchRes
                             $elt = ['id'=>"payment-".$id++,
                                 'text'=>$Payment['displayName'],
                                 'uri'=>$Payment['uri']];
+
+                            if ($this->global_search) {
+                                $elt["id"] = -1;
+                                $elt["address"] = "";
+                                $elt["type"] = _($this->getGlobalSearchType());
+                                $elt["realType"] = $this->getGlobalSearchType();
+                                $elt["Gender"] = "";
+                                $elt["Classification"] = "";
+                                $elt["ProNames"] = "";
+                                $elt["FamilyRole"] = "";
+                                $elt["inCart"] = 0;
+                            }
 
                             array_push($this->results, $elt);
                         }
