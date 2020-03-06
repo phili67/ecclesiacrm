@@ -68,15 +68,15 @@ function getSearchResult (Request $request, Response $response, array $args) {
         $resMethods = [
             new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements),
             new AddressSearchRes(true),
-            /*new FamilySearchRes(),
+            new PersonCustomSearchRes(true),
+            new PersonPastoralCareSearchRes(true),
+            new FamilySearchRes(true),
+            new DepositSearchRes(true),
+            new PaymentSearchRes(true),
+            new PledgeSearchRes( true),
+            /*
             new GroupSearchRes(),
-            new DepositSearchRes(),
-            new PaymentSearchRes(),
-            new PledgeSearchRes(),
-            new PersonPropsSearchRes(),
-            new PersonCustomSearchRes(),
             new FamilyCustomSearchRes(),
-            new PersonPastoralCareSearchRes(),
             new FamilyPastoralCareSearchRes()*/
         ];
     } else {
@@ -129,10 +129,12 @@ function  comboElements (Request $request, Response $response, array $args) {
     // Create array with Classification Information (lst_ID = 1)
     $ormClassifications = ListOptionQuery::create()->filterById(1)->orderByOptionSequence()->find();
 
+    $aClassificationName["Classification-0"] = _("Unassigned");
     foreach ($ormClassifications as $classification) {
         $aClassificationName["Classification-".intval($classification->getOptionId())] = $classification->getOptionName();
     }
 
+    $aClassificationName["Classification--10000"] = "!"._("Unassigned");
     foreach ($ormClassifications as $classification) {
         $aClassificationName["Classification-".(intval($classification->getOptionId())-$iTenThousand)] = "!".$classification->getOptionName();
     }
@@ -140,10 +142,12 @@ function  comboElements (Request $request, Response $response, array $args) {
     // Create array with Family Role Information (lst_ID = 2)
     $ormFamilyRole =  ListOptionQuery::create()->filterById(2)->orderByOptionSequence()->find();
 
+    $aFamilyRoleName["FamilyRole-0"] = _("Unassigned");
     foreach ($ormFamilyRole as $role) {
         $aFamilyRoleName["FamilyRole-".intval($role->getOptionId())] = $role->getOptionName();
     }
 
+    $aClassificationName["FamilyRole--10000"] = "!"._("Unassigned");
     foreach ($ormFamilyRole as $role) {
         $aFamilyRoleName["FamilyRole-".(intval($role->getOptionId())-$iTenThousand)] = "!".$role->getOptionName();
     }
@@ -151,10 +155,12 @@ function  comboElements (Request $request, Response $response, array $args) {
     // Get the total number of Person Properties (p) in table Property_pro
     $ormPro = PropertyQuery::create()->orderByProName()->findByProClass('p');
 
+    $aFamilyRoleName["PersonProperty-0"] = _("Unassigned");
     foreach ($ormPro as $pro) {
         $aPersonPropertyName["PersonProperty-".intval($pro->getProId())] = $pro->getProName();
     }
 
+    $aClassificationName["PersonProperty--10000"] = "!"._("Unassigned");
     foreach ($ormPro as $pro) {
         $aPersonPropertyName["PersonProperty-".(intval($pro->getProId())-$iTenThousand)] = "!".$pro->getProName();
     }
