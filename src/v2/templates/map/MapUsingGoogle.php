@@ -360,7 +360,7 @@ require $sRootDocument . '/Include/Header.php';
       }
 
       contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-      contentString += '<p>' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
+      contentString += '<p style="margin: 0 0 10px !important;">' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
 
       if (plot.Thumbnail.length > 0) {
           //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
