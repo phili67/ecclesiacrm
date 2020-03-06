@@ -46,7 +46,9 @@ require 'Include/Header.php';
         <div class="row">
             <div class="col-sm-3"><?= _("Enter the search term") ?> :</div>
             <div class="col-sm-9">
-                <input type="text" id="SearchTerm" placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>" size="30" maxlength="100"
+                <input type="text" id="SearchTerm"
+                       placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>"
+                       size="30" maxlength="100"
                        class="form-control input-sm" width="100%" style="width: 100%" required="">
             </div>
         </div>
@@ -72,9 +74,9 @@ require 'Include/Header.php';
         </div>
         <br/>
         <div class="row">
-            <div class="col-sm-10"></div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-success" id="search_OK"><?= _("Search") ?></button>
+            <div class="col-sm-11">&nbsp;</div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-success" id="search_OK" class="right"><?= _("Search") ?></button>
             </div>
         </div>
     </div>
@@ -87,7 +89,17 @@ require 'Include/Header.php';
     <br>
     <div class="row">
         <div class="col-sm-12">
-            <center>
+            <div style="text-align: center;">
+                <label>
+                    <?= _("Results count:") ?>
+                </label>
+                <span id="numberOfPersons"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div style="text-align: center;">
                 <a id="AddAllPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
                 <a id="RemoveAllPageFromCart"
                    class="btn btn-danger btn-sm"><?= _('Remove This Page from Cart') ?></a><br><br>
@@ -95,7 +107,7 @@ require 'Include/Header.php';
                 <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm"
                        value="<?= _('Intersect with Cart') ?>">&nbsp;
                 <a id="RemoveAllFromCart" class="btn btn-danger btn-sm"><?= _('Remove All from Cart') ?></a>
-            </center>
+            </div>
         </div>
     </div>
     <table width="100%" cellpadding="2"
@@ -105,8 +117,8 @@ require 'Include/Header.php';
 
 <?php require 'Include/Footer.php'; ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce()?>">
-    window.CRM.listPeople=[];
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    window.CRM.listPeople = [];
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Search/Search.js"></script>
