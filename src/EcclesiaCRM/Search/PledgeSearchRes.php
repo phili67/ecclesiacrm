@@ -13,10 +13,10 @@ use EcclesiaCRM\SessionUser;
 
 class PledgeSearchRes extends BaseSearchRes
 {
-    public function __construct()
+    public function __construct($global = false)
     {
         $this->name = _('Pledges');
-        parent::__construct();
+        parent::__construct($global, ' Pledges');
     }
 
     public function buildSearch(string $qry)
@@ -45,9 +45,13 @@ class PledgeSearchRes extends BaseSearchRes
 
                     $Pledges->leftJoinDeposit()
                         ->withColumn('Deposit.Id', 'DepositId')
-                        ->groupByDepositId()
-                        ->limit (SystemConfig::getValue("iSearchIncludePledgesMax"))
-                        ->find();
+                        ->groupByDepositId();
+
+                    if (!$this->global_search) {
+                        $Pledges->limit(SystemConfig::getValue("iSearchIncludePledgesMax"));
+                    }
+
+                    $Pledges->find();
 
                     if (!is_null($Pledges))
                     {
@@ -59,6 +63,18 @@ class PledgeSearchRes extends BaseSearchRes
                                 'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()];
 
                             if (!is_null($Pledge->getDepositId())) {
+                                if ($this->global_search) {
+                                    $elt["id"] = -1;
+                                    $elt["address"] = "";
+                                    $elt["type"] = _($this->getGlobalSearchType());
+                                    $elt["realType"] = $this->getGlobalSearchType();
+                                    $elt["Gender"] = "";
+                                    $elt["Classification"] = "";
+                                    $elt["ProNames"] = "";
+                                    $elt["FamilyRole"] = "";
+                                    $elt["inCart"] = 0;
+                                }
+
                                 array_push($this->results, $elt);
                             }
                         }
