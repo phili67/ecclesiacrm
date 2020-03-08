@@ -226,12 +226,6 @@ class PersonSearchRes extends BaseSearchRes
 
                     $people->find();
 
-                    LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->query_elements,1));
-                    LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->group_elements,1));
-                    LoggerUtils::getAppLogger()->warn("coucou : ".print_r($this->group_role_elements,1));
-
-                    LoggerUtils::getAppLogger()->warn("coucou : ".$people->toString());
-
                     if (!is_null($people)) {
                         $id = 1;
 
