@@ -792,14 +792,16 @@
             method: 'GET',
             path:"cart/"
           }).done(function(data) {
-            window.CRM.cart.updatePage(data.PeopleCart);
+            window.CRM.cart.updatePage(data.PeopleCart,data.FamiliesCart, data.GroupsCart);
             //window.scrollTo(0, 0);
             $("#iconCount").text(data.PeopleCart.length);
 
             // broadcaster
             $.event.trigger({
               type: "emptyCartMessage",
-              cartPeople: data.PeopleCart
+              cartPeople: data.PeopleCart,
+              familiesCart: data.FamiliesCart,
+              groupsCart:data.GroupsCart
             });
 
             var cartDropdownMenu;
@@ -863,12 +865,14 @@
             .animate({'left':(0)+'px'},30);
           });
       },
-      'updatePage' : function (cartPeople){
+      'updatePage' : function (cartPeople, familiesCart, groupsCart){
 
         // broadcaster
         $.event.trigger({
             type: "updateCartMessage",
-            people:cartPeople
+            people:cartPeople,
+            families:familiesCart,
+            groups:groupsCart
         });
       }
     }
