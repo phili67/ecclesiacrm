@@ -3,11 +3,13 @@
 
 namespace EcclesiaCRM\Search;
 
+use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 class FamilySearchRes extends BaseSearchRes
@@ -56,15 +58,26 @@ class FamilySearchRes extends BaseSearchRes
                         ];
 
                         if ($this->global_search) {
-                            $elt["id"] = -1;
-                            $elt["address"] = "";
+                            $members = $family->getPeopleSorted();
+
+                            $res_members = [];
+                            $globalMembers = "";
+
+                            foreach ($members as $member) {
+                                $res_members[] = $member->getId();
+                                $globalMembers .= '• <a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$member->getId().'">'.$member->getFirstName()." ".$member->getLastName()."</a><br>";
+                            }
+                            $elt["text"] = _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$family->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$family->getName().'</a>'." "._("Members")." : <br>".$globalMembers;
+                            $elt["id"] = $family->getId();
+                            $elt["address"] = $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH"));
                             $elt["type"] = _($this->getGlobalSearchType());
                             $elt["realType"] = $this->getGlobalSearchType();
                             $elt["Gender"] = "";
                             $elt["Classification"] = "";
                             $elt["ProNames"] = "";
                             $elt["FamilyRole"] = "";
-                            $elt["inCart"] = 0;
+                            $elt["inCart"] = Cart::FamilyInCart($family->getId());
+                            $elt["members"] = $res_members;
                         }
 
                         array_push($this->results,$elt);
