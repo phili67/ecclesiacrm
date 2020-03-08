@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : api/routes/search.php
-*  last change : 2017/10/29 Philippe Logel
+*  last change : 2020/10/29 Philippe Logel all right reserved
 *  description : Search terms like : Firstname, Lastname, phone, address,
 *                 groups, families, etc...
 *
@@ -28,8 +28,6 @@ use EcclesiaCRM\Search\PersonPastoralCareSearchRes;
 use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
 use EcclesiaCRM\GroupQuery;
 
-use EcclesiaCRM\Utils\LoggerUtils;
-
 // Routes search
 
 // search for a string in Persons, families, groups, Financial Deposits and Payments
@@ -50,12 +48,6 @@ $app->group('/search', function () {
 
 function getSearchResult (Request $request, Response $response, array $args) {
     $req = (object)$request->getParsedBody();
-
-    $logger = LoggerUtils::getAppLogger();
-    $logger->info("Search term : ".print_r($req->SearchTerm,true));
-    $logger->info("Search term : ".print_r($req->Elements,true));
-    $logger->info("Search term : ".print_r($req->GroupElements,true));
-    $logger->info("Search term : ".print_r($req->GroupRoleElements,true));
 
     $query = $req->SearchTerm;
     $query_elements = $req->Elements;
