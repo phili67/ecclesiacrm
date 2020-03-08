@@ -44,7 +44,7 @@ $app->group('/cart', function () {
 });
 
 function getAllPeopleInCart (Request $request, Response $response, array $args) {
-  return $response->withJSON(['PeopleCart' =>  $_SESSION['aPeopleCart']]);
+  return $response->withJSON(['PeopleCart' =>  Cart::PeopleInCart(), 'FamiliesCart' => Cart::FamiliesInCart(), 'GroupsCart' => Cart::GroupsInCart()]);
 }
 
 function cartIntersectPersons ($request, $response, $args) {
