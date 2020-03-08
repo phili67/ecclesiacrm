@@ -71,13 +71,12 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new PersonCustomSearchRes(true),
             new PersonPastoralCareSearchRes(true),
             new FamilySearchRes(true),
+            new FamilyCustomSearchRes(true),
+            new FamilyPastoralCareSearchRes(true),
             new DepositSearchRes(true),
             new PaymentSearchRes(true),
             new PledgeSearchRes( true),
-            /*
-            new GroupSearchRes(),
-            new FamilyCustomSearchRes(),
-            new FamilyPastoralCareSearchRes()*/
+            new GroupSearchRes( true),
         ];
     } else {
         $resMethods = [
