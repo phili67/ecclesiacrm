@@ -4,6 +4,7 @@ $(document).ready(function () {
     var group_role_elements = {}
     var available_search_type = [];
     var buildMenu = false;
+    var cart = [];
 
     $("#searchCombo").select2();
     $("#searchComboGroup").select2();
@@ -42,6 +43,7 @@ $(document).ready(function () {
 
         $('.progress').css("color", "red");
         $('.progress').html("  "+ i18next.t("In progress...."));
+        cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
             $('.progress').css("color", "green");
             $('.progress').html("  "+i18next.t("Done !"));
@@ -74,6 +76,7 @@ $(document).ready(function () {
 
         $('.progress').css("color", "red");
         $('.progress').html("  "+ i18next.t("In progress...."));
+        cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
             $('.progress').css("color", "green");
             $('.progress').html("  "+i18next.t("Done !"));
@@ -94,6 +97,7 @@ $(document).ready(function () {
 
         $('.progress').css("color", "red");
         $('.progress').html("  "+ i18next.t("In progress...."));
+        cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
             $('.progress').css("color", "green");
             $('.progress').html("  "+i18next.t("Done !"));
@@ -200,7 +204,22 @@ $(document).ready(function () {
                 data: 'id',
                 render: function (data, type, full, meta) {
                     if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
+                        if(cart.indexOf(data) == -1) {
+                            cart.push(data);
+                        }
                         return data;// only persons can be added to the cart
+                    } else if (full.realType == 'Families') {
+                        for (i=0;i<full.members.length;i++) {
+                            if(cart.indexOf(full.members[i]) == -1) {
+                                cart.push(full.members[i]);
+                            }
+                        }
+                    } else if (full.realType == 'Groups') {
+                        for (i=0;i<full.members.length;i++) {
+                            if (cart.indexOf(full.members[i]) == -1) {
+                                cart.push(full.members[i]);
+                            }
+                        }
                     }
                     return null;
                 }
@@ -221,11 +240,16 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     if (full.realType == 'Persons'  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         return '<img src="/api/persons/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Addresses') {
+                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search' || full.realType == ' Family Pastoral Care') {
                         return '<img src="/api/families/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else {
-                        return null;
+                    } else if (full.realType == "Groups") {
+                        return '<img src="Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">';
+                    } else if (full.realType == ' Pledges') {
+                        return '<img src="Images/Bank.png" class="initials-image direct-chat-img " width="10px" height="10px">';
+                    } else if (full.realType == 'Deposits') {
+                        return '<img src="Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">';
                     }
+                    return null;
                 }
             },
             {
@@ -235,7 +259,7 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     var res = ''
 
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search') {
                         res += '<a href="' + window.CRM.root + '/PersonEditor.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
@@ -252,7 +276,7 @@ $(document).ready(function () {
                                 "                </span>\n" +
                                 "                </a>  ";
                         } else {
-                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
+                            res += "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
                                 "\n" +
                                 "                <span class=\"fa-stack\">\n" +
                                 "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
@@ -261,14 +285,39 @@ $(document).ready(function () {
                                 "                </a>  ";
                         }
 
-                        res += '&nbsp;<a href="' + window.CRM.root +'/PrintView.php?PersonID=' + full.id + '"  data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Print') + '">'
+                        res += '&nbsp;<a href="' + window.CRM.root + '/PrintView.php?PersonID=' + full.id + '"  data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Print') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
                             + '<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
                             + '</span>'
                             + '</a>';
+                    } else if (full.realType == ' Individual Pastoral Care') {
+                        res += '<a href="' + window.CRM.root + '//v2/pastoralcare/person/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
 
-                    } else if (full.realType == 'Addresses') {
+                        if (full.inCart === false) {
+                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        } else {
+                            res += "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        }
+
+                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search') {
                         res += '<a href="' + window.CRM.root + '/FamilyEditor.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
@@ -276,7 +325,82 @@ $(document).ready(function () {
                             + '</span>'
                             + '</a>&nbsp;';
 
+                        if (full.inCart === false) {
+                            res += "<a class=\"AddToFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        } else {
+                            res += "<a class=\"RemoveFromFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        }
+
                         res += '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+                    } else if (full.realType == ' Family Pastoral Care') {
+                        res += '<a href="' + window.CRM.root + '/v2/pastoralcare/family/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+
+                        if (full.inCart === false) {
+                            res += "<a class=\"AddToFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        } else {
+                            res += "<a class=\"RemoveFromFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        }
+                    } else if (full.realType == 'Groups') {
+                        res += '<a href="' + window.CRM.root + '/GroupEditor.php?GroupID=13=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+
+                        if (full.inCart === false) {
+                            res += "<a class=\"AddToGroupCart\" data-cartgroupid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        } else {
+                            res += "<a class=\"RemoveFromGroupCart\" data-cartgroupid=\"" + full.id + "\">\n" +
+                                "\n" +
+                                "                <span class=\"fa-stack\">\n" +
+                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                                "                </span>\n" +
+                                "                </a>  ";
+                        }
+
+                        res += '<a href="' + window.CRM.root + 'v2/group/'+ full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
                             + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
@@ -297,8 +421,12 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     if (full.realType == "Persons"  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
                         return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
-                    } else if (full.realType == 'Addresses') {
+                    } else if (full.realType == 'Addresses'  || full.realType == 'Family Custom Search'  || full.realType == 'Families' || full.realType == ' Family Pastoral Care') {
                         return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
+                    } else if (full.realType == 'Groups') {
+                        return '<a href="' + window.CRM.root + '/v2/group/'+ full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
+                    } else if (full.realType == 'Families') {
+                        return data;
                     }
                     return i18next.t(data);
                 }
@@ -358,6 +486,8 @@ $(document).ready(function () {
 
     $(document).on("click","#search_OK", function() {
         //window.CRM.dataSearchTable.ajax.reload(null, false);
+        var res = cart.length;
+        cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
             loadAllPeople()
         }, false);
@@ -365,10 +495,12 @@ $(document).ready(function () {
 
     function loadAllPeople()
     {
-        window.CRM.listPeople = window.CRM.dataSearchTable
+        /*window.CRM.listPeople = window.CRM.dataSearchTable
             .column( 0 )
             .data()
-            .toArray();
+            .toArray();*/
+
+        window.CRM.listPeople = cart;
     }
 
     $("#AddAllToCart").click(function(){
