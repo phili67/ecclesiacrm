@@ -1,9 +1,9 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : FinancialReports.php
- *  last change : 2005-03-26
- *  description : form to invoke financial reports
+ *  filename    : SelectList2.php
+ *  last change : 2020-03-08
+ *  description : Philippe Logel All right reserved
  *
  ******************************************************************************/
 
@@ -74,8 +74,8 @@ require 'Include/Header.php';
         </div>
         <br/>
         <div class="row">
-            <div class="col-sm-11">&nbsp;</div>
-            <div class="col-md-1">
+            <div class="col-sm-10">&nbsp;</div>
+            <div class="col-md-2">
                 <button type="button" class="btn btn-success" id="search_OK" class="right"><?= _("Search") ?></button>
             </div>
         </div>
