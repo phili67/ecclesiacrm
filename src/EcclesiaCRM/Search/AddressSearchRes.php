@@ -2,6 +2,8 @@
 
 namespace EcclesiaCRM\Search;
 
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\SystemConfig;
@@ -50,6 +52,16 @@ class AddressSearchRes extends BaseSearchRes
                         ];
 
                         if ($this->global_search) {
+                            $members = $address->getPeopleSorted();
+
+                            $res_members = [];
+                            $globalMembers = "";
+
+                            foreach ($members as $member) {
+                                $res_members[] = $member->getId();
+                                $globalMembers .= '• <a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$member->getId().'">'.$member->getFirstName()." ".$member->getLastName()."</a><br>";
+                            }
+                            $elt["text"] = _("Addresse").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$address->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$address->getName().'</a>'." "._("Members")." : <br>".$globalMembers;
                             $elt["id"] = $address->getId();
                             $elt["address"] = $address->getAddress();
                             $elt["type"] = _($this->getGlobalSearchType());
@@ -58,7 +70,8 @@ class AddressSearchRes extends BaseSearchRes
                             $elt["Classification"] = "";
                             $elt["ProNames"] = "";
                             $elt["FamilyRole"] = "";
-                            $elt["inCart"] = "";
+                            $elt["inCart"] = Cart::FamilyInCart($address->getId());
+                            $elt["members"] = $res_members;
                         }
 
                         array_push($this->results, $elt);
