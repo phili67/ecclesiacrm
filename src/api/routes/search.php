@@ -56,10 +56,11 @@ function getSearchResult (Request $request, Response $response, array $args) {
 
     $resultsArray = [];
 
-    if (mb_strlen($query) > 0) {
+    if (mb_strlen($query) > 0 && $query != "*") {
         $resMethods = [
             new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements),
             new AddressSearchRes(true),
+            new PersonPropsSearchRes(true),
             new PersonCustomSearchRes(true),
             new PersonPastoralCareSearchRes(true),
             new FamilySearchRes(true),
@@ -70,7 +71,8 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new PledgeSearchRes( true),
             new GroupSearchRes( true),
         ];
-    } else {
+    } else if ($query == "*" || count($query_elements) > 0) {
+        $query = "";
         $resMethods = [
             new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements)
         ];
