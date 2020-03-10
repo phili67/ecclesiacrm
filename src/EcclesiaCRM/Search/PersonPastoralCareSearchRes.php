@@ -1,5 +1,7 @@
 <?php
 
+/* copyright 2020/03/10 Philippe Logel all right reserved */
+
 namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\dto\Cart;
@@ -18,7 +20,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
     public function __construct($global = false)
     {
         $this->name = _('Individual Pastoral Care');
-        parent::__construct($global,' Individual Pastoral Care');
+        parent::__construct($global,'Individual Pastoral Care');
     }
 
     public function buildSearch(string $qry)

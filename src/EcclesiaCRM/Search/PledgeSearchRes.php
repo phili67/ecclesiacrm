@@ -16,7 +16,7 @@ class PledgeSearchRes extends BaseSearchRes
     public function __construct($global = false)
     {
         $this->name = _('Pledges');
-        parent::__construct($global, ' Pledges');
+        parent::__construct($global, 'Pledges');
     }
 
     public function buildSearch(string $qry)
@@ -60,11 +60,11 @@ class PledgeSearchRes extends BaseSearchRes
                         foreach ($Pledges as $Pledge) {
                             $elt = ['id'=>'pledges-'.$id++,
                                 'text'=>$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")",
-                                'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()];
+                                'uri'=> SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey()];
 
                             if (!is_null($Pledge->getDepositId())) {
                                 if ($this->global_search) {
-                                    $elt["id"] = -1;
+                                    $elt["id"] = $Pledge->getDepositId();
                                     $elt["address"] = "";
                                     $elt["type"] = _($this->getGlobalSearchType());
                                     $elt["realType"] = $this->getGlobalSearchType();

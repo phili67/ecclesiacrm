@@ -1,6 +1,6 @@
 <?php
 
-/* copyright Philippe Logel all right reserved */
+/* copyright 2020/03/10 Philippe Logel all right reserved */
 
 namespace EcclesiaCRM\Search;
 
