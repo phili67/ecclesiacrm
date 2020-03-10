@@ -67,7 +67,9 @@ $(document).ready(function () {
         if (data.length > 0) {
             for (i = 0; i < data.length; i++) {// it's planned to work with more than one group
                 var group_element = data[i].id;
-                group_elements['Group'] = group_element;
+                if (group_element != "null") {
+                    group_elements['Group'] = group_element;
+                }
                 loadGroupRole (group_element)
             }
         } else {
@@ -91,7 +93,9 @@ $(document).ready(function () {
         if (data.length > 0) {
             for (i = 0; i < data.length; i++) {// it's planned to work with more than one group
                 var group_element_role = data[i].id;
-                group_role_elements['Role'] = group_element_role;
+                if (group_element_role != "null") {
+                    group_role_elements['Role'] = group_element_role;
+                }
             }
         }
 
@@ -119,6 +123,8 @@ $(document).ready(function () {
                 group_role_elements = {}
                 $("#searchComboGroup").empty();
                 $("#searchComboGroupRole").empty();
+                var option = new Option(i18next.t('All Groups'), null, false, false);
+                $("#searchComboGroup").append(option);
                 $.each(data, function (index, value) {
                     var option = new Option(value.Name, value.Id, false, false);
                     $("#searchComboGroup").append(option);
@@ -129,6 +135,12 @@ $(document).ready(function () {
     }
 
     function loadGroupRole (group) {
+        if (group == "null") {
+            group_role_elements = {};
+            $("#searchComboGroupRole").empty();
+            return;
+        }
+
         window.CRM.APIRequest({
             method: 'POST',
             path: 'search/getGroupRoleForGroupID/',
@@ -137,6 +149,8 @@ $(document).ready(function () {
             // we create the group popup menu
             group_role_elements = {};
             $("#searchComboGroupRole").empty();
+            var option = new Option(i18next.t('All Roles'), null, false, false);
+            $("#searchComboGroupRole").append(option);
             $.each(data, function (index, value) {
                 var option = new Option(i18next.t(value), index, false, false);
                 $("#searchComboGroupRole").append(option);
@@ -203,7 +217,7 @@ $(document).ready(function () {
                 visible: false,
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care' || full.realType == 'Person Properties Search') {
                         if(cart.indexOf(data) == -1) {
                             cart.push(data);
                         }
@@ -230,7 +244,12 @@ $(document).ready(function () {
                 visible: false,
                 data: 'type',
                 render: function (data, type, full, meta) {
-                    return i18next.t(data);
+                    res = "";
+                    if (full.realType == 'Family Pastoral Care' || full.realType == 'Individual Pastoral Care'  || full.realType == 'Pledges') {
+                        res += " ";
+                    }
+                    res += i18next.t(data);
+                    return res;
                 }
             },
             {
@@ -238,13 +257,13 @@ $(document).ready(function () {
                 title: i18next.t('Photos'),
                 data: 'img',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons'  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
+                    if (full.realType == 'Persons'  || full.realType == 'Person Custom Search' || full.realType == 'Individual Pastoral Care' || full.realType == 'Person Properties Search') {
                         return '<img src="/api/persons/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search' || full.realType == ' Family Pastoral Care') {
+                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search' || full.realType == 'Family Pastoral Care') {
                         return '<img src="/api/families/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == "Groups") {
+                    } else if (full.realType == 'Groups') {
                         return '<img src="Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == ' Pledges') {
+                    } else if (full.realType == 'Pledges') {
                         return '<img src="Images/Bank.png" class="initials-image direct-chat-img " width="10px" height="10px">';
                     } else if (full.realType == 'Deposits') {
                         return '<img src="Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">';
@@ -257,9 +276,9 @@ $(document).ready(function () {
                 title: i18next.t('Actions'),
                 data: 'text',
                 render: function (data, type, full, meta) {
-                    var res = ''
+                    var res = '<table width="110"><tbody><tr style="background-color: transparent !important;"><td>'
 
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search'  || full.realType == 'Person Properties Search') {
                         res += '<a href="' + window.CRM.root + '/PersonEditor.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
@@ -291,8 +310,8 @@ $(document).ready(function () {
                             + '<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
                             + '</span>'
                             + '</a>';
-                    } else if (full.realType == ' Individual Pastoral Care') {
-                        res += '<a href="' + window.CRM.root + '//v2/pastoralcare/person/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                    } else if (full.realType == 'Individual Pastoral Care') {
+                        res += '<a href="' + window.CRM.root + '/v2/pastoralcare/person/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
                             + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
@@ -349,7 +368,7 @@ $(document).ready(function () {
                             + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
                             + '</span>'
                             + '</a>&nbsp;';
-                    } else if (full.realType == ' Family Pastoral Care') {
+                    } else if (full.realType == 'Family Pastoral Care') {
                         res += '<a href="' + window.CRM.root + '/v2/pastoralcare/family/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
@@ -400,16 +419,24 @@ $(document).ready(function () {
                                 "                </a>  ";
                         }
 
-                        res += '<a href="' + window.CRM.root + 'v2/group/'+ full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                        res += '<a href="' + window.CRM.root + 'v2/group/' + full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
                             + '<span class="fa-stack">'
                             + '<i class="fa fa-square fa-stack-2x"></i>'
                             + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                            + '</span>'
+                            + '</a>&nbsp;';
+                    } else if (full.realType == 'Pledges' || full.realType == 'Deposits') {
+                        res += '<a href="' + full.uri + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
+                            + '<span class="fa-stack">'
+                            + '<i class="fa fa-square fa-stack-2x"></i>'
+                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
                             + '</span>'
                             + '</a>&nbsp;';
                     } else {
                         return null;
                     }
 
+                    res += '</td></tr></tbody></<table>';
 
                     return res;
                 }
@@ -488,7 +515,13 @@ $(document).ready(function () {
         //window.CRM.dataSearchTable.ajax.reload(null, false);
         var res = cart.length;
         cart = [];
+
+        $('.progress').css("color", "red");
+        $('.progress').html("  "+ i18next.t("In progress...."));
+        cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.progress').css("color", "green");
+            $('.progress').html("  "+i18next.t("Done !"));
             loadAllPeople()
         }, false);
     });
