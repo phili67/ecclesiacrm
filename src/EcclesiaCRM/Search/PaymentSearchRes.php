@@ -4,6 +4,7 @@
 
 namespace EcclesiaCRM\Search;
 
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
@@ -40,15 +41,20 @@ class PaymentSearchRes extends BaseSearchRes
                                 'uri'=>$Payment['uri']];
 
                             if ($this->global_search) {
-                                $elt["id"] = -1;
-                                $elt["address"] = "";
-                                $elt["type"] = _($this->getGlobalSearchType());
-                                $elt["realType"] = $this->getGlobalSearchType();
-                                $elt["Gender"] = "";
-                                $elt["Classification"] = "";
-                                $elt["ProNames"] = "";
-                                $elt["FamilyRole"] = "";
-                                $elt["inCart"] = 0;
+                                $elt = [
+                                    "id" => -1,
+                                    "img" => '<img src="/Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "searchresult" => '<a href="'.SystemURLs::getRootPath().'/DepositSlipEditor.php?DepositSlipID='.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
+                                    "address" => "",
+                                    "type" => _($this->getGlobalSearchType()),
+                                    "realType" => " ".$this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => "",
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => "",
+                                    "actions" => ""
+                                ];
                             }
 
                             array_push($this->results, $elt);

@@ -72,15 +72,32 @@ class DepositSearchRes extends BaseSearchRes
                                 'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId()];
 
                             if ($this->global_search) {
-                                $elt["id"] = -1;
-                                $elt["address"] = "";
-                                $elt["type"] = _($this->getGlobalSearchType());
-                                $elt["realType"] = $this->getGlobalSearchType();
-                                $elt["Gender"] = "";
-                                $elt["Classification"] = "";
-                                $elt["ProNames"] = "";
-                                $elt["FamilyRole"] = "";
-                                $elt["inCart"] = 0;
+                                $res = "";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                }
+                                $res .= '<span class="fa-stack">'
+                                    .'<i class="fa fa-square fa-stack-2x"></i>'
+                                    .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>';
+
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '</span>';
+                                }
+
+                                $elt = [
+                                    "id" => -1,
+                                    "img" => '<img src="/Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "searchresult" => '<a href="'.SystemURLs::getRootPath()."/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$Deposit->getComment().'</a>',
+                                    "address" => "",
+                                    "type" => _($this->getGlobalSearchType()),
+                                    "realType" => $this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => "",
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => "",
+                                    "actions" => $res
+                                ];
                             }
 
                             array_push($this->results, $elt);

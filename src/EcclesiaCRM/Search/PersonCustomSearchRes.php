@@ -11,8 +11,10 @@ use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 
 class PersonCustomSearchRes extends BaseSearchRes
@@ -75,15 +77,71 @@ class PersonCustomSearchRes extends BaseSearchRes
                                     "</a>";
                             }
 
-                            $elt["id"] = $per->getPerson()->getId();
-                            $elt["address"] = $address;
-                            $elt["type"] = _($this->getGlobalSearchType());
-                            $elt["realType"] = $this->getGlobalSearchType();
-                            $elt["Gender"] = "";
-                            $elt["Classification"] = "";
-                            $elt["ProNames"] = "";
-                            $elt["FamilyRole"] = "";
-                            $elt["inCart"] = Cart::PersonInCart($per->getPerson()->getId());
+                            $inCart = Cart::PersonInCart($per->getPerson()->getId());
+
+                            $res = "";
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res = '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                            }
+
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fa fa-square fa-stack-2x"></i>'
+                                .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>&nbsp;';
+                            }
+
+                            if ($inCart == false) {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
+                                }
+                                $res  .= "                <span class=\"fa-stack\">\n"
+                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>\n"
+                                    ."                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>"
+                                    ."                </span>\n";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= "                </a>  ";
+                                }
+                            } else {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
+                                }
+                                $res .= "                <span class=\"fa-stack\">\n"
+                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>\n"
+                                    ."                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n"
+                                    ."                </span>\n";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= "                </a>  ";
+                                }
+                            }
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" data-original-title="' . _('Print') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fa fa-square fa-stack-2x"></i>'
+                                .'<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>';
+                            }
+
+                            $elt = [
+                                "id" => $per->getPerson()->getId(),
+                                "img" => '<img src="/api/persons/'.$per->getPerson()->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per->getPerson()->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(), $per->getPerson()->getSuffix(), 3).'</a>',
+                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
+                                "type" => " "._($this->getGlobalSearchType()),
+                                "realType" => $this->getGlobalSearchType(),
+                                "Gender" => "",
+                                "Classification" => "",
+                                "ProNames" => "",
+                                "FamilyRole" => "",
+                                "members" => "",
+                                "actions" => $res
+                            ];
+
                         }
 
                         array_push($this->results, $elt);
