@@ -12,15 +12,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
 // Security
-if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'))) {
-    RedirectUtils::Redirect('Menu.php');
-    exit;
-}
-
-
 require $sRootDocument . '/Include/Header.php';
 ?>
-<div class="box box-solid">
+<div class="box box-solid" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled())?'style="display: none;"':"" ?>>
     <div class="box-header with-border">
         <h3 class="box-title"><?= _('Filters') ?></h3>
     </div>
@@ -82,6 +76,9 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-sm-12">
             <div style="text-align: center;">
+            <?php
+                if ( SessionUser::getUser()->isShowCartEnabled() ) {
+            ?>
                 <a id="AddAllPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
                 <a id="RemoveAllPageFromCart"
                    class="btn btn-danger btn-sm"><?= _('Remove This Page from Cart') ?></a><br><br>
@@ -89,6 +86,9 @@ require $sRootDocument . '/Include/Header.php';
                 <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm"
                        value="<?= _('Intersect with Cart') ?>">&nbsp;
                 <a id="RemoveAllFromCart" class="btn btn-danger btn-sm"><?= _('Remove All from Cart') ?></a>
+            <?php
+                }
+            ?>
             </div>
         </div>
     </div>
@@ -101,6 +101,9 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= $sCSPNonce ?>">
     window.CRM.listPeople = [];
+    window.CRM.gender = <?= $iGender ?>;
+    window.CRM.familyRole = <?= $iFamilyRole ?>;
+    window.CRM.classification = <?= $iClassification ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/Search/Search.js"></script>
