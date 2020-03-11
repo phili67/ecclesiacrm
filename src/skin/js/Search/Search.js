@@ -6,6 +6,18 @@ $(document).ready(function () {
     var buildMenu = false;
     var cart = [];
 
+    if (window.CRM.gender !== -1) {
+        elements['Gender']=window.CRM.gender;
+    }
+
+    if (window.CRM.familyRole !== -1) {
+        elements['FamilyRole']=window.CRM.familyRole;
+    }
+
+    if (window.CRM.classification !== -1) {
+        elements['Classification']=window.CRM.classification;
+    }
+
     $("#searchCombo").select2();
     $("#searchComboGroup").select2();
     $("#searchComboGroupRole").select2();
@@ -174,7 +186,16 @@ $(document).ready(function () {
                 available_search_type.push(value[0])
 
                 $.each(value[1], function (index2, value2) {
-                    var option = new Option(value2, index2, false, false);
+                    var option = "";
+                    if (window.CRM.gender !== -1 && index2 == "Gender-"+window.CRM.gender) {
+                        option = new Option(value2, index2, true, true);
+                    } else if (window.CRM.familyRole !== -1 && index2 == "FamilyRole-"+window.CRM.familyRole) {
+                        option = new Option(value2, index2, true, true);
+                    } else if (window.CRM.classification !== -1 && index2 == "Classification-"+window.CRM.classification) {
+                        option = new Option(value2, index2, true, true);
+                    } else {
+                        option = new Option(value2, index2, false, false);
+                    }
                     optgroup.append(option);
 
                 });
@@ -222,7 +243,7 @@ $(document).ready(function () {
                             cart.push(data);
                         }
                         return data;// only persons can be added to the cart
-                    } else if (full.realType == 'Families') {
+                    } else if (full.realType == 'Families' || full.realType == 'Addresses' || full.realType == 'Family Custom Search') {
                         for (i=0;i<full.members.length;i++) {
                             if(cart.indexOf(full.members[i]) == -1) {
                                 cart.push(full.members[i]);
@@ -249,7 +270,7 @@ $(document).ready(function () {
                         res += " ";
                     }
                     res += i18next.t(data);
-                    return res;
+                    return data;
                 }
             },
             {
@@ -257,205 +278,23 @@ $(document).ready(function () {
                 title: i18next.t('Photos'),
                 data: 'img',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons'  || full.realType == 'Person Custom Search' || full.realType == 'Individual Pastoral Care' || full.realType == 'Person Properties Search') {
-                        return '<img src="/api/persons/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search' || full.realType == 'Family Pastoral Care') {
-                        return '<img src="/api/families/' + full.id + '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Groups') {
-                        return '<img src="Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Pledges') {
-                        return '<img src="Images/Bank.png" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    } else if (full.realType == 'Deposits') {
-                        return '<img src="Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">';
-                    }
-                    return null;
+                    return data;
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('Actions'),
-                data: 'text',
+                data: 'actions',
                 render: function (data, type, full, meta) {
-                    var res = '<table width="110"><tbody><tr style="background-color: transparent !important;"><td>'
-
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search'  || full.realType == 'Person Properties Search') {
-                        res += '<a href="' + window.CRM.root + '/PersonEditor.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-
-                        if (full.inCart === false) {
-                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        } else {
-                            res += "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        }
-
-                        res += '&nbsp;<a href="' + window.CRM.root + '/PrintView.php?PersonID=' + full.id + '"  data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Print') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>';
-                    } else if (full.realType == 'Individual Pastoral Care') {
-                        res += '<a href="' + window.CRM.root + '/v2/pastoralcare/person/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-
-                        if (full.inCart === false) {
-                            res += "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        } else {
-                            res += "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        }
-
-                    } else if (full.realType == 'Addresses' || full.realType == 'Families' || full.realType == 'Family Custom Search') {
-                        res += '<a href="' + window.CRM.root + '/FamilyEditor.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-
-                        if (full.inCart === false) {
-                            res += "<a class=\"AddToFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        } else {
-                            res += "<a class=\"RemoveFromFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        }
-
-                        res += '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-                    } else if (full.realType == 'Family Pastoral Care') {
-                        res += '<a href="' + window.CRM.root + '/v2/pastoralcare/family/' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-
-                        if (full.inCart === false) {
-                            res += "<a class=\"AddToFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        } else {
-                            res += "<a class=\"RemoveFromFamilyCart\" data-cartfamilyid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        }
-                    } else if (full.realType == 'Groups') {
-                        res += '<a href="' + window.CRM.root + '/GroupEditor.php?GroupID=13=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-
-                        if (full.inCart === false) {
-                            res += "<a class=\"AddToGroupCart\" data-cartgroupid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        } else {
-                            res += "<a class=\"RemoveFromGroupCart\" data-cartgroupid=\"" + full.id + "\">\n" +
-                                "\n" +
-                                "                <span class=\"fa-stack\">\n" +
-                                "                <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                                "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
-                                "                </span>\n" +
-                                "                </a>  ";
-                        }
-
-                        res += '<a href="' + window.CRM.root + 'v2/group/' + full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-                    } else if (full.realType == 'Pledges' || full.realType == 'Deposits') {
-                        res += '<a href="' + full.uri + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">'
-                            + '<span class="fa-stack">'
-                            + '<i class="fa fa-square fa-stack-2x"></i>'
-                            + '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
-                            + '</span>'
-                            + '</a>&nbsp;';
-                    } else {
-                        return null;
-                    }
-
-                    res += '</td></tr></tbody></<table>';
-
-                    return res;
+                    return '<table width="110"><tbody><tr style="background-color: transparent !important;"><td>' + data + '</td></tr></tbody></<table>';
                 }
             },
             {
                 width: 'auto',
                 title: i18next.t('Search result'),
-                data: 'text',
+                data: 'searchresult',
                 render: function (data, type, full, meta) {
-                    if (full.realType == "Persons"  || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care') {
-                        return '<a href="' + window.CRM.root + '/PersonView.php?PersonID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
-                    } else if (full.realType == 'Addresses'  || full.realType == 'Family Custom Search'  || full.realType == 'Families' || full.realType == ' Family Pastoral Care') {
-                        return '<a href="' + window.CRM.root + '/FamilyView.php?FamilyID=' + full.id + '" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
-                    } else if (full.realType == 'Groups') {
-                        return '<a href="' + window.CRM.root + '/v2/group/'+ full.id + '/view" data-toggle="tooltip" data-placement="top" data-original-title="' + i18next.t('Edit') + '">' + data + '</a>'
-                    } else if (full.realType == 'Families') {
-                        return data;
-                    }
-                    return i18next.t(data);
+                    return data;
                 }
             },
             {
