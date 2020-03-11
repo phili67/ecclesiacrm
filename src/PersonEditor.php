@@ -1698,7 +1698,7 @@ require 'Include/Header.php';
     }
     ?>
     <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="PersonCancel"
-           onclick="javascript:document.location='SelectList.php?mode=person';">
+           onclick="javascript:document.location='v2/people/list/person';">
 </form>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
