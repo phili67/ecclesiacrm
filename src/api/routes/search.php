@@ -43,7 +43,7 @@ $app->group('/search', function () {
     $this->post('/getGroupForTypeID/', 'getGroupForTypeID' );
     $this->post('/getGroupRoleForGroupID/', 'getGroupRoleForGroupID' );
     $this->post('/getresult/', 'getSearchResult' );
-    $this->get('/getresult/', 'getSearchResult' );
+    $this->get('/getresult/', 'getSearchResult' );// for test
 });
 
 function getSearchResult (Request $request, Response $response, array $args) {
@@ -71,7 +71,7 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new PledgeSearchRes( true),
             new GroupSearchRes( true),
         ];
-    } else if ($query == "*" || count($query_elements) > 0) {
+    } elseif ($query == "*" || count($query_elements) > 0) {
         $query = "";
         $resMethods = [
             new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements)
