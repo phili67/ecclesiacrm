@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-01-25T11:12:45.194Z\n"
+"POT-Creation-Date: 2020-03-12T17:21:07.772Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1995,6 +1995,43 @@ msgstr "Connectez-vous à la base restaurée"
 
 msgid "Restore Error."
 msgstr "Erreur de restauration."
+
+msgid "In progress...."
+msgstr ""
+
+msgid "Done !"
+msgstr ""
+
+#, fuzzy
+msgid "All Groups"
+msgstr "Groupe"
+
+#, fuzzy
+msgid "All Roles"
+msgstr "Tous les événements"
+
+#, fuzzy
+msgid "id"
+msgstr "Masquer"
+
+#, fuzzy
+msgid "Photos"
+msgstr "Photo"
+
+msgid "Search result"
+msgstr ""
+
+#, fuzzy
+msgid "Property Name"
+msgstr "Nom du Groupe"
+
+#, fuzzy
+msgid "Loading people in cart...."
+msgstr "Chargement de ressources ..."
+
+#, fuzzy
+msgid "Loading finished...."
+msgstr "Chargement des données ..."
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "Ajouter toutes les étiquettes pour les membres sélectionnés ..."
