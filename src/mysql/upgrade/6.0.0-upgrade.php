@@ -16,14 +16,15 @@ $logger->info("Start to delete : all unusefull files");
 unlink(SystemURLs::getDocumentRoot()."/BackupDatabase.php");
 unlink(SystemURLs::getDocumentRoot()."/RestoreDatabase.php");
 unlink(SystemURLs::getDocumentRoot()."/CartView.php");
-
 unlink(SystemURLs::getDocumentRoot()."/PrintPastoralCare.php");
+unlink(SystemURLs::getDocumentRoot()."/SelectList.php");
 
 unlink(SystemURLs::getDocumentRoot()."/v2/templates/people/pastoralcare.php");
 unlink(SystemURLs::getDocumentRoot()."/skin/js/people/PastoralCare.js");
 
 unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Service/DashboardService.php");
 unlink(SystemURLs::getDocumentRoot()."/api/routes/system/system-dashboard.php");
+
 
 // now the folder is called synchronize
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Dashboard/");
