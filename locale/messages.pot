@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-12 18:44+0100\n"
+"POT-Creation-Date: 2020-03-12 19:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1484,7 +1484,7 @@ msgstr ""
 msgid "Return to Events"
 msgstr ""
 
-#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:178
+#: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:183
 #: PersonView.php:406 Reports/CanvassReports.php:238
 #: Reports/VotingMembers.php:102 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
