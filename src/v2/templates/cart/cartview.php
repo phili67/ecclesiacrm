@@ -10,7 +10,7 @@
  *
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be incorporated in another software authorization
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
 
@@ -34,7 +34,7 @@ if ($iNumPersons > 0) {
             <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
                 ?>
                 <a id="emptyCartToGroup" class="btn btn-app"><i
-                        class="fa fa-object-ungroup"></i><?= _('Empty Cart to Group') ?></a>
+                        class="fa fa-tag"></i><?= _('Empty Cart to Group') ?></a>
                 <?php
             }
             if (SessionUser::getUser()->isAddRecordsEnabled()) {
