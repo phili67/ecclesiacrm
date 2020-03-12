@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-01-25T11:12:45.194Z\n"
+"POT-Creation-Date: 2020-03-12T17:21:07.772Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1692,7 +1692,7 @@ msgid "Reset failed login count for"
 msgstr "Réinitialisation suite au échecs d'authentification"
 
 msgid "done."
-msgstr "terminée"
+msgstr "effectués."
 
 msgid "Please confirm the password reset of this user"
 msgstr ""
@@ -1995,6 +1995,36 @@ msgstr "Connectez-vous à la base restaurée"
 
 msgid "Restore Error."
 msgstr "Erreur de restauration."
+
+msgid "In progress...."
+msgstr "En cours ...."
+
+msgid "Done !"
+msgstr "Effectués !"
+
+msgid "All Groups"
+msgstr "Tous les Groupes"
+
+msgid "All Roles"
+msgstr "Tous les rôles"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Photos"
+
+msgid "Search result"
+msgstr "Résultat de recherche"
+
+msgid "Property Name"
+msgstr "Nom de Propriété"
+
+msgid "Loading people in cart...."
+msgstr "Chargement des personnes dans le panier ..."
+
+msgid "Loading finished...."
+msgstr "Chargement terminé ..."
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "Ajouter toutes les étiquettes pour les membres sélectionnés ..."
