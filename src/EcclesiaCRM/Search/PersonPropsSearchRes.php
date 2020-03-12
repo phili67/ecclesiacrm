@@ -1,7 +1,11 @@
 <?php
 
+/* copyright 2020/03/10 Philippe Logel all right reserved */
+
 namespace EcclesiaCRM\Search;
 
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\Base\PersonQuery;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
@@ -10,16 +14,19 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
 class PersonPropsSearchRes extends BaseSearchRes
 {
-    public function __construct()
+    public function __construct($global = false)
     {
         $this->name = _('Person Properties Search');
-        parent::__construct();
+        parent::__construct($global,'Person Properties Search');
     }
 
     public function buildSearch(string $qry)
@@ -52,11 +59,13 @@ class PersonPropsSearchRes extends BaseSearchRes
                     ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
                     ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND ".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'") //NOT LIKE 'a%';
                     ->addAscendingOrderByColumn('ProName')
-                    ->addAscendingOrderByColumn('ProTypeName')
-                    ->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
-                    ->find();
+                    ->addAscendingOrderByColumn('ProTypeName');
 
-                LoggerUtils::getAppLogger()->info($person_Props->toString());
+                if (!$this->global_search) {
+                    $person_Props->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
+                }
+
+                $person_Props->find();
 
 
                 if (!is_null($person_Props))
@@ -68,6 +77,83 @@ class PersonPropsSearchRes extends BaseSearchRes
                             'text' => $per->getFullName()." (".$per->getProName().")",
                             'uri' => $per->getViewURI()
                         ];
+
+                        if ($this->global_search) {
+                            $fam = $per->getFamily();
+
+                            $address = "";
+                            if (!is_null($fam)) {
+                                $address = '<a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getID().'">'.
+                                    $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
+                                    "</a>";
+                            }
+
+                            $inCart = Cart::PersonInCart($per->getId());
+
+                            $res = "";
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fa fa-square fa-stack-2x"></i>'
+                                .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>&nbsp;';
+                            }
+
+                            if ($inCart == false) {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                }
+
+                                $res .= "                <span class=\"fa-stack\">\n"
+                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>\n"
+                                    ."                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>"
+                                    ."                </span>\n";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= "                </a>  ";
+                                }
+                            } else {
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getId() . '">';
+                                }
+                                $res .= "                <span class=\"fa-stack\">"
+                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>"
+                                    ."                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n"
+                                    ."                </span>";
+                                if (SessionUser::getUser()->isShowCartEnabled()) {
+                                    $res .= "                </a>  ";
+                                }
+                            }
+
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getId() . '"  data-toggle="tooltip" data-placement="top" data-original-title="' . _('Print') . '">';
+                            }
+                            $res .= '<span class="fa-stack">'
+                                .'<i class="fa fa-square fa-stack-2x"></i>'
+                                .'<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
+                                .'</span>';
+                            if (SessionUser::getUser()->isShowCartEnabled()) {
+                                $res .= '</a>';
+                            }
+
+                            $elt = [
+                                "id" => $per->getId(),
+                                "img" => '<img src="/api/persons/'.$per->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
+                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
+                                "type" => " "._($this->getGlobalSearchType()),
+                                "realType" => $this->getGlobalSearchType(),
+                                "Gender" => "",
+                                "Classification" => "",
+                                "ProNames" => "",
+                                "FamilyRole" => "",
+                                "members" => "",
+                                "actions" => $res
+                            ];
+                        }
 
                         array_push($this->results, $elt);
                     }

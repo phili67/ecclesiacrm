@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="box-title"><?= _('People Functions') ?></h3>
     </div>
     <div class="box-body">
-        <a href="<?= $sRootPath ?>/SelectList.php?mode=person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
+        <a href="<?= $sRootPath ?>/v2/people/list/person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
         <?php
         if ($sEmailLink) {
             // Add default email if default email has been set and is not already in string
@@ -108,7 +108,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="icon">
                 <i class="fa fa-user"></i>
             </div>
-            <a href="<?= $sRootPath ?>/SelectList.php?mode=person" class="small-box-footer">
+            <a href="<?= $sRootPath ?>/v2/people/list/person" class="small-box-footer">
                 <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
@@ -264,7 +264,7 @@ require $sRootDocument . '/Include/Header.php';
                         ?>
                         <tr>
                             <td>
-                                <a href="<?= $sRootPath ?>/SelectList.php?mode=person&Gender=<?= $demStat['gender'] ?>&FamilyRole=<?= $demStat['role'] ?>"><?= _($demStat['key']) ?></a>
+                                <a href="<?= $sRootPath ?>/v2/people/list/person/<?= $demStat['gender'] ?>/<?= $demStat['role'] ?>/-1"><?= _($demStat['key']) ?></a>
                             </td>
                             <td>
                                 <div class="progress progress-xs progress-striped active">
@@ -302,7 +302,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?php foreach ($personStats as $key => $value) {
                     ?>
                     <tr>
-                        <td><a href='<?= $sRootPath ?>/SelectList.php?Sort=name&Filter=&mode=person&Classification=<?= $classifications->$key ?>'><?= _($key) ?></a></td>
+                        <td><a href='<?= $sRootPath ?>/v2/people/list/person/-1/-1/<?= $classifications->$key ?>'><?= _($key) ?></a></td>
                         <td>
                             <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar progress-bar-success"

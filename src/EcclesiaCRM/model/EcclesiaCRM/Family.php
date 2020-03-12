@@ -25,8 +25,8 @@ use EcclesiaCRM\SessionUser;
 class Family extends BaseFamily implements iPhoto
 {
     private $photo;
-    
-    
+
+
     public function preDelete(ConnectionInterface $con = NULL)
     {
       $persons = PersonQuery::Create()->findByFamId($this->getId());
@@ -34,10 +34,10 @@ class Family extends BaseFamily implements iPhoto
       if ($persons->count() > 0) {
         $persons->delete();
       }
-      
+
       return parent::preDelete($con);
     }
-    
+
     public function getAddress()
     {
         $address = [];
@@ -66,11 +66,11 @@ class Family extends BaseFamily implements iPhoto
 
         return implode(' ', $address);
     }
-    
+
     public function getTinyAddress()
     {
         $adressStyleNotUS = SystemConfig::getValue('iPersonAddressStyle');
-        
+
         $address = [];
         if (!empty($this->getAddress1())) {
             $tmp = $this->getAddress1();
@@ -79,7 +79,7 @@ class Family extends BaseFamily implements iPhoto
             }
             array_push($address, $tmp);
         }
-        
+
         if (!empty($this->getZip()) && $adressStyleNotUS == 1) {
             array_push($address, $this->getZip());
         }
@@ -160,7 +160,7 @@ class Family extends BaseFamily implements iPhoto
   public function getSpousePeople() {
     return $this->getPeopleByRole("sDirRoleSpouse");
   }
-  
+
   public function getAdults() {
     return array_merge($this->getHeadPeople(),$this->getSpousePeople());
   }
@@ -250,19 +250,19 @@ class Family extends BaseFamily implements iPhoto
 
         $note->save();
     }
-    
+
     public function getActivatedPeople ()
     {
       $people = $this->getPeople();
-      
+
       $foundPeople = [];
-      
+
       foreach ($this->getPeople() as $person) {
         if (empty($person->getDateDeactivated()) /*|| SessionUser::getUser()->isGdrpDpoEnabled()*/) {
           array_push($foundPeople, $person);
         }
       }
-      
+
       return $foundPeople;
     }
 
@@ -307,7 +307,7 @@ class Family extends BaseFamily implements iPhoto
 
     public function getPhoto()
     {
-      if (!$this->photo) 
+      if (!$this->photo)
       {
         $this->photo = new Photo("Family",  $this->getId());
       }
@@ -343,21 +343,21 @@ class Family extends BaseFamily implements iPhoto
       }
       return false;
     }
-    
+
     public function verify()
     {
         $this->createTimeLineNote('verify');
     }
 
-    public function getFamilyString($booleanIncludeHOH=true)
-    {    
+    public function getFamilyString($booleanIncludeHOH=true, $withAddress = true)
+    {
       $HoH = [];
       if ($booleanIncludeHOH) {
         $HoH = $this->getHeadPeople();
       }
       if (count($HoH) == 1)
       {
-         return $this->getName(). ": " . $HoH[0]->getFirstName() . " - " . $this->getAddress();
+         return $this->getName(). ": " . $HoH[0]->getFirstName() . (($withAddress)?" - " . $this->getAddress():"");
       }
       elseif (count($HoH) > 1)
       {
@@ -365,7 +365,7 @@ class Family extends BaseFamily implements iPhoto
         foreach ($HoH as $person) {
           array_push($HoHs, $person->getFirstName());
         }
-        
+
         return $this->getName(). ": " . join(",", $HoHs) . " - " . $this->getAddress();
       }
       else
@@ -392,14 +392,14 @@ class Family extends BaseFamily implements iPhoto
             }
         }
     }
-    
+
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
       $array = parent::toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, $includeForeignObjects);
       $array['FamilyString']=$this->getFamilyString();
       return $array;
     }
-    
+
     public function toSearchArray()
     {
       $searchArray=[

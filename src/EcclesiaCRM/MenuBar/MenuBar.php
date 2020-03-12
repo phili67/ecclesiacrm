@@ -108,7 +108,7 @@ class MenuBar {
             }
         }
 
-        $menuItem = new Menu (_("Group Assignment Helper"),"fa fa-circle-o","SelectList.php?mode=groupassign",true,$menu);
+        $menuItem = new Menu (_("Group Assignment Helper"),"fa fa-circle-o","v2/people/list/groupassign",true,$menu);
 
         $this->addMenu($menu);
     }
@@ -279,7 +279,7 @@ class MenuBar {
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
 
-        $menuItem = new Menu (_("View All Persons"),"fa fa-circle-o","SelectList.php?mode=person",true,$menu);
+        $menuItem = new Menu (_("View All Persons"),"fa fa-circle-o","v2/people/list/person",true,$menu);
         if (SessionUser::getUser()->isShowMapEnabled()) {
             $menuItem = new Menu (_("View on Map"),"fa fa-map-o","v2/map/-1",true,$menu);
         }

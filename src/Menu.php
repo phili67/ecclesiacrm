@@ -491,7 +491,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             <div class="icon">
                 <i class="fa fa-user"></i>
             </div>
-            <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person" class="small-box-footer">
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/people/list/person" class="small-box-footer">
                 <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>

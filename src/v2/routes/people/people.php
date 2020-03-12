@@ -29,6 +29,8 @@ use Slim\Views\PhpRenderer;
 
 $app->group('/people', function () {
     $this->get('/dashboard', 'peopleDashboard' );
+    $this->get('/list/{mode}', 'peopleList' );
+    $this->get('/list/{mode}/{gender}/{familyRole}/{classification}', 'peopleList' );
 });
 
 
@@ -129,4 +131,74 @@ function argumentsPeopleDashboardArray ()
                        ];
 
    return $paramsArguments;
+}
+
+function peopleList (Request $request, Response $response, array $args) {
+    $renderer = new PhpRenderer('templates/people/');
+
+    $sMode = $args['mode'];
+    if (isset($args['gender'])) {
+        $iGender = $args['gender'];
+    } else {
+        $iGender = -1;
+    }
+
+    if (isset($args['familyRole'])) {
+        $iFamilyRole = $args['familyRole'];
+    } else {
+        $iFamilyRole = -1;
+    }
+
+    if (isset($args['classification'])) {
+        $iClassification = $args['classification'];
+    } else {
+        $iClassification = -1;
+    }
+
+    /*if (array_key_exists('mode', $_GET)) {
+        $sMode = InputUtils::LegacyFilterInput($_GET['mode']);
+    } elseif (array_key_exists('SelectListMode', $_SESSION)) {
+        $sMode = $_SESSION['SelectListMode'];
+    }*/
+
+    switch ($sMode) {
+        case 'groupassign':
+            $_SESSION['SelectListMode'] = $sMode;
+            break;
+        case 'family':
+            $_SESSION['SelectListMode'] = $sMode;
+            break;
+        default:
+            $_SESSION['SelectListMode'] = 'person';
+            break;
+    }
+
+    return $renderer->render($response, 'peoplelist.php', argumentsPeopleListArray($sMode,$iGender,$iFamilyRole,$iClassification));
+}
+
+function argumentsPeopleListArray ($sMode='person',$iGender=-1, $iFamilyRole=-1, $iClassification=-1)
+{
+    // Set the page title
+    $sPageTitle = _('Advanced Search');
+    if ($sMode == 'person') {
+        $sPageTitle = _('Person Listing');
+    } elseif ($sMode == 'groupassign') {
+        $sPageTitle = _('Group Assignment Helper');
+    }
+
+
+    $sRootDocument   = SystemURLs::getDocumentRoot();
+    $sCSPNonce       = SystemURLs::getCSPNonce();
+
+    $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
+        'sRootDocument'        => $sRootDocument,
+        'sPageTitle'           => $sPageTitle,
+        'sCSPNonce'            => $sCSPNonce,
+        'sMode'                => $sMode,
+        'iGender'              => $iGender,
+        'iFamilyRole'          => $iFamilyRole,
+        'iClassification'     => $iClassification
+    ];
+
+    return $paramsArguments;
 }

@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         }
         return DTLangs.toString();
     };
-    
+
     const sass = require('node-sass');
 
 // Project configuration.
@@ -193,7 +193,7 @@ module.exports = function (grunt) {
                         src: ['node_modules/jquery/dist/jquery.min.js'],
                         dest: 'src/skin/external/jquery/'
                     },
-                    
+
                     {
                         expand: true,
                         filter: 'isFile',
@@ -228,7 +228,7 @@ module.exports = function (grunt) {
                         flatten: true,
                         src: ['node_modules/flot/jquery.flot*.js'],
                         dest: 'src/skin/external/flot/'
-                    },                    
+                    },
                     {
                         expand: true,
                         filter: 'isFile',
@@ -325,6 +325,24 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup-dt/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup-dt/css/',
+                        src: ['*.css'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/jszip/dist/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/'
@@ -373,7 +391,7 @@ module.exports = function (grunt) {
               },
               files: {
                   'src/skin/ecclesiacrm.min.css': 'src/skin/ecclesiacrm.scss'
-              }  
+              }
             },
         },
         compress: {

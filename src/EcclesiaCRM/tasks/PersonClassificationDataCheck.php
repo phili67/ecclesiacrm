@@ -31,7 +31,7 @@ class PersonClassificationDataCheck implements iTask
 
     public function getLink()
     {
-        return SystemURLs::getRootPath() . '/SelectList.php?mode=person&Classification=0&PersonColumn3=Classification';
+        return SystemURLs::getRootPath() . '/v2/people/list/person/-1/-1/0';//SelectList.php?mode=person&Classification=0&PersonColumn3=Classification
     }
 
     public function getTitle()
