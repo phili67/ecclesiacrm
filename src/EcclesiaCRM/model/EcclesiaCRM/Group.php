@@ -37,24 +37,24 @@ class Group extends BaseGroup
     {
         return $this->getType() == $this->typeSundaySchool;
     }
-    
+
     public function addPerson2group2roleP2g2r(ChildPerson2group2roleP2g2r $l)
     {
       // we'll connect to sabre to create the group
       $pdo = Propel::getConnection();
-        
+
       // We set the BackEnd for sabre Backends
       $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
-      
+
       $groupId  = $l->getGroupId();
       $personId = $l->getPersonId();
       $person   = $l->getPerson();
 
       $addressbook = $carddavBackend->getAddressBookForGroup ($groupId);
-      
+
       if ( $addressbook['id'] != 0 && !$carddavBackend->getCardForPerson($addressbook['id'], $personId) ) {
         // we've checked that we'll insert only one card per user
-      
+
         // now we'll create all the cards
         $card = 'BEGIN:VCARD
 VERSION:3.0
@@ -84,16 +84,16 @@ FN:'.$person->getFirstName().' '.$person->getLastName();
         if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
           $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getAddress1().';'.$person->getCity().';;'.$person->getZip();
         } else if (!is_null ($person->getFamily())) {
-          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();        
+          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();
         }
 
         $card .= "\nitem1.X-ABADR:fr
 UID:".\Sabre\DAV\UUIDUtil::getUUID().'
 END:VCARD';
-        
+
         $carddavBackend->createCard($addressbook['id'], 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
       }
-      
+
       return parent::addPerson2group2roleP2g2r($l);
     }
 
@@ -116,20 +116,20 @@ END:VCARD';
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
-        
+
         // we first delete the calendar
         $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
-        
+
         // we'll connect to sabre to create the group
-        $pdo = Propel::getConnection();         
-        
+        $pdo = Propel::getConnection();
+
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
-        
+
         // we delete the calendar
         $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()]);
-        
+
         // we delete the address book
         $addressbook = $carddavBackend->getAddressBookForGroup ( $this->getId() );
         $carddavBackend->deleteAddressBook($addressbook['id']);
@@ -140,7 +140,12 @@ END:VCARD';
         if (!is_null ($lists)) {
             $lists->delete();
         }
-        
+
+        $persons = Person2group2roleP2g2rQuery::create()->findByGroupId($this->getId());
+        if (!is_null($persons)) {
+            $persons->delete();
+        }
+
         parent::preDelete($con);
 
         return true;
@@ -192,17 +197,17 @@ END:VCARD';
         }
 
         parent::postInsert($con);
-        
+
         // a group is binded to a calendar
         // we'll connect to sabre to create the group
-        $pdo = Propel::getConnection();         
-        
+        $pdo = Propel::getConnection();
+
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-          
-        // we create the uuid name          
+
+        // we create the uuid name
         $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
-          
+
         // get all the calendars for the current user
         // we have to add the groupCalendars
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
@@ -211,21 +216,21 @@ END:VCARD';
         $calendar = $calendarBackend->createCalendar('principals/'.strtolower($userAdmin->getUserName()), $uuid, [
             '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
             '{DAV:}displayname'                                               => $this->getName(),
-            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),            
+            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
           ]);
-          
-        
+
+
         $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid($calendar[0]);
         $calendarInstance->setGroupId($this->getId());
         $calendarInstance->save();
-        
+
         // we filter all the user who are admin or group manager and not the principal admin
         $users = UserQuery::Create()
             ->filterByManageGroups(true)
             ->_or()->filterByAdmin(true)
             ->filterByPersonId(1, CRITERIA::NOT_EQUAL)
             ->find();
-        
+
         // now we can share the new calendar to the users
         foreach ($users as $user) {
           $calendarBackend->updateInvites(
@@ -244,7 +249,7 @@ END:VCARD';
 
         return true;
     }
-    
+
     public function postSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
@@ -252,23 +257,23 @@ END:VCARD';
 
             // Now a group is binded to a calendar !!!
             $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
-        
+
             // we'll connect to sabre to create the group
-            $pdo = Propel::getConnection();         
-        
+            $pdo = Propel::getConnection();
+
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
             $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
-        
+
             // Updating the calendar
             $propPatch = new PropPatch([
                 '{DAV:}displayname'                                       => $this->getName()
               ]);
-          
+
             $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
-         
+
             $result = $propPatch->commit();
-            
+
             $addressbookId = $carddavBackend->createAddressBook(
               'principals/admin',
               \Sabre\DAV\UUIDUtil::getUUID(),
