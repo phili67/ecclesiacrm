@@ -92,6 +92,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
+    <br/>
     <table width="100%" cellpadding="2"
            class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
            id="DataSearchTable"></table>
