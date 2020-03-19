@@ -206,7 +206,7 @@ $(document).ready(function () {
         });
     }
 
-    window.CRM.dataSearchTable = $("#DataSearchTable").DataTable({
+    var dataTableSearchConfig = {
         ajax: {
             url: window.CRM.root + "/api/search/getresult/",
             type: 'POST',
@@ -343,7 +343,11 @@ $(document).ready(function () {
             }
         ],
         responsive: true
-    });
+    };
+
+    $.extend(dataTableSearchConfig,window.CRM.plugin.dataTable);
+
+    window.CRM.dataSearchTable = $("#DataSearchTable").DataTable(dataTableSearchConfig);
 
     $("#DataSearchTable").on( 'search.dt', function () {
         var info = window.CRM.dataSearchTable.page.info();
