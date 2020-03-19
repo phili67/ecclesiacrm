@@ -82,8 +82,11 @@ class PersonDashboardItem implements DashboardItemInterface {
         $statement = $connection->prepare($sSQL);
         $statement->execute();
 
+        $data['ClassificationCount'] = 0;
+
         while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             $data[$row['Classification']] = $row['count'];
+            $data['ClassificationCount'] += $row['count'];
         }
 
         return $data;

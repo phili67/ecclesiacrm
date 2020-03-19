@@ -300,13 +300,14 @@ require $sRootDocument . '/Include/Header.php';
                     <th style="width: 40px"><?= _('Count') ?></th>
                 </tr>
                 <?php foreach ($personStats as $key => $value) {
+                    if ($key == 'ClassificationCount') continue;
                     ?>
                     <tr>
                         <td><a href='<?= $sRootPath ?>/v2/people/list/person/-1/-1/<?= $classifications->$key ?>'><?= _($key) ?></a></td>
                         <td>
                             <div class="progress progress-xs progress-striped active">
                                 <div class="progress-bar progress-bar-success"
-                                     style="width: <?= round($value / $personCount['personCount'] * 100) ?>%"></div>
+                                     style="width: <?= round($value / $personStats['ClassificationCount'] * 100) ?>%"></div>
                             </div>
                         </td>
                         <td><span class="badge bg-green"><?= $value ?></span></td>
