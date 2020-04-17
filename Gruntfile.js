@@ -59,7 +59,9 @@ module.exports = function (grunt) {
                         src: [
                             'dist/css/*.min.*',
                             'dist/css/skins/**',
-                            'dist/js/adminlte.min.js'],
+                            'dist/css/skins/_all-skins.css',
+                            'dist/js/adminlte.min.js',
+                            'dist/js/adminlte.min.js.*'],
                         dest: 'src/skin/external/adminlte/'
                     },
                     {
@@ -154,13 +156,6 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css', 'node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js'],
-                        dest: 'src/skin/external/bootstrap-timepicker/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
                         src: ['node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css', 'node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css.map', 'node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js', 'node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js.map'],
                         dest: 'src/skin/external/bootstrap-colorpicker/'
                     },
@@ -168,15 +163,7 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap-daterangepicker/daterangepicker.css', 'node_modules/bootstrap-daterangepicker/daterangepicker.js'],
-                        dest: 'src/skin/external/bootstrap-daterangepicker/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js', 'node_modules/inputmask/dist/min/inputmask/inputmask.date.extensions.min.js',
-                        'node_modules/inputmask/dist/min/inputmask/inputmask.extensions.min.js'],
+                        src: ['node_modules/inputmask/dist/jquery.inputmask.min.js'],
                         dest: 'src/skin/external/inputmask/'
                     },
                     {
@@ -226,7 +213,10 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/flot/jquery.flot*.js'],
+                        src: ['node_modules/flot/dist/es5/jquery.flot.js',
+                            'node_modules/flot/source/jquery.flot.pie.js',
+                            'node_modules/flot/source/jquery.flot.resize.js',
+                            'node_modules/flot/source/jquery.flot.categories.js'],
                         dest: 'src/skin/external/flot/'
                     },
                     {
@@ -250,13 +240,6 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap-notify/bootstrap-notify.min.js'],
-                        dest: 'src/skin/external/bootstrap-notify'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
                         src: ['node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
                         'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css'],
                         dest: 'src/skin/external/bootstrap-datepicker'
@@ -268,6 +251,36 @@ module.exports = function (grunt) {
                         src: ['node_modules/select2/dist/js/select2.min.js',
                         'node_modules/select2/dist/css/select2.min.css'],
                         dest: 'src/skin/external/select2'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-bs4/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-bs4/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-buttons-bs4/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-buttons-bs4/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-responsive-bs4/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/'
                     },
                     {
                         expand: true,
@@ -290,7 +303,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd:'node_modules/datatables.net-dt/',
-                        src: ['images/*'],
+                        src: ['images/*','css/*', 'js/*'],
                         dest: 'src/skin/external/datatables/'
                     },
                     {
@@ -307,7 +320,31 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datatables.net-responsive-bs4/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/responsive/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-responsive-bs4/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/extensions/responsive/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/datatables.net-responsive/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/responsive/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-responsive/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/extensions/responsive/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup-bs4/js/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/extensions/responsive/'
                     },
@@ -331,6 +368,24 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup-bs4/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-rowgroup-bs4/',
+                        src: ['css/*.css'],
+                        dest: 'src/skin/external/datatables/extensions/RowGroup/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/datatables.net-rowgroup-dt/js/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/extensions/RowGroup/'
@@ -346,6 +401,18 @@ module.exports = function (grunt) {
                         cwd:'node_modules/jszip/dist/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/eonasdan-bootstrap-datetimepicker/build/js/',
+                        src: ['bootstrap-datetimepicker.min.js'],
+                        dest: 'src/skin/external/bootstrap-datetimepicker/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/eonasdan-bootstrap-datetimepicker/build/css/',
+                        src: ['bootstrap-datetimepicker.min.css'],
+                        dest: 'src/skin/external/bootstrap-datetimepicker/'
                     }
                 ]
             }
