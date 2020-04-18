@@ -43,7 +43,7 @@ require 'Include/Header.php'; ?>
     <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
   </div>
 
-<div class="box box-body">
+<div class="card card-body">
 
   <?php
 
@@ -56,15 +56,15 @@ require 'Include/Header.php'; ?>
   if (isset($_POST['SaveChanges'])) {
       // Fill in the other needed custom field data arrays not gathered from the form submit
       $ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
-      
+
       $numRows = $ormCustomFields->count();
-      
+
       $row = 1;
-      
+
       foreach ($ormCustomFields as $ormCustomField) {
         $aFieldFields[$row] = $ormCustomField->getCustomField();
         $aTypeFields[$row] = $ormCustomField->getTypeId();
-        
+
         if (!is_null($ormCustomField->getCustomSpecial())) {
             $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
         } else {
@@ -106,14 +106,14 @@ require 'Include/Header.php'; ?>
             } else {
                 $temp = 'right';
             }
-            
+
             $per_cus = PersonCustomMasterQuery::Create()->findOneByCustomField ($aFieldFields[$iFieldID]);
-            
+
             $per_cus->setCustomName($aNameFields[$iFieldID]);
             $per_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
             $per_cus->setCustomSide($temp);
             $per_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
-            
+
             $per_cus->save();
           }
       }
@@ -132,11 +132,11 @@ require 'Include/Header.php'; ?>
               // $bNewTypeError = true;
           } else {
             $per_duplicate = PersonCustomMasterQuery::Create()->findOneByCustomName($newFieldName);
-            
+
             if (!empty($per_duplicate)) {
               $bDuplicateNameError = true;
             }
-              
+
               if (!$bDuplicateNameError) {
                   // Find the highest existing field number in the group's table to determine the next free one.
                   // This is essentially an auto-incrementing system where deleted numbers are not re-used.
@@ -155,7 +155,7 @@ require 'Include/Header.php'; ?>
                       $newFieldNum = mb_substr($lastPerCst->getCustomField(), 1) + 1;
                       $last = PersonCustomMasterQuery::Create()->orderByCustomOrder('desc')->limit(1)->findOne()->getCustomOrder();
                   }
-                  
+
                   if ($newFieldSide == 0) {
                       $newFieldSide = 'left';
                   } else {
@@ -168,25 +168,25 @@ require 'Include/Header.php'; ?>
                       $listMax = ListOptionQuery::Create()
                             ->addAsColumn('MaxID', 'MAX('.ListOptionTableMap::COL_LST_ID.')')
                             ->findOne();
-                    
+
                     $max = $listMax->getMaxID();
-                    
+
                     if ($max > 9) {
                         $newListID = $max + 1;
                     } else {
                         $newListID = 10;
                     }
-                    
+
                     // Insert into the lists table with an example option.
                     $lst = new ListOption();
-                    
+
                     $lst->setId($newListID);
                     $lst->setOptionId(1);
                     $lst->setOptionSequence(1);
                     $lst->setOptionName(_("Default Option"));
-                    
+
                     $lst->save();
-                    
+
                     $newSpecial = $newListID;
                   } else {
                       $newSpecial = 'NULL';
@@ -194,9 +194,9 @@ require 'Include/Header.php'; ?>
 
                   // Insert into the master table
                   $newOrderID = $last + 1;
-                  
+
                   $per_cus = new PersonCustomMaster();
-                
+
                   $per_cus->setCustomOrder($newOrderID);
                   $per_cus->setCustomField("c".$newFieldNum);
                   $per_cus->setCustomName($newFieldName);
@@ -204,7 +204,7 @@ require 'Include/Header.php'; ?>
                   $per_cus->setCustomSide($newFieldSide);
                   $per_cus->setCustomFieldSec($newFieldSec);
                   $per_cus->setTypeId($newFieldType);
-                
+
                   $per_cus->save();
 
                   // this can't be propeled
@@ -250,9 +250,9 @@ require 'Include/Header.php'; ?>
                   }
 
                   $sSQL .= ' DEFAULT NULL ;';
-                  
+
                   $connection = Propel::getConnection();
-                  
+
                   $statement = $connection->prepare($sSQL);
                   $statement->execute();
 
@@ -263,11 +263,11 @@ require 'Include/Header.php'; ?>
 
       // Get data for the form as it now exists..
       $ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
-    
+
       $numRows = $ormCustomFields->count();
-    
+
       $row = 1;
-    
+
       // Create arrays of the fields.
       foreach ($ormCustomFields as $ormCustomField) {
           $aNameFields[$row] = $ormCustomField->getCustomName();
@@ -277,7 +277,7 @@ require 'Include/Header.php'; ?>
           $aSideFields[$row] = ($ormCustomField->getCustomSide() == 'right');
           $aFieldSecurity[$row] = $ormCustomField->getCustomFieldSec();
           $aNameErrors[$row++] = false;
-      }  
+      }
   }
   // Prepare Security Group list
   $ormSecurityGrps = ListOptionQuery::Create()
@@ -289,7 +289,7 @@ require 'Include/Header.php'; ?>
     $aSecurityGrp[] = $ormSecurityGrp->toArray();
     $aSecurityType[$ormSecurityGrp->getOptionId()] = $ormSecurityGrp->getOptionName();
   }
-  
+
   function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
   {
       $sOptList = '<select name="'.$fld_name.'" class="form-control input-sm">';
@@ -329,7 +329,7 @@ require 'Include/Header.php'; ?>
             ?>
                 <span class="LargeText" style="color: red;"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
             <?php
-              } 
+              }
             ?>
           </td>
         </tr>
@@ -349,7 +349,7 @@ require 'Include/Header.php'; ?>
         for ($row = 1; $row <= $numRows; $row++) {
             ?>
           <tr>
-            <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
+            <td class="LabelColumn"><b><?= $row ?></b></td>
             <td class="TextColumnFam">
               <?php
               if ($row != 1) {
@@ -376,7 +376,7 @@ require 'Include/Header.php'; ?>
               ?>
                   <span style="color: red;"><BR><?= _('You must enter a name') ?></span>
               <?php
-                } 
+                }
               ?>
             </td>
             <td class="TextColumnFam" align="center">
@@ -409,7 +409,7 @@ require 'Include/Header.php'; ?>
               ?>
                   &nbsp;
               <?php
-                } 
+                }
               ?>
 
             </td>
@@ -482,7 +482,7 @@ require 'Include/Header.php'; ?>
               <td width="15%"></td>
               <td valign="top" class="TextColumnFam">
                  <select name="newFieldType" class="form-control input-sm">
-               
+
               <?php
                 for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
               ?>
