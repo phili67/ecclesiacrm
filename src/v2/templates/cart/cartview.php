@@ -24,11 +24,11 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 if ($iNumPersons > 0) {
     ?>
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _("Cart Functions") ?></h3>
+    <div class="card">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _("Cart Functions") ?></h3>
         </div>
-        <div class="box-body">
+        <div class="card-body">
             <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= _('Empty Cart') ?>
             </a>
             <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
@@ -89,11 +89,10 @@ if ($iNumPersons > 0) {
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="javascript:void(0)" onclick="allPhonesCommaD()"><i
+                            <li><a href="javascript:void(0)" onclick="allPhonesCommaD()" class="dropdown-item "><i
                                         class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a></li>
                             <li><a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>"
-                                   class="sPhoneLinkSMS"><i
-                                        class="fa fa-mobile-phone"></i><?= _("Text Cart") ?></li>
+                                   class="dropdown-item sPhoneLinkSMS"><i class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></li></a>
                         </ul>
                     </div>
                     <?php
@@ -114,16 +113,16 @@ if ($iNumPersons > 0) {
             } ?>
 
         </div>
-        <!-- /.box-body -->
+        <!-- /.card-body -->
     </div>
-    <!-- /.box -->
-    <!-- Default box -->
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Generate Labels') ?></h3>
+    <!-- /.card -->
+    <!-- Default card -->
+    <div class="card">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Generate Labels') ?></h3>
         </div>
         <form method="get" action="<?= $sRootPath ?>/Reports/PDFLabel.php" name="labelform">
-            <div class="box-body">
+            <div class="card-body">
                 <?php
                 LabelUtils::LabelGroupSelect('groupbymode');
                 ?>
@@ -169,7 +168,7 @@ if ($iNumPersons > 0) {
             </div>
             <br>
         </form>
-        <!-- /.box-body -->
+        <!-- /.card-body -->
     </div>
 
 
@@ -180,13 +179,13 @@ if ($iNumPersons > 0) {
 
 <!-- BEGIN CART LISTING -->
 <?php if (isset($iNumPersons) && $iNumPersons > 0): ?>
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">
+    <div class="card card-primary">
+        <div class="card-header with-border">
+            <h3 class="card-title">
                 <?= _('Your cart contains') . ' ' . $iNumPersons . ' ' . _('persons from') . ' ' . $iNumFamilies . ' ' . _('families') ?>
                 .</h3>
         </div>
-        <div class="box-body">
+        <div class="card-body">
             <table class="table table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
 
             </table>
