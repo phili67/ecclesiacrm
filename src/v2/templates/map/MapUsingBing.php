@@ -37,27 +37,27 @@ require $sRootDocument . '/Include/Header.php';
         </div>
   <?php
     }
-    
+
     foreach ($icons as $icon) {
       if ($icon->getUrl() == null) {
         ?>
            <div class="callout callout-danger">
                 <a href="<?= $sRootPath ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
-                <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>                
+                <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>
             </div>
         <?php
         break;
       }
     }
-      
+
     $arrPlotItemsSeperate = [];
-    
+
     $arrPlotItemsSeperate["-2"] = array();
     $arrPlotItemsSeperate["-1"] = array();
 ?>
 
 
-    <div class="box">
+    <div class="card">
         <!-- Google map div -->
         <div id="mapid" class="map-div"></div>
 
@@ -82,7 +82,7 @@ require $sRootDocument . '/Include/Header.php';
                    $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
                     ?>
                     <div class="legenditem">
-                        <?php 
+                        <?php
                           if (!empty($icon->getUrl())) {
                         ?>
                           <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
@@ -97,11 +97,11 @@ require $sRootDocument . '/Include/Header.php';
                         <label for="<?= $icon->getOptionId() ?>"><?= $icon->getOptionName() ?></label>
                     </div>
                     <?php
-                } 
-                ?>                
+                }
+                ?>
             </div>
         </div>
-        
+
         <!-- map Mobile legend-->
         <div id="maplegend-mobile" class="box visible-xs-block">
             <div class="row legendbox">
@@ -128,7 +128,7 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <div class="col-xs-6 legenditem">
                         <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
-                        <?php 
+                        <?php
                           if (!empty($icon->getUrl())) {
                         ?>
                           <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
@@ -162,52 +162,52 @@ require $sRootDocument . '/Include/Header.php';
 
   var iconBase = window.CRM.root+'/skin/icons/markers/';
   var newPlotArray = null;
-  
-  
+
+
   function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
      if (marker_position.lng == null || marker_position.lat == null || marker_position.lng == "" || marker_position.lat == "") return null;
-  
+
       var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), image);
-      
+
       map.entities.push(pin);
 
-      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), 
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng),
       { title: title,description: infowindow_content, visible: false,maxHeight: 500 });
-        
+
       infobox.setMap(map);
-        
+
       Microsoft.Maps.Events.addHandler(pin, 'click', function () {
           infobox.setOptions({ visible: true,offset: new Microsoft.Maps.Point(0, 32) });
       });
 
      return pin;
   }
-  
-  
+
+
   function initialize() {
       // init map
       map = new Microsoft.Maps.Map('#mapid', {});
-      
+
       window.CRM.map = map;// the Map is stored in the DOM
 
       //Churchmark
-      var icon = { 
+      var icon = {
            icon: window.CRM.root + "/skin/icons/church.png",
       };
 
       addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sChurchName') ?>");
-      
+
       // set the default place
       map.setView({
             mapTypeId: Microsoft.Maps.MapTypeId.canvasLight,
             center: new Microsoft.Maps.Location(churchloc.lat, churchloc.lng),
             zoom: <?= SystemConfig::getValue("iMapZoom")?>
       });
-      
+
       <?php
         $arr = array();
         $familiesLack = "";
-        
+
         if ($plotFamily) {
             foreach ($families as $family) {
                 if ($family->hasLatitudeAndLongitude()) {
@@ -233,9 +233,9 @@ require $sRootDocument . '/Include/Header.php';
                     $arr['Longitude'] = $family->getLongitude();
                     $arr['Name'] = $family->getName();
                     $arr['iconClassification'] = $member->getUrlIcon();
-                    $arr['type'] = 'family';          
+                    $arr['type'] = 'family';
                     $arr['mark'] = null;
-                    
+
                     if ($member->getClsId() == 0) {
                       array_push($arrPlotItemsSeperate["-2"], $arr);
                     } else {
@@ -263,7 +263,7 @@ require $sRootDocument . '/Include/Header.php';
                 $arr['iconClassification'] = $member->getUrlIcon();
                 $arr['type'] = 'person';
                 $arr['mark'] = null;
-                
+
                 if ($member->getClsId() == 0) {
                   array_push($arrPlotItemsSeperate["-2"], $arr);
                 } else {
@@ -271,9 +271,9 @@ require $sRootDocument . '/Include/Header.php';
                 }
             }
         } //end IF $plotFamily
-        
+
         // now we can add the Events
-        foreach ($eventsArr as $ev) {          
+        foreach ($eventsArr as $ev) {
           $event = EventQuery::Create()->findOneById($ev);
 
           $photoFileThumb = $sRootPath ."/skin/icons/event.png";
@@ -290,26 +290,26 @@ require $sRootDocument . '/Include/Header.php';
           $arr['type'] = 'event';
           $arr['desc'] = $event->getDesc();
           $arr['mark'] = null;
-          
+
           array_push($arrPlotItemsSeperate["-1"], $arr);
         }
-        
+
       ?>
 
       newPlotArray = <?= json_encode($arrPlotItemsSeperate) ?>;
-      
+
       var bPlotFamily = <?= ($plotFamily) ? 'true' : 'false' ?>;
 
       var familiesLack = '<?= $familiesLack ?>';
-      
+
       if (familiesLack != '') {
           window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Some families haven't any \"head of household\" role name defined or there's any activated members in this families:")+"<br>"+familiesLack);
       }
-      
+
       //loop through the families/persons and add markers
       for (var key in newPlotArray) {
         var plotArray = newPlotArray[key];
-        
+
         for (var i = 0; i < plotArray.length; i++) {
             if (plotArray[i].Latitude + plotArray[i].Longitude == 0)
                 continue;
@@ -317,19 +317,19 @@ require $sRootDocument . '/Include/Header.php';
             add_marker(plotArray[i]);
         }
       }
-    
+
   }
-  
+
   function add_marker (plot) {
     var iconurl = iconBase + plot.iconClassification;
-    
+
     if (plot.type == 'event') {
       iconurl = plot.Thumbnail;
     }
-    
+
 
     //Churchmark
-    var icon = { 
+    var icon = {
          icon: iconurl,
     };
 
@@ -354,7 +354,7 @@ require $sRootDocument . '/Include/Header.php';
         contentString += "<div class='image-container'><a href='" + imghref + "'>";
         if (plot.type == 'event') {
           contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "'></a>";
-          
+
           if (plot.Text != '') {
              contentString += "<b>"+i18next.t("Notes")+"</b>";
              contentString += "<br>"+plot.Text+"</div>";
@@ -367,10 +367,10 @@ require $sRootDocument . '/Include/Header.php';
     //Add marker and infowindow
     plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Salutation, contentString);
   }
-  
+
   function add_all_markers_for_id (id) {
     var plotArray = newPlotArray[id];
-        
+
     for (var i = 0; i < plotArray.length; i++) {
         if (plotArray[i].Latitude + plotArray[i].Longitude == 0)
             continue;
@@ -378,10 +378,10 @@ require $sRootDocument . '/Include/Header.php';
         add_marker(plotArray[i]);
     }
   }
-  
+
   function delete_all_markers_for_id (id) {
     var plotArray = newPlotArray[id];
-        
+
     for (var i = 0; i < plotArray.length; i++) {
       if (plotArray[i].mark != null) {
         window.CRM.map.entities.remove(plotArray[i].mark)
@@ -394,11 +394,11 @@ require $sRootDocument . '/Include/Header.php';
     if ($(this).is(':checked') == false) {
       delete_all_markers_for_id ($(this).data("id"));
     } else {
-      add_all_markers_for_id ($(this).data("id"));      
+      add_all_markers_for_id ($(this).data("id"));
     }
   });
-  
-  
+
+
   function GetMap() {
       initialize();
   }
