@@ -17,14 +17,14 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Email Campaign Management') ?></h3>
+    <div class="card">
+      <div class="card-header   with-border">
+        <h3 class="card-title"><?= _('Email Campaign Management') ?></h3>
         <div style="float:right">
           <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <p>
           <button class="btn btn-app bg-blue" id="saveCampaign" data-listid="<?= $list_id ?>" <?= (( $campaign['status'] == "sent" )?'disabled':'') ?>>
             <i class="fa fa-list-alt"></i><?= _("Save Campaign") ?>
@@ -43,11 +43,11 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Mail Subject') ?></h3>
+    <div class="card">
+      <div class="card-header   with-border">
+        <h3 class="card-title"><?= _('Mail Subject') ?></h3>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <input type="text" id="CampaignSubject" placeholder="<?= _("Your Mail Subject") ?>" size="30" maxlength="100" class="form-control input-sm" style="width: 100%" value="<?= $campaign['settings']['subject_line'] ?>">
       </div>
     </div>
@@ -56,11 +56,11 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Tags') ?></h3>
+    <div class="card">
+      <div class="card-header   with-border">
+        <h3 class="card-title"><?= _('Tags') ?></h3>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <?= $campaign['recipients']['segment_text'] ?>
       </div>
     </div>
@@ -69,22 +69,22 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
+    <div class="card">
+      <div class="card-header   with-border">
         <?php
           if ($campaign['status'] == "schedule") {
         ?>
-            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
+            <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
         <?php
           } else {
         ?>
-            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
+            <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
         <?php
           }
         ?>
       </div>
-      <div class="box-body">
-        <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i> 
+      <div class="card-body">
+        <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>
           <?= _("You've first to create a content below to schedule a campaign.") ?>
         </div>
         <div class="row">
@@ -117,7 +117,7 @@ require $sRootDocument . '/Include/Header.php';
                      </div>
                   <div class="col-md-7">
                      <?= _("To validate, save your campaign with the <b>\"Save Campaign\"</b> button over.") ?>
-                  </div>   
+                  </div>
                 </div>
            </div>
         </div>
@@ -128,14 +128,14 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
-        <h3 class="box-title"><?= _("Content") ?> </h3>
+    <div class="card">
+      <div class="card-header   with-border">
+        <h3 class="card-title"><?= _("Content") ?> </h3>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <div class="row">
           <div class="col-lg-12" style="padding-left:15px;padding-right:15px;">
-            <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
+            <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i>
               <?= _("You can use the button \"Merge Tags\" below, to customize your content") ?> : <img src="<?= $sRootPath ?>/Images/merge_tags.png">.
             </div>
             <textarea name="campaignContent" cols="80" class="form-control input-sm campaignContent" id="campaignContent"  width="100%" style="margin-top:0px;width: 100%;height: 14em;"></textarea></div>
@@ -159,7 +159,7 @@ require $sRootDocument . '/Include/Header.php';
   window.CRM.status            = "<?= $campaign['status'] ?>";
   window.CRM.bWithAddressPhone = <?= ($bWithAddressPhone)?'true':'false' ?>;
   window.CRM.sDateFormatLong   = "<?= $sDateFormatLong ?>";
-  
+
   //Timepicker
   $('.timepicker').timepicker({
     showInputs: false,
