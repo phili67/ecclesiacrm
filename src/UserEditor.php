@@ -47,6 +47,7 @@ if (!SessionUser::getUser()->isAdmin()) {
 $iPersonID = -1;
 $vNewUser = false;
 $bShowPersonSelect = false;
+$usr_role_id = null;
 
 
 // we search all the available roles
@@ -93,7 +94,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             RedirectUtils::Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText='._("Login must be a least 3 characters!"));
         }
     } else {
-       
+
         if (isset($_POST['roleID'])) {
             $roleID = $_POST['roleID'];
         } else {
@@ -165,7 +166,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $Admin = 0;
         }
-        
+
         if (isset($_POST['QueryMenu'])) {
             $QueryMenu = 1;
         } else {
@@ -177,31 +178,31 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $CanSendEmail = 0;
         }
-        
+
         if (isset($_POST['ExportCSV'])) {
             $ExportCSV = 1;
         } else {
             $ExportCSV = 0;
         }
-        
+
         if (isset($_POST['CreateDirectory'])) {
             $CreateDirectory = 1;
         } else {
             $CreateDirectory = 0;
-        }        
+        }
 
         if (isset($_POST['ExportSundaySchoolPDF'])) {
             $ExportSundaySchoolPDF = 1;
         } else {
             $ExportSundaySchoolPDF = 0;
-        }        
-        
+        }
+
         if (isset($_POST['ExportSundaySchoolCSV'])) {
             $ExportSundaySchoolCSV = 1;
         } else {
             $ExportSundaySchoolCSV = 0;
-        }        
-        
+        }
+
         if (isset($_POST['PastoralCare'])) {
             $PastoralCare = 1;
         } else {
@@ -225,14 +226,14 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $SeePrivacyData = 0;
         }
-        
+
 
         if (isset($_POST['GdrpDpo'])) {
             $GdrpDpo = 1;
         } else {
             $GdrpDpo = 0;
         }
-        
+
         // Initialize error flag
         $bErrorFlag = false;
 
@@ -245,13 +246,13 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 if ($undupCount == 0) {
                     $rawPassword = User::randomPassword();
                     $sPasswordHashSha256 = hash('sha256', $rawPassword . $iPersonID);
-                    
+
                     $user = new User();
-                    
+
                     $user->setPersonId($iPersonID);
                     $user->setPassword($sPasswordHashSha256);
                     $user->setLastLogin(date('Y-m-d H:i:s'));
-                    
+
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
                     $user->setMainDashboard($MainDashboard);
@@ -260,18 +261,18 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);
-                    
+
                     $user->setRoleId($roleID);
-                    
+
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
                     $user->setMenuOptions($MenuOptions);
-                    
+
                     $user->setManageGroups($ManageGroups);
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);
-                    
+
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
                     $user->setCanSendEmail($CanSendEmail);
@@ -281,33 +282,33 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
                     //$user->setDefaultFY($usr_defaultFY);
                     $user->setUserName($sUserName);
-                    
+
                     $user->setEditSelf($EditSelf);
                     $user->setCanvasser($Canvasser);
-                    
+
                     $user->save();
-                    
+
                     $user->createTimeLineNote("created");
                     $user->createHomeDir();
-                    
+
                     if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars
                       $user->createGroupAdminCalendars();
                     }
-                    
+
                     $email = new NewAccountEmail($user, $rawPassword);
                     $email->send();
                 } else {
                     // Set the error text for duplicate when new user
-                    RedirectUtils::Redirect('UserEditor.php?NewPersonID=' . $PersonID . '&ErrorText=' . _("Login already in use, please select a different login!"));
+                    RedirectUtils::Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText=' . _("Login already in use, please select a different login!"));
                 }
             } else {
                 if ($undupCount == 0) {
                     //$user->createHomeDir();
                     $user = UserQuery::create()->findPk($iPersonID);
-                    
+
                     $old_ManageGroups = $user->isManageGroupsEnabled();
                     $oldUserName = $user->getUserName();
-                    
+
                     $user->setAddRecords($AddRecords);
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
@@ -333,21 +334,21 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setCreatedirectory($CreateDirectory);
                     $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
                     $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
-                    
+
                     if (strtolower($oldUserName) != "admin") {
                       $user->setUserName($sUserName);
                     }
-                    
+
                     $user->setEditSelf($EditSelf);
                     $user->setCanvasser($Canvasser);
                     $user->save();
-                    
+
                     if (strtolower($oldUserName) != "admin") {
                       $user->renameHomeDir($oldUserName,$sUserName);
                     }
-                    
+
                     $user->createTimeLineNote("updated");// the calendars are moved from one username to another in the function : renameHomeDir
-                    
+
                     if ($ManageGroups || $Admin) {
                       if ( !$old_ManageGroups ) {// only when the user has now the role group manager
                         $user->deleteGroupAdminCalendars();
@@ -356,9 +357,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
                       $user->deleteGroupAdminCalendars();
                     }
-                     
+
                     $email = new UpdateAccountEmail($user, _("The same as before"));
-                    $email->send();                  
+                    $email->send();
                 } else {
                     // Set the error text for duplicate when currently existing
                     RedirectUtils::Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=' . _("Login already in use, please select a different login!"));
@@ -478,8 +479,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
         $sUserName                  = '';
         $vNewUser                   = 'true';
-        
-        
+
+
         $people = PersonQuery::create()
            ->leftJoinUser()
            ->withColumn('User.PersonId','UserPersonId')
@@ -523,14 +524,14 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
 
         // We can't update unless values already exist.
         $userConf = UserConfigQuery::create()->filterById($id)->findOneByPersonId ($iPersonID);
-        
+
         if ( is_null ($userConf) ) { // If Row does not exist then insert default values.
           // Defaults will be replaced in the following Update
           $userDefault = UserConfigQuery::create()->filterById($id)->findOneByPersonId (0);
-          
+
           if ( !is_null ($userDefault) ) {
             $userConf = new UserConfig();
-            
+
             $userConf->setPersonId ($iPersonID);
             $userConf->setId ($id);
             $userConf->setName($userDefault->getName());
@@ -540,19 +541,19 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
             $userConf->setPermission($permission);
             $userConf->setCat($userDefault->getCat());
-            
+
             $userConf->save();
           } else {
             echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
             exit;
           }
         } else {
-          
+
           $userConf->setValue($value);
           $userConf->setPermission($permission);
-              
+
           $userConf->save();
-          
+
         }
 
         next($type);
@@ -578,11 +579,11 @@ if ($usr_role_id == null) {
 
 ?>
 
-<div class="box">
-  <div class="box-header with-border">
-      <h3 class="box-title"><?= _("Role management") ?></h3>
+<div class="card">
+  <div class="card-header with-border">
+      <h3 class="card-title"><?= _("Role management") ?></h3>
   </div>
-  <div class="box-body">
+  <div class="card-body">
       <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= _("Add Role") ?></a>
       <a href="#" id="manageRole" class="btn btn-app"><i class="fa fa-gear"></i><?= _("Manage Roles")?></a>
       <div class="btn-group">
@@ -592,10 +593,10 @@ if ($usr_role_id == null) {
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu" id="AllRoles">
-            <?php 
+            <?php
                foreach ($userRoles as $userRole) {
             ?>
-               <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
+               <li> <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
             <?php
                }
             ?>
@@ -617,8 +618,8 @@ if ($usr_role_id == null) {
   if ($bShowPersonSelect) {
   //Yes, so display the people drop-down
 ?>
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-3">
              <?= _('Person to Make User') ?>:
@@ -629,9 +630,9 @@ if ($usr_role_id == null) {
                   // Loop through all the people
                   foreach ($people as $member) {
                     if ( is_null($member->getUserPersonId() ) ) {
-                ?> 
+                ?>
                 <option value="<?= $member->getId() ?>"<?= ($member->getId() == $iPersonID)?' selected':'' ?> data-email="<?= $member->getEmail() ?>"><?= $member->getLastName() . ', ' . $member->getFirstName() ?></option>
-                <?php 
+                <?php
                     }
                   }
                 ?>
@@ -650,9 +651,9 @@ if ($usr_role_id == null) {
   }
 ?>
 
-<div class="box">
-    <div class="box-body">
-        <div class="callout callout-info">
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-info">
             <?= _('Note: Changes will not take effect until next logon.') ?>
         </div>
       <table class="table table-hover data-person data-table1 no-footer dtr-inline" style="width:100%" id="table1">
@@ -684,7 +685,7 @@ if ($usr_role_id == null) {
               </tr>
               <?php
           } ?>
-          
+
           <?php
           // Are we adding?
           if (!$bShowPersonSelect) {
@@ -711,12 +712,12 @@ if ($usr_role_id == null) {
               <td><?= _('Delete Records') ?>:</td>
               <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?= ($usr_DeleteRecords)?' checked':'' ?>></td>
           </tr>
-          
+
           <tr>
               <td><?= _('Show Cart') ?>:</td>
               <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?= ($usr_ShowCart)?' checked':'' ?>></td>
           </tr>
-          
+
           <tr>
               <td><?= _('Show Map') ?>:</td>
               <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?= ($usr_ShowMap)?' checked':'' ?>></td>
@@ -792,7 +793,7 @@ if ($usr_role_id == null) {
                   &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
               </td>
           </tr>
-          
+
           <tr>
               <td><?= _('Create Directory') ?>:</td>
               <td>
@@ -872,10 +873,10 @@ if ($usr_role_id == null) {
 </div>
 <!-- /.box -->
 <!-- Default box -->
-<div class="box">
-    <div class="box-body box-danger">
+<div class="card">
+    <div class="card-body card-danger">
         <div
-            class="callout callout-info"><?= _('Set Permission True to give this user the ability to change their current value.') ?>
+            class="alert alert-info"><?= _('Set Permission True to give this user the ability to change their current value.') ?>
         </div>
             <table class="table table-hover data-person data-table2 no-footer dtr-inline" style="width:100%" >
               <thead>
@@ -893,16 +894,19 @@ if ($usr_role_id == null) {
 
                 // Get default settings
                 $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId (0);
-                
+
                 // List Default Settings
                 foreach ($defaultConfigs as $defaultConfig) {
                     $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId ($usr_per_ID);
-                    
+
                     if ( is_null ($userConfig) ) {// when the user is created there isn't any settings: so we load the default one
                       $userConfig = $defaultConfig;
                     }
-                    
+
                     // Default Permissions
+                    $sel1 = '';
+                    $sel2 = '';
+
                     if ($userConfig->getPermission() == 'TRUE') {
                         $sel2 = 'SELECTED';
                         $sel1 = '';
@@ -971,7 +975,7 @@ if ($usr_role_id == null) {
                     } elseif ($userConfig->getType() == 'choice') {
                       // we seach ever the default settings
                       $userChoices = UserConfigChoicesQuery::create()->findOneById (($defaultConfig->getChoicesId() == null)?0:$defaultConfig->getChoicesId());
-                      
+
                       $choices = explode(",", $userChoices->getChoices());
                   ?>
                     <td>
