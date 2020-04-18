@@ -36,7 +36,7 @@ use EcclesiaCRM\ListOption;
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 $manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
-  
+
 $is_group_manager = false;
 
 if (!empty($manager)) {
@@ -64,9 +64,9 @@ require 'Include/Header.php'; ?>
 
 <p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
-<div class="box">
-<div class="box-header with-border">
-    <h3 class="box-title"><?= _('Group-Specific Properties') ?></h3>
+<div class="card">
+<div class="card-header with-border">
+    <h3 class="card-title"><?= _('Group-Specific Properties') ?></h3>
 </div>
 
 <?php
@@ -96,10 +96,10 @@ if (isset($_POST['SaveChanges'])) {
         } else {
             $aSpecialFields[$row] = 'NULL';
         }
-        
+
         $row++;
     }
-    
+
     for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
         $aNameFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'name']);
 
@@ -114,7 +114,7 @@ if (isset($_POST['SaveChanges'])) {
 
         if (isset($_POST[$iPropID.'special'])) {
             $aSpecialFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'special'], 'int');
-            
+
             if ($aSpecialFields[$iPropID] == 0) {
                 $aSpecialErrors[$iPropID] = true;
                 $bErrorFlag = true;
@@ -138,19 +138,19 @@ if (isset($_POST['SaveChanges'])) {
             } else {
                 $temp = 'false';
             }
-            
-            if ($aTypeFields[$iPropID] == 2) {            
+
+            if ($aTypeFields[$iPropID] == 2) {
                $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
             }
-            
-            
+
+
             $groupMasterUpd = GroupPropMasterQuery::Create()->filterByGroupId ($iGroupID)->filterByPropId($iPropID)->findOne();
-            
+
             $groupMasterUpd->setName ($aNameFields[$iPropID]);
             $groupMasterUpd->setDescription ($aDescFields[$iPropID]);
             $groupMasterUpd->setSpecial ($aSpecialFields[$iPropID]);
             $groupMasterUpd->setPersonDisplay ($temp);
-            
+
             $groupMasterUpd->save();
         }
     }
@@ -165,7 +165,7 @@ if (isset($_POST['SaveChanges'])) {
             $bNewNameError = true;
         } else {
             $groupMasters = GroupPropMasterQuery::Create()->filterByGroupId ($iGroupID)->find();
-            
+
             foreach ($groupMasters as $groupMaster) {
               if ($groupMaster->getName() == $newFieldName) {
                 $bDuplicateNameError = true;
@@ -176,10 +176,10 @@ if (isset($_POST['SaveChanges'])) {
                 // Get the new prop_ID (highest existing plus one)
                 $propLists = GroupPropMasterQuery::Create()->findByGroupId ($iGroupID);
                 $newRowNum = $propLists->count()+1;
-                
+
                 // Find the highest existing field number in the group's table to determine the next free one.
                 // This is essentially an auto-incrementing system where deleted numbers are not re-used.
-                
+
                 // SELECT CAST(SUBSTR(groupprop_master.prop_Field, 2) as UNSIGNED) AS field, prop_Field FROM groupprop_master WHERE grp_ID=22 order by field
                 $lastProps = GroupPropMasterQuery::Create()
                    ->withColumn('CAST(SUBSTR('.GroupPropMasterTableMap::COL_PROP_FIELD.', 2) as UNSIGNED)', 'field')
@@ -198,7 +198,7 @@ if (isset($_POST['SaveChanges'])) {
                     $listMax = ListOptionQuery::Create()
                                 ->addAsColumn('MaxOptionID', 'MAX('.ListOptionTableMap::COL_LST_ID.')')
                                 ->findOne ();
-            
+
                     // this ensure that the group list and sundaygroup list has ever an unique optionId.
                     $max = $listMax->getMaxOptionID();
                     if ($max > 9) {
@@ -210,17 +210,17 @@ if (isset($_POST['SaveChanges'])) {
                     // Insert into the lists table with an example option.
                                 // Insert into the appropriate options table
                     $list_type = 'normal';// this list is only for a group specific properties, so it's ever a normal list 'normal' and not 'sundayschool'
-                    
+
                     $lst = new ListOption();
-            
+
                     $lst->setId($newListID);
                     $lst->setOptionId(1);
                     $lst->setOptionSequence(1);
                     $lst->setOptionType($list_type);
                     $lst->setOptionName(_("Default Option"));
-                    
+
                     $lst->save();
-                    
+
                     $newSpecial = $newListID;
                 } else {
                     $newSpecial = NULL;
@@ -228,7 +228,7 @@ if (isset($_POST['SaveChanges'])) {
 
                 // Insert into the master table
                 $groupPropMst = new GroupPropMaster();
-                
+
                 $groupPropMst->setGroupId ($iGroupID);
                 $groupPropMst->setPropId ($newRowNum);
                 $groupPropMst->setField ("c".$newFieldNum);
@@ -236,7 +236,7 @@ if (isset($_POST['SaveChanges'])) {
                 $groupPropMst->setDescription ($newFieldDesc);
                 $groupPropMst->setTypeId ($newFieldType);
                 $groupPropMst->setSpecial ($newSpecial);
-                
+
                 $groupPropMst->save();
 
                 // Insert into the group-specific properties table
@@ -281,7 +281,7 @@ if (isset($_POST['SaveChanges'])) {
                 }
 
                 $sSQL .= ' DEFAULT NULL ;';
-                
+
                 $connection = Propel::getConnection();
 
                 $statement = $connection->prepare($sSQL);
@@ -302,13 +302,13 @@ if (isset($_POST['SaveChanges'])) {
         $aDescFields[$row]    = $prop->getDescription();
         $aSpecialFields[$row] = $prop->getSpecial();
         $aFieldFields[$row]   = $prop->getField();
-        
+
         if ($type_ID == 9) {
           $aSpecialFields[$row] = $iGroupID;
         }
-        
+
         $aPersonDisplayFields[$row] = ($prop->getPersonDisplay() == 'true');
-        
+
         $row++;
     }
 }
@@ -338,7 +338,7 @@ if ($numRows == 0) {
   ?>
      <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
   <?php
-    } 
+    }
   ?>
   </td></tr>
 
@@ -369,7 +369,7 @@ if ($numRows == 0) {
         ?>
             <a href="#" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/downarrow.gif" border="0"></a>
         <?php
-          } 
+          }
         ?>
             <a href="#" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
       </td>
@@ -383,12 +383,12 @@ if ($numRows == 0) {
         ?>
             <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
         <?php
-          } 
+          }
         ?>
       </td>
 
       <td class="TextColumn">
-         <?php 
+         <?php
             OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
          ?>
       </td>
@@ -402,7 +402,7 @@ if ($numRows == 0) {
                 <option value="0" selected><?= _("Select a group") ?></option>
               <?php
                 $groupList = GroupQuery::Create()->orderByName()->find();
-                
+
                 foreach ($groupList as $group) {
               ?>
                 <option value="<?= $group->getId()?>" <?= ($aSpecialFields[$row] == $group->getId())?' selected':'' ?>>
@@ -411,7 +411,7 @@ if ($numRows == 0) {
                 }
               ?>
               </select>
-              
+
               <?php
 
                 if ($aSpecialErrors[$row]) {
@@ -454,15 +454,15 @@ if ($numRows == 0) {
       <td>
     </tr>
 <?php
-    } 
+    }
 ?>
    </table>
 </div>
 </center>
 </div>
-<div class="box">
-<div class="box-header with-border">
-  <h3 class="box-title"><?= _("Add Group-Specific Properties") ?></h3>
+<div class="card">
+<div class="card-header with-border">
+  <h3 class="card-title"><?= _("Add Group-Specific Properties") ?></h3>
 </div>
 
 <table  width="100%" style="border:white">
@@ -492,7 +492,7 @@ if ($numRows == 0) {
           <BR>
           <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
           </td>
-          <td valign="top">            
+          <td valign="top">
             <input type="text" name="newFieldName" size="25" maxlength="40" class="form-control">
             <?php
               if ($bNewNameError) {
@@ -508,7 +508,7 @@ if ($numRows == 0) {
             ?>
             &nbsp;
           </td>
-          <td valign="top">            
+          <td valign="top">
             <input type="text" name="newFieldDesc" size="30" maxlength="60" class="form-control">
             &nbsp;
           </td>
