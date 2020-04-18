@@ -29,7 +29,7 @@ $groups = GroupQuery::Create()->orderByName()->find();
 $groupName = "";
 
 if (isset($_POST['GroupID'])) {
-    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int'); 
+    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
     $groupName = " : ".GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
 }
 
@@ -41,22 +41,22 @@ require 'Include/Header.php';
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupRoles.js"></script>
 
-<?php 
+<?php
   if (!isset($_POST['GroupID'])) {
     $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
-    
+
     if ($currentUserBelongToGroup == 0) {
         RedirectUtils::Redirect('Menu.php');
     }
 ?>
-    
+
     <div class="row">
         <div class="col-lg-12">
-            <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title"><?= _('Select the group you would like to report') ?>:</h3>
+            <div class="card">
+            <div class="card-header with-border">
+                <h3 class="card-title"><?= _('Select the group you would like to report') ?>:</h3>
             </div>
-            <div class="box-body">
+            <div class="card-body">
                 <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php">
                     <div class="row">
                         <div class="col-xs-6">
@@ -107,22 +107,22 @@ require 'Include/Header.php';
                 </form>
             </div>
         </div>
-    
+
         </div>
     </div>
     <?php
 } else {
-    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int'); 
+    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
     $groupName = GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
-    
+
     ?>
     <div class="row">
         <div class="col-lg-12">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title"><?= _('Select which information you want to include') ?></h3>
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title"><?= _('Select which information you want to include') ?></h3>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
 
                     <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Reports/GroupReport.php">
                         <input type="hidden" Name="GroupID" <?= 'value="'.$iGroupID.'"' ?>>
@@ -185,7 +185,7 @@ require 'Include/Header.php';
     </div>
 
   <?php
-    } 
+    }
   ?>
 
 <?php require 'Include/Footer.php' ?>
