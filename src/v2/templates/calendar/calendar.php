@@ -96,7 +96,7 @@ require $sRootDocument . '/Include/Header.php';
 
                 <div id="accordion">
                     <div class="card card-primary card-calendar">
-                        <div class="card-header" id="headingOne">
+                        <div class="card-header card-header-calendar" id="headingOne">
                             <h3 class="card-title">
                                 <button class="btn btn-link text-white" data-toggle="collapse"
                                         data-target="#collapseOne"
@@ -104,7 +104,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <i class="fa fa-user"></i>&nbsp;<?= _("Personals") ?>
                                 </button>
                             </h3>
-                            <div class="card-tools">
+                            <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
                                         class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
                                         data-original-title="<?= _("Exclude/include Calendars") ?>"
@@ -135,7 +135,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <div class="card card-primary card-calendar">
-                        <div class="card-header" id="headingTwo">
+                        <div class="card-header card-header-calendar" id="headingTwo">
                             <h3 class="card-title">
                                 <button class="btn btn-link btn-link text-white" data-toggle="collapse"
                                         data-target="#collapseTwo"
@@ -144,7 +144,7 @@ require $sRootDocument . '/Include/Header.php';
                                         class="fa fa-video-camera"></i>&nbsp;<?= _("Resources") . (!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled()) ? "  (" . _("Shared") . ")" : "") ?>
                                 </button>
                             </h3>
-                            <div class="card-tools">
+                            <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
                                         class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
                                         data-original-title="<?= _("Exclude/include Resource") ?>"
@@ -179,7 +179,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <div class="card card-primary card-calendar">
-                        <div class="card-header" id="headingThree">
+                        <div class="card-header card-header-calendar" id="headingThree">
                             <h5 class="mb-0">
                                 <h3 class="card-title">
                                     <button class="btn btn-link btn-link text-white" data-toggle="collapse"
@@ -189,7 +189,7 @@ require $sRootDocument . '/Include/Header.php';
                                         <?= _("Groups") . (!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled()) ? "  (" . _("Shared") . ")" : "") ?>
                                     </button>
                                 </h3>
-                                <div class="card-tools">
+                                <div class="card-tools card-tools-calendar">
                                     <button type="button" class="btn btn-tool" data-card-widget="">
                                         <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
                                            data-original-title="<?= _("Add New Calendar") ?>"
@@ -213,7 +213,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                     <div class="card card-primary card-calendar">
-                        <div class="card-header" id="headingFour">
+                        <div class="card-header card-header-calendar" id="headingFour">
                             <h3 class="card-title">
                                 <button class="btn btn-link text-white collapsed" data-toggle="collapse"
                                         data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -221,7 +221,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </button>
                             </h3>
 
-                            <div class="card-tools">
+                            <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget="">
                                     <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
                                        data-original-title="<?= _("Exclude/include the Shared") ?>"
