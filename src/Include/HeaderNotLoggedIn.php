@@ -25,13 +25,13 @@ require_once 'Header-Security.php';
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery/jquery.min.js"></script>
 
     <title>EcclesiaCRM: <?= $sPageTitle ?></title>
-    
+
     <?php
     Header_fav_icons();
     ?>
 
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page text-sm">
 
   <script nonce="<?= SystemURLs::getCSPNonce() ?>"  >
     window.CRM = {
