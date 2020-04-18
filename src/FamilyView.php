@@ -227,83 +227,84 @@ require 'Include/Header.php';
     </div>
     <?php
 } ?>
-<div class="row">
-    <div class="col-3">
-        <div class="card card-primary card-outline">
-            <div class="card-body  card-profile">
-                <div class="image-container">
-                    <div class="text-center">
-                        <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo"
-                             class="initials-image profile-user-img img-responsive img-rounded img-circle"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-primary card-outline">
+                <div class="card-body  card-profile">
+                    <div class="image-container">
+                        <div class="text-center">
+                            <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo"
+                                 class="initials-image profile-user-img img-responsive img-rounded img-circle"/>
+                        </div>
+                        <?php
+                        if ($bOkToEdit) {
+                            ?>
+                            <div class="after">
+                                <div class="buttons">
+                                    <a class="hide" id="view-larger-image-btn" href="#"
+                                       title="<?= _("View Photo") ?>">
+                                        <i class="fa fa-search-plus"></i>
+                                    </a>&nbsp;
+                                    <a href="#" data-toggle="modal" data-target="#upload-image"
+                                       title="<?= _("Upload Photo") ?>">
+                                        <i class="fa fa-camera"></i>
+                                    </a>&nbsp;
+                                    <a href="#" data-toggle="modal" data-target="#confirm-delete-image"
+                                       title="<?= _("Delete Photo") ?>">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
+                    <h3 class="profile-username text-center"><?= _('Family') . ': ' . $family->getName() ?></h3>
                     <?php
                     if ($bOkToEdit) {
                         ?>
-                        <div class="after">
-                            <div class="buttons">
-                                <a class="hide" id="view-larger-image-btn" href="#"
-                                   title="<?= _("View Photo") ?>">
-                                    <i class="fa fa-search-plus"></i>
-                                </a>&nbsp;
-                                <a href="#" data-toggle="modal" data-target="#upload-image"
-                                   title="<?= _("Upload Photo") ?>">
-                                    <i class="fa fa-camera"></i>
-                                </a>&nbsp;
-                                <a href="#" data-toggle="modal" data-target="#confirm-delete-image"
-                                   title="<?= _("Delete Photo") ?>">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
-                            </div>
-                        </div>
+                        <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
+                           class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
                         <?php
                     }
                     ?>
-                </div>
-                <h3 class="profile-username text-center"><?= _('Family') . ': ' . $family->getName() ?></h3>
-                <?php
-                if ($bOkToEdit) {
+                    <hr/>
+                    <?php
+                    $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) ? true : false;
                     ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
-                       class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
-                    <?php
-                }
-                ?>
-                <hr/>
-                <?php
-                $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) ? true : false;
-                ?>
-                <ul class="fa-ul">
-                    <?php
-                    if ($can_see_privatedata) {
+                    <ul class="fa-ul">
+                        <?php
+                        if ($can_see_privatedata) {
                         ?>
-                        <li><i class="fa-li fa fa-home"></i><?= _("Address") ?>:
-                        <span>
+                        <li><strong><i class="fa-li fa fa-home"></i><?= _("Address") ?>:</strong>
+                            <span>
              <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
           </span><br>
 
-                        <?php
-                        if ($family->getLatitude() && $family->getLongitude()) {
-                            if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
-                                $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
-                                $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
-                                echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
-                            }
-                        } else {
-                            $bHideLatLon = true;
-                        }
-                        ?>
-                        <?php
-                        if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
-                            <li><strong><i class="fa-li fa fa-compass"></i><?= _("Latitude/Longitude") ?></strong>
-                                <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
-                            </li>
                             <?php
-                        }
+                            if ($family->getLatitude() && $family->getLongitude()) {
+                                if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
+                                    $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
+                                    $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
+                                    echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
+                                }
+                            } else {
+                                $bHideLatLon = true;
+                            }
                             ?>
-                </ul>
-                <hr/>
-                <ul class="fa-ul">
+                            <?php
+                            if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
+                        <li><strong><i class="fa-li fa fa-compass"></i><?= _("Latitude/Longitude") ?></strong>
+                            <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
+                        </li>
                     <?php
+                    }
+                    ?>
+                    </ul>
+                    <hr/>
+                    <ul class="fa-ul">
+                        <?php
                         if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
                             ?>
                             <li><strong><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:</strong>
@@ -344,7 +345,8 @@ require 'Include/Header.php';
                             ?>
                             <li><strong><i class="fa-li fa fa-mobile"></i><?= _("Mobile Phone") ?>:</strong> <span><a
                                         href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
-                            <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a
+                            <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>:
+                                </strong><span><a
                                         href="sms:<?= $sCellPhone ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
                             </li>
 
@@ -365,241 +367,243 @@ require 'Include/Header.php';
                             }
                         }
 
-                    } // end of can_see_privatedata
-                    ?>
-                </ul>
-                <hr/>
-                <ul class="fa-ul">
-                    <?php
-
-                    // Display the left-side custom fields
-                    foreach ($ormFamCustomFields as $rowCustomField) {
-                        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-                            $currentData = trim($aFamCustomDataArr[$rowCustomField->getCustomField()]);
-
-                            if (empty($currentData)) continue;
-
-                            if ($rowCustomField->getTypeId() == 11) {
-                                $fam_custom_Special = $sPhoneCountry;
-                            } else {
-                                $fam_custom_Special = $rowCustomField->getCustomSpecial();
-                            }
-                            ?>
-                            <li><strong><i class="fa-li fa fa-tag"></i>
-                                <?= $rowCustomField->getCustomName() ?>:</strong>
-                                <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special) ?>
-            </span>
-                            </li>
-                            <?php
-                        }
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="col-9">
-        <div class="card">
-            <div class="card-body">
-                <?php
-                $buttons = 0;
-
-                if (Cart::FamilyInCart($iFamilyID) && SessionUser::getUser()->isShowCartEnabled()) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart"
-                       data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span
-                            class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
-                    <?php
-                } else if (SessionUser::getUser()->isShowCartEnabled()) {
-                    ?>
-                    <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>">
-                        <i class="fa fa-cart-plus"></i> <span
-                            class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isEmailEnabled()) {
-                    $buttons++;
-                    $emails = "";
-                    foreach ($family->getActivatedPeople() as $person) {
-                        $emails .= $person->getEmail() . SessionUser::getUser()->MailtoDelimiter();
-                    }
-
-                    $emails = mb_substr($emails, 0, -1)
-                    ?>
-                    <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i
-                            class="fa fa-send-o"></i><?= _('Email') ?></a>
-                    <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i
-                            class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
-                    <?php
-                }
-                if (SessionUser::getUser()->isPastoralCareEnabled()) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app bg-purple"
-                       href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i
-                            class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isAdmin()) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app bg-aqua" href="#" data-toggle="modal" data-target="#confirm-verify"><i
-                            class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app bg-blue"
-                       href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
-                            class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
-                       data-placement="top" data-original-title="<?= _("Create a document") ?>"><i
-                            class="fa fa-file-o"></i><?= _("Create a document") ?></a>
-                    <?php
-                }
-
-                if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
-                    $buttons++;
-                    ?>
-                    <button class="btn btn-app bg-orange" id="activateDeactivate">
-                        <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
-                    </button>
-                    <?php
-                }
-
-                if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
-                    $buttons++;
-                    ?>
-                    <a class="btn btn-app bg-maroon"
-                       href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
-                            class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
-                    <?php
-                }
-
-                if (!$buttons) {
-                    ?>
-                    <?= _("Private Data") ?>
-                    <?php
-                }
-                ?>
-            </div>
-        </div>
-
-        <?php
-        if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-            ?>
-            <div class="card card-success ">
-                <div class="card-body">
-                    <table class="table user-list table-hover data-person" width="100%">
-                        <thead>
-                        <tr>
-                            <th><span><?= _("Family Members") ?></span></th>
-                            <th class="text-center"><span><?= _("Role") ?></span></th>
-                            <th><span><?= _("Classification") ?></span></th>
-                            <th><span><?= _("Birthday") ?></span></th>
-                            <th><span><?= _("Email") ?></span></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                        } // end of can_see_privatedata
+                        ?>
+                    </ul>
+                    <hr/>
+                    <ul class="fa-ul">
                         <?php
+
+                        // Display the left-side custom fields
+                        foreach ($ormFamCustomFields as $rowCustomField) {
+                            if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                                $currentData = trim($aFamCustomDataArr[$rowCustomField->getCustomField()]);
+
+                                if (empty($currentData)) continue;
+
+                                if ($rowCustomField->getTypeId() == 11) {
+                                    $fam_custom_Special = $sPhoneCountry;
+                                } else {
+                                    $fam_custom_Special = $rowCustomField->getCustomSpecial();
+                                }
+                                ?>
+                                <li><strong><i class="fa-li fa fa-tag"></i>
+                                        <?= $rowCustomField->getCustomName() ?>:</strong>
+                                    <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special) ?>
+            </span>
+                                </li>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <?php
+                    $buttons = 0;
+
+                    if (Cart::FamilyInCart($iFamilyID) && SessionUser::getUser()->isShowCartEnabled()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart"
+                           data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span
+                                class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
+                        <?php
+                    } else if (SessionUser::getUser()->isShowCartEnabled()) {
+                        ?>
+                        <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart"
+                           data-cartfamilyid="<?= $iFamilyID ?>">
+                            <i class="fa fa-cart-plus"></i> <span
+                                class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isEmailEnabled()) {
+                        $buttons++;
+                        $emails = "";
                         foreach ($family->getActivatedPeople() as $person) {
-                            ?>
+                            $emails .= $person->getEmail() . SessionUser::getUser()->MailtoDelimiter();
+                        }
+
+                        $emails = mb_substr($emails, 0, -1)
+                        ?>
+                        <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i
+                                class="fa fa-send-o"></i><?= _('Email') ?></a>
+                        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i
+                                class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                        <?php
+                    }
+                    if (SessionUser::getUser()->isPastoralCareEnabled()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-purple"
+                           href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i
+                                class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isAdmin()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-aqua" href="#" data-toggle="modal" data-target="#confirm-verify"><i
+                                class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-blue"
+                           href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
+                                class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
+                           data-placement="top" data-original-title="<?= _("Create a document") ?>"><i
+                                class="fa fa-file-o"></i><?= _("Create a document") ?></a>
+                        <?php
+                    }
+
+                    if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
+                        $buttons++;
+                        ?>
+                        <button class="btn btn-app bg-orange" id="activateDeactivate">
+                            <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
+                        </button>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-maroon"
+                           href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
+                                class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
+                        <?php
+                    }
+
+                    if (!$buttons) {
+                        ?>
+                        <?= _("Private Data") ?>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <?php
+            if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                ?>
+                <div class="card card-success">
+                    <div class="card-body">
+                        <table class="table user-list table-hover data-person" width="100%">
+                            <thead>
                             <tr>
-                                <td>
-                                    <img
-                                        src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                        width="40" height="40"
-                                        class="initials-image img-circle"/>
-                                    <a href="<?= $person->getViewURI() ?>"
-                                       class="user-link"><?= $person->getFullName() ?> </a>
-                                </td>
-                                <td class="text-center">
-                                    <?php
-                                    $famRole = $person->getFamilyRoleName();
-                                    $labelColor = 'label-default';
-                                    if ($famRole == _('Head of Household')) {
-                                    } elseif ($famRole == _('Spouse')) {
-                                        $labelColor = 'label-info';
-                                    } elseif ($famRole == _('Child')) {
-                                        $labelColor = 'label-warning';
-                                    }
-                                    ?>
-                                    <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
-                                </td>
-                                <td>
-                                    <?= $person->getClassification() ? $person->getClassification()->getOptionName() : "" ?>
-                                </td>
-                                <td>
-                                    <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
-                                        $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
-                                </td>
-                                <td>
-                                    <?php $tmpEmail = $person->getEmail();
-                                    if ($tmpEmail != "") {
-                                        array_push($sFamilyEmails, $tmpEmail);
-                                        ?>
-                                        <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
+                                <th><span><?= _("Family Members") ?></span></th>
+                                <th class="text-center"><span><?= _("Role") ?></span></th>
+                                <th><span><?= _("Classification") ?></span></th>
+                                <th><span><?= _("Birthday") ?></span></th>
+                                <th><span><?= _("Email") ?></span></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach ($family->getActivatedPeople() as $person) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
+                                            width="40" height="40"
+                                            class="initials-image img-circle"/>
+                                        <a href="<?= $person->getViewURI() ?>"
+                                           class="user-link"><?= $person->getFullName() ?> </a>
+                                    </td>
+                                    <td class="text-center">
                                         <?php
-                                    }
-                                    ?>
-                                </td>
-                                <td style="width: 20%;">
-                                    <?php
-                                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                                        $famRole = $person->getFamilyRoleName();
+                                        $labelColor = 'label-default';
+                                        if ($famRole == _('Head of Household')) {
+                                        } elseif ($famRole == _('Spouse')) {
+                                            $labelColor = 'label-info';
+                                        } elseif ($famRole == _('Child')) {
+                                            $labelColor = 'label-warning';
+                                        }
                                         ?>
-                                        <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
+                                        <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
+                                    </td>
+                                    <td>
+                                        <?= $person->getClassification() ? $person->getClassification()->getOptionName() : "" ?>
+                                    </td>
+                                    <td>
+                                        <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
+                                            $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
+                                    </td>
+                                    <td>
+                                        <?php $tmpEmail = $person->getEmail();
+                                        if ($tmpEmail != "") {
+                                            array_push($sFamilyEmails, $tmpEmail);
+                                            ?>
+                                            <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
+                                            <?php
+                                        }
+                                        ?>
+                                    </td>
+                                    <td style="width: 20%;">
+                                        <?php
+                                        if (SessionUser::getUser()->isShowCartEnabled()) {
+                                            ?>
+                                            <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
                     <span class="fa-stack">
                       <i class="fa fa-square fa-stack-2x"></i>
                       <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
                     </span>
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                    <?php
-                                    if ($bOkToEdit) {
+                                            </a>
+                                            <?php
+                                        }
                                         ?>
-                                        <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
-                                           class="table-link">
+                                        <?php
+                                        if ($bOkToEdit) {
+                                            ?>
+                                            <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                                               class="table-link">
                     <span class="fa-stack" style="color:green">
                       <i class="fa fa-square fa-stack-2x"></i>
                       <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                     </span>
-                                        </a>
-                                        <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
-                                           data-person_id="<?= $person->getId() ?>" data-view="family">
+                                            </a>
+                                            <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
+                                               data-person_id="<?= $person->getId() ?>" data-view="family">
                     <span class="fa-stack" style="color:red">
                         <i class="fa fa-square fa-stack-2x"></i>
                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                     </span>
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
+                                            </a>
+                                            <?php
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <?php
-        }
-        ?>
+                <?php
+            }
+            ?>
+        </div>
     </div>
 </div>
 
@@ -967,39 +971,39 @@ require 'Include/Header.php';
 
                                             <?php if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) { ?>
                                                 <div class="timeline-footer">
-                                                <?php
-                                                if (!$item['slim']) {
-                                                    ?>
                                                     <?php
-                                                    if ($item['editLink'] != '') {
+                                                    if (!$item['slim']) {
                                                         ?>
-                                                        <a href="#" data-id="<?= $item['id'] ?>"
-                                                           data-perid="<?= $item['perID'] ?>"
-                                                           data-famid="<?= $item['famID'] ?>" class="editDocument">
-                                                            <button type="button" class="btn btn-primary"><i
-                                                                    class="fa fa-edit"></i></button>
-                                                        </a>
+                                                        <?php
+                                                        if ($item['editLink'] != '') {
+                                                            ?>
+                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                               data-perid="<?= $item['perID'] ?>"
+                                                               data-famid="<?= $item['famID'] ?>" class="editDocument">
+                                                                <button type="button" class="btn btn-primary"><i
+                                                                        class="fa fa-edit"></i></button>
+                                                            </a>
+                                                            <?php
+                                                        }
+
+                                                        if ($item['deleteLink'] != '') {
+                                                            ?>
+                                                            <a href="#" data-id="<?= $item['id'] ?>"
+                                                               data-perid="<?= $item['perID'] ?>"
+                                                               data-famid="<?= $item['famID'] ?>"
+                                                               class="deleteDocument">
+                                                                <button type="button" class="btn btn-danger"><i
+                                                                        class="fa fa-trash"></i></button>
+                                                            </a>
+                                                            <?php
+                                                        }
+                                                        ?>
+
                                                         <?php
                                                     }
-
-                                                    if ($item['deleteLink'] != '') {
-                                                        ?>
-                                                        <a href="#" data-id="<?= $item['id'] ?>"
-                                                           data-perid="<?= $item['perID'] ?>"
-                                                           data-famid="<?= $item['famID'] ?>"
-                                                           class="deleteDocument">
-                                                            <button type="button" class="btn btn-danger"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </a>
-                                                        <?php
-                                                    }
                                                     ?>
-
-                                                    <?php
-                                                }
-                                                ?>
                                                 </div>
-                                                    <?php
+                                                <?php
                                             }
                                             ?>
                                         </div>
