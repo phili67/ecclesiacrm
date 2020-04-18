@@ -25,13 +25,13 @@ if ( $isMenuOption ) {
 
 <div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting properties, all persons, families and groups will be affected.') ?></div>
 
-<div class="box box-body">
-    <div class="table-responsive">
+<div class="card card-body">
+    <div class="table-responsive" width="100%">
 <?php
 //Start the table
 ?>
 
-<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2"></table>
+<table class='table table-striped table-bordered' id="property-listing-table-v2"></table>
 
 </div>
 </div>
