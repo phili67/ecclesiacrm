@@ -8,10 +8,10 @@ $sPageTitle = gettext("Family Registration");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 
-    <div class="register-box">
-        <div class="register-logo">
+    <div class="login-box">
+        <div class="login-logo">
             <?php
-            $headerHTML = '<b>Ecclesia</b>CRM';
+            $headerHTML = 'Ecclesia<b>CRM</b>';
             $sHeader = SystemConfig::getValue("sHeader");
             $sChurchName = SystemConfig::getValue("sChurchName");
             if (!empty($sHeader)) {
@@ -23,20 +23,29 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
             <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
         </div>
 
-        <div class="register-box-body">
+        <div class="card">
+        <div class="card-body login-card-body">
             <p class="login-box-msg"><?= gettext('Reset your password') ?></p>
 
             <div class="form-group has-feedback">
-                <input id="username" type="text" class="form-control" placeholder="<?= gettext('Login Name') ?>"
+                <div class="input-group mb-3">
+                    <input id="username" type="text" class="form-control" placeholder="<?= gettext('Login Name') ?>"
                        required>
-                <span class="fa fa-user form-control-feedback"></span>
+                    <div class="input-group-text">
+                        <span class="fa fa-user"></span>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 text-center">
-                    <button type="submit" id="resetPassword" class="btn bg-olive"><?= gettext('Go'); ?></button>
+                <div class="col-12">
+                    <button type="submit" id="resetPassword" class="btn btn-primary btn-block"><?= gettext('Go'); ?></button>
                 </div>
                 <!-- /.col -->
             </div>
+            <p class="mt-3 mb-1">
+                <a href="<?= SystemURLs::getRootPath() ?>/login.php"><?= _("Login") ?></a>
+            </p>
+        </div>
         </div>
         <!-- /.form-box -->
     </div>
