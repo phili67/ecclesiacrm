@@ -10,13 +10,13 @@
  ******************************************************************************/
 
 use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\view\MenuRenderer;
+use EcclesiaCRM\Theme;
 
 
 if (!Bootstrapper::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
@@ -41,180 +41,210 @@ $MenuFirst = 1;
 <!DOCTYPE HTML>
 <html>
 <head>
-  <meta charset="UTF-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <?php
-  require 'Header-HTML-Scripts.php';
-  Header_head_metatag($sPageTitle);
-  Header_fav_icons();
-  ?>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <?php
+    require 'Header-HTML-Scripts.php';
+    Header_head_metatag($sPageTitle);
+    Header_fav_icons();
+    ?>
 </head>
 
-<body class="<?= SessionUser::getUser()->getStyle() ?> sidebar-mini <?= (SessionUser::getUser()->isSidebarCollapseEnabled())?"sidebar-collapse":"" ?>" id="sidebar-mini">
+<body
+    class="sidebar-mini <?= Theme::isSidebarCollapseEnabled() ?> <?= Theme::getFontSize() ?>"
+    id="sidebar-mini" >
 <?php
-  Header_system_notifications();
- ?>
+Header_system_notifications();
+?>
 <!-- Site wrapper -->
 <div class="wrapper">
-  <?php
-  Header_modals();
-  Header_body_scripts();
+    <?php
+    Header_modals();
+    Header_body_scripts();
 
-  $loggedInUserPhoto = SystemURLs::getRootPath().'/api/persons/'.SessionUser::getUser()->getPersonId().'/thumbnail';
-  $MenuFirst = 1;
-  ?>
+    $loggedInUserPhoto = SystemURLs::getRootPath() . '/api/persons/' . SessionUser::getUser()->getPersonId() . '/thumbnail';
+    $MenuFirst = 1;
+    ?>
 
-  <header class="main-header">
-    <!-- Logo -->
-    <a href="<?= SystemURLs::getRootPath() ?>/Menu.php" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" height=36"/></span>
-      <!-- logo for regular state and mobile devices -->
-      <?php
-      $headerHTML = '<img src="'.SystemURLs::getRootPath().'/icon-large.png" height=36"/>'.SystemService::getDBMainVersion();
-      $sHeader = SystemConfig::getValue("sHeader");
-      if (!empty($sHeader)) {
-          $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
-      }
-      ?>
-      <span class="logo-lg"><?= $headerHTML ?></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only"><?= _('Toggle navigation') ?></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
 
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-            <!-- Cart Functions: style can be found in dropdown.less -->
-            <?php 
-               if (SessionUser::getUser()->isShowCartEnabled()) { 
-            ?>
-            <li class="dropdown notifications-menu" id="CartBlock" >
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= _('Your Cart') ?>">
-                    <i class="fa fa-shopping-cart"></i>
-                    <span id="iconCount" class="label label-success"><?= Cart::CountPeople() ?></span>
-                </a>
-                <ul class="dropdown-menu" id="cart-dropdown-menu"></ul>
+    <nav class="main-header navbar navbar-expand <?= Theme::getCurrentNavBarFontColor() ?> <?= Theme::getCurrentNavBarColor()?>">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
             </li>
-            <?php 
-               }
-            ?>
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= _('Your settings and more') ?>">
-              <img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="user-image initials-image" alt="User Image">
-              <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
-
-            </a>
-            <ul class="hidden-xxs dropdown-menu">
-              <li class="user-header" id="yourElement" style="height:205px">
-                <table border=0 class="table-dropdown-menu">
-                <tr style="border-bottom: 1pt solid black;">
-                <td valign="middle" width=110>
-                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle" alt="User Image" style="width:85px;height:85px">                
-                </td>
-                <td valign="middle" align="left" style="padding-top:10px">   
-                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= _("For your documents family etc ...")?>" data-placement="right">
-                      <p ><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= _("You can change here your password")?>" data-placement="right">
-                      <p ><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= _("Change Custom Settings")?>" data-placement="right">
-                      <p ><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= _("Lock your session")?>" data-placement="right">
-                      <p ><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= _("Quit EcclesiaCRM and close your session")?>" data-placement="right">
-                      <p ><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
-                </td>
-                </tr>
-                </table>
-                <p style="color:#fff"><b><?= SessionUser::getUser()->getName() ?></b></p>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= _('Help & Support') ?>">
-              <i class="fa fa-support"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="hidden-xxs">
-                <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>" class="main-help-menu">
-                  <i class="fa fa-question-circle"></i> <?= _('Help & Manual') ?>
-                </a>
-              </li>
-              <li class="hidden-xxs">
-                <a href="#" data-toggle="modal" data-target="#IssueReportModal" title="<?= _('Report an issue') ?>">
-                  <i class="fa fa-bug"></i> <?= _('Report an issue') ?>
-                </a>
-              </li>
-              <li class="hidden-xxs">
-                <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= _('Developer Chat') ?>">
-                  <i class="fa fa-commenting-o"></i> <?= _('Developer Chat') ?>
-                </a>
-              </li>              
-              <li class="hidden-xxs">
-                <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank" title="<?= _('Contributing') ?>">
-                  <i class="fa fa-github"></i> <?= _('Contributing') ?>
-                </a>
-              </li>              
-            </ul>
-          </li>
-          <?php
-          $tasks = $taskService->getCurrentUserTasks();
-          $taskSize = count($tasks);
-          ?>
-          <li class="dropdown settings-dropdown">
-            <a href="#" data-toggle="control-sidebar" title="<?= _('Your tasks') ?>">
-              <i class="fa fa-gears"></i>
-              <span class="label label-danger"><?= $taskSize ?></span>
-            </a>
-          </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="../index3.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
         </ul>
-      </div>
+        <!--<form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+
+                <select class="form-control multiSearch" style="width:120px"></select>
+
+
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>-->
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Cart Functions: style can be found in dropdown.less -->
+            <?php
+            if (SessionUser::getUser()->isShowCartEnabled()) {
+                ?>
+                <li class="nav-item dropdown notifications-menu" id="CartBlock">
+                    <a href="#" class="nav-link" data-toggle="dropdown" title="<?= _('Your Cart') ?>">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span id="iconCount" class="badge badge-warning navbar-badge"><?= Cart::CountPeople() ?></span>
+                    </a>
+                    <ul class="dropdown-menu" id="cart-dropdown-menu"></ul>
+                </li>
+                <?php
+            }
+            ?>
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="nav-item dropdown user user-menu">
+                <a href="#" class="nav-link" id="dropdown-toggle" data-toggle="dropdown"
+                   title="<?= _('Your settings and more') ?>">
+                    <img
+                        src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail"
+                        class="user-image initials-image" alt="User Image">
+                    <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
+
+                </a>
+                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>">
+                    <li class="user-header" id="yourElement" style="height:205px">
+                        <table border=0 class="table-dropdown-menu">
+                            <tr style="border-bottom: 1pt solid black;">
+                                <td valign="middle" width=110>
+                                    <img width="80"
+                                         src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail"
+                                         class="initials-image profile-user-img img-responsive img-circle"
+                                         alt="User Image" style="width:85px;height:85px">
+                                </td>
+                                <td valign="middle" align="left" style="padding-top:10px">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
+                                       class="item_link" data-toggle="tooltip"
+                                       title="<?= _("For your documents family etc ...") ?>" data-placement="right">
+                                        <p><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"
+                                       data-toggle="tooltip" title="<?= _("You can change here your password") ?>"
+                                       data-placement="right">
+                                        <p><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"
+                                       data-toggle="tooltip" title="<?= _("Change Custom Settings") ?>"
+                                       data-placement="right">
+                                        <p><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link"
+                                       data-toggle="tooltip" title="<?= _("Lock your session") ?>"
+                                       data-placement="right">
+                                        <p><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"
+                                       data-toggle="tooltip" title="<?= _("Quit EcclesiaCRM and close your session") ?>"
+                                       data-placement="right">
+                                        <p><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
+                                </td>
+                            </tr>
+                        </table>
+                        <p style="color:#fff"><b><?= SessionUser::getUser()->getName() ?></b></p>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="dropdown-toggle" data-toggle="dropdown"
+                   title="<?= _('Help & Support') ?>" aria-expanded="true">
+                    <i class="fa fa-support"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>"
+                       class="dropdown-item main-help-menu" class="dropdown-item">
+                        <i class="fa fa-question-circle"></i> <?= _('Help & Manual') ?>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" data-toggle="modal" data-target="#IssueReportModal" title="<?= _('Report an issue') ?>"
+                       class="dropdown-item">
+                        <i class="fa fa-bug"></i> <?= _('Report an issue') ?>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= _('Developer Chat') ?>"
+                       class="dropdown-item">
+                        <i class="fa fa-commenting-o"></i> <?= _('Developer Chat') ?>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank"
+                       title="<?= _('Contributing') ?>" class="dropdown-item">
+                        <i class="fa fa-github"></i> <?= _('Contributing') ?>
+                    </a>
+                </div>
+            </li>
+            <?php
+            $tasks = $taskService->getCurrentUserTasks();
+            $taskSize = count($tasks);
+            ?>
+
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-widget="control-sidebar" data-slide="true"
+                   title="<?= _('Your tasks') ?>" role="button">
+                    <i class="fa fa-gears"></i>
+                    <span class="badge badge-danger navbar-badge"><?= $taskSize ?></span>
+                </a>
+            </li>
+        </ul>
     </nav>
-  </header>
-  <!-- =============================================== -->
 
-  <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(128,128,128,0.95)),url(<?= SystemURLs::getRootPath() ?>/Images/sidebar.jpg);background-repeat: repeat-y;">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
 
-        <select class="form-control multiSearch"  style="width:100%">
-        </select>
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar <?= Theme::getCurrentSideBarTypeColor() ?> <?= Theme::isSidebarExpandOnHoverEnabled() ?> elevation-4" <?= (Theme::getCurrentSideBarMainColor() == 'light')?'style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(200,200,200,0.95)),url(/Images/sidebar.jpg);background-repeat: repeat-y;"':"" ?>>
+        <!-- sidebar: style can be found in sidebar.less -->
+        <a href="<?= SystemURLs::getRootPath() ?>/menu" class="brand-link <?= Theme::getCurrentNavBrandLinkColor() ?>">
+            <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="EcclesiaCRM Logo"
+                 class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span
+                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?></span>
+        </a>
 
-      </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu">
-        <li>
-          <a href="<?= SystemURLs::getRootPath() ?>/Menu.php">
-            <i class="fa fa-dashboard"></i> <span><?= _('Dashboard') ?></span>
-          </a>
-        </li>
-        <?php MenuRenderer::RenderMenu() ?>
-      </ul>
-    </section>
-  </aside>
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <section class="content-header">
-      <h1><?= (strlen($sPageTitleSpan))?$sPageTitleSpan:$sPageTitle ?></h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-        <div class="main-box-body clearfix" style="display:none" id="globalMessage">
-          <div class="callout fade in" id="globalMessageCallOut">
-            <!--<button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>-->
-            <i class="fa fa-exclamation-triangle fa-fw fa-lg"></i><span id="globalMessageText"></span>
-          </div>
-        </div>
+        <section class="sidebar">
+             <!-- sidebar menu: : style can be found in sidebar.less -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="true">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon  fa fa-search"></i>
+                        <p>
+                        <!-- search form -->
+                        <select class="form-control multiSearch" style="width:180px"></select>
+                        <!-- /.search form -->
+                        </p>
+                        </a>
+                    </li>
+                    <?php MenuRenderer::RenderMenu() ?>
+                </ul>
+            </nav>
+        </section>
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1><?= (strlen($sPageTitleSpan)) ? $sPageTitleSpan : $sPageTitle ?></h1>
+        </section>
+        <!-- Main content -->
+        <section class="content">
+            <div class="main-box-body clearfix" style="display:none" id="globalMessage">
+                <div class="callout fade in" id="globalMessageCallOut">
+                    <!--<button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>-->
+                    <i class="fa fa-exclamation-triangle fa-fw fa-lg"></i><span id="globalMessageText"></span>
+                </div>
+            </div>
