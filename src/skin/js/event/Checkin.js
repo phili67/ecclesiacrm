@@ -14,19 +14,24 @@ $(document).ready(function () {
   {
      if (window.CRM.editor != null) {
        CKEDITOR.remove(window.CRM.editor);
-       window.CRM.editor = null;              
+       window.CRM.editor = null;
      }
 
      modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','Checkin.php');
-       
+
      // we add the calendars and the types
      addCalendars();
      addCalendarEventTypes(-1,true);
 
      //Timepicker
-     $('.timepicker').timepicker({
-       showInputs: false,
-       showMeridian: (window.CRM.timeEnglish == "true")?true:false
+     $('.timepicker').datetimepicker({
+         format: 'LT',
+         locale: window.CRM.lang,
+         icons:
+             {
+                 up: 'fa fa-angle-up',
+                 down: 'fa fa-angle-down'
+             }
      });
 
      $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
@@ -64,13 +69,13 @@ $(document).ready(function () {
           width : '100%'
          });
        }
-   
+
        add_ckeditor_buttons(window.CRM.editor);
      }
-     
-     
+
+
      $(".ATTENDENCES").hide();
-   
+
      $('#EventCalendar option:first-child').attr("selected", "selected");
 
      modal.modal("show");
@@ -81,30 +86,30 @@ $(document).ready(function () {
 
   $('#add-event').click('focus', function (e) {
     var fmt = 'YYYY-MM-DD HH:mm:ss';
-  
+
     var dateStart = moment().format(fmt);
     var dateEnd = moment().format(fmt);
-          
+
     addEvent(dateStart,dateEnd);
   });
 
 
-    $(document).on("click",".PersonChangeState", function(){  
+    $(document).on("click",".PersonChangeState", function(){
       var checked  = $(this).is(':checked');
       var personID = $(this).data("personid");
       var eventID  = $(this).data("eventid");
-  
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'attendees/checkoutstudent',
         data: JSON.stringify({"checked":checked,"personID":personID,"eventID":eventID})
-      }).done(function(data) {   
-        if (data.status) {  
-          $('#checkoutPersonID'+personID).text(data.name);         
-        
+      }).done(function(data) {
+        if (data.status) {
+          $('#checkoutPersonID'+personID).text(data.name);
+
           var message;
 
-          if (checked) {              
+          if (checked) {
              $('#checkoutDatePersonID'+personID).text(data.date);
              $('#presenceID'+personID).text(i18next.t("Present"));
              message = "Attendees validated successfully.";
@@ -113,7 +118,7 @@ $(document).ready(function () {
              $('#presenceID'+personID).text(i18next.t("Absent"));
              message = "Attendees unvalidated successfully.";
            }
-         
+
            /*var box = window.CRM.DisplayAlert(i18next.t("Attendance"),message);
 
            setTimeout(function() {
@@ -123,27 +128,27 @@ $(document).ready(function () {
          }
       });
     });
-  
-    $(document).on("click","#uncheckAll", function(){  
+
+    $(document).on("click","#uncheckAll", function(){
       var eventID  = $(this).data("id");
-    
+
        window.CRM.APIRequest({
         method: 'POST',
         path: 'attendees/uncheckAll',
         data: JSON.stringify({"eventID":eventID})
-      }).done(function(data) {   
+      }).done(function(data) {
         location.reload();
       });
     });
 
-    $(document).on("click","#checkAll", function(){  
+    $(document).on("click","#checkAll", function(){
       var eventID  = $(this).data("id");
-    
+
        window.CRM.APIRequest({
         method: 'POST',
         path: 'attendees/checkAll',
         data: JSON.stringify({"eventID":eventID})
-      }).done(function(data) {   
+      }).done(function(data) {
         location.reload();
       });
     });
