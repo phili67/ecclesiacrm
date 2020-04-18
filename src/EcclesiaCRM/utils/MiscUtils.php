@@ -130,7 +130,7 @@ class MiscUtils {
         $sSQL .= $col_Name." = '".$data."', ";
         break;
     }
-  }  
+  }
   //Function to check email
   //From http://www.tienhuis.nl/php-email-address-validation-with-verify-probe
   //Functions checkndsrr and getmxrr are not enabled on windows platforms & therefore are disabled
@@ -250,8 +250,8 @@ class MiscUtils {
         }
     }
   }  // Generate a nicely formatted string for "FamilyName - Address / City, State" with available data
-  
-  
+
+
   public static function FormatAddressLine($Address, $City, $State)
   {
       $sText = '';
@@ -271,7 +271,7 @@ class MiscUtils {
 
       return $sText;
   }
-  
+
   public static function getFamilyList($sDirRoleHead, $sDirRoleSpouse, $classification = 0, $sSearchTerm = 0)
   {
     if ($classification) {
@@ -328,7 +328,7 @@ class MiscUtils {
 
     return $familyArray;
   }
-  
+
   public static function buildFamilySelect($iFamily, $sDirRoleHead, $sDirRoleSpouse)
   {
     //Get Families for the drop-down
@@ -344,22 +344,22 @@ class MiscUtils {
     return $html;
   }
 
-  
 
-  
+
+
 /**
  * Remove the directory and its content (all files and subdirectories).
  * @param string $dir the directory name
  */
-  public static function delTree($dir) { 
-   $files = array_diff(scandir($dir), array('.','..')); 
-    foreach ($files as $file) { 
-      (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file"); 
-    } 
-    return rmdir($dir); 
-  } 
-  
-  
+  public static function delTree($dir) {
+   $files = array_diff(scandir($dir), array('.','..'));
+    foreach ($files as $file) {
+      (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file");
+    }
+    return rmdir($dir);
+  }
+
+
 /**
  * Unicode to UTF8 real real string
  * @param string $dir the directory name
@@ -369,7 +369,7 @@ class MiscUtils {
           ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are two byte char
           ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are one byte char
           $string);
-          
+
       return $uriUtf8;
   }
 
@@ -382,68 +382,68 @@ class MiscUtils {
           ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are one byte char
           ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], //this are two byte char
           $string);
-          
+
       return $uriUnicode;
   }
-  
+
   public static function pathToPathWithIcons ($path) {
     $items = explode('/', $path);
-    
+
     $res = "";
     $len = count($items);
-    
+
     $first = true;
     for ($i=0;$i<$len;$i++) {
       if ($first == true) {
         $res = "<i class='fa fa-home text-aqua'></i> "._("Home");
-        
+
         if ($len > 2) {
            $res .= " <i class='fa fa-caret-right'></i>";
         }
         $first = false;
       }
-      
+
       if (!empty ($items[$i]) ){
         $res .= "&nbsp;&nbsp;<i class='fa fa-folder-o text-yellow'></i> ".$items[$i];
-        
+
         if ($i != $len-2) {
           $res .= "&nbsp;&nbsp;<i class='fa fa-caret-right'></i>";
         }
       }
     }
-    
+
     return $res;
   }
 
 /**
  * return all the directories in
  * @param string $path string $basePath
- */  
+ */
   public static function getDirectoriesInPath($dir) {
     $dirs = glob( ".".$dir . "*", GLOB_ONLYDIR );
-    
+
     return $dirs;
   }
-  
+
 /**
  * return all the directories in
  * @param string $path string $basePath
- */  
+ */
   public static function getImagesInPath($dir) {
     $files = glob($dir."/*.{jpg,gif,png,html,htm,php,ini}", GLOB_BRACE);
-    
+
     return $files;
   }
-  
-  
-  
-/** 
-* Converts bytes into human readable file size. 
-* 
-* @param string $bytes 
+
+
+
+/**
+* Converts bytes into human readable file size.
+*
+* @param string $bytes
 * @return string human readable file size (2,87 Мб)
-* @author Mogilev Arseny 
-*/ 
+* @author Mogilev Arseny
+*/
 public static function FileSizeConvert($bytes)
 {
     $bytes = floatval($bytes);
@@ -486,28 +486,28 @@ public static function FileSizeConvert($bytes)
 /**
  * return true when the path in the basePath is a real file
  * @param string $path string $basePath
- */  
+ */
   public static function isRealFile ($path,$basePath) {
     $test = str_replace($basePath, "", $path);
-    
+
     $res = strstr( $test, "/");
-    
+
     if ( strlen($res) > 0 ) {
       return false;
     }
-    
+
     return true;
   }
-  
+
   public static function getRealDirectory ($path,$basePath) {
     return str_replace(".".$basePath, "", $path);
   }
-  
+
   public static function FileIcon ($path)
   {
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
-    
+
     switch (strtolower($extension)) {
       case "doc":
       case "docx":
@@ -576,20 +576,20 @@ public static function FileSizeConvert($bytes)
         break;
       default:
         $icon = "fa-file-o text-blue";
-        break;        
+        break;
     }
-    
+
     return $icon." bg-gray-light";
   }
-  
+
   public static function simpleEmbedFiles ($path,$realPath=nil) {
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
-    
+
     $res = ($extension == "")?(_("Folder")." : ".$filename):(_("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>");
-    
+
     switch (strtolower($extension)) {
       /*case "doc":
       case "docx":
@@ -628,7 +628,7 @@ public static function FileSizeConvert($bytes)
       case "sql":
         $content = file_get_contents( dirname(__FILE__)."/../..".$realPath );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
-        
+
         $res .= '<div style="overflow: auto; width:100%; height:240px;border:1px;border-style: solid;border-color: lightgray;">';
         $res .= $content;
         $res .= '</div>';
@@ -678,21 +678,21 @@ public static function FileSizeConvert($bytes)
         $res .= "</video>";
         break;
     }
-    
+
     return $res;
   }
   public static function embedFiles ($path) {
     $isexpandable = true;
-    
+
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
-    
+
     $res = _("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
-    
+
     if (!$isexpandable) return;
-    
+
     switch (strtolower($extension)) {
       case "jpg":
       case "jpeg":
@@ -728,7 +728,7 @@ public static function FileSizeConvert($bytes)
       case "sql":
         $content = file_get_contents( dirname(__FILE__)."/../..".$path );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
-        
+
         if ($isexpandable) {
           $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
@@ -797,12 +797,12 @@ public static function FileSizeConvert($bytes)
         if ($isexpandable) {
           $res .= "</div>";
         }
-        break;        
+        break;
     }
-    
+
     return $res;
   }
-  
+
   public static function gen_uuid() {
     return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
         // 32 bits for "time_low"
@@ -825,10 +825,10 @@ public static function FileSizeConvert($bytes)
     );
   }
 
-  
+
   public static function noteType($notetype) {
     $type = '';
-    
+
     switch ($notetype) {
       case 'note':
       case 'document':
@@ -844,10 +844,10 @@ public static function FileSizeConvert($bytes)
         $type = _("Classic Audio");
         break;
     }
-    
+
     return $type;
   }
- 
+
   public static function urlExist( $url=0) {
     $file_headers = @get_headers($url);
     if($file_headers[0] == 'HTTP/1.1 404 Not Found')
@@ -882,7 +882,7 @@ public static function FileSizeConvert($bytes)
       }
       return $word;
   }
-  
+
   public static function getRandomCache($baseCacheTime,$variability){
     $var = rand(0,$variability);
     $dir = rand(0,1);
@@ -892,9 +892,9 @@ public static function FileSizeConvert($bytes)
     else{
       return $baseCacheTime + $var;
     }
-    
+
   }
-  
+
   public static function getPhotoCacheExpirationTimestamp() {
     $cacheLength = SystemConfig::getValue(iPhotoClientCacheDuration);
     $cacheLength = MiscUtils::getRandomCache($cacheLength,0.5*$cacheLength);
@@ -902,7 +902,7 @@ public static function FileSizeConvert($bytes)
     //die();
     return time() + $cacheLength ;
   }
-  
+
   public static function FontFromName($fontname)
   {
     $fontinfo = explode(' ', $fontname);
@@ -927,7 +927,7 @@ public static function FileSizeConvert($bytes)
           return 1995 + $iFYID.'/'.mb_substr(1996 + $iFYID, 2, 2);
       }
   }
-  
+
   // Returns the current fiscal year
   public static function CurrentFY()
   {
@@ -957,7 +957,7 @@ public static function FileSizeConvert($bytes)
       }
       echo '</select>';
   }
-  
+
   //
   // Collapses a formatted phone number as long as the Country is known
   // Eg. for United States:  555-555-1212 Ext. 123 ==> 5555551212e123
@@ -1012,7 +1012,7 @@ public static function FileSizeConvert($bytes)
   public static function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
   {
     // this is normally unusefull
-  
+
     /*$bWeird = false;
     $length = strlen($sPhoneNumber);
 
@@ -1042,10 +1042,10 @@ public static function FileSizeConvert($bytes)
       default:
         return $sPhoneNumber;
     }*/
-  
+
     return $sPhoneNumber;
   }
-  
+
   //
   // Returns the correct address to use via the sReturnAddress arguments.
   // Function value returns 0 if no info was given, 1 if person info was used, and 2 if family info was used.
@@ -1104,7 +1104,7 @@ public static function FileSizeConvert($bytes)
           }
       }
   }
-  
+
   /******************************************************************************
    * Returns the proper information to use for a field.
    * Person info overrides Family info if they are different.
@@ -1133,7 +1133,7 @@ public static function FileSizeConvert($bytes)
 
       return $finalData;
   }
-  
+
   public static function generateGroupRoleEmailDropdown($roleEmails, $href)
   {
       $res = "";
@@ -1144,13 +1144,13 @@ public static function FileSizeConvert($bytes)
           }
           $Email = urlencode($Email);  // Mailto should comply with RFC 2368
 
-        $res .= '<li> <a href="'. $href.mb_substr($Email, 0, -3) .'">'. _($role) . '</a></li>';
+        $res .= '<li> <a href="'. $href.mb_substr($Email, 0, -3) .'" class="dropdown-item">'. _($role) . '</a></li>';
 
       }
 
       return $res;
   }
-  
+
   public static function ConvertToBoolean($sInput)
   {
       if (empty($sInput)) {
@@ -1181,12 +1181,12 @@ public static function FileSizeConvert($bytes)
           return 0;
       }
   }
-  
+
   public static function ChopLastCharacter($sText)
   {
     return mb_substr($sText, 0, mb_strlen($sText) - 1);
   }
-  
+
   public static function AlternateRowStyle($sCurrentStyle)
   {
     if ($sCurrentStyle == 'RowColorA') {
@@ -1195,7 +1195,7 @@ public static function FileSizeConvert($bytes)
         return 'RowColorA';
     }
   }
-  
+
   public static function genGroupKey($methodSpecificID, $famID, $fundIDs, $date)
   {
     $uniqueNum = 0;
@@ -1211,13 +1211,13 @@ public static function FileSizeConvert($bytes)
         }
     }
   }
-  
+
   public static function requireUserGroupMembership($allowedRoles = null)
   {
     if ( isset($_SESSION['updateDataBase']) && $_SESSION['updateDataBase'] == true ) {// we don't have to interfer with this test
       return true;
     }
-    
+
     if (!$allowedRoles) {
         throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
     }
