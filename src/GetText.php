@@ -30,19 +30,28 @@ ob_start();
 
     <?php
     require 'Include/Header-HTML-Scripts.php';
-    Header_head_metatag(_("Text from")." ".$event->getId());
+    Header_head_metatag(_("Text from") . " " . $event->getId());
     ?>
 
 </head>
-</html>
-
-<div class="box-header with-border">
-    <h3><?= _('Text for Event ID')."   (".$event->getId().") : ".htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8') ?></h3></caption>
+<body style="margin: 20px">
+<div class="card">
+    <div class="card-header with-border">
+        <div class="card-title">
+            <h5><?= _('Text for Event ID') . "   (" . $event->getId() . ") : " . htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8') ?></h5></caption>
+        </div>
+    </div>
+    <div class="box-body">
+        <?= $event->getText() ?>
+    </div>
+    <div class="card-footer">
+        <p class="text-center">
+            <input type="button" name="Action" value="<?= _("Close Window") ?>" class="btn btn-success"
+                   onclick="javascript:window.close()">
+        </p>
+    </div>
 </div>
-<div class="box-body">
-    <?= $event->getText() ?>
-    <center><input type="button" name="Action" value="<?= _("Close Window") ?>" class="btn btn-success" onclick="javascript:window.close()"></center>
-</div>
+</body>
 </html>
 <?php
 require 'Include/Footer-Short.php';
