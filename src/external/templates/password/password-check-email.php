@@ -24,7 +24,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         </div>
 
         <div class="register-box-body">
-            <?= gettext("A new password was sent to you. Please check your email"); ?>
+            <?= _("A new password was sent to you. Please check your email"); ?>
         </div>
     </div>
 <?php
