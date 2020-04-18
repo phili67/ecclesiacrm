@@ -28,20 +28,20 @@ require $sRootDocument . '/Include/Header.php';
   }
 ?>
 
-<?php 
-  if (strtolower($sMode) == 'gdrp') { 
+<?php
+  if (strtolower($sMode) == 'gdrp') {
 ?>
 <div class="alert alert-warning">
     <strong> <?= _('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
     <strong> <?= _('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
 </div>
-<?php 
-  } 
+<?php
+  }
 ?>
 
 
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -52,11 +52,11 @@ require $sRootDocument . '/Include/Header.php';
                 <th><?= _('email') ?></th>
                 <th><?= _('Created') ?></th>
                 <th><?= _('Edited') ?></th>
-            <?php 
+            <?php
               if (strtolower($sMode) == 'gdrp') { ?>
                 <th><?= _('Deactivation date') ?></th>
-            <?php 
-              } 
+            <?php
+              }
               if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
             ?>
                 <th><?= _('Remove') ?></th>
@@ -68,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
             <tbody>
 
             <!--Populate the table with family details -->
-            <?php 
+            <?php
               foreach ($families as $family) {
             ?>
             <tr>
@@ -84,7 +84,7 @@ require $sRootDocument . '/Include/Header.php';
                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                         </span>
                     </a><?= $family->getName() ?></td>
-                <?php    
+                <?php
                 if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
                   <td> <?= $family->getAddress() ?></td>
@@ -105,12 +105,12 @@ require $sRootDocument . '/Include/Header.php';
                 <?php
                 }
                 $pledges  = PledgeQuery::Create()->findByFamId($family->getId());
-                
-                if (strtolower($sMode) == 'gdrp') { 
+
+                if (strtolower($sMode) == 'gdrp') {
               ?>
                   <td> <?= date_format($family->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-              <?php 
-                } 
+              <?php
+                }
                 if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
               ?>
                 <td><button class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>" ><?= _("Remove") ?></button></td>
@@ -121,12 +121,12 @@ require $sRootDocument . '/Include/Header.php';
             </tr>
             </tbody>
         </table>
-        <?php 
-          if (strtolower($sMode) == 'gdrp') { 
+        <?php
+          if (strtolower($sMode) == 'gdrp') {
         ?>
             <a class="btn btn-danger <?= ($families->count() == 0)?"disabled":"" ?>" id="remove-all"><?= _("Remove All") ?></a>
-        <?php 
-          } 
+        <?php
+          }
         ?>
     </div>
 </div>
