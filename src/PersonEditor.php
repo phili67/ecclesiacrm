@@ -832,14 +832,14 @@ require 'Include/Header.php';
         </div>
         <?php
     } ?>
-    <div class="box box-info clearfix">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Personal Info') ?></h3>
+    <div class="card card-info clearfix">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Personal Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-2">
@@ -973,14 +973,14 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="box box-info clearfix">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _("Person or Family Info") ?></h3>
+    <div class="card card-info clearfix">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _("Person or Family Info") ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
             <div class="form-group col-md-3">
                 <label><?= _("Person or Family Role") ?>:</label>
                 <select name="FamilyRole" class="form-control input-sm">
@@ -1026,8 +1026,8 @@ require 'Include/Header.php';
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="box-header with-border">
-                                <h3 class="box-title"><?= _('Person or Family Address') ?></h3>
+                            <div class="card-header with-border">
+                                <h3 class="card-title"><?= _('Person or Family Address') ?></h3>
                             </div>
                         </div><!-- /.box-header -->
                     </div>
@@ -1102,14 +1102,14 @@ require 'Include/Header.php';
             <!-- end of the new code PL -->
         </div>
     </div>
-    <div class="box box-info clearfix">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Contact Info') ?></h3>
+    <div class="card card-info clearfix">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Contact Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
             <div id="personAddress">
                 <?php
                 if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
@@ -1518,14 +1518,14 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="box box-info clearfix">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Membership Info') ?></h3>
+    <div class="card card-info clearfix">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Membership Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
-        <div class="box-body">
+        <div class="card-body">
             <div class="row">
                 <div class="form-group col-md-3 col-lg-3">
                     <label><?= _('Classification') ?>:</label>
@@ -1597,14 +1597,14 @@ require 'Include/Header.php';
     <?php
     if ($numCustomFields > 0) {
         ?>
-        <div class="box box-info clearfix">
-            <div class="box-header with-border">
-                <h3 class="box-title"><?= _('Custom Fields') ?></h3>
+        <div class="card card-info clearfix">
+            <div class="card-header with-border">
+                <h3 class="card-title"><?= _('Custom Fields') ?></h3>
                 <div class="pull-right">
                     <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">
                 </div>
             </div><!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
                 <?php
                 if ($numCustomFields > 0) {
                     for ($i = 0; $i < $maxCustomFields; $i++) {
