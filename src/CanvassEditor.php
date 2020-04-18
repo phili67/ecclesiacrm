@@ -71,7 +71,7 @@ if (isset($_POST['Submit'])) {
     // New canvas input (add)
     if ($iCanvassID < 1) {
         $canvas = new CanvassData();
-        
+
         $canvas->setFamilyId($iFamily);
         $canvas->setCanvasser($iCanvasser);
         $canvas->setFyid($iFYID);
@@ -83,14 +83,14 @@ if (isset($_POST['Submit'])) {
         $canvas->setSuggestion($tSuggestion);
         $canvas->setNotInterested($bNotInterested);
         $canvas->setWhyNotInterested($tWhyNotInterested);
-        
+
         $canvas->save();
 
         //Execute the SQL
         $iCanvassID = $canvas->getId();
     } else {
         $canvas = CanvassDataQuery::Create()->findOneByFamilyId ($iFamily);
-        
+
         $canvas->setFamilyId($iFamily);
         $canvas->setCanvasser($iCanvasser);
         $canvas->setFyid($iFYID);
@@ -102,7 +102,7 @@ if (isset($_POST['Submit'])) {
         $canvas->setSuggestion($tSuggestion);
         $canvas->setNotInterested($bNotInterested);
         $canvas->setWhyNotInterested($tWhyNotInterested);
-        
+
         $canvas->save();
     }
 
@@ -116,7 +116,7 @@ if (isset($_POST['Submit'])) {
     }
 } else {
     $canvas = CanvassDataQuery::Create()->filterByFyid($iFYID)->findOneByFamilyId ($iFamily);
-    
+
     if (!is_null ($canvas)) {
         $iCanvassID         = $canvas->getId();
         $iCanvasser         = $canvas->getCanvasser();
@@ -156,7 +156,7 @@ $braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 require 'Include/Header.php';
 ?>
 
-<div class="box box-body">
+<div class="card card-body">
 <form method="post" action="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
 
 <?php
@@ -200,8 +200,8 @@ require 'Include/Header.php';
           <?= _('Date') ?>:
         </div>
         <div class="col-lg-9">
-          <input type="text" name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" 
-            maxlength="10" id="sel1" size="11"  class="form-control pull-right active date-picker" 
+          <input type="text" name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"
+            maxlength="10" id="sel1" size="11"  class="form-control pull-right active date-picker"
             placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"?><font color="red"><?= $sDateError ?></font>
         </div>
     </div>
