@@ -460,7 +460,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 <div class="row">
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-gradient-lime">
             <div class="inner">
                 <h3 id="familyCountDashboard">
                     0
@@ -547,15 +547,15 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="box box-info">
-                <div class="box-header">
+            <div class="card card-info">
+                <div class="card-header">
                     <i class="fa fa-money fa-5x" style="font-size:26px"></i>
-                    <h3 class="box-title"><?= _('Deposit Tracking') ?></h3>
-                    <div class="box-tools pull-right">
+                    <h3 class="card-title"><?= _('Deposit Tracking') ?></h3>
+                    <div class="card-tools pull-right">
                         <div id="deposit-graph" class="chart-legend"></div>
                     </div>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div class="card-body">
                     <canvas id="deposit-lineGraph" style="height:225px; width:100%"></canvas>
                 </div>
             </div>
@@ -567,19 +567,20 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 
 <div class="row">
     <div class="col-lg-6">
-        <div class="box box-solid">
-            <div class="box-header with-border">
-                <i class="fa fa-group"></i><i class="fa fa-plus"></i>
-                <h3 class="box-title"><?= _('Latest Families') ?></h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-group"></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
                     </button>
                 </div>
             </div><!-- /.box-header -->
-            <div class="box-body clearfix">
-                <table class="dataTable table table-striped table-condensed" id="latestFamiliesDashboardItem">
+            <div class="card-body">
+                <table class="dataTable table table-striped table-condensed" id="latestFamiliesDashboardItem"
+                       width="100%">
                     <thead>
                     <tr>
                         <th data-field="name"><?= _('Family Name') ?></th>
@@ -594,19 +595,19 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="box box-solid">
-            <div class="box-header with-border">
-                <i class="fa fa-check"></i>
-                <h3 class="box-title"><?= _('Updated Families') ?></h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        <div class="card card-info">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
                     </button>
                 </div>
             </div><!-- /.box-header -->
-            <div class="box-body clearfix">
-                <table class=" dataTable table table-striped table-condensed" id="updatedFamiliesDashboardItem">
+            <div class="card-body">
+                <table class=" dataTable table table-striped table-condensed" id="updatedFamiliesDashboardItem"
+                       width="100%">
                     <thead>
                     <tr>
                         <th data-field="name"><?= _('Family Name') ?></th>
@@ -623,65 +624,58 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="box box-solid">
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <i class="fa fa-user-plus"></i></i><h3 class="box-title"><?= _('Latest Members') ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                        </button>
-                    </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-user-plus"></i></i> <?= _('Latest Members') ?></h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
+                    </button>
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <table class=" dataTable table table-striped table-condensed" id="latestPersonsDashboardItem">
-                        <thead>
-                        <tr>
-                            <th data-field="lastname"><?= _('Name') ?></th>
-                            <th data-field="address"><?= _('Address') ?></th>
-                            <th data-field="city"><?= _('Updated') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <!-- /.users-list -->
-                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="card-body">
+                <table class=" dataTable table table-striped table-condensed" id="latestPersonsDashboardItem" width="100%">
+                    <thead>
+                    <tr>
+                        <th data-field="lastname"><?= _('Name') ?></th>
+                        <th data-field="address"><?= _('Address') ?></th>
+                        <th data-field="city"><?= _('Updated') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- /.users-list -->
             </div>
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="box box-solid">
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <i class="fa fa-check"></i>
-                    <h3 class="box-title"><?= _('Updated Members') ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                        </button>
-                    </div>
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-check"></i> <?= _('Updated Members') ?></h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
+                    </button>
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body no-padding">
-                    <table class=" dataTable table table-striped table-condensed" id="updatedPersonsDashboardItem">
-                        <thead>
-                        <tr>
-                            <th data-field="lastname"><?= _('Name') ?></th>
-                            <th data-field="address"><?= _('Address') ?></th>
-                            <th data-field="city"><?= _('Updated') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <!-- /.users-list -->
-                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="card-body">
+                <table class=" dataTable table table-striped table-condensed" id="updatedPersonsDashboardItem" width="100%">
+                    <thead>
+                    <tr>
+                        <th data-field="lastname"><?= _('Name') ?></th>
+                        <th data-field="address"><?= _('Address') ?></th>
+                        <th data-field="city"><?= _('Updated') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- /.users-list -->
             </div>
         </div>
     </div>
@@ -690,8 +684,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 <!-- this page specific inline scripts -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.attendeesPresences = false;
-    window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance'))?'true':'false' ?>;
-    window.CRM.depositData = <?= ($depositData)?$depositData:"false" ?>;
+    window.CRM.bEnabledFinance = <?= (SystemConfig::getBooleanValue('bEnabledFinance')) ? 'true' : 'false' ?>;
+    window.CRM.depositData = <?= ($depositData) ? $depositData : "false" ?>;
     window.CRM.timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
 </script>
 
