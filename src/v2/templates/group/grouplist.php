@@ -48,7 +48,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <br>
 
-<div class="box box-body">
+<div class="card card-body">
     <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">
     </table>
     <?php
