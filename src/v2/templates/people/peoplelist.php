@@ -14,11 +14,11 @@ use EcclesiaCRM\SessionUser;
 // Security
 require $sRootDocument . '/Include/Header.php';
 ?>
-<div class="box box-solid" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled())?'style="display: none;"':"" ?>>
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Filters') ?></h3>
+<div class="card card-solid" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled())?'style="display: none;"':"" ?>>
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Filters') ?></h3>
     </div>
-    <div class="box-body clearfix">
+    <div class="card-body clearfix">
         <div class="row">
             <div class="col-sm-3"><?= _("Enter the search term") ?> :</div>
             <div class="col-sm-9">
@@ -58,9 +58,9 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="box box-body">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Search Results') ?><span class="progress" style="color:red"></span></h3>
+<div class="card card-body">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Search Results') ?><span class="progress" style="color:red"></span></h3>
     </div>
     <br>
     <div class="row">
