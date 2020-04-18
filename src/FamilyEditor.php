@@ -61,18 +61,18 @@ if ($iFamilyID > 0) {
         RedirectUtils::Redirect('Menu.php');
         exit;
     }
-    
+
     $family = FamilyQuery::Create()
         ->findOneById($iFamilyID);
-        
+
     if (empty($family)) {
         RedirectUtils::Redirect('Menu.php');
         exit;
     }
-    
+
     if ($family->getDateDeactivated() != null  && !SessionUser::getUser()->isGdrpDpoEnabled() ) {
       RedirectUtils::Redirect('members/404.php');
-    }    
+    }
 } elseif (!SessionUser::getUser()->isAddRecordsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
@@ -708,14 +708,14 @@ require 'Include/Header.php';
 <form method="post" action="FamilyEditor.php?FamilyID=<?= $iFamilyID ?>">
   <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
   <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
-  <div class="box box-info clearfix">
-    <div class="box-header with-border">
-      <h3 class="box-title"><?= _('Family Info') ?></h3>
+  <div class="card card-info clearfix">
+    <div class="card-header with-border">
+      <h3 class="card-title"><?= _('Family Info') ?></h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
       <div class="form-group">
         <div class="row">
           <div class="col-md-6">
@@ -795,14 +795,14 @@ require 'Include/Header.php';
             $("#state-input").select2();
         });
     </script>
-  <div class="box box-info clearfix">
-    <div class="box-header with-border">
-      <h3 class="box-title"><?= _('Contact Info') ?></h3>
+  <div class="card card-info clearfix">
+    <div class="card-header with-border">
+      <h3 class="card-title"><?= _('Contact Info') ?></h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit" >
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
       <div class="row">
         <div class="form-group col-md-4">
           <label><?= _('Home Phone') ?>:</label>
@@ -856,14 +856,14 @@ require 'Include/Header.php';
       </div>
     </div>
   </div>
-  <div class="box box-info clearfix">
-    <div class="box-header with-border">
-      <h3 class="box-title"><?= _('Other Info') ?>:</h3>
+  <div class="card card-info clearfix">
+    <div class="card-header with-border">
+      <h3 class="card-title"><?= _('Other Info') ?>:</h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
       <?php if (!SystemConfig::getValue('bHideWeddingDate')) { /* Wedding Date can be hidden - General Settings */
                   if ($dWeddingDate == 'NULL') {
                       $dWeddingDate = '';
@@ -925,20 +925,20 @@ require 'Include/Header.php';
             </select>
           </div>
         <?php
-                } 
+                }
         ?>
       </div>
     </div>
   </div>
   <?php if (SystemConfig::getValue('bUseDonationEnvelopes')) { /* Donation envelopes can be hidden - General Settings */ ?>
-  <div class="box box-info clearfix">
-    <div class="box-header with-border">
+  <div class="card card-info clearfix">
+    <div class="card-header with-border">
       <h3><?= _('Envelope Info') ?></h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
       <div class="row">
         <div class="form-group col-md-4">
           <label><?= _('Envelope Number') ?>:</label>
@@ -951,22 +951,22 @@ require 'Include/Header.php';
                 }
     if ($numCustomFields > 0) {
         ?>
-  <div class="box box-info clearfix">
-    <div class="box-header with-border">
-      <h3 class="box-title"><?= _('Custom Fields') ?></h3>
+  <div class="card card-info clearfix">
+    <div class="card-header with-border">
+      <h3 class="card-title"><?= _('Custom Fields') ?></h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
             <?php if ($numCustomFields > 0) {
               for ($i=0;$i < $maxCustomFields;$i++) {
                   echo '<div class="row">';
-                  
+
                   echo '  <div class="form-group col-md-6">';
                   if ($i < $numLeftCustomFields) {
                     $customField = $ormLeftCustomFields[$i];
-                     
+
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                       echo '<label>'.$customField['CustomName'].'</label><br>';
 
@@ -989,11 +989,11 @@ require 'Include/Header.php';
                     }
                   }
                   echo '  </div>';
-                  
+
                   echo '  <div class="form-group col-md-6">';
                   if ($i < $numRightCustomFields) {
                     $customField = $ormRightCustomFields[$i];
-                     
+
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                        echo '<label>'.$customField['CustomName'].'</label><br>';
 
@@ -1016,23 +1016,23 @@ require 'Include/Header.php';
                     }
                   }
                   echo '  </div>';
-                     
+
                   echo '</div>';
-                
+
               }
           } ?>
       </div>
   </div>
   <?php
     } ?>
-  <div class="box box-info clearfix">
-    <div class="box-header with-border" >
-      <h3 class="box-title"><?= _('Family Members') ?></h3>
+  <div class="card card-info clearfix">
+    <div class="card-header with-border" >
+      <h3 class="card-title"><?= _('Family Members') ?></h3>
       <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
-    <div class="box-body">
+    <div class="card-body">
 
   <?php if ($iFamilyMemberRows > 0) {
         ?>
@@ -1065,11 +1065,11 @@ require 'Include/Header.php';
         $ormFamilyRoles = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(2);
-        
+
         $numFamilyRoles = $ormFamilyRoles->count();
-        
+
         $c = 1;
-        
+
         foreach ($ormFamilyRoles as $rowFamilyRole) {
             $aFamilyRoleNames[$c] = $rowFamilyRole->getOptionName();
             $aFamilyRoleIDs[$c++] = $rowFamilyRole->getOptionId();
@@ -1178,7 +1178,7 @@ require 'Include/Header.php';
                     } ?>
           <option value="<?= $sDay ?>" <?= ($aBirthDays[$iCount] == $x)?'selected':''?>><?= $x ?></option>
           <?php
-            } 
+            }
           ?>
         </select>
       </td>
@@ -1186,17 +1186,17 @@ require 'Include/Header.php';
       <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                     $UpdateBirthYear = 1; ?>
         <input class="form-control input-md" name="BirthYear<?= $iCount ?>" type="text" value="<?= $aBirthYears[$iCount] ?>" size="4" maxlength="4">
-        <?php 
+        <?php
           if (array_key_exists($iCount, $aBirthDateError)) {
         ?>
             <div><font color="red"><?= $aBirthDateError[$iCount] ?></font></div>
         <?php
-          } 
+          }
         ?>
       <?php
         } else {
             $UpdateBirthYear = 0;
-        } 
+        }
       ?>
       </td>
       <td>
@@ -1210,7 +1210,7 @@ require 'Include/Header.php';
           $ormClassifications = ListOptionQuery::Create()
                   ->orderByOptionSequence()
                   ->findById(1);
-      
+
           foreach ($ormClassifications as $rowClassification) {
         ?>
           <option value="<?= $rowClassification->getOptionId() ?>"<?= ($aClassification[$iCount] == $rowClassification->getOptionId())?' selected':''?>>
