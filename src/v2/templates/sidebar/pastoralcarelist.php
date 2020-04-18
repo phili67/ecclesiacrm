@@ -19,7 +19,7 @@ if ( $isPastoralCareEnabled ) {
     <p align="center">
       <button class="btn btn-primary" id="add-new-pastoral-care"><?= _("Add a New Pastoral Care Type") ?></button>
     </p>
-<?php 
+<?php
 }else {
 ?>
     <div class="callout callout-warning">
@@ -30,7 +30,7 @@ if ( $isPastoralCareEnabled ) {
 }
 ?>
 
-<div class="box box-body">
+<div class="card card-body">
   <table class="table table-striped table-bordered" id="pastoral-careTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
