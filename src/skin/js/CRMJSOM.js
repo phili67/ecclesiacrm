@@ -71,7 +71,7 @@
             real_listMenu.html(listItems);
 
             if ( data.firstLoaded == true ) {
-              window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top");
+              window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
             }
           }
 
@@ -101,59 +101,29 @@
 
 
    window.CRM.notify = function(icon,title,message,link,type,place,delay,target,horizontal) {
-      if (delay === undefined) {
-        delay = 4000;
-      }
-      if (horizontal === undefined) {
-        horizontal = "right";
-      }
-      if (target === undefined) {
-        target = '_self';
-      }
-      $.notify({
-        // options
-        icon: icon,
-        title: title,
-        message: message,
-        url: link,
-        target: target
-      },{
-        // settings
-        element: 'body',
-        position: null,
-        type: type,
-        allow_dismiss: true,
-        newest_on_top: false,
-        showProgressbar: false,
-        placement: {
-          from: place,
-          align: horizontal
-        },
-        offset: 20,
-        spacing: 10,
-        z_index: 1031,
-        delay: delay,
-        timer: 1000,
-        url_target: target,
-        mouse_over: null,
-        animate: {
-          enter: 'animated fadeInDown',
-          exit: 'animated fadeOutUp'
-        },
-        icon_type: 'class',
-          class: 'alert-pink',
-        template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-              '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-              '<span data-notify="icon"></span> ' +
-              '<span data-notify="title">{1}</span> ' +
-              '<span data-notify="message">{2}</span>' +
-              '<div class="progress" data-notify="progressbar">' +
-              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-              '</div>' +
-              '<a href="{3}" target="{4}" data-notify="url"></a>' +
-              '</div>'
+        if (type == 'success') {
+            type='bg-success';
+        } else if (type == 'warning') {
+            type='bg-warning';
+        } else if (type == 'info') {
+            type='bg-info';
+        } else if (type == 'error') {
+            type='bg-error';
+        }
 
-      });
+        if (link != null) {
+            message = '<a href="' + link + '" target="' + target + '">'+message+'</a>';
+        }
+
+       $(document).Toasts('create', {
+           title: title,
+           body: message,
+           delay: delay,
+           type: type,
+           autohide: true,
+           animation:true,
+           class:type
+       })
     }
 
     window.CRM.VerifyThenLoadAPIContent = function(url) {
@@ -768,7 +738,7 @@
             path:"register/isRegisterRequired"
           }).done(function(data) {
             if (data.Register) {
-               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Register")+".","<br>"+i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\">" + i18next.t("link") + "</a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"left");
+               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\">" + i18next.t("link") + "</a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"left");
             }
           });
 
@@ -777,7 +747,7 @@
            path:"systemupgrade/isUpdateRequired"
           }).done(function(data) {
             if (data.Upgrade) {
-               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
+               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",60000,'_blank');
             }
           });
 
@@ -808,55 +778,44 @@
             if (data.PeopleCart.length > 0) {
               cartDropdownMenu = '\
                 <li id="showWhenCartNotEmpty">\
-                    <ul class="menu">\
-                        <li>\
-                            <a href="' + window.CRM.root+ '/v2/cart/view">\
+                            <a href="' + window.CRM.root+ '/v2/cart/view" class="dropdown-item">\
                                 <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="#" class="emptyCart" >\
+                        <div class="dropdown-divider"></div>\
+                            <a href="#" class="dropdown-item emptyCart" >\
                                 <i class="fa fa-eraser"></i>' + i18next.t("Empty Cart") + ' \
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="#" id="emptyCartToGroup">\
+                        </li><div class="dropdown-divider"></div>\
+                            <a href="#" id="emptyCartToGroup" class="dropdown-item">\
                                 <i class="fa fa-tag text-info"></i>' + i18next.t("Empty Cart to Group") + '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="' + window.CRM.root+ '/CartToFamily.php">\
+                        <div class="dropdown-divider"></div>\
+                            <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
                                 <i class="fa fa fa-users text-info"></i>' + i18next.t("Empty Cart to Family") + '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="#" id="emptyCartToEvent">\
+                        <div class="dropdown-divider"></div>\
+                            <a href="#" id="emptyCartToEvent" class="dropdown-item">\
                                 <i class="fa fa fa-ticket text-info"></i>' + i18next.t("Empty Cart to Event") + '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="' + window.CRM.root+ '/v2/map/0">\
+                        <div class="dropdown-divider"></div>\
+                            <a href="' + window.CRM.root+ '/v2/map/0" class="dropdown-item">\
                                 <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="#" id="deactivateCart">\
+                        <div class="dropdown-divider"></div>\
+                            <a href="#" id="deactivateCart" class="dropdown-item">\
                                <i class="fa fa-trash text-warning"></i>'+ i18next.t("Deactivate Persons From Cart")+ '\
                             </a>\
-                        </li>\
-                        <li>\
-                            <a href="#" id="deleteCart">\
+                        <div class="dropdown-divider"></div>\
+                            <a href="#" id="deleteCart" class="dropdown-item">\
                                <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From the CRM")+ '\
                             </a>\
-                        </li>\
-                    </ul>\
-                </li>\
                           <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
                       '
           }
             else {
               cartDropdownMenu = '\
-                <li class="header">' + i18next.t("Your Cart is Empty" ) + '</li>';
+                <span class="dropdown-item dropdown-header">' + i18next.t("Your Cart is Empty" ) + '</span>';
+
             }
           $("#cart-dropdown-menu").html(cartDropdownMenu);
           $("#CartBlock")
@@ -1436,7 +1395,7 @@
                 real_listMenu.html(listItems);
 
                 if (data.firstLoaded == true) {
-                    window.CRM.notify('glyphicon glyphicon-info-sign', i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top");
+                    window.CRM.notify('glyphicon glyphicon-info-sign', i18next.t("Mailchimp"),  i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top",50000);
                 }
             }
         },
