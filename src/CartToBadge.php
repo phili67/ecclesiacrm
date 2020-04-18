@@ -48,12 +48,12 @@ if (isset($_GET['typeProblem'])) {
 }
 ?>
 
-<div class="box">
-      <div class="box-header with-border">
-          <h3 class="box-title"><?= gettext('Generate Badges') ?></h3>
+<div class="card">
+      <div class="card-header with-border">
+          <h3 class="card-title"><?= gettext('Generate Badges') ?></h3>
       </div>
       <form method="post" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform"  enctype="multipart/form-data">
-      <div class="box-body">
+      <div class="card-body">
           <div class="row">
             <div class="col-md-6">
               <?= gettext("Title") ?>
@@ -117,25 +117,25 @@ if (isset($_GET['typeProblem'])) {
                   <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col-md-6">
             </div>
             <div class="col-md-6">
-              
+
                 (<b><?= gettext("Pictures in the Image folder: ") ?></b>
                 <?php
                   foreach ($imgs as $img) {
                     $name = str_replace("Images/background/","",$img);
                     echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
                   }
-                  
+
                   if (count($imgs) == 0) {
                     echo gettext("None");
                   }
                 ?>
                 )
-              
+
             </div>
           </div><br>
 
@@ -150,7 +150,7 @@ if (isset($_GET['typeProblem'])) {
               <?= gettext("and")?> &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
             </div>
           </div><br>
-          
+
           <div class="row">
             <div class="col-md-6">
                   <?= gettext("Image Position") ?>
@@ -177,7 +177,7 @@ if (isset($_GET['typeProblem'])) {
       </div>
     </div>
   </form>
-  <!-- /.box-body -->
+  <!-- /.card-body -->
 </div>
 
 <?php
