@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-gg"></i></span>
+            <span class="info-box-icon bg-yellow-gradient"><i class="fa fa-gg"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Classes') ?></span>
@@ -30,7 +30,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-olive"><i class="fa fa-group"></i></span>
+            <span class="info-box-icon bg-gradient-olive"><i class="fa fa-group"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-orange"><i class="fa fa-child"></i></span>
+            <span class="info-box-icon bg-gradient-orange"><i class="fa fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
                 <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> 0 </span>
@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gray"><i class="fa fa-user"></i></span>
+            <span class="info-box-icon bg-gradient-lime"><i class="fa fa-user"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
@@ -89,11 +89,11 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div><!-- /.row -->
 <!-- Small boxes (Stat box) -->
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Functions') ?></h3>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Functions') ?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
             <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
@@ -122,17 +122,17 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 <!-- on continue -->
-<div class="box box-info">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Sunday School Classes') ?></h3>
-        <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+<div class="card card-info">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Sunday School Classes') ?></h3>
+        <div class="card-tools pull-right">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
             </button>
         </div>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <table id="sundayschoolMissing" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -172,18 +172,18 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 
-<div class="box box-danger">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Students not in a Sunday School Class') ?></h3>
-        <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+<div class="card card-danger">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Students not in a Sunday School Class') ?></h3>
+        <div class="card-tools pull-right">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
             </button>
         </div>
     </div>
     <!-- /.box-header -->
-    <div class="box-body table-responsive">
+    <div class="card-body table-responsive">
         <table id="sundayschoolMissing" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -247,9 +247,10 @@ require $sRootDocument . '/Include/Header.php';
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
                     <h4 class="modal-title"
                         id="delete-Image-label"><?= _("Add Sunday School Class") ?> </h4>
+                    <button type="button" class="close flush-right" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
 
                 <div class="modal-body">
