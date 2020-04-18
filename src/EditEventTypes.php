@@ -33,7 +33,7 @@ use EcclesiaCRM\SessionUser;
 if (!SessionUser::getUser()->isAdmin()) {
     header('Location: Menu.php');
 }
-$sPageTitle = gettext('Edit Event Types');
+$sPageTitle = _('Edit Event Types');
 require 'Include/Header.php';
 
 //
@@ -46,7 +46,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
     $ctid = mb_substr($_POST['Action'], 7);
     $eventCountName = EventCountNameQuery::Create()
                        ->findOneById($ctid);
-                                              
+
     if (!empty($eventCountName)) {
        $eventCountName->delete();
     }
@@ -54,39 +54,39 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
   switch ($_POST['Action']) {
     case 'ADD':
       $eventCountName = new EventCountName();
-      
+
       $eventCountName->setName(InputUtils::FilterString($_POST['newCountName']));
       $eventCountName->setTypeId($_POST['EN_tyid']);
-      
+
       $eventCountName->save();
 
       break;
-      
+
     case 'NAME':
       $editing = 'FALSE';
-      
+
       $eventType = EventTypesQuery::Create()
                        ->findOneById($_POST['EN_tyid']);
-                       
+
       $eventType->setName(InputUtils::FilterString($_POST['newEvtName']));
-      
+
       $eventType->save();
-      
-                       
+
+
       $theID = '';
       $_POST['Action'] = '';
       break;
 
     case 'TIME':
       $editing = 'FALSE';
-      
+
       $eventType = EventTypesQuery::Create()
                        ->findOneById($_POST['EN_tyid']);
-                       
+
       $eventType->setDefStartTime($_POST['newEvtStartTime']);
-      
+
       $eventType->save();
-                  
+
       $theID = '';
       $_POST['Action'] = '';
       break;
@@ -97,7 +97,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 // Get data for the form as it now exists.
 $eventType = EventTypesQuery::Create()
                 ->findOneById($tyid);
-                
+
 if (empty($eventType)) {
   RedirectUtils::Redirect('EventNames.php'); // clear POST
 }
@@ -116,19 +116,19 @@ $aDefRecurType = $eventType->getDefRecurType();
 
 switch ($aDefRecurType) {
     case 'none':
-       $recur = gettext('None');
+       $recur = _('None');
        break;
     case 'weekly':
-       $recur = gettext('Weekly on').' '.gettext($aDefRecurDOW.'s');
+       $recur = _('Weekly on').' '._($aDefRecurDOW.'s');
        break;
     case 'monthly':
-       $recur = gettext('Monthly on').' '.date('dS', mktime(0, 0, 0, 1, $aDefRecurDOM, 2000));
+       $recur = _('Monthly on').' '.date('dS', mktime(0, 0, 0, 1, $aDefRecurDOM, 2000));
        break;
     case 'yearly':
-       $recur = gettext('Yearly on').' '.$aDefRecurDOY;
+       $recur = _('Yearly on').' '.$aDefRecurDOY;
        break;
     default:
-       $recur = gettext('None');
+       $recur = _('None');
 }
 
 
@@ -137,11 +137,11 @@ $eventCountNames = EventCountNameQuery::Create()
                        ->filterByTypeId($aTypeID)
                        ->orderById()
                        ->find();
-                       
+
 $numCounts = count($eventCountNames);
 
 $nr = $numCounts + 2;
-      
+
 $cCountName = array();
 $cCountID = array();
 
@@ -150,16 +150,16 @@ if ($numCounts) {
         $cCountID[] = $eventCountName->getId();
         $cCountName[] = $eventCountName->getName();
     }
-}      
+}
 
 /*print_r($cCountName);
 print_r($cCountID);*/
-          
+
 // Construct the form
 ?>
-<div class='box'>
-  <div class='box-header'>
-    <h3 class='box-title'><?= gettext('Edit Event Type') ?></h3>
+<div class='card'>
+  <div class='card-header'>
+    <h3 class='card-title'><?= _('Edit Event Type') ?></h3>
   </div>
 
   <form method="POST" action="EditEventTypes.php" name="EventTypeEditForm">
@@ -169,18 +169,18 @@ print_r($cCountID);*/
 <table class='table'>
   <tr>
     <td class="LabelColumn" width="15%">
-      <strong><?= gettext('Event Type').':'.$aTypeID ?></strong>
+      <strong><?= _('Event Type').':'.$aTypeID ?></strong>
     </td>
     <td class="TextColumn" width="35%">
       <input type="text" class="form-control" name="newEvtName" value="<?= $aTypeName ?>" size="30" maxlength="35" autofocus />
     </td>
     <td class="TextColumn" width="50%">
-      <button type="submit" Name="Action" value="NAME" class="btn btn-primary"><?= gettext('Save Name') ?></button>
+      <button type="submit" Name="Action" value="NAME" class="btn btn-primary"><?= _('Save Name') ?></button>
     </td>
   </tr>
   <tr>
     <td class="LabelColumn" width="15%">
-      <strong><?= gettext('Recurrence Pattern') ?></strong>
+      <strong><?= _('Recurrence Pattern') ?></strong>
     </td>
     <td class="TextColumn" width="35%">
       <?= $recur ?>
@@ -195,7 +195,7 @@ print_r($cCountID);*/
 
    <tr>
       <td class="LabelColumn" width="15%" rowspan="<?= $nr ?>" colspan="1">
-        <strong><?= gettext('Attendance Counts') ?></strong>
+        <strong><?= _('Attendance Counts') ?></strong>
       </td>
     </tr>
     <?php
@@ -204,7 +204,7 @@ print_r($cCountID);*/
       <tr>
         <td class="TextColumn" width="35%"><?= $cCountName[$c] ?></td>
         <td class="TextColumn" width="50%">
-          <button type="submit" name="Action" value="DELETE_<?=  $cCountID[$c] ?>" class="btn btn-danger"><?= gettext('Remove') ?></button>
+          <button type="submit" name="Action" value="DELETE_<?=  $cCountID[$c] ?>" class="btn btn-danger"><?= _('Remove') ?></button>
         </td>
       </tr>
      <?php
@@ -212,10 +212,10 @@ print_r($cCountID);*/
      ?>
       <tr>
         <td class="TextColumn" width="35%">
-           <input class='form-control' type="text" name="newCountName" length="20" placeholder="<?= gettext("New Attendance Count") ?>" />
+           <input class='form-control' type="text" name="newCountName" length="20" placeholder="<?= _("New Attendance Count") ?>" />
         </td>
         <td class="TextColumn" width="50%">
-           <button type="submit" name="Action" value="ADD" class="btn btn-success"><?= gettext('Add counter') ?></button>
+           <button type="submit" name="Action" value="ADD" class="btn btn-success"><?= _('Add counter') ?></button>
         </td>
       </tr>
 </table>
@@ -225,7 +225,7 @@ print_r($cCountID);*/
 <div>
   <a href="EventNames.php" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
-    <?= gettext('Return to Event Types') ?>
+    <?= _('Return to Event Types') ?>
   </a>
 </div>
 
