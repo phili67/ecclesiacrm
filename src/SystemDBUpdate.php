@@ -28,35 +28,38 @@ if (InputUtils::FilterString($_GET['upgrade']) == "true") {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('System Upgrade');
+$sPageTitle = _('System Upgrade');
 require 'Include/HeaderNotLoggedIn.php'; ?>
 
 <p></br></p>
 
 <div class="error-page">
-
-
-    <h2 class="headline text-yellow">426</h2>
-
-
-    <div class="error-content">
-        <div class="row">
-            <h3><i class="fa fa-warning text-yellow"></i> <?= gettext('Upgrade Required') ?></h3>
-            <p>
-                <?= gettext("Current DB Version" . ": " . SystemService::getDBVersion()) ?> <br/>
-                <?= gettext("Current Software Version" . ": " . SystemService::getInstalledVersion()) ?> <br/>
-            </p>
+    <div class="row">
+        <div class="col-3"><h1 class="headline text-yellow" style="font-size:60px">426</h1></div>
+        <div class="col-6">
+            <div class="error-content">
+                <div class="row">
+                    <h3><i class="fa fa-warning text-yellow"></i> <?= _('Upgrade Required') ?></h3>
+                    <p>
+                        <?= _("Current DB Version" . ": " . SystemService::getDBVersion()) ?> <br/>
+                        <?= _("Current Software Version" . ": " . SystemService::getInstalledVersion()) ?> <br/>
+                    </p>
+                </div>
+            </div>
         </div>
+        <div class="col-3"></div>
     </div>
     <?php if (empty($errorMessage)) {
     ?>
-        <div class="row center-block">
+        <div class="row">
+            <div class="col-12">
                 <p></br></p>
                 <form>
                     <input type="hidden" name="upgrade" value="true"/>
-                    <button type="submit" class="btn btn-primary btn-block btn-flat"><i
-                            class="fa fa-database"></i> <?= gettext('Upgrade database') ?></button>
+                    <button type="submit" class="btn btn-primary btn-block"><i
+                            class="fa fa-database"></i> <?= _('Upgrade database') ?></button>
                 </form>
+            </div>
         </div>
     <?php
 } else {
