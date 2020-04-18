@@ -259,3 +259,17 @@ scrollable bootbox body
 .info table tbody th {
     background-color: rgba(18, 145, 190, 0.1) !important;
 }
+
+/* label color */
+
+.label-warning {
+    color:red;
+}
+
+.label-default {
+    color:gray;
+}
+
+.label-info {
+    color:cyan;
+}
