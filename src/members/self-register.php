@@ -10,7 +10,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 //Set the page title
-$sPageTitle = gettext('Families Self Registration');
+$sPageTitle = _('Families Self Registration');
 require '../Include/Header.php';
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -19,14 +19,12 @@ use EcclesiaCRM\dto\SystemURLs;
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title"><?= gettext("Families") ?></h3>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><?= _("Families") ?></h3>
             </div>
-            <div class="box-body">
-                <table id="families" class="table table-striped table-bordered table-responsive data-table">
-                    <tbody></tbody>
-                </table>
+            <div class="card-body">
+                <table id="families" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" style="width:100%"></table>
             </div>
         </div>
     </div>
@@ -65,9 +63,9 @@ use EcclesiaCRM\dto\SystemURLs;
             ],
             order: [[2, "desc"]]
         };
-        
+
         $.extend(familiesTableConfig,window.CRM.plugin.dataTable);
-        
+
         $("#families").DataTable(familiesTableConfig);
     });
 </script>
