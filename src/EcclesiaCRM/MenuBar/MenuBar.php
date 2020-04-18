@@ -221,6 +221,12 @@ class MenuBar {
 
     private function createMenuBar ()
     {
+
+        $menuItem = new Menu (_("Dashboard"),"fa fa-dashboard","menu",true);
+        $menuItem->addLink("Menu.php");
+
+        $this->addMenu($menuItem);
+
         // home Area
         $menu = new Menu (_("Private Space"),"fa fa-home","",true);
 
@@ -252,11 +258,11 @@ class MenuBar {
 
         // the Events Menu
         if (SystemConfig::getBooleanValue("bEnabledEvents")) {
-            $menu = new Menu (_("Events"),"fa fa-ticket pull-right&quot;","",true);
+            $menu = new Menu (_("Events")."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;","fa fa-ticket pull-right&quot;","",true);
             // add the badges
-            $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
-            $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
-            $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
+            $menu->addBadge('badge bg-blue pull-right','AnniversaryNumber',0);// badge à la place de label
+            $menu->addBadge('badge bg-red pull-right','BirthdateNumber',0);
+            $menu->addBadge('badge bg-yellow pull-right','EventsNumber',0);
 
             $menuItem = new Menu (_("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","v2/calendar",true,$menu);
 
@@ -278,6 +284,15 @@ class MenuBar {
 
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
+        $menuItem->addLink("members/self-register.php");
+        $menuItem->addLink("members/self-verify-updates.php");
+        $menuItem->addLink("members/online-pending-verify.php");
+        $menuItem->addLink("GroupReports.php");
+        $menuItem->addLink("DirectoryReports.php");
+        $menuItem->addLink("ReminderReport.php");
+        $menuItem->addLink("LettersAndLabels.php");
+        $menuItem->addLink("USISTAddressVerification.php");
+
 
         $menuItem = new Menu (_("View All Persons"),"fa fa-circle-o","v2/people/list/person",true,$menu);
         if (SessionUser::getUser()->isShowMapEnabled()) {
@@ -350,7 +365,7 @@ class MenuBar {
 
         // The deposit
         if (SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled()) {
-            $menu = new Menu (_("Deposit"),"fa fa-bank","#",SessionUser::getUser()->isFinanceEnabled());
+            $menu = new Menu (_("Deposit")."&nbsp;&nbsp;&nbsp;","fa fa-bank","#",SessionUser::getUser()->isFinanceEnabled());
             // add the badges
             $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
             $deposits = DepositQuery::Create()->find();
@@ -371,7 +386,7 @@ class MenuBar {
             $menuItem = new Menu (_("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
             $menuItem = new Menu (_("Electronic Payment Listing"),"fa fa-circle-o","ElectronicPaymentList.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
             $menuItem = new Menu (_("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
-            $menuItem = new Menu (_("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],SessionUser::getUser()->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
+            $menuItem = new Menu (_("Edit Deposit Slip").'   : &nbsp;&nbsp;<small class="badge right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],SessionUser::getUser()->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
 
             $this->addMenu($menu);
         }
@@ -411,7 +426,7 @@ class MenuBar {
 
         foreach($links as $l) {
             if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-                return " active";
+                return " has-treeview menu-open";
             }
         }
 
@@ -424,22 +439,22 @@ class MenuBar {
 
         foreach($links as $l) {
             if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-                return "class=\"treeview-menu menu-open\" style=\"display: block;\"";
+                return 'class="nav nav-treeview" style="display: block;"';
             }
         }
 
-        return "class=\"treeview-menu menu-open\"";
+        return 'class="nav nav-treeview" style="display: none;"';
     }
 
-    private function is_li_class_active ($links,$is_menu=false,$class=null)
+    private function is_link_active ($links,$is_menu=false,$class=null)
     {
         $link = $_SERVER['REQUEST_URI'];
 
         foreach($links as $l) {
             if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-                return "class=\"active ".(($is_menu)?"treeview":"").(($class !=null)?" ".$class:"")."\"";
+                return " active";
             } else if ($is_menu) {
-                return "class=\"treeview\"";
+                return "";
             }
         }
 
@@ -457,9 +472,10 @@ class MenuBar {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
-            echo "<li ".$this->is_li_class_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false)."><a href=\"".$url."\" ".(($real_link==true)?'target="_blank"':'')." ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>"._($menu->getTitle());
+            echo '<li class="nav-item">';
+            echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'"><i class="'.$menu->getIcon()."\"></i> <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
-                echo " <i class=\"fa fa-angle-left pull-right\"></i>\n";
+                echo " <i class=\"fa fa-angle-left right\"></i>\n";
             }
 
             echo "</a>\n";
@@ -477,33 +493,32 @@ class MenuBar {
     public function renderMenu()
     {
         // render all the menus submenus etc …
-        echo "<ul class=\"sidebar-menu\" data-widget=\"tree\">\n";
+        //echo '<nav class="mt-2"></nav><ul class="nav nav-pills nav-sidebar flex-column" data-widget="tree" role="menu" data-accordion="false">';
         foreach ($this->_menus as $menu) {
             if (count($menu->subMenu()) == 0) {
-                echo "<li ".$this->is_li_class_active($menu->getLinks(),false,$menu->getClass()).">\n";
-                echo "<a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\">\n";
-                echo "<i class=\"".$menu->getIcon()."\"></i> <span>"._($menu->getTitle())."</span>\n";
+                echo '<li class="nav-item">';
+                echo '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link'.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';
+                echo "<i class=\"".$menu->getIcon()."\"></i> <p>"._($menu->getTitle())."</p>\n";
                 echo "</a>\n";
                 echo "</li>\n";
             } else {// we are in the case of a treeview
-                echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
-                echo "<a href=\"" . $menu->getUri() . "\">\n";// the menu keep his link #
+                echo "<li class=\"nav-item has-treeview ".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
+                echo '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
                 echo " <i class=\"".$menu->getIcon()."\"></i>\n";
-                echo " <span>"._($menu->getTitle());
+                echo " <p>"._($menu->getTitle());
+                echo " <i class=\"fa fa-angle-left right\"></i>\n"."\n";
                 if (count($menu->getBadges()) > 0) {
                     foreach ($menu->getBadges() as $badge) {
                         if ($badge['id'] != ''){
-                            echo "<small class=\"".$badge['class']." badges-size\" id=\"".$badge['id']."\">".$badge['value']."</small>\n";
+                            echo "<small class=\"".$badge['class']."\" id=\"".$badge['id']."\">".$badge['value']."</small>\n";
                         } else if ($badge['data-id'] != ''){
-                            echo "<small class=\"".$badge['class']." badges-size\" data-id=\"".$badge['data-id']."\">".$badge['value']."</small>\n";
+                            echo "<small class=\"".$badge['class']."\" data-id=\"".$badge['data-id']."\">".$badge['value']."</small>\n";
                         } else {
-                            echo "<small class=\"".$badge['class']." badges-size\">".$badge['value']."</small>\n";
+                            echo "<small class=\"".$badge['class']."\">".$badge['value']."</small>\n";
                         }
                     }
-                    echo "</span>\n";
-                } else {
-                    echo " <i class=\"fa fa-angle-left pull-right\"></i>\n"."</span>\n";
                 }
+                echo "</p>\n";
                 echo "</a>\n";
                 echo "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";
                 $this->addSubMenu($menu->subMenu());
@@ -511,6 +526,6 @@ class MenuBar {
                 echo "</li>\n";
             }
         }
-        echo "</ul>\n";
+        //echo "</ul></nav>\n";
     }
 }
