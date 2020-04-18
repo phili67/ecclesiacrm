@@ -1318,13 +1318,15 @@ require 'Include/Header.php';
                         ?>
                     </label>
                     <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-phone"></i>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                            </div>
+                            <input type="text" name="HomePhone"
+                                   value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
+                                   maxlength="30" class="form-control"
+                                   data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                         </div>
-                        <input type="text" name="HomePhone"
-                               value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control"
-                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                         <br>
                         <input type="checkbox" name="NoFormat_HomePhone" value="1"
                                <?= ($bNoFormat_HomePhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
@@ -1345,14 +1347,16 @@ require 'Include/Header.php';
                         ?>
                     </label>
                     <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-phone"></i>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                            </div>
+                            <input type="text" name="WorkPhone"
+                                   value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
+                                   maxlength="30" class="form-control"
+                                   data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"'
+                                   data-mask/>
                         </div>
-                        <input type="text" name="WorkPhone"
-                               value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control"
-                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"'
-                               data-mask/>
                         <br>
                         <input type="checkbox" name="NoFormat_WorkPhone" value="1"
                                <?= ($bNoFormat_WorkPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
@@ -1374,13 +1378,15 @@ require 'Include/Header.php';
                         ?>
                     </label>
                     <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-phone"></i>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                            </div>
+                            <input type="text" name="CellPhone"
+                                   value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
+                                   maxlength="30" class="form-control"
+                                   data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                         </div>
-                        <input type="text" name="CellPhone"
-                               value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control"
-                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                         <br><input type="checkbox" name="NoFormat_CellPhone" value="1"
                                    <?= ($bNoFormat_CellPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
@@ -1413,9 +1419,9 @@ require 'Include/Header.php';
                         }
                         ?>
                     </label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-envelope"></i>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i></span>
                         </div>
                         <input type="text" name="Email"
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1431,9 +1437,9 @@ require 'Include/Header.php';
                 </div>
                 <div class="form-group col-md-4">
                     <label for="WorkEmail"><?= _('Work / Other Email') ?>:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-envelope"></i>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
                         <input type="text" name="WorkEmail"
                                value="<?= htmlentities(stripslashes($sWorkEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1463,9 +1469,9 @@ require 'Include/Header.php';
                         }
                         ?>
                     </label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-facebook"></i>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-facebook"></i></span>
                         </div>
                         <input type="text" name="Facebook"
                                value="<?= htmlentities(stripslashes($iFacebookID), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1481,9 +1487,9 @@ require 'Include/Header.php';
                 </div>
                 <div class="form-group col-md-4">
                     <label for="Twitter"><?= _('Twitter') ?>:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-twitter"></i>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-twitter"></i></span>
                         </div>
                         <input type="text" name="Twitter"
                                value="<?= htmlentities(stripslashes($sTwitter), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1499,9 +1505,9 @@ require 'Include/Header.php';
                 </div>
                 <div class="form-group col-md-4">
                     <label for="LinkedIn"><?= _('LinkedIn') ?>:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-linkedin"></i>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-linkedin"></i></span>
                         </div>
                         <input type="text" name="LinkedIn"
                                value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1700,6 +1706,7 @@ require 'Include/Header.php';
     <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="PersonCancel"
            onclick="javascript:document.location='v2/people/list/person';">
 </form>
+<br/>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.bShowAddress = <?= ($bShowAddress) ? 'true' : 'false' ?>;
