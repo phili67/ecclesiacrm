@@ -72,59 +72,60 @@ function Header_modals()
     ?>
     <!-- Issue Report Modal -->
     <div id="IssueReportModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <!-- Modal content-->
             <div class="modal-content">
               <div id="submitDiaglogStart">
                   <form name="issueReport">
                       <input type="hidden" name="pageName" value="<?= $_SERVER['SCRIPT_NAME'] ?>"/>
                       <div class="modal-header">
+                          <h4 class="modal-title"><?= _('Issue Report!') ?></h4>
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title"><?= gettext('Issue Report!') ?></h4>
                       </div>
                       <div class="modal-body">
                           <div class="container-fluid">
                               <div class="row">
-                                  <div class="col-xl-3">
-                                      <label
-                                              for="issueTitle"><?= gettext('Enter a Title for your bug / feature report') ?>
-                                          : </label>
-                                  </div>
-                                  <div class="col-xl-3">
-                                      <input type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
+                                  <div class="col-xl-12">
+                                      <label for="issueTitle"><?= _('Enter a Title for your bug / feature report') ?> : </label>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col-xl-3">
-                                      <label
-                                              for="issueDescription"><?= gettext('What were you doing when you noticed the bug / feature opportunity?') ?></label>
+                                  <div class="col-xl-12">
+                                      <input class="bootbox-input bootbox-input-text form-control" type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
                                   </div>
-                                  <div class="col-xl-3">
-                                      <textarea rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
+                              </div>
+                              <div class="row">
+                                  <div class="col-xl-12">
+                                      <label for="issueDescription"><?= _('What were you doing when you noticed the bug / feature opportunity?') ?></label>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-xl-12">
+                                      <textarea class="form-control" rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
                                   </div>
                               </div>
                           </div>
                           <ul>
-                              <li><?= gettext("When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker.") ?></li>
-                              <li><?= gettext('Please do not include any confidential information.') ?></li>
-                              <li><?= gettext('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
-                              <li><?= gettext('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
+                              <li><?= _("When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker.") ?></li>
+                              <li><?= _('Please do not include any confidential information.') ?></li>
+                              <li><?= _('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
+                              <li><?= _('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>
                           </ul>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="submitIssue"><?= gettext('Submit') ?></button>
+                          <button type="button" class="btn btn-primary" id="submitIssue"><?= _('Submit') ?></button>
                       </div>
                   </form>
               </div>
               <div id="submitDiaglogFinish">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><?= gettext('Issue Report done!') ?></h4>
+                    <h4 class="modal-title"><?= _('Issue Report done!') ?></h4>
+                    <button type="button" class="close flush-right" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body"><h2><?= gettext("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
-                <a href="" target="_blank" id="issueSubmitSuccesLink"><?= gettext("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
+                <div class="modal-body"><h2><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
+                <a href="" target="_blank" id="issueSubmitSuccesLink"><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
                 <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="submitIssueDone"><?= gettext('OK') ?></button>
+                          <button type="button" class="btn btn-primary" id="submitIssueDone"><?= _('OK') ?></button>
                 </div>
                 </div>
               </div>
