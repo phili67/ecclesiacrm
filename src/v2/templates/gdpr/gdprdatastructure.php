@@ -13,7 +13,7 @@ use EcclesiaCRM\ListOptionQuery;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="box box-primary box-body">
+<div class="card card-primary card-body">
   <div class="row ">
       <div class="col-sm-2" style="vertical-align: middle;">
          <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRDataStructureExport.php"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
@@ -27,13 +27,13 @@ require $sRootDocument . '/Include/Header.php';
   </div>
 
 
-<div class="box box-primary">
-  <div class="box-header with-border">
-    <h3 class="box-title">
+<div class="card box-primary">
+  <div class="card-header with-border">
+    <h3 class="card-title">
       <label><?= _("Informations about the Data Structure for Persons, Families and Pastoral Cares") ?></label>
     </h3>
   </div>
-  <div class="box-body">
+  <div class="card-body">
     <table class="table table-hover dt-responsive" id="gdpr-data-structure-table" style="width:100%;">
       <thead>
         <tr>
@@ -45,7 +45,7 @@ require $sRootDocument . '/Include/Header.php';
       </thead>
       <tbody>
       <?php
-      
+
         foreach ($personInfos as $personInfo) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($personInfo->getTypeId())
@@ -61,7 +61,7 @@ require $sRootDocument . '/Include/Header.php';
       <?php
         }
 
-        foreach ($personCustMasts as $personCustMast) { 
+        foreach ($personCustMasts as $personCustMast) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($personCustMast->getTypeId())
             ->findOneById(4);
@@ -75,7 +75,7 @@ require $sRootDocument . '/Include/Header.php';
       <?php
         }
 
-        foreach ($personProperties as $personProperty) { 
+        foreach ($personProperties as $personProperty) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($personProperty->getProPrtId())
             ->findOneById(4);
@@ -86,9 +86,9 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= _($dataType->getOptionName()) ?></td>
                 <td><input type="text" name="<?= $personProperty->getProId() ?>" size="70" maxlength="140" class="form-control" value="<?= $personProperty->getProComment() ?>" data-id="<?= $personProperty->getProId() ?>" data-type="personProperty"></td>
             </tr>
-            
+
       <?php
-        }       
+        }
 
         foreach ($familyInfos as $familyInfo) {
           $dataType = ListOptionQuery::Create()
@@ -105,7 +105,7 @@ require $sRootDocument . '/Include/Header.php';
       <?php
         }
 
-        foreach ($familyCustMasts as $familyCustMast) { 
+        foreach ($familyCustMasts as $familyCustMast) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($familyCustMast->getTypeId())
             ->findOneById(4);
@@ -119,7 +119,7 @@ require $sRootDocument . '/Include/Header.php';
       <?php
         }
 
-        foreach ($familyProperties as $familyProperty) { 
+        foreach ($familyProperties as $familyProperty) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($familyProperty->getProPrtId())
             ->findOneById(4);
@@ -131,10 +131,10 @@ require $sRootDocument . '/Include/Header.php';
                 <td><input type="text" name="<?= $familyProperty->getProId() ?>" size="70" maxlength="140" class="form-control" value="<?= $familyProperty->getProComment() ?>" data-id="<?= $familyProperty->getProId() ?>" data-type="familyProperty"></td>
             </tr>
       <?php
-        } 
-        
-        
-        foreach ($pastoralCareTypes as $pastoralCareType) { 
+        }
+
+
+        foreach ($pastoralCareTypes as $pastoralCareType) {
       ?>
             <tr>
                 <td><?= $pastoralCareType->getTitle() ?> <?= !empty($pastoralCareType->getDesc())?"(".$pastoralCareType->getDesc().")":"" ?></td>
@@ -143,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><input type="text" name="<?= $pastoralCareType->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $pastoralCareType->getComment() ?>" data-id="<?= $pastoralCareType->getId() ?>" data-type="pastoralCare"></td>
             </tr>
       <?php
-        } 
+        }
       ?>
         </tbody>
     </table>
