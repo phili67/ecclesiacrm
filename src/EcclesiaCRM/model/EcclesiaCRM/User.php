@@ -39,75 +39,45 @@ class User extends BaseUser
 {
     private $public_path  = "public/userdir/";
     private $private_path = "private/userdir/";
-    
+
     public function getId()
     {
         return $this->getPersonId();
     }
-    
-    public function getStyle()
-    { 
-        // we search if the config exist
-        $userConf = UserConfigQuery::Create()->filterById(15)->findOneByPersonId($this->getPersonId());
-        
-        if ( is_null($userConf) ) {
-          $userDefault = UserConfigQuery::create()->filterById(15)->findOneByPersonId (0);
-          
-          if ( !is_null ($userDefault) ) {
-            $userConf = new UserConfig();
-            
-            $userConf->setPersonId ($this->getPersonId());
-            $userConf->setId (15);
-            $userConf->setName($userDefault->getName());
-            $userConf->setValue($userDefault->getValue());
-            $userConf->setType($userDefault->getType());
-            $userConf->setChoicesId($userDefault->getChoicesId());
-            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
-            $userConf->setPermission('FALSE');
-            $userConf->setCat($userDefault->getCat());
-            
-            $userConf->save();
-          } else {
-            return 'skin-blue-light';
-          } 
-        }
-        
-        return $userConf->getValue();
-    }
-    
+
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
     {
-        if (parent::preDelete($con)) {                
+        if (parent::preDelete($con)) {
           $this->deleteHomeDir();
-          
+
           // transfert the calendars to a user
-          // now we code now in Sabre        
-          $pdo = Propel::getConnection();                 
+          // now we code now in Sabre
+          $pdo = Propel::getConnection();
           $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-          
+
           // puis on delete le user
           $principalBackend->deletePrincipal('principals/'.$this->getUserName());
 
           return true;
         }
-        
+
         return false;
     }
-    
+
     public function deleteGroupAdminCalendars ()
     {
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
-                
+
         // transfert the calendars to a user
-        // now we code now in Sabre        
-        $pdo = Propel::getConnection();                 
+        // now we code now in Sabre
+        $pdo = Propel::getConnection();
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-        
+
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
-                
+
         foreach ($calendars as $calendar) {
-          $shares = $calendarBackend->getInvites($calendar['id']); 
-          
+          $shares = $calendarBackend->getInvites($calendar['id']);
+
           if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {// only Group Calendar are purged
             foreach ($shares as $share) {
                 if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
@@ -115,24 +85,24 @@ class User extends BaseUser
                 }
             }
           }
-          
+
           $calendarBackend->updateInvites($calendar['id'],$shares);
         }
     }
-    
+
     public function createGroupAdminCalendars ()
     {
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
-                
+
         // transfert the calendars to a user
-        // now we code now in Sabre        
-        $pdo = Propel::getConnection();                 
+        // now we code now in Sabre
+        $pdo = Propel::getConnection();
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-        
+
         if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
           // we have to add the groupCalendars
           $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
-          
+
           foreach ($calendars as $calendar) {
             // we'll connect to sabre
             // Add a new invite
@@ -153,15 +123,15 @@ class User extends BaseUser
           }
         }
     }
-    
+
     public function changePrincipalEmail ($newEmail)
     {
       if ($newEmail != $this->getEmail()) {
          try {
-         
+
               $principal = PrincipalsQuery::Create()->findOneByEmail ($this->getEmail());
-              
-              if ( !is_null ($principal) ) { 
+
+              if ( !is_null ($principal) ) {
                 $principal->setEmail ($newEmail);
                 $principal->save();
               }
@@ -171,78 +141,78 @@ class User extends BaseUser
          }
       }
     }
-      
+
     public function renameHomeDir($oldUserName,$newUserName)
     {
       $oldUserName = strtolower ($oldUserName);
       $newUserName = strtolower ($newUserName);
-      
+
       if ($oldUserName != "admin") {// the calendars of the principal admin should be preserved
         return;
       }
-      
+
       if ($oldUserName != $newUserName) {
          try {
               rename(dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($oldUserName)),dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($newUserName)));
               $this->setHomedir($this->getUserDir());
               $this->save();
-            
+
               // transfert the calendars to a user
-              // now we code now in Sabre        
-              $pdo = Propel::getConnection();                 
+              // now we code now in Sabre
+              $pdo = Propel::getConnection();
               $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
               $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-              
+
               $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
               $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
-            
+
               // We delete the principal user => it will delete the calendars and events too.
               $principalBackend->deletePrincipal('principals/'.$oldUserName);
-              
+
          } catch (Exception $e) {
               throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
          }
       }
     }
-    
+
     public function getUserName()
     {
       $userName = parent::getUserName();
-      
+
       return strtolower($userName);
     }
-    
+
     public function createHomeDir()
     {
        try {
-       
+
             mkdir(dirname(__FILE__)."/../../../".$this->getUserDir(), 0755, true);
             $this->setHomedir($this->getUserDir());
             $this->save();
-            
-            // now we code in Sabre        
-            $pdo = Propel::getConnection();                 
+
+            // now we code in Sabre
+            $pdo = Propel::getConnection();
             $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-            
+
             $res = $principalBackend->getPrincipalByPath ("principals/".strtolower( $this->getUserName() ));
             $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-            
-            if (empty($res)) {            
+
+            if (empty($res)) {
               $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
             }
-            
+
             if ($this->isManageGroupsEnabled()) {
-              $this->createGroupAdminCalendars ();              
+              $this->createGroupAdminCalendars ();
             }
-            
+
             // create the home public folder
             $this->createHomePublicDir();
-            
+
        } catch (Exception $e) {
             throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
-       }       
+       }
     }
-    
+
     public function createHomePublicDir ()
     {
       $path = $this->getUserPublicDir();
@@ -253,28 +223,28 @@ class User extends BaseUser
       // we code first in Sabre
       $pdo = Propel::getConnection();
       $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-            
+
       $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
 
       // we code now in propel
       MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserPublicDir());
       MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserRootDir());
-      
+
       $this->setHomedir(null);
       $this->save();
     }
-    
+
     public function ApplyRole($roleID)
     {
       $role = UserRoleQuery::Create()->findOneById($roleID);
-      
+
       if (!is_null($role)) {
         // we first apply the global settings to the user
         $globals = explode(";",$role->getGlobal());
-        
+
         foreach ($globals as $val) {
           $res = explode (":",$val);
-          
+
           switch ($res[0]) {
             case 'AddRecords':
                $this->setAddRecords($res[1]);
@@ -300,7 +270,7 @@ class User extends BaseUser
             case 'ManageGroups':
                $old_ManageGroups = $this->isManageGroupsEnabled();
                $ManageGroups = $res[1];
-               
+
                if ( $ManageGroups || $this->isAdmin() ) {
                  if ( !$old_ManageGroups ) {// only when the user has now the role group manager
                     $this->deleteGroupAdminCalendars();
@@ -361,54 +331,54 @@ class User extends BaseUser
                break;
           }
         }
-        
+
         $this->setRoleId($roleID);
         $this->save();
-        
+
         // now we loop to the permissions
         $permissions = explode(";",$role->getPermissions());
         $values      = explode(";",$role->getValue());
-        
+
         for ($place=0;$place<count($permissions);$place++) {
           // we search the default value
           $permission = explode (":",$permissions[$place]);
           $value = explode (":",$values[$place]);
-          
+
           $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
-          
+
           if ( is_null($global_cfg) ) continue;
-          
+
           // we search if the config exist
           $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
-          
+
           if ( is_null($user_cfg) ) {
             $user_cfg = new UserConfig();
-            
+
             $user_cfg->setPersonId($this->getPersonId());
             $user_cfg->setId($global_cfg->getId());
             $user_cfg->setName($global_cfg->getName());
             $user_cfg->setType($global_cfg->getType());
             $user_cfg->setTooltip($global_cfg->getType());
           }
-          
+
           $user_cfg->setChoicesId($global_cfg->getChoicesId());
           $user_cfg->setPermission($permission[1]);
-          
+
           if ($value[1] == 'semi_colon'){
             $user_cfg->setValue(';');
           } else {
             $user_cfg->setValue($value[1]);
           }
-          
+
           $user_cfg->save();
         }
-        
+
         return $role->getName();
       }
-      
+
       return false;
     }
-    
+
 
 
     public function getName()
@@ -433,7 +403,7 @@ class User extends BaseUser
         }
 
         $group = GroupQuery::Create()->findOneById($iGroupID);
-        
+
         $groupRoleMembership = Person2group2roleP2g2rQuery::create()
                             ->filterByPersonId ($this->getPersonId())
                             ->filterByGroupId($iGroupID)
@@ -442,15 +412,15 @@ class User extends BaseUser
         if (!empty($groupRoleMembership)) {
           $groupRole = ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
           $lst_OptionName = $groupRole->getOptionName();
-    
+
           if ($lst_OptionName == 'Teacher') {
             return true;
           }
         }
-        
+
         return false;
     }
-    
+
     public function belongsToGroup($iGroupID)
     {
         if ($this->isAdmin() || $this->isAddRecords()) {
@@ -458,7 +428,7 @@ class User extends BaseUser
         }
 
         $group = GroupQuery::Create()->findOneById($iGroupID);
-        
+
         $groupRoleMembership = Person2group2roleP2g2rQuery::create()
                             ->filterByPersonId ($this->getPersonId())
                             ->filterByGroupId($iGroupID)
@@ -467,10 +437,10 @@ class User extends BaseUser
         if (!empty($groupRoleMembership)) {
             return true;
         }
-        
+
         return false;
     }
-    
+
     public function isShowCartEnabled()
     {
         return $this->isAdmin() || $this->isShowCart();
@@ -480,22 +450,22 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isShowMap();
     }
-    
+
     public function isEDriveEnabled($iPersonID=0)
     {
         if ($iPersonID == 0) {
           $iPersonID = SessionUser::getUser()->getPersonId();
         }
-        
+
         if (SystemConfig::getBooleanValue('bGDPR')) {
           // GDPR : only the user can see his EDRIVE
           return $this->isEDrive() && SessionUser::getUser()->getPersonId() == $iPersonID;
         } else {
           // not GDPR
           $user = UserQuery::Create()->findPk($iPersonID);
-          
-          return ( !is_null($user) && 
-              ( $user->getPerson()->getId() == SessionUser::getUser()->getPersonId() 
+
+          return ( !is_null($user) &&
+              ( $user->getPerson()->getId() == SessionUser::getUser()->getPersonId()
               || $user->getPerson()->getFamId() == SessionUser::getUser()->getPerson()->getFamId() )) || $this->isAdmin();
         }
     }
@@ -529,7 +499,7 @@ class User extends BaseUser
     {
         /*if (!SystemConfig::getBooleanValue('bEnabledFinance'))
           return false;*/
-          
+
         return $this->isAdmin() || $this->isFinance();
     }
 
@@ -547,7 +517,7 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isCanvasser();
     }
-    
+
     public function isPastoralCareEnabled()
     {
         return $this->isAdmin() || $this->isPastoralCare();
@@ -560,7 +530,7 @@ class User extends BaseUser
 
         return $this->isAdmin() || $this->isMailChimp();
     }
-    
+
     public function isGdrpDpoEnabled()
     {
         return $this->isAdmin() || $this->isGdrpDpo();
@@ -575,7 +545,7 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isSeePrivacyData();
     }
-    
+
     public function isShowMenuQueryEnabled()
     {
         return $this->isAdmin() || $this->isShowMenuQuery();
@@ -599,7 +569,7 @@ class User extends BaseUser
     {
         return hash('sha256', $password . $this->getPersonId());
     }
-    
+
     public function isEmailEnabled()
     {
         return $this->isAdmin() || $this->getCanSendEmail();
@@ -609,12 +579,12 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isExportSundaySchoolCSV();
     }
-    
+
     public function isExportSundaySchoolPDFEnabled()
     {
         return $this->isAdmin() || $this->isExportSundaySchoolPDF();
     }
-    
+
     public function isCreateDirectoryEnabled()
     {
         return $this->isAdmin() || $this->isCreatedirectory();
@@ -634,22 +604,22 @@ class User extends BaseUser
     {
         return $this->getUserConfigString('bEmailMailto');
     }
-    
+
     public function isUSAddressVerificationEnabled()
     {
         return $this->isAdmin() || $this->getUserConfigString('bUSAddressVerification');
     }
-    
+
     public function isShowTooltipEnabled()
     {
         return $this->getUserConfigString('bShowTooltip');
     }
-    
+
     public function MapExternalProvider()
     {
         return $this->getUserConfigString('sMapExternalProvider');
     }
-    
+
     public function CSVExportDelemiter()
     {
         return $this->getUserConfigString('sCSVExportDelemiter');
@@ -658,16 +628,6 @@ class User extends BaseUser
     public function CSVExportCharset()
     {
         return $this->getUserConfigString('sCSVExportCharset');
-    }
-
-    public function isSidebarExpandOnHoverEnabled()
-    {
-        return $this->getUserConfigString('bSidebarExpandOnHover');
-    }
-    
-    public function isSidebarCollapseEnabled()
-    {
-        return $this->getUserConfigString('bSidebarCollapse');
     }
 
     public function isLocked()
@@ -739,13 +699,13 @@ class User extends BaseUser
                 $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav create file'));
-                break;    
+                break;
             case "dav-create-directory":
                 $note->setText(str_replace("home/","",$info));
                 $note->setTitle(str_replace("home/","",$info));
                 $note->setType('folder');
                 $note->setInfo(_('Dav create directory'));
-                break;                           
+                break;
             case "dav-update-file":
                 $note->setText(str_replace("home/","",$info));
                 $note->setTitle(str_replace("home/","",$info));
@@ -757,7 +717,7 @@ class User extends BaseUser
                 $note->setTitle(str_replace("home/","",$info));
 
                 $path = dirname(__FILE__).'/../../../'.$this->getUserRootDir().str_replace("home/","",$info);
-                
+
                 if (!pathinfo($path, PATHINFO_EXTENSION)) {// we are with a directory
                   $note->setType('folder');
                 } else {
@@ -765,7 +725,7 @@ class User extends BaseUser
                 }
                 $note->setInfo(_('Dav move copy file'));
 
-                break;            
+                break;
             case "dav-delete-file":
                 $note->setText(str_replace("home/","",$info));
                 $note->setTitle(str_replace("home/","",$info));
@@ -776,77 +736,77 @@ class User extends BaseUser
 
         $note->save();
     }
-    
+
     public function getUserDir($username = '')
     {
       if ($username == '') {
         return $this->getUserRootDir()."/".strtolower($this->getUserName());
       }
-      
+
       return $this->getUserRootDir()."/".strtolower($username);
     }
-    
+
     public function getUserRootDir()
     {
       return $this->private_path.$this->getWebDavKeyUUID();
     }
-    
+
     public function getWebDavKeyUUID()
     {
       if ($this->getWebdavkey() == null) {
         $this->createWebDavUUID();
-        
+
         // the new destination
         $new_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
-        
+
         // in this case we have to create the create the folder
         mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
         $this->setHomedir($new_dir);
         $this->save();
-        
+
         // then we move the files
-        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) { 
+        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) {
           $old_dir = $this->private_path.strtolower($this->getUserName());
-          
+
           rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
         }
       }
-      
+
       return $this->getWebdavkey();
     }
-    
+
     private function createWebDavUUID()
     {
       if ($this->getWebdavkey() == null) {
         // we create the uuid name
         $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
-        
+
         // we store the uuid
         $this->setWebdavkey($uuid);
         $this->save();
       }
     }
-    
+
     public function getUserPublicDir()
     {
       return $this->public_path.$this->getWebDavKeyPublicUUID();
     }
-    
+
     public function getWebDavKeyPublicUUID()
     {
       if ($this->getWebdavPublickey() == null) {
         $this->createWebDavPublicUUID();
-        
+
         // the new destination
         $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
-        
+
         // in this case we have to create the create the folder
         mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
 
         // then we move the files
-        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) { 
+        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) {
           $old_dir = $this->public_path;
-          
+
           rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
         }
       } else { // in the case the public folder is referenced in the DB but not present on the hard drive
@@ -855,11 +815,11 @@ class User extends BaseUser
           mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
         }
       }
-      
+
       // now we can create the symlink in the real home folder
       symlink(dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey()."/", dirname(__FILE__)."/../../../".$this->getUserDir()."/public");
 
-      
+
       return $this->getWebdavPublickey();
     }
 
@@ -869,37 +829,37 @@ class User extends BaseUser
       if ($this->getWebdavPublickey() == null) {
         // we create the uuid name
         $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
-        
+
         // we store the uuid
         $this->setWebdavPublickey($uuid);
         $this->save();
       }
     }
-    
+
     public function deleteTimeLineNote($type,$info = null)
     {
       $notes = NoteQuery::Create ()->filterByPerId ($this->getPersonId())->findByText (str_replace("home/","",$info));
-      
+
       if (!empty($notes)) {
         $notes->delete();
       }
     }
-    
+
     // this part is called in EcclesiaCRMServer from
     public function updateFolder($oldPath,$newPath)
     {
       $realOldPath = str_replace("home/","",$oldPath);
       $realNewPath = str_replace("home/","",$newPath);
-      
+
       $notes = NoteQuery::create()
               ->filterByText("%$realOldPath%", Criteria::LIKE)
               ->find();
-              
+
       if (!is_null ($notes)) {
         foreach ($notes as $note) {
           $oldName = $note->getText();
           $newName = str_replace($oldPath,$newPath,$note->getText());
-        
+
           $newNote = NoteQuery::Create()->findOneById($note->getId());
           $newNote->setText(str_replace($realOldPath,$realNewPath,$note->getText()));
           $newNote->setCurrentEditedBy(0);
@@ -907,7 +867,7 @@ class User extends BaseUser
         }
       }
     }
-    
+
     public function isEnabledSecurity($securityConfigName){
         if ($this->isAdmin()) {
             return true;
@@ -919,17 +879,17 @@ class User extends BaseUser
         }
         return false;
     }
-    
+
     public function getUserConfigString($userConfigName) {
       // we search if the config exist
         $userConf = UserConfigQuery::Create()->filterByName($userConfigName)->findOneByPersonId($this->getPersonId());
-        
+
         if ( is_null($userConf) ) {
           $userDefault = UserConfigQuery::create()->filterByName($userConfigName)->findOneByPersonId (0);
-          
+
           if ( !is_null ($userDefault) ) {
             $userConf = new UserConfig();
-            
+
             $userConf->setPersonId ($this->getPersonId());
             $userConf->setId ($userDefault->getId());
             $userConf->setName($userConfigName);
@@ -939,11 +899,11 @@ class User extends BaseUser
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
             $userConf->setPermission('FALSE');
             $userConf->setCat($userDefault->getCat());
-            
+
             $userConf->save();
           }
       }
-      
+
       return $userConf->getValue();
-    }   
+    }
 }
