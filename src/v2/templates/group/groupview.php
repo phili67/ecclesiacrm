@@ -26,11 +26,11 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Group Functions') ?></h3>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Group Functions') ?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <?php
         if ( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($iGroupID) ) {
             ?>
@@ -182,30 +182,30 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <center>
             <button class="btn btn-success" type="button">
-                <?= _('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
+                <?= _('Type of Group') ?> <span class="badge bg-white"> <?= $sGroupType ?> </span>
             </button>
             <button class="btn btn-info" type="button">
                 <?php
                 if (!empty($defaultRole)) {
                     ?>
-                    <?= _('Default Role') ?> <span class="badge"><?= _($defaultRole->getOptionName()) ?></span>
+                    <?= _('Default Role') ?> <span class="badge  bg-white"><?= _($defaultRole->getOptionName()) ?></span>
                     <?php
                 }
                 ?>
             </button>
             <button class="btn btn-primary" type="button">
-                <?= _('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
+                <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
             </button>
             <?php
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <a class="btn btn-danger" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
                     <?= _('Address Book') ?>
-                    <span class="badge">
+                    <span class="badge  bg-white">
               <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
             </span>
                 </a>
@@ -222,14 +222,14 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="box collapsed-box">
-                <div class="box-header with-border">
-                    <h3 class="box-title"><?= _('Quick Settings') ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+            <div class="card collapsed-box">
+                <div class="card-header with-border">
+                    <h3 class="card-title"><?= _('Quick Settings') ?></h3>
+                    <div class="card-tools pull-right">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <form>
                         <div class="col-sm-4"> <b><?= _('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>"> </div>
                         <div class="col-sm-6"> <b><?= _('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>"></div>
@@ -238,14 +238,14 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="box collapsed-box">
-                <div class="box-header with-border">
-                    <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+            <div class="card collapsed-box">
+                <div class="card-header with-border">
+                    <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
+                    <div class="card-tools pull-right">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <b><?= _("Assigned Managers") ?>:</b>
                     <div id="Manager-list">
                         <?php
@@ -282,14 +282,14 @@ if ( $_SESSION['bManageGroups'] ) {
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="box collapsed-box">
-                <div class="box-header with-border">
-                    <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+            <div class="card collapsed-box">
+                <div class="card-header with-border">
+                    <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
+                    <div class="card-tools pull-right">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <b><?= _('Assigned Properties') ?>:</b>
                     <?php
                     $sAssignedProperties = ',';
@@ -340,14 +340,14 @@ if ( $_SESSION['bManageGroups'] ) {
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="box collapsed-box">
-                <div class="box-header with-border">
-                    <h3 class="box-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+            <div class="card collapsed-box">
+                <div class="card-header with-border">
+                    <h3 class="card-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
+                    <div class="card-tools pull-right">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
                     </div>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <b><?= _('Assigned Properties') ?>:</b>
                     <?php
                     if ($thisGroup->getHasSpecialProps()) {
@@ -410,11 +410,11 @@ if ( $_SESSION['bManageGroups'] ) {
 }
 ?>
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Group Members:') ?></h3>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Group Members:') ?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <!-- START GROUP MEMBERS LISTING  -->
         <table class="table" id="membersTable"></table>
         <!-- END GROUP MEMBERS LISTING -->
