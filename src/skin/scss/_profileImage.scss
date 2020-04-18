@@ -6,6 +6,7 @@
   height:200px;
   width:200px;
   border:0;
+  border: 3px solid #adb5bd;
 }
 
 .user-image{
@@ -14,6 +15,6 @@
   border-radius:50%;
 }
 
-.users-list > li:nth-child(4n+1) { 
-  clear: both; 
+.users-list > li:nth-child(4n+1) {
+  clear: both;
 }
