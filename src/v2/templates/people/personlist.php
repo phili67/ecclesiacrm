@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
   if ( $bNotGDRP ) {
 ?>
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/PersonEditor.php"> 
+  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/PersonEditor.php">
     <span class="fa fa-plus" aria-hidden="true"></span><?= _('Add New Person') ?>
   </a>
 </div>
@@ -29,19 +29,19 @@ require $sRootDocument . '/Include/Header.php';
   }
 ?>
 
-<?php 
-  if (strtolower($sMode) == 'gdrp') { 
+<?php
+  if (strtolower($sMode) == 'gdrp') {
 ?>
 <div class="alert alert-warning">
     <strong> <?= _('WARNING: Some persons may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
     <strong> <?= _('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
 </div>
-<?php 
-  } 
+<?php
+  }
 ?>
 
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
@@ -62,7 +62,7 @@ require $sRootDocument . '/Include/Header.php';
             <tbody>
 
             <!--Populate the table with Person details -->
-          <?php 
+          <?php
             foreach ($persons as $person) {
           ?>
             <tr>
@@ -80,7 +80,7 @@ require $sRootDocument . '/Include/Header.php';
                     </a><?= $person->getLastName() ?>
                 </td>
                 <td> <?= $person->getFirstName() ?></td>
-                <?php    
+                <?php
                 if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
                   <td> <?= $person->getAddress() ?></td>
@@ -100,21 +100,21 @@ require $sRootDocument . '/Include/Header.php';
                   <td> <?= _('Private Data') ?></td>
                 <?php
                 }
-              if (strtolower($sMode) == 'gdrp') { 
+              if (strtolower($sMode) == 'gdrp') {
                 $famID = $person->getFamId();
                 $pledges  = PledgeQuery::Create()->findByFamId($famID);
               ?>
                   <td> <?= date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
                   <td><a class="btn btn-danger remove-property-btn <?= ($pledges->count() > 0)?"disabled":"" ?>" data-person_id="<?= $person->getId() ?>"><?= _("Remove") ?></a></td>
-              <?php 
-                } 
+              <?php
+                }
            }
         ?>
             </tr>
             </tbody>
         </table>
-        
-        <?php if (strtolower($sMode) == 'gdrp') { ?>        
+
+        <?php if (strtolower($sMode) == 'gdrp') { ?>
            <a class="btn btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><?= _("Remove All") ?></a>
         <?php } ?>
     </div>
