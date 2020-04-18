@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
 if ( $addCustomLink ) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= _("Add Custom Menu Link") ?></button></p>
-<?php 
+<?php
 } else {
 ?>
     <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
@@ -24,7 +24,7 @@ if ( $addCustomLink ) {
 }
 ?>
 
-<div class="box box-body">
+<div class="card card-body">
 
 <table class="table table-striped table-bordered" id="menulinksTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
