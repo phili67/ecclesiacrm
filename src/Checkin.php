@@ -8,7 +8,7 @@
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
  *  Copyright 2005 Todd Pillars
- *  Copyright 2012 Michael Wilt 
+ *  Copyright 2012 Michael Wilt
  *
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
@@ -63,7 +63,7 @@ $bSundaySchool = false;
 if ($EventID > 0) {
   $event = EventQuery::Create()
         ->findOneById($EventID);
-        
+
   if ($event == null) {
     $_SESSION['EventID'] = 0;
     $EventID = 0;
@@ -78,24 +78,24 @@ if (!is_null($event) && $event->getGroupId() > 0) {
 
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
-} 
+}
 
 if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
   $event = EventQuery::Create()
         ->findOneById($EventID);
-        
+
   $event->setText($_POST['NoteText']);
-  
+
   $event->save();
-  
-  
+
+
   $eventAttents = EventAttendQuery::Create()
             ->filterByEventId($EventID)
             ->find();
-            
+
   foreach ($eventAttents as $eventAttent) {
-    $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());    
-    
+    $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
+
     $eventAttent->save();
   }
 
@@ -135,20 +135,20 @@ $activeEvents = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
     ->find();
-    
+
 $searchEventInActivEvent = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
-    ->findOneById($EventID);        
+    ->findOneById($EventID);
 
 if ($searchEventInActivEvent != null) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
-    
+
     $sTitle = $event->getTitle();
-    $sNoteText = $event->getText();        
-        
+    $sNoteText = $event->getText();
+
     $eventCountNames = EventCountNameQuery::Create()
         ->leftJoinEventTypes()
         ->Where('type_id='.$event->getType())
@@ -161,13 +161,13 @@ if ($searchEventInActivEvent != null) {
 if ($FreeAttendees) {
   $eventCounts = EventCountsQuery::Create()
               ->findByEvtcntEventid($EventID);
-              
+
   if (!empty($eventCounts)) {
     $eventCounts->delete();
   }
-  
+
   foreach ($eventCountNames as $eventCountName) {
-      $eventCount = new EventCounts; 
+      $eventCount = new EventCounts;
       $eventCount->setEvtcntEventid($EventID);
       $eventCount->setEvtcntCountid($eventCountName->getId());
       $eventCount->setEvtcntCountname($eventCountName->getName());
@@ -190,7 +190,7 @@ if ($FreeAttendees) {
 
 <div id="errorcallout" class="callout callout-danger" hidden></div>
 
-<?php 
+<?php
   if (!empty($searchEventInActivEvent)) {
 ?>
 
@@ -253,11 +253,11 @@ if ($FreeAttendees) {
     </div>
 </div>
 
-<?php 
-} 
+<?php
+}
 ?>
 
-<?php 
+<?php
   if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
 ?>
 <!-- Add Free Attendees Form -->
@@ -280,24 +280,24 @@ if ($FreeAttendees) {
                       <input type="hidden" name="FreeAttendees" value="1">
                       <div class="form-group row">
                         <label class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
-                        <?php 
+                        <?php
                            $desc = "";
                            foreach ($eventCountNames as $eventCountName) {
-                        ?>                        
+                        ?>
                            <div class="col-md-2">
                                <?= $eventCountName->getName();  ?>
-                               
+
                                <?php
                                   $eventCount = EventCountsQuery::Create()
                                                 ->filterByEvtcntEventid($EventID)
                                                 ->findOneByEvtcntCountid($eventCountName->getId());
-                                  
+
                                   $count = 0;
                                   if (!empty($eventCount)) {
                                     $count = $eventCount->getEvtcntCountcount();
                                     $desc =  $eventCount->getEvtcntNotes();
                                   }
-                               ?>                               
+                               ?>
                                <input type="text" id="field<?= $eventCountName->getId() ?>" name="<?= $eventCountName->getId() ?>" data-countid="<?= $eventCountName->getId() ?>" value="<?= $count ?>" size="8" class="form-control input-sm" width="100%" style="width: 100%">
                            </div>
                         <?php
@@ -316,7 +316,7 @@ if ($FreeAttendees) {
                                        name="Add" tabindex=4>
                         </div>
                     </div>
-                    </form> <!-- end Add Free Attendees Form -->                    
+                    </form> <!-- end Add Free Attendees Form -->
                 </div>
             </div>
        </div>
@@ -447,9 +447,9 @@ if ($EventID && isset($_POST['child-id']) && (isset($_POST['CheckIn']) || isset(
         $attendDel = EventAttendQuery::create()
             ->filterByEventId($EventID)
             ->findOneByPersonId($iChildID);
-        if (!empty($attendDel)) {        
+        if (!empty($attendDel)) {
             $attendDel->delete();
-        }        
+        }
     }
 }
 
@@ -502,11 +502,11 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4 text-center">                                    
+                                <div class="col-sm-4 text-center">
                                     <div id="adultoutDetails" class="box box-solid box-default">
                                         <div class="text-center"><a target="_top" href="PersonView.php?PersonID=<?= $person->getId() ?>">
                                           <h4><?= $person->getFullName() ?></h4></a>
-                                          <img src="/api/persons/<?= $person->getId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle"> 
+                                          <img src="/api/persons/<?= $person->getId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle">
                                           <br>
                                         </div>
                                     </div>
@@ -572,9 +572,9 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                 ->orderByFirstName()
                 ->endUse()
                 ->findByEventId($EventID);
-                
-                
-            if ($bSundaySchool) { 
+
+
+            if ($bSundaySchool) {
               $genderMale = "Boy";
               $genderFem = "Girl";
             } else {
@@ -586,12 +586,12 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                 //Get Person who is checked in
                 $checkedInPerson = PersonQuery::create()
                                 ->findOneById($per->getPersonId());
-                        
+
                 if (is_null($checkedInPerson)) {// we have to avoid pure user and not persons
                   continue;
                 }
 
-                $sPerson = $checkedInPerson->getFullName();        
+                $sPerson = $checkedInPerson->getFullName();
 
                 //Get Person who checked person in
                 $sCheckinby = "";
@@ -666,7 +666,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
     } ?>
                 </tbody>
             </table>
-            <div class="row" style="margin:5px"> 
+            <div class="row" style="margin:5px">
               <center>
                 <div class="col-sm-6" style="text-align:center">
                    <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
@@ -678,7 +678,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
             </div>
 
             <hr/>
-            <div class="row" style="margin:5px"> 
+            <div class="row" style="margin:5px">
             <label><?= _("Add some notes") ?> : </label>
             <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
             <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
@@ -691,7 +691,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
             </form>
             <br>
             </div>
-        </div>        
+        </div>
     </div>
   <?php
 }
@@ -720,7 +720,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
          responsive: true,
          order: [[ 1, "asc" ]]
        });
-     
+
      if (window.CRM.bEDrive) {
        var editor = CKEDITOR.replace('NoteText',{
           customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
@@ -730,16 +730,16 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
           imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
           filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
           filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
-       });  
+       });
      } else {
         var editor = CKEDITOR.replace('NoteText',{
           customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
           language : window.CRM.lang
        });
      }
-     
+
      add_ckeditor_buttons(editor);
-     
+
      $('.collapse').on('shown.bs.collapse', function(){
         $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");
      }).on('hidden.bs.collapse', function(){
@@ -829,14 +829,16 @@ function loadPerson($iPersonID)
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
-  
+
   window.CRM.churchloc = {
       lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
       lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
