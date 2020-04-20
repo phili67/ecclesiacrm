@@ -84,7 +84,7 @@ require $sRootDocument . '/Include/Header.php';
         ?>
       </div>
       <div class="card-body">
-        <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>
+        <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>
           <?= _("You've first to create a content below to schedule a campaign.") ?>
         </div>
         <div class="row">
@@ -135,7 +135,7 @@ require $sRootDocument . '/Include/Header.php';
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12" style="padding-left:15px;padding-right:15px;">
-            <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i>
+            <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
               <?= _("You can use the button \"Merge Tags\" below, to customize your content") ?> : <img src="<?= $sRootPath ?>/Images/merge_tags.png">.
             </div>
             <textarea name="campaignContent" cols="80" class="form-control input-sm campaignContent" id="campaignContent"  width="100%" style="margin-top:0px;width: 100%;height: 14em;"></textarea></div>

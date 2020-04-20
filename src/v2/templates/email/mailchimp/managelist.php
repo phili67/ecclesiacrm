@@ -68,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
             <h3 class="card-title"><?= _('Subscribers') ?></h3>
           </div>
           <div class="card-body">
-              <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i>
+              <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
                 <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?><br>
                 <ul>
                   <li>

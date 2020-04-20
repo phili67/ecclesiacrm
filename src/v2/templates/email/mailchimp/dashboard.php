@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 if ($mailChimpStatus['title'] == 'Forbidden') {
     ?>
-    <div class="callout callout-danger">
+    <div class="alert alert-danger">
         <h4><i class="fa fa-ban"></i> <?= _('MailChimp Problem') ?></h4>
         <?= _("Mailchimp Status") ?> :<?= _("Title") ?> : <?= $mailChimpStatus['title'] ?> status
         : <?= $mailChimpStatus['status'] ?> detail : <?= $mailChimpStatus['detail'] ?>
@@ -41,7 +41,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <?php
 } else {
     ?>
-    <div class="callout callout-info">
+    <div class="alert alert-info">
         <h4><i class="fa fa-info"></i> <?= _('MailChimp is activated') ?></h4>
         <?= _('MailChimp is working correctly') ?>
     </div>
