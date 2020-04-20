@@ -93,7 +93,6 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                     </div>
                 </div>
-
                 <div id="accordion">
                     <div class="card card-primary card-calendar">
                         <div class="card-header card-header-calendar" id="headingOne">
@@ -262,12 +261,13 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    window.CRM.isModifiable = true;
+  window.CRM.isModifiable  = true;
+  window.CRM.calendarSignature = null;
 
-    window.CRM.churchloc = {
-        lat: <?= $coordinates['lat'] ?>,
-        lng: <?= $coordinates['lng'] ?>};
-    window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
+  window.CRM.churchloc = {
+      lat: <?= $coordinates['lat'] ?>,
+      lng: <?= $coordinates['lng'] ?>};
+  window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
@@ -299,6 +299,6 @@ if ($sMapProvider == 'OpenStreetMap') {
 } else if ($sMapProvider == 'BingMaps') {
     ?>
     <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
-    <?php
-}
+<?php
+  }
 ?>

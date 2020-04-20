@@ -12,6 +12,9 @@
 namespace EcclesiaCRM\Synchronize;
 
 use EcclesiaCRM\Synchronize\DashboardItemInterface;
+use Propel\Runtime\Propel;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\MyPDO\CalDavPDO;
 
 class CalendarPageItem implements DashboardItemInterface {
 
@@ -19,10 +22,38 @@ class CalendarPageItem implements DashboardItemInterface {
         return "CalendarDisplay";
     }
 
-    public static function getDashboardItemValue() {
-        $calendarUpdate = array ();
+    private static function getAllCalendarsMD5 () {
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();
 
-        return $calendarUpdate;
+        // We set the BackEnd for sabre Backends
+        $calendarBackend  = new CalDavPDO($pdo->getWrappedConnection());
+
+        $types = ["personal", "group", "reservation", "share"];
+        $only_visible = false;
+        $all_calendars = false;
+
+        $return = "";
+
+        // get all the calendars for the current user
+        foreach ($types as $type) {
+            $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower(SessionUser::getUser()->getUserName()), ($type == 'all') ? true : false);
+
+            foreach ($calendars as $calendar) {
+                $return .= $calendar['{DAV:}displayname'];
+                $return .= $calendar['{http://apple.com/ns/ical/}calendar-color'];
+                $return .= $calendar['uri'];
+            }
+        }
+
+        return md5($return);
+    }
+
+    public static function getDashboardItemValue() {
+        $signature = self::getAllCalendarsMD5();
+
+        return $signature;
     }
 
     public static function shouldInclude($PageName) {
