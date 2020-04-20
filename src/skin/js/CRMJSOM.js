@@ -1347,12 +1347,17 @@
           }
         },
         CalendarDisplay: function (data) {
-            var calendarView = document.getElementById('calendar');
+              var calendarView = document.getElementById('calendar');
 
-            if (calendarView) {
-                $('#calendar').fullCalendar( 'refetchEvents' );
-                window.CRM.addAllCalendars();
-            }
+              if (calendarView) {
+                  if (window.CRM.calendarSignature != data) {
+                      window.CRM.calendarSignature = data;
+                      window.CRM.addAllCalendars();
+                  }
+
+                  $('#calendar').fullCalendar( 'refetchEvents' );
+
+              }
         },
         EDriveDisplay: function(data) {
             var edriveView = document.getElementById('edrive-table');
