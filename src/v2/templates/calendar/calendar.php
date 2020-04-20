@@ -259,8 +259,6 @@ require $sRootDocument . '/Include/Header.php';
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/main.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
