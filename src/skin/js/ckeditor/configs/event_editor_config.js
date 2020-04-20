@@ -5,7 +5,7 @@
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '250px';
-  
+
   config.toolbar = [
     { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
     { name: 'document', items: [ 'Preview', 'Print', '-' , 'mergeTagsMailChimp' ] },
@@ -23,7 +23,7 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe','-', 'mathjax' ] },
     { name: 'about', items: [ 'About' ] }
   ];
-  
+
   config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
@@ -38,6 +38,7 @@ CKEDITOR.editorConfig = function( config ) {
     'elementspath,' +
     'enterkey,' +
     'entities,' +
+    'basicstyles,'+
     'iframe,'+
     'find,' +
     'floatingspace,' +
