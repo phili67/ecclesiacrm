@@ -264,7 +264,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         <?php
           if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
         ?>
-            <div class="callout callout-danger">
+            <div class="alert alert-danger">
               <?= _("An error occurs when you import the CSV file. You've to select values above in the select fields.") ?>
             </div>
             <br>
@@ -282,7 +282,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         </div>
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= _("Important Options") ?></h3>
+            <h3  class="card-title"><?= _("Important Options") ?></h3>
           </div>
         </div>
         <div class="row">
@@ -341,7 +341,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= _("Not usefull options") ?></h3>
+            <h3  class="card-title"><?= _("Not usefull options") ?></h3>
           </div>
         </div>
 
@@ -991,7 +991,7 @@ if ($iStage == 1) {
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <div class="callout callout-info"><?= _("<b>DON'T FORGET</b>
+            <div class="alert alert-info"><?= _("<b>DON'T FORGET</b>
               <br>• your CSV file must have a <b>Title</b> header name column (with M. Mr. Mlle. etc ...),
               <br>• and a <b>gender</b> header name column (with 1 for a men, 2 for a women)") ?>
               <div class="row">
