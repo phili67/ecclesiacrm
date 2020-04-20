@@ -838,18 +838,18 @@
 
     window.CRM.register = function () {
         function BootboxContentRegister(data){
-            var frm_str = '<div class="box box-warning">'
-                + '  <div class="box-body">'
+            var frm_str = '<div class="card card-warning">'
+                + '  <div class="card-body">'
                 + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="'+ window.CRM.root + '/SystemSettings.php">'+ i18next.t('Admin->Edit General Settings') + '</a>'
                 + '  </div>'
                 + '</div>'
-                + '<div class="box box-primary">'
-                + '  <div class="box-header">'
+                + '<div class="card card-primary">'
+                + '  <div class="card-header">'
                 +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.')
                 + '  '
                 +    i18next.t('This information is used only to track the usage of this software.')
                 + '  </div>'
-                + '  <div class="box-body">'
+                + '  <div class="card-body">'
                 +      i18next.t('Church Name') + ':' + data.ChurchName + '<br>'
                 +      i18next.t('Version') + ':' + data.InstalledVersion + '<br>'
                 +      i18next.t('Address') + ':' + data.ChurchAddress + '<br>'
