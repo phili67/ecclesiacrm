@@ -16,7 +16,7 @@ use EcclesiaCRM\Utils\LabelUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="callout callout-info"><?= _("When you add some properties to a person they will be add to the badge.") ?></div>
+<div class="alert alert-info"><?= _("When you add some properties to a person they will be add to the badge.") ?></div>
 <?php
 if (count($_SESSION['aPeopleCart']) == 0) {
     $useCart = 0;
@@ -32,7 +32,7 @@ if ($useCart == 1) {
     }
     ?>
 
-    <div class="callout callout-warning"><?= _("You're about to create babges only for this people")." : <b>".$allPersons."</b> "._("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
+    <div class="alert alert-warning"><?= _("You're about to create babges only for this people")." : <b>".$allPersons."</b> "._("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
     <?php
 }
 

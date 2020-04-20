@@ -20,8 +20,8 @@ require $sRootDocument . '/Include/Header.php';
 if (SessionUser::getUser()->isAddRecords()) {
     ?>
     <div
-        class="callout callout-info info"><?= _("To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
-    <div class="callout callout-warning edition-mode"
+        class="alert alert-info info"><?= _("To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
+    <div class="alert alert-warning edition-mode"
          style="display: none;"><?= _("You're now in edition mode. To see the entire page again, click the button") ?>
         <button type="button" class="btn btn-default exit-edition-mode" data-widget="collapse"><?= _("Exit") ?></button>
     </div>
