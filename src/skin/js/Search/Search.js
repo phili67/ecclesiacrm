@@ -286,7 +286,7 @@ $(document).ready(function () {
                 title: i18next.t('Actions'),
                 data: 'actions',
                 render: function (data, type, full, meta) {
-                    return '<table width="110"><tbody><tr style="background-color: transparent !important;"><td>' + data + '</td></tr></tbody></<table>';
+                    return '<table width="130"><tbody><tr style="background-color: transparent !important;"><td>' + data + '</td></tr></tbody></<table>';
                 }
             },
             {
