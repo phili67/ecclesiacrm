@@ -18,21 +18,21 @@ require $sRootDocument . '/Include/Header.php';
 
 
 
-<div class="callout callout-info">
+<div class="alert alert-info">
     <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
     <?= _('Missing Families?').'<a href="'.$sRootPath.'/UpdateAllLatLon.php" >'.' '._('Update Family Latitude or Longitude now.') ?></a>
 </div>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {
     ?>
-    <div class="callout callout-danger">
+    <div class="alert alert-danger">
         <?= _('Unable to display map due to missing Church Latitude or Longitude. Please update the church Address in the settings menu.') ?>
     </div>
     <?php
 } else {
     if (SystemConfig::getValue('sBingMapKey') == '') {
             ?>
-        <div class="callout callout-warning">
+        <div class="alert alert-warning">
           <a href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
         </div>
   <?php
@@ -41,7 +41,7 @@ require $sRootDocument . '/Include/Header.php';
     foreach ($icons as $icon) {
       if ($icon->getUrl() == null) {
         ?>
-           <div class="callout callout-danger">
+           <div class="alert alert-danger">
                 <a href="<?= $sRootPath ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
                 <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>
             </div>
