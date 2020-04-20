@@ -43,7 +43,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
     // Get the FamilyID
     $iFamilyID = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
-    
+
     // Are we creating a new family
     if ($iFamilyID == 0) {
         $sFamilyName = InputUtils::LegacyFilterInput($_POST['FamilyName']);
@@ -67,7 +67,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $per_WorkPhone = null;
         $per_CellPhone = null;
         $per_Email = null;
-            
+
         if ($iPersonAddress != 0) {
             $person=PersonQuery::Create()->findOneById($iPersonAddress);
 
@@ -117,11 +117,11 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $sEmail = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
 
         if (strlen($sFamilyName) == 0) {
-            $sError = '<p class="callout callout-warning" align="center" style="color:red;">'._('No family name entered!').'</p>';
+            $sError = '<p class="alert alert-warning" align="center" style="color:red;">'._('No family name entered!').'</p>';
             $bError = true;
         } else {
             $fam = new Family();
-            
+
             $fam->setName($sFamilyName);
             $fam->setAddress1($sAddress1);
             $fam->setAddress1($sAddress2);
@@ -136,16 +136,16 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             $fam->setWeddingdate($dWeddingDate);
             $fam->setDateEntered(date('YmdHis'));
             $fam->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
             $fam->save();
-            
+
             //Get the key back
-            $last = FamilyQuery::create() 
+            $last = FamilyQuery::create()
               ->addAsColumn('maxId', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
               ->findOne();
-              
+
             $iFamilyID = $last->getMaxId();
-            
+
         }
     }
 
@@ -164,7 +164,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
                 if (isset($_POST['role'.$iPersonID])) {
                     $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role'.$iPersonID], 'int');
                 }
-                
+
                 $ormPerson->setFamId($iFamilyID);
                 $ormPerson->setFmrId($iFamilyRoleID);
                 $ormPerson->save();
@@ -174,7 +174,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         }
 
         $sGlobalMessage = $iCount.' records(s) successfully added to selected Family.';
-        
+
         // empty the cart
         if(sizeof($_SESSION['aPeopleCart'])>0) {
           $_SESSION['aPeopleCart'] = [];
@@ -191,7 +191,7 @@ require 'Include/Header.php';
 echo $sError;
 ?>
 <form method="post">
-<div class="box">
+<div class="card">
 <?php
 if (count($_SESSION['aPeopleCart']) > 0) {
 
@@ -199,7 +199,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     $ormFamilies = FamilyQuery::Create()
                     ->orderByName()
                     ->find();
-                    
+
     // Get the family roles
     $ormFamilyRoles = ListOptionQuery::Create()
           ->filterById(2)
@@ -224,7 +224,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <td align="center"><b><?= _('Assign Role') ?></b></td>
 
     <?php
-    $count = 1;    
+    $count = 1;
     foreach ($ormCartItems as $ormCartItem) {
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
         ?>
@@ -251,7 +251,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 
   </table>
 </div>
-<div class="box">
+<div class="card">
 <div class="table-responsive">
 <table align="center" class="table table-hover" id="cart-family-table" width="100%">
   <thead>
@@ -266,7 +266,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <td class="TextColumn">
         <select name="FamilyID"  class="form-control">
               <option value="0"><?= _('Create new family') ?></option>
-      <?php            
+      <?php
         // Create the family select drop-down
         foreach ($ormFamilies as $ormFamily) {
         ?>
@@ -300,12 +300,12 @@ if (count($_SESSION['aPeopleCart']) > 0) {
       <select name="PersonAddress"  class="form-control">
          <option value="0"><?= _('Only the new data below') ?></option>
 
-      <?php 
+      <?php
       foreach ($ormCartItems as $ormCartItem) {
         if ($ormCartItem->getFamId() == 0) {
         ?>
            <option value="<?= $ormCartItem->getId() ?>"><?= $ormCartItem->getFirstName()?> <?= $ormCartItem->getLastName() ?></option>
-        <?php      
+        <?php
         }
       }
       ?>
@@ -331,8 +331,8 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   <tr <?= (SystemConfig::getValue('bStateUnusefull'))?'style="display: none;"':""?>>
     <td class="LabelColumn"><?= _('State') ?>:</td>
     <td class="TextColumn">
-      <?php                          
-          $statesDD = new StateDropDown();     
+      <?php
+          $statesDD = new StateDropDown();
           echo $statesDD->getDropDown($sState);
       ?>
       OR
@@ -406,7 +406,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 </p>
 <?php
 } else {
-            echo "<p align=\"center\" class='callout callout-warning'>"._('Your cart is empty!').'</p>';
+            echo "<p align=\"center\" class='alert alert-warning'>"._('Your cart is empty!').'</p>';
         }
 ?>
 </div>
@@ -417,12 +417,12 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     $(document).ready(function() {
         $("#country-input").select2();
         $("#state-input").select2();
-        
+
         $(function() {
           $("[data-mask]").inputmask();
         });
 
-        
+
         $("#cart-family-table").DataTable({
             responsive:true,
             paging: false,
@@ -431,7 +431,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
             info:     false,
             //dom: window.CRM.plugin.dataTable.dom,
             fnDrawCallback: function( settings ) {
-              $("#selector thead").remove(); 
+              $("#selector thead").remove();
             }
         });
     });
