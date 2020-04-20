@@ -14,7 +14,7 @@
         line-height: 18px !important;
         box-sizing: border-box !important;
     }
-    
+
     a.cke_dialog_ui_button_danger:hover {
         background : #d73925 !important;
         border : #d73925 !important;
@@ -33,7 +33,7 @@
         opacity: .65 !important;
         filter: alpha(opacity=65) !important;
     }
-    
+
 
     a.cke_dialog_ui_button_modify {
         background : #3c8dbc !important;
@@ -46,8 +46,8 @@
         vertical-align: middle !important;
         cursor: pointer !important;
         border: 1px solid #bcbcbc !important;
-        border-radius: 2px !important !important;
-        letter-spacing: .3px !important !important;
+        border-radius: 2px !important;
+        letter-spacing: .3px !important;
         line-height: 18px !important;
         box-sizing: border-box !important;
     }
@@ -72,7 +72,7 @@
     }
 
     /* the CKEditor templates list */
-    
+
     .cke_tpl_list
     {
       border: #dcdcdc 2px solid !important;

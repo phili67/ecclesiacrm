@@ -51,8 +51,8 @@ if ($sReportType) {
 }
 require 'Include/Header.php';
 ?>
-<div class="box box-body">
-
+<div class=card card-body">
+<br>
 <?php
 
 // No Records Message if previous report returned no records.
@@ -83,7 +83,7 @@ if ($sReportType == '') {
         </select>
       </td>
     </tr>
-    
+
 <?php
     // First Pass Cancel, Next Buttons
 ?>
@@ -146,8 +146,8 @@ if ($sReportType == '') {
               ->orderByOptionSequence()
               ->findById(1);
          ?>
-        
-        
+
+
 
     <tr>
       <td class="LabelColumn"><?= _("Classification") ?>:<br></td>
@@ -159,7 +159,7 @@ if ($sReportType == '') {
         ?>
             <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
         <?php
-          } 
+          }
         ?>
           </select>
       </td>
@@ -193,13 +193,13 @@ if ($sReportType == '') {
         }
         // Build array of Head of Households and Spouses with fam_ID as the key
         $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND ('.$head_criteria.') ORDER BY per_fam_ID';
-        
+
         $connection = Propel::getConnection();
 
         $statement = $connection->prepare($sSQL);
         $statement->execute();
-        
-        
+
+
         $aHead = [];
         while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             if ($row['per_FirstName'] && array_key_exists($row['per_fam_ID'], $aHead)) {
@@ -207,9 +207,9 @@ if ($sReportType == '') {
             } elseif ($row['per_FirstName']) {
                 $aHead[$row['per_fam_ID']] = $row['per_FirstName'];
             }
-        
+
         }
-        
+
         foreach ($families as $family) {
       ?>
             <option value=<?= $family->getId() ?>><?= $family->getName() ?>
@@ -254,7 +254,7 @@ if ($sReportType == '') {
         <input type=text name=DateEnd class='date-picker form-control' maxlength=10 id=DateEnd size=11 value='<?= $today?>'>
       </td>
     </tr>
-        
+
   <?php
   if ($sReportType == 'Giving Report' || $sReportType == 'Advanced Deposit Report') {
   ?>
@@ -263,7 +263,7 @@ if ($sReportType == '') {
       <td class=TextColumnWithBottomBorder>
         <input name=datetype type=radio checked value='Deposit'>
          <?= _("Deposit Date (Default)") ?>
-       &nbsp; 
+       &nbsp;
         <input name=datetype type=radio value='Payment'>
           <?= _("Payment Date")?>
     </tr>
@@ -460,11 +460,11 @@ if ($sReportType == '') {
     }
 
     if (((SessionUser::getUser()->isAdmin() && $_SESSION['bCSVAdminOnly'] ) || !$_SESSION['bCSVAdminOnly'] )
-        && 
-        ($sReportType == 'Pledge Summary' 
-          || $sReportType == 'Giving Report' 
-          || $sReportType == 'Individual Deposit Report' 
-          || $sReportType == 'Advanced Deposit Report' 
+        &&
+        ($sReportType == 'Pledge Summary'
+          || $sReportType == 'Giving Report'
+          || $sReportType == 'Individual Deposit Report'
+          || $sReportType == 'Advanced Deposit Report'
           || $sReportType == 'Zero Givers'
         )) {
   ?>
@@ -496,6 +496,7 @@ if ($sReportType == '') {
 <?php
 }
 ?>
+<br/>
 </div>
 <?php
 require 'Include/Footer.php';

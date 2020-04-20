@@ -25,7 +25,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           return '<a class="edit-fund" data-id="'+data+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-fund" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Active'),
@@ -56,12 +56,12 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
-  
+
+
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentFundList(){    
-      var frm_str = '<div class="box-body">'
+    function BootboxContentFundList(){
+      var frm_str = '<div class="card-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
         +'    <label for="depositComment">'+i18next.t("Active")+'</label>'
@@ -88,10 +88,10 @@ $(document).ready(function () {
 
         return object
     }
-    
+
   $(document).on("click",".delete-fund", function(){
      var fundId = $(this).data("id");
-     
+
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: i18next.t("If you delete the fund, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
@@ -107,11 +107,11 @@ $(document).ready(function () {
         }
       }
     });
-  });  
-  
+  });
+
   $(document).on("click",".edit-fund", function(){
      var fundId = $(this).data("id");
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'donationfunds/edit',
@@ -128,7 +128,7 @@ $(document).ready(function () {
              var Activ = $("#activCheckbox").is(":checked");
              var Name = $("#Name").val();
              var Description = $("#description").val();
-           
+
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'donationfunds/set',
@@ -151,15 +151,15 @@ $(document).ready(function () {
             modal.modal("hide");
          }
        });
-       
+
        $("#activCheckbox").prop('checked', data.Active);
        $("#Name").val(data.Name);
        $("#description").val(data.Description);
-  
+
        modal.modal("show");
       });
   });
-  
+
   $(document).on("click","#add-new-fund", function(){
     var modal = bootbox.dialog({
      message: BootboxContentFundList,
@@ -172,7 +172,7 @@ $(document).ready(function () {
          var Activ = $("#activCheckbox").is(":checked");
          var Name = $("#Name").val();
          var Description = $("#description").val();
-       
+
          window.CRM.APIRequest({
             method: 'POST',
             path: 'donationfunds/create',
@@ -195,7 +195,7 @@ $(document).ready(function () {
         modal.modal("hide");
      }
    });
-   
+
    modal.modal("show");
   });
 

@@ -1216,7 +1216,12 @@ CREATE TABLE `userconfig_choices_ucfg_ch` (
 
 INSERT INTO `userconfig_choices_ucfg_ch` (`ucfg_ch_id`,`ucfg_name`,`ucfg_choices`) VALUES
 (0,'Maps','GoogleMaps,AppleMaps,BingMaps'),
-(1,'Styles', 'skin-blue-light,skin-yellow-light,skin-green-light,skin-purple-light,skin-red-light');
+(1,'StyleFontSize', 'Small,Large' ),
+(2,'StyleSideBarType', 'dark,light'),
+(3,'StyleSideBarColor','blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' ),
+(4,'StyleNavBarColor', 'blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' ),
+(5,'StyleBrandLinkColor', 'blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' );
+
 
 -- --------------------------------------------------------
 
@@ -1249,26 +1254,37 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (0, 8, 'bShowTooltip',1,'boolean','Allow to see ballon Help','TRUE',''),
   (0, 9, 'sCSVExportDelemiter', ',', 'text', 'To export to another For european CharSet use ;', 'TRUE', ''),
   (0, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', ''),
-  (0, 12, 'bSidebarExpandOnHover', '1', 'boolean', 'Enable sidebar expand on hover effect for sidebar mini', 'TRUE', ''),
-  (0, 13, 'bSidebarCollapse', '1', 'boolean', 'The sidebar is collapse by default', 'TRUE', ''),
   (1, 0, 'bEmailMailto', '1', 'boolean', 'User permission to send email via mailto: links', 'TRUE', ''),
   (1, 1, 'sMailtoDelimiter', ',', 'text', 'User permission to send email via mailto: links', 'TRUE', ''),
   (1, 7, 'bUSAddressVerification', '1', 'boolean', 'User permission to use IST Address Verification', 'TRUE', ''),
   (1, 8, 'bShowTooltip',1,'boolean','Allow to see ballon Help','TRUE',''),
   (1, 9, 'sCSVExportDelemiter', ',', 'text', 'To export to another For european CharSet use ;', 'TRUE', ''),
-  (1, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', ''),
-  (1, 12, 'bSidebarExpandOnHover', '1', 'boolean', 'Enable sidebar expand on hover effect for sidebar mini', 'TRUE', ''),
-  (1, 13, 'bSidebarCollapse', '1', 'boolean', 'The sidebar is collapse by default', 'TRUE', '');
+  (1, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', '');
 
--- the choices
+-- the map choices
 INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_value`, `ucfg_type`, `ucfg_choices_id`, `ucfg_tooltip`, `ucfg_permission`, `ucfg_cat`) VALUES
-(0, 14, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', ''),
-(1, 14, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', '');
+  (0, 12, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', ''),
+  (1, 12, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', '');
 
+
+--  The navbar styles
 INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_value`, `ucfg_type`, `ucfg_choices_id`, `ucfg_tooltip`, `ucfg_permission`, `ucfg_cat`) VALUES
-(0, 15, 'sStyle', 'skin-blue-light', 'choice', '1', 'AdminLTE style ', 'TRUE', ''),
-(1, 15, 'sStyle', 'skin-red-light', 'choice', '1','AdminLTE style', 'TRUE', '');
-
+  (0, 12, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', ''),
+  (1, 12, 'sMapExternalProvider', 'GoogleMaps', 'choice', '0', 'Map providers for external view', 'TRUE', ''),
+  (0, 13, 'bSidebarExpandOnHover', '1', 'boolean', NULL, 'Enable sidebar expand on hover effect for sidebar mini', 'TRUE', ''),
+  (1, 13, 'bSidebarExpandOnHover', '1', 'boolean', NULL, 'Enable sidebar expand on hover effect for sidebar mini', 'TRUE', ''),
+  (0, 14, 'bSidebarCollapse', '1', 'boolean', NULL, 'The sidebar is collapse by default', 'TRUE', ''),
+  (1, 14, 'bSidebarCollapse', '1', 'boolean', NULL, 'The sidebar is collapse by default', 'TRUE', ''),
+  (0, 15, 'sStyleFontSize', 'Small', 'choice', '1', 'AdminLTE 3.0 sideBar style', 'TRUE', ''),
+  (1, 15, 'sStyleFontSize', 'Small', 'choice', '1','AdminLTE 3.0 sideBar style', 'TRUE', ''),
+  (0, 16, 'sStyleSideBar', 'dark', 'choice', '2', 'AdminLTE 3.0 sideBar style', 'TRUE', ''),
+  (1, 16, 'sStyleSideBar', 'dark', 'choice', '2','AdminLTE 3.0 sideBar style', 'TRUE', ''),
+  (0, 17, 'sStyleSideBarColor', 'blue', 'choice', '3', 'AdminLTE 3.0 sideBar color style', 'TRUE', ''),
+  (1, 17, 'sStyleSideBarColor', 'blue', 'choice', '3','AdminLTE 3.0 sideBar color style', 'TRUE', ''),
+  (0, 18, 'sStyleNavBarColor', 'gray', 'choice', '4', 'AdminLTE 3.0 navbar color style', 'TRUE', ''),
+  (1, 18, 'sStyleNavBarColor', 'gray', 'choice', '4','AdminLTE 3.0 navbar color style', 'TRUE', ''),
+  (0, 19, 'sStyleBrandLinkColor', 'gray', 'choice', '5', 'AdminLTE 3.0 brand link color style', 'TRUE', ''),
+  (1, 19, 'sStyleBrandLinkColor', 'gray', 'choice', '5','AdminLTE 3.0 brand link color style', 'TRUE', '');
 
 
 -- --------------------------------------------------------

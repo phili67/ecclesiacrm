@@ -33,7 +33,7 @@ $("document").ready(function(){
     $('.quick-status').hide();
     $('.teachers').hide();
     $('.info').hide();
-    
+
     var oSettings = dataTable.page.len(10).draw();
     window.scrollTo(0, 0);
   }
@@ -48,25 +48,25 @@ $("document").ready(function(){
       var res = '';
 
       for (i = 0;i < len_teachers;i++) {
-        res += '<div class="col-sm-2">\n' +
-            '        <!-- Begin user profile -->\n' +
-            '        <div class="box box-info text-center user-profile-2">\n' +
-            '            <div class="user-profile-inner">\n' +
-            '            <h4 class="white">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>\n' +
-            '        <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"\n' +
-            '        alt="User Image" class="user-image initials-image" width="85" height="85" />\n';
+        res += '<div class="col-sm-2">' +
+            '        <!-- Begin user profile -->' +
+            '        <div class="box box-info text-center user-profile-2">' +
+            '            <div class="user-profile-inner">' +
+            '            <h4 class="white">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
+            '        <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
+            '        alt="User Image" class="user-image initials-image" width="85" height="85" />';
         if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
           res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
 
         }
-        res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" type="button" class="btn btn-primary btn-sm btn-block"><i\n' +
+        res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-success btn-sm btn-block"><i' +
             '      class="fa fa-envelope"></i> ' + i18next.t('Send Message') + '</a>' +
-            '        <a href="' +  window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" type="button"\n' +
-            '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-user"></i> ' + i18next.t('View Profile') +'</a>\n' +
-            '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" "type="button"\n' +
-            '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-trash"></i> ' + i18next.t('Delete') +'</a>\n' +
-            '        </div>\n' +
-            '        </div>\n' +
+            '        <a href="' +  window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" ' +
+            '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-user"></i> ' + i18next.t('View Profile') +'</a>' +
+            '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" ' +
+            '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-trash"></i> ' + i18next.t('Delete') +'</a>' +
+            '        </div>' +
+            '        </div>' +
             '        </div>'
       }
 
@@ -102,19 +102,19 @@ $("document").ready(function(){
   {
     window.scrollTo(0, 0);
     $('.edition-mode').hide();
-    
+
     $(".info").fadeIn(300);
     $('.quick-status').fadeIn(200);
     $('.teachers').fadeIn(200);;
     var oSettings = dataTable.page.len(100).draw();
-    
+
     var _val = $("#editionMode").is(':checked') ? 'checked' : 'unchecked';
-    
+
     if (_val == 'checked'){
       $("#editionMode").bootstrapToggle('off');
     };
   }
-  
+
   function updateGraphs()
   {
     load_SundaySchool();
@@ -125,7 +125,7 @@ $("document").ready(function(){
     }).done(function (donutData) {
       drawDonut (donutData);
     });
-    
+
     window.CRM.APIRequest({
       method: "POST",
       path: "sundayschool/getAllStudentsForChart/" + sundayGroupId
@@ -133,22 +133,22 @@ $("document").ready(function(){
       draw_Chart (birthDayMonthChart);
     });
   }
-  
+
   $("#editionMode").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
-     
+
      if (_val == 'checked'){
        edition_mode()
-     } else { 
+     } else {
        exit_edition_mode();
      }
   });
-  
+
   $(document).on("click",".exit-edition-mode", function(){
     exit_edition_mode();// this for futur dev, we've to update the charts
     updateGraphs();
   });
-  
+
   /* Badge creation */
   $(document).on("click","#studentbadge", function(){
     var sundayGroupId = $(this).data("groupid");
@@ -170,7 +170,7 @@ $("document").ready(function(){
     language: window.CRM.shortLocale,
     minimumInputLength: 2,
     placeholder: " -- "+i18next.t("Person")+" -- ",
-    allowClear: true, // This is for clear get the clear button if wanted 
+    allowClear: true, // This is for clear get the clear button if wanted
     ajax: {
       url: function (params) {
         return window.CRM.root + "/api/persons/search/" + params.term;
@@ -275,7 +275,7 @@ $("document").ready(function(){
     //edition_mode ();
     event.preventDefault();
     var thisLink = $(this);
-    
+
     bootbox.confirm({
         title:i18next.t("Delete this person?"),
         message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
@@ -301,10 +301,10 @@ $("document").ready(function(){
           }
         }
     });
-    
+
   });
 
-  
+
    // search for the dates
    $.fn.dataTable.moment = function ( format, locale ) {
       format = format.replace(/-/g, " ");
@@ -326,17 +326,17 @@ $("document").ready(function(){
          console.log("d");
           return moment ( d, format, locale, true ).unix();
       };
-  };      
-  
+  };
+
   $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
-    
+
   // the sundayschool table
   var momentDateFormat = window.CRM.datePickerformat.toUpperCase();
     momentDateFormat = momentDateFormat.replace("MM", "MMMM");
     momentDateFormat = momentDateFormat.replace(/-/g, " ");
     momentDateFormat = momentDateFormat.replace(/\//g, " ");
-    
-  
+
+
   var  dataTableConfig = {
     ajax:{
       url: window.CRM.root + "/api/sundayschool/getallstudents/" + sundayGroupId,
@@ -379,7 +379,7 @@ $("document").ready(function(){
         data:'kidId',
         render: function(data, type, full, meta) {
           var res = '';
-          
+
           if (full.inCart == 0) {
              res += '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
               +'<span class="fa-stack">'
@@ -395,7 +395,7 @@ $("document").ready(function(){
                 +'</span>'
               '</a>';
           }
-          
+
           if (canDeleteMembers) {
               res += '<a class="delete-person" data-person_name="'+full.firstName+' '+full.LastName+'" data-person_id="'+data+'" data-view="family">'
               +'  <span class="fa-stack" style="color:red">'
@@ -404,7 +404,7 @@ $("document").ready(function(){
               +'  </span>'
               +'</a>';
           }
-          
+
           return res;
         }
       },
@@ -419,7 +419,7 @@ $("document").ready(function(){
 
           var birthDate = full.birthYear+'-'+((full.birthMonth<10)?'0':'')+full.birthMonth+'-'+((full.birthDay<10)?'0':'')+full.birthDay+'T00:00:00';
           var outPut = moment(birthDate).format(momentDateFormat);
-          
+
           return i18next.t(outPut);
         }
       },
@@ -429,7 +429,7 @@ $("document").ready(function(){
         data:'kidId',
         render: function(data, type, full, meta) {
           var gender = i18next.t("Unknown");
-          
+
           switch (full.kidGender) {
             case "1":
               gender = i18next.t("Boy");
@@ -438,7 +438,7 @@ $("document").ready(function(){
               gender = i18next.t("Girl");
               break;
           }
-          
+
           return gender;
         }
       },
@@ -508,7 +508,7 @@ $("document").ready(function(){
             return i18next.t('Private Data');
           }
           var address = full.Address1+' '+full.Address2+' '+full.city+' '+full.state+' '+full.zip;
-          
+
           return window.CRM.tools.getLinkMapFromAddress (address);
         }
       },
@@ -520,11 +520,11 @@ $("document").ready(function(){
           if (!canSeePrivacyData) {
             return i18next.t('Private Data');
           }
-          
+
           if (full.dadFirstName != null && full.dadLastName != null) {
             return '<a href="'+window.CRM.root+'/PersonView.php?PersonID='+full.dadId+'">'+full.dadFirstName+' '+full.dadLastName+'</a>';
           }
-          
+
           return "";
         }
       },
@@ -536,11 +536,11 @@ $("document").ready(function(){
           if (!canSeePrivacyData) {
             return i18next.t('Private Data');
           }
-          
+
           if (data != null) {
             return '<a href="tel:'+data+'">'+data+'</a>';
           }
-          
+
           return '';
         }
       },
@@ -556,7 +556,7 @@ $("document").ready(function(){
           if (data != null) {
             return '<a href="mailto:'+data+'">'+data+'</a>';
           }
-          
+
           return '';
         }
       },
@@ -568,11 +568,11 @@ $("document").ready(function(){
           if (!canSeePrivacyData) {
             return i18next.t('Private Data');
           }
-          
+
           if (full.momFirstName != null && full.momLastName != null) {
             return '<a href="'+window.CRM.root+'/PersonView.php?PersonID='+full.momId+'">'+full.momFirstName+' '+full.momLastName+'</a>';
           }
-          
+
           return '';
         }
       },
@@ -588,7 +588,7 @@ $("document").ready(function(){
           if (data != null) {
             return '<a href="tel:'+data+'">'+data+'</a>';
           }
-          
+
           return '';
         }
       },
@@ -604,7 +604,7 @@ $("document").ready(function(){
           if (data != null) {
             return '<a href="mailto:'+data+'">'+data+'</a>';
           }
-           
+
           return '';
         }
       }
@@ -614,12 +614,12 @@ $("document").ready(function(){
       $(row).addClass("menuLinksRow");
     }
   }
-  
+
   $.extend(dataTableConfig,window.CRM.plugin.dataTable);
 
   var dataTable = $("#sundayschoolTable").DataTable(dataTableConfig);
 
-  // the chart donut code 
+  // the chart donut code
     var hideBirthDayFilter = function() {
       window.CRM.plot.unhighlight();
 
@@ -631,7 +631,7 @@ $("document").ready(function(){
 
       birthDayFilter.hide();
     };
-    
+
 
     var birthDayFilter = $('.birthday-filter');
     var birthDayMonth = birthDayFilter.find('.month');
@@ -649,7 +649,7 @@ $("document").ready(function(){
       var month = window.CRM.bar_data.data[item.dataIndex][0];
 
       var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
-      
+
       birthDateColumn
         .search(month.substr(0, 7))
         .draw();
@@ -695,7 +695,7 @@ $("document").ready(function(){
       }
     });
   }
-  
+
   draw_Chart(birthDayMonthChartJSON);
 
   /* END BAR CHART */
@@ -704,7 +704,7 @@ $("document").ready(function(){
    * DONUT CHART
    * -----------
    */
-     
+
   var hideGenderFilter = function() {
       window.CRM.plot.unhighlight();
 
@@ -716,7 +716,7 @@ $("document").ready(function(){
 
       genderFilter.hide();
   };
-  
+
   function drawDonut (donutData) {
     $.plot("#donut-chart", donutData, {
       series: {
@@ -746,7 +746,7 @@ $("document").ready(function(){
 
   var genderFilter = $('.gender-filter');
   var genderType = genderFilter.find('.type');;
-  
+
   genderFilter.find('i.fa-close')
       .bind('click', hideGenderFilter);
 
@@ -755,7 +755,7 @@ $("document").ready(function(){
 
   // now we draw the donut
   drawDonut (genderChartJSON);
-  
+
   placeholder.bind("plotclick", function(event, pos, obj) {
 
     if (!obj) {
@@ -763,23 +763,23 @@ $("document").ready(function(){
     }
 
     percent = parseFloat(obj.series.percent).toFixed(2);
-      
+
     //alert(""  + obj.series.label + ": cpicpi" + percent + "%");
-      
+
     var gender = obj.series.label;
-    
+
     var searchGender = gender.substr(0, gender.length-1);
-    
+
     var genderColumn = dataTable.column(':contains('+genderColumnText+')');
 
     genderColumn
         .search(searchGender)
         .draw();
-    
+
     genderType.text(gender);
     genderFilter.show();
   });
-  
+
   /*
    * END DONUT CHART
    */
@@ -792,8 +792,8 @@ $("document").ready(function(){
       + label
       + "<br/>"
       + Math.round(series.percent) + "%</div>";
-  }  
-      
+  }
+
   /* the Cart management */
   // the little buttons
   $(document).on("click",".AddOneStudentToCart", function(){
@@ -805,7 +805,7 @@ $("document").ready(function(){
         $('span i:nth-child(2)',clickedButton).addClass("fa-remove");
         $('span i:nth-child(2)',clickedButton).removeClass("fa-cart-plus");
       });
-      
+
       var studentsButton = $('#AddStudentsToGroupCart');
       $(studentsButton).addClass("RemoveStudentsFromGroupCart");
       $(studentsButton).removeClass("AddStudentsToGroupCart");
@@ -816,7 +816,7 @@ $("document").ready(function(){
         $(text).text(i18next.t("Remove Students from Cart"));
       }
   });
-  
+
   $(document).on("click",".RemoveOneStudentFromCart", function(){
       var clickedButton = $(this);
       window.CRM.cart.removePerson([clickedButton.data("cartpersonid")],function()
@@ -840,15 +840,15 @@ $("document").ready(function(){
         if(text){
           $(text).text(i18next.t("Remove Students from Cart"));
         }
-        
-        // everything is done in the listener 
+
+        // everything is done in the listener
         /*$('.AddOneStudentToCart').addClass("RemoveOneStudentFromCart");
         $('.RemoveOneStudentFromCart').removeClass("AddOneStudentToCart");
         $(".fa-inverse").removeClass("fa-cart-plus");
         $(".fa-inverse").addClass("fa-remove");*/
       });
     });
-    
+
     $(document).on("click",".RemoveStudentsFromGroupCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removeStudentGroup(clickedButton.data("cartstudentgroupid"),function()
@@ -861,15 +861,15 @@ $("document").ready(function(){
         if(text){
           $(text).text(i18next.t("Add Students to Cart"));
         }
-        
-        // everything is done in the listener 
+
+        // everything is done in the listener
         /*$('.RemoveOneStudentFromCart').addClass("AddOneStudentToCart");
         $('.AddOneStudentToCart').removeClass("RemoveOneStudentFromCart");
         $(".fa-inverse").removeClass("fa-remove");
         $(".fa-inverse").addClass("fa-cart-plus");*/
       });
     });
-    
+
     $(document).on("click",".AddToTeacherGroupCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addTeacherGroup(clickedButton.data("cartteachergroupid"),function()
@@ -884,7 +884,7 @@ $("document").ready(function(){
         }
       });
     });
-    
+
     $(document).on("click",".RemoveFromTeacherGroupCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removeTeacherGroup(clickedButton.data("cartteachergroupid"),function()
@@ -899,17 +899,17 @@ $("document").ready(function(){
         }
       });
     });
-    
-    
-    
-    
+
+
+
+
     // newMessage event subscribers  : Listener CRJSOM.js
     $(document).on("updateCartMessage", updateButtons);
-    
+
     // newMessage event handler
     function updateButtons(e) {
       var cartPeople = e.people;
-      
+
       if (cartPeople != null) {
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function(index,personButton){
@@ -929,7 +929,7 @@ $("document").ready(function(){
             $(personButton).addClass("AddOneStudentToCart");
             $(personButton).removeClass("RemoveOneStudentFromCart");
             fa = $(personButton).find("i.fa.fa-inverse");
-            
+
             $(fa).removeClass("fa-remove");
             $(fa).addClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
@@ -940,10 +940,10 @@ $("document").ready(function(){
         });
       }
     }
-    
+
     // newMessage event subscribers  : Listener CRJSOM.js
     $(document).on("emptyCartMessage", emptyButtons);
-    
+
     // newMessage event handler
     function emptyButtons(e) {
       if (e.cartPeople.length == 0) {
@@ -955,7 +955,7 @@ $("document").ready(function(){
         if(text){
           $(text).text(i18next.t("Add Teachers to Cart"));
         }
-        
+
         $("#AddStudentsToGroupCart").addClass("AddStudentsToGroupCart");
         $("#AddStudentsToGroupCart").removeClass("RemoveStudentsFromGroupCart");
         $('i',"#AddStudentsToGroupCart").removeClass("fa-remove");
@@ -964,7 +964,7 @@ $("document").ready(function(){
         if(text){
           $(text).text(i18next.t("Add Students to Cart"));
         }
-        
+
         var clickedButton = $('.RemoveOneStudentFromCart');
 
         $(clickedButton).addClass("AddOneStudentToCart");
@@ -975,25 +975,25 @@ $("document").ready(function(){
     }
 
     // end of cart management
-    
-    
-    // checkout the student    
+
+
+    // checkout the student
     $(document).on("click",".makeCheckOut", function(){
        var groupName = $(this).data("makecheckoutgroupname")
        var groupID = $(this).data("makecheckoutgroupid");
-       
+
        window.CRM.APIRequest({
           method: 'GET',
           path: 'events/types',
         }).done(function(typeNames) {
            var lenType = typeNames.length;
            var options = new Array();
-           
+
            var boxOptions ={
              title: i18next.t("Select the event Type you would like to use to create the Attendance")+" : "+groupName,
              message: '<div class="modal-body">',
              buttons: {
-               addEvent: {  
+               addEvent: {
                    label: i18next.t("Create First A New Event"),
                    className: 'btn-info',
                    callback: function() {
@@ -1010,7 +1010,7 @@ $("document").ready(function(){
                    callback: function() {
                         var e = document.getElementById("typeChosen");
                         var eventTypeID = e.options[e.selectedIndex].value;
-                        
+
                         window.CRM.APIRequest({
                           method: 'POST',
                           path: 'attendees/student',
@@ -1022,29 +1022,29 @@ $("document").ready(function(){
                }
              }
           };
-          
+
           boxOptions.message +='<center>'+i18next.t("You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.")+'</center><br>';
           boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="typeChosen">';
           for (i=0;i<lenType;i++) {
              boxOptions.message +='<option value="'+typeNames[i].eventTypeID+'">'+typeNames[i].name+'</option>';
            }
-                      
+
           boxOptions.message +='</select>\
                              </div>';
-          
+
           bootbox.dialog(boxOptions).show();
       })
     });
-    
-    function BootboxContentCSV(start,end) 
-    {  
+
+    function BootboxContentCSV(start,end)
+    {
       var time_format;
       var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
       var dateStart = moment(start).format(fmt);
       var dateEnd = moment(end).format(fmt);
-      
-    
+
+
       var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
           +'<div class="row">'
               +'<div class="col-md-12">'
@@ -1052,7 +1052,7 @@ $("document").ready(function(){
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'  
+                     +'<div class="col-md-3">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -1065,7 +1065,7 @@ $("document").ready(function(){
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('End Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'  
+                     +'<div class="col-md-3">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -1079,19 +1079,19 @@ $("document").ready(function(){
                 +'</div>'
             +'</div>'
          + '</form>';
-        
+
       var object = $('<div/>').html(frm_str).contents();
 
       return object
     }
 
-    
+
     $(document).on("click",".exportCheckOutCSV", function(){
        var groupID = $(this).data("makecheckoutgroupid");
-       
+
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
-       
+
        var modal = bootbox.dialog({
          title: i18next.t("Set year range to export"),
          message: BootboxContentCSV(start,end),
@@ -1109,12 +1109,12 @@ $("document").ready(function(){
             callback: function() {
                   var dateStart = $('form #dateEventStart').val();
                   var dateEnd = $('form #dateEventEnd').val();
-                  
+
                   var fmt = window.CRM.datePickerformat.toUpperCase();
-    
+
                   var real_start = moment(dateStart,fmt).format('YYYY-MM-DD');
                   var real_end = moment(dateEnd,fmt).format('YYYY-MM-DD');
-                  
+
                   window.location = window.CRM.root + "/sundayschool/SundaySchoolAttendeesExport.php?groupID="+groupID+"&start="+real_start+"&end="+real_end;
             }
           }
@@ -1124,21 +1124,21 @@ $("document").ready(function(){
             modal.modal("hide");
          }*/
        });
-       
+
        modal.modal("show");
 
        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
     });
-    
-    function BootboxContentPDF(start,end) 
-    {  
+
+    function BootboxContentPDF(start,end)
+    {
       var time_format;
       var fmt = window.CRM.datePickerformat.toUpperCase();
-        
+
       var dateStart = moment(start).format(fmt);
       var dateEnd = moment(end).format(fmt);
-      
-    
+
+
       var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
           +'<div class="row">'
               +'<div class="col-md-12">'
@@ -1146,7 +1146,7 @@ $("document").ready(function(){
                     +'<div class="col-md-3"><span style="color: #78ff43">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'  
+                     +'<div class="col-md-3">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -1159,7 +1159,7 @@ $("document").ready(function(){
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('End Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'  
+                     +'<div class="col-md-3">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -1186,18 +1186,18 @@ $("document").ready(function(){
               +'</div>'
             +'</div>'
          + '</form>';
-        
+
       var object = $('<div/>').html(frm_str).contents();
 
       return object
     }
-    
+
     $(document).on("click",".exportCheckOutPDF", function(){
        var groupID = $(this).data("makecheckoutgroupid");
-       
+
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
-       
+
        var modal = bootbox.dialog({
          title: i18next.t("Set year range to export"),
          message: BootboxContentPDF(start,end),
@@ -1215,15 +1215,15 @@ $("document").ready(function(){
             callback: function() {
               var dateStart = $('form #dateEventStart').val();
               var dateEnd = $('form #dateEventEnd').val();
-              
+
               var fmt = window.CRM.datePickerformat.toUpperCase();
 
               var real_start = moment(dateStart,fmt).format('YYYY-MM-DD');
               var real_end = moment(dateEnd,fmt).format('YYYY-MM-DD');
-              
+
               var withPictures = ($("#withPictures").is(':checked') == true)?1:0;
               var ExtraStudents = $("#ExtraStudents").val();
-              
+
               window.location = window.CRM.root + "/Reports/ClassRealAttendance.php?groupID="+groupID+"&start="+real_start+"&end="+real_end+"&withPictures="+withPictures+"&ExtraStudents="+ExtraStudents;
             }
           }
@@ -1238,11 +1238,11 @@ $("document").ready(function(){
 
        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
     });
-    
-    
+
+
     // listener : when the delete member is invocated
     $(document).on("updateLocalePageMessage", updateLocaleSCPage);
-    
+
     // newMessage event handler
     function updateLocaleSCPage(e) {
       dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */

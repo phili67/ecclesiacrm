@@ -10,21 +10,21 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 
-<div class="callout callout-info">
+<div class="alert alert-info">
     <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
     <?= _('Missing Families?').'<a href="'.$sRootPath.'/UpdateAllLatLon.php" >'.' '._('Update Family Latitude or Longitude now.') ?></a>
 </div>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {
     ?>
-    <div class="callout callout-danger">
+    <div class="alert alert-danger">
         <?= _('Unable to display map due to missing Church Latitude or Longitude. Please update the church Address in the settings menu.') ?>
     </div>
     <?php
 } else {
     if (SystemConfig::getValue('sGoogleMapKey') == '') {
         ?>
-    <div class="callout callout-warning">
+    <div class="alert alert-warning">
       <a href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
     </div>
     <?php
@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
     foreach ($icons as $icon) {
       if ($icon->getUrl() == null) {
         ?>
-           <div class="callout callout-danger">
+           <div class="alert alert-danger">
                 <a href="<?= $sRootPath ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
                 <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>
             </div>
@@ -54,7 +54,7 @@ require $sRootDocument . '/Include/Header.php';
         src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>">
     </script>
 
-    <div class="box">
+    <div class="card">
         <!-- Google map div -->
         <div id="mapid" class="map-div"></div>
 
@@ -360,7 +360,7 @@ require $sRootDocument . '/Include/Header.php';
       }
 
       contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-      contentString += '<p style="margin: 0 0 10px !important;">' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
+      contentString = '<p>' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
 
       if (plot.Thumbnail.length > 0) {
           //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";

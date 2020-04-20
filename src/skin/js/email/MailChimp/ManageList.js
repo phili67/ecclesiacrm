@@ -1,11 +1,11 @@
 $(document).ready(function () {
    window.CRM.editor = null;
- 
+
    function addTagsToMainDropdown()
    {
       $("#allTags").empty();
       $("#allCampaignTags").empty();
-    
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'mailchimp/list/getAllTags',
@@ -31,14 +31,14 @@ $(document).ready(function () {
      $(".addTagButtonDrop").prop('disabled', true);
      $(".subscribeButton").prop('disabled', true);
      $(".subscribeButtonDrop").prop('disabled', true);
-     
-     if (window.CRM.mailchimpIsActive) {     
+
+     if (window.CRM.mailchimpIsActive) {
         window.CRM.APIRequest({
           method: 'GET',
           path: 'mailchimp/list/' + window.CRM.list_ID
         }).done(function(data) {
           window.CRM.closeDialogLoadingFunction();
-        
+
           // we set correctly the buttons
           if (data.membersCount == 0) {
             $("#CreateCampaign").prop("disabled",true);
@@ -51,15 +51,15 @@ $(document).ready(function () {
           }
           // we empty first the container
           $("#container").html( i18next.t( i18next.t("Loading resources ...")) );
-      
+
           var listItems  = "";
-    
+
           var list = data.MailChimpList;
-      
-          var  listView = '<div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3>'
+
+          var  listView = '<div class="card-header   with-border">'
+            +'      <h3 class="card-title">'+ i18next.t('Email List') + '</h3>'
             +'    </div>'
-            +'    <div class="box-body">'
+            +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
             +'        <div class="col-lg-5">'
             +'          <table width="300px">'
@@ -75,11 +75,11 @@ $(document).ready(function () {
             +'        </div>'
             +'        <div class="col-lg-3">'
             +'           <b><i class="icon fa fa-list-alt"></i> ' + i18next.t('Campaigns') + '</b><br>';
-          
+
             var lenCampaigns = data.MailChimpCampaign.length;
 
             listView += '          <table width="200px">';
-          
+
             var tags = '';
 
             for (j=0;j<lenCampaigns;j++) {
@@ -89,48 +89,48 @@ $(document).ready(function () {
                 listView += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
               }
             }
-          
+
             if (lenCampaigns == 0) {
               listView += '<tr><td>&nbsp;&nbsp; <i class="icon fa fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
             }
 
             listView += '          </table>';
-          
+
             listView += '        </div>';
-          
+
             var lenTags = data.MailChimpList.tags.length;
-          
+
             if (lenTags) {
 
                 listView += '        <div class="col-lg-3">'
                 +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
-                    
+
                 var tags    = data.MailChimpList.tags;
-            
+
                 var tagsButtons = '';
-            
+
                 if (lenTags) {
                   for (k=0;k<lenTags;k++) {
                     tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
                   }
                 }
-          
+
                 listView += tagsButtons;
-          
+
                 listView += '        </div>';
 
             }
-          
+
             listView += '      </div>'
             +'    </div>';
-        
+
             listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
-    
+
           $("#container").html(listView);
         });
       }
     }
-  
+
     render_container();
     addTagsToMainDropdown();
     // render the main page
@@ -138,7 +138,7 @@ $(document).ready(function () {
     $(document).on("click",".delete-tag", function(){
       var tagID  = $(this).data("id");
       var listID = $(this).data("listid");
-      
+
       bootbox.confirm({
         title : i18next.t("You're about to delete a tag!"),
         message: i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"),
@@ -169,7 +169,7 @@ $(document).ready(function () {
         }
       });
     });
-        
+
     $(document).on("click",".CreateCampaign", function(){
       var tagId   = $(this).data("id");
       var tagName = $(this).data("name");
@@ -178,7 +178,7 @@ $(document).ready(function () {
          CKEDITOR.remove(window.CRM.editor);
          window.CRM.editor = null;
       }
-    
+
       var modal = createCampaignEditorWindow(tagId, tagName);
 
       // this will create the toolbar for the textarea
@@ -201,19 +201,19 @@ $(document).ready(function () {
             width : '100%'
            });
          }
-   
+
          add_ckeditor_buttons(window.CRM.editor);
          add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
        }
-    
+
       modal.modal("show");
-    }); 
-  
-    $(".person-group-Id-Share").select2({ 
+    });
+
+    $(".person-group-Id-Share").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 1,
         placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
-        allowClear: true, // This is for clear get the clear button if wanted 
+        allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params){
               return window.CRM.root + "/api/mailchimp/search/" + params.term;
@@ -229,17 +229,17 @@ $(document).ready(function () {
     });
 
 
-     $(".person-group-Id-Share").on("select2:select",function (e) { 
+     $(".person-group-Id-Share").on("select2:select",function (e) {
        var list_id = $(this).data("listid");
-       
+
        if (e.params.data.personID !== undefined) {
            window.CRM.dialogLoadingFunction ( i18next.t("Loading subscriber") );
-       
+
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addperson',
                 data: JSON.stringify({"list_id":list_id ,"personID": e.params.data.personID})
-           }).done(function(data) { 
+           }).done(function(data) {
              if (data.success) {
                 window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
@@ -251,7 +251,7 @@ $(document).ready(function () {
            });
         } else if (e.params.data.groupID !== undefined) {
            window.CRM.dialogLoadingFunction ( i18next.t("Loading subscribers from Group") );
-       
+
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addgroup',
@@ -267,12 +267,12 @@ $(document).ready(function () {
            });
         } else if (e.params.data.familyID !== undefined) {
            window.CRM.dialogLoadingFunction ( i18next.t("Loading subscribers from family") );
-       
+
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addfamily',
                 data: JSON.stringify({"list_id":list_id ,"familyID": e.params.data.familyID})
-           }).done(function(data) { 
+           }).done(function(data) {
              if (data.success) {
                 window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
@@ -288,7 +288,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addallpersons',
                 data: JSON.stringify({"list_id":list_id})
-           }).done(function(data) { 
+           }).done(function(data) {
              if (data.success) {
                 window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
@@ -305,7 +305,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/addallnewsletterpersons',
                 data: JSON.stringify({"list_id":list_id})
-           }).done(function(data) { 
+           }).done(function(data) {
              if (data.success) {
                 window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
@@ -316,7 +316,7 @@ $(document).ready(function () {
              }
            });
         }
-        
+
      });
 
 // the DataTable
@@ -336,7 +336,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           return '<a class="edit-subscriber" data-id="'+full.email_address+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="'+full.email_address+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Email'),
@@ -382,7 +382,7 @@ $(document).ready(function () {
         }
       }
     ];
-      
+
   if (window.CRM.bWithAddressPhone) {
     columns.push(
       {
@@ -403,8 +403,8 @@ $(document).ready(function () {
       }
     );
   }
-  
-  
+
+
   var  dataTableConfig = {
     ajax:{
       url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
@@ -419,14 +419,14 @@ $(document).ready(function () {
       $(row).addClass("duplicateRow");
     }
   }
-  
+
   $.extend(dataTableConfig,window.CRM.plugin.dataTable);
-  
+
   window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
-    
+
   $(document).on("click",".edit-subscriber", function(){
       var email = $(this).data("id");
-      
+
       bootbox.prompt({
         title: i18next.t("Select status for : ") + email,
         inputType: 'select',
@@ -443,12 +443,12 @@ $(document).ready(function () {
         callback: function (status) {
           if (status) {
             window.CRM.dialogLoadingFunction ( i18next.t("Changing status ...") );
-          
+
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/status',
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
-            }).done(function(data) { 
+            }).done(function(data) {
                if (data.success) {
                  window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
@@ -464,7 +464,7 @@ $(document).ready(function () {
 
     $(document).on("click",".delete-subscriber", function(){
       var email = $(this).data("id");
-      
+
       bootbox.confirm({
         message: i18next.t("You're about to delete a subscriber! Are you sure ?"),
         buttons: {
@@ -484,7 +484,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'mailchimp/suppress',
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"email": email})
-            }).done(function(data) { 
+            }).done(function(data) {
                if (data.success) {
                  window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
@@ -497,10 +497,10 @@ $(document).ready(function () {
         }
       });
     });
-    
+
     $(document).on("click","#deleteList", function(){
       var list_id = $(this).data("listid");
-      
+
       bootbox.confirm({
         message: i18next.t("Do you really want to delete this mailing list ?"),
         buttons: {
@@ -519,7 +519,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'mailchimp/deletelist',
                   data: JSON.stringify({"list_id":window.CRM.list_ID})
-            }).done(function(data) { 
+            }).done(function(data) {
                if (data.success) {
                  window.location.href = window.CRM.root + "/v2/mailchimp/dashboard";
                } else if (data.error) {
@@ -530,10 +530,10 @@ $(document).ready(function () {
         }
       });
     });
-    
+
     $(document).on("click","#deleteAllSubScribers", function(){
       var list_id = $(this).data("listid");
-      
+
       bootbox.confirm({
         message: i18next.t("Are you sure you want to delete all the subscribers"),
         buttons: {
@@ -549,12 +549,12 @@ $(document).ready(function () {
         callback: function (result) {
           if (result) {
             window.CRM.dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
-            
+
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/deleteallsubscribers',
                   data: JSON.stringify({"list_id":window.CRM.list_ID})
-            }).done(function(data) { 
+            }).done(function(data) {
                if (data.success) {
                  window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
@@ -565,8 +565,8 @@ $(document).ready(function () {
       });
     });
 
-  function BootboxCampaignContent(nameTag){  
-    
+  function BootboxCampaignContent(nameTag){
+
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Email Campaign Creation")+'</h3><form id="some-form">'
        + '<div>'
             +'<div class="row div-title">'
@@ -620,19 +620,19 @@ $(document).ready(function () {
            className: "btn btn-primary",
            callback: function() {
               var campaignTitle =  $('form #CampaignTitle').val();
-              
+
               if (campaignTitle) {
                   var Subject      = $('form #Subject').val();
                   var htmlBody     = CKEDITOR.instances['campaignNotes'].getData();//$('form #campaignNotes').val();
-                  
-                  
+
+
                   window.CRM.dialogLoadingFunction ( i18next.t("Adding Campaign ...") );
 
                   window.CRM.APIRequest({
                         method: 'POST',
                         path: 'mailchimp/campaign/actions/create',
                         data: JSON.stringify({"list_id": window.CRM.list_ID, "tagId" : tagId, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
-                  }).done(function(data) { 
+                  }).done(function(data) {
                     if (data.success) {
                       bootbox.confirm({
                         message: i18next.t("Would like to manage directly this new campaign ?"),
@@ -657,9 +657,9 @@ $(document).ready(function () {
                   });
               } else {
                   window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You have to set a Campaign Title for your eMail Campaign"));
-                
+
                   return false;
-              }    
+              }
             }
           }
          ],
@@ -668,14 +668,14 @@ $(document).ready(function () {
             modal.modal("hide");
          }*/
        });
-       
+
        // this will ensure that image and table can be focused
-       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
-              
+       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+
        return modal;
     }
-  
-  
+
+
   $(document).on("click","#modifyList", function(){
     var name                = $(this).data('name');
     var subject             = $(this).data('subject');
@@ -690,27 +690,27 @@ $(document).ready(function () {
             name    = $("#list_name").val();
             subject = $("#list_subject").val();
             permission_reminder = $("#list_permission_reminder").val();
-            
+
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/modifylist',
                   data: JSON.stringify({"list_id":window.CRM.list_ID, "name" : name, "subject":subject, "permission_reminder" : permission_reminder})
-            }).done(function(data) { 
+            }).done(function(data) {
                if (data.success) {
                   $("#modifyList").data('name',name);
                   $("#modifyList").data('subject',subject);
                   $("#modifyList").data('permissionreminder',permission_reminder);
                   $("#ListTitle").text(name);
-            
+
                   render_container();
                   $( '.listName' + window.CRM.list_ID ).html('<i class="fa fa-circle-o"></i>' + name );
                }
             });
-            
+
           }
     });
   });
-  
+
   function changeState () {
     var state = false;
     $(".checkbox_users").each(function() {
@@ -719,14 +719,14 @@ $(document).ready(function () {
         state = true;
       }
     });
-    
+
     $("#deleteMembers").prop('disabled', !(state));
     $(".addTagButton").prop('disabled', !(state));
     $(".addTagButtonDrop").prop('disabled', !(state));
     $(".subscribeButton").prop('disabled', !(state));
     $(".subscribeButtonDrop").prop('disabled', !(state));
   }
-  
+
   $(".check_all").click(function() {
     var state = this.checked;
     $(".checkbox_users").each(function() {
@@ -738,27 +738,27 @@ $(document).ready(function () {
         $(tr).removeClass('selected');
       }
     });
-    
+
     $("#deleteMembers").prop('disabled', !(state));
     $(".addTagButton").prop('disabled', !(state));
     $(".addTagButtonDrop").prop('disabled', !(state));
     $(".subscribeButton").prop('disabled', !(state));
     $(".subscribeButtonDrop").prop('disabled', !(state));
   });
-  
+
   $('#memberListTable').on('click', 'tr', function () {
     $(this).toggleClass('selected');
     var table = $('#memberListTable').DataTable();
     var data = table.row( this ).data();
-    
+
     if (data != undefined) {
       var userID = ".checkbox_user_"+data.id;
       var state = $(this).hasClass("selected");
       $(userID)[0].checked = state;
       changeState ();
     }
-  });  
-  
+  });
+
   $(".subscribeButton").click(function() {
     var status = $(this).data("type");
 
@@ -772,7 +772,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'mailchimp/status',
             data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
-          }).done(function(data) { 
+          }).done(function(data) {
             if (data.success) {
               window.CRM.dataListTable.ajax.reload(null, false);
               render_container();
@@ -784,14 +784,14 @@ $(document).ready(function () {
         }
     });
   });
-  
-  
+
+
   $('body').on('click','.deleteTagButton', function(){
     var tag  = $(this).data("id");
     var name = $(this).data("name");
-    
+
     var emails = [];
-    
+
     $(".checkbox_users").each(function() {
       if (this.checked) {
         var email = $(this).data("email");
@@ -799,17 +799,17 @@ $(document).ready(function () {
         emails.push (email);
       }
     });
-    
-    
+
+
     window.CRM.APIRequest({
         method: 'POST',
         path: 'mailchimp/list/getAllTags',
         data: JSON.stringify({"list_id":window.CRM.list_ID})
     }).done(function(data) {
         var len = data.result.length;
-       
+
         var res = [{text:i18next.t("All Tags"), value : -1}];
-      
+
         for (i=0; i<len; ++i) {
           res.push({text:data.result[i].name, value : data.result[i].id});
         }
@@ -826,7 +826,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'mailchimp/list/removeTagForMembers',
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
-                }).done(function(data) { 
+                }).done(function(data) {
                   if (data.success) {
                     window.CRM.dataListTable.ajax.reload(null, false);
                     render_container();
@@ -839,7 +839,7 @@ $(document).ready(function () {
                 });
               } else if (tag != null) {
                 window.CRM.dialogLoadingFunction( i18next.t('Deleting all tags for the selected members in the list...') );
-    
+
                 window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/list/removeAllTagsForMembers',
@@ -853,14 +853,14 @@ $(document).ready(function () {
         });
     });
   });
-  
-  
-  $('body').on('click','.addTagButton', function(){ 
+
+
+  $('body').on('click','.addTagButton', function(){
     var tag  = $(this).data("id");
     var name = $(this).data("name");
-    
+
     var emails = [];
-    
+
     $(".checkbox_users").each(function() {
       if (this.checked) {
         var email = $(this).data("email");
@@ -868,7 +868,7 @@ $(document).ready(function () {
         emails.push (email);
       }
     });
-    
+
     if (tag == -1) {
 
         bootbox.prompt(i18next.t("Add your tag name"), function(name){
@@ -879,7 +879,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'mailchimp/list/addTag',
             data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
-          }).done(function(data) { 
+          }).done(function(data) {
             if (data.success) {
               window.CRM.closeDialogLoadingFunction();
               window.CRM.dataListTable.ajax.reload(null, false);
@@ -914,7 +914,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/list/addTag',
                 data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
-              }).done(function(data) { 
+              }).done(function(data) {
                 if (data.success) {
                     window.CRM.closeDialogLoadingFunction();
                     window.CRM.dataListTable.ajax.reload(null, false);
@@ -929,11 +929,11 @@ $(document).ready(function () {
       });
     }
   });
-  
-  
+
+
   $("#deleteMembers").click(function() {
     var emails = [];
-    
+
     $(".checkbox_users").each(function() {
       if (this.checked) {
         var email = $(this).data("email");
@@ -941,7 +941,7 @@ $(document).ready(function () {
         emails.push (email);
       }
     });
-    
+
     bootbox.confirm({
       message: i18next.t("You're about to delete subscribers! Are you sure ?"),
       buttons: {
@@ -961,7 +961,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'mailchimp/suppressMembers',
                 data: JSON.stringify({"list_id":window.CRM.list_ID ,"emails": emails})
-          }).done(function(data) { 
+          }).done(function(data) {
              if (data.success) {
                window.CRM.dataListTable.ajax.reload(null, false);
                render_container();
@@ -972,6 +972,6 @@ $(document).ready(function () {
           });
         }
       }
-    });  
+    });
   });
 });

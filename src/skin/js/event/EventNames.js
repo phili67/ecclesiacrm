@@ -14,19 +14,24 @@ $(document).ready(function () {
   {
      if (window.CRM.editor != null) {
        CKEDITOR.remove(window.CRM.editor);
-       window.CRM.editor = null;              
+       window.CRM.editor = null;
      }
 
      modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','EventNames.php');
-       
+
      // we add the calendars and the types
      addCalendars();
      addCalendarEventTypes(-1,true);
 
      //Timepicker
-     $('.timepicker').timepicker({
-       showInputs: false,
-       showMeridian: (window.CRM.timeEnglish == "true")?true:false
+     $('.timepicker').datetimepicker({
+         format: 'LT',
+         locale: window.CRM.lang,
+         icons:
+             {
+                 up: 'fa fa-angle-up',
+                 down: 'fa fa-angle-down'
+             }
      });
 
      $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
@@ -67,13 +72,13 @@ $(document).ready(function () {
           width : '100%'
          });
        }
-   
+
        add_ckeditor_buttons(window.CRM.editor);
      }
-     
-     
+
+
      $(".ATTENDENCES").hide();
-   
+
      $('#EventCalendar option:first-child').attr("selected", "selected");
 
      modal.modal("show");
@@ -84,16 +89,16 @@ $(document).ready(function () {
 
   $(document).on('click','.add-event',function() {
     var fmt = 'YYYY-MM-DD HH:mm:ss';
-  
+
     var dateStart = moment().format(fmt);
     var dateEnd = moment().format(fmt);
-          
+
     addEvent(dateStart,dateEnd);
   });
 
   $(document).on('click','.delete-event',function() {
     var typeID = $(this).data("typeid");
-    
+
     bootbox.confirm({
        title:  i18next.t("Delete Event Type") + "?",
         message: i18next.t("This action can never be undone !!!!"),
@@ -116,8 +121,8 @@ $(document).ready(function () {
                location.reload();
             });
           }
-        }        
+        }
     });
-  });  
+  });
 
 });

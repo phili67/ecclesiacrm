@@ -45,7 +45,7 @@ require 'Include/Header.php'; ?>
     <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
 </div>
 
-<div class="box box-body">
+<div class="card card-body">
 
 
 <?php
@@ -59,16 +59,16 @@ $aNameErrors = [];
 if (isset($_POST['SaveChanges'])) {
     // Fill in the other needed custom field data arrays not gathered from the form submit
     $ormCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
-    
+
     $numRows = $ormCustomFields->count();
-    
+
     $row = 1;
-    
+
     // Create arrays of the fields.
     foreach ($ormCustomFields as $ormCustomField) {
         $aFieldFields[$row] = $ormCustomField->getCustomField();
         $aTypeFields[$row] = $ormCustomField->getTypeId();
-        
+
         if (!is_null($ormCustomField->getCustomSpecial())) {
             $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
         } else {
@@ -76,7 +76,7 @@ if (isset($_POST['SaveChanges'])) {
         }
         $row++;
     }
-    
+
 
     for ($iFieldID = 1; $iFieldID <= $numRows; $iFieldID++) {
         $aNameFields[$iFieldID] = InputUtils::LegacyFilterInput($_POST[$iFieldID.'name']);
@@ -111,14 +111,14 @@ if (isset($_POST['SaveChanges'])) {
             } else {
                 $temp = 'right';
             }
-            
+
             $fam_cus = FamilyCustomMasterQuery::Create()->findOneByCustomField ($aFieldFields[$iFieldID]);
-            
+
             $fam_cus->setCustomName($aNameFields[$iFieldID]);
             $fam_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
             $fam_cus->setCustomSide($temp);
             $fam_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
-            
+
             $fam_cus->save();
         }
     }
@@ -137,7 +137,7 @@ if (isset($_POST['SaveChanges'])) {
             // $bNewTypeError = true;
         } else {
             $fam_duplicate = FamilyCustomMasterQuery::Create()->findOneByCustomName($newFieldName);
-            
+
             if (!empty($fam_duplicate)) {
               $bDuplicateNameError = true;
             }
@@ -175,35 +175,35 @@ if (isset($_POST['SaveChanges'])) {
                     $listMax = ListOptionQuery::Create()
                             ->addAsColumn('MaxID', 'MAX('.ListOptionTableMap::COL_LST_ID.')')
                             ->findOne();
-                    
+
                     $max = $listMax->getMaxID();
-                    
+
                     if ($max > 9) {
                         $newListID = $max + 1;
                     } else {
                         $newListID = 10;
                     }
-                    
+
                     // Insert into the lists table with an example option.
                     $lst = new ListOption();
-                    
+
                     $lst->setId($newListID);
                     $lst->setOptionId(1);
                     $lst->setOptionSequence(1);
                     $lst->setOptionName(_("Default Option"));
-                    
+
                     $lst->save();
-                    
+
                     $newSpecial = $newListID;
                 } else {
                     $newSpecial = 'NULL';
                 }
-                
+
                 // Insert into the master table
                 $newOrderID = $last + 1;
-                
+
                 $fam_cus = new FamilyCustomMaster();
-                
+
                 $fam_cus->setCustomOrder($newOrderID);
                 $fam_cus->setCustomField("c".$newFieldNum);
                 $fam_cus->setCustomName($newFieldName);
@@ -211,7 +211,7 @@ if (isset($_POST['SaveChanges'])) {
                 $fam_cus->setCustomSide($newFieldSide);
                 $fam_cus->setCustomFieldSec($newFieldSec);
                 $fam_cus->setTypeId($newFieldType);
-                
+
                 $fam_cus->save();
 
                 // this can't be propeled
@@ -258,7 +258,7 @@ if (isset($_POST['SaveChanges'])) {
 
                 $sSQL .= ' DEFAULT NULL ;';
                 $connection = Propel::getConnection();
-                  
+
                 $statement = $connection->prepare($sSQL);
                 $statement->execute();
 
@@ -268,11 +268,11 @@ if (isset($_POST['SaveChanges'])) {
     }
 
     $ormCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
-    
+
     $numRows = $ormCustomFields->count();
-    
+
     $row = 1;
-    
+
     // Create arrays of the fields.
     foreach ($ormCustomFields as $ormCustomField) {
         $aNameFields[$row] = $ormCustomField->getCustomName();
@@ -352,7 +352,7 @@ if ($numRows == 0) {
     for ($row = 1; $row <= $numRows; $row++) {
         ?>
         <tr>
-            <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
+            <td class="LabelColumn"><b><?= $row ?></b></td>
             <td>
                 <?php
                 if ($row > 1) {
@@ -377,7 +377,7 @@ if ($numRows == 0) {
                 ?>
                     <span style="color: red;"><BR><?= _('You must enter a name')?> </span>
                 <?php
-                } 
+                }
                 ?>
             </td>
             <td class="TextColumn" align="center">
@@ -389,7 +389,7 @@ if ($numRows == 0) {
                 <option value="0" selected><?= _("Select a group")?></option>
             <?php
                 $ormGroupList = GroupQuery::Create()->orderByName()->find();
-                
+
                 foreach ($ormGroupList as $group) {
             ?>
                   <option value="<?= $group->getId()?>"<?= ($aSpecialFields[$row] == $group->getId())?' selected':''?>><?= $group->getName()?>
@@ -412,7 +412,7 @@ if ($numRows == 0) {
             ?>
                 &nbsp;
             <?php
-            } 
+            }
             ?>
 
             </td>
@@ -479,7 +479,7 @@ if ($numRows == 0) {
                 </tr>
                 <tr>
                     <td width="15%"></td>
-                    <td valign="top">                    
+                    <td valign="top">
                         <select name="newFieldType" class="form-control input-sm">
 
                       <?php

@@ -774,7 +774,17 @@
       var len = data.length;
 
       for (i=0; i<len; ++i) {
-        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i> <span class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+            ' <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
+            data[i].icon +
+            ' <div class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</div>' +
+            '       <input id="checkBox" type="checkbox" class="form-control check-calendar calendar-sidebar-checkbox" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>' +
+            '       <i class="fa fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i>' +
+            '       <div class="input-group-addon">' +
+            '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
+            '       </div>' +
+            '   </div>' +
+            '</li>');
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
           inline:false,
@@ -811,9 +821,22 @@
       var len = data.length;
 
       for (i=0; i<len; ++i) {
-        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
 
-        $(".my-colorpicker1"+i).colorpicker({
+        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+            '<div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
+            data[i].icon+
+            '       <div class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</div>' +
+            '       <input id="checkBox" type="checkbox" class="check-calendar form-control calendar-sidebar-checkbox" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>' +
+            '       <i class="fa fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> ' +
+            '       <div class="input-group-addon">' +
+            '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
+            '       </div>' +
+            '   </div>' +
+            '</li>');
+
+          // '<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+
+          $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
           inline:false,
           horizontal:true,
@@ -859,13 +882,23 @@
           icon = '&nbsp;<i class="fa fa-video-camera"></i>&nbsp;';
         }
 
-        var infoLine = '<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
+          var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
+              '   <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
+              data[i].icon +
+              '       <div class="editReservationName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</div>' +
+              '       <input id="checkBox" type="checkbox" class="check-calendar form-control calendar-sidebar-checkbox" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>' +
+              '       <i class="fa fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i> ';
 
-        if (data[i].isAdmin) {
-          infoLine += '<i class="fa pull-right fa-gear" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
-        }
+          if (data[i].isAdmin) {
+              infoLine += '<i class="fa fa-gear calendar-sidebar-info-button" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
+          }
 
-        infoLine += ' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>';
+          infoLine += '       <div class="input-group-addon">' +
+              '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
+              '       </div>' +
+              '   </div>' +
+              '</li>';
+
 
         $('#reservation-list').append(infoLine);
 
@@ -915,7 +948,18 @@
           icon = '&nbsp<i class="fa fa-video-camera"></i>&nbsp;';
         }
 
-        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;">' +
+          '   <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
+          data[i].icon +
+          '       <div class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</div>' +
+          '       <input id="checkBox" type="checkbox" class="check-calendar form-control calendar-sidebar-checkbox" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+
+          '       <i class="fa fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> ' +
+          '       <i style="background-color:'+data[i].calendarColor+';"></i>' +
+          '       <div class="input-group-addon">' +
+          '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
+          '       </div>' +
+          '   </div>' +
+          '</li>');
 
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,

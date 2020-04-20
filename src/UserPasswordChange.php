@@ -182,18 +182,18 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {
 
 <div class="row">
     <!-- left column -->
-    <div class="col-md-8">
+    <div class="col-md-12">
         <!-- general form elements -->
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <?php 
+        <div class="card card-secondary">
+            <div class="card-header with-border">
+                <?php
                   if (!$bAdminOtherUser) {
                 ?>
-                    <h3 class="box-title"><?= gettext('Enter your current password, then your new password twice.  Passwords must be at least').' '.SystemConfig::getValue('iMinPasswordLength').' '.gettext('characters in length.') ?></h3>
+                    <h3 class="card-title"><?= gettext('Enter your current password, then your new password twice.  Passwords must be at least').' '.SystemConfig::getValue('iMinPasswordLength').' '.gettext('characters in length.') ?></h3>
                 <?php
                   } else {
                 ?>
-                    <h3 class="box-title"><?= gettext('Enter a new password for this user.') ?></h3>
+                    <h3 class="card-title"><?= gettext('Enter a new password for this user.') ?></h3>
                 <?php
                   }
                 ?>
@@ -201,7 +201,7 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {
             <!-- /.box-header -->
             <!-- form start -->
             <form method="post" action="UserPasswordChange.php?<?= 'PersonID='.$iPersonID ?>&FromUserList=<?= array_key_exists('FromUserList', $_GET) ? $_GET['FromUserList'] : '' ?>">
-                <div class="box-body">
+                <div class="card-body">
                     <?php if (!$bAdminOtherUser) {
                     ?>
                     <div class="form-group">
@@ -221,7 +221,7 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {
                 </div>
                 <!-- /.box-body -->
 
-                <div class="box-footer">
+                <div class="card-footer">
                     <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Save') ?>">
                 </div>
             </form>

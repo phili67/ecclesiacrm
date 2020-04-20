@@ -78,25 +78,25 @@ $DonationMessage = '';
 // Move Donations from 1 family to another
 if (SessionUser::getUser()->isFinanceEnabled() && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
-    
+
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
-    
+
     foreach ($pledges as $pledge) {
       $pledge->setFamId ($iDonationFamilyID);
       $pledge->setDatelastedited ($today);
       $pledge->setEditedby (SessionUser::getUser()->getPersonId());
       $pledge->save();
     }
-    
+
     $egives = EgiveQuery::Create()->findByFamId($iFamilyID);
-    
+
     foreach ($egives as $egive) {
       $egive->setFamId ($iDonationFamilyID);
       $egive->setDateLastEdited ($today);
       $egive->setEditedby (SessionUser::getUser()->getPersonId());
       $egive->save();
     }
-    
+
     $DonationMessage = '<p><b><font color=red>' . _('All donations from this family have been moved to another family.') . '</font></b></p>';
 }
 
@@ -112,33 +112,33 @@ if (isset($_GET['Confirmed'])) {
     // Delete Family
     // Delete all associated Notes associated with this Family record
     $notes = NoteQuery::Create()->findByFamId($iFamilyID);
-    
+
     if (!is_null($notes)) {
       $notes->delete();
     }
-    
+
     // Delete Family pledges
     $pledges = PledgeQuery::Create()->filterByPledgeorpayment('Pledge')->findByFamId($iFamilyID);
-    
+
     if (!is_null($pledges)) {
       $pledges->delete();
     }
 
     // Remove family property data
     $properties = PropertyQuery::Create()->findByProClass('f');
-    
+
     foreach ($properties as $property) {
       $records = Record2propertyR2pQuery::Create()->filterByR2pProId ($property->getProId())->findByR2pRecordId ($iFamilyID);
       $records->delete();
     }
-    
+
     if (isset($_GET['Members'])) {
         // Delete all persons that were in this family
         PersonQuery::create()->filterByFamId($iFamilyID)->find()->delete();
     } else {
         // Reset previous members' family ID to 0 (undefined)
         $persons = PersonQuery::Create()->findByFamId ($iFamilyID);
-        
+
         foreach ($persons as $person) {
           $person->setFamId (0);
           $person->save();
@@ -173,13 +173,13 @@ $theFamily = FamilyQuery::Create()->findOneById ($iFamilyID);
 require 'Include/Header.php';
 
 ?>
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <?php
         // Delete Family Confirmation
         // See if this family has any donations OR an Egive association
         $ormDonations = PledgeQuery::Create()->filterByPledgeorpayment('Payment')->findByFamId($iFamilyID);
-        
+
         $bIsDonor = ($ormDonations->count() > 0);
 
         if ($bIsDonor && !SessionUser::getUser()->isFinanceEnabled()) {
@@ -209,7 +209,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                 <?= _('WARNING: This family has records of donations and may NOT be deleted until these donations are associated with another family.') ?>
               </p>
-          <?php  
+          <?php
             } else {
           ?>
               <p class="LargeText">
@@ -234,7 +234,7 @@ require 'Include/Header.php';
                 <?php
                   //Get Families for the drop-down
                   $ormFamilies = FamilyQuery::Create()->orderByName()->find();
-            
+
                   // Build Criteria for Head of Household
                   $head_criteria = ' per_fmr_ID = ' . SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1';
                   // If more than one role assigned to Head of Household, add OR
@@ -254,7 +254,7 @@ require 'Include/Header.php';
                           $aHead[$head_famid] = $head_firstname;
                       }
                   }
-            
+
                 foreach ($ormFamilies as $family) {
               ?>
                   <option value="<?= $family->getId() ?>" <?= ($family->getId() == $iFamilyID)?'selected':''?>><?= $family->getName() ?>
@@ -286,7 +286,7 @@ require 'Include/Header.php';
           ?>
             </div>
           </form>
-          
+
         <?php
             // Show payments connected with family
             // -----------------------------------
@@ -294,13 +294,13 @@ require 'Include/Header.php';
           <br><br>
         <?php
             //Get the pledges for this family
-            $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, 
+            $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method,
              plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
-             FROM pledge_plg 
+             FROM pledge_plg
              LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
              LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
              WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
-            $rsPledges = RunQuery($sSQL); 
+            $rsPledges = RunQuery($sSQL);
         ?>
         <table cellspacing="0" width="100%" class="table table-striped table-bordered">
           <theader>
@@ -357,7 +357,7 @@ require 'Include/Header.php';
             // No Donations from family.  Normal delete confirmation
         ?>
             <?= $DonationMessage ?>
-            <p class='callout callout-warning'>
+            <p class='alert alert-warning'>
               <b><?= (!is_null ($theFamily)?_('Please confirm deletion of this family record:'):_('Please confirm deletion of this Person record:')) ?></b>
               <br/>
               <?= (!is_null ($theFamily)?_('Note: This will also delete all Notes associated with this Family record.'):_('Note: This will also delete all Notes associated with this Person record.')) ?>

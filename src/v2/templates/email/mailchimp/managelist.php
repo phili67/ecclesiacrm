@@ -5,10 +5,10 @@
  *  last change : 2014-11-29
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2019
- *                Philippe Logel not MIT 
+ *                Philippe Logel not MIT
  *
  ******************************************************************************/
- 
+
 use EcclesiaCRM\dto\SystemURLs;
 
 require $sRootDocument . '/Include/Header.php';
@@ -16,14 +16,14 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Email List') ?></h3>
+    <div class="card">
+      <div class="card-header   with-border">
+        <h3 class="card-title"><?= _('Manage Email List') ?></h3>
         <div style="float:right">
           <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <p>
           <div class="btn-group">
             <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>" data-id="-1" data-name="">
@@ -51,24 +51,24 @@ require $sRootDocument . '/Include/Header.php';
   </div>
 </div>
 
-<?php 
+<?php
   if ($isMailchimpActiv) {
 ?>
   <div class="row">
       <div class="col-lg-12">
-        <div class="box" id="container">
+        <div class="card" id="container">
         </div>
       </div>
   </div>
-  
-  <div class="row">  
+
+  <div class="row">
       <div class="col-lg-12">
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?= _('Subscribers') ?></h3>
+        <div class="card">
+          <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Subscribers') ?></h3>
           </div>
-          <div class="box-body">
-              <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
+          <div class="card-body">
+              <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
                 <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?><br>
                 <ul>
                   <li>
@@ -79,10 +79,10 @@ require $sRootDocument . '/Include/Header.php';
                   </li>
                 </ul>
               </div>
-              
+
               <div class="row">
                 <div class="col-md-2">
-                  <input type="checkbox" class="check_all" id="check_all"> 
+                  <input type="checkbox" class="check_all" id="check_all">
                   <label for="check_all"><?= _("Check all") ?></label>
                 </div>
                 <div class="col-md-1">
@@ -132,7 +132,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
   <div class="row">
     <div class="col-lg-12">
-      <div class="box box-body">
+      <div class="card box-body">
         <div class="alert alert-danger alert-dismissible">
           <h4><i class="fa fa-ban"></i> MailChimp <?= _('is not configured') ?></h4>
           <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?><a href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Edit General Settings') ?></a>,
@@ -144,7 +144,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php
 }
-require $sRootDocument . '/Include/Footer.php'; 
+require $sRootDocument . '/Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">

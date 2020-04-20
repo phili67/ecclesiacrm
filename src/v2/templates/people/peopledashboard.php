@@ -17,11 +17,11 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <!-- Default box -->
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('People Functions') ?></h3>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('People Functions') ?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <a href="<?= $sRootPath ?>/v2/people/list/person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
         <?php
         if ($sEmailLink) {
@@ -74,7 +74,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6">
         <!-- small box -->
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-gradient-lime">
             <div class="inner">
                 <h3 id="familyCountDashboard">
                     0
@@ -160,15 +160,15 @@ require $sRootDocument . '/Include/Header.php';
 </div><!-- /.row -->
 <div class="row">
     <div class="col-lg-6">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title"><?= _('Reports') ?></h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        <div class="card">
+            <div class="card-header with-border">
+                <h3 class="card-title"><?= _('Reports') ?></h3>
+                <div class="card-tools pull-right">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="card-body">
                 <a class="MediumText" href="<?= $sRootPath ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
                 <br>
                 <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
@@ -213,16 +213,15 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        <div class="card">
+            <div class="card-header with-border">
+                <h3 class="card-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
+                <div class="card-tools pull-right">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="card-body">
                 <p> <a class="MediumText" href="<?= $sRootPath ?>/members/self-register.php"><?= _('Self Register') ?> <?= _('Reports') ?></a>
                     <br>
                     <?= _('List families that were created via self registration.') ?>
@@ -241,19 +240,16 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <i class="fa fa-pie-chart"></i>
-
-                <h3 class="box-title"><?= _('Family Roles') ?></h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        <div class="card card-default">
+            <div class="card-header with-border">
+                <h3 class="card-title"> <i class="fa fa-pie-chart"></i> <?= _('Family Roles') ?></h3>
+                <div class="card-tools pull-right">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
-            <div class="box-body no-padding">
+            <div class="card-body no-padding">
                 <table class="table table-condensed">
                     <tr>
                         <th><?= _('Role / Gender') ?></th>
@@ -281,16 +277,14 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <i class="fa fa-bar-chart-o"></i>
+        <div class="card card-default">
+            <div class="card-header with-border">
+                <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('People Classification') ?></h3>
 
-                <h3 class="box-title"><?= _('People Classification') ?></h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <div class="card-tools pull-right">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
             <table class="table table-condensed">
@@ -321,35 +315,31 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <i class="fa fa-address-card-o"></i>
+        <div class="card card-default">
+            <div class="card-header with-border">
+                <h3 class="card-title"><i class="fa fa-address-card-o"></i> <?= _('Gender Demographics') ?></h3>
 
-                <h3 class="box-title"><?= _('Gender Demographics') ?></h3>
-
-                <div class="box-tools pull-right">
+                <div class="card-tools pull-right">
                     <div id="gender-donut-legend" class="chart-legend"></div>
                 </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
                 <canvas id="gender-donut" style="height:250px"></canvas>
             </div>
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <i class="fa fa-birthday-cake"></i>
+        <div class="card card-default">
+            <div class="card-header with-border">
+                <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
 
-                <h3 class="box-title"><?= _('# Age Histogram')?></h3>
-
-                <div class="box-tools pull-left">
+                <div class="card-tools pull-left">
                     <div id="age-stats-bar-legend" class="chart-legend"></div>
                 </div>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="card-body">
                 <canvas id="age-stats-bar" style="height:250px"></canvas>
             </div>
         </div>

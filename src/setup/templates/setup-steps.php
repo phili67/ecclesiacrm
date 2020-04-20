@@ -11,12 +11,12 @@ function getSupportedLocales()
   $locales = json_decode($localesFile, true);
   $res = '<br><select id="sLanguage" name="sLanguage" class="form-control select2" aria-describedby="sChurchNameHelp" style="width:100%"  required>';
   $first = true;
-                  
+
   foreach ($locales as $key => $value) {
     $res .= '<option value="'.$value["locale"].'" '.(($first)?"selected":"").'>'.gettext($key)." (".$value["locale"].")"."</option>\n";
     $first = false;
   }
-  
+
   $res .= '</select><br>';
 
   return $res;
@@ -54,11 +54,11 @@ require '../Include/HeaderNotLoggedIn.php';
         padding: 15px;
         position: relative;
     }
-    
+
     td, th {
       padding: 5px;
       font-size:14px !important;
-    } 
+    }
 
 </style>
 
@@ -70,7 +70,7 @@ require '../Include/HeaderNotLoggedIn.php';
         <section>
             <table class="table table-condensed" id="prerequisites"><tbody></tbody></table>
             <p/>
-            <div class="callout callout-warning" id="prerequisites-war">
+            <div class="alert alert-warning" id="prerequisites-war">
                 This server isn't quite ready for Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
                 <a href="#" onclick="skipCheck()"><b>Click here</b></a>.
             </div>
@@ -168,7 +168,7 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="DB_PASSWORD2_HELP" required>
                 <small id="DB_PASSWORD2_HELP" class="form-text text-muted"></small>
             </div>
-            <div class="callout callout-warning callout-db" id="databaseconnection-war">
+            <div class="alert alert-warning alert-db" id="databaseconnection-war">
                 Check your database connection. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to check your connection.
             </div>
         </section>
@@ -188,7 +188,7 @@ require '../Include/HeaderNotLoggedIn.php';
                     You can find the defaut time Zone : <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>
                 </small>
             </div>
-            
+
             <div class="form-group">
                 <label for="sChurchName">Church Name</label>
                 <input type="text" name="sChurchName" id="sChurchName" class="form-control"
@@ -208,7 +208,7 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="sChurchCityHelp" required>
                 <small id="sChurchCityHelp" class="form-text text-muted"></small>
             </div>
-                        
+
             <div class="form-group">
                 <label for="sChurchZip">Church Zip</label>
                 <input type="text" name="sChurchZip" id="sChurchZip" class="form-control"
@@ -219,7 +219,7 @@ require '../Include/HeaderNotLoggedIn.php';
 <!--            <div class="form-group">
                 <label for="sChurchState">Church State</label>
                     <?php
-                        $statesDDF = new StateDropDown();     
+                        $statesDDF = new StateDropDown();
                         echo $statesDDF->getDropDown("","sChurchState");
                     ?>
                 <small id="sChurchStateHelp" class="form-text text-muted"></small>
@@ -228,7 +228,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="sChurchCountry">Church Country</label>
                     <?php
-                      $countriesDDF = new CountryDropDown();     
+                      $countriesDDF = new CountryDropDown();
                       echo $countriesDDF->getDropDown("", "sChurchCountry");
                     ?>
                 <small id="sChurchCountryHelp" class="form-text text-muted"></small>
@@ -248,7 +248,7 @@ require '../Include/HeaderNotLoggedIn.php';
                 <small id="sChurchEmailHelp" class="form-text text-muted"></small>
             </div>
 
-            <div class="callout callout-info" id="prerequisites-war">
+            <div class="alert alert-info" id="prerequisites-war">
                 This information can be updated late on via <b><i>System Settings</i></b>.
             </div>
         </section>
@@ -262,7 +262,7 @@ require '../Include/HeaderNotLoggedIn.php';
                   Database information confirmation and correction report signer
                 </small>
             </div>
-            
+
             <div class="form-group">
                 <label for="sReminderSigner">Reminder Signer</label>
                 <input type="text" name="sReminderSigner" id="sReminderSigner" class="form-control"
@@ -280,12 +280,12 @@ require '../Include/HeaderNotLoggedIn.php';
                   Tax Report signer
                 </small>
             </div>
-            
+
             <div class="form-group">
                 <label for="bGDPR">GDPR Europe</label>
                 <select name="bGDPR" id="bGDPR"  class="form-control" aria-describedby="bGDPRHelp">
                   <option value="1">True</option>
-                  <option value="0" selected>False</option> 
+                  <option value="0" selected>False</option>
                 </select>
                 <small id="bGDPRHelp" class="form-text text-muted">
                     When you would like to activated it or not
@@ -300,7 +300,7 @@ require '../Include/HeaderNotLoggedIn.php';
                   The DPO administrator for the GDPR.
                 </small>
             </div>
-            
+
             <div class="form-group">
                 <label for="sGdprDpoSignerEmail">DPO Grpd Signer Email</label>
                 <input type="email" name="sGdprDpoSignerEmail" id="sGdprDpoSignerEmail" class="form-control"
@@ -309,12 +309,12 @@ require '../Include/HeaderNotLoggedIn.php';
                   The DPO administrator for the GDPR email.
                 </small>
             </div>
-            
-            <div class="callout callout-info" id="prerequisites-war">
+
+            <div class="alert alert-info" id="prerequisites-war">
                 This information can be updated late on via <b><i>System Settings</i> too</b>.
             </div>
         </section>
-        
+
         <h2>Social Networks</h2>
         <section>
 
@@ -339,14 +339,14 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
 
 
-            <div class="callout callout-info" id="prerequisites-war">
+            <div class="alert alert-info" id="prerequisites-war">
                 This information can be updated late on via <b><i>System Settings</i> too</b>.
             </div>
         </section>
-       
+
         <h2>Mail Server</h2>
         <section>
-            <div class="callout callout-info" id="prerequisites-war">
+            <div class="alert alert-info" id="prerequisites-war">
                 This information can be updated late on via <b><i>System Settings</i> too</b>.
             </div>
             <div class="form-group">
@@ -362,7 +362,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="bSMTPAuth">SMTP Auth</label>
                 <select name="bSMTPAuth" id="bSMTPAuth"  class="form-control" aria-describedby="bSMTPAuthHelp">
-                  <option value="1" selected>True</option> 
+                  <option value="1" selected>True</option>
                   <option value="0">False</option>
                 </select>
                 <small id="sSMTPHostHelp" class="form-text text-muted">
@@ -404,7 +404,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="bPHPMailerAutoTLS">Mailer Auto TLS</label>
                 <select name="bPHPMailerAutoTLS" id="bPHPMailerAutoTLS"  class="form-control" aria-describedby="bPHPMailerAutoTLSHelp">
-                  <option value="0" selected>False</option> 
+                  <option value="0" selected>False</option>
                   <option value="1">True</option>
                 </select>
                 <small id="bPHPMailerAutoTLSHelp" class="form-text text-muted">
@@ -414,8 +414,8 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="sPHPMailerSMTPSecure">PHPMailer SMTP Secure</label>
                 <select name="sPHPMailerSMTPSecure" id="sPHPMailerSMTPSecure"  class="form-control" aria-describedby="sPHPMailerSMTPSecureHelp">
-                  <option value="" selected>None</option> 
-                  <option value="tls">TLS</option> 
+                  <option value="" selected>None</option>
+                  <option value="tls">TLS</option>
                   <option value="ssl">SSL</option>
                 </select>
                 <small id="bPHPMailerAutoTLSHelp" class="form-text text-muted">
@@ -423,10 +423,10 @@ require '../Include/HeaderNotLoggedIn.php';
                 </small>
             </div>
         </section>
-        
+
         <h2>Final infos</h2>
         <section>
-            <div class="callout callout-success" id="prerequisites-war">
+            <div class="alert alert-success" id="prerequisites-war">
                 To open a connection to Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>, use the information below :
                 <ul style="padding-left:20px">
                   <li>login    : <b>admin</b></li>

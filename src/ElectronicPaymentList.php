@@ -50,7 +50,7 @@ $ormAutopayments = AutoPaymentQuery::Create()
                    ->addAsColumn('FunName',DonationFundTableMap::COL_FUN_NAME)
                  ->enduse()
                  ->find();
-                 
+
 // Set the page title and include HTML header
 $sPageTitle = _('Electronic Payment Listing');
 require 'Include/Header.php';
@@ -135,7 +135,7 @@ function ClearAccountsChecked()
   }
 }
 
-<?php 
+<?php
   if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 ?>
 function CreatePaymentMethodsForChecked()
@@ -202,7 +202,7 @@ function CreatePaymentMethodsForChecked()
   }
 }
 </script>
-<div class="box box-body">
+<div class="card card-body">
 
 <p align="center"><a href="AutoPaymentEditor.php?linkBack=ElectronicPaymentList.php" class="btn btn-primary"><?= _('Add a New Electronic Payment Method') ?></a></p>
 <div class="table-responsive">
@@ -213,7 +213,7 @@ function CreatePaymentMethodsForChecked()
         <input type=checkbox onclick="toggle(this, 'SelectForAction')" />
       </th>
       <th><b><?= _('Edit') ?></b></th>
-      <th><b><?= _('Delete') ?></b></th>    
+      <th><b><?= _('Delete') ?></b></th>
       <th align="center"><b><?= _('Family') ?></b></th>
       <th align="center"><b><?= _('Type') ?></b></th>
       <th align="center"><b><?= _('Fiscal Year') ?></b></th>
@@ -282,12 +282,12 @@ foreach ($ormAutopayments as $payment) {
     <td id="Account<?= $payment->getId() ?>">
       <?= (strlen($payment->getAccount()) > 4)?'*****'.mb_substr($payment->getAccount(), strlen($payment->getAccount()) - 4, 4):'' ?>
     </td>
-  <?php 
+  <?php
       if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
   ?>
     <td align="center" id="AccountVanco<?= $payment->getId() ?>"><?= $payment->getAccountVanco() ?></td>
   <?php
-    } 
+    }
   ?>
     <td id="CreditCard<?= $payment->getId() ?>">
       <?= (strlen($payment->getCreditCard()) == 16)?'*************'.mb_substr($payment->getCreditCard(), 12, 4):'' ?>
@@ -298,7 +298,7 @@ foreach ($ormAutopayments as $payment) {
                 ?>
     <td align="center" id="CreditCardVanco<?= $payment->getId() ?>"><?= $payment->getCreditCardVanco() ?></td>
     <?php
-      } 
+      }
     ?>
   </tr>
   <?php

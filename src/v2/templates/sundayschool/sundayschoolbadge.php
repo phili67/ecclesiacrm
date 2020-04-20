@@ -16,7 +16,7 @@ use EcclesiaCRM\Utils\LabelUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="callout callout-info"><?= _("When you add some properties to a person they will be add to the badge.") ?></div>
+<div class="alert alert-info"><?= _("When you add some properties to a person they will be add to the badge.") ?></div>
 <?php
 if (count($_SESSION['aPeopleCart']) == 0) {
     $useCart = 0;
@@ -32,7 +32,7 @@ if ($useCart == 1) {
     }
     ?>
 
-    <div class="callout callout-warning"><?= _("You're about to create babges only for this people")." : <b>".$allPersons."</b> "._("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
+    <div class="alert alert-warning"><?= _("You're about to create babges only for this people")." : <b>".$allPersons."</b> "._("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
     <?php
 }
 
@@ -50,14 +50,14 @@ if (isset($_GET['typeProblem'])) {
 ?>
 
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Generate Badges') ?></h3>
+<div class="card card-secondary">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Generate Badges') ?></h3>
     </div>
     <form method="post" action="<?= $sRootPath ?>/Reports/PDFBadgeSundaySchool.php" name="labelform" enctype="multipart/form-data">
         <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
         <input id="useCart" name="useCart" type="hidden" value="<?= $useCart?>">
-        <div class="box-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
                     <?= _("Sunday School Name") ?>
@@ -158,6 +158,8 @@ if (isset($_GET['typeProblem'])) {
             LabelUtils::FontSizeSelect('labelfontsize','('._("default").' 24)');
             LabelUtils::StartRowStartColumn();
             ?>
+        </div>
+        <div class="card-footer">
             <div class="row">
                 <div class="col-md-5"></div>
                 <div class="col-md-4">
@@ -166,7 +168,7 @@ if (isset($_GET['typeProblem'])) {
             </div>
         </div>
     </form>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>
 
 <?php

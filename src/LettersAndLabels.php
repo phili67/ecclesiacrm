@@ -49,11 +49,11 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
 ?>
 <div class="row">
   <div class="col-lg-12">
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('People Reports')?></h3>
+    <div class="card card-secondary">
+      <div class="card-header with-border">
+        <h3 class="card-title"><?= gettext('People Reports')?></h3>
       </div>
-      <div class="box-body">
+      <div class="card-body">
         <form method="post" action="LettersAndLabels.php">
             <div class="table-responsive">
 

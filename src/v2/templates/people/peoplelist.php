@@ -14,18 +14,20 @@ use EcclesiaCRM\SessionUser;
 // Security
 require $sRootDocument . '/Include/Header.php';
 ?>
-<div class="box box-solid" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled())?'style="display: none;"':"" ?>>
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Filters') ?></h3>
+<div
+    class="card" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? 'style="display: none;"' : "" ?>>
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Filters') ?></h3>
     </div>
-    <div class="box-body clearfix">
+    <div class="card-body clearfix">
         <div class="row">
             <div class="col-sm-3"><?= _("Enter the search term") ?> :</div>
             <div class="col-sm-9">
                 <input type="text" id="SearchTerm"
                        placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>"
                        size="30" maxlength="100"
-                       class="form-control input-sm" width="100%" style="width: 100%" required="" value="<?= ($sMode=='person')?"*":"" ?>">
+                       class="form-control input-sm" width="100%" style="width: 100%" required=""
+                       value="<?= ($sMode == 'person') ? "*" : "" ?>">
             </div>
         </div>
         <br/>
@@ -58,44 +60,48 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="box box-body">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Search Results') ?><span class="progress" style="color:red"></span></h3>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-12">
-            <div style="text-align: center;">
-                <label>
-                    <?= _("Results count:") ?>
-                </label>
-                <span id="numberOfPersons"></span>
-            </div>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Search Results') ?></h3>
+        <div class="card-tools">
+            <h3 class="progress" style="color:red"></h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div style="text-align: center;">
-            <?php
-                if ( SessionUser::getUser()->isShowCartEnabled() ) {
-            ?>
-                <a id="AddAllPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
-                <a id="RemoveAllPageFromCart"
-                   class="btn btn-danger btn-sm"><?= _('Remove This Page from Cart') ?></a><br><br>
-                <a id="AddAllToCart" class="btn btn-primary btn-sm"><?= _('Add All to Cart') ?></a>
-                <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm"
-                       value="<?= _('Intersect with Cart') ?>">&nbsp;
-                <a id="RemoveAllFromCart" class="btn btn-danger btn-sm"><?= _('Remove All from Cart') ?></a>
-            <?php
-                }
-            ?>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="text-align: center;">
+                    <label>
+                        <?= _("Results count:") ?>
+                    </label>
+                    <span id="numberOfPersons"></span>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div style="text-align: center;">
+                    <?php
+                    if (SessionUser::getUser()->isShowCartEnabled()) {
+                        ?>
+                        <a id="AddAllPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
+                        <a id="RemoveAllPageFromCart"
+                           class="btn btn-danger btn-sm"><?= _('Remove This Page from Cart') ?></a><br><br>
+                        <a id="AddAllToCart" class="btn btn-primary btn-sm"><?= _('Add All to Cart') ?></a>
+                        <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm"
+                               value="<?= _('Intersect with Cart') ?>">&nbsp;
+                        <a id="RemoveAllFromCart" class="btn btn-danger btn-sm"><?= _('Remove All from Cart') ?></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <table width="100%" cellpadding="2"
+               class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+               id="DataSearchTable"></table>
     </div>
-    <br/>
-    <table width="100%" cellpadding="2"
-           class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
-           id="DataSearchTable"></table>
 </div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

@@ -55,9 +55,9 @@ require 'Include/Header.php'; ?>
 
 <p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
-<div class="box">
-<div class="box-header with-border">
-    <h3 class="box-title"><?= _('Group-Person-Specific Properties') ?></h3>
+<div class="card">
+<div class="card-header with-border">
+    <h3 class="card-title"><?= _('Group-Person-Specific Properties') ?></h3>
 </div>
 
 <?php
@@ -77,14 +77,14 @@ if (isset($_POST['SaveChanges'])) {
         ->filterByGroupId ($iGroupID)
         ->orderByPropId()
         ->find();
-        
+
     $numRows = $propList->count();
-    
+
     $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
     $statement = $connection->prepare($sSQL);
     $statement->execute();
     $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);// permet de récupérer le tableau associatif
-    
+
     $row = 1;
     foreach ($propList as $prop) {
       $aFieldFields[$row]   = $prop->getField();
@@ -93,7 +93,7 @@ if (isset($_POST['SaveChanges'])) {
       $aSpecialFields[$row] = $prop->getSpecial();
       $aPropFields[$row]    = $prop->getField();
       $aNameFields[$row]    = $prop->getName();
-        
+
       if (!is_null($prop->getSpecial())) {
         if ($type_ID == 9) {
           $aSpecialFields[$row] = $group->getID();
@@ -103,7 +103,7 @@ if (isset($_POST['SaveChanges'])) {
       } else {
           $aSpecialFields[$row] = 'NULL';
       }
-      
+
       $row++;
     }
 
@@ -112,7 +112,7 @@ if (isset($_POST['SaveChanges'])) {
 
         if (isset($_POST[$iPropID.'special'])) {
             $aSpecialFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'special'], 'int');
-            
+
             if ($aSpecialFields[$iPropID] == 0) {
                 $aSpecialErrors[$iPropID] = true;
                 $bErrorFlag = true;
@@ -133,11 +133,11 @@ if (isset($_POST['SaveChanges'])) {
         // We can't update unless values already exist.
         $sSQL = "SELECT * FROM groupprop_".$iGroupID."
                  WHERE `per_ID` = '".$iPersonID."';";
-                 
+
         $statement = $connection->prepare($sSQL);
         $statement->execute();
         $iNumRows = count($statement->fetchAll(PDO::FETCH_BOTH));
-                 
+
         $bRowExists = true;
         if ($iNumRows == 0) {
             $bRowExists = false;
@@ -149,22 +149,22 @@ if (isset($_POST['SaveChanges'])) {
             $statement = $connection->prepare($sSQL);
             $statement->execute();
         }
-        
+
         for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
             if ($aPersonDisplayFields[$iPropID]) {
                 $temp = 'true';
             } else {
                 $temp = 'false';
             }
-            
-            if ($aTypeFields[$iPropID] == 2) {            
+
+            if ($aTypeFields[$iPropID] == 2) {
                $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
             }
-            
-            $sSQL = "UPDATE groupprop_".$iGroupID." 
+
+            $sSQL = "UPDATE groupprop_".$iGroupID."
               SET `".$aPropFields[$iPropID]."` = '".$aDescFields[$iPropID]."'
               WHERE `per_ID` = '".$iPersonID."';";
-          
+
             $statement = $connection->prepare($sSQL);
             $statement->execute();
         }
@@ -177,14 +177,14 @@ if (isset($_POST['SaveChanges'])) {
         ->filterByGroupId ($iGroupID)
         ->orderByPropId()
         ->find();
-        
+
     $numRows = $propList->count();
-    
+
     $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
     $statement = $connection->prepare($sSQL);
     $statement->execute();
     $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);// permet de récupérer le tableau associatif
-    
+
     $row = 1;
     foreach ($propList as $prop) {
       $aTypeFields[$row]    = $prop->getTypeId();
@@ -192,11 +192,11 @@ if (isset($_POST['SaveChanges'])) {
       $aDescFields[$row]    = $aPersonProps[$prop->getField()];
       $aSpecialFields[$row] = $prop->getSpecial();
       $aFieldFields[$row]   = $prop->getField();
-        
+
       if ($prop->getTypeId() == 9) {
         $aSpecialFields[$row] = $iGroupID;
       }
-        
+
       $aPersonDisplayFields[$row++] = ($prop->getPersonDisplay() == 'true');
     }
 }
@@ -226,7 +226,7 @@ if ($numRows == 0) {
   ?>
      <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
   <?php
-    } 
+    }
   ?>
   </td></tr>
 
@@ -239,7 +239,7 @@ if ($numRows == 0) {
     </tr>
 
   <?php
-  
+
     for ($row = 1; $row <= $numRows; $row++) {
         ?>
     <tr>
@@ -249,10 +249,10 @@ if ($numRows == 0) {
           <?= $aPropTypes[$aTypeFields[$row]]; ?>
       </td>
       <td class="TextColumn">
-         <?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>        
+         <?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>
       </td>
       <td class="TextColumn">
-         <?php 
+         <?php
             OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
          ?>
       </td>
@@ -308,7 +308,7 @@ if ($numRows == 0) {
       <td>
     </tr>
 <?php
-    } 
+    }
 ?>
    </table>
 </div>

@@ -22,9 +22,14 @@ function addEvent(dateStart,dateEnd)
    addCalendarEventTypes(-1,true);
 
    //Timepicker
-   $('.timepicker').timepicker({
-     showInputs: false,
-     showMeridian: (window.CRM.timeEnglish == "true")?true:false
+   $('.timepicker').datetimepicker({
+       format: 'LT',
+       locale: window.CRM.lang,
+       icons:
+           {
+               up: 'fa fa-angle-up',
+               down: 'fa fa-angle-down'
+           }
    });
 
    $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
@@ -176,9 +181,14 @@ $('#add-event').click('focus', function (e) {
          setActiveState(calEvent.inActive);
 
          //Timepicker
-         $('.timepicker').timepicker({
-           showInputs: false,
-           showMeridian: (window.CRM.timeEnglish == "true")?true:false
+         $('.timepicker').datetimepicker({
+             format: 'LT',
+             locale: window.CRM.lang,
+             icons:
+                 {
+                     up: 'fa fa-angle-up',
+                     down: 'fa fa-angle-down'
+                 }
          });
 
          $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});

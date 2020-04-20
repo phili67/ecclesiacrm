@@ -17,11 +17,11 @@
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <ul>
             <li><?= _('You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems.') ?></li>
             <li><?= _('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li>
@@ -98,12 +98,12 @@ require $sRootDocument . '/Include/Header.php';
         </form>
     </div>
 </div>
-<div class="box">
-    <div class="box-header">
-        <h3 class="box-title"><?= _('Backup Status:') ?> </h3>&nbsp;<h3 class="box-title" id="backupstatus"
-                                                                        style="color:red"> <?= _('No Backup Running') ?></h3>
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title"><?= _('Backup Status:') ?> </h1>&nbsp;<h1 class="card-title" id="backupstatus"
+                                                                        style="color:red"> <?= _('No Backup Running') ?></h1>
     </div>
-    <div class="box-body" id="resultFiles">
+    <div class="card-body" id="resultFiles">
     </div>
 </div>
 

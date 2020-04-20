@@ -36,16 +36,16 @@ $year = $today['year'];
 require 'Include/Header.php';
 ?>
   <!-- ./col -->
-<?php 
+<?php
     if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
 ?>
 <div class="row">
     <div class="col-lg-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title"><?= _('Financial Reports') ?></h3>
+      <div class="card">
+        <div class="card-header with-border">
+          <h3 class="card-title"><?= _('Financial Reports') ?></h3>
         </div>
-        <div class="box-body">
+        <div class="card-body">
           <p>
             <a class="MediumText" href="FinancialReports.php">
           </p>
@@ -69,15 +69,15 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
                   ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
                   ->orderById()
                   ->find();
-                  
+
   if (!empty($ormOpps) && $ormOpps->count() > 0) {
       ?>
     <div class="col-lg-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title"><?= _('Event Attendance Reports') ?></h3>
+      <div class="card">
+        <div class="card-header with-border">
+          <h3 class="card-title"><?= _('Event Attendance Reports') ?></h3>
         </div>
-        <div class="box-body">
+        <div class="card-body">
           <?php
           // List all events
           foreach ($ormOpps as $ormOpp) {

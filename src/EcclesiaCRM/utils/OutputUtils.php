@@ -11,7 +11,7 @@ use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 
 class OutputUtils {
-  
+
   public static function GetLinkMapFromAddress ($address)
   {
      if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
@@ -22,7 +22,7 @@ class OutputUtils {
        return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
      }
   }
-  
+
   public static function GetLinkMapFromCoordinates ($lat,$lng,$address)
   {
      if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
@@ -34,7 +34,7 @@ class OutputUtils {
        return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
      }
   }
-  
+
   public static function GetRouteFromCoordinates ($lat_to,$lng_to)
   {
      if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
@@ -58,28 +58,28 @@ class OutputUtils {
       return chr(128)." ";
     if ($string == "£")
       return chr(163)." ";
-    
-    return $string;  
+
+    return $string;
   }
-  
+
   public static function translate_text_fpdf($string)
   {
     if (!empty($string))
       return utf8_decode($string);//iconv('UTF-8', 'windows-1252', _($string));
-    
+
     return "";
   }
-  
-  
+
+
   // Wrapper for number_format that uses the locale information
   // There are three modes: money, integer, and intmoney (whole number money)
   public function formatNumber($iNumber, $sMode = 'integer',$currency_vis=false)
   {
       //$aLocaleInfo = localeconv();
       global $aLocaleInfo;
-      
+
       $currency = $aLocaleInfo['currency_symbol'];
-      
+
       if ($currency == '') {
          $currency = '$';
       }
@@ -105,22 +105,22 @@ class OutputUtils {
     }
   }
 
-  
+
   public function money_localized ($number)
   {
     return OutputUtils::formatNumber($number,'money');
   }
-  
+
   public function number_localized($number)
   {
     return OutputUtils::formatNumber($number,'float');
   }
-  
+
   public function number_dot ($number)
   {
     return str_replace(",",".",$number);
-  }  
-  
+  }
+
   public function securityFilter($fieldSec)
   {
     switch ($fieldSec) {
@@ -132,69 +132,69 @@ class OutputUtils {
           return true;
         }
         break;
-      case 3: // bAddRecords        
+      case 3: // bAddRecords
         if (SessionUser::getUser()->isAddRecordsEnabled()) {
           return true;
         }
         break;
-      case 4: // bEditRecords        
+      case 4: // bEditRecords
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
           return true;
         }
         break;
-      case 5: // bDeleteRecords        
+      case 5: // bDeleteRecords
         if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
           return true;
         }
         break;
-      case 6: // bMenuOptions        
+      case 6: // bMenuOptions
         if (SessionUser::getUser()->isMenuOptionsEnabled()) {
           return true;
         }
         break;
-      case 7: // bManageGroups        
+      case 7: // bManageGroups
         if (SessionUser::getUser()->isManageGroupsEnabled()) {
           return true;
         }
         break;
-      case 8: // bFinance        
+      case 8: // bFinance
         if (SessionUser::getUser()->isFinanceEnabled()) {
           return true;
         }
         break;
-      case 9: // bNotes        
+      case 9: // bNotes
         if (SessionUser::getUser()->isNotesEnabled()) {
           return true;
         }
         break;
-      /*case 10: // bCommunication        
+      /*case 10: // bCommunication
         if (SessionUser::getUser()->isNotesEnabled()) {
           return true;
         }
         break;*/
-      case 11: // bCanvasser        
+      case 11: // bCanvasser
         if (SessionUser::getUser()->isCanvasserEnabled()) {
           return true;
         }
         break;
     }
-        
+
     return false;
   }
-  
-  public static function convertCurrency($cur) 
+
+  public static function convertCurrency($cur)
   {
     define('EURO', chr(128));
-    
+
     switch ($cur) {
       case "€":
         $cur = "euro";//.EURO;
         break;
     }
-    
+
     return $cur;
   }
-    
+
   //
   // Formats the data for a custom field for display-only uses
   //
@@ -295,7 +295,7 @@ class OutputUtils {
     }
   }
 
-  
+
   //
   // Generates an HTML form <input> line for a custom field
   //
@@ -314,12 +314,12 @@ class OutputUtils {
     // Handler for date fields
     case 2:
         // code rajouté par Philippe Logel
-      echo '<div class="input-group">'.
-        '<div class="input-group-addon">'.
-        '<i class="fa fa-calendar"></i>'.
-        '</div>'.
-        '<input class="form-control date-picker" type="text" id="'.$fieldname.'" Name="'.$fieldname.'" value="'.OutputUtils::change_date_for_place_holder($data).'" placeholder="'.SystemConfig::getValue("sDatePickerPlaceHolder").'"> '.
-        '</div>';
+      echo '<div class="input-group mb-2">'.
+            '<div class="input-group-prepend">'.
+            '<span class="input-group-text"> <i class="fa fa-calendar"></i></span>'.
+            '</div>'.
+            '<input class="form-control date-picker" type="text" id="'.$fieldname.'" Name="'.$fieldname.'" value="'.OutputUtils::change_date_for_place_holder($data).'" placeholder="'.SystemConfig::getValue("sDatePickerPlaceHolder").'"> '.
+            '</div>';
       break;
 
     // Handler for 50 character max. text fields
@@ -432,17 +432,20 @@ class OutputUtils {
           $bNoFormat_Phone = true;
       }
 
-            echo '<div class="input-group">';
-      echo '<div class="input-group-addon">';
-      echo '<i class="fa fa-phone"></i>';
-      echo '</div>';
-      echo '<input class="form-control"  type="text" Name="'.$fieldname.'" maxlength="30" size="30" value="'.htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8').'" data-inputmask="\'mask\': \''.SystemConfig::getValue('sPhoneFormat').'\'" data-mask>';
-      echo '<br><input type="checkbox" name="'.$fieldname.'noformat" value="1"';
-      if ($bNoFormat_Phone) {
-          echo ' checked';
-      }
-      echo '>'._('Do not auto-format');
-      echo '</div>';
+      echo '<div class="input-group mb-2">'.
+          '<div class="input-group-prepend">'.
+            '<span class="input-group-text"> <i class="fa fa-phone"></i></span>'.
+            '</div>'.
+            '<input class="form-control"  type="text" Name="'.$fieldname.'" maxlength="30" size="30" value="'.htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8').'" data-inputmask="\'mask\': \''.SystemConfig::getValue('sPhoneFormat').'\'" data-mask>'.
+            '</div>'.
+            '<input type="checkbox" name="'.$fieldname.'noformat" value="1"';
+
+        if ($bNoFormat_Phone) {
+            echo ' checked';
+        }
+        echo '>'._('Do not auto-format');
+
+
       break;
 
     // Handler for custom lists
@@ -455,7 +458,7 @@ class OutputUtils {
       echo '<select class="form-control input-sm" name="'.$fieldname.'">';
       echo '<option value="0" selected>'._('Unassigned').'</option>';
       echo '<option value="0">-----------------------</option>';
-      
+
       foreach ($listOptions as $listOption) {
           echo '<option value="'.$listOption->getOptionId().'"';
           if ($data == $listOption->getOptionId()) {
@@ -473,16 +476,16 @@ class OutputUtils {
       break;
   }
 }
-  
+
   public static function change_date_for_place_holder($string)
   {
     return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));
   }
-  
+
   public static function change_time_for_place_holder($string)
   {
     $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
-    
+
     try {
       $d = new \DateTime($string);
     } catch (\Exception $e) {
@@ -499,20 +502,20 @@ class OutputUtils {
       $fmt_time = SystemConfig::getValue("sTimeFormat");
 
       $fmt = str_replace("/", " ", $fmt);
-    
+
       $fmt = str_replace("-", " ", $fmt);
-    
+
       $fmt = str_replace("d", "%d", $fmt);
       $fmt = str_replace("m", "%B", $fmt);
       $fmt = str_replace("Y", "%Y", $fmt);
-    
+
       if ($bWithTime) {
           $fmt .= " ".$fmt_time;
       }
-    
+
       return $fmt;
   }
-  
+
   public static function FormatAge($Month, $Day, $Year, $Flags)
   {
       if (($Flags & 1)) { //||!SessionUser::getUser()->isSeePrivacyDataEnabled()
@@ -615,7 +618,7 @@ class OutputUtils {
       }
 
       $fmt = self::FormatDateOutput($bWithTime);
-        
+
       setlocale(LC_ALL, SystemConfig::getValue("sLanguage"));
       return utf8_encode(strftime("$fmt", strtotime($dDate)));
   }
@@ -660,7 +663,7 @@ class OutputUtils {
 
       return $dBirthDate;
   }
-  
+
   public static function BirthDate($year, $month, $day, $hideAge)
   {
       if (!is_null($day) && $day != '' &&
@@ -676,10 +679,10 @@ class OutputUtils {
 
       return date_create();
   }
-  
+
   // Added for AddEvent.php
   public static function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
-  { 
+  {
 
     $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
 
@@ -701,7 +704,7 @@ class OutputUtils {
             $disphour = $hour;
             $ampm = 'AM';
         }
-        
+
         if ($bTimeEnglish == false) {
             $ampm = "";
         }
@@ -739,7 +742,7 @@ class OutputUtils {
         }
     }
   }
-  
+
   // Returns a string of a person's full name, formatted as specified by $Style
   // $Style = 0  :  "Title FirstName MiddleName LastName, Suffix"
   // $Style = 1  :  "Title FirstName MiddleInitial. LastName, Suffix"

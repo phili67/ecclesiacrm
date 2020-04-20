@@ -37,8 +37,8 @@ $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 require 'Include/Header.php';
 
 ?>
-<div class="box box-primary">
-    <div class="box-body">
+<div class="card card-primary">
+    <div class="card-body">
         <p class="text-right">
             <?php
                 if (SessionUser::getUser()->isAdmin()) {
@@ -48,17 +48,17 @@ require 'Include/Header.php';
                 }
             ?>
         </p>
-        
+
         <ul>
-            <?php 
+            <?php
                 $query_type = 0;
                 $first_time = true;
                 $open_ul = false;
                 $count = 0;
-                
+
                 while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
                     extract($aRow);
-                    
+
                     if ($qry_Type_ID != $query_type) {
                       if ($first_time == false) {
                         if ($count == 0) {
@@ -91,11 +91,11 @@ require 'Include/Header.php';
                 <?php
                         $count++;
                     }
-                } 
+                }
                 ?>
         </ul>
     </div>
-    
+
 </div>
 <?php
 

@@ -13,10 +13,10 @@
 require $sRootDocument . '/Include/Header.php';
 ?>
 <!-- Default box -->
-<div class="box">
-    <div class="box-header">
+<div class="card">
+    <div class="card-header">
         <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= _('New User') ?></a>
-    
+
       <div class="btn-group pull-right">
         <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Selected User(s)") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
@@ -24,10 +24,10 @@ require $sRootDocument . '/Include/Header.php';
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu" role="menu" id="AllRoles">
-            <?php 
+            <?php
                foreach ($userRoles as $userRole) {
-            ?>               
-               <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
+            ?>
+               <li> <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
             <?php
                }
             ?>
@@ -38,8 +38,8 @@ require $sRootDocument . '/Include/Header.php';
       </div>
     </div>
 </div>
-<div class="box">
-    <div class="box-body">
+<div class="card">
+    <div class="card-body">
         <table class="table table-hover dt-responsive" id="user-listing-table" style="width:100%;">
             <thead>
             <tr>
@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php foreach ($rsUsers as $user) { //Loop through the person?>
                 <tr id="row-<?= $user->getId() ?>">
                     <td>
-                      <?php 
+                      <?php
                          if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
                         <input type="checkbox" class="checkbox_users checkbox_user<?= $user->getPersonId()?>" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
@@ -68,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
                       ?>
                     </td>
                     <td>
-                        <?php 
+                        <?php
                           if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
                         ?>
                             <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
@@ -80,23 +80,23 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           }
                         ?>
-                         <?php 
+                         <?php
                            if ( $user->getPersonId() != 1) {
                          ?>
-                      
+
                           <a class="webdavkey" data-userid="<?= $user->getId()?>">
                              <i class="fa fa-eye" aria-hidden="true"></i>
                           </a>
                          <?php
                            }
                           ?>
-                        <?php 
+                        <?php
                           if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) {
                         ?>
                             <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
-                                        class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
                         <?php
-                          } 
+                          }
                         ?>
                       </td>
                     <td>
@@ -106,11 +106,11 @@ require $sRootDocument . '/Include/Header.php';
                         <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
                     <td class="role<?=$user->getPersonId()?>">
-                        <?php 
-                          if (!is_null($user->getUserRole())) { 
+                        <?php
+                          if (!is_null($user->getUserRole())) {
                         ?>
                           <?= $user->getUserRole()->getName() ?>
-                        <?php 
+                        <?php
                           } else {
                         ?>
                            <?= _("Undefined") ?>
@@ -121,7 +121,7 @@ require $sRootDocument . '/Include/Header.php';
                     <td align="center"><?= $user->getLastLogin($dateFormatLong) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td align="center">
-                      <?php 
+                      <?php
                         if ($user->isLocked()) {
                       ?>
                             <span class="text-red"><?= $user->getFailedLogins() ?></span>
@@ -134,23 +134,23 @@ require $sRootDocument . '/Include/Header.php';
                             <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-eraser" aria-hidden="true"></i></a>
                       <?php
-                        } 
+                        }
                       ?>
                     </td>
                     <td>
                         <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                        <?php 
+                        <?php
                           if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
                         ?>
                             <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                 class="fa fa-send-o" aria-hidden="true"></i></a>
                         <?php
-                          } 
+                          }
                         ?>
                     </td>
                     <td  align="center">
-                      <?php 
+                      <?php
                         if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
                           <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
@@ -162,11 +162,11 @@ require $sRootDocument . '/Include/Header.php';
                     </td>
                 </tr>
               <?php
-                } 
+                }
               ?>
             </tbody>
         </table>
-        
+
         <input type="checkbox" class="check_all" id="check_all">
         <label for="check_all"><?= _("Check all") ?></label>
     </div>

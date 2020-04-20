@@ -41,7 +41,7 @@ if (array_key_exists('GroupID', $_GET)) {
 
 $theCurrentGroup = GroupQuery::create()
    ->findOneById($iGroupID);   //get this group from the group service.
-   
+
 $optionId = $theCurrentGroup->getListOptionId();
 
 $rsGroupTypes = ListOptionQuery::create()
@@ -72,11 +72,11 @@ require 'Include/Header.php';
 </div>
 <!-- END GROUP SPECIFIC PROPERTIES MODAL-->
 
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title"><?= (($theCurrentGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"><?= (($theCurrentGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
   </div>
-  <div class="box-body">
+  <div class="card-body">
     <form name="groupEditForm" id="groupEditForm">
       <div class="form-group">
         <div class="row">
@@ -107,7 +107,7 @@ require 'Include/Header.php';
                 ?>
                   <option value="<?= $groupType->getOptionId() ?>" <?= ($theCurrentGroup->getListOptionId() == $groupType->getOptionId())?' selected':'' ?>><?= $groupType->getOptionName() ?></option>
                 <?php
-                  } 
+                  }
                 ?>
                 </select>
               </div>
@@ -133,7 +133,7 @@ require 'Include/Header.php';
                   ?>
                     <option value="<?= $groupRoleTemplate['grp_ID'] ?>"><?= $groupRoleTemplate['grp_Name'] ?></option>
                   <?php
-                  } 
+                  }
                   ?>
                   </select>
               <?php
@@ -180,11 +180,11 @@ require 'Include/Header.php';
     </form>
   </div>
 </div>
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title"><?= _('Group Roles') ?>:</h3>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"><?= _('Group Roles') ?>:</h3>
   </div>
-  <div class="box-body">
+  <div class="card-body">
     <div class="alert alert-info alert-dismissable">
       <i class="fa fa-info"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

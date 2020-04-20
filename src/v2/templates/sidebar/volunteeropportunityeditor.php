@@ -13,20 +13,20 @@ require $sRootDocument . '/Include/Header.php';
 <?php if ( $isVolunteerOpportunityEnabled ) {// only an admin can modify the options
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-volunteer-opportunity"><?= _("Add Volunteer Opportunity") ?></button></p>
-<?php 
+<?php
 } else {
 ?>
-    <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
+    <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
 <?php
 }
 ?>
-<div class="box box-body">
+<div class="card card-body">
   <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
 <script src="<?= $sRootPath ?>/skin/js/sidebar/VolunteerOpportunity.js" ></script>
 
 
-<?php 
+<?php
   require $sRootDocument . '/Include/Footer.php';
 ?>

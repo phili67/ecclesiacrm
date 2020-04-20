@@ -4,7 +4,7 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Bootstrapper;
 ?>
     <div style="background-color: white; padding-top: 5px; padding-bottom: 5px; text-align: center; position: fixed; bottom: 0; width: 100%">
-      <strong><?= gettext('Copyright') ?> &copy; 2017-<?= date('Y') ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getPackageMainVersion() ?></a>.</strong> <?= gettext('All rights reserved')?>.
+      <strong><?= gettext('Copyright') ?> &copy; 2020-<?= date('Y') ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getPackageMainVersion() ?></a>.</strong> <?= gettext('All rights reserved')?>.
     </div>
 
 
@@ -12,19 +12,15 @@ use EcclesiaCRM\Bootstrapper;
 
   <!-- Bootstrap 3.3.5 -->
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap/bootstrap.min.js"></script>
-  <!-- iCheck -->
-  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/iCheck/icheck.min.js"></script>
 
   <!-- AdminLTE App -->
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/adminlte/adminlte.min.js"></script>
 
   <!-- InputMask -->
-  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/inputmask/jquery.inputmask.bundle.min.js"></script>
-  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/inputmask/inputmask.date.extensions.min.js"></script>
-  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/inputmask/inputmask.extensions.min.js"></script>
+  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/inputmask/jquery.inputmask.min.js"></script>
 
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  
+
   <!-- Bootbox -->
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootbox/bootbox.all.min.js"></script>
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/i18next/i18next.min.js"></script>
@@ -41,8 +37,8 @@ use EcclesiaCRM\Bootstrapper;
         increaseArea: '20%' // optional
       });
     });
-    
-    
+
+
     i18nextOpt = {
         lng:window.CRM.shortLocale,
         nsSeparator: false,
@@ -52,7 +48,7 @@ use EcclesiaCRM\Bootstrapper;
         fallbackLng: false,
         resources: { }
     };
-  
+
     i18nextOpt.resources[window.CRM.shortLocale] = {
         translation: window.CRM.i18keys
     };

@@ -15,27 +15,27 @@ $(document).ready(function () {
 
             return;
           }
-          
+
           var len = data.MailChimpLists.length;
-      
+
           // now we empty the menubar lists
           $(".lists_class_menu").removeClass("hidden");
           var lists_menu = $(".lists_class_menu").parent();
           var real_listMenu = $( lists_menu ).find (".treeview-menu");
-      
+
           real_listMenu.html("");
-    
+
           var listViews  = "";
           var listItems  = "";
 
           for (i=0;i<len;i++) {
             var list = data.MailChimpLists[i];
-      
-            listViews += '<div class="box">'
-            +'    <div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
+
+            listViews += '<div class="card">'
+            +'    <div class="card-header   with-border">'
+            +'      <h3 class="card-title">'+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
-            +'    <div class="box-body">'
+            +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
             +'        <div class="col-lg-5">'
             +'          <table width="350px">'
@@ -51,7 +51,7 @@ $(document).ready(function () {
             +'        </div>'
             +'        <div class="col-lg-3">'
             +'           <b>' + i18next.t('Campaigns') + '</b><br>';
-          
+
             var lenCampaigns = data.MailChimpCampaigns[i].length;
 
             listViews += '          <table width="300px">';
@@ -59,49 +59,49 @@ $(document).ready(function () {
             for (j=0;j<lenCampaigns;j++) {
               listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][j].status) + ')</span></b>  </td></tr>';
             }
-          
+
             listViews += '          </table>';
-          
+
             listViews += '        </div>';
-          
+
             var lenTags = data.MailChimpLists[i].tags.length;
-          
+
             if (lenTags) {
 
                 listViews += '        <div class="col-lg-3">'
                 +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
-                    
+
                 var tags    = data.MailChimpLists[i].tags;
-            
+
                 var tagsButtons = '';
-            
+
                 if (lenTags) {
                   for (k=0;k<lenTags;k++) {
                     tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
                   }
                 }
-          
+
                 listViews += tagsButtons;
-          
+
                 listViews += '        </div>';
 
             }
-          
+
             listViews += '      </div>'
             +'<a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fa fa-pencil"></i> ' + i18next.t('Modify') + '</a>'
             +'    </div>';
-        
+
             listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
 
           }
-    
+
           $("#container").html(listViews);
           real_listMenu.html(listItems);
         });
       } else {
         var container = '<div class="row">'
           +'<div class="col-lg-12">'
-          +'  <div class="box box-body">'
+          +'  <div class="card card-body">'
           +'    <div class="alert alert-danger alert-dismissible">'
           +'      <h4><i class="fa fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
           +'      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="' + window.CRM.root + '/SystemSettings.php">' + i18next.t('Edit General Settings') + '</a>,'
@@ -110,13 +110,13 @@ $(document).ready(function () {
           +'  </div>'
           +'</div>'
           +'</div>';
-        
+
         $("#container").html(container);
       }
     }
-  
+
     render_container();
-  
+
     // the List Creator
     function BootboxContent(){
       var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("List Creation")+'</h3><form id="some-form">'
@@ -166,10 +166,10 @@ $(document).ready(function () {
 
           return object
       }
-    
+
       function createListEditorWindow ()
       {
-      
+
         var modal = bootbox.dialog({
            message: BootboxContent(),
            buttons: [
@@ -185,7 +185,7 @@ $(document).ready(function () {
              className: "btn btn-primary",
              callback: function() {
                 var ListTitle =  $('form #ListTitle').val();
-              
+
                 if (ListTitle) {
                     var Subject      = $('form #Subject').val();
                     var PermReminder = $('form #PermissionReminder').val();
@@ -206,9 +206,9 @@ $(document).ready(function () {
                     });
                 } else {
                     window.CRM.DisplayAlert("Error","You have to set a List Title for your eMail List");
-                
+
                     return false;
-                }    
+                }
               }
             }
            ],
@@ -217,17 +217,17 @@ $(document).ready(function () {
               modal.modal("hide");
            }*/
          });
-       
+
          // this will ensure that image and table can be focused
-         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
-              
+         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+
          return modal;
       }
-    
-    
+
+
     $(document).on("click","#CreateList", function(){
       var modal = createListEditorWindow();
-    
+
       modal.modal("show");
-    });  
+    });
 });

@@ -24,11 +24,11 @@ require $sRootDocument . '/Include/Header.php';
   }
 ?>
 
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title"><?= _('Report Details')?></h3>
+<div class="card card-secondary">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('Report Details')?></h3>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <form method="post" action="<?= $sRootPath ?>/v2/sundayschool/reports">
 
             <table class="table table-simple-padding" align="left">

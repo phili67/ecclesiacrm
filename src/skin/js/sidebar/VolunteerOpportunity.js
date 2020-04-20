@@ -30,7 +30,7 @@ $(document).ready(function () {
           }
           if (full.place == "last" || full.place == "intermediate") {
             res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/uparrow.gif" border="0"></a>';
-          }          
+          }
           return res+"</center>";
         }
       },
@@ -65,19 +65,19 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           return (data == "true")?i18next.t('Yes'):i18next.t('No');
         }
-      }      
+      }
     ],
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
     }
   });
-  
-  
+
+
   $(document).on("click",".up_action", function(){
     var place = $(this).data('order');
     var id    = $(this).data('id');
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'volunteeropportunity/upaction',
@@ -86,11 +86,11 @@ $(document).ready(function () {
       window.CRM.VolunteerOpportunityTable.ajax.reload();
     });
   });
-  
+
   $(document).on("click",".down_action", function(){
     var place = $(this).data('order');
     var id    = $(this).data('id');
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'volunteeropportunity/downaction',
@@ -99,12 +99,12 @@ $(document).ready(function () {
       window.CRM.VolunteerOpportunityTable.ajax.reload();
     });
   });
-  
-  
+
+
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentVolunteerOpportunity(){    
-      var frm_str = '<div class="box-body">'
+    function BootboxContentVolunteerOpportunity(){
+      var frm_str = '<div class="card-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
         +'    <label>'+i18next.t("Name")+'</label>'
@@ -135,10 +135,10 @@ $(document).ready(function () {
 
         return object
     }
-    
+
   $(document).on("click",".delete-volunteer-opportunity", function(){
      var id = $(this).data("id");
-     
+
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: i18next.t("If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
@@ -154,11 +154,11 @@ $(document).ready(function () {
         }
       }
     });
-  });  
-  
+  });
+
   $(document).on("click",".edit-volunteer-opportunity", function(){
      var id = $(this).data("id");
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'volunteeropportunity/edit',
@@ -175,7 +175,7 @@ $(document).ready(function () {
              var Name         = $("#Name").val();
              var desc         = $("#desc").val();
              var state        = $("#activ").is(':checked');
-           
+
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'volunteeropportunity/set',
@@ -198,18 +198,18 @@ $(document).ready(function () {
             modal.modal("hide");
          }
        });
-       
+
        $("#Name").val(data.Name);
        $("#desc").val(data.Description);
        if (data.Active == "true")
          $("#activ").attr("checked","checked");
-       else 
+       else
          $("#activ").removeAttr("checked");
-  
+
        modal.modal("show");
       });
   });
-  
+
   $(document).on("click","#add-new-volunteer-opportunity", function(){
     var modal = bootbox.dialog({
      message: BootboxContentVolunteerOpportunity,
@@ -222,7 +222,7 @@ $(document).ready(function () {
         var Name         = $("#Name").val();
         var desc         = $("#desc").val();
         var state        = $("#activ").is(':checked');
-       
+
          window.CRM.APIRequest({
             method: 'POST',
             path: 'volunteeropportunity/create',
@@ -245,7 +245,7 @@ $(document).ready(function () {
         modal.modal("hide");
      }
    });
-   
+
    modal.modal("show");
   });
 

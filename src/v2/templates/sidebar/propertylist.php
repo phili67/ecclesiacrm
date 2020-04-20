@@ -14,9 +14,9 @@ use EcclesiaCRM\dto\SystemURLs;
 
 require $sRootDocument . '/Include/Header.php'; ?>
 
-<div class="box box-body">
+<div class="card card-body">
 
-<?php 
+<?php
    if ($isMenuOption) {
     //Display the new property link
 ?>
@@ -26,7 +26,7 @@ require $sRootDocument . '/Include/Header.php'; ?>
 
 //Start the table
 ?>
-<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2"></table>
+<table class='table table-striped table-bordered' id="property-listing-table-v2" width="100%"></table>
 </div>
 
 <?php

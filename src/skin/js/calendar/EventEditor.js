@@ -482,7 +482,7 @@
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-3">'
+                     +'<div class="col-md-4">'
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -492,7 +492,7 @@
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
                     +'</div>'
-                    +'<div class="col-md-3">'
+                    +'<div class="col-md-4">'
                          +'<div class="bootstrap-timepicker">'
                            +'<div class="form-group">'
                               +'<div class="input-group">'
@@ -513,7 +513,7 @@
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       +i18next.t('End Date')+' :'
                     +'</div>'
-                    +'<div class="col-md-3"> '
+                    +'<div class="col-md-4"> '
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -523,7 +523,7 @@
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
                     +'</div>'
-                    +'<div class="col-md-3">'
+                    +'<div class="col-md-4">'
                          +'<div class="bootstrap-timepicker">'
                            +'<div class="form-group">'
                               +'<div class="input-group">'
@@ -557,7 +557,7 @@
                     +'<div class="col-md-2">'
                       +i18next.t('End')+' :'
                     +'</div>'
-                    +'<div class="col-md-3"  style=""> '
+                    +'<div class="col-md-4"  style=""> '
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -624,7 +624,7 @@
               +'</div>'
             +'</div>'
             +'<div class="row  eventNotes  div-block">'
-              +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
+              +'<div class="col-md-12" style="margin-top:-15px;padding-left:0px;padding-right:2px;">'
                   +'<textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
               +'</div>'
             +'</div>'
@@ -675,6 +675,7 @@
 
         var modal = bootbox.dialog({
          message: BootboxContent(start,end,windowtitle,title),
+         size:'large',
          buttons: [
           {
            label: i18next.t("Close"),

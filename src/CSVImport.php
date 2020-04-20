@@ -45,7 +45,7 @@ class Family
     public $_nAdultMale;   // if one adult male
     public $_nAdultFemale; // and 1 adult female we assume spouses
     public $_type;         // 0=patriarch, 1=martriarch
-    
+
     public function __construct()
     {
     }
@@ -73,7 +73,7 @@ class Family
                                  'role'    => 0,
                                  'phone'   => $Phone,
                                  'envelope'=> $Envelope, ];
-                                 
+
         if ($Wedding != '') {
             $this->WeddingDate = $Wedding;
         }
@@ -123,11 +123,11 @@ class Family
 $sPageTitle = _('CSV Import');
 require 'Include/Header.php'; ?>
 
-<div class="box import-users" style="display: box;">
-<div class="box-header with-border">
-   <h3 class="box-title"><?= _('Import Data')?></h3>
+<div class="card import-users" style="display: box;">
+<div class="card-header with-border">
+   <h3 class="card-title"><?= _('Import Data')?></h3>
 </div>
-<div class="box-body">
+<div class="card-body">
 
 <?php
 
@@ -141,11 +141,11 @@ if (isset($_POST['iSelectedValues'])) {
 // Is the CSV file being uploaded?
 if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
     $generalCSVSeparator = ',';
-    
+
     if (isset($_POST['sSeperator'])) {
       $generalCSVSeparator = $_POST['sSeperator'];
     }
-    
+
     // Check if a valid CSV file was actually uploaded
     if ($_FILES['CSVfile']['name'] == '' && !isset($_POST['iSelectedValues'])) {
         $csvError = _('No file selected for upload.');
@@ -182,7 +182,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         // grab and display up to the first 8 lines of data in the CSV in a table
         $iRow = 0;
         $numCol = -10;
-        
+
         while (($aData = fgetcsv($pFile, 2048, $generalCSVSeparator)) && $iRow++ < 9) {
             $tempNumCol = count($aData);
 
@@ -201,7 +201,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           </tr>
       <?php
         }
-  
+
         fclose($pFile);
 
         $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
@@ -226,7 +226,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
                 $sFamCustomFieldList .= '<option value="f'.$fam_custom_Field.'">'.$fam_custom_Name."</option>\n";
             }
         }
-        
+
         // add select boxes for import destination mapping
         for ($col = 0; $col < $numCol; $col++) {
             ?>
@@ -261,14 +261,14 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             }
           ?>
         </table>
-        <?php        
+        <?php
           if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
         ?>
-            <div class="callout callout-danger">
+            <div class="alert alert-danger">
               <?= _("An error occurs when you import the CSV file. You've to select values above in the select fields.") ?>
             </div>
             <br>
-             
+
         <?php
           }
         ?>
@@ -282,7 +282,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         </div>
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= _("Important Options") ?></h3>
+            <h3  class="card-title"><?= _("Important Options") ?></h3>
           </div>
         </div>
         <div class="row">
@@ -327,9 +327,9 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             <span style="color:red"><b><?= _("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= _('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
           </div>
         </div>
-        
+
         <br>
-        
+
         <input type="hidden" name="selectedValues" value="0">
 
         <div class="row">
@@ -341,7 +341,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= _("Not usefull options") ?></h3>
+            <h3  class="card-title"><?= _("Not usefull options") ?></h3>
           </div>
         </div>
 
@@ -358,15 +358,15 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
              <?= _('Family Type: used with Make Family records... option above') ?>
           </div>
         </div>
-          
+
         <BR>
-        
+
         <div class="row">
           <div class="col-lg-1" style="width:10px">
           </div>
           <div class="col-lg-3">
             <?php
-                $sCountry = SystemConfig::getValue('sDefaultCountry');    
+                $sCountry = SystemConfig::getValue('sDefaultCountry');
                 echo CountryDropDown::getDropDown($sCountry);
             ?>
           </div>
@@ -377,10 +377,10 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
       <?php
         $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL); 
-      ?>      
+        $rsClassifications = RunQuery($sSQL);
+      ?>
         <BR>
-        
+
         <div class="row">
           <div class="col-lg-1" style="width:10px">
           </div>
@@ -395,7 +395,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             ?>
                 <option value="<?= $lst_OptionID ?>"><?= $lst_OptionName ?>&nbsp;
             <?php
-              } 
+              }
             ?>
             </select>
           </div>
@@ -421,7 +421,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
     $bHasFamCustom = false;
 
     $generalCSVSeparator = ',';
-    
+
     if (isset($_POST['sSeperator'])) {
       $generalCSVSeparator = $_POST['sSeperator'];
     }
@@ -521,7 +521,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $sSQLpersonFields = 'INSERT INTO person_per (';
             $sSQLpersonData = ' VALUES (';
             $sSQLcustom = 'UPDATE person_custom SET ';
-            
+
             $aData[$col]." ".$col."<br>";
 
             // Build the person_per SQL first.
@@ -611,7 +611,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                             $iBirthYear = $aDate[0];
                             $iBirthMonth = $aDate[1];
                             $iBirthDay = $aDate[2];
-                            
+
                             break;
 
                         // Membership date.. parse multiple date standards
@@ -687,7 +687,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $sSQLpersonFields .= 'per_cls_ID, per_Country, per_DateEntered, per_EnteredBy';
             $sSQLpersonFields .= ')';
             $sSQLperson = $sSQLpersonFields.$sSQLpersonData;
-            
+
             RunQuery($sSQLperson);
 
             // Make a one-person family if requested
@@ -843,11 +843,11 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
             $rsPersonID = RunQuery($sSQL);
             extract(mysqli_fetch_array($rsPersonID));
-            
+
             if ($iPutInCart == 1) {
               Cart::AddPerson($iPersonID);
             }
-            
+
             $note = new Note();
             $note->setPerId($iPersonID);
             $note->setText(_('Imported'));
@@ -954,13 +954,13 @@ if ($iStage == 1) {
     // Display the select file form?>
       <form method="post" action="CSVImport.php" enctype="multipart/form-data">
         <div class="row">
-          <div class="col-lg-12">      
+          <div class="col-lg-12">
             <h2><?= _("Steps to import users") ?></h2>
             <ul>
               <li>
-                 <?= _("Your CSV file should be prepared like") ?> : <br>             
+                 <?= _("Your CSV file should be prepared like") ?> : <br>
                  - <b>Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State ....</b><br>
-                 - or : <b>Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State ....</b><br>             
+                 - or : <b>Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State ....</b><br>
                  <?= _("So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in the second one.") ?><br>
               </li>
               <li>
@@ -974,7 +974,7 @@ if ($iStage == 1) {
               <li>
                  <p style="color: red"><?= _("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
               </li>
-            </ul>        
+            </ul>
           </div>
         </div>
         <div class="row">
@@ -991,14 +991,14 @@ if ($iStage == 1) {
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <div class="callout callout-info"><?= _("<b>DON'T FORGET</b> 
+            <div class="alert alert-info"><?= _("<b>DON'T FORGET</b>
               <br>• your CSV file must have a <b>Title</b> header name column (with M. Mr. Mlle. etc ...),
               <br>• and a <b>gender</b> header name column (with 1 for a men, 2 for a women)") ?>
               <div class="row">
                 <div class="col-lg-3">
                   • <?= _("Select <b>NOW</b> your <b>CSV separator</b>") ?>
                 </div>
-                <div class="col-lg-2">        
+                <div class="col-lg-2">
                   <select name="sSeperator" class="form-control input-sm">
                       <option value=",">,</option>
                       <option value=";">;</option>
@@ -1006,10 +1006,10 @@ if ($iStage == 1) {
                 </div>
               </div>
               <div class="row">
-                <div class="col-lg-5">        
+                <div class="col-lg-5">
                   <?= _("• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</b> ......... ") ?>
                 </div>
-                <div class="col-lg-4">                        
+                <div class="col-lg-4">
                   <span style="color: red"><?= _("This is proposed in the next step, read carefully your table.") ?></span>
                 </div>
              </div>
@@ -1029,11 +1029,11 @@ if ($iStage == 1) {
       </form>
    </div>
 </div>
-<div class="box">
-  <div class="box-header">
-    <h3 class="box-title"><?= _('Clear Data')?></h3>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title"><?= _('Clear Data')?></h3>
   </div>
-  <div class="box-body">
+  <div class="card-body">
     <button type="button" class="btn btn-danger" id="clear-people"><?= _('Clear Persons and Families') ?></button>
     <span id="import-success" style="color:green"></label>
 <?php
@@ -1063,7 +1063,7 @@ function ParseDate($sDate, $iDateMode)
 
     switch ($iDateMode) {
         // International standard: YYYY-MM-DD
-        case 1:            
+        case 1:
             $date = DateTime::createFromFormat('Y-m-d', $sDate);
             break;
 
@@ -1076,9 +1076,9 @@ function ParseDate($sDate, $iDateMode)
         case 3:
             $date = DateTime::createFromFormat('d-m-Y', $sDate);
             break;
-            
+
         // International standard: YYYY/MM/DD
-        case 4:            
+        case 4:
             $date = DateTime::createFromFormat('Y/m/d', $sDate);
             break;
 
@@ -1093,7 +1093,7 @@ function ParseDate($sDate, $iDateMode)
             break;
 
         // International standard: YYYY MM DD
-        case 7:            
+        case 7:
             $date = DateTime::createFromFormat('Y m d', $sDate);
             break;
 

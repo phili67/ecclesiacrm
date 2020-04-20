@@ -5,7 +5,7 @@
     margin: 5px;
     border: 1px solid #000;
     opacity: 0.7;
-    z-index: 800; 
+    z-index: 800;
     h4 {
         margin-top: 0;
     }
@@ -21,7 +21,7 @@
     margin: 5px;
     border: 1px solid #000;
     opacity: 0.7;
-    z-index: 800; 
+    z-index: 800;
     h4 {
         margin-top: 0;
     }
@@ -31,7 +31,6 @@
 }
 
 .map-div {
-    height:750px;
     margin: 2px;
 }
 
@@ -40,7 +39,7 @@ div {
         padding: 4px 4px;
         margin-bottom: 4px;
         box-shadow: 1px 1px 1px 1px darkgrey;
-
+        width:100%;
     }
     .legendbox {
         margin: 7px 3px 0px 3px ;
@@ -56,48 +55,45 @@ img.legendicon {
     float: left;
 }
 
+#maplegend {
+    position: absolute;
+    bottom: 127px;
+    right: 0px;
+    font-size: 12px;
+    width: 250px;
+}
+#maplegend-bing {
+    position: absolute;
+    bottom: 127px;
+    left: 0px;
+    font-size: 12px;
+    width: 250px;
+}
 
-@media screen and (max-device-width: 600px) {
+#maplegend-mobile {
+     width:100%;
+}
+
+.map-div {
+    height: 500px;
+}
+
+
+@media only screen and (max-width: 600px) {
     #maplegend {
-        visibility: hidden;
-        position: absolute;
-        bottom: 127px; 
-        right: 0px;
+        display: none;
     }
+
     #maplegend-bing {
-        visibility: hidden;
-        position: absolute;
-        bottom: 127px; 
-        left: 0px;
-    }
-    
-    #maplegend-mobile {
-        display: block;
-        width:100%;
-    }
-    .map-div {
-        height: 500px;
+        display: none;
     }
 }
-@media screen and (min-device-width: 599px) {
-    #maplegend {
-        display: block;
-        position: absolute; 
-        bottom: 127px; 
-        right: 0px;
-    }
-    #maplegend-bing {
-        visibility: block;
-        position: absolute;
-        bottom: 127px; 
-        left: 0px;
-    }
 
+@media only screen and (min-width: 600px) {
     #maplegend-mobile {
-        visibility: hidden;
-        width:100%;
+        display: none;
     }
     .map-div {
-        height: 750px;
+        height:650px !important;
     }
 }
