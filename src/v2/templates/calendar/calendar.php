@@ -57,37 +57,37 @@ require $sRootDocument . '/Include/Header.php';
                    <table width=100%>
                    <tr>
                      <td align="center">
-                       <input data-size="mini" id="isWithLimit" type="checkbox" checked data-toggle="toggle" data-on="<?= _("Limit") ?>" data-off="<?= _("No Limit") ?>" data-onstyle="info"><br/> 
+                       <input data-size="mini" id="isWithLimit" type="checkbox" checked data-toggle="toggle" data-on="<?= _("Limit") ?>" data-off="<?= _("No Limit") ?>" data-onstyle="info"><br/>
                      </td>
                      <td align="center">
-                       <?php 
-                         if ($sessionUsr->isSeePrivacyDataEnabled()) { 
+                       <?php
+                         if ($sessionUsr->isSeePrivacyDataEnabled()) {
                         ?>
                        <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= _("Birthdate") ?>" data-off="<?= _("Birthdate") ?>" data-onstyle="danger">
-                       <?php 
-                         } 
+                       <?php
+                         }
                         ?>
                      </td>
                      <td align="center">
-                       <?php 
-                         if ($sessionUsr->isSeePrivacyDataEnabled()) { 
+                       <?php
+                         if ($sessionUsr->isSeePrivacyDataEnabled()) {
                         ?>
                        <input data-size="mini" id="isAnniversaryActive" type="checkbox" checked data-toggle="toggle" data-on="<?= _("Wedding") ?>" data-off="<?= _("Wedding") ?>">
-                       <?php 
-                         } 
+                       <?php
+                         }
                         ?>
                      </td>
                     </tr>
                    </table>
                   </div>
-                  
+
                </div>
             </div>
             <div class="box box-info">
                <div class="box-header with-border">
                    <h3 class="box-title"><?= _("Calendars") ?></h3>
                </div>
-               <div class="panel-group" id="accordion"> 
+               <div class="panel-group" id="accordion">
                   <div class="row panel panel-primary personal-collapse">
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
@@ -109,7 +109,7 @@ require $sRootDocument . '/Include/Header.php';
                                  <ul class="list-group" id="cal-list">
                                  </ul>
                              </div>
-                           </div>  
+                           </div>
                         </div>
                      </div>
                    </div>
@@ -118,7 +118,7 @@ require $sRootDocument . '/Include/Header.php';
                       <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
-                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= _("Resources").(!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled())?"  ("._("Shared").")":"") ?> 
+                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= _("Resources").(!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled())?"  ("._("Shared").")":"") ?>
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -141,7 +141,7 @@ require $sRootDocument . '/Include/Header.php';
                                    <ul class="list-group" id="reservation-list">
                                    </ul>
                                  </div>
-                             </div>  
+                             </div>
                           </div>
                        </div>
                    </div>
@@ -150,7 +150,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
-                            <i class="fa fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= _("Groups").(!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled())?"  ("._("Shared").")":"") ?> 
+                            <i class="fa fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= _("Groups").(!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled())?"  ("._("Shared").")":"") ?>
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -166,7 +166,7 @@ require $sRootDocument . '/Include/Header.php';
                                    <ul class="list-group" id="group-list">
                                    </ul>
                                  </div>
-                             </div>  
+                             </div>
                           </div>
                        </div>
                    </div>
@@ -175,7 +175,7 @@ require $sRootDocument . '/Include/Header.php';
                       <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" class="collapsed" style="width:100%">
-                            <i class="fa  fa-share"></i>&nbsp;<?= _("Shared")."  ("._("Users").")"?> 
+                            <i class="fa  fa-share"></i>&nbsp;<?= _("Shared")."  ("._("Users").")"?>
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" class="collapsed" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -191,7 +191,7 @@ require $sRootDocument . '/Include/Header.php';
                                    <ul class="list-group" id="share-list">
                                    </ul>
                                  </div>
-                             </div>  
+                             </div>
                           </div>
                        </div>
                    </div>
@@ -218,7 +218,8 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
-  
+  window.CRM.calendarSignature = null;
+
   window.CRM.churchloc = {
       lat: <?= $coordinates['lat'] ?>,
       lng: <?= $coordinates['lng'] ?>};
