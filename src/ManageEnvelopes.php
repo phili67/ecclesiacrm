@@ -100,7 +100,7 @@ require 'Include/Header.php';
 
 ?>
 
-<div class="box box-body">
+<div class="card card-body">
 <form method="post" action="<?= SystemURLs::getRootPath() ?>/ManageEnvelopes.php" name="ManageEnvelopes">
 <?php
 
@@ -226,7 +226,7 @@ foreach ($arrayToLoop as $fam_ID => $value) {
         $duplicateEnvelopeHash[$envelope] = $fam_ID;
         $tdTag = '<div class="col-md-4">';
     }
-    echo $tdTag; 
+    echo $tdTag;
 ?>
     <input class="form-control" type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
   </div>
