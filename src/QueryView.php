@@ -204,10 +204,10 @@ function DoQuery()
 
     //Run the SQL
     $rsQueryResults = RunQuery($qry_SQL); ?>
-<div class="box box-primary">
-    
-    <div class="box-body">
-        <table class="table table-bordered dataTable no-footer dtr-inline" id="query-table" style="width:100%">
+<div class="card card-primary">
+
+    <div class="card-body">
+        <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table" style="width:100%">
             <thead>
                 <?php
                     //Loop through the fields and write the header row
@@ -223,18 +223,18 @@ function DoQuery()
                         </th>
                   <?php
                         }
-                    } 
+                    }
                   ?>
             </thead>
             <tbody>
 <?php
     $aAddToCartIDs = [];
-    
+
     $qry_real_Count = 0;
 
     while ($aRow = mysqli_fetch_array($rsQueryResults)) {
         if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR') ) continue;
-        
+
         $qry_real_Count++;
 
         //Alternate the background color of the row
@@ -244,7 +244,7 @@ function DoQuery()
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
             // If this field is called "AddToCart", add a cart button to the form
             $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-            
+
             if ( $fieldInfo->name == 'AddToCart' ) {
               if (!Cart::PersonInCart ($aRow[$iCount])) {
         ?>
@@ -267,7 +267,7 @@ function DoQuery()
                          </span>
                      </a>
                  </td>
-        <?php        
+        <?php
               }
               $aAddToCartIDs[] = $aRow[$iCount];
             }
@@ -287,8 +287,8 @@ function DoQuery()
             <?= $qry_Count ? $qry_real_Count._(' record(s) returned') : ''; ?>
         </p>
     </div>
-    
-    <div class="box-footer">
+
+    <div class="card-footer">
         <p>
         <?php if (count($aAddToCartIDs)) { ?>
             <div class="col-sm-offset-1">
@@ -306,11 +306,11 @@ function DoQuery()
 
 </div>
 
-<div class="box box-info">
-    <div class="box-header with-border">
-        <div class="box-title">Query</div>
+<div class="card card-info">
+    <div class="card-header with-border">
+        <div class="card-title">Query</div>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <code><?= str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL)); ?></code>
     </div>
 </div>
@@ -327,9 +327,9 @@ function DoQuery()
                });
               }
            });
-           
+
        });
-       
+
        $("#intersectResultsToCart").click(function () {
            var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
            window.CRM.cart.intersectPerson(selectedPersons,function(data) {
@@ -368,8 +368,8 @@ function DisplayQueryInfo()
 {
     global $qry_Name;
     global $qry_Description; ?>
-<div class="box box-info">
-    <div class="box-body">
+<div class="card card-info">
+    <div class="card-body">
         <p><strong><?= _($qry_Name); ?></strong></p>
         <p><?= _($qry_Description); ?></p>
     </div>
@@ -381,9 +381,9 @@ function DisplayQueryInfo()
 function getQueryFormInput($queryParameters)
 {
     global $aErrorText;
-    
+
     extract($queryParameters);
-    
+
     $input = '';
     $label = '<label>' . _($qrp_Name) . '</label>';
     $helpMsg = '<div>' . _($qrp_Description) . '</div>';
@@ -402,7 +402,7 @@ function getQueryFormInput($queryParameters)
 
             $input = '<select name="'.$qrp_Alias.'" class="form-control">';
             $input .= '<option disabled selected value> -- ' . _("select an option"). ' -- </option>';
-            
+
             //Loop through the parameter options
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
@@ -428,15 +428,15 @@ function getQueryFormInput($queryParameters)
             $input .= '</select>';
             break;
     }
-    
+
     $helpBlock = '<div class="help-block">' . $helpMsg . '</div>';
-    
+
     if ($aErrorText[$qrp_Alias]) {
         $errorMsg = '<div>' . $aErrorText[$qrp_Alias] . '</div>';
         $helpBlock = '<div class="help-block">' . $helpMsg . $errorMsg . '</div>';
         return '<div class="form-group has-error">' . $label . $input . $helpBlock . '</div>';
     }
-    
+
     return '<div class="form-group">' . $label . $input . $helpBlock . '</div>';
 }
 
@@ -447,11 +447,11 @@ function DisplayParameterForm()
     global $iQueryID; ?>
 <div class="row">
     <div class="col-md-8">
-        
-        <div class="box box-primary">
-            
-            <div class="box-body">
-            
+
+        <div class="card card-primary">
+
+            <div class="card-body">
+
                 <form method="post" action="QueryView.php?QueryID=<?= $iQueryID ?>">
 <?php
 //Loop through the parameters and display an entry box for each one
@@ -461,17 +461,17 @@ if (mysqli_num_rows($rsParameters)) {
     while ($aRow = mysqli_fetch_array($rsParameters)) {
         echo getQueryFormInput($aRow);
     } ?>
-                    
+
                     <div class="form-group text-right">
                         <input class="btn btn-primary" type="Submit" value="<?= _("Execute Query") ?>" name="Submit">
                     </div>
                 </form>
-                
+
             </div>
         </div> <!-- box -->
-        
+
     </div>
-    
+
 </div>
 
 <?php
