@@ -895,16 +895,22 @@ require 'Include/Header.php';
                 } ?>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label><?= _('Wedding Date') ?>:</label>
-                        <input type="text" class="form-control date-picker" Name="WeddingDate"
-                               value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12"
-                               id="WeddingDate" size="15"
-                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                        <?php if ($sWeddingDateError) {
-                            ?> <span style="color: red"><br/><?php $sWeddingDateError ?></span> <?php
-                        } ?>
+                        <label for="LinkedIn"><?= _('Wedding Date') ?>:</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <input type="text" class="form-control date-picker" Name="WeddingDate"
+                                   value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12"
+                                   id="WeddingDate" size="15"
+                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                            <?php if ($sWeddingDateError) {
+                                ?> <span style="color: red"><br/><?php $sWeddingDateError ?></span> <?php
+                            } ?>
+                        </div>
                     </div>
                 </div>
+
                 <?php
             } /* Wedding date can be hidden - General Settings */ ?>
             <div class="row">
