@@ -33,7 +33,7 @@ if ($iFundRaiserID > 0) {
 $sPageTitle = _('Buyers for this fundraiser:');
 require 'Include/Header.php';
 ?>
-<div class="box box-body">
+<div class="card card-body">
 <?php
 echo "<form method=\"post\" action=\"Reports/FundRaiserStatement.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID\">\n";
 if ($iFundRaiserID > 0) {
@@ -44,7 +44,7 @@ if ($iFundRaiserID > 0) {
     echo '<input type=submit class="btn btn-info btn-sm" value="'._('Generate Statements for Selected')."\" name=GenerateStatements>\n";
 ?>
 </div>
-<div class="box box-body">
+<div class="card card-body">
 
 <table cellpadding="5" cellspacing="5" class="table table-striped table-bordered dataTable no-footer dtr-inline">
 
@@ -74,7 +74,7 @@ if ($rsPaddleNums) {
 			<td>
 				<?= "<a href=\"PaddleNumEditor.php?PaddleNumID=$pn_ID&linkBack=PaddleNumList.php\"> $pn_Num</a>\n" ?>
 			</td>
-				
+
 			<td>
 				<?= $buyerFirstName.' '.$buyerLastName ?>&nbsp;
 			</td>
