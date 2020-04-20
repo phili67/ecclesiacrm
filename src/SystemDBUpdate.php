@@ -65,7 +65,7 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
 } else {
         ?>
         <div class="main-box-body clearfix" id="globalMessage">
-            <div class="callout callout-danger fade in" id="globalMessageCallOut">
+            <div class="alert alert-danger fade in" id="globalMessageCallOut">
                 <i class="fa fa-warning fa-fw fa-lg"></i> <?= $errorMessage ?>
             </div>
         </div>
