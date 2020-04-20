@@ -354,22 +354,22 @@ if ($embedded) {
 if ($mode == 'classes') {
     ?>
     <div
-        class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
+        class="alert alert-danger"><?= _('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
     <?php
 } else if ($mode == 'famroles') {
     ?>
     <div
-        class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all family roles with the assignment!') ?></div>
+        class="alert alert-danger"><?= _('Warning: Removing will reset all assignments for all family roles with the assignment!') ?></div>
     <?php
 } else if ($mode == 'grptypes' || $mode == 'grptypesSundSchool') {
     ?>
     <div
-        class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all menus with the assignment!') ?></div>
+        class="alert alert-danger"><?= _('Warning: Removing will reset all assignments for all menus with the assignment!') ?></div>
     <?php
 } else if ($mode == 'grproles') {//dead code
     ?>
     <div
-        class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all group roles with the assignment!') ?></div>
+        class="alert alert-danger"><?= _('Warning: Removing will reset all assignments for all group roles with the assignment!') ?></div>
     <?php
 }
 ?>
@@ -538,8 +538,8 @@ if ($bDuplicateFound) {
     </div>
 </div>
 
-<div class="box box-primary">
-    <div class="box-body">
+<div class="card card-primary">
+    <div class="card-body">
         <?= _('Name for New') . ' ' . $noun ?>:&nbsp;
         <span class="SmallText">
     <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
