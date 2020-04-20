@@ -14,7 +14,7 @@ $(document).ready(function () {
        CKEDITOR.remove(window.CRM.editor);
        window.CRM.editor = null;
     }
-  
+
     var modal = DocumentEditorWindow('create',0);
 
     // this will create the toolbar for the textarea
@@ -38,19 +38,19 @@ $(document).ready(function () {
          });
        }
 
- 
+
        add_ckeditor_buttons(window.CRM.editor);
        add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
     }
-  
+
     modal.modal("show");
-  }); 
-  
+  });
+
   $(document).on("click",".editDocument", function(){
     var docID  = $(this).data('id');
     var perID  = $(this).data('perid');
     var famID  = $(this).data('famid');
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'document/get',
@@ -61,7 +61,7 @@ $(document).ready(function () {
            CKEDITOR.remove(window.CRM.editor);
            window.CRM.editor = null;
         }
-  
+
         var modal = DocumentEditorWindow('edit',docID);
 
         // this will create the toolbar for the textarea
@@ -84,13 +84,13 @@ $(document).ready(function () {
               width : '100%'
            });
          }
- 
+
          add_ckeditor_buttons(window.CRM.editor);
          add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
         }
-  
+
         modal.modal("show");
-      
+
         $('#documentTitle').val(data.note.Title);
         $("#documentType").val(data.note.Type);
         $("#private").prop("checked", data.note.Private);
@@ -100,25 +100,25 @@ $(document).ready(function () {
       }
     });
   });
-  
+
   $(document).on("click",".deleteDocument", function(){
     var docID  = $(this).data('id');
     var perID  = $(this).data('perid');
     var famID  = $(this).data('famid');
-     
+
       window.CRM.APIRequest({
       method: 'POST',
       path: 'document/get',
       data: JSON.stringify({"docID" : docID, "personID" : perID, "famID" : famID})
     }).done(function(data) {
-      if (data.success) { 
+      if (data.success) {
         window.CRM.APIRequest({
           method: 'POST',
           path: 'document/get',
           data: JSON.stringify({"docID" : docID, "personID" : window.CRM.currentPersonID, "famID" : window.CRM.currentFamily})
-        }).done(function(data) {     
-           message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
-     
+        }).done(function(data) {
+           message = '<div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
+
            bootbox.confirm({
             title  : i18next.t("Document Delete Confirmation"),
             message: message,
@@ -144,11 +144,11 @@ $(document).ready(function () {
         window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t(data.message));
       }
     });
-  });  
+  });
 
 
-  function BootboxContent(sTitleText, sDocType, sText){  
-    
+  function BootboxContent(sTitleText, sDocType, sText){
+
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Document Editor")+'</h3>'
       +'<form id="some-form">'
        + '<div>'
@@ -184,10 +184,10 @@ $(document).ready(function () {
 
         return object;
     }
-    
+
     function DocumentEditorWindow (mode,docID)
     {
-      
+
       var modal = bootbox.dialog({
          message: BootboxContent(),
          size   : 'large',
@@ -212,18 +212,18 @@ $(document).ready(function () {
               var DocumentTitle = $('#documentTitle').val();
               var perId         = window.CRM.currentPersonID;
               var famId         = window.CRM.currentFamily;
-              
+
               if (window.CRM.docType == 'person') {
                 famId = 0;
               } else if (window.CRM.docType == 'family') {
                 perId = 0;
               }
-              
+
               if (DocumentTitle != "") {
                 var Type     = $("#documentType").val();
                 var Private  = $('#private').is(':checked');
                 var htmlBody = CKEDITOR.instances['documentText'].getData();
-                
+
                 if (mode == 'create') {
                   window.CRM.APIRequest({
                     method: 'POST',
@@ -255,9 +255,9 @@ $(document).ready(function () {
                 }
               } else {
                   window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You have to set a Title for your document"));
-                
+
                   return false;
-              }    
+              }
             }
           }
          ],
@@ -273,10 +273,10 @@ $(document).ready(function () {
             });
          }
        });
-       
+
        // this will ensure that image and table can be focused
        $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-              
+
        return modal;
     }
 });
