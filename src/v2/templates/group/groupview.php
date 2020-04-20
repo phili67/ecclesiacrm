@@ -424,11 +424,11 @@ if ( $_SESSION['bManageGroups'] ) {
 <?php
 if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) {
     ?>
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title"><?= _("Manage Group Members") ?>:</h3>
+    <div class="card">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _("Manage Group Members") ?>:</h3>
         </div>
-        <div class="box-body">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-1">
                     <?= _("Add") ?>
