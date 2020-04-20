@@ -41,7 +41,7 @@ ob_start();
             <h5><?= _('Text for Event ID') . "   (" . $event->getId() . ") : " . htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8') ?></h5></caption>
         </div>
     </div>
-    <div class="box-body">
+    <div class="card-body">
         <?= $event->getText() ?>
     </div>
     <div class="card-footer">
