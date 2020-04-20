@@ -13,7 +13,7 @@ require $sRootDocument . '/Include/Header.php';
 
 ?>
 
-<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting Fund type, the recorded datas for pledges or payments will be lost.') ?></div>
+<div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting Fund type, the recorded datas for pledges or payments will be lost.') ?></div>
 
 <div class="card card-body">
 
