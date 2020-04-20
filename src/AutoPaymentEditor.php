@@ -817,7 +817,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 <label><?= _('Person').' '._('or').' '._('Family') ?>:</label>
             </div>
             <div class="col-md-4">
-                <div class="callout callout-danger"><?= _("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
+                <div class="alert alert-danger"><?= _("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
                 <select name="Family" id="optionFamily" style="width:100%">
                    <option value="0" selected><?= _('Unassigned') ?></option>
                    <option value="0">-----------------------</option>
