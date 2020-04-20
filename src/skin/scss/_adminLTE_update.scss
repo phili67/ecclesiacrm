@@ -1,7 +1,7 @@
 /* special alert */
 .alert-birthday {
-    background-color: #a6d58c;
-    border-left-color: #7da169 !important;
+    background-color: #76c3e8;
+    border-left-color: #498bbb !important;
     border-left-width: 5px;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .alert-pastoral-care {
-    background-color: #ffdab6;
+    background-color: #fbba7a;
     border-left-color: rgba(11, 11, 11, 0.3) !important;
     border-left-width: 5px;
 }
@@ -272,4 +272,14 @@ scrollable bootbox body
 
 .label-info {
     color:cyan;
+}
+
+/* the add button to cart */
+
+.AddToPeopleCart a {
+    color: #007bff !important;
+}
+
+.AddToPeopleCart a:hover {
+    color: #0056b3 !important;
 }
