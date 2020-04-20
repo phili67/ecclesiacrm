@@ -75,10 +75,7 @@ Header_system_notifications();
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="../index3.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
             </li>
         </ul>
         <!--<form class="form-inline ml-3">
@@ -133,29 +130,20 @@ Header_system_notifications();
                                 </td>
                                 <td valign="middle" align="left" style="padding-top:10px">
                                     <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
-                                       class="item_link" data-toggle="tooltip"
-                                       title="<?= _("For your documents family etc ...") ?>" data-placement="right">
+                                       class="item_link">
                                         <p><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"
-                                       data-toggle="tooltip" title="<?= _("You can change here your password") ?>"
-                                       data-placement="right">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link">
                                         <p><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"
-                                       data-toggle="tooltip" title="<?= _("Change Custom Settings") ?>"
-                                       data-placement="right">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link">
                                         <p><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link"
-                                       data-toggle="tooltip" title="<?= _("Lock your session") ?>"
-                                       data-placement="right">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link">
                                         <p><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"
-                                       data-toggle="tooltip" title="<?= _("Quit EcclesiaCRM and close your session") ?>"
-                                       data-placement="right">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link">
                                         <p><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
                                 </td>
                             </tr>
                         </table>
-                        <p style="color:#fff"><b><?= SessionUser::getUser()->getName() ?></b></p>
+                        <p class="nav-link"><b><?= SessionUser::getUser()->getName() ?></b></p>
                     </li>
                 </ul>
             </li>
