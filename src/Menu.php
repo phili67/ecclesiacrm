@@ -237,11 +237,9 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     if (!empty($classified)) {
         ?>
         <h4 class="alert-heading"><?= _("Birthdates of the day") ?></h4>
-        <div class="row">
             <?php
             echo $classified;
             ?>
-        </div>
         <?php
     } ?>
 
@@ -253,7 +251,6 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
         } ?>
 
         <h4 class="alert-heading"><?= _("Anniversaries of the day") ?></h4>
-        <div class="row">
 
         <?php
         $new_row = false;
@@ -266,7 +263,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
                 <?php $new_row = true;
             } ?>
-            <div class="col-sm-3">
+            <div class="col-md-3">
                 <label class="checkbox-inline">
                     <a href="<?= $Anniversary->getViewURI() ?>" class="btn btn-link-menu"
                        style="text-decoration: none"><?= $Anniversary->getFamilyString() ?></a>
@@ -290,7 +287,6 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             <?php
         } ?>
 
-        </div>
         <?php
     } ?>
 
@@ -547,10 +543,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card card-info">
+            <div class="card card-secondary">
                 <div class="card-header">
-                    <i class="fa fa-money fa-5x" style="font-size:26px"></i>
-                    <h3 class="card-title"><?= _('Deposit Tracking') ?></h3>
+                    <h3 class="card-title"><i class="fa fa-money fa-5x" style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
                     <div class="card-tools pull-right">
                         <div id="deposit-graph" class="chart-legend"></div>
                     </div>
@@ -567,7 +562,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 
 <div class="row">
     <div class="col-lg-6">
-        <div class="card card-primary">
+        <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title"><i class="fa fa-group"></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
                 </h3>
@@ -595,7 +590,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card card-info">
+        <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title"><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
                 <div class="card-tools">
