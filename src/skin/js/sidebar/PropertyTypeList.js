@@ -18,12 +18,12 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (window.CRM.menuOptionEnabled == false)
             return '';
-            
+
           var res = '<a href="#" data-typeid="' + full.PrtId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
           res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" data-warn="' + full.Properties + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
           return res;
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Name'),
@@ -54,12 +54,12 @@ $(document).ready(function () {
       $(row).addClass("listRow");
     }
   });
-  
-  
+
+
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
     function BootboxContentPropertyTypeList(type){
-      var frm_str = '<div class="box-body">'
+      var frm_str = '<div class="card-body">'
         +'<div class="row">'
         +' <div class="row">'
         +'  <div class="col-lg-3">'
@@ -95,16 +95,16 @@ $(document).ready(function () {
 
         return object
     }
-    
+
   $(document).on("click",".delete-prop", function(){
      var typeId  = $(this).data("typeid");
      var warn    = $(this).data("warn");
      var message = i18next.t("You're about to delete this general properties. Would you like to continue ?");
-     
+
      if (warn > 0) {
-       message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('This general property type is still being used by') + ' ' + warn + ' ' + ((warn==1)?i18next.t('property'):i18next.t('properties')) + '.<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.')+'</div>';
+       message = '<div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('This general property type is still being used by') + ' ' + warn + ' ' + ((warn==1)?i18next.t('property'):i18next.t('properties')) + '.<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.')+'</div>';
      }
-     
+
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: message,
@@ -120,11 +120,11 @@ $(document).ready(function () {
         }
       }
     });
-  });  
-  
+  });
+
   $(document).on("click",".edit-prop", function(){
      var typeId = $(this).data("typeid");
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'properties/propertytypelists/edit',
@@ -140,7 +140,7 @@ $(document).ready(function () {
            callback: function() {
              var Name = $("#Name").val();
              var Description = $("#description").val();
-           
+
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'properties/propertytypelists/set',
@@ -163,14 +163,14 @@ $(document).ready(function () {
             modal.modal("hide");
          }
        });
-       
+
        $("#Name").val(data.prtType.PrtName);
        $("#description").val(data.prtType.PrtDescription);
-  
+
        modal.modal("show");
       });
   });
-  
+
   $(document).on("click","#add-new-prop", function(){
     var modal = bootbox.dialog({
      message: BootboxContentPropertyTypeList(-1),
@@ -183,7 +183,7 @@ $(document).ready(function () {
          var theClass    = $("#Class").val();
          var Name        = $("#Name").val();
          var Description = $("#description").val();
-       
+
          window.CRM.APIRequest({
             method: 'POST',
             path: 'properties/propertytypelists/create',
@@ -206,7 +206,7 @@ $(document).ready(function () {
         modal.modal("hide");
      }
    });
-   
+
    modal.modal("show");
   });
 

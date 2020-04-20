@@ -18,13 +18,13 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (window.CRM.menuOptionEnabled == false)
             return '';
-            
+
           var res = '<a href="#" data-typeid="' + full.ProId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
           res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.ProId + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
-            
+
           return res;
         }
-      },      
+      },
       {
         width: 'auto',
         title:i18next.t('Name'),
@@ -55,20 +55,20 @@ $(document).ready(function () {
       $(row).addClass("listRow");
     }
   });
-  
-  
+
+
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
     function BootboxContentPropertyList(propertyTypes){
       var options   = '<option value="">'+ i18next.t('Select Property Type') + '</option>';
       var firstTime = true;
-      
+
       for (i=0;i < propertyTypes.length;i++){
           options += "\n"+'<option value="'+propertyTypes[i].PrtId+'" '+ ((firstTime)?'selected=""':'')+'>'+propertyTypes[i].PrtName+'</option>';
           firstTime=false;
       }
-      
-      var frm_str = '<div class="box-body">'
+
+      var frm_str = '<div class="card-body">'
         +'<div class="row">'
         +'  <div class="col-lg-3">'
         +'    <label for="depositDate">'+i18next.t("Type")+'</label>'
@@ -109,11 +109,11 @@ $(document).ready(function () {
 
         return object
     }
-    
+
   $(document).on("click",".delete-prop", function(){
      var typeId  = $(this).data("typeid");
      var message = i18next.t("You're about to delete this property. Would you like to continue ?");
-          
+
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: message,
@@ -129,11 +129,11 @@ $(document).ready(function () {
         }
       }
     });
-  });  
-  
+  });
+
   $(document).on("click",".edit-prop", function(){
      var typeId = $(this).data("typeid");
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'properties/typelists/edit',
@@ -150,7 +150,7 @@ $(document).ready(function () {
              var Name        = $("#Name").val();
              var Description = $("#description").val();
              var Prompt      = $("#prompt").val();
-           
+
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'properties/typelists/set',
@@ -173,15 +173,15 @@ $(document).ready(function () {
             modal.modal("hide");
          }
        });
-       
+
        $("#Name").val(data.proType.ProName);
        $("#description").val(data.proType.ProDescription);
        $("#prompt").val(data.proType.ProPrompt);
-  
+
        modal.modal("show");
       });
   });
-  
+
   $(document).on("click","#add-new-prop", function(){
     var modal = bootbox.dialog({
      message: BootboxContentPropertyList(window.CRM.propertyTypesAll),
@@ -195,7 +195,7 @@ $(document).ready(function () {
          var Name        = $("#Name").val();
          var Description = $("#description").val();
          var Prompt      = $("#prompt").val();
-       
+
          window.CRM.APIRequest({
             method: 'POST',
             path: 'properties/typelists/create',
@@ -218,7 +218,7 @@ $(document).ready(function () {
         modal.modal("hide");
      }
    });
-   
+
    modal.modal("show");
   });
 });

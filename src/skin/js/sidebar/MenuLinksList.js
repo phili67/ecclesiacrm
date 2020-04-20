@@ -30,7 +30,7 @@ $(document).ready(function () {
           }
           if (full.place == "last" || full.place == "intermediate") {
             res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/uparrow.gif" border="0"></a>';
-          }          
+          }
           return res+"</center>";
         }
       },
@@ -64,12 +64,12 @@ $(document).ready(function () {
       $(row).addClass("menuLinksRow");
     }
   });
-  
-  
+
+
   $(document).on("click",".up_action", function(){
     var MenuPlace     = $(this).data('order');
     var MenuLinkId    = $(this).data('id');
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'menulinks/upaction',
@@ -78,11 +78,11 @@ $(document).ready(function () {
       reconstructMenuLinks();
     });
   });
-  
+
   $(document).on("click",".down_action", function(){
     var MenuPlace     = $(this).data('order');
     var MenuLinkId    = $(this).data('id');
-    
+
     window.CRM.APIRequest({
       method: 'POST',
       path: 'menulinks/downaction',
@@ -91,12 +91,12 @@ $(document).ready(function () {
       reconstructMenuLinks();
     });
   });
-  
-  
+
+
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentMenuLinkList(){    
-      var frm_str = '<div class="box-body">'
+    function BootboxContentMenuLinkList(){
+      var frm_str = '<div class="card-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
         +'    <label>'+i18next.t("Name")+'</label>'
@@ -127,8 +127,8 @@ $(document).ready(function () {
 
         return object
     }
-    
-    
+
+
   function reconstructMenuLinks () {
     if (window.CRM.personId == 0) {
       // global menuLinks
@@ -137,7 +137,7 @@ $(document).ready(function () {
         path: 'menulinks/' + window.CRM.personId
       }).done(function(data) {
         var len = data.MenuLinks.length;
-        
+
         if (len == 0) {
           $(".global_custom_menu").html('');
           $(".global_custom_menu").append('<a href="' + window.CRM.root + '/MenuLinksList.php"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
@@ -145,42 +145,42 @@ $(document).ready(function () {
           $(".global_custom_menu").html('');
           $(".global_custom_menu").append('<a href="#"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
           $(".global_custom_menu").append('<ul class="treeview-menu" style="display: block;"></ul>');
-          
+
           var list = $(".global_custom_menu").find('.treeview-menu');
-          
+
           for (i=0;i<len;i++) {
             list.append('<li><a href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-circle-o"></i>' + data.MenuLinks[i].Name + '</a></li>');
           }
         }
-        
+
         window.CRM.dataMenuLinkTable.ajax.reload();
       });
     } else {
       // personal menu links
       var list = $(".personal_custom_menu_"+window.CRM.personId).parent().find('.treeview-menu');
-      
+
       list.empty()
       list.append('<li class="active "><a href="' + window.CRM.root + '/MenuLinksList.php?personId=1"><i class="fa fa-circle-o"></i>' + i18next.t("Dashboard") + '</a></li>');
-      
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'menulinks/' + window.CRM.personId
       }).done(function(data) {
         var len = data.MenuLinks.length;
-        
+
         for (i=0;i<len;i++) {
           list.append('<li><a href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-angle-double-right"></i>' + data.MenuLinks[i].Name + '</a></li>');
         }
-        
+
         window.CRM.dataMenuLinkTable.ajax.reload();
       });
-    }  
+    }
   }
-  
-    
+
+
   $(document).on("click",".delete-menu-links", function(){
      var MenuLinkId = $(this).data("id");
-     
+
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: i18next.t("If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
@@ -196,11 +196,11 @@ $(document).ready(function () {
         }
       }
     });
-  });  
-  
+  });
+
   $(document).on("click",".edit-menu-links", function(){
      var MenuLinkId = $(this).data("id");
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'menulinks/edit',
@@ -216,7 +216,7 @@ $(document).ready(function () {
            callback: function() {
              var Name = $("#Name").val();
              var URI = $("#URI").val();
-           
+
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'menulinks/set',
@@ -239,14 +239,14 @@ $(document).ready(function () {
             modal.modal("hide");
          }
        });
-       
+
        $("#Name").val(data.Name);
        $("#URI").val(data.Uri);
-  
+
        modal.modal("show");
       });
   });
-  
+
   $(document).on("click","#add-new-menu-links", function(){
     var modal = bootbox.dialog({
      message: BootboxContentMenuLinkList,
@@ -258,7 +258,7 @@ $(document).ready(function () {
        callback: function() {
          var Name = $("#Name").val();
          var URI = $("#URI").val();
-       
+
          window.CRM.APIRequest({
             method: 'POST',
             path: 'menulinks/create',
@@ -281,7 +281,7 @@ $(document).ready(function () {
         modal.modal("hide");
      }
    });
-   
+
    modal.modal("show");
   });
 
