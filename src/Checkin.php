@@ -187,7 +187,7 @@ if ($FreeAttendees) {
 
 <br>
 
-<div id="errorcallout" class="callout callout-danger" hidden></div>
+<div id="errorcallout" class="alert alert-danger" hidden></div>
 
 <?php
 if (!empty($searchEventInActivEvent)) {
@@ -274,11 +274,12 @@ if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
         <div class="card-body">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="box-header">
-                            <h3 class="box-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
+                    <div class="col-md-12 col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
                         </div>
-                        <div class="box-body">
+                        <div class="card-body">
                             <form name="addFreeAttendeesEvent" action="Checkin.php" method="POST">
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <input type="hidden" name="FreeAttendees" value="1">
@@ -321,13 +322,14 @@ if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-xs-12 text-right">
+                                    <div class="col-md-12 text-right">
                                         <input type="submit" class="btn btn-primary"
                                                value="<?= _('Add Free Attendees Count'); ?>"
                                                name="Add" tabindex=4>
                                     </div>
                                 </div>
                             </form> <!-- end Add Free Attendees Form -->
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -365,11 +367,12 @@ if (!$CheckoutOrDelete && $EventID > 0) {
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="box-header">
-                            <h3 class="box-title"><?= _('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
+                    <div class="col-md-12">
+                        <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title"><?= _('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
                         </div>
-                        <div class="box-body">
+                        <div class="card-body">
                             <div class="form-group">
                                 <label for="child" class="col-sm-12 control-label"><?= _("Person's Name") ?></label>
                                 <div class="col-sm-5 inputGroupContainer">
@@ -417,6 +420,7 @@ if (!$CheckoutOrDelete && $EventID > 0) {
                                            onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/PersonEditor.php';">
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -490,7 +494,7 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
         <input type="hidden" name="child-id" value="<?= $iChildID ?>">
 
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header with-border">
                         <h3 class="card-title"><?= $formTitle ?></h3>
@@ -527,7 +531,7 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
                                 </div>
 
                                 <div class="col-sm-4 text-center">
-                                    <div id="adultoutDetails" class="box box-solid box-default">
+                                    <div id="adultoutDetails" class="card card-solid box-default">
                                         <div class="text-center"><a target="_top"
                                                                     href="PersonView.php?PersonID=<?= $person->getId() ?>">
                                                 <h4><?= $person->getFullName() ?></h4></a>
