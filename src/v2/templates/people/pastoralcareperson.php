@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 if ($ormPastoralCares->count() == 0) {
     ?>
-    <div class="callout callout-info"><?= _("Please add some records with the button below.") ?></div>
+    <div class="alert alert-info"><?= _("Please add some records with the button below.") ?></div>
 
     <?php
 }

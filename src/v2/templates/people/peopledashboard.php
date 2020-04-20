@@ -240,12 +240,9 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="card card-primary">
+        <div class="card card-default">
             <div class="card-header with-border">
-                <i class="fa fa-pie-chart"></i>
-
-                <h3 class="card-title"><?= _('Family Roles') ?></h3>
-
+                <h3 class="card-title"> <i class="fa fa-pie-chart"></i> <?= _('Family Roles') ?></h3>
                 <div class="card-tools pull-right">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -280,11 +277,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card card-primary">
+        <div class="card card-default">
             <div class="card-header with-border">
-                <i class="fa fa-bar-chart-o"></i>
-
-                <h3 class="card-title"><?= _('People Classification') ?></h3>
+                <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('People Classification') ?></h3>
 
                 <div class="card-tools pull-right">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
@@ -320,11 +315,9 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <div class="row">
     <div class="col-lg-6">
-        <div class="card card-info">
+        <div class="card card-default">
             <div class="card-header with-border">
-                <i class="fa fa-address-card-o"></i>
-
-                <h3 class="card-title"><?= _('Gender Demographics') ?></h3>
+                <h3 class="card-title"><i class="fa fa-address-card-o"></i> <?= _('Gender Demographics') ?></h3>
 
                 <div class="card-tools pull-right">
                     <div id="gender-donut-legend" class="chart-legend"></div>
@@ -337,11 +330,9 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="col-lg-6">
-        <div class="card card-info">
+        <div class="card card-default">
             <div class="card-header with-border">
-                <i class="fa fa-birthday-cake"></i>
-
-                <h3 class="card-title"><?= _('# Age Histogram')?></h3>
+                <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
 
                 <div class="card-tools pull-left">
                     <div id="age-stats-bar-legend" class="chart-legend"></div>
