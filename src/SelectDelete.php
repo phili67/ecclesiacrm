@@ -357,7 +357,7 @@ require 'Include/Header.php';
             // No Donations from family.  Normal delete confirmation
         ?>
             <?= $DonationMessage ?>
-            <p class='callout callout-warning'>
+            <p class='alert alert-warning'>
               <b><?= (!is_null ($theFamily)?_('Please confirm deletion of this family record:'):_('Please confirm deletion of this Person record:')) ?></b>
               <br/>
               <?= (!is_null ($theFamily)?_('Note: This will also delete all Notes associated with this Family record.'):_('Note: This will also delete all Notes associated with this Person record.')) ?>
