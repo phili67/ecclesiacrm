@@ -1553,10 +1553,10 @@ require 'Include/Header.php';
                     </select>
                 </div>
                 <div class="form-group col-md-3 col-lg-3">
-                    <label><?= _('Membership Date') ?>:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
+                    <label ><?= _('Membership Date') ?>:</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                         </div>
                         <!-- Philippe Logel -->
                         <input type="text" name="MembershipDate" class="form-control date-picker"
@@ -1576,11 +1576,12 @@ require 'Include/Header.php';
                 if (!SystemConfig::getBooleanValue('bHideFriendDate')) { /* Friend Date can be hidden - General Settings */
                     ?>
                     <div class="form-group col-md-3 col-lg-3">
-                        <label><?= _('Friend Date') ?>:</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
+                        <label ><?= _('Friend Date') ?>:</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                             </div>
+                            <!-- Philippe Logel -->
                             <input type="text" name="FriendDate" class="form-control date-picker"
                                    value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10"
                                    id="sel2" size="10"
