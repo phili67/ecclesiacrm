@@ -27,14 +27,14 @@ if (file_exists($integrityCheckFile)) {
 
 if (AppIntegrityService::arePrerequisitesMet()) {
     ?>
-  <div class="callout callout-success">
+  <div class="alert alert-success">
     <h4><?= gettext('All Application Prerequisites Satisfied') ?> </h4>
     <p><?= gettext('All components that EcclesiaCRM relies upon are present and correctly configured on this server') ?></p>
   </div>
   <?php
 } else {
         ?>
-  <div class="callout callout-danger">
+  <div class="alert alert-danger">
     <h4><?= gettext('Unmet Application Prerequisites') ?> </h4>
     <p><?= gettext('Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
     <ul>
@@ -48,7 +48,7 @@ if (AppIntegrityService::arePrerequisitesMet()) {
     }
 if ($IntegrityCheckDetails->status == 'failure') {
     ?>
-  <div class="callout callout-danger">
+  <div class="alert alert-danger">
     <h4><?= gettext('Integrity Check Failure') ?> </h4>
     <p><?= gettext('The previous integrity check failed') ?></p>
     <p><?= gettext('Details:')?> <?=  $IntegrityCheckDetails->message ?></p>
@@ -86,7 +86,7 @@ if ($IntegrityCheckDetails->status == 'failure') {
   <?php
 } else {
           ?>
-  <div class="callout callout-success">
+  <div class="alert alert-success">
     <h4><?= gettext('Integrity Check Passed') ?> </h4>
     <p><?= gettext('The previous integrity check passed.  All system file hashes match the expected values.') ?></p>
   </div>
