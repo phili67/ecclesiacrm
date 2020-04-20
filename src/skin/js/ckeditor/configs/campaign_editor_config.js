@@ -6,7 +6,7 @@
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
-  
+
   var menuItems = [
         {
           name: 'fName',
@@ -27,7 +27,7 @@ CKEDITOR.editorConfig = function( config ) {
           order: 3
         }
       ];
-      
+
   if (window.CRM.bWithAddressPhone) {
     menuItems.push(
         {
@@ -44,7 +44,7 @@ CKEDITOR.editorConfig = function( config ) {
         }
     );
   }
-  
+
   menuItems.push(
         {
           name: 'ListName',
@@ -89,8 +89,8 @@ CKEDITOR.editorConfig = function( config ) {
           order: 12
         }
   );
-  
-    
+
+
   config.dropdownmenumanager = {
     'mergeTagsMailChimp': {
       items: menuItems,
@@ -113,7 +113,7 @@ CKEDITOR.editorConfig = function( config ) {
     //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
     '/',
     { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
-    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+    { name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',] },
     { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
     { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe','-', 'mathjax' ] },
     '/',
@@ -122,7 +122,7 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
     { name: 'about', items: [ 'About' ] }
   ];
-   
+
   config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
@@ -137,6 +137,7 @@ CKEDITOR.editorConfig = function( config ) {
     'elementspath,' +
     'enterkey,' +
     'entities,' +
+    'basicstyles,'+
     'iframe,'+
     'find,' +
     'floatingspace,' +
