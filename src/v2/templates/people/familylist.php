@@ -41,6 +41,9 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></i> <?= _('Families') ?></h3>
+    </div>
     <div class="card-body">
         <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
