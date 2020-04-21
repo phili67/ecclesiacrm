@@ -33,13 +33,13 @@ $(document).ready(function () {
 
             listViews += '<div class="card">'
             +'    <div class="card-header   with-border">'
-            +'      <h3 class="card-title">'+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
+            +'      <h3 class="card-title"><i class="fa fa-list"></i> '+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
             +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
             +'        <div class="col-lg-5">'
             +'          <table width="350px">'
-            +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+            +'            <tr><td><b><i class="fa fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
             +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
             +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
             //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -50,7 +50,7 @@ $(document).ready(function () {
             +'          </table>'
             +'        </div>'
             +'        <div class="col-lg-3">'
-            +'           <b>' + i18next.t('Campaigns') + '</b><br>';
+            +'           <b><i class="fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
             var lenCampaigns = data.MailChimpCampaigns[i].length;
 

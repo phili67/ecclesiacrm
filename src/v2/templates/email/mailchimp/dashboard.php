@@ -52,7 +52,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><?= _('MailChimp Management') ?></h3>
+                <h3 class="card-title"><i class="fa fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
                 <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
                         <img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
                 </div>

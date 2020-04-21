@@ -243,9 +243,9 @@ if ($numRows == 0) {
     for ($row = 1; $row <= $numRows; $row++) {
         ?>
     <tr>
-      <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
+      <td class="LabelColumn"><b><?= $row ?></b></td>
       <td class="TextColumn" width="5%" nowrap></td>
-      <td class="TextColumn" style="font-size:70%;">
+      <td class="TextColumn">
           <?= $aPropTypes[$aTypeFields[$row]]; ?>
       </td>
       <td class="TextColumn">

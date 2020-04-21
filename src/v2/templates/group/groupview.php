@@ -25,6 +25,41 @@ use Propel\Runtime\Propel;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
+<div class="row">
+    <div class="col-md-12">
+        <center>
+            <button class="btn btn-success" type="button">
+                <?= _('Type of Group') ?> <span class="badge bg-white"> <?= $sGroupType ?> </span>
+            </button>
+            <button class="btn btn-info" type="button">
+                <?php
+                if (!empty($defaultRole)) {
+                    ?>
+                    <?= _('Default Role') ?> <span class="badge  bg-white"><?= _($defaultRole->getOptionName()) ?></span>
+                    <?php
+                }
+                ?>
+            </button>
+            <button class="btn btn-primary" type="button">
+                <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
+            </button>
+            <?php
+            if (SessionUser::getUser()->isAdmin()) {
+                ?>
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
+                    <?= _('Address Book') ?>
+                    <span class="badge  bg-white">
+              <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
+            </span>
+                </a>
+                <?php
+            }
+            ?>
+        </center>
+    </div>
+</div>
+
+<br/>
 
 <div class="card">
     <div class="card-header with-border">
@@ -120,9 +155,9 @@ require $sRootDocument . '/Include/Header.php';
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
-                    </ul>
+                    </div>
                 </div>
 
                 <div class="btn-group">
@@ -131,9 +166,9 @@ require $sRootDocument . '/Include/Header.php';
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
-                    </ul>
+                    </div>
                 </div>
 
                 <?php
@@ -182,51 +217,17 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="card">
-    <div class="card-body">
-        <center>
-            <button class="btn btn-success" type="button">
-                <?= _('Type of Group') ?> <span class="badge bg-white"> <?= $sGroupType ?> </span>
-            </button>
-            <button class="btn btn-info" type="button">
-                <?php
-                if (!empty($defaultRole)) {
-                    ?>
-                    <?= _('Default Role') ?> <span class="badge  bg-white"><?= _($defaultRole->getOptionName()) ?></span>
-                    <?php
-                }
-                ?>
-            </button>
-            <button class="btn btn-primary" type="button">
-                <?= _('Total Members') ?> <span class="badge  bg-white" id="iTotalMembers"></span>
-            </button>
-            <?php
-            if (SessionUser::getUser()->isAdmin()) {
-                ?>
-                <a class="btn btn-danger" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
-                    <?= _('Address Book') ?>
-                    <span class="badge  bg-white">
-              <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
-            </span>
-                </a>
-                <?php
-            }
-            ?>
-        </center>
-    </div>
-</div>
-
 <?php
 if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
     ?>
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="card collapsed-box">
+            <div class="card collapsed-card">
                 <div class="card-header with-border">
                     <h3 class="card-title"><?= _('Quick Settings') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -238,11 +239,11 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card collapsed-box">
+            <div class="card collapsed-card">
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -282,11 +283,11 @@ if ( $_SESSION['bManageGroups'] ) {
 
     <div class="row">
         <div class="col-lg-6">
-            <div class="card collapsed-box">
+            <div class="card collapsed-card">
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -340,11 +341,11 @@ if ( $_SESSION['bManageGroups'] ) {
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card collapsed-box">
+            <div class="card collapsed-card">
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -426,7 +427,7 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
     ?>
     <div class="card">
         <div class="card-header with-border">
-            <h3 class="card-title"><?= _("Manage Group Members") ?>:</h3>
+            <h3 class="card-title"><i class="fa fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
         </div>
         <div class="card-body">
             <div class="row">
@@ -449,10 +450,10 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a id="addSelectedToGroup"   disabled> <?= _('Add Selected Members to Group') ?></a></li>
-                                <li><a id="moveSelectedToGroup"  disabled> <?= _('Move Selected Members to Group') ?></a></li>
-                            </ul>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" id="addSelectedToGroup"   disabled> <?= _('Add Selected Members to Group') ?></a>
+                                <a class="dropdown-item" id="moveSelectedToGroup"  disabled> <?= _('Move Selected Members to Group') ?></a>
+                            </div>
                         </div>
                     </div>
                     <?php

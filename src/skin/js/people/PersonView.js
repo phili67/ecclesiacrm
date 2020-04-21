@@ -64,6 +64,16 @@ $(document).ready(function () {
       bootbox.confirm({
           title: popupTitle,
           message: '<p style="color: red">' + popupWarning + '</p><br><p>' + popupMessage + '</p>',
+          buttons: {
+              cancel: {
+                  className: 'btn-primary',
+                  label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+              },
+              confirm: {
+                  className: 'btn-danger',
+                  label: '<i class="fa fa-trash-o"></i>' + i18next.t("Deactivate")
+              }
+          },
           callback: function (result) {
               if (result) {
                   $.ajax({
@@ -229,11 +239,11 @@ $(document).ready(function () {
       buttons: {
         confirm: {
           label: i18next.t('Yes'),
-            className: 'btn-success'
+            className: 'btn-danger'
         },
         cancel: {
           label: i18next.t('No'),
-          className: 'btn-danger'
+          className: 'btn-primary'
         }
       },
       callback: function (result)

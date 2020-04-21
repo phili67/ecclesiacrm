@@ -466,7 +466,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="small-box-footer">
                 <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
@@ -529,7 +529,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-gg"></i>
+                <i class="fa fa-group"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/v2/group/list" class="small-box-footer">
                 <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
@@ -543,9 +543,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card card-secondary">
+            <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa fa-money fa-5x" style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
+                    <h3 class="card-title"><i class="fa fa-money" style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
                     <div class="card-tools pull-right">
                         <div id="deposit-graph" class="chart-legend"></div>
                     </div>
@@ -563,8 +563,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 <div class="row">
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title"><i class="fa fa-group"></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
+            <div class="card-header  border-0">
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
                 </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
@@ -591,8 +591,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     </div>
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title"><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
+            <div class="card-header  border-0">
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></i><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -620,7 +620,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 <div class="row">
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <h3 class="card-title"><i class="fa fa-user-plus"></i></i> <?= _('Latest Members') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
@@ -648,8 +648,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     </div>
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header">
-                <h3 class="card-title"><i class="fa fa-check"></i> <?= _('Updated Members') ?></h3>
+            <div class="card-header  border-0">
+                <h3 class="card-title"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>

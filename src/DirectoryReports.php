@@ -35,6 +35,9 @@ require 'Include/Header.php';
 
 ?>
 <div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa fa-filter"></i> <?= _('Filters') ?></h3>
+    </div>
     <div class="card-body">
         <form method="POST" action="Reports/DirectoryReport.php">
 

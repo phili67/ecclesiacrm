@@ -11,14 +11,15 @@ $(document).ready(function () {
         path: 'mailchimp/list/getAllTags',
         data: JSON.stringify({"list_id":window.CRM.list_ID})
       }).done(function(data) {
-        $("#allTags").append('<li><a class="dropdown-item addTagButton" data-id="-1" data-name="">' + i18next.t("Add a new tag") +  '</a></li>');
-        $("#allTags").append('<li><a class="dropdown-item deleteTagButton" data-id="-1" data-name="">' + i18next.t("Delete tags") +  '</a></li>');
+        $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i><i class="fa fa-tag"> ' + i18next.t("Add a new tag") +  '</a>');
+        $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tags") +  '</a>');
+        $("#allTags").append('<div class="dropdown-divider"></div>');
 
         var len = data.result.length;
 
         for (i=0; i<len; ++i) {
-          $("#allTags").append('<li><a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
-          $("#allCampaignTags").append('<li><a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
+          $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
+          $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
         }
       });
    }
@@ -57,13 +58,13 @@ $(document).ready(function () {
           var list = data.MailChimpList;
 
           var  listView = '<div class="card-header   with-border">'
-            +'      <h3 class="card-title">'+ i18next.t('Email List') + '</h3>'
+            +'      <h3 class="card-title"><i class="fa fa-list"></i> '+ i18next.t('Email List') + '</h3>'
             +'    </div>'
             +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
             +'        <div class="col-lg-5">'
             +'          <table width="300px">'
-            +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+            +'            <tr><td><b><i class="fa fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
             +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
             +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
             //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -74,7 +75,7 @@ $(document).ready(function () {
             +'          </table>'
             +'        </div>'
             +'        <div class="col-lg-3">'
-            +'           <b><i class="icon fa fa-list-alt"></i> ' + i18next.t('Campaigns') + '</b><br>';
+            +'           <b><i class="icon fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
             var lenCampaigns = data.MailChimpCampaign.length;
 
