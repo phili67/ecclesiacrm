@@ -48,7 +48,11 @@ require $sRootDocument . '/Include/Header.php';
 
 <br>
 
-<div class="card card-body">
+<div class="card">
+    <div class="card-header border-0">
+        <h3 class="card-title"><i class="fa fa-group"></i> <?= _('Groups') ?></h3>
+    </div>
+    <div class="card-body">
     <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">
     </table>
     <?php
@@ -64,7 +68,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
     }
     ?>
-
+    </div>
 </div>
 
 <script src="<?= $sRootPath ?>/skin/js/group/GroupList.js"></script>
