@@ -42,11 +42,11 @@ $app->group('/map', function () {
 
 function renderMap (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/map/');
-    
+
     if ( !( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($args['GroupID']) ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
       return $renderer->render($response, 'MapUsingLeaflet.php', renderMapArray($args['GroupID']));
     } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
@@ -62,38 +62,38 @@ function renderMapArray ($iGroupID)
     $sPageTitle = _("View on Map");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
-    
+
     // new way to manage events
     // we get the PDO for the Sabre connection from the Propel connection
-    $pdo = Propel::getConnection();         
-    
+    $pdo = Propel::getConnection();
+
     // We set the BackEnd for sabre Backends
     $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
     $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
     // get all the calendars for the current user
-    
+
     $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
-    
+
     $eventsArr = [];
-    
+
     foreach ($calendars as $calendar) {
       // we get all the events for the Cal
       $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
-      
+
       if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the events are present or not
         continue;
       }
-      
+
       foreach ($eventsForCal as $eventForCal) {
         $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
-        
+
         if ($evnt != null && $evnt->getLocation() != '') {
           $eventsArr[] = $evnt->getID();
-        }            
+        }
       }
     }
-    
-    
+
+
     // we can work with the normal locations
     $plotFamily = false;
     //Get the details from DB
@@ -102,23 +102,54 @@ function renderMapArray ($iGroupID)
     if ($iGroupID > 0) {// a group
        // security test
        $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
-            
+
        if ($currentUserBelongToGroup == 0) {
           RedirectUtils::Redirect('Menu.php');
        }
 
+        $families = FamilyQuery::create()
+            ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
+            ->filterByDateDeactivated(null)
+            ->filterByLatitude(0, Criteria::NOT_EQUAL)
+            ->filterByLongitude(0, Criteria::NOT_EQUAL)
+            ->usePersonQuery()
+                ->usePerson2group2roleP2g2rQuery()
+                    ->filterByGroupId($iGroupID)
+                ->endUse()
+                //->filterByFmrId($dirRoleHead)
+            ->endUse()
+            ->find();
+
+        $plotFamily = true;
+
         //Get all the members of this group
-        $persons = PersonQuery::create()
+        /*$persons = PersonQuery::create()
           ->usePerson2group2roleP2g2rQuery()
           ->filterByGroupId($iGroupID)
           ->endUse()
-          ->find();
+          ->find();*/
     } elseif ($iGroupID == 0) {// the Cart
         // group zero means map the cart
         if (!empty($_SESSION['aPeopleCart'])) {
-            $persons = PersonQuery::create()
+
+            $families = FamilyQuery::create()
+                ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
+                ->filterByDateDeactivated(null)
+                ->filterByLatitude(0, Criteria::NOT_EQUAL)
+                ->filterByLongitude(0, Criteria::NOT_EQUAL)
+                ->usePersonQuery()
+                    ->filterById($_SESSION['aPeopleCart'])
+                    //->filterByFmrId($dirRoleHead)
+                ->endUse()
+                ->find();
+
+            $plotFamily = true;
+
+            // old code : really slow and with all the members of a family at the same place
+            /*$persons = PersonQuery::create()
             ->filterById($_SESSION['aPeopleCart'])
-            ->find();
+            ->find();*/
+            //
         }
     } elseif ($iGroupID == -1) {// the Family
       //Map all the families
@@ -127,10 +158,10 @@ function renderMapArray ($iGroupID)
         ->filterByLatitude(0, Criteria::NOT_EQUAL)
         ->filterByLongitude(0, Criteria::NOT_EQUAL)
         ->usePersonQuery('per')
-        ->filterByFmrId($dirRoleHead)
+            ->filterByFmrId($dirRoleHead)
         ->endUse()
         ->find();
-        
+
       $plotFamily = true;
     }
 
@@ -142,12 +173,12 @@ function renderMapArray ($iGroupID)
       ->addAsColumn('url',ListOptionIconTableMap::COL_LST_IC_LST_URL)
       ->addAsColumn('onlyInPersonView',ListOptionIconTableMap::COL_LST_IC_ONLY_PERSON_VIEW)
       ->find();
-      
-          
+
+
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
                        'sPageTitle'    => $sPageTitle,
-                       'iGroupID'      => $GroupID,
+                       'iGroupID'      => $iGroupID,
                        'icons'         => $icons,
                        'persons'       => $persons,
                        'plotFamily'    => $plotFamily,

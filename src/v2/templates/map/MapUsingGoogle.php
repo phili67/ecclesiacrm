@@ -306,7 +306,7 @@ require $sRootDocument . '/Include/Header.php';
         var familiesLack = '<?= $familiesLack ?>';
 
         if (familiesLack != '') {
-          window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Some families haven't any \"head of household\" role name defined or there's any activated members in this families:")+"<br>"+familiesLack);
+          window.CRM.DisplayAlert(i18next.t("Info"),i18next.t("Some families haven't any \"head of household\" role name defined or there's any activated members in this families:")+"<br>"+familiesLack);
         }
 
         //loop through the families/persons and add markers
@@ -359,7 +359,7 @@ require $sRootDocument . '/Include/Header.php';
           imghref = window.CRM.root+"/v2/calendar";
       }
 
-      contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
+      contentString += "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
       contentString = '<p>' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
 
       if (plot.Thumbnail.length > 0) {
