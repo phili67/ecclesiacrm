@@ -11,14 +11,14 @@ $(document).ready(function () {
         path: 'mailchimp/list/getAllTags',
         data: JSON.stringify({"list_id":window.CRM.list_ID})
       }).done(function(data) {
-        $("#allTags").append('<li><a class="addTagButton" data-id="-1" data-name="">' + i18next.t("Add a new tag") +  '</a></li>');
-        $("#allTags").append('<li><a class="deleteTagButton" data-id="-1" data-name="">' + i18next.t("Delete tags") +  '</a></li>');
+        $("#allTags").append('<li><a class="dropdown-item addTagButton" data-id="-1" data-name="">' + i18next.t("Add a new tag") +  '</a></li>');
+        $("#allTags").append('<li><a class="dropdown-item deleteTagButton" data-id="-1" data-name="">' + i18next.t("Delete tags") +  '</a></li>');
 
         var len = data.result.length;
 
         for (i=0; i<len; ++i) {
-          $("#allTags").append('<li><a class="addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
-          $("#allCampaignTags").append('<li><a class="CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
+          $("#allTags").append('<li><a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
+          $("#allCampaignTags").append('<li><a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
         }
       });
    }
