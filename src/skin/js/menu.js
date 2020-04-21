@@ -32,10 +32,11 @@ $(document).ready(function () {
             $.each(lineDataRaw.Deposits, function (i, val) {
                 lineData.labels.push(moment(val.Date).format(window.CRM.datePickerformat.toUpperCase()));
                 lineData.datasets[0].data.push(val.totalAmount);
-                lineData.datasets[0].backgroundColor.push("rgba(115, 159, 205, 1)");
-                lineData.datasets[0].borderColor.push("rgba(95, 139, 185, 1)");
+
             });
 
+            lineData.datasets[0].backgroundColor = 'rgba(115, 159, 205, 1)';
+            lineData.datasets[0].borderColor = 'rgba(95, 139, 185, 1)';
             lineData.datasets[0].label = i18next.t("Tracking");
 
             options = {
