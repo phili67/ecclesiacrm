@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 <div
     class="card" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? 'style="display: none;"' : "" ?>>
     <div class="card-header with-border">
-        <h3 class="card-title"><?= _('Filters') ?></h3>
+        <h3 class="card-title"><i class="fa fa-filter"></i> <?= _('Filters') ?></h3>
     </div>
     <div class="card-body clearfix">
         <div class="row">
@@ -54,7 +54,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="row">
             <div class="col-sm-10">&nbsp;</div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-success" id="search_OK" class="right"><?= _("Search") ?></button>
+                <button type="button" class="btn btn-success" id="search_OK" class="right"><i class="fa fa-search"></i>  <?= _("Search") ?></button>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header with-border">
-        <h3 class="card-title"><?= _('Search Results') ?></h3>
+        <h3 class="card-title"><i class="fa fa-search"></i> <?= _('Search Results') ?></h3>
         <div class="card-tools">
             <h3 class="progress" style="color:red"></h3>
         </div>
