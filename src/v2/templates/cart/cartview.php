@@ -88,12 +88,12 @@ if ($iNumPersons > 0) {
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="javascript:void(0)" onclick="allPhonesCommaD()" class="dropdown-item "><i
-                                        class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a></li>
-                            <li><a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>"
-                                   class="dropdown-item sPhoneLinkSMS"><i class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></li></a>
-                        </ul>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="javascript:void(0)" onclick="allPhonesCommaD()" class="dropdown-item "><i
+                                        class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a>
+                            <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>"
+                                   class="dropdown-item sPhoneLinkSMS"><i class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></a>
+                        </div>
                     </div>
                     <?php
                 }
