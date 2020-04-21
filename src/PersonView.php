@@ -440,7 +440,7 @@ if (!empty($person->getDateDeactivated())) {
                         if ($can_see_privatedata) {
                         if (count($person->getOtherFamilyMembers()) > 0) {
                             ?>
-                            <li><strong><i class="fa-li fa fa-group"></i><?php echo _('Family:'); ?></strong>
+                            <li style="left:-28px"><strong><i class="fa fa-male" ></i><i class="fa fa-female"></i><i class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
                                 <span>
             <?php
             if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
@@ -1150,21 +1150,21 @@ if (!empty($person->getDateDeactivated())) {
                                                                             <span class="caret"></span>
                                                                             <span class="sr-only">Toggle Dropdown</span>
                                                                         </button>
-                                                                        <ul class="dropdown-menu" role="menu">
-                                                                            <li class="dropdown-item"><a
-                                                                                    class="changeRole"
-                                                                                    data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= _('Change Role') ?></a>
-                                                                            </li>
+                                                                        <div class="dropdown-menu" role="menu">
+                                                                            <a class="dropdown-item changeRole"
+                                                                                    data-groupid="<?= $ormAssignedGroup->getGroupID() ?>">
+                                                                                <?= _('Change Role') ?>
+                                                                            </a>
                                                                             <?php
                                                                             if ($ormAssignedGroup->getHasSpecialProps()) {
                                                                                 ?>
-                                                                                <li class="dropdown-item">
-                                                                                    <a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= _('Update Properties') ?></a>
-                                                                                </li>
+                                                                                <a class="dropdown-item" href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>">
+                                                                                    <?= _('Update Properties') ?>
+                                                                                </a>
                                                                                 <?php
                                                                             }
                                                                             ?>
-                                                                        </ul>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="btn-group">
                                                                         <button
@@ -1247,7 +1247,6 @@ if (!empty($person->getDateDeactivated())) {
                                                                         ?>
                                                                     </ul>
                                                                     <div class="text-center">
-
                                                                         <a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>"
                                                                            class="btn btn-primary"><?= _("Modify Specific Properties") ?></a>
                                                                     </div>
