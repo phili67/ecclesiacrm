@@ -418,7 +418,7 @@
             buttons: {
                 cancel: {
                     label:  i18next.t('No'),
-                    className: 'btn-success'
+                    className: 'btn-primary'
                 },
                 confirm: {
                     label:  i18next.t("Yes : if you're sure"),
@@ -457,7 +457,7 @@
             buttons: {
                 cancel: {
                     label:  i18next.t('No'),
-                    className: 'btn-success'
+                    className: 'btn-primary'
                 },
                 confirm: {
                     label:  i18next.t("Yes : if you're sure"),
@@ -877,6 +877,7 @@
             var modal = bootbox.dialog({
                 message: BootboxContentRegister(data),
                 title: i18next.t("Software Registration"),
+                size: 'large',
                 buttons: [
                     {
                         label: i18next.t("Send"),
@@ -1021,7 +1022,7 @@
              buttons: {
                confirm: {
                    label: i18next.t('OK'),
-                   className: 'btn-success'
+                   className: 'btn-primary'
                },
                cancel: {
                    label: i18next.t('Cancel'),
@@ -1155,7 +1156,7 @@
           buttons: {
             confirm: {
               label:  i18next.t('Yes'),
-                className: 'btn-success'
+                className: 'btn-primary'
             },
             cancel: {
               label:  i18next.t('No'),
