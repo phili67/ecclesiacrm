@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-lime"><i class="fa fa-user"></i></span>
+            <span class="info-box-icon bg-gradient-lime"><small><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></small></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
@@ -65,7 +65,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-blue"><i class="fa fa-male"></i></span>
+            <span class="info-box-icon bg-gradient-blue"><i class="fa fa-male"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
@@ -77,7 +77,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-fuchsia"><i class="fa fa-female"></i></span>
+            <span class="info-box-icon bg-gradient-fuchsia"><i class="fa fa-female"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
