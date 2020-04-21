@@ -57,8 +57,8 @@ img.legendicon {
 
 #maplegend {
     position: absolute;
-    bottom: 127px;
-    right: 0px;
+    bottom: 127px !important;
+    right: 50px !important;
     font-size: 12px;
     width: 250px;
 }
