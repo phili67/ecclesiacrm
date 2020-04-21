@@ -44,7 +44,7 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
                 </button>
-                <ul class="dropdown-menu" id="dropDownMail" role="menu"></ul>
+                <div class="dropdown-menu" id="dropDownMail" role="menu"></div>
             </div>
 
             <div class="btn-group">
@@ -53,7 +53,7 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
                 </button>
-                <ul class="dropdown-menu" id="dropDownMailBCC" role="menu"></ul>
+                <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
             </div>
             <?php
         }
