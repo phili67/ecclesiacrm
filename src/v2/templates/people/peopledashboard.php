@@ -39,9 +39,9 @@ require $sRootDocument . '/Include/Header.php';
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
-                    </ul>
+                    </div>
                 </div>
                 <div class="btn-group">
                     <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?=_('Email All (BCC)') ?></a>
@@ -49,9 +49,9 @@ require $sRootDocument . '/Include/Header.php';
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
+                    <div class="dropdown-menu" role="menu">
                         <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
-                    </ul>
+                    </div>
                 </div>
                 <?php
             }
@@ -85,7 +85,7 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-users"></i>
+                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
             </div>
             <a href="<?= $sRootPath ?>/v2/familylist" class="small-box-footer">
                 <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
@@ -148,7 +148,7 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-gg"></i>
+                <i class="fa fa-group"></i>
             </div>
             <a href="<?= $sRootPath ?>/v2/group/list" class="small-box-footer">
                 <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
