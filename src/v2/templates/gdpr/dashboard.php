@@ -42,8 +42,9 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header with-border">
-        <i class="fa fa-user"></i>
-        <h3 class="card-title"><?= _("GDPR Person status") ?></h3>
+        <div class="card-title">
+            <h3 class="card-title"><i class="fa fa-user"></i> <?= _("GDPR Person status") ?></h3>
+        </div>
     </div>
     <div class="card-body">
         <table class="table table-striped table-bordered" id="GDRP-Table" cellpadding="5" cellspacing="0"
