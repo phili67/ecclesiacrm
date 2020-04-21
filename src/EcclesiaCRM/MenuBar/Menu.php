@@ -26,54 +26,54 @@ class Menu {
     private $_badges  = [];         // all the badges icon : [['class' => 'label bg-blue pull-right','id' => 'AnniversaryNumber', 'value' => '0'] .....]
     private $_subMenus = [];        // all the subMenus
     private $_class = null;
-    
-    
+
+
     // Simple : Constructor
     public function __construct($title,$icon,$uri,$sec_grp,$parent=null,$class=null)// we can set the parent and the class of the link
     {
       $this->_parent  = $parent;
       $this->_title   = $title;
       $this->_icon    = $icon;
-      $this->_uri     = $uri;      
+      $this->_uri     = $uri;
       $this->addLink($uri);
       $this->_sec_grp = $sec_grp;
       $this->_class   = $class;
-      
+
       // We have to add the new menu to the parent menu
       if ($parent != null && $sec_grp) {// we add all only if sec_grp is set to true
         $parent->addMenu($this);
       }
     }
-    
+
     public function addMenu($menu)
     {
       array_push($this->_subMenus, $menu);
     }
-    
+
     public function subMenu()
     {
       return $this->_subMenus;
     }
-    
+
     public function getClass()
     {
       return $this->_class;
     }
-    
+
     public function setTitle($title)
     {
       $this->_title = $title;
     }
-    
+
     public function getTitle()
     {
       return $this->_title;
     }
-    
+
     public function setUri($uri)
     {
       $this->_uri = $uri;
-      
+
       $this->addLink($uri);
     }
 
@@ -81,9 +81,9 @@ class Menu {
     {
       return $this->_uri;
     }
-        
+
     public function addBadge($class,$id,$value,$data_id="") {// the class, id, value, and a special data-id field
-    // examples: 
+    // examples:
     // <small class="label bg-blue pull-right" id="AnniversaryNumber">0</small>                =>  $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
     // <small class="label bg-red pull-right" id="BirthdateNumber">3</small>                   =>  $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
     // <small class="label bg-yellow pull-right" id="EventsNumber">0</small>                   =>  $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
@@ -94,45 +94,48 @@ class Menu {
               'id'   => $id,
               'value'  => $value,
               'data-id' => $data_id];
-        
+
       array_push($this->_badges, $elt);
     }
-    
+
     public function getBadges()
-    { 
+    {
       return $this->_badges;
     }
-    
+
     public function clearBadges()
     {
       unset($this->_badges);
       $this->_badges = array();
     }
-    
+
     public function setIcon($icon)
     {
       $this->_icon = $icon;
     }
-    
+
     public function getIcon()
     {
-      return $this->_icon;
+        if ($this->_icon == "fa fa-families") {
+            return '<i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i>';
+        }
+        return   ' <i class="'.$this->_icon.'"></i>';
     }
-    
+
     public function addLink($link)
     {
       array_push($this->_links, $link);
-      
+
       if ($this->_parent != null) {
         $this->_parent->addLink($link);
       }
     }
-    
+
     public function getLinks()
     {
       return $this->_links;
     }
-    
+
     public function clearLinks()
     {
       unset($this->_links);
@@ -148,7 +151,7 @@ class Menu {
     {
       return $this->_sec_grp;
     }
-    
+
     public function setSessionVar($session_var)
     {
       $this->_session_var = $session_var;
