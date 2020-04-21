@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><?= _('Email Campaign Management') ?></h3>
+                <h3 class="card-title"><i class="fa fa-newspaper-o"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
                             src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
@@ -48,7 +48,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header   with-border">
+            <div class="card-header with-border">
                 <h3 class="card-title"><?= _('Mail Subject') ?></h3>
             </div>
             <div class="card-body">
@@ -64,7 +64,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><?= _('Tags') ?></h3>
+                <h3 class="card-title"><i class="fa fa-tag"></i> <?= _('Tags') ?></h3>
             </div>
             <div class="card-body">
                 <?= $campaign['recipients']['segment_text'] ?>
@@ -81,14 +81,14 @@ require $sRootDocument . '/Include/Header.php';
                 if ($campaign['status'] == "schedule") {
                     ?>
                     <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
-                                                  name="checkboxaCampaignSchedule" checked> <label
+                                                  name="checkboxaCampaignSchedule" checked> <i class="fa fa-calendar-check-o"></i> <label
                             for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
                     <?php
                 } else {
                     ?>
                     <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
                                                   name="checkboxaCampaignSchedule" <?= ($campaign['status'] == "sent" && !($campaign['status'] == "schedule")) ? "disabled" : "" ?>>
-                        <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
+                        <i class="fa fa-calendar-times-o"></i> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
                     <?php
                 }
                 ?>
@@ -143,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><?= _("Content") ?> </h3>
+                <h3 class="card-title"><i class="fa fa-file-text-o"></i> <?= _("Content") ?> </h3>
             </div>
             <div class="card-body">
                 <div class="row">
