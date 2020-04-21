@@ -1144,7 +1144,7 @@ public static function FileSizeConvert($bytes)
           }
           $Email = urlencode($Email);  // Mailto should comply with RFC 2368
 
-        $res .= '<li> <a href="'. $href.mb_substr($Email, 0, -3) .'" class="dropdown-item">'. _($role) . '</a></li>';
+        $res .= '<a class="dropdown-item" href="'. $href.mb_substr($Email, 0, -3) .'" class="dropdown-item">'. _($role) . '</a>';
 
       }
 
