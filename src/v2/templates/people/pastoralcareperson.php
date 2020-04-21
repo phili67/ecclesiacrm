@@ -47,18 +47,18 @@ if ($ormPastoralCares->count() == 0) {
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <div class="dropdown-menu" role="menu">
                 <?php
                 foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
                     $type_and_desc = $ormPastoralTypeCare->getTitle() . ((!empty($ormPastoralTypeCare->getDesc())) ? " (" . $ormPastoralTypeCare->getDesc() . ")" : "");
                     ?>
-                    <li><a class="dropdown-item newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
+                    <a class="dropdown-item newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
                            data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
-                           data-typeDesc="<?= $type_and_desc ?>"><?= $type_and_desc ?></a></li>
+                           data-typeDesc="<?= $type_and_desc ?>"><?= $type_and_desc ?></a>
                     <?php
                 }
                 ?>
-            </ul>
+            </div>
         </div>
         <a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCarePerson.php?PersonID=<?= $currentPersonID ?>"><i
                 class="fa fa-print"></i> <?= _("Printable Page") ?></a>
@@ -71,17 +71,17 @@ if ($ormPastoralCares->count() == 0) {
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
             </button>
-            <ul class="dropdown-menu" role="menu">
+            <div class="dropdown-menu" role="menu">
                 <li><a class="dropdown-item filterByPastorAll"><?= _("Everyone") ?></a></li>
                 <?php
                 foreach ($ormPastors as $ormPastor) {
                     ?>
-                    <li><a class="dropdown-item filterByPastor"
-                           data-pastorid="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a></li>
+                    <a class="dropdown-item filterByPastor"
+                           data-pastorid="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a>
                     <?php
                 }
                 ?>
-            </ul>
+            </div>
         </div>
         <div class="pull-right" style="margin-right:15px;margin-top:10px">
             <h4><?= _("Filters") ?></h4>
