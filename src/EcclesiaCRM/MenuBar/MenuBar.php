@@ -46,7 +46,7 @@ class MenuBar {
     private function addGroups()
     {
         // the assigned Groups
-        $menu = new Menu (_("Groups"),"fa fa-tag","#",true);
+        $menu = new Menu (_("Groups"),"fa fa-group","#",true);
 
         $menuItem = new Menu (_("List Groups"),"fa fa-circle-o","v2/group/list",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
         $menuItem->addLink("OptionManager.php?mode=grptypes");
@@ -278,7 +278,7 @@ class MenuBar {
         }
 
         // the People menu
-        $menu = new Menu (_("People")." & "._("Families"),"fa fa-users","#",true);
+        $menu = new Menu (_("People")." & "._("Families"),"fa fa-families","#",true);
 
         $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/people/dashboard",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
 
@@ -473,7 +473,7 @@ class MenuBar {
             }
 
             echo '<li class="nav-item">';
-            echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'"><i class="'.$menu->getIcon()."\"></i> <p>"._($menu->getTitle())."</p>";
+            echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
                 echo " <i class=\"fa fa-angle-left right\"></i>\n";
             }
@@ -498,13 +498,13 @@ class MenuBar {
             if (count($menu->subMenu()) == 0) {
                 echo '<li class="nav-item">';
                 echo '<a href="'.SystemURLs::getRootPath() . '/' . $menu->getUri().'" class="nav-link'.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';
-                echo "<i class=\"".$menu->getIcon()."\"></i> <p>"._($menu->getTitle())."</p>\n";
+                echo $menu->getIcon()." <p>"._($menu->getTitle())."</p>\n";
                 echo "</a>\n";
                 echo "</li>\n";
             } else {// we are in the case of a treeview
                 echo "<li class=\"nav-item has-treeview ".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
                 echo '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
-                echo " <i class=\"".$menu->getIcon()."\"></i>\n";
+                echo " ".$menu->getIcon()."\n";
                 echo " <p>"._($menu->getTitle());
                 echo " <i class=\"fa fa-angle-left right\"></i>\n"."\n";
                 if (count($menu->getBadges()) > 0) {
