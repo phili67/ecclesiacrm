@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header   with-border">
-        <h3 class="card-title"><?= _('Manage Email List') ?></h3>
+        <h3 class="card-title"><i class="fa fa-list"></i> <?= _('Manage Email List') ?></h3>
         <div style="float:right">
           <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
@@ -33,7 +33,7 @@ require $sRootDocument . '/Include/Header.php';
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <ul class="dropdown-menu" role="menu" id="allCampaignTags"></ul>
+            <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
           </div>
           <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
             <i class="fa fa-trash-o"></i><?= _("Delete All Subscribers") ?>
@@ -65,7 +65,7 @@ require $sRootDocument . '/Include/Header.php';
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header with-border">
-            <h3 class="card-title"><?= _('Subscribers') ?></h3>
+            <h3 class="card-title"><i class="fa fa-users"></i> <?= _('Subscribers') ?></h3>
           </div>
           <div class="card-body">
               <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
@@ -100,10 +100,10 @@ require $sRootDocument . '/Include/Header.php';
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a class="dropdown-item subscribeButton" data-type="subscribed"><?= _("Subscribed")?></a></li>
-                      <li><a class="dropdown-item subscribeButton" data-type="unsubscribed"><?= _("Unsubscribed")?></a></li>
-                    </ul>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item subscribeButton" data-type="subscribed"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _("Subscribed")?></a>
+                      <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i class="fa fa-user"></i><i class="fa fa-times"></i> <?= _("Unsubscribed")?></a>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-2">
@@ -113,7 +113,7 @@ require $sRootDocument . '/Include/Header.php';
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" id="allTags"></ul>
+                    <div class="dropdown-menu" role="menu" id="allTags"></div>
                   </div>
                 </div>
               </div>
