@@ -7,8 +7,7 @@ function allPhonesCommaD() {
 function codename() {
     if (document.labelform.bulkmailpresort.checked) {
         document.labelform.bulkmailquiet.disabled = false;
-    }
-    else {
+    } else {
         document.labelform.bulkmailquiet.disabled = true;
         document.labelform.bulkmailquiet.checked = false;
     }
@@ -103,19 +102,19 @@ $(document).ready(function () {
         clickedButton = $(this);
         e.stopPropagation();
         window.CRM.cart.removePerson([clickedButton.data("personid")], function (data) {
-            window.CRM.dataTableListing.ajax.reload(function ( ) {
+            window.CRM.dataTableListing.ajax.reload(function () {
                 if (window.CRM.dataTableListing.data().count() == 0) {
-                    bootbox.alert(i18next.t("You have no more items in your cart."), function(){
-                       window.location.href = window.CRM.root + "/Menu.php"
+                    bootbox.alert(i18next.t("You have no more items in your cart."), function () {
+                        window.location.href = window.CRM.root + "/Menu.php"
                     });
                 }
             });
 
             // we have to update the links
-            $('#emailLink').attr("href","mailto:"+data.sEmailLink);
-            $('#emailCCIlink').attr("href","mailto:?bcc="+data.sEmailLink);
+            $('#emailLink').attr("href", "mailto:" + data.sEmailLink);
+            $('#emailCCIlink').attr("href", "mailto:?bcc=" + data.sEmailLink);
 
-            $('.sPhoneLinkSMS').attr("href","sms:"+data.sPhoneLink);
+            $('.sPhoneLinkSMS').attr("href", "sms:" + data.sPhoneLink);
 
             if (data.sEmailLink == "") {
                 $('#emailLink').hide();
@@ -128,58 +127,6 @@ $(document).ready(function () {
 
             window.CRM.sEmailLink = data.sEmailLink;
             window.CRM.sPhoneLink = data.sPhoneLink;
-        });
-    });
-
-    $(document).on("click", "#deleteCart", function (e) {
-        window.CRM.cart.delete(function(data) {
-            var path = location.href;
-            path = path.substring(path.lastIndexOf("/") + 1);
-            path = path.split("?")[0].split("#")[0];
-
-            if (data.status == "failure")
-            {
-                var box = window.CRM.DisplayAlert(i18next.t("Error text"),data.message);
-
-                setTimeout(function() {
-                    // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                    box.modal('hide');
-
-                    if ((path == "PersonView.php" || path == "v2/cart/view") && data != 'nothing was done') {
-                        location.reload();
-                    }
-                }, 7000);
-            } else {
-                if (path == "PersonView.php" && data != 'nothing was done') {
-                    location.reload();
-                }
-            }
-        });
-    });
-
-    $(document).on("click", "#deactivateCart", function (e) {
-        window.CRM.cart.deactivate(function(data) {
-            var path = location.href;
-            path = path.substring(path.lastIndexOf("/") + 1);
-            path = path.split("?")[0].split("#")[0];
-
-            if (data.status == "failure")
-            {
-                var box = window.CRM.DisplayAlert(i18next.t("Error text"),data.message);
-
-                setTimeout(function() {
-                    // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                    box.modal('hide');
-
-                    if (path == "PersonView.php" && data != 'nothing was done') {
-                        location.reload();
-                    }
-                }, 7000);
-            } else {
-                if ((path == "PersonView.php" || path == "v2/cart/view") && data != 'nothing was done') {
-                    location.reload();
-                }
-            }
         });
     });
 });
