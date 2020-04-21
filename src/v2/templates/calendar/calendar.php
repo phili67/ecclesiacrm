@@ -51,9 +51,9 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="col-4">
                             <div
                                 class="custom-control custom-switch ustom-switch custom-switch-off-light custom-switch-on-info">
-                                <input type="checkbox" class="custom-control-input" id="isWithLimit">
+                                <input type="checkbox" class="custom-control-input" id="isWithLimit" checked>
                                 <label class="custom-control-label"
-                                       for="isWithLimit"><?= _("Limit") ?></label>
+                                       for="isWithLimit"><small><?= _("Limit") ?></small></label>
                             </div>
 
                         </div>
@@ -65,9 +65,9 @@ require $sRootDocument . '/Include/Header.php';
                                 <div
                                     class="custom-control custom-switch custom-switch-off-light custom-switch-on-danger">
                                     <input type="checkbox" class="custom-control-input"
-                                           id="isBirthdateActive">
+                                           id="isBirthdateActive" checked>
                                     <label class="custom-control-label"
-                                           for="isBirthdateActive"><?= _("Birthdate") ?></label>
+                                           for="isBirthdateActive"><small><?= _("Birthdate") ?></small></label>
                                 </div>
                                 <?php
                             }
@@ -83,9 +83,9 @@ require $sRootDocument . '/Include/Header.php';
                                 <div
                                     class="custom-control custom-switch custom-switch-off-light custom-switch-on-primary">
                                     <input type="checkbox" class="custom-control-input"
-                                           id="isAnniversaryActive">
+                                           id="isAnniversaryActive" checked>
                                     <label class="custom-control-label"
-                                           for="isAnniversaryActive"><?= _("Wedding") ?></label>
+                                           for="isAnniversaryActive"><small><?= _("Wedding") ?></small></label>
                                 </div>
                                 <?php
                             }
