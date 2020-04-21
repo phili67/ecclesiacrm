@@ -23,15 +23,15 @@ require $sRootDocument . '/Include/Header.php';
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
         </button>
-        <ul class="dropdown-menu" role="menu" id="AllRoles">
+        <div class="dropdown-menu" role="menu" id="AllRoles">
             <?php
                foreach ($userRoles as $userRole) {
             ?>
-               <li> <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
+               <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"> </i><?= $userRole->getName() ?></a>
             <?php
                }
             ?>
-        </ul>
+        </div>
       </div>
       <div class="pull-right" style="margin-right:15px;margin-top:10px">
         <h4><?= _("Apply Roles") ?></h4>
