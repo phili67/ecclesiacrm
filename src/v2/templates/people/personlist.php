@@ -41,6 +41,9 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa fa-user"></i> <?= _('Persons') ?></h3>
+    </div>
     <div class="card-body">
         <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
