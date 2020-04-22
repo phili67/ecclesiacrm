@@ -35,6 +35,16 @@ require $sRootDocument . '/Include/Header.php';
             </button>
             <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
           </div>
+          <div class="btn-group">
+              <button class="btn btn-app CreateTags" id="CreateTags" data-listid="<?= $listId ?>" data-id="-1" data-name="">
+                  <i class="fa fa-list-alt"></i><?= _("Create Remove Tag") ?>
+              </button>
+              <button type="button" id="addCreateTagsDrop" class="btn btn-app dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu" role="menu" id="addCreateTagsDropAll"></div>
+          </div>
           <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
             <i class="fa fa-trash-o"></i><?= _("Delete All Subscribers") ?>
           </button>
@@ -56,7 +66,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
   <div class="row">
       <div class="col-lg-12">
-        <div class="card" id="container">
+        <div class="card collapsed-card" id="container">
         </div>
       </div>
   </div>
@@ -95,19 +105,6 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <div class="col-md-2">
                   <div class="btn-group">
-                    <button type="button" class="subscribeButton btn btn-success" disabled><?= _("Sub/Unsubscribe" ) ?></button>
-                    <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
-                      <span class="caret"></span>
-                      <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item subscribeButton" data-type="subscribed"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _("Subscribed")?></a>
-                      <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i class="fa fa-user"></i><i class="fa fa-times"></i> <?= _("Unsubscribed")?></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <div class="btn-group">
                     <button type="button" class="addTagButton btn btn-success"  data-id="-1" data-name="" disabled><?= _("Add/Remove Tag" ) ?></button>
                     <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
                       <span class="caret"></span>
@@ -116,6 +113,19 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="dropdown-menu" role="menu" id="allTags"></div>
                   </div>
                 </div>
+                <div class="col-md-2">
+                      <div class="btn-group">
+                          <button type="button" class="subscribeButton btn btn-success" disabled><?= _("Sub/Unsubscribe" ) ?></button>
+                          <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
+                              <span class="caret"></span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu" role="menu">
+                              <a class="dropdown-item subscribeButton" data-type="subscribed"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _("Subscribe")?></a>
+                              <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i class="fa fa-user"></i><i class="fa fa-times"></i> <?= _("Unsubscribe")?></a>
+                          </div>
+                      </div>
+                  </div>
               </div>
 
               <br>
