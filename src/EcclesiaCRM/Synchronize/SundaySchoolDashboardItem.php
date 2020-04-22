@@ -5,6 +5,21 @@ namespace EcclesiaCRM\Synchronize;
 use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\dto\SystemConfig;
+
+class DropDownEmailsClass {
+    public $allNormal;
+    public $allNormalBCC;
+}
+
+class EmailRoleClass {
+    public $Parents;
+    public $Teachers;
+    public $Kids;
+}
 
 class SundaySchoolDashboardItem implements DashboardItemInterface
 {
@@ -12,6 +27,100 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
     public static function getDashboardItemName()
     {
         return "SundaySchoolDisplay";
+    }
+
+    protected static function getDetails ($classStats)
+    {
+        $sundaySchoolService = new SundaySchoolService();
+
+        $TeachersEmails = [];
+        $KidsEmails = [];
+        $ParentsEmails = [];
+
+        foreach ($classStats as $classStat) {
+            $iGroupId = $classStat['id'];
+
+            $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
+
+            $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
+
+            foreach ($thisClassChildren as $child) {
+                if ($child['dadEmail'] != '') {
+                    array_push($ParentsEmails, $child['dadEmail']);
+                }
+                if ($child['momEmail'] != '') {
+                    array_push($ParentsEmails, $child['momEmail']);
+                }
+                if ($child['kidEmail'] != '') {
+                    array_push($KidsEmails, $child['kidEmail']);
+                }
+            }
+
+            $teachersProps = [];
+            foreach ($rsTeachers as $teacher) {
+                array_push($TeachersEmails, $teacher['per_Email']);
+
+                $ormPropLists = GroupPropMasterQuery::Create()
+                    ->filterByPersonDisplay('true')
+                    ->orderByPropId()
+                    ->findByGroupId($iGroupId);
+
+                $props = '';
+                if ($ormPropLists->count() > 0) {
+                    $person = PersonQuery::create()->findOneById($teacher['per_ID']);
+                    $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily())) ? $person->getFamily()->getCountry() : null, false);
+
+                    $sSQL = 'SELECT * FROM groupprop_' . $iGroupId . ' WHERE per_ID = ' . $teacher['per_ID'];
+
+                    $connection = Propel::getConnection();
+                    $statement = $connection->prepare($sSQL);
+                    $statement->execute();
+                    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+
+                    if ($ormPropLists->count() > 0) {
+                        foreach ($ormPropLists as $ormPropList) {
+                            $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                            if (strlen($currentData) > 0) {
+                                $prop_Special = $ormPropList->getSpecial();
+
+                                if ($ormPropList->getTypeId() == 11) {
+                                    $prop_Special = $sPhoneCountry;
+                                }
+
+                                $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
+                            }
+                        }
+                    }
+                }
+
+                array_push($teachersProps, [$teacher['per_ID'] => substr($props, 0, -2)]);
+            }
+        }
+
+        $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
+        $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
+
+        $roleEmails = new EmailRoleClass();
+
+        $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
+        $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
+        $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
+
+        // Add default email if default email has been set and is not already in string
+        if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
+            $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
+        }
+        $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+
+        $emailLink = mb_substr($sEmailLink, 0, -3);
+
+        $dropDown = new DropDownEmailsClass();
+
+        $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
+        $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
+
+        return ["emailLink" => $emailLink, "dropDown" => $dropDown];
     }
 
     public static function getDashboardItemValue()
@@ -52,6 +161,7 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
         $kidsCNT = 0;
         $maleKidsCNT = 0;
         $femaleKidsCNT = 0;
+        $teachersEmailsLink = '';
 
         foreach ($classStats as $class) {
             $kidsCNT = $kidsCNT + $class['kids'];
@@ -66,6 +176,8 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
             }
         }
 
+        $details = self::getDetails($classStats);
+
         $data = ['sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
             'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount']),
             'SundaySchoolFamiliesCNT' => intval($groupsAndSundaySchoolStats['SundaySchoolFamiliesCount']),
@@ -74,7 +186,9 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
             'teachersCNT' => $teachersCNT,
             'kidsCNT' => $kidsCNT,
             'maleKidsCNT' => $maleKidsCNT,
-            'femaleKidsCNT' => $femaleKidsCNT
+            'femaleKidsCNT' => $femaleKidsCNT,
+            'emailLink' => $details['emailLink'],
+            'dropDown' => $details['dropDown']
         ];
 
         return $data;
