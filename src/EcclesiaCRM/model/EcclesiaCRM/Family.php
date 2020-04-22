@@ -317,7 +317,7 @@ class Family extends BaseFamily implements iPhoto
 
     public function deletePhoto()
     {
-      if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() ) {
         if ( $this->getPhoto()->delete() )
         {
           $note = new Note();
@@ -332,7 +332,7 @@ class Family extends BaseFamily implements iPhoto
       return false;
     }
     public function setImageFromBase64($base64) {
-      if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() ) {
         $note = new Note();
         $note->setText(_("Profile Image uploaded"));
         $note->setType("photo");
