@@ -68,7 +68,10 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                     <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app">
                         <i class="fa fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemails" class="btn btn-app">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app">
+                        <i class="fa fa-bell-slash"></i><?= _("Persons Not In MailChimp") ?>
+                    </a>
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app">
                         <i class="fa fa-bell-slash"></i><?= _("Families Not In MailChimp") ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app">
