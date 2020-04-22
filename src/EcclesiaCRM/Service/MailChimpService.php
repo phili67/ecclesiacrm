@@ -97,7 +97,7 @@ class MailChimpService
 
       return $_SESSION['MailChimpConnectionStatus'];
     }
-    public function isEmailInMailChimp($email)
+    public function getListNameFromEmail($email)
     {
         if (!$this->isActive) {
             return 'Mailchimp is not active';
@@ -877,6 +877,39 @@ class MailChimpService
         }
         $i++;
       }
+    }
+    public function getStatusMember ($list_id,$mail)
+    {
+        $subscriber_hash = $this->myMailchimp->subscriberHash($mail);
+
+        $result = $this->myMailchimp->get("lists/$list_id/members/$subscriber_hash");
+
+        return $result;
+    }
+    public function getListNameAndStatus ($email)
+    {
+        try {
+            $lists = $this->getListsFromCache();
+            $lists = array_filter($lists, array(new ListEmailFilter($email),'isEmailInList'));
+            $listNames = array_map(function ($list) { return $list['name']; }, $lists);
+            $listMemberships = implode(',', $listNames);
+            LoggerUtils::getAppLogger()->info($email. "is a member of ".$listMemberships);
+
+            $res = [];
+
+            foreach ($lists as $list) {
+                $res[] = [$list['name'],$this->getStatusMember($list['id'],$email)['status']];
+            }
+            return $res;
+        } catch (\Mailchimp_Invalid_ApiKey $e) {
+            return 'Invalid ApiKey';
+        } catch (\Mailchimp_List_NotSubscribed $e) {
+            return '';
+        } catch (\Mailchimp_Email_NotExists $e) {
+            return '';
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
     public function updateMember($list_id,$first_name,$last_name,$mail,$status) // status : Unsubscribed , Subscribed
     {
