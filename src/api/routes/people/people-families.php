@@ -198,7 +198,7 @@ function isMailChimpActiveFamily (Request $request, Response $response, array $a
     $isIncludedInMailing = $family->getSendNewsletter();
 
     if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-      return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
     } else {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
