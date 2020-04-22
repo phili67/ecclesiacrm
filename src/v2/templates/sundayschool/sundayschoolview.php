@@ -29,7 +29,7 @@ if (SessionUser::getUser()->isAddRecords()) {
 }
 ?>
 
-<div class="card card-primary">
+<div class="card">
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Sunday School Class Functions') ?></h3>
     </div>
@@ -136,8 +136,8 @@ if (SessionUser::getUser()->isAddRecords()) {
     </div>
 </div>
 
-<div class="card card-success teachers">
-    <div class="card-header with-border">
+<div class="card card-primary teachers">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Teachers') ?></h3>
 
         <div class="card-tools pull-right">
@@ -145,17 +145,18 @@ if (SessionUser::getUser()->isAddRecords()) {
         </div>
     </div>
     <!-- /.box-header -->
-    <div class="card-body row teachers_container"></div>
-</div>
+    <div class="card-body teachers_container"></div>
 
-<?php
-if (SessionUser::getUser()->isAddRecords()) {
-    ?>
-    <div class="card teachers">
-        <div class="card-header with-border">
-            <h3 class="card-title"><?php echo _("Add Teachers to the Team"); ?>:</h3>
-        </div>
-        <div class="card-body">
+
+    <?php
+    if (SessionUser::getUser()->isAddRecords()) {
+        ?>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <label><?php echo _("Add Teachers to the Team"); ?>:</label>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-1">
                     <?= _("Add") ?>
@@ -166,50 +167,54 @@ if (SessionUser::getUser()->isAddRecords()) {
                 </div>
             </div>
         </div>
-    </div>
-    <?php
-}
-?>
+        <?php
+    }
+    ?>
+</div>
 
 <?php
 if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
     ?>
 
-    <div class="card card-info quick-status">
-        <div class="card-header  with-border">
+    <div class="card quick-status">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Quick Status') ?></h3>
 
             <div class="card-tools pull-right">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
             </div>
         </div>
         <!-- /.box-header -->
-        <div class="card-body row">
-            <div class="col-lg-8">
-                <!-- Bar chart -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('Birthdays by Month') ?></h3>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Bar chart -->
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('Birthdays by Month') ?>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="disableSelection" id="bar-chart" style="width: 100%; height: 300px;"></div>
+                        </div>
+                        <!-- /.box-body-->
                     </div>
-                    <div class="card-body">
-                        <div class="disableSelection" id="bar-chart" style="width: 100%; height: 300px;"></div>
-                    </div>
-                    <!-- /.box-body-->
+                    <!-- /.box -->
                 </div>
-                <!-- /.box -->
-            </div>
-            <div class="col-lg-4">
-                <!-- Donut chart -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('Gender') ?></h3>
+                <div class="col-md-4">
+                    <!-- Donut chart -->
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('Gender') ?></h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="donut-chart" style="width: 100%; height: 300px;"></div>
+                        </div>
+                        <!-- /.box-body-->
                     </div>
-                    <div class="card-body">
-                        <div id="donut-chart" style="width: 100%; height: 300px;"></div>
-                    </div>
-                    <!-- /.box-body-->
+                    <!-- /.box -->
                 </div>
-                <!-- /.box -->
             </div>
         </div>
         <div class="card-body row">
@@ -225,7 +230,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 
 <div class="card">
     <div class="card-header with-border">
-        <h3 class="card-title"><?= _('Students') ?></h3>
+        <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right">
             <label><?= _("Edition Mode") ?> <input data-size="mini" id="editionMode" type="checkbox"
                                                    data-toggle="toggle" data-on="<?= _("On") ?>"
@@ -233,15 +238,25 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
         </div>
     </div>
     <!-- /.box-header -->
-    <div class="card-body table-responsive">
-        <h4 class="birthday-filter" style="display:none;"><?= _('Showing students with birthdays in') ?> : <span
-                class="month"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
-        <h4 class="gender-filter" style="display:none;"><?= _('Showing students with gender') ?> : <span
-                class="type"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="birthday-filter text-center" style="display:none;"><?= _('Showing students with birthdays in') ?> : <span
+                        class="month"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+            </div>
+            <div class="col-md-6">
+                <h4 class="gender-filter text-center" style="display:none;"><?= _('Showing students with gender') ?> : <span
+                        class="type"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
         <table id="sundayschoolTable" class="table table-striped table-bordered data-table" cellspacing="0"
                width="100%"></table>
+            </div>
+        </div>
     </div>
-</div>
+
 
 <?php
 function implodeUnique($array, $withQuotes)
@@ -266,11 +281,8 @@ function implodeUnique($array, $withQuotes)
 <?php
 if (SessionUser::getUser()->isAddRecords()) {
     ?>
-    <div class="card">
-        <div class="card-header with-border">
-            <h3 class="card-title"><?php echo _("Add Members to Sunday Group"); ?>:</h3>
-        </div>
-        <div class="card-body">
+        <div class="card-footer">
+            <label><?php echo _("Add Members to Sunday Group"); ?>:</label>
             <div class="row">
                 <div class="col-md-1">
                     <?= _("Add") ?>
@@ -285,6 +297,7 @@ if (SessionUser::getUser()->isAddRecords()) {
     <?php
 }
 ?>
+</div>
 
 <!-- FLOT CHARTS -->
 <script src="<?= $sRootPath ?>/skin/external/flot/jquery.flot.js"></script>
