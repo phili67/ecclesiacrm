@@ -378,7 +378,15 @@ $(document).ready(function () {
         title:i18next.t('Email Marketing'),
         data:'status',
         render: function(data, type, full, meta) {
-          return i18next.t(data);
+            var res = i18next.t(data);
+            if (data == 'subscribed') {
+                res = '<p class="text-green">' + res + '</p>';
+            } else if (data == 'unsubscribed') {
+                res = '<p class="text-orange">' + res + '</p>';
+            } else {
+                res = '<p class="text-red">' + res + '</p>';
+            }
+            return res;
         }
       },
       {
