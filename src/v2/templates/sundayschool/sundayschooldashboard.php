@@ -94,6 +94,8 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="card-title"><?= _('Functions') ?></h3>
     </div>
     <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
             <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
@@ -115,10 +117,36 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
                title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a><br/>
+                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
             <?php
         }
         ?>
+        <?php
+        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
+            // Display link
+            ?>
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLink" href=""><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMail" role="menu"></div>
+            </div>
+
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
+            </div>
+            <?php
+        }
+        ?>
+            </div>
+        </div>
     </div>
 </div>
 <!-- on continue -->
