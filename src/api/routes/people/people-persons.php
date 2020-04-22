@@ -322,7 +322,7 @@ function isMailChimpActivePerson (Request $request, Response $response, array $a
     $person = PersonQuery::create()->findPk($input->personId);
 
     if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'statusLists' => $mailchimp->getListNameAndStatus($input->email)]);
     } else {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
@@ -530,7 +530,7 @@ function notInMailChimpEmails (Request $request, Response $response, array $args
         foreach ($families as $family) {
             $persons = $family->getHeadPeople();
             foreach ($persons as $Person) {
-                $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
+                $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
                 if ($mailchimpList == '') {
                     array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
                 }
@@ -545,7 +545,7 @@ function notInMailChimpEmails (Request $request, Response $response, array $args
 
         $missingEmailInMailChimp = array();
         foreach ($People as $Person) {
-            $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
+            $mailchimpList = $mailchimp->getListNameFromEmail($Person->getEmail());
             if ($mailchimpList == '') {
                 array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
             }
