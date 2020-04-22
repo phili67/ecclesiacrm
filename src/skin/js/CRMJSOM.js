@@ -1387,7 +1387,7 @@
                 // now we empty the menubar lists
                 $(".lists_class_menu").removeClass("hidden");
                 var lists_menu = $(".lists_class_menu").parent();
-                var real_listMenu = $(lists_menu).find(".treeview-menu");
+                var real_listMenu = $(lists_menu).find(".nav-treeview");
 
                 real_listMenu.html("");
                 var listItems = "";
@@ -1395,7 +1395,7 @@
                 for (i = 0; i < len; i++) {
                     var list = data.MailChimpLists[i];
 
-                    listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>' + list.name + '</a>';
+                    listItems += '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link"><i class="fa fa-circle-o"></i> <p>' + list.name + '</p></a>';
                 }
 
                 real_listMenu.html(listItems);
