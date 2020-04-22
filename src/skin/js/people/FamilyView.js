@@ -12,7 +12,16 @@ $(document).ready(function () {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
           if (data.mailChimpActiv) {
-            $("#mailChimpUserNormal").text(data.mailingList);
+              var len = data.statusLists.length;
+
+              var res = '';
+
+              for (i = 0; i < len; i++) {
+                  var statusDetails = data.statusLists[i];
+                  res += "<p>  &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</p></p>";
+              }
+
+              $("#mailChimpUserNormal").html(res);
           }
         } else {
           $("#NewsLetterSend").css('color','red');

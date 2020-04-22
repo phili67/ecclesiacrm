@@ -472,7 +472,7 @@ class MenuBar {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
-            echo '<li class="nav-item">';
+            echo '<li class="nav-item '.$menu->getClass().'">';
             echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
                 echo " <i class=\"fa fa-angle-left right\"></i>\n";

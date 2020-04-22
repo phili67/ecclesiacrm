@@ -19,16 +19,17 @@ $app->group('/mailchimp', function () {
     $this->get('/campaign/{campaignId}', 'renderMailChimpCampaign');
     $this->get('/managelist/{listId}', 'renderMailChimpManageList');
     $this->get('/duplicateemails', 'renderMailChimpDuplicateEmails');
-    $this->get('/notinmailchimpemails', 'renderMailChimpNotInMailchimpEmails');
+    $this->get('/notinmailchimpemailsfamilies', 'renderMailChimpNotInMailchimpEmailsFamilies');
+    $this->get('/notinmailchimpemailspersons', 'renderMailChimpNotInMailchimpEmailsPersons');
 });
 
 function renderMailChimpDashboard (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     return $renderer->render($response, 'dashboard.php', mailchimpDashboardArgumentsArray());
 }
 
@@ -41,7 +42,7 @@ function mailchimpDashboardArgumentsArray ()
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
-                       'sPageTitle'        => $sPageTitle, 
+                       'sPageTitle'        => $sPageTitle,
                        'mailchimp'         => $mailchimp,
                        'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
                        'mailChimpStatus'   => $mailChimpStatus,
@@ -49,7 +50,7 @@ function mailchimpDashboardArgumentsArray ()
                        'getSupportURL'     => SystemURLs::getSupportURL(),
                        'isMailChimpActiv'  => (($mailchimp->isActive())?1:0),
                        'isMailChimpLoaded' => (($mailchimp->isLoaded())?1:0)
-                       ];   
+                       ];
 
    return $paramsArguments;
 }
@@ -57,11 +58,11 @@ function mailchimpDashboardArgumentsArray ()
 
 function renderMailChimpDebug (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     return $renderer->render($response, 'debug.php', mailchimpDebugArgumentsArray());
 }
 
@@ -74,9 +75,9 @@ function mailchimpDebugArgumentsArray ()
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
-                       'sPageTitle'      => $sPageTitle, 
+                       'sPageTitle'      => $sPageTitle,
                        'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
-                       ];   
+                       ];
 
    return $paramsArguments;
 }
@@ -84,15 +85,15 @@ function mailchimpDebugArgumentsArray ()
 
 function renderMailChimpCampaign (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     $campaignId = $args['campaignId'];
-    
+
     $mailchimp       = new MailChimpService();
-    
+
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     return $renderer->render($response, 'campaign.php', mailchimpCampaignArgumentsArray($campaignId, $mailchimp));
 }
 
@@ -100,7 +101,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
 {
    $mailChimpStatus = $mailchimp->getConnectionStatus();
    $campaign        = $mailchimp->getCampaignFromId($campaignId);
-   
+
    $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray').";float:right\"class=\"status\">("._($campaign['status']).")</span></b>";
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
@@ -120,24 +121,24 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
 
 function renderMailChimpManageList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     $listId = $args['listId'];
-    
+
     $mailchimp       = new MailChimpService();
-    
+
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     return $renderer->render($response, 'managelist.php', mailchimpManageListArgumentsArray($listId, $mailchimp));
 }
 
 function mailchimpManageListArgumentsArray ($listId,$mailchimp)
 {
    $mailChimpStatus = $mailchimp->getConnectionStatus();
-   
+
    $list = $mailchimp->getListFromListId($listId);
-   
+
    $sPageTitle     = _('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  ('._("GDPR").')':'');
    $sPageTitleSpan = _('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR"):'');
 
@@ -154,7 +155,7 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
                        'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
                        'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
                         'sDateFormatLong'  => SystemConfig::getValue('sDateFormatLong')
-                       ];   
+                       ];
 
    return $paramsArguments;
 }
@@ -162,13 +163,13 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
 
 function renderMailChimpDuplicateEmails (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     $mailchimp       = new MailChimpService();
-    
+
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
+
     return $renderer->render($response, 'duplicateemails.php', mailchimpDuplicateEmailsArgumentsArray());
 }
 
@@ -180,25 +181,25 @@ function mailchimpDuplicateEmailsArgumentsArray ()
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
                        'sPageTitle'      => $sPageTitle,
                        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
-                       ];   
+                       ];
 
    return $paramsArguments;
 }
 
 
-function renderMailChimpNotInMailchimpEmails (Request $request, Response $response, array $args) {
+function renderMailChimpNotInMailchimpEmailsFamilies (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
-    
+
     $mailchimp       = new MailChimpService();
-    
+
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
-    
-    return $renderer->render($response, 'duplicateemails.php', mailchimpNotInMailchimpEmailsArgumentsArray());
+
+    return $renderer->render($response, 'notinmailchimpemailsfamilies.php', mailchimpNotInMailchimpFailiesArgumentsArray());
 }
 
-function mailchimpNotInMailchimpEmailsArgumentsArray ()
+function mailchimpNotInMailchimpFailiesArgumentsArray ()
 {
    $sPageTitle = _('Families Not In MailChimp');
 
@@ -206,7 +207,32 @@ function mailchimpNotInMailchimpEmailsArgumentsArray ()
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
                        'sPageTitle'      => $sPageTitle,
                        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
-                       ];   
+                       ];
 
    return $paramsArguments;
+}
+
+function renderMailChimpNotInMailchimpEmailsPersons (Request $request, Response $response, array $args) {
+    $renderer = new PhpRenderer('templates/email/mailchimp/');
+
+    $mailchimp       = new MailChimpService();
+
+    if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+    }
+
+    return $renderer->render($response, 'notinmailchimpemailspersons.php', mailchimpNotInMailchimpPersonsArgumentsArray());
+}
+
+function mailchimpNotInMailchimpPersonsArgumentsArray ()
+{
+    $sPageTitle = _('Persons Not In MailChimp');
+
+    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
+        'sRootDocument'   => SystemURLs::getDocumentRoot(),
+        'sPageTitle'      => $sPageTitle,
+        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
+    ];
+
+    return $paramsArguments;
 }

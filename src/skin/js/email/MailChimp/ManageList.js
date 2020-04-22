@@ -5,6 +5,7 @@ $(document).ready(function () {
    {
       $("#allTags").empty();
       $("#allCampaignTags").empty();
+      $("#addCreateTagsDropAll").empty();
 
       window.CRM.APIRequest({
         method: 'POST',
@@ -12,14 +13,21 @@ $(document).ready(function () {
         data: JSON.stringify({"list_id":window.CRM.list_ID})
       }).done(function(data) {
         $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i><i class="fa fa-tag"> ' + i18next.t("Add a new tag") +  '</a>');
-        $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tags") +  '</a>');
         $("#allTags").append('<div class="dropdown-divider"></div>');
+        $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") +  '</a>');
+        $("#allTags").append('<div class="dropdown-divider"></div>');
+
+        $("#addCreateTagsDropAll").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i><i class="fa fa-tag"> ' + i18next.t("Add a new tag") +  '</a>');
+        $("#addCreateTagsDropAll").append('<div class="dropdown-divider"></div>');
+
 
         var len = data.result.length;
 
         for (i=0; i<len; ++i) {
           $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
           $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
+
+          $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' +  data.result[i].list_id +'"><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tag") + ' : '  +  data.result[i].name + '</a>');
         }
       });
    }
@@ -57,8 +65,11 @@ $(document).ready(function () {
 
           var list = data.MailChimpList;
 
-          var  listView = '<div class="card-header   with-border">'
-            +'      <h3 class="card-title"><i class="fa fa-list"></i> '+ i18next.t('Email List') + '</h3>'
+          var  listView = '<div class="card-header with-border">'
+            +'      <h3 class="card-title"><i class="fa fa-list"></i> '+ i18next.t('Email List') + '   (' + i18next.t('Details') + ')</h3>'
+            +'      <div class="card-tools pull-right">'
+            +'          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>'
+            +'      </div>'
             +'    </div>'
             +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
@@ -367,7 +378,15 @@ $(document).ready(function () {
         title:i18next.t('Email Marketing'),
         data:'status',
         render: function(data, type, full, meta) {
-          return i18next.t(data);
+            var res = i18next.t(data);
+            if (data == 'subscribed') {
+                res = '<p class="text-green">' + res + '</p>';
+            } else if (data == 'unsubscribed') {
+                res = '<p class="text-orange">' + res + '</p>';
+            } else {
+                res = '<p class="text-red">' + res + '</p>';
+            }
+            return res;
         }
       },
       {
