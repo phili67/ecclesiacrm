@@ -11,7 +11,16 @@ $(document).ready(function () {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
           if (data.mailChimpActiv) {
-            $("#mailChimpUserNormal").text(data.mailingList);
+              var len = data.statusLists.length;
+
+              var res = '';
+
+              for (i=0;i<len;i++) {
+                  var statusDetails = data.statusLists[i];
+                  res += "<p> &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</b></p>";
+              }
+
+              $("#mailChimpUserNormal").html(res);
           }
         } else {
           $("#NewsLetterSend").css('color','red');
@@ -35,7 +44,18 @@ $(document).ready(function () {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
-          $("#mailChimpUserWork").text(data.mailingList);
+          if (data.mailChimpActiv) {
+              var len = data.statusLists.length;
+
+              var res = '';
+
+              for (i = 0; i < len; i++) {
+                  var statusDetails = data.statusLists[i];
+                  res += "<p>  &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</p></p>";
+              }
+
+              $("#mailChimpUserWork").html(res);
+          }
         } else {
           $("#NewsLetterSend").css('color','red');
           $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
