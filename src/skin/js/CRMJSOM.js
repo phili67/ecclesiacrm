@@ -1379,6 +1379,30 @@
             if (sundaySchoolFemaleKidsCNTDasBoard) {
                 sundaySchoolFemaleKidsCNTDasBoard.innerText = data.femaleKidsCNT;
             }
+
+            var sundaySchoolEmailLinkDasBoard = document.getElementById('sEmailLink');
+
+            if (sundaySchoolEmailLinkDasBoard) {
+                $('#sEmailLink').attr('href', 'mailto:' + data.emailLink);
+            }
+
+            var sundaySchoolEmailLinkBCCDasBoard = document.getElementById('sEmailLinkBCC');
+
+            if (sundaySchoolEmailLinkBCCDasBoard) {
+                $('#sEmailLinkBCC').attr('href', 'mailto:?bcc=' + data.emailLink);
+            }
+
+            var sundaySchoolDropDownMailDasBoard = document.getElementById('dropDownMail');
+
+            if (sundaySchoolDropDownMailDasBoard) {
+                $('#dropDownMail').html(data.dropDown.allNormal);
+            }
+
+            var sundaySchoolDropDownBCCMailDasBoard = document.getElementById('dropDownMailBCC');
+
+            if (sundaySchoolDropDownBCCMailDasBoard) {
+                $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
+            }
         },
         MailchimpDisplay:function (data) {
             if (data.isActive) {
