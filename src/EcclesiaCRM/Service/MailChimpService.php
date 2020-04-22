@@ -9,7 +9,7 @@ use EcclesiaCRM\SessionUser;
 
 class ListEmailFilter {
   private $email;
-  
+
   function __construct($emailAddress)
   {
     $this->email = $emailAddress;
@@ -21,7 +21,7 @@ class ListEmailFilter {
       }
     }
     return false;
-  }       
+  }
 }
 
 class MailChimpService
@@ -30,7 +30,7 @@ class MailChimpService
     private $myMailchimp;
     private $lists;
     private $campaigns;
-    
+
     public function __construct()
     {
         if (!empty(SystemConfig::getValue('sMailChimpApiKey'))) {
@@ -94,7 +94,7 @@ class MailChimpService
       if ( !isset ($connection_status) && !empty(SystemConfig::getValue('sMailChimpApiKey')) ) {
         $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
       }
-        
+
       return $_SESSION['MailChimpConnectionStatus'];
     }
     public function isEmailInMailChimp($email)
@@ -102,11 +102,11 @@ class MailChimpService
         if (!$this->isActive) {
             return 'Mailchimp is not active';
         }
-        
+
         if ($email == '') {
             return 'No email';
         }
-        
+
         try {
             $lists = $this->getListsFromCache();
             $lists = array_filter($lists, array(new ListEmailFilter($email),'isEmailInList'));
@@ -124,7 +124,7 @@ class MailChimpService
             return $e;
         }
     }
-    
+
 /* Lists */
 
     public function getLists()
@@ -134,7 +134,7 @@ class MailChimpService
         }
         try {
             $result = $this->getListsFromCache();
-            
+
             return $result;
         } catch (\Mailchimp_Invalid_ApiKey $e) {
             return 'Invalid ApiKey';
@@ -144,7 +144,7 @@ class MailChimpService
     }
     public  function getListFromListId ($list_id) {
       $mcLists = $this->getLists();
-      
+
       $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
@@ -152,19 +152,21 @@ class MailChimpService
         }
         $i++;
       }
-      
+
       return nil;
     }
     public  function getListMembersFromListId ($list_id) {
       $mcLists = $this->getLists();
-      
+
       $i = 0;
+      $listmembers = [];
+
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
           if (is_null ($list['members'])) {
             // in the case the list is no more in the cache
             $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
-            
+
             if (count($listmembers[0]) == 0) {
               return [];
             }
@@ -175,8 +177,8 @@ class MailChimpService
         }
         $i++;
       }
-      
-      
+
+
       return $listmembers;
     }
     public function createList ($name, $subject, $PermissionReminder, $ArchiveBars, $Status)
@@ -193,9 +195,9 @@ class MailChimpService
       $phone                 = SystemConfig::getValue('sChurchPhone');
       $permission_reminder   = $PermissionReminder;
       $archive_bars          = $ArchiveBars; // Whether campaigns for this list use the Archive Bar in archives by default : true false
-     
+
       $marketing_permissions = SystemConfig::getBooleanValue('bGDPR'); //Whether or not the list has marketing permissions (eg. GDPR) enabled.
-      
+
       // contact
       $from_name             = SessionUser::getUser()->getPerson()->getFullName();
       $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
@@ -237,30 +239,30 @@ class MailChimpService
           "email_type_option" => $type,
           "visibility" => $visibility
       );
-    
+
       // we create the mailing list
       $result = $this->myMailchimp->post('lists',$data);
-      
-      
+
+
       if ( !array_key_exists ('title',$result) ) {
         // we add the list in the cache
         $_SESSION['MailChimpLists'][] = $result;
       }
-      
+
       return $result;
     }
     private function delete_List ($list_id) {
         $mcLists = $_SESSION['MailChimpLists'];
-  
+
         $res = [];
         foreach ($mcLists as $list) {
           if ($list['id'] != $list_id) {
              $res[] = $list;
           }
         }
-        
+
         $_SESSION['MailChimpLists'] = $res;
-        
+
         // we delete all campaign binded to the list
         $campaigns = $_SESSION['MailChimpCampaigns'];
 
@@ -272,18 +274,18 @@ class MailChimpService
             $this->deleteCampaign ($campaign['id']);
           }
         }
-        
+
         $_SESSION['MailChimpCampaigns'] = $camps;
     }
 
     public function deleteList ($list_id) {
         $result = $this->myMailchimp->delete("lists/$list_id");
-        
+
         if ( !array_key_exists ('title',$result) ) {
           // we use always the cache to improve the performance
           $this->delete_List($list_id);
         }
-        
+
         return $result;
     }
 
@@ -294,7 +296,7 @@ class MailChimpService
         }
         try {
             $result = $this->getCampaignsFromCache();
-            
+
             return $result;
         } catch (\Mailchimp_Invalid_ApiKey $e) {
             return 'Invalid ApiKey';
@@ -302,12 +304,12 @@ class MailChimpService
             return $e->getMessage();
         }
     }
-    
+
     public function changeLists ($new_list) {
       $lists = $this->getListsFromCache();
-      
+
       $res = [];
-      
+
       foreach ($lists as $list) {
         if ($list['id'] == $new_list['id']) {
           $list['name'] = $new_list['name'];
@@ -316,24 +318,24 @@ class MailChimpService
         }
         $res[] = $list;
       }
-      
+
       $_SESSION['MailChimpLists'] = $res;
     }
-    
+
     public function changeListName ($list_id,$name,$subject,$permission_reminder) {
       $new_list = $this->myMailchimp->patch("lists/$list_id",["name" => $name,"campaign_defaults" => array("subject" => $subject), "permission_reminder" => $permission_reminder]);
-      
+
       $this->changeLists ($new_list);
-      
+
       return $new_list;
     }
 
 /* segments */
     private function getMembersFor ($list_id, $tag_id) {
       $tag_arr = [];
-      
+
       $mcLists = $this->getLists();
-      
+
       $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
@@ -348,41 +350,41 @@ class MailChimpService
         }
         $i++;
       }
-      
+
       return $tag_arr;
     }
-    
+
     public function createSegment ($list_id, $name,$membersArr) {
       $data = array(
             "name" => $name,
             "static_segment" => $membersArr /* Maichimp doc : An array of emails to be used for a static segment. Any emails provided that are not present on the list will be ignored. Passing an empty array will create a static segment without any subscribers. This field cannot be provided with the options field.*/
           );
-          
+
       $result = $this->myMailchimp->post("lists/$list_id/segments", $data);
-      
+
       $this->reloadMailChimpDatas();
 
       return [$result,"lists/$list_id/segments"];
     }
     public function updateSegment ($list_id, $name, $tag, $membersArr, $merge = true) {
-    
+
       $old_members = $this->getMembersFor($list_id, $tag);
-      
+
       if ($merge) {
         $arr = array_merge($membersArr,$old_members);
       } else {
         $arr = $membersArr;
       }
-      
+
       $data = array(
             "name" => $name,
             "static_segment" => $arr /* Maichimp doc : An array of emails to be used for a static segment. Any emails provided that are not present on the list will be ignored. Passing an empty array will create a static segment without any subscribers. This field cannot be provided with the options field.*/
           );
-          
+
       $result = $this->myMailchimp->patch("lists/$list_id/segments/$tag", $data);
-      
+
       $this->reloadMailChimpDatas();
-      
+
       return [$result,"lists/$list_id/segments/$tag"];
     }
     private function delete_Segment ($list_id, $tag_id) {
@@ -392,7 +394,7 @@ class MailChimpService
       $res = [];
       foreach ($mcLists as $list) {
         $break_loop = false;
-        
+
         if ($list['id'] == $list_id) {
           $resTag = [];
           foreach ($list['tags'] as $tag) {
@@ -400,9 +402,9 @@ class MailChimpService
               $resTag[] = $tag;
             }
           }
-        
+
           $list['tags'] = $resTag;
-          
+
           $resMembers = [];
           foreach ($list['members'] as $member) {
             $resTag = [];
@@ -412,112 +414,112 @@ class MailChimpService
               }
             }
             $member['tags'] = $resTag;
-            
+
             $resMembers[] = $member;
           }
           $list['members'] = $resMembers;
-          
+
           $break_loop = true;
         }
-        
+
         $res[] = $list;
-        
+
         if ($break_loop) {
           break;
         }
       }
-      
+
       // now we delete the tags for each members
-      
-      
+
+
       $_SESSION['MailChimpLists'] = $res;
     }
     public function deleteSegment ($list_id, $tag_id) {
       $result = $this->myMailchimp->delete("lists/$list_id/segments/$tag_id");
-      
+
       if ( !array_key_exists ('title',$result) ) {
         // We've to remove all the segments for each user
         $this->delete_Segment ($list_id, $tag_id);
       }
-      
-      return [$result,$resultContent,"lists/$list_id/segments/$tag_id"];
+
+      return [$result,$result,"lists/$list_id/segments/$tag_id"];
     }
     public function getAllSegments ($list_id) {
       $result = $this->myMailchimp->get("lists/$list_id/segments");
-      
+
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $resultContent = $result['segments'];
-        
+
         return [$result,$resultContent,"lists/$list_id/segments"];
       }
-      
-      return [$result,$resultContent,"lists/$list_id/segments"];
+
+      return [$result,$result,"lists/$list_id/segments"];
     }
     public function getSegment ($list_id, $segment_id) {
-      $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id", $data);
-      
-      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+      $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id");
+
+      return [$result,$result,"lists/$list_id/segments/$segment_id"];
     }
     public function addMembersToSegment ($list_id, $segment_id, $arr_members) {
       $data = array(
             "members_to_add" => $arr_members
               );
-              
+
       $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
-      
+
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $this->reloadMailChimpDatas();
       }
-      
-      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+
+      return [$result,$result,"lists/$list_id/segments/$segment_id"];
     }
     public function removeMembersFromSegment ($list_id, $segment_id, $arr_members) {
       $data = array(
             "members_to_remove" => $arr_members
             );
       $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
-      
-      
-      
+
+
+
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $this->reloadMailChimpDatas();
       }
-      
-      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+
+      return [$result,$result,"lists/$list_id/segments/$segment_id"];
     }
     public function removeMembersFromAllSegments($list_id, $arr_members) {
       $data = array(
             "members_to_remove" => $arr_members
             );
-      
-      
+
+
       $list = $this->getListFromListId ($list_id);
-      
+
       foreach ($list['tags'] as $tag) {
         $segment_id = $tag['id'];
-        
+
         $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
       }
-      
+
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $this->reloadMailChimpDatas();
       }
-      
-      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+
+      return [$result,$result,"lists/$list_id/segments/$segment_id"];
     }
-    
+
     public function getMembersFromSegment ($list_id, $segment_id) {
       $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id/members");
-      
+
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $resultContent = $result['members'];
       }
-      
+
       return [$result,$resultContent,"lists/$list_id/segments/$segment_id/members"];
     }
 
@@ -525,7 +527,7 @@ class MailChimpService
 
     public function getCampaignFromId($campaignId) {
       $campaigns = $this->getCampaigns();
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['id'] == $campaignId) {
           /*$content = $this->getCampaignContent ($campaignId);
@@ -540,18 +542,18 @@ class MailChimpService
     }
     public function getCampaignsFromListId($list_id) {
       $campaigns = $this->getCampaigns();
-      
+
       $res = [];
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['recipients']['list_id'] == $list_id) {
           $res[] = $campaign;
         }
       }
-      
+
       return $res;
     }
-    private function create_Campaign ($list_id,$camp) {      
+    private function create_Campaign ($list_id,$camp) {
       // we add the campaign in the cache
       $_SESSION['MailChimpCampaigns'][] = $camp;
 
@@ -572,10 +574,10 @@ class MailChimpService
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
-      
+
       if ($tag_Id != -1) {
         $data = array(
-                  "recipients" => 
+                  "recipients" =>
                     array(
                      "list_id" => $list_id,
                      "segment_opts" => array (
@@ -584,88 +586,88 @@ class MailChimpService
                         "match" => "any" // Segment match type. : any all
                       )
                     ),
-                  "type"         => "regular", 
+                  "type"         => "regular",
                   "settings"     => array(
-                    "subject_line" => $subject, 
-                    "title"        => $title, 
-                    "reply_to"     => $from_email, 
-                    "from_name"    => $from_name, 
+                    "subject_line" => $subject,
+                    "title"        => $title,
+                    "reply_to"     => $from_email,
+                    "from_name"    => $from_name,
                   //"folder_id"    => "8888969b77"
                   )
                 );
       } else {
         $data = array(
-                  "recipients" => 
+                  "recipients" =>
                     array(
                      "list_id" => $list_id
-                    ), 
-                  "type"         => "regular", 
+                    ),
+                  "type"         => "regular",
                   "settings"     => array(
-                    "subject_line" => $subject, 
-                    "title"        => $title, 
-                    "reply_to"     => $from_email, 
-                    "from_name"    => $from_name, 
+                    "subject_line" => $subject,
+                    "title"        => $title,
+                    "reply_to"     => $from_email,
+                    "from_name"    => $from_name,
                   //"folder_id"    => "8888969b77"
                   )
                 );
       }
-              
+
       $result = $this->myMailchimp->post("campaigns", $data);
-      
+
       if ( !array_key_exists ('title',$result) ) {
 
         $campaignID = $result['id'];// we get the campaign ID
-      
+
         $resultContent = $this->setCampaignContent ($campaignID, $htmlBody);
-      
+
         $this->create_Campaign($list_id,$result);
       }
-      
+
       return [$result,$resultContent,"campaigns/$campaignID/content"];
     }
     private function delete_Campaign ($campaignID) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
-      
+
       $res = [];
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['id'] != $campaignID) {
           $res[] = $campaign;
         }
       }
-        
+
       $_SESSION['MailChimpCampaigns'] = $res;
     }
 
     public function deleteCampaign ($campaignID) {
-      
+
       $result = $this->myMailchimp->delete("campaigns/$campaignID");
-      
+
       if ( !array_key_exists ('title',$result) ) {
         $this->delete_Campaign ($campaignID);
       }
-      
+
       return $result;
     }
     public function setCampaignSchedule ($campaignID,$schedule_time, $timewarp, $batch_delay) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/schedule", ["schedule_time" => $schedule_time, "timewarp" => $timewarp, "batch_delay" => $batch_delay]);
-      
+
       $this->setCampaignStatus($campaignID,"schedule",$schedule_time);
-      
+
       return $resultContent;
     }
     public function setCampaignUnschedule ($campaignID) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/unschedule");
-      
+
       $this->setCampaignStatus($campaignID,"paused");
-      
+
       return $resultContent;
     }
     private function setCampaignStatus ($campaignID,$status,$send_time = nil) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
-      
+
       $res = [];
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['id'] == $campaignID) {
           $campaign['status'] = $status;
@@ -675,31 +677,31 @@ class MailChimpService
         }
         $res[] = $campaign;
       }
-        
+
       $_SESSION['MailChimpCampaigns'] = $res;
     }
     public function setCampaignPause ($campaignID,$schedule_time, $timewarp, $batch_delay) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/pause");
-      
+
       return $resultContent;
     }
     public function setCampaignContent ($campaignID,$htmlBody) {
       $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
-      
+
       return $resultContent;
     }
     private function set_Campaign_MailSubject ($campaignID,$subject) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
-      
+
       $res = [];
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['id'] == $campaignID) {
           $campaign['settings']['subject_line'] = $subject;
         }
         $res[] = $campaign;
       }
-        
+
       $_SESSION['MailChimpCampaigns'] = $res;
     }
     public function setCampaignMailSubject ($campaignID,$subject) {
@@ -707,47 +709,47 @@ class MailChimpService
                 "settings"     => array(
                   "subject_line" => $subject)
               );
-              
+
       $result = $this->myMailchimp->patch("campaigns/$campaignID", $data);
 
       if ( !array_key_exists ('title',$result) ) {
         $this->set_Campaign_MailSubject ($campaignID,$subject);
       }
-              
+
       return $result;
     }
     public function getCampaignContent ($campaignID) {
       $result = $this->myMailchimp->get("campaigns/$campaignID/content");
-      
+
       return $result;
     }
     private function send_Campaign ($campaignID) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
-      
+
       $res = [];
-      
+
       foreach ($campaigns as $campaign) {
         if ($campaign['id'] == $campaignID) {
           $campaign['status'] = 'sent';
         }
         $res[] = $campaign;
       }
-        
+
       $_SESSION['MailChimpCampaigns'] = $res;
     }
     public function sendCampaign ($campaignID) {
-      
+
       $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
-      
+
       if ( !array_key_exists ('title',$result) ) {
         $this->send_Campaign ($campaignID);
       }
-      
+
       return $result;
     }
     private function add_list_member ($list_id,$member) {
       $mcLists = $_SESSION['MailChimpLists'];
-  
+
       $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
@@ -756,19 +758,19 @@ class MailChimpService
         }
         $i++;
       }
-    }    
+    }
     public function sendAllMembers ($array) {
       $res = $this->myMailchimp->post("batches",$array);
-      
+
       //$this->restoreCache();
-      
+
       return $res;
     }
     public function postMember($list_id,$id,$first_name,$last_name,$mail,$address=nil,$phone=nil,$status)
     {
       if ( !empty($mail) ) {
         $merge_fields = ['FNAME'=>$first_name, 'LNAME'=>$last_name];
-        
+
         if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
           $merge_fields['ADDRESS'] = $address;
         }
@@ -776,7 +778,7 @@ class MailChimpService
         if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
           $merge_fields['PHONE']   = $phone ;
         }
-        
+
         $result = $this->myMailchimp->post("lists/$list_id/members", [
           'id'            => "$id",
           'email_address' => $mail,
@@ -787,18 +789,18 @@ class MailChimpService
         if ( !array_key_exists ('title',$result) ) {
             $this->add_list_member ($list_id,$result);
         }
-        
+
         return $result;
       }
-      
+
       return nil;
     }
     private function delete_list_member ($list_id,$email) {
       $mcLists = $_SESSION['MailChimpLists'];
 
       $newMembers     = [];
-      
-      $i = 0;      
+
+      $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
           $res = "liste1 = ";
@@ -817,38 +819,38 @@ class MailChimpService
         }
         $i++;
       }
-      
+
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
     }
     public function getMembersFromList ($list_id,$count=500) {
-      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]); 
+      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]);
     }
-    
+
     public function deleteMember($list_id,$email){
         $subscriber_hash = $this->myMailchimp->subscriberHash($email);
-        
-        $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash"); 
+
+        $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash");
 
         if (!array_key_exists ('title',$result) ) {
           $this->delete_list_member ($list_id,$email);
         }
-        
+
         return $result;
     }
     public function deleteAllMembers ($list_id) {
       $members = $this->getListMembersFromListId ($list_id);
-      
+
       $res = [];
-      
+
       foreach ($members as $member) {
         $res[] = $this->deleteMember($list_id,$member['email_address']);
       }
-      
+
       return $res;
     }
     private function update_list_member ($list_id,$member,$status) {
       $mcLists = $_SESSION['MailChimpLists'];
-      
+
       $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
@@ -856,9 +858,9 @@ class MailChimpService
           foreach ($_SESSION['MailChimpLists'][$i]['members'] as $memb) {
             if ($memb['email_address'] == $member) {
               $old_status = $_SESSION['MailChimpLists'][$i]['members'][$j]['status'];
-              
+
               $_SESSION['MailChimpLists'][$i]['members'][$j]['status'] = $status;
-              
+
               if ($status == 'subscribed' && $old_status != $status) {
                 $_SESSION['MailChimpLists'][$i]['stats']['member_count']++;
                 $_SESSION['MailChimpLists'][$i]['stats']['unsubscribe_count']--;
@@ -870,7 +872,7 @@ class MailChimpService
             }
             $j++;
           }
-          
+
           break;
         }
         $i++;
@@ -892,16 +894,16 @@ class MailChimpService
                   //'interests'    => ['2s3a384h' => true],
            ]);
         }
-         
+
         if (!array_key_exists ('title',$result) ) {
           $res = $this->update_list_member ($list_id,$mail,$status);
         }
-        
+
         return $result;
     }
     private function update_member_email ($list_id,$member,$newEmail) {
       $mcLists = $_SESSION['MailChimpLists'];
-      
+
       $i = 0;
       foreach ($mcLists as $list) {
 
@@ -914,7 +916,7 @@ class MailChimpService
             }
             $j++;
           }
-          
+
           break;
         }
         $i++;
@@ -925,12 +927,12 @@ class MailChimpService
         $subscriber_hash = $this->myMailchimp->subscriberHash($oldEmail);
 
         $lists = $this->getListsFromCache();
-        
+
         foreach ($lists as $list) {
            $result = $this->myMailchimp->patch("lists/".$list['id']."/members/$subscriber_hash", [
                 'email_address' => $newEmail,
            ]);
-           
+
            $this->update_member_email ($list['id'],$oldEmail,$newEmail);
         }
         return $result;
