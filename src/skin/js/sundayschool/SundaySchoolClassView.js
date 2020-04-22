@@ -57,16 +57,17 @@ $("document").ready(function(){
             '        <!-- Begin user profile -->' +
             '        <div class="card text-center user-profile-2">' +
             '            <div class="card-header border-0">' +
-            '               <h4 class="card-title text-center">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
+            '               <h4 class="card-title-sundayschool-view" style="float:center !important">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
             '            </div>' +
             '            <div class="card-body">';
 
         res += '               <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
             '        alt="User Image" class="user-image initials-image" width="85" height="85" />';
 
-          if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
-          res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
-
+        if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
+            res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
+        } else {
+            res += '<p></p>';
         }
         res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-success btn-sm btn-block"><i' +
             '      class="fa fa-envelope"></i> ' + i18next.t('Send Message') + '</a>' +
