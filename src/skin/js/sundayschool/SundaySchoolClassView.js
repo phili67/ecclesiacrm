@@ -45,17 +45,26 @@ $("document").ready(function(){
       path: "groups/" + sundayGroupId + "/sundayschool"
     }).done(function (data) {
       var len_teachers = data.teachers.length;
-      var res = '';
+      var res = '<div class="row">';
+
+      var cnt = 0;
 
       for (i = 0;i < len_teachers;i++) {
-        res += '<div class="col-sm-2">' +
+        if (cnt % 4 == 0 && cnt != 0) {
+            res += '</div><div class="row">';
+        }
+        res += '<div class="col-md-3">' +
             '        <!-- Begin user profile -->' +
-            '        <div class="box box-info text-center user-profile-2">' +
-            '            <div class="user-profile-inner">' +
-            '            <h4 class="white">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
-            '        <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
+            '        <div class="card text-center user-profile-2">' +
+            '            <div class="card-header border-0">' +
+            '               <h4 class="card-title text-center">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
+            '            </div>' +
+            '            <div class="card-body">';
+
+        res += '               <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
             '        alt="User Image" class="user-image initials-image" width="85" height="85" />';
-        if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
+
+          if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
           res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
 
         }
@@ -65,10 +74,14 @@ $("document").ready(function(){
             '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-user"></i> ' + i18next.t('View Profile') +'</a>' +
             '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" ' +
             '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-trash"></i> ' + i18next.t('Delete') +'</a>' +
-            '        </div>' +
-            '        </div>' +
-            '        </div>'
+            '    </div>' +
+            ' </div>' +
+            '</div>';
+
+        cnt += 1;
       }
+
+      res += '</div>';
 
       $('.teachers_container').html(res);
 
