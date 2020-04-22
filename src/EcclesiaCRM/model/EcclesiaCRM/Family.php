@@ -5,6 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Base\Family as BaseFamily;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\Utils\GeoUtils;
@@ -133,7 +134,7 @@ class Family extends BaseFamily implements iPhoto
         {
           $NotificationEmail = new NewPersonOrFamilyEmail($this);
           if (!$NotificationEmail->send()) {
-            $logger->warn($NotificationEmail->getError());
+            LoggerUtils::getAppLogger()->warn($NotificationEmail->getError());
           }
         }
     }
