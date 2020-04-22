@@ -43,11 +43,11 @@ use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
 
 $app->group('/persons', function () {
-  
+
 /*
  * @! Returns a list of the persons who's first name or last name matches the :query parameter
  * #! param: ref->string :: query string ref
- */  
+ */
     $this->get('/search/{query}', "searchPerson" );
 
 /*
@@ -57,33 +57,33 @@ $app->group('/persons', function () {
 
 /**
  *
- * VolunteerOpportunity 
+ * VolunteerOpportunity
  *
  **/
 
 /*
  * @! Returns all the volunteers opportunities
  * #! param: id->int :: personId as id
- */  
+ */
     $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId" );
 /*
  * @! delete a volunteer opportunity for a user
  * #! param: id1->int :: personId as id1
  * #! param: id2->int :: volunteerOpportunityId as id2
- */  
+ */
     $this->post('/volunteers/delete', "volunteersDelete" );
 /*
  * @! Add volunteers opportunity
  * #! param: id1->int :: personId as id1
  * #! param: id2->int :: volID as id2
- */  
+ */
     $this->post('/volunteers/add', "volunteersAdd" );
-    
+
 /*
  * @! Return if MailChimp is activated
  * #! param: id->int :: personId as id
  * #! param: ref->string :: email as ref
- */  
+ */
     $this->post('/isMailChimpActive', "isMailChimpActivePerson" );
 
 /**
@@ -95,9 +95,9 @@ $app->group('/persons', function () {
  * @! Return if MailChimp is activated
  * #! param: id->int :: personId as id
  * #! param: ref->string :: email as ref
- */  
+ */
     $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate" );
-    
+
     // api for person properties
     $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId" );
     $this->get('/numbers', "numbersOfBirthDates" );
@@ -123,22 +123,22 @@ $app->group('/persons', function () {
      * @var $response \Psr\Http\Message\ResponseInterface
      */
     $this->delete('/{personId:[0-9]+}', "deletePerson" );
-    
+
     $this->post('/deletefield', "deletePersonField" );
     $this->post('/upactionfield', "upactionPersonfield" );
     $this->post('/downactionfield', "downactionPersonfield" );
-    
+
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
- 
+
     $this->get('/duplicate/emails', "duplicateEmails" );
-    $this->get('/NotInMailChimp/emails', "notInMailChimpEmails" );
-  
+    $this->get('/NotInMailChimp/emails/{type}', "notInMailChimpEmails" );
+
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
-    $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' ); 
+    $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' );
 });
 
 function searchPerson (Request $request, Response $response, array $args) {
@@ -146,28 +146,28 @@ function searchPerson (Request $request, Response $response, array $args) {
 
   $searchLikeString = '%'.$query.'%';
   $people = PersonQuery::create();
-  
+
   if (SystemConfig::getBooleanValue('bGDPR')) {
     $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
   }
-          
+
   $people->filterByFirstName($searchLikeString, Criteria::LIKE)->
     _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
     _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
     limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
-    
+
     $id = 1;
-    
-    $return = [];        
+
+    $return = [];
     foreach ($people as $person) {
         $values['id'] = $id++;
         $values['objid'] = $person->getId();
         $values['text'] = $person->getFullName();
         $values['uri'] = $person->getViewURI();
-        
+
         array_push($return, $values);
     }
-    
+
     return $response->withJson($return);
 }
 
@@ -265,22 +265,22 @@ function volunteersDelete(Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
 
   if ( isset ($input->personId) && isset ($input->volunteerOpportunityId) ){
-  
+
     $vol = PersonVolunteerOpportunityQuery::Create()
       ->filterByPersonId($input->personId)
       ->findOneByVolunteerOpportunityId($input->volunteerOpportunityId);
-      
+
     if (!is_null($vol)){
       $vol->delete();
     }
-    
+
     $vols = PersonVolunteerOpportunityQuery::Create()
       ->filterByPersonId($input->personId)
       ->find();
-    
+
     return $response->withJson(['success' => true,'count' => $vols->count()]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -288,27 +288,27 @@ function volunteersAdd(Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
 
   if ( isset ($input->personId) && isset ($input->volID) ){
-  
+
     $vol = PersonVolunteerOpportunityQuery::Create()
       ->filterByPersonId($input->personId)
       ->findOneByVolunteerOpportunityId($input->volID);
-      
+
     if (is_null($vol)){
       $vol = new PersonVolunteerOpportunity();
-      
+
       $vol->setPersonId($input->personId);
       $vol->setVolunteerOpportunityId($input->volID);
 
       $vol->save();
     }
-    
+
     $vols = PersonVolunteerOpportunityQuery::Create()
       ->filterByPersonId($input->personId)
       ->find();
-    
+
     return $response->withJson(['success' => true,'count' => $vols->count()]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -316,18 +316,18 @@ function isMailChimpActivePerson (Request $request, Response $response, array $a
   $input = (object)$request->getParsedBody();
 
   if ( isset ($input->personId) && isset ($input->email)){
-  
+
     // we get the MailChimp Service
     $mailchimp = new MailChimpService();
     $person = PersonQuery::create()->findPk($input->personId);
-    
+
     if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
     } else {
       return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -350,7 +350,7 @@ function personpropertiesPerPersonId (Request $request, Response $response, arra
 }
 
 function numbersOfBirthDates (Request $request, Response $response, array $args) {
-  return $response->withJson(MenuEventsCount::getNumberBirthDates());       
+  return $response->withJson(MenuEventsCount::getNumberBirthDates());
 }
 
 function postPersonPhoto (Request $request, Response $response, array $args) {
@@ -396,25 +396,25 @@ function deletePersonField (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
-  
+
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $perCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
-    
+
     if ( !is_null ($perCus) && $perCus->getTypeId() == 12 ) {
        $list = ListOptionQuery::Create()->findById($perCus->getCustomSpecial());
        if( !is_null($list) ) {
          $list->delete();
        }
     }
-    
+
     // this can't be propeled
     $connection = Propel::getConnection();
     $sSQL = 'ALTER TABLE `person_custom` DROP `'.$values->field.'` ;';
-    $connection->exec($sSQL); 
+    $connection->exec($sSQL);
 
     // now we can delete the FamilyCustomMaster
     $perCus->delete();
@@ -431,10 +431,10 @@ function deletePersonField (Request $request, Response $response, array $args) {
             }
         }
     }
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -444,42 +444,42 @@ function upactionPersonfield (Request $request, Response $response, array $args)
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID - 1);
     $firstFamCus->setCustomOrder($values->orderID)->save();
-    
+
     $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
     $secondFamCus->setCustomOrder($values->orderID - 1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
-    
-    
+
+
 function downactionPersonfield (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
 
   $values = (object)$request->getParsedBody();
-  
+
   if ( isset ($values->orderID) && isset ($values->field) )
   {
     // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
     $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID + 1);
     $firstFamCus->setCustomOrder($values->orderID)->save();
-    
+
     $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
     $secondFamCus->setCustomOrder($values->orderID + 1)->save();
-    
+
     return $response->withJson(['success' => true]);
   }
-  
+
   return $response->withJson(['success' => false]);
 }
 
@@ -510,28 +510,48 @@ function duplicateEmails(Request $request, Response $response, array $args) {
     }
     return $response->withJson(["emails" => $emails]);
   }
-  
-  
-function notInMailChimpEmails (Request $request, Response $response, array $args) {    
+
+
+function notInMailChimpEmails (Request $request, Response $response, array $args) {
+
     $mailchimp = new MailChimpService();
     if (!$mailchimp->isActive())
     {
       return $response->withRedirect(SystemURLs::getRootPath() . "/email/Dashboard.php");
     }
-    $People = PersonQuery::create()
+
+    if ($args['type'] == "families") {
+        $families = FamilyQuery::create()
+            ->filterByDateDeactivated(null)
+            ->find();
+
+
+        $missingEmailInMailChimp = array();
+        foreach ($families as $family) {
+            $persons = $family->getHeadPeople();
+            foreach ($persons as $Person) {
+                $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
+                if ($mailchimpList == '') {
+                    array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '">' . $family->getSaluation() . '</a>', "email" => $Person->getEmail()]);
+                }
+            }
+        }
+    } else if ($args['type'] == "persons") {
+        $People = PersonQuery::create()
+            ->filterByDateDeactivated(null)
             ->filterByEmail(null, Criteria::NOT_EQUAL)
             ->orderByDateLastEdited(Criteria::DESC)
             ->find();
-    
-    $missingEmailInMailChimp = array();
-    foreach($People as $Person)
-    {
-        $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
-        if ($mailchimpList == '') {
-           array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$Person->getId().'">'. $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
+
+        $missingEmailInMailChimp = array();
+        foreach ($People as $Person) {
+            $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
+            if ($mailchimpList == '') {
+                array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $Person->getId() . '">' . $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
+            }
         }
     }
-     
+
     return $response->withJson(["emails" => $missingEmailInMailChimp]);
   }
 
@@ -543,19 +563,19 @@ function activateDeacticate (Request $request, Response $response, array $args) 
     $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
 
     //update only if the status is different
-    
+
     // note : When a user is deactivated the associated person is deactivated too
     //        but when a person is deactivated the user is deactivated too.
     //        Important : a person re-activated don't reactivate the user
-    
+
     if ($currentStatus != $newStatus) {
         if ($newStatus == 'false') {
             $user = UserQuery::create()->findPk($personId);
-            
+
             if (!is_null($user)) {
               $user->setIsDeactivated(true);
               $user->save();
-        
+
               // a mail is notified
               $email = new UpdateAccountEmail($user, _("Account Deactivated"));
               $email->send();
@@ -563,7 +583,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
               //Create a note to record the status change
               $note = new Note();
               $note->setPerId($user->getPersonId());
-              
+
               $note->setText(_('Account Deactivated'));
               $note->setType('edit');
               $note->setEntered(SessionUser::getUser()->getPersonId());
@@ -575,9 +595,9 @@ function activateDeacticate (Request $request, Response $response, array $args) 
         } elseif ($newStatus == 'true') {
             $person->setDateDeactivated(Null);
         }
-        
+
         $person->save();
-        
+
         // a one person family is deactivated too
         if ($person->getFamily()->getPeople()->count() == 1) {
           $person->getFamily()->setDateDeactivated(($newStatus == "false")?date('YmdHis'):Null);
@@ -603,32 +623,32 @@ function generateRandomString($length = 15)
 
 function saveNoteAsWordFile ($request, $res, $args) {
   $input = (object)$request->getParsedBody();
-  
+
   if ( isset ($input->personId) && isset ($input->noteId) ) {
     $user = UserQuery::create()->findPk($input->personId);
-    
+
     $actualNote = NoteQuery::Create()->findOneById ($input->noteId);
-    
-      
+
+
     if ( !is_null($user) && !is_null($actualNote) ) {
         $realNoteDir = $userDir = $user->getUserRootDir();
         $userName    = $user->getUserName();
         $currentpath = $user->getCurrentpath();
-        
+
         $pw = new \PhpOffice\PhpWord\PhpWord();
 
-        // [THE HTML] 
+        // [THE HTML]
         $section = $pw->addSection();
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $actualNote->getText(), false, false);
-        
+
         $title = "note_".generateRandomString(5);
-        
+
         // we set a random title
 
         // [SAVE FILE ON THE SERVER]
         $tmpFile = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
         $pw->save($tmpFile, "Word2007");
-        
+
         // now we create the note
         $note = new Note();
         $note->setPerId($input->personId);
@@ -639,12 +659,12 @@ function saveNoteAsWordFile ($request, $res, $args) {
         $note->setType('file');
         $note->setEntered(SessionUser::getUser()->getPersonId());
         $note->setInfo(_('Create file'));
-      
+
         $note->save();
 
         return $res->withJson(['success' => true, 'title' => $title ]);
     }
   }
-  
+
   return $res->withJson(['success' => false]);
 }
