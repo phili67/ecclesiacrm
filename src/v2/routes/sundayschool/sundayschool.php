@@ -147,8 +147,6 @@ function argumentsSundayschoolReportsArray ()
 
 
     if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isset($_POST['SubmitClassAttendance']) || isset($_POST['SubmitRealClassAttendance']) ) {
-
-        echo "coucou";
         $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');
 
         $dFirstSunday = InputUtils::LegacyFilterInput($_POST['FirstSunday'], 'date');
