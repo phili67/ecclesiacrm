@@ -21,17 +21,17 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="col">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <div class="sticky-top">
                 <div class="card card-lightblue">
                     <div class="card-header with-border">
                         <h3 class="card-title"><?= _("Filters") ?></h3>
                     </div>
                     <div class="row" style="padding:5px">
-                        <div class="col-3">
+                        <div class="col-md-3">
                             <p class="text-center"><?= _("By Types") ?></p>
                         </div>
-                        <div class="col-9">
+                        <div class="col-md-9">
                             <select type="text" id="EventTypeFilter" value="0"
                                     class="form-control input-sm" size=1>
                                 <option value='0'><?= _("All") ?></option>
@@ -48,10 +48,10 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <hr class="hr-separator">
                     <div class="row" style="padding: 3px">
-                        <div class="col-4">
+                        <div class="cold-4">
                             <div
                                 class="custom-control custom-switch ustom-switch custom-switch-off-light custom-switch-on-info">
-                                <input type="checkbox" class="custom-control-input" id="isWithLimit" checked>
+                                &nbsp;<input type="checkbox" class="custom-control-input" id="isWithLimit" checked>
                                 <label class="custom-control-label"
                                        for="isWithLimit"><small><?= _("Limit") ?></small></label>
                             </div>
@@ -244,7 +244,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
         </div>
-        <div class="col-sm-9">
+        <div class="col-md-9">
             <div class="card">
                 <!-- THE CALENDAR -->
                 <div id="calendar"></div>

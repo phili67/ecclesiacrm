@@ -1,5 +1,8 @@
-.no-background-theme
-    /* special alert */
+.no-background-theme {
+    color:rgba(0.0, 0.0, 0.0, 0.0)
+}
+
+/* special alert */
 .alert-birthday {
     background-color: #76c3e8;
     border-left-color: #498bbb !important;
@@ -75,7 +78,7 @@
     background: #f39c12 !important;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f39c12), color-stop(1, #f7bc60)) !important;
     background: -ms-linear-gradient(bottom, #f39c12, #f7bc60) !important;
-    background: -moz-linear-gradient(center bottom, #f39c12 0%, #f7bc60 100%) !important;
+    background: -moz-linear-gradient(bottom, #f39c12 0%, #f7bc60 100%) !important;
     background: -o-linear-gradient(#f7bc60, #f39c12) !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7bc60', endColorstr='#f39c12', GradientType=0) !important;
     color: #fff;
@@ -85,7 +88,7 @@
     background: #0073b7 !important;
     background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0073b7), color-stop(1, #0089db)) !important;
     background: -ms-linear-gradient(bottom, #0073b7, #0089db) !important;
-    background: -moz-linear-gradient(center bottom, #0073b7 0%, #0089db 100%) !important;
+    background: -moz-linear-gradient(bottom, #0073b7 0%, #0089db 100%) !important;
     background: -o-linear-gradient(#0089db, #0073b7) !important;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0089db', endColorstr='#0073b7', GradientType=0) !important;
     color: #fff;
@@ -283,7 +286,7 @@ scrollable bootbox body
 /* for the sunday school view */
 
 .card-title-sundayschool-view {
-    float: center;
+    text-align: center;
     font-size: 1.1rem;
     font-weight: 400;
     margin: 0;

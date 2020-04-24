@@ -188,6 +188,7 @@ $(document).ready(function () {
          var box = bootbox.dialog({
            title: i18next.t("Modify Event"),
            message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
+           size: 'large',
            buttons: {
               cancel: {
                 label:  i18next.t("Delete Event"),
@@ -603,6 +604,7 @@ events: function(start, end, timezone, callback) {
         var box = bootbox.dialog({
            title: i18next.t('Event added'),
            message: i18next.t("Event was added successfully. Would you like to make the Attendance or to add attendees ?"),
+           size: 'large',
            buttons: {
               cancel: {
                 label:  i18next.t('No'),
