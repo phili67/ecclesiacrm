@@ -48,16 +48,16 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <hr class="hr-separator">
                     <div class="row" style="padding: 3px">
-                        <div class="cold-md-4">
+                        <div class="cold-4">
                             <div
                                 class="custom-control custom-switch ustom-switch custom-switch-off-light custom-switch-on-info">
-                                <input type="checkbox" class="custom-control-input" id="isWithLimit" checked>
+                                &nbsp;<input type="checkbox" class="custom-control-input" id="isWithLimit" checked>
                                 <label class="custom-control-label"
                                        for="isWithLimit"><small><?= _("Limit") ?></small></label>
                             </div>
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-4">
 
                             <?php
                             if ($sessionUsr->isSeePrivacyDataEnabled()) {
@@ -75,7 +75,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-4">
 
                             <?php
                             if ($sessionUsr->isSeePrivacyDataEnabled()) {
