@@ -9,6 +9,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\PersonQuery;
 
 class DropDownEmailsClass {
     public $allNormal;
@@ -75,7 +76,7 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
                     $connection = Propel::getConnection();
                     $statement = $connection->prepare($sSQL);
                     $statement->execute();
-                    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+                    $aPersonProps = $statement->fetch(\PDO::FETCH_BOTH);
 
 
                     if ($ormPropLists->count() > 0) {
