@@ -78,7 +78,7 @@ if (SessionUser::getUser()->isAddRecords()) {
             <a class="btn btn-app bg-orange makeCheckOut disabled" id="makeCheckOut"
                data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
+                    class="cartActionDescription"><?= _('Take Attendance') ?></span></a>
             <?php
         }
         ?>
