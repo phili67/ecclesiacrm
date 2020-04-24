@@ -75,10 +75,10 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
             || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
-            <a class="btn btn-app bg-blue makeCheckOut disabled" id="makeCheckOut"
+            <a class="btn btn-app bg-orange makeCheckOut disabled" id="makeCheckOut"
                data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
+                    class="cartActionDescription"><?= _('Take Attendance') ?></span></a>
             <?php
         }
         ?>

@@ -57,16 +57,17 @@ $("document").ready(function(){
             '        <!-- Begin user profile -->' +
             '        <div class="card text-center user-profile-2">' +
             '            <div class="card-header border-0">' +
-            '               <h4 class="card-title text-center">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
+            '               <h4 class="card-title-sundayschool-view" style="float:center !important">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
             '            </div>' +
             '            <div class="card-body">';
 
         res += '               <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"' +
             '        alt="User Image" class="user-image initials-image" width="85" height="85" />';
 
-          if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
-          res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
-
+        if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
+            res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
+        } else {
+            res += '<p></p>';
         }
         res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-success btn-sm btn-block"><i' +
             '      class="fa fa-envelope"></i> ' + i18next.t('Send Message') + '</a>' +
@@ -1005,6 +1006,7 @@ $("document").ready(function(){
            var boxOptions ={
              title: i18next.t("Select the event Type you would like to use to create the Attendance")+" : "+groupName,
              message: '<div class="modal-body">',
+             size:"large",
              buttons: {
                addEvent: {
                    label: i18next.t("Create First A New Event"),
@@ -1021,7 +1023,7 @@ $("document").ready(function(){
                    label: i18next.t('Create Event With Students'),
                    className: 'btn btn-primary',
                    callback: function() {
-                        var e = document.getElementById("typeChosen");
+                        var e = document.getElementById("chosenType");
                         var eventTypeID = e.options[e.selectedIndex].value;
 
                         window.CRM.APIRequest({
@@ -1037,10 +1039,10 @@ $("document").ready(function(){
           };
 
           boxOptions.message +='<center>'+i18next.t("You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.")+'</center><br>';
-          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="typeChosen">';
+          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="chosenType">';
           for (i=0;i<lenType;i++) {
              boxOptions.message +='<option value="'+typeNames[i].eventTypeID+'">'+typeNames[i].name+'</option>';
-           }
+          }
 
           boxOptions.message +='</select>\
                              </div>';
@@ -1058,40 +1060,36 @@ $("document").ready(function(){
       var dateEnd = moment(end).format(fmt);
 
 
-      var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
+      var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b>'
+          +'<hr/>'
           +'<div class="row">'
-              +'<div class="col-md-12">'
-                  +'<div class="row">'
-                    +'<div class="col-md-3"><span style="color: red">*</span>'
-                      + i18next.t('Start Date')+' :'
-                    +'</div>'
-                     +'<div class="col-md-3">'
-                       +'<div class="input-group">'
-                          +'<div class="input-group-addon">'
-                              +'<i class="fa fa-calendar"></i>'
-                          +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
-                                +'maxlength="10" id="sel1" size="11"'
-                                +'placeholder="'+window.CRM.datePickerformat+'">'
-                        +'</div>'
-                    +'</div>'
-                    +'<div class="col-md-3"><span style="color: red">*</span>'
-                      + i18next.t('End Date')+' :'
-                    +'</div>'
-                     +'<div class="col-md-3">'
-                       +'<div class="input-group">'
-                          +'<div class="input-group-addon">'
-                              +'<i class="fa fa-calendar"></i>'
-                          +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
-                                +'maxlength="10" id="sel1" size="11"'
-                                +'placeholder="'+window.CRM.datePickerformat+'">'
-                        +'</div>'
-                    +'</div>'
-                  +'</div>'
-                +'</div>'
-            +'</div>'
-         + '</form>';
+          +'    <div class="col-md-12">'
+          +'        <div class="row">'
+          +'            <div class="col-md-3"><span style="color: red">*</span>'
+          +                 i18next.t('Start Date')+' :'
+          +'            </div>'
+          +'            <div class="input-group col-md-3">'
+          +'                 <div class="input-group-prepend">'
+          +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+          +'                 </div>'
+          +'                 <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
+          +'                        maxlength="10" id="sel1" size="11"'
+          +'                        placeholder="'+window.CRM.datePickerformat+'">'
+          +'            </div>'
+          +'            <div class="col-md-3"><span style="color: red">*</span>'
+          +                 i18next.t('End Date')+' :'
+          +'            </div>'
+          +'            <div class="input-group col-md-3">'
+          +'                 <div class="input-group-prepend">'
+          +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+          +'                 </div>'
+          +'                 <input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
+          +'                        maxlength="10" id="sel1" size="11"'
+          +'                        placeholder="'+window.CRM.datePickerformat+'">'
+          +'            </div>'
+          +'        </div>'
+          +'    </div>'
+          +'</div>';
 
       var object = $('<div/>').html(frm_str).contents();
 
@@ -1108,6 +1106,7 @@ $("document").ready(function(){
        var modal = bootbox.dialog({
          title: i18next.t("Set year range to export"),
          message: BootboxContentCSV(start,end),
+         size:"large",
          buttons: [
           {
            label: i18next.t("Cancel"),
@@ -1145,60 +1144,54 @@ $("document").ready(function(){
 
     function BootboxContentPDF(start,end)
     {
-      var time_format;
       var fmt = window.CRM.datePickerformat.toUpperCase();
 
       var dateStart = moment(start).format(fmt);
       var dateEnd = moment(end).format(fmt);
 
 
-      var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
+      var frm_str = '<b><p>'+i18next.t("First, set your date range correctly to make the extraction.")+'</p></b>'
+          +'<hr/>'
           +'<div class="row">'
-              +'<div class="col-md-12">'
-                  +'<div class="row">'
-                    +'<div class="col-md-3"><span style="color: #78ff43">*</span>'
-                      + i18next.t('Start Date')+' :'
-                    +'</div>'
-                     +'<div class="col-md-3">'
-                       +'<div class="input-group">'
-                          +'<div class="input-group-addon">'
-                              +'<i class="fa fa-calendar"></i>'
-                          +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
-                                +'maxlength="10" id="sel1" size="11"'
-                                +'placeholder="'+window.CRM.datePickerformat+'">'
-                        +'</div>'
-                    +'</div>'
-                    +'<div class="col-md-3"><span style="color: red">*</span>'
-                      + i18next.t('End Date')+' :'
-                    +'</div>'
-                     +'<div class="col-md-3">'
-                       +'<div class="input-group">'
-                          +'<div class="input-group-addon">'
-                              +'<i class="fa fa-calendar"></i>'
-                          +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
-                                +'maxlength="10" id="sel1" size="11"'
-                                +'placeholder="'+window.CRM.datePickerformat+'">'
-                        +'</div>'
-                    +'</div>'
-                  +'</div>'
-                +'</div>'
-            +'</div>'
-            +'<br>'
-            +'<div class="row">'
-              +'<div class="col-md-3"><span style="color: red">*</span>'
-                + i18next.t('Extra students')+' :'
-              +'</div>'
-              +'<div class="col-md-3">'
-                +'<input class="form-control input-sm" type="text" id="ExtraStudents" name="ExtraStudents"  value="0" maxlength="10" id="sel1" size="11">'
-              +'</div>'
-              +'<div class="col-md-6">'
-                +'<input id="withPictures" type="checkbox" checked> '+ i18next.t('export with photos')
-              +'</div>'
-              +'</div>'
-            +'</div>'
-         + '</form>';
+          +'    <div class="col-md-12">'
+          +'        <div class="row">'
+          +'            <div class="col-md-3"><span style="color:red">*</span>'
+          +                 i18next.t('Start Date')+' :'
+          +'            </div>'
+          +'            <div class="input-group col-md-3">'
+          +'                 <div class="input-group-prepend">'
+          +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+          +'                 </div>'
+          +'                    <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
+          +'                        maxlength="10" id="sel1" size="11"'
+          +'                        placeholder="'+window.CRM.datePickerformat+'">'
+          +'            </div>'
+          +'            <div class="col-md-"><span style="color: red">*</span>'
+          +                 i18next.t('End Date')+' :'
+          +'            </div>'
+          +'            <div class="input-group col-md-3">'
+          +'                 <div class="input-group-prepend">'
+          +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+          +'                 </div>'
+          +'                    <input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
+          +'                        maxlength="10" id="sel1" size="11"'
+          +'                        placeholder="'+window.CRM.datePickerformat+'">'
+          +'            </div>'
+          +'        </div>'
+          +'    </div>'
+          +'</div>'
+          +'<br>'
+          +'<div class="row">'
+          +'    <div class="col-md-4"><span style="color: red">*</span>'
+          +         i18next.t('Extra students')+' :'
+          +'    </div>'
+          +'    <div class="col-md-3">'
+          +'        <input class="form-control input-sm" type="text" id="ExtraStudents" name="ExtraStudents"  value="0" maxlength="10" id="sel1" size="11">'
+          +'    </div>'
+          +'    <div class="col-md-6">'
+          +'        <input id="withPictures" type="checkbox" checked> '+ i18next.t('export with photos')
+          +'    </div>'
+          +'</div>';
 
       var object = $('<div/>').html(frm_str).contents();
 
@@ -1214,6 +1207,7 @@ $("document").ready(function(){
        var modal = bootbox.dialog({
          title: i18next.t("Set year range to export"),
          message: BootboxContentPDF(start,end),
+         size:"large",
          buttons: [
           {
            label: i18next.t("Cancel"),

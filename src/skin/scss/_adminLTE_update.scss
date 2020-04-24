@@ -1,4 +1,5 @@
-/* special alert */
+.no-background-theme
+    /* special alert */
 .alert-birthday {
     background-color: #76c3e8;
     border-left-color: #498bbb !important;
@@ -125,11 +126,6 @@
 
 .btn-primary {
     color: white !important;
-}
-
-
-.no-background-theme {
-    background-color: rgba(0, 0, 0, 0.02) !important;
 }
 
 .menu-info {
@@ -282,4 +278,13 @@ scrollable bootbox body
 
 .AddToPeopleCart a:hover {
     color: #0056b3 !important;
+}
+
+/* for the sunday school view */
+
+.card-title-sundayschool-view {
+    float: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
 }

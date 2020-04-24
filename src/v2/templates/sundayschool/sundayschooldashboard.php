@@ -94,14 +94,50 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="card-title"><?= _('Functions') ?></h3>
     </div>
     <div class="card-body">
-        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
+        <div class="row">
+            <div class="col-md-12">
+        <?php
+
+        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
+            // Display link
+            ?>
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLink" href=""><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMail" role="menu"></div>
+            </div>
+
+            <div class="btn-group">
+                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
+                </button>
+                <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
+            </div>
+            <?php
+        }
+
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
             <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
                     class="fa fa-plus-square"></i><?= _('Add New Class') ?></button>
             <?php
         }
-        ?>
-        <?php
+
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
+            ?>
+            <a class="btn btn-app bg-orange makeCheckOut" id="makeCheckOut"
+               data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
+                    class="fa fa-calendar-check-o"></i> <span
+                    class="cartActionDescription"><?= _('Take attendance') ?></span></a>
+            <?php
+        }
+
         if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
             ?>
             <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
@@ -109,16 +145,17 @@ require $sRootDocument . '/Include/Header.php';
                     class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
             <?php
         }
-        ?>
-        <?php
+
         if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
             ?>
             <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
                title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a><br/>
+                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
             <?php
         }
         ?>
+            </div>
+        </div>
     </div>
 </div>
 <!-- on continue -->
@@ -312,4 +349,8 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 require $sRootDocument . '/Include/Footer.php';
 ?>
+
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+<script src="<?= $sRootPath ?>/skin/js/sundayschool/SundaySchoolDashboard.js"></script>
 
