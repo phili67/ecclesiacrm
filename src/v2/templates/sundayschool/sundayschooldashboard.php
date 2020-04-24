@@ -134,7 +134,7 @@ require $sRootDocument . '/Include/Header.php';
             <a class="btn btn-app bg-orange makeCheckOut" id="makeCheckOut"
                data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
+                    class="cartActionDescription"><?= _('Take attendance') ?></span></a>
             <?php
         }
 
