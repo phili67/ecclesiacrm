@@ -139,3 +139,11 @@ margin-bottom: 0px;
 .my-colorpicker-global {
     height: 22px;
 }
+
+.form-group.has-warning label {
+    color: #f39c12;
+}
+
+.form-group.has-warning .help-block {
+    color: #f39c12;
+}
