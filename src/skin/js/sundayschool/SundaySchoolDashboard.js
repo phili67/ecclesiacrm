@@ -6,12 +6,12 @@ $("document").ready(function() {
         var dateAttendees = moment(start).format(fmt);
 
 
-        var frm_str = '<b><p>' + i18next.t("First, set your time range correctly to make the extraction.") + '</p></b><hr/><form id="some-form">'
+        var frm_str = '<b><p>' + i18next.t("First, set your date an time.") + '</p></b><hr/><form id="some-form">'
             + '<div class="row">'
             + '     <div class="col-md-12">'
             + '         <div class="row">'
             + '             <div class="col-md-3"><span style="color: red">*</span>'
-            + i18next.t('Start Date') + ' :'
+            +                   i18next.t('Date') + ' :'
             + '             </div>'
             + '             <div class="input-group col-md-3">'
             + '                 <div class="input-group-prepend">'
@@ -22,7 +22,7 @@ $("document").ready(function() {
             + '                 placeholder="' + window.CRM.datePickerformat + '">'
             + '             </div>'
             + '             <div class="col-md-3"><span style="color: red">*</span>'
-            + i18next.t('End Date') + ' :'
+            +                   i18next.t('Time') + ' :'
             + '             </div>'
             + '             <div class="input-group col-md-3">'
             + '                 <div class="input-group-prepend">'
@@ -73,7 +73,7 @@ $("document").ready(function() {
         var start = moment().format('YYYY-MM-DD');
 
         var modal = bootbox.dialog({
-            title: i18next.t("Set year range to export"),
+            title: i18next.t("Attendance for all sunday groups"),
             message: BootboxContentAttendees(start),
             size: "large",
             buttons: [
