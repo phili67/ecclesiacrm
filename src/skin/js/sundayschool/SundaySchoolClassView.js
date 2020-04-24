@@ -1150,7 +1150,7 @@ $("document").ready(function(){
       var dateEnd = moment(end).format(fmt);
 
 
-      var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b>'
+      var frm_str = '<b><p>'+i18next.t("First, set your date range correctly to make the extraction.")+'</p></b>'
           +'<hr/>'
           +'<div class="row">'
           +'    <div class="col-md-12">'
