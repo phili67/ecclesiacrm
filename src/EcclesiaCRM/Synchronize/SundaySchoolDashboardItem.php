@@ -38,6 +38,10 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
         $KidsEmails = [];
         $ParentsEmails = [];
 
+        $TeachersIds    = [];
+        $KidsIds        = [];
+        $ParentsIds     = [];
+
         foreach ($classStats as $classStat) {
             $iGroupId = $classStat['id'];
 
@@ -46,20 +50,28 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
             $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
 
             foreach ($thisClassChildren as $child) {
-                if ($child['dadEmail'] != '') {
+                if ($child['dadEmail'] != '' && !in_array($child['dadEmail'], $ParentsEmails)) {
                     array_push($ParentsEmails, $child['dadEmail']);
+                    array_push($ParentsIds, $child['dadId']);
                 }
-                if ($child['momEmail'] != '') {
+                if ($child['momEmail'] != '' && !in_array($child['momEmail'], $ParentsEmails)) {
                     array_push($ParentsEmails, $child['momEmail']);
+                    array_push($ParentsIds, $child['momId']);
                 }
-                if ($child['kidEmail'] != '') {
+                if ($child['kidEmail'] != '' && !in_array($child['kidEmail'], $KidsEmails)) {
                     array_push($KidsEmails, $child['kidEmail']);
+                    array_push($KidsIds, $child['kidId']);
                 }
             }
 
             $teachersProps = [];
             foreach ($rsTeachers as $teacher) {
-                array_push($TeachersEmails, $teacher['per_Email']);
+                if ($teacher['per_Email'] != '' && !in_array($teacher['per_Email'], $TeachersEmails)) {
+                    array_push($TeachersEmails, $teacher['per_Email']);
+                }
+                if ($teacher['per_ID'] != '' && !in_array($teacher['per_ID'], $TeachersIds)) {
+                    array_push($TeachersIds, $teacher['per_ID']);
+                }
 
                 $ormPropLists = GroupPropMasterQuery::Create()
                     ->filterByPersonDisplay('true')
@@ -121,7 +133,7 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
         $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
         $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
 
-        return ["emailLink" => $emailLink, "dropDown" => $dropDown];
+        return ["emailLink" => $emailLink, "dropDown" => $dropDown, "cart" => ["parentIds" => $ParentsIds, "KidIds" => $KidsIds, "TeacherIds" => $TeachersIds]];
     }
 
     public static function getDashboardItemValue()
@@ -162,7 +174,6 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
         $kidsCNT = 0;
         $maleKidsCNT = 0;
         $femaleKidsCNT = 0;
-        $teachersEmailsLink = '';
 
         foreach ($classStats as $class) {
             $kidsCNT = $kidsCNT + $class['kids'];
@@ -189,7 +200,8 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
             'maleKidsCNT' => $maleKidsCNT,
             'femaleKidsCNT' => $femaleKidsCNT,
             'emailLink' => $details['emailLink'],
-            'dropDown' => $details['dropDown']
+            'dropDown' => $details['dropDown'],
+            'cart' => $details['cart']
         ];
 
         return $data;
