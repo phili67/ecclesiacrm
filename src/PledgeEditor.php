@@ -575,7 +575,7 @@ require 'Include/Header.php';
       action="PledgeEditor.php?CurrentDeposit=<?= $iCurrentDeposit ?>&GroupKey=<?= $sGroupKey ?>&PledgeOrPayment=<?= $PledgeOrPayment ?>&linkBack=<?= $linkBack ?>"
       name="PledgeEditor">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header with-border">
                     <h3 class="card-title"><?= _("Payment Details") ?></h3>
@@ -584,137 +584,139 @@ require 'Include/Header.php';
                     <input type="hidden" name="FamilyID" id="FamilyID" value="<?= $iFamily ?>">
                     <input type="hidden" name="PledgeOrPayment" id="PledgeOrPayment" value="<?= $PledgeOrPayment ?>">
 
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <label for="FamilyName"><?= _('Family') . " " . _("or") . " " . _("Person") ?></label>
                         <select class="form-control" id="FamilyName" name="FamilyName" width="100%">
                             <option selected><?= $sFamilyName ?></option>
                         </select>
                     </div>
 
-                    <div class="col-lg-6">
-                        <?php if (!$dDate) {
-                            $dDate = $dep_Date;
-                        } ?>
-                        <label for="Date"><?= _('Date') ?></label>
-                        <input class="form-control" data-provide="datepicker"
-                               data-date-format='<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>' type="text"
-                               name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"><font
-                            color="red"><?= $sDateError ?></font>
-                        <label for="FYID"><?= _('Fiscal Year') ?></label>
-                        <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php if (!$dDate) {
+                                $dDate = $dep_Date;
+                            } ?>
+                            <label for="Date"><?= _('Date') ?></label>
+                            <input class="form-control" data-provide="datepicker"
+                                   data-date-format='<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>' type="text"
+                                   name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"><font
+                                color="red"><?= $sDateError ?></font>
+                            <label for="FYID"><?= _('Fiscal Year') ?></label>
+                            <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
 
-                        <?php if ($dep_Type == 'Bank' && SystemConfig::getValue('bUseDonationEnvelopes')) {
-                            ?>
-                            <label for="Envelope"><?= _('Envelope Number') ?></label>
-                            <input class="form-control" type="number" name="Envelope" size=8 id="Envelope"
-                                   value="<?= $iEnvelope ?>">
-                            <?php if (!$dep_Closed) {
+                            <?php if ($dep_Type == 'Bank' && SystemConfig::getValue('bUseDonationEnvelopes')) {
                                 ?>
-                                <input class="form-control" type="submit" class="btn" value="<?= _('Find family->') ?>"
-                                       name="MatchEnvelope">
+                                <label for="Envelope"><?= _('Envelope Number') ?></label>
+                                <input class="form-control" type="number" name="Envelope" size=8 id="Envelope"
+                                       value="<?= $iEnvelope ?>">
+                                <?php if (!$dep_Closed) {
+                                    ?>
+                                    <input class="form-control" type="submit" class="btn" value="<?= _('Find family->') ?>"
+                                           name="MatchEnvelope">
+                                    <?php
+                                } ?>
+
                                 <?php
                             } ?>
 
-                            <?php
-                        } ?>
+                            <?php if ($PledgeOrPayment == 'Pledge') {
+                                ?>
 
-                        <?php if ($PledgeOrPayment == 'Pledge') {
-                            ?>
+                                <label for="Schedule"><?= _('Payment Schedule') ?></label>
+                                <select name="Schedule" class="form-control">
+                                    <option value="0"><?= _('Select Schedule') ?></option>
+                                    <option value="Weekly" <?php if ($iSchedule == 'Weekly') {
+                                        echo 'selected';
+                                    } ?>><?= _('Weekly') ?>
+                                    </option>
+                                    <option value="Monthly" <?php if ($iSchedule == 'Monthly') {
+                                        echo 'selected';
+                                    } ?>><?= _('Monthly') ?>
+                                    </option>
+                                    <option value="Quarterly" <?php if ($iSchedule == 'Quarterly') {
+                                        echo 'selected';
+                                    } ?>><?= _('Quarterly') ?>
+                                    </option>
+                                    <option value="Once" <?php if ($iSchedule == 'Once') {
+                                        echo 'selected';
+                                    } ?>><?= _('Once') ?>
+                                    </option>
+                                    <option value="Other" <?php if ($iSchedule == 'Other') {
+                                        echo 'selected';
+                                    } ?>><?= _('Other') ?>
+                                    </option>
+                                </select>
 
-                            <label for="Schedule"><?= _('Payment Schedule') ?></label>
-                            <select name="Schedule" class="form-control">
-                                <option value="0"><?= _('Select Schedule') ?></option>
-                                <option value="Weekly" <?php if ($iSchedule == 'Weekly') {
-                                    echo 'selected';
-                                } ?>><?= _('Weekly') ?>
-                                </option>
-                                <option value="Monthly" <?php if ($iSchedule == 'Monthly') {
-                                    echo 'selected';
-                                } ?>><?= _('Monthly') ?>
-                                </option>
-                                <option value="Quarterly" <?php if ($iSchedule == 'Quarterly') {
-                                    echo 'selected';
-                                } ?>><?= _('Quarterly') ?>
-                                </option>
-                                <option value="Once" <?php if ($iSchedule == 'Once') {
-                                    echo 'selected';
-                                } ?>><?= _('Once') ?>
-                                </option>
-                                <option value="Other" <?php if ($iSchedule == 'Other') {
-                                    echo 'selected';
-                                } ?>><?= _('Other') ?>
-                                </option>
+                                <?php
+                            } ?>
+                            <label for="statut"><?= _('Statut') ?></label>
+                            <select name="PledgeOrPayment" id="PledgeOrPaymentSelect" class="form-control">
+                                <option
+                                    value="Pledge" <?= ($PledgeOrPayment == 'Pledge') ? "selected" : "" ?>><?= _('Pledge') ?></option>
+                                <option
+                                    value="Payment" <?= ($PledgeOrPayment == 'Payment') ? "selected" : "" ?>><?= _('Payment') ?></option>
                             </select>
 
-                            <?php
-                        } ?>
-                        <label for="statut"><?= _('Statut') ?></label>
-                        <select name="PledgeOrPayment" id="PledgeOrPaymentSelect" class="form-control">
-                            <option
-                                value="Pledge" <?= ($PledgeOrPayment == 'Pledge') ? "selected" : "" ?>><?= _('Pledge') ?></option>
-                            <option
-                                value="Payment" <?= ($PledgeOrPayment == 'Payment') ? "selected" : "" ?>><?= _('Payment') ?></option>
-                        </select>
-
-                    </div>
-
-                    <div class="col-lg-6">
-                        <label for="Method"><?= _('Payment by') ?></label>
-                        <select class="form-control" name="Method" id="Method">
-                            <?php if ($dep_Type == 'Bank' || !$iCurrentDeposit) {
-                                ?>
-                                <option value="CHECK" <?php if ($iMethod == 'CHECK') {
-                                    echo 'selected';
-                                } ?>><?= _('Check'); ?>
-                                </option>
-                                <option value="CASH" <?php if ($iMethod == 'CASH') {
-                                    echo 'selected';
-                                } ?>><?= _('Cash'); ?>
-                                </option>
-                                <?php
-                            } ?>
-                            <?php if (($dep_Type == 'CreditCard' || !$iCurrentDeposit) && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
-                                ?>
-                                <option value="CREDITCARD" <?php if ($iMethod == 'CREDITCARD') {
-                                    echo 'selected';
-                                } ?>><?= _('Credit Card') ?>
-                                </option>
-                                <?php
-                            } ?>
-                            <?php if (($dep_Type == 'BankDraft' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'Bank') {
-                                ?>
-                                <option value="BANKDRAFT" <?php if ($iMethod == 'BANKDRAFT') {
-                                    echo 'selected';
-                                } ?>><?= _('Bank Draft') ?>
-                                </option>
-                                <?php
-                            } ?>
-                            <?php if (($PledgeOrPayment == 'Pledge') && $dep_Type != 'CreditCard' && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
-                                ?>
-                                <option value="EGIVE" <?= $iMethod == 'EGIVE' ? 'selected' : '' ?>>
-                                    <?= _('eGive') ?>
-                                </option>
-                                <?php
-                            } ?>
-                        </select>
-
-                        <div id="checkNumberGroup">
-                            <label for="CheckNo"><?= _('Check') ?><?= _(' #') ?></label>
-                            <input class="form-control" type="number" name="CheckNo" id="CheckNo"
-                                   value="<?= $iCheckNo ?>"/><font color="red"><?= $sCheckNoError ?></font>
                         </div>
 
-                        <label for="TotalAmount"><?= _('Total') . " " . SystemConfig::getValue('sCurrency') ?></label>
-                        <input class="form-control" type="number" step="any" name="TotalAmount" id="TotalAmount"
-                               disabled/>
+                        <div class="col-md-6">
+                            <label for="Method"><?= _('Payment by') ?></label>
+                            <select class="form-control" name="Method" id="Method">
+                                <?php if ($dep_Type == 'Bank' || !$iCurrentDeposit) {
+                                    ?>
+                                    <option value="CHECK" <?php if ($iMethod == 'CHECK') {
+                                        echo 'selected';
+                                    } ?>><?= _('Check'); ?>
+                                    </option>
+                                    <option value="CASH" <?php if ($iMethod == 'CASH') {
+                                        echo 'selected';
+                                    } ?>><?= _('Cash'); ?>
+                                    </option>
+                                    <?php
+                                } ?>
+                                <?php if (($dep_Type == 'CreditCard' || !$iCurrentDeposit) && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
+                                    ?>
+                                    <option value="CREDITCARD" <?php if ($iMethod == 'CREDITCARD') {
+                                        echo 'selected';
+                                    } ?>><?= _('Credit Card') ?>
+                                    </option>
+                                    <?php
+                                } ?>
+                                <?php if (($dep_Type == 'BankDraft' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'Bank') {
+                                    ?>
+                                    <option value="BANKDRAFT" <?php if ($iMethod == 'BANKDRAFT') {
+                                        echo 'selected';
+                                    } ?>><?= _('Bank Draft') ?>
+                                    </option>
+                                    <?php
+                                } ?>
+                                <?php if (($PledgeOrPayment == 'Pledge') && $dep_Type != 'CreditCard' && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
+                                    ?>
+                                    <option value="EGIVE" <?= $iMethod == 'EGIVE' ? 'selected' : '' ?>>
+                                        <?= _('eGive') ?>
+                                    </option>
+                                    <?php
+                                } ?>
+                            </select>
 
+                            <div id="checkNumberGroup">
+                                <label for="CheckNo"><?= _('Check') ?><?= _(' #') ?></label>
+                                <input class="form-control" type="number" name="CheckNo" id="CheckNo"
+                                       value="<?= $iCheckNo ?>"/><font color="red"><?= $sCheckNoError ?></font>
+                            </div>
+
+                            <label for="TotalAmount"><?= _('Total') . " " . SystemConfig::getValue('sCurrency') ?></label>
+                            <input class="form-control" type="number" step="any" name="TotalAmount" id="TotalAmount"
+                                   disabled/>
+
+                        </div>
                     </div>
 
-
+                    <div class="row">
                     <?php
                     if ($dep_Type == 'CreditCard' || $dep_Type == 'BankDraft') {
                         ?>
-                        <div class="col-lg-6">
+                        <div class="col-md-6">
 
                             <tr>
                                 <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>">
@@ -757,52 +759,57 @@ require 'Include/Header.php';
                         </div>
                         <?php
                     } ?>
-
-                    <div class="col-lg-6">
-                        <?php if (SystemConfig::getValue('bUseScannedChecks') && ($dep_Type == 'Bank' || $PledgeOrPayment == 'Pledge')) {
-                            ?>
-                            <td align="center"
-                                class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Scan check') ?>
-                                <textarea name="ScanInput" rows="2" cols="70"><?= $tScanString ?></textarea></td>
-                            <?php
-                        } ?>
                     </div>
 
-                    <div class="col-lg-6">
-                        <?php if (SystemConfig::getValue('bUseScannedChecks') && $dep_Type == 'Bank') {
-                            ?>
-                            <input type="submit" class="btn" value="<?= _('find family from check account #') ?>"
-                                   name="MatchFamily">
-                            <input type="submit" class="btn"
-                                   value="<?= _('Set default check account number for family') ?>"
-                                   name="SetDefaultCheck">
-                            <?php
-                        } ?>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <br>
-                        <?php if (!$dep_Closed) {
-                            ?>
-                            <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PledgeSubmit">
-                            <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-                                echo '<input type="submit" class="btn btn-info" value="' . _('Save and Add') . '" name="PledgeSubmitAndAdd">';
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php if (SystemConfig::getValue('bUseScannedChecks') && ($dep_Type == 'Bank' || $PledgeOrPayment == 'Pledge')) {
+                                ?>
+                                <td align="center"
+                                    class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= _('Scan check') ?>
+                                    <textarea name="ScanInput" rows="2" cols="70"><?= $tScanString ?></textarea></td>
+                                <?php
                             } ?>
-                            <?php
-                        } ?>
-                        <?php if (!$dep_Closed) {
-                            $cancelText = _('Cancel');
-                        } else {
-                            $cancelText = _('Return');
-                        } ?>
-                        <input type="button" class="btn btn-danger" value="<?= _($cancelText) ?>" name="PledgeCancel"
-                               onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'Menu.php' ?>';">
+                        </div>
+
+                        <div class="col-md-6">
+                            <?php if (SystemConfig::getValue('bUseScannedChecks') && $dep_Type == 'Bank') {
+                                ?>
+                                <input type="submit" class="btn" value="<?= _('find family from check account #') ?>"
+                                       name="MatchFamily">
+                                <input type="submit" class="btn"
+                                       value="<?= _('Set default check account number for family') ?>"
+                                       name="SetDefaultCheck">
+                                <?php
+                            } ?>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <br>
+                            <?php if (!$dep_Closed) {
+                                ?>
+                                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PledgeSubmit">
+                                <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
+                                    echo '<input type="submit" class="btn btn-info" value="' . _('Save and Add') . '" name="PledgeSubmitAndAdd">';
+                                } ?>
+                                <?php
+                            } ?>
+                            <?php if (!$dep_Closed) {
+                                $cancelText = _('Cancel');
+                            } else {
+                                $cancelText = _('Return');
+                            } ?>
+                            <input type="button" class="btn btn-danger" value="<?= _($cancelText) ?>" name="PledgeCancel"
+                                   onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'Menu.php' ?>';">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header with-border">
                     <h3 class="card-title"><?= _("Fund Split") ?></h3>
