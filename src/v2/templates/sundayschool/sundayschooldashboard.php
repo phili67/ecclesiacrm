@@ -96,32 +96,8 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
-            ?>
-            <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
-                    class="fa fa-plus-square"></i><?= _('Add New Class') ?></button>
-            <?php
-        }
-        ?>
         <?php
-        if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
-            ?>
-            <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
-               title="<?= _('Generate class lists and attendance sheets'); ?>"><i
-                    class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
-            <?php
-        }
-        ?>
-        <?php
-        if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
-            ?>
-            <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
-               title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
-            <?php
-        }
-        ?>
-        <?php
+
         if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
             // Display link
             ?>
@@ -142,6 +118,39 @@ require $sRootDocument . '/Include/Header.php';
                 </button>
                 <div class="dropdown-menu" id="dropDownMailBCC" role="menu"></div>
             </div>
+            <?php
+        }
+
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
+            ?>
+            <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
+                    class="fa fa-plus-square"></i><?= _('Add New Class') ?></button>
+            <?php
+        }
+
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
+            ?>
+            <a class="btn btn-app bg-orange makeCheckOut" id="makeCheckOut"
+               data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
+                    class="fa fa-calendar-check-o"></i> <span
+                    class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
+            <?php
+        }
+
+        if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
+            ?>
+            <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
+               title="<?= _('Generate class lists and attendance sheets'); ?>"><i
+                    class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
+            <?php
+        }
+
+        if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
+            ?>
+            <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
+               title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
+                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
             <?php
         }
         ?>
@@ -340,4 +349,8 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 require $sRootDocument . '/Include/Footer.php';
 ?>
+
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+<script src="<?= $sRootPath ?>/skin/js/sundayschool/SundaySchoolDashboard.js"></script>
 
