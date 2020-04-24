@@ -379,8 +379,7 @@ foreach ($allMonths as $mVal) {
                     <a title="<?= _('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="<?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
                         <i class='fa fa-pencil'></i>
                     </a>
-                  </td>
-                  <td>
+
                     <?php
                       if ($aEventRights[$row]) {
                     ?>
@@ -440,74 +439,71 @@ foreach ($allMonths as $mVal) {
                <?= $aLogin[$row] ?>
             </td>
             <td>
-            <center>
             <?php
               if ($attNumRows[$row]) {
             ?>
                <table width='100%' class='table-simple-padding' align="center">
-                <tr class="no-background-theme">
-                  <td><b><?= _("Check-in") ?></b></td>
-                  <td><b><?= _("Check-out") ?></b></td>
-                  <td><b><?= _("Rest") ?></b></td>
-                </tr>
-                <tr class="no-background-theme">
-                  <td><?= $attNumRows[$row] ?></td>
-                  <td><?= $attCheckOut[$row] ?></td>
-                  <td><?= $attNumRows[$row]-$attCheckOut[$row] ?></td>
-                </tr>
-                <tr class="no-background-theme">
-                   <td colspan="3">
-                     <center>
-                      <table>
-                      <tr class="no-background-theme">
-                      <td>
-                    <?php
-                      if ($aEventRights[$row]) {
-                    ?>
-                      <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
-                    <?php
-                      }
-                    ?>
-                        <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                         <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
-                        <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
-                        <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                        <input type="submit" name="Action" value="<?= _('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>" >
-                    <?php
-                      if ($aEventRights[$row]) {
-                    ?>
-                      </form>
-                    <?php
-                      }
-                    ?>
-                      </td>
-                      <td>
-                    <?php
-                      if ($aEventRights[$row]) {
-                    ?>
-                      <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
-                    <?php
-                      }
-                    ?>
-                        <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=_('Make Check-out') ?>" data-tooltip value="<?=_('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
-                          <i class='fa fa-check-circle'></i> <?= _("Make Check-out") ?>
-                        </button>
-                    <?php
-                      if ($aEventRights[$row]) {
-                    ?>
-                      </form>
-                    <?php
-                      }
-                    ?>
-                       </td>
-                       </tr>
-                       </table>
-                     </center>
+                   <tr class="no-background-theme">
+                       <td><b><?= _("Check-in") ?></b></td>
+                       <td><b><?= _("Check-out") ?></b></td>
+                       <td><b><?= _("Rest") ?></b></td>
+                   </tr>
+                    <tr class="no-background-theme">
+                      <td><?= $attNumRows[$row] ?></td>
+                      <td><?= $attCheckOut[$row] ?></td>
+                      <td><?= $attNumRows[$row]-$attCheckOut[$row] ?></td>
+                    </tr>
+                    <tr class="no-background-theme">
+                       <td colspan="3">
+                            <table style="width:330px">
+                                <tr class="no-background-theme">
+                                    <td>
+                            <?php
+                              if ($aEventRights[$row]) {
+                            ?>
+                                        <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                            <?php
+                              }
+                            ?>
+                                            <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
+                                            <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
+                                            <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
+                                            <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
+                                            <input type="submit" name="Action" value="<?= _('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>" >
+                            <?php
+                              if ($aEventRights[$row]) {
+                            ?>
+                                        </form>
+                            <?php
+                              }
+                            ?>
+                                    </td>
+                                    <td>
+                            <?php
+                              if ($aEventRights[$row]) {
+                            ?>
+                                        <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
+                            <?php
+                              }
+                            ?>
+                                            <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
+                                            <button type="submit" name="Action" title="<?=_('Make Check-out') ?>" data-tooltip value="<?=_('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
+                                              <i class='fa fa-check-circle'></i> <?= _("Make Check-out") ?>
+                                            </button>
+                            <?php
+                              if ($aEventRights[$row]) {
+                            ?>
+                                        </form>
+                            <?php
+                              }
+                            ?>
+                                    </td>
+                               </tr>
+                    </table>
                    </td>
                 </tr>
                </table>
-              </center>
+
             <?php
               } else {
             ?>
@@ -550,9 +546,9 @@ foreach ($allMonths as $mVal) {
                     } else {
                         ?>
                       <td>
-                        <center>
+                        <p class="text-center">
                           <?= _('No Attendance Recorded') ?>
-                        </center>
+                        </p>
                       </td>
                       <?php
                     } ?>
@@ -597,7 +593,6 @@ foreach ($allMonths as $mVal) {
             <td></td>
             <td></td>
             <td>
-              <center>
               <?php
                 if ($numAVGAtt > 0) {
               ?>
@@ -625,11 +620,10 @@ foreach ($allMonths as $mVal) {
                  echo  _('No Attendance Recorded');
               }
               ?>
-              </center>
+
             </td>
             <td>
               <div class='row'>
-                <center>
                 <?php
                   if ($aAvgRows > 0) {
                 ?>
@@ -665,7 +659,7 @@ foreach ($allMonths as $mVal) {
                    echo  _('No Attendance Recorded');
                 }
                 ?>
-                </center>
+
               </div>
             </td>
             <td></td>
@@ -684,7 +678,6 @@ foreach ($allMonths as $mVal) {
             <td></td>
             <td></td>
             <td>
-              <center>
               <?php
                 if ($numAVGAtt > 0) {
               ?>
@@ -711,11 +704,9 @@ foreach ($allMonths as $mVal) {
               } else {
                 echo  _('No Attendance Recorded');
               } ?>
-             </center>
             </td>
             <td>
               <div class='row'>
-                <center>
                 <?php
                   if ($aAvgRows > 0) {
                 ?>
@@ -750,7 +741,6 @@ foreach ($allMonths as $mVal) {
                    echo  _('No Attendance Recorded');
                 }
                 ?>
-                </center>
               </div>
             </td>
             <td></td>
