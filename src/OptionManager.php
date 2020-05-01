@@ -211,7 +211,7 @@ $iNewNameError = 0;
 
 // Check if we're adding a field
 if (isset($_POST['AddField'])) {
-    $newFieldName = InputUtils::LegacyFilterInput($_POST['newFieldName']);
+    $newFieldName = InputUtils::FilterString($_POST['newFieldName']);
 
     if (strlen($newFieldName) == 0) {
         $iNewNameError = 1;
@@ -250,6 +250,8 @@ if (isset($_POST['AddField'])) {
             $lst->save();
 
             $iNewNameError = 0;
+
+            exit();
         }
     }
 }
@@ -282,7 +284,7 @@ if (isset($_POST['SaveChanges'])) {
         //addition save off sequence also
         $aSeqs[$row] = $ormList->getOptionSequence();
 
-        $aNameFields[$row] = InputUtils::LegacyFilterInput($_POST[$row . 'name']);
+        $aNameFields[$row] = InputUtils::FilterString($_POST[$row . 'name']);
 
         $row++;
     }
