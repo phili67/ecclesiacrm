@@ -30,7 +30,7 @@ $user = SessionUser::getUser();
 ?>
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
         <a href="#" id="uploadFile">
     <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $user->getPersonId() ?>"
           data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Upload a file in EDrive") ?>">
@@ -84,11 +84,11 @@ $user = SessionUser::getUser();
 <br>
 
 <div class="row">
-    <div class="col-12 filmanager-left">
+    <div class="col-md-12 filmanager-left">
         <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="edrive-table"
                width="100%"></table>
     </div>
-    <div class="col-3 filmanager-right" style="display: none;">
+    <div class="col-md-3 filmanager-right" style="display: none;">
         <h3><?= _("Preview") ?>
             <button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button>
         </h3>
@@ -97,7 +97,7 @@ $user = SessionUser::getUser();
 </div>
 <hr/>
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
     <span class="float-left" id="currentPath">
       <?= !is_null($user) ? MiscUtils::pathToPathWithIcons($user->getCurrentpath()) : "" ?>
     </span>
