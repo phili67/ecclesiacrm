@@ -102,7 +102,7 @@ if (array_key_exists('group', $_GET)) {
 // Get this person's data
 $connection = Propel::getConnection();
 
-$sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
+$sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, COALESCE(cls.lst_OptionID , 'Unassigned') AS sClassID, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
         b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
       FROM person_per a
       LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
@@ -194,7 +194,6 @@ $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
     ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . $iPersonID . ' ORDER BY grp_Name')
     ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
     ->addAsColumn('groupName', GroupTableMap::COL_GRP_NAME)
-    ->addAsColumn('groupID', GroupTableMap::COL_GRP_ID)
     ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
     ->find();
 
@@ -394,25 +393,12 @@ if (!empty($person->getDateDeactivated())) {
                         </p>
                         <?php
                     }
-                    ?>
-                    <p class="text-muted text-center">
-
+                    if ($person->getMembershipDate()) {
+                        ?>
+                        <?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
+                        <br/><br/>
                         <?php
-                        if (!empty($sClassIcon)) {
-                            ?>
-                            <img src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>" boder=0>
-                            <?php
-                        }
-                        ?>
-                        <?= _($sClassName);
-                        if ($person->getMembershipDate()) {
-                            ?>
-                            <br><?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
-                            <?php
-                        }
-                        ?>
-                    </p>
-                    <?php
+                    }
                     if ($bOkToEdit) {
                         ?>
                         <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
@@ -421,9 +407,44 @@ if (!empty($person->getDateDeactivated())) {
                     }
                     ?>
                 </div>
-                <!-- /.box-body -->
+                <!-- /.card-body -->
             </div>
-            <!-- /.box -->
+            <!-- /.card -->
+
+            <div class="card card-primary">
+                <div class="card-header  card-primary">
+                    <h3 class="card-title"><?= _("Classifications") ?></h3>
+                </div>
+                <div class="card-body">
+                        <?php
+                        if (!empty($sClassIcon)) {
+                            ?>
+                            <h5><?= _("Global") ?></h5>
+                            <p class="text-center">
+                            <img src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
+                                 boder=0>
+                            <strong style="color:black"><?= _($sClassName) ?></strong>
+                            <a id="edit-classification-btn" class="btn btn-primary btn-xs" data-person_id="<?= $person->getId() ?>"
+                                data-classification_id="<?= $sClassID ?>"
+                                data-classification_role="<?= $sClassName ?>">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            </p>
+                            <?php
+                        }
+                        ?>
+                    <h5><?= _("Groups") ?></h5>
+                    <ul class="fa-ul">
+                        <?php
+                        foreach ($ormAssignedGroups as $groupAssigment) {
+                            ?>
+                            <li style="left:-28px"> <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?></strong> : <?= _($groupAssigment->getRoleName()) ?></li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
 
             <!-- About Me Box -->
             <?php
@@ -440,7 +461,8 @@ if (!empty($person->getDateDeactivated())) {
                         if ($can_see_privatedata) {
                         if (count($person->getOtherFamilyMembers()) > 0) {
                             ?>
-                            <li style="left:-28px"><strong><i class="fa fa-male" ></i><i class="fa fa-female"></i><i class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
+                            <li style="left:-28px"><strong><i class="fa fa-male"></i><i class="fa fa-female"></i><i
+                                        class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
                                 <span>
             <?php
             if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
@@ -1152,13 +1174,14 @@ if (!empty($person->getDateDeactivated())) {
                                                                         </button>
                                                                         <div class="dropdown-menu" role="menu">
                                                                             <a class="dropdown-item changeRole"
-                                                                                    data-groupid="<?= $ormAssignedGroup->getGroupID() ?>">
+                                                                               data-groupid="<?= $ormAssignedGroup->getGroupID() ?>">
                                                                                 <?= _('Change Role') ?>
                                                                             </a>
                                                                             <?php
                                                                             if ($ormAssignedGroup->getHasSpecialProps()) {
                                                                                 ?>
-                                                                                <a class="dropdown-item" href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>">
+                                                                                <a class="dropdown-item"
+                                                                                   href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>">
                                                                                     <?= _('Update Properties') ?>
                                                                                 </a>
                                                                                 <?php
@@ -1214,6 +1237,7 @@ if (!empty($person->getDateDeactivated())) {
                                                                     <?php
                                                                 }
 
+                                                                // now we add only the personnal group prop
                                                                 $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
 
                                                                 $sSQL = 'SELECT * FROM groupprop_' . $ormAssignedGroup->getGroupId() . ' WHERE per_ID = ' . $iPersonID;
