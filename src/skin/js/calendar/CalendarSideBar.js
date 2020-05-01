@@ -783,7 +783,7 @@
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editCalendarName"  data-id="'+data[i].calendarID+'">'+
                            data[i].icon + ' ' +
-                           data[i].calendarName +
+                           data[i].calendarName.substring(0, 22) +
                        '</div>' +
             '           <div class="input-group-addon">' +
             '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
@@ -843,7 +843,7 @@
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editGroupName"  data-id="'+data[i].calendarID+'">'+
             data[i].icon + ' ' +
-            data[i].calendarName +
+            data[i].calendarName.substring(0, 22) +
             '</div>' +
             '           <div class="input-group-addon">' +
             '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
@@ -915,7 +915,7 @@
               '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
               '           <div class="editReservationName"  data-id="'+data[i].calendarID+'">'+
               data[i].icon + ' ' +
-              data[i].calendarName +
+              data[i].calendarName.substring(0, 22) +
               '</div>' +
               '           <div class="input-group-addon">' +
               '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
@@ -993,7 +993,7 @@
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editShareName"  data-id="'+data[i].calendarID+'">'+
             data[i].icon + ' ' +
-            data[i].calendarName +
+            data[i].calendarName.substring(0, 22) +
             '</div>' +
             '           <div class="input-group-addon">' +
             '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
