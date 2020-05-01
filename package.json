@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.0.4",
-        "bootbox": "5.4.0",
+        "bootbox": "^5.4.0",
         "bootstrap": "^4.4.1",
         "bootstrap-colorpicker": "^2.5.3",
         "bootstrap-datepicker": "^1.9.0",
@@ -70,19 +70,19 @@
         "icheck": "^1.0.2",
         "initial-js": "0.3.4",
         "is-my-json-valid": "^2.20.0",
-        "jquery": "^3.4.1",
+        "jquery": "3.4.1",
         "jquery-photo-uploader": "^1.0.13",
         "jquery-steps": "^1.1.0",
         "jquery-ui-touch-punch": "^0.2.3",
         "jquery-validation": "^1.19.1",
         "jszip": "^3.2.2",
-        "leaflet": "^1.5.1",
+        "leaflet": "^1.6.0",
         "morris.js.so": "^0.5.1",
         "node-sass": "^4.13.0",
         "pace-js": "^1.0.2",
         "package.json": "^2.0.1",
         "popper.js": "^1.16.0",
-        "select2": "^4.0.12"
+        "select2": "^4.0.13"
     },
     "scripts": {
         "install": "grunt clean && grunt updateVersions && grunt curl-dir && grunt copy && grunt sass",
