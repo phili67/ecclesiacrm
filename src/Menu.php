@@ -564,7 +564,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
                 </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
@@ -592,7 +592,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></i><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -621,7 +621,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-user-plus"></i></i> <?= _('Latest Members') ?></h3>
+                <h3 class="card-title"><i class="fa fa-user-plus"></i> <?= _('Latest Members') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
