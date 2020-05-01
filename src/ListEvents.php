@@ -379,8 +379,7 @@ foreach ($allMonths as $mVal) {
                     <a title="<?= _('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="<?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
                         <i class='fa fa-pencil'></i>
                     </a>
-                  </td>
-                  <td>
+
                     <?php
                       if ($aEventRights[$row]) {
                     ?>
