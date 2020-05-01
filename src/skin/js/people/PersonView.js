@@ -11,16 +11,7 @@ $(document).ready(function () {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
           if (data.mailChimpActiv) {
-              var len = data.statusLists.length;
-
-              var res = '';
-
-              for (i=0;i<len;i++) {
-                  var statusDetails = data.statusLists[i];
-                  res += "<p> &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</b></p>";
-              }
-
-              $("#mailChimpUserNormal").html(res);
+            $("#mailChimpUserNormal").text(data.mailingList);
           }
         } else {
           $("#NewsLetterSend").css('color','red');
@@ -44,18 +35,7 @@ $(document).ready(function () {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
-          if (data.mailChimpActiv) {
-              var len = data.statusLists.length;
-
-              var res = '';
-
-              for (i = 0; i < len; i++) {
-                  var statusDetails = data.statusLists[i];
-                  res += "<p>  &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</p></p>";
-              }
-
-              $("#mailChimpUserWork").html(res);
-          }
+          $("#mailChimpUserWork").text(data.mailingList);
         } else {
           $("#NewsLetterSend").css('color','red');
           $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
@@ -584,6 +564,59 @@ $(document).ready(function () {
             }
           }
         });
+    });
+
+    $('#edit-classification-btn').click(function (event) {
+        event.preventDefault();
+        var thisLink = $(this);
+        var personId = thisLink.data('person_id');
+        var classificationId = thisLink.data('classification_id');
+        var classificationRole = thisLink.data('classification_role');
+
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            url: window.CRM.root + '/api/people/classifications/all',
+            success: function (data, status, xmlHttpReq) {
+                if (data.Classifications.length) {
+                    classifications = [{text: classificationRole, value: ''}];
+                    for (var i=0; i < data.Classifications.length; i++) {
+                        if (data.Classifications[i].OptionId == classificationId) {
+                            continue;
+                        }
+
+                        classifications[classifications.length] = {
+                            text: data.Classifications[i].OptionName,
+                            value: data.Classifications[i].OptionId
+                        };
+                    }
+
+                    bootbox.prompt({
+                        title:i18next.t('Change classification'),
+                        inputType: 'select',
+                        inputOptions: classifications,
+                        callback: function (result) {
+                            if (result) {
+                                $.ajax({
+                                    type: 'POST',
+                                    data: { personId: personId, classId: result },
+                                    dataType: 'json',
+                                    url: window.CRM.root + '/api/people/person/classification/assign',
+                                    success: function (data, status, xmlHttpReq) {
+                                        if (data.success) {
+                                            location.reload();
+                                        }
+                                    }
+                                });
+                            }
+
+                        }
+                    });
+
+                }
+            }
+        });
+
     });
 
     $('#edit-role-btn').click(function (event) {
