@@ -71,7 +71,7 @@ $(document).ready(function () {
               },
               confirm: {
                   className: 'btn-danger',
-                  label: '<i class="fa fa-trash-o"></i>' + i18next.t("Deactivate")
+                  label: '<i class="fa fa-trash-o"></i>' + ((window.CRM.currentActive == true)?i18next.t("Deactivate"):i18next.t("Activate"))
               }
           },
           callback: function (result) {
