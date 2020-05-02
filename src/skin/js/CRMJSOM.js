@@ -1020,13 +1020,13 @@
             message: '<div class="modal-body">\
                   <input type="hidden" id="targetGroupAction">',
              buttons: {
-               confirm: {
-                   label: i18next.t('OK'),
-                   className: 'btn-primary'
-               },
                cancel: {
-                   label: i18next.t('Cancel'),
-                   className: 'btn-danger'
+                   label: '<i class="fa fa-times"></i>' + i18next.t('Cancel'),
+                   className: 'btn-default'
+               },
+               confirm: {
+                     label: '<i class="fa fa-check"></i>' + i18next.t('OK'),
+                     className: 'btn-primary'
                }
              }
           };
@@ -1035,8 +1035,8 @@
           if (selectOptions.Type & window.CRM.groups.selectTypes.Group)
           {
             options.title = i18next.t("Select Group");
-            options.message +='<span style="color: red">'+i18next.t('Please select target group for members')+':</span>\
-                  <select name="targetGroupSelection" id="targetGroupSelection" class="form-control" style="width: 100%"></select>';
+            options.message +='<div class="row"><div class="col-md-12"><span style="color: red">'+i18next.t('Please select target group for members')+':</span></div></div>\
+                  <div class="row"><div class="col-md-12"><select name="targetGroupSelection" id="targetGroupSelection" class="bootbox-input bootbox-input-select form-control" style="width: 100%"></select></div></div>';
             options.buttons.confirm.callback = function(){
                selectionCallback({"GroupID": $("#targetGroupSelection option:selected").val()});
             };
@@ -1044,8 +1044,8 @@
           if (selectOptions.Type & window.CRM.groups.selectTypes.Role )
           {
             options.title = i18next.t("Select Role");
-            options.message += '<span style="color: red">'+i18next.t('Please select target Role for members')+':</span>\
-                  <select name="targetRoleSelection" id="targetRoleSelection" class="form-control"></select>';
+            options.message += '<div class="row"><div class="col-md-12"><span style="color: red">'+i18next.t('Please select target Role for members')+':</span></div></div>\
+                  <div class="row"><div class="col-md-12"><select name="targetRoleSelection" id="targetRoleSelection" class="bootbox-input bootbox-input-select form-control"></select></div></div>';
             options.buttons.confirm.callback = function(){
               selectionCallback({"RoleID": $("#targetRoleSelection option:selected").val()});
             };
@@ -1411,7 +1411,7 @@
                 // now we empty the menubar lists
                 $(".lists_class_menu").removeClass("hidden");
                 var lists_menu = $(".lists_class_menu").parent();
-                var real_listMenu = $(lists_menu).find(".nav-treeview");
+                var real_listMenu = $(lists_menu).find(".treeview-menu");
 
                 real_listMenu.html("");
                 var listItems = "";
@@ -1419,7 +1419,7 @@
                 for (i = 0; i < len; i++) {
                     var list = data.MailChimpLists[i];
 
-                    listItems += '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link"><i class="fa fa-circle-o"></i> <p>' + list.name + '</p></a>';
+                    listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>' + list.name + '</a>';
                 }
 
                 real_listMenu.html(listItems);
