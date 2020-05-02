@@ -29,6 +29,20 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
             try {
+                $pos = mb_strpos (mb_strtoupper(_("Teacher")),mb_strtoupper($qry));
+
+                if ($pos === 0) {
+                    $len = mb_strlen($qry);
+                    $qry = mb_substr("teacher",0,$len);
+                } else {
+                    $pos = mb_strpos (mb_strtoupper(_("Student")),mb_strtoupper($qry));
+
+                    if ($pos === 0) {
+                        $len = mb_strlen($qry);
+                        $qry = mb_substr("student",0,$len);
+                    }
+                }
+
                 $searchLikeString = '%'.$qry.'%';
 
                 $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
@@ -40,8 +54,6 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                     ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
                     ->Where(ListOptionTableMap::COL_LST_OPTIONNAME . " LIKE '" . $searchLikeString . "' ORDER BY grp_Name");
 
-                LoggerUtils::getAppLogger()->info("coucou : ");
-
                 if (!$this->global_search) {
                     $ormAssignedGroups->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
                 }
@@ -51,8 +63,6 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                 if (!is_null($ormAssignedGroups))
                 {
                     $id=1;
-
-                    LoggerUtils::getAppLogger()->info("coucou2 : ");
 
                     foreach ($ormAssignedGroups as $per) {
                         $elt = ['id' => 'assigned-person-group-id-'.$id++,
