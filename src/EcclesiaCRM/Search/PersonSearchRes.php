@@ -59,7 +59,6 @@ class PersonSearchRes extends BaseSearchRes
 
                 if ($this->global_search) {// we are in the global search project
 
-                    LoggerUtils::getAppLogger()->info("time start : ".time());
                     /*
                      * $sSQL = "SELECT COALESCE(cls.lst_OptionName, 'Unassigned') AS ClassName, p.per_LastName, p.per_FirstName
                             FROM person_per p
@@ -328,7 +327,6 @@ class PersonSearchRes extends BaseSearchRes
                             array_push($this->results, $elt);
                         }
                     }
-                    LoggerUtils::getAppLogger()->info("time end : ".time());
 
                 } else {// not global search
                     $people->filterByFirstName($searchLikeString, Criteria::LIKE)

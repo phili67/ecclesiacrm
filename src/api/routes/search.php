@@ -26,6 +26,7 @@ use EcclesiaCRM\Search\PersonCustomSearchRes;
 use EcclesiaCRM\Search\FamilyCustomSearchRes;
 use EcclesiaCRM\Search\PersonPastoralCareSearchRes;
 use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
+use EcclesiaCRM\Search\PersonAssignToGroupSearchRes;
 use EcclesiaCRM\GroupQuery;
 
 // Routes search
@@ -63,13 +64,15 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new PersonPropsSearchRes(true),
             new PersonCustomSearchRes(true),
             new PersonPastoralCareSearchRes(true),
+            new PersonAssignToGroupSearchRes( true),
             new FamilySearchRes(true),
             new FamilyCustomSearchRes(true),
             new FamilyPastoralCareSearchRes(true),
             new DepositSearchRes(true),
             new PaymentSearchRes(true),
             new PledgeSearchRes( true),
-            new GroupSearchRes( true),
+            new GroupSearchRes( true)
+
         ];
     } elseif ($query == "*" || count($query_elements) > 0) {
         $query = "";
@@ -100,6 +103,7 @@ function quickSearch (Request $request, Response $response, array $args) {
         new PledgeSearchRes(),
         new PersonPropsSearchRes(),
         new PersonCustomSearchRes(),
+        new PersonAssignToGroupSearchRes(),
         new FamilyCustomSearchRes(),
         new PersonPastoralCareSearchRes(),
         new FamilyPastoralCareSearchRes()
@@ -202,8 +206,6 @@ function getGroupRoleForGroupID (Request $request, Response $response, array $ar
 
     $req = (object)$request->getParsedBody();
 
-
-    \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("GroupID : ".$req->Group);
 
     // Get the group's role list ID
     $grp = GroupQuery::create()->findOneById($req->Group);
