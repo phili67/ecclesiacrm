@@ -4,7 +4,7 @@
 *
 *  filename    : api/routes/people.php
 *  last change : Copyright all right reserved 2018/04/14 Philippe Logel
-*  description : Search terms like : Firstname, Lastname, phone, address, 
+*  description : Search terms like : Firstname, Lastname, phone, address,
 *                 groups, families, etc...
 *
 ******************************************************************************/
@@ -15,7 +15,10 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\ListOptionQuery;
 
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 
 // Routes people
@@ -30,9 +33,9 @@ $app->group('/people', function () {
   $this->get('/searchonlyperson/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
-    
+
       $id = 1;
-    
+
     //Person Search
       try {
         $searchLikeString = '%'.$query.'%';
@@ -41,41 +44,41 @@ $app->group('/people', function () {
             filterByFirstName($searchLikeString, Criteria::LIKE)->
             _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
           limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
-  
+
 
         if (!empty($people))
         {
           $data = [];
           $id++;
-        
+
           foreach ($people as $person) {
             if ($person->getDateDeactivated() != null)
               continue;
-              
+
             $elt = ['id'=>$id++,
                 'text'=>$person->getFullName(),
                 'personID'=>$person->getId()];
-      
+
             array_push($data, $elt);
-          }          
-  
+          }
+
           if (!empty($data))
           {
             $dataPerson = ['children' => $data,
             'id' => 0,
             'text' => _('Persons')];
-      
+
             $resultsArray = array ($dataPerson);
           }
         }
       } catch (Exception $e) {
           $this->Logger->warn($e->getMessage());
       }
-   
-    
+
+
       return $response->withJson(array_filter($resultsArray));
   });
-  
+
 /*
  * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
  * #! param: ref->string :: query string ref
@@ -83,9 +86,9 @@ $app->group('/people', function () {
   $this->get('/search/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
-    
+
       $id = 1;
-    
+
     //Person Search
       try {
         $searchLikeString = '%'.$query.'%';
@@ -93,38 +96,38 @@ $app->group('/people', function () {
           filterByFirstName($searchLikeString, Criteria::LIKE)->
             _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
           limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
-  
+
 
         if (!empty($people))
         {
           $data = [];
           $id++;
-        
+
           foreach ($people as $person) {
             if ($person->getDateDeactivated() != null)
               continue;
-              
+
             $elt = ['id'=>$id++,
                 'text'=>$person->getFullName(),
                 'personID'=>$person->getId()];
-      
+
             array_push($data, $elt);
-          }          
-  
+          }
+
           if (!empty($data))
           {
             $dataPerson = ['children' => $data,
             'id' => 0,
             'text' => _('Persons')];
-      
+
             $resultsArray = array ($dataPerson);
           }
         }
       } catch (Exception $e) {
           $this->Logger->warn($e->getMessage());
       }
-   
-   // Family search   
+
+   // Family search
      try {
           $families = FamilyQuery::create()
               ->filterByName("%$query%", Criteria::LIKE)
@@ -133,11 +136,11 @@ $app->group('/people', function () {
 
           if (!empty($families))
           {
-            $data = []; 
-            $id++;  
-            
+            $data = [];
+            $id++;
+
             foreach ($families as $family)
-            {                    
+            {
                if ($family->getDateDeactivated() != null)
                  continue;
 
@@ -146,16 +149,16 @@ $app->group('/people', function () {
                   "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                   'familyID'=>$family->getId()
                 ];
-          
+
               array_push($data,$searchArray);
             }
-            
+
             if (!empty($data))
             {
               $dataFamilies = ['children' => $data,
                 'id' => 1,
                 'text' => _('Families')];
-      
+
               array_push($resultsArray, $dataFamilies);
             }
           }
@@ -173,20 +176,20 @@ $app->group('/people', function () {
               ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
               ->select(['displayName', 'uri', 'id'])
               ->find();
-        
+
           if (!empty($groups))
-          { 
-            $data = [];   
+          {
+            $data = [];
             $id++;
-          
+
             foreach ($groups as $group) {
               $elt = ['id'=>$id++,
                 'text'=>$group['displayName'],
                 'groupID'=>$group['id']];
-      
+
               array_push($data, $elt);
             }
-  
+
             if (!empty($data))
             {
               $dataGroup = ['children' => $data,
@@ -199,8 +202,47 @@ $app->group('/people', function () {
       } catch (Exception $e) {
           $this->Logger->warn($e->getMessage());
       }
-    
+
       return $response->withJson(array_filter($resultsArray));
   });
-  
+
+/*
+ * @! Returns all classifications
+ * #! param: nothing
+ */
+  $this->get('/classifications/all', 'getAllClassifications' );
+
+/*
+ * @! Returns all classifications
+ * #! param: nothing
+ */
+  $this->post('/person/classification/assign', 'postPersonClassification' );
+
 });
+
+function getAllClassifications(Request $request, Response $response, array $args) {
+    $classifications = ListOptionQuery::create()->findById(1);
+
+    return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+}
+
+function postPersonClassification(Request $request, Response $response, array $args) {
+    $classifications = ListOptionQuery::create()->findById(1);
+
+    $input = (object)$request->getParsedBody();
+
+    if ( isset ($input->personId) && isset ($input->classId) ) {
+
+        $person = PersonQuery::create()->findOneById($input->personId);
+
+        if (!is_null($person)) {
+            $person->setClsId($input->classId);
+
+            $person->save();
+        }
+    }
+
+    return $response->withJson(['success' => true, "Classifications" => $classifications->toArray()]);
+}
+
+
