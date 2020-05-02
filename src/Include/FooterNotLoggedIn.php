@@ -18,6 +18,8 @@ use EcclesiaCRM\Bootstrapper;
 
   <!-- InputMask -->
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/inputmask/jquery.inputmask.min.js"></script>
+  <script src="<?= SystemURLs::getRootPath() ?>/skin/external/iCheck/icheck.min.js"></script>
+
 
   <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 
