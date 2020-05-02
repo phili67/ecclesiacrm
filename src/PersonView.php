@@ -340,130 +340,166 @@ if (!empty($person->getDateDeactivated())) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <div class="card card-primary card-outline">
-                <div class="card-body card-profile">
-                    <div class="image-container">
-                        <div class="text-center">
-                            <img src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
-                                 class="initials-image profile-user-img img-responsive img-rounded img-circle">
-                        </div>
-                        <?php if ($bOkToEdit): ?>
-                            <div class="after">
-                                <div class="buttons">
-                                    <a id="view-larger-image-btn" class="hide" title="<?= _("View Photo") ?>">
-                                        <i class="fa fa-search-plus"></i>
-                                    </a>&nbsp;
-                                    <a class="" data-toggle="modal" data-target="#upload-image"
-                                       title="<?= _("Upload Photo") ?>">
-                                        <i class="fa fa-camera"></i>
-                                    </a>&nbsp;
-                                    <a data-toggle="modal" data-target="#confirm-delete-image"
-                                       title="<?= _("Delete Photo") ?>">
-                                        <i class="fa fa-trash-o"></i>
-                                    </a>
-                                </div>
+            <div class="sticky-top">
+                <div class="card card-primary card-outline">
+                    <div class="card-body card-profile">
+                        <div class="image-container">
+                            <div class="text-center">
+                                <img
+                                    src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
+                                    class="initials-image profile-user-img img-responsive img-rounded img-circle">
                             </div>
-                        <?php endif; ?>
-                    </div>
-                    <h3 class="profile-username text-center">
-                        <?php
-                        if ($person->isMale()) {
-                            ?>
-                            <i class="fa fa-male"></i>
+                            <?php if ($bOkToEdit): ?>
+                                <div class="after">
+                                    <div class="buttons">
+                                        <a id="view-larger-image-btn" class="hide" title="<?= _("View Photo") ?>">
+                                            <i class="fa fa-search-plus"></i>
+                                        </a>&nbsp;
+                                        <a class="" data-toggle="modal" data-target="#upload-image"
+                                           title="<?= _("Upload Photo") ?>">
+                                            <i class="fa fa-camera"></i>
+                                        </a>&nbsp;
+                                        <a data-toggle="modal" data-target="#confirm-delete-image"
+                                           title="<?= _("Delete Photo") ?>">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <h3 class="profile-username text-center">
                             <?php
-                        } elseif ($person->isFemale()) {
+                            if ($person->isMale()) {
+                                ?>
+                                <i class="fa fa-male"></i>
+                                <?php
+                            } elseif ($person->isFemale()) {
+                                ?>
+                                <i class="fa fa-female"></i>
+                                <?php
+                            }
                             ?>
-                            <i class="fa fa-female"></i>
+                            <?= $person->getFullName() ?></h3>
+
+                        <?php
+                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
+                            ?>
+                            <p class="text-muted text-center">
+                                <strong
+                                    style="color:black"><?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?></strong>
+                                &nbsp;
+                                <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
+                                   data-family_role="<?= $person->getFamilyRoleName() ?>"
+                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                            </p>
+                            <?php
+                        }
+                        if ($person->getMembershipDate()) {
+                            ?>
+                            <?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
+                            <br/><br/>
+                            <?php
+                        }
+                        if ($bOkToEdit) {
+                            ?>
+                            <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                               class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
                             <?php
                         }
                         ?>
-                        <?= $person->getFullName() ?></h3>
-
-                    <?php
-                    if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
-                        ?>
-                        <p class="text-muted text-center">
-                            <?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?>
-                            &nbsp;
-                            <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
-                               data-family_role="<?= $person->getFamilyRoleName() ?>"
-                               data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-primary btn-xs">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                        </p>
-                        <?php
-                    }
-                    if ($person->getMembershipDate()) {
-                        ?>
-                        <?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
-                        <br/><br/>
-                        <?php
-                    }
-                    if ($bOkToEdit) {
-                        ?>
-                        <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
-                           class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
-                        <?php
-                    }
-                    ?>
+                    </div>
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+                <!-- /.card -->
 
-            <div class="card card-primary">
-                <div class="card-header  card-primary">
-                    <h3 class="card-title"><?= _("Classifications") ?></h3>
-                </div>
-                <div class="card-body">
+
+                <div class="card card-primary collapsed-card">
+                    <div class="card-header  card-primary">
+                        <h3 class="card-title"><i class="fa fa-list"></i> <?= _("Classifications") ?></h3>
+                        <div class="card-tools pull-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
                         <?php
                         if (!empty($sClassIcon)) {
                             ?>
                             <h5><?= _("Global") ?></h5>
-                            <p class="text-center">
-                            <img src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
-                                 boder=0>
-                            <strong style="color:black"><?= _($sClassName) ?></strong>
-                            <a id="edit-classification-btn" class="btn btn-primary btn-xs" data-person_id="<?= $person->getId() ?>"
-                                data-classification_id="<?= $sClassID ?>"
-                                data-classification_role="<?= $sClassName ?>">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                            </p>
+                            <div style="margin-left:22px">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <img
+                                            src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
+                                            boder=0>
+                                        <strong style="color:black"><?= _($sClassName) ?></strong>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs"
+                                           data-person_id="<?= $person->getId() ?>"
+                                           data-classification_id="<?= $sClassID ?>"
+                                           data-classification_role="<?= $sClassName ?>">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <?php
                         }
                         ?>
-                    <h5><?= _("Groups") ?></h5>
-                    <ul class="fa-ul">
-                        <?php
-                        foreach ($ormAssignedGroups as $groupAssigment) {
-                            ?>
-                            <li style="left:-28px"> <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?></strong> : <?= _($groupAssigment->getRoleName()) ?></li>
+                        <h5><?= _("Groups") ?></h5>
+                        <ul class="fa-ul">
                             <?php
-                        }
-                        ?>
-                    </ul>
-                </div>
-            </div>
+                            foreach ($ormAssignedGroups
 
-            <!-- About Me Box -->
-            <?php
-            $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
-            ?>
-            <div class="card card-primary">
-                <div class="card-header with-border">
-                    <h3 class="card-title text-center"><?php echo _('About Me'); ?></h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="card-body">
-                    <ul class="fa-ul">
-                        <?php
-                        if ($can_see_privatedata) {
-                        if (count($person->getOtherFamilyMembers()) > 0) {
+                            as $groupAssigment) {
                             ?>
-                            <li style="left:-28px"><strong><i class="fa fa-male"></i><i class="fa fa-female"></i><i
-                                        class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
-                                <span>
+                            <div style="left:-28px">
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
+                                        </strong>
+                                        : <?= _($groupAssigment->getRoleName()) ?>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a class="changeRole btn btn-box-tool btn-xs"
+                                           data-groupid="<?= $groupAssigment->getGroupId() ?>">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                </li>
+                                <?php
+                                }
+                                ?>
+                        </ul>
+                    </div>
+                </div>
+                <!-- About card -->
+                <?php
+                $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
+                ?>
+                <div class="card card-primary">
+                    <div class="card-header with-border">
+                        <h3 class="card-title text-center"><i
+                                class="fa fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
+                        <div class="card-tools pull-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                    class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="card-body">
+                        <ul class="fa-ul">
+                            <?php
+                            if ($can_see_privatedata) {
+                            if (count($person->getOtherFamilyMembers()) > 0) {
+                                ?>
+                                <li style="left:-28px"><strong><i class="fa fa-male"></i><i class="fa fa-female"></i><i
+                                            class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
+                                    <span>
             <?php
             if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
                 ?>
@@ -483,172 +519,175 @@ if (!empty($person->getDateDeactivated())) {
             }
             ?>
             </span>
-                            </li>
-                            <?php
-                        }
-
-                        if (!empty($formattedMailingAddress)) {
-                            ?>
-                            <strong>
-                                <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
-                            </strong>
-                            <span>
-                                    <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
-                            </span>
-                            </li>
-                            <?php
-                        }
-
-                        if ($dBirthDate) {
-                            ?>
-                            <li>
-                                <strong><i class="fa-li fa fa-calendar"></i><?= _('Birth Date') ?></strong>:
-                                <br>
-                                <p class="text-muted"><?= $dBirthDate ?>
-                                    <?php
-                                    if (!$person->hideAge()) {
-                                        ?>
-                                        (<span
-                                            data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
-                                        <?php
-                                    }
-                                    ?>
-                                </p>
-                            </li>
-                            <?php
-                        }
-                        if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
-                            ?>
-                            <li><strong><i class="fa-li fa fa-tasks"></i><?= _('Friend Date') ?>:</strong>
-                                <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span>
-                            </li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
-                    <hr/>
-                    <ul class="fa-ul">
-                        <?php
-
-                        if ($sCellPhone) {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Mobile Phone') ?>:</strong>
-                                <span><a
-                                        href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
-                            <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>:</strong>
-                                <span><a
-                                        href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
-                            </li>
-                            <?php
-                        }
-
-                        if ($sHomePhone) {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-phone"></i><?= _('Home Phone') ?>:</strong> <span><a
-                                        href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
-                            <?php
-                        }
-
-                        if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
-                            ?>
-                            <li><strong><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:</strong>
-                                <span id="NewsLetterSend"></span>
-                            </li>
-                            <?php
-                        }
-                        if ($sEmail != '') {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
-                                        href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
-                            <?php
-                            if ($isMailChimpActive) {
-                                ?>
-                                <li><strong><i class="fa-li fa fa-send"></i>MailChimp:</strong> <span
-                                        id="mailChimpUserNormal"></span>
                                 </li>
                                 <?php
                             }
-                        }
 
-                        if ($sWorkPhone) {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-phone"></i><?= _('Work Phone') ?>:</strong> <span><a
-                                        href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
-                            <?php
-                        }
-
-                        if ($person->getWorkEmail() != '') {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
-                                <span><a
-                                        href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span>
-                            </li>
-                            <?php
-                            if ($isMailChimpActive) {
+                            if (!empty($formattedMailingAddress)) {
                                 ?>
-                                <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserWork"></span></li>
+                                <strong>
+                                    <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
+                                </strong>
+                                <span>
+                                    <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
+                            </span>
+                                </li>
                                 <?php
                             }
-                        }
 
-                        if ($person->getFacebookID() > 0) {
+                            if ($dBirthDate) {
+                                ?>
+                                <li>
+                                    <strong><i class="fa-li fa fa-calendar"></i><?= _('Birth Date') ?></strong>:
+                                    <br>
+                                    <p class="text-muted"><?= $dBirthDate ?>
+                                        <?php
+                                        if (!$person->hideAge()) {
+                                            ?>
+                                            (<span
+                                                data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
+                                            <?php
+                                        }
+                                        ?>
+                                    </p>
+                                </li>
+                                <?php
+                            }
+                            if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
+                                ?>
+                                <li><strong><i class="fa-li fa fa-tasks"></i><?= _('Friend Date') ?>:</strong>
+                                    <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span>
+                                </li>
+                                <?php
+                            }
                             ?>
-                            <li><strong><i class="fa-li fa fa-facebook-official"></i><?= _('Facebook') ?>:</strong>
-                                <span><a
-                                        href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
-                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="fa-ul">
                             <?php
-                        }
 
-                        if (strlen($person->getTwitter()) > 0) {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
-                                        href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
-                            </li>
-                            <?php
-                        }
+                            if ($sCellPhone) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Mobile Phone') ?>:</strong>
+                                    <span><a
+                                            href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
+                                <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>:</strong>
+                                    <span><a
+                                            href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
+                                </li>
+                                <?php
+                            }
 
-                        if (strlen($person->getLinkedIn()) > 0) {
-                            ?>
-                            <li><strong><i class="fa-li fa fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
-                                        href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
-                            </li>
-                            <?php
-                        }
+                            if ($sHomePhone) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-phone"></i><?= _('Home Phone') ?>:</strong> <span><a
+                                            href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
+                                <?php
+                            }
 
-                        } // end of $can_see_privatedata
-                        ?>
-
-                    </ul>
-                    <hr/>
-                    <ul class="fa-ul">
-
-                        <?php
-
-                        // Display the right-side custom fields
-                        foreach ($ormPersonCustomFields as $rowCustomField) {
-                            if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-                                $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
-                                if ($currentData != '') {
-                                    if ($rowCustomField->getTypeId() == 11) {
-                                        $custom_Special = $sPhoneCountry;
-                                    } else {
-                                        $custom_Special = $rowCustomField->getCustomSpecial();
-                                    }
-
-                                    echo '<li><strong><i class="fa-li ' . (($rowCustomField->getTypeId() == 11) ? 'fa fa-phone' : 'fa fa-tag') . '"></i>' . $rowCustomField->getCustomName() . ':</strong> <span>';
-                                    $temp_string = nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
-                                    echo $temp_string;
-                                    echo '</span></li>';
+                            if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
+                                ?>
+                                <li><strong><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:</strong>
+                                    <span id="NewsLetterSend"></span>
+                                </li>
+                                <?php
+                            }
+                            if ($sEmail != '') {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
+                                            href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
+                                <?php
+                                if ($isMailChimpActive) {
+                                    ?>
+                                    <li><strong><i class="fa-li fa fa-send"></i>MailChimp:</strong> <span
+                                            id="mailChimpUserNormal"></span>
+                                    </li>
+                                    <?php
                                 }
                             }
-                        }
-                        ?>
-                    </ul>
+
+                            if ($sWorkPhone) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-phone"></i><?= _('Work Phone') ?>:</strong> <span><a
+                                            href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
+                                <?php
+                            }
+
+                            if ($person->getWorkEmail() != '') {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
+                                    <span><a
+                                            href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span>
+                                </li>
+                                <?php
+                                if ($isMailChimpActive) {
+                                    ?>
+                                    <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserWork"></span>
+                                    </li>
+                                    <?php
+                                }
+                            }
+
+                            if ($person->getFacebookID() > 0) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-facebook-official"></i><?= _('Facebook') ?>:</strong>
+                                    <span><a
+                                            href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
+                                </li>
+                                <?php
+                            }
+
+                            if (strlen($person->getTwitter()) > 0) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
+                                            href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
+                                </li>
+                                <?php
+                            }
+
+                            if (strlen($person->getLinkedIn()) > 0) {
+                                ?>
+                                <li><strong><i class="fa-li fa fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
+                                            href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
+                                </li>
+                                <?php
+                            }
+
+                            } // end of $can_see_privatedata
+                            ?>
+
+                        </ul>
+                        <hr/>
+                        <ul class="fa-ul">
+
+                            <?php
+
+                            // Display the right-side custom fields
+                            foreach ($ormPersonCustomFields as $rowCustomField) {
+                                if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                                    $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                                    if ($currentData != '') {
+                                        if ($rowCustomField->getTypeId() == 11) {
+                                            $custom_Special = $sPhoneCountry;
+                                        } else {
+                                            $custom_Special = $rowCustomField->getCustomSpecial();
+                                        }
+
+                                        echo '<li><strong><i class="fa-li ' . (($rowCustomField->getTypeId() == 11) ? 'fa fa-phone' : 'fa fa-tag') . '"></i>' . $rowCustomField->getCustomName() . ':</strong> <span>';
+                                        $temp_string = nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
+                                        echo $temp_string;
+                                        echo '</span></li>';
+                                    }
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
+                <div class="alert alert-info alert-dismissable">
+                    <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
+                </div>
+
             </div>
 
         </div>
