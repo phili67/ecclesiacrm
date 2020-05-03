@@ -169,7 +169,8 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
             </div>
             <div class="card-body">
-                <a class="MediumText" href="<?= $sRootPath ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
+                <p>
+                    <a class="MediumText" href="<?= $sRootPath ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
                 <br>
                 <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
                 </p>
@@ -191,7 +192,7 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                 }
                 ?>
-
+                <p>
                 <a class="MediumText" href="<?= $sRootPath ?>/LettersAndLabels.php"><?= _('Letters and Mailing Labels') ?></a>
                 <br><?= _('Generate letters and mailing labels.') ?>
                 </p>

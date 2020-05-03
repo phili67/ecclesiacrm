@@ -133,10 +133,15 @@ require 'Include/Header.php';
                     <?php
                     if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
                         ?>
-                        <p><?= _('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.') ?></p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><?= _('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.') ?></p>
+                            </div>
+                        </div>
                         <?php
                     }
                     ?>
+                </form>
             </div>
         </div>
     </div>
@@ -203,35 +208,34 @@ require 'Include/Header.php';
     <div class="card-body">
         <table class="table" id="paymentsTable" width="100%"></table>
         <div class="container-fluid">
-            <div id="depositsTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <?php
-                        if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
-                            //if ($thisDeposit->getType() == 'Bank') {
-                            ?>
-                            <label><?= _("Action") ?> : </label>
-                            <button type="button" id="deleteSelectedRows" class="btn btn-danger"
-                                    disabled><?= _("Delete Selected Rows") ?></button>
-                            <?php
-                            //}
-                        }
+            <div id="depositsTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <?php
+                    if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
+                        //if ($thisDeposit->getType() == 'Bank') {
                         ?>
-                    </div>
+                        <label><?= _("Action") ?> : </label>
+                        <button type="button" id="deleteSelectedRows" class="btn btn-danger"
+                                disabled><?= _("Delete Selected Rows") ?></button>
+                        <?php
+                        //}
+                    }
+                    ?>
+                </div>
 
-                    <div class="col-lg-8">
-                        <?php
-                        if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
-                            ?>
-                            <label><?= _("Statut") ?> : </label>
-                            <button type="button" id="validateSelectedRows" class="btn btn-success exportButton"
-                                    disabled><?= _("Payment") ?> (0) <?= _("Selected Rows") ?></button>
-                            <button type="button" id="invalidateSelectedRows" class="btn btn-info"
-                                    disabled><?= _("Pledge") ?> (0) <?= _("Selected Rows") ?></button>
-                            <?php
-                        }
+                <div class="col-md-8">
+                    <?php
+                    if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
                         ?>
-                    </div>
+                        <label><?= _("Statut") ?> : </label>
+                        <button type="button" id="validateSelectedRows" class="btn btn-success exportButton"
+                                disabled><?= _("Payment") ?> (0) <?= _("Selected Rows") ?></button>
+                        <button type="button" id="invalidateSelectedRows" class="btn btn-info"
+                                disabled><?= _("Pledge") ?> (0) <?= _("Selected Rows") ?></button>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
