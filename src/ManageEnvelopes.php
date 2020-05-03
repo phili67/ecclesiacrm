@@ -235,7 +235,6 @@ foreach ($arrayToLoop as $fam_ID => $value) {
     <?php
 }
 ?>
-</div>
 <br>
 </form>
 </div>
