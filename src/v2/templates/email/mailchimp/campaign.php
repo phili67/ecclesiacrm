@@ -82,13 +82,13 @@ require $sRootDocument . '/Include/Header.php';
                     ?>
                     <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
                                                   name="checkboxaCampaignSchedule" checked> <i class="fa fa-calendar-check-o"></i> <label
-                            for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
+                            for="checkboxaCampaignSchedule"><?= _('Schedule') ?></label></h3>
                     <?php
                 } else {
                     ?>
                     <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
                                                   name="checkboxaCampaignSchedule" <?= ($campaign['status'] == "sent" && !($campaign['status'] == "schedule")) ? "disabled" : "" ?>>
-                        <i class="fa fa-calendar-times-o"></i> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
+                        <i class="fa fa-calendar-times-o"></i> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></label></h3>
                     <?php
                 }
                 ?>
@@ -106,21 +106,21 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="form-group col-md-2">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-calendar"></i></i></span>
+                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                     </div>
                                     <!-- Philippe Logel -->
                                     <input class="form-control date-picker input-sm" type="text" id="dateCampaign"
                                            name="dateCampaign"
                                            value="<?= (isset($campaign[send_time])) ? OutputUtils::change_date_for_place_holder($campaign[send_time]) : "" ?>"
-                                    'maxlength="10" id="sel1" size="11"
-                                    'placeholder="<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>
+                                            maxlength="10" id="sel1" size="11"
+                                            placeholder="<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>
                                     " <?= ($campaign['status'] == "schedule") ? "" : "disabled" ?>>
                                 </div>
                             </div>
                             <div class="form-group col-md-2">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-clock-o"></i></i></span>
+                                        <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
                                     </div>
                                     <!-- Philippe Logel -->
                                     <input type="text" class="form-control timepicker input-sm" id="timeCampaign"
@@ -160,8 +160,6 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
 </div>
-</div>
-
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
