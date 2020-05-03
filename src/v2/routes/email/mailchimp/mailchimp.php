@@ -19,8 +19,8 @@ $app->group('/mailchimp', function () {
     $this->get('/campaign/{campaignId}', 'renderMailChimpCampaign');
     $this->get('/managelist/{listId}', 'renderMailChimpManageList');
     $this->get('/duplicateemails', 'renderMailChimpDuplicateEmails');
-    $this->get('/notinmailchimpemailsfamilies', 'renderMailChimpNotInMailchimpEmailsFamilies');
     $this->get('/notinmailchimpemailspersons', 'renderMailChimpNotInMailchimpEmailsPersons');
+    $this->get('/notinmailchimpemailsfamilies', 'renderMailChimpNotInMailchimpEmailsFamilies');
 });
 
 function renderMailChimpDashboard (Request $request, Response $response, array $args) {
@@ -102,7 +102,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
    $mailChimpStatus = $mailchimp->getConnectionStatus();
    $campaign        = $mailchimp->getCampaignFromId($campaignId);
 
-   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray').";float:right\"class=\"status\">("._($campaign['status']).")</span></b>";
+   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" class="status">('._($campaign['status']).')</span></b>';
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
@@ -140,7 +140,7 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
    $list = $mailchimp->getListFromListId($listId);
 
    $sPageTitle     = _('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  ('._("GDPR").')':'');
-   $sPageTitleSpan = _('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR"):'');
+   $sPageTitleSpan = _('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR").'</span>':'');
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
@@ -187,7 +187,7 @@ function mailchimpDuplicateEmailsArgumentsArray ()
 }
 
 
-function renderMailChimpNotInMailchimpEmailsFamilies (Request $request, Response $response, array $args) {
+function renderMailChimpNotInMailchimpEmailsPersons (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
 
     $mailchimp       = new MailChimpService();
@@ -196,12 +196,12 @@ function renderMailChimpNotInMailchimpEmailsFamilies (Request $request, Response
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
 
-    return $renderer->render($response, 'notinmailchimpemailsfamilies.php', mailchimpNotInMailchimpFailiesArgumentsArray());
+    return $renderer->render($response, 'notinmailchimpemailspersons.php', mailchimpNotInMailchimpEmailsArgumentsArrayPersons());
 }
 
-function mailchimpNotInMailchimpFailiesArgumentsArray ()
+function mailchimpNotInMailchimpEmailsArgumentsArrayPersons ()
 {
-   $sPageTitle = _('Families Not In MailChimp');
+   $sPageTitle = _('Persons Not In MailChimp');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
@@ -212,7 +212,7 @@ function mailchimpNotInMailchimpFailiesArgumentsArray ()
    return $paramsArguments;
 }
 
-function renderMailChimpNotInMailchimpEmailsPersons (Request $request, Response $response, array $args) {
+function renderMailChimpNotInMailchimpEmailsFamilies (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/email/mailchimp/');
 
     $mailchimp       = new MailChimpService();
@@ -221,12 +221,12 @@ function renderMailChimpNotInMailchimpEmailsPersons (Request $request, Response 
         return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
 
-    return $renderer->render($response, 'notinmailchimpemailspersons.php', mailchimpNotInMailchimpPersonsArgumentsArray());
+    return $renderer->render($response, 'notinmailchimpemailsfamilies.php', mailchimpNotInMailchimpEmailsArgumentsArrayFamilies());
 }
 
-function mailchimpNotInMailchimpPersonsArgumentsArray ()
+function mailchimpNotInMailchimpEmailsArgumentsArrayFamilies ()
 {
-    $sPageTitle = _('Persons Not In MailChimp');
+    $sPageTitle = _('Families Not In MailChimp');
 
     $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
         'sRootDocument'   => SystemURLs::getDocumentRoot(),
