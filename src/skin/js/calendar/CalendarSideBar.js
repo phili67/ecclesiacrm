@@ -596,6 +596,7 @@
         var dialog = bootbox.dialog({
           title: i18next.t("Calendar Management for")+" : "+data.title,
           message: i18next.t(data.message),
+          size:"large",
           buttons: allButtons
         });
     });
