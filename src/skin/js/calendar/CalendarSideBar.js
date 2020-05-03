@@ -14,12 +14,6 @@
     $('#mon_rectangle').height(height);
   });
 
-  $('.collapse').on('shown.bs.collapse', function(){
-      $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");
-  }).on('EXCLUDE.bs.collapse', function(){
-      $(this).parent().find(".fa-chevron-up").removeClass("fa-chevron-up").addClass("fa-chevron-down");
-  });
-
   // for the calendar
   $('body').on('click','.check-calendar', function(){
     var calIDs = $(this).data("id");
@@ -615,7 +609,7 @@
 
   $('body').on('click','.editCalendarName', function(){
     var calIDs = $(this).data("id");
-    var name   = $(this).text();
+    var name   = $(this).data("name");
 
     bootbox.prompt({
       title: i18next.t("Modify Calendar Name"),
@@ -637,7 +631,7 @@
 
   $('body').on('click','.editGroupName', function(){
     var calIDs = $(this).data("id");
-    var name   = $(this).text();
+    var name   = $(this).data("name");
 
     bootbox.prompt({
       title: i18next.t("Modify Group Name"),
@@ -659,7 +653,7 @@
 
   $('body').on('click','.editReservationName', function(){
     var calIDs = $(this).data("id");
-    var name   = $(this).text();
+    var name   = $(this).data("name");
 
     bootbox.prompt({
       title: i18next.t("Modify Resource Name"),
@@ -681,7 +675,7 @@
 
   $('body').on('click','.editShareName', function(){
     var calIDs = $(this).data("id");
-    var name   = $(this).text();
+    var name   = $(this).data("name");
 
     bootbox.prompt({
       title: i18next.t("Modify Share Name"),
@@ -781,10 +775,7 @@
             '   </div>' +
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
-            '           <div class="editCalendarName"  data-id="'+data[i].calendarID+'">'+
-                           data[i].icon + ' ' +
-                           data[i].calendarName.substring(0, 22) +
-                       '</div>' +
+            '           <div class="editCalendarName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+ data[i].icon + ' ' + data[i].calendarName.substring(0, 22) + '</div>' +
             '           <div class="input-group-addon">' +
             '               <i style="background-color:'+data[i].calendarColor+';"></i>' +
             '           </div>' +
@@ -841,7 +832,7 @@
             '   </div>' +
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
-            '           <div class="editGroupName"  data-id="'+data[i].calendarID+'">'+
+            '           <div class="editGroupName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
             data[i].icon + ' ' +
             data[i].calendarName.substring(0, 22) +
             '</div>' +
@@ -913,7 +904,7 @@
               '   </div>' +
               '   <div class="col-9">'+
               '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
-              '           <div class="editReservationName"  data-id="'+data[i].calendarID+'">'+
+              '           <div class="editReservationName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
               data[i].icon + ' ' +
               data[i].calendarName.substring(0, 22) +
               '</div>' +
@@ -991,7 +982,7 @@
             '   </div>' +
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
-            '           <div class="editShareName"  data-id="'+data[i].calendarID+'">'+
+            '           <div class="editShareName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
             data[i].icon + ' ' +
             data[i].calendarName.substring(0, 22) +
             '</div>' +
