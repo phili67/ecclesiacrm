@@ -338,8 +338,10 @@ class MenuBar {
 
             $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/mailchimp/dashboard",SessionUser::getUser()->isMailChimpEnabled(),$menuMain,"lists_class_main_menu");
             $menuItem->addLink("v2/mailchimp/duplicateemails");
-            $menuItem->addLink("v2/mailchimp/notinmailchimpemails");
             $menuItem->addLink("v2/mailchimp/debug");
+            $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
+            $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
+
 
             $menuItemItem = new Menu (_("Email Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu ".(($mailchimp->isLoaded())?"":"hidden"));
 
@@ -472,7 +474,7 @@ class MenuBar {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
-            echo '<li class="nav-item '.$menu->getClass().'">';
+            echo '<li class="nav-item">';
             echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
                 echo " <i class=\"fa fa-angle-left right\"></i>\n";
