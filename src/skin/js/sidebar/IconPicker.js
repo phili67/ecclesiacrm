@@ -21,11 +21,11 @@
 //          path: 'mapicons/getall',
 //      }).done(function(data) {
 //        var len = data.length;
-//    
+//
 //        $('#here_table').append('<table width=100%></table>');
-//        
+//
 //        var table = $('#here_table').children();
-//        
+//
 //        for(i=0;i<len;i++){
 //         if (i%8 == 0) {
 //             if (i==0) {
@@ -37,7 +37,7 @@
 //          }
 //          buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
 //        }
-//    
+//
 //       if (buff != '') {
 //          len = len%8;
 //          for (i=0;i<len;i++) {
@@ -47,11 +47,11 @@
 //        }
 //      });
 //    }
-//  );   
-  
+//  );
+
     var selectedName = '';
 
-    function BootboxContent(title,firstLabel,label,message){          
+    function BootboxContent(title,firstLabel,label,message){
        var frm_str = '<h3 style="margin-top:-5px">'+title+'</h3>'
           + '<div>'
             +'<div class="row div-title">'
@@ -69,32 +69,32 @@
 
         return object
     }
-    
-    $('body').on('click','.imgCollection', function(){ 
+
+    $('body').on('click','.imgCollection', function(){
       var name = $(this).data("name");
-      
+
       selectedName = name;
-    
+
       $( ".imgCollection" ).each(function( index ) {
-            $(this).css('border', "solid 1px white"); 
+            $(this).css('border', "solid 1px white");
       });
 
-      $(this).css('border', "solid 1px blue"); 
+      $(this).css('border', "solid 1px blue");
     });
 
-    
+
     function createImagePickerWindow (options,callbackRes,callBackIcons) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
-    {      
+    {
       var diag = bootbox.dialog({
          message: BootboxContent(options.title,options.firstLabel,options.label,options.message,options.directory),
-         size: "small",
+         //size: "small",
          buttons: [
           {
-           label: i18next.t("Cancel"),
+           label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
            className: "btn btn-default",
           },
           {
-           label: i18next.t("Validate"),
+           label: '<i class="fa fa-check"></i> ' + i18next.t("Validate"),
            className: "btn btn-primary",
            callback: function() {
               if (callbackRes) {
@@ -107,12 +107,12 @@
             modal.modal("hide");
          }
        });
-      
+
        if (callBackIcons) {
          callBackIcons(options.directory);
        }
-       
+
        diag.modal("show");
-              
+
        return diag;
     }
