@@ -70,8 +70,6 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                             'uri'=>$per->getPerson()->getViewURI()
                         ];
 
-                        LoggerUtils::getAppLogger()->info("coucou : ".print_r($elt,true));
-
 
                         if ($this->global_search) {
                             $fam = $per->getPerson()->getFamily();
