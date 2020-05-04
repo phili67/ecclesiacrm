@@ -238,7 +238,9 @@ $(document).ready(function () {
                 visible: false,
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search' || full.realType == ' Individual Pastoral Care' || full.realType == 'Person Properties Search') {
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search'
+                        || full.realType == ' Individual Pastoral Care' || full.realType == 'Person Properties Search'
+                        || full.realType == 'Person Group role assignment') {
                         if(cart.indexOf(data) == -1) {
                             cart.push(data);
                         }
