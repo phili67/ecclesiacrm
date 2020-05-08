@@ -239,7 +239,7 @@ class CalendarService
         $event['start']     = $start;
         $event['origStart'] = $start;
         $event['icon']      = $icon;
-        $event['type']      = $type;
+        $event['realType']  = $event['type'] = $type;
 
         if ($end != '') {
             $event['end'] = $end;
