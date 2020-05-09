@@ -138,9 +138,9 @@
     height: 40px;
 }
 
-.tab-pane hr {
+/*.tab-pane hr {
     border-top: 1px solid rgba(255, 255, 255, 0.69);
-}
+}*/
 
 .table td, .table th {
     padding: .75rem;
@@ -177,14 +177,14 @@ scrollable bootbox body
 
 /* calendar */
 
-.fc button {
+/*.fc button {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
     box-shadow: none;
     background-image: none;
     text-shadow: none;
-}
+}*/
 
 .fc-view-container {
     background-color: white !important;
@@ -208,14 +208,13 @@ scrollable bootbox body
     margin-top:20px;
 }
 
-.fc-button {
+/* .fc-button {
     border: none !important;
     background-color: #007bff  !important;
     background-image: none !important;
     font-weight: 400 !important;
     color: #fff  !important;
     float: left  !important;
-    /*margin-left: .75em  !important;*/
 }
 
 .fc-state-active {
@@ -234,7 +233,7 @@ scrollable bootbox body
     float: left;
     background-image: none !important;
     margin-left: .75em;
-}
+}*/
 
 .fc-event {
     border-style: none !important;
@@ -245,14 +244,14 @@ scrollable bootbox body
     color: #fff !important;
 }
 
-.fc button:hover {
+/*.fc button:hover {
     color: #fff;
     background-color: #0062cc !important;
     border-color: #005cbf !important;
     box-shadow: none;
     background-image: none;
     text-shadow: none;
-}
+}*/
 
 /* geopage color */
 .info table tbody th {
