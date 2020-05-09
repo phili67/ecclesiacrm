@@ -102,6 +102,9 @@ if (array_key_exists('group', $_GET)) {
 // Get this person's data
 $connection = Propel::getConnection();
 
+$sClassName = "";
+$sClassID = 0;
+
 $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, COALESCE(cls.lst_OptionID , 'Unassigned') AS sClassID, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
         b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
       FROM person_per a
@@ -341,33 +344,11 @@ if (!empty($person->getDateDeactivated())) {
     <div class="row">
         <div class="col-md-3">
             <div class="sticky-top">
-                <div class="card card-primary card-outline">
-                    <div class="card-body card-profile">
-                        <div class="image-container">
-                            <div class="text-center">
-                                <img
-                                    src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
-                                    class="initials-image profile-user-img img-responsive img-rounded img-circle">
-                            </div>
-                            <?php if ($bOkToEdit): ?>
-                                <div class="after">
-                                    <div class="buttons">
-                                        <a id="view-larger-image-btn" class="hide" title="<?= _("View Photo") ?>">
-                                            <i class="fa fa-search-plus"></i>
-                                        </a>&nbsp;
-                                        <a class="" data-toggle="modal" data-target="#upload-image"
-                                           title="<?= _("Upload Photo") ?>">
-                                            <i class="fa fa-camera"></i>
-                                        </a>&nbsp;
-                                        <a data-toggle="modal" data-target="#confirm-delete-image"
-                                           title="<?= _("Delete Photo") ?>">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                        <h3 class="profile-username text-center">
+                <div class="card card-widget widget-user">
+                    <!-- Add the bg color to the header using any of the bg-* classes -->
+                    <div class="widget-user-header bg-primary">
+                        <h3 class="widget-user-username">
+                            <?= $person->getFullName() ?>
                             <?php
                             if ($person->isMale()) {
                                 ?>
@@ -379,44 +360,93 @@ if (!empty($person->getDateDeactivated())) {
                                 <?php
                             }
                             ?>
-                            <?= $person->getFullName() ?></h3>
+                        </h3>
+                        <h5 class="widget-user-desc" style="font-size:16px">
+                            <?php
+                            if ($person->getMembershipDate()) {
+                                ?>
+                                <?= _('Member') ?>
+                                <?= _(' Since:') . " " . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
+                                <?php
+                            } ?>
+                        </h5>
+                    </div>
+                    <div class="widget-user-image">
+                        <img
+                            src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
+                            class="img-circle elevation-2">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <?php if ($bOkToEdit): ?>
+                                    <div class="after" style="text-align: center">
+                                        <div class="buttons">
+                                            <a id="view-larger-image-btn" class="hide" title="<?= _("View Photo") ?>">
+                                                <i class="fa fa-search-plus"></i>
+                                            </a>&nbsp;
+                                            <a class="" data-toggle="modal" data-target="#upload-image"
+                                               title="<?= _("Upload Photo") ?>">
+                                                <i class="fa fa-camera"></i>
+                                            </a>&nbsp;
+                                            <a data-toggle="modal" data-target="#confirm-delete-image"
+                                               title="<?= _("Delete Photo") ?>">
+                                                <i class="fa fa-trash-o"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
-                        <?php
-                        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
-                            ?>
-                            <p class="text-muted text-center">
-                                <strong
-                                    style="color:black"><?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?></strong>
-                                &nbsp;
-                                <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
-                                   data-family_role="<?= $person->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs">
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="description-block">
+                                    <h5 class="description-header">
+                                        <?= _("Family Role") ?>
+                                    </h5>
+                                    <span class="description-text"><?php
+                                        if ($person->getId() == SessionUser::getUser()->getPersonId() ||
+                                            $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId()
+                                            || SessionUser::getUser()->isEditRecordsEnabled()) {
+                                            ?>
+                                            <?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?>
+                                            &nbsp;
+                                            <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
+                                               data-family_role="<?= $person->getFamilyRoleName() ?>"
+                                               data-family_role_id="<?= $person->getFmrId() ?>"
+                                               class="btn btn-box-tool btn-xs">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                            </p>
-                            <?php
-                        }
-                        if ($person->getMembershipDate()) {
-                            ?>
-                            <?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
-                            <br/><br/>
-                            <?php
-                        }
-                        if ($bOkToEdit) {
-                            ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
-                               class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
-                            <?php
-                        }
-                        ?>
+                                            <?php
+                                        }
+                                        ?></span>
+                                </div>
+                                <!-- /.description-block -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <div class="round">
+                            <div class="col-sm-12">
+                                <?php
+                                if ($bOkToEdit) {
+                                    ?>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
+                                       class="btn btn-xs btn-block btn-primary"><i
+                                            class="fa fa-edit"></i> <?= _("Edit") ?></a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <!-- /.row -->
                     </div>
-                    <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
 
 
-                <div class="card card-primary collapsed-card">
-                    <div class="card-header  card-primary">
+                <div class="card card-secondary collapsed-card">
+                    <div class="card-header">
                         <h3 class="card-title"><i class="fa fa-list"></i> <?= _("Classifications") ?></h3>
                         <div class="card-tools pull-right">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
@@ -428,12 +458,12 @@ if (!empty($person->getDateDeactivated())) {
                         if (!empty($sClassIcon)) {
                             ?>
                             <h5><?= _("Global") ?></h5>
-                            <div style="margin-left:22px">
+                            <div style="margin-left:-2px">
                                 <div class="row">
-                                    <div class="col-md-11">
+                                    <div class="col-md-10">
                                         <img
                                             src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
-                                            boder=0>
+                                            boder=0 width="20">
                                         <strong style="color:black"><?= _($sClassName) ?></strong>
                                     </div>
                                     <div class="col-md-1">
@@ -454,26 +484,26 @@ if (!empty($person->getDateDeactivated())) {
                             <?php
                             foreach ($ormAssignedGroups
 
-                            as $groupAssigment) {
-                            ?>
-                            <div style="left:-28px">
-                                <div class="row">
-                                    <div class="col-md-11">
-                                        <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
-                                        </strong>
-                                        : <?= _($groupAssigment->getRoleName()) ?>
+                                     as $groupAssigment) {
+                                ?>
+                                <li style="left:-28px">
+                                    <div class="row">
+                                        <div class="col-md-11">
+                                            <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
+                                            </strong>
+                                            : <?= _($groupAssigment->getRoleName()) ?>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <a class="changeRole btn btn-box-tool btn-xs"
+                                               data-groupid="<?= $groupAssigment->getGroupId() ?>">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="col-md-1">
-                                        <a class="changeRole btn btn-box-tool btn-xs"
-                                           data-groupid="<?= $groupAssigment->getGroupId() ?>">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </div>
-                                </div>
                                 </li>
                                 <?php
-                                }
-                                ?>
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -481,8 +511,8 @@ if (!empty($person->getDateDeactivated())) {
                 <?php
                 $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
-                <div class="card card-primary">
-                    <div class="card-header with-border">
+                <div class="card card-secondary">
+                    <div class="card-header">
                         <h3 class="card-title text-center"><i
                                 class="fa fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
                         <div class="card-tools pull-right">
@@ -842,7 +872,7 @@ if (!empty($person->getDateDeactivated())) {
                             <li class="nav-item">
                                 <a class="nav-link <?= (!$bDocuments && !$bEDrive && !$bGroup) ? "active" : "" ?>"
                                    href=" #timeline" aria-controls="timeline" role="tab"
-                                   data-toggle="tab"><?= _('Timeline') ?></a></li>
+                                   data-toggle="tab"><i class="fa fa-clock-o"></i> <?= _('Timeline') ?></a></li>
                             <?php
                         }
                         ?>
@@ -854,7 +884,11 @@ if (!empty($person->getDateDeactivated())) {
                                    href="#family"
                                    aria-controls="family"
                                    role="tab"
-                                   data-toggle="tab"><?= _('Family') ?></a>
+                                   data-toggle="tab">
+                                    <i class="fa fa-male"></i>
+                                    <i class="fa fa-female"></i>
+                                    <i class="fa fa-child"></i>
+                                    <?= _('Family') ?></a>
                             </li>
                             <?php
                             if (empty($activeTab)) {
@@ -1087,7 +1121,7 @@ if (!empty($person->getDateDeactivated())) {
                                             <td>
                                                 <img style="width:40px; height:40px;display:inline-block"
                                                      src="<?= $sRootPath . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
-                                                     class="initials-image profile-user-img img-responsive img-circle no-border">
+                                                     class="initials-image img-responsive img-circle no-border">
                                                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
                                             </td>
