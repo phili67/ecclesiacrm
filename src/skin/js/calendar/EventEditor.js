@@ -1,7 +1,8 @@
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2019/04/14
+//  copyright   : 2020 Philippe Logel all right reserved not MIT licence
+//                This code can't be included in another software.
+//  Updated     : 2020/05/07
 //
 
   var anniversary    = true;
@@ -48,19 +49,19 @@
 
   var wAgendaName = localStorage.getItem("wAgendaName");
   if (wAgendaName == null) {
-    localStorage.setItem("wAgendaName","month");
-    wAgendaName = "month";
+    localStorage.setItem("wAgendaName","dayGridMonth");
+    wAgendaName = "dayGridMonth";
   }
 
   $("#isBirthdateActive").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
 
      if (_val == 'checked'){
-       birthday = true;
+        birthday = true;
      } else {
-      birthday = false;
+        birthday = false;
      }
-     $('#calendar').fullCalendar( 'refetchEvents' );
+     window.CRM.calendar.refetchEvents();
 
      localStorage.setItem("birthday",_val);
   });
@@ -73,7 +74,7 @@
       anniversary = false;
      }
 
-     $('#calendar').fullCalendar( 'refetchEvents' );
+     window.CRM.calendar.refetchEvents();
 
      localStorage.setItem("anniversary",_val);
   });
@@ -86,25 +87,25 @@
         withlimit = false;
      }
 
-     var options = $('#calendar').fullCalendar('getView').options;
-     options.eventLimit = withlimit;
-     $('#calendar').fullCalendar('destroy');
-     $('#calendar').fullCalendar(options);
+     var options = window.CRM.calendar.getOption('eventLimit');
+     window.CRM.calendar.setOption ('eventLimit', withlimit);
+
+     window.CRM.calendar.refetchEvents()
 
      localStorage.setItem("withlimit",_val);
   });
 
   window.calendarFilterID     = 0;
-  window.EventTypeFilterID = 0;
+  window.CRM.EventTypeFilterID = 0;
 
-  localStorage.setItem("calendarFilterID",calendarFilterID);
-  localStorage.setItem("EventTypeFilterID",EventTypeFilterID);
+  localStorage.setItem("calendarFilterID",window.calendarFilterID);
+  localStorage.setItem("EventTypeFilterID",window.CRM.EventTypeFilterID);
 
   $("#EventCalendarFilter").on('change',function () {
      var e = document.getElementById("EventCalendarFilter");
      window.calendarFilterID = e.options[e.selectedIndex].value;
 
-    $('#calendar').fullCalendar( 'refetchEvents' );
+      window.CRM.calendar.refetchEvents();
 
     if (window.calendarFilterID == 0)
       $("#ATTENDENCES").parents("tr").hide();
@@ -115,11 +116,11 @@
 
   $("#EventTypeFilter").on('change',function () {
      var e = document.getElementById("EventTypeFilter");
-     window.EventTypeFilterID = e.options[e.selectedIndex].value;
+     window.CRM.EventTypeFilterID = e.options[e.selectedIndex].value;
 
-     $('#calendar').fullCalendar( 'refetchEvents' );
+      window.CRM.calendar.refetchEvents();
 
-     localStorage.setItem("EventTypeFilterID",EventTypeFilterID);
+     localStorage.setItem("EventTypeFilterID",window.calendarFilterID);
   });
 
   $('body').on('click','.date-title, .date-range', function(){
@@ -447,7 +448,7 @@
         +'          </div>'
         +'      </div>'
         +'  <div class="row  div-title EventLocation">'
-        +'  <div class="col-md-3">' + i18next.t('Location') + ":</div>"
+        +'      <div class="col-md-3">' + i18next.t('Location') + ":</div>"
         +'      <div class="col-md-9">'
         +'          <div class="form-group has-warning location_group_warning">'
         +'              <label class="control-label location_label_warning" for="inputWarning"><i class="fa fa-bell-o location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
@@ -458,171 +459,167 @@
         +'  </div>'
         +'  <div class="row div-title map-title">'
         +'      <div class="col-md-3">' + i18next.t("Map") + "</p></div>"
-        +'          <div class="col-md-9">'
-        +'              <div id="MyMap"></div>'
+        +'      <div class="col-md-9">'
+        +'          <div id="MyMap"></div>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row div-title EventDesc">'
+        +'      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
+        +'      <div class="col-md-9">'
+        +"          <textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row date-title div-title">'
+        +'      <div class="date-range">'
+        +                   i18next.t('From')+' : '+dateStart+' '+timeStart
+        +'      </div>'
+        +'      <div class="date-range">'
+        +                   i18next.t('to')+' : '+dateEnd+' '+timeEnd
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row date-start div-block">'
+        +'      <div class="col-md-12">'
+        +'          <div class="row">'
+        +'              <div class="col-md-3"><span style="color: red">*</span>'
+        +                           i18next.t('Start Date')+' :'
+        +'              </div>'
+        +'              <div class="input-group col-md-4">'
+        +'                  <div class="input-group-prepend">'
+        +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+        +'                  </div>'
+        +'                  <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
+        +'                      maxlength="10" id="sel1" size="11"'
+        +'                      placeholder="'+window.CRM.datePickerformat+'">'
+        +'              </div>'
+        +'              <div class="input-group col-md-4">'
+        +'                  <div class="input-group-prepend">'
+        +'                      <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
+        +'                  </div>'
+        +'                  <input type="text" class="form-control timepicker input-sm" id="timeEventStart" name="timeEventStart" value="'+timeStart+'">'
+        +'              </div>'
         +'          </div>'
         +'      </div>'
-        +'      <div class="row div-title EventDesc">'
-        +'          <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
-        +'              <div class="col-md-9">'
-        +"                  <textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
+        +'  </div>'
+        +'  <div class="row date-end div-block">'
+        +'      <div class="col-md-12">'
+        +'          <div class="row">'
+        +'              <div class="col-md-3"><span style="color: red">*</span>'
+        +                   i18next.t('End Date')+' :'
         +'              </div>'
-        +'          </div>'
-        +'          <div class="row date-title div-title">'
-        +'              <div class="date-range">'
-        +                   i18next.t('From')+' : '+dateStart+' '+timeStart
-        +'              </div>'
-        +'              <div class="date-range">'
-        +                   i18next.t('to')+' : '+dateEnd+' '+timeEnd
-        +'              </div>'
-        +'          </div>'
-        +'          <div class="row date-start div-block">'
-        +'              <div class="col-md-12">'
-        +'                  <div class="row">'
-        +'                      <div class="col-md-3"><span style="color: red">*</span>'
-        +                           i18next.t('Start Date')+' :'
-        +'                      </div>'
-        + '                     <div class="input-group col-md-4">'
-        + '                         <div class="input-group-prepend">'
-        + '                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
-        + '                         </div>'
-        +'                          <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
-        +'                                     maxlength="10" id="sel1" size="11"'
-        +'                                     placeholder="'+window.CRM.datePickerformat+'">'
-        + '                     </div>'
-        + '                     <div class="input-group col-md-4">'
-        + '                         <div class="input-group-prepend">'
-        + '                             <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
-        + '                         </div>'
-        +'                          <input type="text" class="form-control timepicker input-sm" id="timeEventStart" name="timeEventStart" value="'+timeStart+'">'
-        + '                     </div>'
+        +'              <div class="input-group col-md-4">'
+        +'                  <div class="input-group-prepend">'
+        +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
         +'                  </div>'
+        +'                  <input class="form-control date-picker  input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
+        +'                      maxlength="10" id="sel1" size="11"'
+        +'                      placeholder="'+window.CRM.datePickerformat+'">'
+        +'              </div>'
+        +'              <div class="input-group col-md-4">'
+        +'                  <div class="input-group-prepend">'
+        +'                      <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
+        +'                  </div>'
+        +'                  <input type="text" class="form-control timepicker input-sm" id="timeEventEnd" name="timeEventEnd" value="'+timeEnd+'">'
         +'              </div>'
         +'          </div>'
-        +'          <div class="row date-end div-block">'
-        +'              <div class="col-md-12">'
-        +'                  <div class="row">'
-        +'                      <div class="col-md-3"><span style="color: red">*</span>'
-        +                           i18next.t('End Date')+' :'
-        +'                      </div>'
-        + '                     <div class="input-group col-md-4">'
-        + '                         <div class="input-group-prepend">'
-        + '                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
-        + '                         </div>'
-        +'                              <input class="form-control date-picker  input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
-        +'                                     maxlength="10" id="sel1" size="11"'
-        +'                                     placeholder="'+window.CRM.datePickerformat+'">'
-        + '                     </div>'
-        + '                     <div class="input-group col-md-4">'
-        + '                         <div class="input-group-prepend">'
-        + '                             <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
-        + '                         </div>'
-        +'                          <input type="text" class="form-control timepicker input-sm" id="timeEventEnd" name="timeEventEnd" value="'+timeEnd+'">'
-        + '                     </div>'
-        +'                  </div>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row date-recurrence div-block">'
+        +'      <div class="col-md-12">'
+        +'          <div class="row">'
+        +'              <div class="col-md-3">'
+        +'                  <input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> '+i18next.t('Repeat')+' :'
         +'              </div>'
-        +'          </div>'
-        +'          <div class="row date-recurrence div-block">'
-        +'              <div class="col-md-12">'
-        +'                  <div class="row">'
-        +'                      <div class="col-md-3">'
-        +'                          <input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> '+i18next.t('Repeat')+' :'
-        +'                      </div>'
-        +'                      <div class="col-md-3">'
-        +'                          <select class="form-control input-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
-        +'                                  <option value="FREQ=DAILY">'+i18next.t("Daily")+'</option>'
-        +'                                  <option value="FREQ=WEEKLY">'+i18next.t("Weekly")+'</option>'
-        +'                                  <option value="FREQ=MONTHLY">'+i18next.t("Monthly")+'</option>'
-        +'                                  <option value="FREQ=MONTHLY;INTERVAL=3">'+i18next.t("Quarterly")+'</option>'
-        +'                                  <option value="FREQ=MONTHLY;INTERVAL=6">'+i18next.t("Semesterly")+'</option>'
-        +'                                  <option value="FREQ=YEARLY">'+i18next.t("Yearly")+'</option>'
-        +'                          </select>'
-        +'                      </div>'
-        +'                      <div class="col-md-2">'
-        +                           i18next.t('End')+' :'
-        +'                      </div>'
-        + '                     <div class="input-group col-md-4">'
-        + '                         <div class="input-group-prepend">'
-        + '                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
-        + '                         </div>'
-        +'                          <input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="'+dateStart+'" '
-        +'                              maxlength="10" id="sel1" size="11"'
-        +'                              placeholder="'+window.CRM.datePickerformat+'">'
-        + '                     </div>'
-        +'                   </div>'
-        +'                  <div class="col-md-12" style="padding-top:10px">'
-        +'                      <div class="row">'
-        +'                         <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
-        +'                              <div class="col-md-9">'
-        +'                                 <select class="form-control input-sm" id="EventAlarm" name="EventAlarm">'
-        +'                                    <option value="NONE">'+i18next.t("NONE")+'</option>'
-        +'                                    <option value="PT0S">'+i18next.t("At time of event")+'</option>'
-        +'                                    <option value="-PT5M">'+i18next.t("5 minutes before")+'</option>'
-        +'                                    <option value="-PT10M">'+i18next.t("10 minutes before")+'</option>'
-        +'                                    <option value="-PT15M">'+i18next.t("15 minutes before")+'</option>'
-        +'                                    <option value="-PT30M">'+i18next.t("30 minutes before")+'</option>'
-        +'                                    <option value="-PT1H">'+i18next.t("1 hour before")+'</option>'
-        +'                                    <option value="-PT2H">'+i18next.t("2 hour before")+'</option>'
-        +'                                    <option value="-P1D">'+i18next.t("1 day before")+'</option>'
-        +'                                    <option value="-P2D">'+i18next.t("2 day before")+'</option>'
-        +'                                 </select>'
-        +'                               </div>'
-        +'                         </div>'
-        +'                      </div>'
-        +'                  </div>'
+        +'              <div class="col-md-3">'
+        +'                  <select class="form-control input-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
+        +'                      <option value="FREQ=DAILY">'+i18next.t("Daily")+'</option>'
+        +'                      <option value="FREQ=WEEKLY">'+i18next.t("Weekly")+'</option>'
+        +'                      <option value="FREQ=MONTHLY">'+i18next.t("Monthly")+'</option>'
+        +'                      <option value="FREQ=MONTHLY;INTERVAL=3">'+i18next.t("Quarterly")+'</option>'
+        +'                      <option value="FREQ=MONTHLY;INTERVAL=6">'+i18next.t("Semesterly")+'</option>'
+        +'                      <option value="FREQ=YEARLY">'+i18next.t("Yearly")+'</option>'
+        +'                  </select>'
         +'               </div>'
-        +'               <div class="row  div-title calendar-title">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
-              +'<div class="col-md-4">'
-                +'<select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
-                +'</select>'
-              +'</div>'
-              +'<div class="col-md-5">'
-                 +'<div class="checkbox">'
-                   +'<label>'
-                    +'<input type="checkbox" id="addGroupAttendees" disabled> '+ i18next.t('Add as attendees')
-                  +'</label>'
-                +'</div>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row div-title ATTENDENCES-title ">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Attendances') + ":</div>"
-              +'<div class="col-md-9">'
-              +'<select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
+        +'               <div class="col-md-2">'
+        +                   i18next.t('End')+' :'
+        +'               </div>'
+        +'               <div class="input-group col-md-4">'
+        +'                  <div class="input-group-prepend">'
+        +'                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+        +'                  </div>'
+        +'                  <input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="'+dateStart+'" '
+        +'                      maxlength="10" id="sel1" size="11"'
+        +'                      placeholder="'+window.CRM.datePickerformat+'">'
+        +'               </div>'
+        +'            </div>'
+        +'            <div class="col-md-12" style="padding-top:10px">'
+        +'              <div class="row">'
+        +'                  <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
+        +'                  <div class="col-md-9">'
+        +'                    <select class="form-control input-sm" id="EventAlarm" name="EventAlarm">'
+        +'                          <option value="NONE">'+i18next.t("NONE")+'</option>'
+        +'                          <option value="PT0S">'+i18next.t("At time of event")+'</option>'
+        +'                          <option value="-PT5M">'+i18next.t("5 minutes before")+'</option>'
+        +'                          <option value="-PT10M">'+i18next.t("10 minutes before")+'</option>'
+        +'                          <option value="-PT15M">'+i18next.t("15 minutes before")+'</option>'
+        +'                          <option value="-PT30M">'+i18next.t("30 minutes before")+'</option>'
+        +'                          <option value="-PT1H">'+i18next.t("1 hour before")+'</option>'
+        +'                          <option value="-PT2H">'+i18next.t("2 hour before")+'</option>'
+        +'                          <option value="-P1D">'+i18next.t("1 day before")+'</option>'
+        +'                          <option value="-P2D">'+i18next.t("2 day before")+'</option>'
+        +'                      </select>'
+        +'                  </div>'
+        +'              </div>'
+        +'          </div>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row  div-title calendar-title">'
+        +'      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
+        +'      <div class="col-md-4">'
+        +'          <select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control input-sm"></select>'
+        +'      </div>'
+        +'      <div class="col-md-5">'
+        +'          <div class="checkbox">'
+        +'              <label>'
+        +'                  <input type="checkbox" id="addGroupAttendees" disabled> '+ i18next.t('Add as attendees')
+        +'              </label>'
+        +'          </div>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row div-title ATTENDENCES-title ">'
+        +'      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Attendances') + ":</div>"
+        +'      <div class="col-md-9">'
+        +'          <select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
                    //+"<option value='0' >" + i18next.t("Personal") + "</option>"
-                +'</select>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row div-block ATTENDENCES">'
-              +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
-                +'<div class="col-md-9 ATTENDENCES-fields">'
-                +'</div>'
-                +'<hr/>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row div-title eventNotesTitle">'
-              +'<div class="col-md-12">'
-                +i18next.t('Notes')
-              +'</div>'
-            +'</div>'
-            +'<div class="row  eventNotes  div-block">'
-              +'<div class="col-md-12" style="margin-top:-15px;padding-left:0px;padding-right:2px;">'
-                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row  div-title">'
-              +'<div class="status-event-title">'
-                +'<span style="color: red">*</span>'+i18next.t('Status')
-              +'</div>'
-              +'<div class="status-event">'
-                +'<input type="radio" name="EventStatus" value="0" checked/> '+i18next.t('Active')
-              +'</div>'
-              +'<div class="status-event">'
-                +'<input type="radio" name="EventStatus" value="1" /> '+i18next.t('inactive')
-              +'</div>'
-            +'</div>'
-          +'</div>'
-       + '</form>';
+        +'          </select>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row div-block ATTENDENCES">'
+        +'      <div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
+        +'      <div class="col-md-9 ATTENDENCES-fields"></div>'
+        +'      <hr/>'
+        +'  </div>'
+        +'  <div class="row div-title eventNotesTitle">'
+        +'      <div class="col-md-12">'
+        +           i18next.t('Notes')
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row  eventNotes  div-block">'
+        +'      <div class="col-md-12" style="margin-top:-15px;padding-left:0px;padding-right:2px;">'
+        +'          <textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row  div-title">'
+        +'      <div class="status-event-title">'
+        +'          <span style="color: red">*</span>'+i18next.t('Status')
+        +'      </div>'
+        +'      <div class="status-event">'
+        +'          <input type="radio" name="EventStatus" value="0" checked/> '+i18next.t('Active')
+        +'      </div>'
+        +'      <div class="status-event">'
+        +'          <input type="radio" name="EventStatus" value="1" /> '+i18next.t('inactive')
+        +'      </div>'
+        +'  </div>'
+        +'</form>';
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -660,14 +657,14 @@
          size:'large',
          buttons: [
           {
-           label: i18next.t("Close"),
+           label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
            className: "btn btn-default",
            callback: function() {
               console.log("just do something on close");
            }
           },
           {
-           label: i18next.t("Save"),
+           label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
            className: "btn btn-primary",
            callback: function() {
               var EventTitle =  $('form #EventTitle').val();
@@ -755,17 +752,11 @@
                           "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,
                           "reccurenceID":reccurenceID,"location":loc,"alarm":alarm})
                   }).done(function(data) {
-                     var cal = $('#calendar');
-                     if (cal.length !== 0) {
-                       $('#calendar').fullCalendar('unselect');
-                     }
                      add = true;
                      modal.modal("hide");
 
                      // we reload all the events
-                     if (cal.length !== 0) {
-                       $('#calendar').fullCalendar( 'refetchEvents' );
-                     }
+                      window.CRM.calendar.refetchEvents();
 
                      if (dialogType == 'createEvent') {
                        eventCreated = true;
