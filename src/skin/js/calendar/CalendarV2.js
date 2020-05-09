@@ -283,7 +283,11 @@ document.addEventListener('DOMContentLoaded', function () {
             var calendarFilterID = window.calendarFilterID;
             var EventTypeFilterID = window.CRM.EventTypeFilterID;
 
-            calEvent.el.querySelector('.fc-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
+            if (calEvent.view.type != "listMonth") {
+                calEvent.el.querySelector('.fc-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
+            } else {
+                calEvent.el.querySelector('.fc-list-item-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
+            }
 
             type = calEvent.event.extendedProps.realType;
 
