@@ -1,597 +1,642 @@
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2019 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without authorizaion
+//  copyright   : 2020 Philippe Logel all right reserved not MIT licence
+//                This code can't be included in another software.
 //
-//  Updated : 2019/04/30
+//  Updated : 2020/05/07
 //
 
 window.CRM.editor = null;
 
-$(document).ready(function () {
-  //
-  // initialize calendar
-  // -----------------------------------------------------------------
-  $('#calendar').fullCalendar({
-    customButtons: {
-      actualizeButton: {
-        text: i18next.t('Actualize'),
-        click: function() {
-          $('#calendar').fullCalendar( 'refetchEvents' );
-        }
-      }
-    },
-    header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay,listMonth,actualizeButton',//listYear
-    },
-    height: parent,
-    selectable: window.CRM.isModifiable,
-    editable:window.CRM.isModifiable,
-    defaultView: wAgendaName,
-    viewRender: function(view, element){
-      localStorage.setItem("wAgendaName",view.name);
-    },
-    eventDrop: function(event, delta, revertFunc) {
-      if (event.type == 'birthday' || event.type == 'anniversary') {
-        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
-        $('#calendar').fullCalendar( 'refetchEvents' );
-        return false;
-      }
+document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
 
-      if (event.writeable == false) {
-        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
-        $('#calendar').fullCalendar( 'refetchEvents' );
-        return;
-      }
-
-      var fmt = 'YYYY-MM-DD HH:mm:ss';
-
-      var dateStart = moment(event.start).format(fmt);
-      var dateEnd = moment(event.end).format(fmt);
-
-      if (event.end == null) {
-         dateEnd = dateStart;
-      }
-
-      if (event.type == 'event' && event.recurrent == 0) {
-        bootbox.confirm({
-         title:  i18next.t("Move Event") + "?",
-          message: i18next.t("Are you sure about this change?") + ((event.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
-          buttons: {
-            cancel: {
-              label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
-            },
-            confirm: {
-              label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
-            }
-          },
-          callback: function (result) {
-            if (result == true)// only event can be drag and drop, not anniversary or birthday
-            {
-              window.CRM.APIRequest({
-                 method: 'POST',
-                 path: 'events/',
-                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd})
-              }).done(function(data) {
-                // now we can refresh the calendar
-                $('#calendar').fullCalendar('refetchEvents');
-                $('#calendar').fullCalendar('unselect');
-              });
-            } else {
-              revertFunc();
-            }
-
-            console.log('This was logged in the callback: ' + result);
-          }
-      });
-     } else {
-      var reccurenceID = moment(event.reccurenceID).format(fmt);
-      var origStart   = moment(event.origStart).format(fmt);
-
-      if (origStart == reccurenceID) {
-         var box = bootbox.dialog({
-           title: i18next.t("Move Event") + "?",
-           message: i18next.t("You're about to move all the events. Would you like to :"),
-           buttons: {
-            cancel: {
-              label:  i18next.t("Cancel"),
-              className: 'btn btn-default',
-                callback: function () {
-                  revertFunc();
+    window.CRM.calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['moment', 'interaction', 'dayGrid', 'timeGrid', 'list'],
+        height: parent,
+        defaultView: wAgendaName,
+        selectable: window.CRM.isModifiable,
+        editable:window.CRM.isModifiable,
+        locale: window.CRM.lang,
+        eventLimit: withlimit, // allow "more" link when too many events
+        customButtons: {
+            actualizeButton: {
+                text: i18next.t('Actualize'),
+                click: function() {
+                    window.CRM.calendar.refetchEvents();
                 }
-              },
-            oneEvent: {
-              label:  i18next.t("Only this Event"),
-              className: 'btn btn-info',
-                callback: function () {
-
-                  window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'events/',
-                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-                  }).done(function(data) {
-                    // now we can refresh the calendar
-                    $('#calendar').fullCalendar('refetchEvents');
-                    $('#calendar').fullCalendar('unselect');
-                  });
-                }
-              },
-            allEvents: {
-              label:  i18next.t("All Events"),
-              className: 'btn btn-primary',
-                callback: function () {
-
-                  window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'events/',
-                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
-                  }).done(function(data) {
-                    // now we can refresh the calendar
-                    $('#calendar').fullCalendar('refetchEvents');
-                    $('#calendar').fullCalendar('unselect');
-                  });
-                }
-              }
             }
-        });
-      } else {// this a recurence event yet modified
-        bootbox.confirm({
-         title:  i18next.t("Move Event") + "?",
-          message: i18next.t("Are you sure about this change?") + ((event.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
-          buttons: {
-            cancel: {
-              label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
-            },
-            confirm: {
-              label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
-            }
-          },
-          callback: function (result) {
-            if (result == true)// only event can be drag and drop, not anniversary or birthday
-            {
-              window.CRM.APIRequest({
-                 method: 'POST',
-                 path: 'events/',
-                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-              }).done(function(data) {
-                // now we can refresh the calendar
-                $('#calendar').fullCalendar('refetchEvents');
-                $('#calendar').fullCalendar('unselect');
-              });
-            } else {
-              revertFunc();
+        },
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth,actualizeButton'
+        },
+        eventClick: function(calEvent) {
+            var event = calEvent.event;
+
+            if (event.extendedProps.writeable == false) {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
+
+                return;
             }
 
-            console.log('This was logged in the callback: ' + result);
-          }
-        });
-      }
-     }
-  },
-  eventClick: function(calEvent, jsEvent, view) {
-    if (calEvent.writeable == false) {
-        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
+            var fmt = 'YYYY-MM-DD HH:mm:ss';
 
-        return;
-    }
+            var dateStart = moment(event.start).format(fmt);
+            var dateEnd = moment(event.end).format(fmt);
 
-    var fmt = 'YYYY-MM-DD HH:mm:ss';
 
-    var dateStart = moment(calEvent.start).format(fmt);
-    var dateEnd = moment(calEvent.end).format(fmt);
+            var type = event.extendedProps.realType;
 
-    if (calEvent.type == "event" && window.CRM.isModifiable) {
-       // only with group event We create the dialog,
-       if (calEvent.type == "event") {
-         var box = bootbox.dialog({
-           title: i18next.t("Modify Event"),
-           message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
-           size: 'large',
-           buttons: {
-              cancel: {
-                label:  i18next.t("Delete Event"),
-                className: 'btn btn-danger',
-                 callback: function () {
-                   if (calEvent.type == "event" && calEvent.recurrent == 0) {
-                     bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
-                      if (confirmed) {
-                        window.CRM.APIRequest({
-                           method: 'POST',
-                           path: 'events/',
-                           data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID})
-                        }).done(function(data) {
-                           $('#calendar').fullCalendar( 'refetchEvents' );
-                           $('#calendar').fullCalendar('unselect');
-                        });
-                       }
-                      });
-                   } else if (calEvent.type == "event" && calEvent.recurrent == 1) {
-                     var reccurenceID = moment(calEvent.reccurenceID).format(fmt);
+            if (type == "event" && window.CRM.isModifiable) {
+                // only with group event We create the dialog,
+                if (type == "event") {
+                    var box = bootbox.dialog({
+                        title: i18next.t("Modify Event"),
+                        message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
+                        size: 'large',
+                        buttons: {
+                            cancel: {
+                                label: '<i class="fa fa-times"></i> ' + i18next.t("Delete Event"),
+                                className: 'btn btn-danger',
+                                callback: function () {
+                                    if (type == "event" && event.extendedProps.recurrent == 0) {
+                                        bootbox.confirm(i18next.t("Are you sure to delete this event?"), function (confirmed) {
+                                            if (confirmed) {
+                                                window.CRM.APIRequest({
+                                                    method: 'POST',
+                                                    path: 'events/',
+                                                    data: JSON.stringify({
+                                                        "calendarID": event.extendedProps.calendarID,
+                                                        "eventAction": 'suppress',
+                                                        "eventID": event.extendedProps.eventID
+                                                    })
+                                                }).done(function (data) {
+                                                    window.CRM.calendar.refetchEvents();
+                                                    window.CRM.calendar.unselect();
+                                                });
+                                            }
+                                        });
+                                    } else if (type == "event" && event.extendedProps.recurrent == 1) {
+                                        var reccurenceID = moment(event.extendedProps.reccurenceID).format(fmt);
 
-                     var box = bootbox.dialog({
-                       title: i18next.t("Delete all repeated Events"),
-                       message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
-                       buttons: {
-                          cancel: {
-                            label:  i18next.t('No'),
-                            className: 'btn btn-success'
-                          },
-                          add: {
-                             label: i18next.t('Only this event'),
-                             className: 'btn btn-info',
-                             callback: function () {
-                               window.CRM.APIRequest({
-                                 method: 'POST',
-                                 path: 'events/',
-                                 data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart,"reccurenceID":reccurenceID})
-                              }).done(function(data) {
-                                 $('#calendar').fullCalendar( 'refetchEvents' );
-                                 $('#calendar').fullCalendar('unselect');
-                              });
-                             }
-                          },
-                          confirm: {
-                             label: i18next.t('Every Events linked to this Event'),
-                             className: 'btn btn-danger',
-                             callback: function () {
-                                window.CRM.APIRequest({
-                                   method: 'POST',
-                                   path: 'events/',
-                                   data: JSON.stringify({"calendarID":calEvent.calendarID,"eventAction":'suppress',"eventID":calEvent.eventID})
-                                }).done(function(data) {
-                                   $('#calendar').fullCalendar( 'refetchEvents' );
-                                   $('#calendar').fullCalendar('unselect');
-                                });
-                             }
-                          }
+                                        var box = bootbox.dialog({
+                                            title: i18next.t("Delete all repeated Events"),
+                                            message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
+                                            buttons: {
+                                                cancel: {
+                                                    label: i18next.t('No'),
+                                                    className: 'btn btn-success'
+                                                },
+                                                add: {
+                                                    label: i18next.t('Only this event'),
+                                                    className: 'btn btn-info',
+                                                    callback: function () {
+                                                        window.CRM.APIRequest({
+                                                            method: 'POST',
+                                                            path: 'events/',
+                                                            data: JSON.stringify({
+                                                                "calendarID": event.extendedProps.calendarID,
+                                                                "eventAction": 'suppress',
+                                                                "eventID": event.extendedProps.eventID,
+                                                                "dateStart": dateStart,
+                                                                "reccurenceID": reccurenceID
+                                                            })
+                                                        }).done(function (data) {
+                                                            window.CRM.calendar.refetchEvents();
+                                                            window.CRM.calendar.unselect();
+                                                        });
+                                                    }
+                                                },
+                                                confirm: {
+                                                    label: i18next.t('Every Events linked to this Event'),
+                                                    className: 'btn btn-danger',
+                                                    callback: function () {
+                                                        window.CRM.APIRequest({
+                                                            method: 'POST',
+                                                            path: 'events/',
+                                                            data: JSON.stringify({
+                                                                "calendarID": event.extendedProps.calendarID,
+                                                                "eventAction": 'suppress',
+                                                                "eventID": event.extendedProps.eventID
+                                                            })
+                                                        }).done(function (data) {
+                                                            window.CRM.calendar.refetchEvents();
+                                                            window.CRM.calendar.unselect();
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        });
+
+                                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("To add an event, You have to create a calendar or activate one first."));
+
+                                        //box.show();
+                                    } else {
+                                        // the other event type
+                                    }
+                                }
+                            },
+                            add: {
+                                label: '<i class="fa fa-plus"></i> ' + i18next.t('Add More Attendees'),
+                                className: 'btn btn-info',
+                                callback: function () {
+                                    window.CRM.APIRequest({
+                                        method: 'POST',
+                                        path: 'events/',
+                                        data: JSON.stringify({
+                                            "eventAction": 'attendeesCheckinEvent',
+                                            "eventID": event.extendedProps.eventID
+                                        })
+                                    }).done(function (data) {
+                                        location.href = window.CRM.root + '/EditEventAttendees.php';
+                                    });
+                                }
+                            },
+                            attendance: {
+                                label: '<i class="fa fa-check"></i> ' + i18next.t('Make Attendance'),
+                                className: 'btn btn-primary',
+                                callback: function () {
+                                    window.CRM.APIRequest({
+                                        method: 'POST',
+                                        path: 'events/',
+                                        data: JSON.stringify({
+                                            "eventAction": 'attendeesCheckinEvent',
+                                            "eventID": event.extendedProps.eventID
+                                        })
+                                    }).done(function (data) {
+                                        location.href = window.CRM.root + '/Checkin.php';
+                                    });
+
+                                }
+                            },
+                            Edit: {
+                                label: '<i class="fa fa-search-plus"></i> ' + i18next.t('Edit'),
+                                className: 'btn btn-success',
+                                callback: function () {
+                                    if (window.CRM.editor != null) {
+                                        CKEDITOR.remove(window.CRM.editor);
+                                        window.CRM.editor = null;
+                                    }
+
+                                    modal = createEventEditorWindow(event.start, event.end, 'modifyEvent', event.extendedProps.eventID, event.extendedProps.reccurenceID);
+
+                                    $('form #EventTitle').val(event.title);
+                                    $('form #EventDesc').val(event.extendedProps.Desc);
+                                    $('form #eventNotes').val(event.extendedProps.Text);
+                                    $('form #EventLocation').val(event.extendedProps.location);
+                                    $("form #addGroupAttendees").prop("disabled", (event.extendedProps.groupID == "0") ? true : false);
+                                    $("form #addGroupAttendees").prop('checked', (event.extendedProps.groupID == "0") ? false : true);
+
+
+                                    if (event.extendedProps.alarm !== null) {
+                                        $("form #EventAlarm").val(event.extendedProps.alarm.trigger).trigger('change');
+                                    }
+
+                                    // we add the calendars and the types
+                                    addCalendars(event.extendedProps.calendarID);
+                                    addCalendarEventTypes(event.extendedProps.eventTypeID, true);
+                                    addAttendees(event.extendedProps.eventTypeID, true, calEvent.eventID);
+
+                                    //Timepicker
+                                    $('.timepicker').datetimepicker({
+                                        format: 'LT',
+                                        locale: window.CRM.lang,
+                                        icons:
+                                            {
+                                                up: 'fa fa-angle-up',
+                                                down: 'fa fa-angle-down'
+                                            }
+                                    });
+
+                                    $('.date-picker').datepicker({
+                                        format: window.CRM.datePickerformat,
+                                        language: window.CRM.lang
+                                    });
+
+                                    $('.date-picker').click('focus', function (e) {
+                                        e.preventDefault();
+                                        $(this).datepicker('show');
+                                    });
+
+                                    $('.date-start').hide();
+                                    $('.date-end').hide();
+                                    $('.date-recurrence').hide();
+                                    $(".eventNotes").hide();
+
+                                    // this will create the toolbar for the textarea
+                                    if (window.CRM.editor == null) {
+                                        if (window.CRM.bEDrive) {
+                                            window.CRM.editor = CKEDITOR.replace('eventNotes', {
+                                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                                                language: window.CRM.lang,
+                                                width: '100%',
+                                                extraPlugins: 'uploadfile,uploadimage,filebrowser',
+                                                uploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
+                                                imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicImages',
+                                                filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
+                                                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=publicDocuments'
+                                            });
+                                        } else {
+                                            window.CRM.editor = CKEDITOR.replace('eventNotes', {
+                                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                                                language: window.CRM.lang,
+                                                width: '100%'
+                                            });
+                                        }
+
+                                        add_ckeditor_buttons(window.CRM.editor);
+                                    }
+
+                                    $(".ATTENDENCES").hide();
+
+                                    initMap(event.extendedProps.longitude, event.extendedProps.latitude, event.title + '(' + event.extendedProps.Desc + ')', event.extendedProps.location, event.title + '(' + event.extendedProps.Desc + ')', event.extendedProps.Text);
+
+                                    box.modal("hide");
+
+                                    modal.modal("show");
+                                }
+                            }
                         }
                     });
 
-                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
-
-                    //box.show();
-                  } else {
-                    // the other event type
-                  }
+                    box.show();
+                } else {
+                    // we are with other event type
                 }
-              },
-              add: {
-                 label: i18next.t('Add More Attendees'),
-                 className: 'btn btn-info',
-                 callback: function () {
-                    window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'events/',
-                     data: JSON.stringify({"eventAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
-                    }).done(function(data) {
-                       location.href = window.CRM.root + '/EditEventAttendees.php';
-                    });
-                 }
-              },
-              attendance: {
-                 label: i18next.t('Make Attendance'),
-                 className: 'btn btn-primary',
-                 callback: function () {
-                    window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'events/',
-                     data: JSON.stringify({"eventAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
-                    }).done(function(data) {
-                       location.href = window.CRM.root + '/Checkin.php';
-                    });
-
-                 }
-              },
-              Edit: {
-                 label: i18next.t('Edit'),
-                 className: 'btn btn-success',
-                 callback: function () {
-                   if (window.CRM.editor != null) {
-                      CKEDITOR.remove(window.CRM.editor);
-                      window.CRM.editor = null;
-                   }
-
-                   modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.reccurenceID);
-
-                   $('form #EventTitle').val(calEvent.title);
-                   $('form #EventDesc').val(calEvent.Desc);
-                   $('form #eventNotes').val(calEvent.Text);
-                   $('form #EventLocation').val(calEvent.location);
-                   $("form #addGroupAttendees").prop("disabled", (calEvent.groupID == "0") ? true : false);
-                   $("form #addGroupAttendees").prop('checked', (calEvent.groupID == "0") ? false : true);
-
-
-                   if (calEvent.alarm !== null) {
-                       $("form #EventAlarm").val(calEvent.alarm.trigger).trigger('change');
-                   }
-
-                   // we add the calendars and the types
-                   addCalendars(calEvent.calendarID);
-                   addCalendarEventTypes(calEvent.eventTypeID,true);
-                   addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
-
-                   //Timepicker
-                   $('.timepicker').datetimepicker({
-                       format: 'LT',
-                       locale: window.CRM.lang,
-                       icons:
-                           {
-                               up: 'fa fa-angle-up',
-                               down: 'fa fa-angle-down'
-                           }
-                   });
-
-                   $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
-
-                   $('.date-picker').click('focus', function (e) {
-                     e.preventDefault();
-                     $(this).datepicker('show');
-                   });
-
-                   $('.date-start').hide();
-                   $('.date-end').hide();
-                   $('.date-recurrence').hide();
-                   $(".eventNotes").hide();
-
-                   // this will create the toolbar for the textarea
-                   if (window.CRM.editor == null) {
-                     if (window.CRM.bEDrive) {
-                       window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                          language : window.CRM.lang,
-                          width : '100%',
-                          extraPlugins : 'uploadfile,uploadimage,filebrowser',
-                          uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                          imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-                          filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-                          filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
-                       });
-                     } else {
-                       window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                          language : window.CRM.lang,
-                          width : '100%'
-                       });
-                     }
-
-                     add_ckeditor_buttons(window.CRM.editor);
-                   }
-
-                   $(".ATTENDENCES").hide();
-
-                   initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);
-
-                   box.modal("hide");
-
-                   modal.modal("show");
-                }
-              }
             }
-        });
-
-        box.show();
-      } else {
-        // we are with other event type
-      }
-
-      // change the border color just for fun
-      $(this).css('border-color', 'red');
-
-    }
-  },
-  eventResize: function(event, delta, revertFunc) {
-    if (event.writeable == false || event.type == 'birthday' || event.type == 'anniversary') {
-      window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
-      $('#calendar').fullCalendar( 'refetchEvents' );
-      return;
-    }
-
-    var fmt = 'YYYY-MM-DD HH:mm:ss';
-
-    var dateStart = moment(event.start).format(fmt);
-    var dateEnd = moment(event.end).format(fmt);
-    var reccurenceID = moment(event.reccurenceID).format(fmt);
-
-    if (event.type == "event" && event.recurrent == 0) {
-      bootbox.confirm({
-       title: i18next.t("Resize Event") + "?",
-        message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be dropped."),
-        buttons: {
-          cancel: {
-            label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
-          },
-          confirm: {
-            label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
-          }
         },
-        callback: function (result) {
-          if (result == true)// only event can be drag and drop, not anniversary or birthday
-          {
+        events: function(info, successCallback, failureCallback) {
+            var real_start = moment(info.start.valueOf()).format('YYYY-MM-DD HH:mm:ss');
+            var real_end = moment(info.end.valueOf()).format('YYYY-MM-DD HH:mm:ss');
+
             window.CRM.APIRequest({
-               method: 'POST',
-               path: 'events/',
-               data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
-            }).done(function(data) {
-               // now we can refresh the calendar
-               $('#calendar').fullCalendar( 'refetchEvents' );
-               $('#calendar').fullCalendar('unselect');
+                method: 'POST',
+                path: 'calendar/getallevents',
+                data: JSON.stringify({"start":real_start,"end":real_end})
+            }).done(function(events) {
+                successCallback(events);
             });
-         } else {
-          revertFunc();
-         }
-         console.log('This was logged in the callback: ' + result);
-        }
-      });
-    } else {
-      var box = bootbox.dialog({
-         title: i18next.t("Resize Event") + "?",
-         message: i18next.t("You're about to resize all the events. Would you like to :"),
-         buttons: {
-          cancel: {
-            label:  i18next.t("Cancel"),
-            className: 'btn btn-default',
-              callback: function () {
-                revertFunc();
-              }
-            },
-          oneEvent: {
-            label:  i18next.t("Only this Event"),
-            className: 'btn btn-info',
-              callback: function () {
-                window.CRM.APIRequest({
-                   method: 'POST',
-                   path: 'events/',
-                   data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-                }).done(function(data) {
-                   // now we can refresh the calendar
-                   $('#calendar').fullCalendar( 'refetchEvents' );
-                   $('#calendar').fullCalendar('unselect');
-                });
-              }
-            },
-          allEvents: {
-            label:  i18next.t("All Events"),
-            className: 'btn btn-primary',
-              callback: function () {
-                window.CRM.APIRequest({
-                 method: 'POST',
-                 path: 'events/',
-                 data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
-                }).done(function(data) {
-                   // now we can refresh the calendar
-                   $('#calendar').fullCalendar( 'refetchEvents' );
-                   $('#calendar').fullCalendar('unselect');
-                });
-              }
+        },
+        eventRender: function(calEvent) {
+            var calendarFilterID = window.calendarFilterID;
+            var EventTypeFilterID = window.CRM.EventTypeFilterID;
+
+            calEvent.el.querySelector('.fc-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
+
+            type = calEvent.event.extendedProps.realType;
+
+            if (type !== null){
+                if (type == 'event' && EventTypeFilterID == -1 && calEvent.event.extendedProps.groupID == 0 && calEvent.event.extendedProps.calType < 2) {// the personal
+                    return true;
+                } else if (type == 'event' && EventTypeFilterID == -2 && calEvent.event.extendedProps.groupID != 0) {// the groups
+                    return true;
+                } else if (type == 'event' && EventTypeFilterID == -3 && calEvent.event.extendedProps.calType == 2) {// Room
+                    return true;
+                } else if (type == 'event' && EventTypeFilterID == -4 && calEvent.event.extendedProps.calType == 3) {// Computer
+                    return true;
+                } else if (type == 'event' && EventTypeFilterID == -5 && calEvent.event.extendedProps.calType == 4) {// Video
+                    return true;
+                } else if (type == 'event' && EventTypeFilterID == -6 && calEvent.event.extendedProps.calType == 5) {// shared
+                    return true;
+                } else if (type == 'event'
+                    && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == calEvent.event.extendedProps.eventTypeID) ) ) {
+                    return true;
+                } else if(type == 'event'
+                    && (EventTypeFilterID>0 && EventTypeFilterID != calEvent.event.extendedProps.eventTypeID) ) {
+                    return false;
+                } else if ((calEvent.event.extendedProps.allDay || type != 'event') && EventTypeFilterID <= 0){// we are in a allDay event
+                    if (type == 'anniversary' && anniversary == true || type == 'birthday' && birthday == true){
+                        /*var evStart = moment(calEvent.view.intervalStart).subtract(1, 'days');
+                        var evEnd = moment(calEvent.view.intervalEnd).subtract(1, 'days');
+                        if (!moment(calEvent.start).isAfter(evStart) || moment(calEvent.start).isAfter(evEnd)) {
+                            return false;
+                        }*/
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             }
-          }
-      });
-   }
-},
-selectHelper: true,
-select: function(start, end) {
-  window.CRM.APIRequest({
-      method: 'POST',
-      path: 'calendar/numberofcalendars',
-  }).done(function(data) {
-    if (data.CalendarNumber > 0){
-       // We create the dialog
-       if (window.CRM.editor != null) {
-          CKEDITOR.remove(window.CRM.editor);
-          window.CRM.editor = null;
-       }
 
-       modal = createEventEditorWindow (start,end);
+            return false;
+        },
+        eventResize: function(info) {
+            var event = info.event;
 
-       // we add the calendars and the types
-       addCalendars();
-       addCalendarEventTypes(-1,true);
+            if (event.extendedProps.writeable == false || event.extendedProps.realType == 'birthday' || event.extendedProps.realType == 'anniversary') {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
+                window.CRM.calendar.refetchEvents();
+                return;
+            }
 
-       //Timepicker
-       $('.timepicker').datetimepicker({
-           format: 'LT',
-           locale: window.CRM.lang,
-           icons:
-               {
-                   up: 'fa fa-angle-up',
-                   down: 'fa fa-angle-down'
-               }
-       });
+            var fmt = 'YYYY-MM-DD HH:mm:ss';
 
-       $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+            var dateStart = moment(event.start).format(fmt);
+            var dateEnd = moment(event.end).format(fmt);
+            var reccurenceID = moment(event.extendedProps.reccurenceID).format(fmt);
 
-       $('.date-picker').click('focus', function (e) {
-         e.preventDefault();
-         $(this).datepicker('show');
-       });
+            if (event.extendedProps.realType == "event" && event.extendedProps.recurrent == 0) {
+                bootbox.confirm({
+                    title: i18next.t("Resize Event") + "?",
+                    message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be dropped."),
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                        },
+                        confirm: {
+                            label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                        }
+                    },
+                    callback: function (result) {
+                        if (result == true)// only event can be drag and drop, not anniversary or birthday
+                        {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'events/',
+                                data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
+                            }).done(function(data) {
+                                // now we can refresh the calendar
+                                window.CRM.calendar.refetchEvents();
+                                window.CRM.calendar.unselect();
+                            });
+                        } else {
+                            info.revert();
+                        }
+                        console.log('This was logged in the callback: ' + result);
+                    }
+                });
+            } else {
+                var box = bootbox.dialog({
+                    title: i18next.t("Resize Event") + "?",
+                    message: i18next.t("You're about to resize all the events. Would you like to :"),
+                    buttons: {
+                        cancel: {
+                            label:  '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
+                            className: '<i class="fa fa-check"></i> ' + 'btn btn-default',
+                            callback: function () {
+                                info.revert();
+                            }
+                        },
+                        oneEvent: {
+                            label:  i18next.t("Only this Event"),
+                            className: 'btn btn-info',
+                            callback: function () {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'events/',
+                                    data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                                }).done(function(data) {
+                                    // now we can refresh the calendar
+                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendar.unselect();
+                                });
+                            }
+                        },
+                        allEvents: {
+                            label:  i18next.t("All Events"),
+                            className: 'btn btn-primary',
+                            callback: function () {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'events/',
+                                    data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
+                                }).done(function(data) {
+                                    // now we can refresh the calendar
+                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendar.unselect();
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+        },
+        eventDrop: function(info) {
+            var event = info.event;
 
-       $('.date-start').hide();
-       $('.date-end').hide();
-       $('.date-recurrence').hide();
-       $(".eventNotes").hide();
+            if (event.extendedProps.writeable == false || event.extendedProps.realType == 'birthday' || event.extendedProps.realType == 'anniversary') {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
+                window.CRM.calendar.refetchEvents();
+                return false;
+            }
 
-       $("#typeEventrecurrence").prop("disabled", true);
-       $("#endDateEventrecurrence").prop("disabled", true);
+            var fmt = 'YYYY-MM-DD HH:mm:ss';
 
-       // this will create the toolbar for the textarea
-       if (window.CRM.editor == null) {
-         if (window.CRM.bEDrive) {
-             window.CRM.editor = CKEDITOR.replace('eventNotes',{
-              customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-              language : window.CRM.lang,
-              width : '100%',
-              extraPlugins : 'uploadfile,uploadimage,filebrowser',
-              uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-              imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-              filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-              filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
-             });
-          } else {
-             window.CRM.editor = CKEDITOR.replace('eventNotes',{
-              customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-              language : window.CRM.lang,
-              width : '100%'
-             });
-          }
+            var dateStart = moment(event.start).format(fmt);
+            var dateEnd = moment(event.end).format(fmt);
 
-         add_ckeditor_buttons(window.CRM.editor);
-       }
+            if (event.end == null) {
+                dateEnd = dateStart;
+            }
 
-       $(".ATTENDENCES").hide();
+            if (event.extendedProps.realType == 'event' && event.extendedProps.recurrent == 0) {
+                bootbox.confirm({
+                    title:  i18next.t("Move Event") + "?",
+                    message: i18next.t("Are you sure about this change?") + ((event.extendedProps.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                        },
+                        confirm: {
+                            label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                        }
+                    },
+                    callback: function (result) {
+                        if (result == true)// only event can be drag and drop, not anniversary or birthday
+                        {
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'events/',
+                                data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd})
+                            }).done(function(data) {
+                                // now we can refresh the calendar
+                                window.CRM.calendar.refetchEvents();
+                                window.CRM.calendar.unselect();
+                            });
+                        } else {
+                            info.revert();
+                        }
 
-       initMap();
+                        console.log('This was logged in the callback: ' + result);
+                    }
+                });
+            } else {
+                var reccurenceID = moment(event.extendedProps.reccurenceID).format(fmt);
+                var origStart   = moment(event.extendedProps.origStart).format(fmt);
 
-       modal.modal("show");
+                if (origStart == reccurenceID) {
+                    var box = bootbox.dialog({
+                        title: i18next.t("Move Event") + "?",
+                        message: i18next.t("You're about to move all the events. Would you like to :"),
+                        buttons: {
+                            cancel: {
+                                label:  '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
+                                className: 'btn btn-default',
+                                callback: function () {
+                                    info.revert();
+                                }
+                            },
+                            oneEvent: {
+                                label:  i18next.t("Only this Event"),
+                                className: 'btn btn-info',
+                                callback: function () {
 
-    } else {
-       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
-    }
-  });
-},
-eventLimit: withlimit, // allow "more" link when too many events
-locale: window.CRM.lang,
-eventRender: function (event, element, view) {
-  calendarFilterID = window.calendarFilterID;
-  EventTypeFilterID = window.EventTypeFilterID;
+                                    window.CRM.APIRequest({
+                                        method: 'POST',
+                                        path: 'events/',
+                                        data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                                    }).done(function(data) {
+                                        // now we can refresh the calendar
+                                        window.CRM.calendar.refetchEvents();
+                                        window.CRM.calendar.unselect();
+                                    });
+                                }
+                            },
+                            allEvents: {
+                                label:  i18next.t("All Events"),
+                                className: 'btn btn-primary',
+                                callback: function () {
 
-  element.find('.fc-title').html(event.icon+event.title);
+                                    window.CRM.APIRequest({
+                                        method: 'POST',
+                                        path: 'events/',
+                                        data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
+                                    }).done(function(data) {
+                                        // now we can refresh the calendar
+                                        window.CRM.calendar.refetchEvents();
+                                        window.CRM.calendar.unselect();
+                                    });
+                                }
+                            }
+                        }
+                    });
+                } else {// this a recurence event yet modified
+                    bootbox.confirm({
+                        title:  i18next.t("Move Event") + "?",
+                        message: i18next.t("Are you sure about this change?") + ((event.extendedProps.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
+                        buttons: {
+                            cancel: {
+                                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                            },
+                            confirm: {
+                                label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                            }
+                        },
+                        callback: function (result) {
+                            if (result == true)// only event can be drag and drop, not anniversary or birthday
+                            {
+                                window.CRM.APIRequest({
+                                    method: 'POST',
+                                    path: 'events/',
+                                    data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
+                                }).done(function(data) {
+                                    // now we can refresh the calendar
+                                    window.CRM.calendar.refetchEvents();
+                                    window.CRM.calendar.unselect();
+                                });
+                            } else {
+                                info.revert();
+                            }
 
-  if (event.hasOwnProperty('type')){
-    if (event.type == 'event'
-      && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == event.eventTypeID) ) ) {
-      return true;
-    } else if(event.type == 'event'
-      && (EventTypeFilterID>0 && EventTypeFilterID != event.eventTypeID) ) {
-      return false;
-    } else if ((event.allDay || event.type != 'event')){// we are in a allDay event
-     if (event.type == 'anniversary' && anniversary == true || event.type == 'birthday' && birthday == true){
-      var evStart = moment(view.intervalStart).subtract(1, 'days');
-      var evEnd = moment(view.intervalEnd).subtract(1, 'days');
-      if (!event.start.isAfter(evStart) || event.start.isAfter(evEnd)) {
-        return false;
-      }
-     } else {
-      return false;
-     }
-    }
-   }
-},
-events: function(start, end, timezone, callback) {
-  var real_start = moment.unix(start.unix()).format('YYYY-MM-DD HH:mm:ss');
-  var real_end = moment.unix(end.unix()).format('YYYY-MM-DD HH:mm:ss');
+                            console.log('This was logged in the callback: ' + result);
+                        }
+                    });
+                }
+            }
+        },
+        viewSkeletonRender: function(info){
+            localStorage.setItem("wAgendaName",info.view.type);
+        },
+        select: function(selectionInfo) {//start end
+            var start = selectionInfo.start;
+            var end = selectionInfo.end;
 
-  window.CRM.APIRequest({
-    method: 'POST',
-    path: 'calendar/getallevents',
-    data: JSON.stringify({"start":real_start,"end":real_end})
-  }).done(function(events) {
-    callback(events);
-  });
-}
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'calendar/numberofcalendars',
+            }).done(function(data) {
+                if (data.CalendarNumber > 0){
+                    // We create the dialog
+                    if (window.CRM.editor != null) {
+                        CKEDITOR.remove(window.CRM.editor);
+                        window.CRM.editor = null;
+                    }
+
+                    var modal = createEventEditorWindow (start,end);
+
+                    // we add the calendars and the types
+                    addCalendars();
+                    addCalendarEventTypes(-1,true);
+
+                    //Timepicker
+                    $('.timepicker').datetimepicker({
+                        format: 'LT',
+                        locale: window.CRM.lang,
+                        icons:
+                            {
+                                up: 'fa fa-angle-up',
+                                down: 'fa fa-angle-down'
+                            }
+                    });
+
+                    $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+
+                    $('.date-picker').click('focus', function (e) {
+                        e.preventDefault();
+                        $(this).datepicker('show');
+                    });
+
+                    $('.date-start').hide();
+                    $('.date-end').hide();
+                    $('.date-recurrence').hide();
+                    $(".eventNotes").hide();
+
+                    $("#typeEventrecurrence").prop("disabled", true);
+                    $("#endDateEventrecurrence").prop("disabled", true);
+
+                    // this will create the toolbar for the textarea
+                    if (window.CRM.editor == null) {
+                        if (window.CRM.bEDrive) {
+                            window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                                customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                                language : window.CRM.lang,
+                                width : '100%',
+                                extraPlugins : 'uploadfile,uploadimage,filebrowser',
+                                uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                                imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+                                filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+                                filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
+                            });
+                        } else {
+                            window.CRM.editor = CKEDITOR.replace('eventNotes',{
+                                customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                                language : window.CRM.lang,
+                                width : '100%'
+                            });
+                        }
+
+                        add_ckeditor_buttons(window.CRM.editor);
+                    }
+
+                    $(".ATTENDENCES").hide();
+
+                    initMap();
+
+                    modal.modal("show");
+
+                } else {
+                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
+                }
+            });
+        },
+    });
+
+    window.CRM.calendar.render();
 });
 
+$(document).ready(function () {
   $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
     // solve a bug a bootbox is over another box
     if($('.modal').hasClass('in')) {
@@ -607,7 +652,7 @@ events: function(start, end, timezone, callback) {
            size: 'large',
            buttons: {
               cancel: {
-                label:  i18next.t('No'),
+                label:  '<i class="fa fa-times"></i> ' + i18next.t('No'),
                 className: 'btn btn-default'
               },
               add: {
@@ -618,7 +663,7 @@ events: function(start, end, timezone, callback) {
                  }
               },
               confirm: {
-                 label: i18next.t('Make Attendance'),
+                 label: '<i class="fa fa-check"></i> ' + i18next.t('Make Attendance'),
                  className: 'btn btn-success',
                  callback: function () {
                     location.href = window.CRM.root + '/Checkin.php';
