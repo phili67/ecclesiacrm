@@ -1,9 +1,9 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without authorization
+//                This code can't be included in another software.
 //
-//  Updated     : 2018/05/13
+//  Updated     : 2020/05/13
 //
 
   var maxHeight = 230;
@@ -25,7 +25,7 @@
       data: JSON.stringify({"calIDs":calIDs,"isChecked":isChecked})
     }).done(function(data) {
       // we reload all the events
-      $('#calendar').fullCalendar( 'refetchEvents' );
+        window.CRM.calendar.refetchEvents();
     });
   });
 
@@ -33,6 +33,15 @@
   $("#add-calendar").click('focus', function (e) {
     bootbox.prompt({
       title: i18next.t("Set Calendar Name"),
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm"),
+                className: 'btn-primary'
+            }
+        },
       inputType: 'text',
       callback: function (title) {
         if (title !== null && title !== '') {
@@ -147,28 +156,27 @@
 
   function BootboxContentCalendarPresence(){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Include/Exclude your Calendars in the SideBar")+'</h3>'
-       + '<div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4">'
-              + '<span style="color: red">*</span>' + i18next.t("Calendars") + ":"
-              +'</div>'
-              +'<div class="col-md-8">'
-              +'<select size="6" style="width:100%" id="select-calendar-presence" multiple>'
-              +'</select>'
-             +'</div>'
-            +'</div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Status") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<select name="calendar-show-hide" id="calendar-show-hide" class="form-control input-sm"'
-                    +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select [Exclude] or [Include]")+' -- </option>'
-                    +'<option value="2">'+'✅'+' -- '+i18next.t('[INCLUDE]')+'</option>'
-                    +'<option value="1">'+'❌'+' -- '+i18next.t('[EXCLUDE]')+'</option>'
-                +'</select>'
-              +'</div>'
-            +'</div>'
-          +'</div>';
+        +'<div>'
+        +'  <div class="row div-title">'
+        +'      <div class="col-md-4">'
+        +'          <span style="color: red">*</span>' + i18next.t("Calendars") + ":"
+        +'      </div>'
+        +'      <div class="col-md-8">'
+        +'          <select size="6" style="width:100%" id="select-calendar-presence" multiple></select>'
+        +'      </div>'
+        +'  </div>'
+        +'  <div class="row div-title">'
+        +'      <div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Status") + ":</div>"
+        +'      <div class="col-md-8">'
+        +'          <select name="calendar-show-hide" id="calendar-show-hide" class="form-control input-sm"'
+        +'              style="width:100%" data-placeholder="text to place">'
+        +'              <option value="0">'+i18next.t("Select [Exclude] or [Include]")+' -- </option>'
+        +'              <option value="2">'+'✅'+' -- '+i18next.t('[INCLUDE]')+'</option>'
+        +'              <option value="1">'+'❌'+' -- '+i18next.t('[EXCLUDE]')+'</option>'
+        +'          </select>'
+        +'      </div>'
+        +'  </div>'
+        +'</div>';
 
           var object = $('<div/>').html(frm_str).contents();
 
@@ -181,7 +189,7 @@
        message: BootboxContentCalendarPresence(),
        buttons: [
         {
-         label: i18next.t("Ok"),
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
@@ -253,7 +261,7 @@
              addShareCalendars();
              break;
          }
-         $('#calendar').fullCalendar( 'refetchEvents' );
+         window.CRM.calendar.refetchEvents();
          $("#calendar-show-hide option:first").attr('selected','selected');
         });
      });
@@ -363,7 +371,7 @@
        message: BootboxContentShare(),
        buttons: [
         {
-         label: i18next.t("Delete"),
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {
             bootbox.confirm(i18next.t("Are you sure, you want to delete this Share ?"), function(result){
@@ -377,7 +385,7 @@
                      data: JSON.stringify({"calIDs":calIDs,"principal": principal})
                   }).done(function(data) {
                     $("#select-share-persons option[value='"+principal+"']").remove();
-                    $('#calendar').fullCalendar( 'refetchEvents' );
+                    window.CRM.calendar.refetchEvents();
                   });
                 });
               }
@@ -405,7 +413,7 @@
          }
         },
         {
-         label: i18next.t("Ok"),
+         label: '<i class="fa fa-check"></i> ' +  i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
@@ -552,7 +560,7 @@
                        } else if (type == "reservation") {
                          addReservationCalendars();
                        }
-                       $('#calendar').fullCalendar( 'refetchEvents' );
+                       window.CRM.calendar.refetchEvents();
                      });
                   }
                 }
@@ -574,7 +582,7 @@
 
         var buttonOk = {
           Ok: {
-              label: i18next.t("Ok"),
+              label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
               className: 'btn-primary',
               callback: function(){
                   return true;
@@ -806,7 +814,7 @@
             data: JSON.stringify({"calIDs":calIDs,"color":color})
           }).done(function(data) {
             // we reload all the events
-            $('#calendar').fullCalendar( 'refetchEvents' );
+            window.CRM.calendar.refetchEvents();
           });
         });
       }
@@ -834,7 +842,7 @@
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editGroupName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
-            data[i].icon + ' ' +
+            data[i].icon + '<i class="fa fa-group"></i> ' +
             data[i].calendarName.substring(0, 22) +
             '</div>' +
             '           <div class="input-group-addon">' +
@@ -869,7 +877,7 @@
             data: JSON.stringify({"calIDs":calIDs,"color":color})
           }).done(function(data) {
             // we reload all the events
-            $('#calendar').fullCalendar( 'refetchEvents' );
+            window.CRM.calendar.refetchEvents();
           });
         });
       }
@@ -891,11 +899,11 @@
         var icon = '';
 
         if (data[i].calType == 2) {
-          icon = '&nbsp;<i class="fa fa-building"></i>&nbsp';
+          icon = '<i class="fa fa-building"></i>';
         } else if (data[i].calType == 3) {
-          icon = '&nbsp;<i class="fa fa-windows"></i>&nbsp;';
+          icon = '<i class="fa fa-windows"></i>';
         } else if (data[i].calType == 4) {
-          icon = '&nbsp;<i class="fa fa-video-camera"></i>&nbsp;';
+          icon = '<i class="fa fa-video-camera"></i>';
         }
 
           var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
@@ -906,7 +914,7 @@
               '   <div class="col-9">'+
               '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
               '           <div class="editReservationName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
-              data[i].icon + ' ' +
+              data[i].icon + icon + ' ' +
               data[i].calendarName.substring(0, 22) +
               '</div>' +
               '           <div class="input-group-addon">' +
@@ -947,7 +955,7 @@
             data: JSON.stringify({"calIDs":calIDs,"color":color})
           }).done(function(data) {
             // we reload all the events
-            $('#calendar').fullCalendar( 'refetchEvents' );
+              window.CRM.calendar.refetchEvents();
           });
         });
       }
@@ -984,7 +992,7 @@
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editShareName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
-            data[i].icon + ' ' +
+            data[i].icon + icon + ' ' +
             data[i].calendarName.substring(0, 22) +
             '</div>' +
             '           <div class="input-group-addon">' +
@@ -1017,7 +1025,7 @@
             data: JSON.stringify({"calIDs":calIDs,"color":color})
           }).done(function(data) {
             // we reload all the events
-            $('#calendar').fullCalendar( 'refetchEvents' );
+              window.CRM.calendar.refetchEvents();
           });
         });
       }

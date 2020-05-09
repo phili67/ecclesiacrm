@@ -163,6 +163,15 @@ class CalendarService
 
               $calObj = $calendarBackend->getCalendarObject($calendar['id'],$eventForCal['uri']);
 
+
+              $cal_category = ($calendar['grpid'] != "0")?'group':'personal';
+
+              if ($calendar['share-access'] >= 2) {
+                  $cal_type               = 5;
+              } else {
+                   $cal_type = $calendar['cal_type'];
+              }
+
               $freqEvents = VObjectExtract::calendarData($calObj['calendardata'],$origStart,$origEnd);
 
               if ($freqEvents == null) {
@@ -198,7 +207,9 @@ class CalendarService
                     $event = $this->createCalendarItem('event',$icon,
                       $title, $start, $end,
                      '',$id,$type,$grpID,
-                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable,$loc,$lat,$long,$alarm);// only the event id sould be edited and moved and have custom color
+                      $desc,$text,$calID,$calendarColor,
+                      $subid++,1,$reccurenceID,$writeable,
+                      $loc,$lat,$long,$alarm,$cal_type,$cal_category);// only the event id sould be edited and moved and have custom color
 
                     array_push($events, $event);
                   }
@@ -209,7 +220,8 @@ class CalendarService
                 $event = $this->createCalendarItem('event',$icon,
                   $title, $start, $end,
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable,$loc,$lat,$long,$alarm);// only the event id sould be edited and moved and have custom color
+                  $desc,$text,$calID,$calendarColor,0,0,0,
+                  $writeable,$loc,$lat,$long,$alarm,$cal_type,$cal_category);// only the event id sould be edited and moved and have custom color
 
                 array_push($events, $event);
               }
@@ -221,7 +233,8 @@ class CalendarService
     }
 
     public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,
-                                       $recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "")
+                                       $recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "",$cal_type="0",
+                                       $cal_category = "personal")
     {
         $event = [];
         switch ($type) {
@@ -239,7 +252,7 @@ class CalendarService
         $event['start']     = $start;
         $event['origStart'] = $start;
         $event['icon']      = $icon;
-        $event['type']      = $type;
+        $event['realType']  = $event['type'] = $type;
 
         if ($end != '') {
             $event['end'] = $end;
@@ -252,17 +265,19 @@ class CalendarService
         }
 
         if ($type == 'event') {
-          $event['eventID']     = $eventID;
-          $event['eventTypeID'] = $eventTypeID;
-          $event['groupID']     = $groupID;
-          $event['Desc']        = $desc;
-          $event['Text']        = $text;
-          $event['recurrent']   = $recurrent;
-          $event['writeable']   = $writeable;
-          $event['location']    = $location;
-          $event['longitude']   = $longitude;
-          $event['latitude']    = $latitude;
-          $event['alarm']       = $alarm;
+          $event['eventID']         = $eventID;
+          $event['eventTypeID']     = $eventTypeID;
+          $event['groupID']         = $groupID;
+          $event['Desc']            = $desc;
+          $event['Text']            = $text;
+          $event['recurrent']       = $recurrent;
+          $event['writeable']       = $writeable;
+          $event['location']        = $location;
+          $event['longitude']       = $longitude;
+          $event['latitude']        = $latitude;
+          $event['alarm']           = $alarm;
+          $event['calType']         = intval($cal_type);
+          $event['cal_category']    = $cal_category;
 
           if ($calendarid != null) {
             $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;

@@ -35,6 +35,7 @@ require $sRootDocument . '/Include/Header.php';
                             <select type="text" id="EventTypeFilter" value="0"
                                     class="form-control input-sm" size=1>
                                 <option value='0'><?= _("All") ?></option>
+                                <option disabled>──────────</option>
                                 <?php
                                 foreach ($eventTypes as $eventType) {
                                     ?>
@@ -43,6 +44,14 @@ require $sRootDocument . '/Include/Header.php';
                                     <?php
                                 }
                                 ?>
+                                <option disabled>──────────</option>
+                                <option value='-1'><?= _("Personal") ?></option>
+                                <option value='-2'><?= _("Group") ?></option>
+                                <option disabled>──────────</option>
+                                <option value='-3'><?= _("Room") ?></option>
+                                <option value='-4'><?= _("Computer") ?></option>
+                                <option value='-5'><?= _("Video") ?></option>
+                                <option value='-6'><?= _("Shared") ?></option>
                             </select>
                         </div>
                     </div>
@@ -263,6 +272,7 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
   window.CRM.calendarSignature = null;
+  window.CRM.calendar = null;
 
   window.CRM.churchloc = {
       lat: <?= $coordinates['lat'] ?>,
@@ -270,11 +280,25 @@ require $sRootDocument . '/Include/Header.php';
   window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
 </script>
 
+
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
         type="text/javascript"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/fullcalendar.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/locale-all.js"></script>
+
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/core/main.min.css" rel="stylesheet">
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/daygrid/main.min.css" rel="stylesheet">
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/timegrid/main.min.css" rel="stylesheet">
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/list/main.min.css" rel="stylesheet">
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/bootstrap/main.min.css" rel="stylesheet">
+
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/core/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/core/locales-all.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/daygrid/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/timegrid/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/list/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/interaction/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/moment/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/bootstrap/main.min.js"></script>
 
 <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 

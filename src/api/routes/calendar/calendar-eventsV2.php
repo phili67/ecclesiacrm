@@ -9,8 +9,8 @@
  *  http://www.ecclesiacrm.com/
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incorporated in another software without authorization
- *  Updated : 2018/05/13
+ *                This code can't be included in another software
+ *  Updated : 2020/05/8
  *
  ******************************************************************************/
 
