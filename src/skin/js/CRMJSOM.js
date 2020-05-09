@@ -1309,13 +1309,14 @@
         CalendarDisplay: function (data) {
               var calendarView = document.getElementById('calendar');
 
-              if (calendarView && window.CRM.calendar != null) {
+              if (calendarView) {
                   if (window.CRM.calendarSignature != data) {
                       window.CRM.calendarSignature = data;
                       window.CRM.addAllCalendars();
                   }
 
-                  window.CRM.calendar.refetchEvents()
+                  $('#calendar').fullCalendar( 'refetchEvents' );
+
               }
         },
         EDriveDisplay: function(data) {
