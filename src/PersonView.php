@@ -342,13 +342,11 @@ if (!empty($person->getDateDeactivated())) {
         <div class="col-md-3">
             <div class="sticky-top">
                 <div class="card card-primary card-outline">
-                    <div class="card-body card-profile">
-                        <div class="image-container">
-                            <div class="text-center">
-                                <img
-                                    src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
-                                    class="initials-image profile-user-img img-responsive img-rounded img-circle">
-                            </div>
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img
+                                src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
+                                class="initials-image profile-user-img img-responsive img-rounded img-circle">
                             <?php if ($bOkToEdit): ?>
                                 <div class="after">
                                     <div class="buttons">
@@ -379,14 +377,14 @@ if (!empty($person->getDateDeactivated())) {
                                 <?php
                             }
                             ?>
-                            <?= $person->getFullName() ?></h3>
+                            <?= $person->getFullName() ?>
+                        </h3>
 
                         <?php
                         if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled()) {
                             ?>
                             <p class="text-muted text-center">
-                                <strong
-                                    style="color:black"><?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?></strong>
+                                <?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?>
                                 &nbsp;
                                 <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
                                    data-family_role="<?= $person->getFamilyRoleName() ?>"
@@ -398,10 +396,61 @@ if (!empty($person->getDateDeactivated())) {
                         }
                         if ($person->getMembershipDate()) {
                             ?>
-                            <?= _('Member') . " " . _(' Since:') . ' ' . OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
-                            <br/><br/>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
+                                </li>
+                                <?php
+                                if (!empty($sClassIcon)) {
+                                    ?>
+                                    <li class="list-group-item">
+                                        <b><img
+                                                src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
+                                                boder=0 width="18">
+                                            <?= _($sClassName) ?>
+                                        </b>
+
+                                        <div class="float-right">
+                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs"
+                                               data-person_id="<?= $person->getId() ?>"
+                                               data-classification_id="<?= $sClassID ?>"
+                                               data-classification_role="<?= $sClassName ?>">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
                             <?php
                         }
+                        ?>
+                        <h5><?= _("Groups") ?></h5>
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <?php
+                            foreach ($ormAssignedGroups
+
+                            as $groupAssigment) {
+                            ?>
+                            <li class="list-group-item">
+                                <b>
+                                    <i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
+                                </b>
+
+                                <div class="float-right">
+                                    <?= _($groupAssigment->getRoleName()) ?>
+
+                                    <a class="changeRole btn btn-box-tool btn-xs"
+                                           data-groupid="<?= $groupAssigment->getGroupId() ?>">
+                                            <i class="fa fa-edit"></i>
+                                    </a>
+                                </li>
+                                <?php
+                                }
+                                ?>
+                        </ul>
+                        <?php
                         if ($bOkToEdit) {
                             ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>"
@@ -411,71 +460,6 @@ if (!empty($person->getDateDeactivated())) {
                         ?>
                     </div>
                     <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-
-
-                <div class="card card-primary collapsed-card">
-                    <div class="card-header  card-primary">
-                        <h3 class="card-title"><i class="fa fa-list"></i> <?= _("Classifications") ?></h3>
-                        <div class="card-tools pull-right">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                    class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        if (!empty($sClassIcon)) {
-                            ?>
-                            <h5><?= _("Global") ?></h5>
-                            <div style="margin-left:22px">
-                                <div class="row">
-                                    <div class="col-md-11">
-                                        <img
-                                            src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
-                                            boder=0>
-                                        <strong style="color:black"><?= _($sClassName) ?></strong>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs"
-                                           data-person_id="<?= $person->getId() ?>"
-                                           data-classification_id="<?= $sClassID ?>"
-                                           data-classification_role="<?= $sClassName ?>">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                        <h5><?= _("Groups") ?></h5>
-                        <ul class="fa-ul">
-                            <?php
-                            foreach ($ormAssignedGroups
-
-                            as $groupAssigment) {
-                            ?>
-                            <div style="left:-28px">
-                                <div class="row">
-                                    <div class="col-md-11">
-                                        <strong><i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
-                                        </strong>
-                                        : <?= _($groupAssigment->getRoleName()) ?>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <a class="changeRole btn btn-box-tool btn-xs"
-                                           data-groupid="<?= $groupAssigment->getGroupId() ?>">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                </li>
-                                <?php
-                                }
-                                ?>
-                        </ul>
-                    </div>
                 </div>
                 <!-- About card -->
                 <?php
