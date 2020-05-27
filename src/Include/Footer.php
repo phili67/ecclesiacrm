@@ -15,6 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\Theme;
 
 ?>
 </section><!-- /.content -->
@@ -33,7 +34,7 @@ use EcclesiaCRM\Bootstrapper;
 </footer>
 
 <!-- The Right Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
+<aside class="control-sidebar <?= Theme::getCurrentRightSideBarTypeColor() ?>">
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true" class="nav-link active"
@@ -54,7 +55,8 @@ use EcclesiaCRM\Bootstrapper;
         </li>
 
     </ul>
-    <div class="tab-content">
+    <div
+        class="tab-content p-3 control-sidebar-content os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-overflow os-host-overflow-y os-host-transition">
         <!-- Home tab content -->
         <div id="control-sidebar-settings-other-tab" class="tab-pane">
             <?php
@@ -345,16 +347,26 @@ use EcclesiaCRM\Bootstrapper;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/jszip.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/dataTables.responsive.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/rowGroup.bootstrap4.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/dataTables.buttons.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.colVis.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.html5.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.print.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/dataTables.rowGroup.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.dataTables.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.bootstrap4.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/Select/dataTables.select.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/dataTables.responsive.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/rowGroup.bootstrap4.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/dataTables.buttons.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.colVis.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.html5.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.print.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/dataTables.rowGroup.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.dataTables.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.bootstrap4.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/Select/dataTables.select.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/buttons.bootstrap4.min.js"></script>
 
 
