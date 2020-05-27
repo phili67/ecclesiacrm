@@ -79,6 +79,19 @@ class Theme
         return "sidebar-" . $styleSideBar . "-" . $sStyleSideBarColor;
     }
 
+    static function getCurrentRightSideBarTypeColor()
+    {
+        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+        if (is_null($theme)) {
+            Theme::first_load();
+        }
+
+        $styleSideBar = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId())->getValue();
+
+        return "control-sidebar-".$styleSideBar;
+    }
+
     static function getCurrentSideBarMainColor()
     {
         $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleSideBar)->findOneByPersonId(SessionUser::getUser()->getPersonId());
