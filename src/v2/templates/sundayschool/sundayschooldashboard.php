@@ -11,6 +11,8 @@
 
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\Cart;
+
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -153,6 +155,33 @@ require $sRootDocument . '/Include/Header.php';
                     class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
             <?php
         }
+        ?>
+        <?php
+            if (Cart::GeneralStudentInCart() && SessionUser::getUser()->isShowCartEnabled()) {
+            ?>
+            <a class="btn btn-app RemoveAllStudentsFromCart" id="AddAllStudentsToCart"> <i class="fa fa-remove"></i> <span
+                    class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
+            <?php
+        } else if (SessionUser::getUser()->isShowCartEnabled()) {
+            ?>
+            <a class="btn btn-app AddAllStudentsToCart" id="AddAllStudentsToCart"><i class="fa fa-cart-plus"></i> <span
+                    class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
+            <?php
+        }
+        ?>
+        <?php
+        if (Cart::GeneralTeacherInCart() && SessionUser::getUser()->isShowCartEnabled()) {
+            ?>
+            <a class="btn btn-app RemoveAllTeachersFromCart" id="AddAllTeachersToCart"><i class="fa fa-remove"></i> <span
+                    class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
+            <?php
+        } else if (SessionUser::getUser()->isShowCartEnabled()) {
+            ?>
+            <a class="btn btn-app AddAllTeachersToCart" id="AddAllTeachersToCart"><i class="fa fa-cart-plus"></i> <span
+                    class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
+            <?php
+        }
+
         ?>
             </div>
         </div>
