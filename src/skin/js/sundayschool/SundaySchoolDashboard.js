@@ -1,4 +1,91 @@
 $("document").ready(function() {
+    $(document).on("click",".AddAllStudentsToCart", function(){
+        clickedButton = $(this);
+        window.CRM.cart.addAllStudents(function()
+        {
+            $(clickedButton).addClass("RemoveAllStudentsFromCart");
+            $(clickedButton).removeClass("AddAllStudentsToCart");
+            $('i',clickedButton).addClass("fa-remove");
+            $('i',clickedButton).removeClass("fa-cart-plus");
+            text = $(clickedButton).find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Remove Students from Cart"));
+            }
+        });
+    });
+
+    $(document).on("click",".RemoveAllStudentsFromCart", function(){
+        clickedButton = $(this);
+        window.CRM.cart.removeAllStudents(function()
+        {
+            $(clickedButton).addClass("AddAllStudentsToCart");
+            $(clickedButton).removeClass("RemoveAllStudentsFromCart");
+            $('i',clickedButton).removeClass("fa-remove");
+            $('i',clickedButton).addClass("fa-cart-plus");
+            text = $(clickedButton).find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Add Students to Cart"));
+            }
+        });
+    });
+
+    $(document).on("click",".AddAllTeachersToCart", function(){
+        clickedButton = $(this);
+        window.CRM.cart.addAllTeachers(function()
+        {
+            $(clickedButton).addClass("RemoveAllTeachersFromCart");
+            $(clickedButton).removeClass("AddAllTeachersToCart");
+            $('i',clickedButton).addClass("fa-remove");
+            $('i',clickedButton).removeClass("fa-cart-plus");
+            text = $(clickedButton).find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Remove Teachers from Cart"));
+            }
+        });
+    });
+
+
+    $(document).on("click",".RemoveAllTeachersFromCart", function(){
+        clickedButton = $(this);
+        window.CRM.cart.removeAllTeachers(function()
+        {
+            $(clickedButton).addClass("AddAllTeachersToCart");
+            $(clickedButton).removeClass("RemoveAllTeachersFromCart");
+            $('i',clickedButton).removeClass("fa-remove");
+            $('i',clickedButton).addClass("fa-cart-plus");
+            text = $(clickedButton).find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Add Teachers to Cart"));
+            }
+        });
+    });
+
+    // newMessage event subscribers  : Listener CRJSOM.js
+    $(document).on("emptyCartMessage", emptyButtons);
+
+    // newMessage event handler
+    function emptyButtons(e) {
+        if (e.cartPeople.length == 0) {
+            $("#AddAllTeachersToCart").addClass("AddAllTeachersToCart");
+            $("#AddAllTeachersToCart").removeClass("RemoveAllTeachersFromCart");
+            $('i',"#AddAllTeachersToCart").removeClass("fa-remove");
+            $('i',"#AddAllTeachersToCart").addClass("fa-cart-plus");
+            text = $("#AddAllTeachersToCart").find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Add Teachers to Cart"));
+            }
+
+            $("#AddAllStudentsToCart").addClass("AddAllStudentsToCart");
+            $("#AddAllStudentsToCart").removeClass("RemoveAllStudentsFromCart");
+            $('i',"#AddAllStudentsToCart").removeClass("fa-remove");
+            $('i',"#AddAllStudentsToCart").addClass("fa-cart-plus");
+            text = $("#AddAllStudentsToCart").find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Add Students to Cart"));
+            }
+        }
+    }
+
     function BootboxContentAttendees (start) {
         var time_format;
         var fmt = window.CRM.datePickerformat.toUpperCase();
@@ -78,14 +165,14 @@ $("document").ready(function() {
             size: "large",
             buttons: [
                 {
-                    label: i18next.t("Cancel"),
+                    label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
                     className: "btn btn-default",
                     callback: function () {
                         console.log("just do something on close");
                     }
                 },
                 {
-                    label: i18next.t('OK'),
+                    label: '<i class="fa fa-check"></i> ' + i18next.t('OK'),
                     className: "btn btn-primary",
                     callback: function () {
                         var dateAttendees = $('form #dateAttendees').val();
@@ -110,7 +197,7 @@ $("document").ready(function() {
                             path: 'attendees/groups',
                             data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID})
                         }).done(function(data) {
-                            alert("coucou");
+                            location.href = window.CRM.root + "/Checkin.php";
                         });
                     }
                 }
