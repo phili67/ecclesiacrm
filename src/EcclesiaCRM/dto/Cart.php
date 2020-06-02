@@ -91,6 +91,41 @@ class Cart
         return false;
     }
 
+    public static function GeneralStudentInCart()
+    {
+        $sundaySchoolService = new SundaySchoolService();
+
+        $classes = $sundaySchoolService->getClassStats();
+
+        foreach ($classes as $class){
+            $thisClassChildren = $sundaySchoolService->getKidsFullDetails($class['id']);
+            foreach ($thisClassChildren as $child) {
+                if (in_array($child['kidId'], $_SESSION['aPeopleCart'])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public static function GeneralTeacherInCart()
+    {
+        $sundaySchoolService = new SundaySchoolService();
+
+        $classes = $sundaySchoolService->getClassStats();
+
+        foreach ($classes as $class){
+            $thisClassTeachers = $sundaySchoolService->getTeacherFullDetails($class['id']);
+            foreach ($thisClassTeachers as $teacher) {
+                if (in_array($teacher['teacherId'], $_SESSION['aPeopleCart'])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static function TeacherInCart($GroupID)
     {
         $sundaySchoolService = new SundaySchoolService();
