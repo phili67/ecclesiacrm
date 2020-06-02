@@ -1,5 +1,6 @@
 <?php
 
+use EcclesiaCRM\Service\SundaySchoolService;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -33,6 +34,10 @@ $app->group('/cart', function () {
     $this->post('/removeGroup', 'removeGroupFromCart' );
     $this->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
     $this->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
+    $this->post('/addAllStudents', 'addAllStudentsToCart' );
+    $this->post('/addAllTeachers', 'addAllTeachersToCart' );
+    $this->post('/removeAllStudents', 'removeAllStudentsFromCart' );
+    $this->post('/removeAllTeachers', 'removeAllTeachersFromCart' );
     $this->post('/delete', 'deletePersonCart' );
     $this->post('/deactivate', 'deactivatePersonCart' );
 
@@ -162,6 +167,51 @@ function removeGroupFromCart($request, $response, $args) {
     ]);
 }
 
+function addAllStudentsToCart ($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+    $iCount = Cart::CountPeople();
+
+    $sundaySchoolService = new SundaySchoolService();
+
+    $classes = $sundaySchoolService->getClassStats();
+
+    foreach ($classes as $class) {
+        Cart::AddStudents($class['id']);
+    }
+
+    return $response->withJson([
+        'status' => "success",
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+    ]);
+}
+
+function removeAllStudentsFromCart ($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+    $iCount = Cart::CountPeople();
+
+    $sundaySchoolService = new SundaySchoolService();
+
+    $classes = $sundaySchoolService->getClassStats();
+
+    foreach ($classes as $class) {
+        Cart::RemoveStudents($class['id']);
+    }
+
+    return $response->withJson([
+        'status' => "success",
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+    ]);
+}
+
+
+
+
 function removeStudentsGroupFromCart ($request, $response, $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
@@ -176,6 +226,49 @@ function removeStudentsGroupFromCart ($request, $response, $args) {
         'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
     ]);
 }
+
+function addAllTeachersToCart ($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+    $iCount = Cart::CountPeople();
+
+    $sundaySchoolService = new SundaySchoolService();
+    $classes = $sundaySchoolService->getClassStats();
+
+    foreach ($classes as $class) {
+        Cart::AddTeachers($class['id']);
+    }
+
+    return $response->withJson([
+        'status' => "success",
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+    ]);
+}
+
+function removeAllTeachersFromCart ($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+    $iCount = Cart::CountPeople();
+
+    $sundaySchoolService = new SundaySchoolService();
+
+    $classes = $sundaySchoolService->getClassStats();
+
+    foreach ($classes as $class) {
+        Cart::RemoveTeachers($class['id']);
+    }
+
+    return $response->withJson([
+        'status' => "success",
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+    ]);
+}
+
+
 
 function removeTeachersGroupFromCart ($request, $response, $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {

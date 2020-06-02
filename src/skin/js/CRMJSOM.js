@@ -681,6 +681,20 @@
 
         });
       },
+      'addAllStudents' : function (callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/addAllStudents',
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
+      },
       'removeStudentGroup' : function (GroupID, callback)
       {
          window.CRM.APIRequest({
@@ -695,6 +709,20 @@
             }
 
         });
+      },
+      'removeAllStudents' : function (callback)
+      {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/removeAllStudents',
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
       },
       'addTeacherGroup' : function (GroupID, callback)
       {
@@ -711,6 +739,20 @@
 
         });
       },
+      'addAllTeachers' : function (callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/addAllTeachers',
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
+      },
       'removeTeacherGroup' : function (GroupID, callback)
       {
          window.CRM.APIRequest({
@@ -725,6 +767,20 @@
             }
 
         });
+      },
+      'removeAllTeachers' : function (callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/removeAllTeachers',
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
       },
       'updateLocalePage' : function () {
         // broadcaster
