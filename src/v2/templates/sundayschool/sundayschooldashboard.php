@@ -133,10 +133,10 @@ require $sRootDocument . '/Include/Header.php';
         if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
             || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
-            <a class="btn btn-app bg-orange makeCheckOut" id="makeCheckOut"
-               data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
+            <a class="btn btn-app bg-orange callRegister" id="callRegister"
+               data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Take attendance') ?></span></a>
+                    class="cartActionDescription"><?= _('Call the register') ?></span></a>
             <?php
         }
 

@@ -75,10 +75,10 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
             || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
-            <a class="btn btn-app bg-orange makeCheckOut disabled" id="makeCheckOut"
-               data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i
+            <a class="btn btn-app bg-orange callRegister disabled" id="callRegister"
+               data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Take Attendance') ?></span></a>
+                    class="cartActionDescription"><?= _('Call the register') ?></span></a>
             <?php
         }
         ?>
@@ -86,14 +86,14 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
             ?>
             <a class="btn btn-app bg-green exportCheckOutCSV disabled" id="exportCheckOutCSV"
-               data-makecheckoutgroupid="<?= $iGroupId ?>"> <i class="fa fa-file-excel-o"></i> <span
+               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fa fa-file-excel-o"></i> <span
                     class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
             <?php
         }
         if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled()) {
             ?>
             <a class="btn btn-app bg-red exportCheckOutPDF disabled" id="exportCheckOutPDF"
-               data-makecheckoutgroupid="<?= $iGroupId ?>"> <i class="fa fa-file-pdf-o"></i> <span
+               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fa fa-file-pdf-o"></i> <span
                     class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
 
             <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>"> <i
