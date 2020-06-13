@@ -22,12 +22,12 @@ use EcclesiaCRM\Utils\MiscUtils;
 
 class KioskDevice extends BaseKioskDevice
 {
-  
+
   public function getActiveAssignment()
   {
     return $this->getKioskAssignments()[0];
   }
-  
+
   public function setAssignment($assignmentType,$eventId)
   {
     $assignment = $this->getActiveAssignment();
@@ -40,22 +40,39 @@ class KioskDevice extends BaseKioskDevice
     $assignment->setEventId($eventId);
     $assignment->save();
   }
-  
+
   public function heartbeat()
   {
     $this->setLastHeartbeat(date('Y-m-d H:i:s'))
       ->save();
-    
+
     $assignmentJSON = null;
     $assignment = $this->getActiveAssignment();
-    
+
     if (isset($assignment) && $assignment->getAssignmentType() == dto\KioskAssignmentTypes::EVENTATTENDANCEKIOSK )
     {
-      $assignment->getEvent();
-      $assignmentJSON = $assignment->toJSON();
+
+        $assignmentJSON = $assignment->toArray();
+
+        if( !is_null($assignment->getEvent()) ) {
+            $assignmentJSON['Event']['Id'] = $assignment->getEvent()->getId();
+            $assignmentJSON['Event']['Title'] = $assignment->getEvent()->getTitle();
+            $assignmentJSON['Event']['GroupId'] = $assignment->getEvent()->getGroupId();
+            $assignmentJSON['Event']['Start'] = $assignment->getEvent()->getStart();
+            $assignmentJSON['Event']['End'] = $assignment->getEvent()->getEnd();
+        } else {// in the case there isn't any event => AssignmentType != 1
+            $assignmentJSON['Event']['Id'] = -1;
+            $assignmentJSON['Event']['Title'] = "";
+            $assignmentJSON['Event']['GroupId'] = -1;
+            $assignmentJSON['Event']['Start'] = "";
+            $assignmentJSON['Event']['End'] = "";
+
+            $assignmentJSON['AssignmentType'] = 0;
+        }
+
     }
-    
-    
+
+
     return array(
         "Accepted"=>$this->getAccepted(),
         "Name"=>$this->getName(),
@@ -63,7 +80,7 @@ class KioskDevice extends BaseKioskDevice
         "Commands"=>$this->getPendingCommands()
       );
   }
-  
+
   public function getPendingCommands()
   {
     $commands = parent::getPendingCommands();
@@ -78,14 +95,14 @@ class KioskDevice extends BaseKioskDevice
     $this->save();
     return true;
   }
-  
+
   public function identifyKiosk()
   {
     $this->setPendingCommands("Identify");
     $this->save();
     return true;
   }
-  
+
   public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null) {
     if (!isset($this->Name))
     {
