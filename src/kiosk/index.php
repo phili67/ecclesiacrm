@@ -39,7 +39,7 @@ if (!isset($_COOKIE['kioskCookie'])) {
         setcookie("kioskCookie", $guid, 2147483647);
         $Kiosk = new \EcclesiaCRM\KioskDevice();
         $Kiosk->setGUIDHash(hash('sha256', $guid));
-        $Kiosk->setAccepted($false);
+        $Kiosk->setAccepted(false);
         $Kiosk->save();
     } else {
         header("HTTP/1.1 401 Unauthorized");
