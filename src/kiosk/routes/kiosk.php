@@ -5,6 +5,7 @@ use EcclesiaCRM\PersonQuery;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use EcclesiaCRM\dto\Notification;
+use EcclesiaCRM\dto\Photo;
 
 
 $app->get('/', function ($request, $response, $args) use ($app) {
@@ -15,7 +16,7 @@ $app->get('/', function ($request, $response, $args) use ($app) {
 
   $app->get('/heartbeat', function ($request, $response, $args) use ($app) {
 
-    return json_encode($app->kiosk->heartbeat());     
+    return json_encode($app->kiosk->heartbeat());
   });
 
   $app->post('/checkin', function ($request, $response, $args) use ($app) {
@@ -31,12 +32,12 @@ $app->get('/', function ($request, $response, $args) use ($app) {
     return $response->withJSON($status);
   });
 
-   $app->post('/triggerNotification', function ($request, $response, $args) use ($app) {
+  $app->post('/triggerNotification', function ($request, $response, $args) use ($app) {
     $input = (object) $request->getParsedBody();
 
     $Person =PersonQuery::create()
             ->findOneById($input->PersonId);
-    
+
     $Notification = new Notification();
     $Notification->setPerson($Person);
     $Notification->setRecipients($Person->getFamily()->getAdults());
@@ -46,9 +47,15 @@ $app->get('/', function ($request, $response, $args) use ($app) {
     return $response->withJSON($Status);
   });
 
-  
+
    $app->get('/activeClassMembers', function ($request, $response, $args) use ($app) {
-    return $app->kiosk->getActiveAssignment()->getActiveGroupMembers()->toJSON();
+       $res = $app->kiosk->getActiveAssignment()->getActiveGroupMembers();
+
+       if(!is_null($res)) {
+           return $app->kiosk->getActiveAssignment()->getActiveGroupMembers()->toJSON();
+       }
+
+       return null;
   });
 
 
