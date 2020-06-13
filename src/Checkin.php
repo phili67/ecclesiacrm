@@ -51,11 +51,21 @@ $iAdultID = 0;
 
 if (array_key_exists('EventID', $_POST)) {
     // from ListEvents button=Attendees
-    $EventID = InputUtils::LegacyFilterInput($_POST['EventID'], 'int');
+    $EventID = InputUtils::FilterInt($_POST['EventID']);
     $_SESSION['EventID'] = $EventID;
 } else if (isset ($_SESSION['EventID'])) {
     // from api/routes/events.php
-    $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
+    $EventID = InputUtils::FilterInt($_SESSION['EventID']);
+} else {
+    $Event = EventQuery::create()
+        ->filterByStart('now', Criteria::LESS_EQUAL)
+        ->filterByEnd('now', Criteria::GREATER_EQUAL)
+        ->findOne();
+
+    if (!is_null ($Event)) {
+        $_SESSION['EventID'] = $Event->getId();
+        $EventID = $_SESSION['EventID'];
+    }
 }
 
 $bSundaySchool = false;
@@ -133,6 +143,7 @@ if (isset($_POST['FreeAttendees'])) {
 $activeEvents = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
+    ->orderByStart('desc')
     ->find();
 
 $searchEventInActivEvent = EventQuery::Create()
@@ -201,29 +212,32 @@ if (!empty($searchEventInActivEvent)) {
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-10 col-xs-12">
+                <div class="col-md-2">
+                    <label class="control-label"><?= _('Select Event'); ?></label>
+                </div>
+                <div class="col-md-8">
                     <?php if ($sGlobalMessage): ?>
                         <p><?= $sGlobalMessage ?></p>
                     <?php endif; ?>
                     <form name="selectEvent" action="Checkin.php" method="POST">
                         <div class="form-group">
-                            <label class="col-md-2 control-label"><?= _('Select Event'); ?></label>
-                            <div class="col-md-10 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
-                                    <select name="EventID" class="form-control" onchange="this.form.submit()">
-                                        <option value="<?= $EventID; ?>"
-                                                disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
-                                        <?php foreach ($activeEvents as $event) {
-                                            ?>
-                                            <option
-                                                value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                                <?= $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
-                                            <?php
-                                        }
+                            <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i
+                                            class="fa fa-calendar-check-o"></i></span></div>
+                                <select name="EventID" class="form-control" onchange="this.form.submit()">
+                                    <option value="<?= $EventID; ?>"
+                                            disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
+                                    <?php foreach ($activeEvents as $event) {
                                         ?>
-                                    </select>
-                                </div>
+                                        <option
+                                            value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
+                                            <?= $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                             </div>
                         </div>
                     </form>
@@ -673,7 +687,9 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                         }
                         ?>
                         <td><?= ($checkedInPerson->getGender() == 1) ? _($genderMale) : _($genderFem) ?></td>
-                        <td><?= (!empty($per->getCheckinDate())) ? OutputUtils::FormatDate($per->getCheckinDate()->format("Y-m-d H:i:s"), 1) : "" ?></td>
+                        <td><span
+                                id="checkinDatePersonID<?= $per->getPersonId() ?>"><?= (!empty($per->getCheckinDate())) ? OutputUtils::FormatDate($per->getCheckinDate()->format("Y-m-d H:i:s"), 1) : "" ?></span>
+                        </td>
                         <td><?= $sCheckinby ?></td>
                         <td><span
                                 id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= (!empty($per->getCheckoutDate())) ? OutputUtils::FormatDate($per->getCheckoutDate()->format("Y-m-d H:i:s"), 1) : "" ?></span>
@@ -685,13 +701,13 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                                 <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <label>
-                                    <input <?= ($per->getCheckoutDate()) ? "checked" : "" ?> type="checkbox"
+                                    <input <?= (!is_null($per->getCheckinDate())) ? "checked" : "" ?> type="checkbox"
                                                                                              data-personid="<?= $per->getPersonId() ?>"
                                                                                              data-eventid="<?= $EventID ?>"
                                                                                              class="PersonChangeState"
                                                                                              id="PersonChangeState">
                                     <span
-                                        id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate()) ? _("Present") : _("Absent") ?></span>
+                                        id="presenceID<?= $per->getPersonId() ?>"> <?= (!is_null($per->getCheckinDate())) ? _("Present") : _("Absent") ?></span>
                                 </label>
                             </form>
                         </td>
