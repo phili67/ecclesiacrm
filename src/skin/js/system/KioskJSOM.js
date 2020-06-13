@@ -22,7 +22,7 @@ window.CRM.kiosk = {
         var globaldiv= $("<div>").addClass("row");
         var outerDiv = $("<div>",{id:"personId-"+classMember.personId}).addClass("col-sm-12");
         var innerDiv = $("<div>").addClass("card card-widget widget-user-2");
-        var userHeaderDiv = $("<div>",{class :"widget-user-header bg-yellow"}).attr("data-personid",classMember.personId);
+        var userHeaderDiv = $("<div>",{class :"widget-user-header bg-primary"}).attr("data-personid",classMember.personId);
         var imageDiv = $("<div>", {class:"widget-user-image"})
                 .append($("<img>",{
                             class:"initials-image profile-user-img img-responsive img-circle no-border",
@@ -35,13 +35,22 @@ window.CRM.kiosk = {
         innerDiv.append(userHeaderDiv);
         innerDiv.append($("<div>", { class : "card-footer no-padding"})
                   .append($("<div>", { class : "row"})
-                  .append($("<div>", {class:"col-md-6"})
-                        .append($("<button>",{class: "btn btn-danger parentAlertButton", style:"width:100%", text : i18next.t("Trigger Parent Alert"), "data-personid": classMember.personId})
-                            .prepend($("<i>",{class:"fa fa-exclamation-triangle",'aria-hidden':"true"}))
-                        )
+                  .append($("<div>", {class:"col-md-4"})
+                      .append($("<label>")
+                          .append($('<input ' + ((classMember.checkedIn == 1)?'checked':'') + ' type="checkbox" data-personid="'+classMember.personId+'" class="checkinButton" id="checkin-'+classMember.personId+'">' +
+                              '<span> '+i18next.t("Checkin")+'</span>'))
+                      )
                   )
-                  .append($("<div>", {class:"col-md-6"})
-                    .append($("<button>",{class: "btn btn-primary checkinButton", style:"width:100%", text : i18next.t("Checkin"), "data-personid": classMember.personId}))
+                  .append($("<div>", {class:"col-md-4"})
+                      .append($("<label>")
+                          .append($('<input  ' + ((classMember.checkedOut == 1)?'checked':'') + ' type="checkbox" data-personid="'+classMember.personId+'" class="checkoutButton"  id="checkout-'+classMember.personId+'">' +
+                              '<span> '+i18next.t("Checkout")+'</span>'))
+                      )
+                  )
+                  .append($("<div>", {class:"col-md-4"})
+                          .append($("<button>",{class: "btn btn-danger parentAlertButton", style:"width:100%", text : " " + i18next.t("Trigger Parent Alert"), "data-personid": classMember.personId})
+                              .prepend($("<i>",{class:"fa fa-envelope-o",'aria-hidden':"true"}))
+                          )
                   )
                 ));
         outerDiv.append(innerDiv);
@@ -49,15 +58,18 @@ window.CRM.kiosk = {
         $("#classMemberContainer").append(globaldiv);
       }
 
-      if (classMember.status == 1)
-      {
-        window.CRM.kiosk.setCheckedIn(classMember.personId);
-      }
-      else
-      {
-        window.CRM.kiosk.setCheckedOut(classMember.personId);
 
+
+      if (classMember.checkedOut == 1)
+      {
+          window.CRM.kiosk.setCheckedOut(classMember.personId);
+
+      } else if (classMember.checkedIn == 1) {
+        window.CRM.kiosk.setCheckedIn(classMember.personId);
+      } else {
+          window.CRM.kiosk.setNotCheckInOut(classMember.personId);
       }
+
 
     },
 
@@ -67,7 +79,12 @@ window.CRM.kiosk = {
      })
      .done(function(data){
           $(data.EventAttends).each(function(i,d){
-            window.CRM.kiosk.renderClassMember({displayName:d.Person.FirstName+" "+d.Person.LastName, classRole:d.RoleName,personId:d.Person.Id,status:d.status})
+            window.CRM.kiosk.renderClassMember({displayName:d.Person.FirstName+" "+d.Person.LastName,
+                classRole:d.RoleName,
+                personId:d.Person.Id,
+                status:d.status,
+                checkedIn: d.checkedIn,
+                checkedOut: d.checkedOut})
           });
       })
   },
@@ -137,49 +154,81 @@ window.CRM.kiosk = {
   },
 
   checkInPerson: function(personId) {
-    window.CRM.kiosk.APIRequest({
-      path:"checkin",
-      method:"POST",
-      data:JSON.stringify({"PersonId":personId})
-    }).
-    done(function(data){
-      window.CRM.kiosk.setCheckedIn(personId);
-    });
+    var checked  = $("#checkin-"+personId).is(':checked');
 
+    if (checked) {
+        window.CRM.kiosk.APIRequest({
+            path: "checkin",
+            method: "POST",
+            data: JSON.stringify({"PersonId": personId})
+        }).done(function (data) {
+            window.CRM.kiosk.setCheckedIn(personId);
+        });
+    } else {
+        $("#checkout-"+personId).prop( "checked", false );
+        window.CRM.kiosk.APIRequest({
+            path: "uncheckin",
+            method: "POST",
+            data: JSON.stringify({"PersonId": personId})
+        }).done(function (data) {
+            window.CRM.kiosk.setCheckedIn(personId);
+        });
+    }
   },
 
   checkOutPerson: function(personId)  {
-    window.CRM.kiosk.APIRequest({
-      path:"checkout",
-      method:"POST",
-      data:JSON.stringify({"PersonId":personId})
-    }).
-    done(function(data){
-      window.CRM.kiosk.setCheckedOut(personId);
-    });
+      var checked  = $("#checkout-"+personId).is(':checked');
+
+      if (checked) {
+          window.CRM.kiosk.APIRequest({
+              path: "checkout",
+              method: "POST",
+              data: JSON.stringify({"PersonId": personId})
+          }).done(function (data) {
+              window.CRM.kiosk.setCheckedOut(personId);
+          });
+      } else {
+          window.CRM.kiosk.APIRequest({
+              path: "uncheckout",
+              method: "POST",
+              data: JSON.stringify({"PersonId": personId})
+          }).done(function (data) {
+              window.CRM.kiosk.setCheckedOut(personId);
+          });
+      }
   },
+
+  setNotCheckInOut: function (personId) {
+      $personDiv = $("#personId-"+personId)
+      $personDivButton = $("#personId-"+personId+" .checkoutButton")
+      $personDiv.find(".widget-user-header").addClass("bg-gray");
+      $personDiv.find(".widget-user-header").removeClass("bg-primary");
+      $personDiv.find(".widget-user-header").removeClass("bg-green");
+  },
+
 
   setCheckedOut: function (personId)  {
     $personDiv = $("#personId-"+personId)
     $personDivButton = $("#personId-"+personId+" .checkoutButton")
-    $personDivButton.addClass("checkinButton");
+    /*$personDivButton.addClass("checkinButton");
     $personDivButton.removeClass("checkoutButton");
-    $personDivButton.text("Checkin");
-    $personDiv.find(".widget-user-header").addClass("bg-yellow");
-    $personDiv.find(".widget-user-header").removeClass("bg-green");
+    $personDivButton.text("Checkin");*/
+    $personDiv.find(".widget-user-header").addClass("bg-green");
+    $personDiv.find(".widget-user-header").removeClass("bg-primary");
+    $personDiv.find(".widget-user-header").removeClass("bg-gray");
   },
 
   setCheckedIn: function (personId)  {
     $personDiv = $("#personId-"+personId)
 
     $personDivButton = $("#personId-"+personId+" .checkinButton")
-    $personDivButton.removeClass("checkinButton");
+    /*$personDivButton.removeClass("checkinButton");
     $personDivButton.addClass("checkoutButton");
-    $personDivButton.text(i18next.t("Checkout"));
+    $personDivButton.text(i18next.t("Checkout"));*/
 
-    $personDiv.find(".widget-user-header").removeClass("bg-yellow");
-    $personDiv.find(".widget-user-header").addClass("bg-green");
-
+    $personDiv.find(".widget-user-header").addClass("bg-primary");
+      $personDiv.find(".widget-user-header").removeClass("bg-green");
+      $personDiv.find(".widget-user-header").removeClass("bg-gray");
   },
 
   triggerNotification:  function(personId)  {

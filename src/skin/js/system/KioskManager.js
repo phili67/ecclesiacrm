@@ -2,18 +2,18 @@ $(document).ready(function () {
     function renderKioskAssignment(data) {
 
         if(data.Accepted && window.CRM.events.futureEventsLoaded == true){
-            var options ='<option value="None">None</option>';
+            var options ='<option value="None">' + i18next.t("None") + '</option>';
             var currentAssignment = data.KioskAssignments[0];
             for (var i=0; i < window.CRM.events.futureEvents.length; i++)
             {
                 var event = window.CRM.events.futureEvents[i];
                 if (currentAssignment !== undefined && currentAssignment.EventId === event.Id)
                 {
-                    options += '<option selected value="1-'+event.Id+'">Event - '+event.Title+'</option>';
+                    options += '<option selected value="1-'+event.Id+'">' + i18next.t("Event") + ' - '+event.Title+'</option>';
                 }
                 else
                 {
-                    options += '<option value="1-'+event.Id+'">Event - '+event.Title+'</option>';
+                    options += '<option value="1-'+event.Id+'">' + i18next.t("Event") + ' - '+event.Title+'</option>';
                 }
 
             }
@@ -71,12 +71,12 @@ $(document).ready(function () {
                 },
                 {
                     width: 'auto',
-                    title: 'Kiosk Name',
+                    title: i18next.t('Kiosk Name'),
                     data: 'Name',
                 },
                 {
                     width: 'auto',
-                    title: 'Assignment',
+                    title: i18next.t('Assignment'),
                     data: function (row,type,set,meta){
                         if (row.KioskAssignments.length > 0)
                         {
@@ -96,7 +96,7 @@ $(document).ready(function () {
                 },
                 {
                     width: 'auto',
-                    title: 'Last Heartbeat',
+                    title: i18next.t('Last Heartbeat'),
                     data: 'LastHeartbeat',
                     render: function (data, type, full, meta) {
                         return moment(full.LastHeartbeat).fromNow();
@@ -119,12 +119,12 @@ $(document).ready(function () {
                 },
                 {
                     width: 'auto',
-                    title: 'Actions',
+                    title: i18next.t('Actions'),
                     render: function (data, type, full, meta) {
-                        buttons = "<button class='btn btn-secondary reload reloadKiosk' data-id='" + full.Id + "' >Reload</button>" +
-                            " <button class='btn btn-secondary identify identifyKiosk' data-id='" + full.Id + "' >Identify</button>";
+                        buttons = "<button class='btn btn-secondary reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
+                            " <button class='btn btn-secondary identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";
                         if(!full.Accepted){
-                            buttons += "<button class='btn btn-secondary accept acceptKiosk' data-id='" + full.Id + "' >Accept</button>";
+                            buttons += "<button class='btn btn-secondary accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
                         }
                         return buttons;
                     }
