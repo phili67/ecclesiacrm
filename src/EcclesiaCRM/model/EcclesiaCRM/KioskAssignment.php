@@ -68,7 +68,8 @@ class KioskAssignment extends BaseKioskAssignment
                     ->orderByFirstName()
                 ->endUse()
                 ->filterByEventId($this->getActiveEvent()->getId())
-                ->withColumn("(CASE WHEN event_attend.event_id is not NULL AND event_attend.checkout_date IS NULL then 1 else 0 end)", "status")
+                ->withColumn("(CASE WHEN event_attend.checkin_date IS NULL then 0 else 1 end)", "checkedIn")
+                ->withColumn("(CASE WHEN event_attend.checkout_date IS NULL then 0 else 1 end)", "checkedOut")
                 ->find();
 
             LoggerUtils::getAppLogger()->info(print_r($ssClass->toArray(),true));
