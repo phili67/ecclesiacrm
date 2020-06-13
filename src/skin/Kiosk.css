@@ -1,26 +1,28 @@
 .widget-user-2 .widget-user-header {
     padding: 5px;
   }
-  
+
   #eventDetails {
-    display:block;
-    width: 100%;
-    background-color:rgb(60,141,188);
-    min-height:50px;
+      display:block;
+      width: 100%;
+        /*background-color:rgb(60,141,188);*/
+      min-height:50px;
+      margin-top:10px;
+      margin-bottom:10px;
   }
-  
+
   #eventDetails  span {
     font-size: 15px;
     text-align: center;
-    color: white;
+    color: rgb(73, 69, 69);
     display:block;
   }
-  
+
   #eventTitle {
     font-size: 30px !important;
     font-weight: bold;
   }
-  
+
   #newStudent {
     position: fixed;
     left: 20px;
@@ -31,11 +33,11 @@
     font-size:48pt;
     color: green;
   }
-  
+
   #event {
     display:none;
   }
-  
+
   #noEvent {
     display:none;
 
