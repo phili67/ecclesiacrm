@@ -1,30 +1,41 @@
 <?php
+
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Bootstrapper;
+
 // Set the page title and include HTML header
 $sPageTitle = "EcclesiaCRM - Sunday School Device Kiosk";
-require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
+require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
+
 ?>
-<link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/kiosk.css">
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/moment/moment-with-locales.min.js"></script>
+
+<link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/Kiosk.css">
 
 <div>
-  <h1 id="noEvent"></h1>
+    <h1 id="noEvent"></h1>
 </div>
 <div id="event">
-  <div class="container" id="eventDetails">
-    <div class="col-md-6">
-      <span id="eventTitle" ></span>
+    <div class="container" id="eventDetails">
+        <div class="row">
+            <div class="col-md-2">
+                <span id="eventKiosk"></span>
+            </div>
+            <div class="col-md-5">
+                <span id="eventTitle"></span>
+            </div>
+            <div class="col-md-2">
+                <span><?= _("Start Time") ?></span>
+                <span id="startTime"></span>
+            </div>
+            <div class="col-md-2">
+                <span><?= _("End Time") ?></span>
+                <span id="endTime"></span>
+            </div>
+        </div>
     </div>
-    <div class="col-md-2">
-      <span>Start Time</span>
-      <span id="startTime"></span>
-    </div>
-    <div class="col-md-2">
-      <span>End Time</span>
-      <span id="endTime"></span>
-    </div>
-  </div>
-  <div class="container" id="classMemberContainer"></div>
-  <!-- TODO: Add a quick-entry screen for new people <a id="newStudent"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>-->
+    <div class="container" id="classMemberContainer"></div>
+    <!-- TODO: Add a quick-entry screen for new people <a id="newStudent"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>-->
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/KioskJSOM.js"></script>
@@ -32,5 +43,5 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
 <?php
 // Add the page footer
-require(SystemURLs::getDocumentRoot(). "/Include/FooterNotLoggedIn.php");
+require(SystemURLs::getDocumentRoot() . "/Include/FooterNotLoggedIn.php");
 ?>
