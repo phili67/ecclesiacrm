@@ -37,7 +37,59 @@ class Event extends BaseEvent
 
   }
 
-  public function getLatitude()
+    public function unCheckInPerson($PersonId)
+    {
+        $AttendanceRecord = EventAttendQuery::create()
+            ->filterByEvent($this)
+            ->filterByPersonId($PersonId)
+            ->findOneOrCreate();
+
+        $AttendanceRecord->setEvent($this)
+            ->setPersonId($PersonId)
+            ->setCheckinDate(NULL)
+            ->setCheckoutDate(null)
+            ->save();
+
+        return array("status"=>"success");
+
+    }
+
+    public function unCheckOutPerson($PersonId)
+    {
+        $AttendanceRecord = EventAttendQuery::create()
+            ->filterByEvent($this)
+            ->filterByPersonId($PersonId)
+            ->filterByCheckinDate(NULL,  Criteria::NOT_EQUAL)
+            ->findOne();
+
+        $AttendanceRecord->setEvent($this)
+            ->setPersonId($PersonId)
+            ->setCheckoutDate(NULL)
+            ->save();
+
+        return array("status"=>"success");
+
+    }
+
+    public function checkOutPerson($PersonId)
+    {
+        $AttendanceRecord = EventAttendQuery::create()
+            ->filterByEvent($this)
+            ->filterByPersonId($PersonId)
+            ->filterByCheckinDate(NULL,  Criteria::NOT_EQUAL)
+            ->findOne();
+
+        $AttendanceRecord->setEvent($this)
+            ->setPersonId($PersonId)
+            ->setCheckoutDate(date('Y-m-d H:i:s'))
+            ->save();
+
+        return array("status"=>"success");
+
+    }
+
+
+    public function getLatitude()
   {
      $LatLong = explode(' commaGMAP ', $this->getCoordinates());
 
@@ -57,23 +109,6 @@ class Event extends BaseEvent
       $data = VObjectExtract::calendarData($this->getCalendardata());
 
       return $data['alarm'];
-  }
-
-  public function checkOutPerson($PersonId)
-  {
-    $AttendanceRecord = EventAttendQuery::create()
-            ->filterByEvent($this)
-            ->filterByPersonId($PersonId)
-            ->filterByCheckinDate(NULL,  Criteria::NOT_EQUAL)
-            ->findOne();
-
-    $AttendanceRecord->setEvent($this)
-      ->setPersonId($PersonId)
-      ->setCheckoutDate(date('Y-m-d H:i:s'))
-      ->save();
-
-    return array("status"=>"success");
-
   }
 
   public function getEventURI()
