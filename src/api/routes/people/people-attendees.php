@@ -50,7 +50,6 @@ $app->group('/attendees', function () {
 
 });
 
-
 function attendeesCheckOutStudent (Request $request, Response $response, array $args) {
 /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
     return $response->withStatus(401);
@@ -70,9 +69,9 @@ function attendeesCheckOutStudent (Request $request, Response $response, array $
     if ($eventAttent) {
           $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
           if ($cartPayload->checked) {
-            $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+              $eventAttent->getEvent()->checkInPerson($cartPayload->personID);
           } else {
-            $eventAttent->setCheckoutDate(NULL);
+              $eventAttent->getEvent()->checkOutPerson($cartPayload->personID);
           }
           $eventAttent->save();
     }
@@ -181,7 +180,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
             $eventAttent->setPersonId($child['kidId']);
 
             if (SystemConfig::getValue("bCheckedAttendees")) {
-              $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+              $eventAttent->setCheckoutDate(NULL);
             }
             if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
               $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
@@ -266,13 +265,11 @@ function attendeesCheckAll (Request $request, Response $response, array $args) {
 
       $_SESSION['EventID'] = $cartPayload->eventID;
 
-      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-
       foreach ($eventAttents as $eventAttent) {
         $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
 
         $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
-        $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+        $eventAttent->setCheckoutDate(NULL);
         $eventAttent->save();
       }
     }
@@ -304,8 +301,7 @@ function attendeesUncheckAll (Request $request, Response $response, array $args)
         $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
 
         $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
-        //$eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
-        $eventAttent->setCheckoutDate(NULL);
+        $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
         $eventAttent->save();
       }
     }
@@ -323,7 +319,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
 
     $cartPayload = (object)$request->getParsedBody();
 
-    if ( isset ($cartPayload->dateTime) && isset ($cartPayload->eventTypeID) )
+    if ( isset ($cartPayload->dateTime) && isset ($cartPayload->eventTypeID) && isset ($cartPayload->addHours) )
     {
         $listOptions = ListOptionQuery::Create()
             ->filterById(3) // the group category
@@ -332,6 +328,12 @@ function attendeesGroups (Request $request, Response $response, array $args) {
             ->find();
 
         $dateTime = new \DateTime($cartPayload->dateTime);
+
+        $dateTime_End = new \DateTime($cartPayload->dateTime);
+
+        $interval = new DateInterval("PT".$cartPayload->addHours."H");
+
+        $dateTime_End->add($interval);
 
         foreach ($listOptions as $listOption) {
             $groups = GroupQuery::Create()
@@ -380,7 +382,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                         'CREATED' => ($dateTime)->format('Ymd\THis'),
                         'DTSTAMP' => ($dateTime)->format('Ymd\THis'),
                         'DTSTART' => ($dateTime)->format('Ymd\THis'),
-                        'DTEND' => ($dateTime)->format('Ymd\THis'),
+                        'DTEND' => ($dateTime_End)->format('Ymd\THis'),
                         'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
                         'DESCRIPTION' => gettext("Create From sunday school class view"),
                         'SUMMARY' => $group->getName() . " " . $dateTime->format(SystemConfig::getValue('sDatePickerFormat')),
@@ -405,7 +407,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
 
                     $event->setDesc(gettext("Create From sunday school class view"));
                     $event->setStart($dateTime->format('Y-m-d H:i:s'));
-                    $event->setEnd($dateTime->format('Y-m-d H:i:s'));
+                    $event->setEnd($dateTime_End->format('Y-m-d H:i:s'));
                     $event->setText(gettext("Attendance"));
                     $event->setInActive(false);
                     $event->save();
@@ -422,7 +424,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                             $eventAttent->setPersonId($child['kidId']);
 
                             if (SystemConfig::getValue("bCheckedAttendees")) {
-                                $eventAttent->setCheckoutDate($dateTime->format('Y-m-d H:i:s'));
+                                $eventAttent->setCheckoutDate(NULL);
                             }
                             if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
                                 $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
@@ -446,7 +448,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
     }
     else
     {
-        throw new \Exception(gettext("POST to cart requires a EventID"),500);
+        throw new \Exception(gettext("POST to cart requires an EventID"),500);
     }
     return $response->withJson(['status' => "success"]);
 }
