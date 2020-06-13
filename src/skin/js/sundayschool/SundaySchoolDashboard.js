@@ -195,7 +195,7 @@ $("document").ready(function() {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'attendees/groups',
-                            data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID, "addHours": 2})
+                            data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID, "rangeInHours": 2})
                         }).done(function(data) {
                             location.href = window.CRM.root + "/Checkin.php";
                         });

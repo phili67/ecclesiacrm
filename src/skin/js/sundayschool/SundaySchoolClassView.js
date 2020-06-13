@@ -1029,7 +1029,7 @@ $("document").ready(function(){
                         window.CRM.APIRequest({
                           method: 'POST',
                           path: 'attendees/student',
-                          data: JSON.stringify({"eventTypeID":eventTypeID,"groupID":groupID})
+                          data: JSON.stringify({"eventTypeID":eventTypeID,"groupID":groupID, "rangeInHours": 2})
                         }).done(function(data) {
                            location.href = window.CRM.root+'/Checkin.php';
                         });
