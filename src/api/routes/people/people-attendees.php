@@ -66,23 +66,26 @@ function attendeesCheckOutStudent (Request $request, Response $response, array $
 
     $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
+    $returnData = "";
+
     if ($eventAttent) {
           $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
           if ($cartPayload->checked) {
               $eventAttent->getEvent()->checkInPerson($cartPayload->personID);
+              $returnData = OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1);
           } else {
-              $eventAttent->getEvent()->checkOutPerson($cartPayload->personID);
+              $eventAttent->getEvent()->unCheckInPerson($cartPayload->personID);
           }
           $eventAttent->save();
     }
   }
   else
   {
-    throw new \Exception(gettext("POST to cart requires a personID and an eventID"),500);
+    throw new \Exception(_("POST to cart requires a personID and an eventID"),500);
   }
   $person = PersonQuery::Create()->findOneById(SessionUser::getUser()->getPersonId());
 
-  return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1)]);
+  return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => $returnData]);
 }
 
 function attendeesStudent (Request $request, Response $response, array $args) {
@@ -140,7 +143,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
          'DTSTART' => ($date)->format('Ymd\THis'),
          'DTEND' => ($date)->format('Ymd\THis'),
          'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-         'DESCRIPTION' => gettext("Create From sunday school class view"),
+         'DESCRIPTION' => _("Create From sunday school class view"),
          'SUMMARY' => $group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')),
          'UID' => $uuid,
          'SEQUENCE' => '0',
@@ -161,10 +164,10 @@ function attendeesStudent (Request $request, Response $response, array $args) {
          $event->setTypeName($type->getName());
        }
 
-       $event->setDesc(gettext("Create From sunday school class view"));
+       $event->setDesc(_("Create From sunday school class view"));
        $event->setStart($date->format('Y-m-d H:i:s'));
        $event->setEnd($date->format('Y-m-d H:i:s'));
-       $event->setText(gettext("Attendance"));
+       $event->setText(_("Attendance"));
        $event->setInActive(false);
        $event->save();
 
@@ -176,7 +179,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
             $eventAttent = new EventAttend();
             $eventAttent->setEventId($event->getID());
             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+            $eventAttent->setCheckinDate(NULL);
             $eventAttent->setPersonId($child['kidId']);
 
             if (SystemConfig::getValue("bCheckedAttendees")) {
@@ -202,7 +205,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
   }
   else
   {
-    throw new \Exception(gettext("POST to cart requires a EventID"),500);
+    throw new \Exception(_("POST to cart requires a EventID"),500);
   }
   return $response->withJson(['status' => "success"]);
 }
@@ -223,7 +226,7 @@ if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecor
   }
   else
   {
-    throw new \Exception(gettext("POST to cart requires a EventID"),500);
+    throw new \Exception(_("POST to cart requires a EventID"),500);
   }
   return $response->withJson(['status' => "success"]);
 }
@@ -245,7 +248,7 @@ function attendeesDeleteAll (Request $request, Response $response, array $args) 
       }
       else
       {
-        throw new \Exception(gettext("POST to cart requires a EventID"),500);
+        throw new \Exception(_("POST to cart requires a EventID"),500);
       }
       return $response->withJson(['status' => "success"]);
 }
@@ -275,7 +278,7 @@ function attendeesCheckAll (Request $request, Response $response, array $args) {
     }
     else
     {
-      throw new \Exception(gettext("POST to cart requires a EventID"),500);
+      throw new \Exception(_("POST to cart requires a EventID"),500);
     }
     return $response->withJson(['status' => "success"]);
 }
@@ -307,7 +310,7 @@ function attendeesUncheckAll (Request $request, Response $response, array $args)
     }
     else
     {
-      throw new \Exception(gettext("POST to cart requires a EventID"),500);
+      throw new \Exception(_("POST to cart requires a EventID"),500);
     }
     return $response->withJson(['status' => "success"]);
 }
@@ -384,7 +387,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                         'DTSTART' => ($dateTime)->format('Ymd\THis'),
                         'DTEND' => ($dateTime_End)->format('Ymd\THis'),
                         'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                        'DESCRIPTION' => gettext("Create From sunday school class view"),
+                        'DESCRIPTION' => _("Create From sunday school class view"),
                         'SUMMARY' => $group->getName() . " " . $dateTime->format(SystemConfig::getValue('sDatePickerFormat')),
                         'UID' => $uuid,
                         'SEQUENCE' => '0',
@@ -405,10 +408,10 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                         $event->setTypeName($type->getName());
                     }
 
-                    $event->setDesc(gettext("Create From sunday school class view"));
+                    $event->setDesc(_("Create From sunday school class view"));
                     $event->setStart($dateTime->format('Y-m-d H:i:s'));
                     $event->setEnd($dateTime_End->format('Y-m-d H:i:s'));
-                    $event->setText(gettext("Attendance"));
+                    $event->setText(_("Attendance"));
                     $event->setInActive(false);
                     $event->save();
 
@@ -420,7 +423,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                             $eventAttent = new EventAttend();
                             $eventAttent->setEventId($event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $eventAttent->setCheckinDate($dateTime->format('Y-m-d H:i:s'));
+                            $eventAttent->setCheckinDate(NULL);
                             $eventAttent->setPersonId($child['kidId']);
 
                             if (SystemConfig::getValue("bCheckedAttendees")) {
@@ -448,7 +451,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
     }
     else
     {
-        throw new \Exception(gettext("POST to cart requires an EventID"),500);
+        throw new \Exception(_("POST to cart requires an EventID"),500);
     }
     return $response->withJson(['status' => "success"]);
 }
