@@ -93,12 +93,12 @@ $("document").ready(function(){
       $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
 
       if (data.kids.length > 0) {
-        $('#makeCheckOut').removeClass( "disabled" );
+        $('#callRegister').removeClass( "disabled" );
         $('#exportCheckOutCSV').removeClass( "disabled" );
         $('#exportCheckOutPDF').removeClass( "disabled" );
         $('#AddStudentsToGroupCart').removeClass( "disabled" );
       } else {
-        $('#makeCheckOut').addClass( "disabled" );
+        $('#callRegister').addClass( "disabled" );
         $('#exportCheckOutCSV').addClass( "disabled" );
         $('#exportCheckOutPDF').addClass( "disabled" );
         $('#AddStudentsToGroupCart').addClass( "disabled" );
@@ -992,9 +992,9 @@ $("document").ready(function(){
 
 
     // checkout the student
-    $(document).on("click",".makeCheckOut", function(){
-       var groupName = $(this).data("makecheckoutgroupname")
-       var groupID = $(this).data("makecheckoutgroupid");
+    $(document).on("click",".callRegister", function(){
+       var groupName = $(this).data("callregistergroupname")
+       var groupID = $(this).data("callregistergroupid");
 
        window.CRM.APIRequest({
           method: 'GET',
@@ -1098,7 +1098,7 @@ $("document").ready(function(){
 
 
     $(document).on("click",".exportCheckOutCSV", function(){
-       var groupID = $(this).data("makecheckoutgroupid");
+       var groupID = $(this).data("callRegistergroupid");
 
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
@@ -1199,7 +1199,7 @@ $("document").ready(function(){
     }
 
     $(document).on("click",".exportCheckOutPDF", function(){
-       var groupID = $(this).data("makecheckoutgroupid");
+       var groupID = $(this).data("callRegistergroupid");
 
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
