@@ -118,6 +118,7 @@ function argumentsSundayschoolViewArray ($iGroupId)
                         'CSPNonce'                      => $CSPNonce,
                         'sPageTitle'                    => $sPageTitle,
                         'iGroupId'                      => $iGroupId,
+                        'iGroupName'                    => $iGroupName,
                         'rsTeachers'                    => $rsTeachers,
                         'genderChartJSON'               => $genderChartJSON,
                         'birthDayMonthChartJSON'        => $birthDayMonthChartJSON
