@@ -110,10 +110,11 @@ $(document).ready(function () {
           var message;
 
           if (checked) {
-             $('#checkoutDatePersonID'+personID).text(data.date);
+             $('#checkinDatePersonID'+personID).text(data.date);
              $('#presenceID'+personID).text(i18next.t("Present"));
              message = "Attendees validated successfully.";
            } else {
+             $('#checkinDatePersonID'+personID).text("");
              $('#checkoutDatePersonID'+personID).text("");
              $('#presenceID'+personID).text(i18next.t("Absent"));
              message = "Attendees unvalidated successfully.";
