@@ -94,14 +94,14 @@ $(document).ready(function () {
   });
 
 
-    $(document).on("click",".PersonChangeState", function(){
+    $(document).on("click",".PersonCheckinChangeState", function(){
       var checked  = $(this).is(':checked');
       var personID = $(this).data("personid");
       var eventID  = $(this).data("eventid");
 
       window.CRM.APIRequest({
         method: 'POST',
-        path: 'attendees/checkoutstudent',
+        path: 'attendees/checkinstudent',
         data: JSON.stringify({"checked":checked,"personID":personID,"eventID":eventID})
       }).done(function(data) {
         if (data.status) {
@@ -111,12 +111,11 @@ $(document).ready(function () {
 
           if (checked) {
              $('#checkinDatePersonID'+personID).text(data.date);
-             $('#presenceID'+personID).text(i18next.t("Present"));
              message = "Attendees validated successfully.";
            } else {
              $('#checkinDatePersonID'+personID).text("");
              $('#checkoutDatePersonID'+personID).text("");
-             $('#presenceID'+personID).text(i18next.t("Absent"));
+             $("#PersonCheckoutChangeState-"+personID). prop("checked", false);
              message = "Attendees unvalidated successfully.";
            }
 
@@ -130,13 +129,46 @@ $(document).ready(function () {
       });
     });
 
+    $(document).on("click",".PersonCheckoutChangeState", function(){
+        var checked  = $(this).is(':checked');
+        var personID = $(this).data("personid");
+        var eventID  = $(this).data("eventid");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'attendees/checkoutstudent',
+            data: JSON.stringify({"checked":checked,"personID":personID,"eventID":eventID})
+        }).done(function(data) {
+            if (data.status) {
+                $('#checkoutPersonID'+personID).text(data.name);
+
+                var message;
+
+                if (checked) {
+                    $('#checkoutDatePersonID'+personID).text(data.date);
+                    message = "Attendees validated successfully.";
+                } else {
+                    $('#checkoutDatePersonID'+personID).text("");
+                    message = "Attendees unvalidated successfully.";
+                }
+
+                /*var box = window.CRM.DisplayAlert(i18next.t("Attendance"),message);
+
+                setTimeout(function() {
+                 // be careful not to call box.hide() here, which will invoke jQuery's hide method
+                 box.modal('hide');
+                }, 1000);*/
+            }
+        });
+    });
+
     $(document).on("click","#uncheckAll", function(){
       var eventID  = $(this).data("id");
 
        window.CRM.APIRequest({
         method: 'POST',
         path: 'attendees/uncheckAll',
-        data: JSON.stringify({"eventID":eventID})
+        data: JSON.stringify({"eventID":eventID, "type": 1})
       }).done(function(data) {
         location.reload();
       });
@@ -148,7 +180,7 @@ $(document).ready(function () {
        window.CRM.APIRequest({
         method: 'POST',
         path: 'attendees/checkAll',
-        data: JSON.stringify({"eventID":eventID})
+        data: JSON.stringify({"eventID":eventID, "type": 1})
       }).done(function(data) {
         location.reload();
       });
