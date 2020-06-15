@@ -40,15 +40,54 @@ use Propel\Runtime\Propel;
 
 $app->group('/attendees', function () {
 
-  $this->post('/checkoutstudent', 'attendeesCheckOutStudent' );
-  $this->post('/student', 'attendeesStudent' );
-  $this->post('/delete', 'attendeesDelete' );
-  $this->post('/deleteAll', 'attendeesDeleteAll' );
-  $this->post('/checkAll', 'attendeesCheckAll' );
-  $this->post('/uncheckAll', 'attendeesUncheckAll' );
-  $this->post('/groups', 'attendeesGroups' );
+    $this->post('/checkinstudent', 'attendeesCheckInStudent' );
+    $this->post('/checkoutstudent', 'attendeesCheckOutStudent' );
+    $this->post('/student', 'attendeesStudent' );
+    $this->post('/delete', 'attendeesDelete' );
+    $this->post('/deleteAll', 'attendeesDeleteAll' );
+    $this->post('/checkAll', 'attendeesCheckAll' );
+    $this->post('/uncheckAll', 'attendeesUncheckAll' );
+    $this->post('/groups', 'attendeesGroups' );
 
 });
+
+function attendeesCheckInStudent (Request $request, Response $response, array $args) {
+    /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+        return $response->withStatus(401);
+    }*/
+
+    $cartPayload = (object)$request->getParsedBody();
+
+    if ( isset ($cartPayload->personID) && isset ($cartPayload->eventID) && isset($cartPayload->checked) )
+    {
+        $eventAttent = EventAttendQuery::Create()
+            ->filterByEventId($cartPayload->eventID)
+            ->filterByPersonId($cartPayload->personID)
+            ->findOne();
+
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+
+        $returnData = "";
+
+        if ($eventAttent) {
+            $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
+            if ($cartPayload->checked) {
+                $eventAttent->getEvent()->checkInPerson($cartPayload->personID);
+                $returnData = OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1);
+            } else {
+                $eventAttent->getEvent()->unCheckInPerson($cartPayload->personID);
+            }
+            $eventAttent->save();
+        }
+    }
+    else
+    {
+        throw new \Exception(_("POST to cart requires a personID and an eventID"),500);
+    }
+    $person = PersonQuery::Create()->findOneById(SessionUser::getUser()->getPersonId());
+
+    return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => $returnData]);
+}
 
 function attendeesCheckOutStudent (Request $request, Response $response, array $args) {
 /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
@@ -71,10 +110,10 @@ function attendeesCheckOutStudent (Request $request, Response $response, array $
     if ($eventAttent) {
           $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
           if ($cartPayload->checked) {
-              $eventAttent->getEvent()->checkInPerson($cartPayload->personID);
+              $eventAttent->getEvent()->checkOutPerson($cartPayload->personID);
               $returnData = OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1);
           } else {
-              $eventAttent->getEvent()->unCheckInPerson($cartPayload->personID);
+              $eventAttent->getEvent()->unCheckOutPerson($cartPayload->personID);
           }
           $eventAttent->save();
     }
@@ -95,12 +134,18 @@ function attendeesStudent (Request $request, Response $response, array $args) {
 
   $cartPayload = (object)$request->getParsedBody();
 
-  if ( isset ($cartPayload->eventTypeID) && isset ($cartPayload->groupID))
+  if ( isset ($cartPayload->eventTypeID) && isset ($cartPayload->groupID) && isset($cartPayload->rangeInHours))
   {
      $group = GroupQuery::Create()
         ->findOneById($cartPayload->groupID);
 
      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+
+     $dateTime_End = new \DateTime($cartPayload->dateTime);
+
+     $interval = new DateInterval("PT".$cartPayload->rangeInHours."H");
+
+     $dateTime_End->add($interval);
 
      $type = null;
 
@@ -141,7 +186,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
          'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
          'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
          'DTSTART' => ($date)->format('Ymd\THis'),
-         'DTEND' => ($date)->format('Ymd\THis'),
+         'DTEND' => ($dateTime_End)->format('Ymd\THis'),
          'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
          'DESCRIPTION' => _("Create From sunday school class view"),
          'SUMMARY' => $group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')),
@@ -166,7 +211,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
 
        $event->setDesc(_("Create From sunday school class view"));
        $event->setStart($date->format('Y-m-d H:i:s'));
-       $event->setEnd($date->format('Y-m-d H:i:s'));
+       $event->setEnd($dateTime_End->format('Y-m-d H:i:s'));
        $event->setText(_("Attendance"));
        $event->setInActive(false);
        $event->save();
@@ -260,7 +305,7 @@ function attendeesCheckAll (Request $request, Response $response, array $args) {
 
     $cartPayload = (object)$request->getParsedBody();
 
-    if ( isset ($cartPayload->eventID) )
+    if ( isset ($cartPayload->eventID) && isset($cartPayload->type) )
     {
       $eventAttents = EventAttendQuery::Create()
         ->filterByEventId($cartPayload->eventID)
@@ -268,11 +313,17 @@ function attendeesCheckAll (Request $request, Response $response, array $args) {
 
       $_SESSION['EventID'] = $cartPayload->eventID;
 
-      foreach ($eventAttents as $eventAttent) {
-        $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
+      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
-        $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
-        $eventAttent->setCheckoutDate(NULL);
+      foreach ($eventAttents as $eventAttent) {
+        $eventAttent->setCheckinId( SessionUser::getUser()->getPersonId() );
+
+        if ($cartPayload->type == 1) {
+            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+        } else if ($cartPayload->type == 2) {
+            $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+        }
+
         $eventAttent->save();
       }
     }
@@ -290,7 +341,7 @@ function attendeesUncheckAll (Request $request, Response $response, array $args)
 
     $cartPayload = (object)$request->getParsedBody();
 
-    if ( isset ($cartPayload->eventID) )
+    if ( isset ($cartPayload->eventID)  && isset($cartPayload->type) )
     {
       $eventAttents = EventAttendQuery::Create()
         ->filterByEventId($cartPayload->eventID)
@@ -298,13 +349,17 @@ function attendeesUncheckAll (Request $request, Response $response, array $args)
 
       $_SESSION['EventID'] = $cartPayload->eventID;
 
-      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
       foreach ($eventAttents as $eventAttent) {
         $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
 
-        $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
-        $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+          if ($cartPayload->type == 1) {
+              $eventAttent->setCheckinDate(NULL);
+              $eventAttent->setCheckoutDate(NULL);
+          } else if ($cartPayload->type == 2) {
+              $eventAttent->setCheckoutDate(NULL);
+          }
+
         $eventAttent->save();
       }
     }
@@ -322,7 +377,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
 
     $cartPayload = (object)$request->getParsedBody();
 
-    if ( isset ($cartPayload->dateTime) && isset ($cartPayload->eventTypeID) && isset ($cartPayload->addHours) )
+    if ( isset ($cartPayload->dateTime) && isset ($cartPayload->eventTypeID) && isset ($cartPayload->rangeInHours) )
     {
         $listOptions = ListOptionQuery::Create()
             ->filterById(3) // the group category
@@ -334,7 +389,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
 
         $dateTime_End = new \DateTime($cartPayload->dateTime);
 
-        $interval = new DateInterval("PT".$cartPayload->addHours."H");
+        $interval = new DateInterval("PT".$cartPayload->rangeInHours."H");
 
         $dateTime_End->add($interval);
 
