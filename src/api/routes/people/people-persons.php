@@ -653,7 +653,7 @@ function saveNoteAsWordFile ($request, $res, $args) {
         $note = new Note();
         $note->setPerId($input->personId);
         $note->setFamId(0);
-        $note->setTitle($fileName);
+        $note->setTitle($tmpFile);
         $note->setPrivate(1);
         $note->setText($userName . $currentpath . $title.".docx");
         $note->setType('file');
