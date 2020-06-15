@@ -1,9 +1,13 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Bootstrapper;
 
 $bSuppressSessionTests = true;
 require_once 'Header-function.php';
 require_once 'Header-Security.php';
+
+
+$localeInfo = Bootstrapper::GetCurrentLocale();
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -34,7 +38,10 @@ require_once 'Header-Security.php';
 <body class="hold-transition login-page text-sm">
 
   <script nonce="<?= SystemURLs::getCSPNonce() ?>"  >
-    window.CRM = {
-      root: "<?= SystemURLs::getRootPath() ?>"
-    };
+      window.CRM = {
+          root: "<?= SystemURLs::getRootPath() ?>",
+          lang: "<?= $localeInfo->getLanguageCode() ?>",
+          locale: "<?= $localeInfo->getLocale() ?>",
+          shortLocale: "<?= $localeInfo->getShortLocale() ?>",
+      };
   </script>
