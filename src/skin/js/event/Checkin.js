@@ -162,7 +162,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click","#uncheckAll", function(){
+    $(document).on("click","#uncheckAllCheckin", function(){
       var eventID  = $(this).data("id");
 
        window.CRM.APIRequest({
@@ -174,7 +174,7 @@ $(document).ready(function () {
       });
     });
 
-    $(document).on("click","#checkAll", function(){
+    $(document).on("click","#checkAllCheckin", function(){
       var eventID  = $(this).data("id");
 
        window.CRM.APIRequest({
@@ -184,6 +184,34 @@ $(document).ready(function () {
       }).done(function(data) {
         location.reload();
       });
+    });
+
+    $(document).on("click","#uncheckAllCheckout", function(){
+        var eventID  = $(this).data("id");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'attendees/uncheckAll',
+            data: JSON.stringify({"eventID":eventID, "type": 2})
+        }).done(function(data) {
+            location.reload();
+        });
+    });
+
+    $(document).on("click","#checkAllCheckout", function(){
+        var eventID  = $(this).data("id");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'attendees/checkAll',
+            data: JSON.stringify({"eventID":eventID, "type": 2})
+        }).done(function(data) {
+            location.reload();
+        });
+    });
+
+    $(document).on("click","#addVisitor", function(){
+        window.location = window.CRM.root + '/PersonEditor.php';
     });
 
 });
