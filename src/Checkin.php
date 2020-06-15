@@ -704,10 +704,20 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                                     <input <?= (!is_null($per->getCheckinDate())) ? "checked" : "" ?> type="checkbox"
                                                                                              data-personid="<?= $per->getPersonId() ?>"
                                                                                              data-eventid="<?= $EventID ?>"
-                                                                                             class="PersonChangeState"
-                                                                                             id="PersonChangeState">
+                                                                                             class="PersonCheckinChangeState"
+                                                                                             id="PersonCheckinChangeState">
                                     <span
-                                        id="presenceID<?= $per->getPersonId() ?>"> <?= (!is_null($per->getCheckinDate())) ? _("Present") : _("Absent") ?></span>
+                                        id="presenceID<?= $per->getPersonId() ?>"> <?=  _("Checkin") ?></span>
+                                </label>
+                                <br/>
+                                <label>
+                                    <input <?= (!is_null($per->getCheckoutDate())) ? "checked" : "" ?> type="checkbox"
+                                                                                                      data-personid="<?= $per->getPersonId() ?>"
+                                                                                                      data-eventid="<?= $EventID ?>"
+                                                                                                      class="PersonCheckoutChangeState"
+                                                                                                      id="PersonCheckoutChangeState-<?= $per->getPersonId() ?>">
+                                    <span
+                                        id="presenceID<?= $per->getPersonId() ?>"> <?=  _("Checkout") ?></span>
                                 </label>
                             </form>
                         </td>
