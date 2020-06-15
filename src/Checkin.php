@@ -62,7 +62,7 @@ if (array_key_exists('EventID', $_POST)) {
         ->filterByEnd('now', Criteria::GREATER_EQUAL)
         ->findOne();
 
-    if (!is_null ($Event)) {
+    if (!is_null($Event)) {
         $_SESSION['EventID'] = $Event->getId();
         $EventID = $_SESSION['EventID'];
     }
@@ -222,22 +222,22 @@ if (!empty($searchEventInActivEvent)) {
                     <form name="selectEvent" action="Checkin.php" method="POST">
                         <div class="form-group">
                             <div class="inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                            class="fa fa-calendar-check-o"></i></span></div>
-                                <select name="EventID" class="form-control" onchange="this.form.submit()">
-                                    <option value="<?= $EventID; ?>"
-                                            disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
-                                    <?php foreach ($activeEvents as $event) {
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i
+                                                class="fa fa-calendar-check-o"></i></span></div>
+                                    <select name="EventID" class="form-control" onchange="this.form.submit()">
+                                        <option value="<?= $EventID; ?>"
+                                                disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
+                                        <?php foreach ($activeEvents as $event) {
+                                            ?>
+                                            <option
+                                                value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
+                                                <?= $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
+                                            <?php
+                                        }
                                         ?>
-                                        <option
-                                            value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                            <?= $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -290,60 +290,63 @@ if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
                 <div class="row">
                     <div class="col-md-12 col-md-12">
                         <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
-                        </div>
-                        <div class="card-body">
-                            <form name="addFreeAttendeesEvent" action="Checkin.php" method="POST">
-                                <input type="hidden" name="EventID" value="<?= $EventID ?>">
-                                <input type="hidden" name="FreeAttendees" value="1">
-                                <div class="form-group row">
-                                    <label class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
-                                    <?php
-                                    $desc = "";
-                                    foreach ($eventCountNames as $eventCountName) {
-                                        ?>
-                                        <div class="col-md-2">
-                                            <?= $eventCountName->getName(); ?>
-
-                                            <?php
-                                            $eventCount = EventCountsQuery::Create()
-                                                ->filterByEvtcntEventid($EventID)
-                                                ->findOneByEvtcntCountid($eventCountName->getId());
-
-                                            $count = 0;
-                                            if (!empty($eventCount)) {
-                                                $count = $eventCount->getEvtcntCountcount();
-                                                $desc = $eventCount->getEvtcntNotes();
-                                            }
+                            <div class="card-header">
+                                <h3 class="card-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <form name="addFreeAttendeesEvent" action="Checkin.php" method="POST">
+                                    <input type="hidden" name="EventID" value="<?= $EventID ?>">
+                                    <input type="hidden" name="FreeAttendees" value="1">
+                                    <div class="form-group row">
+                                        <label
+                                            class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
+                                        <?php
+                                        $desc = "";
+                                        foreach ($eventCountNames as $eventCountName) {
                                             ?>
-                                            <input type="text" id="field<?= $eventCountName->getId() ?>"
-                                                   name="<?= $eventCountName->getId() ?>"
-                                                   data-countid="<?= $eventCountName->getId() ?>" value="<?= $count ?>"
+                                            <div class="col-md-2">
+                                                <?= $eventCountName->getName(); ?>
+
+                                                <?php
+                                                $eventCount = EventCountsQuery::Create()
+                                                    ->filterByEvtcntEventid($EventID)
+                                                    ->findOneByEvtcntCountid($eventCountName->getId());
+
+                                                $count = 0;
+                                                if (!empty($eventCount)) {
+                                                    $count = $eventCount->getEvtcntCountcount();
+                                                    $desc = $eventCount->getEvtcntNotes();
+                                                }
+                                                ?>
+                                                <input type="text" id="field<?= $eventCountName->getId() ?>"
+                                                       name="<?= $eventCountName->getId() ?>"
+                                                       data-countid="<?= $eventCountName->getId() ?>"
+                                                       value="<?= $count ?>"
+                                                       size="8" class="form-control input-sm" width="100%"
+                                                       style="width: 100%">
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-2 control-label"><?= _('Your description'); ?></label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="fieldText" name="desc"
+                                                   data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>"
                                                    size="8" class="form-control input-sm" width="100%"
                                                    style="width: 100%">
                                         </div>
-                                        <?php
-                                    }
-                                    ?>
-                                </div>
-                                <div class="row">
-                                    <label class="col-md-2 control-label"><?= _('Your description'); ?></label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="fieldText" name="desc"
-                                               data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>"
-                                               size="8" class="form-control input-sm" width="100%" style="width: 100%">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 text-right">
-                                        <input type="submit" class="btn btn-primary"
-                                               value="<?= _('Add Free Attendees Count'); ?>"
-                                               name="Add" tabindex=4>
+                                    <div class="form-group">
+                                        <div class="col-md-12 text-right">
+                                            <input type="submit" class="btn btn-primary"
+                                                   value="<?= _('Add Free Attendees Count'); ?>"
+                                                   name="Add" tabindex=4>
+                                        </div>
                                     </div>
-                                </div>
-                            </form> <!-- end Add Free Attendees Form -->
-                        </div>
+                                </form> <!-- end Add Free Attendees Form -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -383,58 +386,59 @@ if (!$CheckoutOrDelete && $EventID > 0) {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"><?= _('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="child" class="col-sm-12 control-label"><?= _("Person's Name") ?></label>
-                                <div class="col-sm-5 inputGroupContainer">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-child"></i></span>
+                            <div class="card-header">
+                                <h3 class="card-title"><?= _('Add Attendees for Event'); ?>
+                                    : <?= $event->getTitle() ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="child" class="col-sm-12 control-label"><?= _("Person's Name") ?></label>
+                                    <div class="col-sm-5 inputGroupContainer">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-child"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="child"
+                                                   placeholder="<?= _("Person's Name"); ?>" required tabindex=1>
                                         </div>
-                                        <input type="text" class="form-control" id="child"
-                                               placeholder="<?= _("Person's Name"); ?>" required tabindex=1>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        <div class="help-block with-errors"></div>
                                     </div>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                    <div class="help-block with-errors"></div>
+                                    <div id="childDetails" class="col-sm-5 text-center"></div>
                                 </div>
-                                <div id="childDetails" class="col-sm-5 text-center"></div>
-                            </div>
-                            <hr>
-                            <div class="form-group">
-                                <label for="adult"
-                                       class="col-sm-12 control-label"><?= _('Adult Name(Optional)') ?></label>
-                                <div class="col-sm-5 inputGroupContainer">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="adult"
+                                           class="col-sm-12 control-label"><?= _('Adult Name(Optional)') ?></label>
+                                    <div class="col-sm-5 inputGroupContainer">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" id="adult"
+                                                   placeholder="<?= _('Checked in By(Optional)'); ?>" tabindex=2>
                                         </div>
-                                        <input type="text" class="form-control" id="adult"
-                                               placeholder="<?= _('Checked in By(Optional)'); ?>" tabindex=2>
+                                    </div>
+                                    <div id="adultDetails" class="col-sm-5 text-center"></div>
+                                </div>
+                                <hr>
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <input type="submit" class="btn btn-primary" value="<?= _('Add and Checkin'); ?>"
+                                               name="CheckIn" tabindex=3>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="reset" class="btn btn-default" value="<?= _('Cancel'); ?>"
+                                               name="Cancel" tabindex=4
+                                               onClick="SetPersonHtml($('#childDetails'),null);SetPersonHtml($('#adultDetails'),null);">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="Add" class="btn btn-success" value="<?= _('Add Visitor'); ?>"
+                                               name="Add" tabindex=4
+                                               id="addVisitor">
                                     </div>
                                 </div>
-                                <div id="adultDetails" class="col-sm-5 text-center"></div>
                             </div>
-                            <hr>
-                            <div class="form-group row">
-                                <div class="col-md-4">
-                                    <input type="submit" class="btn btn-primary" value="<?= _('CheckIn'); ?>"
-                                           name="CheckIn" tabindex=3>
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="reset" class="btn btn-default" value="<?= _('Cancel'); ?>"
-                                           name="Cancel" tabindex=4
-                                           onClick="SetPersonHtml($('#childDetails'),null);SetPersonHtml($('#adultDetails'),null);">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="Add" class="btn btn-success" value="<?= _('Add Visitor'); ?>"
-                                           name="Add" tabindex=4
-                                           onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/PersonEditor.php';">
-                                </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -702,22 +706,22 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <label>
                                     <input <?= (!is_null($per->getCheckinDate())) ? "checked" : "" ?> type="checkbox"
-                                                                                             data-personid="<?= $per->getPersonId() ?>"
-                                                                                             data-eventid="<?= $EventID ?>"
-                                                                                             class="PersonCheckinChangeState"
-                                                                                             id="PersonCheckinChangeState">
+                                                                                                      data-personid="<?= $per->getPersonId() ?>"
+                                                                                                      data-eventid="<?= $EventID ?>"
+                                                                                                      class="PersonCheckinChangeState"
+                                                                                                      id="PersonCheckinChangeState">
                                     <span
-                                        id="presenceID<?= $per->getPersonId() ?>"> <?=  _("Checkin") ?></span>
+                                        id="presenceID<?= $per->getPersonId() ?>"> <?= _("Checkin") ?></span>
                                 </label>
                                 <br/>
                                 <label>
                                     <input <?= (!is_null($per->getCheckoutDate())) ? "checked" : "" ?> type="checkbox"
-                                                                                                      data-personid="<?= $per->getPersonId() ?>"
-                                                                                                      data-eventid="<?= $EventID ?>"
-                                                                                                      class="PersonCheckoutChangeState"
-                                                                                                      id="PersonCheckoutChangeState-<?= $per->getPersonId() ?>">
+                                                                                                       data-personid="<?= $per->getPersonId() ?>"
+                                                                                                       data-eventid="<?= $EventID ?>"
+                                                                                                       class="PersonCheckoutChangeState"
+                                                                                                       id="PersonCheckoutChangeState-<?= $per->getPersonId() ?>">
                                     <span
-                                        id="presenceID<?= $per->getPersonId() ?>"> <?=  _("Checkout") ?></span>
+                                        id="presenceID<?= $per->getPersonId() ?>"> <?= _("Checkout") ?></span>
                                 </label>
                             </form>
                         </td>
@@ -741,32 +745,46 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                 </tbody>
             </table>
             <div class="row" style="margin:5px">
-                    <div class="col-sm-6" style="text-align:center">
-                        <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll"
-                               data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
-                    </div>
-                    <div class="col-sm-6" style="text-align:center">
-                        <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll"
-                               data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
-                    </div>
+                <div class="col-md-1">
+                    <label><?= _("Checkin") ?></label>
+                </div>
+                <div class="col-sm-2" style="text-align:center">
+                    <input class="btn btn-primary" type="submit" name="checkAllCheckin" id="checkAllCheckin"
+                           data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
+                </div>
+                <div class="col-sm-2" style="text-align:center">
+                    <input class="btn btn-success" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
+                           data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
+                </div>
+                <div class="col-md-1">
+                    <label><?= _("Checkout") ?></label>
+                </div>
+                <div class="col-sm-2" style="text-align:center">
+                    <input class="btn btn-primary" type="submit" name="checkAllCheckout" id="checkAllCheckout"
+                           data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
+                </div>
+                <div class="col-sm-2" style="text-align:center">
+                    <input class="btn btn-success" type="submit" name="uncheckAllCheckout" id="uncheckAllCheckout"
+                           data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
+                </div>
             </div>
 
             <hr/>
             <div class="row" style="margin:5px">
                 <div class="col-sm-2" style="text-align:right">
-                <label><?= _("Add some notes") ?> : </label>
+                    <label><?= _("Add some notes") ?> : </label>
                 </div>
                 <div class="col-sm-8">
-                <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
-                    <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
-                    <input type="hidden" name="EventID" value="<?= $EventID ?>">
+                    <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
+                        <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
+                        <input type="hidden" name="EventID" value="<?= $EventID ?>">
                         <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;"
                                   rows="40"><?= $sNoteText ?></textarea>
                         <br>
                         <input class="btn btn-primary" type="submit" name="Validate"
                                value="<?= _("Validate Attendance") ?>">
 
-                </form>
+                    </form>
                 </div>
                 <br>
             </div>
@@ -922,6 +940,9 @@ function loadPerson($iPersonID)
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
+        type="text/javascript"></script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"
         type="text/javascript"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js"></script>
