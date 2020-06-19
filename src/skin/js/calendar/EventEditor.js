@@ -458,7 +458,7 @@
         +'      </div>'
         +'  </div>'
         +'  <div class="row div-title map-title">'
-        +'      <div class="col-md-3">' + i18next.t("Map") + "</p></div>"
+        +'      <div class="col-md-3">' + i18next.t("Map") + "</div>"
         +'      <div class="col-md-9">'
         +'          <div id="MyMap"></div>'
         +'      </div>'
@@ -652,7 +652,7 @@
           windowtitle = i18next.t("Event Creation");
       }
 
-        var modal = bootbox.dialog({
+      var modal = bootbox.dialog({
          message: BootboxContent(start,end,windowtitle,title),
          size:'large',
          buttons: [
@@ -755,9 +755,6 @@
                      add = true;
                      modal.modal("hide");
 
-                     // we reload all the events
-                      window.CRM.calendar.refetchEvents();
-
                      if (dialogType == 'createEvent') {
                        eventCreated = true;
                      }
@@ -766,7 +763,10 @@
                        location.reload();
                      } else if (page == 'Checkin.php') {
                        window.location.href = window.CRM.root + '/Checkin.php';
-                     } else if (page != "/v2/calendar") {
+                     } else if (page == "/v2/calendar") {
+                         // we reload all the events
+                         window.CRM.calendar.refetchEvents();
+                     } else {
                          window.location.href = window.CRM.root + '/'+ page;
                      }
 
