@@ -304,16 +304,17 @@ $(document).ready(function () {
                             '       </label>';
                     }
                 },
+
                 {
-                    title: i18next.t('Last Name'),
-                    data: 'LastName',
+                    title: i18next.t('First Name'),
+                    data: 'FirstName',
                     render: function (data, type, full, meta) {
                         return data;
                     }
                 },
                 {
-                    title: i18next.t('First Name'),
-                    data: 'FirstName',
+                    title: i18next.t('Last Name'),
+                    data: 'LastName',
                     render: function (data, type, full, meta) {
                         return data;
                     }
@@ -454,18 +455,18 @@ $(document).ready(function () {
         var frm_str = '<h3 style="margin-top:-5px"></h3>'
             + '<div>'
             +'  <div class="row">'
-            +'      <div class="col-md-12"><p>Gestion de l\'appel dans un groupe.</p></div>'
+            +'      <div class="col-md-12"><p>' +i18next.t("QR Code : Call the register") + '</p></div>'
             +'  </div>'
             +'  <div class="row">'
             +'      <div class="col-md-12">'
-            +'          <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>'
+            +'          <div id="loadingMessage">🎥 '+ i18next.t("Unable to access video stream (please make sure you have a webcam enabled)") + '</div>'
             +'      </div>'
             +'  </div>'
             +'  <div class="row">'
             +'      <div class="col-md-12">'
             +'           <canvas id="canvas" hidden></canvas></div>'
             +'           <div id="output" hidden>'
-            +'           <div id="outputMessage">Aucun QR code détecté.</div>'
+            +'           <div id="outputMessage">' + i18next.t("no detected QR Code") + '</div>'
             +'           <div hidden><b>Data:</b> <span id="outputData"></span></div>'
             +'      </div>'
             +'  </div>';
@@ -479,7 +480,7 @@ $(document).ready(function () {
 
         var modal = bootbox.dialog({
             message: BootboxContent(),
-            size: 'large',
+            //size: 'large',
             onShown: function(e) {
                 var video = document.createElement("video");
                 var canvasElement = document.getElementById("canvas");
@@ -510,7 +511,7 @@ $(document).ready(function () {
                 var qrcode = '';
 
                 function tick() {
-                    loadingMessage.innerText = "⌛ Loading video..."
+                    loadingMessage.innerText = "⌛ " + i18next.t("Loading video...");
                     if (video.readyState === video.HAVE_ENOUGH_DATA) {
                         loadingMessage.hidden = true;
                         canvasElement.hidden = false;
@@ -518,7 +519,7 @@ $(document).ready(function () {
 
                         canvasElement.height = video.videoHeight;
                         canvasElement.width = video.videoWidth;
-                        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+                        canvas.drawImage(video, 0, 0);
                         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
                         var code = jsQR(imageData.data, imageData.width, imageData.height, {
                             inversionAttempts: "dontInvert",
@@ -544,11 +545,11 @@ $(document).ready(function () {
                                     data: JSON.stringify({"groupID": res[0], "personID": res[1]})
                                 }).done(function (data) {
                                     if (data.status == 'failed') {
-                                        alert('Failed' + "\n\n" + 'Group : ' + data.group + "\n" + data.person);
+                                        alert(i18next.t('Failed') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + data.person);
                                     } else if (data.status == 'global_failed') {
                                         alert('Failed');
                                     } else {
-                                        alert('Success' + "\n\n" + 'Group : ' + data.group + "\n" + data.person);
+                                        alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + data.person);
                                         window.CRM.dataT.ajax.reload(null, false);
                                     }
                                 });
@@ -566,14 +567,7 @@ $(document).ready(function () {
             },
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
-                    className: "btn btn-default",
-                    callback: function () {
-                        console.log("just do something on close");
-                    }
-                },
-                {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fa fa-check"></i> ' + i18next.t("Close"),
                     className: "btn btn-primary",
                     callback: function () {
 
