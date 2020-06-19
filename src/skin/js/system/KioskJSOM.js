@@ -37,13 +37,13 @@ window.CRM.kiosk = {
                   .append($("<div>", { class : "row"})
                   .append($("<div>", {class:"col-md-4"})
                       .append($("<label>")
-                          .append($('<input ' + ((classMember.checkedIn == 1)?'checked':'') + ' type="checkbox" data-personid="'+classMember.personId+'" class="checkinButton" id="checkin-'+classMember.personId+'">' +
+                          .append($('<input type="checkbox" data-personid="'+classMember.personId+'" class="checkinButton" id="checkin-'+classMember.personId+'" ' + ((classMember.checkedIn == "1")?'checked':'') + '>' +
                               '<span> '+i18next.t("Checkin")+'</span>'))
                       )
                   )
                   .append($("<div>", {class:"col-md-4"})
                       .append($("<label>")
-                          .append($('<input  ' + ((classMember.checkedOut == 1)?'checked':'') + ' type="checkbox" data-personid="'+classMember.personId+'" class="checkoutButton"  id="checkout-'+classMember.personId+'">' +
+                          .append($('<input type="checkbox" data-personid="'+classMember.personId+'" class="checkoutButton"  id="checkout-'+classMember.personId+'" ' + ((classMember.checkedOut == "1")?'checked':'') + ' >' +
                               '<span> '+i18next.t("Checkout")+'</span>'))
                       )
                   )
@@ -60,17 +60,16 @@ window.CRM.kiosk = {
 
 
 
-      if (classMember.checkedOut == 1)
-      {
+      if (classMember.checkedOut == 1) {
           window.CRM.kiosk.setCheckedOut(classMember.personId);
-
       } else if (classMember.checkedIn == 1) {
         window.CRM.kiosk.setCheckedIn(classMember.personId);
       } else {
           window.CRM.kiosk.setNotCheckInOut(classMember.personId);
       }
 
-
+      $("#checkin-"+ classMember.personId). prop("checked", (classMember.checkedIn == 1));
+      $("#checkout-"+ classMember.personId). prop("checked", (classMember.checkedOut == 1));
     },
 
   updateActiveClassMembers: function()  {
