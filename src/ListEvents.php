@@ -357,7 +357,7 @@ foreach ($allMonths as $mVal) {
     <thead>
       <tr class="TableHeader">
         <th><?= _("Action") ?></th>
-        <th><?= _("Description") ?></th>
+        <th><?= _("Title") ?></th>
         <th><?= _("Event Type") ?></th>
         <th><?= _("Calendar") ?></th>
         <th><?= _("Attendance Counts with real Attendees") ?></th>
@@ -409,7 +409,7 @@ foreach ($allMonths as $mVal) {
               <?= ($aEventDesc[$row] == '' ? '&nbsp;' : ("(".$aEventDesc[$row].")")) ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
-                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= _("Sermon Text") ?></a></div>
+                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= _("Notes") ?></a></div>
               <?php
             } ?>
             </td>
