@@ -261,8 +261,7 @@ function personCheckIn(Request $request, Response $response, array $args)
 
         $eventAttent->setEventId($params->EventID);
         $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+        $eventAttent->setCheckinDate( NULL);
         $eventAttent->setPersonId($params->PersonId);
         $eventAttent->save();
     } catch (\Exception $ex) {
@@ -291,8 +290,7 @@ function groupCheckIn(Request $request, Response $response, array $args)
 
                 $eventAttent->setEventId($params->EventID);
                 $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                $eventAttent->setCheckinDate(NULL);
                 $eventAttent->setPersonId($person->getPersonId());
                 $eventAttent->save();
             }
@@ -320,8 +318,7 @@ function familyCheckIn(Request $request, Response $response, array $args)
 
                 $eventAttent->setEventId($params->EventID);
                 $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                $eventAttent->setCheckinDate(NULL);
                 $eventAttent->setPersonId($person->getId());
                 $eventAttent->save();
             }
@@ -1100,8 +1097,7 @@ function manageEvent(Request $request, Response $response, array $args)
 
                             $eventAttent->setEventId($old_event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                            $eventAttent->setCheckinDate(NULL);
                             $eventAttent->setPersonId($person->getPersonId());
                             $eventAttent->save();
                         }
@@ -1110,6 +1106,8 @@ function manageEvent(Request $request, Response $response, array $args)
                         //return $response->withJson(['status' => $errorMessage]);
                     }
                 }
+
+                $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
 
                 //
                 $_SESSION['Action'] = 'Add';
