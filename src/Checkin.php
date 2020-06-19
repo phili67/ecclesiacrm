@@ -68,6 +68,13 @@ if ($EventID > 0) {
     if ($event == null) {
         $_SESSION['EventID'] = 0;
         $EventID = 0;
+    } else {
+        // for EditEventAttendees.php
+        $_SESSION['Action'] = "EditEvent";
+        $_SESSION['EID'] = $EventID;
+        $_SESSION['EName'] = $event->getTitle();
+        $_SESSION['EDesc'] = $event->getDesc();
+        $_SESSION['EDate'] = $event->getStart()->format('YYYY-MM-DD');
     }
 }
 
@@ -80,6 +87,8 @@ if (!is_null($event) && $event->getGroupId() > 0) {
 if (isset($_SESSION['CartToEventEventID'])) {
     $EventID = InputUtils::LegacyFilterInput($_SESSION['CartToEventEventID'], 'int');
 }
+
+
 
 //
 // process the action inputs
@@ -124,6 +133,13 @@ if ($searchEventInActivEvent != null) {
         <a class="btn btn-app" id="add-event"><i class="fa fa-ticket"></i><?= _('Add New Event') ?></a>
         <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
+        <?php
+            if ($bSundaySchool){
+                ?>
+                <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
+        <?php
+            }
+        ?>
     </div>
 </div>
 
@@ -391,18 +407,18 @@ if ($EventID > 0) {
                            data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
                 </div>
                 <div class="col-sm-2" style="text-align:center">
-                    <input class="btn btn-success" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
+                    <input class="btn btn-default" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
                            data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
                 </div>
                 <div class="col-md-1">
                     <label><?= _("Checkout") ?></label>
                 </div>
                 <div class="col-sm-2" style="text-align:center">
-                    <input class="btn btn-primary" type="submit" name="checkAllCheckout" id="checkAllCheckout"
+                    <input class="btn btn-success" type="submit" name="checkAllCheckout" id="checkAllCheckout"
                            data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
                 </div>
                 <div class="col-sm-2" style="text-align:center">
-                    <input class="btn btn-success" type="submit" name="uncheckAllCheckout" id="uncheckAllCheckout"
+                    <input class="btn btn-default" type="submit" name="uncheckAllCheckout" id="uncheckAllCheckout"
                            data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
                 </div>
             </div>
