@@ -214,6 +214,10 @@ require $sRootDocument . '/Include/Header.php';
             }
         }
         ?>
+
+        <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>"> <i
+                class="fa fa-file-picture-o"></i> <span
+                class="cartActionDescription"><?= _("Group Badges") ?></span></a>
     </div>
 </div>
 
