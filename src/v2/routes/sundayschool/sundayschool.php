@@ -35,7 +35,6 @@ $app->group('/sundayschool', function () {
     $this->get('/{groupId:[0-9]+}/view', 'sundayschoolView' );
     $this->get('/reports', 'sundayschoolReports' );
     $this->post('/reports', 'sundayschoolReports' );
-    $this->get('/{groupId:[0-9]+}/badge/{useCart:[0-9]+}', 'sundayschoolBadge' );
 });
 
 function sundayschoolDashboard (Request $request, Response $response, array $args) {
@@ -326,52 +325,6 @@ function argumentsSundayschoolReportsArray ()
         'dNoSchool6'                    => $dNoSchool6,
         'dNoSchool7'                    => $dNoSchool7,
         'dNoSchool8'                    => $dNoSchool8
-    ];
-
-    return $paramsArguments;
-}
-
-function sundayschoolBadge (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/sundayschool/');
-
-    $groupId = $args['groupId'];
-    $useCart = $args['useCart'];
-
-    if ( !( SessionUser::getUser()->isSundayShoolTeacherForGroup($groupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
-    }
-
-
-    return $renderer->render($response, 'sundayschoolbadge.php', argumentsSundayschoolBadgeArray($groupId,$useCart));
-}
-
-function argumentsSundayschoolBadgeArray ($iGroupID,$useCart)
-{
-    $imgs = MiscUtils::getImagesInPath ('../Images/background');
-
-    $group = GroupQuery::Create()->findOneById ($iGroupID);
-
-    // Get all the sunday school classes
-    $groups = GroupQuery::create()
-        ->orderByName(Criteria::ASC)
-        ->filterByType(4)
-        ->find();
-
-    // Set the page title and include HTML header
-    $sPageTitle = _('Sunday School Badge for').' : '.$group->getName();
-
-    $sRootDocument = SystemURLs::getDocumentRoot();
-    $CSPNonce = SystemURLs::getCSPNonce();
-
-    $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
-        'sRootDocument'             => $sRootDocument,
-        'CSPNonce'                  => $CSPNonce,
-        'sPageTitle'                => $sPageTitle,
-        'iGroupID'                  => $iGroupID,
-        'useCart'                   => $useCart,
-        'imgs'                      => $imgs,
-        'group'                     => $group,
-        'groups'                    => $groups
     ];
 
     return $paramsArguments;
