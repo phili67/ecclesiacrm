@@ -14,7 +14,8 @@ $logger = LoggerUtils::getAppLogger();
 $logger->info("Start to delete : all unusefull files");
 
 unlink(SystemURLs::getDocumentRoot()."/KioskManager.php");
-
+unlink(SystemURLs::getDocumentRoot()."/v2/templates/sundayschool/sundayschoolbadge.php");
+unlink(SystemURLs::getDocumentRoot()."/Reports/PDFBadgeSundaySchool.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
