@@ -171,9 +171,9 @@ $("document").ready(function(){
       path: "cart/"
     }).done(function (data) {
       if (data.PeopleCart.length > 0) {
-        location.href = window.CRM.root + '/v2/sundayschool/' + sundayGroupId + '/badge/1';
+        location.href = window.CRM.root + '/v2/group/' + sundayGroupId + '/badge/1/sundayschool';
       } else {
-        location.href = window.CRM.root + '/v2/sundayschool/' + sundayGroupId + '/badge/0';
+        location.href = window.CRM.root + '/v2/group/' + sundayGroupId + '/badge/0/sundayschool';
       }
     });
   });

@@ -749,5 +749,19 @@ function initDataTable() {
       window.CRM.DataTableGroupView.ajax.reload();
     }
 
+    /* Badge creation */
+    $(document).on("click","#groupbadge", function(){
+        var groupId = $(this).data("groupid");
+        window.CRM.APIRequest({
+            method: "GET",
+            path: "cart/"
+        }).done(function (data) {
+            if (data.PeopleCart.length > 0) {
+                location.href = window.CRM.root + '/v2/group/' + groupId + '/badge/1/normal';
+            } else {
+                location.href = window.CRM.root + '/v2/group/' + groupId + '/badge/0/normal';
+            }
+        });
+    });
 
 }
