@@ -519,7 +519,7 @@ $(document).ready(function () {
 
                         canvasElement.height = video.videoHeight;
                         canvasElement.width = video.videoWidth;
-                        canvas.drawImage(video, 0, 0);
+                        canvas.drawImage(video, 0, 0,canvasElement.width -1, canvasElement.height-1);
                         var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
                         var code = jsQR(imageData.data, imageData.width, imageData.height, {
                             inversionAttempts: "dontInvert",
