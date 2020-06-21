@@ -215,7 +215,7 @@ function searchGroup($request, $response, $args) {
   if (!empty($groups))
   {
     $data = [];
-    $id++;
+    $id=0;
 
     foreach ($groups as $group) {
       $values['id'] = $id++;
@@ -224,8 +224,6 @@ function searchGroup($request, $response, $args) {
       $values['uri'] = SystemURLs::getRootPath()."/v2/group/".$group->getId()."/view";
 
       array_push($return, $values);
-
-      array_push($data, $elt);
     }
   }
   return $response->withJson($return);
@@ -498,7 +496,7 @@ function addPersonToGroup ($request, $response, $args) {
     $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
         ->joinWithPerson()
         ->filterByPersonId($input->PersonID)
-        ->findByGroupId($GroupID);
+        ->findByGroupId($groupID);
     echo $members->toJSON();
 }
 
@@ -532,7 +530,7 @@ function addTeacherToGroup ($request, $response, $args) {
     $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
         ->joinWithPerson()
         ->filterByPersonId($input->PersonID)
-        ->findByGroupId($GroupID);
+        ->findByGroupId($groupID);
     echo $members->toJSON();
 }
 
