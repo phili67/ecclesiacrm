@@ -131,6 +131,8 @@ if ($searchEventInActivEvent != null) {
 <div class="card">
     <div class="card-body">
         <a class="btn btn-app" id="add-event"><i class="fa fa-ticket"></i><?= _('Add New Event') ?></a>
+        <?php if ( !is_null($searchEventInActivEvent) ) {
+            ?>
         <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
         <?php
@@ -140,6 +142,10 @@ if ($searchEventInActivEvent != null) {
         <?php
             }
         ?>
+
+        <?php
+        }
+        ?>
     </div>
 </div>
 
@@ -148,7 +154,7 @@ if ($searchEventInActivEvent != null) {
 <div id="errorcallout" class="alert alert-danger" hidden></div>
 
 <?php
-if (!empty($searchEventInActivEvent)) {
+if ( !is_null($searchEventInActivEvent) ) {
     ?>
 
     <!--Select Event Form -->
