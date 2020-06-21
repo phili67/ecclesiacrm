@@ -545,11 +545,15 @@ $(document).ready(function () {
                                     data: JSON.stringify({"groupID": res[0], "personID": res[1]})
                                 }).done(function (data) {
                                     if (data.status == 'failed') {
-                                        alert(i18next.t('Failed') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + data.person);
+                                        alert(i18next.t('Failed') + " : " + i18next.t("No event right now.") + "\n\n" + "• "
+                                            + i18next.t("Move one in the right range.")
+                                            + "\n\n" + i18next.t ("Or") + "\n\n" + "• "
+                                            +  i18next.t("Create one.") + "\n\n" + i18next.t('Group')
+                                            + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
                                     } else if (data.status == 'global_failed') {
-                                        alert('Failed');
+                                        alert(i18next.t("Failed") + " : " + i18next.t("No event now.") );
                                     } else {
-                                        alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + data.person);
+                                        alert(i18next.t('Success') + "\n\n" + i18next.t('Group') + ' : ' + data.group + "\n" + i18next.t("User") + ' : ' + data.person);
                                         window.CRM.dataT.ajax.reload(null, false);
                                     }
                                 });
