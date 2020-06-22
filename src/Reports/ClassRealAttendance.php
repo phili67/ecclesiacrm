@@ -12,6 +12,7 @@ require '../Include/Functions.php';
 
 
 use EcclesiaCRM\Reports\PDF_RealAttendance;
+use EcclesiaCRM\Reports\CSV_RealAttendance;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -29,10 +30,20 @@ $groups = explode(',', $iGroupID);
 
 $withPictures = InputUtils::LegacyFilterInput($_GET['withPictures'], 'int');
 $iExtraStudents = InputUtils::LegacyFilterInputArr($_GET, 'ExtraStudents', 'int');
+
 $iFYID = $_SESSION['idefaultFY'];// $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int'); //
+
+
 $startDate = $_GET['start'];
 $endDate   = $_GET['end'];
 
-$pdfRealAttendees = new PDF_RealAttendance($groups,$withPictures,$iExtraStudents,$iFYID,$startDate,$endDate);
+$exportTypePDF = $_GET['exportTypePDF'];
 
-$pdfRealAttendees->render();
+if ($exportTypePDF) {
+    $pdfRealAttendees = new PDF_RealAttendance($groups, $withPictures, $iExtraStudents, $iFYID, $startDate, $endDate);
+    $pdfRealAttendees->render();
+} else {
+    $csvRealAttendees = new CSV_RealAttendance($groups,$withPictures,$iExtraStudents,$iFYID,$startDate,$endDate);
+    $csvRealAttendees->render();
+}
+
