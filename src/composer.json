@@ -24,7 +24,7 @@
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.2.0",
         "drewm/mailchimp-api": "^2.5",
         "symfony/dependency-injection": "3.4.26",
         "symfony/framework-bundle": "3.4.26",
@@ -38,7 +38,7 @@
         "knplabs/github-api": "^2.0",
         "propel/propel": "~2.0@dev",
         "setasign/fpdf": "1.8.1",
-        "phpmailer/phpmailer": "6.1.6" ,
+        "phpmailer/phpmailer": "6.0.*",
         "verot/class.upload.php": "dev-master",
         "ifsnop/mysqldump-php": "2.*",
         "php-http/message": "1.6.0",
@@ -51,7 +51,8 @@
         "sabre/dav": "^4.0.2",
         "tuupola/slim-jwt-auth": "^2.4",
         "phpoffice/phpword": "v0.17.*",
-        "defuse/php-encryption": "^2.2"
+        "defuse/php-encryption": "^2.2",
+        "endroid/qr-code": "^3.6"
     },
     "autoload": {
         "classmap": [

@@ -2,9 +2,9 @@
 
 /*******************************************************************************
  *
- *  filename    : SundaySchoolBadge.php
- *  last change : 2019-06-23
- *  description : form to invoke Sunday School reports
+ *  filename    : groupbadge.php
+ *  last change : 2020-06-19
+ *  description : form to invoke group reports
  *
  *  Copyright : Philippe Logel all rights reserved
  *
@@ -54,10 +54,11 @@ if (isset($_GET['typeProblem'])) {
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Generate Badges') ?></h3>
     </div>
-    <form method="post" action="<?= $sRootPath ?>/Reports/PDFBadgeSundaySchool.php" name="labelform" enctype="multipart/form-data">
+    <form method="post" action="<?= $sRootPath ?>/Reports/PDFBadgeGroup.php" name="labelform" enctype="multipart/form-data">
         <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
         <input id="useCart" name="useCart" type="hidden" value="<?= $useCart?>">
         <div class="card-body">
+            <?php if ($isSundaySchool) { ?>
             <div class="row">
                 <div class="col-md-6">
                     <?= _("Sunday School Name") ?>
@@ -66,6 +67,7 @@ if (isset($_GET['typeProblem'])) {
                     <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control" placeholder="<?= _("Sunday School Name") ?>">
                 </div>
             </div><br>
+            <?php } ?>
             <div class="row">
                 <div class="col-md-6">
                     <?= _('Title color') ?>
@@ -106,6 +108,7 @@ if (isset($_GET['typeProblem'])) {
                     <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= _("Sunday School Name") ?>">
                 </div>
             </div>
+            <br/>
 
             <div class="row">
                 <div class="col-md-6">
@@ -139,6 +142,19 @@ if (isset($_GET['typeProblem'])) {
                     <?= _("and")?> &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= _("Upload") ?>">
                 </div>
             </div><br>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fa fa-qrcode fa-lg"></i> <?= _('With QR Code') ?>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <input type="checkbox" name="useQRCode" value="Yes" />
+                    </div>
+                </div>
+            </div><br>
+
+
 
             <div class="row">
                 <div class="col-md-6">

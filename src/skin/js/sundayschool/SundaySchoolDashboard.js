@@ -156,11 +156,11 @@ $("document").ready(function() {
         });
     }
 
-    $(document).on("click", ".makeCheckOut", function () {
+    $(document).on("click", ".callRegister", function () {
         var start = moment().format('YYYY-MM-DD');
 
         var modal = bootbox.dialog({
-            title: i18next.t("Attendance for all sunday groups"),
+            title: i18next.t("Call the Register for all sunday groups"),
             message: BootboxContentAttendees(start),
             size: "large",
             buttons: [
@@ -195,7 +195,7 @@ $("document").ready(function() {
                         window.CRM.APIRequest({
                             method: 'POST',
                             path: 'attendees/groups',
-                            data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID})
+                            data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID, "rangeInHours": 2})
                         }).done(function(data) {
                             location.href = window.CRM.root + "/Checkin.php";
                         });

@@ -35,7 +35,6 @@ $app->group('/sundayschool', function () {
     $this->get('/{groupId:[0-9]+}/view', 'sundayschoolView' );
     $this->get('/reports', 'sundayschoolReports' );
     $this->post('/reports', 'sundayschoolReports' );
-    $this->get('/{groupId:[0-9]+}/badge/{useCart:[0-9]+}', 'sundayschoolBadge' );
 });
 
 function sundayschoolDashboard (Request $request, Response $response, array $args) {
@@ -118,6 +117,7 @@ function argumentsSundayschoolViewArray ($iGroupId)
                         'CSPNonce'                      => $CSPNonce,
                         'sPageTitle'                    => $sPageTitle,
                         'iGroupId'                      => $iGroupId,
+                        'iGroupName'                    => $iGroupName,
                         'rsTeachers'                    => $rsTeachers,
                         'genderChartJSON'               => $genderChartJSON,
                         'birthDayMonthChartJSON'        => $birthDayMonthChartJSON
@@ -142,7 +142,7 @@ function argumentsSundayschoolReportsArray ()
     // Get all the sunday school classes
     $groups = GroupQuery::create()
         ->orderByName(Criteria::ASC)
-        ->filterByType(4)
+        ->filterByType(4)// only sunday groups
         ->find();
 
 
@@ -154,11 +154,11 @@ function argumentsSundayschoolReportsArray ()
         $dNoSchool1   = InputUtils::LegacyFilterInput($_POST['NoSchool1'], 'date');
         $dNoSchool2   = InputUtils::LegacyFilterInput($_POST['NoSchool2'], 'date');
         $dNoSchool3   = InputUtils::LegacyFilterInput($_POST['NoSchool3'], 'date');
-        $dNoSchool4   = InputUtils::LegacyFilterInput($_POST['NoSchool4'], 'date');
-        $dNoSchool5   = InputUtils::LegacyFilterInput($_POST['NoSchool5'], 'date');
-        $dNoSchool6   = InputUtils::LegacyFilterInput($_POST['NoSchool6'], 'date');
-        $dNoSchool7   = InputUtils::LegacyFilterInput($_POST['NoSchool7'], 'date');
-        $dNoSchool8   = InputUtils::LegacyFilterInput($_POST['NoSchool8'], 'date');
+        $dNoSchool4     = InputUtils::LegacyFilterInput($_POST['NoSchool4'], 'date');
+        $dNoSchool5     = InputUtils::LegacyFilterInput($_POST['NoSchool5'], 'date');
+        $dNoSchool6     = InputUtils::LegacyFilterInput($_POST['NoSchool6'], 'date');
+        $dNoSchool7     = InputUtils::LegacyFilterInput($_POST['NoSchool7'], 'date');
+        $dNoSchool8     = InputUtils::LegacyFilterInput($_POST['NoSchool8'], 'date');
         $iExtraStudents = InputUtils::LegacyFilterInput($_POST['ExtraStudents'], 'int');
         $iExtraTeachers = InputUtils::LegacyFilterInput($_POST['ExtraTeachers'], 'int');
         $_SESSION['idefaultFY'] = $iFYID;
@@ -325,52 +325,6 @@ function argumentsSundayschoolReportsArray ()
         'dNoSchool6'                    => $dNoSchool6,
         'dNoSchool7'                    => $dNoSchool7,
         'dNoSchool8'                    => $dNoSchool8
-    ];
-
-    return $paramsArguments;
-}
-
-function sundayschoolBadge (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/sundayschool/');
-
-    $groupId = $args['groupId'];
-    $useCart = $args['useCart'];
-
-    if ( !( SessionUser::getUser()->isSundayShoolTeacherForGroup($groupId) || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
-    }
-
-
-    return $renderer->render($response, 'sundayschoolbadge.php', argumentsSundayschoolBadgeArray($groupId,$useCart));
-}
-
-function argumentsSundayschoolBadgeArray ($iGroupID,$useCart)
-{
-    $imgs = MiscUtils::getImagesInPath ('../Images/background');
-
-    $group = GroupQuery::Create()->findOneById ($iGroupID);
-
-    // Get all the sunday school classes
-    $groups = GroupQuery::create()
-        ->orderByName(Criteria::ASC)
-        ->filterByType(4)
-        ->find();
-
-    // Set the page title and include HTML header
-    $sPageTitle = _('Sunday School Badge for').' : '.$group->getName();
-
-    $sRootDocument = SystemURLs::getDocumentRoot();
-    $CSPNonce = SystemURLs::getCSPNonce();
-
-    $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
-        'sRootDocument'             => $sRootDocument,
-        'CSPNonce'                  => $CSPNonce,
-        'sPageTitle'                => $sPageTitle,
-        'iGroupID'                  => $iGroupID,
-        'useCart'                   => $useCart,
-        'imgs'                      => $imgs,
-        'group'                     => $group,
-        'groups'                    => $groups
     ];
 
     return $paramsArguments;

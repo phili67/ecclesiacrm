@@ -5,56 +5,76 @@ use EcclesiaCRM\PersonQuery;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use EcclesiaCRM\dto\Notification;
+use EcclesiaCRM\dto\Photo;
 
 
-$app->get('/', function ($request, $response, $args) use ($app) {
-    $renderer = new PhpRenderer("templates/kioskDevices/");
-    $pageObjects = array("sRootPath" => $_SESSION['sRootPath']);
-    return $renderer->render($response, "sunday-school-class-view.php", $pageObjects);
-  });
+    $app->get('/', function ($request, $response, $args) use ($app) {
+        $renderer = new PhpRenderer("templates/kioskDevices/");
+        $pageObjects = array("sRootPath" => $_SESSION['sRootPath']);
+        return $renderer->render($response, "sunday-school-class-view.php", $pageObjects);
+    });
 
-  $app->get('/heartbeat', function ($request, $response, $args) use ($app) {
+    $app->get('/heartbeat', function ($request, $response, $args) use ($app) {
 
-    return json_encode($app->kiosk->heartbeat());     
-  });
+        return json_encode($app->kiosk->heartbeat());
+    });
 
-  $app->post('/checkin', function ($request, $response, $args) use ($app) {
+    $app->post('/checkin', function ($request, $response, $args) use ($app) {
 
-    $input = (object) $request->getParsedBody();
-    $status = $app->kiosk->getActiveAssignment()->getEvent()->checkInPerson($input->PersonId);
-    return $response->withJSON($status);
-  });
+        $input = (object)$request->getParsedBody();
+        $status = $app->kiosk->getActiveAssignment()->getEvent()->checkInPerson($input->PersonId);
+        return $response->withJSON($status);
+    });
 
-  $app->post('/checkout', function ($request, $response, $args) use ($app) {
-    $input = (object) $request->getParsedBody();
-    $status = $app->kiosk->getActiveAssignment()->getEvent()->checkOutPerson($input->PersonId);
-    return $response->withJSON($status);
-  });
+    $app->post('/uncheckin', function ($request, $response, $args) use ($app) {
 
-   $app->post('/triggerNotification', function ($request, $response, $args) use ($app) {
-    $input = (object) $request->getParsedBody();
+        $input = (object)$request->getParsedBody();
+        $status = $app->kiosk->getActiveAssignment()->getEvent()->unCheckInPerson($input->PersonId);
+        return $response->withJSON($status);
+    });
 
-    $Person =PersonQuery::create()
+    $app->post('/checkout', function ($request, $response, $args) use ($app) {
+        $input = (object)$request->getParsedBody();
+        $status = $app->kiosk->getActiveAssignment()->getEvent()->checkOutPerson($input->PersonId);
+        return $response->withJSON($status);
+    });
+
+    $app->post('/uncheckout', function ($request, $response, $args) use ($app) {
+        $input = (object)$request->getParsedBody();
+        $status = $app->kiosk->getActiveAssignment()->getEvent()->unCheckOutPerson($input->PersonId);
+        return $response->withJSON($status);
+    });
+
+    $app->post('/triggerNotification', function ($request, $response, $args) use ($app) {
+        $input = (object)$request->getParsedBody();
+
+        $Person = PersonQuery::create()
             ->findOneById($input->PersonId);
-    
-    $Notification = new Notification();
-    $Notification->setPerson($Person);
-    $Notification->setRecipients($Person->getFamily()->getAdults());
-    $Notification->setProjectorText($app->kiosk->getActiveAssignment()->getEvent()->getType()."-".$Person->getId());
-    $Status = $Notification->send();
 
-    return $response->withJSON($Status);
-  });
+        $Notification = new Notification();
+        $Notification->setPerson($Person);
+        $Notification->setRecipients($Person->getFamily()->getAdults());
+        $Notification->setProjectorText($app->kiosk->getActiveAssignment()->getEvent()->getType() . "-" . $Person->getId());
+        $Status = $Notification->send();
 
-  
-   $app->get('/activeClassMembers', function ($request, $response, $args) use ($app) {
-    return $app->kiosk->getActiveAssignment()->getActiveGroupMembers()->toJSON();
-  });
+        return $response->withJSON($Status);
+    });
 
 
-  $app->get('/activeClassMember/{PersonId}/photo', function (ServerRequestInterface  $request, ResponseInterface  $response, $args) use ($app) {
-    $photo = new Photo("Person",$args['PersonId']);
-    return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
-  });
+    $app->get('/activeClassMembers', function ($request, $response, $args) use ($app) {
+        $res = $app->kiosk->getActiveAssignment()->getActiveGroupMembers();
+
+        if (!is_null($res)) {
+            return $app->kiosk->getActiveAssignment()->getActiveGroupMembers()->toJSON();
+        }
+
+        return null;
+    });
+
+
+    $app->get('/activeClassMember/{PersonId}/photo', function (ServerRequestInterface $request, ResponseInterface $response, $args) use ($app) {
+        $photo = new Photo("Person", $args['PersonId']);
+        return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
+    });
 
 

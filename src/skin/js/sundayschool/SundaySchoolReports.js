@@ -71,6 +71,16 @@ $( "#GroupID" ).change(function() {
               +'</div>'
               +'</div>'
             +'</div>'
+            +'<div class="row">'
+            +'  <div class="col-md-6">'
+            +'     <input type="radio" id="pdf" name="exporttype" value="pdf" checked>'
+            +'     <label for="pdf">PDF</label>'
+            +'  </div>'
+            +'  <div class="col-md-6">'
+            +'     <input type="radio" id="huey" name="exporttype" value="csv">'
+            +'     <label for="csv">CSV</label>'
+            +'  </div>'
+            +'</div>'
          + '</form>';
 
       var object = $('<div/>').html(frm_str).contents();
@@ -94,14 +104,14 @@ $( "#GroupID" ).change(function() {
                     size: "large",
                     buttons: [
                         {
-                            label: i18next.t("Cancel"),
+                            label: '<i class="fa fa-times"> ' + i18next.t("Cancel"),
                             className: "btn btn-default",
                             callback: function() {
                                 console.log("just do something on close");
                             }
                         },
                         {
-                            label: i18next.t('OK'),
+                            label: '<i class="fa fa-check"> ' + i18next.t('OK'),
                             className: "btn btn-primary",
                             callback: function() {
                                 var dateStart = $('form #dateEventStart').val();
@@ -115,9 +125,11 @@ $( "#GroupID" ).change(function() {
                                 var withPictures = ($("#withPictures").is(':checked') == true)?1:0;
                                 var ExtraStudents = $("#ExtraStudents").val();
 
+                                var exportTypePDF   = $("#pdf").is(":checked");
+
                                 $("#GroupID").each(function(){
                                     var groupID = $(this).val();
-                                    window.location = window.CRM.root + "/Reports/ClassRealAttendance.php?groupID="+groupID+"&start="+real_start+"&end="+real_end+"&withPictures="+withPictures+"&ExtraStudents="+ExtraStudents;
+                                    window.location = window.CRM.root + "/Reports/ClassRealAttendance.php?groupID="+groupID+"&start="+real_start+"&end="+real_end+"&withPictures="+withPictures+"&ExtraStudents="+ExtraStudents+"&exportTypePDF="+((exportTypePDF)?1:0)
                                 });
                             }
                         }

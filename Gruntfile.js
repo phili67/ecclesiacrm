@@ -462,6 +462,12 @@ module.exports = function (grunt) {
                         cwd:'node_modules/eonasdan-bootstrap-datetimepicker/build/css/',
                         src: ['bootstrap-datetimepicker.min.css'],
                         dest: 'src/skin/external/bootstrap-datetimepicker/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/jsqr/dist/',
+                        src: ['*'],
+                        dest: 'src/skin/external/jsqr/'
                     }
                 ]
             }

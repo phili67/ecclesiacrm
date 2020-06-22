@@ -24,9 +24,38 @@ function getKioskDevices (Request $request, Response $response, array $args) {
             ->useKioskAssignmentQuery()
               ->joinWithEvent(Criteria::LEFT_JOIN)
             ->endUse()
-            
             ->find();
-    return $response->write($Kiosks->toJSON());
+
+    $return = [];
+
+    foreach ($Kiosks as $kiosk){
+        $values['Id'] = $kiosk->getID();
+        $values['GUIDHash'] = $kiosk->getGUIDHash();
+        $values['Name'] = $kiosk->getName();
+        $values['DeviceType'] = $kiosk->getDeviceType();
+        $values['LastHeartbeat'] = $kiosk->getLastHeartbeat();
+        $values['Accepted'] = $kiosk->getAccepted();
+        $values['PendingCommands'] = $kiosk->getPendingCommands();
+
+        $KioskAssignments = [];
+
+        foreach ($kiosk->getKioskAssignments() as $kioskAssignment) {
+            $KioskAssignments_values['Id'] = $kioskAssignment->getId();
+            $KioskAssignments_values['KioskId'] = $kioskAssignment->getKioskId();
+            $KioskAssignments_values['AssignmentType'] = $kioskAssignment->getAssignmentType();
+            $KioskAssignments_values['EventId'] = $kioskAssignment->getEventId();
+            $KioskAssignments_values['KioskDevice'] = $kioskAssignment->getKioskDevice();
+
+            array_push($KioskAssignments, $KioskAssignments_values);
+        }
+
+        $values['KioskAssignments'] = $KioskAssignments;
+
+
+        array_push($return, $values);
+    }
+
+    return $response->withJson(["KioskDevices" => $return]);
 }
 
 function allowDeviceRegistration (Request $request, Response $response, array $args) {

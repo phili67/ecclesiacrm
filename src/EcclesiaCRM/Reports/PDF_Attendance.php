@@ -47,23 +47,23 @@ class PDF_Attendance extends ChurchInfoReport
     {
         $startMonthX = 60;
         $dayWid = 7;
-        
+
         //if ($with_img)
           $yIncrement = 10; // normaly 6
         /*else
           $yIncrement = 6;*/
-        
+
         $yTitle = 20;
         $yTeachers = $yTitle + $yIncrement;
         $nameX = 10+$yIncrement/2;
         unset($NameList);
         $numMembers = 0;
         $aNameCount = 0;
-        
+
         $MaxLinesPerPage = -3.75*$yIncrement+58.5; // 36  lines for a yIncrement of 6, 21 lines for a yIncrement of 10, y=-3.75x+58.5
-        
+
         $fontTitleTitle = 16;
-        
+
         //if ($with_img)
           $fontTitleNormal = 11;
         /*else
@@ -71,7 +71,7 @@ class PDF_Attendance extends ChurchInfoReport
 
         $aNoSchoolX = [];
         $noSchoolCnt = 0;
-        
+
 //
 //  determine how many pages will be includes in this report
 //
@@ -86,7 +86,7 @@ class PDF_Attendance extends ChurchInfoReport
             $person = $persons[$row];
             $thisPerson = $person['fullName'];
             //$thisName = $person->getLastName()."\n".$person->getFirstName()." ".$person->getMiddleName();
-            
+
              // Special handling for person listed twice- only show once in the Attendance Calendar
              // This happens when a child is listed in two different families (parents divorced and
              // both active in the church)
@@ -116,8 +116,8 @@ class PDF_Attendance extends ChurchInfoReport
 
     $numMembers = count($PersonList);
     $nPages = ceil($numMembers / $MaxLinesPerPage);
-  
-  
+
+
     //  echo "nPages = {$nPages} \n\r";
     //
     // Main loop which draws each page
@@ -131,7 +131,7 @@ class PDF_Attendance extends ChurchInfoReport
       }
       $this->SetFont('Times', 'B', $fontTitleTitle);
       $this->WriteAt($nameX, $yTitle, $rptHeader);
-        
+
       $this->SetLineWidth(0.5);
       //$this->Line($nameX-5, $yTeachers - 0.45, 195, $yTeachers - 0.45); // unusefull
       $yMonths = $yTop;
@@ -160,26 +160,26 @@ class PDF_Attendance extends ChurchInfoReport
         $this->WriteAt($nameX, $y + 1, $lastPersonList[$row]);
         $this->WriteAt($nameX, $y + 5, $firstPersonList[$row]);
         $this->SetFont('Times', 'B', $fontTitleNormal);
-        
+
         // we draw the gender
         $this->SetFont('Times', 'B', $fontTitleNormal-3);
         if ($genderDateList[$row] != '') {
           $this->WriteAt($nameX+24, $y+0.75, "(".mb_substr($genderDateList[$row],0,1).")");
         }
         $this->SetFont('Times', '', $fontTitleNormal);
-        
+
         // the phone number
         $this->SetFont('Times', '', $fontTitleNormal-5);
         $this->WriteAt($nameX+28.25, $y + 0.75, $homePhoneList[$row]);
         $this->SetFont('Times', '', $fontTitleNormal);
-        
+
         // the birthDate
         $this->SetFont('Times', '', $fontTitleNormal-4);
         if ($birthDateList[$row] != '')
           $this->WriteAt($nameX+24, $y + 3.5, "(".$birthDateList[$row].")");
         $this->SetFont('Times', '', $fontTitleNormal);
-        
-        // the Age 
+
+        // the Age
         $this->SetFont('Times', '', $fontTitleNormal-2);
         $this->WriteAt($nameX-(($with_img == true)?14.5:5), $y + 2.5, $ageList[$row]);
         $this->SetFont('Times', '', $fontTitleNormal);
@@ -190,14 +190,14 @@ class PDF_Attendance extends ChurchInfoReport
         }
         $this->SetFont('Times', '', $fontTitleNormal);
 
-        if($with_img == true) 
+        if($with_img == true)
         {
           //$this->SetLineWidth(0.5);
           $this->Line($nameX-$yIncrement,$y,$nameX,$y);
           $this->Line($nameX-$yIncrement,$y+$yIncrement,$nameX,$y+$yIncrement);
           $this->Line($nameX-$yIncrement,$y,$nameX,$y);
           $this->Line($nameX-$yIncrement,$y,$nameX-$yIncrement,$y+$yIncrement);
-          
+
           // we build the cross in the case of there's no photo
           //$this->SetLineWidth(0.25);
           $this->Line($nameX-$yIncrement,$y+$yIncrement,$nameX,$y);
@@ -210,11 +210,11 @@ class PDF_Attendance extends ChurchInfoReport
             $factor = $yIncrement/$height;
             $nw = $width*$factor;
             $nh = $yIncrement;
-        
+
             $this->Image($imgList[$row], $nameX-$nw , $y, $nw,$nh,'JPG');
           }
         }
-        
+
         $y += $yIncrement;
       }
   //
@@ -246,7 +246,7 @@ class PDF_Attendance extends ChurchInfoReport
 
       while (!$doneFlag) {
         $dayListX[$dayCounter] = $dayX;
-      
+
         $dayListNum[$dayCounter] = date('d', $dWhichSunday);
 
         if ($tWhichSunday == $tNoSchool1) {
@@ -273,7 +273,7 @@ class PDF_Attendance extends ChurchInfoReport
         if ($tWhichSunday == $tNoSchool8) {
           $aNoSchoolX[$noSchoolCnt++] = $dayX;
         }
-      
+
         if (date('n', $dWhichSunday) != $whichMonth) { // Finish the previous month
           $this->WriteAt($monthX, $yMonths + 1, mb_substr(_(date('F', $dWhichMonthDate)),0,3));
           $aHeavyVerticalX[$heavyVerticalXCnt++] = $monthX;
@@ -367,33 +367,33 @@ class PDF_Attendance extends ChurchInfoReport
 
     return $bottomY;
   }
-  
+
     public function DrawRealAttendanceCalendar($nameX, $yTop, $labels, $aNames, $tTitle, $extraLines,
                                     $tFirstSunday, $tLastSunday,
                                     $rptHeader, $with_img,$maxNbrEvents)
-    {      
+    {
         $startMonthX = 60;
         $dayWid = 7;
-        
+
         $yIncrement = 10; // normaly 6
-        
+
         $yTitle = 20;
         $yTeachers = $yTitle + $yIncrement;
         $nameX = 10+$yIncrement/2;
         $numMembers = 0;
         $aNameCount = 0;
-        
+
         $MaxLinesPerPage = -3.75*$yIncrement+58.5; // 36  lines for a yIncrement of 6, 21 lines for a yIncrement of 10, y=-3.75x+58.5
-        
+
         $fontTitleTitle = 16;
-        
+
         $fontTitleNormal = 11;
 
         $aNoSchoolX = [];
         $noSchoolCnt = 0;
-        
+
         unset($realList);
-        
+
 //
 //  determine how many pages will be includes in this report
 //
@@ -407,17 +407,17 @@ class PDF_Attendance extends ChurchInfoReport
         for ($row = 0; $row < count($aNames); $row++) {
             $thisName = $aNames[$row]['firstName']." ".$aNames[$row]['lastName'];
             //$thisName = $person->getLastName()."\n".$person->getFirstName()." ".$person->getMiddleName();
-            
+
              // Special handling for person listed twice- only show once in the Attendance Calendar
              // This happens when a child is listed in two different families (parents divorced and
              // both active in the church)
             if ($thisName != $prevThisName) {
-                $realList[$aNameCount++] = $aNames[$row];                
+                $realList[$aNameCount++] = $aNames[$row];
               //      echo "adding {$thisName} to realList at {$aNameCount}\n\r";
             }
             $prevThisName = $thisName;
         }
-        
+
 //
 // add extra blank lines to the array
 //
@@ -427,9 +427,9 @@ class PDF_Attendance extends ChurchInfoReport
 
     $numMembers = count($realList);
     $nPages = ceil($numMembers / $MaxLinesPerPage);
-    
+
     $yTop=30;
-    
+
     //  echo "nPages = {$nPages} \n\r";
     //
     // Main loop which draws each page
@@ -443,7 +443,7 @@ class PDF_Attendance extends ChurchInfoReport
       }
       $this->SetFont('Times', 'B', $fontTitleTitle);
       $this->WriteAt($nameX, $yTitle, $rptHeader);
-        
+
       $this->SetLineWidth(0.5);
       //$this->Line($nameX-5, $yTeachers - 0.45, 195, $yTeachers - 0.45); // unusefull
       $yMonths = $yTop;
@@ -455,13 +455,13 @@ class PDF_Attendance extends ChurchInfoReport
       $this->SetFont('Times', 'B', $fontTitleNormal);
       $this->WriteAt($nameX, $yDays + 1, $tTitle);
       $this->SetFont('Times', '', $fontTitleNormal);
-      
+
   //
   // Now we draw the Labels
   //
-  
+
   $datePlace = 0;
-  
+
   foreach ($labels as $key => $value) {
     switch ($key) {
       case 'firstName':
@@ -477,7 +477,7 @@ class PDF_Attendance extends ChurchInfoReport
       case 'homePhone':
         break;
       case 'props':
-        break;    
+        break;
       case 'age':
         $this->SetFont('Times', 'B', $fontTitleNormal);
         $this->TextWithDirection($nameX+50, $y - 5.5, $value,'U');
@@ -489,7 +489,7 @@ class PDF_Attendance extends ChurchInfoReport
         $this->SetFont('Times', '', $fontTitleNormal);
         break;
       case 'groupName':
-        break;              
+        break;
       default:
         // we are in case of dates
         $this->SetFont('Arial', 'B', $fontTitleNormal-2);
@@ -499,7 +499,7 @@ class PDF_Attendance extends ChurchInfoReport
     }
   }
 
-      
+
   //
   // calculate the starting and ending rows for the page
   //
@@ -511,14 +511,14 @@ class PDF_Attendance extends ChurchInfoReport
   //
 
       $this->SetLineWidth(0.25);
-      $sizeArray = [];   
-            
+      $sizeArray = [];
+
       for ($i=0;$i < $maxNbrEvents;$i++) {
         $sizeArray[$i] = 0;
       }
-      
+
       $real_count = 0;
-      
+
       for ($row = $pRowStart; $row < $pRowEnd; $row++) {
         $real_count++;
         $datePlace = 0;
@@ -540,14 +540,14 @@ class PDF_Attendance extends ChurchInfoReport
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'photos':
-              if($with_img == true) 
+              if($with_img == true)
               {
                 //$this->SetLineWidth(0.5);
                 $this->Line($nameX-$yIncrement,$y,$nameX,$y);
                 $this->Line($nameX-$yIncrement,$y+$yIncrement,$nameX,$y+$yIncrement);
                 $this->Line($nameX-$yIncrement,$y,$nameX,$y);
                 $this->Line($nameX-$yIncrement,$y,$nameX-$yIncrement,$y+$yIncrement);
-          
+
                 // we build the cross in the case of there's no photo
                 $this->Line($nameX-$yIncrement,$y+$yIncrement,$nameX,$y);
                 $this->Line($nameX-$yIncrement,$y,$nameX,$y+$yIncrement);
@@ -559,7 +559,7 @@ class PDF_Attendance extends ChurchInfoReport
                   $factor = $yIncrement/$height;
                   $nw = $width*$factor;
                   $nh = $yIncrement;
-        
+
                   $this->Image($value, $nameX-$nw , $y, $nw,$nh,'JPG');
                 }
               }
@@ -588,10 +588,10 @@ class PDF_Attendance extends ChurchInfoReport
                 $this->WriteAt($nameX+24, $y + 6, $value);
               }
               $this->SetFont('Times', '', $fontTitleNormal);
-              break;    
+              break;
             case 'age':
               $this->SetFont('Times', '', $fontTitleNormal-2);
-              $this->WriteAt($nameX-(($with_img == true)?14.5:5), $y + 2.5, $value);
+              $this->WriteAt($nameX+45.4, $y + 2.5, $value);//$nameX-(($with_img == true)?14.5:5)
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'stats':
@@ -602,7 +602,7 @@ class PDF_Attendance extends ChurchInfoReport
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'groupName':
-              break;              
+              break;
             default:
               // we are in case of dates
               $this->SetFont('Arial', '', $fontTitleNormal-2);
@@ -614,26 +614,26 @@ class PDF_Attendance extends ChurchInfoReport
               //$this->TextWithDirection($nameX+56, $y + 2, $value,'D');
               $this->SetFont('Times', '', $fontTitleNormal);
               $datePlace+=7;
-              
+
           }
         }
-        
+
         $y += $yIncrement;
       }
-      
-      
+
+
   //
   // write a totals text at the bottom
   //
       $this->SetFont('Times', 'B', $fontTitleNormal);
       $this->WriteAt($nameX, $y + 1, _('Totals'));
       $this->SetFont('Times', '', $fontTitleNormal);
-      
+
       $datePlace = 0;
-      
+
       $this->SetFont('Times', '', $fontTitleNormal-2);
-      foreach ($sizeArray as $c) {        
-        $this->TextWithDirection($nameX + 64 + $datePlace, $y + 9, $c."/".$real_count,'U');        
+      foreach ($sizeArray as $c) {
+        $this->TextWithDirection($nameX + 64 + $datePlace, $y + 9, $c."/".$real_count,'U');
         $datePlace+=7;
       }
       $this->SetFont('Times', '', $fontTitleNormal);
@@ -648,12 +648,12 @@ class PDF_Attendance extends ChurchInfoReport
       $lightVerticalXCnt = 0;
 
       $numberVertLines = 0;
-      
+
       while ($numberVertLines++<21) {
         $aHeavyVerticalX[$heavyVerticalXCnt++] = $monthX;
         $whichMonth = date('n', $dWhichSunday);
 
-        $monthX = $dayX;        
+        $monthX = $dayX;
         $dayX += $dayWid;
       }
       $aHeavyVerticalX[$heavyVerticalXCnt++] = $monthX;
@@ -697,7 +697,7 @@ class PDF_Attendance extends ChurchInfoReport
       $this->Line($nameX, $yMonths, $rightEdgeX, $yMonths);
       $this->Line($nameX, $yMonths + 2 * $yIncrement, $rightEdgeX, $yMonths + 2 * $yIncrement);
       $yBottom = $yMonths + (($numMembers + $extraLines + 2) * $yIncrement);
-      
+
       // this part is unusefull
       //$this->Line($nameX, $yBottom, $rightEdgeX, $yBottom);
       //$this->Line($nameX, $yBottom + $yIncrement, $rightEdgeX, $yBottom + $yIncrement);

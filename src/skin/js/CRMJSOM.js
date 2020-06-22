@@ -1041,6 +1041,7 @@
           window.CRM.APIRequest({
             "path":"events/notDone"
           }).done(function(data){
+            window.CRM.events.futureEventsLoaded = true;
             window.CRM.events.futureEvents=data.Events;
           });
         }

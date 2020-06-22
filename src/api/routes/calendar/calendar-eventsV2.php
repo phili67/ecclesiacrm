@@ -42,8 +42,6 @@ use EcclesiaCRM\MyPDO\VObjectExtract;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use EcclesiaCRM\utils\LoggerUtils;
-
 
 $app->group('/events', function () {
 
@@ -127,7 +125,31 @@ function getNotDoneEvents(Request $request, Response $response, array $args)
     $Events = EventQuery::create()
         ->filterByEnd(new DateTime(), Criteria::GREATER_EQUAL)
         ->find();
-    return $response->write($Events->toJSON());
+
+    $return = [];
+
+    foreach ($Events as $event) {
+        $values['Id'] = $event->getID();
+        $values['Title'] = $event->getTitle();
+        $values['Type'] = $event->getType();
+        $values['InActive'] = $event->getInActive();
+        $values['Text'] = $event->getText();
+        $values['Start'] = $event->getStart();
+        $values['End'] = $event->getEnd();
+        $values['TypeName'] = $event->getTypeName();
+        $values['GroupId'] = $event->getGroupId();
+        $values['LastOccurence'] = $event->getLastOccurence();
+        $values['Location'] = $event->getLocation();
+        $values['Coordinates'] = $event->getCoordinates();
+
+        array_push($return, $values);
+    }
+
+    /*if (!is_null($Events)) {
+        return $response->withJson($Events->toJSON());
+    }*/
+
+    return $response->withJson(["Events" =>$return]);
 }
 
 function numbersOfEventOfToday(Request $request, Response $response, array $args)
@@ -239,8 +261,7 @@ function personCheckIn(Request $request, Response $response, array $args)
 
         $eventAttent->setEventId($params->EventID);
         $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+        $eventAttent->setCheckinDate( NULL);
         $eventAttent->setPersonId($params->PersonId);
         $eventAttent->save();
     } catch (\Exception $ex) {
@@ -269,8 +290,7 @@ function groupCheckIn(Request $request, Response $response, array $args)
 
                 $eventAttent->setEventId($params->EventID);
                 $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                $eventAttent->setCheckinDate(NULL);
                 $eventAttent->setPersonId($person->getPersonId());
                 $eventAttent->save();
             }
@@ -298,8 +318,7 @@ function familyCheckIn(Request $request, Response $response, array $args)
 
                 $eventAttent->setEventId($params->EventID);
                 $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                $eventAttent->setCheckinDate(NULL);
                 $eventAttent->setPersonId($person->getId());
                 $eventAttent->save();
             }
@@ -514,7 +533,7 @@ function manageEvent(Request $request, Response $response, array $args)
                             $eventAttent->setEventId($event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
                             $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                            $eventAttent->setCheckinDate(NULL);
                             $eventAttent->setPersonId($person->getPersonId());
                             $eventAttent->save();
                         }
@@ -1078,8 +1097,7 @@ function manageEvent(Request $request, Response $response, array $args)
 
                             $eventAttent->setEventId($old_event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                            $eventAttent->setCheckinDate(NULL);
                             $eventAttent->setPersonId($person->getPersonId());
                             $eventAttent->save();
                         }
@@ -1088,6 +1106,8 @@ function manageEvent(Request $request, Response $response, array $args)
                         //return $response->withJson(['status' => $errorMessage]);
                     }
                 }
+
+                $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
 
                 //
                 $_SESSION['Action'] = 'Add';
@@ -1099,8 +1119,6 @@ function manageEvent(Request $request, Response $response, array $args)
                 $_SESSION['EventID'] = $old_event->getID();
             }
         }
-
-        LoggerUtils::getAppLogger()->debug("Le calendrier " . $realVevent->serialize());
 
         return $response->withJson(["status" => "success", "res2" => $calendar->getGroupId()]);
     }

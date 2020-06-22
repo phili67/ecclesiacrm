@@ -257,7 +257,7 @@ use EcclesiaCRM\Theme;
                 </div>
 
                 <div class="mb-1">
-                    <a href="/KioskManager.php">
+                    <a href="/v2/kioskmanager">
                         <i class="menu-icon fa fa-laptop bg-blue-gradient"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Kiosk Manager') ?></h4>
