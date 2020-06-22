@@ -42,7 +42,7 @@ class PDF_PhotoBook extends ChurchInfoReport
     private $personImageWidth;
     private $fontSizeLastName;
     private $fontSizeFirstName;
-  
+
     // Constructor
     public function __construct($iFYID)
     {
@@ -59,7 +59,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->fontSizeLastName = 8;
         $this->fontSizeFirstName = 8;
     }
-    
+
     public function drawGroup($iGroupID)
     {
         $this->group = GroupQuery::Create()->findOneById($iGroupID);
@@ -71,7 +71,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->AddPage();
         $this->drawGroupMembersByRole("Student", _("Students"));
     }
-    
+
     public function setFontSizeLastName($ifontSize)
     {
       $this->fontSizeLastName = $ifontSize;
@@ -81,7 +81,7 @@ class PDF_PhotoBook extends ChurchInfoReport
     {
       $this->fontSizeFirstName = $ifontSize;
     }
-    
+
     private function drawPageHeader($title)
     {
         $this->currentX = $this->pageMarginL;
@@ -94,25 +94,25 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->SetLineWidth(0.5);
         $this->Line($this->pageMarginL, 25.25, $this->GetPageWidth() - $this->pageMarginR, 25.25);
     }
-    
+
     private function drawPersonBlock($lastname,$firstname, $thumbnailURI)
     {
-   
+
     # Draw a bounding box around the image placeholder centered around the name text.
         $this->currentX += $this->personMarginL;
         $this->SetFont('Times', '', $this->fontSizeLastName);
         $lastNameWidth = $this->GetStringWidth($lastname);
         $lastNameOffset = ($lastNameWidth/2) - ($this->personImageWidth /2)+2;
-        
+
         $this->SetFont('Times', 'B', $this->fontSizeFirstName);
         $firstNameWidth = $this->GetStringWidth($firstname);
         $firstNameOffset = ($firstNameWidth/2) - ($this->personImageWidth /2)+2;
 
-    
+
         $this->SetLineWidth(0.25);
         $this->Rect($this->currentX, $this->currentY, $this->personImageWidth, $this->personImageHeight);
-   
-    
+
+
         # Draw the image or an x
         if (file_exists($thumbnailURI)) {
             $this->Image($thumbnailURI, $this->currentX+.25, $this->currentY+.25, $this->personImageWidth-.5, $this->personImageHeight-.5, 'PNG');
@@ -120,30 +120,30 @@ class PDF_PhotoBook extends ChurchInfoReport
             $this->Line($this->currentX, $this->currentY, $this->currentX + $this->personImageWidth, $this->currentY + $this->personImageHeight);
             $this->Line($this->currentX+$this->personImageWidth, $this->currentY, $this->currentX, $this->currentY + $this->personImageHeight);
         }
-     
+
         # move the cursor, and draw the teacher name
         $this->currentX -= $firstNameOffset;
         $this->currentY += $this->personImageHeight + 2;
         $this->SetFont('Times', 'B', $this->fontSizeFirstName);
         $this->WriteAt($this->currentX, $this->currentY, $firstname);
-        
+
         $this->currentX += $firstNameOffset;
         $this->currentY -= $this->personImageHeight + 2;
-        
+
         # Now we draw the firstName middleName
         $this->currentX -= $lastNameOffset;
         $this->currentY += $this->personImageHeight + 6;
         $this->SetFont('Times', '', $this->fontSizeLastName);
         $this->WriteAt($this->currentX, $this->currentY, $lastname);
-        
+
         $this->currentX += $lastNameOffset;
         $this->currentY -= $this->personImageHeight + 6;
 
-    
+
         $this->currentX += $this->personImageWidth;
         $this->currentX += $this->personMarginR;
     }
-  
+
     private function drawGroupMembersByRole($roleName, $roleDisplayName)
     {
         $RoleListID =$this->group->getRoleListId();
@@ -224,7 +224,7 @@ foreach ($aGrp as $groupID) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-if ($iPDFOutputType == 1) {
+if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('ClassList'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
     $pdf->Output();
