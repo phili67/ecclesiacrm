@@ -142,7 +142,7 @@ function argumentsSundayschoolReportsArray ()
     // Get all the sunday school classes
     $groups = GroupQuery::create()
         ->orderByName(Criteria::ASC)
-        ->filterByType(4)
+        ->filterByType(4)// only sunday groups
         ->find();
 
 
@@ -154,11 +154,11 @@ function argumentsSundayschoolReportsArray ()
         $dNoSchool1   = InputUtils::LegacyFilterInput($_POST['NoSchool1'], 'date');
         $dNoSchool2   = InputUtils::LegacyFilterInput($_POST['NoSchool2'], 'date');
         $dNoSchool3   = InputUtils::LegacyFilterInput($_POST['NoSchool3'], 'date');
-        $dNoSchool4   = InputUtils::LegacyFilterInput($_POST['NoSchool4'], 'date');
-        $dNoSchool5   = InputUtils::LegacyFilterInput($_POST['NoSchool5'], 'date');
-        $dNoSchool6   = InputUtils::LegacyFilterInput($_POST['NoSchool6'], 'date');
-        $dNoSchool7   = InputUtils::LegacyFilterInput($_POST['NoSchool7'], 'date');
-        $dNoSchool8   = InputUtils::LegacyFilterInput($_POST['NoSchool8'], 'date');
+        $dNoSchool4     = InputUtils::LegacyFilterInput($_POST['NoSchool4'], 'date');
+        $dNoSchool5     = InputUtils::LegacyFilterInput($_POST['NoSchool5'], 'date');
+        $dNoSchool6     = InputUtils::LegacyFilterInput($_POST['NoSchool6'], 'date');
+        $dNoSchool7     = InputUtils::LegacyFilterInput($_POST['NoSchool7'], 'date');
+        $dNoSchool8     = InputUtils::LegacyFilterInput($_POST['NoSchool8'], 'date');
         $iExtraStudents = InputUtils::LegacyFilterInput($_POST['ExtraStudents'], 'int');
         $iExtraTeachers = InputUtils::LegacyFilterInput($_POST['ExtraTeachers'], 'int');
         $_SESSION['idefaultFY'] = $iFYID;
