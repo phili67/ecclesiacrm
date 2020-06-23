@@ -274,7 +274,7 @@ class MenuBar {
 
             $menuItem = new Menu (_("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
             $menuItem = new Menu (_("List Event Types"),"fa fa-circle-o","EventNames.php",SessionUser::getUser()->isAdmin(),$menu);
-            $menuItem = new Menu (_("Check-in and Check-out"),"fa fa-circle-o","Checkin.php",true,$menu);
+            $menuItem = new Menu (_("Call the Register"),"fa fa-circle-o","Checkin.php",true,$menu);
 
             $this->addMenu($menu);
         }
@@ -476,7 +476,7 @@ class MenuBar {
                 $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
             }
 
-            echo '<li class="nav-item">';
+            echo '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
             echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
                 echo " <i class=\"fa fa-angle-left right\"></i>\n";
