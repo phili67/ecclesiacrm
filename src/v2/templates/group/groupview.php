@@ -235,10 +235,13 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                     </div>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="col-sm-4"> <b><?= _('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>"> </div>
-                        <div class="col-sm-6"> <b><?= _('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>"></div>
-                    </form>
+                    <div class="row">
+                        <div class="col-md-6"> <b><?= _('Status') ?>:</b>
+                            <input data-width="150" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>">
+                        </div>
+                        <div class="col-md-6"> <b><?= _('Email export') ?>:</b>
+                            <input data-width="150" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>"></div>
+                    </div>
                 </div>
             </div>
         </div>
