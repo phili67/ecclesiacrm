@@ -136,14 +136,11 @@ if ($searchEventInActivEvent != null) {
         <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
         <?php
-            if ($bSundaySchool){
-                ?>
-                <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
-        <?php
-            }
-        ?>
-
-        <?php
+        }
+        if ($bSundaySchool){
+            ?>
+            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
+            <?php
         }
         ?>
     </div>
