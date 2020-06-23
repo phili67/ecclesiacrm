@@ -61,7 +61,13 @@ function qrcodeCallAttendees (Request $request, Response $response, array $args)
             ->findOne();
 
         if ( is_null($Event) ) {
-            return $response->withJson(['status' => "failed", 'person' => $person->getFullName(), 'group' => $group->getName()]);
+            $Event = EventQuery::create()
+                ->filterByGroupId((int)$requestValues->groupID)
+                ->findOneById($_SESSION['EventID']);
+
+            if (is_null($Event)) {
+                return $response->withJson(['status' => "failed", 'person' => $person->getFullName(), 'group' => $group->getName()]);
+            }
         }
 
         $eventAttent = EventAttendQuery::Create()
