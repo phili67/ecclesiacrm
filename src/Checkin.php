@@ -23,7 +23,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 
-$sPageTitle = _('Event Checkin');
+$sPageTitle = _('Call the Register');
 require 'Include/Header.php';
 
 use EcclesiaCRM\EventQuery;
