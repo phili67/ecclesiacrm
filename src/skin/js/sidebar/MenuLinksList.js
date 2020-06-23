@@ -140,16 +140,16 @@ $(document).ready(function () {
 
         if (len == 0) {
           $(".global_custom_menu").html('');
-          $(".global_custom_menu").append('<a href="' + window.CRM.root + '/MenuLinksList.php"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
+          $(".global_custom_menu").append('<a href="#"  class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
         } else {
           $(".global_custom_menu").html('');
-          $(".global_custom_menu").append('<a href="#"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
-          $(".global_custom_menu").append('<ul class="treeview-menu" style="display: block;"></ul>');
+          $(".global_custom_menu").append('<a href="#" class="nav-link active"><i class="fa fa-link"></i> <p>' + i18next.t("Global Custom Menus") + ' <i class="fa fa-angle-left right"></p></a>');
+          $(".global_custom_menu").append('<ul class="nav nav-treeview" style="display: block;">');
 
-          var list = $(".global_custom_menu").find('.treeview-menu');
+          var list = $(".global_custom_menu").find('.nav-treeview');
 
           for (i=0;i<len;i++) {
-            list.append('<li><a href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-circle-o"></i>' + data.MenuLinks[i].Name + '</a></li>');
+            list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-circle-o"></i> ' + data.MenuLinks[i].Name + '</a></li>');
           }
         }
 
@@ -157,10 +157,10 @@ $(document).ready(function () {
       });
     } else {
       // personal menu links
-      var list = $(".personal_custom_menu_"+window.CRM.personId).parent().find('.treeview-menu');
+      var list = $(".personal_custom_menu_"+window.CRM.personId).parent().find('.nav-treeview');
 
       list.empty()
-      list.append('<li class="active "><a href="' + window.CRM.root + '/MenuLinksList.php?personId=1"><i class="fa fa-circle-o"></i>' + i18next.t("Dashboard") + '</a></li>');
+      list.append('<li class="nav-item"><a class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php?personId=1"><i class="fa fa-circle-o"></i> ' + i18next.t("Dashboard") + '</a></li>');
 
       window.CRM.APIRequest({
         method: 'POST',
@@ -169,14 +169,13 @@ $(document).ready(function () {
         var len = data.MenuLinks.length;
 
         for (i=0;i<len;i++) {
-          list.append('<li><a href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-angle-double-right"></i>' + data.MenuLinks[i].Name + '</a></li>');
+          list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-angle-double-right"></i> ' + data.MenuLinks[i].Name + '</a></li>');
         }
 
         window.CRM.dataMenuLinkTable.ajax.reload();
       });
     }
   }
-
 
   $(document).on("click",".delete-menu-links", function(){
      var MenuLinkId = $(this).data("id");
