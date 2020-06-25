@@ -57,7 +57,7 @@ ON DUPLICATE KEY UPDATE evctnm_countname=VALUES(evctnm_countname),evctnm_notes=V
 DELETE FROM list_lst;
 
 INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Type`, `lst_OptionName`) VALUES
-  (1, 1, 1, 'normal', 'Zelle Referent'),
+  (1, 1, 1, 'normal', 'Referent'),
   (1, 2, 2, 'normal', 'Mitglieder'),
   (1, 3, 3, 'normal', 'Regelmäßigen Abständen'),
   (1, 4, 4, 'normal', 'Besucher'),
