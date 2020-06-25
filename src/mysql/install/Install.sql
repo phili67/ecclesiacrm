@@ -686,7 +686,7 @@ CREATE TABLE `list_lst` (
 --
 
 INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Type`, `lst_OptionName`) VALUES
-  (1, 1, 1, 'normal', 'Cell Manager'),
+  (1, 1, 1, 'normal', 'Manager'),
   (1, 2, 2, 'normal', 'Member'),
   (1, 3, 3, 'normal', 'Regular Attender'),
   (1, 4, 4, 'normal', 'Guest'),
