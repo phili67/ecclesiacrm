@@ -2,8 +2,8 @@
 
 /*******************************************************************************
  *
- *  filename    : PastoralCare.php
- *  last change : 2018-07-11
+ *  filename    : sidebare-pastoralecare.php
+ *  last change : 2020-06-24
  *  description : manage the Pastoral Care
  *
  *  http://www.ecclesiacrm.com/
@@ -26,6 +26,9 @@ use EcclesiaCRM\PastoralCareType;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Service\PastoralCareService;
+
 
 $app->group('/pastoralcare', function () {
 
@@ -44,6 +47,18 @@ $app->group('/pastoralcare', function () {
   $this->post('/family/delete', 'deletePastoralCareFamily' );
   $this->post('/family/getinfo', 'getPastoralCareInfoFamily' );
   $this->post('/family/modify', 'modifyPastoralCareFamily' );
+
+  $this->post('/members', 'pastoralcareMembersDashboard');
+  $this->post('/personNeverBeenContacted', 'personNeverBeenContacted');
+  $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted');
+  $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted');
+  $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted');
+
+  $this->post('/createRandomly', 'createRandomlyPastoralCare');
+
+  $this->post('/getPersonByClassification', 'getPersonByClassificationPastoralCare' );
+
+  $this->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
 
 });
 
@@ -225,7 +240,7 @@ function addPastoralCareFamily (Request $request, Response $response, array $arg
     $input = (object)$request->getParsedBody();
 
     if (isset ($input->typeID)  && isset ($input->familyID) && isset ($input->currentPastorId)
-        && isset ($input->visibilityStatus) && isset ($input->noteText)
+        && isset ($input->visibilityStatus) && isset ($input->noteText) && isset ($input->includeFamMembers)
         && SessionUser::getUser()->isPastoralCareEnabled() ){
         $pstCare = new PastoralCare();
 
@@ -247,6 +262,31 @@ function addPastoralCareFamily (Request $request, Response $response, array $arg
         $pstCare->setText($input->noteText);
 
         $pstCare->save();
+
+        // add the members too
+        if ($input->includeFamMembers) {
+            $persons = PersonQuery::Create()->findByFamId($input->familyID);
+            foreach ($persons as $person) {
+                $pstCare = new PastoralCare();
+
+                $pstCare->setTypeId($input->typeID);
+
+                $pstCare->setPersonId($person->getId());
+                $pstCare->setPastorId($input->currentPastorId);
+
+                if ($pastor != null) {
+                    $pstCare->setPastorName($pastor->getFullName());
+                }
+
+                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                $pstCare->setDate($date->format('Y-m-d H:i:s'));
+
+                $pstCare->setVisible($input->visibilityStatus);
+                $pstCare->setText($input->noteText);
+
+                $pstCare->save();
+            }
+        }
 
         return $response->withJson(['status' => "success"]);
 
@@ -316,6 +356,168 @@ function modifyPastoralCareFamily (Request $request, Response $response, array $
         $pstCare->save();
 
         return $response->withJson(['status' => "success"]);
+
+    }
+
+    return $response->withJson(['status' => "failed"]);
+}
+
+function pastoralcareMembersDashboard(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $users = UserQuery::create()
+        ->filterByPastoralCare(true)
+        ->filterByPersonId(SessionUser::getUser()->getPerson(), \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
+        ->usePersonQuery()
+        ->addAsColumn('PersonID', \EcclesiaCRM\Map\PersonTableMap::COL_PER_ID)
+        ->addAsColumn('LastName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_LASTNAME)
+        ->addAsColumn('FirstName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_FIRSTNAME)
+        ->endUse()
+        ->find();
+
+    if ( !is_null($users) ) {
+        return $response->withJson(["Pastors" => $users->toArray()]);
+    }
+
+    return null;
+}
+
+function personNeverBeenContacted(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $range = $pcs->getRange();
+
+    $members = $pcs->getPersonNeverBeenContacted($range['realDate']);
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["PersonNeverBeenContacted" => $members->toArray()]);
+    }
+
+    return null;
+}
+
+function familyNeverBeenContacted(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $range = $pcs->getRange();
+
+    $members = $pcs->getFamiliesNeverBeenContacted($range['realDate']);
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["FamilyNeverBeenContacted" => $members->toArray()]);
+    }
+
+    return null;
+}
+
+function retiredNeverBeenContacted(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $range = $pcs->getRange();
+
+    $members = $pcs->getRetiredNeverBeenContacted($range['realDate']);
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["RetiredNeverBeenContacted" => $members->toArray()]);
+    }
+
+    return null;
+}
+
+function youngNeverBeenContacted(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $range = $pcs->getRange();
+
+    $members = $pcs->getYoungNeverBeenContacted($range['realDate']);
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["YoungNeverBeenContacted" => $members->toArray()]);
+    }
+
+    return null;
+}
+
+function getPersonByClassificationPastoralCare(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $members = null;
+
+    if (!isset ($args['type']) || $args['type'] == '1') {
+        $members = $pcs->getPersonClassificationNotBeenReached();
+    } else {
+        $members = $pcs->getPersonClassificationNotBeenReached(true);
+    }
+
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["MembersClassicationsList" => $members]);
+    }
+}
+
+
+function createRandomlyPastoralCare (Request $request, Response $response, array $args) {
+    $input = (object)$request->getParsedBody();
+
+    if ( isset ($input->typeID) && SessionUser::getUser()->isPastoralCareEnabled() ){
+        $pcs = new PastoralCareService();
+        $range = $pcs->getRange();
+
+        switch ($input->typeID) {
+            case 1: // person
+                $person = $pcs->getPersonNeverBeenContacted($range['realDate'],true);
+
+                if ( !is_null($person) ) {
+                    return $response->withJson(['status' => "success", "personID" => $person->getId()]);
+                }
+                break;
+            case 2: // family
+                $family = $pcs->getFamiliesNeverBeenContacted($range['realDate'],true);
+
+                if ( !is_null($family) ) {
+                    return $response->withJson(['status' => "success", "familyID" => $family->getId()]);
+                }
+
+                break;
+            case 3: // old person
+                $person = $pcs->getRetiredNeverBeenContacted($range['realDate'],true);
+
+                if ( !is_null($person) ) {
+                    return $response->withJson(['status' => "success", "personID" => $person->getId()]);
+                }
+                break;
+            case 4: // young person
+                $person = $pcs->getYoungNeverBeenContacted($range['realDate'],true);
+
+                if ( !is_null($person) ) {
+                    return $response->withJson(['status' => "success", "personID" => $person->getId()]);
+                }
+                break;
+        }
+
+        return $response->withJson(['status' => "failed"]);
 
     }
 

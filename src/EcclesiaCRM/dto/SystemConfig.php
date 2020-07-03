@@ -261,6 +261,7 @@ class SystemConfig
         "bSearchIncludePledges" => new ConfigItem(2082, "bSearchIncludePledges", "boolean", "0", _("Search Pledges")),
         "iSearchIncludePledgesMax" => new ConfigItem(2083, "bSearchIncludePledgesMax", "number", "5", _("Maximum number of Pledges results")),
         "bSearchFinancesGDPR" => new ConfigItem(2084, "bSearchFinancesGDPR", "boolean", "1", _("Allow to get the name in the search sequence in case of pledges and deposits")),
+        "sPastoralcarePeriod" => new ConfigItem(2085, "sPastoralcarePeriod", "choice", "Yearly", _("'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 days to now, 'Yearly 2' : from september to september.") , "", '{"Choices":["Yearly 1", "Yearly 2", "365"]}')
       );
   }
 
@@ -282,7 +283,8 @@ class SystemConfig
       _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate", "bSearchFinancesGDPR"],
       _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
       _('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDashboardPageServiceIntervalTime"],
-      _('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
+      _('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"],
+      _('Pastoral Care') => ["sPastoralcarePeriod"]
     );
   }
 

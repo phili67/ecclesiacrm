@@ -1,11 +1,11 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : pastoralcareperson.php
+ *  filename    : pastoralcarefamily.php
  *  last change : 2020-01-03
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorization
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
 
@@ -14,10 +14,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
 
-
 require $sRootDocument . '/Include/Header.php';
 ?>
-
 
 <?php
 if ($ormPastoralCares->count() == 0) {
@@ -59,13 +57,14 @@ if ($ormPastoralCares->count() == 0) {
                 }
                 ?>
             </div>
+            &nbsp;
+            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?>
+            </a>
         </div>
-        <a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCarePerson.php?PersonID=<?= $currentPersonID ?>"><i
-                class="fa fa-print"></i> <?= _("Printable Page") ?></a>
-        <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+        <!--<a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCare.php?PersonID=<?= $currentFamilyID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>-->
 
         <div class="btn-group pull-right">
-            <a class="btn btn-app filterByPastor" data-personid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
+            <a class="btn btn-app filterByPastor" data-familyID="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
                     class="fa fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
@@ -77,7 +76,7 @@ if ($ormPastoralCares->count() == 0) {
                 foreach ($ormPastors as $ormPastor) {
                     ?>
                     <a class="dropdown-item filterByPastor"
-                           data-pastorid="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a>
+                           data-pastorId="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a>
                     <?php
                 }
                 ?>
@@ -107,9 +106,8 @@ if ($ormPastoralCares->count() > 0) {
             <div class="item-<?= $ormPastoralCare->getPastorId() ?> all-items">
                 <i class="fa fa-clock-o bg-blue"></i>
                 <div class="timeline-item">
-      <span class="time">
-          <i class="fa fa-clock-o"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?>
-      </span>
+                    <span class="time"><i
+                            class="fa fa-clock-o"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?></span>
 
                     <h3 class="timeline-header">
                         <b><?= $ormPastoralCare->getPastoralCareType()->getTitle() . "</b>  : " ?><a
@@ -157,10 +155,16 @@ if ($ormPastoralCares->count() > 0) {
 }
 ?>
 
-<center>
-    <input type="button" class="btn btn-success" value="<?= _('Return') ?>" name="Cancel"
-           onclick="javascript:document.location='<?= $sRootPath . '/PersonView.php?PersonID=' . $currentPersonID ?>';">
-</center>
+<div class="text-center">
+    <input type="button" class="btn btn-success" value="<?= _('Return to Family View') ?>" name="Cancel"
+           onclick="javascript:document.location='<?= $sRootPath . '/FamilyView.php?FamilyID=' . $currentFamilyID ?>';">
+
+    <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Dashboard') ?>" name="Cancel"
+           onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/dashboard';">
+
+    <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Members List') ?>" name="Cancel"
+           onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
+</div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
@@ -174,7 +178,7 @@ if ($ormPastoralCares->count() > 0) {
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= $sCSPNonce ?>">
-    var currentPersonID = <?= $currentPersonID ?>;
+    var currentFamilyID = <?= $currentFamilyID ?>;
     var currentPastorId = <?= $currentPastorId ?>;
     var sPageTitle = '<?= $sPageTitle ?>';
 
@@ -184,7 +188,7 @@ if ($ormPastoralCares->count() > 0) {
     window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
-<script src="<?= $sRootPath ?>/skin/js/people/PastoralCarePerson.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/pastoralcare/PastoralCareFamily.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
 
 <?php

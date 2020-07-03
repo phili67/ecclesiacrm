@@ -21,17 +21,58 @@ use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Service\PastoralCareService;
+use EcclesiaCRM\ListOptionQuery;
 
 use Slim\Views\PhpRenderer;
 
 $app->group('/pastoralcare', function () {
     $this->get('/person/{personId:[0-9]+}', 'renderPastoralCarePerson');
     $this->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily');
+    $this->get('/dashboard', 'renderPastoralCareDashboard');
+    $this->get('/membersList', 'renderPastoralCareMembersList');
 });
+
+function renderPastoralCareDashboard (Request $request, Response $response, array $args) {
+    $renderer = new PhpRenderer('templates/pastoralcare/');
+
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+    }
+
+    return $renderer->render($response, 'pastoralcaredashboard.php', argumentsPastoralDashboardArray());
+}
+
+
+function argumentsPastoralDashboardArray ()
+{
+    $currentPastorId = SessionUser::getUser()->getPerson()->getID();
+
+    $sPageTitle = _("Pastoral care Dashboard");
+
+    $sRootDocument   = SystemURLs::getDocumentRoot();
+    $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
+    $sCSPNonce       = SystemURLs::getCSPNonce();
+
+    $pastoralService = new PastoralCareService();
+
+    $pastoralServiceStats = $pastoralService->stats();
+
+
+    $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
+        'sRootDocument'        => $sRootDocument,
+        'sPageTitle'           => $sPageTitle,
+        'currentPastorId'      => $currentPastorId,
+        'sDateFormatLong'      => $sDateFormatLong,
+        'sCSPNonce'            => $sCSPNonce,
+        'Stats'                => $pastoralServiceStats
+    ];
+    return $paramsArguments;
+}
 
 
 function renderPastoralCarePerson (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/people/');
+    $renderer = new PhpRenderer('templates/pastoralcare/');
 
     $personId = $args['personId'];
 
@@ -85,7 +126,7 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
 }
 
 function renderPastoralCareFamily (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/people/');
+    $renderer = new PhpRenderer('templates/pastoralcare/');
 
     $familyId = $args['familyId'];
 
@@ -135,5 +176,50 @@ function argumentsPastoralFamilyListArray ($currentFamilyID=0)
         'sDateFormatLong'      => $sDateFormatLong,
         'sCSPNonce'            => $sCSPNonce
     ];
+    return $paramsArguments;
+}
+
+
+
+
+function renderPastoralCareMembersList (Request $request, Response $response, array $args) {
+    $renderer = new PhpRenderer('templates/pastoralcare/');
+
+
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+    }
+
+    return $renderer->render($response, 'pastoralcareMembersList.php', argumentsPastoralCareMembersListListArray());
+}
+
+function argumentsPastoralCareMembersListListArray ()
+{
+    $currentPastorId = SessionUser::getUser()->getPerson()->getID();
+
+    $ormPastoralTypeCares = PastoralCareTypeQuery::Create()
+        ->find();
+
+    //Get name
+    $sPageTitle = _("Pastoral care members list by classification");
+
+    $sRootDocument   = SystemURLs::getDocumentRoot();
+    $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
+    $sCSPNonce       = SystemURLs::getCSPNonce();
+
+    $memberTypes     = ListOptionQuery::create()
+        ->orderByOptionName()
+        ->findById(1);
+
+    $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
+        'sRootDocument'        => $sRootDocument,
+        'sPageTitle'           => $sPageTitle,
+        'currentPastorId'      => $currentPastorId,
+        'ormPastoralTypeCares' => $ormPastoralTypeCares,
+        'sDateFormatLong'      => $sDateFormatLong,
+        'aMemberTypes'         => $memberTypes->toArray(),
+        'sCSPNonce'            => $sCSPNonce
+    ];
+
     return $paramsArguments;
 }

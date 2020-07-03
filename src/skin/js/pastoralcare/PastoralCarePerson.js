@@ -186,14 +186,14 @@ $(document).ready(function () {
        size: 'large',
        buttons: [
         {
-         label: i18next.t("Close"),
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
          className: "btn btn-default",
          callback: function() {
             console.log("just do something on close");
          }
         },
         {
-         label: i18next.t("Save"),
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
          className: "btn btn-primary",
          callback: function() {
             var visibilityStatus  = $('input[name="visibilityStatus"]:checked').val();

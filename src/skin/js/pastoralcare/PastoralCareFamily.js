@@ -168,6 +168,14 @@ $(document).ready(function () {
             +'<input type="radio" name="visibilityStatus" value="0" '+((!visible)?' checked':'')+'/> '+i18next.t("Hide")
           +'</div>'
         +'</div>'
+        +'<div class="row  div-title">'
+            +'<div class="col-md-6">'
+                +'<span style="color: red">*</span>'+i18next.t("Include all the family members")
+            +'</div>'
+            +'<div class="col-md-6">'
+                +'<input type="checkbox" id="includeFamilyMembers" name=""/> '+i18next.t("Include")
+            +'</div>'
+        +'</div>'
      +'</form>';
 
     var object = $('<div/>').html(frm_str).contents();
@@ -186,24 +194,25 @@ $(document).ready(function () {
        size: 'large',
        buttons: [
         {
-         label: i18next.t("Close"),
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
          className: "btn btn-default",
          callback: function() {
             console.log("just do something on close");
          }
         },
         {
-         label: i18next.t("Save"),
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
          className: "btn btn-primary",
          callback: function() {
             var visibilityStatus  = $('input[name="visibilityStatus"]:checked').val();
             var NoteText          = CKEDITOR.instances['NoteText'].getData();//$('form #NoteText').val();
+            var includeFamMembers = $('#includeFamilyMembers').is(":checked");
 
             if (id == -1) {
               window.CRM.APIRequest({
                   method: 'POST',
                   path: 'pastoralcare/family/add',
-                  data: JSON.stringify({"typeID":typeID,"familyID":currentFamilyID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText})
+                  data: JSON.stringify({"typeID":typeID,"familyID":currentFamilyID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText, "includeFamMembers": includeFamMembers})
               }).done(function(data) {
                  location.reload();
                  return true;
