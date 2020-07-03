@@ -63,9 +63,11 @@ require __DIR__ . '/routes/sidebar/kioskmanager.php';
 
 // people
 require __DIR__ . '/routes/people/people.php';
-require __DIR__ . '/routes/people/pastoralcare.php';
 require __DIR__ . '/routes/people/familylist.php';
 require __DIR__ . '/routes/people/personlist.php';
+
+// pastoralcare
+require __DIR__ . '/routes/pastoralcare/pastoralcare.php';
 
 require __DIR__ . '/routes/group/groups.php';
 
