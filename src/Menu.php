@@ -30,6 +30,7 @@ use EcclesiaCRM\Map\PastoralCareTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Service\PastoralCareService;
 
 
 // we place this part to avoid a problem during the upgrade process
@@ -236,10 +237,10 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
     if (!empty($classified)) {
         ?>
-        <h4 class="alert-heading"><?= _("Birthdates of the day") ?></h4>
-            <?php
-            echo $classified;
-            ?>
+        <h5 class="alert-heading"><i class="fa fa-birthday-cake"></i> <?= _("Birthdates of the day") ?></h5>
+        <?php
+        echo $classified;
+        ?>
         <?php
     } ?>
 
@@ -250,7 +251,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             <?php
         } ?>
 
-        <h4 class="alert-heading"><?= _("Anniversaries of the day") ?></h4>
+        <h5 class="alert-heading"><i class="fa fa-birthday-cake"></i> <?= _("Anniversaries of the day") ?></h5>
 
         <?php
         $new_row = false;
@@ -297,7 +298,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             <?php
         } ?>
 
-        <h4 class="alert-heading"><?= _("Unclassified birthdates") ?></h4>
+        <h5 class="alert-heading"><?= _("Unclassified birthdates") ?></h5>
         <div class="row">
 
             <?php
@@ -314,33 +315,45 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
 // The person can see the pastoral care
 if (SessionUser::getUser()->isPastoralCareEnabled()) {
-    $caresPersons = PastoralCareQuery::Create()
-        ->filterByPersonId(null, Criteria::NOT_EQUAL)
-        ->leftJoinPastoralCareType()
-        ->joinPersonRelatedByPersonId()
-        ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
-        ->orderByDate(Criteria::DESC)
-        ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"))
-        ->findByPastorId(SessionUser::getUser()->getPerson()->getId());
 
-    $caresFamilies = PastoralCareQuery::Create()
-        ->filterByFamilyId(null, Criteria::NOT_EQUAL)
-        ->leftJoinPastoralCareType()
-        ->joinWithFamily()
-        ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
-        ->orderByDate(Criteria::DESC)
-        ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"))
-        ->findByPastorId(SessionUser::getUser()->getPerson()->getId());
+// Persons and Families never been searched
 
-    if ($caresPersons->count() > 0 || $caresFamilies->count() > 0) {
-        ?>
-        <div class="alert alert-pastoral-care alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <?php
-        if ($caresPersons->count() > 0) {
-            ?>
-            <h4 class="alert-heading"><?= _("Individual Pastoral Care") ?></h4>
+$pastoralService = new PastoralCareService();
+
+/*
+ *  get all the stats of the pastoral care service
+ */
+
+$pastoralServiceStats = $pastoralService->stats();
+
+
+/*
+ *  last pastoralcare search persons for the current system user
+ */
+
+$caresPersons = $pastoralService->lastContactedPersons();
+
+/*
+ *  last pastoralcare search families for the current system user
+ */
+
+$caresFamilies = $pastoralService->lastContactedFamilies();
+
+/*
+ * Now we can draw the view
+ */
+
+?>
+<div class="alert <?= $pastoralServiceStats['PastoralcareAlertType'] ?> alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <div class="row">
+        <div class="col-md-9">
             <?php
+            ?>
+            <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i class="fa fa-user"></i> <?= _("Last")." "._("Individual Pastoral Care") ?></h5>
+            <?php
+            if ($caresPersons->count() > 0) {
+
 
             $count_care = 0;
             $new_row = false;
@@ -379,77 +392,103 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             }
 
             if ($new_row == true) {
-                ?>
-                </div>
-                <?php
-            }
             ?>
-
-            <?php
+        </div>
+        <?php
         }
-
-
-        if ($caresFamilies->count() > 0) {
-            if ($caresPersons->count() > 0) {
+        } else {
                 ?>
-                <hr style="background-color: #7c633e; height: 1px; border: 0;">
+                <p><?= _("None") ?></p>
                 <?php
-            }
-            ?>
-            <h4 class="alert-heading"><?= _("Family Pastoral Care") ?></h4>
-            <?php
-            $count_care = 0;
-            $new_row = false;
-
-            foreach ($caresFamilies as $care) {
-                if (is_null($care->getFamily())) {
-                    continue;
-                }
-                if ($new_row == false) {
-                    ?>
-                    <div class="row">
-
-                    <?php $new_row = true;
-                } ?>
-
-                <div class="col-sm-3">
-                    <label class="checkbox-inline">
-                        <a href="<?= SystemURLs::getRootPath() . "/v2/pastoralcare/family/" . $care->getFamilyId() ?>"
-                           class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getFamily()->getName() ?>
-                            (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong')) ?>)</a>
-                    </label>
-                </div>
-
-                <?php
-                $count_care += 1;
-                $count_care %= 4;
-                if ($count_care == 0) {
-                    ?>
-                    </div>
-                    <?php
-                    $new_row = false;
-                }
-                ?>
-                <?php
-            }
-
-            if ($new_row == true) {
-                ?>
-                </div>
-                <?php
-            }
-            ?>
-
-            <?php
         }
 
         ?>
-        </div>
+        <hr style="background-color: #7c633e; height: 1px; border: 0;">
 
+        <h5 class="alert-heading"><i class="fa fa-heartbeat"></i>  <i class="fa fa-male" style="right: 124px"></i>
+            <i class="fa fa-female" style="right: 67px"></i>
+            <i class="fa fa-child"></i> <?= _("Last")." "._("Family Pastoral Care") ?></h5>
+        <?php
+        if ($caresFamilies->count() > 0) {
+        $count_care = 0;
+        $new_row = false;
+
+        foreach ($caresFamilies as $care) {
+            if (is_null($care->getFamily())) {
+                continue;
+            }
+            if ($new_row == false) {
+                ?>
+                <div class="row">
+
+                <?php $new_row = true;
+            } ?>
+
+            <div class="col-sm-3">
+                <label class="checkbox-inline">
+                    <a href="<?= SystemURLs::getRootPath() . "/v2/pastoralcare/family/" . $care->getFamilyId() ?>"
+                       class="btn btn-link-menu" style="text-decoration: none;"><?= _("Family") ?> : <?= $care->getFamily()->getName() ?>
+                        (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong')) ?>)</a>
+                </label>
+            </div>
+
+            <?php
+            $count_care += 1;
+            $count_care %= 4;
+            if ($count_care == 0) {
+                ?>
+                </div>
+                <?php
+                $new_row = false;
+            }
+            ?>
+            <?php
+        }
+
+        if ($new_row == true) {
+        ?>
+    </div>
+    <?php
+    }
+    } else {
+            ?>
+        <p><?= _("None") ?></p>
         <?php
     }
-}
-?>
+    ?>
+
+    <?php
+    }
+    ?>
+</div>
+<div class="col-md-3">
+    <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <?= _("Statistics") ?></h5>
+    <label><?= _("Period  from") . " : " . $pastoralServiceStats['startPeriod'] . " " . _("to") . " " . $pastoralServiceStats['endPeriod'] ?></label>
+    <br/>
+    <?= _("Members") ?>
+    <ul>
+        <li>
+            <b><?= $pastoralServiceStats['CountNotViewPersons'] ?></b> : <?= _("Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentNotViewPersons'] ?> %</b>).
+        </li>
+        <li>
+            <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?> (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
+        </li>
+        <li>
+            <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b>  : <?= _("Retired Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
+        </li>
+    </ul>
+    <?= _("Young Members") ?>
+    <ul>
+        <li>
+            <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b>  : <?= _("Young Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewYoung'] ?> %</b>).
+        </li>
+    </ul>
+    <p class="text-center">
+        <a class="btn btn-default align-center" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/dashboard" style="color:black"><?= _("Manage Pastoral Care") ?></a>
+    </p>
+</div>
+</div>
+</div>
 
 
 <!-- Small boxes (Stat box) -->
@@ -466,7 +505,8 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
+                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i
+                    class="fa fa-child"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="small-box-footer">
                 <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
@@ -545,7 +585,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card card-primary card-outline">
                 <div class="card-header">
-                    <h3 class="card-title"><i class="fa fa-money" style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
+                    <h3 class="card-title"><i class="fa fa-money"
+                                              style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
                     <div class="card-tools pull-right">
                         <div id="deposit-graph" class="chart-legend"></div>
                     </div>
@@ -564,7 +605,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i class="fa fa-plus"></i> <?= _('Latest Families') ?>
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i
+                        class="fa fa-plus"></i> <?= _('Latest Families') ?>
                 </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
@@ -592,7 +634,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
+                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i
+                        class="fa fa-check"></i> <?= _('Updated Families') ?></h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -631,7 +674,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
             </div>
             <!-- /.box-header -->
             <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="latestPersonsDashboardItem" width="100%">
+                <table class=" dataTable table table-striped table-condensed" id="latestPersonsDashboardItem"
+                       width="100%">
                     <thead>
                     <tr>
                         <th data-field="lastname"><?= _('Name') ?></th>
@@ -649,7 +693,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header  border-0">
-                <h3 class="card-title"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?></h3>
+                <h3 class="card-title"><i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?>
+                </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -659,7 +704,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
             </div>
             <!-- /.box-header -->
             <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="updatedPersonsDashboardItem" width="100%">
+                <table class=" dataTable table table-striped table-condensed" id="updatedPersonsDashboardItem"
+                       width="100%">
                     <thead>
                     <tr>
                         <th data-field="lastname"><?= _('Name') ?></th>
