@@ -72,11 +72,13 @@ require __DIR__.'/routes/public/public-register.php';
 // system sidebar routes
 require __DIR__.'/routes/sidebar/sidebar-mapicons.php';
 require __DIR__.'/routes/sidebar/sidebar-menulinks.php';
-require __DIR__.'/routes/sidebar/sidebar-pastoralcare.php';
 require __DIR__.'/routes/sidebar/sidebar-properties.php';
 require __DIR__.'/routes/sidebar/sidebar-roles.php';
 require __DIR__.'/routes/sidebar/sidebar-general-roles.php';
 require __DIR__.'/routes/sidebar/sidebar-volunteeropportunity.php';
+
+// pastoral care
+require __DIR__.'/routes/pastoralcare/pastoralcare.php';
 
 // system routes
 require __DIR__.'/routes/system/system.php';
