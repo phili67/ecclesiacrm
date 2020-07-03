@@ -16,6 +16,12 @@ $logger->info("Start to delete : all unusefull files");
 unlink(SystemURLs::getDocumentRoot()."/KioskManager.php");
 unlink(SystemURLs::getDocumentRoot()."/v2/templates/sundayschool/sundayschoolbadge.php");
 unlink(SystemURLs::getDocumentRoot()."/Reports/PDFBadgeSundaySchool.php");
+unlink(SystemURLs::getDocumentRoot()."/v2/routes/people/pastoralcare.php");
+unlink(SystemURLs::getDocumentRoot()."/v2/templates/people/pastoralcarefamily.php");
+unlink(SystemURLs::getDocumentRoot()."/v2/templates/people/pastoralcareperson.php");
+unlink(SystemURLs::getDocumentRoot()."skin/js/people/PastoralCareFamily.js");
+unlink(SystemURLs::getDocumentRoot()."skin/js/people/PastoralCarePerson.js");
+unlink(SystemURLs::getDocumentRoot()."api/routes/sidebar/sidebar-pastoralcare.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
