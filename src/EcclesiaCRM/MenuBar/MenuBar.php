@@ -221,6 +221,14 @@ class MenuBar {
         }
     }
 
+    private function addPastoralCare() {
+        $menu = new Menu (_("Pastoral Care"),"fa fa-heartbeat","#",true,null,"pastoralcare_menu");
+        $menuItem1 = new Menu (_("Dashboard"),"fa fa-circle-o","v2/pastoralcare/dashboard",true,$menu);
+        $menuItem1 = new Menu (_("By Classifications"),"fa fa-circle-o","v2/pastoralcare/membersList",true,$menu);
+
+        $this->addMenu($menu);
+    }
+
     private function createMenuBar ()
     {
 
@@ -320,6 +328,10 @@ class MenuBar {
         }
 
         $this->addMenu($menu);
+
+        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+            $this->addPastoralCare();
+        }
 
         // we add the groups
         $this->addGroups();
