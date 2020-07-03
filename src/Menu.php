@@ -484,7 +484,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
         </li>
     </ul>
     <p class="text-center">
-        <a class="btn btn-default align-center" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/dashboard" style="color:black"><?= _("Manage Pastoral Care") ?></a>
+        <a class="btn btn-default align-center" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/dashboard" style="color:black;text-decoration: none"><?= _("Manage Pastoral Care") ?></a>
     </p>
 </div>
 </div>
