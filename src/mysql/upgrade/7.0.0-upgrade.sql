@@ -59,7 +59,6 @@ INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`, `usrrol_global`, `usr
 
 
 -- new meeting table
-
 CREATE TABLE `personmeeting_pm` (
     `pm_ID` mediumint(9) NOT NULL auto_increment,
     `pm_person_id` mediumint(9) unsigned NULL,
@@ -73,14 +72,14 @@ CREATE TABLE `personmeeting_pm` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
-
-CREATE TABLE `lastpersonmeeting_lpm` (
-     `lpm_ID` mediumint(9) NOT NULL auto_increment,
-     `lpm_personmeeting_pm_id` mediumint(9) NOT NULL,
-     PRIMARY KEY  (`lpm_ID`),
-     UNIQUE KEY `lpm_ID` (`lpm_ID`),
-     CONSTRAINT fk_lpm_personmeeting_pm_id
-         FOREIGN KEY (lpm_personmeeting_pm_id) REFERENCES personmeeting_pm(pm_ID)
+CREATE TABLE `personlastmeeting_plm` (
+     `plm_ID` mediumint(9) NOT NULL auto_increment,
+     `plm_person_id` mediumint(9) NOT NULL,
+     `plm_personmeeting_pm_id` mediumint(9) NOT NULL,
+     PRIMARY KEY  (`plm_ID`),
+     UNIQUE KEY `plm_ID` (`plm_ID`),
+     CONSTRAINT fk_plm_personmeeting_pm_id
+         FOREIGN KEY (plm_personmeeting_pm_id) REFERENCES personmeeting_pm(pm_ID)
              ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
