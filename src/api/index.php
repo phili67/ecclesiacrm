@@ -102,5 +102,8 @@ require __DIR__.'/routes/mailchimp.php';
 require __DIR__.'/routes/search.php';
 require __DIR__.'/routes/sundayschool.php';
 
+// meeting route
+require __DIR__.'/routes/meeting/meeting.php';
+
 // Run app
 $app->run();

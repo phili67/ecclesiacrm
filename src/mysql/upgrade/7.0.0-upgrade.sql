@@ -58,5 +58,30 @@ INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`, `usrrol_global`, `usr
 (5, 'User DPO', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;EDrive:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:0;QueryMenu:0;CanSendEmail:1;ExportCSV:1;CreateDirectory:1;ExportSundaySchoolPDF:1;ExportSundaySchoolCSV:1;MainDashboard:1;SeePrivacyData:1;MailChimp:1;GdrpDpo:1;PastoralCare:0', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;sCSVExportDelemiter:TRUE;sCSVExportCharset:TRUE;sMapExternalProvider:TRUE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE;sStyleFontSize:TRUE;sStyleSideBar:TRUE;sStyleSideBarColor:TRUE;sStyleNavBarColor:TRUE;sStyleBrandLinkColor:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bUSAddressVerification:1;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;sMapExternalProvider:GoogleMaps;bSidebarExpandOnHover:1;bSidebarCollapse:1;sStyleFontSize:Small;sStyleSideBar:dark;sStyleSideBarColor:blue;sStyleNavBarColor:gray;sStyleBrandLinkColor:gray');
 
 
+-- new meeting table
+CREATE TABLE `personmeeting_pm` (
+    `pm_ID` mediumint(9) NOT NULL auto_increment,
+    `pm_person_id` mediumint(9) unsigned NULL,
+    `pm_code` varchar(255) NOT NULL default '',
+    `pm_cr_date` datetime default NULL,
+    PRIMARY KEY  (`pm_ID`),
+    UNIQUE KEY `pm_ID` (`pm_ID`),
+    CONSTRAINT fk_pm_person_id
+        FOREIGN KEY (pm_person_id) REFERENCES person_per(per_ID)
+            ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE `personlastmeeting_plm` (
+     `plm_ID` mediumint(9) NOT NULL auto_increment,
+     `plm_person_id` mediumint(9) NOT NULL,
+     `plm_personmeeting_pm_id` mediumint(9) NOT NULL,
+     PRIMARY KEY  (`plm_ID`),
+     UNIQUE KEY `plm_ID` (`plm_ID`),
+     CONSTRAINT fk_plm_personmeeting_pm_id
+         FOREIGN KEY (plm_personmeeting_pm_id) REFERENCES personmeeting_pm(pm_ID)
+             ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
 
 

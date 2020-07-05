@@ -229,6 +229,14 @@ class MenuBar {
         $this->addMenu($menu);
     }
 
+    private function addMeeting() {
+        $menu = new Menu (_("Meetings"),"fa fa-video-camera","v2/meeting/dashboard",true);
+
+        $this->addMenu($menu);
+    }
+
+
+
     private function createMenuBar ()
     {
 
@@ -270,9 +278,9 @@ class MenuBar {
         if (SystemConfig::getBooleanValue("bEnabledEvents")) {
             $menu = new Menu (_("Events")."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;","fa fa-ticket pull-right&quot;","",true);
             // add the badges
-            $menu->addBadge('badge bg-blue pull-right','AnniversaryNumber',0);// badge à la place de label
-            $menu->addBadge('badge bg-red pull-right','BirthdateNumber',0);
-            $menu->addBadge('badge bg-yellow pull-right','EventsNumber',0);
+            $menu->addBadge('badge badge-warning','EventsNumber',0);
+            $menu->addBadge('badge badge-danger','BirthdateNumber',0);
+            $menu->addBadge('badge badge-primary','AnniversaryNumber',0);// badge à la place de label
 
             $menuItem = new Menu (_("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","v2/calendar",true,$menu);
 
@@ -328,6 +336,8 @@ class MenuBar {
         }
 
         $this->addMenu($menu);
+
+        $this->addMeeting();
 
         if (SessionUser::getUser()->isPastoralCareEnabled()) {
             $this->addPastoralCare();
@@ -393,16 +403,17 @@ class MenuBar {
             }
 
             //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'._("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
-            $menu->addBadge('badge pull-right bg-green count-deposit','',$numberDeposit);
             if (!empty($deposit)) {
-                $menu->addBadge('badge pull-right bg-blue current-deposit','',_("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
+                $menu->addBadge('badge badge-primary current-deposit','',_("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
             }
+            $menu->addBadge('badge badge-success  count-deposit','',$numberDeposit);
+
 
             $menuItem = new Menu (_("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
             $menuItem = new Menu (_("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
             $menuItem = new Menu (_("Electronic Payment Listing"),"fa fa-circle-o","ElectronicPaymentList.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
             $menuItem = new Menu (_("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
-            $menuItem = new Menu (_("Edit Deposit Slip").'   : &nbsp;&nbsp;<small class="badge right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],SessionUser::getUser()->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
+            $menuItem = new Menu (_("Edit Deposit Slip").'   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],SessionUser::getUser()->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
 
             $this->addMenu($menu);
         }
@@ -491,7 +502,7 @@ class MenuBar {
             echo '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
             echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
-                echo " <i class=\"fa fa-angle-left right\"></i>\n";
+                echo '<i class="fa fa-angle-left right"></i>';
             }
 
             echo "</a>\n";
@@ -522,15 +533,15 @@ class MenuBar {
                 echo '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
                 echo " ".$menu->getIcon()."\n";
                 echo " <p>"._($menu->getTitle());
-                echo " <i class=\"fa fa-angle-left right\"></i>\n"."\n";
+                echo ' <i class="fa fa-angle-left right"></i>'."\n";
                 if (count($menu->getBadges()) > 0) {
                     foreach ($menu->getBadges() as $badge) {
                         if ($badge['id'] != ''){
-                            echo "<small class=\"".$badge['class']."\" id=\"".$badge['id']."\">".$badge['value']."</small>\n";
+                            echo "<span class=\"".$badge['class']."\" id=\"".$badge['id']."\">".$badge['value']."</span>\n";
                         } else if ($badge['data-id'] != ''){
-                            echo "<small class=\"".$badge['class']."\" data-id=\"".$badge['data-id']."\">".$badge['value']."</small>\n";
+                            echo "<span class=\"".$badge['class']."\" data-id=\"".$badge['data-id']."\">".$badge['value']."</span>\n";
                         } else {
-                            echo "<small class=\"".$badge['class']."\">".$badge['value']."</small>\n";
+                            echo "<span class=\"".$badge['class']."\">".$badge['value']."</span>\n";
                         }
                     }
                 }
