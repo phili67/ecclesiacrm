@@ -13,6 +13,9 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+use EcclesiaCRM\PersonMeetingQuery;
+use EcclesiaCRM\PersonLastMeetingQuery;
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 
@@ -40,13 +43,26 @@ function argumentsMeetingArray ()
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sCSPNonce       = SystemURLs::getCSPNonce();
 
-    $roomName = '';//'Seconde4Test';//CousSNT2029
+    $personId = SessionUser::getUser()->getPersonId();
+
+    $lpm = PersonLastMeetingQuery::create()->findOneByPersonId($personId);
+
+    $roomName = '';
+
+    if (!is_null($lpm)) {
+        $pm = PersonMeetingQuery::create()->findOneById($lpm->getPersonMeetingId());
+
+        $roomName = $pm->getCode();
+    }
+
+    $allRooms = PersonMeetingQuery::create()->findByPersonId($personId);
 
     $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
         'sRootDocument'        => $sRootDocument,
         'sPageTitle'           => $sPageTitle,
         'sCSPNonce'            => $sCSPNonce,
-        'roomName'             => $roomName
+        'roomName'             => $roomName,
+        'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null
     ];
     return $paramsArguments;
 }

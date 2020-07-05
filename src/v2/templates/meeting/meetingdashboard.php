@@ -27,11 +27,16 @@ require $sRootDocument . '/Include/Header.php';
                 <span class="sr-only">Menu déroulant</span>
             </button>
             <div class="dropdown-menu" role="menu">
-                <a class="dropdown-item selectRoom" data-room="1"><?= _("Person") ?></a>
-                <a class="dropdown-item selectRoom" data-room="2"><?= _("Family") ?></a>
-                <a class="dropdown-item selectRoom" data-room="3"><?= _("Retired") ?></a>
-                <a class="dropdown-item selectRoom" data-room="4"><?= _("Young") ?></a>
+                <?php foreach ($allRooms as $room) { ?>
+                    <a class="dropdown-item selectRoom" data-roomid="<?= $room['Id'] ?>">
+                        (<?= (new DateTime($room['CreationDate']))->format(SystemConfig::getValue('sDateFormatLong')) ?>)
+                        <?= $room['Code'] ?>
+                        </a>
+                <?php } ?>
             </div>
+            &nbsp;
+            <a class="btn btn-app bg-danger" id="delete-all-rooms"><i class="fa fa-calendar-plus-o"></i><?= _("Delete all Rooms") ?>
+            </a>
             &nbsp;
             <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?>
             </a>
@@ -44,10 +49,20 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div
-                    class="card-title"><?= _("Create Your Room Name below, Share it and Use it") ?></div>
+                    class="card-title"><?= _("Room Name") ?> : <?= $roomName ?>
+                </div>
+                <div style="float:right"><a href="https://jitsi.org/" target="_blank">
+                        <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="25/"></a>
+                </div>
             </div>
             <div class="card-body">
                 <div id="meetingIframe" style="width:100%;height:600px">
+                    <?php if ($roomName == '') { ?>
+                        <div class="text-center">
+                            <img src="<?= $sRootPath ?>/Images/jitsi_logo.png" height="85/"><br/>
+                            <label> <?= _("First create a Jitsi room with the button above !") ?></label>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -69,6 +84,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <script nonce="<?= $sCSPNonce ?>">
+    <?php if ($roomName != '') { ?>
     // jitsi code
     const domain = '<?= SystemConfig::getValue("sJitsiDomain") ?>';
     const options = {
@@ -79,6 +95,7 @@ require $sRootDocument . '/Include/Header.php';
     };
     const api = new JitsiMeetExternalAPI(domain, options);
     // end
+    <?php } ?>
 
     // page construction
     var sPageTitle = '<?= $sPageTitle ?>';
