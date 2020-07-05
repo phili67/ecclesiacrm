@@ -1368,19 +1368,18 @@
         </vendor>
     </table>
 
-
-
-    <table name="lastpersonmeeting_lpm" idMethod="native" phpName="LastPersonMeeting">
-        <column name="lpm_ID" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="lpm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" size="9" required="true"/>
-        <foreign-key foreignTable="personmeeting_pm" name="fk_lpm_personmeeting_pm_id" onDelete="CASCADE">
-            <reference local="lpm_personmeeting_pm_id" foreign="pm_ID"/>
+    <table name="personlastmeeting_plm" idMethod="native" phpName="PersonLastMeeting">
+        <column name="plm_ID" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="plm_person_id" phpName="PersonId" type="SMALLINT" size="9" required="true"/>
+        <column name="plm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" size="9" required="true"/>
+        <foreign-key foreignTable="personmeeting_pm" name="fk_plm_personmeeting_pm_id" onDelete="CASCADE">
+            <reference local="plm_personmeeting_pm_id" foreign="pm_ID"/>
         </foreign-key>
-        <index name="fk_lpm_personmeeting_pm_id">
-            <index-column name="lpm_personmeeting_pm_id"/>
+        <index name="fk_plm_personmeeting_pm_id">
+            <index-column name="plm_personmeeting_pm_id"/>
         </index>
-        <unique name="lpm_ID">
-            <unique-column name="lpm_ID"/>
+        <unique name="plm_ID">
+            <unique-column name="plm_ID"/>
         </unique>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
