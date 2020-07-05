@@ -261,7 +261,10 @@ class SystemConfig
         "bSearchIncludePledges" => new ConfigItem(2082, "bSearchIncludePledges", "boolean", "0", _("Search Pledges")),
         "iSearchIncludePledgesMax" => new ConfigItem(2083, "bSearchIncludePledgesMax", "number", "5", _("Maximum number of Pledges results")),
         "bSearchFinancesGDPR" => new ConfigItem(2084, "bSearchFinancesGDPR", "boolean", "1", _("Allow to get the name in the search sequence in case of pledges and deposits")),
-        "sPastoralcarePeriod" => new ConfigItem(2085, "sPastoralcarePeriod", "choice", "Yearly 1", _("'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 days to now, 'Yearly 2' : from september to september.") , "", '{"Choices":["Yearly 1", "Yearly 2", "365"]}')
+        "sPastoralcarePeriod" => new ConfigItem(2085, "sPastoralcarePeriod", "choice", "Yearly 1", _("'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 days to now, 'Yearly 2' : from september to september.") , "", '{"Choices":["Yearly 1", "Yearly 2", "365"]}'),
+        "sJitsiDomain" => new ConfigItem(2086, "sJitsiDomain", "text", "meet.jit.si", _("The jitsi domain name, by default : meet.jit.si")),
+        "sJitsiDomainScriptPath" => new ConfigItem(2087, "sJitsiDomainScriptPath", "text", "https://meet.jit.si/external_api.js", _("The jitsi domain name script path, by default : https://meet.jit.si/external_api.js"))
+
       );
   }
 
@@ -281,7 +284,7 @@ class SystemConfig
       _('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","bGZIP","bZIP","sPGP","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       _('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
       _('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate", "bSearchFinancesGDPR"],
-      _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
+      _('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","bMailChimpWithAddressPhone", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
       _('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDashboardPageServiceIntervalTime"],
       _('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"],
       _('Pastoral Care') => ["sPastoralcarePeriod"]
