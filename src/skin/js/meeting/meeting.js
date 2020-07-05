@@ -81,6 +81,54 @@ $(document).ready(function () {
     });
 
     $('#newRoom').click('focus', function () {
-        alert('coucou');
-    })
+        bootbox.prompt(i18next.t("Set the room name you create below in the Jitsi frame"), function(name){
+            if ( name != '' && name != null) {
+                window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'meeting/createMeetingRoom',
+                    data: JSON.stringify({"roomName": name})
+                }).done(function (data) {
+                    location.reload();
+                });
+            }
+        });
+    });
+
+    $('.selectRoom').click('focus', function () {
+        var id = $(this).data('roomid');
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'meeting/selectMeetingRoom',
+            data: JSON.stringify({"roomId": id})
+        }).done(function (data) {
+            location.reload();
+        });
+    });
+
+    $('#delete-all-rooms').click('focus', function () {
+        bootbox.confirm({
+            title: i18next.t("Delete all Rooms?"),
+            message: i18next.t("You're about to delete all of your rooms."),
+            buttons: {
+                cancel: {
+                    label: '<i class="fa fa-times"></i> Cancel'
+                },
+                confirm: {
+                    label: '<i class="fa fa-check"></i> Confirm'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: 'DELETE',
+                        path: 'meeting/deleteAllMeetingRooms'
+                    }).done(function (data) {
+                        location.reload();
+                    });
+                }
+            }
+        });
+
+    });
 });
