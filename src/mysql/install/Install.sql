@@ -1868,6 +1868,45 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 --
 
 
+--
+-- Table structure for table `personmeeting_pm`
+--
+
+CREATE TABLE `personmeeting_pm` (
+  `pm_ID` mediumint(9) NOT NULL auto_increment,
+  `pm_person_id` mediumint(9) unsigned NULL,
+  `pm_code` varchar(255) NOT NULL default '',
+  `pm_cr_date` datetime default NULL,
+  PRIMARY KEY  (`pm_ID`),
+  UNIQUE KEY `pm_ID` (`pm_ID`),
+  CONSTRAINT fk_pm_person_id
+    FOREIGN KEY (pm_person_id) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `gdpr_infos`
+--
+
+--
+-- Table structure for table `lastpersonmeeting_lpm`
+--
+
+CREATE TABLE `lastpersonmeeting_lpm` (
+  `lpm_ID` mediumint(9) NOT NULL auto_increment,
+  `lpm_personmeeting_pm_id` mediumint(9) NOT NULL,
+  PRIMARY KEY  (`lpm_ID`),
+  UNIQUE KEY `lpm_ID` (`lpm_ID`),
+  CONSTRAINT fk_lpm_personmeeting_pm_id
+    FOREIGN KEY (lpm_personmeeting_pm_id) REFERENCES personmeeting_pm(pm_ID)
+    ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `gdpr_infos`
+--
+
+
 -- method for dup emails
 
 CREATE VIEW email_list AS
