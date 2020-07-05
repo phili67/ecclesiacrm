@@ -741,9 +741,9 @@
             "6.0.0"
         ],
         "scripts": [
-            "/mysql/upgrade/6.1.0-upgrade.php",
-            "/mysql/upgrade/6.1.0-upgrade.sql"
+            "/mysql/upgrade/7.0.0-upgrade.php",
+            "/mysql/upgrade/7.0.0-upgrade.sql"
         ],
-        "dbVersion": "6.1.0"
+        "dbVersion": "7.0.0"
     }
 }
