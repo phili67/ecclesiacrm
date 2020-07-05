@@ -86,6 +86,9 @@ require __DIR__ . '/routes/sundayschool/sundayschool.php';
 // sunday school route
 require __DIR__ . '/routes/cart/cart.php';
 
+// meeting
+require __DIR__ . '/routes/meeting/meeting.php';
+
 
 
 $app->run();
