@@ -125,7 +125,7 @@ $(document).ready(function () {
                         buttons = "<button class='btn btn-secondary btn-xs reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
                             " <button class='btn btn-secondary btn-xs identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";
                         if(!full.Accepted){
-                            buttons += "<button class='btn btn-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
+                            buttons += " <button class='btn btn-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
                         }
                         buttons += " <button class='btn btn-danger accept btn-xs deleteKiosk' data-id='" + full.Id + "' >" + i18next.t("Delete") + "</button>";
                         return buttons;
