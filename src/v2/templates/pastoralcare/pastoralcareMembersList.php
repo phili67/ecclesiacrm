@@ -1,15 +1,14 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : pastoralcarefamily.php
- *  last change : 2020-01-03
+ *  filename    : pastoralcareMembersList.php
+ *  last change : 2020-06-20
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incorporated in another software without authorization
+ *                This code can't be ibcluded in another software
  *
  ******************************************************************************/
 
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
