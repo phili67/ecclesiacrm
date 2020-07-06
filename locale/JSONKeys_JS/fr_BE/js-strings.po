@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-12T17:21:07.772Z\n"
+"POT-Creation-Date: 2020-07-06T09:09:53.130Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Rôle Familial"
 msgid "You have no more items in your cart."
 msgstr "Vous n'avez plus d'items dans le panier."
 
-msgid "Error text"
-msgstr "Message erreur"
-
 msgid "Error making API Call to"
 msgstr "Erreur de communication de l'API avec"
+
+msgid "Error text"
+msgstr "Message erreur"
 
 msgid "Stack Trace"
 msgstr "Trace de données"
@@ -467,6 +467,9 @@ msgstr "Format d'Adresse non valide."
 msgid "Set Calendar Name"
 msgstr "Choisir un nom de calendrier"
 
+msgid "Confirm"
+msgstr "Confirmer"
+
 msgid "Set Resource Name"
 msgstr "Choisir un nom de Ressource"
 
@@ -553,29 +556,6 @@ msgstr "Actualiser"
 msgid "This event isn't modifiable !!!"
 msgstr "Cet événement ne peut être modifié !!!"
 
-msgid "Move Event"
-msgstr "Déplacer l'événement"
-
-msgid "Are you sure about this change?"
-msgstr "Êtes-vous sûr de vouloir faire ce changement ?"
-
-msgid "will be dropped."
-msgstr "sera supprimé."
-
-msgid "Confirm"
-msgstr "Confirmer"
-
-msgid "You're about to move all the events. Would you like to :"
-msgstr ""
-"Vous êtes sur le point de déplacer tous les événements. Voulez-vous le faire "
-"pour :"
-
-msgid "Only this Event"
-msgstr "Seul cet événement"
-
-msgid "All Events"
-msgstr "Tous les événements"
-
 msgid "Modify Event"
 msgstr "Modfier événement"
 
@@ -625,9 +605,29 @@ msgstr "Editer"
 msgid "Resize Event"
 msgstr "Redimensionner les événements"
 
+msgid "Are you sure about this change?"
+msgstr "Êtes-vous sûr de vouloir faire ce changement ?"
+
+msgid "will be dropped."
+msgstr "sera supprimé."
+
 msgid "You're about to resize all the events. Would you like to :"
 msgstr ""
 "Vous êtes sur le point de modifier tous les événements. Voulez-vous le faire "
+"pour :"
+
+msgid "Only this Event"
+msgstr "Seul cet événement"
+
+msgid "All Events"
+msgstr "Tous les événements"
+
+msgid "Move Event"
+msgstr "Déplacer l'événement"
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr ""
+"Vous êtes sur le point de déplacer tous les événements. Voulez-vous le faire "
 "pour :"
 
 msgid "Event added"
@@ -879,14 +879,76 @@ msgstr "Langage"
 msgid "Merge Tags"
 msgstr "Champ de fusion"
 
-msgid "Present"
-msgstr "Présent"
+msgid "Free Event Attendees"
+msgstr "Participants Libres à l'événement"
 
-msgid "Absent"
-msgstr "Absent"
+msgid "Successfully Added!"
+msgstr "Ajouté avec succès!"
 
-msgid "Attendance"
-msgstr "Présence"
+msgid "Photo"
+msgstr "Photo"
+
+msgid "Action"
+msgstr "Actions"
+
+msgid "Checkin"
+msgstr "Est venu"
+
+msgid "Checkout"
+msgstr "Est parti"
+
+msgid "Gender"
+msgstr "Sexe"
+
+msgid "Checkin Date"
+msgstr "Date début"
+
+msgid "Checked In By"
+msgstr "Valider par"
+
+msgid "Checkout Date"
+msgstr "Date sortie"
+
+msgid "Checkout By"
+msgstr "Checkout par"
+
+msgid "QR Code : Call the register"
+msgstr "QR code"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Impossible d'accéder au flux vidéo (vérifiez que la webcam est activée)"
+
+msgid "no detected QR Code"
+msgstr "aucun QR code détecté"
+
+msgid "Loading video..."
+msgstr "Chargement vidéo ..."
+
+msgid "Failed"
+msgstr "Echex"
+
+msgid "No event right now."
+msgstr "Pas d'événement en ce moment."
+
+msgid "Move one in the right range."
+msgstr "Le déplacer dans la bonne période."
+
+msgid "Create one."
+msgstr "En créer un."
+
+msgid "Group"
+msgstr "Groupe"
+
+msgid "User"
+msgstr "Utilisateur"
+
+msgid "No event now."
+msgstr "Aucun événement en ce moment."
+
+msgid "Success"
+msgstr "confirmé"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr ""
@@ -1078,9 +1140,6 @@ msgstr "Non attribué"
 
 msgid "Value"
 msgstr "Valeur"
-
-msgid "Action"
-msgstr "Actions"
 
 msgid "Confirm Delete Group"
 msgstr "Confirmer la suppression du groupe"
@@ -1289,24 +1348,6 @@ msgstr "ID Famille"
 msgid "Valid Until"
 msgstr "Valide jusqu'au"
 
-msgid "Delete Pastoral Care Type"
-msgstr "Effacer ce Type de suivi pastoral"
-
-msgid "Pastoral Care Note Creation"
-msgstr "Création d'une note de suivi pastoral"
-
-msgid "For every administrator"
-msgstr "Pour tous les administrateurs"
-
-msgid "Show"
-msgstr "Afficher"
-
-msgid "Hide"
-msgstr "Masquer"
-
-msgid "Appointment"
-msgstr "Rendez-vous"
-
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "Êtes-vous sûr de vouloir supprimer cette personnes du CRM"
 
@@ -1337,11 +1378,17 @@ msgstr ""
 "demander, si vous désirez réactiver ce compte !<br><br>SANS AUTORISATION, "
 "L'UTILISATION DE CETTE PERSONNE EST ILLÉGAL !!!!"
 
-msgid "Photo"
-msgstr "Photo"
+msgid "Deactivate"
+msgstr "Désactivé"
+
+msgid "Activate"
+msgstr "Actif"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Êtes-vous sûr de vouloir supprimer appartenance de ce membre de "
+
+msgid "Change classification"
+msgstr "Modifier Classification"
 
 msgid "Change role"
 msgstr "Changer rôle"
@@ -1477,9 +1524,6 @@ msgstr "Ajouter une nouvelle propriété"
 msgid "Class"
 msgstr "Class"
 
-msgid "Group"
-msgstr "Groupe"
-
 msgid ""
 "You're about to delete this general properties. Would you like to continue ?"
 msgstr ""
@@ -1533,9 +1577,6 @@ msgstr "Prénom"
 
 msgid "Birth Date"
 msgstr "Date de naissance"
-
-msgid "Gender"
-msgstr "Sexe"
 
 msgid "Unknown"
 msgstr "Inconnu"
@@ -1608,16 +1649,74 @@ msgstr ""
 msgid "Set year range to export"
 msgstr "Saisir la période pour export"
 
+msgid "First, set your date range correctly to make the extraction."
+msgstr ""
+"Premièrement, fixer correctement le bon intervalle de temps afin d'exporter"
+
 msgid "Extra students"
 msgstr "Etudiants supplémentaires"
 
 msgid "export with photos"
 msgstr "Exports avec photos"
 
+msgid "First, set your date an time."
+msgstr "Premièrement, fixer la date et l'heure"
+
+msgid "Time"
+msgstr "Heure"
+
+msgid "Event Type"
+msgstr "Type d'événement"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Faire l'appel pour tous les classes d'école du dimanche"
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Au moins un groupe doit être sélectionné pour pour créer des listes de "
+"classes ou des feuilles de présence."
+
 msgid "You have to set a Title and a Description for your issue."
 msgstr ""
 "Vous devez saisir un titre et une description pour nous faire part du bug/"
 "fonctionnalité"
+
+msgid "Trigger Parent Alert"
+msgstr "Alerter les parents"
+
+msgid "Kiosk"
+msgstr "Kiosque"
+
+msgid "Event"
+msgstr "Evénement"
+
+msgid "Kiosk Name"
+msgstr "Nom di kiosque"
+
+msgid "Assignment"
+msgstr "Affectation"
+
+msgid "Last Heartbeat"
+msgstr "Dernière pulsation"
+
+msgid "Accepted"
+msgstr "Accepté"
+
+msgid "True"
+msgstr "Vrai"
+
+msgid "False"
+msgstr "Faux"
+
+msgid "Reload"
+msgstr "Recharger"
+
+msgid "Identify"
+msgstr "Identifier"
+
+msgid "Accept"
+msgstr "Accepter"
 
 msgid "The user must have an email address."
 msgstr "L'utilisateur doit avoir une adresse email."
@@ -1656,9 +1755,6 @@ msgstr "La clé  WebDav publique est"
 msgid "WebDav key"
 msgstr "Clé WebDav"
 
-msgid "User"
-msgstr "Utilisateur"
-
 msgid "is now locked"
 msgstr "est maintenant verrouillé"
 
@@ -1692,7 +1788,7 @@ msgid "Reset failed login count for"
 msgstr "Réinitialisation suite au échecs d'authentification"
 
 msgid "done."
-msgstr "terminée"
+msgstr "effectués."
 
 msgid "Please confirm the password reset of this user"
 msgstr ""
@@ -1806,8 +1902,11 @@ msgstr "Familles"
 msgid "Add a new tag"
 msgstr "Ajouter une nouvelle étiquette"
 
-msgid "Delete tags"
-msgstr "Effacer Etiquettes"
+msgid "Delete tag from subscriber(s)"
+msgstr "Effacer étiquette pour abonné(s)"
+
+msgid "Delete tag"
+msgstr "Effacer Etiquette"
 
 msgid "Loading resources ..."
 msgstr "Chargement de ressources ..."
@@ -1961,6 +2060,27 @@ msgstr "Vous êtes sur le point de supprimer des abonnés! Etes-vous certain ?"
 msgid "Deleting Subscribers..."
 msgstr "Effacement des abonnés..."
 
+msgid "Problem"
+msgstr "Problème"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr "Safari n'est pas supporté par Jitsi, utilisez un autre navigateur !<br/>• Votre "
+"webcam<br/>• Partager des fenêtres<br/> ne fonctionnera pas pour le moment."
+
+msgid "Appointment"
+msgstr "Rendez-vous"
+
+msgid "Set a Jitsi room name"
+msgstr "Créer un nom de salle Jitsi"
+
+msgid "Delete all Rooms?"
+msgstr "Supprimer toutes les salles"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Vous êtes sur le point de supprimer toutes vos salles"
+
 msgid "You must enter a password"
 msgstr "Vous devez saisir un mot de passe"
 
@@ -1997,41 +2117,76 @@ msgid "Restore Error."
 msgstr "Erreur de restauration."
 
 msgid "In progress...."
-msgstr ""
+msgstr "En cours ...."
 
 msgid "Done !"
-msgstr ""
+msgstr "Effectués !"
 
-#, fuzzy
 msgid "All Groups"
-msgstr "Groupe"
+msgstr "Tous les Groupes"
 
-#, fuzzy
 msgid "All Roles"
-msgstr "Tous les événements"
+msgstr "Tous les rôles"
 
-#, fuzzy
 msgid "id"
-msgstr "Masquer"
+msgstr "id"
 
-#, fuzzy
 msgid "Photos"
-msgstr "Photo"
+msgstr "Photos"
 
 msgid "Search result"
-msgstr ""
+msgstr "Résultat de recherche"
 
-#, fuzzy
 msgid "Property Name"
-msgstr "Nom du Groupe"
+msgstr "Nom de Propriété"
 
-#, fuzzy
 msgid "Loading people in cart...."
-msgstr "Chargement de ressources ..."
+msgstr "Chargement des personnes dans le panier ..."
 
-#, fuzzy
 msgid "Loading finished...."
-msgstr "Chargement des données ..."
+msgstr "Chargement terminé ..."
+
+msgid "Last visit/call"
+msgstr "Dernière visite/appel"
+
+msgid "Never"
+msgstr "Jamais"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Effacer ce Type de suivi pastoral"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Création d'une note de suivi pastoral"
+
+msgid "For every administrator"
+msgstr "Pour tous les administrateurs"
+
+msgid "Show"
+msgstr "Afficher"
+
+msgid "Hide"
+msgstr "Masquer"
+
+msgid "Include all the family members"
+msgstr "Inclure tous les membres de la famille"
+
+msgid "Include"
+msgstr "Inclure"
+
+msgid "Last Name (Family Name)"
+msgstr "Nom (Nom de Famille)"
+
+msgid "Family Name"
+msgstr "Nom de famulle"
+
+#~ msgid "Present"
+#~ msgstr "Présent"
+
+#~ msgid "Absent"
+#~ msgstr "Absent"
+
+#~ msgid "Attendance"
+#~ msgstr "Présence"
 
 #~ msgid "Add all tags for the selected members in the list..."
 #~ msgstr "Ajouter toutes les étiquettes pour les membres sélectionnés ..."
