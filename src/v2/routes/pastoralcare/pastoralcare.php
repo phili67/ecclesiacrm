@@ -6,7 +6,7 @@
  *  last change : 2019-03-23
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be included in another software
+ *                This code can't be incoprorated in another software without any authorization
  *
  ******************************************************************************/
 
