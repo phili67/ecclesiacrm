@@ -7,7 +7,6 @@ require '../Include/Config.php';
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use \EcclesiaCRM\Utils\MiscUtils;
 
 // Instantiate the app
 //$settings = require __DIR__ . '/settings.php';

@@ -15,6 +15,14 @@ use EcclesiaCRM\dto\Photo;
     });
 
     $app->get('/heartbeat', function ($request, $response, $args) use ($app) {
+        if ( is_null ($app->kiosk) ) {
+            return array(
+                "Accepted"=>"no",
+                "Name"=>"",
+                "Assignment"=>"",
+                "Commands"=>""
+            );
+        }
 
         return json_encode($app->kiosk->heartbeat());
     });
