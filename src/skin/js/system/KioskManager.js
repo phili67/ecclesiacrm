@@ -120,6 +120,7 @@ $(document).ready(function () {
                 {
                     width: 'auto',
                     title: i18next.t('Actions'),
+                    data: 'Id',
                     render: function (data, type, full, meta) {
                         buttons = "<button class='btn btn-secondary reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
                             " <button class='btn btn-secondary identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";

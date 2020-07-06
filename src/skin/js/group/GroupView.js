@@ -373,6 +373,7 @@ function initDataTable() {
       {
         width: 'auto',
         title: i18next.t('Address'),
+        data: 'Person.Address1',
         render: function (data, type, full, meta) {
           if (isShowable) {
             return full.Person.Address1 + " " + full.Person.Address2;
