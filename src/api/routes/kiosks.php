@@ -11,12 +11,31 @@ $app->group('/kiosks', function () {
 
     $this->get('/', 'getKioskDevices' );
     $this->post('/allowRegistration', 'allowDeviceRegistration' );
-    $this->post('/{kioskId:[0-9]+}/reloadKiosk', 'reloadKiosk');
-    $this->post('/{kioskId:[0-9]+}/identifyKiosk', 'identifyKiosk');
+    $this->post('/{kioskId:[0-9]+}/reloadKiosk', 'reloadKiosk' );
+    $this->post('/{kioskId:[0-9]+}/identifyKiosk', 'identifyKiosk' );
     $this->post('/{kioskId:[0-9]+}/acceptKiosk', 'acceptKiosk' );
     $this->post('/{kioskId:[0-9]+}/setAssignment', 'setKioskAssignment' );
+    $this->delete('/{kioskId:[0-9]+}', 'deleteKiosk' );
 
 });
+
+function deleteKiosk (Request $request, Response $response, array $args)
+{
+    $kioskId = $args['kioskId'];
+
+    $kiosk = KioskDeviceQuery::create()
+        ->findOneById($kioskId);
+
+    if ( !is_null ($kiosk) ) {
+        foreach ($kiosk->getKioskAssignments() as $kioskAssignment) {
+            $kioskAssignment->delete();
+        }
+
+        $kiosk->delete();
+    }
+
+    return $response->withJson(["status" => "success"]);
+}
 
 function getKioskDevices (Request $request, Response $response, array $args) {
     $Kiosks = KioskDeviceQuery::create()
