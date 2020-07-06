@@ -40,12 +40,6 @@ msgstr " "
 msgid "Assign a New Property:"
 msgstr ""
 
-msgid "Teacher"
-msgstr ""
-
-msgid "Student"
-msgstr ""
-
 msgid "Parents"
 msgstr ""
 

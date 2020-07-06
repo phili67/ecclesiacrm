@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-03-12T17:21:07.772Z\n"
+"POT-Creation-Date: 2020-07-06T09:09:53.130Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +37,11 @@ msgstr "Familia"
 msgid "You have no more items in your cart."
 msgstr "Tienes un Título para su Documento"
 
-msgid "Error text"
-msgstr "Mensaje de error"
-
 msgid "Error making API Call to"
 msgstr "Error making API Call to"
+
+msgid "Error text"
+msgstr "Mensaje de error"
 
 msgid "Stack Trace"
 msgstr "Stack Trace"
@@ -468,6 +468,9 @@ msgstr ""
 msgid "Set Calendar Name"
 msgstr "Defina el nombre del calendario."
 
+msgid "Confirm"
+msgstr "Confirmar"
+
 msgid "Set Resource Name"
 msgstr "Defina el nombre del Recurso."
 
@@ -554,27 +557,6 @@ msgstr "Actualizar"
 msgid "This event isn't modifiable !!!"
 msgstr "Este evento es inmodificable !!!"
 
-msgid "Move Event"
-msgstr "Mover Evento"
-
-msgid "Are you sure about this change?"
-msgstr "¿Estás seguro de questo cambio ?"
-
-msgid "will be dropped."
-msgstr "serán retirados."
-
-msgid "Confirm"
-msgstr "Confirmar"
-
-msgid "You're about to move all the events. Would you like to :"
-msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
-
-msgid "Only this Event"
-msgstr "Sólo este evento"
-
-msgid "All Events"
-msgstr "Todos los eventos"
-
 msgid "Modify Event"
 msgstr "Cambiar Evento"
 
@@ -623,8 +605,26 @@ msgstr "Editar"
 msgid "Resize Event"
 msgstr "Redimensionar Evento"
 
+msgid "Are you sure about this change?"
+msgstr "¿Estás seguro de questo cambio ?"
+
+msgid "will be dropped."
+msgstr "serán retirados."
+
 msgid "You're about to resize all the events. Would you like to :"
 msgstr "Estás a punto de Redimensionar todos eventos. ¿Te gustaría :"
+
+msgid "Only this Event"
+msgstr "Sólo este evento"
+
+msgid "All Events"
+msgstr "Todos los eventos"
+
+msgid "Move Event"
+msgstr "Mover Evento"
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
 
 msgid "Event added"
 msgstr "Evento añadidos"
@@ -878,14 +878,81 @@ msgstr ""
 msgid "Merge Tags"
 msgstr ""
 
-msgid "Present"
-msgstr "Presente"
+#, fuzzy
+msgid "Free Event Attendees"
+msgstr "Crear Evento con estudiantes"
 
-msgid "Absent"
-msgstr "Ausente"
+msgid "Successfully Added!"
+msgstr ""
 
-msgid "Attendance"
-msgstr "Participantes"
+msgid "Photo"
+msgstr "Fotografía"
+
+msgid "Action"
+msgstr "Acciones"
+
+msgid "Checkin"
+msgstr ""
+
+#, fuzzy
+msgid "Checkout"
+msgstr "Número de cheque"
+
+msgid "Gender"
+msgstr "Género"
+
+#, fuzzy
+msgid "Checkin Date"
+msgstr "fecha límite"
+
+msgid "Checked In By"
+msgstr ""
+
+#, fuzzy
+msgid "Checkout Date"
+msgstr "Fecha de Depósito"
+
+msgid "Checkout By"
+msgstr ""
+
+msgid "QR Code : Call the register"
+msgstr ""
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+
+msgid "no detected QR Code"
+msgstr ""
+
+msgid "Loading video..."
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "No event right now."
+msgstr ""
+
+msgid "Move one in the right range."
+msgstr ""
+
+msgid "Create one."
+msgstr ""
+
+#, fuzzy
+msgid "Group"
+msgstr "Nombre de Grupo"
+
+msgid "User"
+msgstr ""
+
+msgid "No event now."
+msgstr ""
+
+#, fuzzy
+msgid "Success"
+msgstr "Éxito"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "¿Está seguro de que desea borrar todos personas del Evento ID:"
@@ -1080,9 +1147,6 @@ msgstr "Sin Asignar"
 
 msgid "Value"
 msgstr "Valor"
-
-msgid "Action"
-msgstr "Acciones"
 
 msgid "Confirm Delete Group"
 msgstr "Confirmar el Borrado de Grupo"
@@ -1290,25 +1354,6 @@ msgstr "Familia"
 msgid "Valid Until"
 msgstr "Validar"
 
-msgid "Delete Pastoral Care Type"
-msgstr "Borrar al Atención Pastoral Tipo"
-
-msgid "Pastoral Care Note Creation"
-msgstr "creación de Nota Atención Pastoral"
-
-msgid "For every administrator"
-msgstr "para todos los administradores"
-
-msgid "Show"
-msgstr "Mostrar"
-
-msgid "Hide"
-msgstr "Ocultar"
-
-#, fuzzy
-msgid "Appointment"
-msgstr "Comentario de Depósito"
-
 msgid "Are you sure you want to remove this person from the CRM"
 msgstr "¿Está seguro de que desea remover esta persona del CRM"
 
@@ -1335,11 +1380,20 @@ msgid ""
 "AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
 msgstr ""
 
-msgid "Photo"
-msgstr "Fotografía"
+#, fuzzy
+msgid "Deactivate"
+msgstr "Desactivado"
+
+#, fuzzy
+msgid "Activate"
+msgstr "Activo"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "¿Estás seguro de borrar el persona incorporar de"
+
+#, fuzzy
+msgid "Change classification"
+msgstr "Clasificación"
 
 msgid "Change role"
 msgstr "Cambiar Rol"
@@ -1481,10 +1535,6 @@ msgid "Class"
 msgstr ""
 
 #, fuzzy
-msgid "Group"
-msgstr "Nombre de Grupo"
-
-#, fuzzy
 msgid ""
 "You're about to delete this general properties. Would you like to continue ?"
 msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
@@ -1537,9 +1587,6 @@ msgstr "Primer nombre"
 
 msgid "Birth Date"
 msgstr "Fecha de Nacimiento"
-
-msgid "Gender"
-msgstr "Género"
 
 msgid "Unknown"
 msgstr "Desconocido"
@@ -1613,14 +1660,77 @@ msgstr ""
 msgid "Set year range to export"
 msgstr "Establecer rango de años para exportar"
 
+#, fuzzy
+msgid "First, set your date range correctly to make the extraction."
+msgstr ""
+"Primero, Configure su rango de años correctamente para hacer extracciones."
+
 msgid "Extra students"
 msgstr "Estudiantes Adicionales"
 
 msgid "export with photos"
 msgstr "Exportación con fotografías"
 
+msgid "First, set your date an time."
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+#, fuzzy
+msgid "Event Type"
+msgstr "Borrar tipo de evento"
+
+msgid "Call the Register for all sunday groups"
+msgstr ""
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+
 msgid "You have to set a Title and a Description for your issue."
 msgstr "Debe configurar un Título e una descripción para su Problema."
+
+msgid "Trigger Parent Alert"
+msgstr ""
+
+msgid "Kiosk"
+msgstr ""
+
+#, fuzzy
+msgid "Event"
+msgstr "Mover Evento"
+
+#, fuzzy
+msgid "Kiosk Name"
+msgstr "Nombre"
+
+#, fuzzy
+msgid "Assignment"
+msgstr "Comentario de Depósito"
+
+#, fuzzy
+msgid "Last Heartbeat"
+msgstr "Papá-Nombre"
+
+msgid "Accepted"
+msgstr ""
+
+msgid "True"
+msgstr ""
+
+msgid "False"
+msgstr ""
+
+#, fuzzy
+msgid "Reload"
+msgstr "Subir"
+
+msgid "Identify"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
 
 msgid "The user must have an email address."
 msgstr "El usuario debe estar una dirección de correo electrónico."
@@ -1659,9 +1769,6 @@ msgstr "La Clave WebDav es"
 
 msgid "WebDav key"
 msgstr "clave WebDav"
-
-msgid "User"
-msgstr ""
 
 msgid "is now locked"
 msgstr ""
@@ -1818,8 +1925,11 @@ msgstr "Familia"
 msgid "Add a new tag"
 msgstr ""
 
+msgid "Delete tag from subscriber(s)"
+msgstr ""
+
 #, fuzzy
-msgid "Delete tags"
+msgid "Delete tag"
 msgstr "Borrar Administradores"
 
 msgid "Loading resources ..."
@@ -1980,6 +2090,29 @@ msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
 msgid "Deleting Subscribers..."
 msgstr ""
 
+msgid "Problem"
+msgstr ""
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+
+#, fuzzy
+msgid "Appointment"
+msgstr "Comentario de Depósito"
+
+#, fuzzy
+msgid "Set a Jitsi room name"
+msgstr "Fijar el nombre de fichero/carpeta"
+
+msgid "Delete all Rooms?"
+msgstr ""
+
+#, fuzzy
+msgid "You're about to delete all of your rooms."
+msgstr "Estás a punto de borrar uno fichero"
+
 msgid "You must enter a password"
 msgstr ""
 
@@ -2048,6 +2181,49 @@ msgstr ""
 
 msgid "Loading finished...."
 msgstr ""
+
+msgid "Last visit/call"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Delete Pastoral Care Type"
+msgstr "Borrar al Atención Pastoral Tipo"
+
+msgid "Pastoral Care Note Creation"
+msgstr "creación de Nota Atención Pastoral"
+
+msgid "For every administrator"
+msgstr "para todos los administradores"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Hide"
+msgstr "Ocultar"
+
+msgid "Include all the family members"
+msgstr ""
+
+msgid "Include"
+msgstr ""
+
+msgid "Last Name (Family Name)"
+msgstr ""
+
+#, fuzzy
+msgid "Family Name"
+msgstr "Familia"
+
+#~ msgid "Present"
+#~ msgstr "Presente"
+
+#~ msgid "Absent"
+#~ msgstr "Ausente"
+
+#~ msgid "Attendance"
+#~ msgstr "Participantes"
 
 #, fuzzy
 #~ msgid "Audience Creation"
