@@ -1009,7 +1009,18 @@
             "method":"POST"
           }).done(function(data){
               //do nothing...
+               window.CRM.kioskDataTable.ajax.reload();
           })
+        },
+        delete: function (id)
+        {
+            window.CRM.APIRequest({
+                "path":"kiosks/"+id,
+                "method":"DELETE"
+            }).done(function(data){
+                //do nothing...
+                window.CRM.kioskDataTable.ajax.reload();
+            })
         },
         setAssignment: function (id,assignmentId)
         {
@@ -1029,6 +1040,7 @@
             "method":"POST",
             "data":JSON.stringify({"assignmentType":assignmentType,"eventId":eventId})
           }).done(function(data){
+               window.CRM.kioskDataTable.ajax.reload();
           })
         }
     }

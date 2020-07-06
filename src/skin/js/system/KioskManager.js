@@ -104,15 +104,15 @@ $(document).ready(function () {
                 },
                 {
                     width: 'auto',
-                    title: 'Accepted',
+                    title: i18next.t('Accepted'),
                     data: 'Accepted',
                     render: function (data, type, full, meta) {
                         if (full.Accepted)
                         {
-                            return "True";
+                            return i18next.t("True");
                         }
                         else {
-                            return "False";
+                            return i18next.t("False");
                         }
 
                     }
@@ -122,11 +122,12 @@ $(document).ready(function () {
                     title: i18next.t('Actions'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        buttons = "<button class='btn btn-secondary reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
-                            " <button class='btn btn-secondary identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";
+                        buttons = "<button class='btn btn-secondary btn-xs reload reloadKiosk' data-id='" + full.Id + "' >"+ i18next.t("Reload") +"</button>" +
+                            " <button class='btn btn-secondary btn-xs identify identifyKiosk' data-id='" + full.Id + "' >" + i18next.t("Identify") + "</button>";
                         if(!full.Accepted){
-                            buttons += "<button class='btn btn-secondary accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
+                            buttons += " <button class='btn btn-primary btn-xs accept acceptKiosk' data-id='" + full.Id + "' >" + i18next.t("Accept") + "</button>";
                         }
+                        buttons += " <button class='btn btn-danger accept btn-xs deleteKiosk' data-id='" + full.Id + "' >" + i18next.t("Delete") + "</button>";
                         return buttons;
                     }
                 }
@@ -150,6 +151,11 @@ $(document).ready(function () {
         $('body').on('click','.acceptKiosk', function(){
             var id = $(this).data('id');
             window.CRM.kiosks.accept(id);
+        });
+
+        $('body').on('click','.deleteKiosk', function(){
+            var id = $(this).data('id');
+            window.CRM.kiosks.delete(id);
         });
 
         setInterval(function(){window.CRM.kioskDataTable.ajax.reload()},5000);
