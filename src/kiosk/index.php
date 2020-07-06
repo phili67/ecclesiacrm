@@ -7,6 +7,8 @@ require '../Include/Config.php';
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\KioskDevice;
+use EcclesiaCRM\KioskDeviceQuery;
 
 // Instantiate the app
 //$settings = require __DIR__ . '/settings.php';
@@ -24,7 +26,7 @@ $windowOpen = new DateTime(SystemConfig::getValue("sKioskVisibilityTimestamp")) 
 
 if (isset($_COOKIE['kioskCookie'])) {
     $g = hash('sha256', $_COOKIE['kioskCookie']);
-    $Kiosk =  \EcclesiaCRM\Base\KioskDeviceQuery::create()
+    $Kiosk =  KioskDeviceQuery::create()
           ->findOneByGUIDHash($g);
     if (is_null($Kiosk)) {
         setcookie(kioskCookie, '', time() - 3600);
@@ -36,7 +38,7 @@ if (!isset($_COOKIE['kioskCookie'])) {
     if ($windowOpen) {
         $guid = uniqid();
         setcookie("kioskCookie", $guid, 2147483647);
-        $Kiosk = new \EcclesiaCRM\KioskDevice();
+        $Kiosk = new KioskDevice();
         $Kiosk->setGUIDHash(hash('sha256', $guid));
         $Kiosk->setAccepted(false);
         $Kiosk->save();
