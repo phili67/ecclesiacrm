@@ -1404,7 +1404,7 @@ msgstr "Faire l'appel par QR Code"
 
 #: Checkin.php:137 Include/Footer.php:263 v2/routes/sidebar/kioskmanager.php:32
 msgid "Kiosk Manager"
-msgstr "Manager de kiosque."
+msgstr "Gestionnaire de kiosque"
 
 #: Checkin.php:142
 msgid "Edit Attendees"
