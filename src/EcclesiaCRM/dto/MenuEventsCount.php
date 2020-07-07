@@ -5,8 +5,8 @@
  * Created by   : Philippe by Hand.
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
- * Time         : 2018/05/13 3:00 AM.
+ *                This code can't be included in another software
+ * Time         : 2020/07/04 3:00 AM.
  */
 
 namespace EcclesiaCRM\dto;
