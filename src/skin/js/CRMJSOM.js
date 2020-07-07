@@ -105,7 +105,7 @@
         } else if (type == 'warning') {
             type='bg-warning';
         } else if (type == 'info') {
-            type='bg-blue';
+            type='bg-lightblue';
         } else if (type == 'error') {
             type='bg-red';
         }
