@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 09:17+0200\n"
+"POT-Creation-Date: 2020-07-07 22:54+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4190,7 +4190,9 @@ msgstr "Das Jitsi Domänennamen, standardmäßig: meet.jit.si"
 msgid ""
 "The jitsi domain name script path, by default : https://meet.jit.si/"
 "external_api.js"
-msgstr "Der Jitsi Domänennamen script path, standardmäßig https://meet.jit.si/external_api.js"
+msgstr ""
+"Der Jitsi Domänennamen script path, standardmäßig https://meet.jit.si/"
+"external_api.js"
 
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
@@ -7320,6 +7322,10 @@ msgstr "Ausloggen"
 #: Include/Header.php:153
 msgid "Help & Support"
 msgstr "Hilfe und Support"
+
+#: Include/Header.php:157
+msgid "Help Center"
+msgstr "Hilfe-Center"
 
 #: Include/Header.php:159 Include/Header.php:161
 msgid "Help & Manual"
