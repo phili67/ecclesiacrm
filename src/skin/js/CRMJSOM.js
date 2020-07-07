@@ -71,7 +71,7 @@
             real_listMenu.html(listItems);
 
             if ( data.firstLoaded == true ) {
-              window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
+              window.CRM.notify('fa fa-info-circle',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
             }
           }
 
@@ -99,24 +99,28 @@
       }
    }
 
-
    window.CRM.notify = function(icon,title,message,link,type,place,delay,target,horizontal) {
         if (type == 'success') {
             type='bg-success';
         } else if (type == 'warning') {
             type='bg-warning';
         } else if (type == 'info') {
-            type='bg-info';
+            type='bg-blue';
         } else if (type == 'error') {
-            type='bg-error';
+            type='bg-red';
+        }
+
+        if (horizontal === undefined) {
+            horizontal = 'Right';
         }
 
         if (link != null) {
-            message = '<a href="' + link + '" target="' + target + '">'+message+'</a>';
+            message = message + ' <a href="' + link + '" target="' + target + '"><i class="fa fa-arrow-circle-right"></i></a>';
         }
 
        $(document).Toasts('create', {
-           title: title,
+           position: place+horizontal,
+           title: '<i class="'+ icon +'"></i> ' + title,
            body: message,
            delay: delay,
            type: type,
@@ -794,7 +798,7 @@
             path:"register/isRegisterRequired"
           }).done(function(data) {
             if (data.Register) {
-               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\">" + i18next.t("link") + "</a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"left");
+               window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fa fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
             }
           });
 
@@ -803,7 +807,7 @@
            path:"systemupgrade/isUpdateRequired"
           }).done(function(data) {
             if (data.Upgrade) {
-               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",60000,'_blank');
+               window.CRM.notify('fa  fa-info-circle',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",60000,'_blank');
             }
           });
 
@@ -1280,54 +1284,63 @@
 
     window.CRM.synchronize = {
       renderers: {
-        EventsCounters: function (data) {
-          if (document.getElementById('BirthdateNumber') != null) {
-            document.getElementById('BirthdateNumber').innerText = data.Birthdays;
-            document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
-            document.getElementById('EventsNumber').innerText = data.Events;
-          }
-        },
-        FamilyCount: function (data) {
-          var dashBoardFam = document.getElementById('familyCountDashboard');
+          EventsCounters: function (data) {
+              if (document.getElementById('BirthdateNumber') != null) {
+                  document.getElementById('BirthdateNumber').innerText = data.Birthdays;
+                  document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
+                  document.getElementById('EventsNumber').innerText = data.Events.count;
 
-          if (dashBoardFam) { // we have to test if we are on the dashboard or not
-            dashBoardFam.innerText = data.familyCount;
-            latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
-              retrieve: true,
-              responsive: true,
-              paging: false,
-              ordering: false,
-              searching: false,
-              scrollX: false,
-              info: false,
-              'columns': [
-                {
-                  data: 'Name',
-                  render: function (data, type, row, meta) {
-                      if (window.CRM.bThumbnailIconPresence) {
-                          return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
-                      } else {
-                          return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                  var alarmLen = data.Events.alarms.length;
+                  if (alarmLen > 0) {
+                      for (i = 0; i < alarmLen; i++) {
+                          if (data.Events.alarms[i].diplayAlarm) {
+                              window.CRM.notify('fa fa-bell',i18next.t("Calendar Event")+".",data.Events.alarms[i].summary + "<br><b>", null, "error","top",10000,'_blank',"Left");
+                          }
                       }
                   }
-                },
-                {
-                  data: 'Address1',
-                  render: function (data, type, row, meta) {
-                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                  }
-                },
-                {
-                  data: 'DateEntered',
-                  render: function (data, type, row, meta) {
-                    if (window.CRM.timeEnglish == true) {
-                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm a');
-                    } else {
-                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' HH:mm');
-                    }
-                  }
-                }
-              ]
+              }
+          },
+        FamilyCount: function (data) {
+            var dashBoardFam = document.getElementById('familyCountDashboard');
+
+            if (dashBoardFam) { // we have to test if we are on the dashboard or not
+                dashBoardFam.innerText = data.familyCount;
+                latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
+                    retrieve: true,
+                    responsive: true,
+                    paging: false,
+                    ordering: false,
+                    searching: false,
+                    scrollX: false,
+                    info: false,
+                    'columns': [
+                        {
+                            data: 'Name',
+                            render: function (data, type, row, meta) {
+                                if (window.CRM.bThumbnailIconPresence) {
+                                    return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                } else {
+                                    return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                }
+                            }
+                        },
+                        {
+                            data: 'Address1',
+                            render: function (data, type, row, meta) {
+                                return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                            }
+                        },
+                        {
+                            data: 'DateEntered',
+                            render: function (data, type, row, meta) {
+                                if (window.CRM.timeEnglish == true) {
+                                    return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                                } else {
+                                    return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                                }
+                            }
+                        }
+                    ]
             });
             latestFamiliesTable.clear();
             latestFamiliesTable.rows.add(data.LatestFamilies);
@@ -1493,19 +1506,19 @@
                 real_listMenu.html(listItems);
 
                 if (data.firstLoaded == true) {
-                    window.CRM.notify('glyphicon glyphicon-info-sign', i18next.t("Mailchimp"),  i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top",50000);
+                    window.CRM.notify('fa  fa-info-circle', i18next.t("Mailchimp"),  i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top",50000);
                 }
             }
         },
         EventAttendeesDisplay: function (data) {
             if (window.CRM.attendeesPresences == false) {
-                window.CRM.notify('glyphicon glyphicon-info-sign',
+                window.CRM.notify('fa  fa-info-circle',
                     "<b><big>" + data.EventCountAttend + "</big></b> " + i18next.t("Attendees Checked In") + ".",
                     "<br><b>" + i18next.t("More info") + ' <a href="' + window.CRM.root + '/ListEvents.php"><i class="fa fa-arrow-circle-right"></i> </a> ' + '</b>',
                     null, "warning", "bottom",
                     Math.min(window.CRM.iDashboardPageServiceIntervalTime * 1000, window.CRM.timeOut),
                     '_blank',
-                    "right");
+                    "Right");
                 window.CRM.attendeesPresences = true;
             }
         },
