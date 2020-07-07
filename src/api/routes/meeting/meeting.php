@@ -64,7 +64,7 @@ function createMeetingRoom(Request $request, Response $response, array $args)
         $personId = SessionUser::getUser()->getPersonId();
 
         $pm = new PersonMeeting();
-        $pm->setCode($input->roomName);
+        $pm->setCode(basename($input->roomName));
         $pm->setPersonId($personId);
 
         $date = new DateTime('now');
@@ -81,10 +81,10 @@ function createMeetingRoom(Request $request, Response $response, array $args)
         $lpm->setPersonId($personId);
         $lpm->save();
 
-        echo $pm->toJSON();
+        return $pm->toJSON();
     }
 
-    echo null;
+    return null;
 }
 
 function getLastMeeting(Request $request, Response $response, array $args)
@@ -95,9 +95,9 @@ function getLastMeeting(Request $request, Response $response, array $args)
 
     if (!is_null($lpm)) {
         $pm = PersonMeetingQuery::create()->findOneById($lpm->getPersonMeetingId());
-        echo $pm->toJSON();
+        return $pm->toJSON();
     } else {
-        echo null;
+        return null;
     }
 }
 
@@ -108,6 +108,6 @@ function getAllMettings(Request $request, Response $response, array $args)
     $meetings = PersonMeetingQuery::create()
         ->findByPersonId($personId);
 
-    echo $meetings->toJSON();
+    return $meetings->toJSON();
 }
 
