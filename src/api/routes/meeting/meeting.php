@@ -1,5 +1,19 @@
 <?php
 
+/*******************************************************************************
+ *
+ *  filename    : meeting.php
+ *  last change : 2020-07-07
+ *  description : manage the Pastoral Care
+ *
+ *  http://www.ecclesiacrm.com/
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2020 Philippe Logel all right reserved not MIT licence
+ *                This code can't be include in another software
+ *  Updated : 2018-07-13
+ *
+ ******************************************************************************/
+
 // Routes
 use Slim\Http\Request;
 use Slim\Http\Response;
