@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-06T09:09:53.130Z\n"
+"POT-Creation-Date: 2020-07-07T12:48:12.024Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,9 +151,6 @@ msgstr "Registrieren ihren software zu EcclesiaCRM Team."
 msgid "Simply click this"
 msgstr "Klicken Sie auf den folgenden"
 
-msgid "link"
-msgstr "Link"
-
 msgid "to register your software"
 msgstr "für ihren Software zu registrieren"
 
@@ -272,6 +269,9 @@ msgstr "Gruppe Name hinzuzufügen"
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "Calendar Event"
+msgstr "Ereignis Kalendar"
 
 msgid "Attendees Checked In"
 msgstr "Teilnehmer Eingecheckt"
@@ -866,12 +866,11 @@ msgstr "Sprache"
 msgid "Merge Tags"
 msgstr "Tags zusammenzuführen"
 
-#, fuzzy
 msgid "Free Event Attendees"
 msgstr "Ereignis mit Studenten Erstellen"
 
 msgid "Successfully Added!"
-msgstr ""
+msgstr "erfolgreich hinzugefügt!"
 
 msgid "Photo"
 msgstr "Photo"
@@ -880,55 +879,51 @@ msgid "Action"
 msgstr "Aktionen"
 
 msgid "Checkin"
-msgstr ""
+msgstr "Einchecken"
 
-#, fuzzy
 msgid "Checkout"
-msgstr "Schecknummer"
+msgstr "Auschecken"
 
 msgid "Gender"
 msgstr "Geschlecht"
 
-#, fuzzy
 msgid "Checkin Date"
-msgstr "Enddatum"
+msgstr "Einchecken Datum"
 
-#, fuzzy
 msgid "Checked In By"
-msgstr "Teilnehmer Eingecheckt"
+msgstr "Eingecheckt von"
 
-#, fuzzy
 msgid "Checkout Date"
-msgstr "Zahlungsdatum"
+msgstr "Auschecken Datum"
 
 msgid "Checkout By"
-msgstr ""
+msgstr "Auschecken von"
 
 msgid "QR Code : Call the register"
-msgstr ""
+msgstr "QR Code : Namen aufrufen"
 
 msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
-msgstr ""
-
-msgid "no detected QR Code"
-msgstr ""
+msgstr "Kein Zugriff auf video stream (stell sicher, dass die a ist aktiviert)"
 
 #, fuzzy
+msgid "no detected QR Code"
+msgstr "Keine Änderungen erkannt "
+
 msgid "Loading video..."
-msgstr "Laden von Daten..."
+msgstr "Video wird geladen..."
 
 msgid "Failed"
-msgstr ""
+msgstr "konnten nicht"
 
 msgid "No event right now."
-msgstr ""
+msgstr "Kein Ereignis im Moment."
 
 msgid "Move one in the right range."
-msgstr ""
+msgstr "Verschieben Sie einen im rechten Bereich."
 
 msgid "Create one."
-msgstr ""
+msgstr "Erstellen Sie eine"
 
 msgid "Group"
 msgstr "Gruppe"
@@ -937,9 +932,8 @@ msgid "User"
 msgstr "Benutzer"
 
 msgid "No event now."
-msgstr ""
+msgstr "Kein Ereignis jetzt."
 
-#, fuzzy
 msgid "Success"
 msgstr "Erfolg"
 
@@ -1366,20 +1360,17 @@ msgstr ""
 "the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
 "AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
 
-#, fuzzy
 msgid "Deactivate"
-msgstr "Deaktiviert"
+msgstr "Deaktivieren"
 
-#, fuzzy
 msgid "Activate"
-msgstr "Aktiv"
+msgstr "Aktivieren"
 
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Soll dieses Person wirklich von seine Mitgliedschaft entfernt werden"
 
-#, fuzzy
 msgid "Change classification"
-msgstr "Klassifizierung"
+msgstr "Klassifizierung ändern"
 
 msgid "Change role"
 msgstr "Rolle ändern"
@@ -1640,10 +1631,8 @@ msgstr ""
 msgid "Set year range to export"
 msgstr "Jahresbereich für exportieren Einstellen"
 
-#, fuzzy
 msgid "First, set your date range correctly to make the extraction."
-msgstr ""
-"Erster, Einstellen Sie den Zeitbereich korrekt ein für eine Extraktion."
+msgstr "Erster, Einstellen Sie den Bereich korrekt ein für eine Extraktion."
 
 msgid "Extra students"
 msgstr "Extra Studenten"
@@ -1652,66 +1641,62 @@ msgid "export with photos"
 msgstr "Exportieren mit Photos"
 
 msgid "First, set your date an time."
-msgstr ""
+msgstr "Erst, Stellen Sie die Datum un Zeit."
 
 msgid "Time"
-msgstr ""
+msgstr "Zeit"
 
-#, fuzzy
 msgid "Event Type"
 msgstr "Ereignis Typ Löschen "
 
 msgid "Call the Register for all sunday groups"
-msgstr ""
+msgstr "Namen aufrufen,  für alle Sonntag Gruppen"
 
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr ""
+"Mindestens eine Gruppe muss ausgewählt werden für Klassenlisten oder "
+"Anwesenheitslisten zu machen."
 
 msgid "You have to set a Title and a Description for your issue."
 msgstr ""
 "Sie müssen ein Titel und ein Beschreibung für Ihr Problem einzustellen."
 
 msgid "Trigger Parent Alert"
-msgstr ""
+msgstr "Elternteils auslösen "
 
 msgid "Kiosk"
-msgstr ""
+msgstr "Kiosk"
 
-#, fuzzy
 msgid "Event"
-msgstr "Ereignis verschieben"
+msgstr "Ereignis"
 
-#, fuzzy
 msgid "Kiosk Name"
-msgstr "Mailingliste Name"
+msgstr "Kiosk Name"
 
-#, fuzzy
 msgid "Assignment"
-msgstr "Verabredung"
+msgstr "Zuweisung"
 
-#, fuzzy
 msgid "Last Heartbeat"
-msgstr "Nachname "
+msgstr "letzten Herzschlag "
 
 msgid "Accepted"
-msgstr ""
+msgstr "Akzeptiert"
 
 msgid "True"
-msgstr ""
+msgstr "Wahr"
 
 msgid "False"
-msgstr ""
+msgstr "Falsch"
 
-#, fuzzy
 msgid "Reload"
-msgstr "Hochladen"
+msgstr "Neu laden"
 
 msgid "Identify"
-msgstr ""
+msgstr "Identifizieren"
 
 msgid "Accept"
-msgstr ""
+msgstr "Akzeptieren"
 
 msgid "The user must have an email address."
 msgstr "Der Benutzer muss eine E-Mail-Adresse haben."
@@ -1895,11 +1880,9 @@ msgstr "Familien"
 msgid "Add a new tag"
 msgstr "Neue Etikett hinzufügen"
 
-#, fuzzy
 msgid "Delete tag from subscriber(s)"
-msgstr "Löschen Alle Subskribenten ..."
+msgstr "Löschen Alle Etiketten Subskribenten ..."
 
-#, fuzzy
 msgid "Delete tag"
 msgstr "Etiketten Löschen"
 
@@ -2055,27 +2038,26 @@ msgid "Deleting Subscribers..."
 msgstr "Teilnehmers Löschen ..."
 
 msgid "Problem"
-msgstr ""
+msgstr "Problem"
 
 msgid ""
 "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
 "webcam<br/>• Sharing your windows<br/> won't work with meeting."
 msgstr ""
+"Safari ist noch nicht mit Jitsi unterstützt, wählen Sie etwas anders!<br/>• "
+"Ihre Webcam<br/>• Fenster Freigabe<br/>funktioniert nicht bei Jitsi."
 
-#, fuzzy
 msgid "Appointment"
-msgstr "Verabredung"
+msgstr "Termin"
 
-#, fuzzy
 msgid "Set a Jitsi room name"
-msgstr "Setzen Sie Datei/Ordner-Namen"
+msgstr "Setzen Sie ein Room Jitsi-Namen"
 
 msgid "Delete all Rooms?"
-msgstr ""
+msgstr "Alle Rooms Löschen"
 
-#, fuzzy
 msgid "You're about to delete all of your rooms."
-msgstr "Sie sind im Begriff, eine Etikett zu entfernen."
+msgstr "Sie sind im Begriff, eine alle Room zu entfernen."
 
 msgid "You must enter a password"
 msgstr "Sie müssen ein Kennwort eingeben"
@@ -2111,47 +2093,40 @@ msgid "Restore Error."
 msgstr "Wiederherstellung Fehler."
 
 msgid "In progress...."
-msgstr ""
+msgstr "Wird durchgeführt..."
 
 msgid "Done !"
-msgstr ""
+msgstr "Fertig!"
 
-#, fuzzy
 msgid "All Groups"
-msgstr "Gruppe"
+msgstr "Alle Gruppen"
 
-#, fuzzy
 msgid "All Roles"
-msgstr "Alle Ereignisse"
+msgstr "Alle Rollen"
 
-#, fuzzy
 msgid "id"
-msgstr "Ausblenden"
+msgstr "id"
 
-#, fuzzy
 msgid "Photos"
-msgstr "Photo"
+msgstr "Fotos"
 
 msgid "Search result"
-msgstr ""
+msgstr "Suchergebnissen"
 
-#, fuzzy
 msgid "Property Name"
-msgstr "Gruppe Name"
+msgstr "Eigenschaftsnamen"
 
-#, fuzzy
 msgid "Loading people in cart...."
-msgstr "Ressourcen werden geladen..."
+msgstr "Leute im Kart werden geladen..."
 
-#, fuzzy
 msgid "Loading finished...."
-msgstr "Laden von Daten..."
+msgstr "Laden fertig..."
 
 msgid "Last visit/call"
-msgstr ""
+msgstr "letzten Besuch/Anruf"
 
 msgid "Never"
-msgstr ""
+msgstr "Nie"
 
 msgid "Delete Pastoral Care Type"
 msgstr "Pastoral Pflege Typ löschen"
@@ -2169,17 +2144,19 @@ msgid "Hide"
 msgstr "Ausblenden"
 
 msgid "Include all the family members"
-msgstr ""
+msgstr "Schließt alle Familien ein"
 
 msgid "Include"
-msgstr ""
+msgstr "Einschließen"
 
 msgid "Last Name (Family Name)"
-msgstr ""
+msgstr "Nachname (Familien Name)"
 
-#, fuzzy
 msgid "Family Name"
-msgstr "Familien Role"
+msgstr "Familien Name"
+
+#~ msgid "link"
+#~ msgstr "Link"
 
 #~ msgid "Present"
 #~ msgstr "Anwesend"

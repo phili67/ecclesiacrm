@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 08:01+0200\n"
+"POT-Creation-Date: 2020-07-07 09:17+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -252,13 +252,12 @@ msgid "Girl"
 msgstr "Mädchen"
 
 #: api/routes/people/people-attendees.php:235
-#, fuzzy
 msgid "Man"
-msgstr "Haupt"
+msgstr "Mann"
 
 #: api/routes/people/people-attendees.php:236
 msgid "Woman"
-msgstr ""
+msgstr "Frau"
 
 #: api/routes/people/people-attendees.php:319
 #: api/routes/people/people-attendees.php:357
@@ -286,7 +285,6 @@ msgid "POST to cart requires a EventID"
 msgstr "POST zum Korb erfordert en EventID"
 
 #: api/routes/people/people-attendees.php:745
-#, fuzzy
 msgid "POST to cart requires an EventID"
 msgstr "POST zum Korb erfordert en EventID"
 
@@ -1377,9 +1375,8 @@ msgid "Your cart is empty!"
 msgstr "Der Korb ist leer!"
 
 #: Checkin.php:26 EcclesiaCRM/MenuBar/MenuBar.php:293
-#, fuzzy
 msgid "Call the Register"
-msgstr "Selbstregistrierungen"
+msgstr "Namen aufrufen."
 
 #: Checkin.php:133 ListEvents.php:129
 msgid "Add New Event"
@@ -1387,16 +1384,15 @@ msgstr "Neues Ereignis hinzufügen"
 
 #: Checkin.php:136
 msgid "QR Code Call"
-msgstr ""
+msgstr "QR Code Namen aufrufen"
 
 #: Checkin.php:137 Include/Footer.php:263 v2/routes/sidebar/kioskmanager.php:32
 msgid "Kiosk Manager"
 msgstr "Kiosk Manager"
 
 #: Checkin.php:142
-#, fuzzy
 msgid "Edit Attendees"
-msgstr "Ereignis Teilnehmer"
+msgstr "Teilnehmer bearbeitet"
 
 #: Checkin.php:161
 msgid "Select the event to which you would like to check people in for"
@@ -1460,9 +1456,8 @@ msgid "Checked in By(Optional)"
 msgstr "Angemeldet durch (Optional)"
 
 #: Checkin.php:368
-#, fuzzy
 msgid "Add and Checkin"
-msgstr "Ereignis Einchecken"
+msgstr "Fügen Einchecken"
 
 #: Checkin.php:377
 msgid "Add Visitor"
@@ -1473,7 +1468,6 @@ msgid "Listing"
 msgstr "Liste"
 
 #: Checkin.php:406
-#, fuzzy
 msgid "Checkin"
 msgstr "Einchecken"
 
@@ -1488,7 +1482,6 @@ msgid "Uncheck all"
 msgstr "Deaktivieren Sie alle"
 
 #: Checkin.php:417
-#, fuzzy
 msgid "Checkout"
 msgstr "Auschecken"
 
@@ -1586,7 +1579,7 @@ msgstr "Filtern"
 
 #: CSVExport.php:260
 msgid "Ignored if you come from the CartView"
-msgstr ""
+msgstr "ignoriert, wenn Sie aus dem Korb kommen."
 
 #: CSVExport.php:274
 msgid "Records to export"
@@ -2184,11 +2177,11 @@ msgstr "Die Datei überschreitet die maximale Dateigröße"
 
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
-msgstr ""
+msgstr "GPG Backup braucht ein Kennwort"
 
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
-msgstr ""
+msgstr "Unmöglich zu öffnen"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -3242,7 +3235,7 @@ msgstr "Gruppenname"
 #: EcclesiaCRM/dto/CanvassUtilities.php:100
 #: EcclesiaCRM/dto/CanvassUtilities.php:136
 msgid "doesn't exist !"
-msgstr ""
+msgstr "existiert nicht!"
 
 #: EcclesiaCRM/dto/CanvassUtilities.php:115
 msgid "No families need canvassers assigned"
@@ -3280,6 +3273,23 @@ msgstr ""
 #: EcclesiaCRM/dto/EnvelopeUtilities.php:52
 msgid "Assigned envelope numbers to all families."
 msgstr "Zugewiesene Umschlagsnummer an alle Familien."
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:104
+#: EcclesiaCRM/dto/MenuEventsCount.php:114
+#: EcclesiaCRM/dto/MenuEventsCount.php:124
+#: EcclesiaCRM/dto/MenuEventsCount.php:134
+msgid "minutes"
+msgstr "Minuten"
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:144
+#: EcclesiaCRM/dto/MenuEventsCount.php:154
+msgid "hour"
+msgstr "Stunde"
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:164
+#: EcclesiaCRM/dto/MenuEventsCount.php:174
+msgid "day"
+msgstr "Tag"
 
 #: EcclesiaCRM/dto/Notification.php:80
 msgid "Notification for"
@@ -3470,11 +3480,11 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:97
 msgid "gzip format export allowed"
-msgstr ""
+msgstr "gzip Formatexport zulässig"
 
 #: EcclesiaCRM/dto/SystemConfig.php:98
 msgid "zip format export allowed"
-msgstr ""
+msgstr "zip Formatexport zulässig"
 
 #: EcclesiaCRM/dto/SystemConfig.php:99
 msgid ""
@@ -4169,96 +4179,98 @@ msgid ""
 "'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 "
 "days to now, 'Yearly 2' : from september to september."
 msgstr ""
+"'Yearly 1' : vom 1  Januar zum 31 dezember, '365' : im Bereich von jetzt-365 "
+"tage zum jetzt, 'Yearly 2' : vom September zum September."
 
 #: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr ""
+msgstr "Das Jitsi Domänennamen, standardmäßig: meet.jit.si"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
 msgid ""
 "The jitsi domain name script path, by default : https://meet.jit.si/"
 "external_api.js"
-msgstr ""
+msgstr "Der Jitsi Domänennamen script path, standardmäßig https://meet.jit.si/external_api.js"
 
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
 msgstr "Kirche Informationen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:275
-msgid "User setup"
-msgstr "Benutzer Setup"
-
-#: EcclesiaCRM/dto/SystemConfig.php:276
-msgid "Email Setup"
-msgstr "Email Gruppe"
-
-#: EcclesiaCRM/dto/SystemConfig.php:277
-msgid "People Setup"
-msgstr "Menschen Setup"
-
-#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Enabled Features"
 msgstr "Aktivierten Funktionen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
-msgid "Map Settings"
-msgstr "Karte Einstellung"
-
-#: EcclesiaCRM/dto/SystemConfig.php:280
-msgid "Report Settings"
-msgstr "Bericht Einstellung"
-
-#: EcclesiaCRM/dto/SystemConfig.php:281
-msgid "Financial Settings"
-msgstr "Finanzielle Einstellung"
-
-#: EcclesiaCRM/dto/SystemConfig.php:282 Include/Footer.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:198
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
-msgid "Quick Search"
-msgstr "Schnellsuche"
-
-#: EcclesiaCRM/dto/SystemConfig.php:284
-msgid "Backup"
-msgstr "Datensicherung"
-
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Localization"
 msgstr "Lokalisierung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:268
-#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
-#: v2/routes/email/mailchimp/mailchimp.php:143
-msgid "GDPR"
-msgstr "GDPR"
+#: EcclesiaCRM/dto/SystemConfig.php:278
+msgid "User setup"
+msgstr "Benutzer Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
-msgid "Integration"
-msgstr "Integration"
+#: EcclesiaCRM/dto/SystemConfig.php:279
+msgid "People Setup"
+msgstr "Menschen Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
-msgid "Users Specific Schedule Tasks"
-msgstr "Benutzern bestimmte Aufgaben planen"
+#: EcclesiaCRM/dto/SystemConfig.php:280
+msgid "Email Setup"
+msgstr "Email Gruppe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
-msgid "Sundayschool Attendance"
-msgstr "Sonntagsschule Teilnahme"
+#: EcclesiaCRM/dto/SystemConfig.php:281
+msgid "Map Settings"
+msgstr "Karte Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:225
 #: FamilyView.php:445 PersonView.php:736 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr "Pastoral Pflege"
 
-#: EcclesiaCRM/dto/SystemConfig.php:346 EcclesiaCRM/dto/SystemConfig.php:358
-#: EcclesiaCRM/dto/SystemConfig.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283
+msgid "Sundayschool Attendance"
+msgstr "Sonntagsschule Teilnahme"
+
+#: EcclesiaCRM/dto/SystemConfig.php:284
+msgid "Integration"
+msgstr "Integration"
+
+#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:268
+#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
+#: v2/routes/email/mailchimp/mailchimp.php:143
+msgid "GDPR"
+msgstr "GDPR"
+
+#: EcclesiaCRM/dto/SystemConfig.php:286
+msgid "Quick Search"
+msgstr "Schnellsuche"
+
+#: EcclesiaCRM/dto/SystemConfig.php:287
+msgid "Report Settings"
+msgstr "Bericht Einstellung"
+
+#: EcclesiaCRM/dto/SystemConfig.php:288
+msgid "Financial Settings"
+msgstr "Finanzielle Einstellung"
+
+#: EcclesiaCRM/dto/SystemConfig.php:289
+msgid "Backup"
+msgstr "Datensicherung"
+
+#: EcclesiaCRM/dto/SystemConfig.php:290
+msgid "Users Specific Schedule Tasks"
+msgstr "Benutzern bestimmte Aufgaben planen"
+
+#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:349
+#: EcclesiaCRM/dto/SystemConfig.php:359
 msgid "An invalid configuration name has been requested"
 msgstr "Eine ungültige Konfiguration Name wurde angefordert"
 
-#: EcclesiaCRM/dto/SystemConfig.php:389
+#: EcclesiaCRM/dto/SystemConfig.php:374
 msgid "An invalid configuration id has been requested"
 msgstr "Eine ungültige Konfiguration ID wurde angefordert"
 
@@ -4426,14 +4438,12 @@ msgid "Custom Menus"
 msgstr "Custom Menüs"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:227
-#, fuzzy
 msgid "By Classifications"
-msgstr "Einordnung"
+msgstr "durch Klassifizierungen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:233
-#, fuzzy
 msgid "Meetings"
-msgstr "Gruß"
+msgstr "Sitzungen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:249 Include/Header.php:78
 #: Include/Header.php:134
@@ -4825,14 +4835,12 @@ msgid "Age"
 msgstr "Alter"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#, fuzzy
 msgid "Props"
-msgstr "Einstellungen"
+msgstr "Eigenschaften"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#, fuzzy
 msgid "Stats"
-msgstr "Status"
+msgstr "Stats"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:99
@@ -4846,7 +4854,7 @@ msgstr "Lehrer"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
 msgid "of"
-msgstr ""
+msgstr "von"
 
 #: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
@@ -4941,7 +4949,6 @@ msgid "Edit"
 msgstr "Editieren"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
-#, fuzzy
 msgid "Addresse"
 msgstr "Adressen"
 
@@ -4950,7 +4957,6 @@ msgstr "Adressen"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122
 #: EcclesiaCRM/Search/FamilySearchRes.php:124 Menu.php:468
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
-#, fuzzy
 msgid "Members"
 msgstr "Mitglieder"
 
@@ -5004,9 +5010,8 @@ msgid "Payments"
 msgstr "Zahlungen"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-#, fuzzy
 msgid "Person Group role assignment"
-msgstr "Keine Gruppe festgelegt."
+msgstr "Menschen Gruppe rolen festgelegt"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
 msgid "Teacher"
@@ -5032,9 +5037,8 @@ msgid "Individual Pastoral Care"
 msgstr "Individual Pastoral Pflege "
 
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-#, fuzzy
 msgid "Person Properties Search"
-msgstr "Personeigenschaft"
+msgstr "Personeigenschaft Suche"
 
 #: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
 #: Reports/PledgeSummary.php:253
@@ -5465,9 +5469,8 @@ msgid "Event Attendees"
 msgstr "Ereignis Teilnehmer"
 
 #: EditEventAttendees.php:50
-#, fuzzy
 msgid "Event ID:"
-msgstr "Ereignis Datum"
+msgstr "Ereignis ID:"
 
 #: EditEventAttendees.php:64 ListEvents.php:451 ListEvents.php:495
 msgid "Attendees"
@@ -6457,7 +6460,7 @@ msgstr "US Adressüberprüfung"
 
 #: FamilyView.php:1091
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: FamilyView.php:1094
 msgid "PDF Report"
@@ -6821,9 +6824,8 @@ msgid "Family Geographic Utilities"
 msgstr "Werkzeuge für geografische Karten für Familien"
 
 #: GeoPage.php:212
-#, fuzzy
 msgid "Set your elements"
-msgstr "Wählen ihrer freier Teilnehmer"
+msgstr "Wählen ihren Elemente"
 
 #: GeoPage.php:218
 msgid "Select Family:"
@@ -6882,9 +6884,8 @@ msgid "Coordinate data base file name:"
 msgstr "Koordinate Datenbank Datei Name:"
 
 #: GeoPage.php:362
-#, fuzzy
 msgid "Results"
-msgstr "Einlagen Suchen"
+msgstr " Ergebnissen"
 
 #: GeoPage.php:371
 msgid "Distance"
@@ -7408,9 +7409,8 @@ msgid ""
 msgstr ""
 
 #: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-#, fuzzy
 msgid "End Time"
-msgstr "Beginn Datum/Uhrzeit"
+msgstr "Endzeit"
 
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:196
 msgid "Letters and Mailing Labels"
@@ -7717,47 +7717,40 @@ msgid "Unclassified birthdates"
 msgstr "nicht klassifizierte Geburtstage"
 
 #: Menu.php:465
-#, fuzzy
 msgid "Statistics"
-msgstr "Status"
+msgstr "Statistics"
 
 #: Menu.php:466 v2/templates/pastoralcare/pastoralcaredashboard.php:47
-#, fuzzy
 msgid "Period  from"
-msgstr "Personen aus"
+msgstr "Zeitraum von"
 
 #: Menu.php:466 v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid "to"
-msgstr ""
+msgstr "zu"
 
 #: Menu.php:471
-#, fuzzy
 msgid "Persons not reached"
-msgstr "Personen Benutzerdefinierte Suche"
+msgstr "Personen nicht erreicht"
 
 #: Menu.php:474
-#, fuzzy
 msgid "Families not reached"
-msgstr "Familien, die nicht in Mailchimp sind"
+msgstr "Familien nicht erreicht"
 
 #: Menu.php:477
-#, fuzzy
 msgid "Retired Persons not reached"
-msgstr "Zum Person Datensatz zurückkehren"
+msgstr "pensioniert nicht erreicht"
 
 #: Menu.php:480
-#, fuzzy
 msgid "Young Members"
-msgstr "Stimmberechtigten Mitglieder"
+msgstr "Jungen Mitglieder"
 
 #: Menu.php:483
 msgid "Young Persons not reached"
-msgstr ""
+msgstr "Junge Leute nicht erreicht"
 
 #: Menu.php:487
-#, fuzzy
 msgid "Manage Pastoral Care"
-msgstr "Pastoral Pflege"
+msgstr "Pastoral Pflege verwalten"
 
 #: Menu.php:512 v2/templates/people/peopledashboard.php:91
 msgid "See all Families"
@@ -8061,9 +8054,8 @@ msgid "Undefined"
 msgstr "Nicht definiert"
 
 #: PersonView.php:401
-#, fuzzy
 msgid "Member Since"
-msgstr "Name des Mitglieds"
+msgstr " Mitglied seit"
 
 #: PersonView.php:471 Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
@@ -8742,11 +8734,11 @@ msgstr ""
 
 #: Reports/PDFLabel.php:435 Reports/PDFLabel.php:438
 msgid "Presort ZIP-5"
-msgstr ""
+msgstr "Vorsortieren ZIP-5"
 
 #: Reports/PDFLabel.php:436 Reports/PDFLabel.php:495 Reports/PDFLabel.php:596
 msgid "Addresses in Bundle"
-msgstr ""
+msgstr "Adressen im Bundle"
 
 #: Reports/PDFLabel.php:437 Reports/PDFLabel.php:496 Reports/PDFLabel.php:558
 #: Reports/PDFLabel.php:597
@@ -8759,31 +8751,31 @@ msgstr ""
 
 #: Reports/PDFLabel.php:472
 msgid "pass 2 ZIP3"
-msgstr ""
+msgstr "Lauf 2 ZPI3"
 
 #: Reports/PDFLabel.php:472 Reports/PDFLabel.php:528
 msgid "labels to process"
-msgstr ""
+msgstr "Labele zu Prozess"
 
 #: Reports/PDFLabel.php:494 Reports/PDFLabel.php:497
 msgid "Presort ZIP-3"
-msgstr ""
+msgstr "Vorsortieren ZPI-3"
 
 #: Reports/PDFLabel.php:528
 msgid "pass 3 ADC"
-msgstr ""
+msgstr "Lauf 3 ADC"
 
 #: Reports/PDFLabel.php:556 Reports/PDFLabel.php:559
 msgid "Presort ADC"
-msgstr ""
+msgstr "Vorsortieren ADC"
 
 #: Reports/PDFLabel.php:557
 msgid "Addresses in Bundle ADC"
-msgstr ""
+msgstr "Adresse im Bundle ADC"
 
 #: Reports/PDFLabel.php:595 Reports/PDFLabel.php:598
 msgid "Presort MIXED ADC"
-msgstr ""
+msgstr "Vorsortieren GEMISCHT ADC"
 
 #: Reports/PDFLabel.php:859
 msgid "Greeting"
@@ -9152,11 +9144,11 @@ msgstr "Erstellen und Herunterladen einer Sicherung"
 
 #: UpgradeCRM.php:50
 msgid "Step 2: Fetch Update Package on Server"
-msgstr ""
+msgstr "Schritt 2: FETCH Aktualisierungspaket auf dem Server"
 
 #: UpgradeCRM.php:52
 msgid "Fetch the latest files from the EcclesiaCRM GitHub release page"
-msgstr ""
+msgstr "Fetch die neuesten Dateien vom EcclesiaCRM GitHub Release-Seite"
 
 #: UpgradeCRM.php:53
 msgid "Fetch Update Files"
@@ -9503,9 +9495,8 @@ msgstr "Doppelte E-Mails suchen"
 
 #: v2/routes/email/mailchimp/mailchimp.php:204
 #: v2/templates/email/mailchimp/dashboard.php:72
-#, fuzzy
 msgid "Persons Not In MailChimp"
-msgstr "Familien, die nicht in Mailchimp sind"
+msgstr "Personen, die nicht in Mailchimp sind"
 
 #: v2/routes/email/mailchimp/mailchimp.php:229
 #: v2/templates/email/mailchimp/dashboard.php:75
@@ -9529,24 +9520,20 @@ msgid "Group View"
 msgstr "Gruppenansicht"
 
 #: v2/routes/group/groups.php:146
-#, fuzzy
 msgid "Sunday School Badges for"
-msgstr "Sonntagsschule Ausweis für"
+msgstr "Sonntagsschule Badges für"
 
 #: v2/routes/group/groups.php:148
-#, fuzzy
 msgid "Badges for Group"
-msgstr "Person der Gruppe"
+msgstr "Badges für Gruppe"
 
 #: v2/routes/meeting/meeting.php:41
-#, fuzzy
 msgid "Meeting Dashboard"
-msgstr "Haupt Dashboard"
+msgstr "Sitzungen Dashboard"
 
 #: v2/routes/pastoralcare/pastoralcare.php:51
-#, fuzzy
 msgid "Pastoral care Dashboard"
-msgstr "Pastoral Pflege für"
+msgstr "Pastoral Pflege Dashboard"
 
 #: v2/routes/pastoralcare/pastoralcare.php:107
 msgid "Individual Pastoral care"
@@ -9558,7 +9545,7 @@ msgstr "Familien Pastoral Pflege"
 
 #: v2/routes/pastoralcare/pastoralcare.php:204
 msgid "Pastoral care members list by classification"
-msgstr ""
+msgstr "Pastoral Pflege Mitglieder Liste nach Klassifizierung"
 
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
@@ -9744,21 +9731,20 @@ msgid "By Types"
 msgstr "Nach Typen"
 
 #: v2/templates/calendar/calendar.php:48
-#, fuzzy
 msgid "Personal"
 msgstr "Persönliche"
 
 #: v2/templates/calendar/calendar.php:51
 msgid "Room"
-msgstr ""
+msgstr "Room"
 
 #: v2/templates/calendar/calendar.php:52
 msgid "Computer"
-msgstr ""
+msgstr "Computer"
 
 #: v2/templates/calendar/calendar.php:53
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:152
 #: v2/templates/calendar/calendar.php:197
@@ -10098,12 +10084,11 @@ msgstr ""
 
 #: v2/templates/group/groupbadge.php:44
 msgid "Only PNG and JPEG files are managed actually !!"
-msgstr ""
+msgstr "Nur PNG und JPEG Dateien Sind tatsächlich verwalteten !!"
 
 #: v2/templates/group/groupbadge.php:148
-#, fuzzy
 msgid "With QR Code"
-msgstr "PLZ"
+msgstr "Mit QR-code"
 
 #: v2/templates/group/grouplist.php:25
 msgid "Show type of group:"
@@ -10162,9 +10147,8 @@ msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr "Drücke STRG+C um alle Telefonnummern zu kopieren"
 
 #: v2/templates/group/groupview.php:220
-#, fuzzy
 msgid "Group Badges"
-msgstr "Gruppe Managern"
+msgstr "Gruppe Badges"
 
 #: v2/templates/group/groupview.php:232
 msgid "Quick Settings"
@@ -10316,17 +10300,15 @@ msgstr "Legende"
 
 #: v2/templates/meeting/meetingdashboard.php:21
 msgid "Room names"
-msgstr ""
+msgstr "Room-Namen"
 
 #: v2/templates/meeting/meetingdashboard.php:24
-#, fuzzy
 msgid "Create Room"
-msgstr "Bericht erstellen"
+msgstr "Room erstellen"
 
 #: v2/templates/meeting/meetingdashboard.php:38
-#, fuzzy
 msgid "Delete all Rooms"
-msgstr "Ausgewählte Reihe löschen"
+msgstr "Alle Room löschen"
 
 #: v2/templates/meeting/meetingdashboard.php:41
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:37
@@ -10337,62 +10319,54 @@ msgid "Appointment"
 msgstr "Verabredung"
 
 #: v2/templates/meeting/meetingdashboard.php:52
-#, fuzzy
 msgid "Room Name"
-msgstr "Mutter Name"
+msgstr "Room Namen"
 
 #: v2/templates/meeting/meetingdashboard.php:63
-#, fuzzy
 msgid "First create a Jitsi room with the button above !"
-msgstr "Fügen Sie einige Einträge mit dem Knopf unter."
+msgstr "Fügen Sie ein Jitsi Room mit dem Knopf über !"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
-msgstr ""
+msgstr "Besuch/Anruf zufällig"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:33
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:86
-#, fuzzy
 msgid "Retired"
-msgstr "Erforderlich"
+msgstr "pensioniert "
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:34
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:100
 msgid "Young"
-msgstr ""
+msgstr "Jung"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
-#, fuzzy
 msgid "of members"
-msgstr "Wahlmitglieder: "
+msgstr "der Mitglieder"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:54
-#, fuzzy
 msgid "To reach"
-msgstr "Lehrer"
+msgstr "zu erreichen"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:119
-#, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:134
-#, fuzzy
 msgid "Person not reached"
-msgstr "Personen Benutzerdefinierte Suche"
+msgstr "Personen nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:147
-#, fuzzy
 msgid "Family not reached"
-msgstr "Familien Benutzerdefinierte Suche"
+msgstr "Familien nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 msgid "Retired not reached"
-msgstr ""
+msgstr "pensioniert nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Young not reached"
-msgstr ""
+msgstr "junge nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:23
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -10416,28 +10390,23 @@ msgstr "Bearbeiten"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:162
 #: v2/templates/pastoralcare/pastoralcareperson.php:164
-#, fuzzy
 msgid "Return To PastoralCare Dashboard"
-msgstr "Mitglieder Dashboard zurückkehren"
+msgstr "Zum Pastoral Pflege Dashboard zurückkehren"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:165
 #: v2/templates/pastoralcare/pastoralcareperson.php:167
-#, fuzzy
 msgid "Return To PastoralCare Members List"
-msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
+msgstr "Zum Pastoral Pflege Mitglieder Liste zurückkehren"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:50
-#, fuzzy
 msgid "All persons"
-msgstr "Alle Personen sehen"
+msgstr "Alle Personen"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:51
-#, fuzzy
 msgid "Only the visited/called persons"
-msgstr "Nur Personen aus dem Korb?"
+msgstr "Nur Besuchten/Angerufenen Personen"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:161
-#, fuzzy
 msgid "Return To Person View"
 msgstr "Zum Person zurückkehren"
 
@@ -10619,7 +10588,7 @@ msgstr "# Anzahl der Personen"
 
 #: v2/templates/people/peoplelist.php:24
 msgid "Enter the search term"
-msgstr ""
+msgstr "Geben Sie den Suchbegriff "
 
 #: v2/templates/people/peoplelist.php:27
 msgid ""
@@ -10628,28 +10597,24 @@ msgid ""
 msgstr ""
 
 #: v2/templates/people/peoplelist.php:35
-#, fuzzy
 msgid "Choose your person filters"
-msgstr "Wähle ein spezielles Personenfeld"
+msgstr "Wähle Sie Ihre Personenfilter"
 
 #: v2/templates/people/peoplelist.php:43
-#, fuzzy
 msgid "Group filters"
-msgstr "Gruppenrollen"
+msgstr "Gruppenfilter"
 
 #: v2/templates/people/peoplelist.php:57 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Suchen"
 
 #: v2/templates/people/peoplelist.php:65
-#, fuzzy
 msgid "Search Results"
-msgstr "Einlagen Suchen"
+msgstr "Suchergebnis"
 
 #: v2/templates/people/peoplelist.php:75
-#, fuzzy
 msgid "Results count:"
-msgstr "Gruppe Anzahl"
+msgstr "Ergebnis Anzahl:"
 
 #: v2/templates/people/peoplelist.php:87
 msgid "Add This Page to Cart"
@@ -10678,9 +10643,8 @@ msgid "Add a New Fund"
 msgstr "Neuen Fonds hinzufügen"
 
 #: v2/templates/sidebar/kioskmanager.php:20
-#, fuzzy
 msgid "Register new Kiosk"
-msgstr "Registriere Deine Familie"
+msgstr "Registrieren neuen Kioske"
 
 #: v2/templates/sidebar/kioskmanager.php:25
 msgid "Enable New Kiosk Registration"
@@ -10703,7 +10667,7 @@ msgstr "Neuen Custom Menu hinzufügen"
 #: v2/templates/sidebar/propertytypelist.php:21
 #: v2/templates/sidebar/volunteeropportunityeditor.php:19
 msgid "Only an admin can modify or delete this records."
-msgstr ""
+msgstr "Nur admin können Datensätze ändern oder löschen."
 
 #: v2/templates/sidebar/pastoralcarelist.php:16
 msgid ""
@@ -10754,9 +10718,8 @@ msgstr "Neue Klasse Hinzufügen"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:139
 #: v2/templates/sundayschool/sundayschoolview.php:81
-#, fuzzy
 msgid "Call the register"
-msgstr "Selbstregistrierungen"
+msgstr "Namen aufrufen"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:146
 msgid "Generate class lists and attendance sheets"
@@ -11499,19 +11462,19 @@ msgstr "Sidebar ist Standardwert reduziert."
 
 #: userconfig_ucfg.php:11
 msgid "AdminLTE 3.0 sideBar style"
-msgstr ""
+msgstr "AdminLTE 3.0  Seitenleiste Stile"
 
 #: userconfig_ucfg.php:12
 msgid "AdminLTE 3.0 sideBar color style"
-msgstr ""
+msgstr "AdminLTE 3.0 Farbe Seitenleiste Stile"
 
 #: userconfig_ucfg.php:13
 msgid "AdminLTE 3.0 navbar color style"
-msgstr ""
+msgstr "AdminLTE 3.0 Farbe navbar Stile"
 
 #: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 brand link color style"
-msgstr ""
+msgstr "AdminLTE 3.0 Farbe Linj Stile"
 
 msgid "Jan"
 msgstr "Jan"
