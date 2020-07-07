@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 08:01+0200\n"
+"POT-Creation-Date: 2020-07-07 09:17+0200\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3328,6 +3328,23 @@ msgstr ""
 msgid "Assigned envelope numbers to all families."
 msgstr ""
 
+#: EcclesiaCRM/dto/MenuEventsCount.php:104
+#: EcclesiaCRM/dto/MenuEventsCount.php:114
+#: EcclesiaCRM/dto/MenuEventsCount.php:124
+#: EcclesiaCRM/dto/MenuEventsCount.php:134
+msgid "minutes"
+msgstr ""
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:144
+#: EcclesiaCRM/dto/MenuEventsCount.php:154
+msgid "hour"
+msgstr ""
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:164
+#: EcclesiaCRM/dto/MenuEventsCount.php:174
+msgid "day"
+msgstr ""
+
 #: EcclesiaCRM/dto/Notification.php:80
 #, fuzzy
 msgid "Notification for"
@@ -4210,82 +4227,82 @@ msgid "Church Information"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:275
+msgid "Enabled Features"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:198
+msgid "System Settings"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:277
+msgid "Localization"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "User setup"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:279
+msgid "People Setup"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:280
 #, fuzzy
 msgid "Email Setup"
 msgstr "Cart Email"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
-msgid "People Setup"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:278
-msgid "Enabled Features"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Map Settings"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
-msgid "Report Settings"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:281
-#, fuzzy
-msgid "Financial Settings"
-msgstr "Finansial"
-
-#: EcclesiaCRM/dto/SystemConfig.php:282 Include/Footer.php:198
-msgid "System Settings"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:283
-msgid "Quick Search"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:284
-msgid "Backup"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:285
-msgid "Localization"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:268
-#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
-#: v2/routes/email/mailchimp/mailchimp.php:143
-msgid "GDPR"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:287
-msgid "Integration"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:288
-msgid "Users Specific Schedule Tasks"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:289
-msgid "Sundayschool Attendance"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:290 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:225
 #: FamilyView.php:445 PersonView.php:736 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:346 EcclesiaCRM/dto/SystemConfig.php:358
-#: EcclesiaCRM/dto/SystemConfig.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283
+msgid "Sundayschool Attendance"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:284
+msgid "Integration"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:268
+#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
+#: v2/routes/email/mailchimp/mailchimp.php:143
+msgid "GDPR"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:286
+msgid "Quick Search"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:287
+msgid "Report Settings"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:288
+#, fuzzy
+msgid "Financial Settings"
+msgstr "Finansial"
+
+#: EcclesiaCRM/dto/SystemConfig.php:289
+msgid "Backup"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:290
+msgid "Users Specific Schedule Tasks"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:349
+#: EcclesiaCRM/dto/SystemConfig.php:359
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:389
+#: EcclesiaCRM/dto/SystemConfig.php:374
 msgid "An invalid configuration id has been requested"
 msgstr ""
 

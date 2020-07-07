@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-06 08:01+0200\n"
+"POT-Creation-Date: 2020-07-07 12:27+0200\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3303,6 +3303,23 @@ msgstr ""
 msgid "Assigned envelope numbers to all families."
 msgstr "Attribuer des numéros d&#39;enveloppe pour toutes les familles."
 
+#: EcclesiaCRM/dto/MenuEventsCount.php:104
+#: EcclesiaCRM/dto/MenuEventsCount.php:114
+#: EcclesiaCRM/dto/MenuEventsCount.php:124
+#: EcclesiaCRM/dto/MenuEventsCount.php:134
+msgid "minutes"
+msgstr "minutes"
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:144
+#: EcclesiaCRM/dto/MenuEventsCount.php:154
+msgid "hour"
+msgstr "heure"
+
+#: EcclesiaCRM/dto/MenuEventsCount.php:164
+#: EcclesiaCRM/dto/MenuEventsCount.php:174
+msgid "day"
+msgstr "jour"
+
 #: EcclesiaCRM/dto/Notification.php:80
 msgid "Notification for"
 msgstr "Notification pour"
@@ -4102,7 +4119,8 @@ msgstr ""
 #: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr ""
-"Visualiser les date de naissance et anniversaires de mariage au démarrage du CRM"
+"Visualiser les date de naissance et anniversaires de mariage au démarrage du "
+"CRM"
 
 #: EcclesiaCRM/dto/SystemConfig.php:235
 msgid ""
@@ -4254,87 +4272,89 @@ msgstr "Le nom de domaine Jitsi, par défaut : meet.jit.si"
 msgid ""
 "The jitsi domain name script path, by default : https://meet.jit.si/"
 "external_api.js"
-msgstr "Le chemin d'accès pour le script du associé au nom de domaine : https://meet.jit.si/external_api.js"
+msgstr ""
+"Le chemin d'accès pour le script du associé au nom de domaine : https://meet."
+"jit.si/external_api.js"
 
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
 msgstr "Information de l'église"
 
 #: EcclesiaCRM/dto/SystemConfig.php:275
-msgid "User setup"
-msgstr "Réglages utilisateur"
-
-#: EcclesiaCRM/dto/SystemConfig.php:276
-msgid "Email Setup"
-msgstr "Réglages Email"
-
-#: EcclesiaCRM/dto/SystemConfig.php:277
-msgid "People Setup"
-msgstr "Installation de personnes"
-
-#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Enabled Features"
 msgstr "Activer Fonctionnalités"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
-msgid "Map Settings"
-msgstr "Réglages Carte"
-
-#: EcclesiaCRM/dto/SystemConfig.php:280
-msgid "Report Settings"
-msgstr "Réglages Rapport"
-
-#: EcclesiaCRM/dto/SystemConfig.php:281
-msgid "Financial Settings"
-msgstr "Réglages financier"
-
-#: EcclesiaCRM/dto/SystemConfig.php:282 Include/Footer.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:198
 msgid "System Settings"
 msgstr "Réglages Système"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
-msgid "Quick Search"
-msgstr "Recherche rapide"
-
-#: EcclesiaCRM/dto/SystemConfig.php:284
-msgid "Backup"
-msgstr "Sauvegarde"
-
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Localization"
 msgstr "Localisation"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:268
-#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
-#: v2/routes/email/mailchimp/mailchimp.php:143
-msgid "GDPR"
-msgstr "RGPD"
+#: EcclesiaCRM/dto/SystemConfig.php:278
+msgid "User setup"
+msgstr "Réglages utilisateur"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
-msgid "Integration"
-msgstr "Intégration"
+#: EcclesiaCRM/dto/SystemConfig.php:279
+msgid "People Setup"
+msgstr "Installation de personnes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
-msgid "Users Specific Schedule Tasks"
-msgstr "Tâches planifiées utilisateurs"
+#: EcclesiaCRM/dto/SystemConfig.php:280
+msgid "Email Setup"
+msgstr "Réglages Email"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
-msgid "Sundayschool Attendance"
-msgstr "Compte de présence école du dimanche"
+#: EcclesiaCRM/dto/SystemConfig.php:281
+msgid "Map Settings"
+msgstr "Réglages Carte"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:225
 #: FamilyView.php:445 PersonView.php:736 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr "Suivi pastoral"
 
-#: EcclesiaCRM/dto/SystemConfig.php:346 EcclesiaCRM/dto/SystemConfig.php:358
-#: EcclesiaCRM/dto/SystemConfig.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283
+msgid "Sundayschool Attendance"
+msgstr "Compte de présence école du dimanche"
+
+#: EcclesiaCRM/dto/SystemConfig.php:284
+msgid "Integration"
+msgstr "Intégration"
+
+#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:268
+#: Menu.php:100 v2/routes/email/mailchimp/mailchimp.php:142
+#: v2/routes/email/mailchimp/mailchimp.php:143
+msgid "GDPR"
+msgstr "RGPD"
+
+#: EcclesiaCRM/dto/SystemConfig.php:286
+msgid "Quick Search"
+msgstr "Recherche rapide"
+
+#: EcclesiaCRM/dto/SystemConfig.php:287
+msgid "Report Settings"
+msgstr "Réglages Rapport"
+
+#: EcclesiaCRM/dto/SystemConfig.php:288
+msgid "Financial Settings"
+msgstr "Réglages financier"
+
+#: EcclesiaCRM/dto/SystemConfig.php:289
+msgid "Backup"
+msgstr "Sauvegarde"
+
+#: EcclesiaCRM/dto/SystemConfig.php:290
+msgid "Users Specific Schedule Tasks"
+msgstr "Tâches planifiées utilisateurs"
+
+#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:349
+#: EcclesiaCRM/dto/SystemConfig.php:359
 msgid "An invalid configuration name has been requested"
 msgstr "Nom de configuration invalide demandé"
 
-#: EcclesiaCRM/dto/SystemConfig.php:389
+#: EcclesiaCRM/dto/SystemConfig.php:374
 msgid "An invalid configuration id has been requested"
 msgstr "ID de configuration invalide demandé"
 
@@ -10454,7 +10474,8 @@ msgstr "Nom de la salle"
 
 #: v2/templates/meeting/meetingdashboard.php:63
 msgid "First create a Jitsi room with the button above !"
-msgstr "En premier créer une salle conférence Jitsi avec les bouton ci-dessus !"
+msgstr ""
+"En premier créer une salle conférence Jitsi avec les bouton ci-dessus !"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
