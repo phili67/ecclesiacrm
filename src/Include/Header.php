@@ -154,7 +154,7 @@ Header_system_notifications();
                     <i class="fa fa-support"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <span class="dropdown-item dropdown-header"><?= _("Help Center") ?></span>
                     <div class="dropdown-divider"></div>
                     <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>"
                        class="dropdown-item main-help-menu" class="dropdown-item">

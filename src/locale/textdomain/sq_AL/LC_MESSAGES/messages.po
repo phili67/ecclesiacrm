@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 09:17+0200\n"
+"POT-Creation-Date: 2020-07-07 22:54+0200\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7649,6 +7649,11 @@ msgstr ""
 #: Include/Header.php:153
 msgid "Help & Support"
 msgstr ""
+
+#: Include/Header.php:157
+#, fuzzy
+msgid "Help Center"
+msgstr "Dimër"
 
 #: Include/Header.php:159 Include/Header.php:161
 msgid "Help & Manual"
