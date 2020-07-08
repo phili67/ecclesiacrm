@@ -687,17 +687,17 @@ class OutputUtils {
     $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
 
     for ($hour = $start; $hour <= $stop; $hour++) {
-        if ($hour == '0') {
-            $disphour = '12';
+        if ($hour == 0) {
+            $disphour = 12;
             $ampm = 'AM';
-        } elseif ($hour == '12') {
-            $disphour = '12';
+        } elseif ($hour == 12) {
+            $disphour = 12;
             $ampm = 'PM';
-        } elseif ($hour >= '13' && $hour <= '21' && $bTimeEnglish == true) {
+        } elseif ($hour >= 13 && $hour <= 21 && $bTimeEnglish == true) {
             $test = $hour - 12;
             $disphour = ' '.$test;
             $ampm = 'PM';
-        } elseif ($hour >= '22' && $hour <= '23' && $bTimeEnglish == true) {
+        } elseif ($hour >= 22 && $hour <= 23 && $bTimeEnglish == true) {
             $disphour = $hour - 12;
             $ampm = 'PM';
         } else {
@@ -710,7 +710,7 @@ class OutputUtils {
         }
 
         for ($min = 0; $min <= 59; $min += $mininc) {
-            if ($hour >= '1' && $hour <= '9') {
+            if ($hour >= 1 && $hour <= 9) {
                 if ($min >= '0' && $min <= '9') {
                     if ($hour == $hoursel && $min == $minsel) {
                         echo '<option value="0'.$hour.':0'.$min.':00" selected> '.$disphour.':0'.$min.' '.$ampm.'</option>'."\n";

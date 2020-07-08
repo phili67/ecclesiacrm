@@ -91,3 +91,8 @@ select {
     -ms-user-select: none;
     user-select: none;
 }
+
+/* for EditEventTypes.php */
+.hidden {
+    visibility: hidden;
+}

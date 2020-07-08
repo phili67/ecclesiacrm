@@ -110,7 +110,7 @@ $aDefRecurType = array();
   foreach ($eventTypes as $eventType) {
       $aTypeID[] = $eventType->getId();
       $aTypeName[] = $eventType->getName();
-      $aDefStartTime[] = $eventType->getDefStartTime()->format('h:i:s');
+      $aDefStartTime[] = $eventType->getDefStartTime()->format((SystemConfig::getValue('bTimeEnglish')?'h:i A':'H:i'));
       $aDefRecurDOW[] = $eventType->getDefRecurDOW();
       $aDefRecurDOM[] = $eventType->getDefRecurDOM();
       $aDefRecurDOY[] = $eventType->getDefRecurDOY();
@@ -180,7 +180,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
             <input class="form-control" type="text" name="newEvtName" value="<?= $aTypeName[$row] ?>" size="30" maxlength="35" autofocus>
           </div>
         </div>
-        <div class='row form-group'>
+        <!--<div class='row form-group'>
           <div class='col-sm-4 control-label text-bold'>
             <?= _('Recurrence Pattern') ?>
           </div>
@@ -233,7 +233,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
         <div class='row form-group'>
           <div class='col-sm-4 control-label text-bold'>
             <?= _('DEFAULT START TIME') ?>
@@ -286,12 +286,12 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
     <?php
     if ($numRows > 0) {
         ?>
-      <table  id="eventNames" class="table table-striped table-bordered data-table">
+      <table  id="eventNames" class="table table-striped table-bordered data-table" width="100%">
         <thead>
          <tr>
-            <th><?= _('Event Type') ?></th>
+            <!--<th><?= _('Event Type') ?></th>-->
             <th><?= _('Name') ?></th>
-            <th><?= _('Recurrence Pattern') ?></th>
+            <!--<th><?= _('Recurrence Pattern') ?></th>-->
             <th><?= _('Start Time') ?></th>
             <th><?= _('Attendance Counts') ?></th>
             <th><?= _('Action') ?></th>
@@ -302,16 +302,16 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
           for ($row = 0; $row < $numRows; $row++) {
               ?>
             <tr>
-              <td><?= $aTypeID[$row] ?></td>
+              <!--<td><?= $aTypeID[$row] ?></td>-->
               <td><?= $aTypeName[$row] ?></td>
-              <td><?= $recur[$row] ?></td>
+              <!--<td><?= $recur[$row] ?></td>-->
               <td><?= $aDefStartTime[$row] ?></td>
               <td><?= $cCountList[$row] ?></td>
               <td>
                 <table class='table-simple-padding'>
                   <tr class="no-background-theme">
                     <td>
-                        <button value="<?= _('Create Event') ?>" class="btn btn-primary btn-sm add-event">
+                        <button value="<?= _('Create Event') ?>" class="btn btn-primary btn-sm add-event" data-typeid="<?= $aTypeID[$row] ?>">
                           <?= _('Create Event') ?>
                         </button>
                     </td>

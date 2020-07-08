@@ -182,7 +182,7 @@ $("document").ready(function() {
 
                         var fmt = window.CRM.datePickerformat.toUpperCase();
 
-                        if (window.CRM.timeEnglish == 'true') {
+                        if (window.CRM.timeEnglish == true) {
                             time_format = 'h:mm A';
                         } else {
                             time_format = 'H:mm';

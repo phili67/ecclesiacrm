@@ -87,6 +87,8 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
 
       $eventType->save();
 
+      //print_r($eventType->toArray());
+
       $theID = '';
       $_POST['Action'] = '';
       break;
@@ -102,16 +104,20 @@ if (empty($eventType)) {
   RedirectUtils::Redirect('EventNames.php'); // clear POST
 }
 
+
+
 $aTypeID = $eventType->getId();
 $aTypeName = $eventType->getName();
-$aDefStartTime = $eventType->getDefStartTime()->format('h:i:s');
+$aDefStartTime = $eventType->getDefStartTime()->format('H:i:s');
     $aStartTimeTokens = explode(':', $aDefStartTime);
-    $aEventStartHour = $aStartTimeTokens[0];
+    $aEventStartHour = (int)$aStartTimeTokens[0];
     $aEventStartMins = $aStartTimeTokens[1];
 $aDefRecurDOW = $eventType->getDefRecurDOW();
 $aDefRecurDOM = $eventType->getDefRecurDOM();
 $aDefRecurDOY = (empty($eventType->getDefRecurDOY()))?"":$eventType->getDefRecurDOY()->format(SystemConfig::getValue("sDateFormatNoYear"));
 $aDefRecurType = $eventType->getDefRecurType();
+
+//echo $aDefStartTime."=>".$aEventStartHour.":".$aEventStartMins;
 
 
 switch ($aDefRecurType) {

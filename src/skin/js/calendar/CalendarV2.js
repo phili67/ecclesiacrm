@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             }
                                         });
 
-                                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("To add an event, You have to create a calendar or activate one first."));
+                                        //window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("To add an event, You have to create a calendar or activate one first."));
 
                                         //box.show();
                                     } else {
@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                     // we add the calendars and the types
                                     addCalendars(event.extendedProps.calendarID);
-                                    addCalendarEventTypes(event.extendedProps.eventTypeID, true);
-                                    addAttendees(event.extendedProps.eventTypeID, true, calEvent.eventID);
+                                    addCalendarEventTypes(event.extendedProps.eventTypeID, false);
+                                    addAttendees(event.extendedProps.eventTypeID, true, event.extendedProps.eventID);
 
                                     //Timepicker
                                     $('.timepicker').datetimepicker({

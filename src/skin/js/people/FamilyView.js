@@ -12,16 +12,7 @@ $(document).ready(function () {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
           if (data.mailChimpActiv) {
-              var len = data.statusLists.length;
-
-              var res = '';
-
-              for (i = 0; i < len; i++) {
-                  var statusDetails = data.statusLists[i];
-                  res += "<p>  &bullet; " + statusDetails[0] + ' : <b>' + i18next.t(statusDetails[1]) + "</p></p>";
-              }
-
-              $("#mailChimpUserNormal").html(res);
+            $("#mailChimpUserNormal").text(data.mailingList);
           }
         } else {
           $("#NewsLetterSend").css('color','red');
@@ -580,7 +571,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           var fmt = window.CRM.datePickerformat.toUpperCase();
 
-          if (window.CRM.timeEnglish == 'true') {
+          if (window.CRM.timeEnglish == true) {
             time_format = 'h:mm A';
           } else {
             time_format = 'H:mm';
