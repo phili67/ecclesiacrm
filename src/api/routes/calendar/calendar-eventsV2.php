@@ -348,9 +348,21 @@ function eventCount(Request $request, Response $response, array $args)
 
     if ($numCounts) {
         foreach ($eventCountNames as $eventCountName) {
+            $aDefStartTime = $eventCountName->getEventTypes()->getDefStartTime()->format('H:i:s');
+            $aStartTimeTokens = explode(':', $aDefStartTime);
+            $aEventStartHour = (int)$aStartTimeTokens[0];
+            $aEventStartMins = (int)$aStartTimeTokens[1];
+            $aDefRecurDOW = $eventCountName->getEventTypes()->getDefRecurDOW();
+            $aDefRecurDOM = $eventCountName->getEventTypes()->getDefRecurDOM();
+
+
             $values['countID'] = $eventCountName->getId();
             $values['countName'] = $eventCountName->getName();
             $values['typeID'] = $params->typeID;
+            $values['startHour'] = sprintf("%02d",$aEventStartHour);
+            $values['startMin'] = sprintf("%02d",$aEventStartMins);
+            $values['DefRecurDOW'] = $aDefRecurDOW;// unusefull actually
+            $values['DefRecurDOM'] = $aDefRecurDOM;// unusefull actually
 
             $values['count'] = 0;
             $values['notes'] = "";
