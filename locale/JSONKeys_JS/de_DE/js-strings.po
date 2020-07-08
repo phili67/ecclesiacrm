@@ -906,9 +906,8 @@ msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr "Kein Zugriff auf video stream (stell sicher, dass die a ist aktiviert)"
 
-#, fuzzy
 msgid "no detected QR Code"
-msgstr "Keine Änderungen erkannt "
+msgstr "Keine QR Code erkannt"
 
 msgid "Loading video..."
 msgstr "Video wird geladen..."
