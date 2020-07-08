@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-07T12:48:12.024Z\n"
+"POT-Creation-Date: 2020-07-08T20:12:34.144Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -637,6 +637,12 @@ msgstr "Ereignis wurde erfolgreich hinzugefügt."
 msgid "No attendees"
 msgstr "Keine Teilnehmer"
 
+msgid "From"
+msgstr "Von"
+
+msgid "to"
+msgstr "zu"
+
 msgid "Attendance Notes: "
 msgstr "Beteiligung Notizen:"
 
@@ -664,11 +670,14 @@ msgstr "Besch"
 msgid "Event description"
 msgstr "Ereignis beschreibung"
 
-msgid "From"
-msgstr "Von"
+msgid "Event Type"
+msgstr "Ereignis Typ Löschen "
 
-msgid "to"
-msgstr "zu"
+msgid "Personal"
+msgstr "Personal "
+
+msgid "Attendance Counts"
+msgstr "Anwesenden Zahl"
 
 msgid "Start Date"
 msgstr "Startdatum"
@@ -738,15 +747,6 @@ msgstr "Kalendar"
 
 msgid "Add as attendees"
 msgstr "Hinzufügen als Teilnehmer"
-
-msgid "Attendances"
-msgstr "Anwesenheiten"
-
-msgid "Personal"
-msgstr "Personal "
-
-msgid "Attendance Counts"
-msgstr "Anwesenden Zahl"
 
 msgid "Notes"
 msgstr "Notizen"
@@ -906,9 +906,8 @@ msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr "Kein Zugriff auf video stream (stell sicher, dass die a ist aktiviert)"
 
-#, fuzzy
 msgid "no detected QR Code"
-msgstr "Keine Änderungen erkannt "
+msgstr "Keine QR Code erkannt"
 
 msgid "Loading video..."
 msgstr "Video wird geladen..."
@@ -1646,9 +1645,6 @@ msgstr "Erst, Stellen Sie die Datum un Zeit."
 msgid "Time"
 msgstr "Zeit"
 
-msgid "Event Type"
-msgstr "Ereignis Typ Löschen "
-
 msgid "Call the Register for all sunday groups"
 msgstr "Namen aufrufen,  für alle Sonntag Gruppen"
 
@@ -2154,6 +2150,9 @@ msgstr "Nachname (Familien Name)"
 
 msgid "Family Name"
 msgstr "Familien Name"
+
+#~ msgid "Attendances"
+#~ msgstr "Anwesenheiten"
 
 #~ msgid "link"
 #~ msgstr "Link"
