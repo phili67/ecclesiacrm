@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-07 22:54+0200\n"
+"POT-Creation-Date: 2020-07-08 22:12+0200\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,7 +11,7 @@ msgstr ""
 
 #: api/routes/calendar/calendar-calendarV2.php:292 AutoPaymentEditor.php:894
 #: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:252
-#: EditEventTypes.php:119 EditEventTypes.php:131 EventNames.php:124
+#: EditEventTypes.php:125 EditEventTypes.php:137 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:66
 #: GroupReports.php:169 Menu.php:401 Menu.php:455
 #: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
@@ -62,8 +62,8 @@ msgstr ""
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/calendar/calendar-eventsV2.php:477
-#: api/routes/calendar/calendar-eventsV2.php:1030
+#: api/routes/calendar/calendar-eventsV2.php:489
+#: api/routes/calendar/calendar-eventsV2.php:1042
 #: EcclesiaCRM/dto/SystemConfig.php:33
 msgid "NONE"
 msgstr ""
@@ -5528,58 +5528,58 @@ msgstr ""
 msgid "Edit Event Types"
 msgstr ""
 
-#: EditEventTypes.php:122 EventNames.php:127
+#: EditEventTypes.php:128 EventNames.php:127
 msgid "Weekly on"
 msgstr ""
 
-#: EditEventTypes.php:122 EventNames.php:127
+#: EditEventTypes.php:128 EventNames.php:127
 msgid "s"
 msgstr ""
 
-#: EditEventTypes.php:125 EventNames.php:130
+#: EditEventTypes.php:131 EventNames.php:130
 msgid "Monthly on"
 msgstr ""
 
-#: EditEventTypes.php:128 EventNames.php:133
+#: EditEventTypes.php:134 EventNames.php:133
 msgid "Yearly on"
 msgstr ""
 
-#: EditEventTypes.php:162
+#: EditEventTypes.php:168
 msgid "Edit Event Type"
 msgstr ""
 
-#: EditEventTypes.php:172 EventNames.php:292 ListEvents.php:361
+#: EditEventTypes.php:178 EventNames.php:292 ListEvents.php:361
 msgid "Event Type"
 msgstr ""
 
-#: EditEventTypes.php:178
+#: EditEventTypes.php:184
 #, fuzzy
 msgid "Save Name"
 msgstr "ชื่อธนาคาร"
 
-#: EditEventTypes.php:183 EventNames.php:185 EventNames.php:294
+#: EditEventTypes.php:189 EventNames.php:185 EventNames.php:294
 msgid "Recurrence Pattern"
 msgstr ""
 
-#: EditEventTypes.php:198 EventNames.php:296
+#: EditEventTypes.php:204 EventNames.php:296
 msgid "Attendance Counts"
 msgstr ""
 
-#: EditEventTypes.php:207 v2/templates/people/familylist.php:65
+#: EditEventTypes.php:213 v2/templates/people/familylist.php:65
 #: v2/templates/people/familylist.php:119 v2/templates/people/personlist.php:61
 #: v2/templates/people/personlist.php:111
 msgid "Remove"
 msgstr ""
 
-#: EditEventTypes.php:215
+#: EditEventTypes.php:221
 msgid "New Attendance Count"
 msgstr ""
 
-#: EditEventTypes.php:218
+#: EditEventTypes.php:224
 msgid "Add counter"
 msgstr ""
 
-#: EditEventTypes.php:228
+#: EditEventTypes.php:234
 msgid "Return to Event Types"
 msgstr ""
 
