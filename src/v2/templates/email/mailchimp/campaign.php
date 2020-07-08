@@ -177,7 +177,7 @@ require $sRootDocument . '/Include/Header.php';
     //Timepicker
     $('.timepicker').timepicker({
         showInputs: false,
-        showMeridian: (window.CRM.timeEnglish == "true") ? true : false,
+        showMeridian: (window.CRM.timeEnglish == true) ? true : false,
         minuteStep: 15
     });
 </script>
