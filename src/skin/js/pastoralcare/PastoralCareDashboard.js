@@ -27,7 +27,11 @@ $(document).ready(function () {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
                 }
             },
             {
@@ -62,7 +66,11 @@ $(document).ready(function () {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -110,7 +118,11 @@ $(document).ready(function () {
                 title:i18next.t("Name"),
                 data:'Name',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="' + window.CRM.root + '/api/families/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/family/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -150,7 +162,11 @@ $(document).ready(function () {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
@@ -198,7 +214,11 @@ $(document).ready(function () {
                 title:i18next.t("Name"),
                 data:'LastName',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="/api/persons/' + full.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.Id + '">'+ data + "</a>";
                 }
             },
             {
