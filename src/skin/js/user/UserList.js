@@ -13,13 +13,13 @@ $(document).ready(function () {
     });
   });
 
-  
+
   $('#user-listing-table').on('click', 'tr', function () {
     $(this).toggleClass('selected');
-    
+
     var table = $('#user-listing-table').DataTable();
     var data = table.row( this ).data();
-    
+
     if (data != undefined) {
       click_tr = true;
       var userID = $(data[0]).data("id");
@@ -28,12 +28,12 @@ $(document).ready(function () {
       click_tr = false;
     }
   });
-  
+
   $(".changeRole").click(function() {
     var roleID = $(this).data("id");
     var roleName = this.innerText;
     var userID = -1;
-    
+
     $(".checkbox_users").each(function() {
         if (this.checked) {
           userID = $(this).data("id");
@@ -51,16 +51,16 @@ $(document).ready(function () {
           });
         }
     });
-    
+
     if (userID == -1) {
       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to check at least one user."));
     }
   });
 
-  
+
   $("#user-listing-table").on('click','.webdavkey', function() {
     var userID = $(this).data("userid");
-    
+
     window.CRM.APIRequest({
        method: 'POST',
        path: 'users/webdavKey',
@@ -73,9 +73,9 @@ $(document).ready(function () {
         } else {
           message += i18next.t("None");
         }
-        
+
         message += "<br>"+i18next.t("The public WebDav Key is")+" : ";
-        
+
         if (data.token2 != null) {
           message += data.token2;
         } else {
@@ -85,14 +85,14 @@ $(document).ready(function () {
       }
     });
   });
-  
+
   $("#user-listing-table").on('click','.lock-unlock', function() {
     var userID     = $(this).data("userid");
     var userName   = $(this).data("username");
     var button     = $(this)
     var content    = $(this).find('i');
     var lock       = content.hasClass('fa-lock');
-    
+
     window.CRM.APIRequest({
        method: 'POST',
        path: 'users/lockunlock',
@@ -113,29 +113,12 @@ $(document).ready(function () {
       }
     });
   });
-  
-  
-  $.fn.dataTable.moment = function ( format, locale ) {
-    var types = $.fn.dataTable.ext.type;
 
-    // Add type detection
-    types.detect.unshift( function ( d ) {
-        // Removed true as the last parameter of the following moment
-        return moment( d, format, locale ).isValid() ?
-            'moment-'+format :
-        null;
-    });
 
-    // Add sorting method - use an integer for the sorting
-    types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-       console.log("d");
-        return moment ( d, format, locale, true ).unix();
-    };
-  };
-    
+  window.CRM.fmt = window.CRM.datePickerformat.toUpperCase();
 
-  $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
-  
+  $.fn.dataTable.moment( window.CRM.fmt  );
+
   $("#user-listing-table").DataTable({
      "language": {
        "url": window.CRM.plugin.dataTable.language.url
@@ -174,7 +157,7 @@ $(document).ready(function () {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
       var parentTd = $(this).parent();
-      
+
       bootbox.confirm({
         title: i18next.t("Action Confirmation"),
         message: '<p style="color: red">' +
@@ -199,7 +182,7 @@ $(document).ready(function () {
   $("#user-listing-table").on('click','.resetUserPassword', function() {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
-    
+
       bootbox.confirm({
         title: i18next.t("Action Confirmation"),
         message: '<p style="color: red">' +
@@ -219,6 +202,6 @@ $(document).ready(function () {
         }
       });
   });
-      
+
 });
 
