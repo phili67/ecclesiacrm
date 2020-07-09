@@ -2,13 +2,11 @@ $(document).ready(function () {
 
     var fmt = window.CRM.datePickerformat.toUpperCase();
 
-    if (window.CRM.timeEnglish == true) {
-        time_format = 'h:mm A';
-    } else {
-        time_format = 'H:mm';
-    }
+    window.CRM.fmt = window.CRM.datePickerformat.toUpperCase();
 
-    fmt += ' ' + time_format;
+    $.fn.dataTable.moment( fmt );
+
+    window.CRM.neverDate = moment('1900-01-01 00:00').format( window.CRM.fmt );
 
     window.CRM.dataPastoralcareMembers = $("#pastoralcareMembers").DataTable({
         ajax:{
@@ -90,7 +88,7 @@ $(document).ready(function () {
                         var date = moment(data).format(fmt);
                         return date;
                     } else {
-                        return i18next.t("Never");
+                        return window.CRM.neverDate;
                     }
                 }
             }
@@ -134,7 +132,7 @@ $(document).ready(function () {
                         var date = moment(data).format(fmt);
                         return date;
                     } else {
-                        return i18next.t("Never");
+                        return window.CRM.neverDate;
                     }
                 }
             }
@@ -186,7 +184,7 @@ $(document).ready(function () {
                         var date = moment(data).format(fmt);
                         return date;
                     } else {
-                        return i18next.t("Never");
+                        return window.CRM.neverDate;
                     }
                 }
             }
@@ -238,7 +236,7 @@ $(document).ready(function () {
                         var date = moment(data).format(fmt);
                         return date;
                     } else {
-                        return i18next.t("Never");
+                        return window.CRM.neverDate;
                     }
                 }
             }

@@ -5,15 +5,11 @@ $(document).ready(function () {
         window.CRM.dataPastoralcareMembersList.search($(this).data('typeid')).draw();
     });
 
-    var fmt = window.CRM.datePickerformat.toUpperCase();
+    window.CRM.fmt = window.CRM.datePickerformat.toUpperCase();
 
-    if (window.CRM.timeEnglish == true) {
-        time_format = 'h:mm A';
-    } else {
-        time_format = 'H:mm';
-    }
+    $.fn.dataTable.moment( window.CRM.fmt  );
 
-    fmt += ' ' + time_format;
+    window.CRM.neverDate = moment('1900-01-01').format( window.CRM.fmt );
 
     window.CRM.dataPastoralcareMembersList = $("#pastoralCareMembersList").DataTable({
         ajax: {
@@ -61,10 +57,10 @@ $(document).ready(function () {
                 data: 'PastoralCareLastDate',
                 render: function (data, type, full, meta) {
                     if (data != null) {
-                        var date = moment(data).format(fmt);
+                        var date = moment(data).format(window.CRM.fmt);
                         return date;
                     } else {
-                        return i18next.t("Never");
+                        return window.CRM.neverDate;
                     }
                 }
             }
@@ -117,5 +113,4 @@ $(document).ready(function () {
 
         window.CRM.dataPastoralcareMembersList.ajax.url( window.CRM.extractionType ).load();
     });
-
 });
