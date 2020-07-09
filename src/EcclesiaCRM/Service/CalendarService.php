@@ -14,7 +14,6 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\MyPDO\CalDavPDO;
