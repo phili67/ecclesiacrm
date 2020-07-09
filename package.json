@@ -58,6 +58,7 @@
         "datatables.net-rowgroup": "^1.1.2",
         "datatables.net-rowgroup-bs4": "^1.1.2",
         "datatables.net-rowgroup-dt": "^1.1.2",
+        "datetime-moment": "^1.0.0",
         "font-awesome": "^4.7.0",
         "@fullcalendar/core": "^4.4.2",
         "@fullcalendar/daygrid": "^4.4.2",
