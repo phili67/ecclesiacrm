@@ -189,71 +189,30 @@ document.addEventListener('DOMContentLoaded', function () {
                                     $("form #addGroupAttendees").prop("disabled", (event.extendedProps.groupID == "0") ? true : false);
                                     $("form #addGroupAttendees").prop('checked', (event.extendedProps.groupID == "0") ? false : true);
 
-
                                     if (event.extendedProps.alarm !== null) {
                                         $("form #EventAlarm").val(event.extendedProps.alarm.trigger).trigger('change');
                                     }
+
+                                    if (event.extendedProps.recurrent == 1) {
+                                        $("#checkboxEventrecurrence").prop( "checked", true );
+
+                                        $("form #typeEventrecurrence").val(event.extendedProps.freq).trigger('change');
+
+                                        var fmt = window.CRM.datePickerformat.toUpperCase();
+                                        var dateStart = moment(event.extendedProps.rrule).format(fmt);
+                                        $("#endDateEventrecurrence").val(dateStart);
+                                    }
+
 
                                     // we add the calendars and the types
                                     addCalendars(event.extendedProps.calendarID);
                                     addCalendarEventTypes(event.extendedProps.eventTypeID, false);
                                     addAttendees(event.extendedProps.eventTypeID, true, event.extendedProps.eventID);
 
-                                    //Timepicker
-                                    $('.timepicker').datetimepicker({
-                                        format: 'LT',
-                                        locale: window.CRM.lang,
-                                        icons:
-                                            {
-                                                up: 'fa fa-angle-up',
-                                                down: 'fa fa-angle-down'
-                                            }
-                                    });
-
-                                    $('.date-picker').datepicker({
-                                        format: window.CRM.datePickerformat,
-                                        language: window.CRM.lang
-                                    });
-
-                                    $('.date-picker').click('focus', function (e) {
-                                        e.preventDefault();
-                                        $(this).datepicker('show');
-                                    });
-
-                                    $('.date-start').hide();
-                                    $('.date-end').hide();
-                                    $('.date-recurrence').hide();
-                                    $(".eventNotes").hide();
-
-                                    // this will create the toolbar for the textarea
-                                    if (window.CRM.editor == null) {
-                                        if (window.CRM.bEDrive) {
-                                            window.CRM.editor = CKEDITOR.replace('eventNotes', {
-                                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                                                language: window.CRM.lang,
-                                                width: '100%',
-                                                extraPlugins: 'uploadfile,uploadimage,filebrowser',
-                                                uploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
-                                                imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicImages',
-                                                filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
-                                                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=publicDocuments'
-                                            });
-                                        } else {
-                                            window.CRM.editor = CKEDITOR.replace('eventNotes', {
-                                                customConfig: window.CRM.root + '/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                                                language: window.CRM.lang,
-                                                width: '100%'
-                                            });
-                                        }
-
-                                        add_ckeditor_buttons(window.CRM.editor);
-                                    }
-
-                                    $(".ATTENDENCES").hide();
+                                    // finish installing the window
+                                    installAndfinishEventEditorWindow();
 
                                     initMap(event.extendedProps.longitude, event.extendedProps.latitude, event.title + '(' + event.extendedProps.Desc + ')', event.extendedProps.location, event.title + '(' + event.extendedProps.Desc + ')', event.extendedProps.Text);
-
-                                    box.modal("hide");
 
                                     modal.modal("show");
                                 }
