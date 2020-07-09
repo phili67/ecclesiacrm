@@ -439,6 +439,12 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datetime-moment/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/datetime-moment/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/jszip/dist/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/'
