@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-08T20:12:34.144Z\n"
+"POT-Creation-Date: 2020-07-08T20:48:17.130Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,8 +273,9 @@ msgstr "Ajouter nom de Groupe"
 msgid "Yes"
 msgstr "Oui"
 
+#, fuzzy
 msgid "Calendar Event"
-msgstr "Evénement de Calendrier"
+msgstr "Calendrier"
 
 msgid "Attendees Checked In"
 msgstr "Participants à un Appel non validés"
@@ -2176,7 +2177,7 @@ msgid "Last Name (Family Name)"
 msgstr "Nom (Nom de Famille)"
 
 msgid "Family Name"
-msgstr "Nom de famulle"
+msgstr "Nom de famille"
 
 #~ msgid "Attendances"
 #~ msgstr "Présence"
