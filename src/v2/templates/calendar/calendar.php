@@ -278,6 +278,12 @@ require $sRootDocument . '/Include/Header.php';
       lat: <?= $coordinates['lat'] ?>,
       lng: <?= $coordinates['lng'] ?>};
   window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
+
+  var wAgendaName = localStorage.getItem("wAgendaName");
+  if (wAgendaName == null) {
+      localStorage.setItem("wAgendaName", "dayGridMonth");
+      wAgendaName = "dayGridMonth";
+  }
 </script>
 
 

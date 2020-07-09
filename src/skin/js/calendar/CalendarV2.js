@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth,actualizeButton'
         },
+        viewSkeletonRender: function(info){
+            localStorage.setItem("wAgendaName",info.view.type);
+        },
         eventClick: function(calEvent) {
             var event = calEvent.event;
 
@@ -508,9 +511,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 }
             }
-        },
-        viewSkeletonRender: function(info){
-            localStorage.setItem("wAgendaName",info.view.type);
         },
         select: function(selectionInfo) {//start end
             var start = selectionInfo.start;

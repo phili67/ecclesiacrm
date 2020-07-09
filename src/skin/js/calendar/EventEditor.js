@@ -46,12 +46,6 @@ if (wLimit != null) {
     $('#isWithLimit').prop('checked', withlimit);
 }
 
-var wAgendaName = localStorage.getItem("wAgendaName");
-if (wAgendaName == null) {
-    localStorage.setItem("wAgendaName", "dayGridMonth");
-    wAgendaName = "dayGridMonth";
-}
-
 $("#isBirthdateActive").on('change', function () {
     var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
 
