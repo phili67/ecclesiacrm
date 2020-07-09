@@ -289,14 +289,6 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
-                        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css'],
-                        dest: 'src/skin/external/bootstrap-datepicker'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
                         src: ['node_modules/select2/dist/js/select2.min.js',
                         'node_modules/select2/dist/css/select2.min.css'],
                         dest: 'src/skin/external/select2'
@@ -456,6 +448,14 @@ module.exports = function (grunt) {
                         cwd:'node_modules/eonasdan-bootstrap-datetimepicker/build/js/',
                         src: ['bootstrap-datetimepicker.min.js'],
                         dest: 'src/skin/external/bootstrap-datetimepicker/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+                            'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css'],
+                        dest: 'src/skin/external/bootstrap-datepicker'
                     },
                     {
                         expand: true,
