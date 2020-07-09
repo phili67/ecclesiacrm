@@ -20,22 +20,26 @@ use EcclesiaCRM\MyPDO\VObjectExtract;
 class Event extends BaseEvent
 {
 
-  public function checkInPerson($PersonId)
-  {
-    $AttendanceRecord = EventAttendQuery::create()
+    private $_alarm             = -1; // to avoid to use to many times VObjectExtract ...
+    private $_freqlastOccurence = -1; // for each parts of getCalendardata
+    private $_freq              = -1; // for frequence type DAILY ...
+
+    public function checkInPerson($PersonId)
+    {
+        $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
             ->filterByPersonId($PersonId)
             ->findOneOrCreate();
 
-    $AttendanceRecord->setEvent($this)
-      ->setPersonId($PersonId)
-      ->setCheckinDate(date('Y-m-d H:i:s'))
-      ->setCheckoutDate(null)
-      ->save();
+        $AttendanceRecord->setEvent($this)
+            ->setPersonId($PersonId)
+            ->setCheckinDate(date('Y-m-d H:i:s'))
+            ->setCheckoutDate(null)
+            ->save();
 
-    return array("status"=>"success");
+        return array("status" => "success");
 
-  }
+    }
 
     public function unCheckInPerson($PersonId)
     {
@@ -50,7 +54,7 @@ class Event extends BaseEvent
             ->setCheckoutDate(null)
             ->save();
 
-        return array("status"=>"success");
+        return array("status" => "success");
 
     }
 
@@ -59,7 +63,7 @@ class Event extends BaseEvent
         $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
             ->filterByPersonId($PersonId)
-            ->filterByCheckinDate(NULL,  Criteria::NOT_EQUAL)
+            ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
             ->findOne();
 
         $AttendanceRecord->setEvent($this)
@@ -67,7 +71,7 @@ class Event extends BaseEvent
             ->setCheckoutDate(NULL)
             ->save();
 
-        return array("status"=>"success");
+        return array("status" => "success");
 
     }
 
@@ -76,7 +80,7 @@ class Event extends BaseEvent
         $AttendanceRecord = EventAttendQuery::create()
             ->filterByEvent($this)
             ->filterByPersonId($PersonId)
-            ->filterByCheckinDate(NULL,  Criteria::NOT_EQUAL)
+            ->filterByCheckinDate(NULL, Criteria::NOT_EQUAL)
             ->findOne();
 
         $AttendanceRecord->setEvent($this)
@@ -84,38 +88,68 @@ class Event extends BaseEvent
             ->setCheckoutDate(date('Y-m-d H:i:s'))
             ->save();
 
-        return array("status"=>"success");
+        return array("status" => "success");
 
     }
 
-
     public function getLatitude()
-  {
-     $LatLong = explode(' commaGMAP ', $this->getCoordinates());
+    {
+        $LatLong = explode(' commaGMAP ', $this->getCoordinates());
 
-     return $LatLong[0];
-  }
+        return $LatLong[0];
+    }
 
-  public function getLongitude()
-  {
-     $LatLong = explode(' commaGMAP ', $this->getCoordinates());
+    public function getLongitude()
+    {
+        $LatLong = explode(' commaGMAP ', $this->getCoordinates());
 
-     return $LatLong[1];
-  }
+        return $LatLong[1];
+    }
 
-  public function getAlarm()
-  {
-      // we get the PDO for the Sabre connection from the Propel connection
-      $data = VObjectExtract::calendarData($this->getCalendardata());
+    public function getAlarm()
+    {
+        // we get the PDO for the Sabre connection from the Propel connection
+        if ($this->_alarm == -1) {
+            $data = VObjectExtract::calendarData($this->getCalendardata());
+            $this->_alarm = $data['alarm'];
+            $this->_freqlastOccurence = $data['freqlastOccurence'];
+            $this->_freq = $data['freq'];
+        }
 
-      return $data['alarm'];
-  }
+        return $this->_alarm;
+    }
 
-  public function getEventURI()
-  {
-    if(SessionUser::getUser()->isAdmin())
-      return SystemURLs::getRootPath()."/EventEditor.php?calendarAction=".$this->getID();
-    else
-      return '';
-  }
+    public function getFreqLastOccurence()
+    {
+        // we get the PDO for the Sabre connection from the Propel connection
+        if ($this->_alarm == -1) {
+            $data = VObjectExtract::calendarData($this->getCalendardata());
+            $this->_alarm = $data['alarm'];
+            $this->_freqlastOccurence = $data['freqlastOccurence'];
+            $this->_freq = $data['freq'];
+        }
+
+        return $this->_freqlastOccurence;
+    }
+
+    public function getFreq()
+    {
+        // we get the PDO for the Sabre connection from the Propel connection
+        if ($this->_alarm == -1) {
+            $data = VObjectExtract::calendarData($this->getCalendardata());
+            $this->_alarm = $data['alarm'];
+            $this->_freqlastOccurence = $data['freqlastOccurence'];
+            $this->_freq = $data['freq'];
+        }
+
+        return explode (";",$this->_freq)[0];
+    }
+
+    public function getEventURI()
+    {
+        if (SessionUser::getUser()->isAdmin())
+            return SystemURLs::getRootPath() . "/EventEditor.php?calendarAction=" . $this->getID();
+        else
+            return '';
+    }
 }

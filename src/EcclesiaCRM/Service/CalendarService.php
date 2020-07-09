@@ -99,7 +99,8 @@ class CalendarService
                   $year = $year + 1;
               }
               $start = $year.'-'.$anniversary->getWeddingMonth().'-'.$anniversary->getWeddingDay();
-              $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>', $anniversary->getName(), $start, '', $anniversary->getViewURI());
+              $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                  $anniversary->getName(), $start, '', $anniversary->getViewURI());
               array_push($events, $event);
           }
         }
@@ -191,6 +192,9 @@ class CalendarService
               $text  = $evnt->getText();
               $calID = $calendar['id'];
               $alarm = $evnt->getAlarm();
+              $rrule = $evnt->getFreqLastOccurence();
+              $freq  = $evnt->getFreq();
+
               $fEvnt = false;
               $subid = 1;
 
@@ -208,7 +212,7 @@ class CalendarService
                       $title, $start, $end,
                      '',$id,$type,$grpID,
                       $desc,$text,$calID,$calendarColor,
-                      $subid++,1,$reccurenceID,$writeable,
+                      $subid++,1,$reccurenceID,$rrule, $freq, $writeable,
                       $loc,$lat,$long,$alarm,$cal_type,$cal_category);// only the event id sould be edited and moved and have custom color
 
                     array_push($events, $event);
@@ -220,20 +224,21 @@ class CalendarService
                 $event = $this->createCalendarItem('event',$icon,
                   $title, $start, $end,
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor,0,0,0,
+                  $desc,$text,$calID,$calendarColor,0,0,0,$rrule,$freq,
                   $writeable,$loc,$lat,$long,$alarm,$cal_type,$cal_category);// only the event id sould be edited and moved and have custom color
 
                 array_push($events, $event);
               }
-
             }
           }
         }
         return $events;
     }
 
-    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,
-                                       $recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "",$cal_type="0",
+    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",
+                                       $calendarid=null,$backgroundColor = null,$subid = 0,
+                                       $recurrent=0,$reccurenceID = '',$rrule = '',$freq = '',
+                                       $writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "",$cal_type="0",
                                        $cal_category = "personal")
     {
         $event = [];
@@ -271,6 +276,8 @@ class CalendarService
           $event['Desc']            = $desc;
           $event['Text']            = $text;
           $event['recurrent']       = $recurrent;
+          $event['rrule']           = $rrule;
+          $event['freq']            = $freq;
           $event['writeable']       = $writeable;
           $event['location']        = $location;
           $event['longitude']       = $longitude;

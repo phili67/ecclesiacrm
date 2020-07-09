@@ -925,6 +925,7 @@ function manageEvent(Request $request, Response $response, array $args)
 
         $vcalendar = VObject\Reader::read($event['calendardata']);
 
+
         if (isset($input->reccurenceID) && $input->reccurenceID != '') {// we're in a recursive event
 
             $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
@@ -933,22 +934,29 @@ function manageEvent(Request $request, Response $response, array $args)
                 $date = $input->reccurenceID;
             }
 
-            // we have to delete the old event from the reccurence event
-            $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
+            try {
+                // we have to delete the old event from the reccurence event
+                $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
 
-            $i = 0;
+                $i = 0;
 
-            foreach ($vcalendar->VEVENT as $sevent) {
-                if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
-                    $vcalendar->remove($vcalendar->VEVENT[$i]);
-                    break;
+                foreach ($vcalendar->VEVENT as $sevent) {
+                    if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
+                        $vcalendar->remove($vcalendar->VEVENT[$i]);
+                        break;
+                    }
+                    $i++;
                 }
-                $i++;
+
+                $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+                $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
+            } catch (Exception $e) {
+                // in this case we change only the date
+                $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+                $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
             }
-
-            $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
-
-            $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
         } /*else {
             // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
             $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
@@ -1014,6 +1022,8 @@ function manageEvent(Request $request, Response $response, array $args)
                 "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
             ];
         }
+
+
 
         $realVevent = $vcalendar->add('VEVENT', $vevent);
 
