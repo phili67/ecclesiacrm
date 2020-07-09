@@ -189,6 +189,21 @@ $sFamilyEmails = array();
 
 $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())));
 
+/* location and MAP */
+$location_available = false;
+
+if ( ! is_null($family) ) {
+    $lat = str_replace(",",".",$family->getLatitude());
+    $lng = str_replace(",",".",$family->getLongitude());
+
+    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
+    $sMapProvider = SystemConfig::getValue('sMapProvider');
+    $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
+
+    if ($lat != 0 && $lng != 0) {
+        $location_available = true;
+    }
+}
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family View");
@@ -279,8 +294,12 @@ require 'Include/Header.php';
                         ?>
                         <li><strong><i class="fa-li fa fa-home"></i><?= _("Address") ?>:</strong>
                             <span>
-             <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
-          </span><br>
+                                <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
+                                <?php if ($location_available) { ?>
+                                    <div id="MyMap" style="width:100%"></div>
+                                <?php } ?>
+                            </span>
+                            <br>
 
                             <?php
                             if ($family->getLatitude() && $family->getLongitude()) {
@@ -1111,6 +1130,25 @@ require 'Include/Header.php';
     <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
     <!-- !Document editor -->
 
+    <?php
+    if ($sMapProvider == 'OpenStreetMap') {
+        ?>
+        <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <?php
+    } else if ($sMapProvider == 'GoogleMaps') {
+    ?>
+        <!--Google Map Scripts -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
+
+        <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+    } else if ($sMapProvider == 'BingMaps') {
+    ?>
+        <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+        <?php
+    }
+    ?>
+
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM.currentPersonID = 0;
         window.CRM.currentFamily = <?= $iFamilyID ?>;
@@ -1124,6 +1162,17 @@ require 'Include/Header.php';
         var dataT = 0;
         var dataPaymentTable = 0;
         var pledgePaymentTable = 0;
+
+        <?php if ($location_available){ ?>
+            // location and MAP
+            window.CRM.churchloc = {
+                lat: <?= $lat ?>,
+                lng: <?= $lng ?>
+            };
+            window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
+
+            initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
+        <?php } ?>
     </script>
 
     <?php require "Include/Footer.php" ?>
