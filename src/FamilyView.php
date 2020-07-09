@@ -572,7 +572,7 @@ require 'Include/Header.php';
                                         if ($tmpEmail != "") {
                                             array_push($sFamilyEmails, $tmpEmail);
                                             ?>
-                                            <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
+                                            <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
                                             <?php
                                         }
                                         ?>
@@ -1071,16 +1071,18 @@ require 'Include/Header.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="confirm-verify-label"><?= _("Request Family Info Verification") ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <b><?= _("Select how do you want to request the family information to be verified") ?></b>
                 <p>
+                <b><?= _("Select how do you want to request the family information to be verified") ?></b>
+                </p>
                     <?php
                     if (count($sFamilyEmails) > 0) {
                     ?>
-                <p><?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+                <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+
                 <ul>
                     <?php
                     foreach ($sFamilyEmails as $tmpEmail) {
@@ -1090,11 +1092,11 @@ require 'Include/Header.php';
                     }
                     ?>
                 </ul>
-                </p>
+                <?php
+                }
+                ?>
+
             </div>
-            <?php
-            }
-            ?>
             <div class="modal-footer text-center">
                 <?php
                 if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
@@ -1119,6 +1121,7 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
+</div>
 
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>

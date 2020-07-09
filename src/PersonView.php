@@ -47,7 +47,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\ChurchMetaData;
 
 
 // Get the person ID from the querystring
@@ -451,8 +450,8 @@ if (!empty($person->getDateDeactivated())) {
                             as $groupAssigment) {
                             ?>
                             <li class="list-group-item">
-                                <b>
-                                    <i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
+                                <a>
+                                    <i class="fa fa-group"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?></a>
                                 </b>
 
                                 <div class="float-right">
@@ -462,10 +461,11 @@ if (!empty($person->getDateDeactivated())) {
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
                                             <i class="fa fa-edit"></i>
                                     </a>
-                                </li>
-                                <?php
-                                }
-                                ?>
+                                </div>
+                            </li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                         <?php
                         if ($bOkToEdit) {
@@ -526,12 +526,13 @@ if (!empty($person->getDateDeactivated())) {
 
                             if (!empty($formattedMailingAddress)) {
                                 ?>
+                                <li>
                                 <strong>
-                                    <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
+                                    <i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
                                 </strong>
                                 <span>
                                     <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
-                            </span>
+                                </span>
                                 <?php if ($location_available) { ?>
                                     <div id="MyMap" style="width:100%"></div>
                                 <?php } ?>
@@ -1588,10 +1589,10 @@ if (!empty($person->getDateDeactivated())) {
                     </span>
                                         </td>
                                         <td style="vertical-align: middle;">
-                                            <label><?= _("Show") ?> : </label>
+                                            <label style="font-size: 12px"><?= _("Show") ?> : </label>
                                         </td>
                                         <td>
-                                            <select name="PropertyId" class="filter-timeline form-control input-sm"
+                                            <select name="PropertyId" class="filter-timeline form-control input-sm" size="1"
                                                     style="width:170px" data-placeholder="<?= _("Select") ?> ...">
                                                 <option value="all"><?= _("All type") ?></option>
                                                 <option value="note"><?= MiscUtils::noteType("note") ?></option>
@@ -1905,6 +1906,7 @@ if (!empty($person->getDateDeactivated())) {
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
