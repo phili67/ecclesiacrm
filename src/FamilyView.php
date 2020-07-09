@@ -189,6 +189,21 @@ $sFamilyEmails = array();
 
 $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())));
 
+/* location and MAP */
+$location_available = false;
+
+if ( ! is_null($family) ) {
+    $lat = str_replace(",",".",$family->getLatitude());
+    $lng = str_replace(",",".",$family->getLongitude());
+
+    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
+    $sMapProvider = SystemConfig::getValue('sMapProvider');
+    $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
+
+    if ($lat != 0 && $lng != 0) {
+        $location_available = true;
+    }
+}
 
 // Set the page title and include HTML header
 $sPageTitle = _("Family View");
@@ -279,8 +294,12 @@ require 'Include/Header.php';
                         ?>
                         <li><strong><i class="fa-li fa fa-home"></i><?= _("Address") ?>:</strong>
                             <span>
-             <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
-          </span><br>
+                                <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
+                                <?php if ($location_available) { ?>
+                                    <div id="MyMap" style="width:100%"></div>
+                                <?php } ?>
+                            </span>
+                            <br>
 
                             <?php
                             if ($family->getLatitude() && $family->getLongitude()) {
@@ -553,7 +572,7 @@ require 'Include/Header.php';
                                         if ($tmpEmail != "") {
                                             array_push($sFamilyEmails, $tmpEmail);
                                             ?>
-                                            <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
+                                            <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
                                             <?php
                                         }
                                         ?>
@@ -1052,16 +1071,18 @@ require 'Include/Header.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="confirm-verify-label"><?= _("Request Family Info Verification") ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <b><?= _("Select how do you want to request the family information to be verified") ?></b>
                 <p>
+                <b><?= _("Select how do you want to request the family information to be verified") ?></b>
+                </p>
                     <?php
                     if (count($sFamilyEmails) > 0) {
                     ?>
-                <p><?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+                <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+
                 <ul>
                     <?php
                     foreach ($sFamilyEmails as $tmpEmail) {
@@ -1071,11 +1092,11 @@ require 'Include/Header.php';
                     }
                     ?>
                 </ul>
-                </p>
+                <?php
+                }
+                ?>
+
             </div>
-            <?php
-            }
-            ?>
             <div class="modal-footer text-center">
                 <?php
                 if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
@@ -1100,6 +1121,7 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
+</div>
 
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>
@@ -1110,6 +1132,25 @@ require 'Include/Header.php';
     <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
     <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
     <!-- !Document editor -->
+
+    <?php
+    if ($sMapProvider == 'OpenStreetMap') {
+        ?>
+        <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <?php
+    } else if ($sMapProvider == 'GoogleMaps') {
+    ?>
+        <!--Google Map Scripts -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
+
+        <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+    } else if ($sMapProvider == 'BingMaps') {
+    ?>
+        <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+        <?php
+    }
+    ?>
 
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM.currentPersonID = 0;
@@ -1124,6 +1165,17 @@ require 'Include/Header.php';
         var dataT = 0;
         var dataPaymentTable = 0;
         var pledgePaymentTable = 0;
+
+        <?php if ($location_available){ ?>
+            // location and MAP
+            window.CRM.churchloc = {
+                lat: <?= $lat ?>,
+                lng: <?= $lng ?>
+            };
+            window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
+
+            initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
+        <?php } ?>
     </script>
 
     <?php require "Include/Footer.php" ?>

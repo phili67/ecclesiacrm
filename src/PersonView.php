@@ -324,6 +324,22 @@ if ($next_id > 0) {
 </div>';
 }
 
+/* location and MAP */
+$location_available = false;
+
+if ( ! is_null($person->getFamily()) ) {
+    $lat = str_replace(",",".",$person->getFamily()->getLatitude());
+    $lng = str_replace(",",".",$person->getFamily()->getLongitude());
+
+    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
+    $sMapProvider = SystemConfig::getValue('sMapProvider');
+    $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
+
+    if ($lat != 0 && $lng != 0) {
+        $location_available = true;
+    }
+}
+
 $sPageTitleSpan .= '</span>';
 
 require 'Include/Header.php';
@@ -434,8 +450,8 @@ if (!empty($person->getDateDeactivated())) {
                             as $groupAssigment) {
                             ?>
                             <li class="list-group-item">
-                                <b>
-                                    <i class="fa fa-group"></i> <?= $groupAssigment->getGroupName() ?>
+                                <a>
+                                    <i class="fa fa-group"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?></a>
                                 </b>
 
                                 <div class="float-right">
@@ -445,10 +461,11 @@ if (!empty($person->getDateDeactivated())) {
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
                                             <i class="fa fa-edit"></i>
                                     </a>
-                                </li>
-                                <?php
-                                }
-                                ?>
+                                </div>
+                            </li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                         <?php
                         if ($bOkToEdit) {
@@ -509,12 +526,16 @@ if (!empty($person->getDateDeactivated())) {
 
                             if (!empty($formattedMailingAddress)) {
                                 ?>
+                                <li>
                                 <strong>
-                                    <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
+                                    <i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
                                 </strong>
                                 <span>
                                     <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
-                            </span>
+                                </span>
+                                <?php if ($location_available) { ?>
+                                    <div id="MyMap" style="width:100%"></div>
+                                <?php } ?>
                                 </li>
                                 <?php
                             }
@@ -1568,10 +1589,10 @@ if (!empty($person->getDateDeactivated())) {
                     </span>
                                         </td>
                                         <td style="vertical-align: middle;">
-                                            <label><?= _("Show") ?> : </label>
+                                            <label style="font-size: 12px"><?= _("Show") ?> : </label>
                                         </td>
                                         <td>
-                                            <select name="PropertyId" class="filter-timeline form-control input-sm"
+                                            <select name="PropertyId" class="filter-timeline form-control input-sm" size="1"
                                                     style="width:170px" data-placeholder="<?= _("Select") ?> ...">
                                                 <option value="all"><?= _("All type") ?></option>
                                                 <option value="note"><?= MiscUtils::noteType("note") ?></option>
@@ -1886,6 +1907,7 @@ if (!empty($person->getDateDeactivated())) {
         </div>
     </div>
 </div>
+</div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
@@ -1906,6 +1928,25 @@ if (!empty($person->getDateDeactivated())) {
     src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 <!-- !Drag and Drop -->
 
+<?php
+if ($sMapProvider == 'OpenStreetMap') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <?php
+} else if ($sMapProvider == 'GoogleMaps') {
+    ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
+
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+} else if ($sMapProvider == 'BingMaps') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <?php
+}
+?>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentPersonID = <?= $iPersonID ?>;
     window.CRM.currentFamily = <?= $iFamilyID ?>;
@@ -1922,6 +1963,18 @@ if (!empty($person->getDateDeactivated())) {
         (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {
         $(".fa-special-icon").addClass("fa-2x");
     }
+
+    <?php if ($location_available){ ?>
+        // location and MAP
+        window.CRM.churchloc = {
+            lat: <?= $lat ?>,
+            lng: <?= $lng ?>
+        };
+        window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
+
+        initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, 'titre', '<?= $person->getFullName() ?>', '');
+    <?php } ?>
 </script>
 
 <?php require 'Include/Footer.php' ?>
+
