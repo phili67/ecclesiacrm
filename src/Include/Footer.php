@@ -367,6 +367,9 @@ use EcclesiaCRM\Theme;
     src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.bootstrap4.min.js"></script>
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/Select/dataTables.select.min.js"></script>
+<script
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/datetime-moment/datetime-moment.js"></script>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/buttons.bootstrap4.min.js"></script>
 
 
