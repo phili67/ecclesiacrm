@@ -385,7 +385,7 @@ ORDER by person_per.per_LastName;";
             'PercentRetiredViewPersons' => round($percentRetiredViewPersons,2),
             'retiredColor' => $retiredColor,
             'CountNotViewYoung' => $youngPersonsWithoutPastoralCare->count(),
-            'PercentRetiredViewYoung' => round($percentYoungViewPersons,2),
+            'PercentViewYoung' => round($percentYoungViewPersons,2),
             'youngColor' => $youngColor,
             'PastoralcareAlertType' => $pastoralcareAlertType];
     }
