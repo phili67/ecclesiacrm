@@ -1980,4 +1980,3 @@ if ($sMapProvider == 'OpenStreetMap') {
 </script>
 
 <?php require 'Include/Footer.php' ?>
-
