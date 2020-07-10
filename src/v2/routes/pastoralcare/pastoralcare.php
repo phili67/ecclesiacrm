@@ -6,7 +6,7 @@
  *  last change : 2019-03-23
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : 2019 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorization
+ *                This code can't be included in another software
  *
  ******************************************************************************/
 
@@ -27,10 +27,10 @@ use EcclesiaCRM\ListOptionQuery;
 use Slim\Views\PhpRenderer;
 
 $app->group('/pastoralcare', function () {
-    $this->get('/person/{personId:[0-9]+}', 'renderPastoralCarePerson');
-    $this->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily');
-    $this->get('/dashboard', 'renderPastoralCareDashboard');
-    $this->get('/membersList', 'renderPastoralCareMembersList');
+    $this->get('/person/{personId:[0-9]+}', 'renderPastoralCarePerson' );
+    $this->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily' );
+    $this->get('/dashboard', 'renderPastoralCareDashboard' );
+    $this->get('/membersList', 'renderPastoralCareMembersList' );
 });
 
 function renderPastoralCareDashboard (Request $request, Response $response, array $args) {

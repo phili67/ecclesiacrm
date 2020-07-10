@@ -50,17 +50,16 @@ require $sRootDocument . '/Include/Header.php';
                 <table class="table table-condensed">
                     <tr>
                         <th><?= _('Members') ?></th>
-                        <th>% <?= _('of members') ?></th>
-                        <th style="width: 40px"><?= _('To reach') ?></th>
+                        <th>% <?= _('of members').' '._('To reach') ?></th>
+                        <th style="width: 40px"><?= _('Count') ?></th>
                     </tr>
                     <tr>
                         <td>
                             <?= _("Persons") ?>
                         </td>
                         <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-success"
-                                     style="width: <?= $Stats['PercentNotViewPersons'] ?>%"></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['personColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentNotViewPersons'] ?>%;" aria-valuenow="<?= $Stats['PercentNotViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentNotViewPersons'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -72,9 +71,8 @@ require $sRootDocument . '/Include/Header.php';
                             <?= _("Families") ?>
                         </td>
                         <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-success"
-                                     style="width: <?= $Stats['PercentViewFamilies'] ?>%"></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentViewFamilies'] ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewFamilies'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -86,9 +84,8 @@ require $sRootDocument . '/Include/Header.php';
                             <?= _("Retired") ?>
                         </td>
                         <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-success"
-                                     style="width: <?= $Stats['PercentRetiredViewPersons'] ?>%"></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentRetiredViewPersons'] ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentRetiredViewPersons'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -100,9 +97,8 @@ require $sRootDocument . '/Include/Header.php';
                             <?= _("Young") ?>
                         </td>
                         <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar progress-bar-success"
-                                     style="width: <?= $Stats['CountNotViewRetired'] ?>%"></div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentViewYoung'] ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewYoung'] ?>%</div>
                             </div>
                         </td>
                         <td><span class="badge bg-<?= $Stats['youngColor'] ?>"><?= $Stats['CountNotViewYoung'] ?></span>
