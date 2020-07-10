@@ -5,6 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Base\Family as BaseFamily;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\dto\Photo;
@@ -12,7 +13,6 @@ use EcclesiaCRM\Utils\GeoUtils;
 use DateTime;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\SessionUser;
 
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
@@ -317,7 +317,7 @@ class Family extends BaseFamily implements iPhoto
 
     public function deletePhoto()
     {
-      if (SessionUser::getUser()->isAddRecordsEnabled() ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPerson()->getFamily()->getId() == $this->getId() ) {
         if ( $this->getPhoto()->delete() )
         {
           $note = new Note();
@@ -332,7 +332,7 @@ class Family extends BaseFamily implements iPhoto
       return false;
     }
     public function setImageFromBase64($base64) {
-      if (SessionUser::getUser()->isAddRecordsEnabled() ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPerson()->getFamily()->getId() == $this->getId() ) {
         $note = new Note();
         $note->setText(_("Profile Image uploaded"));
         $note->setType("photo");
