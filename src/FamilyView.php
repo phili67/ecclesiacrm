@@ -192,9 +192,9 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
 /* location and MAP */
 $location_available = false;
 
-if ( ! is_null($family) ) {
-    $lat = str_replace(",",".",$family->getLatitude());
-    $lng = str_replace(",",".",$family->getLongitude());
+if (!is_null($family)) {
+    $lat = str_replace(",", ".", $family->getLatitude());
+    $lng = str_replace(",", ".", $family->getLongitude());
 
     $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
     $sMapProvider = SystemConfig::getValue('sMapProvider');
@@ -245,13 +245,12 @@ require 'Include/Header.php';
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <div class="card card-primary card-outline">
-                <div class="card-body  card-profile">
-                    <div class="image-container">
-                        <div class="text-center">
-                            <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo"
-                                 class="initials-image profile-user-img img-responsive img-rounded img-circle"/>
-                        </div>
+            <div class="sticky-top">
+                <div class="card card-primary card-outline">
+                <div class="card-body  box-profile">
+                    <div class="text-center">
+                        <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo"
+                             class="initials-image profile-user-img img-responsive img-rounded img-circle"/>
                         <?php
                         if ($bOkToEdit) {
                             ?>
@@ -418,6 +417,7 @@ require 'Include/Header.php';
                     </ul>
                 </div>
             </div>
+            </div>
         </div>
         <div class="col-md-9">
             <div class="card">
@@ -521,12 +521,20 @@ require 'Include/Header.php';
             <?php
             if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
-                <div class="card card-success">
+                <div class="card card-default">
+                    <div class="card-header with-border">
+                        <h3 class="card-title">
+                            <?= _("Family Members") ?>
+                        </h3>
+                        <div class="card-tools pull-right">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <table class="table user-list table-hover data-person" width="100%">
                             <thead>
                             <tr>
-                                <th><span><?= _("Family Members") ?></span></th>
+                                <th><span><?= _("Members") ?></span></th>
                                 <th class="text-center"><span><?= _("Role") ?></span></th>
                                 <th><span><?= _("Classification") ?></span></th>
                                 <th><span><?= _("Birthday") ?></span></th>
@@ -622,80 +630,78 @@ require 'Include/Header.php';
                 <?php
             }
             ?>
-        </div>
-    </div>
-</div>
-
-<?php if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) { ?>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header p-2">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <a href="#timeline" aria-controls="timeline" role="tab"
-                               data-toggle="tab" class="nav-link active">
-                                <?= _("Timeline") ?>
-                            </a></li>
-                        <li class="nav-item"><a href="#properties" aria-controls="properties" role="tab"
-                                                data-toggle="tab" class="nav-link"><?= _("Assigned Properties") ?></a>
-                        </li>
-                        <?php
-                        if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
-                            ?>
-                            <li class="nav-item"><a href="#finance" aria-controls="finance" role="tab"
-                                                    data-toggle="tab" class="nav-link"><i
-                                        class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
-                            <li class="nav-item"><a href="#pledges" aria-controls="pledges" role="tab"
-                                                    data-toggle="tab" class="nav-link"><i
-                                        class="fa fa-bank"></i> <?= _("Pledges and Payments") ?></a></li>
-                            <?php
-                        }
-                        ?>
-                        <li role="presentation" class="nav-item"><a href="#notes" aria-controls="notes" role="tab"
-                                                                    data-toggle="tab" class="nav-link"><i
-                                    class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
-                    </ul>
-
-                </div>
-                <div class="card-body">
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tab-pane fade" class="tab-pane active" id="timeline">
-                            <div class="timeline">
-                                <!-- timeline time label -->
-                                <div class="time-label">
-                  <span class="bg-red">
-                    <?= $curYear ?>
-                  </span>
-                                </div>
-                                <!-- /.timeline-label -->
-
-                                <!-- timeline item -->
-                                <?php
-                                $countMainTimeLine = 0;  // number of items in the MainTimeLines
-
-                                foreach ($timelineServiceItems as $item) {
-                                    $countMainTimeLine++;
-
-                                    if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
-                                    if ($curYear != $item['year']) {
-                                        $curYear = $item['year'];
+            <?php
+            if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                ?>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header p-2">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <a href="#timeline" aria-controls="timeline" role="tab"
+                                           data-toggle="tab" class="nav-link active">
+                                            <?= _("Timeline") ?>
+                                        </a></li>
+                                    <li class="nav-item"><a href="#properties" aria-controls="properties" role="tab"
+                                                            data-toggle="tab" class="nav-link"><?= _("Assigned Properties") ?></a>
+                                    </li>
+                                    <?php
+                                    if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                                         ?>
-                                        <div class="time-label">
-                    <span class="bg-gray">
-                        <?= $curYear ?>
-                    </span>
-                                        </div>
+                                        <li class="nav-item"><a href="#finance" aria-controls="finance" role="tab"
+                                                                data-toggle="tab" class="nav-link"><i
+                                                    class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
+                                        <li class="nav-item"><a href="#pledges" aria-controls="pledges" role="tab"
+                                                                data-toggle="tab" class="nav-link"><i
+                                                    class="fa fa-bank"></i> <?= _("Pledges and Payments") ?></a></li>
                                         <?php
                                     }
                                     ?>
-                                    <div>
-                                        <!-- timeline icon -->
-                                        <i class="fa <?= $item['style'] ?>"></i>
+                                    <li role="presentation" class="nav-item"><a href="#notes" aria-controls="notes" role="tab"
+                                                                                data-toggle="tab" class="nav-link"><i
+                                                class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
+                                </ul>
 
-                                        <div class="timeline-item">
+                            </div>
+                            <div class="card-body">
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tab-pane fade" class="tab-pane active" id="timeline">
+                                        <div class="timeline">
+                                            <!-- timeline time label -->
+                                            <div class="time-label">
+                  <span class="bg-red">
+                    <?= $curYear ?>
+                  </span>
+                                            </div>
+                                            <!-- /.timeline-label -->
+
+                                            <!-- timeline item -->
+                                            <?php
+                                            $countMainTimeLine = 0;  // number of items in the MainTimeLines
+
+                                            foreach ($timelineServiceItems as $item) {
+                                                $countMainTimeLine++;
+
+                                                if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
+                                                if ($curYear != $item['year']) {
+                                                    $curYear = $item['year'];
+                                                    ?>
+                                                    <div class="time-label">
+                    <span class="bg-gray">
+                        <?= $curYear ?>
+                    </span>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <div>
+                                                    <!-- timeline icon -->
+                                                    <i class="fa <?= $item['style'] ?>"></i>
+
+                                                    <div class="timeline-item">
                     <span class="time"><i class="fa fa-clock-o"></i><?= $item['datetime'] ?>
                         <?php
                         if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && $item['slim']) {
@@ -726,218 +732,218 @@ require 'Include/Header.php';
                         } ?>
                   </span>
 
-                                            <h3 class="timeline-header">
-                                                <?php
-                                                if (in_array('headerlink', $item)) {
-                                                    ?>
-                                                    <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <?= _($item['header']) ?>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </h3>
+                                                        <h3 class="timeline-header">
+                                                            <?php
+                                                            if (in_array('headerlink', $item)) {
+                                                                ?>
+                                                                <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <?= _($item['header']) ?>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </h3>
 
-                                            <div class="timeline-body">
-                                                <pre><?= $item['text'] ?></pre>
-                                            </div>
+                                                        <div class="timeline-body">
+                                                            <pre><?= $item['text'] ?></pre>
+                                                        </div>
 
-                                            <?php
-                                            if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && !$item['slim']) {
-                                                ?>
-                                                <div class="timeline-footer">
-                                                    <?php
-                                                    if (isset($item["editLink"])) {
-                                                        ?>
-                                                        <?= $item["editLink"] ?>
-                                                        <button type="button" class="btn btn-primary"><i
-                                                                class="fa fa-edit"></i></button>
-                                                        </a>
                                                         <?php
-                                                    }
+                                                        if ((SessionUser::getUser()->isNotesEnabled()) && (isset($item["editLink"]) || isset($item["deleteLink"])) && !$item['slim']) {
+                                                            ?>
+                                                            <div class="timeline-footer">
+                                                                <?php
+                                                                if (isset($item["editLink"])) {
+                                                                    ?>
+                                                                    <?= $item["editLink"] ?>
+                                                                    <button type="button" class="btn btn-primary"><i
+                                                                            class="fa fa-edit"></i></button>
+                                                                    </a>
+                                                                    <?php
+                                                                }
 
-                                                    if (isset($item["deleteLink"])) {
+                                                                if (isset($item["deleteLink"])) {
+                                                                    ?>
+                                                                    <?= $item["deleteLink"] ?>
+                                                                    <button type="button" class="btn btn-danger"><i
+                                                                            class="fa fa-trash"></i></button>
+                                                                    </a>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </div>
+                                                            <?php
+                                                        }
                                                         ?>
-                                                        <?= $item["deleteLink"] ?>
-                                                        <button type="button" class="btn btn-danger"><i
-                                                                class="fa fa-trash"></i></button>
-                                                        </a>
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                    </div>
                                                 </div>
                                                 <?php
                                             }
                                             ?>
+                                            <!-- END timeline item -->
+                                        </div>
+                                    </div>
+                                    <div role="tab-pane fade" class="tab-pane" id="properties">
+                                        <div class="main-box clearfix">
+                                            <div class="main-box-body clearfix">
+                                                <?php
+                                                $sAssignedProperties = ",";
+                                                ?>
+                                                <table width="100%" cellpadding="4" id="assigned-properties-table"
+                                                       class="table table-condensed dt-responsive dataTable no-footer dtr-inline"></table>
+                                                <?php
+                                                if ($bOkToEdit) {
+                                                    ?>
+                                                    <div class="alert alert-info">
+                                                        <div>
+                                                            <h4><strong><?= _("Assign a New Property") ?>:</strong></h4>
+
+                                                            <div class="row">
+                                                                <div class="form-group col-xs-12 col-md-7">
+                                                                    <select name="PropertyId" id="input-family-properties"
+                                                                            class="input-family-properties form-control select2"
+                                                                            style="width:100%"
+                                                                            data-placeholder="<?= _("Select") ?> ..."
+                                                                            data-familyID="<?= $iFamilyID ?>">
+                                                                        <option selected disabled>
+                                                                            -- <?= _('select an option') ?>
+                                                                            --
+                                                                        </option>
+                                                                        <?php
+                                                                        foreach ($ormProperties as $ormProperty) {
+                                                                            //If the property doesn't already exist for this Person, write the <OPTION> tag
+                                                                            if (strlen(strstr($sAssignedProperties, "," . $ormProperty->getProId() . ",")) == 0) {
+                                                                                ?>
+                                                                                <option value="<?= $ormProperty->getProId() ?>"
+                                                                                        data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>"
+                                                                                        data-pro_Value=""><?= $ormProperty->getProName() ?></option>*/
+                                                                                <?php
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div id="prompt-box" class="col-xs-12 col-md-7"></div>
+                                                                <div class="form-group col-xs-12 col-md-7">
+                                                                    <input type="submit"
+                                                                           class="btn btn-primary assign-property-btn"
+                                                                           value="<?= _("Assign") ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                     <?php
-                                }
-                                ?>
-                                <!-- END timeline item -->
-                            </div>
-                        </div>
-                        <div role="tab-pane fade" class="tab-pane" id="properties">
-                            <div class="main-box clearfix">
-                                <div class="main-box-body clearfix">
-                                    <?php
-                                    $sAssignedProperties = ",";
-                                    ?>
-                                    <table width="100%" cellpadding="4" id="assigned-properties-table"
-                                           class="table table-condensed dt-responsive dataTable no-footer dtr-inline"></table>
-                                    <?php
-                                    if ($bOkToEdit) {
+                                    if (SessionUser::getUser()->isFinanceEnabled()) {
                                         ?>
-                                        <div class="alert alert-info">
-                                            <div>
-                                                <h4><strong><?= _("Assign a New Property") ?>:</strong></h4>
+                                        <div role="tab-pane fade" class="tab-pane" id="finance">
+                                            <div class="main-box clearfix">
+                                                <div class="main-box-body clearfix">
+                                                    <?php
+                                                    if ($ormAutoPayments->count() > 0) {
+                                                        ?>
+                                                        <table class="table table-striped table-bordered"
+                                                               id="automaticPaymentsTable" cellpadding="5" cellspacing="0"
+                                                               width="100%"></table>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    <p align="center">
+                                                        <a class="btn btn-primary"
+                                                           href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tab-pane fade" class="tab-pane" id="pledges">
+                                            <div class="main-box clearfix">
+                                                <div class="main-box-body clearfix">
+                                                    <input type="checkbox" name="ShowPledges" id="ShowPledges"
+                                                           value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>><?= _("Show Pledges") ?>
+                                                    <div class="row">
+                                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                                            <input type="checkbox" name="ShowPayments" id="ShowPayments"
+                                                                   value="1" <?= ($_SESSION['sshowPayments']) ? " checked" : "" ?>><?= _("Show Payments") ?>
+                                                        </div>
+                                                        <div class="col-lg-1 col-md-1 col-sm-1">
+                                                            <label for="ShowSinceDate"><?= _("From") ?>:</label>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                                            <input class="form-control date-picker" type="text" id="Min"
+                                                                   Name="ShowSinceDate"
+                                                                   value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                                        </div>
+                                                        <div class="col-lg-1 col-md-1 col-sm-1">
+                                                            <label for="ShowToDate"><?= _("To") ?>:</label>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2">
+                                                            <input class="form-control date-picker" type="text" id="Max"
+                                                                   Name="ShowToDate"
+                                                                   value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
+                                                                   placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                    $tog = 0;
+                                                    if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
+                                                        ?>
 
-                                                <div class="row">
-                                                    <div class="form-group col-xs-12 col-md-7">
-                                                        <select name="PropertyId" id="input-family-properties"
-                                                                class="input-family-properties form-control select2"
-                                                                style="width:100%"
-                                                                data-placeholder="<?= _("Select") ?> ..."
-                                                                data-familyID="<?= $iFamilyID ?>">
-                                                            <option selected disabled>
-                                                                -- <?= _('select an option') ?>
-                                                                --
-                                                            </option>
-                                                            <?php
-                                                            foreach ($ormProperties as $ormProperty) {
-                                                                //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                                                if (strlen(strstr($sAssignedProperties, "," . $ormProperty->getProId() . ",")) == 0) {
-                                                                    ?>
-                                                                    <option value="<?= $ormProperty->getProId() ?>"
-                                                                            data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>"
-                                                                            data-pro_Value=""><?= $ormProperty->getProName() ?></option>*/
-                                                                    <?php
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                    <div id="prompt-box" class="col-xs-12 col-md-7"></div>
-                                                    <div class="form-group col-xs-12 col-md-7">
-                                                        <input type="submit"
-                                                               class="btn btn-primary assign-property-btn"
-                                                               value="<?= _("Assign") ?>">
-                                                    </div>
+                                                        <table id="pledgePaymentTable"
+                                                               class="table table-striped table-bordered"
+                                                               cellspacing="0" width="100%"></table>
+                                                        <?php
+                                                    } // if bShowPledges
+                                                    ?>
+
+                                                    <p align="center">
+                                                        <a class="btn btn-primary"
+                                                           href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                                                        <a class="btn btn-default"
+                                                           href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                                                    </p>
+
+                                                    <?php
+                                                    if (SessionUser::getUser()->isCanvasserEnabled()) {
+                                                        ?>
+                                                        <p align="center">
+                                                            <a class="btn btn-default"
+                                                               href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                                                        </p>
+                                                        <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             </div>
                                         </div>
                                         <?php
                                     }
                                     ?>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        if (SessionUser::getUser()->isFinanceEnabled()) {
-                            ?>
-                            <div role="tab-pane fade" class="tab-pane" id="finance">
-                                <div class="main-box clearfix">
-                                    <div class="main-box-body clearfix">
-                                        <?php
-                                        if ($ormAutoPayments->count() > 0) {
-                                            ?>
-                                            <table class="table table-striped table-bordered"
-                                                   id="automaticPaymentsTable" cellpadding="5" cellspacing="0"
-                                                   width="100%"></table>
-                                            <?php
-                                        }
-                                        ?>
-                                        <p align="center">
-                                            <a class="btn btn-primary"
-                                               href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tab-pane fade" class="tab-pane" id="pledges">
-                                <div class="main-box clearfix">
-                                    <div class="main-box-body clearfix">
-                                        <input type="checkbox" name="ShowPledges" id="ShowPledges"
-                                               value="1" <?= ($_SESSION['sshowPledges']) ? " checked" : "" ?>><?= _("Show Pledges") ?>
-                                        <div class="row">
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                                                       value="1" <?= ($_SESSION['sshowPayments']) ? " checked" : "" ?>><?= _("Show Payments") ?>
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <label for="ShowSinceDate"><?= _("From") ?>:</label>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class="form-control date-picker" type="text" id="Min"
-                                                       Name="ShowSinceDate"
-                                                       value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                                       placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                                            </div>
-                                            <div class="col-lg-1 col-md-1 col-sm-1">
-                                                <label for="ShowToDate"><?= _("To") ?>:</label>
-                                            </div>
-                                            <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class="form-control date-picker" type="text" id="Max"
-                                                       Name="ShowToDate"
-                                                       value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                                       placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
-                                            </div>
-                                        </div>
-                                        <?php
-                                        $tog = 0;
-                                        if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
-                                            ?>
-
-                                            <table id="pledgePaymentTable"
-                                                   class="table table-striped table-bordered"
-                                                   cellspacing="0" width="100%"></table>
-                                            <?php
-                                        } // if bShowPledges
-                                        ?>
-
-                                        <p align="center">
-                                            <a class="btn btn-primary"
-                                               href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
-                                            <a class="btn btn-default"
-                                               href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
-                                        </p>
-
-                                        <?php
-                                        if (SessionUser::getUser()->isCanvasserEnabled()) {
-                                            ?>
-                                            <p align="center">
-                                                <a class="btn btn-default"
-                                                   href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
-                                            </p>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                        <div role="tab-pane fade" class="tab-pane" id="notes">
-                            <div class="timeline">
-                                <!-- note time label -->
-                                <div class="time-label">
+                                    <div role="tab-pane fade" class="tab-pane" id="notes">
+                                        <div class="timeline">
+                                            <!-- note time label -->
+                                            <div class="time-label">
                   <span class="bg-yellow">
                     <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
                   </span>
-                                </div>
-                                <!-- /.note-label -->
+                                            </div>
+                                            <!-- /.note-label -->
 
-                                <!-- note item -->
-                                <?php
-                                foreach ($timelineNotesServiceItems as $item) {
-                                    ?>
-                                    <div>
-                                        <!-- timeline icon -->
-                                        <i class="fa <?= $item['style'] ?>"></i>
-                                        <div class="timeline-item">
+                                            <!-- note item -->
+                                            <?php
+                                            foreach ($timelineNotesServiceItems as $item) {
+                                                ?>
+                                                <div>
+                                                    <!-- timeline icon -->
+                                                    <i class="fa <?= $item['style'] ?>"></i>
+                                                    <div class="timeline-item">
                                             <span class="time">
                       <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
@@ -970,78 +976,80 @@ require 'Include/Header.php';
                     }
                     ?>
                   </span>
-                                            <h3 class="timeline-header">
-                                                <?php
-                                                if (in_array('headerlink', $item)) {
-                                                    ?>
-                                                    <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <?= $item['header'] ?>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </h3>
-
-                                            <div class="timeline-body">
-                                                <?= $item['text'] ?>
-                                            </div>
-
-                                            <?php if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) { ?>
-                                                <div class="timeline-footer">
-                                                    <?php
-                                                    if (!$item['slim']) {
-                                                        ?>
-                                                        <?php
-                                                        if ($item['editLink'] != '') {
+                                                        <h3 class="timeline-header">
+                                                            <?php
+                                                            if (in_array('headerlink', $item)) {
+                                                                ?>
+                                                                <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <?= $item['header'] ?>
+                                                                <?php
+                                                            }
                                                             ?>
-                                                            <a href="#" data-id="<?= $item['id'] ?>"
-                                                               data-perid="<?= $item['perID'] ?>"
-                                                               data-famid="<?= $item['famID'] ?>" class="editDocument">
-                                                                <button type="button" class="btn btn-primary"><i
-                                                                        class="fa fa-edit"></i></button>
-                                                            </a>
+                                                        </h3>
+
+                                                        <div class="timeline-body">
+                                                            <?= $item['text'] ?>
+                                                        </div>
+
+                                                        <?php if ((SessionUser::getUser()->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) { ?>
+                                                            <div class="timeline-footer">
+                                                                <?php
+                                                                if (!$item['slim']) {
+                                                                    ?>
+                                                                    <?php
+                                                                    if ($item['editLink'] != '') {
+                                                                        ?>
+                                                                        <a href="#" data-id="<?= $item['id'] ?>"
+                                                                           data-perid="<?= $item['perID'] ?>"
+                                                                           data-famid="<?= $item['famID'] ?>" class="editDocument">
+                                                                            <button type="button" class="btn btn-primary"><i
+                                                                                    class="fa fa-edit"></i></button>
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+
+                                                                    if ($item['deleteLink'] != '') {
+                                                                        ?>
+                                                                        <a href="#" data-id="<?= $item['id'] ?>"
+                                                                           data-perid="<?= $item['perID'] ?>"
+                                                                           data-famid="<?= $item['famID'] ?>"
+                                                                           class="deleteDocument">
+                                                                            <button type="button" class="btn btn-danger"><i
+                                                                                    class="fa fa-trash"></i></button>
+                                                                        </a>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </div>
                                                             <?php
                                                         }
-
-                                                        if ($item['deleteLink'] != '') {
-                                                            ?>
-                                                            <a href="#" data-id="<?= $item['id'] ?>"
-                                                               data-perid="<?= $item['perID'] ?>"
-                                                               data-famid="<?= $item['famID'] ?>"
-                                                               class="deleteDocument">
-                                                                <button type="button" class="btn btn-danger"><i
-                                                                        class="fa fa-trash"></i></button>
-                                                            </a>
-                                                            <?php
-                                                        }
                                                         ?>
-
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                    </div>
                                                 </div>
                                                 <?php
                                             }
                                             ?>
+                                            <!-- END timeline item -->
                                         </div>
                                     </div>
-                                    <?php
-                                }
-                                ?>
-                                <!-- END timeline item -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>
         </div>
     </div>
-
-    <?php
-}
-?>
+</div>
 
 <!-- Modal -->
 <div id="photoUploader"></div>
@@ -1076,23 +1084,23 @@ require 'Include/Header.php';
             </div>
             <div class="modal-body">
                 <p>
-                <b><?= _("Select how do you want to request the family information to be verified") ?></b>
+                    <b><?= _("Select how do you want to request the family information to be verified") ?></b>
                 </p>
-                    <?php
-                    if (count($sFamilyEmails) > 0) {
-                    ?>
-                <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
-
-                <ul>
-                    <?php
-                    foreach ($sFamilyEmails as $tmpEmail) {
-                        ?>
-                        <li><?= $tmpEmail ?></li>
-                        <?php
-                    }
-                    ?>
-                </ul>
                 <?php
+                if (count($sFamilyEmails) > 0) {
+                    ?>
+                    <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+
+                    <ul>
+                        <?php
+                        foreach ($sFamilyEmails as $tmpEmail) {
+                            ?>
+                            <li><?= $tmpEmail ?></li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
                 }
                 ?>
 
@@ -1123,59 +1131,59 @@ require 'Include/Header.php';
     </div>
 </div>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 
-    <!-- Document editor -->
-    <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
-    <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-    <script src="<?= $sRootPath ?>/skin/js/document.js"></script>
-    <!-- !Document editor -->
+<!-- Document editor -->
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<!-- !Document editor -->
 
-    <?php
-    if ($sMapProvider == 'OpenStreetMap') {
-        ?>
-        <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
-    <?php
-    } else if ($sMapProvider == 'GoogleMaps') {
+<?php
+if ($sMapProvider == 'OpenStreetMap') {
     ?>
-        <!--Google Map Scripts -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
-
-        <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
-    } else if ($sMapProvider == 'BingMaps') {
+} else if ($sMapProvider == 'GoogleMaps') {
     ?>
-        <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
-        <?php
-    }
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
+
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+} else if ($sMapProvider == 'BingMaps') {
     ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <?php
+}
+?>
 
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-        window.CRM.currentPersonID = 0;
-        window.CRM.currentFamily = <?= $iFamilyID ?>;
-        window.CRM.docType = 'family';
-        window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
-        window.CRM.fam_Name = "<?= $family->getName() ?>";
-        window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
-        window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-        window.CRM.familyMail = "<?= $family->getEmail() ?>";
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    window.CRM.currentPersonID = 0;
+    window.CRM.currentFamily = <?= $iFamilyID ?>;
+    window.CRM.docType = 'family';
+    window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
+    window.CRM.fam_Name = "<?= $family->getName() ?>";
+    window.CRM.iPhotoHeight = <?= SystemConfig::getValue("iPhotoHeight") ?>;
+    window.CRM.iPhotoWidth = <?= SystemConfig::getValue("iPhotoWidth") ?>;
+    window.CRM.familyMail = "<?= $family->getEmail() ?>";
 
-        var dataT = 0;
-        var dataPaymentTable = 0;
-        var pledgePaymentTable = 0;
+    var dataT = 0;
+    var dataPaymentTable = 0;
+    var pledgePaymentTable = 0;
 
-        <?php if ($location_available){ ?>
-            // location and MAP
-            window.CRM.churchloc = {
-                lat: <?= $lat ?>,
-                lng: <?= $lng ?>
-            };
-            window.CRM.mapZoom   = <?= $iLittleMapZoom ?>;
+    <?php if ($location_available){ ?>
+    // location and MAP
+    window.CRM.churchloc = {
+        lat: <?= $lat ?>,
+        lng: <?= $lng ?>
+    };
+    window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
 
-            initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
-        <?php } ?>
-    </script>
+    initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
+    <?php } ?>
+</script>
 
-    <?php require "Include/Footer.php" ?>
+<?php require "Include/Footer.php" ?>
