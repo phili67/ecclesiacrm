@@ -33,7 +33,7 @@ class Person extends BasePerson implements iPhoto
     const SELF_REGISTER = -1;
     const SELF_VERIFY = -2;
     private $photo;
-    
+
     public function preDelete(ConnectionInterface $con = null)
     {
       $this->deletePhoto();
@@ -62,19 +62,19 @@ class Person extends BasePerson implements iPhoto
 
       return parent::preDelete($con);
     }
-    
+
     public function postDelete(ConnectionInterface $con = null)
     {
       $family = null;
       $ret = null;
-      
+
       if ($this->getFamId() > 0) {// a one person family is deleted with the family too : assume family is only the address
         $family = \EcclesiaCRM\FamilyQuery::Create()->filterById($this->getFamId())->findOne();
       }
 
       if (is_callable('parent::postDelete')) {
           $ret  = parent::postDelete($con);
-                       
+
           $pledges = \EcclesiaCRM\PledgeQuery::Create()->filterByFamId($this->getFamId())->find($con);
 
           if ( !empty($family) && $family->getPeople()->count() == 0 && $pledges->count() == 0 ) {
@@ -86,28 +86,28 @@ class Person extends BasePerson implements iPhoto
 
       return $ret;
     }
-    
+
     public function isDeactivated()
     {
       if ($this->getDateDeactivated() != '' || (!is_null ($this->getFamily()) && $this->getFamily()->getDateDeactivated() != '')) {
         return true;
       }
-      
+
       return false;
     }
-    
+
     public function setDateDeactivated($v)
     {
       parent::setDateDeactivated($v);
-      
+
       $family = $this->getFamily();
-      
+
       $members = $family->getActivatedPeople();
-      
+
       if (count($members) == 0) {
         $family->setDateDeactivated ($v);
       }
-      
+
       return $this;
     }
 
@@ -119,7 +119,7 @@ class Person extends BasePerson implements iPhoto
     public function getUrlIcon()
     {
       $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
-      
+
       if (!empty($icon)) {
         $lst = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
         if (!empty($lst)) {
@@ -127,23 +127,23 @@ class Person extends BasePerson implements iPhoto
         } else {
           return '../interrogation_point.png';
         }
-      } 
-      
+      }
+
       return 'gm-red-pushpin.png';
     }
-    
+
     public function getOnlyVisiblePersonView()
     {
       $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
-      
+
       if (!empty($icon)) {
         return $icon->getOnlyVisiblePersonView();
       }
-      
+
       return false;
     }
 
-    
+
     public function isMale()
     {
         return $this->getGender() == 1;
@@ -201,7 +201,7 @@ class Person extends BasePerson implements iPhoto
 
         return $roleName;
     }
-    
+
     public function getClassification()
     {
       $classification = null;
@@ -211,7 +211,7 @@ class Person extends BasePerson implements iPhoto
       }
       return $classification;
     }
-    
+
     public function getClassificationName()
     {
       $classificationName = '';
@@ -245,13 +245,13 @@ class Person extends BasePerson implements iPhoto
     {
         $note = new Note();
         $note->setPerId($this->getId());
-        
+
         if (!is_null (SessionUser::getUser())) {
           $note->setEnteredBy(SessionUser::getUser()->getPerson()->getEditedBy());
         } else {
           $note->setEnteredBy($this->getEditedBy());
         }
-        
+
         $note->setType($type);
         $note->setDateEntered(new DateTime());
 
@@ -328,7 +328,7 @@ class Person extends BasePerson implements iPhoto
         //if it reaches here, no address found. return empty $address
         return "";
     }
-    
+
     public function getAddressForMailChimp()
     {
        if (!empty($this->getAddress1()) && SystemConfig::getBooleanValue("bHidePersonAddress") == false) {
@@ -345,7 +345,7 @@ class Person extends BasePerson implements iPhoto
             $address['state'] = "";
             if (!empty($this->getState())) {
               $address['state'] = $this->getState();
-            } 
+            }
             $address['zip'] = "";
             if (!empty($this->getZip())) {
               $address['zip'] = $this->getZip();
@@ -354,7 +354,7 @@ class Person extends BasePerson implements iPhoto
             if (!empty($this->getCountry())) {
               $address['country'] = $this->getCountry();
             }
-            
+
             return $address;
         } else {
             if ($this->getFamily()) {
@@ -380,11 +380,11 @@ class Person extends BasePerson implements iPhoto
               if (!empty($this->getFamily()->getCountry())) {
                 $address['country'] = $this->getFamily()->getCountry();
               }
-            
+
               return $address;
             }
         }
-       
+
     }
 
     /**
@@ -422,7 +422,7 @@ class Person extends BasePerson implements iPhoto
 
     public function deletePhoto()
     {
-        if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit) {
+        if (SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPersonId() == $this->getId() ) {
             if ($this->getPhoto()->delete()) {
                 $note = new Note();
                 $note->setText(gettext("Profile Image Deleted"));
@@ -438,7 +438,7 @@ class Person extends BasePerson implements iPhoto
 
     public function getPhoto()
     {
-      if (!$this->photo) 
+      if (!$this->photo)
       {
         $this->photo = new Photo("Person",  $this->getId());
       }
@@ -447,7 +447,7 @@ class Person extends BasePerson implements iPhoto
 
     public function setImageFromBase64($base64)
     {
-        if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit) {
+        if ( SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->getPersonId() == $this->getId() ) {
             $note = new Note();
             $note->setText(gettext("Profile Image uploaded"));
             $note->setType("photo");
@@ -577,22 +577,22 @@ class Person extends BasePerson implements iPhoto
         }
         return $nameString;
     }
-    
+
     public function getNumericCellPhone()
     {
       return "1".preg_replace('/[^\.0-9]/',"",$this->getCellPhone());
     }
-    
+
     public function postSave(ConnectionInterface $con = null) {
       $this->getPhoto()->refresh();
       return parent::postSave($con);
     }
-    
+
     /* Philippe Logel 2017 */
     public function getAge($with_suffix=true)
     {
        $birthD = $this->getBirthDate();
-       
+
        if ($this->hideAge() == 1) {
             return '';
        }
@@ -615,14 +615,14 @@ class Person extends BasePerson implements iPhoto
            $ageSuffix = gettext('yr old');
          }
        }
-       
+
        if ($with_suffix == true) {
          return $age->y." ".$ageSuffix;
        } else {
          return $age->y;
        }
     }
-    
+
     /* Philippe Logel 2017 */
     public function getFullNameWithAge()
     {
