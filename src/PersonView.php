@@ -363,23 +363,28 @@ if (!empty($person->getDateDeactivated())) {
                             <img
                                 src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
                                 class="initials-image profile-user-img img-responsive img-rounded img-circle">
-                            <?php if ($bOkToEdit): ?>
+                            <?php
+                            if ($bOkToEdit) {
+                                ?>
                                 <div class="after">
                                     <div class="buttons">
-                                        <a id="view-larger-image-btn" class="hide" title="<?= _("View Photo") ?>">
+                                        <a class="hide" id="view-larger-image-btn" href="#"
+                                           title="<?= _("View Photo") ?>">
                                             <i class="fa fa-search-plus"></i>
                                         </a>&nbsp;
-                                        <a class="" data-toggle="modal" data-target="#upload-image"
+                                        <a href="#" data-toggle="modal" data-target="#upload-image"
                                            title="<?= _("Upload Photo") ?>">
                                             <i class="fa fa-camera"></i>
                                         </a>&nbsp;
-                                        <a data-toggle="modal" data-target="#confirm-delete-image"
+                                        <a href="#" data-toggle="modal" data-target="#confirm-delete-image"
                                            title="<?= _("Delete Photo") ?>">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
                                     </div>
                                 </div>
-                            <?php endif; ?>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <h3 class="profile-username text-center">
                             <?php
@@ -692,9 +697,7 @@ if (!empty($person->getDateDeactivated())) {
                 <div class="alert alert-info alert-dismissable">
                     <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
                 </div>
-
             </div>
-
         </div>
         <div class="col-md-9">
             <div class="card">
