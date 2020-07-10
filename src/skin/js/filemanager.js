@@ -19,12 +19,12 @@ $(document).ready(function () {
         }
      });
   }
-  
+
   // EDrive
   var selected     = [];// the selected rows
   var uploadWindow = null;
   var oldTextField = null;
-  
+
   window.CRM.dataEDriveTable = $("#edrive-table").DataTable({
     ajax:{
       url: window.CRM.root + "/api/filemanager/" + window.CRM.currentPersonID,
@@ -58,12 +58,12 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (full.dir) {
             var fileName = data.substring(1);
-            
+
             return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly>';
           } else {
             var fileName = data;
             fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
-            
+
             return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly>';
           }
         }
@@ -75,7 +75,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           if (!full.dir) {
             var ret = '';
-            
+
             ret  += '<a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '">'
                  + '<span class="fa-stack">'
                  + '   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>'
@@ -87,10 +87,10 @@ $(document).ready(function () {
                  + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
                  + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
                  + '</span>';
-                 
+
             return ret;
           }
-          
+
           return '';
         }
       },
@@ -135,7 +135,7 @@ $(document).ready(function () {
       installDragAndDrop();
     }
   });
-  
+
 
 $("body").on('click', '.filemanager-download', function(e) {
   var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data()
@@ -155,21 +155,21 @@ $("body").on('click', '.filemanager-download', function(e) {
   });
 });
 
-  
+
  $('#edrive-table tbody').on('click', 'td', function (e) {
- 
+
   var id    = $(this).parent().attr('id');
   var col  = window.CRM.dataEDriveTable.cell( this ).index().column;
-  
-  
+
+
   if ( !(col == 2) ) {
     if (!e.shiftKey) {
       selected.length = 0;// no lines
       $('#edrive-table tbody tr').removeClass('selected');
     }
-    
+
     var index = $.inArray(id, selected);
-  
+
     if ( index === -1 ) {
         selected.push( id );
     } else {
@@ -177,13 +177,13 @@ $("body").on('click', '.filemanager-download', function(e) {
     }
 
     $(this).parent().toggleClass('selected');
-  
+
     var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-  
+
     if (selectedRows == 0) {
       selected.length = 0;// no lines
     }
-    
+
     if (window.CRM.browserImage == true) {
       if (selectedRows) {
         $('.filemanager-download').show();
@@ -194,7 +194,7 @@ $("body").on('click', '.filemanager-download', function(e) {
 
     if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) && selectedRows == 1) {
-     
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'filemanager/getPreview',
@@ -210,9 +210,9 @@ $("body").on('click', '.filemanager-download', function(e) {
       $('.preview').html('');
     }
   }
-  
+
 });
-  
+
 
 $("body").on('click', '.fileName', function(e) {
     if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
@@ -220,7 +220,7 @@ $("body").on('click', '.fileName', function(e) {
           // we're on a SmartPhone
       var oldName  = $(this).data("name");
       var fileName = '';
-      
+
       if (oldName[0] == '/') {
         fileName = oldName.substring(1);
       } else {
@@ -232,7 +232,7 @@ $("body").on('click', '.fileName', function(e) {
       bootbox.prompt({
         title : i18next.t("Set a File/Folder name"),
         value : fileName,
-        callback: function(result){ 
+        callback: function(result){
           if (result != '') {
             window.CRM.APIRequest({
               method: 'POST',
@@ -254,11 +254,11 @@ $("body").on('dblclick', '.drag-file', function(e) {
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
       var perID = $(this).data("perid");
       var path  = $(this).data("path");
-      
+
       window.location.href  = window.CRM.root + '/api/filemanager/getFile/' + perID + '/' + path;
     }
 });
-  
+
 $("body").on('dblclick', '.fileName', function(e) {
     if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
@@ -267,10 +267,10 @@ $("body").on('dblclick', '.fileName', function(e) {
             $(oldTextField).css("background", "transparent");
             $(oldTextField).attr('readonly');
         }
-  
+
         $(this).css("background", "white");
         $(this).removeAttr('readonly');
-  
+
         oldTextField = this;
     }
 });
@@ -286,7 +286,7 @@ $("body").on('keypress', '.fileName', function(e) {
   var newName  = $(this).val();
   var oldName = $(this).data("name");
   var type = $(this).data("type");
-  
+
   switch (key) {
     case 13:// return
       window.CRM.APIRequest({
@@ -301,13 +301,13 @@ $("body").on('keypress', '.fileName', function(e) {
       break;
     case 27:// ESC
       var fileName = oldName;
-      
+
       if ( type == 'file') {
         fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
       } else {
         fileName = fileName.substring(1);
       }
-      
+
       $(this).attr('readonly');
       $(this).css("background", "transparent");
       $(this).val(fileName);
@@ -315,7 +315,7 @@ $("body").on('keypress', '.fileName', function(e) {
       break;
   }
 });
-  
+
   $('.trash-drop').click (function () {
       if (selected.length) {
         bootbox.confirm({
@@ -360,7 +360,7 @@ $("body").on('keypress', '.fileName', function(e) {
   $('.trash-drop').droppable({
     drop : function(event,ui){
       var len = selected.length;
-      
+
       if (len > 1) {
         bootbox.confirm({
           title  : i18next.t("You're about to remove a folder and it's content"),
@@ -393,13 +393,13 @@ $("body").on('keypress', '.fileName', function(e) {
             }
           }
         });
-        
+
         return;
       }
-      
+
       var name = $(ui.draggable).attr('id');
       var type = $(ui.draggable).attr('type');
-      
+
       if (type == 'folder') {
         bootbox.confirm({
           title  : i18next.t("You're about to remove a folder and it's content"),
@@ -467,13 +467,13 @@ $("body").on('keypress', '.fileName', function(e) {
       }
     }
   });
-  
+
   $('.folder-back-drop').droppable({
 
     drop : function(event,ui){
       var name = $(ui.draggable).attr('id');
       var folderName = '/..';
-      
+
       if (selected.length > 0) {// Drag in a folder
         window.CRM.APIRequest({
           method: 'POST',
@@ -483,7 +483,7 @@ $("body").on('keypress', '.fileName', function(e) {
           if (data && !data.success) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
-          
+
           window.CRM.reloadEDriveTable(function() {
             selected.length=0;
           });
@@ -497,7 +497,7 @@ $("body").on('keypress', '.fileName', function(e) {
           if (data && !data.success) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
-          
+
           window.CRM.reloadEDriveTable(function() {
             selected.length=0;
           });
@@ -505,7 +505,7 @@ $("body").on('keypress', '.fileName', function(e) {
       }
     }
 
-  });  
+  });
 
   function installDragAndDrop()
   {
@@ -520,7 +520,7 @@ $("body").on('keypress', '.fileName', function(e) {
       drop : function(event,ui){
         var name = $(ui.draggable).attr('id');
         var folderName = $(event.target).attr('id');
-        
+
         if (selected.length > 0) {// Drag in a folder
           window.CRM.APIRequest({
             method: 'POST',
@@ -530,7 +530,7 @@ $("body").on('keypress', '.fileName', function(e) {
             if (data && !data.success) {
               window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
-          
+
             window.CRM.reloadEDriveTable(function() {
               selected.length=0;
             });
@@ -544,7 +544,7 @@ $("body").on('keypress', '.fileName', function(e) {
             if (data && !data.success) {
               window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
-          
+
             window.CRM.reloadEDriveTable(function() {
               selected.length=0;
             });
@@ -553,7 +553,7 @@ $("body").on('keypress', '.fileName', function(e) {
       }
     });
   }
-  
+
   function openFolder (personID,folder) {
     window.CRM.APIRequest({
       method: 'POST',
@@ -571,37 +571,37 @@ $("body").on('keypress', '.fileName', function(e) {
   }
   $(document).on('click','.filemanager-refresh',function () {
     window.CRM.reloadEDriveTable(function() {
-    });  
+    });
   });
-  
+
   $(document).on('click','.change-folder',function () {
     if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
       var personID = $(this).data("personid");
       var folder   = $(this).data("folder");
-      
+
       openFolder (personID,folder);
     }
   });
-  
+
   $(document).on('dblclick','.change-folder',function () {
   //$(".change-folder").click (function () {
     var personID = $(this).data("personid");
     var folder   = $(this).data("folder");
-    
+
     if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
       var personID = $(this).data("personid");
       var folder   = $(this).data("folder");
-      
+
       openFolder (personID,folder);
     }
   });
-  
+
   $(".new-folder").click (function () {
     var personID = $(this).data("personid");
-    
-    bootbox.prompt(i18next.t("Set your Folder name"), function(result){ 
+
+    bootbox.prompt(i18next.t("Set your Folder name"), function(result){
       if (result != '') {
          window.CRM.APIRequest({
           method: 'POST',
@@ -611,7 +611,7 @@ $("body").on('keypress', '.fileName', function(e) {
           if (data && !data.success) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
-        
+
           window.CRM.reloadEDriveTable(function() {
             selected.length = 0;// no more selected files
           });
@@ -635,14 +635,14 @@ $("body").on('keypress', '.fileName', function(e) {
           } else {
             $(".folder-back-drop").show();
           }
-        
+
           $("#currentPath").html(data.currentPath);
-        });        
+        });
       }
     });
   });
-  
-  
+
+
   function BootboxContentUploadFile(){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Upload your Files")+'</h3>'
        + '<div>'
@@ -658,7 +658,7 @@ $("body").on('keypress', '.fileName', function(e) {
             +'  </form>'
             +'</div>'
        +'</div>';
-          
+
       var object = $('<div/>').html(frm_str).contents();
 
       return object
@@ -683,10 +683,10 @@ $("body").on('keypress', '.fileName', function(e) {
           modal.modal("hide");
        }
      });
-     
+
      return modal;
   }
-    
+
   $(document).on('submit','#formId',function (e) {
     $.ajax( {
       url: window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID,
@@ -700,22 +700,22 @@ $("body").on('keypress', '.fileName', function(e) {
         });
     });
     e.preventDefault();
-  });  
+  });
 
   $("#uploadFile").click (function () {
     uploadWindow = CreateUploadFileWindow();
-    
+
     uploadWindow.modal("show");
   });
-  
-  
+
+
   // the share files
   window.CRM.BootboxContentShareFiles = function (){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your File")+'</h3>'
        + '<div>'
             +'<div class="row div-title">'
               +'<div class="col-md-4">'
-              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"
               +'</div>'
               +'<div class="col-md-8">'
               +'<select size="6" style="width:100%" id="select-share-persons" multiple>'
@@ -738,7 +738,7 @@ $("body").on('keypress', '.fileName', function(e) {
               +'<div class="col-md-8">'
                 +'<input id="sendEmail" type="checkbox">'
               +'</div>'
-            +'</div>'            
+            +'</div>'
             +'<div class="row div-title">'
               +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
               +'<div class="col-md-8">'
@@ -748,45 +748,45 @@ $("body").on('keypress', '.fileName', function(e) {
               +'</div>'
             +'</div>'
           +'</div>';
-          
+
           var object = $('<div/>').html(frm_str).contents();
 
         return object
   }
-  
+
 // Share Files management
   function addPersonsFromNotes(noteId)
   {
       $('#select-share-persons').find('option').remove();
-      
+
       window.CRM.APIRequest({
             method: 'POST',
             path: 'sharedocument/getallperson',
             data: JSON.stringify({"noteId": noteId})
-      }).done(function(data) {    
+      }).done(function(data) {
         var elt = document.getElementById("select-share-persons");
         var len = data.length;
-      
+
         for (i=0; i<len; ++i) {
           var option = document.createElement("option");
           // there is a groups.type in function of the new plan of schema
           option.text = data[i].name;
-          //option.title = data[i].type;        
+          //option.title = data[i].type;
           option.value = data[i].id;
-        
+
           elt.appendChild(option);
         }
-      });  
-      
+      });
+
       //addProfilesToMainDropdown();
   }
-  
+
   window.CRM.addSharedButtonsActions = function (noteId,isShared,button,state,modal){
-     $("#person-group-Id").select2({ 
+     $("#person-group-Id").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
         placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
-        allowClear: true, // This is for clear get the clear button if wanted 
+        allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params){
               return window.CRM.root + "/api/people/search/" + params.term;
@@ -800,17 +800,17 @@ $("body").on('keypress', '.fileName', function(e) {
             cache: true
         }
       });
-      
+
      $("#person-group-rights").change(function() {
        var rightAccess = $(this).val();
        var deferreds = [];
        var i = 0;
-       
-       $('#select-share-persons :selected').each(function(i, sel){ 
+
+       $('#select-share-persons :selected').each(function(i, sel){
           var personID = $(sel).val();
           var str = $(sel).text();
-          
-          deferreds.push(          
+
+          deferreds.push(
             window.CRM.APIRequest({
                method: 'POST',
                path: 'sharedocument/setrights',
@@ -821,40 +821,40 @@ $("body").on('keypress', '.fileName', function(e) {
               } else {
                 res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
               }
-            
+
               var elt = [personID,res];
               deferreds[i++] = elt;
             })
           );
-          
+
         });
-        
+
         $.when.apply($, deferreds).done(function(data) {
          // all images are now prefetched
          //addPersonsFromNotes(noteId);
-         
+
          deferreds.forEach(function(element) {
            $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
-         }); 
-         
+         });
+
          $("#person-group-rights option:first").attr('selected','selected');
         });
      });
-     
+
      $("#select-share-persons").change(function() {
        $("#person-group-rights").val(0);
      });
-          
-      
-     $("#person-group-Id").on("select2:select",function (e) { 
+
+
+     $("#person-group-Id").on("select2:select",function (e) {
        var notification = ($("#sendEmail").is(':checked'))?1:0;
-       
+
        if (e.params.data.personID !== undefined) {
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'sharedocument/addperson',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
-           }).done(function(data) { 
+           }).done(function(data) {
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
@@ -864,7 +864,7 @@ $("body").on('keypress', '.fileName', function(e) {
                 method: 'POST',
                 path: 'sharedocument/addgroup',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
-           }).done(function(data) { 
+           }).done(function(data) {
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
@@ -874,51 +874,52 @@ $("body").on('keypress', '.fileName', function(e) {
                 method: 'POST',
                 path: 'sharedocument/addfamily',
                 data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
-           }).done(function(data) { 
+           }).done(function(data) {
              addPersonsFromNotes(noteId);
              $(state).css('color', 'green');
              $(button).data('shared',1);
            });
         }
      });
-     
+
      addPersonsFromNotes(noteId);
      modal.modal('show');
-     
+
     // this will ensure that image and table can be focused
     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  }
 
   function openShareFilesWindow (event) {
     var noteId = event.currentTarget.dataset.id;
     var isShared = event.currentTarget.dataset.shared;
-    
+
     var button = $(this); //Assuming first tab is selected by default
     var state  = button.find('.fa-stack-2x');
-        
+
     var modal = bootbox.dialog({
        message: window.CRM.BootboxContentShareFiles(),
+       size:"large",
        buttons: [
         {
-         label: i18next.t("Delete"),
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
-         callback: function() {                        
-            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){ 
+         callback: function() {
+            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
               if (result) {
-                $('#select-share-persons :selected').each(function(i, sel){ 
+                $('#select-share-persons :selected').each(function(i, sel){
                   var personID = $(sel).val();
-                  
+
                   window.CRM.APIRequest({
                      method: 'POST',
                      path: 'sharedocument/deleteperson',
                      data: JSON.stringify({"noteId":noteId,"personID": personID})
                   }).done(function(data) {
-                    $("#select-share-persons option[value='"+personID+"']").remove(); 
-                    
+                    $("#select-share-persons option[value='"+personID+"']").remove();
+
                     if (data.count == 0) {
                       $(state).css('color', '#777');
                       $(button).data('shared',0);
                     }
-                    
+
                     $("#person-group-Id").val("").trigger("change");
                   });
                 });
@@ -928,10 +929,10 @@ $("body").on('keypress', '.fileName', function(e) {
          }
         },
         {
-         label: i18next.t("Stop sharing"),
+         label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
-          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){ 
+          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
             if (result) {
               window.CRM.APIRequest({
                  method: 'POST',
@@ -950,7 +951,7 @@ $("body").on('keypress', '.fileName', function(e) {
          }
         },
         {
-         label: i18next.t("Ok"),
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
             window.CRM.reloadEDriveTable(function() {
@@ -968,10 +969,10 @@ $("body").on('keypress', '.fileName', function(e) {
           });
        }
      });
-     
+
     window.CRM.addSharedButtonsActions(noteId,isShared,button,state,modal);
   }
-  
+
   var isOpened = false;
 
   $(document).on('click','.shareFile',function (event) {
@@ -1006,7 +1007,7 @@ $("body").on('keypress', '.fileName', function(e) {
     var val = $(data).data("name");
 
     return val;
-  }  
+  }
 
   $.fn.dataTable.ext.type.order['file-size-pre'] = function ( data ) {
       var units = data.replace( /[\d\.\,\ ]/g, '' ).toLowerCase();
