@@ -297,9 +297,10 @@ $(document).ready(function () {
 
     var modal = bootbox.dialog({
        message: window.CRM.BootboxContentShareFiles(),
+       size: "large",
        buttons: [
         {
-         label: i18next.t("Delete"),
+         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {
             bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
@@ -328,7 +329,7 @@ $(document).ready(function () {
          }
         },
         {
-         label: i18next.t("Stop sharing"),
+         label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
           bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
@@ -349,7 +350,7 @@ $(document).ready(function () {
          }
         },
         {
-         label: i18next.t("Ok"),
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
