@@ -837,40 +837,40 @@
             var cartDropdownMenu;
             if (data.PeopleCart.length > 0) {
               cartDropdownMenu = '\
-                <li id="showWhenCartNotEmpty">\
-                            <a href="' + window.CRM.root+ '/v2/cart/view" class="dropdown-item">\
-                                <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="#" class="dropdown-item emptyCart" >\
-                                <i class="fa fa-eraser"></i> ' + i18next.t("Empty Cart") + ' \
-                            </a>\
-                        </li><div class="dropdown-divider"></div>\
-                            <a href="#" id="emptyCartToGroup" class="dropdown-item">\
-                                <i class="fa fa-tag text-info"></i> ' + i18next.t("Empty Cart to Group") + '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
-                                <i class="fa fa fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="#" id="emptyCartToEvent" class="dropdown-item">\
-                                <i class="fa fa fa-ticket text-info"></i> ' + i18next.t("Empty Cart to Event") + '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="' + window.CRM.root+ '/v2/map/0" class="dropdown-item">\
-                                <i class="fa fa-map-marker text-info"></i> ' + i18next.t("Map Cart") + '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="#" id="deactivateCart" class="dropdown-item">\
-                               <i class="fa fa-trash text-warning"></i> '+ i18next.t("Deactivate Persons From Cart")+ '\
-                            </a>\
-                        <div class="dropdown-divider"></div>\
-                            <a href="#" id="deleteCart" class="dropdown-item">\
-                               <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From the CRM")+ '\
-                            </a>\
-                          <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
-                      '
+                <div id="showWhenCartNotEmpty">\
+                    <a href="' + window.CRM.root+ '/v2/cart/view" class="dropdown-item">\
+                        <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="#" class="dropdown-item emptyCart" >\
+                        <i class="fa fa-eraser"></i> ' + i18next.t("Empty Cart") + ' \
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="#" id="emptyCartToGroup" class="dropdown-item">\
+                        <i class="fa fa-tag text-info"></i> ' + i18next.t("Empty Cart to Group") + '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
+                        <i class="fa fa fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="#" id="emptyCartToEvent" class="dropdown-item">\
+                        <i class="fa fa fa-ticket text-info"></i> ' + i18next.t("Empty Cart to Event") + '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="' + window.CRM.root+ '/v2/map/0" class="dropdown-item">\
+                        <i class="fa fa-map-marker text-info"></i> ' + i18next.t("Map Cart") + '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="#" id="deactivateCart" class="dropdown-item">\
+                       <i class="fa fa-trash text-warning"></i> '+ i18next.t("Deactivate Persons From Cart")+ '\
+                    </a>\
+                    <div class="dropdown-divider"></div>\
+                    <a href="#" id="deleteCart" class="dropdown-item">\
+                       <i class="fa fa-trash text-danger"></i> '+ i18next.t("Delete Persons From the CRM")+ '\
+                    </a>\
+                    <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
+                </div>'
           }
             else {
               cartDropdownMenu = '\
