@@ -57,14 +57,14 @@ require 'Include/Header.php';
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="gsproperties-label"></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <span style="color: red"></span>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?= _('Close')?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> <?= _('Close')?></button>
         <button name="setgroupSpecificProperties" id="setgroupSpecificProperties" type="button" class="btn btn-danger"></button>
       </div>
     </div>
@@ -173,7 +173,7 @@ require 'Include/Header.php';
         <div class="row">
           <div class="col-sm-3">
             <br>
-            <input type="submit" id="saveGroup" class="btn btn-primary" <?= 'value="'._('Save').'"' ?> Name="GroupSubmit">
+            <input type="submit" id="saveGroup" class="btn btn-primary" value="<?= _('Save') ?>" Name="GroupSubmit">
           </div>
         </div>
       </div>
