@@ -369,6 +369,7 @@
   {
     var modal = bootbox.dialog({
        message: BootboxContentShare(),
+       size: "large",
        buttons: [
         {
          label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
