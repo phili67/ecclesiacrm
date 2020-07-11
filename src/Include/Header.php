@@ -103,7 +103,7 @@ Header_system_notifications();
                         <i class="fa fa-shopping-cart"></i>
                         <span id="iconCount" class="badge badge-warning navbar-badge"><?= Cart::CountPeople() ?></span>
                     </a>
-                    <ul class="dropdown-menu" id="cart-dropdown-menu"></ul>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-lg-left" id="cart-dropdown-menu"></div>
                 </li>
                 <?php
             }
@@ -153,7 +153,7 @@ Header_system_notifications();
                    title="<?= _('Help & Support') ?>" aria-expanded="true">
                     <i class="fa fa-support"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span class="dropdown-item dropdown-header"><?= _("Help Center") ?></span>
                     <div class="dropdown-divider"></div>
                     <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>"
