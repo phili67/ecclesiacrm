@@ -21,6 +21,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use Propel\Runtime\Propel;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -218,6 +219,15 @@ require $sRootDocument . '/Include/Header.php';
         <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>"> <i
                 class="fa fa-file-picture-o"></i> <span
                 class="cartActionDescription"><?= _("Group Badges") ?></span></a>
+
+        <?php
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isMenuOptionsEnabled()) {
+            ?>
+            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+            <?php
+        }
+        ?>
     </div>
 </div>
 
@@ -259,8 +269,13 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                         <?php
                         $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
 
+                        $first_manager = null;
+
                         if ($managers->count()) {
                             foreach ($managers as $manager) {
+                                if ( is_null ($first_manager) ) {
+                                    $first_manager = $manager->getPerson();
+                                }
                                 if (!$manager->getPerson()->isDeactivated()) {
                                     ?>
                                     <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>,
@@ -476,9 +491,9 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-
 <script nonce="<?= $CSPNonce ?>">
     window.CRM.currentGroup            = <?= $iGroupID ?>;
+    window.CRM.calendarID              = <?= json_encode($calendarID) ?>;
     window.CRM.groupName               = "<?= $thisGroup->getName() ?>";
     window.CRM.isActive                = <?= $thisGroup->isActive()? 'true': 'false' ?>;
     window.CRM.isIncludeInEmailExport  = <?= $thisGroup->isIncludeInEmailExport()? 'true': 'false' ?>;
@@ -496,8 +511,54 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
         }
         ?>;
 
+    var sPageTitle = '<?= $sPageTitle ?>';
+
+    <?php if ( !is_null ($first_manager) ) { ?>
+        window.CRM.churchloc = {
+            lat: <?= $first_manager->getFamily()->getLatitude() ?>,
+            lng: <?= $first_manager->getFamily()->getLongitude() ?>};
+        window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+        window.CRM.address = "<?= $first_manager->getFamily()->getAddress() ?>";
+    <?php } else { ?>
+        window.CRM.churchloc = {
+            lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+            lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
+        window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+        window.CRM.address = '';
+    <?php } ?>
 </script>
 
+<link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
+        type="text/javascript"></script>
+
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+
+
 <script src="<?= $sRootPath ?>/skin/js/group/GroupView.js" ></script>
+<script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
+
+<?php
+if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <?php
+} else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps') {
+    ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
+    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <?php
+} else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+    ?>
+    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <?php
+}
+?>
+
 
 
