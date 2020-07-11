@@ -106,7 +106,7 @@ $(document).ready(function () {
     var perID  = $(this).data('perid');
     var famID  = $(this).data('famid');
 
-      window.CRM.APIRequest({
+    window.CRM.APIRequest({
       method: 'POST',
       path: 'document/get',
       data: JSON.stringify({"docID" : docID, "personID" : perID, "famID" : famID})
@@ -193,7 +193,7 @@ $(document).ready(function () {
          size   : 'large',
          buttons: [
           {
-           label: i18next.t("Close"),
+           label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
            className: "btn btn-default",
            callback: function() {
               window.CRM.APIRequest({
@@ -206,7 +206,7 @@ $(document).ready(function () {
            }
           },
           {
-           label: i18next.t("Save"),
+           label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
            className: "btn btn-primary",
            callback: function() {
               var DocumentTitle = $('#documentTitle').val();

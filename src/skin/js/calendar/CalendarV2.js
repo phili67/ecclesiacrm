@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (event.extendedProps.realType == "event" && event.extendedProps.recurrent == 0) {
                 bootbox.confirm({
                     title: i18next.t("Resize Event") + "?",
-                    message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be dropped."),
+                    message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be resized."),
                     buttons: {
                         cancel: {
                             label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
