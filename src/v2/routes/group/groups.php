@@ -13,6 +13,7 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\CalendarinstancesQuery;
 
 use Slim\Views\PhpRenderer;
 
@@ -95,7 +96,14 @@ function renderGroupViewArray ($iGroupID)
     $ormPropList = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID);
 
     //Set the page title
-    $sPageTitle = _('Group View').' : '.$thisGroup->getName();
+    $sPageTitle = _('Group').' : '.$thisGroup->getName();
+
+    $calendar = CalendarinstancesQuery::create()->findOneByGroupId($iGroupID);
+
+    $calendarID = null;
+    if ( !is_null ($calendar) ) {
+        $calendarID = [$calendar->getCalendarid(), $calendar->getId()];
+    }
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
     $CSPNonce = SystemURLs::getCSPNonce();
@@ -105,6 +113,7 @@ function renderGroupViewArray ($iGroupID)
         'sPageTitle'       => $sPageTitle,
         'CSPNonce'         => $CSPNonce,
         'iGroupID'         => $iGroupID,
+        'calendarID'       => $calendarID,
         'thisGroup'        => $thisGroup,
         'defaultRole'      => $defaultRole,
         'sGroupType'       => $sGroupType,
