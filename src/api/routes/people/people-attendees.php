@@ -714,11 +714,14 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                             $eventAttent = new EventAttend();
                             $eventAttent->setEventId($event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $eventAttent->setCheckinDate(NULL);
                             $eventAttent->setPersonId($child['kidId']);
 
-                            if (SystemConfig::getValue("bCheckedAttendees")) {
+                            if (SystemConfig::getBooleanValue('bCheckedAttendees') ) {
+                                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                                $eventAttent->setCheckinDate($date);
                                 $eventAttent->setCheckoutDate(NULL);
+                            } else {
+                                $eventAttent->setCheckinDate(NULL);
                             }
                             if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
                                 $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
