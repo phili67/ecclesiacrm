@@ -25,8 +25,6 @@ use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\PastoralCareQuery;
-use EcclesiaCRM\Map\PastoralCareTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -327,6 +325,11 @@ $pastoralService = new PastoralCareService();
 $pastoralServiceStats = $pastoralService->stats();
 
 
+$range = $pastoralService->getRange();
+
+//print_r($pastoralService->getLonelyNeverBeenContacted($range['realDate'])->toArray());
+
+
 /*
  *  last pastoralcare search persons for the current system user
  */
@@ -474,13 +477,16 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
             <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?> (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
         </li>
         <li>
+            <b><?= $pastoralServiceStats['PersonLonely'] ?></b> : <?= _("Lonely persons not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonLonely'] ?> %</b>).
+        </li>
+        <li>
             <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b>  : <?= _("Retired Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
         </li>
     </ul>
     <?= _("Young Members") ?>
     <ul>
         <li>
-            <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b>  : <?= _("Young Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewYoung'] ?> %</b>).
+            <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b>  : <?= _("Young Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentViewYoung'] ?> %</b>).
         </li>
     </ul>
     <p class="text-center">
@@ -501,16 +507,22 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
                     0
                 </h3>
                 <p>
-                    <?= _('Families') ?>
+                    <?= _('Lonely People') ?> (<span id="lonelyCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i
                     class="fa fa-child"></i>
             </div>
-            <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="small-box-footer">
-                <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
-            </a>
+            <div class="small-box-footer">
+                <a href="<?= $sRootPath ?>/v2/familylist/lonely" style="color:#ffffff">
+                    <?= _('View') ?> <?= _("Lonely") ?> <i class="fa fa-arrow-circle-right"></i>
+                </a>
+                &nbsp;
+                <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">
+                    <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
         </div>
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">

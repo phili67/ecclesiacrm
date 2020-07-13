@@ -6,6 +6,9 @@ use EcclesiaCRM\Synchronize\DashboardItemInterface;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\SessionUser;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Service\PastoralCareService;
 
 class FamilyDashboardItem implements DashboardItemInterface {
 
@@ -20,15 +23,20 @@ class FamilyDashboardItem implements DashboardItemInterface {
         'UpdatedFamilies' => self::getUpdatedFamilies()
         );
 
-
-
     return $data;
   }
 
-  private static function getCountFamilies() {
-    return FamilyQuery::Create()
-                    ->filterByDateDeactivated()
-                    ->count();
+  private static function getCountFamilies()
+  {
+      $pcS = new PastoralCareService();
+
+      $allCNT = $pcS->getAllFamiliesAndLonely()->count();
+
+      $allSingleCNT = $pcS->getAllLonely()->count();
+
+      $allRealFamilyleCNT =  $pcS->getAllRealFamilies()->count();
+
+      return [$allCNT, $allRealFamilyleCNT, $allSingleCNT];
   }
 
   /**

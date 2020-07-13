@@ -1301,10 +1301,14 @@
               }
           },
         FamilyCount: function (data) {
-            var dashBoardFam = document.getElementById('familyCountDashboard');
+            var dashBoardFamFull = document.getElementById('familyCountDashboard');
+            var dashBoardFamReal = document.getElementById('realFamilyCNT');
+            var dashBoardLonelyP = document.getElementById('lonelyCNT');
 
-            if (dashBoardFam) { // we have to test if we are on the dashboard or not
-                dashBoardFam.innerText = data.familyCount;
+            if (dashBoardFamFull) { // we have to test if we are on the dashboard or not
+                dashBoardFamFull.innerText = data.familyCount[0];
+                dashBoardFamReal.innerText = data.familyCount[1];
+                dashBoardLonelyP.innerText = data.familyCount[2];
                 latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
                     retrieve: true,
                     responsive: true,
@@ -1670,3 +1674,6 @@
         var id = day.getTime();
         eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=yes,location=0,statusbar=0,menubar=0,resizable=yes,width=600,height=400,left = 100,top = 50');");
     }
+
+
+

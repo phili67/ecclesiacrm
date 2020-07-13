@@ -13,6 +13,9 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\SystemURLs;
+
+$family = \EcclesiaCRM\FamilyQuery::create()->findOneById($currentFamilyID);
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -87,6 +90,82 @@ if ($ormPastoralCares->count() == 0) {
         </div>
     </div>
 </div>
+
+<?php if (count($family->getActivatedPeople()) > 1) { ?>
+
+<div class="card card-default">
+    <div class="card-header with-border">
+        <h3 class="card-title">
+            <?= _("Family Members") ?>
+        </h3>
+        <div class="card-tools pull-right">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table user-list table-hover data-person" width="100%">
+            <thead>
+            <tr>
+                <th><span><?= _("Members") ?></span></th>
+                <th class="text-center"><span><?= _("Role") ?></span></th>
+                <th><span><?= _("Classification") ?></span></th>
+                <th><span><?= _("Birthday") ?></span></th>
+                <th><span><?= _("Email") ?></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($family->getActivatedPeople() as $person) {
+                ?>
+                <tr>
+                    <td>
+                        <img
+                            src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
+                            width="40" height="40"
+                            class="initials-image img-circle"/>
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $person->getId() ?>"
+                           class="user-link"><?= $person->getFullName() ?> </a>
+                    </td>
+                    <td class="text-center">
+                        <?php
+                        $famRole = $person->getFamilyRoleName();
+                        $labelColor = 'label-default';
+                        if ($famRole == _('Head of Household')) {
+                        } elseif ($famRole == _('Spouse')) {
+                            $labelColor = 'label-info';
+                        } elseif ($famRole == _('Child')) {
+                            $labelColor = 'label-warning';
+                        }
+                        ?>
+                        <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
+                    </td>
+                    <td>
+                        <?= $person->getClassification() ? $person->getClassification()->getOptionName() : "" ?>
+                    </td>
+                    <td>
+                        <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
+                            $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
+                    </td>
+                    <td>
+                        <?php $tmpEmail = $person->getEmail();
+                        if ($tmpEmail != "") {
+                            array_push($sFamilyEmails, $tmpEmail);
+                            ?>
+                            <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
+                            <?php
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php } ?>
 
 <?php
 if ($ormPastoralCares->count() > 0) {

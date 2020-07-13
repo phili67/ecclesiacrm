@@ -66,7 +66,7 @@ if (SessionUser::getUser()->isFinanceEnabled()) {
     $_SESSION['sshowPayments'] = 1;
 }
 
-$persons = PersonQuery::Create()->findByFamId($iFamilyID);
+$persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
 
 if (!is_null($persons) && $persons->count() == 1) {
     $person = PersonQuery::Create()->findOneByFamId($iFamilyID);

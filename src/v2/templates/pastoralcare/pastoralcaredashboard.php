@@ -81,6 +81,19 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
+                            <?= _("Lonely") ?>
+                        </td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['lonelyColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentPersonLonely'] ?>%;" aria-valuenow="<?= $Stats['PercentPersonLonely'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonLonely'] ?>%</div>
+                            </div>
+                        </td>
+                        <td><span
+                                class="badge bg-<?= $Stats['familyColor'] ?>"><?= $Stats['CountNotViewFamilies'] ?></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <?= _("Retired") ?>
                         </td>
                         <td>
@@ -155,6 +168,19 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
+                    <?= _("Lonely People") ?>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class=" dataTable table table-striped table-condensed" id="lonelyNeverBeenContacted"
+                       width="100%"></table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
                     <?= _("Retired not reached") ?>
                 </div>
             </div>
@@ -164,6 +190,9 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
+</div>
+
+<div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -177,7 +206,6 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-
 </div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>

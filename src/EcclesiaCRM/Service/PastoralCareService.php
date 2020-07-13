@@ -16,6 +16,7 @@
 
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 
@@ -235,24 +236,133 @@ ORDER by person_per.per_LastName;";
             }
     }
 
-    public function getFamiliesNeverBeenContacted ($realDate, $orderRand = false)
+    public function getAllFamiliesAndLonely ($orderRand = false)
+    {
+
+        $families = FamilyQuery::create()
+            ->leftJoinPerson()
+            ->usePersonQuery()
+                ->filterByDateDeactivated( null)
+            ->endUse()
+            ->filterByDateDeactivated(null)
+            ->usePastoralCareQuery()
+                ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
+                //->filterByFamilyId(NULL)
+            ->endUse()
+            ->having( 'count('.PersonTableMap::COL_PER_ID.') <> 0' )
+            ->groupBy(FamilyTableMap::COL_FAM_ID);
+
+        if ($orderRand) {
+            $families->addAscendingOrderByColumn('rand()');
+            return $families->findOne();
+        } else {
+            $families->orderByName();
+            return $families->find();
+        }
+    }
+
+    public function getAllLonely ($orderRand = false)
     {
         $families = FamilyQuery::create()
+            ->leftJoinPerson()
+            ->usePersonQuery()
+                ->filterByDateDeactivated( null)
+                ->addAsColumn('PersonCount', 'count('.PersonTableMap::COL_PER_ID.')')
+            ->endUse()
+            ->filterByDateDeactivated(null)
+            ->usePastoralCareQuery()
+                ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
+            ->endUse()
+            ->having( 'count('.PersonTableMap::COL_PER_ID.') = 1' )
+            ->groupBy(FamilyTableMap::COL_FAM_ID);
+
+        if ($orderRand) {
+            $families->addAscendingOrderByColumn('rand()');
+            return $families->findOne();
+        } else {
+            $families->orderByName();
+            return $families->find();
+        }
+    }
+
+    public function getLonelyNeverBeenContacted ($realDate, $orderRand = false)
+    {
+        $families = FamilyQuery::create()
+            ->leftJoinPerson()
+            ->usePersonQuery()
+                ->filterByDateDeactivated( null)
+                ->addAsColumn('PersonCount', 'count('.PersonTableMap::COL_PER_ID.')')
+                ->addAsColumn('PersonID', PersonTableMap::COL_PER_ID )
+                ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME )
+                ->usePastoralCareRelatedByPersonIdQuery()
+                    ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
+                    ->filterByPersonId(NULL)
+                    ->_or()->filterByDate($realDate, Criteria::LESS_THAN)
+                ->endUse()
+            ->endUse()
+            ->filterByDateDeactivated(null)
+            ->having( 'count('.PersonTableMap::COL_PER_ID.') = 1' )
+            ->groupBy(FamilyTableMap::COL_FAM_ID);
+
+        if ($orderRand) {
+            $families->addAscendingOrderByColumn('rand()');
+            return $families->findOne();
+        } else {
+            $families->orderByName();
+            return $families->find();
+        }
+    }
+
+
+    public function getAllRealFamilies ($orderRand = false)
+    {
+        $families = FamilyQuery::create()
+            ->leftJoinPerson()
+            ->usePersonQuery()
+                ->filterByDateDeactivated( null)
+                ->addAsColumn('PersonCount', 'count('.PersonTableMap::COL_PER_ID.')')
+            ->endUse()
+            ->filterByDateDeactivated(null)
+                ->usePastoralCareQuery()
+                ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
+                //->filterByFamilyId(NULL)
+            ->endUse()
+            ->having( 'count('.PersonTableMap::COL_PER_ID.') > 1' )
+            ->groupBy(FamilyTableMap::COL_FAM_ID);
+
+        if ($orderRand) {
+            $families->addAscendingOrderByColumn('rand()');
+            return $families->findOne();
+        } else {
+            $families->orderByName();
+            return $families->find();
+        }
+    }
+
+    public function getFamiliesNeverBeenContacted ($realDate, $orderRand = false)
+    {
+       $families = FamilyQuery::create()
+            ->leftJoinPerson()
+            ->usePersonQuery()
+                ->filterByDateDeactivated( null)
+                ->addAsColumn('PersonCount', 'count('.PersonTableMap::COL_PER_ID.')')
+            ->endUse()
             ->filterByDateDeactivated(null)
             ->usePastoralCareQuery()
                 ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
                 ->filterByFamilyId(NULL)
                 ->_or()->filterByDate($realDate, Criteria::LESS_THAN)
             ->endUse()
+            ->having( 'count('.PersonTableMap::COL_PER_ID.') > 1' )
             ->groupBy(FamilyTableMap::COL_FAM_ID);
 
-            if ($orderRand) {
+        if ($orderRand) {
                 $families->addAscendingOrderByColumn('rand()');
                 return $families->findOne();
-            } else {
+        } else {
                 $families->orderByName();
                 return $families->find();
-            }
+        }
     }
 
     public function stats()
@@ -267,6 +377,9 @@ ORDER by person_per.per_LastName;";
 // extract all the families that were never been seen or before the date mentioned in the criteria
         $familiesWithoutPastoralCare = $this->getFamiliesNeverBeenContacted($range['realDate']);
 
+// extract all the families that were never been seen or before the date mentioned in the criteria
+        $lonelyWithoutPastoralCare = $this->getLonelyNeverBeenContacted($range['realDate']);
+
         /*
          * stats about the persons families who were really contacted
          */
@@ -275,9 +388,9 @@ ORDER by person_per.per_LastName;";
             ->filterByDateDeactivated(null)
             ->find();
 
-        $allFamilies = FamilyQuery::create()
-            ->filterByDateDeactivated(null)
-            ->find();
+        $allFamilies = $this->getAllRealFamilies();
+
+        $allLonely = $this->getAllLonely();
 
         $percentViewPersons = $percentViewFamilies = 0;
 
@@ -287,6 +400,10 @@ ORDER by person_per.per_LastName;";
 
         if ($allFamilies->count() > 0) {
             $percentViewFamilies = $familiesWithoutPastoralCare->count() / $allFamilies->count() * 100;
+        }
+
+        if ($allLonely->count() > 0) {
+            $percentLonelyPersons = $lonelyWithoutPastoralCare->count() / $allLonely->count() * 100;
         }
 
         /*
@@ -346,6 +463,15 @@ ORDER by person_per.per_LastName;";
             $familyColor = 'primary';
         }
 
+        $lonelyColor = 'success';
+        if ((100.0 - $percentLonelyPersons) < 10.0) {
+            $lonelyColor = 'danger';
+        } else if ((100.0 - $percentLonelyPersons) < 30.0) {
+            $lonelyColor = 'warning';
+        } else if ((100.0 - $percentLonelyPersons) < 60.0) {
+            $lonelyColor = 'primary';
+        }
+
         $personColor = 'success';
         if ((100.0 - $percentViewPersons) < 10.0) {
             $personColor = 'danger';
@@ -381,6 +507,9 @@ ORDER by person_per.per_LastName;";
             'CountNotViewFamilies' => $familiesWithoutPastoralCare->count(),
             'PercentViewFamilies' => round($percentViewFamilies,2),
             'familyColor' => $familyColor,
+            'PersonLonely' => $lonelyWithoutPastoralCare->count(),
+            'PercentPersonLonely' => round($percentLonelyPersons,2),
+            'lonelyColor' => $lonelyColor,
             'CountNotViewRetired' => $retiredPersonsWithoutPastoralCare->count(),
             'PercentRetiredViewPersons' => round($percentRetiredViewPersons,2),
             'retiredColor' => $retiredColor,
