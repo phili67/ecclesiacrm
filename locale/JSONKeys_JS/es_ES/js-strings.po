@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-08T20:12:34.144Z\n"
+"POT-Creation-Date: 2020-07-13T17:18:16.188Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -609,7 +609,8 @@ msgstr "Redimensionar Evento"
 msgid "Are you sure about this change?"
 msgstr "¿Estás seguro de questo cambio ?"
 
-msgid "will be dropped."
+#, fuzzy
+msgid "will be resized."
 msgstr "serán retirados."
 
 msgid "You're about to resize all the events. Would you like to :"
@@ -623,6 +624,9 @@ msgstr "Todos los eventos"
 
 msgid "Move Event"
 msgstr "Mover Evento"
+
+msgid "will be dropped."
+msgstr "serán retirados."
 
 msgid "You're about to move all the events. Would you like to :"
 msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
@@ -1230,6 +1234,10 @@ msgstr "Borrar Administradores"
 
 msgid "Are you sure, you want to delete all the managers ?"
 msgstr "¿Estás seguro de borrar todos Administradores?"
+
+#, fuzzy
+msgid "Appointment"
+msgstr "Comentario de Depósito"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "¿Seguro que desea eliminar este Familia de esto CRM"
@@ -2097,10 +2105,6 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Appointment"
-msgstr "Comentario de Depósito"
-
-#, fuzzy
 msgid "Set a Jitsi room name"
 msgstr "Fijar el nombre de fichero/carpeta"
 
@@ -2181,9 +2185,6 @@ msgid "Loading finished...."
 msgstr ""
 
 msgid "Last visit/call"
-msgstr ""
-
-msgid "Never"
 msgstr ""
 
 msgid "Delete Pastoral Care Type"

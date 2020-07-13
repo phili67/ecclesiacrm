@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-08T20:48:17.130Z\n"
+"POT-Creation-Date: 2020-07-13T17:18:16.188Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,9 +273,8 @@ msgstr "Ajouter nom de Groupe"
 msgid "Yes"
 msgstr "Oui"
 
-#, fuzzy
 msgid "Calendar Event"
-msgstr "Calendrier"
+msgstr "Evénement de Calendrier"
 
 msgid "Attendees Checked In"
 msgstr "Participants à un Appel non validés"
@@ -609,8 +608,8 @@ msgstr "Redimensionner les événements"
 msgid "Are you sure about this change?"
 msgstr "Êtes-vous sûr de vouloir faire ce changement ?"
 
-msgid "will be dropped."
-msgstr "sera supprimé."
+msgid "will be resized."
+msgstr "sera redimensionné."
 
 msgid "You're about to resize all the events. Would you like to :"
 msgstr ""
@@ -625,6 +624,9 @@ msgstr "Tous les événements"
 
 msgid "Move Event"
 msgstr "Déplacer l'événement"
+
+msgid "will be dropped."
+msgstr "sera supprimé."
 
 msgid "You're about to move all the events. Would you like to :"
 msgstr ""
@@ -1222,6 +1224,9 @@ msgstr "Effacer Managers"
 
 msgid "Are you sure, you want to delete all the managers ?"
 msgstr "Etes-vous sûr de vouloir supprimer tous les managers ?"
+
+msgid "Appointment"
+msgstr "Rendez-vous"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Êtes-vous sûr de vouloir supprimer cette famille du CRM"
@@ -2069,9 +2074,6 @@ msgstr ""
 "Votre webcam<br/>• Partager des fenêtres<br/> ne fonctionnera pas pour le "
 "moment."
 
-msgid "Appointment"
-msgstr "Rendez-vous"
-
 msgid "Set a Jitsi room name"
 msgstr "Créer un nom de salle Jitsi"
 
@@ -2149,9 +2151,6 @@ msgstr "Chargement terminé ..."
 msgid "Last visit/call"
 msgstr "Dernière visite/appel"
 
-msgid "Never"
-msgstr "Jamais"
-
 msgid "Delete Pastoral Care Type"
 msgstr "Effacer ce Type de suivi pastoral"
 
@@ -2178,6 +2177,9 @@ msgstr "Nom (Nom de Famille)"
 
 msgid "Family Name"
 msgstr "Nom de famille"
+
+#~ msgid "Never"
+#~ msgstr "Jamais"
 
 #~ msgid "Attendances"
 #~ msgstr "Présence"

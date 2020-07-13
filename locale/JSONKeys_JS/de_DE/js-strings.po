@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-08T20:12:34.144Z\n"
+"POT-Creation-Date: 2020-07-13T17:18:16.188Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -603,8 +603,8 @@ msgstr "Resize -Ereignis"
 msgid "Are you sure about this change?"
 msgstr "Sind Sie ganz sicher zu dieser Änderung ?"
 
-msgid "will be dropped."
-msgstr "werden abgelegt."
+msgid "will be resized."
+msgstr "wird dessen Größe verändert"
 
 msgid "You're about to resize all the events. Would you like to :"
 msgstr "Sie sind gleich um die Größe aller Ereignisse festzulegen"
@@ -617,6 +617,9 @@ msgstr "Alle Ereignisse"
 
 msgid "Move Event"
 msgstr "Ereignis verschieben"
+
+msgid "will be dropped."
+msgstr "werden abgelegt."
 
 msgid "You're about to move all the events. Would you like to :"
 msgstr "Sie sind gleich um alle Ereignisse zu verschieben. Möchten Sie:"
@@ -1202,6 +1205,9 @@ msgstr "Managern Löschen"
 
 msgid "Are you sure, you want to delete all the managers ?"
 msgstr "Soll alle Manager wirklich gelöscht werden?"
+
+msgid "Appointment"
+msgstr "Termin"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Wollen Sie diese Familie wirklich aus Ihrer CRM löschen?"
@@ -2043,9 +2049,6 @@ msgstr ""
 "Safari ist noch nicht mit Jitsi unterstützt, wählen Sie etwas anders!<br/>• "
 "Ihre Webcam<br/>• Fenster Freigabe<br/>funktioniert nicht bei Jitsi."
 
-msgid "Appointment"
-msgstr "Termin"
-
 msgid "Set a Jitsi room name"
 msgstr "Setzen Sie ein Room Jitsi-Namen"
 
@@ -2121,9 +2124,6 @@ msgstr "Laden fertig..."
 msgid "Last visit/call"
 msgstr "letzten Besuch/Anruf"
 
-msgid "Never"
-msgstr "Nie"
-
 msgid "Delete Pastoral Care Type"
 msgstr "Pastoral Pflege Typ löschen"
 
@@ -2150,6 +2150,9 @@ msgstr "Nachname (Familien Name)"
 
 msgid "Family Name"
 msgstr "Familien Name"
+
+#~ msgid "Never"
+#~ msgstr "Nie"
 
 #~ msgid "Attendances"
 #~ msgstr "Anwesenheiten"
