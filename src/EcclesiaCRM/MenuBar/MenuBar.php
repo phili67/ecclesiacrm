@@ -322,6 +322,7 @@ class MenuBar {
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
             $menuItem = new Menu (_("Persons"),"fa fa-angle-double-right","#",true,$menu);
             $menuItemItem = new Menu (_("Add New Person"),"fa fa-circle-o","PersonEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);
+            $menuItemItem = new Menu (_("View Lonely People"),"fa fa-circle-o","v2/familylist/lonely",true,$menuItem);
             $menuItemItem = new Menu (_("View Active Persons"),"fa fa-circle-o","v2/personlist/",true,$menuItem);
             $menuItemItem->addLink("v2/personlist");
             $menuItemItem = new Menu (_("View Inactive Persons"),"fa fa-circle-o","v2/personlist/inactive",true,$menuItem);
