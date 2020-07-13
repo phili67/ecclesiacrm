@@ -55,7 +55,7 @@ require 'Include/Header.php';
 	<textarea style="font-family:courier,fixed; font-size:9pt; padding:1px;" cols="60" rows="10" name="SQL"><?= $sSQL ?></textarea>
 </p>
 <p align="center">
-	<input type="submit" class="btn" name="Submit" value="<?= _('Execute SQL') ?>">
+	<input type="submit" class="btn btn-default" name="Submit" value="<?= _('Execute SQL') ?>">
 </p>
 
 </form>
@@ -183,9 +183,9 @@ function RunFreeQuery()
             ?>
 			<form method="post" action="<?= SystemURLs::getRootPath() ?>/v2/cart/view"><p align="center">
 				<input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
-				<input type="submit" class="btn" name="AddToCartSubmit" value="<?php echo _('Add Results To Cart'); ?>">&nbsp;
-				<input type="submit" class="btn" name="AndToCartSubmit" value="<?php echo _('Intersect Results With Cart'); ?>">&nbsp;
-				<input type="submit" class="btn" name="NotToCartSubmit" value="<?php echo _('Remove Results From Cart'); ?>">
+				<input type="submit" class="btn btn-default" name="AddToCartSubmit" value="<?php echo _('Add Results To Cart'); ?>">&nbsp;
+				<input type="submit" class="btn btn-default" name="AndToCartSubmit" value="<?php echo _('Intersect Results With Cart'); ?>">&nbsp;
+				<input type="submit" class="btn btn-default" name="NotToCartSubmit" value="<?php echo _('Remove Results From Cart'); ?>">
 			</p></form>
 			<?php
         }

@@ -611,7 +611,7 @@ require 'Include/Header.php';
                                        value="<?= $iEnvelope ?>">
                                 <?php if (!$dep_Closed) {
                                     ?>
-                                    <input class="form-control" type="submit" class="btn" value="<?= _('Find family->') ?>"
+                                    <input class="form-control" type="submit" class="btn btn-default" value="<?= _('Find family->') ?>"
                                            name="MatchEnvelope">
                                     <?php
                                 } ?>
@@ -775,9 +775,9 @@ require 'Include/Header.php';
                         <div class="col-md-6">
                             <?php if (SystemConfig::getValue('bUseScannedChecks') && $dep_Type == 'Bank') {
                                 ?>
-                                <input type="submit" class="btn" value="<?= _('find family from check account #') ?>"
+                                <input type="submit" class="btn btn-default" value="<?= _('find family from check account #') ?>"
                                        name="MatchFamily">
-                                <input type="submit" class="btn"
+                                <input type="submit" class="btn btn-default"
                                        value="<?= _('Set default check account number for family') ?>"
                                        name="SetDefaultCheck">
                                 <?php

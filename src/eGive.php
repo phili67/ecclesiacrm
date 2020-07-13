@@ -268,7 +268,7 @@ if (isset($_POST['ApiGet'])) {
 			<class="TextColumn"><input type="text" name="StartDate" value="<?= $lwDate ?>" maxlength="10" id="StartDate" size="11" class="date-picker"><font color="red"><?php echo $sDateError ?></font><br>
 			<class="LabelColumn"><b><?= _('End Date: ') ?></b>
 			<class="TextColumn"><input type="text" name="EndDate" value="<?= $dDate ?>" maxlength="10" id="EndDate" size="11" class="date-picker"><font color="red"><?php echo $sDateError ?></font><br><br>
-		<input type="submit" class="btn" value="<?= _('Import eGive') ?>" name="ApiGet">
+		<input type="submit" class="btn btn-default" value="<?= _('Import eGive') ?>" name="ApiGet">
 		<br><br><br>
 		</form>
 		</td>
@@ -348,17 +348,17 @@ function importDoneFixOrContinue()
 			</select>
 			</td>
 			<td><input type="checkbox" name="MissingEgive_Set_<?= $nameWithUnderscores ?>" value="1" checked></td>
-			<?php 
+			<?php
             echo '</tr>';
         } ?>
 		</table><br>
 
-		<input type="submit" class="btn" value="<?= _('Re-import to selected family') ?>" name="ReImport">
+		<input type="submit" class="btn btn-default" value="<?= _('Re-import to selected family') ?>" name="ReImport">
 	<?php
     } ?>
 
 	<p class="MediumLargeText"> <?= _('Data import results: ').$importCreated._(' gifts were imported, ').$importNoChange._(' gifts unchanged, and ').$importError._(' gifts not imported due to problems') ?></p>
-	<input type="button" class="btn" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+	<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
 <?php
 }
 
@@ -387,7 +387,7 @@ function get_api_data($json)
     } else {
         ?>
 		<font color="red"><?= _("Fatal error in eGive API datastream: '").$error ?>"'</font><br><br>
- 		<input type="button" class="btn" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+ 		<input type="button" class="btn btn-default" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
 	<?php
         return 0;
     }

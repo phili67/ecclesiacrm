@@ -265,7 +265,7 @@ require 'Include/Header.php';
 
     <div>
             <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="Submit">
-            <input type="button" class="btn" value="<?= _('Cancel') ?>" name="Cancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+            <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
                 echo $linkBack;
             } else {
                 echo 'Menu.php';

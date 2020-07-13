@@ -340,7 +340,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 <input type="password" id="PasswordBox" name="Password" class="form-control"
                        placeholder="<?= _('Password') ?>">
 
-                <div class="input-group-append"><button type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button></div>
+                <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fa fa-arrow-right text-muted"></i></button></div>
             </div>
         </form>
         <!-- /.lockscreen credentials -->
