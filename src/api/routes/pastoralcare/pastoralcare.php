@@ -48,11 +48,12 @@ $app->group('/pastoralcare', function () {
   $this->post('/family/getinfo', 'getPastoralCareInfoFamily' );
   $this->post('/family/modify', 'modifyPastoralCareFamily' );
 
-  $this->post('/members', 'pastoralcareMembersDashboard');
-  $this->post('/personNeverBeenContacted', 'personNeverBeenContacted');
-  $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted');
-  $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted');
-  $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted');
+  $this->post('/members', 'pastoralcareMembersDashboard' );
+  $this->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
+  $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
+  $this->post('/lonelyNeverBeenContacted', 'lonelyNeverBeenContacted' );
+  $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
+  $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
 
   $this->post('/createRandomly', 'createRandomlyPastoralCare');
 
@@ -415,6 +416,24 @@ function familyNeverBeenContacted(Request $request, Response $response, array $a
 
     if ( !is_null($members) ) {
         return $response->withJson(["FamilyNeverBeenContacted" => $members->toArray()]);
+    }
+
+    return null;
+}
+
+function lonelyNeverBeenContacted(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+    $pcs = new PastoralCareService();
+
+    $range = $pcs->getRange();
+
+    $members = $pcs->getLonelyNeverBeenContacted($range['realDate']);
+
+    if ( !is_null($members) ) {
+        return $response->withJson(["LonelyNeverBeenContacted" => $members->toArray()]);
     }
 
     return null;
