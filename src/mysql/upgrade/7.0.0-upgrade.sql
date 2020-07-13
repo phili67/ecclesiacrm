@@ -83,5 +83,20 @@ CREATE TABLE `personlastmeeting_plm` (
              ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
+-- bug correction
+UPDATE `query_qry` SET `qry_SQL` = 'SELECT per_ID as AddToCart, CONCAT(\'<a href=PersonView.php?PersonID=\',per_ID,\'>\',per_FirstName,\' \',per_LastName,\'</a>\') AS Name, per_DateDeactivated as \'GDPR\' FROM person_per LEFT JOIN person2volunteeropp_p2vo ON per_id = p2vo_per_ID WHERE p2vo_vol_ID = ~volopp~ ORDER BY per_LastName' WHERE `query_qry`.`qry_ID` = 25;
 
+
+-- reset the 'file' and 'folder' note
+DELETE FROM note_nte WHERE nte_ID IN (
+    SELECT * FROM (
+                      SELECT nte_ID FROM note_nte WHERE `nte_Type`='file'
+                  ) AS p
+);
+
+DELETE FROM note_nte WHERE nte_ID IN (
+    SELECT * FROM (
+                      SELECT nte_ID FROM note_nte WHERE `nte_Type`='folder'
+                  ) AS p
+);
 
