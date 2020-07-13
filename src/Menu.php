@@ -477,7 +477,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
             <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?> (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
         </li>
         <li>
-            <b><?= $pastoralServiceStats['PersonLonely'] ?></b> : <?= _("Lonely persons not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonLonely'] ?> %</b>).
+            <b><?= $pastoralServiceStats['PersonLonely'] ?></b> : <?= _("Lonely people not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonLonely'] ?> %</b>).
         </li>
         <li>
             <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b>  : <?= _("Retired Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
