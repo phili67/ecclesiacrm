@@ -29,7 +29,6 @@ use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PastoralCareTableMap;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Propel\Runtime\Propel;
@@ -310,8 +309,6 @@ ORDER by person_per.per_LastName;";
             return $families->findOne();
         } else {
             $families->orderByName();
-
-            LoggerUtils::getAppLogger()->info($families->toString());
             return $families->find();
         }
     }
