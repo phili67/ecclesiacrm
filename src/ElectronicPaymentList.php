@@ -312,11 +312,11 @@ foreach ($ormAutopayments as $payment) {
 <b><?= _("With checked") ?>:</b><br>
 <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     ?>
-<input type="button" class="btn" id="CreatePaymentMethodsForChecked" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
+<input type="button" class="btn btn-default" id="CreatePaymentMethodsForChecked" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
 <?php
 } ?>
 <input type="button" class="btn btn-warning" id="DeleteChecked" value="<?= _("Delete") ?>" onclick="DeleteChecked();" />
-<input type="button" class="btn" id="DeleteChecked" value="<?= _("Clear Account Numbers") ?>" onclick="ClearAccountsChecked();" />
+<input type="button" class="btn btn-default" id="DeleteChecked" value="<?= _("Clear Account Numbers") ?>" onclick="ClearAccountsChecked();" />
     </div>
 </div>
 <?php require 'Include/Footer.php' ?>

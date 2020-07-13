@@ -80,21 +80,21 @@ require 'Include/Header.php';
             if (!array_key_exists('cartdir', $_GET)) {
                 ?>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <b><?= _('Exclude Inactive Families') ?></b>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <input type="checkbox" Name="bExcludeInactive" value="1" checked>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <b><?= _('Select classifications to include') ?> </b>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                        <select name="sDirClassifications[]" size="5" multiple>
+                        <select name="sDirClassifications[]" size="5" multiple class="form-control">
                             <option value="0"><?= _("Unassigned") ?></option>
                             <?php
                             foreach ($ormClassifications as $rsClassification) {
@@ -109,12 +109,12 @@ require 'Include/Header.php';
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-sm-5">
+                    <div class="col-sm-4">
                         <b><?= _('Group Membership') ?>:</b>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-5">
                         <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                        <select name="GroupID[]" size="5" multiple>
+                        <select name="GroupID[]" size="5" multiple class="form-control">
                             <?php
                             foreach ($ormGroups as $group) {
                                 ?>
@@ -132,12 +132,12 @@ require 'Include/Header.php';
             ?>
 
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Which role is the head of household?') ?></b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleHead[]" size="5" multiple>
+                    <select name="sDirRoleHead[]" size="5" multiple class="form-control">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -151,12 +151,12 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Which role is the spouse?') ?></b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleSpouse[]" size="5" multiple>
+                    <select name="sDirRoleSpouse[]" size="5" multiple class="form-control">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -170,12 +170,12 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Which role is a child?') ?></b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleChild[]" size="5" multiple>
+                    <select name="sDirRoleChild[]" size="5" multiple class="form-control">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -189,10 +189,10 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Information to Include') ?>:</b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <input type="checkbox" Name="bDirAddress" value="1" checked> <?= _('Address') ?><br>
                     <input type="checkbox" Name="bDirWedding" value="1" checked> <?= _('Wedding Date') ?><br>
                     <input type="checkbox" Name="bDirBirthday" value="1" checked> <?= _('Birthday') ?><br>
@@ -229,10 +229,10 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Number of Columns') ?>:</b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <input type="radio" Name="NumCols" value=1>1 <?= _('col') ?><br>
                     <input type="radio" Name="NumCols" value=2 checked>2 <?= _('cols') ?><br>
                     <input type="radio" Name="NumCols" value=3>3 <?= _('cols') ?><br>
@@ -240,10 +240,10 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Paper Size') ?>:</b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <input type="radio" name="PageSize" value="letter" checked>Letter (8.5x11)<br>
                     <input type="radio" name="PageSize" value="legal">Legal (8.5x14)<br>
                     <input type="radio" name="PageSize" value="a4">A4
@@ -251,10 +251,10 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Font Size') ?>:</b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <table>
                         <tr>
                             <td><input type="radio" Name="FSize" value=6>6<br>
@@ -270,10 +270,10 @@ require 'Include/Header.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <b><?= _('Title page') ?>:</b>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-5">
                     <table>
                         <tr>
                             <td><?= _('Use Title Page') ?>
@@ -315,7 +315,7 @@ require 'Include/Header.php';
                         </tr>
                         <tr>
                             <td><?= _('Disclaimer') ?>
-                            <td><textarea Name="sDirectoryDisclaimer" cols="35"
+                            <td><textarea Name="sDirectoryDisclaimer" cols="35" class="form-control"
                                           rows="4"><?= SystemConfig::getValue('sDirectoryDisclaimer1') . ' ' . SystemConfig::getValue('sDirectoryDisclaimer2') ?></textarea>
                         </tr>
 
@@ -336,7 +336,7 @@ require 'Include/Header.php';
         <p align="center">
             <BR>
             <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Create Directory') ?>">
-            <input type="button" class="btn" name="Cancel" <?= 'value="' . _('Cancel') . '"' ?>
+            <input type="button" class="btn btn-default" name="Cancel" <?= 'value="' . _('Cancel') . '"' ?>
                    onclick="javascript:document.location='Menu.php';">
         </p>
     </div>
