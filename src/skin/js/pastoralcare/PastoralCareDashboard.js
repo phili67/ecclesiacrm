@@ -143,6 +143,58 @@ $(document).ready(function () {
         }
     });
 
+    window.CRM.lonelyNeverBeenContacted = $("#lonelyNeverBeenContacted").DataTable({
+        ajax:{
+            url: window.CRM.root + "/api/pastoralcare/lonelyNeverBeenContacted",
+            type: 'POST',
+            contentType: "application/json",
+            dataSrc: "LonelyNeverBeenContacted"
+        },
+        bSort : true,
+        "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+        },
+        columns: [
+            {
+                width: 'auto',
+                title:i18next.t("Name"),
+                data:'Name',
+                render: function(data, type, full, meta) {
+                    res = '';
+                    if (window.CRM.bThumbnailIconPresence) {
+                        res += '<img src="' + window.CRM.root + '/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                    }
+                    return res + '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
+                }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("First Name"),
+                data:'FirstName',
+                render: function(data, type, full, meta) {
+                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/person/" + full.PersonID + '">'+ data + "</a>";
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t("Last visit/call"),
+                data: 'PastoralCareLastDate',
+                render: function (data, type, full, meta) {
+                    if (data != null) {
+                        var date = moment(data).format(fmt);
+                        return date;
+                    } else {
+                        return window.CRM.neverDate;
+                    }
+                }
+            }
+        ],
+        responsive: true,
+        createdRow : function (row,data,index) {
+            $(row).addClass("menuLinksRow");
+        }
+    });
+
     window.CRM.retiredNeverBeenContacted = $("#retiredNeverBeenContacted").DataTable({
         ajax:{
             url: window.CRM.root + "/api/pastoralcare/retiredNeverBeenContacted",
