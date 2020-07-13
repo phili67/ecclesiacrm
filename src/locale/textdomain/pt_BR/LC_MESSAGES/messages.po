@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 19:18+0200\n"
+"POT-Creation-Date: 2020-07-13 19:59+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8115,7 +8115,6 @@ msgid "Manage Pastoral Care"
 msgstr "Procurar Pessoa"
 
 #: Menu.php:510 v2/routes/people/familylist.php:161
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #: v2/templates/people/peopledashboard.php:84
 #, fuzzy
 msgid "Lonely People"
@@ -10939,6 +10938,11 @@ msgstr "Busca Personalizada"
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:156
 #, fuzzy
 msgid "Family not reached"
+msgstr "Busca Personalizada"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
+#, fuzzy
+msgid "Lonely People not reached"
 msgstr "Busca Personalizada"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
