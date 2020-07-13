@@ -81,19 +81,19 @@ require $sRootDocument . '/Include/Header.php';
                 </h3>
 
                 <p>
-                    <?= _('Lonely person') ?> (<span id="lonelyCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
+                    <?= _('Lonely People') ?> (<span id="lonelyCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
             </div>
             <div class="small-box-footer">
+                <a href="<?= $sRootPath ?>/v2/familylist/lonely" style="color:#ffffff">
+                    <?= _('View') ?> <?= _("Lonely") ?> <i class="fa fa-arrow-circle-right"></i>
+                </a>
+
                 <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
-                </a>
-                    &nbsp;
-                <a href="<?= $sRootPath ?>/v2/familylist/lonely" style="color:#ffffff">
-                    <?= _("Lonely") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>

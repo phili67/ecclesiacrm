@@ -544,8 +544,13 @@ function manageEvent(Request $request, Response $response, array $args)
 
                             $eventAttent->setEventId($event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                            $eventAttent->setCheckinDate(NULL);
+
+                            if (SystemConfig::getBooleanValue('bCheckedAttendees') ) {
+                                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                                $eventAttent->setCheckinDate($date);
+                            } else {
+                                $eventAttent->setCheckinDate(NULL);
+                            }
                             $eventAttent->setPersonId($person->getPersonId());
                             $eventAttent->save();
                         }
@@ -1119,7 +1124,12 @@ function manageEvent(Request $request, Response $response, array $args)
 
                             $eventAttent->setEventId($old_event->getID());
                             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-                            $eventAttent->setCheckinDate(NULL);
+                            if (SystemConfig::getBooleanValue('bCheckedAttendees') ) {
+                                $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                                $eventAttent->setCheckinDate($date);
+                            } else {
+                                $eventAttent->setCheckinDate(NULL);
+                            }
                             $eventAttent->setPersonId($person->getPersonId());
                             $eventAttent->save();
                         }
