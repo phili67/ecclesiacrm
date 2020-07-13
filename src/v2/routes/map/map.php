@@ -107,49 +107,51 @@ function renderMapArray ($iGroupID)
           RedirectUtils::Redirect('Menu.php');
        }
 
-        $families = FamilyQuery::create()
-            ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
-            ->filterByDateDeactivated(null)
-            ->filterByLatitude(0, Criteria::NOT_EQUAL)
-            ->filterByLongitude(0, Criteria::NOT_EQUAL)
-            ->usePersonQuery()
-                ->usePerson2group2roleP2g2rQuery()
-                    ->filterByGroupId($iGroupID)
-                ->endUse()
-                //->filterByFmrId($dirRoleHead)
+        $persons = PersonQuery::create()
+            ->usePerson2group2roleP2g2rQuery()
+            ->filterByGroupId($iGroupID)
             ->endUse()
             ->find();
 
-        $plotFamily = true;
+       if ($persons->count() > 50) {
+           $families = FamilyQuery::create()
+               ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
+               ->filterByDateDeactivated(null)
+               ->filterByLatitude(0, Criteria::NOT_EQUAL)
+               ->filterByLongitude(0, Criteria::NOT_EQUAL)
+               ->usePersonQuery()
+               ->usePerson2group2roleP2g2rQuery()
+               ->filterByGroupId($iGroupID)
+               ->endUse()
+               //->filterByFmrId($dirRoleHead)
+               ->endUse()
+               ->find();
 
-        //Get all the members of this group
-        /*$persons = PersonQuery::create()
-          ->usePerson2group2roleP2g2rQuery()
-          ->filterByGroupId($iGroupID)
-          ->endUse()
-          ->find();*/
+           $plotFamily = true;
+       }
     } elseif ($iGroupID == 0) {// the Cart
         // group zero means map the cart
         if (!empty($_SESSION['aPeopleCart'])) {
 
-            $families = FamilyQuery::create()
-                ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
-                ->filterByDateDeactivated(null)
-                ->filterByLatitude(0, Criteria::NOT_EQUAL)
-                ->filterByLongitude(0, Criteria::NOT_EQUAL)
-                ->usePersonQuery()
+            // old code : really slow and with all the members of a family at the same place
+            $persons = PersonQuery::create()
+            ->filterById($_SESSION['aPeopleCart'])
+            ->find();
+
+            if ($persons->count() > 50) {
+                $families = FamilyQuery::create()
+                    ->setDistinct(\EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
+                    ->filterByDateDeactivated(null)
+                    ->filterByLatitude(0, Criteria::NOT_EQUAL)
+                    ->filterByLongitude(0, Criteria::NOT_EQUAL)
+                    ->usePersonQuery()
                     ->filterById($_SESSION['aPeopleCart'])
                     //->filterByFmrId($dirRoleHead)
-                ->endUse()
-                ->find();
+                    ->endUse()
+                    ->find();
 
-            $plotFamily = true;
-
-            // old code : really slow and with all the members of a family at the same place
-            /*$persons = PersonQuery::create()
-            ->filterById($_SESSION['aPeopleCart'])
-            ->find();*/
-            //
+                $plotFamily = true;
+            }
         }
     } elseif ($iGroupID == -1) {// the Family
       //Map all the families
