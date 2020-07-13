@@ -4534,9 +4534,8 @@ msgid "Add New Person"
 msgstr "Neue Person Hinzufügen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:325
-#, fuzzy
 msgid "View Lonely People"
-msgstr "Alle Menschen anzeigen"
+msgstr "Einsame Menschen sehen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:326
 msgid "View Active Persons"
@@ -7757,9 +7756,8 @@ msgid "Families not reached"
 msgstr "Familien nicht erreicht"
 
 #: Menu.php:480
-#, fuzzy
 msgid "Lonely people not reached"
-msgstr "Junge Leute nicht erreicht"
+msgstr "Einsame Leute nicht erreicht"
 
 #: Menu.php:483
 msgid "Retired Persons not reached"
@@ -7780,23 +7778,20 @@ msgstr "Pastoral Pflege verwalten"
 #: Menu.php:510 v2/routes/people/familylist.php:161
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #: v2/templates/people/peopledashboard.php:84
-#, fuzzy
 msgid "Lonely People"
-msgstr "von Menschen"
+msgstr "Einsame Menschen"
 
 #: Menu.php:519 Menu.php:523 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
-#, fuzzy
 msgid "View"
-msgstr "Alle anschauen"
+msgstr "Sehen"
 
 #: Menu.php:519 v2/templates/pastoralcare/pastoralcaredashboard.php:84
 #: v2/templates/people/peopledashboard.php:92
 msgid "Lonely"
-msgstr ""
+msgstr "Einsame Leute"
 
 #: Menu.php:523 v2/templates/people/peopledashboard.php:96
-#, fuzzy
 msgid "Familles"
 msgstr "Familien"
 

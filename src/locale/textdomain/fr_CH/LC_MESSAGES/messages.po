@@ -4619,7 +4619,7 @@ msgstr "Ajouter une nouvelle personne"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:325
 msgid "View Lonely People"
-msgstr "Voir Personnes Seules"
+msgstr "Afficher Personnes Seules"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:326
 msgid "View Active Persons"
@@ -7894,7 +7894,7 @@ msgstr "Voire"
 #: Menu.php:519 v2/templates/pastoralcare/pastoralcaredashboard.php:84
 #: v2/templates/people/peopledashboard.php:92
 msgid "Lonely"
-msgstr "Seuls"
+msgstr "Pers. Seules"
 
 #: Menu.php:523 v2/templates/people/peopledashboard.php:96
 msgid "Familles"
@@ -10541,7 +10541,7 @@ msgstr "Effectifs"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 msgid "Other Pastoral Care Members"
-msgstr "Autres membres du suivi pastoral"
+msgstr "Autres membres pour le suivi pastoral"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:143
 msgid "Person not reached"
