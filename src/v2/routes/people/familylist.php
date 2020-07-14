@@ -158,7 +158,7 @@ function argumentsFamilyListArray ($sMode='Active')
     }
 
     if ($sMode == 'Single') {
-        $sPageTitle = _("Single Person");
+        $sPageTitle = _("Single Persons");
     } else {
         $sPageTitle = _(ucfirst(_($sMode))) . ' : ' . ((strtolower($sMode) == 'empty') ? _('Addresses') : _('Family List'));
     }
