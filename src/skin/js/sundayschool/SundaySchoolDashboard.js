@@ -93,7 +93,7 @@ $("document").ready(function() {
         var dateAttendees = moment(start).format(fmt);
 
 
-        var frm_str = '<b><p>' + i18next.t("First, set your date an time.") + '</p></b><hr/><form id="some-form">'
+        var frm_str = '<b><p>' + i18next.t("First, set your date and time.") + '</p></b><hr/><form id="some-form">'
             + '<div class="row">'
             + '     <div class="col-md-12">'
             + '         <div class="row">'

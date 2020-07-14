@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-13T17:18:16.188Z\n"
+"POT-Creation-Date: 2020-07-14T10:12:53.519Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1665,7 +1665,7 @@ msgstr "Etudiants supplémentaires"
 msgid "export with photos"
 msgstr "Exports avec photos"
 
-msgid "First, set your date an time."
+msgid "First, set your date and time."
 msgstr "Premièrement, fixer la date et l'heure"
 
 msgid "Time"
