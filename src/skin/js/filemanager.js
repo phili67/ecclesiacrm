@@ -84,7 +84,7 @@ $(document).ready(function () {
                  + '</a>';
 
             ret  += '<span class="fa-stack shareFile" data-id="'+data+'" data-shared="'+full.isShared+'">'
-                 + '   <i class="fa fa-square fa-stack-2x share-color" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
+                 + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
                  + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
                  + '</span>';
 
