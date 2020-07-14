@@ -84,7 +84,7 @@ $(document).ready(function () {
                  + '</a>';
 
             ret  += '<span class="fa-stack shareFile" data-id="'+data+'" data-shared="'+full.isShared+'">'
-                 + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
+                 + '   <i class="fa fa-square fa-stack-2x share-color" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
                  + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
                  + '</span>';
 
@@ -888,12 +888,9 @@ $("body").on('keypress', '.fileName', function(e) {
     // this will ensure that image and table can be focused
     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  }
 
-  function openShareFilesWindow (event) {
+  function openShareFilesWindow (event, button, state) {
     var noteId = event.currentTarget.dataset.id;
     var isShared = event.currentTarget.dataset.shared;
-
-    var button = $(this); //Assuming first tab is selected by default
-    var state  = button.find('.fa-stack-2x');
 
     var modal = bootbox.dialog({
        message: window.CRM.BootboxContentShareFiles(),
@@ -976,8 +973,11 @@ $("body").on('keypress', '.fileName', function(e) {
   var isOpened = false;
 
   $(document).on('click','.shareFile',function (event) {
+    var button = $(this); //Assuming first tab is selected by default
+    var state  = button.find('.share-color');
+
     if (!isOpened) {
-      openShareFilesWindow (event);
+      openShareFilesWindow (event, button, state);
       isOpened = true;
     } else {
       isOpened = false;
