@@ -7873,7 +7873,7 @@ msgstr "Familles non contactées"
 
 #: Menu.php:478
 msgid "Single persons not reached"
-msgstr "Personnes seules non contactés"
+msgstr "Personnes seules non contactées"
 
 #: Menu.php:481
 msgid "Retired Persons not reached"
