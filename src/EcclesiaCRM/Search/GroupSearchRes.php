@@ -45,7 +45,6 @@ class GroupSearchRes extends BaseSearchRes
                     $id=1;
 
                     foreach ($groups as $group) {
-                        LoggerUtils::getAppLogger()->info(print_r($group,1));
                         $elt = ['id'=>'group-'.$id++,
                             'text'=>$group['displayName'],
                             'uri'=>$group['uri']];

@@ -20,8 +20,8 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _('Individual Pastoral Care');
-        parent::__construct($global,'Individual Pastoral Care');
+        $this->name = _("Individual Pastoral Cares");
+        parent::__construct($global,"Individual Pastoral Cares");
     }
 
     public function buildSearch(string $qry)
