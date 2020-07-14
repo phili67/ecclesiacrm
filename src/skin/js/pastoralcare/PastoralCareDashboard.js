@@ -143,12 +143,12 @@ $(document).ready(function () {
         }
     });
 
-    window.CRM.lonelyNeverBeenContacted = $("#lonelyNeverBeenContacted").DataTable({
+    window.CRM.singleNeverBeenContacted = $("#singleNeverBeenContacted").DataTable({
         ajax:{
-            url: window.CRM.root + "/api/pastoralcare/lonelyNeverBeenContacted",
+            url: window.CRM.root + "/api/pastoralcare/singleNeverBeenContacted",
             type: 'POST',
             contentType: "application/json",
-            dataSrc: "LonelyNeverBeenContacted"
+            dataSrc: "SingleNeverBeenContacted"
         },
         bSort : true,
         "language": {

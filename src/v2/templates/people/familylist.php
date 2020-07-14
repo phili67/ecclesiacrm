@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header">
-        <?php if ($sMode == 'Lonely') { ?>
+        <?php if ($sMode == 'Single') { ?>
             <h3 class="card-title"><i class="fa fa-male"></i> <?= _('People') ?></h3>
         <?php } else { ?>
             <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i> <?= _('Families') ?></h3>
