@@ -801,7 +801,7 @@ require 'Include/Header.php';
                             } else {
                                 $cancelText = _('Return');
                             } ?>
-                            <input type="button" class="btn btn-danger" value="<?= _($cancelText) ?>" name="PledgeCancel"
+                            <input type="button" class="btn btn-default" value="<?= _($cancelText) ?>" name="PledgeCancel"
                                    onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'Menu.php' ?>';">
                         </div>
                     </div>
