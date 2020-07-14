@@ -100,3 +100,4 @@ DELETE FROM note_nte WHERE nte_ID IN (
                   ) AS p
 );
 
+DELETE FROM note_nte_share WHERE 1;
