@@ -53,12 +53,12 @@ $(document).ready(function () {
             }
         }
 
-        $('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("In progress...."));
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("In progress...."));
         cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+i18next.t("Done !"));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
             loadAllPeople()
         }, false);
 
@@ -88,12 +88,12 @@ $(document).ready(function () {
             $("#searchComboGroupRole").empty();
         }
 
-        $('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("In progress...."));
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("In progress...."));
         cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+i18next.t("Done !"));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
             loadAllPeople()
         }, false);
     });
@@ -111,12 +111,12 @@ $(document).ready(function () {
             }
         }
 
-        $('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("In progress...."));
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("In progress...."));
         cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+i18next.t("Done !"));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
             loadAllPeople()
         }, false);
     });
@@ -361,12 +361,12 @@ $(document).ready(function () {
         var res = cart.length;
         cart = [];
 
-        $('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("In progress...."));
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("In progress...."));
         cart = [];
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+i18next.t("Done !"));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
             loadAllPeople()
         }, false);
     });
@@ -385,11 +385,11 @@ $(document).ready(function () {
         loadAllPeople()
         window.CRM.cart.addPerson(window.CRM.listPeople);
 
-        /*$('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("Loading people in cart...."));
+        /*$('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+ i18next.t("Loading finished...."));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Loading finished...."));
         }, false);*/
     });
 
@@ -413,11 +413,11 @@ $(document).ready(function () {
         loadAllPeople()
         window.CRM.cart.removePerson(window.CRM.listPeople);
 
-        /*$('.progress').css("color", "red");
-        $('.progress').html("  "+ i18next.t("Loading people in cart...."));
+        /*$('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
         window.CRM.dataSearchTable.ajax.reload(function ( json ) {
-            $('.progress').css("color", "green");
-            $('.progress').html("  "+ i18next.t("Loading finished...."));
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Loading finished...."));
         }, false);*/
     });
 
