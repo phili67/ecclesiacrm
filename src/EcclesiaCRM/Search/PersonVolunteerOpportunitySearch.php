@@ -5,10 +5,10 @@
 namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
-use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -16,71 +16,54 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemURLs;
 
 
-class PersonPastoralCareSearchRes extends BaseSearchRes
+class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _("Individual Pastoral Cares");
-        parent::__construct($global,"Individual Pastoral Cares");
+        $this->name = _('Volunteer Opportunities');
+        parent::__construct($global,'Volunteer Opportunities');
     }
 
     public function buildSearch(string $qry)
     {
-        if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
+        if ( SystemConfig::getBooleanValue("bSearchIncludePersons") ) {
             try {
                 $searchLikeString = '%' . $qry . '%';
-                $cares = PastoralCareQuery::Create();
+                $pers = PersonQuery::create();
+
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
-                    $cares
-                        ->usePersonRelatedByPersonIdQuery()
-                            ->filterByDateDeactivated(null)
-                        ->endUse()
-                        ->_and();
+                    $pers->filterByDateDeactivated(null);
                 }
 
-                $cares->leftJoinPastoralCareType()
-                    ->joinPersonRelatedByPersonId()
-                        ->filterByPersonId(null, Criteria::NOT_EQUAL)
-                        ->filterByText($searchLikeString, Criteria::LIKE)
-                    ->_or()
-                    ->usePastoralCareTypeQuery()
-                    ->filterByTitle($searchLikeString, Criteria::LIKE)
-                    ->endUse()
-                    ->_or()
-                    ->usePersonRelatedByPersonIdQuery()
-                    ->filterByLastName($searchLikeString, Criteria::LIKE)
-                    ->_or()
-                    ->filterByFirstName($searchLikeString, Criteria::LIKE)
-                    ->endUse()
-                    ->orderByDate(Criteria::DESC);
+                $pers->usePersonVolunteerOpportunityQuery()
+                        ->useVolunteerOpportunityQuery()
+                            ->filterByName($searchLikeString, Criteria::LIKE)
+                            ->_or()->filterByDescription($searchLikeString, Criteria::LIKE)
+                        ->endUse()
+                    ->endUse();
 
                 if (!$this->global_search) {
-                    $cares->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
+                    $pers->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
+                $pers->find();
 
-                if (SessionUser::getUser()->isAdmin()) {
-                    $cares->find();
-                } else {
-                    $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
-                }
 
-                if (!is_null($cares)) {
+                if (!is_null($pers)) {
                     $id=1;
 
-                    foreach ($cares as $care) {
-                        $elt = ['id' => "person-pastoralcare-id-".$id++,
-                            'text' => $care->getPastoralCareType()->getTitle() . " : " . $care->getPersonRelatedByPersonId()->getFullName(),
-                            'uri' => SystemURLs::getRootPath() . "/v2/pastoralcare/person/" . $care->getPersonId()];
+                    foreach ($pers as $per) {
+                        $elt = ['id' => "person-vol-id-".$id++,
+                            'text' => $per->getTitle() . " : " . $per->getLastName(). " ".$per->getFirstName(),
+                            'uri' => SystemURLs::getRootPath() . "/PersonView.php?PersonID=" . $per->getId()];
 
                         if ($this->global_search) {
-                            $per = $care->getPersonRelatedByPersonId();
                             $fam = $per->getFamily();
 
                             $address = "";
                             if (!is_null($fam)) {
-                                $address = '<a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getID().'">'.
+                                $address = '<a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getId().'">'.
                                     $fam->getName().MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState()).
                                     "</a>";
                             }
@@ -89,7 +72,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/pastoralcare/person/' . $per->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $per->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'

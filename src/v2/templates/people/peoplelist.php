@@ -64,7 +64,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header with-border">
         <h3 class="card-title"><i class="fa fa-search"></i> <?= _('Search Results') ?></h3>
         <div class="card-tools">
-            <h3 class="progress" style="color:red"></h3>
+            <h3 class="in-progress" style="color:red"></h3>
         </div>
     </div>
     <div class="card-body">

@@ -27,6 +27,7 @@ use EcclesiaCRM\Search\FamilyCustomSearchRes;
 use EcclesiaCRM\Search\PersonPastoralCareSearchRes;
 use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
 use EcclesiaCRM\Search\PersonAssignToGroupSearchRes;
+use EcclesiaCRM\Search\PersonVolunteerOpportunitySearchRes;
 use EcclesiaCRM\GroupQuery;
 
 // Routes search
@@ -71,8 +72,8 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new DepositSearchRes(true),
             new PaymentSearchRes(true),
             new PledgeSearchRes( true),
-            new GroupSearchRes( true)
-
+            new GroupSearchRes( true),
+            new PersonVolunteerOpportunitySearchRes( true)
         ];
     } elseif ($query == "*" || count($query_elements) > 0) {
         $query = "";
@@ -106,7 +107,8 @@ function quickSearch (Request $request, Response $response, array $args) {
         new PersonAssignToGroupSearchRes(),
         new FamilyCustomSearchRes(),
         new PersonPastoralCareSearchRes(),
-        new FamilyPastoralCareSearchRes()
+        new FamilyPastoralCareSearchRes(),
+        new PersonVolunteerOpportunitySearchRes()
     ];
 
     foreach ($resMethods as $resMethod) {

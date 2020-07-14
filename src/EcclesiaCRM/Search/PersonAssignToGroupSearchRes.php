@@ -21,8 +21,8 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _('Person Group role assignment');
-        parent::__construct($global, "Person Group role assignment");
+        $this->name = _('Person Group role assignments');
+        parent::__construct($global, "Person Group role assignments");
     }
 
     public function buildSearch(string $qry)
@@ -55,7 +55,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                     ->Where(ListOptionTableMap::COL_LST_OPTIONNAME . " LIKE '" . $searchLikeString . "' ORDER BY grp_Name");
 
                 if (!$this->global_search) {
-                    $ormAssignedGroups->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
+                    $ormAssignedGroups->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
                 $ormAssignedGroups->find();
