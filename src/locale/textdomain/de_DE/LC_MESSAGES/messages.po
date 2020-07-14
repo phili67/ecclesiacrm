@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 09:54+0200\n"
+"POT-Creation-Date: 2020-07-14 11:56+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 #: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:252
 #: EditEventTypes.php:125 EditEventTypes.php:137 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:66
-#: GroupReports.php:169 Menu.php:404 Menu.php:458
+#: GroupReports.php:169 Menu.php:402 Menu.php:456
 #: PrintPastoralCarePerson.php:664 v2/templates/group/groupbadge.php:126
 #: v2/templates/sundayschool/sundayschoolreports.php:40
 msgid "None"
@@ -218,7 +218,7 @@ msgstr "Personen"
 #: EcclesiaCRM/MenuBar/MenuBar.php:299 EcclesiaCRM/MenuBar/MenuBar.php:330
 #: EcclesiaCRM/Search/FamilySearchRes.php:20
 #: members/online-pending-verify.php:24 members/self-register.php:24
-#: members/self-verify-updates.php:24 Menu.php:510
+#: members/self-verify-updates.php:24 Menu.php:508
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:71
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
@@ -228,7 +228,7 @@ msgstr "Familien"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:197
 #: EcclesiaCRM/MenuBar/MenuBar.php:49 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:110 Menu.php:580
+#: external/templates/verify/verify-family-info.php:110 Menu.php:578
 #: PersonView.php:450 v2/templates/calendar/calendar.php:197
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:153
@@ -581,7 +581,7 @@ msgstr "Person"
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
-#: members/404.php:16 Menu.php:433 PersonView.php:865 PledgeEditor.php:588
+#: members/404.php:16 Menu.php:431 PersonView.php:865 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/routes/sidebar/propertylist.php:36
@@ -764,7 +764,7 @@ msgstr "Nachnahme/Familienname"
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:49 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:294 GeoPage.php:374 GroupReports.php:148
-#: Menu.php:636 Menu.php:664 Menu.php:694 Menu.php:724 PersonEditor.php:1047
+#: Menu.php:634 Menu.php:662 Menu.php:692 Menu.php:722 PersonEditor.php:1047
 #: PersonEditor.php:1053 PersonEditor.php:1129 PersonEditor.php:1153
 #: PersonView.php:536 Reports/ConfirmReportEmail.php:126
 #: Reports/ConfirmReportEmail.php:131 Reports/PDFLabel.php:859
@@ -1275,7 +1275,7 @@ msgstr "Korb zur Familie hinzufügen"
 #: FamilyCustomFieldsEditor.php:345 FamilyCustomFieldsEditor.php:467
 #: GeoPage.php:373 GroupEditor.php:86 GroupPropsEditor.php:236
 #: GroupPropsFormEditor.php:349 GroupPropsFormEditor.php:476 ListEvents.php:300
-#: ListEvents.php:302 Menu.php:693 Menu.php:723
+#: ListEvents.php:302 Menu.php:691 Menu.php:721
 #: PersonCustomFieldsEditor.php:341 PersonCustomFieldsEditor.php:468
 #: PrintPastoralCarePerson.php:447 PrintPastoralCarePerson.php:612
 #: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:69
@@ -1311,7 +1311,7 @@ msgstr ""
 #: CartToFamily.php:288
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:38 FamilyEditor.php:722
-#: LettersAndLabels.php:71 Menu.php:635 Menu.php:663 PersonEditor.php:1036
+#: LettersAndLabels.php:71 Menu.php:633 Menu.php:661 PersonEditor.php:1036
 #: Reports/ConfirmReportEmail.php:121 Reports/ConfirmReport.php:122
 #: SelectDelete.php:224 SelectDelete.php:367
 msgid "Family Name"
@@ -4519,14 +4519,13 @@ msgstr "Kirche Ereignisse auflisten"
 msgid "List Event Types"
 msgstr "Ereignis Typen Liste"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:299 Menu.php:536
+#: EcclesiaCRM/MenuBar/MenuBar.php:299 Menu.php:534
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:111
 msgid "People"
 msgstr "Menschen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:315
-#, fuzzy
 msgid "Meta Search Engine"
 msgstr "Personen Benutzerdefinierte Suche"
 
@@ -4535,8 +4534,9 @@ msgid "Add New Person"
 msgstr "Neue Person Hinzufügen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:325
-msgid "View Lonely People"
-msgstr "Einsame Menschen sehen"
+#, fuzzy
+msgid "View Single Persons"
+msgstr "Alle Personen sehen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:326
 msgid "View Active Persons"
@@ -4721,14 +4721,14 @@ msgid "Witness"
 msgstr "Zeuge"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:233
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:637
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 Menu.php:635
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Erstellt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:665 Menu.php:695
-#: Menu.php:725
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:663 Menu.php:693
+#: Menu.php:723
 msgid "Updated"
 msgstr "Aktualisiert"
 
@@ -4971,7 +4971,7 @@ msgstr "Adressen"
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:137
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122
-#: EcclesiaCRM/Search/FamilySearchRes.php:124 FamilyView.php:537 Menu.php:471
+#: EcclesiaCRM/Search/FamilySearchRes.php:124 FamilyView.php:537 Menu.php:469
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:52
 #: v2/templates/pastoralcare/pastoralcarefamily.php:109
 msgid "Members"
@@ -5023,7 +5023,7 @@ msgstr "Familien Benutzerdefinierte Suche"
 msgid "Family Pastoral Cares"
 msgstr "Familien Pastoral Pflege"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122 Menu.php:413
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122 Menu.php:411
 msgid "Family Pastoral Care"
 msgstr "Familien Pastoral Pflege"
 
@@ -6239,7 +6239,7 @@ msgstr "Erstes"
 msgid "Middle"
 msgstr "Mittleres"
 
-#: FamilyEditor.php:1094 Menu.php:356 Menu.php:413
+#: FamilyEditor.php:1094 Menu.php:354 Menu.php:411
 msgid "Last"
 msgstr "Letztes"
 
@@ -7749,102 +7749,104 @@ msgstr "Horzheit Jahrestag des Tages"
 msgid "Unclassified birthdates"
 msgstr "nicht klassifizierte Geburtstage"
 
-#: Menu.php:356
+#: Menu.php:354
 msgid "Individual Pastoral Care"
 msgstr "Individual Pastoral Pflege "
 
-#: Menu.php:468
+#: Menu.php:466
 msgid "Statistics"
 msgstr "Statistics"
 
-#: Menu.php:469 v2/templates/pastoralcare/pastoralcaredashboard.php:47
+#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid "Period  from"
 msgstr "Zeitraum von"
 
-#: Menu.php:469 v2/templates/pastoralcare/pastoralcaredashboard.php:47
+#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:47
 msgid "to"
 msgstr "zu"
 
-#: Menu.php:474
+#: Menu.php:472 v2/templates/pastoralcare/pastoralcaredashboard.php:143
 msgid "Persons not reached"
 msgstr "Personen nicht erreicht"
 
-#: Menu.php:477
+#: Menu.php:475 v2/templates/pastoralcare/pastoralcaredashboard.php:156
 msgid "Families not reached"
 msgstr "Familien nicht erreicht"
 
-#: Menu.php:480
-msgid "Lonely people not reached"
-msgstr "Einsame Leute nicht erreicht"
+#: Menu.php:478
+#, fuzzy
+msgid "Single persons not reached"
+msgstr "Junge Leute nicht erreicht"
 
-#: Menu.php:483
+#: Menu.php:481
 msgid "Retired Persons not reached"
 msgstr "pensioniert nicht erreicht"
 
-#: Menu.php:486
-msgid "Young Members"
-msgstr "Jungen Mitglieder"
+#: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#, fuzzy
+msgid "Youngs"
+msgstr "Jung"
 
-#: Menu.php:489
+#: Menu.php:487
 msgid "Young Persons not reached"
 msgstr "Junge Leute nicht erreicht"
 
-#: Menu.php:493
+#: Menu.php:491
 msgid "Manage Pastoral Care"
 msgstr "Pastoral Pflege verwalten"
 
-#: Menu.php:510 v2/routes/people/familylist.php:161
-#: v2/templates/people/peopledashboard.php:84
-msgid "Lonely People"
-msgstr "Einsame Menschen"
+#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#, fuzzy
+msgid "Single Person"
+msgstr "Nächster Person"
 
-#: Menu.php:519 Menu.php:523 v2/templates/people/peopledashboard.php:92
+#: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
 msgid "View"
 msgstr "Sehen"
 
-#: Menu.php:519 v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#: v2/templates/people/peopledashboard.php:92
-msgid "Lonely"
-msgstr "Einsame Leute"
+#: Menu.php:517 v2/templates/people/peopledashboard.php:92
+#, fuzzy
+msgid "Single"
+msgstr "Singapur"
 
-#: Menu.php:523 v2/templates/people/peopledashboard.php:96
+#: Menu.php:521 v2/templates/people/peopledashboard.php:96
 msgid "Familles"
 msgstr "Familien"
 
-#: Menu.php:543 v2/templates/people/peopledashboard.php:118
+#: Menu.php:541 v2/templates/people/peopledashboard.php:118
 msgid "See All People"
 msgstr "Alle Menschen anzeigen"
 
-#: Menu.php:558 v2/templates/sundayschool/sundayschooldashboard.php:193
+#: Menu.php:556 v2/templates/sundayschool/sundayschooldashboard.php:193
 msgid "Sunday School Classes"
 msgstr "Sonntagsschule Klassen"
 
-#: Menu.php:565 Menu.php:587 v2/templates/people/peopledashboard.php:139
+#: Menu.php:563 Menu.php:585 v2/templates/people/peopledashboard.php:139
 #: v2/templates/people/peopledashboard.php:160
 msgid "More info"
 msgstr "Mehr Anzeigen"
 
-#: Menu.php:601
+#: Menu.php:599
 msgid "Deposit Tracking"
 msgstr "Einzahlung Verfolgung"
 
 #
 # Mise à jour des éléments
 # 2018
-#: Menu.php:621
+#: Menu.php:619
 msgid "Latest Families"
 msgstr "Neueste Familien"
 
-#: Menu.php:650
+#: Menu.php:648
 msgid "Updated Families"
 msgstr "Aktualisiert Familien"
 
-#: Menu.php:679
+#: Menu.php:677
 msgid "Latest Members"
 msgstr "Neueste Mitglieder"
 
-#: Menu.php:708
+#: Menu.php:706
 msgid "Updated Members"
 msgstr "Aktualisiert Mitglieder"
 
@@ -9599,6 +9601,11 @@ msgstr "Familien Pastoral Pflege"
 msgid "Pastoral care members list by classification"
 msgstr "Pastoral Pflege Mitglieder Liste nach Klassifizierung"
 
+#: v2/routes/people/familylist.php:161
+#, fuzzy
+msgid "Single Persons"
+msgstr "Alle Personen sehen"
+
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr "Menschen Dashboard"
@@ -10389,7 +10396,6 @@ msgid "Retired"
 msgstr "pensioniert "
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:34
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:110
 msgid "Young"
 msgstr "Jung"
 
@@ -10407,28 +10413,27 @@ msgstr "zu erreichen"
 msgid "Count"
 msgstr "Anzahl"
 
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#, fuzzy
+msgid "Singles"
+msgstr "Singapur"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 msgid "Other Pastoral Care Members"
 msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:143
-msgid "Person not reached"
-msgstr "Personen nicht erreicht"
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:156
-msgid "Family not reached"
-msgstr "Familien nicht erreicht"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-msgid "Lonely People not reached"
-msgstr "Einsame Leute nicht erreicht"
+#, fuzzy
+msgid "Single Persons not reached"
+msgstr "Junge Leute nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr "pensioniert nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-msgid "Young not reached"
+#, fuzzy
+msgid "Youngs not reached"
 msgstr "junge nicht erreicht"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
@@ -11624,8 +11629,29 @@ msgstr "Leeren"
 msgid "pending"
 msgstr "steht aus"
 
-#~ msgid "View All Persons"
-#~ msgstr "Alle Personen sehen"
+#~ msgid "View Lonely People"
+#~ msgstr "Einsame Menschen sehen"
+
+#~ msgid "Lonely people not reached"
+#~ msgstr "Einsame Leute nicht erreicht"
+
+#~ msgid "Young Members"
+#~ msgstr "Jungen Mitglieder"
+
+#~ msgid "Lonely People"
+#~ msgstr "Einsame Menschen"
+
+#~ msgid "Lonely"
+#~ msgstr "Einsame Leute"
+
+#~ msgid "Person not reached"
+#~ msgstr "Personen nicht erreicht"
+
+#~ msgid "Family not reached"
+#~ msgstr "Familien nicht erreicht"
+
+#~ msgid "Lonely People not reached"
+#~ msgstr "Einsame Leute nicht erreicht"
 
 #~ msgid "See all Families"
 #~ msgstr "Alle Familien anzeigen"
