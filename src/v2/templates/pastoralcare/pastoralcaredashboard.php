@@ -81,7 +81,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Single") ?>
+                            <?= _("Singles") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -107,7 +107,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Young") ?>
+                            <?= _("Youngs") ?>
                         </td>
                         <td>
                             <div class="progress">

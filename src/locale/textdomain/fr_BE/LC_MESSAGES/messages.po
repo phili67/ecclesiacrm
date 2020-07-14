@@ -10560,7 +10560,7 @@ msgstr "Autres membres pour le suivi pastoral"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:171
 msgid "Single Persons not reached"
-msgstr "Personnes seules non contactés"
+msgstr "Personnes seules non contactées"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
