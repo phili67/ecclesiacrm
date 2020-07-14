@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 19:59+0200\n"
+"POT-Creation-Date: 2020-07-14 09:54+0200\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,10 +316,10 @@ msgid "Added to group"
 msgstr "Ajouté au groupe"
 
 #: api/routes/people/people-persons.php:182
-#: api/routes/people/people-persons.php:193 api/routes/search.php:129
-#: api/routes/search.php:134 api/routes/search.php:142
-#: api/routes/search.php:147 api/routes/search.php:155
-#: api/routes/search.php:160 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
+#: api/routes/people/people-persons.php:193 api/routes/search.php:131
+#: api/routes/search.php:136 api/routes/search.php:144
+#: api/routes/search.php:149 api/routes/search.php:157
+#: api/routes/search.php:162 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
 #: BatchWinnerEntry.php:96 CSVImport.php:389 DirectoryReports.php:98
 #: DonatedItemEditor.php:190 DonatedItemEditor.php:236
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
@@ -371,7 +371,7 @@ msgstr "Personne désactivée"
 msgid "Person Activated"
 msgstr "Personne activée"
 
-#: api/routes/search.php:124 CSVExport.php:368
+#: api/routes/search.php:126 CSVExport.php:368
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -382,7 +382,7 @@ msgstr "Personne activée"
 msgid "Male"
 msgstr "Homme"
 
-#: api/routes/search.php:124 CSVExport.php:369
+#: api/routes/search.php:126 CSVExport.php:369
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -393,7 +393,7 @@ msgstr "Homme"
 msgid "Female"
 msgstr "Femme"
 
-#: api/routes/search.php:180 CSVExport.php:355 CSVImport.php:241
+#: api/routes/search.php:182 CSVExport.php:355 CSVImport.php:241
 #: FamilyEditor.php:1096 PersonEditor.php:846 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:209
@@ -401,7 +401,7 @@ msgstr "Femme"
 msgid "Gender"
 msgstr "Sexe"
 
-#: api/routes/search.php:181 api/routes/sidebar/sidebar-general-roles.php:117
+#: api/routes/search.php:183 api/routes/sidebar/sidebar-general-roles.php:117
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:403 FamilyEditor.php:1101
 #: FamilyView.php:539 FinancialReports.php:153 OptionManager.php:109
 #: PersonEditor.php:1537 PrintPastoralCarePerson.php:400 PrintView.php:411
@@ -411,18 +411,18 @@ msgstr "Sexe"
 msgid "Classification"
 msgstr "Classification"
 
-#: api/routes/search.php:182 api/routes/sidebar/sidebar-general-roles.php:110
+#: api/routes/search.php:184 api/routes/sidebar/sidebar-general-roles.php:110
 #: CSVExport.php:180 CSVExport.php:325 OptionManager.php:102
 #: PrintPastoralCarePerson.php:338 PrintView.php:349 queryparameters_qrp.php:5
 msgid "Family Role"
 msgstr "Rôle familial"
 
-#: api/routes/search.php:183 Reports/GDPR/GDPRDataStructureExport.php:110
+#: api/routes/search.php:185 Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:85
 msgid "Person Property"
 msgstr "Propriété de Personne"
 
-#: api/routes/search.php:184 api/routes/sidebar/sidebar-general-roles.php:134
+#: api/routes/search.php:186 api/routes/sidebar/sidebar-general-roles.php:134
 #: OptionManager.php:126
 msgid "Group Type"
 msgstr "Type de Groupe"
@@ -4610,8 +4610,8 @@ msgid "People"
 msgstr "Personnes"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:315
-msgid "View All Persons"
-msgstr "Afficher toutes les personnes"
+msgid "Meta Search Engine"
+msgstr "Moteur de recherche"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:324 v2/templates/people/personlist.php:23
 msgid "Add New Person"
@@ -5023,9 +5023,9 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/FamilySearchRes.php:76
 #: EcclesiaCRM/Search/FamilySearchRes.php:111
 #: EcclesiaCRM/Search/FamilySearchRes.php:124
-#: EcclesiaCRM/Search/GroupSearchRes.php:66
-#: EcclesiaCRM/Search/GroupSearchRes.php:101
-#: EcclesiaCRM/Search/GroupSearchRes.php:114
+#: EcclesiaCRM/Search/GroupSearchRes.php:65
+#: EcclesiaCRM/Search/GroupSearchRes.php:100
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
 #: EcclesiaCRM/Search/PaymentSearchRes.php:47
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
@@ -5038,6 +5038,8 @@ msgstr "Adresses"
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
 #: EcclesiaCRM/Search/PersonSearchRes.php:263
 #: EcclesiaCRM/Search/PersonSearchRes.php:314
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:75
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:112
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
@@ -5070,6 +5072,7 @@ msgstr "Membres"
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Search/PersonSearchRes.php:321
 #: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:113
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:514
 #: PersonView.php:829 PrintPastoralCarePerson.php:654
@@ -5094,13 +5097,16 @@ msgid "Deposits"
 msgstr "Dépôts"
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-msgid "Family Custom Search"
-msgstr "Champ personnalisé de famille"
+msgid "Family Custom Searches"
+msgstr "Champs personnalisés de famille"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+msgid "Family Pastoral Cares"
+msgstr "Suivis pastoraux familiaux"
+
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122 Menu.php:413
 msgid "Family Pastoral Care"
-msgstr "Suivi pastoral familial"
+msgstr "Suivis pastoraux familiaux"
 
 #: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
 #: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
@@ -5108,8 +5114,8 @@ msgid "Payments"
 msgstr "Paiements"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-msgid "Person Group role assignment"
-msgstr "Affectation Rôle de la personne au groupe"
+msgid "Person Group role assignments"
+msgstr "Attributions Rôles de personnes au groupe"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
 msgid "Teacher"
@@ -5127,16 +5133,21 @@ msgid "Print"
 msgstr "Imprimer"
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-msgid "Person Custom Search"
-msgstr "Champ personnalisé de personne"
+msgid "Person Custom Searches"
+msgstr "Champs personnalisés de personne"
 
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23 Menu.php:356
-msgid "Individual Pastoral Care"
-msgstr "Suivi pastoral individuel"
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+msgid "Individual Pastoral Cares"
+msgstr "Suivis pastoraux individuels"
 
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-msgid "Person Properties Search"
-msgstr "Propriété de Personne (Recherche)"
+msgid "Person Properties Searches"
+msgstr "Propriétés de Personne"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:23
+#: Include/Footer.php:144 PersonView.php:902
+msgid "Volunteer Opportunities"
+msgstr "Opportunités de bénévolats"
 
 #: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
 #: Reports/PledgeSummary.php:253
@@ -5190,7 +5201,7 @@ msgstr " de la/du"
 
 #: EcclesiaCRM/Service/PersonService.php:48 PersonView.php:523
 msgid "(No assigned family)"
-msgstr "(Aucune famille assignée)"
+msgstr "(Aucune famille attribuée)"
 
 #: EcclesiaCRM/Service/TimelineService.php:218
 msgid "Self Registration"
@@ -6482,7 +6493,7 @@ msgstr "Chronologie"
 #: PrintView.php:603 v2/templates/group/groupview.php:316
 #: v2/templates/group/groupview.php:374
 msgid "Assigned Properties"
-msgstr "Propriétés assignées"
+msgstr "Propriétés attribuées"
 
 #: FamilyView.php:655 PersonView.php:920
 msgid "Automatic Payments"
@@ -7238,10 +7249,6 @@ msgstr "Propriétés de Groupe "
 msgid "Property Types"
 msgstr "Types de propriétés"
 
-#: Include/Footer.php:144 PersonView.php:902
-msgid "Volunteer Opportunities"
-msgstr "Opportunités de bénévolats"
-
 #: Include/Footer.php:154
 msgid "Edit Donation Funds"
 msgstr "Modifier les Dons/fonds"
@@ -7840,6 +7847,10 @@ msgstr "Anniversaires de mariage du jour"
 msgid "Unclassified birthdates"
 msgstr "Date de naissance non classées"
 
+#: Menu.php:356
+msgid "Individual Pastoral Care"
+msgstr "Suivi pastoral individuel"
+
 #: Menu.php:468
 msgid "Statistics"
 msgstr "Statistiques"
@@ -8172,7 +8183,7 @@ msgstr "Date d'amitié"
 
 #: PersonView.php:267
 msgid "Not assigned"
-msgstr "Non assigné"
+msgstr "Non attribué"
 
 #: PersonView.php:305
 msgid "Previous Person"
@@ -8237,7 +8248,7 @@ msgstr "Effacer cet Enregistrement"
 
 #: PersonView.php:882 PrintPastoralCarePerson.php:497 PrintView.php:506
 msgid "Assigned Groups"
-msgstr "Groupes assignés"
+msgstr "Groupes attribués"
 
 #: PersonView.php:1058
 msgid "click to download"
@@ -8612,7 +8623,7 @@ msgstr "Rapport de Progression Collecte"
 
 #: Reports/CanvassReports.php:71
 msgid "Assigned"
-msgstr "Assigné"
+msgstr "Attribué"
 
 #: Reports/CanvassReports.php:72
 msgid "Percent"
@@ -8706,7 +8717,7 @@ msgstr "Tél. portable"
 
 #: Reports/ConfirmReport.php:320
 msgid "Assigned groups for"
-msgstr "Groupes assignés pour"
+msgstr "Groupes attribués pour"
 
 #: Reports/DirectoryReport.php:192
 msgid ""
@@ -10368,11 +10379,11 @@ msgstr "Managers du Groupe"
 
 #: v2/templates/group/groupview.php:267
 msgid "Assigned Managers"
-msgstr "Managers assignés"
+msgstr "Managers attribués"
 
 #: v2/templates/group/groupview.php:287
 msgid "No assigned Manager"
-msgstr "Acun Manager assigné"
+msgstr "Acun Manager attribué"
 
 #: v2/templates/group/groupview.php:292
 msgid "Add Manager"
@@ -10393,7 +10404,7 @@ msgid ""
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 "Ajouter des propriétés pour tous les membres de ce groupe. Ces propriétés "
-"sont visible dans chque profile utilisateir  &rarr; Groupes assignés"
+"sont visible dans chaque profile utilisaté  &rarr; Groupes attribués"
 
 #: v2/templates/group/groupview.php:382
 msgid "No member properties have been created"
@@ -10687,14 +10698,14 @@ msgstr "Annuaire des Personnes"
 #: v2/templates/people/peopledashboard.php:187
 msgid "Printable directory of all people, grouped by family where assigned"
 msgstr ""
-"Annuaire imprimable de toutes les personnes, groupés par famille assignés"
+"Annuaire imprimable de toutes les personnes groupées par famille qui ont été attribués"
 
 #: v2/templates/people/peopledashboard.php:196
 msgid ""
 "Printable Pledge Reminder of all people, grouped by family where assigned"
 msgstr ""
 "Rapport Rappel Engagement imprimable pour toutes les personnes, groupés par "
-"famille assignés"
+"famille attribués"
 
 #: v2/templates/people/peopledashboard.php:203
 msgid "Generate letters and mailing labels."
@@ -11453,8 +11464,8 @@ msgstr "Renvoi chaque famille ayant un téléphone professionnel"
 #: query_qry.php:25 query_qry.php:70
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
-"Renvoyer chaque familles et le nombre total des personnes qui leurs est "
-"assignées."
+"Renvoi chaque famille et le nombre total de personne qui leur a été "
+"attribué."
 
 #: query_qry.php:26 query_qry.php:71
 msgid "Returns any person records with ages between two given ages."
@@ -11473,8 +11484,8 @@ msgstr ""
 #: query_qry.php:29 query_qry.php:74
 msgid "Returns person records which are assigned the given property."
 msgstr ""
-"Renvoyer les enregistrements de personnes qui sont assignées à une propriété "
-"spécifié"
+"Renvoi les enregistrements de personnes qui sont attribués à une propriété "
+"spécifiée"
 
 #: query_qry.php:30 query_qry.php:75
 msgid ""
@@ -11804,6 +11815,9 @@ msgstr "Vide"
 
 msgid "pending"
 msgstr "En attente"
+
+#~ msgid "View All Persons"
+#~ msgstr "Afficher toutes les personnes"
 
 #~ msgid "See all Families"
 #~ msgstr "Voir toutes les familles"
