@@ -105,7 +105,7 @@ function getAllFileNoteForPerson(Request $request, Response $response, array $ar
             $item['isShared'] = $note->isShared();
             $item['perID'] = $note->getPerId();
         } else {
-            $fileName = basename($files);
+            $fileName = basename($file);
 
             // now we create the note
             $note = new Note();
