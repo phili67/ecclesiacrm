@@ -236,7 +236,7 @@ ORDER by person_per.per_LastName;";
             }
     }
 
-    public function getAllFamiliesAndLonely ($orderRand = false)
+    public function getAllFamiliesAndSingle ($orderRand = false)
     {
 
         $families = FamilyQuery::create()
@@ -261,7 +261,7 @@ ORDER by person_per.per_LastName;";
         }
     }
 
-    public function getAllLonely ($orderRand = false)
+    public function getAllSingle ($orderRand = false)
     {
         $families = FamilyQuery::create()
             ->leftJoinPerson()
@@ -285,7 +285,7 @@ ORDER by person_per.per_LastName;";
         }
     }
 
-    public function getLonelyNeverBeenContacted ($realDate, $orderRand = false)
+    public function getSingleNeverBeenContacted ($realDate, $orderRand = false)
     {
         $families = FamilyQuery::create()
             ->leftJoinPerson()
@@ -378,7 +378,7 @@ ORDER by person_per.per_LastName;";
         $familiesWithoutPastoralCare = $this->getFamiliesNeverBeenContacted($range['realDate']);
 
 // extract all the families that were never been seen or before the date mentioned in the criteria
-        $lonelyWithoutPastoralCare = $this->getLonelyNeverBeenContacted($range['realDate']);
+        $singleWithoutPastoralCare = $this->getSingleNeverBeenContacted($range['realDate']);
 
         /*
          * stats about the persons families who were really contacted
@@ -390,7 +390,7 @@ ORDER by person_per.per_LastName;";
 
         $allFamilies = $this->getAllRealFamilies();
 
-        $allLonely = $this->getAllLonely();
+        $allSingle = $this->getAllSingle();
 
         $percentViewPersons = $percentViewFamilies = 0;
 
@@ -402,8 +402,8 @@ ORDER by person_per.per_LastName;";
             $percentViewFamilies = $familiesWithoutPastoralCare->count() / $allFamilies->count() * 100;
         }
 
-        if ($allLonely->count() > 0) {
-            $percentLonelyPersons = $lonelyWithoutPastoralCare->count() / $allLonely->count() * 100;
+        if ($allSingle->count() > 0) {
+            $percentSinglePersons = $singleWithoutPastoralCare->count() / $allSingle->count() * 100;
         }
 
         /*
@@ -463,13 +463,13 @@ ORDER by person_per.per_LastName;";
             $familyColor = 'primary';
         }
 
-        $lonelyColor = 'success';
-        if ((100.0 - $percentLonelyPersons) < 10.0) {
-            $lonelyColor = 'danger';
-        } else if ((100.0 - $percentLonelyPersons) < 30.0) {
-            $lonelyColor = 'warning';
-        } else if ((100.0 - $percentLonelyPersons) < 60.0) {
-            $lonelyColor = 'primary';
+        $singleColor = 'success';
+        if ((100.0 - $percentSinglePersons) < 10.0) {
+            $singleColor = 'danger';
+        } else if ((100.0 - $percentSinglePersons) < 30.0) {
+            $singleColor = 'warning';
+        } else if ((100.0 - $percentSinglePersons) < 60.0) {
+            $singleColor = 'primary';
         }
 
         $personColor = 'success';
@@ -507,9 +507,9 @@ ORDER by person_per.per_LastName;";
             'CountNotViewFamilies' => $familiesWithoutPastoralCare->count(),
             'PercentViewFamilies' => round($percentViewFamilies,2),
             'familyColor' => $familyColor,
-            'PersonLonely' => $lonelyWithoutPastoralCare->count(),
-            'PercentPersonLonely' => round($percentLonelyPersons,2),
-            'lonelyColor' => $lonelyColor,
+            'PersonSingle' => $singleWithoutPastoralCare->count(),
+            'PercentPersonSingle' => round($percentSinglePersons,2),
+            'singleColor' => $singleColor,
             'CountNotViewRetired' => $retiredPersonsWithoutPastoralCare->count(),
             'PercentRetiredViewPersons' => round($percentRetiredViewPersons,2),
             'retiredColor' => $retiredColor,

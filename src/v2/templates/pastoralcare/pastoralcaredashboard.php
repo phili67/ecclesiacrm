@@ -81,11 +81,11 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Lonely") ?>
+                            <?= _("Single") ?>
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['lonelyColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentPersonLonely'] ?>%;" aria-valuenow="<?= $Stats['PercentPersonLonely'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonLonely'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['singleColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentPersonSingle'] ?>%;" aria-valuenow="<?= $Stats['PercentPersonSingle'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonSingle'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -140,7 +140,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Person not reached") ?>
+                    <?= _("Persons not reached") ?>
                 </div>
             </div>
             <div class="card-body">
@@ -153,7 +153,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Family not reached") ?>
+                    <?= _("Families not reached") ?>
                 </div>
             </div>
             <div class="card-body">
@@ -168,11 +168,11 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Lonely People not reached") ?>
+                    <?= _("Single Persons not reached") ?>
                 </div>
             </div>
             <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="lonelyNeverBeenContacted"
+                <table class=" dataTable table table-striped table-condensed" id="singleNeverBeenContacted"
                        width="100%"></table>
             </div>
         </div>
@@ -197,7 +197,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Young not reached") ?>
+                    <?= _("Youngs not reached") ?>
                 </div>
             </div>
             <div class="card-body">

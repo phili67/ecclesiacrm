@@ -1303,12 +1303,12 @@
         FamilyCount: function (data) {
             var dashBoardFamFull = document.getElementById('familyCountDashboard');
             var dashBoardFamReal = document.getElementById('realFamilyCNT');
-            var dashBoardLonelyP = document.getElementById('lonelyCNT');
+            var dashBoardSingleP = document.getElementById('singleCNT');
 
             if (dashBoardFamFull) { // we have to test if we are on the dashboard or not
                 dashBoardFamFull.innerText = data.familyCount[0];
                 dashBoardFamReal.innerText = data.familyCount[1];
-                dashBoardLonelyP.innerText = data.familyCount[2];
+                dashBoardSingleP.innerText = data.familyCount[2];
                 latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
                     retrieve: true,
                     responsive: true,

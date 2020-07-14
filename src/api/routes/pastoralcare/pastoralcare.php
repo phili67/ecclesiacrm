@@ -51,7 +51,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/members', 'pastoralcareMembersDashboard' );
   $this->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
   $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
-  $this->post('/lonelyNeverBeenContacted', 'lonelyNeverBeenContacted' );
+  $this->post('/singleNeverBeenContacted', 'singleNeverBeenContacted' );
   $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
   $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
 
@@ -421,7 +421,7 @@ function familyNeverBeenContacted(Request $request, Response $response, array $a
     return null;
 }
 
-function lonelyNeverBeenContacted(Request $request, Response $response, array $args) {
+function singleNeverBeenContacted(Request $request, Response $response, array $args) {
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
         return $response->withStatus(401);
     }
@@ -430,10 +430,10 @@ function lonelyNeverBeenContacted(Request $request, Response $response, array $a
 
     $range = $pcs->getRange();
 
-    $members = $pcs->getLonelyNeverBeenContacted($range['realDate']);
+    $members = $pcs->getSingleNeverBeenContacted($range['realDate']);
 
     if ( !is_null($members) ) {
-        return $response->withJson(["LonelyNeverBeenContacted" => $members->toArray()]);
+        return $response->withJson(["SingleNeverBeenContacted" => $members->toArray()]);
     }
 
     return null;

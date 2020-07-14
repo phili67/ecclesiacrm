@@ -327,8 +327,6 @@ $pastoralServiceStats = $pastoralService->stats();
 
 $range = $pastoralService->getRange();
 
-//print_r($pastoralService->getLonelyNeverBeenContacted($range['realDate'])->toArray());
-
 
 /*
  *  last pastoralcare search persons for the current system user
@@ -477,7 +475,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
             <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?> (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
         </li>
         <li>
-            <b><?= $pastoralServiceStats['PersonLonely'] ?></b> : <?= _("Lonely people not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonLonely'] ?> %</b>).
+            <b><?= $pastoralServiceStats['PersonSingle'] ?></b> : <?= _("Single person not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonSingle'] ?> %</b>).
         </li>
         <li>
             <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b>  : <?= _("Retired Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
@@ -507,7 +505,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
                     0
                 </h3>
                 <p>
-                    <?= _('Lonely People') ?> (<span id="lonelyCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
+                    <?= _('Single Person') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
                 </p>
             </div>
             <div class="icon">
@@ -515,8 +513,8 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
                     class="fa fa-child"></i>
             </div>
             <div class="small-box-footer">
-                <a href="<?= $sRootPath ?>/v2/familylist/lonely" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Lonely") ?> <i class="fa fa-arrow-circle-right"></i>
+                <a href="<?= $sRootPath ?>/v2/familylist/single" style="color:#ffffff">
+                    <?= _('View') ?> <?= _("Single") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
                 &nbsp;
                 <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">

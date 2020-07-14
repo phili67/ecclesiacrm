@@ -123,8 +123,8 @@ function argumentsFamilyListArray ($sMode='Active')
             ->addSelectQuery($subQuery, 'res')
             ->where('res.cnt=0 AND Family.Id=res.FamId') // The emptied addresses
             ->find();
-    } else if (strtolower($sMode) == 'lonely') {
-        $sMode = 'Lonely';
+    } else if (strtolower($sMode) == 'single') {
+        $sMode = 'Single';
         $subQuery = FamilyQuery::create()
             ->withColumn('Family.Id','FamId')
             ->leftJoinPerson()
@@ -157,8 +157,8 @@ function argumentsFamilyListArray ($sMode='Active')
            ->find();
     }
 
-    if ($sMode == 'Lonely') {
-        $sPageTitle = _("Lonely People");
+    if ($sMode == 'Single') {
+        $sPageTitle = _("Single Person");
     } else {
         $sPageTitle = _(ucfirst(_($sMode))) . ' : ' . ((strtolower($sMode) == 'empty') ? _('Addresses') : _('Family List'));
     }

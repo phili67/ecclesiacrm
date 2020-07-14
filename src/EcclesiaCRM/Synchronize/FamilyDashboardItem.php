@@ -30,9 +30,9 @@ class FamilyDashboardItem implements DashboardItemInterface {
   {
       $pcS = new PastoralCareService();
 
-      $allCNT = $pcS->getAllFamiliesAndLonely()->count();
+      $allCNT = $pcS->getAllFamiliesAndSingle()->count();
 
-      $allSingleCNT = $pcS->getAllLonely()->count();
+      $allSingleCNT = $pcS->getAllSingle()->count();
 
       $allRealFamilyleCNT =  $pcS->getAllRealFamilies()->count();
 
