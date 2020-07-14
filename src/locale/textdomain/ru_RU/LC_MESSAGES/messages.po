@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 19:59+0200\n"
+"POT-Creation-Date: 2020-07-14 09:54+0200\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -334,10 +334,10 @@ msgid "Added to group"
 msgstr "Добавить в группу "
 
 #: api/routes/people/people-persons.php:182
-#: api/routes/people/people-persons.php:193 api/routes/search.php:129
-#: api/routes/search.php:134 api/routes/search.php:142
-#: api/routes/search.php:147 api/routes/search.php:155
-#: api/routes/search.php:160 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
+#: api/routes/people/people-persons.php:193 api/routes/search.php:131
+#: api/routes/search.php:136 api/routes/search.php:144
+#: api/routes/search.php:149 api/routes/search.php:157
+#: api/routes/search.php:162 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
 #: BatchWinnerEntry.php:96 CSVImport.php:389 DirectoryReports.php:98
 #: DonatedItemEditor.php:190 DonatedItemEditor.php:236
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
@@ -392,7 +392,7 @@ msgstr "Этот параметр обязателен."
 msgid "Person Activated"
 msgstr "Этот параметр обязателен."
 
-#: api/routes/search.php:124 CSVExport.php:368
+#: api/routes/search.php:126 CSVExport.php:368
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -403,7 +403,7 @@ msgstr "Этот параметр обязателен."
 msgid "Male"
 msgstr "Муж"
 
-#: api/routes/search.php:124 CSVExport.php:369
+#: api/routes/search.php:126 CSVExport.php:369
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -414,7 +414,7 @@ msgstr "Муж"
 msgid "Female"
 msgstr "Жен"
 
-#: api/routes/search.php:180 CSVExport.php:355 CSVImport.php:241
+#: api/routes/search.php:182 CSVExport.php:355 CSVImport.php:241
 #: FamilyEditor.php:1096 PersonEditor.php:846 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:209
@@ -422,7 +422,7 @@ msgstr "Жен"
 msgid "Gender"
 msgstr "Пол"
 
-#: api/routes/search.php:181 api/routes/sidebar/sidebar-general-roles.php:117
+#: api/routes/search.php:183 api/routes/sidebar/sidebar-general-roles.php:117
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:403 FamilyEditor.php:1101
 #: FamilyView.php:539 FinancialReports.php:153 OptionManager.php:109
 #: PersonEditor.php:1537 PrintPastoralCarePerson.php:400 PrintView.php:411
@@ -432,20 +432,20 @@ msgstr "Пол"
 msgid "Classification"
 msgstr "Классификация"
 
-#: api/routes/search.php:182 api/routes/sidebar/sidebar-general-roles.php:110
+#: api/routes/search.php:184 api/routes/sidebar/sidebar-general-roles.php:110
 #: CSVExport.php:180 CSVExport.php:325 OptionManager.php:102
 #: PrintPastoralCarePerson.php:338 PrintView.php:349 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "Роль семьи"
 
-#: api/routes/search.php:183 Reports/GDPR/GDPRDataStructureExport.php:110
+#: api/routes/search.php:185 Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:85
 #, fuzzy
 msgid "Person Property"
 msgstr "Персона"
 
-#: api/routes/search.php:184 api/routes/sidebar/sidebar-general-roles.php:134
+#: api/routes/search.php:186 api/routes/sidebar/sidebar-general-roles.php:134
 #: OptionManager.php:126
 #, fuzzy
 msgid "Group Type"
@@ -4695,8 +4695,8 @@ msgstr "Люди"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:315
 #, fuzzy
-msgid "View All Persons"
-msgstr "Посмотреть все"
+msgid "Meta Search Engine"
+msgstr "Человек Листинг"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:324 v2/templates/people/personlist.php:23
 #, fuzzy
@@ -5150,9 +5150,9 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/FamilySearchRes.php:76
 #: EcclesiaCRM/Search/FamilySearchRes.php:111
 #: EcclesiaCRM/Search/FamilySearchRes.php:124
-#: EcclesiaCRM/Search/GroupSearchRes.php:66
-#: EcclesiaCRM/Search/GroupSearchRes.php:101
-#: EcclesiaCRM/Search/GroupSearchRes.php:114
+#: EcclesiaCRM/Search/GroupSearchRes.php:65
+#: EcclesiaCRM/Search/GroupSearchRes.php:100
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
 #: EcclesiaCRM/Search/PaymentSearchRes.php:47
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
@@ -5165,6 +5165,8 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
 #: EcclesiaCRM/Search/PersonSearchRes.php:263
 #: EcclesiaCRM/Search/PersonSearchRes.php:314
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:75
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:112
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
@@ -5199,6 +5201,7 @@ msgstr "Участники группы:"
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Search/PersonSearchRes.php:321
 #: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:113
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:514
 #: PersonView.php:829 PrintPastoralCarePerson.php:654
@@ -5226,10 +5229,14 @@ msgstr "Депозит"
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
 #, fuzzy
-msgid "Family Custom Search"
+msgid "Family Custom Searches"
 msgstr "Люди"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+#, fuzzy
+msgid "Family Pastoral Cares"
+msgstr "Люди"
+
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122 Menu.php:413
 #, fuzzy
 msgid "Family Pastoral Care"
@@ -5243,7 +5250,7 @@ msgstr "Все платежи"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
 #, fuzzy
-msgid "Person Group role assignment"
+msgid "Person Group role assignments"
 msgstr "Нет Группа заданий."
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
@@ -5265,18 +5272,24 @@ msgstr ""
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
 #, fuzzy
-msgid "Person Custom Search"
+msgid "Person Custom Searches"
 msgstr "Человек Листинг"
 
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23 Menu.php:356
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
 #, fuzzy
-msgid "Individual Pastoral Care"
+msgid "Individual Pastoral Cares"
 msgstr "Добавить Лица в корзину"
 
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
 #, fuzzy
-msgid "Person Properties Search"
+msgid "Person Properties Searches"
 msgstr "Персона"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:23
+#: Include/Footer.php:144 PersonView.php:902
+#, fuzzy
+msgid "Volunteer Opportunities"
+msgstr "Волонтер Возможность редактор"
 
 #: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
 #: Reports/PledgeSummary.php:253
@@ -7509,11 +7522,6 @@ msgstr "Групповые специфические свойства"
 msgid "Property Types"
 msgstr "Тип недвижимости Список"
 
-#: Include/Footer.php:144 PersonView.php:902
-#, fuzzy
-msgid "Volunteer Opportunities"
-msgstr "Волонтер Возможность редактор"
-
 #: Include/Footer.php:154
 #, fuzzy
 msgid "Edit Donation Funds"
@@ -8141,6 +8149,11 @@ msgstr "Годовщина Дата"
 #: Menu.php:299
 msgid "Unclassified birthdates"
 msgstr ""
+
+#: Menu.php:356
+#, fuzzy
+msgid "Individual Pastoral Care"
+msgstr "Добавить Лица в корзину"
 
 #: Menu.php:468
 #, fuzzy
@@ -12382,6 +12395,10 @@ msgstr "Очистить корзину"
 #, fuzzy
 msgid "pending"
 msgstr "Свадьба"
+
+#, fuzzy
+#~ msgid "View All Persons"
+#~ msgstr "Посмотреть все"
 
 #, fuzzy
 #~ msgid "See all Families"
