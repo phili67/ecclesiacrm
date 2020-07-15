@@ -107,7 +107,7 @@ require $sRootDocument . '/Include/Header.php';
                     </tr>
                     <tr>
                         <td>
-                            <?= _("Youngs") ?>
+                            <?= _("Young People") ?>
                         </td>
                         <td>
                             <div class="progress">
@@ -197,7 +197,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Youngs not reached") ?>
+                    <?= _("Young People not reached") ?>
                 </div>
             </div>
             <div class="card-body">
