@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8125,9 +8125,9 @@ msgstr "Persoon Lijst"
 msgid "Families not reached"
 msgstr "E-mail is niet geldig"
 
-#: Menu.php:478
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #, fuzzy
-msgid "Single persons not reached"
+msgid "Single Persons not reached"
 msgstr "Persoon Lijst"
 
 #: Menu.php:481
@@ -8137,22 +8137,24 @@ msgstr "Ga terug naar het Persoons Record"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
 #, fuzzy
-msgid "Youngs"
-msgstr "Leden met Stemrecht"
+msgid "Young People"
+msgstr "Mensen"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr ""
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#, fuzzy
+msgid "Young People not reached"
+msgstr "Persoon Lijst"
 
 #: Menu.php:491
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "Mensen"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
 #, fuzzy
-msgid "Single Person"
-msgstr "Toevoegen Nieuw Persoon"
+msgid "Single Persons"
+msgstr "Bekijk alle Personen"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
@@ -8160,9 +8162,11 @@ msgstr "Toevoegen Nieuw Persoon"
 msgid "View"
 msgstr "Bekijk Alles"
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
-msgstr ""
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+#, fuzzy
+msgid "Singles"
+msgstr "Toevoegen Nieuw Persoon"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -10103,11 +10107,6 @@ msgstr "Mensen"
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-#, fuzzy
-msgid "Single Persons"
-msgstr "Bekijk alle Personen"
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr ""
@@ -10967,29 +10966,14 @@ msgstr "Extra Onderwijzers"
 msgid "Count"
 msgstr "Land"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#, fuzzy
-msgid "Singles"
-msgstr "Toevoegen Nieuw Persoon"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 #, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "Voeg resultaten toe aan mandje"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-#, fuzzy
-msgid "Single Persons not reached"
-msgstr "Persoon Lijst"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-#, fuzzy
-msgid "Youngs not reached"
-msgstr "Persoon Lijst"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -12313,6 +12297,26 @@ msgid "pending"
 msgstr "Trouwerij"
 
 #, fuzzy
+#~ msgid "Youngs"
+#~ msgstr "Leden met Stemrecht"
+
+#, fuzzy
+#~ msgid "Youngs not reached"
+#~ msgstr "Persoon Lijst"
+
+#, fuzzy
+#~ msgid "Singles Persons"
+#~ msgstr "Bekijk alle Personen"
+
+#, fuzzy
+#~ msgid "Single Person"
+#~ msgstr "Toevoegen Nieuw Persoon"
+
+#, fuzzy
+#~ msgid "Singles persons not reached"
+#~ msgstr "Persoon Lijst"
+
+#, fuzzy
 #~ msgid "View Lonely People"
 #~ msgstr "Alle Rollen"
 
@@ -12331,10 +12335,6 @@ msgstr "Trouwerij"
 #, fuzzy
 #~ msgid "Family not reached"
 #~ msgstr "Mensen"
-
-#, fuzzy
-#~ msgid "Lonely People not reached"
-#~ msgstr "Persoon Lijst"
 
 #, fuzzy
 #~ msgid "See all Families"

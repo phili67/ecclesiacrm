@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7862,9 +7862,9 @@ msgstr "BúsquedaPersonalizada"
 msgid "Families not reached"
 msgstr "Personas que no están en Mailchimp"
 
-#: Menu.php:478
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #, fuzzy
-msgid "Single persons not reached"
+msgid "Single Persons not reached"
 msgstr "BúsquedaPersonalizada"
 
 #: Menu.php:481
@@ -7874,22 +7874,24 @@ msgstr "Regresar al registro de persona"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
 #, fuzzy
-msgid "Youngs"
-msgstr "Miembros Votantes"
+msgid "Young People"
+msgstr "de Personas"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr ""
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#, fuzzy
+msgid "Young People not reached"
+msgstr "BúsquedaPersonalizada"
 
 #: Menu.php:491
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "Atención Pastoral"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
 #, fuzzy
-msgid "Single Person"
-msgstr "Agregar Nueva Persona"
+msgid "Single Persons"
+msgstr "Ver todas las Personas"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
@@ -7897,9 +7899,10 @@ msgstr "Agregar Nueva Persona"
 msgid "View"
 msgstr "Mostrar todos"
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
 #, fuzzy
-msgid "Single"
+msgid "Singles"
 msgstr "Singapur"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
@@ -9720,11 +9723,6 @@ msgstr "Atención Pastoral"
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-#, fuzzy
-msgid "Single Persons"
-msgstr "Ver todas las Personas"
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr "Dashboard de Personas"
@@ -10568,29 +10566,14 @@ msgstr "Profesor"
 msgid "Count"
 msgstr "Cuenta"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#, fuzzy
-msgid "Singles"
-msgstr "Singapur"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 #, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "Agregar al Atención Pastoral"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-#, fuzzy
-msgid "Single Persons not reached"
-msgstr "BúsquedaPersonalizada"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-#, fuzzy
-msgid "Youngs not reached"
-msgstr "BúsquedaPersonalizada"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -11835,6 +11818,30 @@ msgid "pending"
 msgstr "Boda"
 
 #, fuzzy
+#~ msgid "Youngs"
+#~ msgstr "Miembros Votantes"
+
+#, fuzzy
+#~ msgid "Youngs not reached"
+#~ msgstr "BúsquedaPersonalizada"
+
+#, fuzzy
+#~ msgid "Singles Persons"
+#~ msgstr "Ver todas las Personas"
+
+#, fuzzy
+#~ msgid "Single Person"
+#~ msgstr "Agregar Nueva Persona"
+
+#, fuzzy
+#~ msgid "Single"
+#~ msgstr "Singapur"
+
+#, fuzzy
+#~ msgid "Singles persons not reached"
+#~ msgstr "BúsquedaPersonalizada"
+
+#, fuzzy
 #~ msgid "View Lonely People"
 #~ msgstr "Ver todas las Personas"
 
@@ -11853,10 +11860,6 @@ msgstr "Boda"
 #, fuzzy
 #~ msgid "Family not reached"
 #~ msgstr "Campos Personalizados de Familia"
-
-#, fuzzy
-#~ msgid "Lonely People not reached"
-#~ msgstr "BúsquedaPersonalizada"
 
 #~ msgid "See all Families"
 #~ msgstr "Ver todas las Familias"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8043,9 +8043,9 @@ msgstr "البريد الإلكتروني الشخصي"
 msgid "Families not reached"
 msgstr "القرابة في الأسرة"
 
-#: Menu.php:478
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #, fuzzy
-msgid "Single persons not reached"
+msgid "Single Persons not reached"
 msgstr "البريد الإلكتروني الشخصي"
 
 #: Menu.php:481
@@ -8055,31 +8055,35 @@ msgstr "عودة لأنواع الأحداث"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
 #, fuzzy
-msgid "Youngs"
-msgstr "الأعضاء الحاضرين"
+msgid "Young People"
+msgstr "عرض سلة التسوق الخاصة بك"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr ""
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#, fuzzy
+msgid "Young People not reached"
+msgstr "البريد الإلكتروني الشخصي"
 
 #: Menu.php:491
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "القرابة في الأسرة"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
 #, fuzzy
-msgid "Single Person"
-msgstr "إضافة حدث جديد"
+msgid "Single Persons"
+msgstr "الأشخاص من"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
 msgid "View"
 msgstr ""
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
-msgstr ""
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+#, fuzzy
+msgid "Singles"
+msgstr "إضافة حدث جديد"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -9979,11 +9983,6 @@ msgstr "القرابة في الأسرة"
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-#, fuzzy
-msgid "Single Persons"
-msgstr "الأشخاص من"
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr ""
@@ -10831,28 +10830,13 @@ msgstr "البريد الإلكتروني الشخصي"
 msgid "Count"
 msgstr "البلد"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#, fuzzy
-msgid "Singles"
-msgstr "إضافة حدث جديد"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 msgid "Other Pastoral Care Members"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-#, fuzzy
-msgid "Single Persons not reached"
-msgstr "البريد الإلكتروني الشخصي"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-#, fuzzy
-msgid "Youngs not reached"
-msgstr "البريد الإلكتروني الشخصي"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -12141,8 +12125,24 @@ msgid "pending"
 msgstr "تاريخ الزواج"
 
 #, fuzzy
-#~ msgid "View Lonely People"
-#~ msgstr "عرض سلة التسوق الخاصة بك"
+#~ msgid "Youngs"
+#~ msgstr "الأعضاء الحاضرين"
+
+#, fuzzy
+#~ msgid "Youngs not reached"
+#~ msgstr "البريد الإلكتروني الشخصي"
+
+#, fuzzy
+#~ msgid "Singles Persons"
+#~ msgstr "الأشخاص من"
+
+#, fuzzy
+#~ msgid "Single Person"
+#~ msgstr "إضافة حدث جديد"
+
+#, fuzzy
+#~ msgid "Singles persons not reached"
+#~ msgstr "البريد الإلكتروني الشخصي"
 
 #, fuzzy
 #~ msgid "Lonely people not reached"
@@ -12155,10 +12155,6 @@ msgstr "تاريخ الزواج"
 #, fuzzy
 #~ msgid "Family not reached"
 #~ msgstr "القرابة في الأسرة"
-
-#, fuzzy
-#~ msgid "Lonely People not reached"
-#~ msgstr "البريد الإلكتروني الشخصي"
 
 #, fuzzy
 #~ msgid "See all Families"

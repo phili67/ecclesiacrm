@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 12:14+0200\n"
+"POT-Creation-Date: 2020-07-15 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7646,8 +7646,8 @@ msgstr ""
 msgid "Families not reached"
 msgstr ""
 
-#: Menu.php:478
-msgid "Single persons not reached"
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
+msgid "Single Persons not reached"
 msgstr ""
 
 #: Menu.php:481
@@ -7655,19 +7655,20 @@ msgid "Retired Persons not reached"
 msgstr ""
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
-msgid "Youngs"
+msgid "Young People"
 msgstr ""
 
-#: Menu.php:487
-msgid "Young Persons not reached"
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+msgid "Young People not reached"
 msgstr ""
 
 #: Menu.php:491
 msgid "Manage Pastoral Care"
 msgstr ""
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
-msgid "Single Person"
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
+msgid "Single Persons"
 msgstr ""
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
@@ -7675,8 +7676,9 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+msgid "Singles"
 msgstr ""
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
@@ -9424,10 +9426,6 @@ msgstr ""
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-msgid "Single Persons"
-msgstr ""
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr ""
@@ -10206,24 +10204,12 @@ msgstr ""
 msgid "Count"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-msgid "Singles"
-msgstr ""
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 msgid "Other Pastoral Care Members"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-msgid "Single Persons not reached"
-msgstr ""
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
-msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-msgid "Youngs not reached"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26

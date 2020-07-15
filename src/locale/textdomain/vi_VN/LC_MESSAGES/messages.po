@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8099,9 +8099,9 @@ msgstr "Chỉnh sửa Tổng quan"
 msgid "Families not reached"
 msgstr "Không xác định được Email"
 
-#: Menu.php:478
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #, fuzzy
-msgid "Single persons not reached"
+msgid "Single Persons not reached"
 msgstr "Chỉnh sửa Tổng quan"
 
 #: Menu.php:481
@@ -8111,22 +8111,24 @@ msgstr "Quay về sự kiện"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
 #, fuzzy
-msgid "Youngs"
-msgstr "Thành viên tham dự"
+msgid "Young People"
+msgstr "Thành viên"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr ""
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#, fuzzy
+msgid "Young People not reached"
+msgstr "Chỉnh sửa Tổng quan"
 
 #: Menu.php:491
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "Xem tất cả thành viên"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
 #, fuzzy
-msgid "Single Person"
-msgstr "Thêm thành viên mới"
+msgid "Single Persons"
+msgstr "Xem tất cả thành viên"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
@@ -8134,9 +8136,11 @@ msgstr "Thêm thành viên mới"
 msgid "View"
 msgstr "Xem tất cả"
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
-msgstr ""
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+#, fuzzy
+msgid "Singles"
+msgstr "Thêm thành viên mới"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -10052,11 +10056,6 @@ msgstr "Xem tất cả thành viên"
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-#, fuzzy
-msgid "Single Persons"
-msgstr "Xem tất cả thành viên"
-
 #: v2/routes/people/people.php:113
 #, fuzzy
 msgid "People Dashboard"
@@ -10923,29 +10922,14 @@ msgstr "Giáo viên"
 msgid "Count"
 msgstr "Số lượng"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#, fuzzy
-msgid "Singles"
-msgstr "Thêm thành viên mới"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 #, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-#, fuzzy
-msgid "Single Persons not reached"
-msgstr "Chỉnh sửa Tổng quan"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-#, fuzzy
-msgid "Youngs not reached"
-msgstr "Chỉnh sửa Tổng quan"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -12243,6 +12227,26 @@ msgid "pending"
 msgstr "Ngày cưới"
 
 #, fuzzy
+#~ msgid "Youngs"
+#~ msgstr "Thành viên tham dự"
+
+#, fuzzy
+#~ msgid "Youngs not reached"
+#~ msgstr "Chỉnh sửa Tổng quan"
+
+#, fuzzy
+#~ msgid "Singles Persons"
+#~ msgstr "Xem tất cả thành viên"
+
+#, fuzzy
+#~ msgid "Single Person"
+#~ msgstr "Thêm thành viên mới"
+
+#, fuzzy
+#~ msgid "Singles persons not reached"
+#~ msgstr "Chỉnh sửa Tổng quan"
+
+#, fuzzy
 #~ msgid "View Lonely People"
 #~ msgstr "Xem tất cả thành viên"
 
@@ -12261,10 +12265,6 @@ msgstr "Ngày cưới"
 #, fuzzy
 #~ msgid "Family not reached"
 #~ msgstr "Xem tất cả thành viên"
-
-#, fuzzy
-#~ msgid "Lonely People not reached"
-#~ msgstr "Chỉnh sửa Tổng quan"
 
 #~ msgid "See all Families"
 #~ msgstr "Xem tất cả gia đình"
