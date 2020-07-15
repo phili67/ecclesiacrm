@@ -475,16 +475,16 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
             <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?> (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
         </li>
         <li>
-            <b><?= $pastoralServiceStats['PersonSingle'] ?></b> : <?= _("Single persons not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonSingle'] ?> %</b>).
+            <b><?= $pastoralServiceStats['PersonSingle'] ?></b> : <?= _("Single Persons not reached") ?> (<b><?= $pastoralServiceStats['PercentPersonSingle'] ?> %</b>).
         </li>
         <li>
             <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b>  : <?= _("Retired Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
         </li>
     </ul>
-    <?= _("Youngs") ?>
+    <?= _("Young People") ?>
     <ul>
         <li>
-            <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b>  : <?= _("Young Persons not reached") ?>  (<b><?= $pastoralServiceStats['PercentViewYoung'] ?> %</b>).
+            <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b>  : <?= _("Young People not reached") ?>  (<b><?= $pastoralServiceStats['PercentViewYoung'] ?> %</b>).
         </li>
     </ul>
     <p class="text-center">
@@ -505,7 +505,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
                     0
                 </h3>
                 <p>
-                    <?= _('Single Person') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
+                    <?= _('Single Persons') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
                 </p>
             </div>
             <div class="icon">
@@ -514,7 +514,7 @@ $caresFamilies = $pastoralService->lastContactedFamilies();
             </div>
             <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/familylist/single" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Single") ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
                 &nbsp;
                 <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">

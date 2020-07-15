@@ -81,7 +81,7 @@ require $sRootDocument . '/Include/Header.php';
                 </h3>
 
                 <p>
-                    <?= _('Single Person') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
+                    <?= _('Single Persons') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
                 </p>
             </div>
             <div class="icon">
@@ -89,7 +89,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/familylist/single" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Single") ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
 
                 <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">
