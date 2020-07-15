@@ -7899,7 +7899,7 @@ msgstr "Personnes seules"
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
 msgid "View"
-msgstr "Voire"
+msgstr "Voir"
 
 #: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
 #: v2/templates/people/peopledashboard.php:92
