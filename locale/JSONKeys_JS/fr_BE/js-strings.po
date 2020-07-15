@@ -1441,7 +1441,7 @@ msgid "URI"
 msgstr "URL"
 
 msgid "This link should begin with : http://.... or https://...."
-msgstr "Ce lien devrait commence par : http://.... or https://...."
+msgstr "Ce lien doit commencer par : http://.... or https://...."
 
 msgid "Global Custom Menus"
 msgstr "Menus Perso. Global"

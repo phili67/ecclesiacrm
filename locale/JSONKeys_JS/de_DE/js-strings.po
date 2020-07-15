@@ -603,9 +603,8 @@ msgstr "Resize -Ereignis"
 msgid "Are you sure about this change?"
 msgstr "Sind Sie ganz sicher zu dieser Änderung ?"
 
-#, fuzzy
 msgid "will be resized."
-msgstr "werden abgelegt."
+msgstr "wird in der Größe geändert."
 
 msgid "You're about to resize all the events. Would you like to :"
 msgstr "Sie sind gleich um die Größe aller Ereignisse festzulegen"
@@ -910,9 +909,8 @@ msgid ""
 "Unable to access video stream (please make sure you have a webcam enabled)"
 msgstr "Kein Zugriff auf video stream (stell sicher, dass die a ist aktiviert)"
 
-#, fuzzy
 msgid "no detected QR Code"
-msgstr "Keine Änderungen erkannt "
+msgstr "Keine QR Code erkannt "
 
 msgid "Loading video..."
 msgstr "Video wird geladen..."

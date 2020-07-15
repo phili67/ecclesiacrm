@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7871,38 +7871,40 @@ msgstr "Personnes non contactées"
 msgid "Families not reached"
 msgstr "Familles non contactées"
 
-#: Menu.php:478
-msgid "Single persons not reached"
-msgstr "Personnes seules non contactées"
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
+msgid "Single Persons not reached"
+msgstr "Personnes Seules non contactées"
 
 #: Menu.php:481
 msgid "Retired Persons not reached"
 msgstr "Retraités non conctactés"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
-msgid "Youngs"
-msgstr "Jeunes"
+msgid "Young People"
+msgstr "Les jeunes"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr "Jeunes non contactés"
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+msgid "Young People not reached"
+msgstr "Les jeunes non contactées"
 
 #: Menu.php:491
 msgid "Manage Pastoral Care"
 msgstr "Gérer le suivi pastoral"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
-msgid "Single Person"
-msgstr "Personne seule"
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
+msgid "Single Persons"
+msgstr "Personnes seules"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
 msgid "View"
 msgstr "Voire"
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
-msgstr "Personne seule"
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+msgid "Singles"
+msgstr "Personnes Seules"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 msgid "Familles"
@@ -9707,10 +9709,6 @@ msgstr "Suivi pastoral familial"
 msgid "Pastoral care members list by classification"
 msgstr "Liste membres suivi pastoral par classification"
 
-#: v2/routes/people/familylist.php:161
-msgid "Single Persons"
-msgstr "Personnes seules"
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr "Tableau de bord des Personnes"
@@ -10550,25 +10548,13 @@ msgstr "à joindre"
 msgid "Count"
 msgstr "Effectifs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-msgid "Singles"
-msgstr "Seuls"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 msgid "Other Pastoral Care Members"
 msgstr "Autres membres pour le suivi pastoral"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-msgid "Single Persons not reached"
-msgstr "Personnes seules non contactées"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr "Retraités non contactés"
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-msgid "Youngs not reached"
-msgstr "Jeunes non contactés"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -11813,6 +11799,28 @@ msgstr "Vide"
 msgid "pending"
 msgstr "En attente"
 
+#~ msgid "Youngs"
+#~ msgstr "Jeunes"
+
+#~ msgid "Young Persons not reached"
+#~ msgstr "Jeunes non contactés"
+
+#~ msgid "Youngs not reached"
+#~ msgstr "Jeunes non contactés"
+
+#~ msgid "Singles Persons"
+#~ msgstr "Personnes seules"
+
+#~ msgid "Single Person"
+#~ msgstr "Personnes seules"
+
+#, fuzzy
+#~ msgid "Single"
+#~ msgstr "Personnes Seules"
+
+#~ msgid "Singles persons not reached"
+#~ msgstr "Personnes seules non contactées"
+
 #~ msgid "View Lonely People"
 #~ msgstr "Afficher Personnes Seules"
 
@@ -11833,9 +11841,6 @@ msgstr "En attente"
 
 #~ msgid "Family not reached"
 #~ msgstr "Famille non contactée"
-
-#~ msgid "Lonely People not reached"
-#~ msgstr "Personnes Seules non contactées"
 
 #~ msgid "See all Families"
 #~ msgstr "Voir toutes les familles"

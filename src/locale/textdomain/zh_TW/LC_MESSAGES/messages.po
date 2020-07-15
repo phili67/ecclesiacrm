@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-14 11:56+0200\n"
+"POT-Creation-Date: 2020-07-15 12:04+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8164,9 +8164,9 @@ msgstr "人上市"
 msgid "Families not reached"
 msgstr "電子郵件是無效的"
 
-#: Menu.php:478
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
 #, fuzzy
-msgid "Single persons not reached"
+msgid "Single Persons not reached"
 msgstr "人上市"
 
 #: Menu.php:481
@@ -8176,22 +8176,24 @@ msgstr "返回到人記錄"
 
 #: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
 #, fuzzy
-msgid "Youngs"
-msgstr "有投票權的成員"
+msgid "Young People"
+msgstr "人"
 
-#: Menu.php:487
-msgid "Young Persons not reached"
-msgstr ""
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#, fuzzy
+msgid "Young People not reached"
+msgstr "人上市"
 
 #: Menu.php:491
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "人"
 
-#: Menu.php:508 v2/templates/people/peopledashboard.php:84
+#: Menu.php:508 v2/routes/people/familylist.php:161
+#: v2/templates/people/peopledashboard.php:84
 #, fuzzy
-msgid "Single Person"
-msgstr "添加新事件"
+msgid "Single Persons"
+msgstr "查看全部"
 
 #: Menu.php:517 Menu.php:521 v2/templates/people/peopledashboard.php:92
 #: v2/templates/people/peopledashboard.php:96
@@ -8199,9 +8201,11 @@ msgstr "添加新事件"
 msgid "View"
 msgstr "查看全部"
 
-#: Menu.php:517 v2/templates/people/peopledashboard.php:92
-msgid "Single"
-msgstr ""
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: v2/templates/people/peopledashboard.php:92
+#, fuzzy
+msgid "Singles"
+msgstr "添加新事件"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -10131,11 +10135,6 @@ msgstr "人"
 msgid "Pastoral care members list by classification"
 msgstr ""
 
-#: v2/routes/people/familylist.php:161
-#, fuzzy
-msgid "Single Persons"
-msgstr "查看全部"
-
 #: v2/routes/people/people.php:113
 msgid "People Dashboard"
 msgstr ""
@@ -10997,29 +10996,14 @@ msgstr "額外的教師"
 msgid "Count"
 msgstr "國家"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:84
-#, fuzzy
-msgid "Singles"
-msgstr "添加新事件"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:128
 #, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "添加到購物車"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:171
-#, fuzzy
-msgid "Single Persons not reached"
-msgstr "人上市"
-
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:184
 msgid "Retired not reached"
 msgstr ""
-
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:200
-#, fuzzy
-msgid "Youngs not reached"
-msgstr "人上市"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
 #: v2/templates/pastoralcare/pastoralcareperson.php:25
@@ -12346,6 +12330,26 @@ msgid "pending"
 msgstr "婚禮"
 
 #, fuzzy
+#~ msgid "Youngs"
+#~ msgstr "有投票權的成員"
+
+#, fuzzy
+#~ msgid "Youngs not reached"
+#~ msgstr "人上市"
+
+#, fuzzy
+#~ msgid "Singles Persons"
+#~ msgstr "查看全部"
+
+#, fuzzy
+#~ msgid "Single Person"
+#~ msgstr "添加新事件"
+
+#, fuzzy
+#~ msgid "Singles persons not reached"
+#~ msgstr "人上市"
+
+#, fuzzy
 #~ msgid "View Lonely People"
 #~ msgstr "所有角色"
 
@@ -12364,10 +12368,6 @@ msgstr "婚禮"
 #, fuzzy
 #~ msgid "Family not reached"
 #~ msgstr "人"
-
-#, fuzzy
-#~ msgid "Lonely People not reached"
-#~ msgstr "人上市"
 
 #, fuzzy
 #~ msgid "See all Families"
