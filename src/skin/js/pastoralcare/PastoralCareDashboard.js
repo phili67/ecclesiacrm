@@ -344,7 +344,7 @@ $(document).ready(function () {
         }).done(function(data) {
             if (data.status == "success") {
                 switch (typeID) {
-                    case 1:case 3:case 4:// person, old person or Young
+                    case 1:case 3:case 4:case 5:// person, old person or Young or single
                         location.href = window.CRM.root + '/v2/pastoralcare/person/' + data.personID;
                         break;
                     default:// a family
