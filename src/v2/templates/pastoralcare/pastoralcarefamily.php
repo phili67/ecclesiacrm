@@ -31,6 +31,7 @@ if ($ormPastoralCares->count() == 0) {
 
 <div class="card card-primary card-body">
     <div class="margin">
+        <img src="/api/families/<?= $currentFamilyID ?>/photo" class="initials-image profile-user-img img-responsive img-rounded img-circle" style="width:70px; height:70px;display:inline-block">
         <div class="btn-group">
             <?php
             foreach ($ormPastoralTypeCares as $ormPastoralTypeCare) {
