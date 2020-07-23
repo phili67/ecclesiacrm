@@ -48,7 +48,7 @@
         "mustache/mustache": "~2.5",
         "nexmo/client": "1.5.*",
         "slim/http-cache": "^0.4.0",
-        "sabre/dav": "^4.0.2",
+        "sabre/dav": "4.1.*",
         "tuupola/slim-jwt-auth": "^2.4",
         "phpoffice/phpword": "v0.17.*",
         "defuse/php-encryption": "^2.2",
