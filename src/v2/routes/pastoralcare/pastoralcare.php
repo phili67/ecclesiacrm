@@ -104,6 +104,8 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
     //Get name
     $person = PersonQuery::Create()->findOneById ($currentPersonID);
 
+    $family = FamilyQuery::Create()->findOneById ( $person->getFamId() );
+
     $sPageTitle = _("Individual Pastoral care")."  : \"".$person->getFullName()."\"";
 
     $sRootDocument   = SystemURLs::getDocumentRoot();
@@ -119,6 +121,7 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
                        'ormPastors'           => $ormPastors,
                        'ormPastoralTypeCares' => $ormPastoralTypeCares,
                        'person'               => $person,
+                       'family'               => $family,
                        'sDateFormatLong'      => $sDateFormatLong,
                        'sCSPNonce'            => $sCSPNonce
                        ];

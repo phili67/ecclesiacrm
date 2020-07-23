@@ -534,6 +534,14 @@ function createRandomlyPastoralCare (Request $request, Response $response, array
                     return $response->withJson(['status' => "success", "personID" => $person->getId()]);
                 }
                 break;
+            case 5: // single person
+                $family = $pcs->getSingleNeverBeenContacted($range['realDate'],true);
+
+                if ( !is_null($family) ) {
+                    $person = PersonQuery::create()->findOneByFamId($family->getId());
+                    return $response->withJson(['status' => "success", "personID" => $person->getId()]);
+                }
+                break;
         }
 
         return $response->withJson(['status' => "failed"]);
