@@ -1,0 +1,12 @@
+.login-page, .register-page {
+    background : #f3f2f7 !important;
+}
+
+.wizard > .content {
+    background: #fff;
+}
+
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+    background: #fff;
+    color: #6e6e6e;
+}
