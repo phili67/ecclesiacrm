@@ -12,9 +12,9 @@ function dataBaseCheck ()
     var dbPort       = $('#DB_SERVER_PORT').val();
     var user         = $('#DB_USER').val();
     var password     = $('#DB_PASSWORD').val();
-    
+
     var infos = {'serverName': serverName,'dbName': dbName, 'dbPort' : dbPort, 'user' : user, 'password':password};
-    
+
     $.ajax({
         url: window.CRM.root + "/setup/checkDatabaseConnection",
         method: "post",
@@ -23,14 +23,14 @@ function dataBaseCheck ()
         error: function (request, status, error) {
           window.CRM.dataBaseCheck = false;
           $('#databaseconnection-war').html ('Connection to your database failed. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to re-check your connection.');
-          $('.callout-db').removeClass('callout-warning');
-          $('.callout-db').addClass('callout-danger');
+          $('.alert-db').removeClass('alert-warning');
+          $('.alert-db').addClass('alert-danger');
         }
     }).done(function (data) {
       $('#databaseconnection-war').html ('Connection to your database successfully done. Click the "Next" button finish your installation.');
-      $('.callout-db').removeClass('callout-warning');
-      $('.callout-db').removeClass('callout-danger');
-      $('.callout-db').addClass('callout-success');
+      $('.alert-db').removeClass('alert-warning');
+      $('.alert-db').removeClass('alert-danger');
+      $('.alert-db').addClass('alert-success');
       window.CRM.dataBaseCheck = true;
     });
 }
@@ -133,7 +133,7 @@ $("document").ready(function () {
                 $("#setup-form").steps("previous",{});
               }
             }
-            
+
             if (currentIndex > newIndex) {
                 return true;
             }
@@ -180,7 +180,7 @@ function submitSetupData(form) {
 
 }
 
-$(document).ready(function() { 
+$(document).ready(function() {
   $("#sLanguage").select2();
   $("#schurchcountry-input").select2();
   //$("#schurchstate-input").select2();
