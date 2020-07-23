@@ -32,6 +32,7 @@ require $sRootDocument . '/Include/Header.php';
                 <a class="dropdown-item newPastorCare" data-typeid="2"><?= _("Family") ?></a>
                 <a class="dropdown-item newPastorCare" data-typeid="3"><?= _("Retired") ?></a>
                 <a class="dropdown-item newPastorCare" data-typeid="4"><?= _("Young") ?></a>
+                <a class="dropdown-item newPastorCare" data-typeid="5"><?= _("Single") ?></a>
             </div>
             &nbsp;
             <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
