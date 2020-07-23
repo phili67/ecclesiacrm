@@ -37,10 +37,10 @@ class AppIntegrityService
       return ['status' => 'success'];
     }
   }
-  
+
   private static function testImagesWriteable()
   {
-    return is_writable(SystemURLs::getDocumentRoot().'/Images/') && 
+    return is_writable(SystemURLs::getDocumentRoot().'/Images/') &&
             is_writable(SystemURLs::getDocumentRoot().'/Images/Family') &&
             is_writable(SystemURLs::getDocumentRoot().'/Images/Person');
 
@@ -48,7 +48,7 @@ class AppIntegrityService
 
   private static function testPrivateWriteable()
   {
-    return is_writable(SystemURLs::getDocumentRoot().'/private/') && 
+    return is_writable(SystemURLs::getDocumentRoot().'/private/') &&
             is_writable(SystemURLs::getDocumentRoot().'/private/userdir');
 
   }
@@ -57,14 +57,14 @@ class AppIntegrityService
   {
     return is_writable(SystemURLs::getDocumentRoot().'/data/');
   }
-  
+
   public static function getApplicationPrerequisites()
   {
     # this code avoid the problem with ondrej package version
     $sys_version = explode("-",explode ("+",PHP_VERSION)[0]);
 
     $prerequisites = array(
-      'PHP 7.1+'                                  => version_compare($sys_version[0], '7.1.0', '>='),
+      'PHP 7.2+'                                  => version_compare($sys_version[0], '7.2.0', '>='),
       'PCRE Support'                              => function_exists('preg_match'),
       'UTF-8 Support'                             => @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A'),
       'Multibyte Encoding'                        => extension_loaded('mbstring'),
@@ -87,7 +87,7 @@ class AppIntegrityService
     );
     return $prerequisites;
   }
-  
+
   public static function getUnmetPrerequisites()
   {
     $unmet = [];
@@ -133,5 +133,3 @@ class AppIntegrityService
   }
 
 }
-
-?>
