@@ -14,7 +14,7 @@ $(document).ready(function () {
       {
         width: 'auto',
         title:i18next.t('Actions'),
-        data:'Id',
+        data:'PrtId',
         render: function(data, type, full, meta) {
           if (window.CRM.menuOptionEnabled == false)
             return '';
@@ -133,6 +133,7 @@ $(document).ready(function () {
         var modal = bootbox.dialog({
          message: BootboxContentPropertyTypeList(data.prtType.PrtClass),
          title: i18next.t("Property Type Editor"),
+         size:"large",
          buttons: [
           {
            label: i18next.t("Save"),
@@ -175,6 +176,7 @@ $(document).ready(function () {
     var modal = bootbox.dialog({
      message: BootboxContentPropertyTypeList(-1),
      title: i18next.t("Add a New Property Type"),
+     size:"large",
      buttons: [
       {
        label: i18next.t("Save"),
