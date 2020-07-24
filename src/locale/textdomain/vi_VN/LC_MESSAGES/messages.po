@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-15 12:04+0200\n"
+"POT-Creation-Date: 2020-07-24 17:53+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,42 +69,42 @@ msgstr ""
 msgid "NONE"
 msgstr ""
 
-#: api/routes/cart.php:105
+#: api/routes/cart.php:111
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:121 api/routes/cart.php:136
+#: api/routes/cart.php:127 api/routes/cart.php:142
 msgid "records(s) successfully added to selected Group."
 msgstr ""
 
-#: api/routes/cart.php:166 api/routes/cart.php:187 api/routes/cart.php:208
-#: api/routes/cart.php:226 api/routes/cart.php:246 api/routes/cart.php:267
-#: api/routes/cart.php:284
+#: api/routes/cart.php:172 api/routes/cart.php:193 api/routes/cart.php:214
+#: api/routes/cart.php:232 api/routes/cart.php:252 api/routes/cart.php:273
+#: api/routes/cart.php:290
 msgid "records(s) successfully deleted from the selected Group."
 msgstr ""
 
-#: api/routes/cart.php:300 api/routes/cart.php:333 api/routes/cart.php:427
+#: api/routes/cart.php:306 api/routes/cart.php:339 api/routes/cart.php:433
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Giỏ hàng của bạn đang trống!"
 
-#: api/routes/cart.php:308
+#: api/routes/cart.php:314
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:311
+#: api/routes/cart.php:317
 msgid "Your cart and CRM has been successfully deleted"
 msgstr ""
 
-#: api/routes/cart.php:341
+#: api/routes/cart.php:347
 msgid "You can't deactivate admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:344
+#: api/routes/cart.php:350
 msgid "Your cart and CRM has been successfully deactivated"
 msgstr ""
 
-#: api/routes/cart.php:430
+#: api/routes/cart.php:436
 msgid "Your cart has been successfully emptied"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 #: api/routes/mailchimp.php:127 api/routes/people/people.php:69
 #: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:323
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:58
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:59
 #: v2/templates/people/personlist.php:45
 #, fuzzy
 msgid "Persons"
@@ -230,7 +230,7 @@ msgstr "Xem tất cả thành viên"
 #: EcclesiaCRM/Search/FamilySearchRes.php:20
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:508
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:71
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:72
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
 #: v2/templates/sundayschool/sundayschooldashboard.php:61
@@ -315,22 +315,22 @@ msgstr "Không hoạt động"
 msgid "Family Activated"
 msgstr "Kích hoạt"
 
-#: api/routes/people/people-groups.php:459
+#: api/routes/people/people-groups.php:458
 #, fuzzy
 msgid "Deleted from group"
 msgstr "Lựa chọn Ban/Mục vụ"
 
-#: api/routes/people/people-groups.php:491
-#: api/routes/people/people-groups.php:525
+#: api/routes/people/people-groups.php:490
+#: api/routes/people/people-groups.php:524
 #, fuzzy
 msgid "Added to group"
 msgstr "Thêm vào Ban/Mục vụ"
 
 #: api/routes/people/people-persons.php:182
-#: api/routes/people/people-persons.php:193 api/routes/search.php:131
-#: api/routes/search.php:136 api/routes/search.php:144
-#: api/routes/search.php:149 api/routes/search.php:157
-#: api/routes/search.php:162 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
+#: api/routes/people/people-persons.php:193 api/routes/search.php:140
+#: api/routes/search.php:145 api/routes/search.php:153
+#: api/routes/search.php:158 api/routes/search.php:166
+#: api/routes/search.php:171 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
 #: BatchWinnerEntry.php:96 CSVImport.php:389 DirectoryReports.php:98
 #: DonatedItemEditor.php:190 DonatedItemEditor.php:236
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
@@ -385,7 +385,7 @@ msgstr "Không hoạt động"
 msgid "Person Activated"
 msgstr "Kích hoạt"
 
-#: api/routes/search.php:126 CSVExport.php:368
+#: api/routes/search.php:135 CSVExport.php:368
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -396,7 +396,7 @@ msgstr "Kích hoạt"
 msgid "Male"
 msgstr "Nam"
 
-#: api/routes/search.php:126 CSVExport.php:369
+#: api/routes/search.php:135 CSVExport.php:369
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -407,7 +407,7 @@ msgstr "Nam"
 msgid "Female"
 msgstr "Nữ"
 
-#: api/routes/search.php:182 CSVExport.php:355 CSVImport.php:241
+#: api/routes/search.php:191 CSVExport.php:355 CSVImport.php:241
 #: FamilyEditor.php:1096 PersonEditor.php:846 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:209
@@ -415,30 +415,31 @@ msgstr "Nữ"
 msgid "Gender"
 msgstr "Giới tính"
 
-#: api/routes/search.php:183 api/routes/sidebar/sidebar-general-roles.php:117
+#: api/routes/search.php:192 api/routes/sidebar/sidebar-general-roles.php:117
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:403 FamilyEditor.php:1101
 #: FamilyView.php:539 FinancialReports.php:153 OptionManager.php:109
 #: PersonEditor.php:1537 PrintPastoralCarePerson.php:400 PrintView.php:411
-#: v2/templates/pastoralcare/pastoralcarefamily.php:111
+#: v2/templates/pastoralcare/pastoralcarefamily.php:112
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:21
+#: v2/templates/pastoralcare/pastoralcareperson.php:115
 #: v2/templates/people/peopledashboard.php:299 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Phân loại:"
 
-#: api/routes/search.php:184 api/routes/sidebar/sidebar-general-roles.php:110
+#: api/routes/search.php:193 api/routes/sidebar/sidebar-general-roles.php:110
 #: CSVExport.php:180 CSVExport.php:325 OptionManager.php:102
 #: PrintPastoralCarePerson.php:338 PrintView.php:349 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "Vai trò trong gia đình"
 
-#: api/routes/search.php:185 Reports/GDPR/GDPRDataStructureExport.php:110
+#: api/routes/search.php:194 Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:85
 #, fuzzy
 msgid "Person Property"
 msgstr "Chỉnh sửa thành viên"
 
-#: api/routes/search.php:186 api/routes/sidebar/sidebar-general-roles.php:134
+#: api/routes/search.php:195 api/routes/sidebar/sidebar-general-roles.php:134
 #: OptionManager.php:126
 msgid "Group Type"
 msgstr "Thể loại Ban/Mục vụ"
@@ -450,7 +451,8 @@ msgstr "Thể loại Ban/Mục vụ"
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:236 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:48
-#: v2/templates/pastoralcare/pastoralcarefamily.php:110
+#: v2/templates/pastoralcare/pastoralcarefamily.php:111
+#: v2/templates/pastoralcare/pastoralcareperson.php:114
 msgid "Role"
 msgstr "Vai trò"
 
@@ -520,7 +522,8 @@ msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
 
 #: api/routes/sidebar/sidebar-general-roles.php:141
 #: api/routes/sidebar/sidebar-properties.php:72
-#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:99
+#: api/routes/sidebar/sidebar-properties.php:211
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138 Include/Footer.php:99
 #: OptionManager.php:133 v2/routes/group/groups.php:99
 #: v2/routes/sidebar/propertylist.php:40 v2/templates/calendar/calendar.php:49
 msgid "Group"
@@ -618,7 +621,8 @@ msgstr "Chỉnh sửa thành viên"
 #: AutoPaymentEditor.php:817 EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:126
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
@@ -881,7 +885,8 @@ msgstr "Điện thoại"
 #: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:190
 #: Reports/ConfirmReport.php:209 Reports/DirectoryReport.php:316
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
-#: v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: v2/templates/pastoralcare/pastoralcarefamily.php:114
+#: v2/templates/pastoralcare/pastoralcareperson.php:117
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -1000,10 +1005,10 @@ msgstr "Tạo tập tin"
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
 #: v2/templates/email/mailchimp/managelist.php:102
-#: v2/templates/pastoralcare/pastoralcarefamily.php:207
-#: v2/templates/pastoralcare/pastoralcarefamily.php:217
-#: v2/templates/pastoralcare/pastoralcareperson.php:130
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
+#: v2/templates/pastoralcare/pastoralcarefamily.php:208
+#: v2/templates/pastoralcare/pastoralcarefamily.php:218
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:225
 msgid "Delete"
 msgstr "Xóa bỏ"
 
@@ -1655,8 +1660,8 @@ msgstr "Tùy chỉnh trường gia đình"
 
 #: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
 #: v2/templates/calendar/calendar.php:28
-#: v2/templates/pastoralcare/pastoralcarefamily.php:89
-#: v2/templates/pastoralcare/pastoralcareperson.php:87
+#: v2/templates/pastoralcare/pastoralcarefamily.php:90
+#: v2/templates/pastoralcare/pastoralcareperson.php:90
 #: v2/templates/people/peoplelist.php:20
 msgid "Filters"
 msgstr "Bộ lọc"
@@ -2118,7 +2123,8 @@ msgstr ""
 #: PersonView.php:1084 Reports/ConfirmReportEmail.php:193
 #: Reports/ConfirmReportEmail.php:211 Reports/ConfirmReport.php:191
 #: Reports/ConfirmReport.php:210
-#: v2/templates/pastoralcare/pastoralcarefamily.php:112
+#: v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
 msgstr "Ngày sinh nhật"
 
@@ -5073,20 +5079,29 @@ msgstr "Địa chỉ"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:87
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:137
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:85
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122
-#: EcclesiaCRM/Search/FamilySearchRes.php:76
-#: EcclesiaCRM/Search/FamilySearchRes.php:111
-#: EcclesiaCRM/Search/FamilySearchRes.php:124
-#: EcclesiaCRM/Search/GroupSearchRes.php:65
-#: EcclesiaCRM/Search/GroupSearchRes.php:100
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:78
+#: EcclesiaCRM/Search/FamilySearchRes.php:113
+#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:72
+#: EcclesiaCRM/Search/GroupSearchRes.php:107
+#: EcclesiaCRM/Search/GroupSearchRes.php:120
 #: EcclesiaCRM/Search/PaymentSearchRes.php:47
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
@@ -5109,20 +5124,24 @@ msgstr "Địa chỉ"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:137
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122
-#: EcclesiaCRM/Search/FamilySearchRes.php:124 FamilyView.php:537 Menu.php:469
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:52
-#: v2/templates/pastoralcare/pastoralcarefamily.php:109
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:126 FamilyView.php:537 Menu.php:469
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcarefamily.php:110
+#: v2/templates/pastoralcare/pastoralcareperson.php:113
 #, fuzzy
 msgid "Members"
 msgstr "Thành viên:"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:138
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:123
-#: EcclesiaCRM/Search/FamilySearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:127
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
 #: EcclesiaCRM/Search/PersonSearchRes.php:316
@@ -5157,18 +5176,28 @@ msgstr "Khoản "
 
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
 #, fuzzy
-msgid "Family Custom Searches"
-msgstr "Xem tất cả thành viên"
+msgid "Family Custom Field"
+msgstr "Tùy chỉnh trường gia đình"
 
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
 #, fuzzy
 msgid "Family Pastoral Cares"
 msgstr "Xem tất cả thành viên"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:122 Menu.php:411
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124 Menu.php:411
 #, fuzzy
 msgid "Family Pastoral Care"
 msgstr "Xem tất cả thành viên"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+#, fuzzy
+msgid "Families Properties"
+msgstr "Cập nhật thuộc tính"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+#, fuzzy
+msgid "Groups Properties"
+msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
 #: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
 #: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
@@ -5193,6 +5222,7 @@ msgstr "Học sinh"
 
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:180
 msgid "Print"
@@ -5200,8 +5230,13 @@ msgstr "In ấn"
 
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
 #, fuzzy
-msgid "Person Custom Searches"
-msgstr "Chỉnh sửa Tổng quan"
+msgid "Person Custom Field"
+msgstr "Tùy chỉnh trường gia đình"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+#, fuzzy
+msgid "Group Manager"
+msgstr "Thành viên Ban/Mục vụ:"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
 #, fuzzy
@@ -5210,7 +5245,7 @@ msgstr "Thêm vào giỏ"
 
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
 #, fuzzy
-msgid "Person Properties Searches"
+msgid "Person Properties"
 msgstr "Chỉnh sửa thành viên"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:23
@@ -5305,19 +5340,22 @@ msgstr "Email khác"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:562 v2/templates/pastoralcare/pastoralcarefamily.php:133
+#: FamilyView.php:562 v2/templates/pastoralcare/pastoralcarefamily.php:134
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
 msgid "Head of Household"
 msgstr ""
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:563 v2/templates/pastoralcare/pastoralcarefamily.php:134
+#: FamilyView.php:563 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:141
 msgid "Spouse"
 msgstr ""
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:565 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: FamilyView.php:565 v2/templates/pastoralcare/pastoralcarefamily.php:137
+#: v2/templates/pastoralcare/pastoralcareperson.php:143
 msgid "Child"
 msgstr ""
 
@@ -6166,7 +6204,8 @@ msgstr ""
 #: external/templates/registration/family-register-members.php:22
 #: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1082
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:372
-#: v2/templates/pastoralcare/pastoralcarefamily.php:99
+#: v2/templates/pastoralcare/pastoralcarefamily.php:100
+#: v2/templates/pastoralcare/pastoralcareperson.php:103
 msgid "Family Members"
 msgstr "Thành viên gia đình"
 
@@ -8080,26 +8119,26 @@ msgstr "Thêm vào giỏ"
 msgid "Statistics"
 msgstr "Trạng thái"
 
-#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:47
+#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:48
 #, fuzzy
 msgid "Period  from"
 msgstr "Thông tin cá nhân"
 
-#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:47
+#: Menu.php:467 v2/templates/pastoralcare/pastoralcaredashboard.php:48
 msgid "to"
 msgstr ""
 
-#: Menu.php:472 v2/templates/pastoralcare/pastoralcaredashboard.php:143
+#: Menu.php:472 v2/templates/pastoralcare/pastoralcaredashboard.php:144
 #, fuzzy
 msgid "Persons not reached"
 msgstr "Chỉnh sửa Tổng quan"
 
-#: Menu.php:475 v2/templates/pastoralcare/pastoralcaredashboard.php:156
+#: Menu.php:475 v2/templates/pastoralcare/pastoralcaredashboard.php:157
 #, fuzzy
 msgid "Families not reached"
 msgstr "Không xác định được Email"
 
-#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:171
+#: Menu.php:478 v2/templates/pastoralcare/pastoralcaredashboard.php:172
 #, fuzzy
 msgid "Single Persons not reached"
 msgstr "Chỉnh sửa Tổng quan"
@@ -8109,12 +8148,12 @@ msgstr "Chỉnh sửa Tổng quan"
 msgid "Retired Persons not reached"
 msgstr "Quay về sự kiện"
 
-#: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:110
+#: Menu.php:484 v2/templates/pastoralcare/pastoralcaredashboard.php:111
 #, fuzzy
 msgid "Young People"
 msgstr "Thành viên"
 
-#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:200
+#: Menu.php:487 v2/templates/pastoralcare/pastoralcaredashboard.php:201
 #, fuzzy
 msgid "Young People not reached"
 msgstr "Chỉnh sửa Tổng quan"
@@ -8136,7 +8175,7 @@ msgstr "Xem tất cả thành viên"
 msgid "View"
 msgstr "Xem tất cả"
 
-#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:84
+#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:85
 #: v2/templates/people/peopledashboard.php:92
 #, fuzzy
 msgid "Singles"
@@ -8471,8 +8510,8 @@ msgstr "Gia đình"
 
 #: PersonView.php:751 v2/templates/gdpr/dashboard.php:24
 #: v2/templates/gdpr/gdprdatastructure.php:19
-#: v2/templates/pastoralcare/pastoralcarefamily.php:67
-#: v2/templates/pastoralcare/pastoralcareperson.php:64
+#: v2/templates/pastoralcare/pastoralcarefamily.php:68
+#: v2/templates/pastoralcare/pastoralcareperson.php:67
 msgid "Printable Page"
 msgstr "In trang này"
 
@@ -9343,7 +9382,7 @@ msgid ""
 "be deleted."
 msgstr ""
 
-#: SelectDelete.php:192 v2/templates/pastoralcare/pastoralcarefamily.php:238
+#: SelectDelete.php:192 v2/templates/pastoralcare/pastoralcarefamily.php:239
 #, fuzzy
 msgid "Return to Family View"
 msgstr "Xem gia đình"
@@ -10042,17 +10081,17 @@ msgstr "Bảng điều khiển"
 msgid "Pastoral care Dashboard"
 msgstr "Bảng điều khiển"
 
-#: v2/routes/pastoralcare/pastoralcare.php:107
+#: v2/routes/pastoralcare/pastoralcare.php:109
 #, fuzzy
 msgid "Individual Pastoral care"
 msgstr "Thêm vào giỏ"
 
-#: v2/routes/pastoralcare/pastoralcare.php:161
+#: v2/routes/pastoralcare/pastoralcare.php:164
 #, fuzzy
 msgid "Family Pastoral care"
 msgstr "Xem tất cả thành viên"
 
-#: v2/routes/pastoralcare/pastoralcare.php:204
+#: v2/routes/pastoralcare/pastoralcare.php:207
 msgid "Pastoral care members list by classification"
 msgstr ""
 
@@ -10717,10 +10756,10 @@ msgstr "Thành viên Ban/Mục vụ:"
 
 #: v2/templates/group/groupview.php:227
 #: v2/templates/meeting/meetingdashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:37
-#: v2/templates/pastoralcare/pastoralcarefamily.php:64
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcarefamily.php:65
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:38
-#: v2/templates/pastoralcare/pastoralcareperson.php:65
+#: v2/templates/pastoralcare/pastoralcareperson.php:68
 #, fuzzy
 msgid "Appointment"
 msgstr "Tiền dâng hiến: "
@@ -10897,7 +10936,7 @@ msgid "Visit/Call randomly"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:33
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:97
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:98
 #, fuzzy
 msgid "Retired"
 msgstr "Bắt buộc"
@@ -10906,59 +10945,64 @@ msgstr "Bắt buộc"
 msgid "Young"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:35
+#, fuzzy
+msgid "Single"
+msgstr "Thêm thành viên mới"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #, fuzzy
 msgid "of members"
 msgstr "Thành viên tham dự"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
 #, fuzzy
 msgid "To reach"
 msgstr "Giáo viên"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
 #: v2/templates/people/peopledashboard.php:264
 #: v2/templates/people/peopledashboard.php:301
 msgid "Count"
 msgstr "Số lượng"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:128
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 #, fuzzy
 msgid "Other Pastoral Care Members"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:184
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
 msgid "Retired not reached"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:26
-#: v2/templates/pastoralcare/pastoralcareperson.php:25
+#: v2/templates/pastoralcare/pastoralcareperson.php:27
 msgid "Please add some records with the button below."
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:42
-#: v2/templates/pastoralcare/pastoralcareperson.php:41
+#: v2/templates/pastoralcare/pastoralcarefamily.php:43
+#: v2/templates/pastoralcare/pastoralcareperson.php:44
 #, fuzzy
 msgid "Add Pastoral Care Notes"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:77
-#: v2/templates/pastoralcare/pastoralcareperson.php:75
+#: v2/templates/pastoralcare/pastoralcarefamily.php:78
+#: v2/templates/pastoralcare/pastoralcareperson.php:78
 msgid "Everyone"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:205
-#: v2/templates/pastoralcare/pastoralcareperson.php:128
+#: v2/templates/pastoralcare/pastoralcarefamily.php:206
+#: v2/templates/pastoralcare/pastoralcareperson.php:213
 msgid "Modify"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:241
-#: v2/templates/pastoralcare/pastoralcareperson.php:164
+#: v2/templates/pastoralcare/pastoralcarefamily.php:242
+#: v2/templates/pastoralcare/pastoralcareperson.php:249
 msgid "Return To PastoralCare Dashboard"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:244
-#: v2/templates/pastoralcare/pastoralcareperson.php:167
+#: v2/templates/pastoralcare/pastoralcarefamily.php:245
+#: v2/templates/pastoralcare/pastoralcareperson.php:252
 #, fuzzy
 msgid "Return To PastoralCare Members List"
 msgstr "Thêm vào giỏ"
@@ -10972,7 +11016,7 @@ msgstr "Xem tất cả thành viên"
 msgid "Only the visited/called persons"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:161
+#: v2/templates/pastoralcare/pastoralcareperson.php:246
 #, fuzzy
 msgid "Return To Person View"
 msgstr "Quay về sự kiện"
@@ -12225,6 +12269,18 @@ msgstr "Xóa bỏ giỏ hàng"
 #, fuzzy
 msgid "pending"
 msgstr "Ngày cưới"
+
+#, fuzzy
+#~ msgid "Family Custom Searches"
+#~ msgstr "Xem tất cả thành viên"
+
+#, fuzzy
+#~ msgid "Person Custom Searches"
+#~ msgstr "Chỉnh sửa Tổng quan"
+
+#, fuzzy
+#~ msgid "Person Properties Searches"
+#~ msgstr "Chỉnh sửa thành viên"
 
 #, fuzzy
 #~ msgid "Youngs"
