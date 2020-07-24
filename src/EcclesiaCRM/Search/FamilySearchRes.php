@@ -33,10 +33,12 @@ class FamilySearchRes extends BaseSearchRes
                     $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
                 }
 
-                $families->filterByName("%$qry%", Criteria::LIKE)
-                    ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
-                    ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
-                    ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
+                if ( !( mb_strtolower($qry) == 'families' || mb_strtolower($qry) == 'family' ) ) {
+                    $families->filterByName("%$qry%", Criteria::LIKE)
+                        ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
+                        ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
+                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
+                }
 
                 if (!$this->global_search) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))->find();
