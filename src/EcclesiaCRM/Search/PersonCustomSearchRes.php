@@ -21,8 +21,8 @@ class PersonCustomSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _("Person Custom Searches");
-        parent::__construct($global, "Person Custom Searches");
+        $this->name = _("Person Custom Field");
+        parent::__construct($global, "Person Custom Field");
     }
 
     public function buildSearch(string $qry)
