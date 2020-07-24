@@ -108,7 +108,6 @@ require $sRootDocument . '/Include/Header.php';
 
 <script nonce="<?= $sCSPNonce ?>">
     window.CRM.listPeople = [];
-    window.CRM.listGroups = [];
     window.CRM.gender = <?= $iGender ?>;
     window.CRM.familyRole = <?= $iFamilyRole ?>;
     window.CRM.classification = <?= $iClassification ?>;
