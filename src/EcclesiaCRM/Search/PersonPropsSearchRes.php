@@ -25,8 +25,8 @@ class PersonPropsSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _("Person Properties Searches");
-        parent::__construct($global,"Person Properties Searches");
+        $this->name = _("Person Properties");
+        parent::__construct($global,"Person Properties");
     }
 
     public function buildSearch(string $qry)
@@ -57,7 +57,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                     ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
                     ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
                     ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
-                    ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND ".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'") //NOT LIKE 'a%';
+                    ->where(PropertyTableMap::COL_PRO_CLASS."='p' AND (".PropertyTableMap::COL_PRO_NAME." ".$not_like."LIKE '".$searchLikeString."'  OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )") //NOT LIKE 'a%';
                     ->addAscendingOrderByColumn('ProName')
                     ->addAscendingOrderByColumn('ProTypeName');
 
@@ -93,11 +93,11 @@ class PersonPropsSearchRes extends BaseSearchRes
                             $res = "";
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . $per->getViewURI() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
-                                .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                .'<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
                                 .'</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>&nbsp;';
