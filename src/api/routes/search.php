@@ -28,6 +28,9 @@ use EcclesiaCRM\Search\PersonPastoralCareSearchRes;
 use EcclesiaCRM\Search\FamilyPastoralCareSearchRes;
 use EcclesiaCRM\Search\PersonAssignToGroupSearchRes;
 use EcclesiaCRM\Search\PersonVolunteerOpportunitySearchRes;
+use EcclesiaCRM\Search\PersonGroupManagerSearchRes;
+use EcclesiaCRM\Search\FamilyPropsSearchRes;
+use EcclesiaCRM\Search\GroupPropsSearchRes;
 use EcclesiaCRM\GroupQuery;
 
 // Routes search
@@ -64,15 +67,18 @@ function getSearchResult (Request $request, Response $response, array $args) {
             new AddressSearchRes(true),
             new PersonPropsSearchRes(true),
             new PersonCustomSearchRes(true),
+            new PersonGroupManagerSearchRes (true),
             new PersonPastoralCareSearchRes(true),
             new PersonAssignToGroupSearchRes( true),
             new FamilySearchRes(true),
             new FamilyCustomSearchRes(true),
             new FamilyPastoralCareSearchRes(true),
+            new FamilyPropsSearchRes(true),
+            new GroupSearchRes( true),
+            new GroupPropsSearchRes(true),
             new DepositSearchRes(true),
             new PaymentSearchRes(true),
             new PledgeSearchRes( true),
-            new GroupSearchRes( true),
             new PersonVolunteerOpportunitySearchRes( true)
         ];
     } elseif ($query == "*" || count($query_elements) > 0) {
@@ -97,17 +103,20 @@ function quickSearch (Request $request, Response $response, array $args) {
     $resMethods = [
         new PersonSearchRes(),
         new AddressSearchRes(),
-        new FamilySearchRes(),
-        new GroupSearchRes(),
-        new DepositSearchRes(),
-        new PaymentSearchRes(),
-        new PledgeSearchRes(),
         new PersonPropsSearchRes(),
         new PersonCustomSearchRes(),
         new PersonAssignToGroupSearchRes(),
-        new FamilyCustomSearchRes(),
         new PersonPastoralCareSearchRes(),
+        new PersonGroupManagerSearchRes (),
+        new FamilySearchRes(),
+        new FamilyCustomSearchRes(),
+        new FamilyPropsSearchRes(),
         new FamilyPastoralCareSearchRes(),
+        new GroupSearchRes(),
+        new GroupPropsSearchRes(),
+        new DepositSearchRes(),
+        new PaymentSearchRes(),
+        new PledgeSearchRes(),
         new PersonVolunteerOpportunitySearchRes()
     ];
 
