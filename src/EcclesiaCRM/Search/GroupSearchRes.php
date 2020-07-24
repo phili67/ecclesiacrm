@@ -26,12 +26,19 @@ class GroupSearchRes extends BaseSearchRes
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {
             try {
-                $groups = GroupQuery::create()
-                    ->filterByName("%$qry%", Criteria::LIKE)
-                    ->withColumn('grp_Name', 'displayName')
-                    ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
-                    ->select(['displayName', 'uri', 'Id']);
 
+                if ( mb_strtolower($qry) == 'group' || mb_strtolower($qry) == 'groups' ) {// we search all the GroupMasters
+                    $groups = GroupQuery::create()
+                        ->withColumn('grp_Name', 'displayName')
+                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
+                        ->select(['displayName', 'uri', 'Id']);
+                } else {
+                    $groups = GroupQuery::create()
+                        ->filterByName("%$qry%", Criteria::LIKE)
+                        ->withColumn('grp_Name', 'displayName')
+                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
+                        ->select(['displayName', 'uri', 'Id']);
+                }
 
                 if ($this->global_search) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
@@ -58,7 +65,7 @@ class GroupSearchRes extends BaseSearchRes
                                 $res_members[] = $member->getPersonId();
                             }
 
-                            $inCart = Cart::GroupInCart($group['id']);
+                            $inCart = Cart::GroupInCart($group['Id']);
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
@@ -74,23 +81,23 @@ class GroupSearchRes extends BaseSearchRes
 
                             if ($inCart === false) {
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= "<a class=\"AddToGroupCart\" data-cartgroupid=\"" . $group['Id'] . "\">";
+                                    $res .= '<a class="AddToGroupCart" data-cartgroupid="' . $group['Id'] . '">';
                                 }
-                                $res .= "                <span class=\"fa-stack\">"
-                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>"
-                                    ."                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>"
-                                    ."                </span>";
+                                $res .= '                <span class="fa-stack">'
+                                    .'                <i class="fa fa-square fa-stack-2x"></i>'
+                                    .'                <i class="fa fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                    .'                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= "                </a>  ";
                                 }
                             } else {
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= "<a class=\"RemoveFromGroupCart\" data-cartgroupid=\"" + full . id + "\">";
+                                    $res .= '<a class="RemoveFromGroupCart" data-cartgroupid="' . $group['Id'] . '">';
                                 }
-                                $res .= "                <span class=\"fa-stack\">"
-                                    ."                <i class=\"fa fa-square fa-stack-2x\"></i>"
-                                    ."                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>"
-                                    ."                </span>";
+                                $res .= '                <span class="fa-stack">'
+                                    .'                <i class="fa fa-square fa-stack-2x"></i>'
+                                    .'                <i class="fa fa-remove fa-stack-1x fa-inverse"></i>'
+                                    .'                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= "                </a>  ";
                                 }
