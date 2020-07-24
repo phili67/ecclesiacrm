@@ -388,31 +388,31 @@ $(document).ready(function () {
     });
 
     $("#AddAllPageToCart").click(function(){
-        window.CRM.listPagePeople  = [];
-        window.CRM.listGroups = [];
+        var listPagePeople  = [];
+        var listPageGroups = [];
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
-            window.CRM.listPagePeople.push(personId);
+            listPagePeople.push(personId);
         });
 
         $(".AddToGroupCart").each(function(res) {
             var groupID = $(this).data("cartgroupid");
 
-            window.CRM.listGroups.push(groupID);
+            listPageGroups.push(groupID);
         });
 
-        if (window.CRM.listPagePeople.length > 0) {
+        if (listPagePeople.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-            window.CRM.cart.addPerson(window.CRM.listPagePeople, function () {
+            window.CRM.cart.addPerson(listPagePeople, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-        } else if (window.CRM.listGroups.length > 0) {
+        } else if (listPageGroups.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-            window.CRM.cart.addGroups(window.CRM.listGroups, function () {
+            window.CRM.cart.addGroups(listPageGroups, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
