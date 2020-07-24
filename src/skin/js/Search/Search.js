@@ -388,17 +388,31 @@ $(document).ready(function () {
     });
 
     $("#AddAllPageToCart").click(function(){
-        var listPagePeople  = [];
+        window.CRM.listPagePeople  = [];
+        window.CRM.listGroups = [];
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
-            listPagePeople.push(personId);
+            window.CRM.listPagePeople.push(personId);
         });
 
-        if (listPagePeople.length > 0) {
+        $(".AddToGroupCart").each(function(res) {
+            var groupID = $(this).data("cartgroupid");
+
+            window.CRM.listGroups.push(groupID);
+        });
+
+        if (window.CRM.listPagePeople.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-            window.CRM.cart.addPerson(listPagePeople, function () {
+            window.CRM.cart.addPerson(window.CRM.listPagePeople, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Loading finished...."));
+            });
+        } else if (window.CRM.listGroups.length > 0) {
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
+            window.CRM.cart.addGroups(window.CRM.listGroups, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
