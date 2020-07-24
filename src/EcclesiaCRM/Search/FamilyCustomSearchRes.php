@@ -18,8 +18,8 @@ class FamilyCustomSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _("Family Custom Searches");
-        parent::__construct($global, "Family Custom Searches");
+        $this->name = _("Family Custom Field");
+        parent::__construct($global, "Family Custom Field");
     }
 
     public function buildSearch(string $qry)
