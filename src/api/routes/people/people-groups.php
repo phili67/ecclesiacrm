@@ -188,7 +188,6 @@ function groupproperties ($request, $response, $args) {
                         ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
                         ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
                         ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
-                        ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
                         ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
                         ->where(PropertyTableMap::COL_PRO_CLASS."='g'")
                         ->addAscendingOrderByColumn('ProName')

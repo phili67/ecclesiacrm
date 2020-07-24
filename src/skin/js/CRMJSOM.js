@@ -645,7 +645,7 @@
          window.CRM.APIRequest({
           method: 'POST',
           path: 'cart/',
-          data: JSON.stringify({"Group":GroupID})
+          data: JSON.stringify({"Group": GroupID})
         }).done(function(data) {
             window.CRM.cart.refresh();
             if(callback)
@@ -655,6 +655,21 @@
 
         });
       },
+      'addGroups' : function (Groups, callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/',
+                data: JSON.stringify({"Groups": Groups})
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
+       },
       'removeGroup' : function (GroupID, callback)
       {
          window.CRM.APIRequest({
@@ -839,7 +854,7 @@
               cartDropdownMenu = '\
                 <div id="showWhenCartNotEmpty">\
                     <a href="' + window.CRM.root+ '/v2/cart/view" class="dropdown-item">\
-                        <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
+                        <i class="fa fa-shopping-cart text-green"></i> ' + i18next.t("View Cart") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" class="dropdown-item emptyCart" >\

@@ -88,6 +88,12 @@ function cartOperation ($request, $response, $args) {
       {
         Cart::AddGroup($cartPayload->Group);
       }
+      elseif ( isset ($cartPayload->Groups) )
+      {
+          foreach ($cartPayload->Groups as $groupID) {
+              Cart::AddGroup($groupID);
+          }
+      }
       elseif ( isset ($cartPayload->removeFamily) )
       {
         Cart::RemoveFamily($cartPayload->removeFamily);

@@ -11,51 +11,62 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
 
 
-class FamilySearchRes extends BaseSearchRes
+
+class FamilyPropsSearchRes extends BaseSearchRes
 {
     public function __construct($global = false)
     {
-        $this->name = _('Families');
-        parent::__construct($global, 'Families');
+        $this->name = _('Families Properties');
+        parent::__construct($global, 'Families Properties');
     }
 
     public function buildSearch(string $qry)
     {
         if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
             try {
-                $searchLikeString = '%'.$qry.'%';
-
                 $families = FamilyQuery::create();
+
+                if (!$this->global_search) {
+                    $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
+                }
+
 
                 if (SystemConfig::getBooleanValue('bGDPR')) {
                     $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
                 }
 
-                if ( !( mb_strtolower($qry) == 'families' || mb_strtolower($qry) == 'family' ) ) {
-                    $families->filterByName("%$qry%", Criteria::LIKE)
-                        ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
-                }
+                $families->addJoin(FamilyTableMap::COL_FAM_ID, Record2propertyR2pTableMap::COL_R2P_RECORD_ID, Criteria::LEFT_JOIN)
+                    ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID, PropertyTableMap::COL_PRO_ID, Criteria::LEFT_JOIN)
+                    ->addJoin(PropertyTableMap::COL_PRO_PRT_ID, PropertyTypeTableMap::COL_PRT_ID, Criteria::LEFT_JOIN)
+                    ->addAsColumn('ProPrtId', PropertyTableMap::COL_PRO_PRT_ID)
+                    ->addAsColumn('ProName', PropertyTableMap::COL_PRO_NAME)
+                    ->addAsColumn('ProValue', Record2propertyR2pTableMap::COL_R2P_VALUE)
+                    ->addAsColumn('ProDesc', PropertyTableMap::COL_PRO_DESCRIPTION)
+                    ->addAsColumn('ProPrompt', PropertyTableMap::COL_PRO_PROMPT)
+                    //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
+                    //->addAsColumn('ProTypeDesc', PropertyTypeTableMap::COL_PRT_DESCRIPTION)
+                    //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
+                    ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '%".$qry."%' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )");
 
-                if (!$this->global_search) {
-                    $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))->find();
-                }
 
-                if (!is_null($families))
-                {
-                    $id=1;
+                $families->find();
 
-                    foreach ($families as $family)
-                    {
+                if (!is_null($families)) {
+                    $id = 1;
+
+                    foreach ($families as $family) {
                         if ($family->getPeople()->count() == 1) {// we avoid a one person family
                             continue;
                         }
 
-                        $elt=[
-                            "id" => 'family-id-'.$id++,
+                        $elt = [
+                            "id" => 'family-props-id-' . $id++,
                             "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                             "uri" => $family->getViewURI()
                         ];
@@ -68,7 +79,7 @@ class FamilySearchRes extends BaseSearchRes
 
                             foreach ($members as $member) {
                                 $res_members[] = $member->getId();
-                                $globalMembers .= '• <a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$member->getId().'">'.$member->getFirstName()." ".$member->getLastName()."</a><br>";
+                                $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
                             }
 
                             $inCart = Cart::FamilyInCart($family->getId());
@@ -78,9 +89,9 @@ class FamilySearchRes extends BaseSearchRes
                                 $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
-                                .'<i class="fa fa-square fa-stack-2x"></i>'
-                                .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
-                                .'</span>';
+                                . '<i class="fa fa-square fa-stack-2x"></i>'
+                                . '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>&nbsp;';
                             }
@@ -90,9 +101,9 @@ class FamilySearchRes extends BaseSearchRes
                                     $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fa fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fa fa-stack-1x fa-inverse fa-cart-plus"></i>'
-                                    .'                </span>';
+                                    . '                <i class="fa fa-square fa-stack-2x"></i>'
+                                    . '                <i class="fa fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                    . '                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= '                </a>';
                                 }
@@ -101,9 +112,9 @@ class FamilySearchRes extends BaseSearchRes
                                     $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fa fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fa fa-remove fa-stack-1x fa-inverse"></i>'
-                                    .'                </span>';
+                                    . '                <i class="fa fa-square fa-stack-2x"></i>'
+                                    . '                <i class="fa fa-remove fa-stack-1x fa-inverse"></i>'
+                                    . '                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= '               </a>';
                                 }
@@ -113,18 +124,18 @@ class FamilySearchRes extends BaseSearchRes
                                 $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
-                                .'<i class="fa fa-square fa-stack-2x"></i>'
-                                .'<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
-                                .'</span>';
+                                . '<i class="fa fa-square fa-stack-2x"></i>'
+                                . '<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>&nbsp;';
                             }
 
                             $elt = [
                                 "id" => $family->getId(),
-                                "img" => '<img src="/api/families/'.$family->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$family->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$family->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                 "type" => _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
@@ -136,7 +147,7 @@ class FamilySearchRes extends BaseSearchRes
                             ];
                         }
 
-                        array_push($this->results,$elt);
+                        array_push($this->results, $elt);
                     }
                 }
             } catch (Exception $e) {
