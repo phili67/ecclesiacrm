@@ -238,20 +238,15 @@ $(document).ready(function () {
                 visible: false,
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    if (full.realType == 'Persons' || full.realType == 'Person Custom Search'
-                        || full.realType == ' Individual Pastoral Care' || full.realType == 'Person Properties Search'
+                    if (full.realType == 'Persons' || full.realType == 'Person Custom Field'
+                        || full.realType == 'Individual Pastoral Care' || full.realType == 'Person Properties'
                         || full.realType == 'Person Group role assignment') {
                         if(cart.indexOf(data) == -1) {
                             cart.push(data);
                         }
                         return data;// only persons can be added to the cart
-                    } else if (full.realType == 'Families' || full.realType == 'Addresses' || full.realType == 'Family Custom Search') {
-                        for (i=0;i<full.members.length;i++) {
-                            if(cart.indexOf(full.members[i]) == -1) {
-                                cart.push(full.members[i]);
-                            }
-                        }
-                    } else if (full.realType == 'Groups') {
+                    } else if (full.realType == 'Families' || full.realType == 'Addresses' || full.realType == 'Family Custom Field'
+                        || full.realType == 'Family Pastoral Cares' || full.realType == 'Groups') {
                         for (i=0;i<full.members.length;i++) {
                             if (cart.indexOf(full.members[i]) == -1) {
                                 cart.push(full.members[i]);
@@ -383,14 +378,13 @@ $(document).ready(function () {
 
     $("#AddAllToCart").click(function(){
         loadAllPeople()
-        window.CRM.cart.addPerson(window.CRM.listPeople);
 
-        /*$('.in-progress').css("color", "red");
+        $('.in-progress').css("color", "red");
         $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+        window.CRM.cart.addPerson(window.CRM.listPeople, function () {
             $('.in-progress').css("color", "green");
             $('.in-progress').html("  "+ i18next.t("Loading finished...."));
-        }, false);*/
+        });
     });
 
     $("#AddAllPageToCart").click(function(){
@@ -402,7 +396,12 @@ $(document).ready(function () {
         });
 
         if (listPagePeople.length > 0) {
-            window.CRM.cart.addPerson(listPagePeople);
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
+            window.CRM.cart.addPerson(listPagePeople, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Loading finished...."));
+            });
         } else {
             window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
         }
@@ -411,14 +410,12 @@ $(document).ready(function () {
 
     $("#RemoveAllFromCart").click(function(){
         loadAllPeople()
-        window.CRM.cart.removePerson(window.CRM.listPeople);
-
-        /*$('.in-progress').css("color", "red");
-        $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+        window.CRM.cart.removePerson(window.CRM.listPeople, function () {
             $('.in-progress').css("color", "green");
-            $('.in-progress').html("  "+ i18next.t("Loading finished...."));
-        }, false);*/
+            $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+        });
     });
 
     $("#RemoveAllPageFromCart").click(function(){
@@ -429,7 +426,12 @@ $(document).ready(function () {
             listPagePeople.push(personId);
         });
 
-        window.CRM.cart.removePerson(listPagePeople);
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+        window.CRM.cart.removePerson(listPagePeople, function () {
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+        });
     });
 
     // the main part
@@ -444,4 +446,13 @@ $(document).ready(function () {
         }
         return true;
     });
+
+    // listener emptyCart
+    // newMessage event subscribers : Listener CRJSOM.js
+    $(document).on("emptyCartMessage", updateButtons);
+
+    // newMessage event handler
+    function updateButtons(e) {
+        window.CRM.dataSearchTable.ajax.reload(null , false);
+    }
 });
