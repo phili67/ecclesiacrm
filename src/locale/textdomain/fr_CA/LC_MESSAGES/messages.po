@@ -5166,7 +5166,7 @@ msgstr "Champs personnalisés de Personnes"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 msgid "Group Manager"
-msgstr "Manager du Groupe"
+msgstr "Manager de Groupe"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
 msgid "Individual Pastoral Cares"

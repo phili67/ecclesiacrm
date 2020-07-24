@@ -930,7 +930,7 @@ msgid "Loading video..."
 msgstr "Chargement vidéo ..."
 
 msgid "Failed"
-msgstr "Echex"
+msgstr "Echec"
 
 msgid "No event right now."
 msgstr "Pas d'événement en ce moment."
