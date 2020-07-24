@@ -70,36 +70,36 @@ $(document).ready(function () {
 
       var frm_str = '<div class="card-body">'
         +'<div class="row">'
-        +'  <div class="col-lg-3">'
+        +'  <div class="col-lg-4">'
         +'    <label for="depositDate">'+i18next.t("Type")+'</label>'
         +'  </div>'
-        +'  <div class="col-lg-9">'
+        +'  <div class="col-lg-8">'
         +'    <select class="form-control" id="Class" name="Class">'
         +       options
         +'    </select>'
         +'  </div>'
         +'</div>'
         +'<div class="row">'
-        +'  <div class="col-lg-3">'
+        +'  <div class="col-lg-4">'
         +'    <label for="depositDate">'+i18next.t("Name")+'</label>'
         +'  </div>'
-        +'  <div class="col-lg-9">'
+        +'  <div class="col-lg-8">'
         +'    <input class="form-control input-md" name="Name" id="Name" style="width:100%">'
         +'  </div>'
         +'</div>'
         +'<div class="row">'
-        +'  <div class="col-lg-3">'
-        +'    <label for="depositDate">'+ window.CRM.propertyTypeName + ' : ' + i18next.t("with this property..")+'</label>'
+        +'  <div class="col-lg-4">'
+        +'    <label for="depositDate">'+ window.CRM.propertyTypeName + ' : ' + i18next.t("with this property...")+'</label>'
         +'  </div>'
-        +'  <div class="col-lg-9">'
+        +'  <div class="col-lg-8">'
         +'    <input class="form-control input-md" name="description" id="description" style="width:100%">'
         +'  </div>'
         +'</div>'
         +'<div class="row">'
-        +'  <div class="col-lg-3">'
+        +'  <div class="col-lg-4">'
         +'    <label for="depositDate">'+i18next.t("Prompt")+'</label>'
         +'  </div>'
-        +'  <div class="col-lg-9">'
+        +'  <div class="col-lg-8">'
         +'    <input class="form-control input-md" name="prompt" id="prompt" style="width:100%">'
         +'  </div>'
         +'</div>'
@@ -141,6 +141,7 @@ $(document).ready(function () {
       }).done(function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentPropertyList(data.propertyTypes),
+         size: "large",
          title: i18next.t("Property Type Editor"),
          buttons: [
           {
@@ -185,6 +186,7 @@ $(document).ready(function () {
   $(document).on("click","#add-new-prop", function(){
     var modal = bootbox.dialog({
      message: BootboxContentPropertyList(window.CRM.propertyTypesAll),
+     size: 'large',
      title: i18next.t("Add a New Property"),
      buttons: [
       {
