@@ -174,7 +174,7 @@ function Header_body_scripts()
             plugin: {
                 dataTable : {
                    "language": {
-                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.json",
+                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.lang",
                         buttons: {
                           colvis: "<?= _('Change columns') ?>",
                           print: "<?= _('Print') ?>"

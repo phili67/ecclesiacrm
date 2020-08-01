@@ -62,6 +62,7 @@
         "datatables.net-rowgroup": "^1.1.2",
         "datatables.net-rowgroup-bs4": "^1.1.2",
         "datatables.net-rowgroup-dt": "^1.1.2",
+        "datatables.net-plugins": "^1.10.20",
         "datetime-moment": "^1.0.0",
         "eonasdan-bootstrap-datetimepicker": "^4.17.47",
         "flot": "^4.2.1",
