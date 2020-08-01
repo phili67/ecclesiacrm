@@ -17,7 +17,7 @@ class GroupsDashboardItem implements DashboardItemInterface
     public static function getDashboardItemValue()
     {
         $sSQL = 'select
-        (select count(*) from group_grp) as Groups,
+        (select count(*) from group_grp) as AllGroups,
         (select count(*) from group_grp where grp_Type = 4 ) as SundaySchoolClasses,
         (Select count(*) from person_per
           INNER JOIN person2group2role_p2g2r ON p2g2r_per_ID = per_ID
@@ -38,12 +38,13 @@ class GroupsDashboardItem implements DashboardItemInterface
         from dual ;
         ';
 
+
         $connection = Propel::getConnection();
         $statement = $connection->prepare($sSQL);
         $statement->execute();
         $groupsAndSundaySchoolStats = $statement->fetch(\PDO::FETCH_ASSOC);
 
-        $data = ['groups' => $groupsAndSundaySchoolStats['Groups'] - $groupsAndSundaySchoolStats['SundaySchoolClasses'],
+        $data = ['groups' => $groupsAndSundaySchoolStats['AllGroups'] - $groupsAndSundaySchoolStats['SundaySchoolClasses'],
             'sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
             'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount'])
         ];
