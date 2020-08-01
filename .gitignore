@@ -47,8 +47,8 @@ src/Include/Config.php
 
 target
 temp_attach
-src/ChurchCRM/model/ChurchCRM/Base
-src/ChurchCRM/model/ChurchCRM/Map
+src/EcclesiaCRM/model/EcclesiaCRM/Base/
+src/EcclesiaCRM/model/EcclesiaCRM/Map
 src/signatures.json
 src/integrityCheck.json
 src/tmp_attach
@@ -57,6 +57,13 @@ src/logs/*.log
 error.log
 /nbproject/private/
 !propel/*
+
+locale/backup/
+locale/connection.php
+
+src/skin/ecclesiacrm.min.css
+src/skin/ecclesiacrm.min.css.map
+
 
 # ignore the sufolders of propel
 propel/extract_schema.sh

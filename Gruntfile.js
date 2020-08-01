@@ -44,7 +44,7 @@ module.exports = function (grunt) {
             '!logs/*.log'
         ],
         clean: {
-            skin: ["src/skin/external"],
+            skin: ["src/skin/external", "src/locale/datatables"],
             release: ["target"]
         },
         copy: {
@@ -448,6 +448,12 @@ module.exports = function (grunt) {
                         cwd:'node_modules/jszip/dist/',
                         src: ['*.js'],
                         dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-plugins/i18n/',
+                        src: ['*.lang'],
+                        dest: 'src/locale/datatables/'
                     },
                     {
                         expand: true,
