@@ -16,6 +16,7 @@ class DropDownEmailsClass {
     public $allNormalBCC;
 }
 
+
 class EmailRoleClass {
     public $Parents;
     public $Teachers;
@@ -139,7 +140,7 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
     public static function getDashboardItemValue()
     {
         $sSQL = 'select
-        (select count(*) from group_grp) as Groups,
+        (select count(*) from group_grp) as AllGroups,
         (select count(*) from group_grp where grp_Type = 4 ) as SundaySchoolClasses,
         (Select count(*) from person_per
           INNER JOIN person2group2role_p2g2r ON p2g2r_per_ID = per_ID
