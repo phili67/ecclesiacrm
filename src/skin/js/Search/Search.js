@@ -240,7 +240,8 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     if (full.realType == 'Persons' || full.realType == 'Person Custom Field'
                         || full.realType == 'Individual Pastoral Care' || full.realType == 'Person Properties'
-                        || full.realType == 'Person Group role assignment') {
+                        || full.realType == 'Person Group role assignment'
+                        || full.realType == 'Volunteer Opportunities') {
                         if(cart.indexOf(data) == -1) {
                             cart.push(data);
                         }
