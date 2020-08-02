@@ -6,7 +6,7 @@
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
  *                Copyright 2004-2012 Michael Wilt
-  *
+ *
  ******************************************************************************/
 
 //Include the function library
@@ -23,7 +23,7 @@ use EcclesiaCRM\SessionUser;
 
 
 // Security
-if ( !( SessionUser::getUser()->isShowMenuQueryEnabled() ) ) {
+if (!(SessionUser::getUser()->isShowMenuQueryEnabled())) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -36,7 +36,7 @@ $iQueryID = InputUtils::LegacyFilterInput($_GET['QueryID'], 'int');
 
 $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 
-if ( !(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries) ) {
+if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries)) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -45,12 +45,12 @@ if ( !(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVal
 require 'Include/Header.php';
 
 //Get the query information
-$sSQL = 'SELECT * FROM query_qry WHERE qry_ID = '.$iQueryID;
+$sSQL = 'SELECT * FROM query_qry WHERE qry_ID = ' . $iQueryID;
 $rsSQL = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsSQL));
 
 //Get the parameters for this query
-$sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID = '.$iQueryID.' ORDER BY qrp_ID';
+$sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID = ' . $iQueryID . ' ORDER BY qrp_ID';
 $rsParameters = RunQuery($sSQL);
 
 //If the form was submitted or there are no parameters, run the query
@@ -100,9 +100,7 @@ function ValidateInput()
         if ($qrp_Required && strlen(trim($_POST[$qrp_Alias])) < 1) {
             $bError = true;
             $aErrorText[$qrp_Alias] = _('This value is required.');
-        }
-
-        //Assuming there was no error above...
+        } //Assuming there was no error above...
         else {
             //Validate differently depending on the contents of the qrp_Validation field
             switch ($qrp_Validation) {
@@ -117,12 +115,11 @@ function ValidateInput()
                         //Is it more than the minimum?
                         if ($_POST[$qrp_Alias] < $qrp_NumericMin) {
                             $bError = true;
-                            $aErrorText[$qrp_Alias] = _('This value must be at least ').$qrp_NumericMin;
-                        }
-                        //Is it less than the maximum?
+                            $aErrorText[$qrp_Alias] = _('This value must be at least ') . $qrp_NumericMin;
+                        } //Is it less than the maximum?
                         elseif ($_POST[$qrp_Alias] > $qrp_NumericMax) {
                             $bError = true;
-                            $aErrorText[$qrp_Alias] = _('This value cannot be more than ').$qrp_NumericMax;
+                            $aErrorText[$qrp_Alias] = _('This value cannot be more than ') . $qrp_NumericMax;
                         }
                     }
 
@@ -135,12 +132,11 @@ function ValidateInput()
                     //Is the length less than the maximum?
                     if (strlen($_POST[$qrp_Alias]) > $qrp_AlphaMaxLength) {
                         $bError = true;
-                        $aErrorText[$qrp_Alias] = _('This value cannot be more than ').$qrp_AlphaMaxLength._(' characters long');
-                    }
-                    //is the length more than the minimum?
+                        $aErrorText[$qrp_Alias] = _('This value cannot be more than ') . $qrp_AlphaMaxLength . _(' characters long');
+                    } //is the length more than the minimum?
                     elseif (strlen($_POST[$qrp_Alias]) < $qrp_AlphaMinLength) {
                         $bError = true;
-                        $aErrorText[$qrp_Alias] = _('This value cannot be less than ').$qrp_AlphaMinLength._(' characters long');
+                        $aErrorText[$qrp_Alias] = _('This value cannot be less than ') . $qrp_AlphaMinLength . _(' characters long');
                     }
 
                     $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($_POST[$qrp_Alias]);
@@ -172,7 +168,7 @@ function ProcessSQL()
         //echo "--" . $qry_SQL . "<br>--" . "~" . $qrp_Alias . "~" . "<br>--" . $vPOST[$qrp_Alias] . "<p>";
 
         //Replace the placeholder with the parameter value
-        $qry_SQL = str_replace('~'.$qrp_Alias.'~', $vPOST[$qrp_Alias], $qry_SQL);
+        $qry_SQL = str_replace('~' . $qrp_Alias . '~', $vPOST[$qrp_Alias], $qry_SQL);
     }
 }
 
@@ -186,7 +182,7 @@ function DisplayRecordCount()
     if ($qry_Count == 1) {
         //Display the count of the recordset
         echo '<p align="center">';
-        echo mysqli_num_rows($rsQueryResults)._(' record(s) returned');
+        echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
         echo '</p>';
     }
 }
@@ -204,161 +200,219 @@ function DoQuery()
 
     //Run the SQL
     $rsQueryResults = RunQuery($qry_SQL); ?>
-<div class="card card-primary">
+    <div class="card card-primary">
 
-    <div class="card-body">
-        <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table" style="width:100%">
-            <thead>
+        <div class="card-body">
+            <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="query-table"
+                   style="width:100%">
+                <thead>
                 <?php
-                    //Loop through the fields and write the header row
-                    for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-                        //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
-                        $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-                        if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
-                            echo '<th>'._($fieldInfo->name).'</th>';
-                        } elseif ($fieldInfo->name == 'AddToCart') {
-                  ?>
+                //Loop through the fields and write the header row
+                for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
+                    //If this field is called "AddToCart", provision a headerless column to hold the cart action buttons
+                    $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
+                    if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
+                        echo '<th>' . _($fieldInfo->name) . '</th>';
+                    } elseif ($fieldInfo->name == 'AddToCart') {
+                        ?>
                         <th>
-                         <?= _("Add to Cart") ?>
+                            <?= _("Add to Cart") ?>
                         </th>
-                  <?php
-                        }
+                        <?php
                     }
-                  ?>
-            </thead>
-            <tbody>
-<?php
-    $aAddToCartIDs = [];
+                }
+                ?>
+                </thead>
+                <tbody>
+                <?php
+                $aAddToCartIDs = [];
 
-    $qry_real_Count = 0;
+                $qry_real_Count = 0;
 
-    while ($aRow = mysqli_fetch_array($rsQueryResults)) {
-        if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR') ) continue;
+                while ($aRow = mysqli_fetch_array($rsQueryResults)) {
+                    if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR')) continue;
 
-        $qry_real_Count++;
+                    $qry_real_Count++;
 
-        //Alternate the background color of the row
-        echo '<tr>';
+                    //Alternate the background color of the row
+                    echo '<tr>';
 
-        //Loop through the fields and write each one
-        for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
-            // If this field is called "AddToCart", add a cart button to the form
-            $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
+                    //Loop through the fields and write each one
+                    for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
+                        // If this field is called "AddToCart", add a cart button to the form
+                        $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
 
-            if ( $fieldInfo->name == 'AddToCart' ) {
-              if (!Cart::PersonInCart ($aRow[$iCount])) {
-        ?>
-                 <td>
-                     <a class="AddToPeopleCart"  data-cartpersonid="<?= $aRow[$iCount] ?>">
+                        if ($fieldInfo->name == 'AddToCart') {
+                            if (!Cart::PersonInCart($aRow[$iCount])) {
+                                ?>
+                                <td>
+                                    <a class="AddToPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
                          <span class="fa-stack">
                          <i class="fa fa-square fa-stack-2x"></i>
                          <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
                          </span>
-                     </a>
-                 </td>
-        <?php
-              } else {
-        ?>
-                 <td>
-                     <a class="removeResultsFromCart"  data-cartpersonid="<?= $aRow[$iCount] ?>">
+                                    </a>
+                                </td>
+                                <?php
+                            } else {
+                                ?>
+                                <td>
+                                    <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
                          <span class="fa-stack">
                          <i class="fa fa-square fa-stack-2x"></i>
                          <i class="fa fa-remove fa-stack-1x fa-inverse"></i>
                          </span>
-                     </a>
-                 </td>
-        <?php
-              }
-              $aAddToCartIDs[] = $aRow[$iCount];
-            }
-            //...otherwise just render the field
-            else if ($fieldInfo->name != 'GDPR') {
-                //Write the actual value of this row
-                echo '<td>'.$aRow[$iCount].'</td>';
-            }
-        }
+                                    </a>
+                                </td>
+                                <?php
+                            }
+                            $aAddToCartIDs[] = $aRow[$iCount];
+                        } //...otherwise just render the field
+                        else if ($fieldInfo->name != 'GDPR') {
+                            //Write the actual value of this row
+                            echo '<td>' . $aRow[$iCount] . '</td>';
+                        }
+                    }
 
-        echo '</tr>';
-    } ?>
-            </tbody>
-        </table>
+                    echo '</tr>';
+                } ?>
+                </tbody>
+            </table>
 
-        <p class="text-right">
-            <?= $qry_Count ? $qry_real_Count._(' record(s) returned') : ''; ?>
-        </p>
-    </div>
+            <p class="text-right">
+                <?= $qry_Count ? $qry_real_Count . _(' record(s) returned') : ''; ?>
+            </p>
+        </div>
 
-    <div class="card-footer">
-        <p>
-        <?php if (count($aAddToCartIDs)) { ?>
+        <div class="card-footer">
+            <p>
+                <?php if (count($aAddToCartIDs)) { ?>
             <div class="col-sm-offset-1">
-                 <input type="hidden" value="<?= implode(',', $aAddToCartIDs) ?>" name="BulkAddToCart">
-                 <button type="button" id="addResultsToCart" class="btn btn-success btn-sm" > <?= _('Add To Cart') ?></button>
-                 <button type="button" id="intersectResultsToCart" class="btn btn-warning btn-sm"><?= _('Intersect With Cart') ?></button>
-                 <button type="button" id="removeResultsFromCart" class="btn btn-danger btn-sm" > <?= _('Remove From Cart') ?></button>
-             </div>
-        </p>
-        <?php } ?>
-        <p class="text-right">
-            <?= '<a href="QueryView.php?QueryID='.$iQueryID.'">'._('Run Query Again').'</a>'; ?>
-        </p>
+                <input type="hidden" value="<?= implode(',', $aAddToCartIDs) ?>" name="BulkAddToCart">
+                <button type="button" id="addResultsToCart"
+                        class="btn btn-success btn-sm"> <?= _('Add To Cart') ?></button>
+                <button type="button" id="intersectResultsToCart"
+                        class="btn btn-warning btn-sm"><?= _('Intersect With Cart') ?></button>
+                <button type="button" id="removeResultsFromCart"
+                        class="btn btn-danger btn-sm"> <?= _('Remove From Cart') ?></button>
+            </div>
+            </p>
+            <?php } ?>
+            <p class="text-right">
+                <?= '<a href="QueryView.php?QueryID=' . $iQueryID . '">' . _('Run Query Again') . '</a>'; ?>
+            </p>
+        </div>
+
     </div>
 
-</div>
-
-<div class="card card-info">
-    <div class="card-header with-border">
-        <div class="card-title">Query</div>
+    <div class="card card-info">
+        <div class="card-header with-border">
+            <div class="card-title">Query</div>
+        </div>
+        <div class="card-body">
+            <code><?= str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL)); ?></code>
+        </div>
     </div>
-    <div class="card-body">
-        <code><?= str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL)); ?></code>
-    </div>
-</div>
 
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-       $("#addResultsToCart").click(function () {
-           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
-           window.CRM.cart.addPerson(selectedPersons,function(data) {
-             if (data.status == "success") {
-               // broadcaster
-               $.event.trigger({
-                    type: "updateCartMessage",
-                    people:data.cart
-               });
-              }
-           });
+        $("#addResultsToCart").click(function () {
+            var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
+            window.CRM.cart.addPerson(selectedPersons, function (data) {
+                if (data.status == "success") {
+                    // broadcaster
+                    $.event.trigger({
+                        type: "updateCartMessage",
+                        people: data.cart
+                    });
+                }
 
-       });
+                window.CRM.queryTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                    var personButton = this.data()[0];
+                    var personID = $(personButton).data("cartpersonid")
 
-       $("#intersectResultsToCart").click(function () {
-           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
-           window.CRM.cart.intersectPerson(selectedPersons,function(data) {
-             if (data.status == "success") {
-               // broadcaster
-               $.event.trigger({
-                    type: "updateCartMessage",
-                    people:data.cart
-               });
-              }
-           });
-       });
+                    var link = "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
+                        "                         <span class=\"fa-stack\">\n" +
+                        "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                        "                         <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                        "                         </span>\n" +
+                        "                     </a>"
 
-       $("#removeResultsFromCart").click(function(){
-           var selectedPersons = <?= json_encode($aAddToCartIDs,JSON_NUMERIC_CHECK) ?>;
-           window.CRM.cart.removePerson(selectedPersons,function(data) {
-             if (data.status == "success") {
-               // broadcaster
-               $.event.trigger({
-                    type: "updateCartMessage",
-                    people:data.cart
-               });
-              }
-           });
-       });
+                    window.CRM.queryTable.cell(rowIdx, 0).data(link);
+                });
+            });
+
+        });
+
+        $("#intersectResultsToCart").click(function () {
+            var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
+            window.CRM.cart.intersectPerson(selectedPersons, function (data) {
+                if (data.status == "success") {
+                    // broadcaster
+                    $.event.trigger({
+                        type: "updateCartMessage",
+                        people: data.cart
+                    });
+                }
+
+                var cartPeople = data.cart;
+
+                window.CRM.queryTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                    var personButton = this.data()[0];
+                    var personID = $(personButton).data("cartpersonid")
+
+                    var link = "";
+
+                    if (cartPeople != undefined && cartPeople.length > 0 && cartPeople.includes(personID)) {
+                        link = "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
+                            "                         <span class=\"fa-stack\">\n" +
+                            "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                            "                         <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                            "                         </span>\n" +
+                            "                     </a>";
+                    } else {
+                        link = "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
+                            "                         <span class=\"fa-stack\">\n" +
+                            "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                            "                         <i class=\"fa fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
+                            "                         </span>\n" +
+                            "                     </a>";
+                    }
+
+                    window.CRM.queryTable.cell(rowIdx, 0).data(link);
+                });
+            });
+        });
+
+        $("#removeResultsFromCart").click(function () {
+            var selectedPersons = <?= json_encode($aAddToCartIDs, JSON_NUMERIC_CHECK) ?>;
+            window.CRM.cart.removePerson(selectedPersons, function (data) {
+                if (data.status == "success") {
+                    // broadcaster
+                    $.event.trigger({
+                        type: "updateCartMessage",
+                        people: data.cart
+                    });
+                }
+
+                window.CRM.queryTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                    var personButton = this.data()[0];
+                    var personID = $(personButton).data("cartpersonid")
+
+                    var link = "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
+                        "                         <span class=\"fa-stack\">\n" +
+                        "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
+                        "                         <i class=\"fa fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
+                        "                         </span>\n" +
+                        "                     </a>"
+
+                    window.CRM.queryTable.cell(rowIdx, 0).data(link);
+                });
+            });
+        });
     </script>
 
 
-<?php
+    <?php
 
 }
 
@@ -368,13 +422,13 @@ function DisplayQueryInfo()
 {
     global $qry_Name;
     global $qry_Description; ?>
-<div class="card card-info">
-    <div class="card-body">
-        <p><strong><?= _($qry_Name); ?></strong></p>
-        <p><?= _($qry_Description); ?></p>
+    <div class="card card-info">
+        <div class="card-body">
+            <p><strong><?= _($qry_Name); ?></strong></p>
+            <p><?= _($qry_Description); ?></p>
+        </div>
     </div>
-</div>
-<?php
+    <?php
 }
 
 
@@ -391,22 +445,22 @@ function getQueryFormInput($queryParameters)
     switch ($qrp_Type) {
         //Standard INPUT box
         case 0:
-            $input = '<input size="'.$qrp_InputBoxSize.'" name="'.$qrp_Alias.'" type="text" value="'.$qrp_Default.'" class="form-control">';
+            $input = '<input size="' . $qrp_InputBoxSize . '" name="' . $qrp_Alias . '" type="text" value="' . $qrp_Default . '" class="form-control">';
             break;
 
         //SELECT box with OPTION tags supplied in the queryparameteroptions_qpo table
         case 1:
             //Get the query parameter options for this parameter
-            $sSQL = 'SELECT * FROM queryparameteroptions_qpo WHERE qpo_qrp_ID = '.$qrp_ID;
+            $sSQL = 'SELECT * FROM queryparameteroptions_qpo WHERE qpo_qrp_ID = ' . $qrp_ID;
             $rsParameterOptions = RunQuery($sSQL);
 
-            $input = '<select name="'.$qrp_Alias.'" class="form-control">';
-            $input .= '<option disabled selected value> -- ' . _("select an option"). ' -- </option>';
+            $input = '<select name="' . $qrp_Alias . '" class="form-control">';
+            $input .= '<option disabled selected value> -- ' . _("select an option") . ' -- </option>';
 
             //Loop through the parameter options
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
-                $input .= '<option value="'.$qpo_Value.'">'._($qpo_Display).'</option>';
+                $input .= '<option value="' . $qpo_Value . '">' . _($qpo_Display) . '</option>';
             }
 
             $input .= '</select>';
@@ -417,12 +471,12 @@ function getQueryFormInput($queryParameters)
             //Run the SQL to get the options
             $rsParameterOptions = RunQuery($qrp_OptionSQL);
 
-            $input .= '<select name="'.$qrp_Alias.'" class="form-control">';
-            $input .= '<option disabled selected value> -- '._('select an option').' -- </option>';
+            $input .= '<select name="' . $qrp_Alias . '" class="form-control">';
+            $input .= '<option disabled selected value> -- ' . _('select an option') . ' -- </option>';
 
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
-                $input .= '<option value="'.$Value.'">'.$Display.'</option>';
+                $input .= '<option value="' . $Value . '">' . $Display . '</option>';
             }
 
             $input .= '</select>';
@@ -445,44 +499,46 @@ function DisplayParameterForm()
 {
     global $rsParameters;
     global $iQueryID; ?>
-<div class="row">
-    <div class="col-md-8">
+    <div class="row">
+        <div class="col-md-8">
 
-        <div class="card card-primary">
+            <div class="card card-primary">
 
-            <div class="card-body">
+                <div class="card-body">
 
-                <form method="post" action="QueryView.php?QueryID=<?= $iQueryID ?>">
-<?php
-//Loop through the parameters and display an entry box for each one
-if (mysqli_num_rows($rsParameters)) {
-    mysqli_data_seek($rsParameters, 0);
-}
-    while ($aRow = mysqli_fetch_array($rsParameters)) {
-        echo getQueryFormInput($aRow);
-    } ?>
+                    <form method="post" action="QueryView.php?QueryID=<?= $iQueryID ?>">
+                        <?php
+                        //Loop through the parameters and display an entry box for each one
+                        if (mysqli_num_rows($rsParameters)) {
+                            mysqli_data_seek($rsParameters, 0);
+                        }
+                        while ($aRow = mysqli_fetch_array($rsParameters)) {
+                            echo getQueryFormInput($aRow);
+                        } ?>
 
-                    <div class="form-group text-right">
-                        <input class="btn btn-primary" type="Submit" value="<?= _("Execute Query") ?>" name="Submit">
-                    </div>
-                </form>
+                        <div class="form-group text-right">
+                            <input class="btn btn-primary" type="Submit" value="<?= _("Execute Query") ?>"
+                                   name="Submit">
+                        </div>
+                    </form>
 
-            </div>
-        </div> <!-- box -->
+                </div>
+            </div> <!-- box -->
+
+        </div>
 
     </div>
 
-</div>
-
-<?php
+    <?php
 }
+
 ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function () {
-      $("#query-table").DataTable(window.CRM.plugin.dataTable);
+        window.CRM.queryTable = $("#query-table").DataTable(window.CRM.plugin.dataTable);
     });
 </script>
 
