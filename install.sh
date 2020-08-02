@@ -10,6 +10,8 @@ npm run install
 npm run postinstall
 npm run orm-gen
 
+npm run clean-datatables-lang-files
+
 #npm run composer-update
 
 chown -R www-data:www-data src
