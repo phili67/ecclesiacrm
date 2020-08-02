@@ -507,7 +507,7 @@ ORDER by person_per.per_LastName;";
             'CountNotViewFamilies' => $familiesWithoutPastoralCare->count(),
             'PercentViewFamilies' => round($percentViewFamilies,2),
             'familyColor' => $familyColor,
-            'PersonSingle' => $singleWithoutPastoralCare->count(),
+            'CountPersonSingle' => $singleWithoutPastoralCare->count(),
             'PercentPersonSingle' => round($percentSinglePersons,2),
             'singleColor' => $singleColor,
             'CountNotViewRetired' => $retiredPersonsWithoutPastoralCare->count(),
