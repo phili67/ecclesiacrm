@@ -5,6 +5,7 @@
 namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
@@ -36,12 +37,25 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                     $pers->filterByDateDeactivated(null);
                 }
 
-                $pers->usePersonVolunteerOpportunityQuery()
-                        ->useVolunteerOpportunityQuery()
-                            ->filterByName($searchLikeString, Criteria::LIKE)
-                            ->_or()->filterByDescription($searchLikeString, Criteria::LIKE)
-                        ->endUse()
-                    ->endUse();
+
+
+                if ( !( mb_strtolower($qry) == _('volunteers') || mb_strtolower($qry) == _('volunteer') ) ) {
+                    $pers->usePersonVolunteerOpportunityQuery()
+                            ->useVolunteerOpportunityQuery()
+                                ->filterByName($searchLikeString, Criteria::LIKE)
+                                ->_or()->filterByDescription($searchLikeString, Criteria::LIKE)
+                                ->addAsColumn('OpportunityName', VolunteerOpportunityTableMap::COL_VOL_NAME)
+                            ->endUse()
+                        ->endUse();
+                } else {
+                    $pers->usePersonVolunteerOpportunityQuery()
+                            ->useVolunteerOpportunityQuery()
+                                ->filterByName("", Criteria::NOT_EQUAL)
+                                ->_or()->filterByDescription("", Criteria::NOT_EQUAL)
+                                ->addAsColumn('OpportunityName', VolunteerOpportunityTableMap::COL_VOL_NAME)
+                            ->endUse()
+                        ->endUse();
+                }
 
                 if (!$this->global_search) {
                     $pers->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
@@ -109,7 +123,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $per->getId(),
                                 "img" => '<img src="/api/persons/'.$per->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a>',
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.OutputUtils::FormatFullName($per->getTitle(), $per->getFirstName(), $per->getMiddleName(), $per->getLastName(), $per->getSuffix(), 3).'</a> ('.$per->getOpportunityName().")",
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

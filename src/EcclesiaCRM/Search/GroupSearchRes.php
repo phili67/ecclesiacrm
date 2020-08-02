@@ -27,7 +27,7 @@ class GroupSearchRes extends BaseSearchRes
         if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {
             try {
 
-                if ( mb_strtolower($qry) == 'group' || mb_strtolower($qry) == 'groups' ) {// we search all the GroupMasters
+                if ( mb_strtolower($qry) == _('group') || mb_strtolower($qry) == _('groups') ) {// we search all the GroupMasters
                     $groups = GroupQuery::create()
                         ->withColumn('grp_Name', 'displayName')
                         ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')

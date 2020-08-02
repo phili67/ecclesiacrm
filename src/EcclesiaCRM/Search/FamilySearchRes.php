@@ -33,7 +33,7 @@ class FamilySearchRes extends BaseSearchRes
                     $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
                 }
 
-                if ( !( mb_strtolower($qry) == 'families' || mb_strtolower($qry) == 'family' ) ) {
+                if ( !( mb_strtolower($qry) == _('families') || mb_strtolower($qry) == _('family') ) ) {
                     $families->filterByName("%$qry%", Criteria::LIKE)
                         ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
