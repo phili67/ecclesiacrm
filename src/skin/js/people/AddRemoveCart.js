@@ -10,7 +10,7 @@ $(document).ready(function () {
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function (index, personButton) {
             personID = $(personButton).data("cartpersonid")
-            if (cartPeople.length > 0 && cartPeople.includes(personID)) {
+            if (cartPeople != undefined && cartPeople.length > 0 && cartPeople.includes(personID)) {
                 personPresent = true;
                 $(personButton).addClass("RemoveFromPeopleCart");
                 $(personButton).removeClass("AddToPeopleCart");
@@ -38,7 +38,7 @@ $(document).ready(function () {
         familyButtons = $("a[data-cartfamilyid]");
         $(familyButtons).each(function (index, familyButton) {
             familyID = $(familyButton).data("cartfamilyid")
-            if (cartFamilies.length > 0 && cartFamilies.includes(familyID)) {
+            if (cartFamilies != undefined && cartFamilies.length > 0 && cartFamilies.includes(familyID)) {
                 personPresent = true;
                 $(familyButton).addClass("RemoveFromFamilyCart");
                 $(familyButton).removeClass("AddToFamilyCart");
@@ -66,7 +66,7 @@ $(document).ready(function () {
         groupsButtons = $("a[data-cartgroupid]");
         $(groupsButtons).each(function (index, groupsButtons) {
             groupID = $(groupsButtons).data("cartgroupid")
-            if (cartGroups.length > 0 && cartGroups.includes(groupID)) {
+            if (cartGroups != undefined &&  cartGroups.length > 0 && cartGroups.includes(groupID)) {
                 personPresent = true;
                 $(groupsButtons).addClass("RemoveFromGroupCart");
                 $(groupsButtons).removeClass("AddToGroupCart");
