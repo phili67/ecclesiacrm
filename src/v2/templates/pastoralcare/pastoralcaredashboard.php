@@ -90,7 +90,7 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </td>
                         <td><span
-                                class="badge bg-<?= $Stats['familyColor'] ?>"><?= $Stats['CountNotViewFamilies'] ?></span>
+                                class="badge bg-<?= $Stats['singleColor'] ?>"><?= $Stats['CountPersonSingle'] ?></span>
                         </td>
                     </tr>
                     <tr>
