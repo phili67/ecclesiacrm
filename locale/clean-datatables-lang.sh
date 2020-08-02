@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# you've to install strip-json-comment-cli : npm install --global strip-json-comments-cli
 
 rm src/locale/datatables/*.lang1*
 cd locale
