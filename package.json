@@ -101,6 +101,7 @@
         "demosite": "scripts/demosite.sh",
         "changelog-gen": "scripts/gen-changelogs.sh",
         "orm-gen": "src/vendor/propel/propel/bin/propel --config-dir=propel model:build && cd src/ && composer dump-autoload",
+        "git ": "locale/clean-datatables-lang.sh",
         "graph-viz": "src/vendor/propel/propel/bin/propel --config-dir=propel graphviz:generate",
         "datadictionary": "src/vendor/propel/propel/bin/propel --config-dir=propel datadictionary:generate",
         "composer-install": "cd src/ && composer install",
