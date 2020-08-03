@@ -392,6 +392,7 @@ $(document).ready(function () {
         var listPagePeople  = [];
         var listPageGroups = [];
         var listPageFamilies = [];
+        var searchDone = false;
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
@@ -417,21 +418,28 @@ $(document).ready(function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-        } else if (listPageGroups.length > 0) {
+            searchDone = true;
+        }
+        if (listPageGroups.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  " + i18next.t("Loading people in cart...."));
             window.CRM.cart.addGroups(listPageGroups, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  " + i18next.t("Loading finished...."));
             });
-        } else if (listPageFamilies.length > 0) {
+            searchDone = true;
+        }
+        if (listPageFamilies.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
             window.CRM.cart.addFamilies(listPageFamilies, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-        } else {
+            searchDone = true;
+        }
+
+        if ( !searchDone ){
             window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
         }
     });
