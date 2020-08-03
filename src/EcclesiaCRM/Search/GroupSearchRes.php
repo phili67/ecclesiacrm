@@ -40,7 +40,7 @@ class GroupSearchRes extends BaseSearchRes
                         ->select(['displayName', 'uri', 'Id']);
                 }
 
-                if ($this->global_search) {
+                if (!$this->global_search) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
