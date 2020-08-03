@@ -48,7 +48,13 @@ $family = FamilyQuery::Create()->findOneById ($iFamily);
 
 $fyStr = MiscUtils::MakeFYString($iFYID);
 
-$sPageTitle = _($fyStr.' '._('Canvass Input for the').' '.$family->getName().' '._('family'));
+if ($family->getPeople()->count() == 1) {
+    $sPageTitle = $fyStr.' : '._('Canvass Input for the').' '.$family->getName()." ".$family->getPeople()[0]->getFirstName().' ('._('Person').")";
+} else {
+    $sPageTitle = $fyStr.' : '._('Canvass Input for the').' '.$family->getName().' ('._('family').')';
+}
+
+
 
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
