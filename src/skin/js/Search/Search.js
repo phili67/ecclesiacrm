@@ -391,6 +391,7 @@ $(document).ready(function () {
     $("#AddAllPageToCart").click(function(){
         var listPagePeople  = [];
         var listPageGroups = [];
+        var listPageFamilies = [];
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
@@ -403,6 +404,12 @@ $(document).ready(function () {
             listPageGroups.push(groupID);
         });
 
+        $(".AddToFamilyCart").each(function(res) {
+            var familyID = $(this).data("cartfamilyid");
+
+            listPageFamilies.push(familyID);
+        });
+
         if (listPagePeople.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
@@ -412,8 +419,15 @@ $(document).ready(function () {
             });
         } else if (listPageGroups.length > 0) {
             $('.in-progress').css("color", "red");
-            $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
+            $('.in-progress').html("  " + i18next.t("Loading people in cart...."));
             window.CRM.cart.addGroups(listPageGroups, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  " + i18next.t("Loading finished...."));
+            });
+        } else if (listPageFamilies.length > 0) {
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
+            window.CRM.cart.addFamilies(listPageFamilies, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
