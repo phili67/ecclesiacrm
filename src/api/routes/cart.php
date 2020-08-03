@@ -84,6 +84,12 @@ function cartOperation ($request, $response, $args) {
       {
         Cart::AddFamily($cartPayload->Family);
       }
+      elseif ( isset ($cartPayload->Families) )
+      {
+          foreach ($cartPayload->Families as $familyID) {
+              Cart::AddFamily($familyID);
+          }
+      }
       elseif ( isset ($cartPayload->Group) )
       {
         Cart::AddGroup($cartPayload->Group);
