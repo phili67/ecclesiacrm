@@ -36,6 +36,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\dto\CanvassUtilities;
 
 
 use Propel\Runtime\Propel;
@@ -108,6 +109,11 @@ $maxCustomFields = max($numRightCustomFields, $numLeftCustomFields);
 
 $numCustomFields = $numRightCustomFields + $numLeftCustomFields;
 
+// Get the lists of canvassers
+$canvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
+
+
 //Initialize the error flag
 $bErrorFlag = false;
 $sFirstNameError = '';
@@ -160,6 +166,20 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $sZip = InputUtils::LegacyFilterInput($_POST['Zip']);
     }
 
+    if (SessionUser::getUser()->isCanvasserEnabled()) { // Only take modifications to this field if the current user is a canvasser
+        $bOkToCanvass = isset($_POST['OkToCanvass']);
+        $iCanvasser = 0;
+        if (array_key_exists('Canvasser', $_POST)) {
+            $iCanvasser = InputUtils::LegacyFilterInput($_POST['Canvasser']);
+        }
+        if ((!$iCanvasser) && array_key_exists('BraveCanvasser', $_POST)) {
+            $iCanvasser = InputUtils::LegacyFilterInput($_POST['BraveCanvasser']);
+        }
+        if (!$iCanvasser) {
+            $iCanvasser = 0;
+        }
+    }
+
     // Person address stuff is normally surpressed in favor of family address info
     $sFamName = '';
     $sFamAddress1 = '';
@@ -174,6 +194,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $bSendNewsLetterString = "TRUE";
     } else {
         $bSendNewsLetterString = "FALSE";
+    }
+    if ($bOkToCanvass) {
+        $bOkToCanvassString = "TRUE";
+    } else {
+        $bOkToCanvassString = "FALSE";
     }
     if (array_key_exists('FamName', $_POST)) {
         $sFamName = InputUtils::FilterString($_POST['FamName']);
@@ -452,6 +477,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                 $family->setSendNewsletter("FALSE");
             }
 
+            if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($family)) {
+                $family->setOkToCanvass($bOkToCanvassString);
+                $family->setCanvasser($iCanvasser);
+            }
+
             if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
                 $person->setEnvelope($iEnvelope);
             }
@@ -524,8 +554,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setSendNewsletter($bSendNewsLetterString);
 
             // bSendNewsLetterString : When you activated a single person the family is deactivated
-            if ($bSendNewsLetterString == "TRUE" && !is_null($person->getFamily())) {
+            if ($bSendNewsLetterString == "TRUE" && !is_null($person->getFamily()) ) {
                 $person->getFamily()->setSendNewsletter("FALSE");
+            }
+
+            if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person->getFamily()) ) {
+                $person->getFamily()->setOkToCanvass($bOkToCanvassString);
+                $person->getFamily()->setCanvasser($iCanvasser);
             }
 
             if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
@@ -661,7 +696,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iViewAgeFlag = $person->getFlags();
         $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
 
-
         $iFacebookID = $person->getFacebookID();
         $sTwitter = $person->getTwitter();
         $sLinkedIn = $person->getLinkedIn();
@@ -687,6 +721,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $bFamilyWorkPhone = strlen($fam->getWorkPhone());
             $bFamilyCellPhone = strlen($fam->getCellPhone());
             $bFamilyEmail = strlen($fam->getEmail());
+
+            $bOkToCanvass = ($fam->getOkToCanvass() == 'TRUE');
+            $iCanvasser = $fam->getCanvasser();
         }
 
         $bFacebookID = $iFacebookID != 0;
@@ -741,6 +778,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iViewAgeFlag = 0;
         $sPhoneCountry = '';
         $bSendNewsLetter = false;
+        $bSendNewsLetter = false;
+        $bOkToCanvass = 1;
+        $iCanvasser = -1;
 
         $iFacebookID = 0;
         $sTwitter = '';
@@ -1100,6 +1140,64 @@ require 'Include/Header.php';
                 </div>
             </div>
             <!-- end of the new code PL -->
+
+            <!-- canvasser -->
+            <div class="row">
+                <?php if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person->getFamily()) && $person->getFamily()->getPeople()->count() == 1) { // Only show this field if the current user is a canvasser?>
+                    <div class="form-group col-md-4">
+                        <label><?= _('Ok To Canvass') ?>: </label>
+                        <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass) ? ' checked ' : '' ?>>
+                    </div>
+                    <?php
+
+
+                    if (!is_null($canvassers) && $canvassers->count() > 0) {
+                        ?>
+                        <div class="form-group col-md-4">
+                            <label><?= _('Assign a Canvasser') ?>:</label>
+                            <select name='Canvasser' class="form-control">
+                                <option value="0"><?= _('None selected') ?></option>
+                                <?php // Display all canvassers
+                                foreach ($canvassers as $canvasser) {
+                                    ?>
+                                    <option
+                                        value="<?= $canvasser->getId() ?>" <?= ($canvasser->getId() == $iCanvasser) ? ' selected' : '' ?>>
+                                        <?= $canvasser->getFirstName() . ' ' . $canvasser->getLastName() ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <?php
+                    }
+
+                    if (!is_null($braveCanvassers) && $braveCanvassers->count() > 0) {
+                        ?>
+                        <div class="form-group col-md-4">
+                            <label><?= _('Assign a Brave Canvasser') ?>: </label>
+
+                            <select name='BraveCanvasser' class="form-control">
+                                <option value="0"><?= _('None selected') ?></option>
+                                <?php // Display all canvassers
+                                foreach ($braveCanvassers as $braveCanvasser) {
+                                    ?>
+                                    <option
+                                        value="<?= $braveCanvasser->getId() ?>" <?= ($braveCanvasser->getId() == $iCanvasser) ? ' selected' : '' ?>>
+                                        <?= $braveCanvasser->getFirstName() . ' ' . $braveCanvasser->getLastName() ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <!-- canvasser -->
         </div>
     </div>
     <div class="card card-info clearfix">
