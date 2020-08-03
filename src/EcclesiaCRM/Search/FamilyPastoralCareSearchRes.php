@@ -50,7 +50,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                     ->endUse()
                     ->orderByDate(Criteria::DESC);
 
-                if ($this->global_search) {
+                if (!$this->global_search) {
                     $cares->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
                 }
 

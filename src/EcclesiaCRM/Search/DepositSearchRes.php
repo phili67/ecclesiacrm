@@ -35,8 +35,6 @@ class DepositSearchRes extends BaseSearchRes
                     $date = null;
                 }
 
-                //LoggerUtils::getAppLogger()->info("date = ".$date);
-
                 try {
                     $Deposits = DepositQuery::create()
                         ->filterByComment("%$qry%", Criteria::LIKE)

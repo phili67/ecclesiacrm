@@ -55,7 +55,12 @@ class PaymentSearchRes extends BaseSearchRes
                                     "members" => "",
                                     "actions" => ""
                                 ];
+
+                                if ($id > SystemConfig::getValue("iSearchIncludePaymentsMax")) {
+                                    break;
+                                }
                             }
+
 
                             array_push($this->results, $elt);
                         }

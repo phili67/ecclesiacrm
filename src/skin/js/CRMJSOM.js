@@ -626,6 +626,20 @@
             }
         });
       },
+      'addFamilies' : function (Families, callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path:'cart/',
+                data: JSON.stringify({"Families":Families})
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+            });
+      },
       'removeFamily' : function (FamilyID, callback)
       {
          window.CRM.APIRequest({

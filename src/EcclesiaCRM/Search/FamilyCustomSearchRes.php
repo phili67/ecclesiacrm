@@ -49,15 +49,11 @@ class FamilyCustomSearchRes extends BaseSearchRes
                         $familiesCustom->_or();
                     }
 
-                    if ($this->global_search) {
+                    if (!$this->global_search) {
                         $familiesCustom->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
                     }
 
                     $familiesCustom->find();
-
-                    LoggerUtils::getAppLogger()->info("coucou".$searchLikeString);
-                    LoggerUtils::getAppLogger()->info("coucou".$familiesCustom->toString());
-
 
                     if (!is_null($familiesCustom))
                     {

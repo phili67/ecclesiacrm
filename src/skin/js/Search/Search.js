@@ -240,7 +240,8 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     if (full.realType == 'Persons' || full.realType == 'Person Custom Field'
                         || full.realType == 'Individual Pastoral Care' || full.realType == 'Person Properties'
-                        || full.realType == 'Person Group role assignment') {
+                        || full.realType == 'Person Group role assignment'
+                        || full.realType == 'Volunteer Opportunities') {
                         if(cart.indexOf(data) == -1) {
                             cart.push(data);
                         }
@@ -390,6 +391,8 @@ $(document).ready(function () {
     $("#AddAllPageToCart").click(function(){
         var listPagePeople  = [];
         var listPageGroups = [];
+        var listPageFamilies = [];
+        var searchDone = false;
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
@@ -402,6 +405,12 @@ $(document).ready(function () {
             listPageGroups.push(groupID);
         });
 
+        $(".AddToFamilyCart").each(function(res) {
+            var familyID = $(this).data("cartfamilyid");
+
+            listPageFamilies.push(familyID);
+        });
+
         if (listPagePeople.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
@@ -409,14 +418,28 @@ $(document).ready(function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-        } else if (listPageGroups.length > 0) {
+            searchDone = true;
+        }
+        if (listPageGroups.length > 0) {
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  " + i18next.t("Loading people in cart...."));
+            window.CRM.cart.addGroups(listPageGroups, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  " + i18next.t("Loading finished...."));
+            });
+            searchDone = true;
+        }
+        if (listPageFamilies.length > 0) {
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
-            window.CRM.cart.addGroups(listPageGroups, function () {
+            window.CRM.cart.addFamilies(listPageFamilies, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-        } else {
+            searchDone = true;
+        }
+
+        if ( !searchDone ){
             window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
         }
     });
