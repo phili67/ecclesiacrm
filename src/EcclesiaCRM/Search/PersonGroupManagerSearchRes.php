@@ -152,9 +152,6 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
 
                         array_push($this->results, $elt);
                     }
-
-                    //LoggerUtils::getAppLogger()->info("toto".print_r($this->results,1));
-
                 }
             } catch (Exception $e) {
                 LoggerUtils::getAppLogger()->warn($e->getMessage());
