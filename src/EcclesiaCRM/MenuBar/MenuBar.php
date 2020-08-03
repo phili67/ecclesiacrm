@@ -235,8 +235,6 @@ class MenuBar {
         $this->addMenu($menu);
     }
 
-
-
     private function createMenuBar ()
     {
 
@@ -338,12 +336,6 @@ class MenuBar {
 
         $this->addMenu($menu);
 
-        $this->addMeeting();
-
-        if (SessionUser::getUser()->isPastoralCareEnabled()) {
-            $this->addPastoralCare();
-        }
-
         // we add the groups
         $this->addGroups();
 
@@ -352,6 +344,11 @@ class MenuBar {
             $this->addSundaySchoolGroups();
         }
 
+        $this->addMeeting();
+
+        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+            $this->addPastoralCare();
+        }
 
         // the Email
         if (SessionUser::getUser()->isMailChimpEnabled()) {
