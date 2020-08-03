@@ -916,7 +916,7 @@ require 'Include/Header.php';
             <div class="row">
                 <?php if (SessionUser::getUser()->isCanvasserEnabled()) { // Only show this field if the current user is a canvasser?>
                     <div class="form-group col-md-4">
-                        <label><?= _('Ok To Canvass') ?>: </label><br/>
+                        <label><?= _('Ok To Canvass') ?>: </label>
                         <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass) ? ' checked ' : '' ?>>
                     </div>
                     <?php
