@@ -21,6 +21,11 @@ $(document).ready(function () {
   });
 
 
+    $('.user-list').DataTable( {
+        responsive: true
+    } );
+
+
 
   $( ".modify-pastoral" ).click(function() {
     var ID = $(this).data("id");
