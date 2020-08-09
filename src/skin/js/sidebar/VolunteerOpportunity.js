@@ -141,6 +141,7 @@ $(document).ready(function () {
 
      bootbox.confirm({
       title: i18next.t("Attention"),
+      size: "large",
       message: i18next.t("If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
       callback: function(result){
         if (result) {
@@ -167,9 +168,17 @@ $(document).ready(function () {
         var modal = bootbox.dialog({
          message: BootboxContentVolunteerOpportunity,
          title: i18next.t("Custom Menu Link Editor"),
+         size: "large",
          buttons: [
           {
-           label: i18next.t("Save"),
+             label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+             className: "btn btn-default pull-left",
+             callback: function() {
+                 console.log("just do something on close");
+             }
+          },
+          {
+           label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
            className: "btn btn-primary pull-left",
            callback: function() {
              var Name         = $("#Name").val();
@@ -184,13 +193,6 @@ $(document).ready(function () {
                 window.CRM.VolunteerOpportunityTable.ajax.reload();
              });
             }
-          },
-          {
-           label: i18next.t("Close"),
-           className: "btn btn-default pull-left",
-           callback: function() {
-              console.log("just do something on close");
-           }
           }
          ],
          show: false,
@@ -214,30 +216,31 @@ $(document).ready(function () {
     var modal = bootbox.dialog({
      message: BootboxContentVolunteerOpportunity,
      title: i18next.t("Add New Volunteer Opportunity"),
+     size: "large",
      buttons: [
       {
-       label: i18next.t("Save"),
-       className: "btn btn-primary pull-left",
-       callback: function() {
-        var Name         = $("#Name").val();
-        var desc         = $("#desc").val();
-        var state        = $("#activ").is(':checked');
-
-         window.CRM.APIRequest({
-            method: 'POST',
-            path: 'volunteeropportunity/create',
-            data: JSON.stringify({"Name": Name,"desc": desc,"state":state})
-         }).done(function(data) {
-            window.CRM.VolunteerOpportunityTable.ajax.reload();
-         });
-        }
-      },
-      {
-       label: i18next.t("Close"),
+       label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
        className: "btn btn-default pull-left",
        callback: function() {
           console.log("just do something on close");
        }
+      },
+      {
+         label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+         className: "btn btn-primary pull-left",
+         callback: function() {
+             var Name         = $("#Name").val();
+             var desc         = $("#desc").val();
+             var state        = $("#activ").is(':checked');
+
+             window.CRM.APIRequest({
+                 method: 'POST',
+                 path: 'volunteeropportunity/create',
+                 data: JSON.stringify({"Name": Name,"desc": desc,"state":state})
+             }).done(function(data) {
+                 window.CRM.VolunteerOpportunityTable.ajax.reload();
+             });
+         }
       }
      ],
      show: false,
