@@ -20,6 +20,10 @@ $(document).ready(function () {
     $(".all-items").show();
   });
 
+    $('.user-list').DataTable( {
+        responsive: true
+    } );
+
 
 
   $( ".modify-pastoral" ).click(function() {
