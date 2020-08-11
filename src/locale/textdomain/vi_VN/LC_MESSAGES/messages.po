@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:55+0200\n"
+"POT-Creation-Date: 2020-08-11 12:21+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5291,6 +5291,27 @@ msgstr "Tùy chỉnh trường gia đình"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 #, fuzzy
 msgid "Group Manager"
+msgstr "Thành viên Ban/Mục vụ:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "groupmasters"
+msgstr "Ban/Mục vụ"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "Ban/Mục vụ"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Thành viên Ban/Mục vụ:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
 msgstr "Thành viên Ban/Mục vụ:"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -11267,11 +11288,6 @@ msgstr "Bộ lọc"
 #, fuzzy
 msgid "Volunteers"
 msgstr "Cộng tác viên"
-
-#: v2/templates/people/peoplelist.php:37
-#, fuzzy
-msgid "groupmasters"
-msgstr "Ban/Mục vụ"
 
 #: v2/templates/people/peoplelist.php:38
 #, fuzzy
