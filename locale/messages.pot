@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 09:10+0200\n"
+"POT-Creation-Date: 2020-08-11 12:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5045,6 +5045,23 @@ msgstr ""
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 msgid "Group Manager"
+msgstr ""
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+msgid "groupmasters"
+msgstr ""
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+msgid "groupmaster"
+msgstr ""
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanagers"
+msgstr ""
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanager"
 msgstr ""
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -10520,10 +10537,6 @@ msgstr ""
 
 #: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
 msgid "Volunteers"
-msgstr ""
-
-#: v2/templates/people/peoplelist.php:37
-msgid "groupmasters"
 msgstr ""
 
 #: v2/templates/people/peoplelist.php:38

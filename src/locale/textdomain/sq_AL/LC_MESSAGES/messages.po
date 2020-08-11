@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:55+0200\n"
+"POT-Creation-Date: 2020-08-11 12:21+0200\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5339,6 +5339,27 @@ msgstr "Fushat Custom"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 #, fuzzy
 msgid "Group Manager"
+msgstr "Anëtarët e grupit:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "groupmasters"
+msgstr "Grup"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "Grup"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Anëtarët e grupit:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
 msgstr "Anëtarët e grupit:"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -11348,11 +11369,6 @@ msgstr "Filtrat"
 #, fuzzy
 msgid "Volunteers"
 msgstr "Mundësitë vullnetare"
-
-#: v2/templates/people/peoplelist.php:37
-#, fuzzy
-msgid "groupmasters"
-msgstr "Grup"
 
 #: v2/templates/people/peoplelist.php:38
 #, fuzzy

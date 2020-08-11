@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:55+0200\n"
+"POT-Creation-Date: 2020-08-11 12:21+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5129,6 +5129,26 @@ msgstr "Benutzerdefinierte Felder"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 msgid "Group Manager"
+msgstr "Gruppe Manager"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+msgid "groupmasters"
+msgstr "gruppenmanager"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "gruppenmanager"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Gruppe Managern"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
 msgstr "Gruppe Manager"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -10723,10 +10743,6 @@ msgstr "Filtern Hinweisen"
 #: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
 msgid "Volunteers"
 msgstr "Freiwillige"
-
-#: v2/templates/people/peoplelist.php:37
-msgid "groupmasters"
-msgstr "gruppenmanager"
 
 #: v2/templates/people/peoplelist.php:38
 msgid "phone number"

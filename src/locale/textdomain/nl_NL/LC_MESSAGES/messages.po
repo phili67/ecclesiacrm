@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:55+0200\n"
+"POT-Creation-Date: 2020-08-11 12:21+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5333,6 +5333,27 @@ msgstr "Aanpasbare Velden"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 #, fuzzy
 msgid "Group Manager"
+msgstr "Groep Leden:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "groupmasters"
+msgstr "Groep"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "Groep"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Groep Leden:"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
 msgstr "Groep Leden:"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -11325,11 +11346,6 @@ msgstr "Filters"
 #, fuzzy
 msgid "Volunteers"
 msgstr "Vrijwilligers mogelijkheden"
-
-#: v2/templates/people/peoplelist.php:37
-#, fuzzy
-msgid "groupmasters"
-msgstr "Groep"
 
 #: v2/templates/people/peoplelist.php:38
 #, fuzzy

@@ -39,8 +39,8 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                  */
 
 
-                if ( mb_strtolower($qry) == 'groupmasters' || mb_strtolower($qry) == 'groupmaster'
-                    || mb_strtolower($qry) == 'groupmanagers' || mb_strtolower($qry) == 'groupmanager' ) {// we search all the GroupMasters
+                if ( mb_strtolower($qry) == _('groupmasters') || mb_strtolower($qry) == _('groupmaster')
+                    || mb_strtolower($qry) == _('groupmanagers') || mb_strtolower($qry) == _('groupmanager') ) {// we search all the GroupMasters
                     $persons = GroupManagerPersonQuery::create()
                         ->usePersonQuery()
                         ->filterByDateDeactivated(null)

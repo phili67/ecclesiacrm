@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 08:55+0200\n"
+"POT-Creation-Date: 2020-08-11 12:21+0200\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5180,7 +5180,7 @@ msgstr "groupes école du dimanche"
 #: EcclesiaCRM/Search/GroupSearchRes.php:128
 #: v2/templates/people/peoplelist.php:37
 msgid "Sunday Groups"
-msgstr "Groupes de Ecole du dimanche"
+msgstr "Groupes école du dimanche"
 
 #: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
 #: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
@@ -5213,6 +5213,26 @@ msgstr "Champs personnalisés de Personnes"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
 msgid "Group Manager"
+msgstr "Manager de Groupe"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:37
+msgid "groupmasters"
+msgstr "groupemanagers"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "groupemanagers"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Managers du Groupe"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
 msgstr "Manager de Groupe"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
@@ -10879,10 +10899,6 @@ msgstr "Conseils Filtre"
 #: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
 msgid "Volunteers"
 msgstr "Bénévoles"
-
-#: v2/templates/people/peoplelist.php:37
-msgid "groupmasters"
-msgstr "groupemanagers"
 
 #: v2/templates/people/peoplelist.php:38
 msgid "phone number"
