@@ -11,34 +11,43 @@ window.CRM.editor = null;
 $(document).ready(function () {
 
     function addEvent(dateStart, dateEnd, typeID) {
-        if (window.CRM.editor != null) {
-            CKEDITOR.remove(window.CRM.editor);
-            window.CRM.editor = null;
-        }
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/numberofcalendars',
+        }).done(function(data) {
+            if (data.CalendarNumber > 0) {
+                if (window.CRM.editor != null) {
+                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.editor = null;
+                }
 
-        modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'EventNames.php');
+                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'EventNames.php');
 
-        // we add the calendars and the types
-        addCalendars();
-        addCalendarEventTypes(typeID, false);
-        addAttendees (typeID);
+                // we add the calendars and the types
+                addCalendars();
+                addCalendarEventTypes(typeID, false);
+                addAttendees(typeID);
 
-        // finish installing the window
-        installAndfinishEventEditorWindow();
+                // finish installing the window
+                installAndfinishEventEditorWindow();
 
-        $("#typeEventrecurrence").prop("disabled", true);
-        $("#endDateEventrecurrence").prop("disabled", true);
+                $("#typeEventrecurrence").prop("disabled", true);
+                $("#endDateEventrecurrence").prop("disabled", true);
 
-        // this will ensure that image and table can be focused
-        $(document).on('focusin', function (e) {
-            e.stopImmediatePropagation();
+                // this will ensure that image and table can be focused
+                $(document).on('focusin', function (e) {
+                    e.stopImmediatePropagation();
+                });
+
+                $('#EventCalendar option:first-child').attr("selected", "selected");
+
+                modal.modal("show");
+
+                initMap();
+            } else {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
+            }
         });
-
-        $('#EventCalendar option:first-child').attr("selected", "selected");
-
-        modal.modal("show");
-
-        initMap();
     }
 
 
