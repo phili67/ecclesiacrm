@@ -654,6 +654,20 @@
             }
         });
       },
+      'removeFamilies' : function (Families, callback)
+        {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path:'cart/',
+                data: JSON.stringify({"removeFamilies":Families})
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+            });
+      },
       'addGroup' : function (GroupID, callback)
       {
          window.CRM.APIRequest({
@@ -698,6 +712,20 @@
             }
 
         });
+      },
+      'removeGroups' : function (Groups, callback) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'cart/removeGroups',
+                data: JSON.stringify({"Groups":Groups})
+            }).done(function(data) {
+                window.CRM.cart.refresh();
+                if(callback)
+                {
+                    callback(data);
+                }
+
+            });
       },
       'addStudentGroup' : function (GroupID, callback)
       {
@@ -854,14 +882,6 @@
             window.CRM.cart.updatePage(data.PeopleCart,data.FamiliesCart, data.GroupsCart);
             //window.scrollTo(0, 0);
             $("#iconCount").text(data.PeopleCart.length);
-
-            // broadcaster
-            $.event.trigger({
-              type: "emptyCartMessage",
-              cartPeople: data.PeopleCart,
-              familiesCart: data.FamiliesCart,
-              groupsCart:data.GroupsCart
-            });
 
             var cartDropdownMenu;
             if (data.PeopleCart.length > 0) {
