@@ -72,9 +72,9 @@ function renderGroupViewArray ($iGroupID)
 
     if (!empty($manager)) {
         $is_group_manager = true;
-        $_SESSION['bManageGroups'] = true;
+        $_SESSION['bManageGroups'] = true;// use session variable for an current group manager
     } else  {
-        $_SESSION['bManageGroups'] = SessionUser::getUser()->isManageGroupsEnabled();
+        $_SESSION['bManageGroups'] = SessionUser::getUser()->isManageGroupsEnabled();// use session variable for an current group manager
     }
 
 //Get the group's type name
