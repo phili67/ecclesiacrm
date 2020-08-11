@@ -32,6 +32,7 @@ $app->group('/cart', function () {
     $this->post('/emptyToEvent', 'emptyCartToEvent' );
     $this->post('/emptyToNewGroup', 'emptyCartToNewGroup' );
     $this->post('/removeGroup', 'removeGroupFromCart' );
+    $this->post('/removeGroups', 'removeGroupsFromCart' );
     $this->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
     $this->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
     $this->post('/addAllStudents', 'addAllStudentsToCart' );
@@ -104,6 +105,12 @@ function cartOperation ($request, $response, $args) {
       {
         Cart::RemoveFamily($cartPayload->removeFamily);
       }
+      elseif ( isset ($cartPayload->removeFamilies) )
+      {
+          foreach ($cartPayload->removeFamilies as $famID) {
+              Cart::RemoveFamily($famID);
+          }
+      }
       elseif ( isset ($cartPayload->studentGroup) )
       {
         Cart::AddStudents($cartPayload->studentGroup);
@@ -173,6 +180,23 @@ function removeGroupFromCart($request, $response, $args) {
 
     $cartPayload = (object)$request->getParsedBody();
     Cart::RemoveGroup($cartPayload->Group);
+    return $response->withJson([
+        'status' => "success",
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+    ]);
+}
+
+function removeGroupsFromCart($request, $response, $args) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+    $iCount = Cart::CountPeople();
+
+    $cartPayload = (object)$request->getParsedBody();
+    foreach ($cartPayload->Groups as $groupID) {
+        Cart::RemoveGroup($groupID);
+    }
     return $response->withJson([
         'status' => "success",
         'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
