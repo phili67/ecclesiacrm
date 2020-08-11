@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-05 15:49+0000\n"
+"POT-Creation-Date: 2020-08-11 08:55+0200\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,42 +69,42 @@ msgstr ""
 msgid "NONE"
 msgstr ""
 
-#: api/routes/cart.php:117
+#: api/routes/cart.php:124
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:133 api/routes/cart.php:148
+#: api/routes/cart.php:140 api/routes/cart.php:155
 msgid "records(s) successfully added to selected Group."
 msgstr ""
 
-#: api/routes/cart.php:178 api/routes/cart.php:199 api/routes/cart.php:220
-#: api/routes/cart.php:238 api/routes/cart.php:258 api/routes/cart.php:279
-#: api/routes/cart.php:296
+#: api/routes/cart.php:185 api/routes/cart.php:202 api/routes/cart.php:223
+#: api/routes/cart.php:244 api/routes/cart.php:262 api/routes/cart.php:282
+#: api/routes/cart.php:303 api/routes/cart.php:320
 msgid "records(s) successfully deleted from the selected Group."
 msgstr ""
 
-#: api/routes/cart.php:312 api/routes/cart.php:345 api/routes/cart.php:439
+#: api/routes/cart.php:336 api/routes/cart.php:369 api/routes/cart.php:463
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Cart kosong !"
 
-#: api/routes/cart.php:320
+#: api/routes/cart.php:344
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:323
+#: api/routes/cart.php:347
 msgid "Your cart and CRM has been successfully deleted"
 msgstr ""
 
-#: api/routes/cart.php:353
+#: api/routes/cart.php:377
 msgid "You can't deactivate admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:356
+#: api/routes/cart.php:380
 msgid "Your cart and CRM has been successfully deactivated"
 msgstr ""
 
-#: api/routes/cart.php:442
+#: api/routes/cart.php:466
 msgid "Your cart has been successfully emptied"
 msgstr ""
 
@@ -230,12 +230,13 @@ msgstr "orang dari"
 
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:160
 #: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:328
-#: EcclesiaCRM/Search/FamilySearchRes.php:20
+#: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:508
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:72
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
+#: v2/templates/people/peoplelist.php:37
 #: v2/templates/sundayschool/sundayschooldashboard.php:61
 msgid "Families"
 msgstr "Keluarga"
@@ -246,6 +247,7 @@ msgstr "Keluarga"
 #: PersonView.php:450 v2/templates/calendar/calendar.php:197
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:153
+#: v2/templates/people/peoplelist.php:37
 msgid "Groups"
 msgstr ""
 
@@ -621,7 +623,7 @@ msgstr "E-mail pribadi"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
@@ -1165,7 +1167,7 @@ msgstr "Tidak berminat"
 msgid "Canvass Input for the"
 msgstr "Peminta dukungan"
 
-#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:36
+#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:46
 msgid "family"
 msgstr "keluarga"
@@ -5011,8 +5013,8 @@ msgstr "Alamat"
 #: EcclesiaCRM/Search/AddressSearchRes.php:70
 #: EcclesiaCRM/Search/AddressSearchRes.php:109
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:75
-#: EcclesiaCRM/Search/DepositSearchRes.php:88
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
@@ -5021,15 +5023,15 @@ msgstr "Alamat"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:78
-#: EcclesiaCRM/Search/FamilySearchRes.php:113
-#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:72
-#: EcclesiaCRM/Search/GroupSearchRes.php:107
-#: EcclesiaCRM/Search/GroupSearchRes.php:120
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
 #: EcclesiaCRM/Search/PaymentSearchRes.php:47
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
@@ -5063,7 +5065,7 @@ msgstr "Alamat"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:126 FamilyView.php:537 Menu.php:469
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537 Menu.php:469
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
 #: v2/templates/pastoralcare/pastoralcareperson.php:113
@@ -5075,7 +5077,7 @@ msgstr "Anggota"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:127
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
@@ -5105,7 +5107,7 @@ msgstr "Anggota"
 msgid "Private Data"
 msgstr ""
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:21
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
 #, fuzzy
 msgid "Deposits"
 msgstr "Rincian Setoran"
@@ -5130,11 +5132,33 @@ msgstr "Orang"
 msgid "Families Properties"
 msgstr "Peran Keluarga"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:36 Include/Functions.php:108
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
 #: v2/templates/cart/cartview.php:185
 #, fuzzy
 msgid "families"
 msgstr "Keluarga"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "single"
+msgstr "Tambah Event Baru"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "singles"
+msgstr "Tambah Event Baru"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143 Menu.php:517
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:85
+#: v2/templates/people/peopledashboard.php:92
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "Singles"
+msgstr "Tambah Event Baru"
 
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
 #, fuzzy
@@ -5148,6 +5172,23 @@ msgstr ""
 #: EcclesiaCRM/Search/GroupSearchRes.php:30
 #, fuzzy
 msgid "groups"
+msgstr "Pilih Group"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr ""
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#, fuzzy
+msgid "sunday groups"
+msgstr "Tentukan peran"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "Sunday Groups"
 msgstr "Pilih Group"
 
 #: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
@@ -7189,16 +7230,16 @@ msgstr ""
 msgid "Direction"
 msgstr "Aksi"
 
-#: GeoPage.php:431 v2/templates/people/peoplelist.php:90
+#: GeoPage.php:431 v2/templates/people/peoplelist.php:98
 #, fuzzy
 msgid "Add All to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: GeoPage.php:435 v2/templates/people/peoplelist.php:92
+#: GeoPage.php:435 v2/templates/people/peoplelist.php:100
 msgid "Intersect with Cart"
 msgstr ""
 
-#: GeoPage.php:438 v2/templates/people/peoplelist.php:93
+#: GeoPage.php:438 v2/templates/people/peoplelist.php:101
 msgid "Remove All from Cart"
 msgstr ""
 
@@ -8095,12 +8136,6 @@ msgstr "Lihat semua Orang"
 #, fuzzy
 msgid "View"
 msgstr "Lihat semua Orang"
-
-#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:85
-#: v2/templates/people/peopledashboard.php:92
-#, fuzzy
-msgid "Singles"
-msgstr "Tambah Event Baru"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -11088,35 +11123,89 @@ msgstr ""
 
 #: v2/templates/people/peoplelist.php:35
 #, fuzzy
+msgid "Filter Hints"
+msgstr "Penyaring"
+
+#: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
+msgid "Volunteers"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "groupmasters"
+msgstr "Pilih Group"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "phone number"
+msgstr "Nomor Rute Bank"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "first name"
+msgstr "Nama Depan"
+
+#: v2/templates/people/peoplelist.php:38
+msgid "name"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "group name"
+msgstr "Keanggotaan Kelompok"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "check number"
+msgstr "Nomor Rute Bank"
+
+#: v2/templates/people/peoplelist.php:38
+msgid "city"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "street"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "zip code"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "or what else"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:43
+#, fuzzy
 msgid "Choose your person filters"
 msgstr "Area Pribadi Kustom"
 
-#: v2/templates/people/peoplelist.php:43
+#: v2/templates/people/peoplelist.php:51
 #, fuzzy
 msgid "Group filters"
 msgstr "Laporan direktori"
 
-#: v2/templates/people/peoplelist.php:57 queryparameters_qrp.php:9
+#: v2/templates/people/peoplelist.php:65 queryparameters_qrp.php:9
 #, fuzzy
 msgid "Search"
 msgstr "Ibu Kepala Keluarga"
 
-#: v2/templates/people/peoplelist.php:65
+#: v2/templates/people/peoplelist.php:73
 #, fuzzy
 msgid "Search Results"
 msgstr "Tambah Pembayaran"
 
-#: v2/templates/people/peoplelist.php:75
+#: v2/templates/people/peoplelist.php:83
 #, fuzzy
 msgid "Results count:"
 msgstr "Laporan direktori"
 
-#: v2/templates/people/peoplelist.php:87
+#: v2/templates/people/peoplelist.php:95
 #, fuzzy
 msgid "Add This Page to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: v2/templates/people/peoplelist.php:89
+#: v2/templates/people/peoplelist.php:97
 #, fuzzy
 msgid "Remove This Page from Cart"
 msgstr "Buat Direktori dari Cart"
@@ -11728,10 +11817,6 @@ msgstr "Pilih Group"
 msgid "Select all members"
 msgstr "Pilih Group"
 
-#: query_qry.php:14 query_qry.php:59
-msgid "Volunteers"
-msgstr ""
-
 #: query_qry.php:15 query_qry.php:60
 msgid "Recent friends"
 msgstr "Friends who signed up in previous months"
@@ -12026,14 +12111,6 @@ msgstr ""
 
 #: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 brand link color style"
-msgstr ""
-
-#: userconfig_ucfg.php:15
-msgid "choice"
-msgstr ""
-
-#: userconfig_ucfg.php:16
-msgid "boolean"
 msgstr ""
 
 msgid "Jan"
