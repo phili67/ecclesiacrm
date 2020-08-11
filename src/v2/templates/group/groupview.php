@@ -96,12 +96,26 @@ require $sRootDocument . '/Include/Header.php';
         ?>
 
         <?php
-        if ($_SESSION['bManageGroups']) {
+        if ( $_SESSION['bManageGroups'] ) {// use session variable for an current group manager
             ?>
             <form method="POST" action="<?= $sRootPath ?>/GroupReports.php" style="display:inline">
                 <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
                 <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= _("Group reports") ?></button>
             </form>
+
+            <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>"> <i
+                    class="fa fa-file-picture-o"></i> <span
+                    class="cartActionDescription"><?= _("Group Badges") ?></span></a>
+            <?php
+        }
+        ?>
+
+
+        <?php
+        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isMenuOptionsEnabled()) {
+            ?>
+            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
             <?php
         }
         ?>
@@ -213,19 +227,6 @@ require $sRootDocument . '/Include/Header.php';
                 <script nonce="<?= $CSPNonce ?>">function allPhonesCommaD() {prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
                 <?php
             }
-        }
-        ?>
-
-        <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>"> <i
-                class="fa fa-file-picture-o"></i> <span
-                class="cartActionDescription"><?= _("Group Badges") ?></span></a>
-
-        <?php
-        if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-            || SessionUser::getUser()->isMenuOptionsEnabled()) {
-            ?>
-            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
-            <?php
         }
         ?>
     </div>
