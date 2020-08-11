@@ -35,7 +35,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-sm-3"><?= _("Filter Hints") ?> :</div>
             <div class="col-sm-9" style="color:orange">
                  <?= "*".", '"._("Singles")."', '"._("Volunteers")."', '"._("Families")."', '"._("Groups")."', '"._("Sunday Groups")."', '"._("groupmasters")."', <br/>" ?>
-                 <?= _("a phone number").", "._("a first name").", "._("a name").", "._("a group name").", "._("a check number")." .... " ?>
+                 <?= _("phone number").", "._("first name").", "._("name").", "._("group name").", "._("check number").", "._("city").", "._("street").", "._("zip code")." "._("or what else")." .... " ?>
             </div>
         </div>
         <br/>
