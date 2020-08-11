@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-07-24T15:53:26.115Z\n"
+"POT-Creation-Date: 2020-08-11T06:55:35.436Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2126,6 +2126,12 @@ msgstr "Leute im Kart werden gelöschen..."
 
 msgid "Removing finished...."
 msgstr "Laden fertig..."
+
+msgid "Remove People"
+msgstr "Leute Entfernen"
+
+msgid "Nothing to remove."
+msgstr "Nichts zu entfernen."
 
 msgid "Last visit/call"
 msgstr "letzten Besuch/Anruf"

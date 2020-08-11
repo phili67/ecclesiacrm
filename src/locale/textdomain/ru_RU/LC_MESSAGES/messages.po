@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-05 15:49+0000\n"
+"POT-Creation-Date: 2020-08-11 08:55+0200\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,46 +69,46 @@ msgstr ""
 msgid "NONE"
 msgstr ""
 
-#: api/routes/cart.php:117
+#: api/routes/cart.php:124
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:133 api/routes/cart.php:148
+#: api/routes/cart.php:140 api/routes/cart.php:155
 #, fuzzy
 msgid "records(s) successfully added to selected Group."
 msgstr "Группа успешно добавлен в корзину."
 
-#: api/routes/cart.php:178 api/routes/cart.php:199 api/routes/cart.php:220
-#: api/routes/cart.php:238 api/routes/cart.php:258 api/routes/cart.php:279
-#: api/routes/cart.php:296
+#: api/routes/cart.php:185 api/routes/cart.php:202 api/routes/cart.php:223
+#: api/routes/cart.php:244 api/routes/cart.php:262 api/routes/cart.php:282
+#: api/routes/cart.php:303 api/routes/cart.php:320
 #, fuzzy
 msgid "records(s) successfully deleted from the selected Group."
 msgstr "Выбранная запись успешно удалены из корзины."
 
-#: api/routes/cart.php:312 api/routes/cart.php:345 api/routes/cart.php:439
+#: api/routes/cart.php:336 api/routes/cart.php:369 api/routes/cart.php:463
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Ваша корзина пуста!"
 
-#: api/routes/cart.php:320
+#: api/routes/cart.php:344
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:323
+#: api/routes/cart.php:347
 #, fuzzy
 msgid "Your cart and CRM has been successfully deleted"
 msgstr "Ваша корзина успешно очищена"
 
-#: api/routes/cart.php:353
+#: api/routes/cart.php:377
 msgid "You can't deactivate admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:356
+#: api/routes/cart.php:380
 #, fuzzy
 msgid "Your cart and CRM has been successfully deactivated"
 msgstr "Ваша корзина успешно очищена"
 
-#: api/routes/cart.php:442
+#: api/routes/cart.php:466
 #, fuzzy
 msgid "Your cart has been successfully emptied"
 msgstr "Ваша корзина успешно очищена"
@@ -235,12 +235,13 @@ msgstr "Персона"
 
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:160
 #: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:328
-#: EcclesiaCRM/Search/FamilySearchRes.php:20
+#: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:508
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:72
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
+#: v2/templates/people/peoplelist.php:37
 #: v2/templates/sundayschool/sundayschooldashboard.php:61
 msgid "Families"
 msgstr "Семьи"
@@ -251,6 +252,7 @@ msgstr "Семьи"
 #: PersonView.php:450 v2/templates/calendar/calendar.php:197
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:153
+#: v2/templates/people/peoplelist.php:37
 #, fuzzy
 msgid "Groups"
 msgstr "Группа"
@@ -638,7 +640,7 @@ msgstr "Персона"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
@@ -1199,7 +1201,7 @@ msgstr "Не интересует Сообщить"
 msgid "Canvass Input for the"
 msgstr " Canvass Вход для "
 
-#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:36
+#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
 #: EcclesiaCRM/Service/PersonService.php:46
 #, fuzzy
 msgid "family"
@@ -5144,8 +5146,8 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/AddressSearchRes.php:70
 #: EcclesiaCRM/Search/AddressSearchRes.php:109
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:75
-#: EcclesiaCRM/Search/DepositSearchRes.php:88
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
@@ -5154,15 +5156,15 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:78
-#: EcclesiaCRM/Search/FamilySearchRes.php:113
-#: EcclesiaCRM/Search/FamilySearchRes.php:126
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:72
-#: EcclesiaCRM/Search/GroupSearchRes.php:107
-#: EcclesiaCRM/Search/GroupSearchRes.php:120
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
 #: EcclesiaCRM/Search/PaymentSearchRes.php:47
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
@@ -5196,7 +5198,7 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:126 FamilyView.php:537 Menu.php:469
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537 Menu.php:469
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
 #: v2/templates/pastoralcare/pastoralcareperson.php:113
@@ -5208,7 +5210,7 @@ msgstr "Участники группы:"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:127
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
@@ -5239,7 +5241,7 @@ msgstr "Участники группы:"
 msgid "Private Data"
 msgstr "Личные"
 
-#: EcclesiaCRM/Search/DepositSearchRes.php:21
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
 #, fuzzy
 msgid "Deposits"
 msgstr "Депозит"
@@ -5264,11 +5266,33 @@ msgstr "Люди"
 msgid "Families Properties"
 msgstr "Недвижимость"
 
-#: EcclesiaCRM/Search/FamilySearchRes.php:36 Include/Functions.php:108
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
 #: v2/templates/cart/cartview.php:185
 #, fuzzy
 msgid "families"
 msgstr "Семьи"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "single"
+msgstr "Добавить событие"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "singles"
+msgstr "Добавить событие"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143 Menu.php:517
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:85
+#: v2/templates/people/peopledashboard.php:92
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "Singles"
+msgstr "Добавить событие"
 
 #: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
 #, fuzzy
@@ -5284,6 +5308,23 @@ msgstr "Группа"
 #, fuzzy
 msgid "groups"
 msgstr "Группа"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr ""
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#, fuzzy
+msgid "sunday groups"
+msgstr "Назначенные группы"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "Sunday Groups"
+msgstr "Выберите группу"
 
 #: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
 #: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:384
@@ -7323,16 +7364,16 @@ msgstr "Расстояние"
 msgid "Direction"
 msgstr "Направление"
 
-#: GeoPage.php:431 v2/templates/people/peoplelist.php:90
+#: GeoPage.php:431 v2/templates/people/peoplelist.php:98
 #, fuzzy
 msgid "Add All to Cart"
 msgstr "Добавить в корзину"
 
-#: GeoPage.php:435 v2/templates/people/peoplelist.php:92
+#: GeoPage.php:435 v2/templates/people/peoplelist.php:100
 msgid "Intersect with Cart"
 msgstr "Пересечь с корзину"
 
-#: GeoPage.php:438 v2/templates/people/peoplelist.php:93
+#: GeoPage.php:438 v2/templates/people/peoplelist.php:101
 #, fuzzy
 msgid "Remove All from Cart"
 msgstr "Удалить из корзины"
@@ -8273,12 +8314,6 @@ msgstr "Посмотреть все"
 #, fuzzy
 msgid "View"
 msgstr "Посмотреть все"
-
-#: Menu.php:517 v2/templates/pastoralcare/pastoralcaredashboard.php:85
-#: v2/templates/people/peopledashboard.php:92
-#, fuzzy
-msgid "Singles"
-msgstr "Добавить событие"
 
 #: Menu.php:521 v2/templates/people/peopledashboard.php:96
 #, fuzzy
@@ -11358,35 +11393,90 @@ msgstr ""
 
 #: v2/templates/people/peoplelist.php:35
 #, fuzzy
+msgid "Filter Hints"
+msgstr "Фильтры"
+
+#: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
+#, fuzzy
+msgid "Volunteers"
+msgstr "Волонтер Возможность редактор"
+
+#: v2/templates/people/peoplelist.php:37
+#, fuzzy
+msgid "groupmasters"
+msgstr "Группа"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "phone number"
+msgstr "Номер Телефона"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "first name"
+msgstr "Имя"
+
+#: v2/templates/people/peoplelist.php:38
+msgid "name"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "group name"
+msgstr "Имя Группы"
+
+#: v2/templates/people/peoplelist.php:38
+#, fuzzy
+msgid "check number"
+msgstr "Номер Телефона"
+
+#: v2/templates/people/peoplelist.php:38
+msgid "city"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "street"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "zip code"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:38
+msgid "or what else"
+msgstr ""
+
+#: v2/templates/people/peoplelist.php:43
+#, fuzzy
 msgid "Choose your person filters"
 msgstr "Пользовательские лицо Поля"
 
-#: v2/templates/people/peoplelist.php:43
+#: v2/templates/people/peoplelist.php:51
 #, fuzzy
 msgid "Group filters"
 msgstr "Группа Роли"
 
-#: v2/templates/people/peoplelist.php:57 queryparameters_qrp.php:9
+#: v2/templates/people/peoplelist.php:65 queryparameters_qrp.php:9
 #, fuzzy
 msgid "Search"
 msgstr "Март"
 
-#: v2/templates/people/peoplelist.php:65
+#: v2/templates/people/peoplelist.php:73
 #, fuzzy
 msgid "Search Results"
 msgstr "Депозит"
 
-#: v2/templates/people/peoplelist.php:75
+#: v2/templates/people/peoplelist.php:83
 #, fuzzy
 msgid "Results count:"
 msgstr "Группа Листинг"
 
-#: v2/templates/people/peoplelist.php:87
+#: v2/templates/people/peoplelist.php:95
 #, fuzzy
 msgid "Add This Page to Cart"
 msgstr "Добавить группу Пользователей в корзину"
 
-#: v2/templates/people/peoplelist.php:89
+#: v2/templates/people/peoplelist.php:97
 #, fuzzy
 msgid "Remove This Page from Cart"
 msgstr "Удалить из корзины"
@@ -12030,11 +12120,6 @@ msgstr "Сделайте файл данных"
 msgid "Select all members"
 msgstr "Выбрать все"
 
-#: query_qry.php:14 query_qry.php:59
-#, fuzzy
-msgid "Volunteers"
-msgstr "Волонтер Возможность редактор"
-
 #: query_qry.php:15 query_qry.php:60
 #, fuzzy
 msgid "Recent friends"
@@ -12333,14 +12418,6 @@ msgstr ""
 
 #: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 brand link color style"
-msgstr ""
-
-#: userconfig_ucfg.php:15
-msgid "choice"
-msgstr ""
-
-#: userconfig_ucfg.php:16
-msgid "boolean"
 msgstr ""
 
 #, fuzzy
