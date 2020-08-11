@@ -22,6 +22,14 @@ $(document).ready(function () {
     $("#searchComboGroup").select2();
     $("#searchComboGroupRole").select2();
 
+    $('#SearchTerm').on('input', function() {
+        if ($(this).val() === "*") {
+            $(".person-filters").show();
+        } else {
+            $(".person-filters").hide();
+        }
+    });
+
     $("#searchCombo").select2().on("change", function (e) {
         if (buildMenu == true) {
             return;
@@ -263,11 +271,6 @@ $(document).ready(function () {
                 visible: false,
                 data: 'type',
                 render: function (data, type, full, meta) {
-                    res = "";
-                    if (full.realType == 'Family Pastoral Care' || full.realType == 'Individual Pastoral Care'  || full.realType == 'Pledges') {
-                        res += " ";
-                    }
-                    res += i18next.t(data);
                     return data;
                 }
             },
@@ -284,7 +287,7 @@ $(document).ready(function () {
                 title: i18next.t('Actions'),
                 data: 'actions',
                 render: function (data, type, full, meta) {
-                    return '<table width="130"><tbody><tr style="background-color: transparent !important;"><td>' + data + '</td></tr></tbody></<table>';
+                    return '<table width="130"><tbody><tr style="background-color: transparent !important;"><td style="border: 0px;">' + data + '</td></tr></tbody></<table>';
                 }
             },
             {
@@ -388,11 +391,24 @@ $(document).ready(function () {
         });
     });
 
-    $("#AddAllPageToCart").click(function(){
+    $("#RemoveAllFromCart").click(function(){
+        loadAllPeople()
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+        window.CRM.cart.removePerson(window.CRM.listPeople, function () {
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+        });
+    });
+
+
+    $("#AddPageToCart").click(function(){
         var listPagePeople  = [];
         var listPageGroups = [];
         var listPageFamilies = [];
-        var searchDone = false;
+
+        var cartPassed = false;
+
         $(".AddToPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
@@ -406,69 +422,112 @@ $(document).ready(function () {
         });
 
         $(".AddToFamilyCart").each(function(res) {
-            var familyID = $(this).data("cartfamilyid");
+            var famID = $(this).data("cartfamilyid");
 
-            listPageFamilies.push(familyID);
+            listPageFamilies.push(famID);
         });
 
+
         if (listPagePeople.length > 0) {
+            cartPassed = true;
+
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
             window.CRM.cart.addPerson(listPagePeople, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-            searchDone = true;
         }
-        if (listPageGroups.length > 0) {
-            $('.in-progress').css("color", "red");
-            $('.in-progress').html("  " + i18next.t("Loading people in cart...."));
-            window.CRM.cart.addGroups(listPageGroups, function () {
-                $('.in-progress').css("color", "green");
-                $('.in-progress').html("  " + i18next.t("Loading finished...."));
-            });
-            searchDone = true;
-        }
+
         if (listPageFamilies.length > 0) {
+            cartPassed = true;
+
             $('.in-progress').css("color", "red");
             $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
             window.CRM.cart.addFamilies(listPageFamilies, function () {
                 $('.in-progress').css("color", "green");
                 $('.in-progress').html("  "+ i18next.t("Loading finished...."));
             });
-            searchDone = true;
         }
 
-        if ( !searchDone ){
+        if (listPageGroups.length > 0) {
+            cartPassed = true;
+
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Loading people in cart...."));
+            window.CRM.cart.addGroups(listPageGroups, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Loading finished...."));
+            });
+        }
+
+        if (!cartPassed) {
             window.CRM.DisplayAlert(i18next.t("Add People"), i18next.t("This page is still in the cart."));
         }
     });
 
-
-    $("#RemoveAllFromCart").click(function(){
-        loadAllPeople()
-        $('.in-progress').css("color", "red");
-        $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
-        window.CRM.cart.removePerson(window.CRM.listPeople, function () {
-            $('.in-progress').css("color", "green");
-            $('.in-progress').html("  "+ i18next.t("Removing finished...."));
-        });
-    });
-
-    $("#RemoveAllPageFromCart").click(function(){
+    $("#RemovePageFromCart").click(function(){
         var listPagePeople  = [];
+        var listPageGroups = [];
+        var listPageFamilies = [];
+
+        var cartPassed = false;
+
         $(".RemoveFromPeopleCart").each(function(res) {
             var personId= $(this).data("cartpersonid");
 
             listPagePeople.push(personId);
         });
 
-        $('.in-progress').css("color", "red");
-        $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
-        window.CRM.cart.removePerson(listPagePeople, function () {
-            $('.in-progress').css("color", "green");
-            $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+        $(".RemoveFromGroupCart").each(function(res) {
+            var groupID = $(this).data("cartgroupid");
+
+            listPageGroups.push(groupID);
         });
+
+        $(".RemoveFromFamilyCart").each(function(res) {
+            var famID = $(this).data("cartfamilyid");
+
+            listPageFamilies.push(famID);
+        });
+
+
+        if (listPagePeople.length > 0) {
+            cartPassed = true;
+
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+            window.CRM.cart.removePerson(listPagePeople, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+            });
+        }
+
+        if (listPageFamilies.length > 0) {
+            cartPassed = true;
+
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+            window.CRM.cart.removeFamilies(listPageFamilies, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+            });
+        }
+
+        if (listPageGroups.length > 0) {
+            cartPassed = true;
+
+            $('.in-progress').css("color", "red");
+            $('.in-progress').html("  "+ i18next.t("Removing people in cart...."));
+            window.CRM.cart.removeGroups(listPageGroups, function () {
+                $('.in-progress').css("color", "green");
+                $('.in-progress').html("  "+ i18next.t("Removing finished...."));
+            });
+        }
+
+        if (!cartPassed) {
+            window.CRM.DisplayAlert(i18next.t("Remove People"), i18next.t("Nothing to remove."));
+        }
     });
 
     // the main part
@@ -487,6 +546,10 @@ $(document).ready(function () {
     // listener emptyCart
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
+
+    // listener updateCartMessage
+    // newMessage event subscribers : Listener CRJSOM.js
+    $(document).on("updateCartMessage", updateButtons);
 
     // newMessage event handler
     function updateButtons(e) {

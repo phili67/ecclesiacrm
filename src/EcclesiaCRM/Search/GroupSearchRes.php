@@ -32,6 +32,12 @@ class GroupSearchRes extends BaseSearchRes
                         ->withColumn('grp_Name', 'displayName')
                         ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
                         ->select(['displayName', 'uri', 'Id']);
+                } else if ( mb_strtolower($qry) == _('sunday group') || mb_strtolower($qry) == _('sunday groups') ) {// we search all the GroupMasters
+                    $groups = GroupQuery::create()
+                        ->filterByType(4)// a sunday group type
+                        ->withColumn('grp_Name', 'displayName')
+                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/sundayschool/",Group.Id,"/view")', 'uri')
+                        ->select(['displayName', 'uri', 'Id']);
                 } else {
                     $groups = GroupQuery::create()
                         ->filterByName("%$qry%", Criteria::LIKE)
@@ -104,7 +110,7 @@ class GroupSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/group/' . $group['Id'] . '/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . $group['uri'] . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -117,9 +123,9 @@ class GroupSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $group['Id'],
                                 "img" => '<img src="/Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$group['Id'].'/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$group['displayName'].'</a>',
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().$group['uri'].'" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$group['displayName'].'</a>',
                                 "address" => "",
-                                "type" => " "._($this->getGlobalSearchType()),
+                                "type" => " ".((mb_strtolower($qry) == _('sunday group') || mb_strtolower($qry) == _('sunday groups') )?_("Sunday Groups"):_($this->getGlobalSearchType())),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
                                 "Classification" => "",

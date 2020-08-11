@@ -11,6 +11,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Map\FamilyTableMap;
 
 
 class FamilySearchRes extends BaseSearchRes
@@ -27,22 +28,40 @@ class FamilySearchRes extends BaseSearchRes
             try {
                 $searchLikeString = '%'.$qry.'%';
 
-                $families = FamilyQuery::create();
+                $subQuery = FamilyQuery::create()
+                    ->withColumn('Family.Id','FamId')
+                    ->leftJoinPerson()
+                    ->usePersonQuery()
+                        ->filterByDateDeactivated( null)
+                        ->withColumn('COUNT(Person.Id)','cnt')
+                    ->endUse()
+                    ->filterByDateDeactivated(NULL)
+                    ->groupById(FamilyTableMap::COL_FAM_ID);
 
-                if (SystemConfig::getBooleanValue('bGDPR')) {
-                    $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
-                }
+                $families = FamilyQuery::create()
+                    ->addSelectQuery($subQuery, 'res'); // only real family with more than one member will be showed here
 
-                if ( !( mb_strtolower($qry) == _('families') || mb_strtolower($qry) == _('family') ) ) {
+                if ( !( mb_strtolower($qry) == _('families') || mb_strtolower($qry) == _('family')
+                        || mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles') ) ) {
                     $families->filterByName("%$qry%", Criteria::LIKE)
                         ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
                 }
 
-                if (!$this->global_search) {
-                    $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))->find();
+                $compareOp = ">";
+                if ( mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles') ) {
+                    $compareOp = "=";
                 }
+
+                if (!$this->global_search) {
+                    $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
+                        ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
+                } else {
+                    $families
+                        ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
+                }
+
 
                 if (!is_null($families))
                 {
@@ -50,10 +69,6 @@ class FamilySearchRes extends BaseSearchRes
 
                     foreach ($families as $family)
                     {
-                        if ($family->getPeople()->count() == 1) {// we avoid a one person family
-                            continue;
-                        }
-
                         $elt=[
                             "id" => 'family-id-'.$id++,
                             "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
@@ -125,7 +140,7 @@ class FamilySearchRes extends BaseSearchRes
                                 "img" => '<img src="/api/families/'.$family->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
                                 "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$family->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$family->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                                "type" => _($this->getGlobalSearchType()),
+                                "type" => (mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles'))?_("Singles"):_($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
                                 "Classification" => "",
