@@ -3,6 +3,8 @@
 namespace EcclesiaCRM\Search;
 
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\Map\DepositTableMap;
+use EcclesiaCRM\Map\PledgeTableMap;
 use EcclesiaCRM\Search\BaseSearchRes;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
@@ -35,11 +37,10 @@ class DepositSearchRes extends BaseSearchRes
                     $date = null;
                 }
 
+                $searchLikeString = '%'.$qry.'%';
+
                 try {
-                    $Deposits = DepositQuery::create()
-                        ->filterByComment("%$qry%", Criteria::LIKE)
-                        ->_or()
-                            ->filterById($qry);
+                    $Deposits = DepositQuery::create();
 
                     /*if (is_null($date)) {// only US date can work through api links
                             $Deposits->_or()
@@ -47,12 +48,10 @@ class DepositSearchRes extends BaseSearchRes
 
                     }*/
 
-                    $Deposits->_or()
-                            ->usePledgeQuery()
-                                ->filterByCheckno("%$qry%", Criteria::LIKE)
-                            ->endUse()
-                        ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
-                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri');
+                    $Deposits->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
+                        ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
+                        ->leftJoinPledge()
+                        ->where( DepositTableMap::COL_DEP_COMMENT." LIKE  '".$searchLikeString."' OR ".DepositTableMap::COL_DEP_ID." = '".$qry."' OR ".PledgeTableMap::COL_PLG_CHECKNO." LIKE  '".$searchLikeString."'");
 
                     if (!$this->global_search) {
                         $Deposits->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
