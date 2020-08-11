@@ -179,10 +179,11 @@ if ( !is_null($searchEventInActivEvent) ) {
                                         <option value="<?= $EventID; ?>"
                                                 disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
                                         <?php foreach ($activeEvents as $event) {
+                                            $dateStart = $event->getStart()->format(SystemConfig::getValue('sDatePickerFormat'));
                                             ?>
                                             <option
                                                 value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                                <?= $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
+                                                <?= $dateStart." : ".$event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
                                             <?php
                                         }
                                         ?>
