@@ -692,7 +692,7 @@ function attendeesGroups (Request $request, Response $response, array $args) {
 
                     $event = EventQuery::Create()->findOneByEtag(str_replace('"', "", $etag));
 
-                    $event->setTitle($group->getName() . " " . $dateTime->format(SystemConfig::getValue('sDatePickerFormat')));
+                    $event->setTitle( $group->getName() );
 
                     if (!is_null($type)) {
                         $event->setType($type->getId());
