@@ -11,28 +11,37 @@ window.CRM.editor = null;
 $(document).ready(function () {
 
     function addEvent(dateStart, dateEnd) {
-        if (window.CRM.editor != null) {
-            CKEDITOR.remove(window.CRM.editor);
-            window.CRM.editor = null;
-        }
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/numberofcalendars',
+        }).done(function(data) {
+            if (data.CalendarNumber > 0) {
+                if (window.CRM.editor != null) {
+                    CKEDITOR.remove(window.CRM.editor);
+                    window.CRM.editor = null;
+                }
 
-        modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'Checkin.php');
+                modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'Checkin.php');
 
-        // we add the calendars and the types
-        addCalendars();
-        addCalendarEventTypes(-1, true);
+                // we add the calendars and the types
+                addCalendars();
+                addCalendarEventTypes(-1, true);
 
-        // finish installing the window
-        installAndfinishEventEditorWindow();
+                // finish installing the window
+                installAndfinishEventEditorWindow();
 
-        $("#typeEventrecurrence").prop("disabled", true);
-        $("#endDateEventrecurrence").prop("disabled", true);
+                $("#typeEventrecurrence").prop("disabled", true);
+                $("#endDateEventrecurrence").prop("disabled", true);
 
-        $('#EventCalendar option:first-child').attr("selected", "selected");
+                $('#EventCalendar option:first-child').attr("selected", "selected");
 
-        modal.modal("show");
+                modal.modal("show");
 
-        initMap();
+                initMap();
+            } else {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
+            }
+        });
     }
 
     $("#addFreeAttendees").click('focus', function () {
