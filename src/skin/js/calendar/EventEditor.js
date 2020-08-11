@@ -930,3 +930,38 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
 
     return modal;
 }
+
+function addEvent(dateStart,dateEnd,windowTitle,title)
+{
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/numberofcalendars',
+    }).done(function(data) {
+        if (data.CalendarNumber > 0) {
+            if (window.CRM.editor != null) {
+                CKEDITOR.remove(window.CRM.editor);
+                window.CRM.editor = null;
+            }
+
+            modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'v2/calendar', windowTitle, title);
+
+            // we add the calendars and the types
+            addCalendars();
+            addCalendarEventTypes(-1, true);
+
+            // finish installing the window
+            installAndfinishEventEditorWindow();
+
+            $("#typeEventrecurrence").prop("disabled", true);
+            $("#endDateEventrecurrence").prop("disabled", true);
+
+            $('#EventCalendar option:first-child').attr("selected", "selected");
+
+            modal.modal("show");
+
+            initMap();
+        } else {
+            window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
+        }
+    });
+}

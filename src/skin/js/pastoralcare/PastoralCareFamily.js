@@ -248,32 +248,6 @@ $(document).ready(function () {
     return modal;
   }
 
-    function addEvent(dateStart,dateEnd,windowTitle,title)
-    {
-        if (window.CRM.editor != null) {
-            CKEDITOR.remove(window.CRM.editor);
-            window.CRM.editor = null;
-        }
-
-        modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','v2/calendar',windowTitle,title);
-
-        // we add the calendars and the types
-        addCalendars();
-        addCalendarEventTypes(-1,true);
-
-        // finish installing the window
-        installAndfinishEventEditorWindow();
-
-        $("#typeEventrecurrence").prop("disabled", true);
-        $("#endDateEventrecurrence").prop("disabled", true);
-
-        $('#EventCalendar option:first-child').attr("selected", "selected");
-
-        modal.modal("show");
-
-        initMap();
-    }
-
 
     $('#add-event').click('focus', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';

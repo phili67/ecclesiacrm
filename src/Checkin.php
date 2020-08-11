@@ -119,10 +119,10 @@ if ($searchEventInActivEvent != null) {
         ->leftJoinEventTypes()
         ->Where('type_id=' . $event->getType())
         ->find();
-} else if ($activeEvents->count() == 0 && is_null($event)) {
+} /*else if ($activeEvents->count() == 0 && is_null($event)) {
     RedirectUtils::Redirect('Menu.php');
     exit;
-}
+}*/
 
 ?>
 
