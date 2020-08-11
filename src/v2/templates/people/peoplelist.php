@@ -31,7 +31,15 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
         <br/>
-        <div class="row">
+        <div class="row help-filters">
+            <div class="col-sm-3"><?= _("Filter Hints") ?> :</div>
+            <div class="col-sm-9" style="color:orange">
+                 <?= "*".", '"._("Singles")."', '"._("Volunteers")."', '"._("Families")."', '"._("Groups")."', '"._("Sunday Groups")."', '"._("groupmasters")."', <br/>" ?>
+                 <?= _("a phone number").", "._("a first name").", "._("a name").", "._("a group name").", "._("a check number")." .... " ?>
+            </div>
+        </div>
+        <br/>
+        <div class="row person-filters">
             <div class="col-sm-3"><?= _("Choose your person filters") ?> :</div>
             <div class="col-sm-9">
                 <select name="search[]" multiple="" id="searchCombo" style="width:100%"
@@ -84,8 +92,8 @@ require $sRootDocument . '/Include/Header.php';
                     <?php
                     if (SessionUser::getUser()->isShowCartEnabled()) {
                         ?>
-                        <a id="AddAllPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
-                        <a id="RemoveAllPageFromCart"
+                        <a id="AddPageToCart" class="btn btn-primary btn-sm"><?= _('Add This Page to Cart') ?></a>
+                        <a id="RemovePageFromCart"
                            class="btn btn-danger btn-sm"><?= _('Remove This Page from Cart') ?></a><br><br>
                         <a id="AddAllToCart" class="btn btn-primary btn-sm"><?= _('Add All to Cart') ?></a>
                         <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm"
