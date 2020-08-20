@@ -12,12 +12,17 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\DonatedItem;
+
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\OutputUtils;
 
+use Propel\Runtime\Propel;
 
 
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
@@ -56,10 +61,10 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
     $iBuyer = InputUtils::LegacyFilterInputArr($_POST, 'Buyer', 'int');
     $sTitle = InputUtils::LegacyFilterInputArr($_POST, 'Title');
     $sDescription = InputUtils::LegacyFilterInputArr($_POST, 'Description');
-    $nSellPrice = InputUtils::LegacyFilterInputArr($_POST, 'SellPrice');
-    $nEstPrice = InputUtils::LegacyFilterInputArr($_POST, 'EstPrice');
-    $nMaterialValue = InputUtils::LegacyFilterInputArr($_POST, 'MaterialValue');
-    $nMinimumPrice = InputUtils::LegacyFilterInputArr($_POST, 'MinimumPrice');
+    $nSellPrice = InputUtils::LegacyFilterInputArr($_POST, 'SellPrice', float);
+    $nEstPrice = InputUtils::LegacyFilterInputArr($_POST, 'EstPrice', float);
+    $nMaterialValue = InputUtils::LegacyFilterInputArr($_POST, 'MaterialValue', float);
+    $nMinimumPrice = InputUtils::LegacyFilterInputArr($_POST, 'MinimumPrice', float);
     $sPictureURL = InputUtils::LegacyFilterInputArr($_POST, 'PictureURL');
 
     if (!$bMultibuy) {
@@ -70,20 +75,66 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
     }
     // New DonatedItem or deposit
     if (strlen($iDonatedItemID) < 1) {
-        $sSQL = 'INSERT INTO donateditem_di (di_FR_ID, di_Item, di_multibuy, di_donor_ID, di_buyer_ID, di_title, di_description, di_sellprice, di_estprice, di_materialvalue, di_minimum, di_picture, di_EnteredBy, di_EnteredDate)
+
+        $donatedItem = new DonatedItem();
+
+        $donatedItem->setFrId($iCurrentFundraiser);
+        $donatedItem->setItem($sItem);
+        $donatedItem->setMultibuy($bMultibuy);
+        $donatedItem->setDonorId($iDonor);
+        $donatedItem->setBuyerId($iBuyer);
+        $donatedItem->setTitle(html_entity_decode($sTitle));
+        $donatedItem->setDescription(html_entity_decode($sDescription));
+        $donatedItem->setSellprice($nSellPrice);
+        $donatedItem->setEstprice($nEstPrice);
+        $donatedItem->setMaterialValue($nMaterialValue);
+        $donatedItem->setMinimum($nMinimumPrice);
+        $donatedItem->setPicture(Propel::getConnection()->quote($sPictureURL));
+        $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+        $donatedItem->setEntereddate(date('YmdHis'));
+
+        $donatedItem->save();
+
+
+        /*if ($iBuyer == 0) {
+            $sSQL = 'INSERT INTO donateditem_di (di_FR_ID, di_Item, di_multibuy, di_donor_ID, di_title, di_description, di_sellprice, di_estprice, di_materialvalue, di_minimum, di_picture, di_EnteredBy, di_EnteredDate)
+		VALUES ('.$iCurrentFundraiser.",'".$sItem."','".$bMultibuy."','".$iDonor."','".html_entity_decode($sTitle)."','".html_entity_decode($sDescription)."','".$nSellPrice."','".$nEstPrice."','".$nMaterialValue."','".$nMinimumPrice."','".mysqli_real_escape_string($cnInfoCentral, $sPictureURL)."'";
+            $sSQL .= ','.SessionUser::getUser()->getPersonId().",'".date('YmdHis')."')";
+        } else {
+            $sSQL = 'INSERT INTO donateditem_di (di_FR_ID, di_Item, di_multibuy, di_donor_ID, di_buyer_ID, di_title, di_description, di_sellprice, di_estprice, di_materialvalue, di_minimum, di_picture, di_EnteredBy, di_EnteredDate)
 		VALUES ('.$iCurrentFundraiser.",'".$sItem."','".$bMultibuy."','".$iDonor."','".$iBuyer."','".html_entity_decode($sTitle)."','".html_entity_decode($sDescription)."','".$nSellPrice."','".$nEstPrice."','".$nMaterialValue."','".$nMinimumPrice."','".mysqli_real_escape_string($cnInfoCentral, $sPictureURL)."'";
-        $sSQL .= ','.SessionUser::getUser()->getPersonId().",'".date('YmdHis')."')";
+            $sSQL .= ','.SessionUser::getUser()->getPersonId().",'".date('YmdHis')."')";
+        }*/
         $bGetKeyBack = true;
         // Existing record (update)
     } else {
-        $sSQL = 'UPDATE donateditem_di SET di_FR_ID = '.$iCurrentFundraiser.", di_Item = '".$sItem."', di_multibuy = '".$bMultibuy."', di_donor_ID = ".$iDonor.', di_buyer_ID = '.$iBuyer.", di_title = '".html_entity_decode($sTitle)."', di_description = '".html_entity_decode($sDescription)."', di_sellprice = '".$nSellPrice."', di_estprice = '".$nEstPrice."', di_materialvalue = '".$nMaterialValue."', di_minimum = '".$nMinimumPrice."', di_picture = '".mysqli_real_escape_string($cnInfoCentral, $sPictureURL)."', di_EnteredBy=".SessionUser::getUser()->getPersonId().", di_EnteredDate = '".date('YmdHis')."'";
-        $sSQL .= ' WHERE di_ID = '.$iDonatedItemID;
-        echo '<br><br><br><br><br><br>'.$sSQL;
+        $donatedItem = DonatedItemQuery::create()
+            ->findOneById($iDonatedItemID);
+
+        $donatedItem->setFrId($iCurrentFundraiser);
+        $donatedItem->setItem($sItem);
+        $donatedItem->setMultibuy($bMultibuy);
+        if ($iDonor != 0)
+            $donatedItem->setDonorId($iDonor);
+        if ($iBuyer != 0)
+            $donatedItem->setBuyerId($iBuyer);
+        $donatedItem->setTitle(html_entity_decode($sTitle));
+        $donatedItem->setDescription(html_entity_decode($sDescription));
+        $donatedItem->setSellprice($nSellPrice);
+        $donatedItem->setEstprice($nEstPrice);
+        $donatedItem->setMaterialValue($nMaterialValue);
+        $donatedItem->setMinimum($nMinimumPrice);
+        $donatedItem->setPicture($sPictureURL);
+        $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+        $donatedItem->setEntereddate(date('YmdHis'));
+
+        $donatedItem->save();
+
         $bGetKeyBack = false;
     }
 
     //Execute the SQL
-    RunQuery($sSQL);
+    //RunQuery($sSQL);
 
     // If this is a new DonatedItem or deposit, get the key back
     if ($bGetKeyBack) {
@@ -210,17 +261,17 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
 
                         <div class="form-group">
                             <label><?= gettext('Estimated Price') ?>:</label>
-                            <input type="text" name="EstPrice" id="EstPrice" value="<?= $nEstPrice ?>" class="form-control">
+                            <input type="text" name="EstPrice" id="EstPrice" value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label><?= gettext('Material Value') ?>:</label>
-                            <input type="text" name="MaterialValue" id="MaterialValue" value="<?= $nMaterialValue ?>" class="form-control">
+                            <input type="text" name="MaterialValue" id="MaterialValue" value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label><?= gettext('Minimum Price') ?>:</label>
-                            <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= $nMinimumPrice ?>" class="form-control">
+                            <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
                         </div>
 
                     </div>
@@ -252,7 +303,7 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
 
                         <div class="form-group">
                             <label><?= gettext('Final Price') ?>:</label>
-                            <input type="text" name="SellPrice" id="SellPrice" value="<?= $nSellPrice ?>" class="form-control">
+                            <input type="text" name="SellPrice" id="SellPrice" value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
