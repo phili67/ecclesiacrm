@@ -414,8 +414,16 @@ class MenuBar extends Menu
         } else {
             $menuItem = new Menu (_("Edit Fundraiser"), "fa fa-circle-o", "FundRaiserEditor.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
         }
-        $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Add Donors to Buyer List"), "fa fa-circle-o", "AddDonors.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        if (isset($_SESSION['iCurrentFundraiser'])) {
+            $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php?FundRaiserID=".$_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu);
+        } else {
+            $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        }
+
+        if (isset($_SESSION['iCurrentFundraiser'])) {
+            $menuItem->addLink('PaddleNumList.php?FundRaiserID='.$_SESSION['iCurrentFundraiser']);
+            $menuItem = new Menu (_("Add Donors to Buyer List"), "fa fa-circle-o", "AddDonors.php?FundRaiserID=".$_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu);
+        }
 
         $this->addMenu($menu);
 
