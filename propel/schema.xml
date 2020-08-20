@@ -603,32 +603,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-    <table name="donateditem_di" idMethod="native" phpName="DonatedItem">
-        <column name="di_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
-                autoIncrement="true" required="true"/>
-        <column name="di_item" phpName="Item" type="VARCHAR" size="32" required="true"/>
-        <column name="di_FR_ID" phpName="FrId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"
-                required="true"/>
-        <column name="di_donor_ID" phpName="DonorId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-        <column name="di_buyer_ID" phpName="BuyerId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-        <column name="di_multibuy" phpName="Multibuy" type="SMALLINT" size="1" required="true" defaultValue="0"/>
-        <column name="di_title" phpName="Title" type="VARCHAR" size="128" required="true"/>
-        <column name="di_description" phpName="Description" type="LONGVARCHAR"/>
-        <column name="di_sellprice" phpName="Sellprice" type="DECIMAL" size="8" scale="2"/>
-        <column name="di_estprice" phpName="Estprice" type="DECIMAL" size="8" scale="2"/>
-        <column name="di_minimum" phpName="Minimum" type="DECIMAL" size="8" scale="2"/>
-        <column name="di_materialvalue" phpName="MaterialValue" type="DECIMAL" size="8" scale="2"/>
-        <column name="di_EnteredBy" phpName="Enteredby" type="SMALLINT" size="5" sqlType="smallint(5) unsigned"
-                required="true" defaultValue="0"/>
-        <column name="di_EnteredDate" phpName="Entereddate" type="DATE" required="true"/>
-        <column name="di_picture" phpName="Picture" type="LONGVARCHAR"/>
-        <unique name="di_ID">
-            <unique-column name="di_ID"/>
-        </unique>
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
-    </table>
+
     <table name="donationfund_fun" idMethod="native" phpName="DonationFund" description="This contains the defined donation funds">
         <column name="fun_ID" phpName="Id" type="TINYINT" size="3" primaryKey="true" autoIncrement="true"
                 required="true"/>
@@ -643,6 +618,7 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
+
     <table name="egive_egv" idMethod="native" phpName="Egive">
         <column name="egv_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="egv_egiveID" phpName="EgiveId" type="VARCHAR" size="16" required="true"/>
@@ -796,23 +772,6 @@
         <index name="event_txt">
             <index-column name="event_text"/>
         </index>
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
-    </table>
-
-    <table name="fundraiser_fr" idMethod="native" phpName="FundRaiser">
-        <column name="fr_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
-                autoIncrement="true" required="true"/>
-        <column name="fr_date" phpName="Date" type="DATE"/>
-        <column name="fr_title" phpName="Title" type="VARCHAR" size="128" required="true"/>
-        <column name="fr_description" phpName="Description" type="LONGVARCHAR"/>
-        <column name="fr_EnteredBy" phpName="EnteredBy" type="SMALLINT" size="5" sqlType="smallint(5) unsigned"
-                required="true" defaultValue="0"/>
-        <column name="fr_EnteredDate" phpName="EnteredDate" type="DATE" required="true"/>
-        <unique name="fr_ID">
-            <unique-column name="fr_ID"/>
-        </unique>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
@@ -1386,6 +1345,87 @@
         </vendor>
     </table>
 
+    <table name="fundraiser_fr" idMethod="native" phpName="FundRaiser">
+        <column name="fr_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
+                autoIncrement="true" required="true"/>
+        <column name="fr_date" phpName="Date" type="DATE"/>
+        <column name="fr_title" phpName="Title" type="VARCHAR" size="128" required="true"/>
+        <column name="fr_description" phpName="Description" type="LONGVARCHAR"/>
+        <column name="fr_EnteredBy" phpName="EnteredBy" type="SMALLINT" size="5" sqlType="smallint(5) unsigned"
+                required="true" defaultValue="0"/>
+        <column name="fr_EnteredDate" phpName="EnteredDate" type="DATE" required="true"/>
+        <unique name="fr_ID">
+            <unique-column name="fr_ID"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="donateditem_di" idMethod="native" phpName="DonatedItem">
+        <column name="di_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
+                autoIncrement="true" required="true"/>
+        <column name="di_item" phpName="Item" type="VARCHAR" size="32" required="true"/>
+        <column name="di_FR_ID" phpName="FrId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"
+                required="true"/>
+        <column name="di_donor_ID" phpName="DonorId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
+        <column name="di_buyer_ID" phpName="BuyerId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
+        <column name="di_multibuy" phpName="Multibuy" type="SMALLINT" size="1" required="true" defaultValue="0"/>
+        <column name="di_title" phpName="Title" type="VARCHAR" size="128" required="true"/>
+        <column name="di_description" phpName="Description" type="LONGVARCHAR"/>
+        <column name="di_sellprice" phpName="Sellprice" type="DECIMAL" size="8" scale="2"/>
+        <column name="di_estprice" phpName="Estprice" type="DECIMAL" size="8" scale="2"/>
+        <column name="di_minimum" phpName="Minimum" type="DECIMAL" size="8" scale="2"/>
+        <column name="di_materialvalue" phpName="MaterialValue" type="DECIMAL" size="8" scale="2"/>
+        <column name="di_EnteredBy" phpName="Enteredby" type="SMALLINT" size="5" sqlType="smallint(5) unsigned"
+                required="true" defaultValue="0"/>
+        <column name="di_EnteredDate" phpName="Entereddate" type="DATE" required="true"/>
+        <column name="di_picture" phpName="Picture" type="LONGVARCHAR"/>
+        <unique name="di_ID">
+            <unique-column name="di_ID"/>
+        </unique>
+        <foreign-key foreignTable="fundraiser_fr" name="fk_donateditem_di_fundraiser_id" onDelete="CASCADE">
+            <reference local="di_FR_ID" foreign="fr_ID"/>
+        </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="multibuy_mb" idMethod="native" phpName="Multibuy" >
+        <column name="mb_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="mb_per_ID" phpName="PerId" type="SMALLINT" size="9" required="true"/>
+        <column name="mb_item_ID" phpName="ItemId" type="SMALLINT" size="9" required="true"/>
+        <column name="mb_count" phpName="Count" type="DECIMAL" size="8" scale="0"/>
+        <unique name="mb_ID">
+            <unique-column name="mb_ID"/>
+        </unique>
+        <foreign-key foreignTable="person_per" name="fk_multibuy_mb_person_id" onDelete="CASCADE">
+            <reference local="mb_per_ID" foreign="per_ID"/>
+        </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="paddlenum_pn" idMethod="native" phpName="PaddleNum" >
+        <column name="pn_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="pn_fr_ID" phpName="FrId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
+        <column name="pn_Num" phpName="Num" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
+        <column name="pn_per_ID" phpName="PerId" type="SMALLINT" size="9" required="true"/>
+        <unique name="pn_ID">
+            <unique-column name="pn_ID"/>
+        </unique>
+        <foreign-key foreignTable="person_per" name="fk_paddlenum_person_id" onDelete="CASCADE">
+            <reference local="pn_per_ID" foreign="per_ID"/>
+        </foreign-key>
+        <foreign-key foreignTable="fundraiser_fr" name="fk_paddlenum_pn_fundraiser_id" onDelete="CASCADE">
+            <reference local="pn_fr_ID" foreign="fr_ID"/>
+        </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
 
     <!--
  <table name="istlookup_lu" idMethod="native" phpName="IstlookupLu" >
@@ -1410,34 +1450,6 @@
      <parameter name="Engine" value="InnoDB"/>
    </vendor>
  </table>
- <table name="multibuy_mb" idMethod="native" phpName="MultibuyMb" >
-   <column name="mb_ID" phpName="MbId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-   <column name="mb_per_ID" phpName="MbPerId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-   <column name="mb_item_ID" phpName="MbItemId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-   <column name="mb_count" phpName="MbCount" type="DECIMAL" size="8" scale="0"/>
-   <unique name="mb_ID">
-     <unique-column name="mb_ID"/>
-   </unique>
-   <vendor type="mysql">
-     <parameter name="Engine" value="InnoDB"/>
-   </vendor>
- </table>
-
- <table name="paddlenum_pn" idMethod="native" phpName="PaddlenumPn" >
-   <column name="pn_ID" phpName="PnId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-   <column name="pn_fr_ID" phpName="PnFrId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
-   <column name="pn_Num" phpName="PnNum" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
-   <column name="pn_per_ID" phpName="PnPerId" type="SMALLINT" size="9" required="true" defaultValue="0"/>
-   <unique name="pn_ID">
-     <unique-column name="pn_ID"/>
-   </unique>
-   <vendor type="mysql">
-     <parameter name="Engine" value="InnoDB"/>
-   </vendor>
- </table>
-
-
-
 
  <table name="query_qry" idMethod="native" phpName="QueryQry" description="This contains all the predefined queries that appear in the queries page">
    <column name="qry_ID" phpName="QryId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
