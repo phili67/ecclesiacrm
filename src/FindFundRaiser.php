@@ -117,25 +117,6 @@ require 'Include/Header.php';
 
 <div class="card card-body">
 <?php
-// List Fundraisers
-// Save record limit if changed
-if (isset($_GET['Number'])) {
-    /* @var $currentUser \EcclesiaCRM\User */
-    $currentUser = SessionUser::getUser();
-    $currentUser->setSearchLimit(InputUtils::LegacyFilterInput($_GET['Number'], 'int'));
-    $currentUser->save();
-    $_SESSION['SearchLimit'] = $currentUser->getSearchLimit();
-}
-
-// Select the proper sort SQL
-switch ($sSort) {
-    case 'number':
-        $sOrderSQL = 'ORDER BY fr_ID DESC';
-        break;
-    default:
-        $sOrderSQL = ' ORDER BY fr_Date DESC, fr_ID DESC';
-        break;
-}
 
 // Append a LIMIT clause to the SQL statement
 $iPerPage = SessionUser::getUser()->getSearchLimit();
@@ -284,34 +265,16 @@ if ($_SESSION['SearchLimit'] == '50') {
 }
 
 ?>
-
-    <div class="row">
-        <div class="col-lg-2">
-            <?= _('Display:') ?>
-        </div>
-        <div class="col-lg-1">
-            <select name="Number" class="form-control input-sm">
-            <option value="5" <?= $sLimit5 ?>>5</option>
-            <option value="10" <?= $sLimit10 ?>>10</option>
-            <option value="20" <?=  $sLimit20 ?>>20</option>
-            <option value="25" <?=  $sLimit25 ?>>25</option>
-            <option value="50" <?=  $sLimit50 ?>>50</option>
-            </select>&nbsp;
-        </div>
-        <div class="col-lg-1">
-        <input type="submit" class="btn btn-primary" value="<?= _('Go') ?>">
-        </div>
-    </div>
 	</form>
 </div>
     <br>
  <table cellpadding='4' align='center' cellspacing='0' width='100%' id='fund-listing-table' class="table table-striped table-bordered dataTable no-footer dtr-inline">
-	<tr class='TableHeader'>
-	<td width='25'><?= _('Edit') ?></td>
-	<td><a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Sort=number&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= _('Number') ?></a></td>
-	<td><a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Sort=date'&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= _('Date') ?></a></td>
-	<td><?= _('Title') ?></td>
-	</tr>
+	<thead class='TableHeader'>
+	<th width='25'><?= _('Edit') ?></th>
+	<th><?= _('Number') ?></th>
+	<th><?= _('Date') ?></th>
+	<th><?= _('Title') ?></th>
+	</thead>
 <?php
 // Display Deposits
 while (list($fr_ID, $fr_Date, $fr_Title) = $pdoDep->fetch( \PDO::FETCH_BOTH )) {
@@ -331,5 +294,16 @@ while (list($fr_ID, $fr_Date, $fr_Title) = $pdoDep->fetch( \PDO::FETCH_BOTH )) {
 ?>
  </table>
 </div>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    $(document).ready(function () {
+        $('#fund-listing-table').DataTable({
+            responsive: true,
+            "language": {
+                "url": window.CRM.plugin.dataTable.language.url
+            },
+        });
+    });
+</script>
 
 <?php require 'Include/Footer.php' ?>
