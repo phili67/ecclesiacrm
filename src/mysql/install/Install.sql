@@ -1455,16 +1455,6 @@ CREATE TABLE `person2volunteeropp_p2vo` (
 --
 -- Fundraiser support added 4/11/2009 Michael Wilt
 --
-
-CREATE TABLE `paddlenum_pn` (
-  `pn_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `pn_fr_ID` mediumint(9) unsigned,
-  `pn_Num` mediumint(9) unsigned,
-  `pn_per_ID` mediumint(9) NOT NULL default '0',
-  PRIMARY KEY  (`pn_ID`),
-  UNIQUE KEY `pn_ID` (`pn_ID`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
 CREATE TABLE `fundraiser_fr` (
   `fr_ID` mediumint(9) unsigned NOT NULL auto_increment,
   `fr_date` date default NULL,
@@ -1480,8 +1470,8 @@ CREATE TABLE `donateditem_di` (
   `di_ID` mediumint(9) unsigned NOT NULL auto_increment,
   `di_item` varchar(32) NOT NULL,
   `di_FR_ID` mediumint(9) unsigned NOT NULL,
-  `di_donor_ID` mediumint(9) NOT NULL default '0',
-  `di_buyer_ID` mediumint(9) NOT NULL default '0',
+  `di_donor_ID` mediumint(9) unsigned NULL,
+  `di_buyer_ID` mediumint(9) unsigned NULL,
   `di_multibuy` smallint(1) NOT NULL default '0',
   `di_title` varchar(128) NOT NULL,
   `di_description` text,
@@ -1493,16 +1483,48 @@ CREATE TABLE `donateditem_di` (
   `di_EnteredDate` date NOT NULL,
   `di_picture` text,
   PRIMARY KEY  (`di_ID`),
-  UNIQUE KEY `di_ID` (`di_ID`)
+  UNIQUE KEY `di_ID` (`di_ID`),
+  CONSTRAINT fk_donateditem_di_fundraiser_id
+    FOREIGN KEY (di_FR_ID) REFERENCES fundraiser_fr(fr_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_donor_person_id
+    FOREIGN KEY (di_donor_ID)
+    REFERENCES person_per(per_ID)
+    ON DELETE SET NULL,
+  CONSTRAINT fk_buyer_person_id
+    FOREIGN KEY (di_buyer_ID)
+    REFERENCES person_per(per_ID)
+    ON DELETE SET NULL
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE `paddlenum_pn` (
+  `pn_ID` mediumint(9) unsigned NOT NULL auto_increment,
+  `pn_fr_ID` mediumint(9) unsigned,
+  `pn_Num` mediumint(9) unsigned,
+  `pn_per_ID` mediumint(9) unsigned NOT NULL,
+  PRIMARY KEY  (`pn_ID`),
+  UNIQUE KEY `pn_ID` (`pn_ID`),
+  CONSTRAINT fk_paddlenum_person_id
+    FOREIGN KEY (pn_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_paddlenum_pn_fundraiser_id
+    FOREIGN KEY (pn_fr_ID) REFERENCES fundraiser_fr(fr_ID)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE `multibuy_mb` (
   `mb_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `mb_per_ID` mediumint(9) NOT NULL default '0',
-  `mb_item_ID` mediumint(9) NOT NULL default '0',
+  `mb_per_ID` mediumint(9) unsigned NOT NULL,
+  `mb_item_ID` mediumint(9) unsigned NOT NULL,
   `mb_count` decimal(8,0) default NULL,
   PRIMARY KEY  (`mb_ID`),
-  UNIQUE KEY `mb_ID` (`mb_ID`)
+  UNIQUE KEY `mb_ID` (`mb_ID`),
+  CONSTRAINT fk_multibuy_mb_person_id
+    FOREIGN KEY (mb_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_multibuy_mb_donateditem_di_id
+    FOREIGN KEY (mb_item_ID) REFERENCES donateditem_di(di_ID)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE `egive_egv` (
