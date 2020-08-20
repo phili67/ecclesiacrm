@@ -80,6 +80,8 @@ function GenerateLabels(&$pdf, $iGroupId, $useCart=0, $sundayschoolName,$sFirstN
             ->findByGroupId($iGroupId);
 
         foreach ($members as $member) {
+            if (is_null($member->getPerson())) continue;
+
             if (!($useCart == 0 || ($useCart == 1 && in_array($member->getPersonId(), $_SESSION['aPeopleCart']))))
                 continue;
 
