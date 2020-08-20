@@ -87,7 +87,7 @@ CREATE TABLE `personlastmeeting_plm` (
 UPDATE `query_qry` SET `qry_SQL` = 'SELECT per_ID as AddToCart, CONCAT(\'<a href=PersonView.php?PersonID=\',per_ID,\'>\',per_FirstName,\' \',per_LastName,\'</a>\') AS Name, per_DateDeactivated as \'GDPR\' FROM person_per LEFT JOIN person2volunteeropp_p2vo ON per_id = p2vo_per_ID WHERE p2vo_vol_ID = ~volopp~ ORDER BY per_LastName' WHERE `query_qry`.`qry_ID` = 25;
 
 
--- reset the 'file' and 'folder' note
+-- reset the 'file' and 'folder' notes
 DELETE FROM note_nte WHERE nte_ID IN (
     SELECT * FROM (
                       SELECT nte_ID FROM note_nte WHERE `nte_Type`='file'
@@ -101,3 +101,63 @@ DELETE FROM note_nte WHERE nte_ID IN (
 );
 
 DELETE FROM note_nte_share WHERE 1;
+
+
+-- Attention for the RC4
+
+-- upgrade the schema of paddlenum_pn
+ALTER TABLE `paddlenum_pn`  MODIFY pn_per_ID mediumint(9) unsigned NOT NULL;
+
+ALTER TABLE `paddlenum_pn`
+ADD CONSTRAINT fk_paddlenum_person_id
+    FOREIGN KEY (pn_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE;
+
+ALTER TABLE `paddlenum_pn`
+    ADD CONSTRAINT fk_paddlenum_pn_fundraiser_id
+    FOREIGN KEY (pn_fr_ID) REFERENCES fundraiser_fr(fr_ID)
+    ON DELETE CASCADE;
+
+
+-- upgrade the schema of multibuy_mb
+ALTER TABLE `multibuy_mb`  MODIFY mb_per_ID mediumint(9) unsigned NOT NULL;
+
+ALTER TABLE `multibuy_mb`
+    ADD CONSTRAINT fk_multibuy_mb_person_id
+    FOREIGN KEY (mb_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE;
+
+ALTER TABLE `multibuy_mb`  MODIFY mb_item_ID mediumint(9) unsigned NOT NULL;
+
+ALTER TABLE `multibuy_mb`
+    ADD CONSTRAINT fk_multibuy_mb_donateditem_di_id
+    FOREIGN KEY (mb_item_ID) REFERENCES donateditem_di(di_ID)
+    ON DELETE CASCADE;
+
+-- upgrade the schema of donateditem_di
+ALTER TABLE `donateditem_di`
+ADD CONSTRAINT fk_donateditem_di_fundraiser_id
+    FOREIGN KEY (di_FR_ID) REFERENCES fundraiser_fr(fr_ID)
+    ON DELETE CASCADE;
+
+-- fk : donor
+UPDATE `donateditem_di` SET `di_donor_ID` = NULL WHERE `donateditem_di`.`di_donor_ID` = 0;
+
+ALTER TABLE  `donateditem_di`  MODIFY  `di_donor_ID` mediumint(9) unsigned NULL;
+
+ALTER TABLE `donateditem_di`
+    ADD CONSTRAINT fk_donor_person_id
+    FOREIGN KEY (di_donor_ID)
+    REFERENCES person_per(per_ID)
+    ON DELETE SET NULL;
+
+-- fk : buyer
+UPDATE `donateditem_di` SET `di_buyer_ID` = NULL WHERE `donateditem_di`.`di_buyer_ID` = 0;
+
+ALTER TABLE  `donateditem_di`  MODIFY  `di_buyer_ID` mediumint(9) unsigned NULL;
+
+ALTER TABLE `donateditem_di`
+    ADD CONSTRAINT fk_buyer_person_id
+       FOREIGN KEY (di_buyer_ID)
+       REFERENCES person_per(per_ID)
+       ON DELETE SET NULL;
