@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 12:21+0200\n"
+"POT-Creation-Date: 2020-08-22 14:47+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -225,7 +225,7 @@ msgid "newsletter"
 msgstr "Skicka nyhetsbrev"
 
 #: api/routes/mailchimp.php:127 api/routes/people/people.php:69
-#: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:321
+#: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:59
 #: v2/templates/people/personlist.php:45
@@ -234,7 +234,7 @@ msgid "Persons"
 msgstr "Person"
 
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:160
-#: EcclesiaCRM/MenuBar/MenuBar.php:297 EcclesiaCRM/MenuBar/MenuBar.php:328
+#: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:508
@@ -247,7 +247,7 @@ msgid "Families"
 msgstr "Familjer"
 
 #: api/routes/mailchimp.php:205 api/routes/people/people.php:197
-#: EcclesiaCRM/MenuBar/MenuBar.php:49 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:145 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:110 Menu.php:578
 #: PersonView.php:450 v2/templates/calendar/calendar.php:197
 #: v2/templates/group/grouplist.php:53
@@ -341,12 +341,12 @@ msgstr "Lägg till grupp"
 #: api/routes/search.php:158 api/routes/search.php:166
 #: api/routes/search.php:171 AutoPaymentEditor.php:822 BatchWinnerEntry.php:84
 #: BatchWinnerEntry.php:96 CSVImport.php:389 DirectoryReports.php:98
-#: DonatedItemEditor.php:190 DonatedItemEditor.php:236
+#: DonatedItemEditor.php:250 DonatedItemEditor.php:296
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:176
+#: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:459
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 PaddleNumEditor.php:186 PersonEditor.php:1027
+#: GroupEditor.php:103 PaddleNumEditor.php:214 PersonEditor.php:1027
 #: PersonEditor.php:1047 PersonEditor.php:1637 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:233 SystemSettings.php:230 v2/routes/group/groups.php:67
@@ -501,7 +501,7 @@ msgstr "Alla klassificeringer"
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
 #: v2/templates/gdpr/gdprdatastructure.php:42
-#: v2/templates/group/groupview.php:389
+#: v2/templates/group/groupview.php:390
 msgid "Type"
 msgstr "Typ"
 
@@ -773,7 +773,7 @@ msgid "Disable "
 msgstr ""
 
 #: AutoPaymentEditor.php:856 CanvassEditor.php:206 DepositSlipEditor.php:98
-#: EditEventAttendees.php:55 FindFundRaiser.php:312 FundRaiserEditor.php:170
+#: EditEventAttendees.php:55 FindFundRaiser.php:294 FundRaiserEditor.php:174
 #: Include/Functions.php:88 PledgeEditor.php:599 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:379
 #: SelectDelete.php:311 v2/templates/email/mailchimp/campaign.php:104
@@ -888,7 +888,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:396 CSVExport.php:148
-#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:355
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:339
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
@@ -953,10 +953,10 @@ msgid "Store Private Data at Vanco"
 msgstr ""
 
 #: AutoPaymentEditor.php:1093 CanvassEditor.php:273 DepositSlipEditor.php:117
-#: DonatedItemEditor.php:292 FamilyEditor.php:715 FamilyEditor.php:813
+#: DonatedItemEditor.php:349 FamilyEditor.php:715 FamilyEditor.php:813
 #: FamilyEditor.php:888 FamilyEditor.php:976 FamilyEditor.php:998
-#: FamilyEditor.php:1072 FamilyEditor.php:1290 FundRaiserEditor.php:147
-#: GroupEditor.php:176 PaddleNumEditor.php:153 PersonEditor.php:879
+#: FamilyEditor.php:1072 FamilyEditor.php:1290 FundRaiserEditor.php:209
+#: GroupEditor.php:176 PaddleNumEditor.php:266 PersonEditor.php:879
 #: PersonEditor.php:1020 PersonEditor.php:1207 PersonEditor.php:1629
 #: PersonEditor.php:1709 PersonEditor.php:1797 PledgeEditor.php:793
 #: UserEditor.php:867 UserPasswordChange.php:225
@@ -964,10 +964,10 @@ msgid "Save"
 msgstr "Spara"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:113 CanvassEditor.php:274
-#: Checkin.php:372 DirectoryReports.php:339 DonatedItemEditor.php:296
+#: Checkin.php:373 DirectoryReports.php:339 DonatedItemEditor.php:353
 #: EventNames.php:261 external/templates/verify/verify-family-info.php:167
 #: FamilyEditor.php:1297 FamilyView.php:1070 FinancialReports.php:92
-#: FundRaiserEditor.php:148 GroupReports.php:104 GroupReports.php:178
+#: FundRaiserEditor.php:211 GroupReports.php:104 GroupReports.php:178
 #: LettersAndLabels.php:83 ManageEnvelopes.php:144 PersonEditor.php:1805
 #: PersonView.php:1907 PledgeEditor.php:800 ReminderReport.php:55
 #: SettingsIndividual.php:128 SettingsIndividual.php:226 TaxReport.php:53
@@ -977,11 +977,11 @@ msgstr "Spara"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: BatchWinnerEntry.php:36 FundRaiserEditor.php:159
+#: BatchWinnerEntry.php:36 FundRaiserEditor.php:224
 msgid "Batch Winner Entry"
 msgstr "Batch Vinnare Entry"
 
-#: BatchWinnerEntry.php:75 DonatedItemEditor.php:176 FundRaiserEditor.php:197
+#: BatchWinnerEntry.php:75 DonatedItemEditor.php:236 FundRaiserEditor.php:250
 #, fuzzy
 msgid "Item"
 msgstr "sak"
@@ -1022,8 +1022,8 @@ msgstr "Skapa fil"
 #: browser/browse.php:59 DepositSlipEditor.php:311 EditEventAttendees.php:120
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1071
-#: FindDepositSlip.php:131 FundRaiserEditor.php:206 ListEvents.php:393
-#: PaddleNumList.php:55 PersonView.php:1821 PersonView.php:1908
+#: FindDepositSlip.php:131 FundRaiserEditor.php:259 ListEvents.php:393
+#: PaddleNumList.php:69 PersonView.php:1821 PersonView.php:1908
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
 #: v2/templates/email/mailchimp/managelist.php:102
@@ -1264,8 +1264,8 @@ msgid "Generate Badges"
 msgstr "Skapa etikett"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:236
-#: DonatedItemEditor.php:207 FindFundRaiser.php:313 FundRaiserEditor.php:175
-#: FundRaiserEditor.php:201 ListEvents.php:360 PersonEditor.php:895
+#: DonatedItemEditor.php:267 FindFundRaiser.php:295 FundRaiserEditor.php:187
+#: FundRaiserEditor.php:254 ListEvents.php:360 PersonEditor.php:895
 #: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:21
 msgid "Title"
@@ -1374,7 +1374,7 @@ msgstr "Lägg korgen till familj"
 #: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:69
 #: Reports/CanvassReports.php:234 Reports/FamilyPledgeSummary.php:220
 #: Reports/FRBidSheets.php:87 Reports/PDFLabel.php:859
-#: v2/templates/group/groupview.php:390 v2/templates/people/familylist.php:55
+#: v2/templates/group/groupview.php:391 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1472,7 +1472,7 @@ msgstr "Mobiltelefon"
 msgid "Your cart is empty!"
 msgstr "Korgen är tom!"
 
-#: Checkin.php:26 EcclesiaCRM/MenuBar/MenuBar.php:291
+#: Checkin.php:26 EcclesiaCRM/MenuBar/MenuBar.php:90
 msgid "Call the Register"
 msgstr ""
 
@@ -1508,109 +1508,109 @@ msgstr "Välj evenemang"
 msgid "Select event"
 msgstr "Välj evenemang"
 
-#: Checkin.php:206 FamilyView.php:876 PersonView.php:1532
+#: Checkin.php:207 FamilyView.php:876 PersonView.php:1532
 #, fuzzy
 msgid "From"
 msgstr "Från:"
 
-#: Checkin.php:206 FamilyView.php:885 PersonView.php:1541
+#: Checkin.php:207 FamilyView.php:885 PersonView.php:1541
 #, fuzzy
 msgid "To"
 msgstr "Till:"
 
-#: Checkin.php:231
+#: Checkin.php:232
 #, fuzzy
 msgid "Set your free attendees"
 msgstr "Evenemang icke deltagare"
 
-#: Checkin.php:244
+#: Checkin.php:245
 msgid "You can set here the attendees for some group of persons."
 msgstr ""
 
-#: Checkin.php:249
+#: Checkin.php:250
 #, fuzzy
 msgid "Set your attendees Event"
 msgstr "Evenemang icke deltagare"
 
-#: Checkin.php:280
+#: Checkin.php:281
 #, fuzzy
 msgid "Your description"
 msgstr "Beskrivning"
 
-#: Checkin.php:291
+#: Checkin.php:292
 #, fuzzy
 msgid "Add Free Attendees Count"
 msgstr "Deltagande summor"
 
-#: Checkin.php:318
+#: Checkin.php:319
 msgid "Add single child/parents Attendees"
 msgstr ""
 
-#: Checkin.php:330
+#: Checkin.php:331
 #, fuzzy
 msgid "Add Attendees for Event"
 msgstr "Inga deltagare angiven till evenemang"
 
-#: Checkin.php:335 Checkin.php:342
+#: Checkin.php:336 Checkin.php:343
 #, fuzzy
 msgid "Person's Name"
 msgstr "Medlemmarsnamn"
 
-#: Checkin.php:352
+#: Checkin.php:353
 msgid "Adult Name(Optional)"
 msgstr ""
 
-#: Checkin.php:359
+#: Checkin.php:360
 #, fuzzy
 msgid "Checked in By(Optional)"
 msgstr "Incheckade av:"
 
-#: Checkin.php:368
+#: Checkin.php:369
 #, fuzzy
 msgid "Add and Checkin"
 msgstr "Evenemang inchekning"
 
-#: Checkin.php:377
+#: Checkin.php:378
 msgid "Add Visitor"
 msgstr "Lägg till besökare"
 
-#: Checkin.php:399
+#: Checkin.php:400
 #, fuzzy
 msgid "Listing"
 msgstr "Användare lista"
 
-#: Checkin.php:406
+#: Checkin.php:407
 #, fuzzy
 msgid "Checkin"
 msgstr "Checkar in"
 
-#: Checkin.php:410 Checkin.php:421
+#: Checkin.php:411 Checkin.php:422
 #: v2/templates/email/mailchimp/managelist.php:90
 #: v2/templates/user/userlist.php:171
 #, fuzzy
 msgid "Check all"
 msgstr "Krysa"
 
-#: Checkin.php:414 Checkin.php:425
+#: Checkin.php:415 Checkin.php:426
 msgid "Uncheck all"
 msgstr ""
 
-#: Checkin.php:417
+#: Checkin.php:418
 #, fuzzy
 msgid "Checkout"
 msgstr "Checkar ut"
 
-#: Checkin.php:432
+#: Checkin.php:433
 #, fuzzy
 msgid "Add some notes"
 msgstr "Lägg till betalning"
 
-#: Checkin.php:439
+#: Checkin.php:440
 #, fuzzy
 msgid "Validate Attendance"
 msgstr "Skapa deltagande formulär"
 
-#: Checkin.php:453 EditEventAttendees.php:178
+#: Checkin.php:454 EditEventAttendees.php:178
 #, fuzzy
 msgid "Return to Events"
 msgstr "Återgå till förfrågan meny"
@@ -1697,7 +1697,7 @@ msgid "Custom Family Fields"
 msgstr "Fritt anpassade familj fält"
 
 #: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
-#: v2/templates/calendar/calendar.php:28
+#: FindFundRaiser.php:78 v2/templates/calendar/calendar.php:28
 #: v2/templates/pastoralcare/pastoralcarefamily.php:90
 #: v2/templates/pastoralcare/pastoralcareperson.php:90
 #: v2/templates/people/peoplelist.php:20
@@ -2122,7 +2122,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:318
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:120
 msgid "Directory reports"
 msgstr "Katalograpporter"
 
@@ -2246,72 +2246,71 @@ msgstr "Juridisk ansvar"
 msgid "Create Directory"
 msgstr "Skapa katalog"
 
-#: DonatedItemEditor.php:48
+#: DonatedItemEditor.php:61
 #, fuzzy
 msgid "Donated Item Editor"
 msgstr "Meny redigeringsverktyg"
 
-#: DonatedItemEditor.php:183
+#: DonatedItemEditor.php:243
 msgid "Sell to everyone"
 msgstr "Sälj till alla"
 
-#: DonatedItemEditor.php:183
+#: DonatedItemEditor.php:243
 #, fuzzy
 msgid "Multiple items"
 msgstr "Många produkter"
 
-#: DonatedItemEditor.php:188 FundRaiserEditor.php:199
+#: DonatedItemEditor.php:248 FundRaiserEditor.php:252
 msgid "Donor"
 msgstr "Donator"
 
-#: DonatedItemEditor.php:212
+#: DonatedItemEditor.php:272
 #, fuzzy
 msgid "Estimated Price"
 msgstr "Beräknad Pris"
 
-#: DonatedItemEditor.php:217 FundRaiserEditor.php:204
+#: DonatedItemEditor.php:277 FundRaiserEditor.php:257
 msgid "Material Value"
 msgstr "Materiellt värde"
 
-#: DonatedItemEditor.php:222 FundRaiserEditor.php:205
+#: DonatedItemEditor.php:282 FundRaiserEditor.php:258
 #, fuzzy
 msgid "Minimum Price"
 msgstr "Maximal distans"
 
-#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:182
-#: PaddleNumList.php:54
+#: DonatedItemEditor.php:290 FundRaiserEditor.php:253 PaddleNumEditor.php:210
+#: PaddleNumList.php:68
 msgid "Buyer"
 msgstr "Köparen"
 
-#: DonatedItemEditor.php:232 FundRaiserEditor.php:198 FundRaiserEditor.php:236
+#: DonatedItemEditor.php:292 FundRaiserEditor.php:251 FundRaiserEditor.php:292
 msgid "Multiple"
 msgstr "Flera"
 
-#: DonatedItemEditor.php:254
+#: DonatedItemEditor.php:311
 #, fuzzy
 msgid "Final Price"
 msgstr "Finans"
 
-#: DonatedItemEditor.php:259
+#: DonatedItemEditor.php:316
 msgid "Replicate item"
 msgstr ""
 
-#: DonatedItemEditor.php:263 external/templates/password/enter-username.php:41
-#: FindFundRaiser.php:302
+#: DonatedItemEditor.php:320 external/templates/password/enter-username.php:41
 msgid "Go"
 msgstr "Gå"
 
-#: DonatedItemEditor.php:273 EditEventAttendees.php:56 FundRaiserEditor.php:180
+#: DonatedItemEditor.php:330 EditEventAttendees.php:56 FundRaiserEditor.php:197
 #: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 v2/templates/group/groupview.php:391
+#: GroupPropsFormEditor.php:477 v2/templates/group/groupview.php:392
 msgid "Description"
 msgstr "Beskrivning"
 
-#: DonatedItemEditor.php:278
+#: DonatedItemEditor.php:335
 msgid "Picture URL"
 msgstr ""
 
-#: DonatedItemEditor.php:294 FamilyEditor.php:1294 PaddleNumEditor.php:156
+#: DonatedItemEditor.php:351 FamilyEditor.php:1294 PaddleNumEditor.php:271
 #: PersonEditor.php:1801 PledgeEditor.php:795
 msgid "Save and Add"
 msgstr "Spara och lägg till"
@@ -4379,7 +4378,7 @@ msgstr "Epost grupp"
 msgid "Map Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:225
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:322
 #: FamilyView.php:464 PersonView.php:760 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4394,7 +4393,7 @@ msgstr ""
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:64
 #: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:142
 #: v2/routes/email/mailchimp/mailchimp.php:143
 msgid "GDPR"
@@ -4567,7 +4566,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:249 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:250 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
 msgstr "Län"
@@ -4576,100 +4575,63 @@ msgstr "Län"
 msgid "Please verify your family's information"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:51
-#, fuzzy
-msgid "List Groups"
-msgstr "Alla grupper"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:113 v2/routes/people/people.php:186
-msgid "Group Assignment Helper"
-msgstr "Grupp tilldelnings-verktyg"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:120
-#: v2/routes/sundayschool/sundayschool.php:110
-#, fuzzy
-msgid "Sunday School"
-msgstr "Inga söndagskola"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:122 EcclesiaCRM/MenuBar/MenuBar.php:217
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 EcclesiaCRM/MenuBar/MenuBar.php:241
-#: EcclesiaCRM/MenuBar/MenuBar.php:267 EcclesiaCRM/MenuBar/MenuBar.php:299
-#: EcclesiaCRM/MenuBar/MenuBar.php:361
-msgid "Dashboard"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:198 EcclesiaCRM/MenuBar/MenuBar.php:205
-#: Include/Footer.php:174
-msgid "Global Custom Menus"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:216
-#, fuzzy
-msgid "Custom Menus"
-msgstr "Fritt anpassade fält"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:227
-#, fuzzy
-msgid "By Classifications"
-msgstr "Klassificering "
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:233
-#, fuzzy
-msgid "Meetings"
-msgstr "Grupp lista"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:247 Include/Header.php:78
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:78
 #: Include/Header.php:134
 #, fuzzy
 msgid "Private Space"
 msgstr "Privat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:249 EcclesiaCRM/utils/MiscUtils.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:398
 #: external/templates/registration/family-register-members.php:102
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:250 Include/Header.php:136
-#: PersonView.php:745
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:136 PersonView.php:745
 #, fuzzy
 msgid "Change Password"
 msgstr "Det nya lösenordet"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:251 Include/Header.php:138
-#: PersonView.php:743
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:138 PersonView.php:743
 #, fuzzy
 msgid "Change Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:252 FamilyView.php:664 PersonView.php:947
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:664 PersonView.php:947
 #, fuzzy
 msgid "Documents"
 msgstr "Kommentar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:255 PersonView.php:961 UserEditor.php:727
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:961 UserEditor.php:727
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:268
+#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/MenuBar/MenuBar.php:218 EcclesiaCRM/MenuBar/MenuBar.php:313
+#: EcclesiaCRM/MenuBar/MenuBar.php:323 EcclesiaCRM/MenuBar/MenuBar.php:345
+#: EcclesiaCRM/MenuBar/MenuBar.php:432
+msgid "Dashboard"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:66
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:269 EcclesiaCRM/MenuBar/MenuBar.php:326
+#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "CSV kombinera familjer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:270 EcclesiaCRM/MenuBar/MenuBar.php:332
+#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "CSV kombinera familjer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:277
+#: EcclesiaCRM/MenuBar/MenuBar.php:76
 #, fuzzy
 msgid "Events"
 msgstr "Evenemangsbeskr."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:283 ListEvents.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:362
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
 #: v2/templates/map/MapUsingGoogle.php:72
 #: v2/templates/map/MapUsingGoogle.php:118
@@ -4679,73 +4641,108 @@ msgstr "Evenemangsbeskr."
 msgid "Calendar"
 msgstr "Kalender år"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:286 EcclesiaCRM/MenuBar/MenuBar.php:315
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
 msgstr "Visa korgen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:289
+#: EcclesiaCRM/MenuBar/MenuBar.php:88
 #, fuzzy
 msgid "List Church Events"
 msgstr "Lista över alla evenamang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:290
+#: EcclesiaCRM/MenuBar/MenuBar.php:89
 #, fuzzy
 msgid "List Event Types"
 msgstr "Redigera evenemangtyper"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:297 Menu.php:534
+#: EcclesiaCRM/MenuBar/MenuBar.php:99 Menu.php:534
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:111
 msgid "People"
 msgstr "Personer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:313
+#: EcclesiaCRM/MenuBar/MenuBar.php:115
 #, fuzzy
 msgid "Meta Search Engine"
 msgstr "Person lista"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:322 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
 #, fuzzy
 msgid "Add New Person"
 msgstr "Lägg till ny evenemang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:323
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
 #, fuzzy
 msgid "View Single Persons"
 msgstr "Se alla"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:324
+#: EcclesiaCRM/MenuBar/MenuBar.php:126
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Se alla"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:329
+#: EcclesiaCRM/MenuBar/MenuBar.php:131
 #, fuzzy
 msgid "Add New Family"
 msgstr "Lägg till ny fält"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:330
+#: EcclesiaCRM/MenuBar/MenuBar.php:132
 #, fuzzy
 msgid "View Active Families"
 msgstr "CSV kombinera familjer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:334
+#: EcclesiaCRM/MenuBar/MenuBar.php:136
 #, fuzzy
 msgid "Empty Addresses"
 msgstr "Kyrkans adress"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:359 FamilyView.php:381 UserEditor.php:838
+#: EcclesiaCRM/MenuBar/MenuBar.php:147
+#, fuzzy
+msgid "List Groups"
+msgstr "Alla grupper"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:209 v2/routes/people/people.php:186
+msgid "Group Assignment Helper"
+msgstr "Grupp tilldelnings-verktyg"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:216
+#: v2/routes/sundayschool/sundayschool.php:110
+#, fuzzy
+msgid "Sunday School"
+msgstr "Inga söndagskola"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:294 EcclesiaCRM/MenuBar/MenuBar.php:301
+#: Include/Footer.php:174
+msgid "Global Custom Menus"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:312
+#, fuzzy
+msgid "Custom Menus"
+msgstr "Fritt anpassade fält"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:324
+#, fuzzy
+msgid "By Classifications"
+msgstr "Klassificering "
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:331
+#, fuzzy
+msgid "Meetings"
+msgstr "Grupp lista"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:343 FamilyView.php:381 UserEditor.php:838
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:368
+#: EcclesiaCRM/MenuBar/MenuBar.php:352
 #, fuzzy
 msgid "Email Lists"
 msgstr "Familj redigeringsverktyg"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392
+#: EcclesiaCRM/MenuBar/MenuBar.php:377
 #: EcclesiaCRM/Search/PledgeSearchRes.php:62
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4754,75 +4751,71 @@ msgstr "Familj redigeringsverktyg"
 msgid "Deposit"
 msgstr "Insättning"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:405
+#: EcclesiaCRM/MenuBar/MenuBar.php:390
 #, fuzzy
 msgid "Current"
 msgstr "För närvarande roll"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:410 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:395 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Kuvert skötare"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:411
+#: EcclesiaCRM/MenuBar/MenuBar.php:396
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Se alla"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:412 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:397 ElectronicPaymentList.php:55
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "Elektronisk överföring detaljer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:413
+#: EcclesiaCRM/MenuBar/MenuBar.php:398
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Insättningsrapport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:414
+#: EcclesiaCRM/MenuBar/MenuBar.php:399
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Insättningsblankett"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:421 FundRaiserEditor.php:36
+#: EcclesiaCRM/MenuBar/MenuBar.php:408 FundRaiserEditor.php:38
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Användare lista"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:423
-#, fuzzy
-msgid "View All Fundraisers"
-msgstr "Alla fonder"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:424
+#: EcclesiaCRM/MenuBar/MenuBar.php:410
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Skapa ny familj"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:425
+#: EcclesiaCRM/MenuBar/MenuBar.php:411
 #, fuzzy
-msgid "Edit Fundraiser"
+msgid "View All Fundraisers"
+msgstr "Alla fonder"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:413
+#, fuzzy
+msgid "Edit Last Fundraiser"
 msgstr "Redigera användare"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:426
+#: EcclesiaCRM/MenuBar/MenuBar.php:416 EcclesiaCRM/MenuBar/MenuBar.php:418
 #, fuzzy
 msgid "View Buyers"
 msgstr "Köparen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:427
-msgid "Add Donors to Buyer List"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:433
+#: EcclesiaCRM/MenuBar/MenuBar.php:474
 #, fuzzy
 msgid "Data/Reports"
 msgstr "Skapa rapport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:435
+#: EcclesiaCRM/MenuBar/MenuBar.php:476
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Rapport meny"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:436 UserEditor.php:774
+#: EcclesiaCRM/MenuBar/MenuBar.php:477 UserEditor.php:774
 #, fuzzy
 msgid "Query Menu"
 msgstr "Förfrågan vy"
@@ -5186,7 +5179,7 @@ msgstr "Adress"
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
-#: FindFundRaiser.php:310 ListEvents.php:379 PersonView.php:479
+#: FindFundRaiser.php:292 ListEvents.php:379 PersonView.php:479
 msgid "Edit"
 msgstr "Redigera"
 
@@ -5689,7 +5682,7 @@ msgstr ""
 msgid "SSE"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:57
+#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:59
 #: PledgeEditor.php:371
 msgid "Not a valid date"
 msgstr "Ogiltig datum"
@@ -6076,7 +6069,7 @@ msgid "Bank ACH"
 msgstr "Bank"
 
 #: ElectronicPaymentList.php:271 GroupEditor.php:166
-#: v2/templates/group/groupview.php:250
+#: v2/templates/group/groupview.php:251
 msgid "Disabled"
 msgstr ""
 
@@ -6797,7 +6790,7 @@ msgid "Add to Cart"
 msgstr "Lägg till korgen"
 
 #: FamilyView.php:456 PersonView.php:733 v2/templates/cart/cartview.php:76
-#: v2/templates/group/groupview.php:165
+#: v2/templates/group/groupview.php:179
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
@@ -6843,8 +6836,8 @@ msgid "Timeline"
 msgstr ""
 
 #: FamilyView.php:648 PersonView.php:897 PrintPastoralCarePerson.php:594
-#: PrintView.php:603 v2/templates/group/groupview.php:316
-#: v2/templates/group/groupview.php:374
+#: PrintView.php:603 v2/templates/group/groupview.php:317
+#: v2/templates/group/groupview.php:375
 #, fuzzy
 msgid "Assigned Properties"
 msgstr "Angiven egenskaper"
@@ -6858,25 +6851,25 @@ msgstr "Autobetalningstyp"
 msgid "Pledges and Payments"
 msgstr "Bidrag löfte och betalningar"
 
-#: FamilyView.php:801 PersonView.php:1380 v2/templates/group/groupview.php:329
+#: FamilyView.php:801 PersonView.php:1380 v2/templates/group/groupview.php:330
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Ange en ny egenskap"
 
-#: FamilyView.php:808 PaddleNumList.php:52 PersonView.php:1386
+#: FamilyView.php:808 PaddleNumList.php:66 PersonView.php:1386
 #: PersonView.php:1457 PersonView.php:1599
 #, fuzzy
 msgid "Select"
 msgstr "Välj roll"
 
 #: FamilyView.php:811 PersonView.php:1388 QueryView.php:458 QueryView.php:475
-#: v2/templates/group/groupview.php:334
+#: v2/templates/group/groupview.php:335
 #, fuzzy
 msgid "select an option"
 msgstr "Speciellval"
 
 #: FamilyView.php:832 PersonView.php:1409 PersonView.php:1472
-#: v2/templates/group/groupview.php:350
+#: v2/templates/group/groupview.php:351
 msgid "Assign"
 msgstr "Ange"
 
@@ -7164,7 +7157,7 @@ msgid ""
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:488 PaddleNumEditor.php:158
+#: FinancialReports.php:488 PaddleNumEditor.php:273
 msgid "Back"
 msgstr "Tillbaka"
 
@@ -7245,75 +7238,80 @@ msgstr ""
 msgid "Fundraiser Listing"
 msgstr "Användare lista"
 
-#: FindFundRaiser.php:82 FindFundRaiser.php:311 Include/Functions.php:94
-#: PaddleNumEditor.php:173 PaddleNumList.php:53
+#: FindFundRaiser.php:86 FindFundRaiser.php:293 Include/Functions.php:94
+#: PaddleNumEditor.php:199 PaddleNumList.php:67
 msgid "Number"
 msgstr "Nummer"
 
-#: FindFundRaiser.php:91
+#: FindFundRaiser.php:95
 #, fuzzy
 msgid "Date Start"
 msgstr "Startdatum"
 
-#: FindFundRaiser.php:99
+#: FindFundRaiser.php:106
 msgid "Apply Filters"
 msgstr "Använd filtrar"
 
-#: FindFundRaiser.php:104
+#: FindFundRaiser.php:112
 #, fuzzy
 msgid "Date End"
 msgstr "Slutdatum"
 
-#: FindFundRaiser.php:112
+#: FindFundRaiser.php:123
 msgid "Clear Filters"
 msgstr "Ta bort filtrar"
 
-#: FindFundRaiser.php:203
+#: FindFundRaiser.php:133
+#, fuzzy
+msgid "Fundraisers"
+msgstr "Användare lista"
+
+#: FindFundRaiser.php:201
 msgid "Previous Page"
 msgstr "Föregående sida"
 
-#: FindFundRaiser.php:253
+#: FindFundRaiser.php:252
 msgid "Next Page"
 msgstr "Nästa sida"
 
-#: FindFundRaiser.php:290
-msgid "Display:"
-msgstr "Visning:"
-
-#: FundRaiserEditor.php:38
+#: FundRaiserEditor.php:40
 #, fuzzy
 msgid "Create New Fund Raiser"
 msgstr "Skapa ny familj"
 
-#: FundRaiserEditor.php:155
+#: FundRaiserEditor.php:160
+msgid "infos"
+msgstr ""
+
+#: FundRaiserEditor.php:220
 msgid "Add Donated Item"
 msgstr "Lägg Donerade Punkt"
 
-#: FundRaiserEditor.php:156
+#: FundRaiserEditor.php:221
 #, fuzzy
 msgid "Generate Catalog"
 msgstr "Skapa etikett"
 
-#: FundRaiserEditor.php:157
+#: FundRaiserEditor.php:222
 #, fuzzy
 msgid "Generate Bid Sheets"
 msgstr "Skapa etikett"
 
-#: FundRaiserEditor.php:158
+#: FundRaiserEditor.php:223
 #, fuzzy
 msgid "Generate Certificates"
 msgstr "Skapa rapport"
 
-#: FundRaiserEditor.php:191
+#: FundRaiserEditor.php:242
 #, fuzzy
 msgid "Donated items for this fundraiser"
 msgstr "Donerade verk för denna insamling"
 
-#: FundRaiserEditor.php:202
+#: FundRaiserEditor.php:255
 msgid "Sale Price"
 msgstr "Försäljningspris"
 
-#: FundRaiserEditor.php:203
+#: FundRaiserEditor.php:256
 #, fuzzy
 msgid "Estimated value"
 msgstr "Redigera värd"
@@ -7466,7 +7464,7 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Grupp specifik egenskapar"
 
-#: GroupEditor.php:160 v2/templates/group/groupview.php:423
+#: GroupEditor.php:160 v2/templates/group/groupview.php:424
 msgid "Edit Group-Specific Properties Form"
 msgstr "Redigera grupp specifik egenskapar formulär"
 
@@ -7524,7 +7522,7 @@ msgstr "Inga egenskapar tillägd än"
 msgid "Return to Person"
 msgstr "Återgå till person post"
 
-#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:368
+#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:369
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Grupp specifik egenskapar"
@@ -7652,7 +7650,7 @@ msgstr "Egenskapar"
 msgid "Edit Custom Person Fields"
 msgstr "Fritt anpassade person fält"
 
-#: Include/Footer.php:105 v2/templates/group/groupview.php:310
+#: Include/Footer.php:105 v2/templates/group/groupview.php:311
 #, fuzzy
 msgid "Group Properties"
 msgstr "Grupp specifik egenskapar"
@@ -8044,7 +8042,7 @@ msgstr "Start datum/tid"
 msgid "End Date/Time"
 msgstr "Start datum/tid"
 
-#: ListEvents.php:367 v2/templates/group/groupview.php:250
+#: ListEvents.php:367 v2/templates/group/groupview.php:251
 #: v2/templates/sidebar/kioskmanager.php:29
 msgid "Active"
 msgstr "Aktiv"
@@ -8485,36 +8483,40 @@ msgstr "Fel: A"
 msgid " by that name already exists."
 msgstr " med denna namn finns redan."
 
-#: PaddleNumEditor.php:51
+#: PaddleNumEditor.php:62
 #, fuzzy
 msgid "Buyer Number Editor"
 msgstr "Användare redigeringsverktyg"
 
-#: PaddleNumEditor.php:154
+#: PaddleNumEditor.php:268
 #, fuzzy
 msgid "Generate Statement"
 msgstr "Skapa rapport"
 
-#: PaddleNumList.php:33
+#: PaddleNumList.php:43
 msgid "Buyers for this fundraiser:"
 msgstr "Köpare till denna insamling:"
 
-#: PaddleNumList.php:40
+#: PaddleNumList.php:51
 #, fuzzy
 msgid "Select all"
 msgstr "Välj roll"
 
-#: PaddleNumList.php:42
+#: PaddleNumList.php:55
 #, fuzzy
 msgid "Select none"
 msgstr "Välj roll"
 
-#: PaddleNumList.php:43
+#: PaddleNumList.php:56
 #, fuzzy
 msgid "Add Buyer"
 msgstr "Lägg till ny"
 
-#: PaddleNumList.php:44
+#: PaddleNumList.php:57
+msgid "Add Donors to Buyer List"
+msgstr ""
+
+#: PaddleNumList.php:59
 msgid "Generate Statements for Selected"
 msgstr "Generera rapporter för valda"
 
@@ -10954,25 +10956,12 @@ msgstr "Redigera denna grupp"
 msgid "Delete this Group"
 msgstr "Radera denna grupp"
 
-#: v2/templates/group/groupview.php:154
-msgid "Email Group"
-msgstr "Epost grupp"
-
-#: v2/templates/group/groupview.php:212
-#, fuzzy
-msgid "Text Group"
-msgstr "Välj grupp"
-
-#: v2/templates/group/groupview.php:213
-msgid "Press CTRL + C to copy all group members\\' phone numbers"
-msgstr ""
-
-#: v2/templates/group/groupview.php:221
+#: v2/templates/group/groupview.php:108
 #, fuzzy
 msgid "Group Badges"
 msgstr "Grupp medlemmar"
 
-#: v2/templates/group/groupview.php:227
+#: v2/templates/group/groupview.php:118
 #: v2/templates/meeting/meetingdashboard.php:41
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 #: v2/templates/pastoralcare/pastoralcarefamily.php:65
@@ -10982,89 +10971,102 @@ msgstr "Grupp medlemmar"
 msgid "Appointment"
 msgstr "Insättningsrapport"
 
-#: v2/templates/group/groupview.php:242
+#: v2/templates/group/groupview.php:168
+msgid "Email Group"
+msgstr "Epost grupp"
+
+#: v2/templates/group/groupview.php:226
+#, fuzzy
+msgid "Text Group"
+msgstr "Välj grupp"
+
+#: v2/templates/group/groupview.php:227
+msgid "Press CTRL + C to copy all group members\\' phone numbers"
+msgstr ""
+
+#: v2/templates/group/groupview.php:243
 #, fuzzy
 msgid "Quick Settings"
 msgstr "Spara inställningar"
 
-#: v2/templates/group/groupview.php:252
+#: v2/templates/group/groupview.php:253
 #, fuzzy
 msgid "Email export"
 msgstr "Epost korg"
 
-#: v2/templates/group/groupview.php:253
+#: v2/templates/group/groupview.php:254
 #, fuzzy
 msgid "Include"
 msgstr "Inkludera:"
 
-#: v2/templates/group/groupview.php:253
+#: v2/templates/group/groupview.php:254
 #, fuzzy
 msgid "Exclude"
 msgstr "Inkludera:"
 
-#: v2/templates/group/groupview.php:261
+#: v2/templates/group/groupview.php:262
 msgid ""
 "Assign a group manager only for This Group. He can add or remove member from "
 "This Group, but not create Members."
 msgstr ""
 
-#: v2/templates/group/groupview.php:261
+#: v2/templates/group/groupview.php:262
 #, fuzzy
 msgid "Group Managers"
 msgstr "Grupp medlemmar"
 
-#: v2/templates/group/groupview.php:267
+#: v2/templates/group/groupview.php:268
 #, fuzzy
 msgid "Assigned Managers"
 msgstr "Ange insamlingskampanj arbetare"
 
-#: v2/templates/group/groupview.php:287
+#: v2/templates/group/groupview.php:288
 #, fuzzy
 msgid "No assigned Manager"
 msgstr "Inte tilldelad"
 
-#: v2/templates/group/groupview.php:292
+#: v2/templates/group/groupview.php:293
 #, fuzzy
 msgid "Add Manager"
 msgstr "Lägg till ny"
 
-#: v2/templates/group/groupview.php:310
+#: v2/templates/group/groupview.php:311
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
-#: v2/templates/group/groupview.php:368
+#: v2/templates/group/groupview.php:369
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: v2/templates/group/groupview.php:382
+#: v2/templates/group/groupview.php:383
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Inga egenskapar tillägd än"
 
-#: v2/templates/group/groupview.php:414
+#: v2/templates/group/groupview.php:415
 msgid "Disabled for this group."
 msgstr "oaktiverad för denna grupp"
 
-#: v2/templates/group/groupview.php:414
+#: v2/templates/group/groupview.php:415
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: v2/templates/group/groupview.php:438
+#: v2/templates/group/groupview.php:439
 msgid "Group Members:"
 msgstr "Grupp medlemmar"
 
-#: v2/templates/group/groupview.php:452
+#: v2/templates/group/groupview.php:453
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Grupp medlemmar"
 
-#: v2/templates/group/groupview.php:457
+#: v2/templates/group/groupview.php:458
 #: v2/templates/sundayschool/sundayschooldashboard.php:332
 #: v2/templates/sundayschool/sundayschoolview.php:162
 #: v2/templates/sundayschool/sundayschoolview.php:288
@@ -11072,21 +11074,21 @@ msgstr "Grupp medlemmar"
 msgid "Add"
 msgstr "Adress"
 
-#: v2/templates/group/groupview.php:463
+#: v2/templates/group/groupview.php:464
 msgid "Remove Selected Members from group"
 msgstr ""
 
-#: v2/templates/group/groupview.php:470
+#: v2/templates/group/groupview.php:471
 #, fuzzy
 msgid "Add Selected Members to Cart"
 msgstr "Lägg grupp medlemmar till korgen"
 
-#: v2/templates/group/groupview.php:476
+#: v2/templates/group/groupview.php:477
 #, fuzzy
 msgid "Add Selected Members to Group"
 msgstr "Lägg till personen till gruppen"
 
-#: v2/templates/group/groupview.php:477
+#: v2/templates/group/groupview.php:478
 msgid "Move Selected Members to Group"
 msgstr ""
 
@@ -12574,6 +12576,9 @@ msgstr "Tom korgen"
 #, fuzzy
 msgid "pending"
 msgstr "Bröllop"
+
+#~ msgid "Display:"
+#~ msgstr "Visning:"
 
 #, fuzzy
 #~ msgid "Family Custom Searches"
