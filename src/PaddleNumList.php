@@ -54,6 +54,8 @@ if ($iFundRaiserID > 0) {
 ?>
     <input type=button class="btn btn-default btn-sm" value="<?= _('Select none') ?>" name=SelectNone onclick="javascript:document.location='PaddleNumList.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=PaddleNumList.php?FundRaiserID=<?= $iFundRaiserID ?>&CurrentFundraiser=<?= $iFundRaiserID ?>'">
     <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer onclick="javascript:document.location='PaddleNumEditor.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=PaddleNumList.php?FundRaiserID=<?= $iFundRaiserID ?>&CurrentFundraiser=<?= $iFundRaiserID ?>'">
+    <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> " name=AddBuyer onclick="javascript:document.location='AddDonors.php?FundRaiserID=<?= $iFundRaiserID ?>'">
+
     <input type=submit class="btn btn-info btn-sm" value="<?= _('Generate Statements for Selected') ?>" name=GenerateStatements>
 </div>
 <div class="card card-body">

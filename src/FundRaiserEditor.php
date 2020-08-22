@@ -13,17 +13,15 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
-
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
+
 use EcclesiaCRM\FundRaiserQuery;
 use EcclesiaCRM\FundRaiser;
 
 use Propel\Runtime\Propel;
-
-
-use EcclesiaCRM\SessionUser;
 
 $linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
 $iFundRaiserID = InputUtils::LegacyFilterInputArr($_GET, 'FundRaiserID');
@@ -31,7 +29,7 @@ $iFundRaiserID = InputUtils::LegacyFilterInputArr($_GET, 'FundRaiserID');
 if ($iFundRaiserID > 0) {
     // Get the current fund raiser record
     $ormFRR = FundRaiserQuery::create()
-            ->findOneById($iFundRaiserID);
+        ->findOneById($iFundRaiserID);
     // Set current fundraiser
     $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;
 }
@@ -81,7 +79,7 @@ if (isset($_POST['FundRaiserSubmit'])) {
             // Existing record (update)
         } else {
             $fundRaiser = FundRaiserQuery::create()
-                    ->findOneById($iFundRaiserID);
+                ->findOneById($iFundRaiserID);
 
             $fundRaiser->setDate($dDate);
             $fundRaiser->setTitle($sTitle);
@@ -143,7 +141,7 @@ if ($iFundRaiserID > 0) {
     $pdoDonatedItems = $connection->prepare($sSQL);
     $pdoDonatedItems->execute();
 
-    $DonatedItemsCNT =  $pdoDonatedItems->rowCount();
+    $DonatedItemsCNT = $pdoDonatedItems->rowCount();
 } else {
     $DonatedItemsCNT = 0;
     $dDate = date('Y-m-d');    // Set default date to today
@@ -157,164 +155,172 @@ if ($iFundRaiserID > 0) {
 require 'Include/Header.php';
 
 ?>
-<div class="card card-body">
-    <form method="post" action="FundRaiserEditor.php?<?= 'linkBack=' . $linkBack . '&FundRaiserID=' . $iFundRaiserID ?>"
-          name="FundRaiserEditor">
+<div class="card">
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _('infos') ?></h3>
+    </div>
+    <div class="card-body">
+        <form method="post"
+              action="FundRaiserEditor.php?<?= 'linkBack=' . $linkBack . '&FundRaiserID=' . $iFundRaiserID ?>"
+              name="FundRaiserEditor">
 
-        <table cellpadding="3" align="center">
+            <table cellpadding="3" align="center">
 
-            <tr>
-                <td  style="width:500px">
-                    <br/>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <?= _('Date') ?>:
+                <tr>
+                    <td style="width:500px">
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?= _('Date') ?>:
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="Date"
+                                       value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"
+                                       maxlength="10" id="Date" size="11"
+                                       class="date-picker form-control input-sm"><font
+                                    color="red"><?php echo $sDateError ?></font>
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <input type="text" name="Date"
-                                   value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"
-                                   maxlength="10" id="Date" size="11"
-                                   class="date-picker form-control input-sm"><font
-                                color="red"><?php echo $sDateError ?></font>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?= _('Title') ?>:
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="Title" id="Title" value="<?= $sTitle ?>"
+                                       class="form-control input-sm">
+                            </div>
                         </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <?= _('Title') ?>:
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?= _('Description') ?>:
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="Description" id="Description"
+                                       value="<?= $sDescription ?>" class="form-control input-sm">
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            <input type="text" name="Title" id="Title" value="<?= $sTitle ?>"
-                                   class="form-control input-sm">
-                        </div>
-                    </div>
-                    <br/>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <?= _('Description') ?>:
-                        </div>
-                        <div class="col-md-5">
-                            <input type="text" name="Description" id="Description"
-                                   value="<?= $sDescription ?>" class="form-control input-sm">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    <br/>
-                    <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>"
-                           name="FundRaiserSubmit">
-                    <input type="button" class="btn btn-default btn-sm" value="<?= _('Cancel') ?>"
-                           name="FundRaiserCancel"
-                           onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-                               echo $linkBack;
-                           } else {
-                               echo 'Menu.php';
-                           } ?>';">
-                    <?php
-                    if ($iFundRaiserID > 0) {
-                        echo '<input type=button class="btn btn-success btn-sm" value="' . _('Add Donated Item') . "\" name=AddDonatedItem onclick=\"javascript:document.location='DonatedItemEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
-                        echo '<input type=button class="btn btn-success btn-sm" value="' . _('Generate Catalog') . "\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                        echo '<input type=button class="btn btn-info btn-sm" value="' . _('Generate Bid Sheets') . "\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                        echo '<input type=button class="btn btn-warning btn-sm" value="' . _('Generate Certificates') . "\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                        echo '<input type=button class="btn btn-success btn-sm" value="' . _('Batch Winner Entry') . "\" name=BatchWinnerEntry onclick=\"javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
-                    }
-                    ?>
-                    <br>
-                </td>
-            </tr>
-    </form>
-    </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <br/>
+                        <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>"
+                               name="FundRaiserSubmit">
+                        <input type="button" class="btn btn-default btn-sm" value="<?= _('Cancel') ?>"
+                               name="FundRaiserCancel"
+                               onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+                                   echo $linkBack;
+                               } else {
+                                   echo 'Menu.php';
+                               } ?>';">
+                        <?php
+                        if ($iFundRaiserID > 0) {
+                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Add Donated Item') . "\" name=AddDonatedItem onclick=\"javascript:document.location='DonatedItemEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Generate Catalog') . "\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                            echo '<input type=button class="btn btn-info btn-sm" value="' . _('Generate Bid Sheets') . "\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                            echo '<input type=button class="btn btn-warning btn-sm" value="' . _('Generate Certificates') . "\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Batch Winner Entry') . "\" name=BatchWinnerEntry onclick=\"javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                        }
+                        ?>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
 
 
     <br>
 </div>
 
 <?php if ($iFundRaiserID != -1) { ?>
-    <div class="card card-body">
-        <b><?= _('Donated items for this fundraiser') ?>:</b>
-        <br>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered dataTable no-footer dtr-inline fundraiser-table"
-                   cellpadding="5"
-                   cellspacing="0" width="100%">
+    <div class="card">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _('Donated items for this fundraiser') ?></h3>
+        </div>
+        <div class="card-body">
+                <table class="table table-striped table-bordered dataTable no-footer dtr-inline fundraiser-table"
+                       cellpadding="5"
+                       cellspacing="0" width="100%">
 
-                <thead class="TableHeader">
-                <th><?= _('Item') ?></th>
-                <th><?= _('Multiple') ?></th>
-                <th><?= _('Donor') ?></th>
-                <th><?= _('Buyer') ?></th>
-                <th><?= _('Title') ?></th>
-                <th><?= _('Sale Price') ?></th>
-                <th><?= _('Estimated value') ?></th>
-                <th><?= _('Material Value') ?></th>
-                <th><?= _('Minimum Price') ?></th>
-                <th><?= _('Delete') ?></th>
-                </thead>
+                    <thead class="TableHeader">
+                    <th><?= _('Item') ?></th>
+                    <th><?= _('Multiple') ?></th>
+                    <th><?= _('Donor') ?></th>
+                    <th><?= _('Buyer') ?></th>
+                    <th><?= _('Title') ?></th>
+                    <th><?= _('Sale Price') ?></th>
+                    <th><?= _('Estimated value') ?></th>
+                    <th><?= _('Material Value') ?></th>
+                    <th><?= _('Minimum Price') ?></th>
+                    <th><?= _('Delete') ?></th>
+                    </thead>
 
-                <?php
-                $tog = 0;
+                    <?php
+                    $tog = 0;
 
 
-                //Loop through all donated items
-                if ($DonatedItemsCNT > 0) {
+                    //Loop through all donated items
+                    if ($DonatedItemsCNT > 0) {
 
-                    while ($row = $pdoDonatedItems->fetch( \PDO::FETCH_BOTH )) {
-                        echo $DonatedItemsCNT;
+                        while ($row = $pdoDonatedItems->fetch(\PDO::FETCH_BOTH)) {
+                            echo $DonatedItemsCNT;
 
-                        if ($row['di_Item'] == '') {
-                            $row['di_Item'] = '~';
-                        }
+                            if ($row['di_Item'] == '') {
+                                $row['di_Item'] = '~';
+                            }
 
-                        $sRowClass = 'RowColorA'; ?>
-                        <tr class="<?= $sRowClass ?>">
-                            <td>
-                                <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemEditor.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>"><i
-                                        class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<?= $row['di_Item'] ?></a>
-                            </td>
-                            <td>
-                                <?php if ($row['di_multibuy']) {
-                                    echo 'X';
-                                } ?>&nbsp;
-                            </td>
-                            <td>
-                                <?= $row['donorFirstName'] . ' ' . $row['donorLastName'] ?>&nbsp;
-                            </td>
-                            <td>
-                                <?php if ($row['di_multibuy']) {
-                                    echo _('Multiple');
-                                } else {
-                                    echo $row['buyerFirstName'] . ' ' . $row['buyerLastName'];
-                                } ?>&nbsp;
-                            </td>
-                            <td>
-                                <?= $row['di_title'] ?>&nbsp;
-                            </td>
-                            <td align=center>
-                                <?= OutputUtils::number_localized($row['di_sellprice']) ?>&nbsp;
-                            </td>
-                            <td align=center>
-                                <?= OutputUtils::number_localized($row['di_estprice']) ?>&nbsp;
-                            </td>
-                            <td align=center>
-                                <?= OutputUtils::number_localized($row['di_materialvalue']) ?>&nbsp;
-                            </td>
-                            <td align=center>
-                                <?= OutputUtils::number_localized($row['di_minimum']) ?>&nbsp;
-                            </td>
-                            <td>
-                                <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemDelete.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>">
-                                    <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php
-                    } // while
-                }// if
-                ?>
+                            $sRowClass = 'RowColorA'; ?>
+                            <tr class="<?= $sRowClass ?>">
+                                <td>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemEditor.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>"><i
+                                            class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<?= $row['di_Item'] ?></a>
+                                </td>
+                                <td>
+                                    <?php if ($row['di_multibuy']) {
+                                        echo 'X';
+                                    } ?>&nbsp;
+                                </td>
+                                <td>
+                                    <?= $row['donorFirstName'] . ' ' . $row['donorLastName'] ?>&nbsp;
+                                </td>
+                                <td>
+                                    <?php if ($row['di_multibuy']) {
+                                        echo _('Multiple');
+                                    } else {
+                                        echo $row['buyerFirstName'] . ' ' . $row['buyerLastName'];
+                                    } ?>&nbsp;
+                                </td>
+                                <td>
+                                    <?= $row['di_title'] ?>&nbsp;
+                                </td>
+                                <td align=center>
+                                    <?= OutputUtils::number_localized($row['di_sellprice']) ?>&nbsp;
+                                </td>
+                                <td align=center>
+                                    <?= OutputUtils::number_localized($row['di_estprice']) ?>&nbsp;
+                                </td>
+                                <td align=center>
+                                    <?= OutputUtils::number_localized($row['di_materialvalue']) ?>&nbsp;
+                                </td>
+                                <td align=center>
+                                    <?= OutputUtils::number_localized($row['di_minimum']) ?>&nbsp;
+                                </td>
+                                <td>
+                                    <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemDelete.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>">
+                                        <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php
+                        } // while
+                    }// if
+                    ?>
 
-            </table>
+                </table>
         </div>
     </div>
 
