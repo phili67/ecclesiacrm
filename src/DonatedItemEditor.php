@@ -174,20 +174,23 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
         $pdoDonatedItem = $connection->prepare($sSQL);
         $pdoDonatedItem->execute();
 
-        $rsDonatedItem = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsDonatedItem));
+        $res = $pdoDonatedItem->fetch(PDO::FETCH_ASSOC);
 
-        $sItem = $di_Item;
-        $bMultibuy = $di_multibuy;
-        $iDonor = $di_donor_ID;
-        $iBuyer = $di_buyer_ID;
-        $sTitle = $di_title;
-        $sDescription = $di_description;
-        $nSellPrice = $di_sellprice;
-        $nEstPrice = $di_estprice;
-        $nMaterialValue = $di_materialvalue;
-        $nMinimumPrice = $di_minimum;
-        $sPictureURL = $di_picture;
+        $sItem =  $res['di_Item'];
+        $bMultibuy = $res['di_multibuy'];
+        $iDonor = $res['di_donor_ID'];
+        $iBuyer = $res['di_buyer_ID'];
+        //$sFirstName = $res['donorFirstName'];
+        //$sLastName = $res['donorLastName'];
+        //$sBuyerFirstName = $res['buyerFirstName'];
+        //$sBuyerLastName = $res['buyerLastName'];
+        $sTitle = $res['di_title'];
+        $sDescription = $res['di_description'];
+        $nSellPrice = $res['di_sellprice'];
+        $nEstPrice = $res['di_estprice'];
+        $nMaterialValue = $res['di_materialvalue'];
+        $nMinimumPrice = $res['di_minimum'];
+        $sPictureURL = $res['di_picture'];
     } else {
         //Adding....
         //Set defaults
@@ -219,13 +222,6 @@ $ormPaddleNum = PaddleNumQuery::create()
     ->addAsColumn('BuyerLastName', PersonTableMap::COL_PER_LASTNAME)
     ->endUse()
     ->findByFrId($iCurrentFundraiser);
-
-$sPaddleSQL = 'SELECT pn_ID, pn_Num, pn_per_ID,
-                      a.per_FirstName AS buyerFirstName,
-                      a.per_LastName AS buyerLastName
-                      FROM paddlenum_pn
-                      LEFT JOIN person_per a on a.per_ID=pn_per_ID
-                      WHERE pn_fr_ID='.$iCurrentFundraiser.' ORDER BY pn_Num';
 
 require 'Include/Header.php';
 ?>
