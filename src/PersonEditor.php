@@ -946,10 +946,10 @@ require 'Include/Header.php';
                         <label><?= _('Birth Month') ?>:</label>
                         <select name="BirthMonth" class="form-control input-sm">
                             <option value="0"
-                                    <?= ($iBirthMonth == 0) ? 'selected' : '' ?>><?= _('Select Month') ?></option>
+                                <?= ($iBirthMonth == 0) ? 'selected' : '' ?>><?= _('Select Month') ?></option>
                             <option value="01" <?= ($iBirthMonth == 1) ? 'selected' : '' ?>><?= _('January') ?></option>
                             <option value="02"
-                                    <?= ($iBirthMonth == 2) ? 'selected' : '' ?>><?= _('February') ?></option>
+                                <?= ($iBirthMonth == 2) ? 'selected' : '' ?>><?= _('February') ?></option>
                             <option value="03" <?= ($iBirthMonth == 3) ? 'selected' : '' ?>><?= _('March') ?></option>
                             <option value="04" <?= ($iBirthMonth == 4) ? 'selected' : '' ?>><?= _('April') ?></option>
                             <option value="05" <?= ($iBirthMonth == 5) ? 'selected' : '' ?>><?= _('May') ?></option>
@@ -957,13 +957,13 @@ require 'Include/Header.php';
                             <option value="07" <?= ($iBirthMonth == 7) ? 'selected' : '' ?>><?= _('July') ?></option>
                             <option value="08" <?= ($iBirthMonth == 8) ? 'selected' : '' ?>><?= _('August') ?></option>
                             <option value="09"
-                                    <?= ($iBirthMonth == 9) ? 'selected' : '' ?>><?= _('September') ?></option>
+                                <?= ($iBirthMonth == 9) ? 'selected' : '' ?>><?= _('September') ?></option>
                             <option value="10"
-                                    <?= ($iBirthMonth == 10) ? 'selected' : '' ?>><?= _('October') ?></option>
+                                <?= ($iBirthMonth == 10) ? 'selected' : '' ?>><?= _('October') ?></option>
                             <option value="11"
-                                    <?= ($iBirthMonth == 11) ? 'selected' : '' ?>><?= _('November') ?></option>
+                                <?= ($iBirthMonth == 11) ? 'selected' : '' ?>><?= _('November') ?></option>
                             <option value="12"
-                                    <?= ($iBirthMonth == 12) ? 'selected' : '' ?>><?= _('December') ?></option>
+                                <?= ($iBirthMonth == 12) ? 'selected' : '' ?>><?= _('December') ?></option>
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -978,7 +978,7 @@ require 'Include/Header.php';
                                     $sDay = $x;
                                 } ?>
                                 <option value="<?= $sDay ?>"
-                                        <?= ($iBirthDay == $x) ? 'selected' : '' ?>><?= $x ?></option>
+                                    <?= ($iBirthDay == $x) ? 'selected' : '' ?>><?= $x ?></option>
                                 <?php
                             }
                             ?>
@@ -1032,7 +1032,7 @@ require 'Include/Header.php';
                     as $ormFamilyRole) {
                     ?>
                     <option value="<?= $ormFamilyRole->getOptionId() ?>"
-                            <?= ($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '' ?>><?= $ormFamilyRole->getOptionName() ?>
+                        <?= ($iFamilyRole == $ormFamilyRole->getOptionId()) ? ' selected' : '' ?>><?= $ormFamilyRole->getOptionName() ?>
                         &nbsp;
                         <?php
                         }
@@ -1041,7 +1041,7 @@ require 'Include/Header.php';
             </div>
 
             <div class="form-group col-md-9"
-                 <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
+                <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
                 <label><?= _('Person or Family address'); ?>:</label>
                 <select name="Family" size="8" class="form-control" id="optionFamily">
                     <option value="0" selected><?= _('Unassigned') ?></option>
@@ -1053,7 +1053,7 @@ require 'Include/Header.php';
                     as $ormFamily) {
                     ?>
                     <option value="<?= $ormFamily->getId() ?>"
-                            <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
+                        <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId()) ? ' selected' : '' ?>><?= $ormFamily->getName() ?>
                         &nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
                         <?php
                         }
@@ -1143,7 +1143,7 @@ require 'Include/Header.php';
 
             <!-- canvasser -->
             <div class="row">
-                <?php if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person->getFamily()) && $person->getFamily()->getPeople()->count() == 1) { // Only show this field if the current user is a canvasser?>
+                <?php if (SessionUser::getUser()->isCanvasserEnabled() && !is_null($person) && !is_null($person->getFamily()) && $person->getFamily()->getPeople()->count() == 1) { // Only show this field if the current user is a canvasser?>
                     <div class="form-group col-md-4">
                         <label><?= _('Ok To Canvass') ?>: </label>
                         <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass) ? ' checked ' : '' ?>>
@@ -1427,7 +1427,7 @@ require 'Include/Header.php';
                         </div>
                         <br>
                         <input type="checkbox" name="NoFormat_HomePhone" value="1"
-                               <?= ($bNoFormat_HomePhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
+                            <?= ($bNoFormat_HomePhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
@@ -1457,7 +1457,7 @@ require 'Include/Header.php';
                         </div>
                         <br>
                         <input type="checkbox" name="NoFormat_WorkPhone" value="1"
-                               <?= ($bNoFormat_WorkPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
+                            <?= ($bNoFormat_WorkPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
 
@@ -1486,7 +1486,7 @@ require 'Include/Header.php';
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                         </div>
                         <br><input type="checkbox" name="NoFormat_CellPhone" value="1"
-                                   <?= ($bNoFormat_CellPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
+                            <?= ($bNoFormat_CellPhone) ? ' checked' : '' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
                 <div class="form-group col-md-3">
@@ -1496,7 +1496,7 @@ require 'Include/Header.php';
                         </div>
                         <div class="form-group col-md-4">
                             <input type="checkbox" Name="SendNewsLetter" value="1"
-                                   <?= ($bSendNewsLetter) ? ' checked' : '' ?> style="margin-top:10px">
+                                <?= ($bSendNewsLetter) ? ' checked' : '' ?> style="margin-top:10px">
                         </div>
                     </div>
                 </div>
@@ -1643,7 +1643,7 @@ require 'Include/Header.php';
                         as $ormClassification) {
                         ?>
                         <option value="<?= $ormClassification->getOptionId() ?>"
-                                <?= ($iClassification == $ormClassification->getOptionId()) ? ' selected' : '' ?>><?= $ormClassification->getOptionName() ?>
+                            <?= ($iClassification == $ormClassification->getOptionId()) ? ' selected' : '' ?>><?= $ormClassification->getOptionName() ?>
                             &nbsp;
                             <?php
                             }
