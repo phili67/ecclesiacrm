@@ -113,7 +113,7 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
 		                b.fam_homephone as buyerPhone
 		                FROM donateditem_di LEFT JOIN person_per a on a.per_ID = di_buyer_id
 		                                    LEFT JOIN family_fam b on a.per_fam_id = b.fam_id
-		                WHERE di_FR_ID = '.$iFundRaiserID.' AND di_donor_id = '.$row['pn_per_ID'];
+		                WHERE di_FR_ID = '.$iFundRaiserID;//.' AND di_donor_id = '.$row['pn_per_ID'];
 
         $ormDonatedItems = $connection->prepare($sSQL);
         $ormDonatedItems->execute();
