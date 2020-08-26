@@ -16,16 +16,19 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\DonatedItem;
+
 $iFundRaiserID = $_SESSION['iCurrentFundraiser'];
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
 $iCount = InputUtils::LegacyFilterInputArr($_GET, 'Count', 'int');
 
 $sLetter = 'a';
 
-$sSQL = "SELECT di_item FROM donateditem_di WHERE di_ID=$iDonatedItemID";
-$rsItem = RunQuery($sSQL);
-$row = mysqli_fetch_array($rsItem);
-$startItem = $row[0];
+$item = DonatedItemQuery::create()
+    ->findOneById($iDonatedItemID);
+
+$startItem = $item->getItem();
 
 if (strlen($startItem) == 2) { // replicated items will sort better if they have a two-digit number
     $letter = mb_substr($startItem, 0, 1);
@@ -36,12 +39,24 @@ if (strlen($startItem) == 2) { // replicated items will sort better if they have
 $letterNum = ord('a');
 
 for ($i = 0; $i < $iCount; $i++) {
-    $sSQL = 'INSERT INTO donateditem_di (di_item,di_FR_ID,di_donor_ID,di_multibuy,di_title,di_description,di_sellprice,di_estprice,di_minimum,di_materialvalue,di_EnteredBy,di_EnteredDate,di_picture)';
-    $sSQL .= "SELECT '".$startItem.chr($letterNum)."',di_FR_ID,di_donor_ID,di_multibuy,di_title,di_description,di_sellprice,di_estprice,di_minimum,di_materialvalue,";
-    $sSQL .= SessionUser::getUser()->getPersonId().",'".date('YmdHis')."',";
-    $sSQL .= 'di_picture';
-    $sSQL .= " FROM donateditem_di WHERE di_ID=$iDonatedItemID";
-    $ret = RunQuery($sSQL);
+    $newItem = new DonatedItem ();
+
+    $newItem->setItem($startItem.chr($letterNum));
+    $newItem->setFrId($item->getFrId());
+    $newItem->setDonorId($item->getDonorID());
+    $newItem->setMultibuy($item->getMultibuy());
+    $newItem->setTitle($item->getTitle());
+    $newItem->setDescription($item->getDescription());
+    $newItem->setSellprice($item->getSellprice());
+    $newItem->setEstprice($item->getEstprice());
+    $newItem->setMinimum($item->getMinimum());
+    $newItem->setMaterialValue($item->getMaterialValue());
+    $newItem->setEnteredby(SessionUser::getUser()->getPersonId());
+    $newItem->setEntereddate(date('YmdHis'));
+    $newItem->setPicture($item->getPicture());
+
+    $newItem->save();
+
     $letterNum += 1;
 }
 RedirectUtils::Redirect("FundRaiserEditor.php?FundRaiserID=$iFundRaiserID");

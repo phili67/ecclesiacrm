@@ -14,12 +14,18 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 
+use EcclesiaCRM\DonatedItemQuery;
+
 $iDonatedItemID = InputUtils::LegacyFilterInput($_GET['DonatedItemID'], 'int');
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack'], 'string');
 
 $iFundRaiserID = $_SESSION['iCurrentFundraiser'];
 
-$sSQL = "DELETE FROM donateditem_di WHERE di_id=$iDonatedItemID AND di_fr_id=$iFundRaiserID";
-RunQuery($sSQL);
+$di = DonatedItemQuery::create()
+    ->filterByFrId($iFundRaiserID)
+    ->findOneById($iDonatedItemID);
 
+if (!is_null($di)) {
+    $di->delete();
+}
 RedirectUtils::Redirect($linkBack);

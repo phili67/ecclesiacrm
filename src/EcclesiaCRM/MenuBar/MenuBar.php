@@ -411,11 +411,16 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("View All Fundraisers"), "fa fa-circle-o", "FindFundRaiser.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
         if (isset($_SESSION['iCurrentFundraiser'])) {
             $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
-        } else {
-            $menuItem = new Menu (_("Edit Fundraiser"), "fa fa-circle-o", "FundRaiserEditor.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
         }
-        $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Add Donors to Buyer List"), "fa fa-circle-o", "AddDonors.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        if (isset($_SESSION['iCurrentFundraiser'])) {
+            $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php?FundRaiserID=".$_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu);
+        } else {
+            $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        }
+
+        if (isset($_SESSION['iCurrentFundraiser'])) {
+            $menuItem->addLink('PaddleNumList.php?FundRaiserID='.$_SESSION['iCurrentFundraiser']);
+        }
 
         $this->addMenu($menu);
 

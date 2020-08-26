@@ -17,6 +17,17 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 
+use EcclesiaCRM\FundRaiserQuery;
+use EcclesiaCRM\Base\DonatedItemQuery;
+use EcclesiaCRM\Base\PaddleNumQuery;
+use EcclesiaCRM\PaddleNum;
+
+use EcclesiaCRM\Map\DonatedItemTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\PaddleNumTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 $linkBack = '';
 if (array_key_exists('linkBack', $_GET)) {
@@ -30,42 +41,52 @@ if ($linkBack == '') {
 
 if ($iFundRaiserID > 0) {
     // Get the current fund raiser record
-    $sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = '.$iFundRaiserID;
-    $rsFRR = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsFRR));
+    $ormFRR = FundRaiserQuery::create()
+            ->findOneById($iFundRaiserID);
+
     // Set current fundraiser
     $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;
 } else {
     RedirectUtils::Redirect($linkBack);
 }
 
+echo $iFundRaiserID;
+
 // Get all the people listed as donors for this fundraiser
-$sSQL = "SELECT a.per_id as donorID FROM donateditem_di
-    	     LEFT JOIN person_per a ON di_donor_ID=a.per_ID
-         WHERE di_FR_ID = '".$iFundRaiserID."' ORDER BY a.per_id";
-$rsDonors = RunQuery($sSQL);
+$ormDonors = DonatedItemQuery::create()
+    ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID,PersonTableMap::COL_PER_ID,Criteria::LEFT_JOIN)
+    ->addAsColumn('PersonID',PersonTableMap::COL_PER_ID)
+    ->orderBy('PersonID')
+    ->findByFrId($iFundRaiserID);
+
+print_r($ormDonors->toArray());
+
 
 $extraPaddleNum = 1;
-$sSQL = "SELECT MAX(pn_NUM) AS pn_max FROM paddlenum_pn WHERE pn_FR_ID = '".$iFundRaiserID."'";
-$rsMaxPaddle = RunQuery($sSQL);
-if (mysqli_num_rows($rsMaxPaddle) > 0) {
-    $oneRow = mysqli_fetch_array($rsMaxPaddle);
-    extract($oneRow);
-    $extraPaddleNum = $pn_max + 1;
+$maxPN = PaddleNumQuery::create()
+    ->addAsColumn('Max', 'MAX('.PaddleNumTableMap::COL_PN_NUM.")")
+    ->findOneByFrId($iFundRaiserID);
+
+if ( !is_null($maxPN) ) {
+    $extraPaddleNum = $maxPN->getMax() + 1;
 }
+
 
 // Go through the donors, add buyer records for any who don't have one yet
-while ($donorRow = mysqli_fetch_array($rsDonors)) {
-    extract($donorRow);
+foreach ($ormDonors as $donor) {
+    $buyer = PaddleNumQuery::create()
+        ->filterByFrId($iFundRaiserID)
+        ->findOneByPerId( $donor->getDonorId() );
 
-    $sSQL = "SELECT pn_per_id FROM paddlenum_pn WHERE pn_per_id='$donorID' AND pn_FR_ID = '$iFundRaiserID'";
-    $rsBuyer = RunQuery($sSQL);
+    if ( is_null($buyer) ) {
+        $newPN = new PaddleNum();
 
-    if ($donorID > 0 && mysqli_num_rows($rsBuyer) == 0) {
-        $sSQL = "INSERT INTO paddlenum_pn (pn_Num, pn_fr_ID, pn_per_ID)
-		                VALUES ('$extraPaddleNum', '$iFundRaiserID', '$donorID')";
-        RunQuery($sSQL);
-        $extraPaddleNum = $extraPaddleNum + 1;
+        $newPN->setNum($extraPaddleNum++);
+        $newPN->setFrId($iFundRaiserID);
+        $newPN->setPerId($donor->getDonorId());
+
+        $newPN->save();
     }
 }
+
 RedirectUtils::Redirect($linkBack);

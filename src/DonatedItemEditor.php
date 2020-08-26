@@ -12,12 +12,22 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\DonatedItem;
+use EcclesiaCRM\FundRaiserQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PaddleNumQuery;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\DonatedItemTableMap;
+
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\OutputUtils;
 
+use Propel\Runtime\Propel;
 
 
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
@@ -25,10 +35,10 @@ $linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
 $iCurrentFundraiser = InputUtils::LegacyFilterInputArr($_GET, 'CurrentFundraiser');
 
 if ($iDonatedItemID > 0) {
-    $sSQL = "SELECT * FROM donateditem_di WHERE di_ID = '$iDonatedItemID'";
-    $rsDonatedItem = RunQuery($sSQL);
-    $theDonatedItem = mysqli_fetch_array($rsDonatedItem);
-    $iCurrentFundraiser = $theDonatedItem['di_FR_ID'];
+    $ormDonatedItem = DonatedItemQuery::create()
+        ->findOneById($iDonatedItemID);
+
+    $iCurrentFundraiser = $ormDonatedItem->getFrId();
 }
 
 if ($iCurrentFundraiser) {
@@ -39,27 +49,30 @@ if ($iCurrentFundraiser) {
 
 // Get the current fundraiser data
 if ($iCurrentFundraiser) {
-    $sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = '.$iCurrentFundraiser;
+    $ormDeposit = FundRaiserQuery::create()
+        ->findOneById($iCurrentFundraiser);
+
+    /*$sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = ' . $iCurrentFundraiser;
     $rsDeposit = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsDeposit));
+    extract(mysqli_fetch_array($rsDeposit));*/
 }
 
 //Set the page title
-$sPageTitle = gettext('Donated Item Editor');
+$sPageTitle = _('Donated Item Editor');
 
 //Is this the second pass?
 if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'])) {
     //Get all the variables from the request object and assign them locally
     $sItem = InputUtils::LegacyFilterInputArr($_POST, 'Item');
-    $bMultibuy = InputUtils::LegacyFilterInputArr($_POST, 'Multibuy', 'int');
-    $iDonor = InputUtils::LegacyFilterInputArr($_POST, 'Donor', 'int');
-    $iBuyer = InputUtils::LegacyFilterInputArr($_POST, 'Buyer', 'int');
-    $sTitle = InputUtils::LegacyFilterInputArr($_POST, 'Title');
-    $sDescription = InputUtils::LegacyFilterInputArr($_POST, 'Description');
-    $nSellPrice = InputUtils::LegacyFilterInputArr($_POST, 'SellPrice');
-    $nEstPrice = InputUtils::LegacyFilterInputArr($_POST, 'EstPrice');
-    $nMaterialValue = InputUtils::LegacyFilterInputArr($_POST, 'MaterialValue');
-    $nMinimumPrice = InputUtils::LegacyFilterInputArr($_POST, 'MinimumPrice');
+    $bMultibuy = InputUtils::FilterInt($_POST['Multibuy']);
+    $iDonor = InputUtils::FilterInt($_POST['Donor']);
+    $iBuyer = InputUtils::FilterInt($_POST['Buyer']);
+    $sTitle = InputUtils::FilterString($_POST['Title']);
+    $sDescription = InputUtils::FilterHTML($_POST['Description']);
+    $nSellPrice = InputUtils::FilterFloat($_POST['SellPrice']);
+    $nEstPrice = InputUtils::FilterFloat($_POST['EstPrice']);
+    $nMaterialValue = InputUtils::FilterFloat($_POST['MaterialValue']);
+    $nMinimumPrice = InputUtils::FilterFloat($_POST['MinimumPrice']);
     $sPictureURL = InputUtils::LegacyFilterInputArr($_POST, 'PictureURL');
 
     if (!$bMultibuy) {
@@ -70,26 +83,60 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
     }
     // New DonatedItem or deposit
     if (strlen($iDonatedItemID) < 1) {
-        $sSQL = 'INSERT INTO donateditem_di (di_FR_ID, di_Item, di_multibuy, di_donor_ID, di_buyer_ID, di_title, di_description, di_sellprice, di_estprice, di_materialvalue, di_minimum, di_picture, di_EnteredBy, di_EnteredDate)
-		VALUES ('.$iCurrentFundraiser.",'".$sItem."','".$bMultibuy."','".$iDonor."','".$iBuyer."','".html_entity_decode($sTitle)."','".html_entity_decode($sDescription)."','".$nSellPrice."','".$nEstPrice."','".$nMaterialValue."','".$nMinimumPrice."','".mysqli_real_escape_string($cnInfoCentral, $sPictureURL)."'";
-        $sSQL .= ','.SessionUser::getUser()->getPersonId().",'".date('YmdHis')."')";
+
+        $donatedItem = new DonatedItem();
+
+        $donatedItem->setFrId($iCurrentFundraiser);
+        $donatedItem->setItem($sItem);
+        $donatedItem->setMultibuy($bMultibuy);
+        $donatedItem->setDonorId($iDonor);
+        $donatedItem->setBuyerId($iBuyer);
+        $donatedItem->setTitle($sTitle);
+        $donatedItem->setDescription(html_entity_decode($sDescription));
+        $donatedItem->setSellprice($nSellPrice);
+        $donatedItem->setEstprice($nEstPrice);
+        $donatedItem->setMaterialValue($nMaterialValue);
+        $donatedItem->setMinimum($nMinimumPrice);
+        $donatedItem->setPicture(Propel::getConnection()->quote($sPictureURL));
+        $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+        $donatedItem->setEntereddate(date('YmdHis'));
+
+        $donatedItem->save();
         $bGetKeyBack = true;
         // Existing record (update)
     } else {
-        $sSQL = 'UPDATE donateditem_di SET di_FR_ID = '.$iCurrentFundraiser.", di_Item = '".$sItem."', di_multibuy = '".$bMultibuy."', di_donor_ID = ".$iDonor.', di_buyer_ID = '.$iBuyer.", di_title = '".html_entity_decode($sTitle)."', di_description = '".html_entity_decode($sDescription)."', di_sellprice = '".$nSellPrice."', di_estprice = '".$nEstPrice."', di_materialvalue = '".$nMaterialValue."', di_minimum = '".$nMinimumPrice."', di_picture = '".mysqli_real_escape_string($cnInfoCentral, $sPictureURL)."', di_EnteredBy=".SessionUser::getUser()->getPersonId().", di_EnteredDate = '".date('YmdHis')."'";
-        $sSQL .= ' WHERE di_ID = '.$iDonatedItemID;
-        echo '<br><br><br><br><br><br>'.$sSQL;
+        $donatedItem = DonatedItemQuery::create()
+            ->findOneById($iDonatedItemID);
+
+        $donatedItem->setFrId($iCurrentFundraiser);
+        $donatedItem->setItem($sItem);
+        $donatedItem->setMultibuy($bMultibuy);
+        if ($iDonor != 0)
+            $donatedItem->setDonorId($iDonor);
+        if ($iBuyer != 0)
+            $donatedItem->setBuyerId($iBuyer);
+        $donatedItem->setTitle(html_entity_decode($sTitle));
+        $donatedItem->setDescription(html_entity_decode($sDescription));
+        $donatedItem->setSellprice($nSellPrice);
+        $donatedItem->setEstprice($nEstPrice);
+        $donatedItem->setMaterialValue($nMaterialValue);
+        $donatedItem->setMinimum($nMinimumPrice);
+        $donatedItem->setPicture($sPictureURL);
+        $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+        $donatedItem->setEntereddate(date('YmdHis'));
+
+        $donatedItem->save();
+
         $bGetKeyBack = false;
     }
 
-    //Execute the SQL
-    RunQuery($sSQL);
-
     // If this is a new DonatedItem or deposit, get the key back
     if ($bGetKeyBack) {
-        $sSQL = 'SELECT MAX(di_ID) AS iDonatedItemID FROM donateditem_di';
-        $rsDonatedItemID = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsDonatedItemID));
+        $ormDonatedItemID = DonatedItemQuery::create()
+            ->addAsColumn('DonatedItemID', 'MAX('.DonatedItemTableMap::COL_DI_ID.')')
+            ->findOne();
+
+        $iDonatedItemID = $ormDonatedItemID->getDonatedItemID();
     }
 
     if (isset($_POST['DonatedItemSubmit'])) {
@@ -121,20 +168,29 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
 	         LEFT JOIN person_per a ON di_donor_ID=a.per_ID
 	         LEFT JOIN person_per b ON di_buyer_ID=b.per_ID
 	         WHERE di_ID = '".$iDonatedItemID."'";
-        $rsDonatedItem = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsDonatedItem));
 
-        $sItem = $di_Item;
-        $bMultibuy = $di_multibuy;
-        $iDonor = $di_donor_ID;
-        $iBuyer = $di_buyer_ID;
-        $sTitle = $di_title;
-        $sDescription = $di_description;
-        $nSellPrice = $di_sellprice;
-        $nEstPrice = $di_estprice;
-        $nMaterialValue = $di_materialvalue;
-        $nMinimumPrice = $di_minimum;
-        $sPictureURL = $di_picture;
+        $connection = Propel::getConnection();
+
+        $pdoDonatedItem = $connection->prepare($sSQL);
+        $pdoDonatedItem->execute();
+
+        $res = $pdoDonatedItem->fetch(PDO::FETCH_ASSOC);
+
+        $sItem =  $res['di_Item'];
+        $bMultibuy = $res['di_multibuy'];
+        $iDonor = $res['di_donor_ID'];
+        $iBuyer = $res['di_buyer_ID'];
+        //$sFirstName = $res['donorFirstName'];
+        //$sLastName = $res['donorLastName'];
+        //$sBuyerFirstName = $res['buyerFirstName'];
+        //$sBuyerLastName = $res['buyerLastName'];
+        $sTitle = $res['di_title'];
+        $sDescription = $res['di_description'];
+        $nSellPrice = $res['di_sellprice'];
+        $nEstPrice = $res['di_estprice'];
+        $nMaterialValue = $res['di_materialvalue'];
+        $nMinimumPrice = $res['di_minimum'];
+        $sPictureURL = $res['di_picture'];
     } else {
         //Adding....
         //Set defaults
@@ -153,15 +209,19 @@ if (isset($_POST['DonatedItemSubmit']) || isset($_POST['DonatedItemSubmitAndAdd'
 }
 
 //Get People for the drop-down
-$sPeopleSQL = 'SELECT per_ID, per_FirstName, per_LastName, fam_Address1, fam_City, fam_State FROM person_per JOIN family_fam on per_fam_id=fam_id ORDER BY per_LastName, per_FirstName';
+//Get People for the drop-down
+$ormPeople = PersonQuery::create()
+    ->orderByLastName()
+    ->orderByFirstName()
+    ->find();
 
 //Get Paddles for the drop-down
-$sPaddleSQL = 'SELECT pn_ID, pn_Num, pn_per_ID,
-                      a.per_FirstName AS buyerFirstName,
-                      a.per_LastName AS buyerLastName
-                      FROM paddlenum_pn
-                      LEFT JOIN person_per a on a.per_ID=pn_per_ID
-                      WHERE pn_fr_ID='.$iCurrentFundraiser.' ORDER BY pn_Num';
+$ormPaddleNum = PaddleNumQuery::create()
+    ->usePersonQuery()
+    ->addAsColumn('BuyerFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+    ->addAsColumn('BuyerLastName', PersonTableMap::COL_PER_LASTNAME)
+    ->endUse()
+    ->findByFrId($iCurrentFundraiser);
 
 require 'Include/Header.php';
 ?>
@@ -173,94 +233,91 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-md-4 col-md-offset-2 col-xs-6">
                         <div class="form-group">
-                            <label><?= gettext('Item') ?>:</label>
+                            <label><?= _('Item') ?>:</label>
                             <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class="form-control">
                         </div>
 
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="Multibuy" value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
-                                <?= gettext('Sell to everyone'); ?> (<?= gettext('Multiple items'); ?>)
+                                <?= _('Sell to everyone'); ?> (<?= _('Multiple items'); ?>)
                             </label>
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Donor'); ?>:</label>
+                            <label><?= _('Donor'); ?>:</label>
                             <select name="Donor" id="Donor" class="form-control select2">
-                                <option value="0" selected><?= gettext('Unassigned') ?></option>
-<?php
-$rsPeople = RunQuery($sPeopleSQL);
-while ($aRow = mysqli_fetch_array($rsPeople)) {
-    extract($aRow);
-    echo '<option value="'.$per_ID.'"';
-    if ($iDonor == $per_ID) {
-        echo ' selected';
-    }
-    echo '>'.$per_LastName.', '.$per_FirstName;
-    echo ' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
-}
-?>
+                                <option value="0" selected><?= _('Unassigned') ?></option>
+                                <?php
+                                foreach ($ormPeople as $per) {
+                                    echo '<option value="' . $per->getId() . '"';
+                                    if ($iDonor == $per->getId()) {
+                                        echo ' selected';
+                                    }
+                                    echo '>' . $per->getLastName() . ', ' . $per->getFirstName();
+                                    if (!is_null($per->getFamily())) {
+                                        echo ' ' . MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState());
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Title') ?>:</label>
+                            <label><?= _('Title') ?>:</label>
                             <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>" class="form-control"/>
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Estimated Price') ?>:</label>
-                            <input type="text" name="EstPrice" id="EstPrice" value="<?= $nEstPrice ?>" class="form-control">
+                            <label><?= _('Estimated Price') ?>:</label>
+                            <input type="text" name="EstPrice" id="EstPrice" value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Material Value') ?>:</label>
-                            <input type="text" name="MaterialValue" id="MaterialValue" value="<?= $nMaterialValue ?>" class="form-control">
+                            <label><?= _('Material Value') ?>:</label>
+                            <input type="text" name="MaterialValue" id="MaterialValue" value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Minimum Price') ?>:</label>
-                            <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= $nMinimumPrice ?>" class="form-control">
+                            <label><?= _('Minimum Price') ?>:</label>
+                            <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
                         </div>
 
                     </div>
 
                     <div class="col-md-4 col-xs-6">
                         <div class="form-group">
-                            <label><?= gettext('Buyer') ?>:</label>
-<?php if ($bMultibuy) {
-    echo gettext('Multiple');
-} else {
-    ?>
-                        <select name="Buyer" class="form-control">
-                          <option value="0" selected><?= gettext('Unassigned') ?></option>
-<?php
-  $rsBuyers = RunQuery($sPaddleSQL);
-    while ($aRow = mysqli_fetch_array($rsBuyers)) {
-        extract($aRow);
-        echo '<option value="'.$pn_per_ID.'"';
-        if ($iBuyer == $pn_per_ID) {
-            echo ' selected';
-        }
-        echo '>'.$pn_Num.': '.$buyerFirstName.' '.$buyerLastName;
-    }
-}
-?>
-
+                            <label><?= _('Buyer') ?>:</label>
+                        <?php if ($bMultibuy) {
+                            echo _('Multiple');
+                        } else {
+                            ?>
+                        <select name="Buyer" id="Buyer" class="form-control">
+                          <option value="0" selected><?= _('Unassigned') ?></option>
+                            <?php
+                            foreach ($ormPaddleNum as $buyer) {
+                                echo '<option value="'.$buyer->getPerId().'"';
+                                if ($iBuyer == $buyer->getPerId()) {
+                                    echo ' selected';
+                                }
+                                echo '>'.$buyer->getNum().': '.$buyer->getBuyerFirstName().' '.$buyer->getBuyerLastName();
+                              }
+                            }
+                            ?>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Final Price') ?>:</label>
-                            <input type="text" name="SellPrice" id="SellPrice" value="<?= $nSellPrice ?>" class="form-control">
+                            <label><?= _('Final Price') ?>:</label>
+                            <input type="text" name="SellPrice" id="SellPrice" value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Replicate item') ?></label>
+                            <label><?= _('Replicate item') ?></label>
                             <div class="input-group">
                                 <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control">
                                 <span class="input-group-btn">
-                                    <input type="button" class="btn btn-primary" value="<?= gettext('Go') ?>" name="DonatedItemReplicate"
+                                    <input type="button" class="btn btn-primary" value="<?= _('Go') ?>" name="DonatedItemReplicate"
                                     onclick="javascript:document.location = 'DonatedItemReplicate.php?DonatedItemID=<?= $iDonatedItemID ?>&Count=' + NumberCopies.value">
                                 </span>
                             </div>
@@ -270,12 +327,12 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
 
                     <div class="col-md-6 col-md-offset-2 col-xs-12">
                         <div class="form-group">
-                            <label><?= gettext('Description') ?>:</label>
+                            <label><?= _('Description') ?>:</label>
                             <textarea name="Description" rows="5" cols="90" class="form-control"><?= htmlentities($sDescription) ?></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label><?= gettext('Picture URL') ?>:</label>
+                            <label><?= _('Picture URL') ?>:</label>
                             <textarea name="PictureURL" rows="1" cols="90" class="form-control"><?= htmlentities($sPictureURL) ?></textarea>
                         </div>
 
@@ -289,11 +346,11 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
             </div>
 
             <div class="form-group text-center">
-                <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="DonatedItemSubmit">
+                <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="DonatedItemSubmit">
                 <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
-                    <input type="submit" class="btn btn-primary" value="<?= gettext('Save and Add'); ?>" name="DonatedItemSubmitAndAdd">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Save and Add'); ?>" name="DonatedItemSubmitAndAdd">
                 <?php endif; ?>
-                <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="DonatedItemCancel"
+                <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="DonatedItemCancel"
                 onclick="javascript:document.location = '<?= strlen($linkBack) > 0 ? $linkBack : 'Menu.php'; ?>';">
             </div>
 
@@ -304,6 +361,7 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     $(document).ready(function() {
         $("#Donor").select2();
+        $("#Buyer").select2();
     });
 </script>
 

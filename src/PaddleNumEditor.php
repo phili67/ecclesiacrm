@@ -5,12 +5,20 @@
  *  last change : 2009-04-15
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2009 Michael Wilt
-  *
+ *
  ******************************************************************************/
 
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
+use EcclesiaCRM\PaddleNumQuery;
+use EcclesiaCRM\FundRaiserQuery;
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\PaddleNum;
+use EcclesiaCRM\MultibuyQuery;
+use EcclesiaCRM\Multibuy;
+use EcclesiaCRM\PersonQuery;
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -22,13 +30,13 @@ use EcclesiaCRM\SessionUser;
 
 
 $iPaddleNumID = InputUtils::LegacyFilterInputArr($_GET, 'PaddleNumID', 'int');
-$linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
+//$linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
 
 if ($iPaddleNumID > 0) {
-    $sSQL = "SELECT * FROM paddlenum_pn WHERE pn_ID = '$iPaddleNumID'";
-    $rsPaddleNum = RunQuery($sSQL);
-    $thePaddleNum = mysqli_fetch_array($rsPaddleNum);
-    $iCurrentFundraiser = $thePaddleNum['pn_fr_ID'];
+    $ormPaddleNum = PaddleNumQuery::create()
+        ->findOneById($iPaddleNumID);
+
+    $iCurrentFundraiser = $ormPaddleNum->getFrId();
 } else {
     $iCurrentFundraiser = $_SESSION['iCurrentFundraiser'];
 }
@@ -39,13 +47,16 @@ if ($iCurrentFundraiser == '') {
 
 // Get the current fundraiser data
 if ($iCurrentFundraiser) {
-    $sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = '.$iCurrentFundraiser;
-    $rsDeposit = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsDeposit));
+    $ormDeposit = FundRaiserQuery::create()
+        ->findOneById($iCurrentFundraiser);
 }
 
-// SQL to get multibuy items
-$sMultibuyItemsSQL = "SELECT di_ID, di_title FROM donateditem_di WHERE di_multibuy='1' AND di_FR_ID=".$iCurrentFundraiser;
+$linkBack = "PaddleNumList.php?FundRaiserID=" . $iCurrentFundraiser;
+
+// to get multibuy donated items
+$ormMultibuyItems = DonatedItemQuery::create()
+    ->filterByMultibuy(1)
+    ->findByFrId($iCurrentFundraiser);
 
 //Set the page title
 $sPageTitle = _('Buyer Number Editor');
@@ -56,52 +67,78 @@ if (isset($_POST['PaddleNumSubmit']) || isset($_POST['PaddleNumSubmitAndAdd']) |
     $iNum = InputUtils::LegacyFilterInput($_POST['Num']);
     $iPerID = InputUtils::LegacyFilterInput($_POST['PerID']);
 
-    $rsMBItems = RunQuery($sMultibuyItemsSQL); // Go through the multibuy items, see if this person bought any
-    while ($aRow = mysqli_fetch_array($rsMBItems)) {
-        extract($aRow);
-        $mbName = 'MBItem'.$di_ID;
-        $iMBCount = InputUtils::LegacyFilterInput($_POST[$mbName], 'int');
-        if ($iMBCount > 0) { // count for this item is positive.  If a multibuy record exists, update it.  If not, create it.
-            $sqlNumBought = 'SELECT mb_count from multibuy_mb WHERE mb_per_ID='.$iPerID.' AND mb_item_ID='.$di_ID;
-            $rsNumBought = RunQuery($sqlNumBought);
-            $numBoughtRow = mysqli_fetch_array($rsNumBought);
-            if ($numBoughtRow) {
-                $sSQL = 'UPDATE multibuy_mb SET mb_count='.$iMBCount.' WHERE mb_per_ID='.$iPerID.' AND mb_item_ID='.$di_ID;
-                RunQuery($sSQL);
-            } else {
-                $sSQL = 'INSERT INTO multibuy_mb (mb_per_ID, mb_item_ID, mb_count) VALUES ('.$iPerID.','.$di_ID.','.$iMBCount.')';
-                RunQuery($sSQL);
+
+    if ($iPerID > 0) {// Only with a person you can add a buyer
+        foreach ($ormMultibuyItems as $multibuyItem) {
+            $mbName = 'MBItem' . $multibuyItem->getId();
+
+            $iMBCount = InputUtils::LegacyFilterInput($_POST[$mbName], 'int');
+            if ($iMBCount > 0) { // count for this item is positive.  If a multibuy record exists, update it.  If not, create it.
+                $ormNumBought = MultibuyQuery::create()
+                    ->filterByPerId($iPerID)
+                    ->findOneByItemId($multibuyItem->getId());
+
+                if (!is_null($ormNumBought)) {
+                    $ormNumBought->setPerId($iPerID);
+                    $ormNumBought->setCount($iMBCount);
+                    $ormNumBought->setItemId($multibuyItem->getId());
+                    $ormNumBought->save();
+                } else {
+                    $ormNumBought = new Multibuy();
+                    $ormNumBought->setPerId($iPerID);
+                    $ormNumBought->setCount($iMBCount);
+                    $ormNumBought->setItemId($multibuyItem->getId());
+                    $ormNumBought->save();
+                }
+            } else { // count is zero, if it was positive before there is a multibuy record that needs to be deleted
+                $ormNumBought = MultibuyQuery::create()
+                    ->filterByPerId($iPerID)
+                    ->findOneByItemId($multibuyItem->getId());
+
+                if (!is_null($ormNumBought)) {
+                    $ormNumBought->delete();
+                }
             }
-        } else { // count is zero, if it was positive before there is a multibuy record that needs to be deleted
-            $sSQL = 'DELETE FROM multibuy_mb WHERE mb_per_ID='.$iPerID.' AND mb_item_ID='.$di_ID;
-            RunQuery($sSQL);
+        }
+
+        // New PaddleNum
+        if (strlen($iPaddleNumID) < 1) {
+            $paddNum = new PaddleNum();
+
+            $paddNum->setFrId($iCurrentFundraiser);
+            $paddNum->setNum($iNum);
+            $paddNum->setPerId($iPerID);
+
+            $paddNum->save();
+
+            $bGetKeyBack = true;
+            // Existing record (update)
+        } else {
+            $paddNum = PaddleNumQuery::create()
+                ->findOneById($iPaddleNumID);
+
+            $paddNum->setFrId($iCurrentFundraiser);
+            $paddNum->setNum($iNum);
+            $paddNum->setPerId($iPerID);
+
+            $paddNum->save();
+
+            $bGetKeyBack = false;
         }
     }
 
-    // New PaddleNum
-    if (strlen($iPaddleNumID) < 1) {
-        $sSQL = 'INSERT INTO paddlenum_pn (pn_fr_ID, pn_Num, pn_per_ID)
-		         VALUES ('.$iCurrentFundraiser.",'".$iNum."','".$iPerID."')";
-        $bGetKeyBack = true;
-        // Existing record (update)
-    } else {
-        $sSQL = 'UPDATE paddlenum_pn SET pn_fr_ID = '.$iCurrentFundraiser.", pn_Num = '".$iNum."', pn_per_ID = '".$iPerID."'";
-        $sSQL .= ' WHERE pn_ID = '.$iPaddleNumID;
-        $bGetKeyBack = false;
-    }
-
-    //Execute the SQL
-    RunQuery($sSQL);
-
     // If this is a new PaddleNum or deposit, get the key back
     if ($bGetKeyBack) {
-        $sSQL = 'SELECT MAX(pn_ID) AS iPaddleNumID FROM paddlenum_pn';
-        $rsPaddleNumID = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsPaddleNumID));
+        $paddleMax = PaddleNumQuery::create()
+            ->addAsColumn('Max', 'MAX(' . \EcclesiaCRM\Map\PaddleNumTableMap::COL_PN_ID . ')')
+            ->findOne();
+
+        $iPaddleNumID = $paddleMax->getMax();
+
     }
 
     if (isset($_POST['PaddleNumSubmit'])) {
-        RedirectUtils::Redirect('PaddleNumEditor.php?PaddleNumID='.$iPaddleNumID.'&linkBack='.$linkBack);
+        RedirectUtils::Redirect('PaddleNumEditor.php?PaddleNumID=' . $iPaddleNumID . '&linkBack=' . $linkBack);
     } elseif (isset($_POST['PaddleNumSubmitAndAdd'])) {
         //Reload to editor to add another record
         RedirectUtils::Redirect("PaddleNumEditor.php?CurrentFundraiser=$iCurrentFundraiser&linkBack=", $linkBack);
@@ -116,131 +153,138 @@ if (isset($_POST['PaddleNumSubmit']) || isset($_POST['PaddleNumSubmitAndAdd']) |
     if (strlen($iPaddleNumID) > 0) {
         //Editing....
         //Get all the data on this record
-        $sSQL = "SELECT pn_ID, pn_fr_ID, pn_Num, pn_per_ID,
-	                       a.per_FirstName as buyerFirstName, a.per_LastName as buyerLastName
-	         FROM paddlenum_pn
-	         LEFT JOIN person_per a ON pn_per_ID=a.per_ID
-	         WHERE pn_ID = '".$iPaddleNumID."'";
-        $rsPaddleNum = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsPaddleNum));
+        $ormPaddleNum = PaddleNumQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('BuyerFirstName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('BuyerLastName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_LASTNAME)
+            ->endUse()
+            ->findOneById($iPaddleNumID);
 
-        $iNum = $pn_Num;
-        $iPerID = $pn_per_ID;
+        $iNum = $ormPaddleNum->getNum();
+        $iPerID = $ormPaddleNum->getPerId();
     } else {
         //Adding....
         //Set defaults
-        $sSQL = 'SELECT COUNT(*) AS topNum FROM paddlenum_pn WHERE pn_fr_ID='.$iCurrentFundraiser;
-        $rsGetMaxNum = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsGetMaxNum));
+        $ormGetMaxNum = PaddleNumQuery::create()
+            ->findByFrId($iCurrentFundraiser);
 
-        $iNum = $topNum + 1;
+        $iNum = $ormGetMaxNum->count() + 1;
         $iPerID = 0;
     }
 }
 
 //Get People for the drop-down
-$sPeopleSQL = 'SELECT per_ID, per_FirstName, per_LastName, fam_Address1, fam_City, fam_State FROM person_per JOIN family_fam on per_fam_id=fam_id ORDER BY per_LastName, per_FirstName';
+$ormPeople = PersonQuery::create()
+    ->orderByLastName()
+    ->orderByFirstName()
+    ->find();
 
 require 'Include/Header.php';
 
 ?>
-<div class="box box-body">
-<form method="post" action="PaddleNumEditor.php?<?= 'CurrentFundraiser='.$iCurrentFundraiser.'&PaddleNumID='.$iPaddleNumID.'&linkBack='.$linkBack ?>" name="PaddleNumEditor">
-<div class="table-responsive">
-<table class="table" cellpadding="3" align="center">
-	<tr>
-		<td align="center">
-			<input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>" name="PaddleNumSubmit">
-			<input type="submit" class="btn btn-info btn-sm" value="<?= _('Generate Statement') ?>" name="GenerateStatement">
-			<?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-    echo '<input type="submit" class="btn btn-success btn-sm" value="'._('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
-} ?>
-			<input type="button" class="btn btn-default btn-sm" value="<?= _('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-    echo $linkBack;
-} else {
-    echo 'Menu.php';
-} ?>';">
-		</td>
-	</tr>
+<form method="post"
+      action="<?= SystemURLs::getRootPath() ?>/PaddleNumEditor.php?<?= 'CurrentFundraiser=' . $iCurrentFundraiser . '&PaddleNumID=' . $iPaddleNumID . '&linkBack=' . $linkBack ?>"
+      name="PaddleNumEditor">
+    <div class="card">
+        <div class="card-header with-border">
+            <h3 class="card-title"><?= _("Add buyer") ?></h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <label><?= _('Number') ?>:</label>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" name="Num" id="Num"
+                           value="<?= $iNum ?>"
+                           class="form-control input-sm">
+                </div>
+            </div>
 
-	<tr>
-		<td>
-		<table border="0" width="100%" cellspacing="0" cellpadding="4">
-			<tr>
-			<td width="50%" valign="top" align="left">
-			<table cellpadding="3">
-				<tr>
-					<td class="LabelColumn"><?= _('Number') ?>:</td>
-					<td class="TextColumn"><input type="text" name="Num" id="Num" value="<?= $iNum ?>" class="form-control input-sm"></td>
-				</tr>
-                <tr>
-                    <td><br></td>
-                    <td></td>
-                </tr>
-				
-				<tr>
-					<td class="LabelColumn"><?= _('Buyer') ?>:
-					</td>
-					<td class="TextColumn">
-						<select name="PerID" class="form-control select2" id="Buyers">
-							<option value="0" selected><?= _('Unassigned') ?></option>
-							<?php
-                            $rsPeople = RunQuery($sPeopleSQL);
-                            while ($aRow = mysqli_fetch_array($rsPeople)) {
-                                extract($aRow);
-                                echo '<option value="'.$per_ID.'"';
-                                if ($iPerID == $per_ID) {
-                                    echo ' selected';
-                                }
-                                echo '>'.$per_LastName.', '.$per_FirstName;
-                                echo ' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
+            <br/>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label><?= _('Buyer') ?>:</label>
+                </div>
+                <div class="col-md-5">
+                    <select name="PerID" class="form-control select2  input-sm" id="Buyers">
+                        <option value="0" selected><?= _('Unassigned') ?></option>
+                        <?php
+                        foreach ($ormPeople as $per) {
+                            echo '<option value="' . $per->getId() . '"';
+                            if ($iPerID == $per->getId()) {
+                                echo ' selected';
                             }
-                            ?>
-	
-						</select>
-					</td>
-				</tr>
-			</table>
-			</td>
-		
-			<td width="50%" valign="top" align="center">
-                <br>
-			<table cellpadding="3">
-					<?php
-                    $rsMBItems = RunQuery($sMultibuyItemsSQL);
-                    while ($aRow = mysqli_fetch_array($rsMBItems)) {
-                        extract($aRow);
+                            echo '>' . $per->getLastName() . ', ' . $per->getFirstName();
+                            if (!is_null($per->getFamily())) {
+                                echo ' ' . MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState());
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <table cellpadding="3">
+                        <?php
+                        foreach ($ormMultibuyItems as $multibuyItem) {
+                            $ormNumBought = MultibuyQuery::create()
+                                ->filterByPerId($iPerID)
+                                ->findOneByItemId($multibuyItem->getId());
 
-                        $sqlNumBought = 'SELECT mb_count from multibuy_mb WHERE mb_per_ID='.$iPerID.' AND mb_item_ID='.$di_ID;
-                        $rsNumBought = RunQuery($sqlNumBought);
-                        $numBoughtRow = mysqli_fetch_array($rsNumBought);
-                        if ($numBoughtRow) {
-                            extract($numBoughtRow);
-                        } else {
                             $mb_count = 0;
-                        } ?>
-						<tr>
-							<td class="LabelColumn"><?= $di_title ?></td>
-							<td class="TextColumn"><input type="text" name="MBItem<?= $di_ID ?>" id="MBItem<?= $di_ID ?>" value="<?= $mb_count ?>"></td>
-						</tr>
-					<?php
-                    }
-                    ?>
-				
-			</table>
-			</td>
-			</tr>
-			
-			</table>
-			</tr>
-	</table>
-</div>
-</form>
-</div>
+                            if (!is_null($ormNumBought)) {
+                                $mb_count = $ormNumBought->getCount();
+                            }
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    $(document).ready(function() {
+                            ?>
+                            <tr>
+                                <td class="LabelColumn">
+                                    <label><?= $multibuyItem->getTitle() ?></label></td>
+                                <td class="TextColumn"><input class="form-control input-sm"
+                                                              type="text"
+                                                              name="MBItem<?= $multibuyItem->getId() ?>"
+                                                              id="MBItem<?= $multibuyItem->getId() ?>"
+                                                              value="<?= $mb_count ?>"></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>"
+                   name="PaddleNumSubmit">
+            <input type="submit" class="btn btn-info btn-sm" value="<?= _('Generate Statement') ?>"
+                   name="GenerateStatement">
+            <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
+                echo '<input type="submit" class="btn btn-success btn-sm" value="' . _('Save and Add') . "\" name=\"PaddleNumSubmitAndAdd\">\n";
+            } ?>
+            <input type="button" class="btn btn-default btn-sm" value="<?= _('Back') ?>"
+                   name="PaddleNumCancel"
+                   onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+                       echo $linkBack;
+                   } else {
+                       echo 'Menu.php';
+                   } ?>';">
+        </div>
+    </div>
+</form>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    $(document).ready(function () {
         $("#Buyers").select2();
+
+        $('.fundraiser-table').DataTable({
+            responsive: true,
+            "language": {
+                "url": window.CRM.plugin.dataTable.language.url
+            },
+        });
     });
 </script>
 
