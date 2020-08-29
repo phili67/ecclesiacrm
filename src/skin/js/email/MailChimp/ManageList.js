@@ -327,7 +327,24 @@ $(document).ready(function () {
                 render_container();
              }
            });
-        }
+       } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 3) {
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading all families first headpeople subscribers from EcclesiaCRM<br>This could take a while !") + '<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
+
+           window.CRM.APIRequest({
+               method: 'POST',
+               path: 'mailchimp/addAllFamilies',
+               data: JSON.stringify({"list_id":list_id})
+           }).done(function(data) {
+               if (data.success) {
+                   window.CRM.dataListTable.ajax.reload(null, false);
+                   render_container();
+               } else if (data.error) {
+                   //window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+                   window.CRM.dataListTable.ajax.reload(null, false);
+                   render_container();
+               }
+           });
+       }
 
      });
 
