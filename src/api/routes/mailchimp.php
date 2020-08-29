@@ -80,6 +80,7 @@ function searchList (Request $request, Response $response, array $args) {
     array_push($resultsArray, $data);
   }
 
+
 // add all person from the newsletter
   if (strpos("newsletter",$query) !== false) {
     $elt = ['id'=>$id++,
@@ -93,6 +94,20 @@ function searchList (Request $request, Response $response, array $args) {
 
     array_push($resultsArray, $data);
   }
+
+    // all person in the CRM
+    if ($query == _('families')) {
+        $elt = ['id'=>$id++,
+            'text'=>"families",
+            'typeId' => 3
+        ];
+
+        $data = ['children' => [$elt],
+            'id' => 0,
+            'text' => _('All People')];
+
+        array_push($resultsArray, $data);
+    }
 
 
 
@@ -212,6 +227,52 @@ function searchList (Request $request, Response $response, array $args) {
       $logger->warn($e->getMessage());
   }
 
+    if ($query == _('families')) {
+        // Family search
+        try {
+            $families = FamilyQuery::create()
+                ->filterByDateDeactivated(NULL)
+                ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
+                ->find();
+
+            if (!empty($families))
+            {
+                $data = [];
+                $id++;
+
+
+                foreach ($families as $family)
+                {
+
+                    $persons = $family->getHeadPeople();
+
+                    if (count($persons) == 0) continue;
+                    $person = $persons[0];
+
+                    $searchArray=[
+                        "id" => $id++,
+                        "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                        'personID'=>$person->getId()
+                    ];
+
+                    array_push($data,$searchArray);
+                }
+
+                if (!empty($data))
+                {
+                    $dataFamilies = ['children' => $data,
+                        'id' => 5,
+                        'text' => _('Families')];
+
+                    array_push($resultsArray, $dataFamilies);
+                }
+            }
+        } catch (Exception $e) {
+            $logger = LoggerUtils::getAppLogger();
+            $logger->warn($e->getMessage());
+        }
+    }
+
   return $response->withJson(array_filter($resultsArray));
 }
 
@@ -286,7 +347,7 @@ function createList (Request $request, Response $response, array $args) {
     }
   }
 
-  return $response->withJson(['success' => false,"res" => $res]);
+  return $response->withJson(['success' => false]);
 }
 
 function modifyList (Request $request, Response $response, array $args) {
@@ -403,7 +464,7 @@ function getAllTags (Request $request, Response $response, array $args) {
       $mailchimp = new MailChimpService();
 
       $list = $mailchimp->getListFromListId ($input->list_id);
-      if ( !array_key_exists ('title',$res) ) {
+      if ( !array_key_exists ('title',$list) ) {
           return $response->withJson(['success' => true, "result" => $list['tags']]);
       }
   }
@@ -541,9 +602,7 @@ function campaignSend (Request $request, Response $response, array $args) {
     $res = $mailchimp->sendCampaign ($input->campaign_id);
 
     if ( !array_key_exists ('title',$res) ) {
-      return $response->withJson(['success' => true,'content' => $realContent]);
-    } else {
-      return $response->withJson(['success' => false, "error" => $res]);
+      return $response->withJson(['success' => true,'content' => $res]);
     }
   }
 
@@ -739,12 +798,16 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
 
           $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
 
+          $address = $person->getAddressForMailChimp();
+
           if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
             $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
           }
 
+          $phone = $person->getHomePhone();
+
           if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-            $merge_fields['PHONE']   = $person->getHomePhone();
+            $merge_fields['PHONE']   = $phone;
           }
 
           $data = array(
@@ -818,6 +881,8 @@ function addallpersons(Request $request, Response $response, array $args) {
 
       $allUsers = [];
 
+      $count = 0;
+
       foreach ($persons as $person) {
         if (strlen($person->getEmail()) > 0) {
           $numberOfPerson++;
@@ -830,12 +895,16 @@ function addallpersons(Request $request, Response $response, array $args) {
 
           $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
 
+          $address = $person->getAddressForMailChimp();
+
           if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-            $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
+            $merge_fields['ADDRESS'] = $address;
           }
 
+          $phone = $person->getHomePhone();
+
           if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-            $merge_fields['PHONE']   = $person->getHomePhone();
+            $merge_fields['PHONE']   = $address;
           }
 
           $data = array(
@@ -852,6 +921,8 @@ function addallpersons(Request $request, Response $response, array $args) {
               "path" => "/lists/" . $listID . "/members/",
               "body" => $json_data
           );
+
+          $count++;
         }
       }
 
