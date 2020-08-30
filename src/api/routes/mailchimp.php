@@ -68,7 +68,7 @@ function searchList (Request $request, Response $response, array $args) {
 
   $id = 1;
 // all person in the CRM
-  if ($query == '*') {
+  if ($query == '*' || mb_strtolower($query) == _("persons") ||  mb_strtolower($query) == _("people")) {
     $elt = ['id'=>$id++,
           'text'=>"*",
           'typeId' => 1
@@ -83,7 +83,7 @@ function searchList (Request $request, Response $response, array $args) {
 
 
 // add all person from the newsletter
-  if (strpos("newsletter",$query) !== false) {
+  if (mb_strpos("newsletter",mb_strtolower($query)) !== false) {
     $elt = ['id'=>$id++,
           'text'=>"newsletter",
           'typeId' => 2
@@ -97,7 +97,7 @@ function searchList (Request $request, Response $response, array $args) {
   }
 
     // all person in the CRM
-    if ($query == _('families')) {
+    if (mb_strtolower($query) == _('families')) {
         $elt = ['id'=>$id++,
             'text'=>"families",
             'typeId' => 3
@@ -105,7 +105,7 @@ function searchList (Request $request, Response $response, array $args) {
 
         $data = ['children' => [$elt],
             'id' => 0,
-            'text' => _('All People')];
+            'text' => _('All Families')];
 
         array_push($resultsArray, $data);
     }
