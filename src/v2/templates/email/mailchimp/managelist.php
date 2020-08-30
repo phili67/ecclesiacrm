@@ -133,7 +133,16 @@ if ($isMailchimpActiv) {
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-1">
 
+                        </div>
+                        <div class="col-md-3" style="color:orange">
+                            <?= _("Keywords") ?> : *, <?= _("Persons") ?>, <?= _("Families") ?>, newsletter, etc...<br>
+                        </div>
+                    </div>
                     <br>
 
                     <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5"
