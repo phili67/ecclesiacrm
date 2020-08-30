@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-22 14:47+0200\n"
+"POT-Creation-Date: 2020-08-30 09:01+0200\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -209,29 +209,50 @@ msgstr ""
 msgid "Checks"
 msgstr "الخروج"
 
-#: api/routes/mailchimp.php:78 v2/templates/people/peopledashboard.php:25
+#: api/routes/mailchimp.php:71
+#, fuzzy
+msgid "persons"
+msgstr "الأشخاص من"
+
+#: api/routes/mailchimp.php:71
+msgid "people"
+msgstr ""
+
+#: api/routes/mailchimp.php:79 v2/templates/people/peopledashboard.php:25
 msgid "All People"
 msgstr ""
 
-#: api/routes/mailchimp.php:92
+#: api/routes/mailchimp.php:94
 #, fuzzy
 msgid "newsletter"
 msgstr "إنشاء تسميات"
 
-#: api/routes/mailchimp.php:127 api/routes/people/people.php:69
+#: api/routes/mailchimp.php:100 EcclesiaCRM/Search/FamilySearchRes.php:44
+#: Include/Functions.php:108 v2/templates/cart/cartview.php:185
+msgid "families"
+msgstr ""
+
+#: api/routes/mailchimp.php:108 FinancialReports.php:406 GeoPage.php:322
+#: v2/templates/people/peopledashboard.php:61
+msgid "All Families"
+msgstr ""
+
+#: api/routes/mailchimp.php:143 api/routes/people/people.php:69
 #: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
+#: v2/templates/email/mailchimp/managelist.php:143
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:59
 #: v2/templates/people/personlist.php:45
 #, fuzzy
 msgid "Persons"
 msgstr "الأشخاص من"
 
-#: api/routes/mailchimp.php:167 api/routes/people/people.php:160
+#: api/routes/mailchimp.php:183 api/routes/people/people.php:160
 #: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:508
+#: v2/templates/email/mailchimp/managelist.php:143
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:72
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
@@ -241,7 +262,7 @@ msgstr "الأشخاص من"
 msgid "Families"
 msgstr "الأسرة"
 
-#: api/routes/mailchimp.php:205 api/routes/people/people.php:197
+#: api/routes/mailchimp.php:221 api/routes/people/people.php:197
 #: EcclesiaCRM/MenuBar/MenuBar.php:145 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:110 Menu.php:578
 #: PersonView.php:450 v2/templates/calendar/calendar.php:197
@@ -251,7 +272,7 @@ msgstr "الأسرة"
 msgid "Groups"
 msgstr ""
 
-#: api/routes/mailchimp.php:996
+#: api/routes/mailchimp.php:1121
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -340,7 +361,7 @@ msgstr "إضافة إلى مجموعة"
 #: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:272
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:459
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 PaddleNumEditor.php:214 PersonEditor.php:1027
+#: GroupEditor.php:103 PaddleNumEditor.php:212 PersonEditor.php:1027
 #: PersonEditor.php:1047 PersonEditor.php:1637 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:233 SystemSettings.php:230 v2/routes/group/groups.php:67
@@ -859,7 +880,8 @@ msgstr "البلد"
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
 #: external/templates/registration/family-register-members.php:112
-#: Reports/DirectoryReport.php:305 Reports/GroupReport.php:124
+#: Reports/DirectoryReport.php:305 Reports/FundRaiserStatement.php:127
+#: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "التليفون"
 
@@ -879,6 +901,7 @@ msgstr "التليفون"
 #: Reports/CanvassReports.php:240 Reports/ConfirmReportEmail.php:192
 #: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:190
 #: Reports/ConfirmReport.php:209 Reports/DirectoryReport.php:316
+#: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:117
@@ -930,7 +953,7 @@ msgstr ""
 #: DonatedItemEditor.php:349 FamilyEditor.php:715 FamilyEditor.php:813
 #: FamilyEditor.php:888 FamilyEditor.php:976 FamilyEditor.php:998
 #: FamilyEditor.php:1072 FamilyEditor.php:1290 FundRaiserEditor.php:209
-#: GroupEditor.php:176 PaddleNumEditor.php:266 PersonEditor.php:879
+#: GroupEditor.php:176 PaddleNumEditor.php:260 PersonEditor.php:879
 #: PersonEditor.php:1020 PersonEditor.php:1207 PersonEditor.php:1629
 #: PersonEditor.php:1709 PersonEditor.php:1797 PledgeEditor.php:793
 #: UserEditor.php:867 UserPasswordChange.php:225
@@ -956,6 +979,7 @@ msgid "Batch Winner Entry"
 msgstr ""
 
 #: BatchWinnerEntry.php:75 DonatedItemEditor.php:236 FundRaiserEditor.php:250
+#: Reports/FundRaiserStatement.php:124 Reports/FundRaiserStatement.php:167
 msgid "Item"
 msgstr "البند"
 
@@ -994,7 +1018,7 @@ msgstr "إنشاء ملف"
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1071
 #: FindDepositSlip.php:131 FundRaiserEditor.php:259 ListEvents.php:393
-#: PaddleNumList.php:69 PersonView.php:1821 PersonView.php:1908
+#: PaddleNumList.php:84 PersonView.php:1821 PersonView.php:1908
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
 #: v2/templates/email/mailchimp/managelist.php:102
@@ -1308,7 +1332,7 @@ msgid "Badge Type"
 msgstr "نوع الحدث"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:66
-#: Reports/PDFBadgeGroup.php:210 Reports/PDFBadge.php:130
+#: Reports/PDFBadgeGroup.php:212 Reports/PDFBadge.php:130
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 msgid "default"
 msgstr ""
@@ -1333,7 +1357,8 @@ msgstr "إضافة عربة للأسرة"
 #: PrintPastoralCarePerson.php:447 PrintPastoralCarePerson.php:612
 #: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:69
 #: Reports/CanvassReports.php:234 Reports/FamilyPledgeSummary.php:220
-#: Reports/FRBidSheets.php:87 Reports/PDFLabel.php:859
+#: Reports/FRBidSheets.php:87 Reports/FundRaiserStatement.php:125
+#: Reports/FundRaiserStatement.php:169 Reports/PDFLabel.php:859
 #: v2/templates/group/groupview.php:391 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -2184,6 +2209,7 @@ msgid "Multiple items"
 msgstr "عناصر متعددة"
 
 #: DonatedItemEditor.php:248 FundRaiserEditor.php:252
+#: Reports/FundRaiserStatement.php:170
 msgid "Donor"
 msgstr ""
 
@@ -2200,8 +2226,8 @@ msgstr ""
 msgid "Minimum Price"
 msgstr "السعر النهائي"
 
-#: DonatedItemEditor.php:290 FundRaiserEditor.php:253 PaddleNumEditor.php:210
-#: PaddleNumList.php:68
+#: DonatedItemEditor.php:290 FundRaiserEditor.php:253 PaddleNumEditor.php:208
+#: PaddleNumList.php:83 Reports/FundRaiserStatement.php:126
 msgid "Buyer"
 msgstr ""
 
@@ -2231,7 +2257,7 @@ msgstr "الوصف"
 msgid "Picture URL"
 msgstr "رابط الصورة"
 
-#: DonatedItemEditor.php:351 FamilyEditor.php:1294 PaddleNumEditor.php:271
+#: DonatedItemEditor.php:351 FamilyEditor.php:1294 PaddleNumEditor.php:265
 #: PersonEditor.php:1801 PledgeEditor.php:795
 msgid "Save and Add"
 msgstr "حفظ و إضافة"
@@ -4778,6 +4804,7 @@ msgstr ""
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:298 ElectronicPaymentList.php:221
 #: PledgeEditor.php:822 Reports/AdvancedDeposit.php:318
 #: Reports/AdvancedDeposit.php:327 Reports/AdvancedDeposit.php:336
+#: Reports/FundRaiserStatement.php:129 Reports/FundRaiserStatement.php:173
 #: Reports/ReminderReport.php:310 Reports/ReminderReport.php:394
 #: Reports/TaxReport.php:384 SelectDelete.php:312
 msgid "Amount"
@@ -4990,7 +5017,7 @@ msgid "Group Directory"
 msgstr "إنشاء دليل"
 
 #: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:92
-#: Reports/PDFBadgeGroup.php:194 Reports/PDFBadge.php:114
+#: Reports/PDFBadgeGroup.php:196 Reports/PDFBadge.php:114
 #: Reports/PDFLabel.php:779
 msgid "Tractor"
 msgstr ""
@@ -5131,11 +5158,6 @@ msgstr "القرابة في الأسرة"
 #, fuzzy
 msgid "Families Properties"
 msgstr "القرابة في الأسرة"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
-#: v2/templates/cart/cartview.php:185
-msgid "families"
-msgstr ""
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:45
 #: EcclesiaCRM/Search/FamilySearchRes.php:53
@@ -6726,7 +6748,7 @@ msgstr "إضافة الدفع"
 msgid "Assign a New Property"
 msgstr ""
 
-#: FamilyView.php:808 PaddleNumList.php:66 PersonView.php:1386
+#: FamilyView.php:808 PaddleNumList.php:81 PersonView.php:1386
 #: PersonView.php:1457 PersonView.php:1599
 #, fuzzy
 msgid "Select"
@@ -6994,11 +7016,6 @@ msgstr "إنشاء تسميات"
 msgid "Only Families with unpaid pledges"
 msgstr ""
 
-#: FinancialReports.php:406 GeoPage.php:322
-#: v2/templates/people/peopledashboard.php:61
-msgid "All Families"
-msgstr ""
-
 #: FinancialReports.php:415
 msgid "Report Heading:"
 msgstr ""
@@ -7038,7 +7055,7 @@ msgid ""
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:488 PaddleNumEditor.php:273
+#: FinancialReports.php:488 PaddleNumEditor.php:267
 msgid "Back"
 msgstr ""
 
@@ -7117,7 +7134,7 @@ msgid "Fundraiser Listing"
 msgstr ""
 
 #: FindFundRaiser.php:86 FindFundRaiser.php:293 Include/Functions.php:94
-#: PaddleNumEditor.php:199 PaddleNumList.php:67
+#: PaddleNumEditor.php:195 PaddleNumList.php:82
 #, fuzzy
 msgid "Number"
 msgstr "الأعضاء"
@@ -7542,7 +7559,7 @@ msgstr ""
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 
-#: Include/Footer.php:207 v2/templates/email/mailchimp/managelist.php:156
+#: Include/Footer.php:207 v2/templates/email/mailchimp/managelist.php:165
 msgid "Edit General Settings"
 msgstr ""
 
@@ -8316,7 +8333,12 @@ msgstr ""
 msgid "Buyer Number Editor"
 msgstr ""
 
-#: PaddleNumEditor.php:268
+#: PaddleNumEditor.php:190
+#, fuzzy
+msgid "Add buyer"
+msgstr "إضافة الدفع"
+
+#: PaddleNumEditor.php:262
 #, fuzzy
 msgid "Generate Statement"
 msgstr "إنشاء تسميات"
@@ -8325,28 +8347,33 @@ msgstr "إنشاء تسميات"
 msgid "Buyers for this fundraiser:"
 msgstr ""
 
-#: PaddleNumList.php:51
+#: PaddleNumList.php:54
 #, fuzzy
 msgid "Select all"
 msgstr "حدد مجموعة"
 
-#: PaddleNumList.php:55
+#: PaddleNumList.php:59
 #, fuzzy
 msgid "Select none"
 msgstr "حدد مجموعة"
 
-#: PaddleNumList.php:56
+#: PaddleNumList.php:61
 #, fuzzy
 msgid "Add Buyer"
 msgstr "إضافة الدفع"
 
-#: PaddleNumList.php:57
+#: PaddleNumList.php:63
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: PaddleNumList.php:59
+#: PaddleNumList.php:67
 msgid "Generate Statements for Selected"
 msgstr ""
+
+#: PaddleNumList.php:73
+#, fuzzy
+msgid "Buyers"
+msgstr "إضافة الدفع"
 
 #: PersonCustomFieldsEditor.php:37
 #, fuzzy
@@ -9148,42 +9175,51 @@ msgstr ""
 msgid "Minimum bid "
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:91
+#: Reports/FundRaiserStatement.php:96
 #, fuzzy
 msgid "Donated Items:"
 msgstr "محرر العناصر المتبرع به"
 
-#: Reports/FundRaiserStatement.php:142
+#: Reports/FundRaiserStatement.php:148
 msgid "Purchased Items:"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:214
+#: Reports/FundRaiserStatement.php:166
+#, fuzzy
+msgid "Times"
+msgstr "تاريخ الحدث"
+
+#: Reports/FundRaiserStatement.php:168
+msgid "Qty"
+msgstr ""
+
+#: Reports/FundRaiserStatement.php:221
 msgid "Total of all purchases: $"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:219
+#: Reports/FundRaiserStatement.php:226
 msgid "-----------------------------------------------------------------------------------------------------------------------------------------------"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:221
+#: Reports/FundRaiserStatement.php:228
 msgid "Buyer # "
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:221
+#: Reports/FundRaiserStatement.php:228
 msgid "Total purchases: $"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:221
+#: Reports/FundRaiserStatement.php:228
 msgid "Amount paid: ________________"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:223
+#: Reports/FundRaiserStatement.php:230
 msgid ""
 "Paid by (  ) Cash    (  ) Check    (  ) Credit card __ __ __ __    __ __ __ "
 "__    __ __ __ __    __ __ __ __  Exp __ / __"
 msgstr ""
 
-#: Reports/FundRaiserStatement.php:225
+#: Reports/FundRaiserStatement.php:232
 msgid ""
 "                                        Signature "
 "________________________________________________________________"
@@ -10598,28 +10634,32 @@ msgstr ""
 msgid "Add/Remove Tag"
 msgstr "إزالة"
 
-#: v2/templates/email/mailchimp/managelist.php:154
+#: v2/templates/email/mailchimp/managelist.php:143
+msgid "Keywords"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:163
 #, fuzzy
 msgid "is not configured"
 msgstr "غير مؤكد."
 
-#: v2/templates/email/mailchimp/managelist.php:155
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "Please update the"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:155
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "API key in Setting->"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:157
+#: v2/templates/email/mailchimp/managelist.php:166
 msgid "then update"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:157
+#: v2/templates/email/mailchimp/managelist.php:166
 msgid "For more info see our "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:158
+#: v2/templates/email/mailchimp/managelist.php:167
 msgid "support docs."
 msgstr ""
 

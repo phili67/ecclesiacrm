@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-11T06:55:35.436Z\n"
+"POT-Creation-Date: 2020-08-30T07:01:19.024Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -426,7 +426,7 @@ msgid "Add persons/Family/groups"
 msgstr "Personen/Familien/gruppen hinzuzufügen"
 
 msgid "Person or Family or Group"
-msgstr "Person oder Familie oder Gruppe"
+msgstr "Eins Person oder eine Familie oder eine Gruppe"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -1903,6 +1903,9 @@ msgstr ""
 msgid "Deleting tag"
 msgstr "Etikette Löschen"
 
+msgid "A person name or Family or Group"
+msgstr "Ein Person oder eine Familie oder ein Gruppe"
+
 msgid "Loading subscriber"
 msgstr "Abonnenten Laden"
 
@@ -1926,6 +1929,13 @@ msgstr ""
 msgid ""
 "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
 "while !"
+msgstr ""
+"Alle Newsletter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
+
+#, fuzzy
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
 msgstr ""
 "Alle Newsletter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
 
