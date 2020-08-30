@@ -55,6 +55,7 @@ $app->group('/mailchimp', function () {
     $this->post('/addallpersons', 'addallpersons' );
     $this->post('/addperson', 'addPerson' );
     $this->post('/addfamily', 'addFamily' );
+    $this->post('/addAllFamilies', 'addAllFamilies' );
     $this->post('/addgroup', 'addGroup' );
 
     $this->post('/testConnection', 'testEmailConnectionMVC' );
@@ -67,7 +68,7 @@ function searchList (Request $request, Response $response, array $args) {
 
   $id = 1;
 // all person in the CRM
-  if ($query == '*') {
+  if ($query == '*' || mb_strtolower($query) == _("persons") ||  mb_strtolower($query) == _("people")) {
     $elt = ['id'=>$id++,
           'text'=>"*",
           'typeId' => 1
@@ -82,7 +83,7 @@ function searchList (Request $request, Response $response, array $args) {
 
 
 // add all person from the newsletter
-  if (strpos("newsletter",$query) !== false) {
+  if (mb_strpos("newsletter",mb_strtolower($query)) !== false) {
     $elt = ['id'=>$id++,
           'text'=>"newsletter",
           'typeId' => 2
@@ -96,7 +97,7 @@ function searchList (Request $request, Response $response, array $args) {
   }
 
     // all person in the CRM
-    if ($query == _('families')) {
+    if (mb_strtolower($query) == _('families')) {
         $elt = ['id'=>$id++,
             'text'=>"families",
             'typeId' => 3
@@ -104,7 +105,7 @@ function searchList (Request $request, Response $response, array $args) {
 
         $data = ['children' => [$elt],
             'id' => 0,
-            'text' => _('All People')];
+            'text' => _('All Families')];
 
         array_push($resultsArray, $data);
     }
@@ -226,52 +227,6 @@ function searchList (Request $request, Response $response, array $args) {
       $logger = LoggerUtils::getAppLogger();
       $logger->warn($e->getMessage());
   }
-
-    if ($query == _('families')) {
-        // Family search
-        try {
-            $families = FamilyQuery::create()
-                ->filterByDateDeactivated(NULL)
-                ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
-                ->find();
-
-            if (!empty($families))
-            {
-                $data = [];
-                $id++;
-
-
-                foreach ($families as $family)
-                {
-
-                    $persons = $family->getHeadPeople();
-
-                    if (count($persons) == 0) continue;
-                    $person = $persons[0];
-
-                    $searchArray=[
-                        "id" => $id++,
-                        "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                        'personID'=>$person->getId()
-                    ];
-
-                    array_push($data,$searchArray);
-                }
-
-                if (!empty($data))
-                {
-                    $dataFamilies = ['children' => $data,
-                        'id' => 5,
-                        'text' => _('Families')];
-
-                    array_push($resultsArray, $dataFamilies);
-                }
-            }
-        } catch (Exception $e) {
-            $logger = LoggerUtils::getAppLogger();
-            $logger->warn($e->getMessage());
-        }
-    }
 
   return $response->withJson(array_filter($resultsArray));
 }
@@ -1006,6 +961,105 @@ function addFamily (Request $request, Response $response, array $args) {
   }
 
   return $response->withJson(['success' => false]);
+}
+
+function addAllFamilies (Request $request, Response $response, array $args)
+{
+    if (!SessionUser::getUser()->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+    }
+
+    $input = (object)$request->getParsedBody();
+
+    if ( isset ($input->list_id) ) {
+        // we get the MailChimp Service
+        $mailchimp = new MailChimpService();
+
+        $list           = $mailchimp->getListFromListId($input->list_id);
+        $listID         = $input->list_id;
+
+        $families = FamilyQuery::create()
+            ->filterByDateDeactivated(NULL)
+            ->find();
+
+
+        if (!empty($families))
+        {
+            $count = 0;
+            $allUsers = [];
+
+            $numberOfPerson = 0;
+
+            foreach ($families as $family)
+            {
+                $persons = $family->getHeadPeople();
+
+                $person = $persons[0];
+
+                if (!is_null ($person) && strlen($person->getEmail()) > 0) {
+                    $numberOfPerson++;
+
+                    if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
+                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+                        $listID   = $new_List['id'];
+                        $numberOfPerson = 0;
+                    }
+
+                    $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
+
+                    $address = $person->getAddressForMailChimp();
+
+                    if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+                        $merge_fields['ADDRESS'] = $address;
+                    }
+
+                    $phone = $person->getHomePhone();
+
+                    if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+                        $merge_fields['PHONE']   = $address;
+                    }
+
+                    $data = array(
+                        "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
+                        "email_address" => $person->getEmail(),
+                        "status"        => "subscribed",
+                        "merge_fields"  => $merge_fields
+                    );
+
+                    $json_data = json_encode($data);
+
+                    $allUsers[] = array(
+                        "method" => "POST",
+                        "path" => "/lists/" . $listID . "/members/",
+                        "body" => $json_data
+                    );
+
+                    $count++;
+                }
+            }
+
+            $array = array(
+                "operations" => $allUsers
+            );
+
+            $res = $mailchimp->sendAllMembers($array);
+
+            if ( array_key_exists ('title',$res) ) {
+                $resError[] = $res;
+            }
+
+            sleep ( (int)($count*3)/10 );
+
+            $mailchimp->reloadMailChimpDatas();
+
+            if ( count($resError) > 0) {
+                return $response->withJson(['success' => false, "error" => $resError]);
+            } else {
+                return $response->withJson(['success' => true, "result" => $res]);
+            }
+        }
+        return $response->withJson(['success' => false, "error" => "try problem"]);
+    }
 }
 
 function addGroup (Request $request, Response $response, array $args) {
