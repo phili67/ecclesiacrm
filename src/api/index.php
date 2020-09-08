@@ -105,5 +105,8 @@ require __DIR__.'/routes/sundayschool.php';
 // meeting route
 require __DIR__.'/routes/meeting/meeting.php';
 
+// fundraiser route
+require __DIR__.'/routes/fundraiser/fundraiser.php';
+
 // Run app
 $app->run();
