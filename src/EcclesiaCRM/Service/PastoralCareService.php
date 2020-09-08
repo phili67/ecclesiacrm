@@ -118,7 +118,7 @@ ORDER by person_per.per_LastName;";
             return $prpPerson;
 
 
-        /* // Here's the first test to try to tranform the code to propel
+        /* // Here's the first test to try to transform the code to propel
 
             $res =  PersonQuery::create()
             ->filterByDateDeactivated(null) // GDPR, when a family is completely deactivated
@@ -145,17 +145,40 @@ ORDER by person_per.per_LastName;";
         return $res->find();*/
 
         } else {
-            return PastoralCareQuery::create()
+            $sSQL = "SELECT
+p.per_ID AS Id, p.per_LastName AS LastName, p.per_FirstName AS FirstName, f.fam_Name AS FamilyName,
+f.fam_ID AS FamilyId, a.pst_cr_date AS PastoralCareLastDate,l.lst_ID,
+COALESCE(l.lst_OptionName,'Unassigned') AS ClassName,
+COALESCE(l.lst_OptionID,'Unassigned') AS ClassID,
+COALESCE(l.lst_ID,'Unassigned') AS ListID
+FROM `pastoral_care` a
+LEFT JOIN person_per p ON p.per_ID=a.pst_cr_person_id
+LEFT JOIN family_fam f ON f.fam_ID=p.per_fam_ID
+LEFT JOIN list_lst l ON (p.per_cls_ID=l.lst_OptionID  AND l.lst_ID=1)
+WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
+
+            $connection = Propel::getConnection();
+
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
+
+            $prpPerson = $statement->fetchAll(\PDO::FETCH_ASSOC);// permet de récupérer le tableau associatif
+
+            return $prpPerson;
+
+            /* // Here's the first test to try to transform the code to propel
+               return PastoralCareQuery::create()
                 ->joinPersonRelatedByPersonId()
                 ->usePersonRelatedByPersonIdQuery()
                     ->filterByDateDeactivated(null)
                     ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
                     ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
-                ->useFamilyQuery()
-                    ->addAsColumn('FamilyName', FamilyTableMap::COL_FAM_NAME)
-                    ->addAsColumn('FamilyId', FamilyTableMap::COL_FAM_ID)
-                    ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
-                ->endUse()
+                    ->leftJoinFamily()
+                    ->useFamilyQuery()
+                        ->addAsColumn('FamilyName', FamilyTableMap::COL_FAM_NAME)
+                        ->addAsColumn('FamilyId', FamilyTableMap::COL_FAM_ID)
+                        ->addAsColumn('PastoralCareLastDate', PastoralCareTableMap::COL_PST_CR_DATE )
+                    ->endUse()
                 ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
                 ->addMultipleJoin(array(
                         array(PersonTableMap::COL_PER_CLS_ID, ListOptionTableMap::Alias("cls", ListOptionTableMap::COL_LST_OPTIONID)),
@@ -166,7 +189,7 @@ ORDER by person_per.per_LastName;";
                 ->addAsColumn('ClassID', "COALESCE(" . ListOptionTableMap::Alias("cls", ListOptionTableMap::COL_LST_OPTIONID) . ", 'Unassigned')")
                 ->addAsColumn('ListID', "COALESCE(" . ListOptionTableMap::Alias("cls", ListOptionTableMap::COL_LST_ID) . ", NULL)")
                 ->endUse()
-                ->find()->toArray();
+                ->find()->toArray();*/
         }
     }
 
