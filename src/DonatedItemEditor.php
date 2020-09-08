@@ -314,12 +314,13 @@ require 'Include/Header.php';
 
                         <div class="form-group">
                             <label><?= _('Replicate item') ?></label>
-                            <div class="input-group">
+                            <div class="input-group mb-3">
+                                <!-- /btn-group -->
                                 <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control">
-                                <span class="input-group-btn">
-                                    <input type="button" class="btn btn-primary" value="<?= _('Go') ?>" name="DonatedItemReplicate"
-                                    onclick="javascript:document.location = 'DonatedItemReplicate.php?DonatedItemID=<?= $iDonatedItemID ?>&Count=' + NumberCopies.value">
-                                </span>
+                                <div class="input-group-append">
+                                    <input type="button" class="btn btn-primary" id="donatedItemGo" value="<?= _('Go') ?>"
+                                           name="DonatedItemReplicate" data-donateditemid="<?= $iDonatedItemID ?>">
+                                </div>
                             </div>
                         </div>
 
@@ -360,9 +361,28 @@ require 'Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     $(document).ready(function() {
+        var iCurrentFundraiser = <?= $iCurrentFundraiser ?>;
         $("#Donor").select2();
         $("#Buyer").select2();
+
+        $("#donatedItemGo").click(function() {
+            var donatedItem = $(this).data('donateditemid');
+            var count = $("#NumberCopies").val();
+
+            window.CRM.APIRequest({
+                method: "POST",
+                path: "fundraiser/replicate",
+                data: JSON.stringify({"DonatedItemID":donatedItem,"count": count})
+            }).done(function (data) {
+                if (data.status == "success") {
+                    window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + iCurrentFundraiser;
+                }
+            });
+
+        })
     });
+
+
 </script>
 
 <?php require 'Include/Footer.php'; ?>
