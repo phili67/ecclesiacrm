@@ -46,8 +46,8 @@ $sDateError = '';
 if (isset($_POST['FundRaiserSubmit'])) {
     //Get all the variables from the request object and assign them locally
     $dDate = InputUtils::FilterDate($_POST['Date']);
-    $sTitle = InputUtils::LegacyFilterInputArr($_POST, 'Title');
-    $sDescription = InputUtils::LegacyFilterInputArr($_POST, 'Description');
+    $sTitle = InputUtils::FilterString($_POST['Title']);
+    $sDescription = InputUtils::FilterString($_POST['Description']);
 
     //Initialize the error flag
     $bErrorFlag = false;
@@ -114,7 +114,6 @@ if (isset($_POST['FundRaiserSubmit'])) {
         //Get all the data on this record
         $ormFundRaiser = FundRaiserQuery::create()
             ->findOneById($iFundRaiserID);
-
 
         $dDate = $ormFundRaiser->getDate()->format('Y-m-d');
         $sTitle = $ormFundRaiser->getTitle();
@@ -260,21 +259,17 @@ require 'Include/Header.php';
                     </thead>
 
                     <?php
-                    $tog = 0;
-
-
                     //Loop through all donated items
                     if ($DonatedItemsCNT > 0) {
 
                         while ($row = $pdoDonatedItems->fetch(\PDO::FETCH_BOTH)) {
-                            echo $DonatedItemsCNT;
 
                             if ($row['di_Item'] == '') {
                                 $row['di_Item'] = '~';
                             }
 
-                            $sRowClass = 'RowColorA'; ?>
-                            <tr class="<?= $sRowClass ?>">
+                            ?>
+                            <tr >
                                 <td>
                                     <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemEditor.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>"><i
                                             class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<?= $row['di_Item'] ?></a>
@@ -310,7 +305,7 @@ require 'Include/Header.php';
                                     <?= OutputUtils::number_localized($row['di_minimum']) ?>&nbsp;
                                 </td>
                                 <td>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemDelete.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>">
+                                    <a href="#" class="deleteDonatedItem" data-donatedid="<?= $row['di_ID'] ?>">
                                         <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
                                     </a>
                                 </td>
@@ -326,12 +321,26 @@ require 'Include/Header.php';
 
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         $(document).ready(function () {
+            var fundraiserID = <?= $iFundRaiserID ?>;
             $('.fundraiser-table').DataTable({
                 responsive: true,
                 "language": {
                     "url": window.CRM.plugin.dataTable.language.url
                 },
             });
+
+            $(".deleteDonatedItem").click(function () {
+                var donatedItem = $(this).data('donatedid');
+
+                window.CRM.APIRequest({
+                    method: "DELETE",
+                    path: "fundraiser/donateditem",
+                    data: JSON.stringify({"DonatedItemID":donatedItem,"FundRaiserID": fundraiserID})
+                }).done(function (data) {
+                    if (data.status == "success")
+                        location.reload();
+                });
+            })
         });
     </script>
 <?php } ?>
