@@ -216,7 +216,7 @@ require 'Include/Header.php';
                                } ?>';">
                         <?php
                         if ($iFundRaiserID > 0) {
-                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Add Donated Item') . "\" name=AddDonatedItem onclick=\"javascript:document.location='DonatedItemEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Add Donated Item') . "\" name=AddDonatedItem onclick=\"javascript:document.location='v2/fundraiser/donatedItemEditor/0/$iFundRaiserID';\">\n";
                             echo '<input type=button class="btn btn-success btn-sm" value="' . _('Generate Catalog') . "\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
                             echo '<input type=button class="btn btn-info btn-sm" value="' . _('Generate Bid Sheets') . "\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
                             echo '<input type=button class="btn btn-warning btn-sm" value="' . _('Generate Certificates') . "\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
@@ -241,108 +241,19 @@ require 'Include/Header.php';
             <h3 class="card-title"><?= _('Donated items for this fundraiser') ?></h3>
         </div>
         <div class="card-body">
-                <table class="table table-striped table-bordered dataTable no-footer dtr-inline fundraiser-table"
-                       cellpadding="5"
-                       cellspacing="0" width="100%">
-
-                    <thead class="TableHeader">
-                    <th><?= _('Item') ?></th>
-                    <th><?= _('Multiple') ?></th>
-                    <th><?= _('Donor') ?></th>
-                    <th><?= _('Buyer') ?></th>
-                    <th><?= _('Title') ?></th>
-                    <th><?= _('Sale Price') ?></th>
-                    <th><?= _('Estimated value') ?></th>
-                    <th><?= _('Material Value') ?></th>
-                    <th><?= _('Minimum Price') ?></th>
-                    <th><?= _('Delete') ?></th>
-                    </thead>
-
-                    <?php
-                    //Loop through all donated items
-                    if ($DonatedItemsCNT > 0) {
-
-                        while ($row = $pdoDonatedItems->fetch(\PDO::FETCH_BOTH)) {
-
-                            if ($row['di_Item'] == '') {
-                                $row['di_Item'] = '~';
-                            }
-
-                            ?>
-                            <tr >
-                                <td>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/DonatedItemEditor.php?DonatedItemID=<?= $row['di_ID'] . '&linkBack=FundRaiserEditor.php?FundRaiserID=' . $iFundRaiserID ?>"><i
-                                            class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<?= $row['di_Item'] ?></a>
-                                </td>
-                                <td>
-                                    <?php if ($row['di_multibuy']) {
-                                        echo 'X';
-                                    } ?>&nbsp;
-                                </td>
-                                <td>
-                                    <?= $row['donorFirstName'] . ' ' . $row['donorLastName'] ?>&nbsp;
-                                </td>
-                                <td>
-                                    <?php if ($row['di_multibuy']) {
-                                        echo _('Multiple');
-                                    } else {
-                                        echo $row['buyerFirstName'] . ' ' . $row['buyerLastName'];
-                                    } ?>&nbsp;
-                                </td>
-                                <td>
-                                    <?= $row['di_title'] ?>&nbsp;
-                                </td>
-                                <td align=center>
-                                    <?= OutputUtils::number_localized($row['di_sellprice']) ?>&nbsp;
-                                </td>
-                                <td align=center>
-                                    <?= OutputUtils::number_localized($row['di_estprice']) ?>&nbsp;
-                                </td>
-                                <td align=center>
-                                    <?= OutputUtils::number_localized($row['di_materialvalue']) ?>&nbsp;
-                                </td>
-                                <td align=center>
-                                    <?= OutputUtils::number_localized($row['di_minimum']) ?>&nbsp;
-                                </td>
-                                <td>
-                                    <a href="#" class="deleteDonatedItem" data-donatedid="<?= $row['di_ID'] ?>">
-                                        <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <?php
-                        } // while
-                    }// if
-                    ?>
-
-                </table>
+            <table class="table table-striped table-bordered dataTable no-footer dtr-inline" id="fundraiser-table"
+                   cellpadding="5"
+                   cellspacing="0" width="100%"></table>
         </div>
     </div>
 
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         $(document).ready(function () {
-            var fundraiserID = <?= $iFundRaiserID ?>;
-            $('.fundraiser-table').DataTable({
-                responsive: true,
-                "language": {
-                    "url": window.CRM.plugin.dataTable.language.url
-                },
-            });
-
-            $(".deleteDonatedItem").click(function () {
-                var donatedItem = $(this).data('donatedid');
-
-                window.CRM.APIRequest({
-                    method: "DELETE",
-                    path: "fundraiser/donateditem",
-                    data: JSON.stringify({"DonatedItemID":donatedItem,"FundRaiserID": fundraiserID})
-                }).done(function (data) {
-                    if (data.status == "success")
-                        location.reload();
-                });
-            })
+            window.CRM.fundraiserID = <?= $iFundRaiserID ?>;
         });
     </script>
+
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/fundraiser/fundraiserEditor.js"></script>
 <?php } ?>
 
 <?php require 'Include/Footer.php' ?>
