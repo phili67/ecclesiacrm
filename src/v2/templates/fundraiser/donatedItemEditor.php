@@ -1,0 +1,242 @@
+<?php
+/*******************************************************************************
+ *
+ *  filename    : DonatedItemEditor.php
+ *  last change : 2020-09-09
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2020 Philippe Logel
+ *
+ ******************************************************************************/
+
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\OutputUtils;
+
+require $sRootDocument . '/Include/Header.php';
+?>
+
+<div class="card card-primary">
+    <div class="card-body">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2 col-xs-6">
+                    <div class="form-group">
+                        <label><?= _('Item') ?>:</label>
+                        <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class="form-control">
+                    </div>
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="Multibuy" name="Multibuy" value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
+                            <?= _('Sell to everyone'); ?> (<?= _('Multiple items'); ?>)
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Donor'); ?>:</label>
+                        <select name="Donor" id="Donor" class="form-control select2">
+                            <option value="0" selected><?= _('Unassigned') ?></option>
+                            <?php
+                            foreach ($ormPeople as $per) {
+                                echo '<option value="' . $per->getId() . '"';
+                                if ($iDonor == $per->getId()) {
+                                    echo ' selected';
+                                }
+                                echo '>' . $per->getLastName() . ', ' . $per->getFirstName();
+                                if (!is_null($per->getFamily())) {
+                                    echo ' ' . MiscUtils::FormatAddressLine($per->getFamily()->getAddress1(), $per->getFamily()->getCity(), $per->getFamily()->getState());
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Title') ?>:</label>
+                        <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>" class="form-control"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Estimated Price') ?>:</label>
+                        <input type="text" name="EstPrice" id="EstPrice" value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Material Value') ?>:</label>
+                        <input type="text" name="MaterialValue" id="MaterialValue" value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Minimum Price') ?>:</label>
+                        <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="form-group">
+                        <label><?= _('Buyer') ?>:</label>
+                        <?php if ($bMultibuy) {
+                            echo _('Multiple');
+                        } else {
+                        ?>
+                        <select name="Buyer" id="Buyer" class="form-control">
+                            <option value="0" selected><?= _('Unassigned') ?></option>
+                            <?php
+                            foreach ($ormPaddleNum as $buyer) {
+                                echo '<option value="'.$buyer->getPerId().'"';
+                                if ($iBuyer == $buyer->getPerId()) {
+                                    echo ' selected';
+                                }
+                                echo '>'.$buyer->getNum().': '.$buyer->getBuyerFirstName().' '.$buyer->getBuyerLastName();
+                            }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Final Price') ?>:</label>
+                        <input type="text" name="SellPrice" id="SellPrice" value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Replicate item') ?></label>
+                        <div class="input-group mb-3">
+                            <!-- /btn-group -->
+                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control">
+                            <div class="input-group-append">
+                                <input type="button" class="btn btn-primary" id="donatedItemGo" value="<?= _('Go') ?>"
+                                       name="DonatedItemReplicate" data-donateditemid="<?= $iDonatedItemID ?>">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-md-offset-2 col-xs-12">
+                    <div class="form-group">
+                        <label><?= _('Description') ?>:</label>
+                        <textarea name="Description" id="Description" rows="5" cols="90" class="form-control"><?= htmlentities($sDescription) ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label><?= _('Picture URL') ?>:</label>
+                        <textarea name="PictureURL" id="PictureURL" rows="1" cols="90" class="form-control"><?= htmlentities($sPictureURL) ?></textarea>
+                    </div>
+
+                    <?php if ($sPictureURL != ''): ?>
+                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>"/></div>
+                    <?php endif; ?>
+
+                </div>
+
+            </div> <!-- row -->
+        </div>
+
+        <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="DonatedItemSubmit" id="DonatedItemSubmit">
+            <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
+                <input type="submit" class="btn btn-primary" value="<?= _('Save and Add'); ?>" name="DonatedItemSubmitAndAdd" id="DonatedItemSubmitAndAdd">
+            <?php endif; ?>
+            <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="DonatedItemCancel" id="DonatedItemCancel">
+        </div>
+
+    </div>
+</div>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    $(document).ready(function() {
+        var currentFundraiser = <?= $iCurrentFundraiser ?>;
+        var currentDonatedItemID = <?= strlen($iDonatedItemID)?$iDonatedItemID:-1 ?>;
+        $("#Donor").select2();
+        $("#Buyer").select2();
+
+        $("#donatedItemGo").click(function() {
+            var donatedItem = $(this).data('donateditemid');
+            var count = $("#NumberCopies").val();
+
+            // TODO : test if count = 0 and if donatedItem exist
+
+            window.CRM.APIRequest({
+                method: "POST",
+                path: "fundraiser/replicate",
+                data: JSON.stringify({"DonatedItemID":donatedItem,"count": count})
+            }).done(function (data) {
+                if (data.status == "success") {
+                    window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
+                }
+            });
+
+        })
+
+        $("#DonatedItemSubmit").click(function () {
+            var Item = $("#Item").val();
+            var Multibuy = $("#Multibuy").is(':checked');
+            var Donor = $("#Donor").val();
+            var Title = $("#Title").val();
+            var EstPrice = $("#EstPrice").val();
+            var MaterialValue = $("#MaterialValue").val();
+            var MinimumPrice = $("#MinimumPrice").val();
+            var Buyer = $("#Buyer").val();
+            var SellPrice = $("#SellPrice").val();
+            var Description = $("#Description").val();
+            var PictureURL = $("#PictureURL").val();
+
+
+            window.CRM.APIRequest({
+                method: "POST",
+                path: "fundraiser/donatedItemSubmit",
+                data: JSON.stringify({"currentFundraiser":currentFundraiser,"currentDonatedItemID": currentDonatedItemID,
+                    "Item":Item,"Multibuy": Multibuy,
+                    "Donor":Donor,"Title": Title,
+                    "EstPrice":EstPrice,"MaterialValue": MaterialValue,
+                    "MinimumPrice":MinimumPrice,"Buyer": Buyer,
+                    "SellPrice":SellPrice,"Description": Description,
+                    "PictureURL":PictureURL})
+            }).done(function (data) {
+                if (data.status == "success") {
+                    window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
+                }
+            });
+        });
+
+        $("#DonatedItemSubmitAndAdd").click(function () {
+            var Item = $("#Item").val();
+            var Multibuy = $("#Multibuy").is(':checked');
+            var Donor = $("#Donor").val();
+            var Title = $("#Title").val();
+            var EstPrice = $("#EstPrice").val();
+            var MaterialValue = $("#MaterialValue").val();
+            var MinimumPrice = $("#MinimumPrice").val();
+            var Buyer = $("#Buyer").val();
+            var SellPrice = $("#SellPrice").val();
+            var Description = $("#Description").val();
+            var PictureURL = $("#PictureURL").val();
+
+
+            window.CRM.APIRequest({
+                method: "POST",
+                path: "fundraiser/donatedItemSubmit",
+                data: JSON.stringify({"currentFundraiser":currentFundraiser,"currentDonatedItemID": currentDonatedItemID,
+                    "Item":Item,"Multibuy": Multibuy,
+                    "Donor":Donor,"Title": Title,
+                    "EstPrice":EstPrice,"MaterialValue": MaterialValue,
+                    "MinimumPrice":MinimumPrice,"Buyer": Buyer,
+                    "SellPrice":SellPrice,"Description": Description,
+                    "PictureURL":PictureURL})
+            }).done(function (data) {
+                if (data.status == "success") {
+                    window.location.href = window.CRM.root + "/v2/fundraiser/donatedItemEditor/0/" + currentFundraiser;
+                }
+            });
+        });
+
+        $("#DonatedItemCancel").click(function () {
+            window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
+        })
+    });
+</script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
