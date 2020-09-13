@@ -23,8 +23,10 @@ unlink(SystemURLs::getDocumentRoot()."/skin/js/people/PastoralCareFamily.js");
 unlink(SystemURLs::getDocumentRoot()."/skin/js/people/PastoralCarePerson.js");
 unlink(SystemURLs::getDocumentRoot()."/api/routes/sidebar/sidebar-pastoralcare.php");
 
+// refactor of the fundraiser in v2 arch
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemReplicate.php");
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemDelete.php");
+unlink(SystemURLs::getDocumentRoot()."/DonatedItemEditor.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
