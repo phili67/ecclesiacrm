@@ -7,13 +7,39 @@ use Slim\Http\Response;
 use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\DonatedItem;
 use EcclesiaCRM\SessionUser;
+use Propel\Runtime\Propel;
+
+use EcclesiaCRM\Utils\InputUtils;
 
 $app->group('/fundraiser', function () {
 
+    $this->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiser');
     $this->post('/replicate', 'replicateFundraiser');
+    $this->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser');
     $this->delete('/donateditem', 'deleteDonatedItem');
 
+
 });
+
+function getAllFundraiser(Request $request, Response $response, array $args)
+{
+
+    $sSQL = "SELECT di_ID, di_Item, di_multibuy,
+	                a.per_FirstName as donorFirstName, a.per_LastName as donorLastName,
+	                b.per_FirstName as buyerFirstName, b.per_LastName as buyerLastName,
+	                di_title, di_sellprice, di_estprice, di_materialvalue, di_minimum
+	         FROM donateditem_di
+	         LEFT JOIN person_per a ON di_donor_ID=a.per_ID
+	         LEFT JOIN person_per b ON di_buyer_ID=b.per_ID
+	         WHERE di_FR_ID = '" . $args['FundRaiserID'] . "' ORDER BY di_multibuy,SUBSTR(di_item,1,1),cast(SUBSTR(di_item,2) as unsigned integer),SUBSTR(di_item,4)";
+
+    $connection = Propel::getConnection();
+
+    $pdoDonatedItems = $connection->prepare($sSQL);
+    $pdoDonatedItems->execute();
+
+    return $response->withJSON(['DonatedItems' => $pdoDonatedItems->fetchAll(\PDO::FETCH_ASSOC)]);
+}
 
 function replicateFundraiser(Request $request, Response $response, array $args)
 {
@@ -89,3 +115,78 @@ function deleteDonatedItem(Request $request, Response $response, array $args)
 
     return $response->withJSON(['status' => "failed"]);
 }
+
+function donatedItemSubmitFundraiser(Request $request, Response $response, array $args)
+{
+    $input = (object)$request->getParsedBody();
+
+
+    if (isset ($input->currentFundraiser) && isset($input->currentDonatedItemID)
+        && isset ($input->Item) && isset($input->Multibuy)
+        && isset ($input->Donor) && isset($input->Title)
+        && isset ($input->EstPrice) && isset($input->MaterialValue)
+        && isset ($input->MinimumPrice) //&& isset($input->Buyer)
+        && isset ($input->SellPrice) && isset($input->Description)
+        && isset ($input->PictureURL)) {
+
+        $sItem = InputUtils::FilterString($input->Item);
+        $bMultibuy = InputUtils::FilterInt($input->Multibuy);
+        $iDonor = InputUtils::FilterInt($input->Donor);
+        $iBuyer = InputUtils::FilterInt($input->Buyer);
+        $sTitle = InputUtils::FilterString($input->Title);
+        $sDescription = InputUtils::FilterHTML($input->Description);
+        $nSellPrice = InputUtils::FilterFloat($input->SellPrice);
+        $nEstPrice = InputUtils::FilterFloat($input->EstPrice);
+        $nMaterialValue = InputUtils::FilterFloat($input->MaterialValue);
+        $nMinimumPrice = InputUtils::FilterFloat($input->MinimumPrice);
+        $sPictureURL = InputUtils::FilterString($input->PictureURL);
+
+        if ($input->currentDonatedItemID < 0) {
+            $donatedItem = new DonatedItem();
+
+            $donatedItem->setFrId($input->currentFundraiser);
+            $donatedItem->setItem($sItem);
+            $donatedItem->setMultibuy($bMultibuy);
+            $donatedItem->setDonorId($iDonor);
+            $donatedItem->setBuyerId($iBuyer);
+            $donatedItem->setTitle($sTitle);
+            $donatedItem->setDescription(html_entity_decode($sDescription));
+            $donatedItem->setSellprice($nSellPrice);
+            $donatedItem->setEstprice($nEstPrice);
+            $donatedItem->setMaterialValue($nMaterialValue);
+            $donatedItem->setMinimum($nMinimumPrice);
+            $donatedItem->setPicture(Propel::getConnection()->quote($sPictureURL));
+            $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+            $donatedItem->setEntereddate(date('YmdHis'));
+
+            $donatedItem->save();
+        } else {
+            $donatedItem = DonatedItemQuery::create()
+                ->findOneById($input->currentDonatedItemID);
+
+            $donatedItem->setFrId($input->currentFundraiser);
+            $donatedItem->setItem($sItem);
+            $donatedItem->setMultibuy($bMultibuy);
+            if ($iDonor != 0)
+                $donatedItem->setDonorId($iDonor);
+            if ($iBuyer != 0)
+                $donatedItem->setBuyerId($iBuyer);
+            $donatedItem->setTitle(html_entity_decode($sTitle));
+            $donatedItem->setDescription(html_entity_decode($sDescription));
+            $donatedItem->setSellprice($nSellPrice);
+            $donatedItem->setEstprice($nEstPrice);
+            $donatedItem->setMaterialValue($nMaterialValue);
+            $donatedItem->setMinimum($nMinimumPrice);
+            $donatedItem->setPicture($sPictureURL);
+            $donatedItem->setEnteredby(SessionUser::getUser()->getPersonId());
+            $donatedItem->setEntereddate(date('YmdHis'));
+
+            $donatedItem->save();
+        }
+
+        return $response->withJSON(['status' => "success"]);
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
+
