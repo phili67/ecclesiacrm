@@ -5,7 +5,7 @@
  *  last change : 2009-04-16
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2009 Michael Wilt
- *                Copyright 2019 Philippe Logel
+ *                Copyright 2020 Philippe Logel
  *
  ******************************************************************************/
 
@@ -15,11 +15,10 @@ require 'Include/Functions.php';
 
 use Propel\Runtime\Propel;
 
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\UserQuery;
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\FundRaiserQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -59,7 +58,7 @@ if ($dDateStart || $dDateEnd) {
 }
 if ($iID) {
     if ($sCriteria) {
-        $sCrieria .= "OR fr_ID = '$iID' ";
+        $sCriteria .= "OR fr_ID = '$iID' ";
     } else {
         $sCriteria = " WHERE fr_ID = '$iID' ";
     }
@@ -70,6 +69,35 @@ if (array_key_exists('FilterClear', $_GET) && $_GET['FilterClear']) {
     $dDateEnd = '';
     $iID = '';
 }
+
+$ormDep = FundRaiserQuery::create();
+
+if ($dDateStart || $dDateEnd) {
+    //echo $dDateStart ." " . $dDateEnd;
+    $ormDep->filterByDate (array("min" => $dDateStart." 00:00:00", "max" => $dDateEnd." 23:59:59"));
+}
+
+if ($iID) {
+    $ormDep->findById($iID);
+} else {
+    $ormDep->find();
+}
+
+print_r ($ormDep->count());
+
+
+// Build SQL query
+$sSQL = "SELECT fr_ID, fr_Date, fr_Title FROM fundraiser_fr $sCriteria";
+
+//echo $sSQL;
+
+
+// Execute SQL statement and get total result
+$connection = Propel::getConnection();
+
+$pdoDep = $connection->prepare($sSQL);
+$pdoDep->execute();
+
 require 'Include/Header.php';
 
 ?>
@@ -133,158 +161,6 @@ require 'Include/Header.php';
         <h3 class="card-title"><?= _('Fundraisers') ?></h3>
     </div>
     <div class="card-body">
-        <?php
-
-        // Append a LIMIT clause to the SQL statement
-        $iPerPage = SessionUser::getUser()->getSearchLimit();
-        if (empty($_GET['Result_Set'])) {
-            $Result_Set = 0;
-        } else {
-            $Result_Set = InputUtils::LegacyFilterInput($_GET['Result_Set'], 'int');
-        }
-
-        if ($iPerPage != '5' && $iPerPage != '10' && $iPerPage != '20' && $iPerPage != '25'
-            && $iPerPage != '50' && $iPerPage != '100' && $iPerPage != '200' && $iPerPage != '500') {
-            $res = intval($iPerPage);
-            if ($res < 5) {
-                $iPerPage = '5';
-            } else if ($res < 10) {
-                $iPerPage = '10';
-            } else if ($res < 20) {
-                $iPerPage = '20';
-            } else if ($res < 25) {
-                $iPerPage = '25';
-            } else if ($res < 50) {
-                $iPerPage = '50';
-            } else if ($res < 100) {
-                $iPerPage = '100';
-            } else if ($res < 200) {
-                $iPerPage = '200';
-            } else if ($res < 500) {
-                $iPerPage = '500';
-            }
-
-            $tmpUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-            $tmpUser->setSearchLimit($iPerPage);
-            $tmpUser->save();
-
-            $_SESSION['user'] = $tmpUser;
-        }
-
-        $sLimitSQL = " LIMIT $Result_Set, $iPerPage";
-
-        // Build SQL query
-        $sSQL = "SELECT fr_ID, fr_Date, fr_Title FROM fundraiser_fr $sCriteria $sOrderSQL $sLimitSQL";
-        $sSQLTotal = "SELECT COUNT(fr_ID) FROM fundraiser_fr $sCriteria";
-
-        // Execute SQL statement and get total result
-        $connection = Propel::getConnection();
-
-        $pdoDep = $connection->prepare($sSQL);
-        $pdoDep->execute();
-
-        $pdoTotal = $connection->prepare($sSQLTotal);
-        list($Total) = $pdoTotal->fetch(\PDO::FETCH_BOTH);
-        ?>
-
-        <div align="center">
-            <form action="FindFundRaiser.php" method="get" name="ListNumber">
-
-                <?php
-                // Show previous-page link unless we're at the first page
-                if ($Result_Set < $Total && $Result_Set > 0) {
-                    $thisLinkResult = $Result_Set - $iPerPage;
-                    if ($thisLinkResult < 0) {
-                        $thisLinkResult = 0;
-                    }
-                    ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>"><?= _('Previous Page') ?></a>&nbsp;&nbsp;
-                    <?php
-                }
-
-                // Calculate starting and ending Page-Number Links
-                $Pages = ceil($Total / $iPerPage);
-                $startpage = (ceil($Result_Set / $iPerPage)) - 6;
-                if ($startpage <= 2) {
-                    $startpage = 1;
-                }
-                $endpage = (ceil($Result_Set / $iPerPage)) + 9;
-                if ($endpage >= ($Pages - 1)) {
-                    $endpage = $Pages;
-                }
-
-                // Show Link "1 ..." if startpage does not start at 1
-                if ($startpage != 1) {
-                    ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=0&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>">1</a> ...
-                    <?php
-                }
-
-                // Display page links
-                if ($Pages > 1) {
-                    for ($c = $startpage; $c <= $endpage; $c++) {
-                        $b = $c - 1;
-                        $thisLinkResult = $iPerPage * $b;
-                        if ($thisLinkResult != $Result_Set) {
-                            ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= $c ?></a>&nbsp;
-                            <?php
-                        } else {
-                            echo '&nbsp;&nbsp;[ ' . $c . ' ]&nbsp;&nbsp;';
-                        }
-                    }
-                }
-
-                // Show Link "... xx" if endpage is not the maximum number of pages
-                if ($endpage != $Pages) {
-                    $thisLinkResult = ($Pages - 1) * $iPerPage;
-                    ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= $Pages ?></a>
-                    <?php
-                }
-
-                // Show next-page link unless we're at the last page
-                if ($Result_Set >= 0 && $Result_Set < $Total) {
-                    $thisLinkResult = $Result_Set + $iPerPage;
-                    if ($thisLinkResult < $Total) {
-                        ?>
-                        &nbsp;&nbsp;<a
-                            href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>"><?= _('Next Page') ?></a>&nbsp;&nbsp;
-                        <?php
-                    }
-                }
-
-                // Display Record Limit
-                echo '<input type="hidden" name="Result_Set" value="' . $Result_Set . '">';
-                if (isset($sSort)) {
-                    echo '<input type="hidden" name="Sort" value="' . $sSort . '">';
-                }
-
-                $sLimit5 = '';
-                $sLimit10 = '';
-                $sLimit20 = '';
-                $sLimit25 = '';
-                $sLimit50 = '';
-
-                if ($_SESSION['SearchLimit'] == '5') {
-                    $sLimit5 = 'selected';
-                }
-                if ($_SESSION['SearchLimit'] == '10') {
-                    $sLimit10 = 'selected';
-                }
-                if ($_SESSION['SearchLimit'] == '20') {
-                    $sLimit20 = 'selected';
-                }
-                if ($_SESSION['SearchLimit'] == '25') {
-                    $sLimit25 = 'selected';
-                }
-                if ($_SESSION['SearchLimit'] == '50') {
-                    $sLimit50 = 'selected';
-                }
-
-                ?>
-            </form>
-        </div>
         <br>
         <table cellpadding='4' align='center' cellspacing='0' width='100%' id='fund-listing-table'
                class="table table-striped table-bordered dataTable no-footer dtr-inline">
@@ -295,22 +171,23 @@ require 'Include/Header.php';
             <th><?= _('Title') ?></th>
             </thead>
             <?php
-            // Display Deposits
-            while (list($fr_ID, $fr_Date, $fr_Title) = $pdoDep->fetch(\PDO::FETCH_BOTH)) {
-            ?>
-            <tr>
+            // Display
+            foreach ($ormDep as $dep) {
+                ?>
+                    <tr>
                 <td>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $fr_ID ?>">
+                    <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $dep->getId() ?>">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td><?= $fr_ID ?></td>
-                <td><?= OutputUtils::change_date_for_place_holder($fr_Date) ?></td>
+                <td><?= $dep->getId() ?></td>
+                <td><?= OutputUtils::change_date_for_place_holder($dep->getDate()->format('Y-m-d')) ?></td>
                 <!-- Get deposit total -->
-                <td><?= $fr_Title ?></td>
-                <?php
-                }
-                ?>
+                <td><?= $dep->getTitle() ?></td>
+            </tr>
+            <?php
+            }
+            ?>
         </table>
     </div>
 </div>
