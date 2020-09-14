@@ -13,8 +13,6 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use Propel\Runtime\Propel;
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -82,21 +80,6 @@ if ($iID) {
 } else {
     $ormDep->find();
 }
-
-print_r($ormDep->count());
-
-
-// Build SQL query
-$sSQL = "SELECT fr_ID, fr_Date, fr_Title FROM fundraiser_fr $sCriteria";
-
-//echo $sSQL;
-
-
-// Execute SQL statement and get total result
-$connection = Propel::getConnection();
-
-$pdoDep = $connection->prepare($sSQL);
-$pdoDep->execute();
 
 require 'Include/Header.php';
 
