@@ -74,7 +74,7 @@ $ormDep = FundRaiserQuery::create();
 
 if ($dDateStart || $dDateEnd) {
     //echo $dDateStart ." " . $dDateEnd;
-    $ormDep->filterByDate (array("min" => $dDateStart." 00:00:00", "max" => $dDateEnd." 23:59:59"));
+    $ormDep->filterByDate(array("min" => $dDateStart . " 00:00:00", "max" => $dDateEnd . " 23:59:59"));
 }
 
 if ($iID) {
@@ -83,7 +83,7 @@ if ($iID) {
     $ormDep->find();
 }
 
-print_r ($ormDep->count());
+print_r($ormDep->count());
 
 
 // Build SQL query
@@ -174,18 +174,18 @@ require 'Include/Header.php';
             // Display
             foreach ($ormDep as $dep) {
                 ?>
-                    <tr>
-                <td>
-                    <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $dep->getId() ?>">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td><?= $dep->getId() ?></td>
-                <td><?= OutputUtils::change_date_for_place_holder($dep->getDate()->format('Y-m-d')) ?></td>
-                <!-- Get deposit total -->
-                <td><?= $dep->getTitle() ?></td>
-            </tr>
-            <?php
+                <tr>
+                    <td>
+                        <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $dep->getId() ?>">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td><?= $dep->getId() ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($dep->getDate()->format('Y-m-d')) ?></td>
+                    <!-- Get deposit total -->
+                    <td><?= $dep->getTitle() ?></td>
+                </tr>
+                <?php
             }
             ?>
         </table>
