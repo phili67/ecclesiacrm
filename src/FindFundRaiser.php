@@ -28,7 +28,6 @@ $sPageTitle = _('Fundraiser Listing');
 $dDateStart = '';
 $dDateEnd = '';
 $iID = '';
-$sSort = '';
 
 if (array_key_exists('DateStart', $_GET)) {
     $dDateStart = InputUtils::FilterDate($_GET['DateStart']);
@@ -39,39 +38,17 @@ if (array_key_exists('DateEnd', $_GET)) {
 if (array_key_exists('ID', $_GET)) {
     $iID = InputUtils::LegacyFilterInput($_GET['ID']);
 }
-if (array_key_exists('Sort', $_GET)) {
-    $sSort = InputUtils::LegacyFilterInput($_GET['Sort']);
-}
 
-// Build SQL Criteria
-$sCriteria = '';
-if ($dDateStart || $dDateEnd) {
-    if (!$dDateStart && $dDateEnd) {
-        $dDateStart = $dDateEnd;
-    }
-    if (!$dDateEnd && $dDateStart) {
-        $dDateEnd = $dDateStart;
-    }
-    $sCriteria .= " WHERE fr_Date BETWEEN '$dDateStart' AND '$dDateEnd' ";
-}
-if ($iID) {
-    if ($sCriteria) {
-        $sCriteria .= "OR fr_ID = '$iID' ";
-    } else {
-        $sCriteria = " WHERE fr_ID = '$iID' ";
-    }
-}
 if (array_key_exists('FilterClear', $_GET) && $_GET['FilterClear']) {
-    $sCriteria = '';
     $dDateStart = '';
     $dDateEnd = '';
     $iID = '';
 }
 
+// orm extraction
 $ormDep = FundRaiserQuery::create();
 
 if ($dDateStart || $dDateEnd) {
-    //echo $dDateStart ." " . $dDateEnd;
     $ormDep->filterByDate(array("min" => $dDateStart . " 00:00:00", "max" => $dDateEnd . " 23:59:59"));
 }
 
@@ -90,8 +67,6 @@ require 'Include/Header.php';
     </div>
     <div class="card-body">
         <form method="get" action="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php" name="FindFundRaiser">
-            <input name="sort" type="hidden" value="<?= $sSort ?>">
-
             <div class="row">
                 <div class="col-lg-2">
                     <?= _('Number') ?>:
@@ -148,15 +123,15 @@ require 'Include/Header.php';
         <table cellpadding='4' align='center' cellspacing='0' width='100%' id='fund-listing-table'
                class="table table-striped table-bordered dataTable no-footer dtr-inline">
             <thead class='TableHeader'>
-            <th width='25'><?= _('Edit') ?></th>
-            <th><?= _('Number') ?></th>
-            <th><?= _('Date') ?></th>
-            <th><?= _('Title') ?></th>
+                <th width='25'><?= _('Edit') ?></th>
+                <th><?= _('Number') ?></th>
+                <th><?= _('Date') ?></th>
+                <th><?= _('Title') ?></th>
             </thead>
             <?php
-            // Display
-            foreach ($ormDep as $dep) {
-                ?>
+                // Display
+                foreach ($ormDep as $dep) {
+            ?>
                 <tr>
                     <td>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $dep->getId() ?>">
@@ -168,8 +143,8 @@ require 'Include/Header.php';
                     <!-- Get deposit total -->
                     <td><?= $dep->getTitle() ?></td>
                 </tr>
-                <?php
-            }
+            <?php
+                }
             ?>
         </table>
     </div>
