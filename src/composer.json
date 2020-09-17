@@ -52,7 +52,8 @@
         "tuupola/slim-jwt-auth": "^2.4",
         "phpoffice/phpword": "v0.17.*",
         "defuse/php-encryption": "^2.2",
-        "endroid/qr-code": "^3.6"
+        "endroid/qr-code": "^3.6",
+        "ext-gettext": "*"
     },
     "autoload": {
         "classmap": [
