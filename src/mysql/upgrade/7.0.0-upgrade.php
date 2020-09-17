@@ -27,6 +27,8 @@ unlink(SystemURLs::getDocumentRoot()."/api/routes/sidebar/sidebar-pastoralcare.p
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemReplicate.php");
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemDelete.php");
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemEditor.php");
+unlink(SystemURLs::getDocumentRoot()."/FindFundRaiser.php");
+
 
 $logger->info("End of delete :  all unusefull files");
 ?>
