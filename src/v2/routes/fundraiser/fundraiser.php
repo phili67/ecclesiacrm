@@ -17,7 +17,31 @@ use Slim\Views\PhpRenderer;
 
 $app->group('/fundraiser', function () {
     $this->get('/donatedItemEditor/{donatedItemID:[0-9]+}/{CurrentFundraiser:[0-9]+}', 'renderDonatedItemEditor');
+    $this->get('/find', 'renderFindFundRaiser');
 });
+
+function renderFindFundRaiser(Request $request, Response $response, array $args)
+{
+    $renderer = new PhpRenderer('templates/fundraiser/');
+
+    if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+    }
+
+    return $renderer->render($response, 'findFundRaiser.php', argumentsFindFundRaiserArray());
+}
+
+function argumentsFindFundRaiserArray()
+{
+    $sPageTitle = _("Donated Item Editor");
+
+    $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
+        'sRootDocument' => SystemURLs::getDocumentRoot(),
+        'sPageTitle' => $sPageTitle
+    ];
+
+    return $paramsArguments;
+}
 
 function renderDonatedItemEditor(Request $request, Response $response, array $args)
 {
@@ -130,7 +154,6 @@ function argumentsDonatedItemEditorArray($iDonatedItemID, $iCurrentFundraiser)
         'sPictureURL' => $sPictureURL,
         'ormPeople' => $ormPeople,
         'ormPaddleNum' => $ormPaddleNum
-
     ];
 
     return $paramsArguments;
