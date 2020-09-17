@@ -141,7 +141,7 @@ if ($family->getDateDeactivated() != null) {
     $time = new DateTime('now');
     $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
 
-    if ($new_time > $family->getDateDeactivated()) {
+    if ($newtime > $family->getDateDeactivated()) {
         if (!SessionUser::getUser()->isGdrpDpoEnabled()) {
             RedirectUtils::Redirect('members/404.php?type=Person');
             exit;
@@ -1136,26 +1136,26 @@ require 'Include/Header.php';
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 
 <!-- Document editor -->
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
 
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
     ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'GoogleMaps') {
     ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
 
-    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'BingMaps') {
     ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>
