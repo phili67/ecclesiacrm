@@ -42,7 +42,7 @@ if ($iPaddleNumID > 0) {
 }
 
 if ($iCurrentFundraiser == '') {
-    RedirectUtils::Redirect('FindFundRaiser.php');
+    RedirectUtils::Redirect('v2/fundraiser/find');
 }
 
 // Get the current fundraiser data
