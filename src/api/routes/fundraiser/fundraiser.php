@@ -8,20 +8,50 @@ use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\DonatedItem;
 use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
+use EcclesiaCRM\FundRaiserQuery;
 
 use EcclesiaCRM\Utils\InputUtils;
 
 $app->group('/fundraiser', function () {
 
-    $this->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiser');
-    $this->post('/replicate', 'replicateFundraiser');
-    $this->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser');
-    $this->delete('/donateditem', 'deleteDonatedItem');
+    $this->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiserForID' );
+    $this->post('/replicate', 'replicateFundraiser' );
+    $this->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser' );
+    $this->delete('/donateditem', 'deleteDonatedItem' );
 
+    // FindFundRaiser.php
+    $this->get('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser');
 
 });
 
-function getAllFundraiser(Request $request, Response $response, array $args)
+function findFundRaiser(Request $request, Response $response, array $args)
+{
+    if ($args['startDate'] != '-1' || $args['endDate'] != '-1') {
+        if (isset ($args['fundRaiserID']) && $args['fundRaiserID'] != "0") {
+            $ormDep = FundRaiserQuery::create()
+                ->filterByDate(array("min" => $args['startDate'] . " 00:00:00", "max" => $args['endDate'] . " 23:59:59"))
+                ->findById($args['fundRaiserID']);
+        } else {
+            $ormDep = FundRaiserQuery::create()
+                ->filterByDate(array("min" => $args['startDate'] . " 00:00:00", "max" => $args['endDate'] . " 23:59:59"))
+                ->find();
+        }
+
+        return $response->withJSON(['FundRaiserItems' => $ormDep->toArray()]);
+    }
+
+    if (isset ($args['fundRaiserID']) && $args['fundRaiserID'] != "0") {
+        $ormDep = FundRaiserQuery::create()
+                ->findById($args['fundRaiserID']);
+    } else {
+        $ormDep = FundRaiserQuery::create()
+                ->find();
+    }
+
+    return $response->withJSON(['FundRaiserItems' => $ormDep->toArray()]);
+}
+
+function getAllFundraiserForID(Request $request, Response $response, array $args)
 {
 
     $sSQL = "SELECT di_ID, di_Item, di_multibuy,
