@@ -408,7 +408,7 @@ class MenuBar extends Menu
         $menu = new Menu (_("Fundraiser"), "fa fa-money", "#", SessionUser::getUser()->isFinanceEnabled());
 
         $menuItem = new Menu (_("Create New Fundraiser"), "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=-1", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("View All Fundraisers"), "fa fa-circle-o", "FindFundRaiser.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("View All Fundraisers"), "fa fa-circle-o", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
         if (isset($_SESSION['iCurrentFundraiser'])) {
             $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
         }
