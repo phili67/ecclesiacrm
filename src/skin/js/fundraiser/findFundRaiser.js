@@ -38,7 +38,7 @@ $(document).ready(function () {
     window.CRM.findFundRaiserTable = $("#fundraiser-listing-table").DataTable({
         ajax: {
             url: window.CRM.root + "/api/fundraiser/findFundRaiser/" + window.CRM.fundraiserID + '/' + window.CRM.startDate + '/' + window.CRM.endDate,
-            type: 'GET',
+            type: 'POST',
             contentType: "application/json",
             dataSrc: "FundRaiserItems"
         },
