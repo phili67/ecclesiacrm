@@ -414,16 +414,15 @@ class MenuBar extends Menu
         }
         if (isset($_SESSION['iCurrentFundraiser'])) {
             $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php?FundRaiserID=".$_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu);
-        } else {
+        } /*else {
             $menuItem = new Menu (_("View Buyers"), "fa fa-circle-o", "PaddleNumList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        }
+        }*/
 
         if (isset($_SESSION['iCurrentFundraiser'])) {
             $menuItem->addLink('PaddleNumList.php?FundRaiserID='.$_SESSION['iCurrentFundraiser']);
         }
 
         $this->addMenu($menu);
-
     }
 
     private function createMenuBar()
