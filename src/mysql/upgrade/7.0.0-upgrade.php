@@ -28,7 +28,7 @@ unlink(SystemURLs::getDocumentRoot()."/DonatedItemReplicate.php");
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemDelete.php");
 unlink(SystemURLs::getDocumentRoot()."/DonatedItemEditor.php");
 unlink(SystemURLs::getDocumentRoot()."/FindFundRaiser.php");
-
+unlink(SystemURLs::getDocumentRoot()."/PaddleNumDelete.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
