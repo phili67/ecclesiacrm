@@ -9,6 +9,9 @@ use EcclesiaCRM\DonatedItem;
 use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\FundRaiserQuery;
+use EcclesiaCRM\PaddleNumQuery;
+
+use EcclesiaCRM\Map\PersonTableMap;
 
 use EcclesiaCRM\Utils\InputUtils;
 
@@ -20,9 +23,30 @@ $app->group('/fundraiser', function () {
     $this->delete('/donateditem', 'deleteDonatedItem' );
 
     // FindFundRaiser.php
-    $this->get('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser');
+    $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser');
+
+    // paddlenum
+    $this->delete('/paddlenum', 'deletePaddleNum');
+    $this->get('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList');
 
 });
+
+function getPaddleNumList(Request $request, Response $response, array $args)
+{
+    if ($args['fundRaiserID']) {
+        $ormPaddleNumes = PaddleNumQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('BuyerFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('BuyerLastName', PersonTableMap::COL_PER_LASTNAME)
+            ->endUse()
+            ->orderByNum()
+            ->findByFrId($args['fundRaiserID']);
+
+        return $response->withJSON(['PaddleNumItems' => $ormPaddleNumes->toArray()]);
+    }
+
+    return $response->withJSON(['PaddleNumItems' => []]);
+}
 
 function findFundRaiser(Request $request, Response $response, array $args)
 {
@@ -219,4 +243,23 @@ function donatedItemSubmitFundraiser(Request $request, Response $response, array
 
     return $response->withJSON(['status' => "failed"]);
 }
+
+function deletePaddleNum(Request $request, Response $response, array $args)
+{
+    $input = (object)$request->getParsedBody();
+
+    if ( isset($input->fundraiserID) && isset ($input->pnID) ) {
+        $pn = PaddleNumQuery::create()
+            ->filterById($input->pnID)
+            ->findOneByFrId($input->fundraiserID);
+
+        if (!is_null($pn)) {
+            $pn->delete();
+            return $response->withJSON(['status' => "success"]);
+        }
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
+
 
