@@ -28,40 +28,40 @@ $sPageTitle = _('Buyers for this fundraiser:') . $iFundRaiserID;
 require 'Include/Header.php';
 ?>
 
-<div class="card card-body">
-    <div class="row">
-        <?php
-        if ($iFundRaiserID > 0) {
-            ?>
-            <input type=button class="btn btn-default btn-sm" value="<?= _('Select all') ?>" name=SelectAll
-                   id="SelectAll">
+<form method="post"
+      action="<?= SystemURLs::getRootPath() ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=FundRaiserEditor.php?FundRaiserID=<?= $iFundRaiserID ?> &CurrentFundraiser=<?= $iFundRaiserID ?>\">
+    <div class="card card-body">
+        <div class="row">
             <?php
-        }
-        ?>
-        <input type=button class="btn btn-default btn-sm" value="<?= _('Select none') ?>" name=SelectNone
-               id="SelectNone">
-        <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
-               id="AddBuyer">
-        <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> "
-               name=AddDonnor id="AddDonnor">
-        <form method="post"
-              action="<?= SystemURLs::getRootPath() ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=FundRaiserEditor.php?FundRaiserID=<?= $iFundRaiserID ?> &CurrentFundraiser=<?= $iFundRaiserID ?>\">
+            if ($iFundRaiserID > 0) {
+                ?>
+                <input type=button class="btn btn-default btn-sm" value="<?= _('Select all') ?>" name=SelectAll
+                       id="SelectAll">
+                <?php
+            }
+            ?>
+            <input type=button class="btn btn-default btn-sm" value="<?= _('Select none') ?>" name=SelectNone
+                   id="SelectNone">
+            <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
+                   id="AddBuyer">
+            <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> "
+                   name=AddDonnor id="AddDonnor">
             <input type=submit class="btn btn-info btn-sm" value="<?= _('Generate Statements for Selected') ?>"
                    name=GenerateStatements>
-        </form>
+        </div>
     </div>
-</div>
-<div class="card">
-    <div class="card-header">
-        <h3 class="card-title"><?= _("Buyers") ?></h3>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"><?= _("Buyers") ?></h3>
+        </div>
+        <div class="card-body">
+            <table cellpadding="5" cellspacing="5"
+                   class="table table-striped table-bordered dataTable no-footer dtr-inline"
+                   id="buyer-listing-table"
+                   width="100%"></table>
+        </div>
     </div>
-    <div class="card-body">
-        <table cellpadding="5" cellspacing="5"
-               class="table table-striped table-bordered dataTable no-footer dtr-inline"
-               id="buyer-listing-table"
-               width="100%"></table>
-    </div>
-</div>
+</form>
 
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">

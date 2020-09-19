@@ -60,7 +60,7 @@ $(document).ready(function () {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     return '<input type="checkbox"' +
-                        'name="Chk' + data + '" ' + ((window.CRM.checkAll) ? 'checked="yes"' : '') + ' </input>';
+                        'name="Chk' + data + '" ' + ((window.CRM.checkAll) ? 'checked="yes"' : '') + ' ></input>';
                 }
             },
             {
