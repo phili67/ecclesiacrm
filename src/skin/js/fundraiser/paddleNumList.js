@@ -30,10 +30,22 @@ $(document).ready(function () {
         location.href = window.CRM.root + '/PaddleNumEditor.php?CurrentFundraiser=' + window.CRM.fundraiserID + '&linkBack=PaddleNumList.php?FundRaiserID=' + window.CRM.fundraiserID + '&CurrentFundraiser='+window.CRM.fundraiserID;
     });
 
+    $("#AddDonnor").click(function () {
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'fundraiser/add/donnors',
+            data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID})
+        }).done(function(data) {
+            if (data.status == "success") {
+                window.CRM.paddleNumListTable.ajax.reload();
+            }
+        });
+    });
+
     window.CRM.paddleNumListTable = $("#buyer-listing-table").DataTable({
         ajax: {
             url: window.CRM.root + "/api/fundraiser/paddlenum/list/" + window.CRM.fundraiserID,
-            type: 'GET',
+            type: 'POST',
             contentType: "application/json",
             dataSrc: "PaddleNumItems"
         },
@@ -73,7 +85,7 @@ $(document).ready(function () {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     return '<a href="#" data-pnid="' + data + '" class="pnDelete">\n' +
-                        '                                    <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>'
+                        '<i class="fa fa-trash-o" aria-hidden="true" style="color:#ff0000"></i></a>'
                 }
             }
         ],
@@ -82,4 +94,5 @@ $(document).ready(function () {
             $(row).addClass("paymentRow");
         }
     });
+
 });
