@@ -10,8 +10,13 @@ use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\FundRaiserQuery;
 use EcclesiaCRM\PaddleNumQuery;
+use EcclesiaCRM\PaddleNum;
 
 use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\DonatedItemTableMap;
+use EcclesiaCRM\Map\PaddleNumTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\InputUtils;
 
@@ -23,30 +28,14 @@ $app->group('/fundraiser', function () {
     $this->delete('/donateditem', 'deleteDonatedItem' );
 
     // FindFundRaiser.php
-    $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser');
+    $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser' );
 
     // paddlenum
-    $this->delete('/paddlenum', 'deletePaddleNum');
-    $this->get('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList');
+    $this->delete('/paddlenum', 'deletePaddleNum' );
+    $this->post('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList' );
+    $this->post('/add/donnors', 'addDonnors' );
 
 });
-
-function getPaddleNumList(Request $request, Response $response, array $args)
-{
-    if ($args['fundRaiserID']) {
-        $ormPaddleNumes = PaddleNumQuery::create()
-            ->usePersonQuery()
-            ->addAsColumn('BuyerFirstName', PersonTableMap::COL_PER_FIRSTNAME)
-            ->addAsColumn('BuyerLastName', PersonTableMap::COL_PER_LASTNAME)
-            ->endUse()
-            ->orderByNum()
-            ->findByFrId($args['fundRaiserID']);
-
-        return $response->withJSON(['PaddleNumItems' => $ormPaddleNumes->toArray()]);
-    }
-
-    return $response->withJSON(['PaddleNumItems' => []]);
-}
 
 function findFundRaiser(Request $request, Response $response, array $args)
 {
@@ -262,4 +251,74 @@ function deletePaddleNum(Request $request, Response $response, array $args)
     return $response->withJSON(['status' => "failed"]);
 }
 
+function getPaddleNumList (Request $request, Response $response, array $args)
+{
+    if ($args['fundRaiserID']) {
+        $ormPaddleNumes = PaddleNumQuery::create()
+            ->usePersonQuery()
+            ->addAsColumn('BuyerFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('BuyerLastName', PersonTableMap::COL_PER_LASTNAME)
+            ->endUse()
+            ->orderByNum()
+            ->findByFrId($args['fundRaiserID']);
 
+        return $response->withJSON(['PaddleNumItems' => $ormPaddleNumes->toArray()]);
+    }
+
+    return $response->withJSON(['PaddleNumItems' => []]);
+}
+
+function addDonnors (Request $request, Response $response, array $args)
+{
+    $input = (object)$request->getParsedBody();
+
+    if (isset ($input->fundraiserID)) {
+        $iFundRaiserID = $input->fundraiserID;
+
+        // Get the current fund raiser record
+        $ormFRR = FundRaiserQuery::create()
+                ->findOneById($iFundRaiserID);
+
+        // Set current fundraiser
+        $_SESSION['iCurrentFundraiser'] = $iFundRaiserID;
+
+// Get all the people listed as donors for this fundraiser
+        $ormDonors = DonatedItemQuery::create()
+            ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID,PersonTableMap::COL_PER_ID,Criteria::LEFT_JOIN)
+            ->addAsColumn('PersonID',PersonTableMap::COL_PER_ID)
+            ->orderBy('PersonID')
+            ->findByFrId($iFundRaiserID);
+
+
+        $extraPaddleNum = 1;
+        $maxPN = PaddleNumQuery::create()
+            ->addAsColumn('Max', 'MAX('.PaddleNumTableMap::COL_PN_NUM.")")
+            ->findOneByFrId($iFundRaiserID);
+
+        if ( !is_null($maxPN) ) {
+            $extraPaddleNum = $maxPN->getMax() + 1;
+        }
+
+
+// Go through the donors, add buyer records for any who don't have one yet
+        foreach ($ormDonors as $donor) {
+            $buyer = PaddleNumQuery::create()
+                ->filterByFrId($iFundRaiserID)
+                ->findOneByPerId( $donor->getDonorId() );
+
+            if ( is_null($buyer) ) {
+                $newPN = new PaddleNum();
+
+                $newPN->setNum($extraPaddleNum++);
+                $newPN->setFrId($iFundRaiserID);
+                $newPN->setPerId($donor->getDonorId());
+
+                $newPN->save();
+            }
+        }
+
+        return $response->withJSON(['status' => "success"]);
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
