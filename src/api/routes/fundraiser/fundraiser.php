@@ -13,6 +13,7 @@ use EcclesiaCRM\PaddleNumQuery;
 use EcclesiaCRM\PaddleNum;
 
 use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Map\DonatedItemTableMap;
 use EcclesiaCRM\Map\PaddleNumTableMap;
 
@@ -30,12 +31,38 @@ $app->group('/fundraiser', function () {
     // FindFundRaiser.php
     $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser' );
 
-    // paddlenum
+// paddlenum
     $this->delete('/paddlenum', 'deletePaddleNum' );
     $this->post('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList' );
     $this->post('/add/donnors', 'addDonnors' );
 
+/*
+ * @! Returns a list of all the persons who are in the cart
+ */
+    $this->get('/paddlenum/persons/all/{fundRaiserID:[0-9]+}', "getAllPersonsNum" );
+/*
+ * @! Returns a list of all the persons who are in the cart
+ */
+
 });
+
+
+function getAllPersonsNum (Request $request, Response $response, array $args)
+{
+    //Get People for the drop-down
+    $persons = PersonQuery::create()
+        ->filterByDateDeactivated(NULL) // GDPR
+        ->orderByLastName()
+        ->orderByFirstName()
+        ->find();
+
+    $ormGetMaxNum = PaddleNumQuery::create()
+        ->findByFrId($args['fundRaiserID']);
+
+    $iNum = $ormGetMaxNum->count() + 1;
+
+    return $response->withJson(["persons" => $persons->toArray(), "Number" => $iNum]);
+}
 
 function findFundRaiser(Request $request, Response $response, array $args)
 {
