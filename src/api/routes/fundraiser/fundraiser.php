@@ -34,7 +34,7 @@ $app->group('/fundraiser', function () {
 // paddlenum
     $this->delete('/paddlenum', 'deletePaddleNum' );
     $this->post('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList' );
-    $this->post('/add/donnors', 'addDonnors' );
+    $this->post('/paddlenum/add/donnors', 'addDonnors' );
 
 /*
  * @! Returns a list of all the persons who are in the cart
@@ -43,8 +43,89 @@ $app->group('/fundraiser', function () {
 /*
  * @! Returns a list of all the persons who are in the cart
  */
+    $this->post('/paddlenum/add', 'addPaddleNum' );
 
 });
+
+function addPaddleNum (Request $request, Response $response, array $args)
+{
+    $input = (object)$request->getParsedBody();
+
+    if ( isset($input->PerID) && isset ($input->PaddleNumID) && isset($input->Num) && isset ($input->fundraiserID) ) {
+        if ($input->PaddleNumID > 0) {
+            $ormPaddleNum = PaddleNumQuery::create()
+                ->findOneById($input->PaddleNumID);
+
+            $iCurrentFundraiser = $ormPaddleNum->getFrId();
+        } else {
+            $iCurrentFundraiser = $input->fundraiserID;
+        }
+
+        // to get multibuy donated items
+        $ormMultibuyItems = DonatedItemQuery::create()
+            ->filterByMultibuy(1)
+            ->findByFrId($input->CurrentFundraiser);
+
+
+        if ($input->PerID > 0) {// Only with a person you can add a buyer
+            foreach ($ormMultibuyItems as $multibuyItem) {
+                $mbName = 'MBItem' . $multibuyItem->getId();
+
+                $iMBCount = InputUtils::LegacyFilterInput($_POST[$mbName], 'int');
+                if ($iMBCount > 0) { // count for this item is positive.  If a multibuy record exists, update it.  If not, create it.
+                    $ormNumBought = MultibuyQuery::create()
+                        ->filterByPerId($input->PerID)
+                        ->findOneByItemId($multibuyItem->getId());
+
+                    if (!is_null($ormNumBought)) {
+                        $ormNumBought->setPerId($input->PerID);
+                        $ormNumBought->setCount($iMBCount);
+                        $ormNumBought->setItemId($multibuyItem->getId());
+                        $ormNumBought->save();
+                    } else {
+                        $ormNumBought = new Multibuy();
+                        $ormNumBought->setPerId($input->PerID);
+                        $ormNumBought->setCount($iMBCount);
+                        $ormNumBought->setItemId($multibuyItem->getId());
+                        $ormNumBought->save();
+                    }
+                } else { // count is zero, if it was positive before there is a multibuy record that needs to be deleted
+                    $ormNumBought = MultibuyQuery::create()
+                        ->filterByPerId($input->PerID)
+                        ->findOneByItemId($multibuyItem->getId());
+
+                    if (!is_null($ormNumBought)) {
+                        $ormNumBought->delete();
+                    }
+                }
+            }
+
+            // New PaddleNum
+            if ($input->PaddleNumID != 0) {
+                $paddNum = new PaddleNum();
+
+                $paddNum->setFrId($iCurrentFundraiser);
+                $paddNum->setNum($input->Num);
+                $paddNum->setPerId($input->PerID);
+
+                $paddNum->save();
+                // Existing record (update)
+            } else {
+                $paddNum = PaddleNumQuery::create()
+                    ->findOneById($input->PaddleNumID);
+
+                $paddNum->setFrId($iCurrentFundraiser);
+                $paddNum->setNum($input->Num);
+                $paddNum->setPerId($input->PerID);
+
+                $paddNum->save();
+            }
+        }
+        return $response->withJSON(['status' => "success"]);
+    }
+
+    return $response->withJSON(['status' => "failed", "test" => [$input->PerID, $input->PaddleNumID, $input->Num, $input->fundraiserID]]);
+}
 
 
 function getAllPersonsNum (Request $request, Response $response, array $args)
@@ -52,6 +133,12 @@ function getAllPersonsNum (Request $request, Response $response, array $args)
     //Get People for the drop-down
     $persons = PersonQuery::create()
         ->filterByDateDeactivated(NULL) // GDPR
+            ->useFamilyQuery()
+                ->addAsColumn('FamAddress1', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ADDRESS1)
+                ->addAsColumn('FamAddress2', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ADDRESS2)
+                ->addAsColumn('FamCity', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_CITY)
+                ->addAsColumn('FamState', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_STATE)
+            ->endUse()
         ->orderByLastName()
         ->orderByFirstName()
         ->find();
