@@ -42,7 +42,7 @@ require 'Include/Header.php';
             ?>
             <input type=button class="btn btn-default btn-sm" value="<?= _('Select none') ?>" name=SelectNone
                    id="SelectNone">
-            <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
+            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
                    id="AddBuyer">
             <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> "
                    name=AddDonnor id="AddDonnor">
@@ -62,7 +62,6 @@ require 'Include/Header.php';
         </div>
     </div>
 </form>
-
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.fundraiserID = <?= $iFundRaiserID ?>;
