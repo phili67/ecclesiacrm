@@ -37,12 +37,12 @@ $(document).ready(function () {
 
             for (i = 0; i < len; ++i) {
                 var option = document.createElement("option");
-                option.text = persons[i].LastName + ", " + persons[i].FirstName + " - " + persons[i].Address1;
+                option.text = persons[i].LastName + ", " + persons[i].FirstName + " - " + persons[i].FamAddress1 + " / " + persons[i].FamCity + ((persons[i].FamState != "")?" " + persons[i].FamState : "");
                 option.value = persons[i].Id;
 
-                /*if (iPerID && iPerID === persons[i].Id) {
+                if (iPerID && iPerID === persons[i].Id) {
                     option.setAttribute('selected', 'selected');
-                }*/
+                }
 
                 elt.appendChild(option);
             }
@@ -87,24 +87,65 @@ $(document).ready(function () {
             size: 'large',
             buttons: [
                 {
+                    label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                    className: "btn btn-primary",
+                    callback: function () {
+                        var Num = $("#Number").val();
+                        var e = document.getElementById("Buyers");
+                        var PerID = e.options[e.selectedIndex].value;
+
+
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'fundraiser/paddlenum/add',
+                            data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
+                                        "PaddleNumID": -1})
+                        }).done(function (data) {
+                            window.CRM.paddleNumListTable.ajax.reload();
+                        });
+                    }
+                },
+                {
+                    label: i18next.t("Generate Statement"),
+                    className: "btn btn-info",
+                    callback: function () {
+                        return false;
+                    }
+                },
+                {
+                    label: i18next.t("Save and Add"),
+                    className: "btn btn-success",
+                    callback: function () {
+                        var Num = $("#Number").val();
+                        var e = document.getElementById("Buyers");
+                        var PerID = e.options[e.selectedIndex].value;
+
+
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'fundraiser/paddlenum/add',
+                            data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
+                                "PaddleNumID": -1})
+                        }).done(function (data) {
+                            $("#Number").val(++Num);
+                            window.CRM.paddleNumListTable.ajax.reload();
+                        });
+
+                        return false;
+                    }
+                },
+                {
                     label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-default",
                     callback: function () {
                         console.log("just do something on close");
                     }
-                },
-                {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
-                    className: "btn btn-primary",
-                    callback: function () {
-
-                    }
                 }
             ],
-            show: false/*,
-         onEscape: function() {
-            modal.modal("hide");
-         }*/
+            show: false,
+            onEscape: function() {
+                window.CRM.addbuyerModal.modal("hide");
+            }
         });
 
         addPersonsToSelectList(iPerdId);
