@@ -14,7 +14,7 @@ $(document).ready(function () {
         });
     });
 
-    function addPersonsToSelectList(iPerID) {
+    function addPersonsToSelectList(iPerID, iPaddleNum) {
 
         if (iPerID === undefined) {
             iPerID = false;
@@ -28,7 +28,11 @@ $(document).ready(function () {
             var persons = data.persons;
             var len = persons.length;
 
-            $("#Number").val(data.Number);
+            if (iPaddleNum == -1) {
+                $("#Number").val(data.Number);
+            } else {
+                $("#Number").val(iPaddleNum);
+            }
 
             var option = document.createElement("option");
             option.text = i18next.t ('Unassigned');
@@ -78,40 +82,60 @@ $(document).ready(function () {
     }
 
 
-    function createBuyerEditorWindow(number, windowtitle, iPerdId) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+    function createBuyerEditorWindow(windowtitle, editionMode, iPaddleNum, iPerdId, iPaddleNumID) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
         windowtitle = i18next.t ('Buyer Number Editor');
 
-        window.CRM.addbuyerModal = bootbox.dialog({
-            message: BootboxContent(windowtitle, number),
-            size: 'large',
-            buttons: [
-                {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
-                    className: "btn btn-primary",
-                    callback: function () {
-                        var Num = $("#Number").val();
-                        var e = document.getElementById("Buyers");
-                        var PerID = e.options[e.selectedIndex].value;
+        if (iPaddleNumID === undefined) {
+            iPaddleNumID = -1;
+        }
+
+        if (iPaddleNum === undefined) {
+            iPaddleNum = -1;
+        }
+
+        buttons = [
+            {
+                label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                className: "btn btn-primary",
+                callback: function () {
+                    var Num = $("#Number").val();
+                    var e = document.getElementById("Buyers");
+                    var PerID = e.options[e.selectedIndex].value;
 
 
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'fundraiser/paddlenum/add',
-                            data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
-                                        "PaddleNumID": -1})
-                        }).done(function (data) {
-                            window.CRM.paddleNumListTable.ajax.reload();
-                        });
-                    }
-                },
-                {
-                    label: i18next.t("Generate Statement"),
-                    className: "btn btn-info",
-                    callback: function () {
-                        return false;
-                    }
-                },
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'fundraiser/paddlenum/add',
+                        data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
+                            "PaddleNumID": iPaddleNumID})
+                    }).done(function (data) {
+                        window.CRM.paddleNumListTable.ajax.reload();
+                    });
+                }
+            },
+            {
+                label: i18next.t("Generate Statement"),
+                className: "btn btn-info",
+                callback: function () {
+                    var Num = $("#Number").val();
+                    var e = document.getElementById("Buyers");
+                    var PerID = e.options[e.selectedIndex].value;
+
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'fundraiser/paddlenum/info',
+                        data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID})
+                    }).done(function (data) {
+                        location.href = window.CRM.root + "/Reports/FundRaiserStatement.php?PaddleNumID="+data.iPaddleNumID;
+                    });
+
+                    return false;
+                }
+            }];
+
+        if (editionMode === undefined) {
+            buttons = buttons.concat([
                 {
                     label: i18next.t("Save and Add"),
                     className: "btn btn-success",
@@ -133,22 +157,31 @@ $(document).ready(function () {
 
                         return false;
                     }
-                },
-                {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
-                    className: "btn btn-default",
-                    callback: function () {
-                        console.log("just do something on close");
-                    }
                 }
-            ],
+            ]);
+        }
+
+        buttons = buttons.concat([
+            {
+                label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                className: "btn btn-default",
+                callback: function () {
+                    console.log("just do something on close");
+                }
+            }
+        ]);
+
+        window.CRM.addbuyerModal = bootbox.dialog({
+            message: BootboxContent(windowtitle, iPaddleNum),
+            size: 'large',
+            buttons: buttons,
             show: false,
             onEscape: function() {
                 window.CRM.addbuyerModal.modal("hide");
             }
         });
 
-        addPersonsToSelectList(iPerdId);
+        addPersonsToSelectList(iPerdId, iPaddleNum);
     }
 
     $("#SelectAll").click(function () {
@@ -164,9 +197,7 @@ $(document).ready(function () {
     });
 
     $("#AddBuyer").click(function () {
-        createBuyerEditorWindow('1', i18next.t('Buyer Number Editor'));
-
-        //location.href = window.CRM.root + '/PaddleNumEditor.php?CurrentFundraiser=' + window.CRM.fundraiserID + '&linkBack=PaddleNumList.php?FundRaiserID=' + window.CRM.fundraiserID + '&CurrentFundraiser='+window.CRM.fundraiserID;
+        createBuyerEditorWindow(i18next.t('Buyer Number Editor'));
     });
 
     $("#AddDonnor").click(function () {
@@ -179,6 +210,14 @@ $(document).ready(function () {
                 window.CRM.paddleNumListTable.ajax.reload();
             }
         });
+    });
+
+    $('body').on('click', ".edit-paddle-num", function () {
+        var paddleID = $(this).data("id");
+        var paddleNum = $(this).data("num");
+        var personID = $(this).data("perid");
+
+        createBuyerEditorWindow( i18next.t('Buyer Number Editor'), true, paddleNum, personID, paddleID);
     });
 
     window.CRM.paddleNumListTable = $("#buyer-listing-table").DataTable({
@@ -207,7 +246,8 @@ $(document).ready(function () {
                 title: i18next.t('Number'),
                 data: 'Num',
                 render: function (data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + '/PaddleNumEditor.php?PaddleNumID=' + full.Id + '&linkBack=PaddleNumList.php"> ' + full.Num + '</a>';
+                    //return '<a href="' + window.CRM.root + '/PaddleNumEditor.php?PaddleNumID=' + full.Id + '&linkBack=PaddleNumList.php"> ' + full.Num + '</a>';
+                    return '<a href="#" class="edit-paddle-num" data-id="' + full.Id + '" data-num="' + full.Num + '" data-perid="' + full.PerId +'"> ' + full.Num + '</a>';
                 }
             },
             {
