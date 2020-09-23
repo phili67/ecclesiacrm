@@ -4,16 +4,15 @@
 
 namespace EcclesiaCRM\Utils;
 
-use EcclesiaCRM\dto\SystemConfig;
 
 class LabelUtils {
 
-    public function FontSelect($fieldname)
+    public static function FontSelect($fieldname)
     {
         $sFPDF_PATH = __DIR__.'/../../vendor/setasign/fpdf';
 
         $d = scandir($sFPDF_PATH.'/font/', SCANDIR_SORT_DESCENDING);
-    
+
         $fontnames = [];
         $family = ' ';
         foreach ($d as $entry) {
@@ -22,9 +21,9 @@ class LabelUtils {
                 $r = file_get_contents ($sFPDF_PATH.'/font/'.$entry);
                 $res = explode('$name = \'', $r);
                 $font = explode ("';",$res[1]);
-            
+
                 $font = $font[0];
-            
+
                 $font = str_replace ("-BoldOblique"," Bold Italic",$font);
                 $font = str_replace ("-BoldItalic"," Bold Italic",$font);
                 $font = str_replace ("-Bold"," Bold",$font);
@@ -32,7 +31,7 @@ class LabelUtils {
                 $font = str_replace ("-Italic"," Italic",$font);
                 $font = str_replace ("-Roman","",$font);
                 $font = str_replace ("-"," ",$font);
-            
+
                 $fontnames[] = $font;
             }
         }
@@ -61,7 +60,7 @@ class LabelUtils {
     <?php
     }
 
-    public function FontSizeSelect($fieldname,$message='')
+    public static function FontSizeSelect($fieldname,$message='')
     {
         $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26];
       ?>
@@ -87,15 +86,15 @@ class LabelUtils {
     <?php
     }
 
-    public function LabelSelect($fieldname,$title='')
+    public static function LabelSelect($fieldname,$title='')
     {
         $labels = [gettext('Tractor') => gettext('Tractor'), 'Badge' => 'Badge (65 mm x 37 mm) A4', '3670' => '3670 (64 mm x 34 mm) A4', '5160' => '5160', '5161' => '5161', '5162' => '5162', '5163' => '5163', '5164' => '5164', '8600' => '8600', 'C32019' => 'C32019 (85 mm x 54 mm) A4'];
-    
+
         if (empty($title)) {
           $title = gettext('Label Type');
         }
     ?>
-    
+
         <div class="row">
           <div class="col-md-6"><?= $title ?>:</div>
           <div class="col-md-6">
@@ -118,7 +117,7 @@ class LabelUtils {
     <?php
     }
 
-    public function LabelGroupSelect($fieldname)
+    public static function LabelGroupSelect($fieldname)
     {
     ?>
         <div class="row">
@@ -132,7 +131,7 @@ class LabelUtils {
     <?php
     }
 
-    public function ToParentsOfCheckBox($fieldname)
+    public static function ToParentsOfCheckBox($fieldname)
     {
     ?>
         <div class="row">
@@ -145,7 +144,7 @@ class LabelUtils {
     <?php
     }
 
-    public function StartRowStartColumn()
+    public static function StartRowStartColumn()
     {
     ?>
       <div class="row">
@@ -165,7 +164,7 @@ class LabelUtils {
     <?php
     }
 
-    public function IgnoreIncompleteAddresses()
+    public static function IgnoreIncompleteAddresses()
     {
     ?>
       <div class="row">
@@ -178,7 +177,7 @@ class LabelUtils {
     <?php
     }
 
-    public function LabelFileType()
+    public static function LabelFileType()
     {
     ?>
       <div class="row">
