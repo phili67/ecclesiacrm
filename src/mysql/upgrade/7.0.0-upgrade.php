@@ -31,6 +31,7 @@ unlink(SystemURLs::getDocumentRoot()."/FindFundRaiser.php");
 unlink(SystemURLs::getDocumentRoot()."/PaddleNumDelete.php");
 unlink(SystemURLs::getDocumentRoot()."/AddDonors.php");
 unlink(SystemURLs::getDocumentRoot()."/PaddleNumEditor");
+unlink(SystemURLs::getDocumentRoot()."/PaddleNumList.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
