@@ -1094,7 +1094,7 @@ if (!empty($person->getDateDeactivated())) {
                                         <tr>
                                             <td>
                                                 <img style="width:40px; height:40px;display:inline-block"
-                                                     src="<?= $sRootPath . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
+                                                     src="<?= SystemURLs::getRootPath() . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
                                                      class="initials-image profile-user-img img-responsive img-circle no-border">
                                                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
@@ -1920,9 +1920,9 @@ if (!empty($person->getDateDeactivated())) {
 
 
 <!-- Document editor -->
-<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/document.js"></script>
 <!-- !Document editor -->
 
 <!-- Drag and drop -->
@@ -1934,18 +1934,18 @@ if (!empty($person->getDateDeactivated())) {
 <?php
 if ($sMapProvider == 'OpenStreetMap') {
     ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'GoogleMaps') {
     ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= $sGoogleMapKey ?>"></script>
 
-    <script src="<?= $sRootPath ?>/skin/js/calendar/GoogleMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
     <?php
 } else if ($sMapProvider == 'BingMaps') {
     ?>
-    <script src="<?= $sRootPath ?>/skin/js/calendar/BingMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
     <?php
 }
 ?>
