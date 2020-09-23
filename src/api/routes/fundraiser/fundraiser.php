@@ -54,6 +54,8 @@ $app->group('/fundraiser', function () {
 
 function paddleNumInfo (Request $request, Response $response, array $args)
 {
+    $input = (object)$request->getParsedBody();
+
     if (isset($input->PerID) && isset($input->Num) && isset ($input->fundraiserID)) {
         $ormPaddleNum = PaddleNumQuery::create()
             ->filterByFrId($input->fundraiserID)
