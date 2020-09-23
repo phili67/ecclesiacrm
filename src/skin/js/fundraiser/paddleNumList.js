@@ -81,7 +81,6 @@ $(document).ready(function () {
         return object
     }
 
-
     function createBuyerEditorWindow(windowtitle, editionMode, iPaddleNum, iPerdId, iPaddleNumID) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
         windowtitle = i18next.t ('Buyer Number Editor');
@@ -113,26 +112,8 @@ $(document).ready(function () {
                         window.CRM.paddleNumListTable.ajax.reload();
                     });
                 }
-            },
-            {
-                label: i18next.t("Generate Statement"),
-                className: "btn btn-info",
-                callback: function () {
-                    var Num = $("#Number").val();
-                    var e = document.getElementById("Buyers");
-                    var PerID = e.options[e.selectedIndex].value;
-
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'fundraiser/paddlenum/info',
-                        data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID})
-                    }).done(function (data) {
-                        location.href = window.CRM.root + "/Reports/FundRaiserStatement.php?PaddleNumID="+data.iPaddleNumID;
-                    });
-
-                    return false;
-                }
-            }];
+            }
+        ];
 
         if (editionMode === undefined) {
             buttons = buttons.concat([
@@ -159,6 +140,26 @@ $(document).ready(function () {
                     }
                 }
             ]);
+        } else {
+            buttons = buttons.concat([{
+                label: i18next.t("Generate Statement"),
+                className: "btn btn-info",
+                callback: function () {
+                    var Num = $("#Number").val();
+                    var e = document.getElementById("Buyers");
+                    var PerID = e.options[e.selectedIndex].value;
+
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'fundraiser/paddlenum/info',
+                        data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID})
+                    }).done(function (data) {
+                        location.href = window.CRM.root + "/Reports/FundRaiserStatement.php?PaddleNumID="+data.iPaddleNumID;
+                    });
+
+                    return false;
+                }
+            }])
         }
 
         buttons = buttons.concat([
