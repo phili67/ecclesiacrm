@@ -45,7 +45,26 @@ $app->group('/fundraiser', function () {
  */
     $this->post('/paddlenum/add', 'addPaddleNum' );
 
+/*
+ * @! Returns a list of all the persons who are in the cart
+ */
+    $this->post('/paddlenum/info', 'paddleNumInfo' );
+
 });
+
+function paddleNumInfo (Request $request, Response $response, array $args)
+{
+    if (isset($input->PerID) && isset($input->Num) && isset ($input->fundraiserID)) {
+        $ormPaddleNum = PaddleNumQuery::create()
+            ->filterByFrId($input->fundraiserID)
+            ->filterByNum($input->Num)
+            ->findOneByPerId($input->PerID);
+
+        return $response->withJSON(['status' => "success", 'iPaddleNumID' => $ormPaddleNum->getId()]);
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
 
 function addPaddleNum (Request $request, Response $response, array $args)
 {
@@ -101,7 +120,7 @@ function addPaddleNum (Request $request, Response $response, array $args)
             }
 
             // New PaddleNum
-            if ($input->PaddleNumID != 0) {
+            if ($input->PaddleNumID == -1) {
                 $paddNum = new PaddleNum();
 
                 $paddNum->setFrId($iCurrentFundraiser);
