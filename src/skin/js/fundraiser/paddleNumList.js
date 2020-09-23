@@ -247,7 +247,6 @@ $(document).ready(function () {
                 title: i18next.t('Number'),
                 data: 'Num',
                 render: function (data, type, full, meta) {
-                    //return '<a href="' + window.CRM.root + '/PaddleNumEditor.php?PaddleNumID=' + full.Id + '&linkBack=PaddleNumList.php"> ' + full.Num + '</a>';
                     return '<a href="#" class="edit-paddle-num" data-id="' + full.Id + '" data-num="' + full.Num + '" data-perid="' + full.PerId +'"> ' + full.Num + '</a>';
                 }
             },
