@@ -18,22 +18,29 @@ require $sRootDocument . '/Include/Header.php';
       action="<?= $sRootPath ?>/Reports/FundRaiserStatement.php?CurrentFundraiser=<?= $iFundRaiserID ?>&linkBack=FundRaiserEditor.php?FundRaiserID=<?= $iFundRaiserID ?> &CurrentFundraiser=<?= $iFundRaiserID ?>\">
     <div class="card card-body">
         <div class="row">
+
             <?php
             if ($iFundRaiserID > 0) {
                 ?>
-                <input type=button class="btn btn-default btn-sm" value="<?= _('Select all') ?>" name=SelectAll
-                       id="SelectAll">
+                <div class="col-md-2">
+                    <input type="checkbox" id="SelectAll" name="scales">
+                    <label for="SelectAll"><?= _('Select all') ?></label>
+                </div>
                 <?php
             }
             ?>
-            <input type=button class="btn btn-default btn-sm" value="<?= _('Select none') ?>" name=SelectNone
-                   id="SelectNone">
+            <div class="col-md-2">
             <input type=button class="btn btn-success btn-sm" value="<?= _('Add Buyer') ?> " name=AddBuyer
                    id="AddBuyer">
+            </div>
+            <div class="col-md-3">
             <input type=button class="btn btn-primary btn-sm" value="<?= _('Add Donors to Buyer List') ?> "
                    name=AddDonnor id="AddDonnor">
+            </div>
+            <div class="col-md-3">
             <input type=submit class="btn btn-info btn-sm" value="<?= _('Generate Statements for Selected') ?>"
                    name=GenerateStatements>
+            </div>
         </div>
     </div>
     <div class="card">
