@@ -78,33 +78,43 @@ require 'Include/Header.php';
 	</tr>
 <?php
     for ($row = 0; $row < 10; $row += 1) {
-        echo '<tr>';
-        echo '<td>';
-        echo '<select name="Item'.$row."\">\n";
-        echo '<option value="0" selected>'.gettext('Unassigned')."</option>\n";
+        ?>
+        <tr>
+            <td>
+                <select name="Item<?= $row ?>" class="form-control form-control-sm">
+                    <option value="0" selected><?= gettext('Unassigned') ?></option>
+                    <?php
 
         mysqli_data_seek($rsDonatedItems, 0);
         while ($itemArr = mysqli_fetch_array($rsDonatedItems)) {
             extract($itemArr);
-            echo '<option value="'.$di_ID.'">'.$di_Item.' '.$di_title."</option>\n";
+            ?>
+            <option value="<?= $di_ID ?> "><?= $di_Item ?> <?= $di_title ?></option>
+                    <?php
         }
-        echo "</select>\n";
-        echo '</td>';
+        ?>
+        </select>
+        </td>
 
-        echo '<td>';
-        echo '<select name="Paddle'.$row."\">\n";
-        echo '<option value="0" selected>'.gettext('Unassigned')."</option>\n";
+        <td>
+        <select name="Paddle<?= $row ?>"  class="form-control form-control-sm">
+            <option value="0" selected><?= gettext('Unassigned') ?></option>
 
+            <?php
         mysqli_data_seek($rsPaddles, 0);
         while ($paddleArr = mysqli_fetch_array($rsPaddles)) {
             extract($paddleArr);
-            echo '<option value="'.$pn_per_ID.'">'.$pn_Num.' '.$buyerFirstName.' '.$buyerLastName."</option>\n";
+            ?>
+                <option value="<?= $pn_per_ID ?>"><?= $pn_Num ?> <?= $buyerFirstName ?> <?= $buyerLastName ?></option>
+            <?php
         }
-        echo "</select>\n";
-        echo '</td>';
+        ?>
+        </select>
+        </td>
 
-        echo "<td class=\"TextColumn\"><input type=\"text\" name=\"SellPrice$row\" id=\"SellPrice\"$row value=\"\"></td>\n";
-        echo '</tr>';
+        <td class="TextColumn"><input type="text" name="SellPrice$row" id="SellPrice"$row value="" class="form-control"></td>
+      </tr>
+    <?php
     }
 ?>
 	<tr>
