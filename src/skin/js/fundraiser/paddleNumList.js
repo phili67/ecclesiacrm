@@ -3,13 +3,30 @@ $(document).ready(function () {
     $('body').on('click', ".pnDelete", function () {
         var pnID = $(this).data("pnid");
 
-        window.CRM.APIRequest({
-            method: "DELETE",
-            path: "fundraiser/paddlenum",
-            data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "pnID": pnID})
-        }).done(function (data) {
-            if (data.status == "success") {
-                window.CRM.paddleNumListTable.ajax.reload();
+        bootbox.confirm({
+            message: i18next.t ("You're about to delete the buyer !!!"),
+            buttons: {
+                confirm: {
+                    label: '<i class="fa fa-times"></i> ' + i18next.t ('Yes'),
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: '<i class="fa fa-check"></i> ' + i18next.t ('No'),
+                    className: 'btn-primary'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: "DELETE",
+                        path: "fundraiser/paddlenum",
+                        data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "pnID": pnID})
+                    }).done(function (data) {
+                        if (data.status == "success") {
+                            window.CRM.paddleNumListTable.ajax.reload();
+                        }
+                    });
+                }
             }
         });
     });
@@ -186,13 +203,13 @@ $(document).ready(function () {
     }
 
     $("#SelectAll").click(function () {
-        window.CRM.checkAll = true;
+        var isChecked  = $(this).is(':checked');
 
-        window.CRM.paddleNumListTable.ajax.reload();
-    });
-
-    $("#SelectNone").click(function () {
-        window.CRM.checkAll = false;
+        if (isChecked) {
+            window.CRM.checkAll = true;
+        } else {
+            window.CRM.checkAll = false;
+        }
 
         window.CRM.paddleNumListTable.ajax.reload();
     });
