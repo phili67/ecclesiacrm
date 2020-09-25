@@ -13,6 +13,15 @@ require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\FundRaiserQuery;
+use EcclesiaCRM\DonatedItemQuery;
+
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\DonatedItemTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 
@@ -48,28 +57,37 @@ class PDF_FRCatalogReport extends ChurchInfoReport
 }
 
 // Get the information about this fundraiser
-$sSQL = 'SELECT * FROM fundraiser_fr WHERE fr_ID='.$iCurrentFundraiser;
-$rsFR = RunQuery($sSQL);
-$thisFR = mysqli_fetch_array($rsFR);
-extract($thisFR);
+$thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
+
+$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
 
 // Get all the donated items
+$ormItems = DonatedItemQuery::create()
+    ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID, PersonTableMap::COL_PER_ID, Criteria::LEFT_JOIN)
+    ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+    ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+    ->addAsColumn('cri1', 'SUBSTR('. DonatedItemTableMap::COL_DI_ITEM.',1,1)')
+    ->addAsColumn('cri2', 'cast(SUBSTR('. DonatedItemTableMap::COL_DI_ITEM.',2) as unsigned integer)')
+    ->addAsColumn('cri3', 'SUBSTR('. DonatedItemTableMap::COL_DI_ITEM.',4)')
+    ->orderBy('cri1')
+    ->orderBy('cri2')
+    ->orderBy('cri3')
+    ->findByFrId($iCurrentFundraiser);
+
 $sSQL = 'SELECT * FROM donateditem_di LEFT JOIN person_per on per_ID=di_donor_ID WHERE di_FR_ID='.$iCurrentFundraiser.
 ' ORDER BY SUBSTR(di_item,1,1),cast(SUBSTR(di_item,2) as unsigned integer),SUBSTR(di_item,4)';
 $rsItems = RunQuery($sSQL);
 
 $pdf = new PDF_FRCatalogReport();
-$pdf->SetTitle($fr_title);
+$pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
 
 // Loop through items
 $idFirstChar = '';
 
-while ($oneItem = mysqli_fetch_array($rsItems)) {
-    extract($oneItem);
-
-    $newIdFirstChar = mb_substr($di_item, 0, 1);
+foreach ($ormItems as $item) {
+    $newIdFirstChar = OutputUtils::translate_text_fpdf(mb_substr($item->getItem(), 0, 1));
     $maxYNewPage = 220;
-    if ($di_picture != '') {
+    if ($item->getPicture() != '') {
         $maxYNewPage = 120;
     }
     if ($pdf->GetY() > $maxYNewPage || ($idFirstChar != '' && $idFirstChar != $newIdFirstChar)) {
@@ -78,26 +96,26 @@ while ($oneItem = mysqli_fetch_array($rsItems)) {
     $idFirstChar = $newIdFirstChar;
 
     $pdf->SetFont('Times', 'B', 12);
-    $pdf->Write(6, $di_item.': ');
-    $pdf->Write(6, stripslashes($di_title)."\n");
+    $pdf->Write(6, OutputUtils::translate_text_fpdf($item->getItem()).': ');
+    $pdf->Write(6, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n");
 
-    if ($di_picture != '') {
-        $s = getimagesize($di_picture);
+    if ($item->getPicture() != '') {
+        $s = getimagesize($item->getPicture());
         $h = (100.0 / $s[0]) * $s[1];
-        $pdf->Image($di_picture, $pdf->GetX(), $pdf->GetY(), 100.0, $h);
+        $pdf->Image($item->getPicture(), $pdf->GetX(), $pdf->GetY(), 100.0, $h);
         $pdf->SetY($pdf->GetY() + $h);
     }
 
     $pdf->SetFont('Times', '', 12);
-    $pdf->Write(6, stripslashes($di_description)."\n");
-    if ($di_minimum > 0) {
-        $pdf->Write(6, _('Minimum bid ').'$'.$di_minimum.'.  ');
+    $pdf->Write(6, OutputUtils::translate_text_fpdf(stripslashes($item->getDescription()))."\n");
+    if ($item->getMinimum() > 0) {
+        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Minimum bid ')).$currency.OutputUtils::money_localized($item->getMinimum()).'.  ');
     }
-    if ($di_estprice > 0) {
-        $pdf->Write(6, _('Estimated value ').'$'.$di_estprice.'.  ');
+    if ($item->getEstPrice() > 0) {
+        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Estimated value ')).$currency.OutputUtils::money_localized($item->getEstPrice()).'.  ');
     }
-    if ($per_LastName != '') {
-        $pdf->Write(6, _('Donated by ').$per_FirstName.' '.$per_LastName.".\n");
+    if ($item->getLastName() != '') {
+        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Donated by ')).OutputUtils::translate_text_fpdf($item->getFirstName().' '.$item->getLastName()).".\n");
     }
     $pdf->Write(6, "\n");
 }
