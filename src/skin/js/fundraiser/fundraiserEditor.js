@@ -2,18 +2,35 @@ $(document).ready(function () {
     $('body').on('click',".deleteDonatedItem", function () {
         var donatedItem = $(this).data('donatedid');
 
-        window.CRM.APIRequest({
-            method: "DELETE",
-            path: "fundraiser/donateditem",
-            data: JSON.stringify({"DonatedItemID":donatedItem,"FundRaiserID": window.CRM.fundraiserID})
-        }).done(function (data) {
-            if (data.status == "success") {
-                window.CRM.donatedItemsTable.ajax.reload();
+        bootbox.confirm({
+            message: i18next.t ("You're about to delete the item !!!"),
+            buttons: {
+                confirm: {
+                    label: '<i class="fa fa-times"></i> ' + i18next.t ('Yes'),
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: '<i class="fa fa-check"></i> ' + i18next.t ('No'),
+                    className: 'btn-primary'
+                }
+            },
+            callback: function (result) {
+                if (result) {
+                    window.CRM.APIRequest({
+                        method: "DELETE",
+                        path: "fundraiser/donateditem",
+                        data: JSON.stringify({"DonatedItemID":donatedItem,"FundRaiserID": window.CRM.fundraiserID})
+                    }).done(function (data) {
+                        if (data.status == "success") {
+                            window.CRM.donatedItemsTable.ajax.reload();
+                        }
+                    });
+                }
             }
         });
     });
 
-    window.CRM.donatedItemsTable = $("#fundraiser-table").DataTable({
+    var  dataTableConfig = {
         ajax: {
             url: window.CRM.root + "/api/fundraiser/" + window.CRM.fundraiserID,
             type: 'POST',
@@ -120,7 +137,7 @@ $(document).ready(function () {
                 title: i18next.t('Delete'),
                 data: 'di_ID',
                 render: function (data, type, full, meta) {
-                    return '<a href="#" class="deleteDonatedItem" data-donatedid="' + data + '"><i class="fa fa-trash-o deleteDonatedItem" aria-hidden="true" style="color:red" data-donatedid="' + data + '"></i>';
+                    return '<a href="#" class="deleteDonatedItem" data-donatedid="' + data + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red" data-donatedid="' + data + '"></i>';
                 }
             }
         ],
@@ -128,5 +145,9 @@ $(document).ready(function () {
         createdRow: function (row, data, index) {
             $(row).addClass("paymentRow");
         }
-    });
+    };
+
+    $.extend(dataTableConfig,window.CRM.plugin.dataTable);
+
+    window.CRM.donatedItemsTable = $("#fundraiser-table").DataTable(dataTableConfig);
 });
