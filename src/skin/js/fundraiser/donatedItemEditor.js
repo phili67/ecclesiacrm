@@ -16,7 +16,10 @@ $(document).ready(function () {
             data: JSON.stringify({"DonatedItemID": window.CRM.currentDonatedItemID})
         }).done(function (data) {
             if (data.status == "success" && window.CRM.currentPicture != data.picture) {
-                location.reload();
+                $("#image").attr("src",data.picture);
+                $("#PictureURL").val(data.picture);
+                window.CRM.currentFundraiser = data.picture;
+                //location.reload();
             }
         });
     });
