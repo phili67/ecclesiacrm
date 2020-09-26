@@ -74,10 +74,6 @@ $ormItems = DonatedItemQuery::create()
     ->orderBy('cri3')
     ->findByFrId($iCurrentFundraiser);
 
-$sSQL = 'SELECT * FROM donateditem_di LEFT JOIN person_per on per_ID=di_donor_ID WHERE di_FR_ID='.$iCurrentFundraiser.
-' ORDER BY SUBSTR(di_item,1,1),cast(SUBSTR(di_item,2) as unsigned integer),SUBSTR(di_item,4)';
-$rsItems = RunQuery($sSQL);
-
 $pdf = new PDF_FRCatalogReport();
 $pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
 
@@ -99,7 +95,7 @@ foreach ($ormItems as $item) {
     $pdf->Write(6, OutputUtils::translate_text_fpdf($item->getItem()).': ');
     $pdf->Write(6, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n");
 
-    if ($item->getPicture() != '') {
+    if ($item->getPicture() != '' && strlen($item->getPicture()) > 5) {
         $s = getimagesize($item->getPicture());
         $h = (100.0 / $s[0]) * $s[1];
         $pdf->Image($item->getPicture(), $pdf->GetX(), $pdf->GetY(), 100.0, $h);
