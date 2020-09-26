@@ -14,11 +14,18 @@ use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 
+use EcclesiaCRM\Utils\InputUtils;
+
 if (!(SessionUser::isActive() && SessionUser::getUser()->isEDrive())) {
     RedirectUtils::Redirect('members/404.php?type=Upload');
     return;
 }
 
+$donatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID');
+
+if ( $donatedItemID == NULL ) {
+    $donatedItemID = 0;
+}
 
 // Set the page title and include HTML header
 $sPageTitle = _('File Manager');
@@ -108,6 +115,7 @@ $user = SessionUser::getUser();
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentPersonID = <?= $user->getPersonId() ?>;
     window.CRM.browserImage = true;
+    window.CRM.donatedItemID = <?= $donatedItemID ?>;
 </script>
 
 <?php require SystemURLs::getDocumentRoot() . '/Include/Footer-Short.php'; ?>
