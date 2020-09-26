@@ -17,8 +17,11 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card card-primary">
-    <div class="card-body">
-        <div class="form-group">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title"><label><?= _("Infos") ?></label></div>
+        </div>
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-4 col-md-offset-2 col-xs-6">
                     <div class="form-group">
@@ -28,7 +31,8 @@ require $sRootDocument . '/Include/Header.php';
 
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="Multibuy" name="Multibuy" value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="Multibuy" name="Multibuy"
+                                   value="1" <?= $bMultibuy ? 'checked' : ''; ?>>
                             <?= _('Sell to everyone'); ?> (<?= _('Multiple items'); ?>)
                         </label>
                     </div>
@@ -54,22 +58,26 @@ require $sRootDocument . '/Include/Header.php';
 
                     <div class="form-group">
                         <label><?= _('Title') ?>:</label>
-                        <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>" class="form-control"/>
+                        <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>"
+                               class="form-control"/>
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Estimated Price') ?>:</label>
-                        <input type="text" name="EstPrice" id="EstPrice" value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
+                        <input type="text" name="EstPrice" id="EstPrice"
+                               value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Material Value') ?>:</label>
-                        <input type="text" name="MaterialValue" id="MaterialValue" value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
+                        <input type="text" name="MaterialValue" id="MaterialValue"
+                               value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Minimum Price') ?>:</label>
-                        <input type="text" name="MinimumPrice" id="MinimumPrice" value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
+                        <input type="text" name="MinimumPrice" id="MinimumPrice"
+                               value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
                     </div>
 
                 </div>
@@ -85,11 +93,11 @@ require $sRootDocument . '/Include/Header.php';
                             <option value="0" selected><?= _('Unassigned') ?></option>
                             <?php
                             foreach ($ormPaddleNum as $buyer) {
-                                echo '<option value="'.$buyer->getPerId().'"';
+                                echo '<option value="' . $buyer->getPerId() . '"';
                                 if ($iBuyer == $buyer->getPerId()) {
                                     echo ' selected';
                                 }
-                                echo '>'.$buyer->getNum().': '.$buyer->getBuyerFirstName().' '.$buyer->getBuyerLastName();
+                                echo '>' . $buyer->getNum() . ': ' . $buyer->getBuyerFirstName() . ' ' . $buyer->getBuyerLastName();
                             }
                             }
                             ?>
@@ -98,7 +106,8 @@ require $sRootDocument . '/Include/Header.php';
 
                     <div class="form-group">
                         <label><?= _('Final Price') ?>:</label>
-                        <input type="text" name="SellPrice" id="SellPrice" value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
+                        <input type="text" name="SellPrice" id="SellPrice"
+                               value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -115,128 +124,69 @@ require $sRootDocument . '/Include/Header.php';
 
                 </div>
 
-                <div class="col-md-6 col-md-offset-2 col-xs-12">
+                <div class="col-md-8 col-md-offset-2 col-xs-12">
                     <div class="form-group">
                         <label><?= _('Description') ?>:</label>
-                        <textarea name="Description" id="Description" rows="5" cols="90" class="form-control"><?= htmlentities($sDescription) ?></textarea>
+                        <textarea name="Description" id="Description" rows="5" cols="90"
+                                  class="form-control"><?= htmlentities($sDescription) ?></textarea>
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Picture URL') ?>:</label>
-                        <textarea name="PictureURL" id="PictureURL" rows="1" cols="90" class="form-control"><?= htmlentities($sPictureURL) ?></textarea>
+
+                        <div class="input-group mb-3">
+                            <!-- /btn-group -->
+                            <input type="text" name="PictureURL" id="PictureURL" class="form-control"
+                                   value="<?= htmlentities($sPictureURL) ?>">
+                            <div class="input-group-append">
+                            <span class="btn btn-primary" id="donatedItemPicture"
+                                  data-donateditemid="<?= $iDonatedItemID ?>"> <i
+                                    class="fa fa-cloud-download"></i></span>
+                            </div>
+                        </div>
                     </div>
 
                     <?php if ($sPictureURL != ''): ?>
-                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>"/></div>
+                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>" width="100%"/></div>
                     <?php endif; ?>
 
                 </div>
 
             </div> <!-- row -->
-        </div>
 
-        <div class="form-group text-center">
-            <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="DonatedItemSubmit" id="DonatedItemSubmit">
-            <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
-                <input type="submit" class="btn btn-primary" value="<?= _('Save and Add'); ?>" name="DonatedItemSubmitAndAdd" id="DonatedItemSubmitAndAdd">
-            <?php endif; ?>
-            <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="DonatedItemCancel" id="DonatedItemCancel">
         </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="DonatedItemSubmit"
+                           id="DonatedItemSubmit">
+                </div>
 
+                <?php if (SessionUser::getUser()->isAddRecordsEnabled()): ?>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-success" value="<?= _('Save and Add'); ?>"
+                               name="DonatedItemSubmitAndAdd" id="DonatedItemSubmitAndAdd">
+                    </div>
+                <?php endif; ?>
+                <div class="col-md-3">
+                    <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="DonatedItemCancel"
+                           id="DonatedItemCancel">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    $(document).ready(function() {
-        var currentFundraiser = <?= $iCurrentFundraiser ?>;
-        var currentDonatedItemID = <?= strlen($iDonatedItemID)?$iDonatedItemID:-1 ?>;
-        $("#Donor").select2();
-        $("#Buyer").select2();
-
-        $("#donatedItemGo").click(function() {
-            var donatedItem = $(this).data('donateditemid');
-            var count = $("#NumberCopies").val();
-
-            // TODO : test if count = 0 and if donatedItem exist
-
-            window.CRM.APIRequest({
-                method: "POST",
-                path: "fundraiser/replicate",
-                data: JSON.stringify({"DonatedItemID":donatedItem,"count": count})
-            }).done(function (data) {
-                if (data.status == "success") {
-                    window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
-                }
-            });
-
-        })
-
-        $("#DonatedItemSubmit").click(function () {
-            var Item = $("#Item").val();
-            var Multibuy = $("#Multibuy").is(':checked');
-            var Donor = $("#Donor").val();
-            var Title = $("#Title").val();
-            var EstPrice = $("#EstPrice").val();
-            var MaterialValue = $("#MaterialValue").val();
-            var MinimumPrice = $("#MinimumPrice").val();
-            var Buyer = $("#Buyer").val();
-            var SellPrice = $("#SellPrice").val();
-            var Description = $("#Description").val();
-            var PictureURL = $("#PictureURL").val();
-
-
-            window.CRM.APIRequest({
-                method: "POST",
-                path: "fundraiser/donatedItemSubmit",
-                data: JSON.stringify({"currentFundraiser":currentFundraiser,"currentDonatedItemID": currentDonatedItemID,
-                    "Item":Item,"Multibuy": Multibuy,
-                    "Donor":Donor,"Title": Title,
-                    "EstPrice":EstPrice,"MaterialValue": MaterialValue,
-                    "MinimumPrice":MinimumPrice,"Buyer": Buyer,
-                    "SellPrice":SellPrice,"Description": Description,
-                    "PictureURL":PictureURL})
-            }).done(function (data) {
-                if (data.status == "success") {
-                    window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
-                }
-            });
-        });
-
-        $("#DonatedItemSubmitAndAdd").click(function () {
-            var Item = $("#Item").val();
-            var Multibuy = $("#Multibuy").is(':checked');
-            var Donor = $("#Donor").val();
-            var Title = $("#Title").val();
-            var EstPrice = $("#EstPrice").val();
-            var MaterialValue = $("#MaterialValue").val();
-            var MinimumPrice = $("#MinimumPrice").val();
-            var Buyer = $("#Buyer").val();
-            var SellPrice = $("#SellPrice").val();
-            var Description = $("#Description").val();
-            var PictureURL = $("#PictureURL").val();
-
-
-            window.CRM.APIRequest({
-                method: "POST",
-                path: "fundraiser/donatedItemSubmit",
-                data: JSON.stringify({"currentFundraiser":currentFundraiser,"currentDonatedItemID": currentDonatedItemID,
-                    "Item":Item,"Multibuy": Multibuy,
-                    "Donor":Donor,"Title": Title,
-                    "EstPrice":EstPrice,"MaterialValue": MaterialValue,
-                    "MinimumPrice":MinimumPrice,"Buyer": Buyer,
-                    "SellPrice":SellPrice,"Description": Description,
-                    "PictureURL":PictureURL})
-            }).done(function (data) {
-                if (data.status == "success") {
-                    window.location.href = window.CRM.root + "/v2/fundraiser/donatedItemEditor/0/" + currentFundraiser;
-                }
-            });
-        });
-
-        $("#DonatedItemCancel").click(function () {
-            window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + currentFundraiser;
-        })
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    $(document).ready(function () {
+        window.CRM.currentFundraiser = <?= $iCurrentFundraiser ?>;
+        window.CRM.currentDonatedItemID = <?= strlen($iDonatedItemID) ? $iDonatedItemID : -1 ?>;
+        window.CRM.currentPicture = "<?= $sPictureURL ?>;"
     });
 </script>
+
+<script src="<?= $sRootPath ?>/skin/js/fundraiser/donatedItemEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
