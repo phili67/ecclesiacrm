@@ -30,6 +30,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 
 use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 
 
@@ -244,32 +245,23 @@ require 'Include/Header.php';
                   //Get Families for the drop-down
                   $ormFamilies = FamilyQuery::Create()->orderByName()->find();
 
-                  // Build Criteria for Head of Household
-                  $head_criteria = ' per_fmr_ID = ' . SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1';
-                  // If more than one role assigned to Head of Household, add OR
-                  $head_criteria = str_replace(',', ' OR per_fmr_ID = ', $head_criteria);
-                  // Add Spouse to criteria
+                  $personHeads = PersonQuery::create()
+                        ->filterByFmrId((SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1'));
+
                   if (intval(SystemConfig::getValue('sDirRoleSpouse')) > 0) {
-                      $head_criteria .= ' OR per_fmr_ID = ' . SystemConfig::getValue('sDirRoleSpouse');
-                  }
-                  // Build array of Head of Households and Spouses with fam_ID as the key
-                  $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND (' . $head_criteria . ') ORDER BY per_fam_ID';
-
-                  $connection = Propel::getConnection();
-                  $pdo_head = $connection->prepare($sSQL);
-
-                  $aHead = '';
-                  while ($row = $pdo_head->fetch( \PDO::FETCH_ASSOC )) {
-
+                      $personHeads->_or()->filterByFmrId((SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleSpouse') : '1'));
                   }
 
-                  $rs_head = RunQuery($sSQL);
-                  $aHead = '';
-                  while (list($head_firstname, $head_famid) = mysqli_fetch_row($rs_head)) {
-                      if ($head_firstname && $aHead[$head_famid]) {
-                          $aHead[$head_famid] .= ' & ' . $head_firstname;
-                      } elseif ($head_firstname) {
-                          $aHead[$head_famid] = $head_firstname;
+                  $personHeads->filterByFamId(0, Criteria::NOT_EQUAL)
+                        ->orderByFamId()
+                        ->find();
+
+                  $aHead = [];
+                  foreach ($personHeads as $personHead) {
+                      if ($personHead->getFirstName() && $aHead[$personHead->getFamId()]) {
+                          $aHead[$personHead->getFamId()] .= ' & ' . $personHead->getFirstName();
+                      } elseif ($personHead->getFirstName()) {
+                          $aHead[$personHead->getFamId()] = $personHead->getFirstName();
                       }
                   }
 
@@ -312,6 +304,13 @@ require 'Include/Header.php';
           <br><br>
         <?php
             //Get the pledges for this family
+            $ormPledges = PledgeQuery::create()
+                ->leftJoinPerson()
+                ->leftJoinDonationFund()
+                ->filterByFamId($iFamilyID)
+                ->orderByDate()
+                ->find();
+
             $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method,
              plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
              FROM pledge_plg
