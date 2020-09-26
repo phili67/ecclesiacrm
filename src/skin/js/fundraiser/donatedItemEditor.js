@@ -18,7 +18,7 @@ $(document).ready(function () {
             if (data.status == "success" && window.CRM.currentPicture != data.picture) {
                 $("#image").attr("src",data.picture);
                 $("#PictureURL").val(data.picture);
-                window.CRM.currentFundraiser = data.picture;
+                window.CRM.currentPicture = data.picture;
                 //location.reload();
             }
         });
