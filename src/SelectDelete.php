@@ -243,9 +243,13 @@ require 'Include/Header.php';
                   <option value=0 selected><?= _('Unassigned') ?></option>
                 <?php
                   //Get Families for the drop-down
-                  $ormFamilies = FamilyQuery::Create()->orderByName()->find();
+                  $ormFamilies = FamilyQuery::Create()
+                      ->filterByDateDeactivated(NULL) // GDPR
+                      ->orderByName()
+                      ->find();
 
                   $personHeads = PersonQuery::create()
+                        ->filterByDateDeactivated(NULL) // GDPR
                         ->filterByFmrId((SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1'));
 
                   if (intval(SystemConfig::getValue('sDirRoleSpouse')) > 0) {
@@ -310,18 +314,9 @@ require 'Include/Header.php';
                 ->filterByFamId($iFamilyID)
                 ->orderByDate()
                 ->find();
-
-            $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method,
-             plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
-             FROM pledge_plg
-             LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
-             LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-             WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
-            $rsPledges = RunQuery($sSQL);
         ?>
-        <table cellspacing="0" width="100%" class="table table-striped table-bordered">
-          <theader>
-            <tr>
+        <table cellspacing="0" width="100%" class="table table-striped table-bordered data-table-pledges">
+          <thead>
                 <th><?= _('Type') ?></th>
                 <th><?= _('Fund') ?></th>
                 <th><?= _('Fiscal Year') ?></th>
@@ -332,37 +327,24 @@ require 'Include/Header.php';
                 <th><?= _('Comment') ?></th>
                 <th><?= _('Date Updated') ?></th>
                 <th><?= _('Updated By') ?></th>
-            </tr>
-          </theader>
+          </thead>
           <tbody>
           <?php
             $tog = 0;
             //Loop through all pledges
-            while ($aRow = mysqli_fetch_array($rsPledges)) {
-                $tog = (!$tog);
-                $plg_FYID = '';
-                $plg_date = '';
-                $plg_amount = '';
-                $plg_schedule = '';
-                $plg_method = '';
-                $plg_comment = '';
-                $plg_plgID = 0;
-                $plg_DateLastEdited = '';
-                $plg_EditedBy = '';
-                extract($aRow);
-
-           ?>
+            foreach ($ormPledges as $ormPledge) {
+                ?>
                 <tr>
-                    <td><?= _($plg_PledgeOrPayment) ?></td>
-                    <td><?= _($fundName) ?></td>
-                    <td><?= MiscUtils::MakeFYString($plg_FYID) ?></td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?></td>
-                    <td><?= OutputUtils::money_localized($plg_amount) ?></td>
-                    <td><?= _($plg_schedule) ?></td>
-                    <td><?= _($plg_method) ?></td>
-                    <td><?= $plg_comment ?></td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?></td>
-                    <td><?= $EnteredFirstName . ' ' . $EnteredLastName ?></td>
+                    <td><?= _($ormPledge->getPledgeorpayment()) ?></td>
+                    <td><?= _($ormPledge->getDonationFund()->getName()) ?></td>
+                    <td><?= MiscUtils::MakeFYString($ormPledge->getFyid()) ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($ormPledge->getDate()->format('Y-m-d')) ?></td>
+                    <td><?= OutputUtils::money_localized($ormPledge->getAmount()) ?></td>
+                    <td><?= _($ormPledge->getSchedule()) ?></td>
+                    <td><?= _($ormPledge->getMethod()) ?></td>
+                    <td><?= $ormPledge->getComment() ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($ormPledge->getDatelastedited()->format('Y-m-d')) ?></td>
+                    <td><?= $ormPledge->getPerson()->getFirstname() . ' ' . $ormPledge->getPerson()->getLastName() ?></td>
                 </tr>
                 <?php
             }
@@ -423,7 +405,7 @@ require 'Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
 $(document).ready(function () {
-  $(".data-table").DataTable({
+  $(".data-table-pledges").DataTable({
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
