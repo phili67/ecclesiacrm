@@ -25,8 +25,12 @@ $app->group('/fundraiser', function () {
 
     $this->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiserForID' );
     $this->post('/replicate', 'replicateFundraiser' );
+
+// donatedItem
     $this->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser' );
+    $this->post('/donateditem/currentpicture', 'donatedItemCurrentPicture' );
     $this->delete('/donateditem', 'deleteDonatedItem' );
+    $this->post('/donatedItem/submit/picture', 'donatedItemSubmitPicture' );
 
     // FindFundRaiser.php
     $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser' );
@@ -51,6 +55,45 @@ $app->group('/fundraiser', function () {
     $this->post('/paddlenum/info', 'paddleNumInfo' );
 
 });
+
+
+
+
+function donatedItemCurrentPicture (Request $request, Response $response, array $args)
+{
+    $input = (object)$request->getParsedBody();
+
+    if ( isset($input->DonatedItemID) ) {
+        $donItem = DonatedItemQuery::create()
+            ->findOneById($input->DonatedItemID);
+
+        return $response->withJSON(['status' => "success", "picture" => $donItem->getPicture($input->pathFile)]);
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
+
+function donatedItemSubmitPicture (Request $request, Response $response, array $args)
+{
+     //DonatedItemID": window.CRM.donatedItemID,"pathFile"
+
+    $input = (object)$request->getParsedBody();
+
+    if ( isset($input->DonatedItemID) && isset($input->pathFile) ) {
+        $donItem = DonatedItemQuery::create()
+            ->findOneById($input->DonatedItemID);
+
+        $donItem->setPicture($input->pathFile);
+
+        $donItem->save();
+
+        return $response->withJSON(['status' => "success"]);
+    }
+
+    return $response->withJSON(['status' => "failed"]);
+}
+
+
 
 function paddleNumInfo (Request $request, Response $response, array $args)
 {
