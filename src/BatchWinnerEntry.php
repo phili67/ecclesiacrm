@@ -5,7 +5,7 @@
  *  last change : 2011-04-01
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2011 Michael Wilt
-  *
+ *
  ******************************************************************************/
 
 //Include the function library
@@ -14,6 +14,16 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\dto\SystemURLs;
+
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\PaddleNumQuery;
+
+use EcclesiaCRM\Map\DonatedItemTableMap;
+use EcclesiaCRM\Map\PaddleNumTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
@@ -25,15 +35,8 @@ if ($iCurrentFundraiser) {
     $iCurrentFundraiser = $_SESSION['iCurrentFundraiser'];
 }
 
-// Get the current fundraiser data
-if ($iCurrentFundraiser) {
-    $sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = '.$iCurrentFundraiser;
-    $rsDeposit = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsDeposit));
-}
-
 //Set the page title
-$sPageTitle = gettext('Batch Winner Entry');
+$sPageTitle = _('Batch Winner Entry');
 
 //Is this the second pass?
 if (isset($_POST['EnterWinners'])) {
@@ -42,94 +45,109 @@ if (isset($_POST['EnterWinners'])) {
         $di = $_POST["Item$row"];
         $price = $_POST["SellPrice$row"];
         if ($buyer > 0 && $di > 0 && $price > 0) {
-            $sSQL = "UPDATE donateditem_di SET di_buyer_id=$buyer, di_sellprice=$price WHERE di_ID=$di";
-            RunQuery($sSQL);
+            $donIt = DonatedItemQuery::create()
+                ->findOneById($di);
+
+            $donIt->setBuyerId($buyer);
+            $donIt->setSellprice($price);
+
+            $donIt->save();
         }
     }
     RedirectUtils::Redirect($linkBack);
 }
 
 // Get Items for the drop-down
-$sDonatedItemsSQL = "SELECT di_ID, di_Item, di_title, di_multibuy
-                     FROM donateditem_di
-                     WHERE di_FR_ID = '".$iCurrentFundraiser."' ORDER BY SUBSTR(di_Item,1,1), CONVERT(SUBSTR(di_Item,2,3),SIGNED)";
-$rsDonatedItems = RunQuery($sDonatedItemsSQL);
+$ormDonatedItems = DonatedItemQuery::create()
+    ->addAsColumn('cri1', 'SUBSTR(' . DonatedItemTableMap::COL_DI_ITEM . ',1,1)')
+    ->addAsColumn('cri2', 'CONVERT(SUBSTR(' . DonatedItemTableMap::COL_DI_ITEM . ',2,3), SIGNED)')
+    ->orderBy('cri1')
+    ->orderBy('cri2')
+    ->findByFrId($iCurrentFundraiser);
 
 //Get Paddles for the drop-down
-$sPaddleSQL = 'SELECT pn_ID, pn_Num, pn_per_ID,
-                      a.per_FirstName AS buyerFirstName,
-                      a.per_LastName AS buyerLastName
-                      FROM paddlenum_pn
-                      LEFT JOIN person_per a on a.per_ID=pn_per_ID
-                      WHERE pn_fr_ID='.$iCurrentFundraiser.' ORDER BY pn_Num';
-$rsPaddles = RunQuery($sPaddleSQL);
+$ormPaddles = PaddleNumQuery::create()
+    ->addJoin(PaddleNumTableMap::COL_PN_PER_ID, PersonTableMap::COL_PER_ID, Criteria::LEFT_JOIN)
+    ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+    ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+    ->orderByNum()
+    ->findByFrId($iCurrentFundraiser);
 
 require 'Include/Header.php';
 
 ?>
-<div class="card card-body">
-<form method="post" action="BatchWinnerEntry.php?<?= 'CurrentFundraiser='.'&linkBack='.$linkBack ?>" name="BatchWinnerEntry">
-<div class="table-responsive">
-<table class="table" cellpadding="2" align="center">
-	<tr>
-		<td class="LabelColumn"><?= gettext('Item') ?></td>
-		<td class="LabelColumn"><?= gettext('Winner') ?></td>
-		<td class="LabelColumn"><?= gettext('Price') ?></td>
-	</tr>
-<?php
-    for ($row = 0; $row < 10; $row += 1) {
-        ?>
-        <tr>
-            <td>
-                <select name="Item<?= $row ?>" class="form-control form-control-sm">
-                    <option value="0" selected><?= gettext('Unassigned') ?></option>
-                    <?php
-
-        mysqli_data_seek($rsDonatedItems, 0);
-        while ($itemArr = mysqli_fetch_array($rsDonatedItems)) {
-            extract($itemArr);
+<form method="post"
+      action="<?= SystemURLs::getRootPath() ?>/BatchWinnerEntry.php?<?= 'CurrentFundraiser=' . '&linkBack=' . $linkBack ?>"
+      name="BatchWinnerEntry">
+<div class="card">
+    <div class="card-header">
+        <div class="card-title"><?= _("Articles") ?></div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4"><label><?= _('Item') ?></label></div>
+            <div class="col-md-4"><label><?= _('Winner') ?></label></div>
+            <div class="col-md-4"><label><?= _('Price') ?></label></div>
+        </div>
+        <?php
+        for ($row = 0; $row < 10; $row += 1) {
             ?>
-            <option value="<?= $di_ID ?> "><?= $di_Item ?> <?= $di_title ?></option>
-                    <?php
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="Item<?= $row ?>" class="form-control form-control-sm">
+                        <option value="0" selected><?= _('Unassigned') ?></option>
+                        <?php
+                        foreach ($ormDonatedItems as $ormDonatedItem) {
+                            ?>
+                            <option
+                                value="<?= $ormDonatedItem->getId() ?>"><?= $ormDonatedItem->getItem() ?> <?= $ormDonatedItem->getTitle() ?></option>
+                            <?php
+                        }
+
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="Paddle<?= $row ?>" class="form-control form-control-sm">
+                        <option value="0" selected><?= _('Unassigned') ?></option>
+
+                        <?php
+                        foreach ($ormPaddles as $paddle) {
+                            ?>
+                            <option
+                                value="<?= $paddle->getPerId() ?>"><?= $paddle->getNum() ?> <?= $paddle->getFirstName() ?> <?= $paddle->getLastName() ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="col-md-4"><input type="text" name="SellPrice<?= $row ?>" id="SellPrice" value=""
+                                             class="form-control"></div>
+            </div>
+            <br/>
+            <?php
         }
         ?>
-        </select>
-        </td>
-
-        <td>
-        <select name="Paddle<?= $row ?>"  class="form-control form-control-sm">
-            <option value="0" selected><?= gettext('Unassigned') ?></option>
-
-            <?php
-        mysqli_data_seek($rsPaddles, 0);
-        while ($paddleArr = mysqli_fetch_array($rsPaddles)) {
-            extract($paddleArr);
-            ?>
-                <option value="<?= $pn_per_ID ?>"><?= $pn_Num ?> <?= $buyerFirstName ?> <?= $buyerLastName ?></option>
-            <?php
-        }
-        ?>
-        </select>
-        </td>
-
-        <td class="TextColumn"><input type="text" name="SellPrice$row" id="SellPrice"$row value="" class="form-control"></td>
-      </tr>
-    <?php
-    }
-?>
-	<tr>
-		<td colspan="2" align="center">
-			<input type="submit" class="btn btn-primary" value="<?= gettext('Enter Winners') ?>" name="EnterWinners">
-			<input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-    echo $linkBack;
-} else {
-    echo 'Menu.php';
-} ?>';">
-		</td>
-	</tr>
-	</table>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-primary" value="<?= _('Enter Winners') ?>" name="EnterWinners">
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel"
+                       onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+                           echo $linkBack;
+                       } else {
+                           echo 'Menu.php';
+                       } ?>';">
+            </div>
+        </div>
+    </div>
 </div>
 </form>
-</div>
 
 <?php require 'Include/Footer.php' ?>
