@@ -147,7 +147,7 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
 
                     <?php if ($sPictureURL != ''): ?>
-                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>" width="100%"/></div>
+                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>" width="100%" id="image"/></div>
                     <?php endif; ?>
 
                 </div>
@@ -182,7 +182,7 @@ require $sRootDocument . '/Include/Header.php';
     $(document).ready(function () {
         window.CRM.currentFundraiser = <?= $iCurrentFundraiser ?>;
         window.CRM.currentDonatedItemID = <?= strlen($iDonatedItemID) ? $iDonatedItemID : -1 ?>;
-        window.CRM.currentPicture = "<?= $sPictureURL ?>;"
+        window.CRM.currentPicture = "<?= $sPictureURL ?>";
     });
 </script>
 
