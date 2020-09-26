@@ -89,7 +89,7 @@ function argumentsDonatedItemEditorArray($iDonatedItemID, $iCurrentFundraiser)
             ->findOneById($iCurrentFundraiser);
 
         /*$sSQL = 'SELECT * from fundraiser_fr WHERE fr_ID = ' . $iCurrentFundraiser;
-        $rsDeposit = RunQuery($sSQL);
+        $rsDeposit = OunQuery($sSQL);
         extract(mysqli_fetch_array($rsDeposit));*/
     }
 
