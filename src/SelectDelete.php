@@ -23,9 +23,15 @@ use EcclesiaCRM\EgiveQuery;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\FamilyCustomQuery;
+
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 
 // Security: User must have Delete records permission
@@ -149,8 +155,12 @@ if (isset($_GET['Confirmed'])) {
     $family = FamilyQuery::Create()->findById ($iFamilyID)->delete();
 
     // Remove custom field data
-    $sSQL = 'DELETE FROM family_custom WHERE fam_ID = ' . $iFamilyID;
-    RunQuery($sSQL);
+    $ormFamCusts = FamilyCustomQuery::create()
+        ->findByFamId($iFamilyID);
+
+    foreach ($ormFamCusts as $ormFamCust) {
+        $ormFamCust->delete();
+    }
 
     // Delete the photo files, if they exist
     $photoThumbnail = 'Images/Family/thumbnails/' . $iFamilyID . '.jpg';
@@ -233,25 +243,29 @@ require 'Include/Header.php';
                   <option value=0 selected><?= _('Unassigned') ?></option>
                 <?php
                   //Get Families for the drop-down
-                  $ormFamilies = FamilyQuery::Create()->orderByName()->find();
+                  $ormFamilies = FamilyQuery::Create()
+                      ->filterByDateDeactivated(NULL) // GDPR
+                      ->orderByName()
+                      ->find();
 
-                  // Build Criteria for Head of Household
-                  $head_criteria = ' per_fmr_ID = ' . SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1';
-                  // If more than one role assigned to Head of Household, add OR
-                  $head_criteria = str_replace(',', ' OR per_fmr_ID = ', $head_criteria);
-                  // Add Spouse to criteria
+                  $personHeads = PersonQuery::create()
+                        ->filterByDateDeactivated(NULL) // GDPR
+                        ->filterByFmrId((SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleHead') : '1'));
+
                   if (intval(SystemConfig::getValue('sDirRoleSpouse')) > 0) {
-                      $head_criteria .= ' OR per_fmr_ID = ' . SystemConfig::getValue('sDirRoleSpouse');
+                      $personHeads->_or()->filterByFmrId((SystemConfig::getValue('sDirRoleHead') ? SystemConfig::getValue('sDirRoleSpouse') : '1'));
                   }
-                  // Build array of Head of Households and Spouses with fam_ID as the key
-                  $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND (' . $head_criteria . ') ORDER BY per_fam_ID';
-                  $rs_head = RunQuery($sSQL);
-                  $aHead = '';
-                  while (list($head_firstname, $head_famid) = mysqli_fetch_row($rs_head)) {
-                      if ($head_firstname && $aHead[$head_famid]) {
-                          $aHead[$head_famid] .= ' & ' . $head_firstname;
-                      } elseif ($head_firstname) {
-                          $aHead[$head_famid] = $head_firstname;
+
+                  $personHeads->filterByFamId(0, Criteria::NOT_EQUAL)
+                        ->orderByFamId()
+                        ->find();
+
+                  $aHead = [];
+                  foreach ($personHeads as $personHead) {
+                      if ($personHead->getFirstName() && $aHead[$personHead->getFamId()]) {
+                          $aHead[$personHead->getFamId()] .= ' & ' . $personHead->getFirstName();
+                      } elseif ($personHead->getFirstName()) {
+                          $aHead[$personHead->getFamId()] = $personHead->getFirstName();
                       }
                   }
 
@@ -294,17 +308,15 @@ require 'Include/Header.php';
           <br><br>
         <?php
             //Get the pledges for this family
-            $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method,
-             plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
-             FROM pledge_plg
-             LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
-             LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-             WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
-            $rsPledges = RunQuery($sSQL);
+            $ormPledges = PledgeQuery::create()
+                ->leftJoinPerson()
+                ->leftJoinDonationFund()
+                ->filterByFamId($iFamilyID)
+                ->orderByDate()
+                ->find();
         ?>
-        <table cellspacing="0" width="100%" class="table table-striped table-bordered">
-          <theader>
-            <tr>
+        <table cellspacing="0" width="100%" class="table table-striped table-bordered data-table-pledges">
+          <thead>
                 <th><?= _('Type') ?></th>
                 <th><?= _('Fund') ?></th>
                 <th><?= _('Fiscal Year') ?></th>
@@ -315,37 +327,24 @@ require 'Include/Header.php';
                 <th><?= _('Comment') ?></th>
                 <th><?= _('Date Updated') ?></th>
                 <th><?= _('Updated By') ?></th>
-            </tr>
-          </theader>
+          </thead>
           <tbody>
           <?php
             $tog = 0;
             //Loop through all pledges
-            while ($aRow = mysqli_fetch_array($rsPledges)) {
-                $tog = (!$tog);
-                $plg_FYID = '';
-                $plg_date = '';
-                $plg_amount = '';
-                $plg_schedule = '';
-                $plg_method = '';
-                $plg_comment = '';
-                $plg_plgID = 0;
-                $plg_DateLastEdited = '';
-                $plg_EditedBy = '';
-                extract($aRow);
-
-           ?>
+            foreach ($ormPledges as $ormPledge) {
+                ?>
                 <tr>
-                    <td><?= _($plg_PledgeOrPayment) ?></td>
-                    <td><?= _($fundName) ?></td>
-                    <td><?= MiscUtils::MakeFYString($plg_FYID) ?></td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?></td>
-                    <td><?= OutputUtils::money_localized($plg_amount) ?></td>
-                    <td><?= _($plg_schedule) ?></td>
-                    <td><?= _($plg_method) ?></td>
-                    <td><?= $plg_comment ?></td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?></td>
-                    <td><?= $EnteredFirstName . ' ' . $EnteredLastName ?></td>
+                    <td><?= _($ormPledge->getPledgeorpayment()) ?></td>
+                    <td><?= _($ormPledge->getDonationFund()->getName()) ?></td>
+                    <td><?= MiscUtils::MakeFYString($ormPledge->getFyid()) ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($ormPledge->getDate()->format('Y-m-d')) ?></td>
+                    <td><?= OutputUtils::money_localized($ormPledge->getAmount()) ?></td>
+                    <td><?= _($ormPledge->getSchedule()) ?></td>
+                    <td><?= _($ormPledge->getMethod()) ?></td>
+                    <td><?= $ormPledge->getComment() ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($ormPledge->getDatelastedited()->format('Y-m-d')) ?></td>
+                    <td><?= $ormPledge->getPerson()->getFirstname() . ' ' . $ormPledge->getPerson()->getLastName() ?></td>
                 </tr>
                 <?php
             }
@@ -406,7 +405,7 @@ require 'Include/Header.php';
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
 $(document).ready(function () {
-  $(".data-table").DataTable({
+  $(".data-table-pledges").DataTable({
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
