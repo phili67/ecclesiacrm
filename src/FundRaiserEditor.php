@@ -216,11 +216,15 @@ require 'Include/Header.php';
                                } ?>';">
                         <?php
                         if ($iFundRaiserID > 0) {
-                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Add Donated Item') . "\" name=AddDonatedItem onclick=\"javascript:document.location='v2/fundraiser/donatedItemEditor/0/$iFundRaiserID';\">\n";
-                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Generate Catalog') . "\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                            echo '<input type=button class="btn btn-info btn-sm" value="' . _('Generate Bid Sheets') . "\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                            echo '<input type=button class="btn btn-warning btn-sm" value="' . _('Generate Certificates') . "\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                            echo '<input type=button class="btn btn-success btn-sm" value="' . _('Batch Winner Entry') . "\" name=BatchWinnerEntry onclick=\"javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                            ?>
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';">
+                            <br/><br/>
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';">
+                            <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';">
+                            <input type=button class="btn btn-warning btn-sm" value="<?=  _('Generate Certificates') ?>" name=GenerateCertificates onclick="javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';">
+                            <input type=button class="btn btn-success btn-sm" value="<?= _('Batch Winner Entry') ?>" name=BatchWinnerEntry onclick="javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';">
+                        <?php
                         }
                         ?>
                         <br>
