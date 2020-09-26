@@ -23,9 +23,14 @@ use EcclesiaCRM\EgiveQuery;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\FamilyCustomQuery;
+
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+
+use Propel\Runtime\Propel;
+
 
 
 // Security: User must have Delete records permission
@@ -149,8 +154,12 @@ if (isset($_GET['Confirmed'])) {
     $family = FamilyQuery::Create()->findById ($iFamilyID)->delete();
 
     // Remove custom field data
-    $sSQL = 'DELETE FROM family_custom WHERE fam_ID = ' . $iFamilyID;
-    RunQuery($sSQL);
+    $ormFamCusts = FamilyCustomQuery::create()
+        ->findByFamId($iFamilyID);
+
+    foreach ($ormFamCusts as $ormFamCust) {
+        $ormFamCust->delete();
+    }
 
     // Delete the photo files, if they exist
     $photoThumbnail = 'Images/Family/thumbnails/' . $iFamilyID . '.jpg';
@@ -245,6 +254,15 @@ require 'Include/Header.php';
                   }
                   // Build array of Head of Households and Spouses with fam_ID as the key
                   $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND (' . $head_criteria . ') ORDER BY per_fam_ID';
+
+                  $connection = Propel::getConnection();
+                  $pdo_head = $connection->prepare($sSQL);
+
+                  $aHead = '';
+                  while ($row = $pdo_head->fetch( \PDO::FETCH_ASSOC )) {
+
+                  }
+
                   $rs_head = RunQuery($sSQL);
                   $aHead = '';
                   while (list($head_firstname, $head_famid) = mysqli_fetch_row($rs_head)) {
