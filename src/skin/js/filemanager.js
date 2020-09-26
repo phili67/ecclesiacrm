@@ -146,10 +146,20 @@ $("body").on('click', '.filemanager-download', function(e) {
       data: JSON.stringify({"personID": window.CRM.currentPersonID,"pathFile" : value.path})
     }).done(function(data) {
       if (data && data.success) {
-        var funcNum = getUrlParam( 'CKEditorFuncNum' );
         var fileUrl = data.address;
-        window.opener.CKEDITOR.tools.callFunction( funcNum, fileUrl );
-        window.close();
+        if (window.CRM.donatedItemID) {
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'fundraiser/donatedItem/submit/picture',
+                data: JSON.stringify({"DonatedItemID": window.CRM.donatedItemID,"pathFile" : fileUrl})
+            }).done(function(data) {
+                window.close();
+            });
+        } else {
+            var funcNum = getUrlParam( 'CKEditorFuncNum' );
+            window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
+            window.close();
+        }
       }
     });
   });
