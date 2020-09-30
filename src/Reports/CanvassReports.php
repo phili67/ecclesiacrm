@@ -19,6 +19,12 @@ use EcclesiaCRM\dto\CanvassUtilities;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\CanvassDataQuery;
 
+use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\FamilyTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
+
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
 $sWhichReport = InputUtils::LegacyFilterInput($_GET['WhichReport']);
@@ -26,14 +32,21 @@ $sWhichReport = InputUtils::LegacyFilterInput($_GET['WhichReport']);
 function TopPledgersLevel($iFYID, $iPercent)
 {
     // Get pledges for this fiscal year, highest first
-    $sSQL = 'SELECT plg_Amount FROM pledge_plg
-			 WHERE plg_FYID = '.$iFYID.' AND plg_PledgeOrPayment="Pledge" ORDER BY plg_Amount DESC';
-    $rsPledges = RunQuery($sSQL);
-    $pledgeCount = mysqli_num_rows($rsPledges);
-    mysqli_data_seek($rsPledges, $pledgeCount * $iPercent / 100);
-    $aLastTop = mysqli_fetch_array($rsPledges);
+    $ormPledges = PledgeQuery::create()
+        ->filterByPledgeorpayment("Pledge")
+        ->filterByFyid($iFYID)
+        ->orderByAmount(Criteria::DESC)
+        ->find();
 
-    return $aLastTop['plg_Amount'];
+    $pledgeCount = $ormPledges->count();
+
+    $res = 0.0;
+
+    if ($pledgeCount > 0) {
+        $res = ($ormPledges->toArray())[$pledgeCount * $iPercent / 100]['Amount'];
+    }
+
+    return $res;
 }
 
 function CanvassProgressReport($iFYID)
@@ -139,6 +152,18 @@ function CanvassBriefingSheets($iFYID)
     $iNumQuestions = count($aQuestions);
 
     // Get all the families which need canvassing
+    $ormFamilies = FamilyQuery::create()
+        ->filterByOkToCanvass("TRUE")
+        ->filterByCanvasser(0,Criteria::GREATER_THAN)
+        ->addJoin(FamilyTableMap::COL_FAM_CANVASSER,PersonTableMap::COL_PER_ID, Criteria::LEFT_JOIN)
+        ->addAsColumn('CanvasserFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+        ->addAsColumn('CanvasserLastName', PersonTableMap::COL_PER_LASTNAME)
+        ->orderByCanvasser()
+        ->orderByName()
+        ->find();
+
+    // OK
+
     $sSQL = 'SELECT *, a.per_FirstName AS CanvasserFirstName, a.per_LastName AS CanvasserLastName FROM family_fam
 	         LEFT JOIN person_per a ON fam_Canvasser = a.per_ID
 			 WHERE fam_OkToCanvass="TRUE" AND fam_Canvasser>0 ORDER BY fam_Canvasser, fam_Name';
@@ -156,42 +181,50 @@ function CanvassBriefingSheets($iFYID)
     $memberCellX = $memberClassX + 20;
     $memberEmailX = $memberCellX + 25;
 
-    while ($aFamily = mysqli_fetch_array($rsFamilies)) {
+    //while ($aFamily = mysqli_fetch_array($rsFamilies)) {
+    foreach ($ormFamilies as $family) {
         $curY = $topY;
 
         $pdf->SetFont('Times', '', 22);
 
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $aFamily['fam_Name']);
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getName());
 
         $pdf->SetFont('Times', '', 16);
-        $pdf->PrintRightJustified($canvasserX, $curY, _('Canvasser').': '.$aFamily['CanvasserFirstName'].' '.$aFamily['CanvasserLastName']);
+        $pdf->PrintRightJustified($canvasserX, $curY, _('Canvasser').': '.$family->getCanvasserFirstName().' '.$family->getCanvasserLastName());
 
         $curY += 8;
 
         $pdf->SetFont('Times', '', 14);
 
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $pdf->MakeSalutation($aFamily['fam_ID']));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $pdf->MakeSalutation($family->getId()));
         $curY += 5;
-        if ($aFamily['fam_Address1'] != '') {
-            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $aFamily['fam_Address1']);
+        if ($family->getAddress1() != '') {
+            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getAddress1());
             $curY += 5;
         }
-        if ($aFamily['fam_Address2'] != '') {
-            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $aFamily['fam_Address2']);
+        if ($family->getAddress2() != '') {
+            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getAddress2());
             $curY += 5;
         }
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $aFamily['fam_City'].', '.$aFamily['fam_State'].'  '.$aFamily['fam_Zip']);
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getCity().', '.$family->getState().'  '.$family->getZip());
         $curY += 5;
-        if ($aFamily['fam_Country'] != '' && $aFamily['fam_Country'] != 'United States' && $aFamily['fam_Country'] != 'USA') {
-            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $aFamily['fam_Country']);
+        if ($family->getCountry() != '' && $family->getCountry() != 'United States' && $family->getCountry() != 'USA') {
+            $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $family->getCountry());
             $curY += 5;
         }
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $pdf->StripPhone($aFamily['fam_HomePhone']));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $pdf->StripPhone($family->getHomePhone()));
         $curY += 5;
 
         // Get pledges for this fiscal year, this family
+        $ormPledges = PledgeQuery::create()
+            ->filterByFyid($iFYID)
+            ->filterByPledgeorpayment("Pledge")
+            ->filterByFamId($family->getId())
+            ->orderByAmount(Criteria::DESC)
+            ->find();
+
         $sSQL = 'SELECT plg_Amount FROM pledge_plg
-				 WHERE plg_FYID = '.$iFYID.' AND plg_PledgeOrPayment="Pledge" AND plg_FamID = '.$aFamily['fam_ID'].' ORDER BY plg_Amount DESC';
+				 WHERE plg_FYID = '.$iFYID.' AND plg_PledgeOrPayment="Pledge" AND plg_FamID = '.$family->getId().' ORDER BY plg_Amount DESC';
         $rsPledges = RunQuery($sSQL);
 
         $pledgeCount = mysqli_num_rows($rsPledges);
@@ -226,7 +259,8 @@ function CanvassBriefingSheets($iFYID)
 				FROM person_per
 				LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
 				LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-				WHERE per_fam_ID = '.$aFamily['fam_ID'].' ORDER BY fmr.lst_OptionSequence';
+				WHERE per_fam_ID = '.$family->getId().' ORDER BY fmr.lst_OptionSequence';
+
         $rsFamilyMembers = RunQuery($sSQL);
 
         $pdf->SetFont('Times', 'B', 10);
