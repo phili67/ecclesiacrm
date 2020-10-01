@@ -17,11 +17,13 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\CanvassUtilities;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\CanvassDataQuery;
 
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -164,11 +166,6 @@ function CanvassBriefingSheets($iFYID)
 
     // OK
 
-    $sSQL = 'SELECT *, a.per_FirstName AS CanvasserFirstName, a.per_LastName AS CanvasserLastName FROM family_fam
-	         LEFT JOIN person_per a ON fam_Canvasser = a.per_ID
-			 WHERE fam_OkToCanvass="TRUE" AND fam_Canvasser>0 ORDER BY fam_Canvasser, fam_Name';
-    $rsFamilies = RunQuery($sSQL);
-
     $topPledgeLevel = TopPledgersLevel($iFYID, 20); // mjw fix this- percentage should be a config option
     $canvasserX = 160;
 
@@ -223,18 +220,12 @@ function CanvassBriefingSheets($iFYID)
             ->orderByAmount(Criteria::DESC)
             ->find();
 
-        $sSQL = 'SELECT plg_Amount FROM pledge_plg
-				 WHERE plg_FYID = '.$iFYID.' AND plg_PledgeOrPayment="Pledge" AND plg_FamID = '.$family->getId().' ORDER BY plg_Amount DESC';
-        $rsPledges = RunQuery($sSQL);
-
-        $pledgeCount = mysqli_num_rows($rsPledges);
-
         $sPledgeStatus = '';
-        if ($pledgeCount == 0) {
+        if ($ormPledges->count() == 0) {
             $sPledgeStatus .= _('Did not pledge');
         } else {
-            $aPledge = mysqli_fetch_array($rsPledges);
-            if ($aPledge['plg_Amount'] >= $topPledgeLevel) {
+            // we get the first pledge : ie the more important
+            if ($ormPledges->toArray()[0]['Amount'] >= $topPledgeLevel) {
                 $sPledgeStatus .= _('Top pledger');
             } else {
                 $sPledgeStatus .= _('Pledged');
@@ -252,16 +243,25 @@ function CanvassBriefingSheets($iFYID)
         $curY += 2 * SystemConfig::getValue('incrementY');
 
         //Get the family members for this family
-        $sSQL = 'SELECT per_ID, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
-				per_BirthMonth, per_BirthDay, per_BirthYear, per_Flags,
-				per_HomePhone, per_WorkPhone, per_CellPhone, per_Email, per_WorkEmail,
-				cls.lst_OptionName AS sClassName, fmr.lst_OptionName AS sFamRole
-				FROM person_per
-				LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-				LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-				WHERE per_fam_ID = '.$family->getId().' ORDER BY fmr.lst_OptionSequence';
-
-        $rsFamilyMembers = RunQuery($sSQL);
+        $ormFamilyMembers = PersonQuery::create()
+            ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
+            ->addMultipleJoin(array(
+                    array(PersonTableMap::COL_PER_CLS_ID, ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_OPTIONID)),
+                    array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
+                )
+                , Criteria::LEFT_JOIN)
+            ->addAsColumn('sClassName', ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONNAME))
+            ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
+            ->addMultipleJoin(array(
+                    array(PersonTableMap::COL_PER_FMR_ID, ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
+                    array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
+                )
+                , Criteria::LEFT_JOIN)
+            ->addAsColumn('OptionSequence', ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONSEQUENCE))
+            ->addAsColumn('sFamRole', ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONNAME))
+            ->filterByFamId($family->getId())
+            ->orderBy('OptionSequence')
+            ->find();
 
         $pdf->SetFont('Times', 'B', 10);
 
@@ -276,38 +276,36 @@ function CanvassBriefingSheets($iFYID)
 
         $pdf->SetFont('Times', '', 10);
 
-        while ($aFamilyMember = mysqli_fetch_array($rsFamilyMembers)) {
-            if ($aFamilyMember['per_Gender'] == 1) {
+        foreach ($ormFamilyMembers as $aFamilyMember) {
+            if ($aFamilyMember->getGender() == 1) {
                 $sGender = 'M';
             } else {
                 $sGender = 'F';
             }
-            $sAge = OutputUtils::FormatAge($aFamilyMember['per_BirthMonth'], $aFamilyMember['per_BirthDay'], $aFamilyMember['per_BirthYear'], $aFamilyMember['per_Flags']);
-            $pdf->WriteAt($memberNameX, $curY, $aFamilyMember['per_FirstName'].' '.$aFamilyMember['per_LastName']);
+            $sAge = OutputUtils::FormatAge($aFamilyMember->getBirthMonth(), $aFamilyMember->getBirthDay(), $aFamilyMember->getBirthYear(), $aFamilyMember->getFlags());
+            $pdf->WriteAt($memberNameX, $curY, $aFamilyMember->getFirstName().' '.$aFamilyMember->getLastName());
             $pdf->WriteAt($memberGenderX, $curY, $sGender);
-            $pdf->WriteAt($memberRoleX, $curY, $aFamilyMember['sFamRole']);
+            $pdf->WriteAt($memberRoleX, $curY, $aFamilyMember->getsFamRole());
             $pdf->WriteAt($memberAgeX, $curY, $sAge);
-            $pdf->WriteAt($memberClassX, $curY, $aFamilyMember['sClassName']);
-            $pdf->WriteAt($memberCellX, $curY, $pdf->StripPhone($aFamilyMember['per_CellPhone']));
-            $pdf->WriteAt($memberEmailX, $curY, $aFamilyMember['per_Email']);
+            $pdf->WriteAt($memberClassX, $curY, $aFamilyMember->getsClassName());
+            $pdf->WriteAt($memberCellX, $curY, $pdf->StripPhone($aFamilyMember->getCellPhone()));
+            $pdf->WriteAt($memberEmailX, $curY, $aFamilyMember->getEmail());
             $curY += SystemConfig::getValue('incrementY');
         }
 
         // Go back around to get group affiliations
-        if (mysqli_num_rows($rsFamilyMembers) > 0) {
-            mysqli_data_seek($rsFamilyMembers, 0);
-            while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
-
+        if ($ormFamilyMembers->count() > 0) {
+            foreach ($ormFamilyMembers as $aMember) {
                 // Get the Groups this Person is assigned to
                 $sSQL = 'SELECT grp_Name, role.lst_OptionName AS roleName
 						FROM group_grp
 						LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
 						LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-						WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$aMember['per_ID'].'
+						WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$aMember->getId().'
 						ORDER BY grp_Name';
                 $rsAssignedGroups = RunQuery($sSQL);
                 if (mysqli_num_rows($rsAssignedGroups) > 0) {
-                    $groupStr = 'Assigned groups for '.$aMember['per_FirstName'].' '.$aMember['per_LastName'].': ';
+                    $groupStr = _('Assigned groups for ').$aMember->getFirstName().' '.$aMember->getLastName().': ';
 
                     $countGroups = 0;
                     while ($aGroup = mysqli_fetch_array($rsAssignedGroups)) {
