@@ -5,7 +5,9 @@
  *  last change : 2013-02-22
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2013 Michael Wilt
-  *
+ *                Copyright 2020 Philippe Logel : propelization
+ *
+ *
  ******************************************************************************/
 
 require '../Include/Config.php';
@@ -20,8 +22,8 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\CanvassDataQuery;
 use EcclesiaCRM\GroupQuery;
-
 use EcclesiaCRM\PledgeQuery;
+
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
@@ -55,7 +57,7 @@ function TopPledgersLevel($iFYID, $iPercent)
     return $res;
 }
 
-function CanvassProgressReport($iFYID)
+function CanvassProgressReport()
 {
     // Instantiate the directory class and build the report.
     $pdf = new PDF_CanvassBriefingReport();
@@ -477,7 +479,7 @@ if ($sWhichReport == 'Briefing') {
 }
 
 if ($sWhichReport == 'Progress') {
-    CanvassProgressReport($iFYID);
+    CanvassProgressReport();
 }
 
 if ($sWhichReport == 'Summary') {
