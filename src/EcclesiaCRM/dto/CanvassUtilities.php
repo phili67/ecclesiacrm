@@ -67,7 +67,7 @@ class CanvassUtilities
         }
     }
 
-    public function CanvassGetCanvassers($groupName)
+    public static function CanvassGetCanvassers($groupName)
     {
         // Find the canvassers group
         $group = GroupQuery::create()->findOneByName($groupName);
