@@ -24,6 +24,8 @@ use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\CanvassData;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -297,19 +299,26 @@ function CanvassBriefingSheets($iFYID)
         if ($ormFamilyMembers->count() > 0) {
             foreach ($ormFamilyMembers as $aMember) {
                 // Get the Groups this Person is assigned to
-                $sSQL = 'SELECT grp_Name, role.lst_OptionName AS roleName
-						FROM group_grp
-						LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-						LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-						WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$aMember->getId().'
-						ORDER BY grp_Name';
-                $rsAssignedGroups = RunQuery($sSQL);
-                if (mysqli_num_rows($rsAssignedGroups) > 0) {
+                $ormAssignedGroups = GroupQuery::create()
+                    ->leftJoinPerson2group2roleP2g2r()
+                    ->withColumn('person2group2role_p2g2r.PersonId', 'memberCount')
+                    ->addAlias('role', ListOptionTableMap::TABLE_NAME)
+                    ->addMultipleJoin(array(
+                            array('person2group2role_p2g2r.RoleId', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONID)),
+                            array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), \EcclesiaCRM\Map\GroupTableMap::COL_GRP_ROLELISTID)
+                        )
+                        , Criteria::LEFT_JOIN)
+                    ->addAsColumn('RoleName', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONNAME))
+                    ->where('person2group2role_p2g2r.PersonId = '.$aMember->getId())
+                    ->orderByName()
+                    ->find();
+
+                if ($ormAssignedGroups->count() > 0) {
                     $groupStr = _('Assigned groups for ').$aMember->getFirstName().' '.$aMember->getLastName().': ';
 
                     $countGroups = 0;
-                    while ($aGroup = mysqli_fetch_array($rsAssignedGroups)) {
-                        $groupStr .= $aGroup['grp_Name'].' ('.$aGroup['roleName'].') ';
+                    foreach ($ormAssignedGroups as $aGroup) {
+                        $groupStr .= $aGroup->getName().' ('.$aGroup->getRoleName().') ';
                         if ($countGroups == 0) {
                             $curY += SystemConfig::getValue('incrementY');
                         }
@@ -322,6 +331,7 @@ function CanvassBriefingSheets($iFYID)
                     }
                     $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
                 }
+
             }
         }
         $curY += 2 * SystemConfig::getValue('incrementY');
@@ -370,8 +380,8 @@ function CanvassSummaryReport($iFYID)
 
     $pdf->Write(5, "\n\n");
 
-    $sSQL = 'SELECT * FROM canvassdata_can WHERE can_FYID='.$iFYID;
-    $rsCanvassData = RunQuery($sSQL);
+    $ormCanvassDatas = CanvassDataQuery::create()
+        ->findByFyid($iFYID);
 
     foreach ([_('Positive'), _('Critical'), _('Insightful'), _('Financial'), _('Suggestion'), _('WhyNotInterested')] as $colName) {
         $pdf->SetFont('Times', 'B', 14);
@@ -379,15 +389,35 @@ function CanvassSummaryReport($iFYID)
         $pdf->Write(5, OutputUtils::translate_text_fpdf($colName).' '._('Comments')."\n");
         //		$pdf->WriteAt (SystemConfig::getValue("leftX"), $curY, $colName . " Comments");
         $pdf->SetFont('Times', '', 12);
-        while ($aDatum = mysqli_fetch_array($rsCanvassData)) {
-            $str = $aDatum['can_'.$colName];
+        foreach ($ormCanvassDatas as $aDatum) {
+            $str = '';
+            switch ($colName) {
+                case _('Positive'):
+                    $str = $aDatum->getPositive();
+                    break;
+                case _('Critical'):
+                    $str = $aDatum->getCritical();
+                    break;
+                case _('Insightful'):
+                    $str = $aDatum->getInsightful();
+                    break;
+                case _('Financial'):
+                    $str = $aDatum->getFinancial();
+                    break;
+                case _('Suggestion'):
+                    $str = $aDatum->getSuggestion();
+                    break;
+                case _('WhyNotInterested'):
+                    $str = $aDatum->getWhyNotInterested();
+                    break;
+            }
+
             if ($str != '') {
                 $pdf->Write(4, OutputUtils::translate_text_fpdf($str)."\n\n");
                 //				$pdf->WriteAt (SystemConfig::getValue("leftX"), $curY, $str);
 //				$curY += SystemConfig::getValue("incrementY");
             }
         }
-        mysqli_data_seek($rsCanvassData, 0);
     }
 
     $pdf->Output('CanvassSummary'.date(SystemConfig::getValue("sDateFormatLong")).'.pdf', 'D');
@@ -423,12 +453,16 @@ function CanvassNotInterestedReport($iFYID)
 
     $pdf->Write(5, "\n\n");
 
-    $sSQL = 'SELECT *,a.fam_Name FROM canvassdata_can LEFT JOIN family_fam a ON fam_ID=can_famID WHERE can_FYID='.$iFYID.' AND can_NotInterested=1';
-    $rsCanvassData = RunQuery($sSQL);
+    $ormCanvasDatas = CanvassDataQuery::create()
+        ->addJoin(\EcclesiaCRM\Map\CanvassDataTableMap::COL_CAN_FAMID, FamilyTableMap::COL_FAM_ID, Criteria::LEFT_JOIN)
+        ->addAsColumn('FamName', FamilyTableMap::COL_FAM_NAME)
+        ->filterByFyid($iFYID)
+        ->filterByNotInterested(1)
+        ->find();
 
     $pdf->SetFont('Times', '', 12);
-    while ($aDatum = mysqli_fetch_array($rsCanvassData)) {
-        $str = sprintf("%s : %s\n", $aDatum['fam_Name'], $aDatum['can_WhyNotInterested']);
+    foreach ($ormCanvasDatas as $aDatum) {
+        $str = sprintf("%s : %s\n", $aDatum->getFamName(), $aDatum->getWhyNotInterested());
         $pdf->Write(4, OutputUtils::translate_text_fpdf($str)."\n\n");
     }
 
