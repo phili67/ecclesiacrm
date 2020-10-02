@@ -19,13 +19,15 @@ use EcclesiaCRM\dto\CanvassUtilities;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\CanvassDataQuery;
+use EcclesiaCRM\GroupQuery;
 
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\CanvassData;
+use EcclesiaCRM\Map\CanvassDataTableMap;
+use EcclesiaCRM\Map\GroupTableMap;
+
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -305,7 +307,7 @@ function CanvassBriefingSheets($iFYID)
                     ->addAlias('role', ListOptionTableMap::TABLE_NAME)
                     ->addMultipleJoin(array(
                             array('person2group2role_p2g2r.RoleId', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONID)),
-                            array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), \EcclesiaCRM\Map\GroupTableMap::COL_GRP_ROLELISTID)
+                            array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), GroupTableMap::COL_GRP_ROLELISTID)
                         )
                         , Criteria::LEFT_JOIN)
                     ->addAsColumn('RoleName', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONNAME))
@@ -454,7 +456,7 @@ function CanvassNotInterestedReport($iFYID)
     $pdf->Write(5, "\n\n");
 
     $ormCanvasDatas = CanvassDataQuery::create()
-        ->addJoin(\EcclesiaCRM\Map\CanvassDataTableMap::COL_CAN_FAMID, FamilyTableMap::COL_FAM_ID, Criteria::LEFT_JOIN)
+        ->addJoin(CanvassDataTableMap::COL_CAN_FAMID, FamilyTableMap::COL_FAM_ID, Criteria::LEFT_JOIN)
         ->addAsColumn('FamName', FamilyTableMap::COL_FAM_NAME)
         ->filterByFyid($iFYID)
         ->filterByNotInterested(1)
