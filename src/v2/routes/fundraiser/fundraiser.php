@@ -8,12 +8,16 @@ use EcclesiaCRM\dto\SystemURLs;
 
 
 use EcclesiaCRM\PersonQuery;
-use Propel\Runtime\Propel;
+use EcclesiaCRM\DonatedItemQuery;
+
 use EcclesiaCRM\FundRaiserQuery;
 use EcclesiaCRM\PaddleNumQuery;
 use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\DonatedItemTableMap;
+
 
 use Slim\Views\PhpRenderer;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 $app->group('/fundraiser', function () {
     $this->get('/donatedItemEditor/{donatedItemID:[0-9]+}/{CurrentFundraiser:[0-9]+}', 'renderDonatedItemEditor');
@@ -93,56 +97,53 @@ function argumentsDonatedItemEditorArray($iDonatedItemID, $iCurrentFundraiser)
         extract(mysqli_fetch_array($rsDeposit));*/
     }
 
+    //Adding....
+    //Set defaults
+    $sItem = '';
+    $bMultibuy = 0;
+    $iDonor = 0;
+    $iBuyer = 0;
+    $sTitle = '';
+    $sDescription = '';
+    $nSellPrice = 0.0;
+    $nEstPrice = 0.0;
+    $nMaterialValue = 0.0;
+    $nMinimumPrice = 0.0;
+    $sPictureURL = '';
+
     if (strlen($iDonatedItemID) > 0) {
         //Editing....
         //Get all the data on this record
 
-        $sSQL = "SELECT di_ID, di_Item, di_multibuy, di_donor_ID, di_buyer_ID,
-                       a.per_FirstName as donorFirstName, a.per_LastName as donorLastName,
-                       b.per_FirstName as buyerFirstName, b.per_LastName as buyerLastName,
-                       di_title, di_description, di_sellprice, di_estprice, di_materialvalue,
-                       di_minimum, di_picture
-         FROM donateditem_di
-         LEFT JOIN person_per a ON di_donor_ID=a.per_ID
-         LEFT JOIN person_per b ON di_buyer_ID=b.per_ID
-         WHERE di_ID = '" . $iDonatedItemID . "'";
+        $ormDonatedItem = DonatedItemQuery::create()
+            ->addAlias('a', PersonTableMap::TABLE_NAME)
+            ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID, PersonTableMap::alias('a', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
+            ->addAlias('b', PersonTableMap::TABLE_NAME)
+            ->addJoin(DonatedItemTableMap::COL_DI_BUYER_ID, PersonTableMap::alias('b', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
+            ->addAsColumn('DonorFirstName', PersonTableMap::alias('a', PersonTableMap::COL_PER_FIRSTNAME))
+            ->addAsColumn('DonorLastName', PersonTableMap::alias('a', PersonTableMap::COL_PER_LASTNAME))
+            ->addAsColumn('BuyerFirstName', PersonTableMap::alias('b', PersonTableMap::COL_PER_FIRSTNAME))
+            ->addAsColumn('BuyerLastName', PersonTableMap::alias('b', PersonTableMap::COL_PER_LASTNAME))
+            ->findOneById($iDonatedItemID);
 
-        $connection = Propel::getConnection();
+        if ( !is_null ($ormDonatedItem) ) {
 
-        $pdoDonatedItem = $connection->prepare($sSQL);
-        $pdoDonatedItem->execute();
-
-        $res = $pdoDonatedItem->fetch(PDO::FETCH_ASSOC);
-
-        $sItem = $res['di_Item'];
-        $bMultibuy = $res['di_multibuy'];
-        $iDonor = $res['di_donor_ID'];
-        $iBuyer = $res['di_buyer_ID'];
-        //$sFirstName = $res['donorFirstName'];
-        //$sLastName = $res['donorLastName'];
-        //$sBuyerFirstName = $res['buyerFirstName'];
-        //$sBuyerLastName = $res['buyerLastName'];
-        $sTitle = $res['di_title'];
-        $sDescription = $res['di_description'];
-        $nSellPrice = $res['di_sellprice'];
-        $nEstPrice = $res['di_estprice'];
-        $nMaterialValue = $res['di_materialvalue'];
-        $nMinimumPrice = $res['di_minimum'];
-        $sPictureURL = $res['di_picture'];
-    } else {
-        //Adding....
-        //Set defaults
-        $sItem = '';
-        $bMultibuy = 0;
-        $iDonor = 0;
-        $iBuyer = 0;
-        $sTitle = '';
-        $sDescription = '';
-        $nSellPrice = 0.0;
-        $nEstPrice = 0.0;
-        $nMaterialValue = 0.0;
-        $nMinimumPrice = 0.0;
-        $sPictureURL = '';
+            $sItem = $ormDonatedItem->getItem();
+            $bMultibuy = $ormDonatedItem->getMultibuy();
+            $iDonor = $ormDonatedItem->getDonorId();
+            $iBuyer = $ormDonatedItem->getBuyerId();
+            //$sFirstName = $ormDonatedItem->getDonorFirstName();
+            //$sLastName = $ormDonatedItem->getDonorLastName();
+            //$sBuyerFirstName = $ormDonatedItem->getBuyerFirstName();
+            //$sBuyerLastName = $ormDonatedItem->getBuyerLastName();
+            $sTitle = $ormDonatedItem->getTitle();
+            $sDescription = $ormDonatedItem->getDescription();
+            $nSellPrice = $ormDonatedItem->getSellprice();
+            $nEstPrice = $ormDonatedItem->getEstprice();
+            $nMaterialValue = $ormDonatedItem->getMaterialValue();
+            $nMinimumPrice = $ormDonatedItem->getMinimum();
+            $sPictureURL = $ormDonatedItem->getPicture();
+        }
     }
 
 
@@ -162,6 +163,10 @@ function argumentsDonatedItemEditorArray($iDonatedItemID, $iCurrentFundraiser)
         ->findByFrId($iCurrentFundraiser);
 
     $sPageTitle = _("Donated Item Editor");
+
+    if ($sPictureURL[0] == "'") {
+        $sPictureURL = substr($sPictureURL,1,-1);
+    }
 
     $paramsArguments = ['sRootPath' => SystemURLs::getRootPath(),
         'sRootDocument' => SystemURLs::getDocumentRoot(),
