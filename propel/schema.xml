@@ -1080,6 +1080,7 @@
         <column name="valid_until_date" phpName="ValidUntilDate" type="DATE"/>
         <column name="reference_id" phpName="ReferenceId" type="INTEGER" defaultValue=""/>
         <column name="remainingUses" phpName="RemainingUses" type="INTEGER" defaultValue="0"/>
+        <column name="Comment" phpName="Comment" type="LONGVARCHAR"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
