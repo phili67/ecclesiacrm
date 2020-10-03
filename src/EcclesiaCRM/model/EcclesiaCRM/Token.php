@@ -14,7 +14,7 @@ use EcclesiaCRM\Base\Token as BaseToken;
  * long as it does not already exist in the output directory.
  *
  */
- 
+
 use EcclesiaCRM\Utils\MiscUtils;
 
 class Token extends BaseToken
@@ -24,7 +24,7 @@ class Token extends BaseToken
     const typePassword     = "password";
     const typeSecret       = "secret";
 
-    public function build($type, $referenceId)
+    public function build($type, $referenceId, $path=NULL)
     {
         $this->setReferenceId($referenceId);
         $this->setToken(uniqid());
@@ -37,10 +37,15 @@ class Token extends BaseToken
                 $this->setValidUntilDate(strtotime("+1 day"));
                 $this->setRemainingUses(1);
                 break;
+            case "filemanager":
+                $this->setValidUntilDate(strtotime("+1 day"));
+                $this->setRemainingUses(1);
+                $this->setComment($path);
+                break;
         }
         $this->setType($type);
     }
-    
+
     public function buildSecret()
     {
         $this->setReferenceId(-1);
@@ -49,7 +54,7 @@ class Token extends BaseToken
         $this->setRemainingUses(5);
         $this->setType("secret");
     }
-    
+
     public function isVerifyFamilyToken()
     {
         return self::typeFamilyVerify === $this->getType();
