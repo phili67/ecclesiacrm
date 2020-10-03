@@ -17,6 +17,9 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Map\DonatedItemTableMap;
 use EcclesiaCRM\Map\PaddleNumTableMap;
 
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Token;
+
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\InputUtils;
@@ -57,17 +60,23 @@ $app->group('/fundraiser', function () {
 });
 
 
-
-
 function donatedItemCurrentPicture (Request $request, Response $response, array $args)
 {
     $input = (object)$request->getParsedBody();
 
     if ( isset($input->DonatedItemID) ) {
-        $donItem = DonatedItemQuery::create()
-            ->findOneById($input->DonatedItemID);
-
-        return $response->withJSON(['status' => "success", "picture" => $donItem->getPicture($input->pathFile)]);
+        if ($input->DonatedItemID == -1) {
+            $token = TokenQuery::create()->filterByReferenceId(-2)->findOne();
+            $path = $token->getComment();
+            $token->delete();
+            /*$path[0] = "'";
+            $path = substr($path,1,-1);*/
+            return $response->withJSON(['status' => "success", "picture" => $path]);
+        } else {
+            $donItem = DonatedItemQuery::create()
+                ->findOneById($input->DonatedItemID);
+            return $response->withJSON(['status' => "success", "picture" => $donItem->getPicture()]);
+        }
     }
 
     return $response->withJSON(['status' => "failed"]);
@@ -80,12 +89,20 @@ function donatedItemSubmitPicture (Request $request, Response $response, array $
     $input = (object)$request->getParsedBody();
 
     if ( isset($input->DonatedItemID) && isset($input->pathFile) ) {
-        $donItem = DonatedItemQuery::create()
-            ->findOneById($input->DonatedItemID);
+        if ($input->DonatedItemID > 0) {
+            $donItem = DonatedItemQuery::create()
+                ->findOneById($input->DonatedItemID);
 
-        $donItem->setPicture($input->pathFile);
+            $donItem->setPicture($input->pathFile);
 
-        $donItem->save();
+            $donItem->save();
+        } else {
+            TokenQuery::create()->filterByReferenceId(-2)->delete();
+            $token = new Token();
+            $token->build("filemanager", -2, $input->pathFile);
+            $token->save();
+            //
+        }
 
         return $response->withJSON(['status' => "success"]);
     }
