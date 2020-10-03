@@ -1568,10 +1568,11 @@ CREATE TABLE `kioskassginment_kasm` (
 
 CREATE TABLE `tokens` (
   `token` VARCHAR(99) NOT NULL,
-  `type` VARCHAR(50) NOT NULL,
+  `type` VARCHAR(255) NOT NULL,
   `reference_id` INT(9) NOT NULL,
   `valid_until_date` datetime NULL,
   `remainingUses` INT(2) NULL,
+  `Comment` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`token`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 

@@ -161,3 +161,7 @@ ALTER TABLE `donateditem_di`
        FOREIGN KEY (di_buyer_ID)
        REFERENCES person_per(per_ID)
        ON DELETE SET NULL;
+
+
+-- RC5
+ALTER TABLE `tokens` ADD `Comment` TEXT NULL DEFAULT NULL AFTER `remainingUses`;

@@ -12,39 +12,49 @@ require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_CertificatesReport;
+use EcclesiaCRM\DonatedItemQuery;
+use EcclesiaCRM\FundRaiserQuery;
+
+use EcclesiaCRM\Map\DonatedItemTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+
+use EcclesiaCRM\Utils\OutputUtils;
+
+
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 $curY = 0;
 
 // Get the information about this fundraiser
-$sSQL = 'SELECT * FROM fundraiser_fr WHERE fr_ID='.$iCurrentFundraiser;
-$rsFR = RunQuery($sSQL);
-$thisFR = mysqli_fetch_array($rsFR);
-extract($thisFR);
+$thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
 
 // Get all the donated items
-$sSQL = 'SELECT * FROM donateditem_di LEFT JOIN person_per on per_ID=di_donor_ID WHERE di_FR_ID='.$iCurrentFundraiser.' ORDER BY di_item';
-$rsItems = RunQuery($sSQL);
+$ormItems = DonatedItemQuery::create()
+        ->addJoin(DonatedItemTableMap::COL_DI_DONOR_ID, PersonTableMap::COL_PER_ID, Criteria::LEFT_JOIN)
+        ->addAsColumn('FirstName', PersonTableMap::COL_PER_FIRSTNAME)
+        ->addAsColumn('LastName', PersonTableMap::COL_PER_LASTNAME)
+        ->orderByItem()
+        ->findByFrId($iCurrentFundraiser);
 
 $pdf = new PDF_CertificatesReport();
-$pdf->SetTitle($fr_title);
+$pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
 
-// Loop through items
-while ($oneItem = mysqli_fetch_array($rsItems)) {
-    extract($oneItem);
+$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
 
+foreach ($ormItems as $item) {
     $pdf->AddPage();
 
     $pdf->SetFont('Times', 'B', 24);
-    $pdf->Write(8, $di_item.":\t");
-    $pdf->Write(8, stripslashes($di_title)."\n\n");
+    $pdf->Write(8, OutputUtils::translate_text_fpdf($item->getItem()).":\t");
+    $pdf->Write(8, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n\n");
     $pdf->SetFont('Times', '', 16);
-    $pdf->Write(8, stripslashes($di_description)."\n");
-    if ($di_estprice > 0) {
-        $pdf->Write(8, _('Estimated value ').'$'.$di_estprice.'.  ');
+    $pdf->Write(8, OutputUtils::translate_text_fpdf(stripslashes($item->getDescription()))."\n");
+    if ($item->getEstprice() > 0) {
+        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Estimated value ')).$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
     }
-    if ($per_LastName != '') {
-        $pdf->Write(8, _('Donated by ').$per_FirstName.' '.$per_LastName.".\n\n");
+    if ($item->getLastName() != '') {
+        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Donated by ').$item->getFirstName().' '.$item->getLastName()).".\n\n");
     }
 }
 

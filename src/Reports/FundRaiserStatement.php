@@ -163,7 +163,7 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
         $ormPurchasedItems->execute();
 
         $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
-        $pdf->SetFont(_('Times'), 'B', 10);
+        $pdf->SetFont('Times', 'B', 10);
         $pdf->Cell($ItemWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Item')));
         $pdf->Cell($QtyWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Qty')));
         $pdf->Cell($TitleWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Name')));
