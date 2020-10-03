@@ -20,6 +20,7 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Base\PersonCustomQuery;
 
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
@@ -98,8 +99,10 @@ $numCustomFields = $ormCustomFields->count();
 $sCustomFieldName = [];
 
 if ( $ormCustomFields->count() > 0) {
+    $iFieldNum = 0;
     foreach ($ormCustomFields as $customField) {
-        $sCustomFieldName[] = $customField->getCustomName();
+        $sCustomFieldName[$iFieldNum] = $customField->getCustomName();
+        $iFieldNum+=1;
     }
 }
 
@@ -283,11 +286,21 @@ foreach ($ormFamilies as $family) {
 
         $xSize = 40;
         if ($numCustomFields > 0) {
+            // Get the custom field data for this person.
+            $rawQry = PersonCustomQuery::create();
+            foreach ($ormCustomFields as $customfield) {
+                $rawQry->withColumn($customfield->getCustomField());
+            }
+
+            if (!is_null($rawQry->findOneByPerId($iPersonID))) {
+                $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+            }
+
             $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$fMember->getId();
             $rsCustomData = RunQuery($sSQL);
             $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
+            //print_r($aCustomData['c1']);
             $numCustomData = mysqli_num_rows($rsCustomData);
-            mysqli_data_seek($rsCustomFields, 0);
             $OutStr = '';
             $xInc = $XName;    // Set the starting column for Custom fields
             // Here is where we determine if space is available on the current page to
@@ -297,12 +310,19 @@ foreach ($ormFamilies as $family) {
             // Leaving 12 mm for a bottom margin yields 183 mm.
             $numWide = 0;    // starting value for columns
             foreach ($ormCustomFields as $custField) {
-                if ($sCustomFieldName[$customField->getCustomOrder() - 1]) {
-                    $currentFieldData = trim($aCustomData[$customField->getCustomField()]);
-                    $currentFieldData = OutputUtils::displayCustomField($type_ID, trim($aCustomData[$customField->getCustomField()]), $customField->getCustomSpecial(), false);
+                //echo $custField;
+                //if ($sCustomFieldName[$customField->getCustomOrder() - 1]) {
+                    //echo $custField->getCustomField();
 
-                    $OutStr = $sCustomFieldName[$customField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
-                    $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$customField->getCustomOrder() - 1]);
+                    $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
+                    //echo $currentFieldData;
+
+                    $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
+
+                    //echo "Field : ".$custField->getTypeId()." ".$aCustomData['"'.$custField->getCustomField()."'"]." ".$custField->getCustomField()."<br>";
+
+                    $OutStr = $sCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
+                    $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custField->getCustomOrder() - 1]);
                     if ($currentFieldData == '') {
                         $pdf->SetFont('Times', 'B', 6);
                         $pdf->WriteAtCell($xInc + $xSize, $curY, $xSize, '');
@@ -316,7 +336,7 @@ foreach ($ormFamilies as $family) {
                         $xInc = $XName;    // Reset margin
                         $curY += SystemConfig::getValue('incrementY');
                     }
-                }
+                //}
             }
             //$pdf->WriteAt($XName,$curY,$OutStr);
             //$curY += (2 * SystemConfig::getValue("incrementY"));
