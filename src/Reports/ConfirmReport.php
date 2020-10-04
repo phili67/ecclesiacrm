@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : Reports/ConfirmReport.php
-*  last change : 2020-10-04
+*  last change : 2020-10-04 Philippe Logel
 *  description : Creates a PDF with all the confirmation letters asking member
 *                families to verify the information in the database.
 
