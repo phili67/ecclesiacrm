@@ -20,6 +20,8 @@ $(document).ready(function () {
                 $("#PictureURL").val(data.picture);
                 window.CRM.currentPicture = data.picture;
                 //location.reload();
+            } else {
+                $("#image").attr("src",window.CRM.currentPicture);
             }
         });
     });

@@ -52,6 +52,17 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
+                title: i18next.t('Preview'),
+                data: 'di_picture',
+                render: function (data, type, full, meta) {
+                    if (data.length > 4)
+                        return '<img src="' + data +'" width="80">';
+                    else
+                        return '';
+                }
+            },
+            {
+                width: 'auto',
                 title: i18next.t('Multiple'),
                 data: 'di_multibuy',
                 render: function (data, type, full, meta) {

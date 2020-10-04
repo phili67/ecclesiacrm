@@ -145,11 +145,7 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                         </div>
                     </div>
-
-                    <?php if ($sPictureURL != ''): ?>
-                        <div class="form-group"><img src="<?= htmlentities($sPictureURL) ?>" width="100%" id="image"/></div>
-                    <?php endif; ?>
-
+                    <div class="form-group"><img src="<?= (($sPictureURL != '')?htmlentities($sPictureURL):'') ?>" width="100%" id="image"/></div>
                 </div>
 
             </div> <!-- row -->

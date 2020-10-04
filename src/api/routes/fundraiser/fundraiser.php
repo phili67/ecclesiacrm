@@ -67,11 +67,13 @@ function donatedItemCurrentPicture (Request $request, Response $response, array 
     if ( isset($input->DonatedItemID) ) {
         if ($input->DonatedItemID == -1) {
             $token = TokenQuery::create()->filterByReferenceId(-2)->findOne();
-            $path = $token->getComment();
-            $token->delete();
-            /*$path[0] = "'";
-            $path = substr($path,1,-1);*/
-            return $response->withJSON(['status' => "success", "picture" => $path]);
+            if ( !is_null($token) ) {
+                $path = $token->getComment();
+                $token->delete();
+                /*$path[0] = "'";
+                $path = substr($path,1,-1);*/
+                return $response->withJSON(['status' => "success", "picture" => $path]);
+            }
         } else {
             $donItem = DonatedItemQuery::create()
                 ->findOneById($input->DonatedItemID);
@@ -265,7 +267,7 @@ function getAllFundraiserForID(Request $request, Response $response, array $args
     $sSQL = "SELECT di_ID, di_Item, di_multibuy,
 	                a.per_FirstName as donorFirstName, a.per_LastName as donorLastName,
 	                b.per_FirstName as buyerFirstName, b.per_LastName as buyerLastName,
-	                di_title, di_sellprice, di_estprice, di_materialvalue, di_minimum
+	                di_title, di_sellprice, di_estprice, di_materialvalue, di_minimum, di_picture
 	         FROM donateditem_di
 	         LEFT JOIN person_per a ON di_donor_ID=a.per_ID
 	         LEFT JOIN person_per b ON di_buyer_ID=b.per_ID
