@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : Reports/ConfirmReport.php
-*  last change : 2003-08-30
+*  last change : 2020-10-04
 *  description : Creates a PDF with all the confirmation letters asking member
 *                families to verify the information in the database.
 
@@ -21,9 +21,11 @@ use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Base\PersonCustomQuery;
+use EcclesiaCRM\GroupQuery;
 
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\Map\GroupTableMap;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -296,11 +298,7 @@ foreach ($ormFamilies as $family) {
                 $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
             }
 
-            $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$fMember->getId();
-            $rsCustomData = RunQuery($sSQL);
-            $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
-            //print_r($aCustomData['c1']);
-            $numCustomData = mysqli_num_rows($rsCustomData);
+            //$numCustomData = $aCustomData);
             $OutStr = '';
             $xInc = $XName;    // Set the starting column for Custom fields
             // Here is where we determine if space is available on the current page to
@@ -310,16 +308,10 @@ foreach ($ormFamilies as $family) {
             // Leaving 12 mm for a bottom margin yields 183 mm.
             $numWide = 0;    // starting value for columns
             foreach ($ormCustomFields as $custField) {
-                //echo $custField;
-                //if ($sCustomFieldName[$customField->getCustomOrder() - 1]) {
-                    //echo $custField->getCustomField();
-
+                if ($sCustomFieldName[$customField->getCustomOrder() - 1]) {
                     $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
-                    //echo $currentFieldData;
 
                     $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
-
-                    //echo "Field : ".$custField->getTypeId()." ".$aCustomData['"'.$custField->getCustomField()."'"]." ".$custField->getCustomField()."<br>";
 
                     $OutStr = $sCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
                     $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custField->getCustomOrder() - 1]);
@@ -336,7 +328,7 @@ foreach ($ormFamilies as $family) {
                         $xInc = $XName;    // Reset margin
                         $curY += SystemConfig::getValue('incrementY');
                     }
-                //}
+                }
             }
             //$pdf->WriteAt($XName,$curY,$OutStr);
             //$curY += (2 * SystemConfig::getValue("incrementY"));
@@ -350,30 +342,39 @@ foreach ($ormFamilies as $family) {
     if (($curY + 2 * $numFamilyMembers * SystemConfig::getValue('incrementY')) >= 260) {
         $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry());
     }
-    $sSQL = 'SELECT * FROM person_per WHERE per_fam_ID = '.$family->getId().' ORDER BY per_fmr_ID';
-    $rsFamilyMembers = RunQuery($sSQL);
-    while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
-        extract($aMember);
 
+    $ormFamilyMembers = PersonQuery::create()
+        ->filterByFamId($family->getId())
+        ->orderByFmrId()
+        ->find();
+
+    foreach ($ormFamilyMembers as $aMember) {
         // Get the Groups this Person is assigned to
-        $sSQL = 'SELECT grp_ID, grp_Name, grp_hasSpecialProps, role.lst_OptionName AS roleName
-        FROM group_grp
-        LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-        LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-        WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$per_ID.'
-        ORDER BY grp_Name';
-        $rsAssignedGroups = RunQuery($sSQL);
-        if (mysqli_num_rows($rsAssignedGroups) > 0) {
-            $groupStr = _("Assigned groups for")." ".$per_FirstName.' '.$per_LastName.': ';
+        $ormAssignedGroups = GroupQuery::create()
+            ->leftJoinPerson2group2roleP2g2r()
+            ->withColumn('person2group2role_p2g2r.PersonId', 'memberCount')
+            ->addAlias('role', ListOptionTableMap::TABLE_NAME)
+            ->addMultipleJoin(array(
+                    array('person2group2role_p2g2r.RoleId', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONID)),
+                    array(ListOptionTableMap::Alias("role",ListOptionTableMap::COL_LST_ID), GroupTableMap::COL_GRP_ROLELISTID)
+                )
+                , Criteria::LEFT_JOIN)
+            ->addAsColumn('RoleName', ListOptionTableMap::alias('role', ListOptionTableMap::COL_LST_OPTIONNAME))
+            ->where('person2group2role_p2g2r.PersonId = '.$aMember->getId())
+            ->orderByName()
+            ->find();
 
-            while ($aGroup = mysqli_fetch_array($rsAssignedGroups)) {
-                extract($aGroup);
-                $groupStr .= $grp_Name.' ('._($roleName).') ';
+
+        if ($ormAssignedGroups->count() > 0) {
+            $groupStr = _("Assigned groups for")." ".$aMember->getFirstName().' '.$aMember->getLastName().': ';
+
+            foreach ($ormAssignedGroups as $group) {
+                $groupStr .= $group->getName().' ('._($group->getRoleName()).') ';
             }
-
             $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
             $curY += 2 * SystemConfig::getValue('incrementY');
         }
+
     }
 
     if ($curY > 183) {    // This insures the trailer information fits continuously on the page (3 inches of "footer"
