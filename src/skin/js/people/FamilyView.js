@@ -338,7 +338,7 @@ $(document).ready(function () {
 
 
   $("#verifyDownloadPDF").click(function () {
-    window.open(window.CRM.root + '/Reports/ConfirmReport.php?familyId=' + window.CRM.currentFamily, '_blank');
+    location.href = window.CRM.root + '/Reports/ConfirmReport.php?familyId=' + window.CRM.currentFamily;
     $('#confirm-verify').modal('hide');
   });
 
