@@ -1076,7 +1076,7 @@ require 'Include/Header.php';
 
 <div class="modal fade" id="confirm-verify" tabindex="-1" role="dialog" aria-labelledby="confirm-verify-label"
      aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="confirm-verify-label"><?= _("Request Family Info Verification") ?></h4>
