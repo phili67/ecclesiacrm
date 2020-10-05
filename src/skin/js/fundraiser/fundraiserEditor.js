@@ -74,7 +74,13 @@ $(document).ready(function () {
                 title: i18next.t('Donor'),
                 data: 'donorFirstName',
                 render: function (data, type, full, meta) {
-                    return data + ' ' + full.donorLastName;
+                    res = '';
+                    if (data != null)
+                        res += data;
+                    if (full.donorLastName != null)
+                        res += ' ' + full.donorLastName;
+
+                    return res;
                 }
             },
             {
