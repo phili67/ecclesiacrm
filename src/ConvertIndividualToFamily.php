@@ -10,13 +10,13 @@
 *
 *  By default this script does one at a time.  To do all entries
 *  at once use this URL
-*    http://www.mydomain.com/ecclesiacrm/ConvertIndividualToFamily.php?all=true
+*    http://www.mydomain.com/ConvertIndividualToFamily.php?all=true
 *
 *  Your URL may vary.  Replace "ecclesiacrm" with $sRootPath
 *
 *  Contributors:
 *  2007 Ed Davis
-
+*  2020 Philippe Logel Propeled
 ******************************************************************************/
 
 //Include the function library
@@ -25,6 +25,13 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+
+use EcclesiaCRM\Family;
+
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
+
+use EcclesiaCRM\Map\FamilyTableMap;
 
 // Security
 if (!SessionUser::getUser()->isAdmin()) {
@@ -44,60 +51,53 @@ require 'Include/Header.php';
 $iUserID = SessionUser::getUser()->getPersonId();
 
 // find the family ID so we can associate to person record
-$sSQL = 'SELECT MAX(fam_ID) AS iFamilyID FROM family_fam';
-$rsLastEntry = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsLastEntry));
+$lastEntry = FamilyQuery::create()
+    ->addAsColumn('iFamilyID', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
+    ->findOne();
+
+$iFamilyID = $lastEntry->getiFamilyID();
+
+
+echo $iFamilyID;
+
 
 // Get list of people that are not assigned to a family
-$sSQL = "SELECT * FROM person_per WHERE per_fam_ID='0' ORDER BY per_LastName, per_FirstName";
-$rsList = RunQuery($sSQL);
-while ($aRow = mysqli_fetch_array($rsList)) {
-    extract($aRow);
+$ormList = PersonQuery::create()
+    ->filterByFamId(0)
+    ->orderByLastName()
+    ->orderByFirstName()
+    ->find();
+
+foreach ($ormList as $per) {
+
+    if ($per->getId() == 1) continue; // in the case of the super Admin continue
 
     echo '<br><br><br>';
     echo '*****************************************';
 
-    $per_LastName = mysqli_real_escape_string($cnInfoCentral, $per_LastName);
-    $per_Address1 = mysqli_real_escape_string($cnInfoCentral, $per_Address1);
-    $per_Address2 = mysqli_real_escape_string($cnInfoCentral, $per_Address2);
-    $per_City = mysqli_real_escape_string($cnInfoCentral, $per_City);
-    $per_State = mysqli_real_escape_string($cnInfoCentral, $per_State);
-    $per_Zip = mysqli_real_escape_string($cnInfoCentral, $per_Zip);
-    $per_Country = mysqli_real_escape_string($cnInfoCentral, $per_Country);
-    $per_HomePhone = mysqli_real_escape_string($cnInfoCentral, $per_HomePhone);
+    $fam = new Family();
 
-    $sSQL = "INSERT INTO family_fam (
-                fam_Name,
-                fam_Address1,
-                fam_Address2,
-                fam_City,
-                fam_State,
-                fam_Zip,
-                fam_Country,
-                fam_HomePhone,
-                fam_DateEntered,
-                fam_EnteredBy)
-            VALUES ('".
-                $per_LastName."','".
-                $per_Address1."','".
-                $per_Address2."','".
-                $per_City."','".
-                $per_State."','".
-                $per_Zip."','".
-                $per_Country."','".
-                $per_HomePhone."',".
-                'NOW()'.",'".
-                $iUserID."')";
+    $fam->setName($per->getLastName());
+    $fam->setAddress1($per->getAddress1());
+    $fam->setAddress2($per->getAddress2());
+    $fam->setCity($per->getCity());
+    $fam->setState($per->getState());
+    $fam->setZip($per->getZip());
+    $fam->setCountry($per->getCountry());
+    $fam->setHomePhone($per->getHomePhone());
+    $fam->setDateEntered(new DateTime());
+    $fam->setEnteredBy($iUserID);
 
-    echo '<br>'.$sSQL;
-    // RunQuery to add family record
-    RunQuery($sSQL);
+    $fam->save();
+
     $iFamilyID++; // increment family ID
 
     //Get the key back
-    $sSQL = 'SELECT MAX(fam_ID) AS iNewFamilyID FROM family_fam';
-    $rsLastEntry = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsLastEntry));
+    $lastEntry = FamilyQuery::create()
+        ->addAsColumn('iNewFamilyID', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
+        ->findOne();
+
+    $iNewFamilyID = $lastEntry->getiNewFamilyID();
 
     if ($iNewFamilyID != $iFamilyID) {
         echo '<br><br>Error with family ID';
@@ -108,25 +108,16 @@ while ($aRow = mysqli_fetch_array($rsList)) {
     echo '<br><br>';
 
     // Now update person record
-    $sSQL = 'UPDATE person_per '.
-            "SET per_fam_ID='$iFamilyID',".
-            '    per_Address1=NULL,'.
-            '    per_Address2=NULL,'.
-            '    per_City=NULL,'.
-            '    per_State=NULL,'.
-            '    per_Zip=NULL,'.
-            '    per_Country=NULL,'.
-            '    per_HomePhone=NULL,'.
-            '    per_DateLastEdited=NOW(),'.
-            "    per_EditedBy='$iUserID' ".
-            "WHERE per_ID='$per_ID'";
+    $person = PersonQuery::create()->findOneById($per->getId());
 
-    echo '<br>'.$sSQL;
-    RunQuery($sSQL);
+    $person->setFamId($fam->getId());
+    $person->setEditedBy($iUserID);
+
+    $person->save();
 
     echo '<br><br><br>';
-    echo "$per_FirstName $per_LastName (per_ID = $per_ID) is now part of the ";
-    echo "$per_LastName Family (fam_ID = $iFamilyID)<br>";
+    echo $person->getFirstName()." ".$person->getLastName()." (per_ID = ".$person->getId().") is now part of the ";
+    echo $person->getLastName()." Family (fam_ID = ".$fam->getId().")<br>";
     echo '*****************************************';
 
     if (!$bDoAll) {
