@@ -381,6 +381,10 @@ function donatedItemSubmitFundraiser(Request $request, Response $response, array
         $nMinimumPrice = InputUtils::FilterFloat($input->MinimumPrice);
         $sPictureURL = InputUtils::FilterString($input->PictureURL);
 
+        if ($sPictureURL[0] == "'") {
+            $sPictureURL = str_replace("'", "", $sPictureURL);
+        }
+
         if ($input->currentDonatedItemID < 0) {
             $donatedItem = new DonatedItem();
 
