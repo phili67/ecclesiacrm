@@ -290,8 +290,8 @@ foreach ($ormFamilies as $family) {
         if ($numCustomFields > 0) {
             // Get the custom field data for this person.
             $rawQry = PersonCustomQuery::create();
-            foreach ($ormCustomFields as $customfield) {
-                $rawQry->withColumn($customfield->getCustomField());
+            foreach ($ormCustomFields as $custField) {
+                $rawQry->withColumn($custField->getCustomField());
             }
 
             if (!is_null($rawQry->findOneByPerId($iPersonID))) {
@@ -308,7 +308,7 @@ foreach ($ormFamilies as $family) {
             // Leaving 12 mm for a bottom margin yields 183 mm.
             $numWide = 0;    // starting value for columns
             foreach ($ormCustomFields as $custField) {
-                if ($sCustomFieldName[$customField->getCustomOrder() - 1]) {
+                if ($sCustomFieldName[$custField->getCustomOrder() - 1]) {
                     $currentFieldData = trim($aCustomData[$custField->getCustomField()]);
 
                     $currentFieldData = OutputUtils::displayCustomField($custField->getTypeId(), trim($aCustomData[$custField->getCustomField()]), $custField->getCustomSpecial(), false);
