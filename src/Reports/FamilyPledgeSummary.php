@@ -16,6 +16,12 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\DonationFundQuery;
+
+use Propel\Runtime\Propel;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
@@ -27,28 +33,30 @@ if (!empty($_POST['classList'])) {
     $classList = $_POST['classList'];
 
     if ($classList[0]) {
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL);
+        $ormClassifications = ListOptionQuery::create()
+            ->filterById(1)
+            ->orderByOptionSequence()
+            ->find();
 
         $inClassList = '(';
         $notInClassList = '(';
 
-        while ($aRow = mysqli_fetch_array($rsClassifications)) {
-            extract($aRow);
-            if (in_array($lst_OptionID, $classList)) {
+        foreach ($ormClassifications as $classification) {
+            if (in_array($classification->getOptionId(), $classList)) {
                 if ($inClassList == '(') {
-                    $inClassList .= $lst_OptionID;
+                    $inClassList .= $classification->getOptionId();
                 } else {
-                    $inClassList .= ','.$lst_OptionID;
+                    $inClassList .= ','.$classification->getOptionId();
                 }
             } else {
                 if ($notInClassList == '(') {
-                    $notInClassList .= $lst_OptionID;
+                    $notInClassList .= $classification->getOptionId();
                 } else {
-                    $notInClassList .= ','.$lst_OptionID;
+                    $notInClassList .= ','.$classification->getOptionId();
                 }
             }
         }
+
         $inClassList .= ')';
         $notInClassList .= ')';
     }
@@ -117,7 +125,10 @@ if (!empty($_POST['family'])) {
 
 $sSQL .= ' ORDER BY fam_Name';
 
-$rsFamilies = RunQuery($sSQL);
+$connection = Propel::getConnection();
+
+$pdoFamilies = $connection->prepare($sSQL);
+$pdoFamilies->execute();
 
 $sSQLFundCriteria = '';
 
@@ -152,24 +163,23 @@ if ($fundCount > 0) {
         $fundOnlyString = _('for funds ');
     }
     for ($i = 0; $i < $fundCount; $i++) {
-        $sSQL = 'SELECT fun_Name FROM donationfund_fun WHERE fun_ID='.$fund[$i];
-        $rsOneFund = RunQuery($sSQL);
-        $aFundName = mysqli_fetch_array($rsOneFund);
-        $fundOnlyString .= $aFundName['fun_Name'];
+        $ormOneFund = DonationFundQuery::create()
+            ->findOneById($fund[$i]);
+
+        $fundOnlyString .= $ormOneFund->getName();
         if ($i < $fundCount - 1) {
             $fundOnlyString .= ', ';
         }
     }
 }
 
-// Get the list of funds
-$sSQL = 'SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun';
-$rsFunds = RunQuery($sSQL);
+// Get the list of
+$ormFunds = DonationFundQuery::create()->find();
 
 $fundPaymentTotal = [];
 $fundPledgeTotal = [];
-while ($row = mysqli_fetch_array($rsFunds)) {
-    $fun_name = $row['fun_Name'];
+foreach ($ormFunds as $fund) {
+    $fun_name = $fund->getName();
     $fundPaymentTotal[$fun_name] = 0;
     $fundPledgeTotal[$fun_name] = 0;
 }
@@ -226,28 +236,30 @@ $pdf->WriteAtCell($famOweX, $y, $famOweWid, _('Owe'));
 $y += $lineInc;
 
 // Loop through families
-while ($aFam = mysqli_fetch_array($rsFamilies)) {
-    extract($aFam);
-
+while ($family = $pdoFamilies->fetch( \PDO::FETCH_BOTH )) {
     // Check for pledges if filtering by pledges
     if ($pledge_filter == 'pledge') {
         $temp = "SELECT plg_plgID FROM pledge_plg
-			WHERE plg_FamID='$fam_ID' AND plg_PledgeOrPayment='Pledge' AND plg_FYID=$iFYID".$sSQLFundCriteria;
-        $rsPledgeCheck = RunQuery($temp);
-        if (mysqli_num_rows($rsPledgeCheck) == 0) {
+			WHERE plg_FamID='".$family['fam_ID']."' AND plg_PledgeOrPayment='Pledge' AND plg_FYID=$iFYID".$sSQLFundCriteria;
+
+        $pdoPledgeCheck = $connection->prepare($sSQL);
+        $pdoPledgeCheck->execute();
+
+        if ($pdoPledgeCheck->rowCount() == 0) {
             continue;
         }
     }
 
     // Get pledges and payments for this family and this fiscal year
-    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg 
+    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg
 			 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-			 WHERE plg_FamID = '.$fam_ID.' AND plg_FYID = '.$iFYID.$sSQLFundCriteria.' ORDER BY plg_date';
+			 WHERE plg_FamID = '.$family['fam_ID'].' AND plg_FYID = '.$iFYID.$sSQLFundCriteria.' ORDER BY plg_date';
 
-    $rsPledges = RunQuery($sSQL);
+    $pdoPledges = $connection->prepare($sSQL);
+    $pdoPledges->execute();
 
     // If there is no pledge or a payment go to next family
-    if (mysqli_num_rows($rsPledges) == 0) {
+    if ($pdoPledges->rowCount() == 0) {
         continue;
     }
 
@@ -255,12 +267,12 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         // Run through pledges and payments for this family to see if there are any unpaid pledges
         $oweByFund = [];
         $bOwe = 0;
-        while ($aRow = mysqli_fetch_array($rsPledges)) {
-            extract($aRow);
-            if ($plg_PledgeOrPayment == 'Pledge') {
-                $oweByFund[$plg_fundID] -= $plg_amount;
+
+        while ($aRow = $pdoPledges->fetch(PDO::FETCH_ASSOC)){ // permet de récupérer le tableau associatif
+            if ($aRow['plg_PledgeOrPayment'] == 'Pledge') {
+                $oweByFund[$aRow['plg_fundID']] -= $aRow['plg_amount'];
             } else {
-                $oweByFund[$plg_fundID] += $plg_amount;
+                $oweByFund[$aRow['plg_fundID']] += $aRow['plg_amount'];
             }
         }
         foreach ($oweByFund as $oweRow) {
@@ -274,27 +286,27 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     }
 
     // Get pledges only
-    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg 
+    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg
 			 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-			 WHERE plg_FamID = '.$fam_ID.' AND plg_FYID = '.$iFYID.$sSQLFundCriteria." AND plg_PledgeOrPayment = 'Pledge' ORDER BY plg_date";
-    $rsPledges = RunQuery($sSQL);
+			 WHERE plg_FamID = '.$family['fam_ID'].' AND plg_FYID = '.$iFYID.$sSQLFundCriteria." AND plg_PledgeOrPayment = 'Pledge' ORDER BY plg_date";
+
+    $pdoPledges = $connection->prepare($sSQL);
+    $pdoPledges->execute();
 
     $totalAmountPledges = 0;
 
-    if (mysqli_num_rows($rsPledges) == 0) {
-    } else {
+    if ($pdoPledges->rowCount() > 0) {
         $totalAmount = 0;
         $cnt = 0;
-        while ($aRow = mysqli_fetch_array($rsPledges)) {
-            extract($aRow);
-
-            if (strlen($fundName) > 19) {
-                $fundName = mb_substr($fundName, 0, 18).'...';
+        while ($aRow = $pdoPledges->fetch(PDO::FETCH_ASSOC)){
+            $fundName = $aRow['fundName'];
+            if (strlen($aRow['fundName']) > 19) {
+                $fundName = mb_substr($aRow['fundName'], 0, 18).'...';
             }
 
-            $fundPledgeTotal[$fundName] += $plg_amount;
-            $fundPledgeMethod[$fundName] = $plg_method;
-            $totalAmount += $plg_amount;
+            $fundPledgeTotal[$fundName] += (float)$aRow['plg_amount'];
+            $fundPledgeMethod[$fundName] = $aRow['plg_method'];
+            $totalAmount += (float)$aRow['plg_amount'];
             $cnt += 1;
         }
         $pdf->SetFont('Times', '', 10);
@@ -302,41 +314,41 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     }
 
     // Get payments only
-    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg 
+    $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg
 			 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-			 WHERE plg_FamID = '.$fam_ID.' AND plg_FYID = '.$iFYID.$sSQLFundCriteria." AND plg_PledgeOrPayment = 'Payment' ORDER BY plg_date";
-    $rsPledges = RunQuery($sSQL);
+			 WHERE plg_FamID = '.$family['fam_ID'].' AND plg_FYID = '.$iFYID.$sSQLFundCriteria." AND plg_PledgeOrPayment = 'Payment' ORDER BY plg_date";
+
+    $pdoPledges = $connection->prepare($sSQL);
+    $pdoPledges->execute();
 
     $totalAmountPayments = 0;
-    if (mysqli_num_rows($rsPledges) == 0) {
-    } else {
+    if ($pdoPledges->rowCount() > 0) {
         $totalAmount = 0;
         $cnt = 0;
-        while ($aRow = mysqli_fetch_array($rsPledges)) {
-            extract($aRow);
+        while ($aRow = $pdoPledges->fetch(PDO::FETCH_ASSOC)){
+            $fundName = $aRow['fundName'];
 
-            $totalAmount += $plg_amount;
-            $fundPaymentTotal[$fundName] += $plg_amount;
+            $totalAmount += $aRow['plg_amount'];
+            $fundPaymentTotal[$fundName] += $aRow['plg_amount'];
             $cnt += 1;
         }
         $totalAmountPayments = $totalAmount;
     }
 
-    if (mysqli_num_rows($rsFunds) > 0) {
-        mysqli_data_seek($rsFunds, 0);
-        while ($row = mysqli_fetch_array($rsFunds)) {
-            $fun_name = $row['fun_Name'];
+    if ($ormFunds->count() > 0) {
+        foreach ($ormFunds as $fund) {
+            $fun_name = $fund->getName();
             if ($fundPledgeTotal[$fun_name] > 0) {
                 $amountDue = $fundPledgeTotal[$fun_name] - $fundPaymentTotal[$fun_name];
                 if ($amountDue < 0) {
                     $amountDue = 0;
                 }
 
-                $pdf->WriteAtCell($famNameX, $y, $famNameWid, $pdf->MakeSalutation($fam_ID));
-                $pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, $fundPledgeTotal[$fun_name]);
+                $pdf->WriteAtCell($famNameX, $y, $famNameWid, $pdf->MakeSalutation($family['fam_ID']));
+                $pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, OutputUtils::money_localized($fundPledgeTotal[$fun_name]));
                 $pdf->WriteAtCell($famMethodX, $y, $famMethodWid, _($fundPledgeMethod[$fun_name]));
                 $pdf->WriteAtCell($famFundX, $y, $famFundWid, _($fun_name));
-                $pdf->WriteAtCell($famPayX, $y, $famPayWid, $fundPaymentTotal[$fun_name]);
+                $pdf->WriteAtCell($famPayX, $y, $famPayWid, OutputUtils::money_localized($fundPaymentTotal[$fun_name]));
                 $pdf->WriteAtCell($famOweX, $y, $famOweWid, $amountDue);
                 $y += $lineInc;
                 if ($y > 250) {
