@@ -4,17 +4,15 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Person as BasePerson;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Base\FamilyQuery as BaseFamilyQuery;
-use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Photo;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\Utils\GeoUtils;
-use EcclesiaCRM\SessionUser;
+
+
+use EcclesiaCRM\Service\MailChimpService;
 
 use DateTime;
 
@@ -95,6 +93,9 @@ class Person extends BasePerson implements iPhoto
 
       return false;
     }
+
+
+
 
     public function setDateDeactivated($v)
     {

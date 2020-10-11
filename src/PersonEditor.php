@@ -14,7 +14,6 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -35,7 +34,6 @@ use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\CanvassUtilities;
 
 
@@ -526,11 +524,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
             $oldEmail = $person->getEmail();
 
-            if ($person->getSendNewsletter() && $oldEmail != $sEmail) {// in any cases we've to update the Lists
-                $mailchimp = new MailChimpService();
-                $mailchimp->updateMemberEmail($oldEmail, $sEmail);
-            }
-
             $person->setTitle($sTitle);
             $person->setFirstName($sFirstName);
             $person->setMiddleName($sMiddleName);
@@ -546,7 +539,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setHomePhone($sHomePhone);
             $person->setWorkPhone($sWorkPhone);
             $person->setCellPhone($sCellPhone);
-            $person->setEmail($sEmail);
+            $person->setNewEmail($oldEmail, $sEmail);
             $person->setWorkEmail($sWorkEmail);
             $person->setBirthMonth($iBirthMonth);
             $person->setBirthDay($iBirthDay);
