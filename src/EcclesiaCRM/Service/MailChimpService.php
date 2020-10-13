@@ -795,6 +795,7 @@ class MailChimpService
 
       return nil;
     }
+
     private function delete_list_member ($list_id,$email) {
       $mcLists = $_SESSION['MailChimpLists'];
 
@@ -822,6 +823,7 @@ class MailChimpService
 
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
     }
+
     public function getMembersFromList ($list_id,$count=500) {
       return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]);
     }
@@ -837,6 +839,19 @@ class MailChimpService
 
         return $result;
     }
+
+    public function deleteMemberEmail ($oldEmail)
+    {
+        $lists = $this->getListsFromCache();
+
+        $result = NULL;
+
+        foreach ($lists as $list) {
+            $result = $this->deleteMember($list['id'], $oldEmail);
+        }
+        return $result;
+    }
+
     public function deleteAllMembers ($list_id) {
       $members = $this->getListMembersFromListId ($list_id);
 
@@ -848,6 +863,7 @@ class MailChimpService
 
       return $res;
     }
+
     private function update_list_member ($list_id,$member,$status) {
       $mcLists = $_SESSION['MailChimpLists'];
 
@@ -955,6 +971,7 @@ class MailChimpService
         $i++;
       }
     }
+
     public function updateMemberEmail($oldEmail,$newEmail) // status : Unsubscribed , Subscribed
     {
         $subscriber_hash = $this->myMailchimp->subscriberHash($oldEmail);
