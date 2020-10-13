@@ -12,7 +12,7 @@ namespace EcclesiaCRM
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\Utils\RedirectUtils;
-  
+
   class Bootstrapper
   {
       private static $manager;
@@ -26,14 +26,14 @@ namespace EcclesiaCRM
       private static $lockURL;
       private static $allowableURLs;
       private static $DavServer;
-      
+
       /**
        *
        * @var Logger
        */
       private static $bootStrapLogger;
       private static $serviceContainer;
-    
+
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false)
       {
           global $debugBootstrapper;
@@ -46,7 +46,7 @@ namespace EcclesiaCRM
           self::$lockURL = $bLockURL;
           self::$allowableURLs = $URL;
           self::$DavServer = $davserver;
-      
+
           try {
               SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
           } catch (\Exception $e) {
@@ -57,24 +57,24 @@ namespace EcclesiaCRM
           } else {
               self::$bootStrapLogger = LoggerUtils::getAppLogger(Logger::INFO);
           }
-      
+
           self::$bootStrapLogger->debug("Starting EcclesiaCRM");
-          
+
           if (self::$DavServer == false) {
             SystemURLs::checkAllowedURL($bLockURL, $URL);
           }
-          
+
           self::initMySQLI();
           self::initPropel();
-      
+
           if (self::$DavServer == false) {
             if (self::isDatabaseEmpty()) {
                 self::installEcclesiaCRMSchema();
             }
-          
+
             self::initSession();
           }
-          
+
           SystemConfig::init(ConfigQuery::create()->find());
           self::configureLogging();
           self::configureUserEnvironment();
@@ -89,7 +89,7 @@ namespace EcclesiaCRM
           }
           LoggerUtils::ResetAppLoggerLevel();
       }
-      
+
       /***
        * Gets a LocaleInfo object for the currently configured system sLanguage
        *
@@ -99,7 +99,7 @@ namespace EcclesiaCRM
       {
           return new LocaleInfo(SystemConfig::getValue('sLanguage'));
       }
-      
+
       private static function ConfigureLocale()
       {
           global $aLocaleInfo,$localeInfo;
@@ -107,10 +107,10 @@ namespace EcclesiaCRM
               self::$bootStrapLogger->debug("Setting TimeZone to: " . SystemConfig::getValue('sTimeZone'));
               date_default_timezone_set(SystemConfig::getValue('sTimeZone'));
           }
-          
+
           $localeInfo = Bootstrapper::GetCurrentLocale();
           self::$bootStrapLogger->debug("Setting locale to: " . $localeInfo->getLocale());
-          
+
           setlocale(LC_ALL, $localeInfo->getLocale());
           // Get numeric and monetary locale settings.
           $aLocaleInfo = $localeInfo->getLocaleInfo();
@@ -125,7 +125,7 @@ namespace EcclesiaCRM
           textdomain($domain);
           self::$bootStrapLogger->debug("Locale configuration complete");
       }
-      
+
       private static function initMySQLI()
       {
           global $cnInfoCentral; // need to stop using this everywhere....
@@ -152,7 +152,7 @@ namespace EcclesiaCRM
       or Bootstrapper::system_failure('Could not connect to the MySQL database <strong>'.self::$databaseName.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
           self::$bootStrapLogger->debug("Database selected: " . self::$databaseName);
       }
-      
+
       private static function testMYSQLI()
       {
           global $cnInfoCentral; // need to stop using this everywhere....
@@ -206,7 +206,7 @@ namespace EcclesiaCRM
           self::$bootStrapLogger->debug("Found " . count($results) . " Database tables");
           return false;
       }
-      
+
       private static function installEcclesiaCRMSchema()
       {
           self::$bootStrapLogger->info("Installing EcclesiaCRM Schema");
@@ -219,17 +219,17 @@ namespace EcclesiaCRM
           $version->save();
           self::$bootStrapLogger->info("Installed EcclesiaCRM Schema version: " . SystemService::getInstalledVersion());
       }
-      
+
       private static function initSession()
       {
           // Initialize the session
-          $sessionName = 'CRM@'.SystemURLs::getRootPath();
+          $sessionName = 'CRM-'.SystemURLs::getRootPath();
           session_cache_limiter('private_no_expire:');
           session_name($sessionName);
           session_start();
           self::$bootStrapLogger->debug("Session initialized: " . $sessionName);
       }
-      
+
       private static function configureLogging()
       {
        // PHP Logs
@@ -241,7 +241,7 @@ namespace EcclesiaCRM
           $ormLogPath = LoggerUtils::buildLogFilePath("orm");
           $ormLogger = new Logger('ormLogger');
           self::$bootStrapLogger->debug("Configuring ORM logs at :" .$ormLogPath);
-          
+
           if (LoggerUtils::getLogLevel() <= 250) {
             self::$dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";// no debugging Propel will work at it full speed
           } else {
@@ -252,12 +252,12 @@ namespace EcclesiaCRM
           $ormLogger->pushHandler(new StreamHandler($ormLogPath, LoggerUtils::getLogLevel()));
           self::$serviceContainer->setLogger('defaultLogger', $ormLogger);
       }
-      
+
       public static function GetDSN()
       {
            return 'mysql:host=' . self::$databaseServerName . ';port='.self::$databasePort.';dbname=' . self::$databaseName;
       }
-      
+
       public static function GetUser()
       {
         return self::$databaseUser;
@@ -267,7 +267,7 @@ namespace EcclesiaCRM
       {
         return self::$databasePassword;
       }
-      
+
       private static function buildConnectionManagerConfig()
       {
           if (is_null(self::$databasePort)) {
@@ -288,7 +288,7 @@ namespace EcclesiaCRM
             ],
         ];
       }
-      
+
       private static function configureUserEnvironment()  // TODO: This function needs to stop creating global variable-variables.
       {
           global $cnInfoCentral;
@@ -308,7 +308,7 @@ namespace EcclesiaCRM
               }
           }
       }
-      
+
       private static function system_failure($message, $header = 'Setup failure')
       {
           $sPageTitle = $header;
@@ -326,7 +326,7 @@ namespace EcclesiaCRM
           require 'Include/FooterNotLoggedIn.php';
           exit();
       }
-      
+
       public static function isDBCurrent()
       {
           if (SystemService::getDBVersion() == SystemService::getInstalledVersion()) {
