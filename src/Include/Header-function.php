@@ -17,9 +17,7 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\MenuBar\MenuBar;
 use EcclesiaCRM\Bootstrapper;
 
 
