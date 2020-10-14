@@ -375,168 +375,165 @@ if ($mode == 'classes') {
     <?php
 }
 ?>
-
+<form method="post" action="OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
 <div class="card">
     <div class="card-body">
-        <form method="post" action="OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
-
-            <?php
-
-            if ($bErrorFlag) {
-                ?>
-                <span class="MediumLargeText" style="color: red;">
-<?php
-if ($bDuplicateFound) {
-    ?>
-    <br><?= _('Error: Duplicate') . ' ' . $adjplusnameplural . ' ' . _('are not allowed.') ?>
-    <?php
-}
-?>
-        <br><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span><br><br>
-                <?php
-            }
+        <?php
+        if ($bErrorFlag) {
+        ?>
+           <span class="MediumLargeText" style="color: red;">
+        <?php
+        if ($bDuplicateFound) {
             ?>
+            <br><?= _('Error: Duplicate') . ' ' . $adjplusnameplural . ' ' . _('are not allowed.') ?>
+            <?php
+        }
+        ?>
+        <br><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span><br><br>
+        <?php
+        }
+        ?>
 
-            <br>
-            <table cellpadding="3" width="50%" align="center">
-
-                <?php
-                for ($row = 1; $row <= $numRows; $row++) {
-                    ?>
-                    <tr align="center">
-                        <td class="LabelColumn">
-                            <b>
-                                <?php
-                                if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {//dead code
-                                    ?>
-                                    <?= _('Default') . ' ' ?>
-                                    <?php
-                                }
-                                ?>
-
-                                <?= $row ?>
-                            </b>
-                        </td>
-
-                        <td class="TextColumn" nowrap>
-
+        <br>
+        <table cellpadding="3" width="50%" align="center">
+            <?php
+            for ($row = 1; $row <= $numRows; $row++) {
+                $icon=null;
+                if ($mode == 'classes') {
+                    $icon = ListOptionIconQuery::Create()
+                        ->filterByListId(1)
+                        ->findOneByListOptionId($aIDs[$row]);
+                }
+                ?>
+                <tr align="center">
+                    <td class="LabelColumn">
+                        <b>
                             <?php
-                            if ($row != 1) {
+                            if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {//dead code
                                 ?>
-                                <img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"
-                                     class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                     data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
+                                <?= _('Default') . ' ' ?>
                                 <?php
-                            }
-                            if ($row < $numRows) {
-                                ?>
-                                <img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"
-                                     class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                     data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
-                                <?php
-                            }
-                            if ($numRows > 1) {
-                                ?>
-                                <?php
-                                if ($embedded) {
-                                    ?>
-                                    <img src="Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>"
-                                         data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
-                                         data-id="<?= $aIDs[$row] ?>" data-action="delete">
-                                    <?php
-                                } else {
-                                    ?>
-                                    <img src="<?= SystemURLs::getRootPath() ?>/Images/x.gif"
-                                         class="RemoveClassification" data-mode="<?= $mode ?>"
-                                         data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
-                                         data-id="<?= $aIDs[$row] ?>"
-                                         data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" border="0">
-                                    <?php
-                                }
                             }
                             ?>
-                        </td>
-                        <td class="TextColumn">
-            <span class="SmallText">
-                <input class="form-control input-md" type="text" name="<?= $row . 'name' ?>"
-                       value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                       maxlength="40">
-            </span>
-                            <?php
 
-                            if ($aNameErrors[$row] == 1) {
-                                ?>
-                                <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
-                                <?php
-                            } elseif ($aNameErrors[$row] == 2) {
-                                ?>
-                                <span style="color: red;"><BR><?= _('Duplicate name found.') ?> </span>
-                                <?php
-                            } ?>
-                        </td>
+                            <?= $row ?>
+                        </b>
+                    </td>
+
+                    <td class="TextColumn" nowrap>
+
                         <?php
-                        if ($mode == 'grproles') {//dead code
+                        if ($row != 1) {
                             ?>
-                            <td class="TextColumn"><input class="btn btn-success btn-xs row-action"
-                                                          data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
-                                                          data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>"
-                                                          data-action="makedefault" type="button"
-                                                          class="btn btn-default" value="<?= _('Make Default') ?>"
-                                                          Name="default"></td>
+                            <img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"
+                                 class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up">
                             <?php
-                        } else if ($mode == 'classes') {
-                            $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
-
-                            if ($icon == null || !is_null($icon) && $icon->getUrl() == '') {
+                        }
+                        if ($row < $numRows) {
+                            ?>
+                            <img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"
+                                 class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                 data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down">
+                            <?php
+                        }
+                        if ($numRows > 1) {
+                            ?>
+                            <?php
+                            if ($embedded) {
                                 ?>
-                                <td><img src="Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>"
-                                         data-optionID="<?= $aIDs[$row] ?>"
-                                         data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>">
-                                </td>
-                                <td></td>
-                                <td>&nbsp;</td>
-                                <td align="left"><input type="checkbox" class="checkOnlyPersonView"
-                                                        data-ID="<?= $listID ?>"
-                                                        data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> />
-                                    <?= _("Visible only in PersonView") ?></td>
+                                <img src="Images/x.gif" border="0" class="row-action" data-mode="<?= $mode ?>"
+                                     data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
+                                     data-id="<?= $aIDs[$row] ?>" data-action="delete">
                                 <?php
                             } else {
                                 ?>
-                                <td><img src="Images/x.gif" border="0" class="RemoveImage" data-ID="<?= $listID ?>"
-                                         data-optionID="<?= $aIDs[$row] ?>"></td>
-                                <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
-                                <td>&nbsp;</td>
-                                <td align="left"><input type="checkbox" class="checkOnlyPersonView"
-                                                        data-ID="<?= $listID ?>"
-                                                        data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> />
-                                    <?= _("Visible only in PersonView") ?></td>
+                                <img src="<?= SystemURLs::getRootPath() ?>/Images/x.gif"
+                                     class="RemoveClassification" data-mode="<?= $mode ?>"
+                                     data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>"
+                                     data-id="<?= $aIDs[$row] ?>"
+                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" border="0">
                                 <?php
                             }
                         }
-
-
                         ?>
+                    </td>
+                    <td class="TextColumn">
+                        <span class="SmallText">
+                            <input class="form-control input-md" type="text" name="<?= $row . 'name' ?>"
+                                   value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
+                                   maxlength="40">
+                        </span>
+                        <?php
 
-                    </tr>
+                        if ($aNameErrors[$row] == 1) {
+                            ?>
+                            <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
+                            <?php
+                        } elseif ($aNameErrors[$row] == 2) {
+                            ?>
+                            <span style="color: red;"><BR><?= _('Duplicate name found.') ?> </span>
+                            <?php
+                        } ?>
+                    </td>
                     <?php
-                } ?>
-
-            </table>
-            <br/>
-            <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
-
-
-            <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
-                ?>
-                <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
-                       onclick="javascript:window.close();">
-                <?php
-            } elseif ($mode != 'grproles') {// dead code
-                ?>
-                <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
-                       onclick="javascript:document.location='<?= 'Menu.php' ?>';">
+                    if ($mode == 'grproles') {//dead code
+                        ?>
+                        <td class="TextColumn"><input class="btn btn-success btn-xs row-action"
+                                                      data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>"
+                                                      data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>"
+                                                      data-action="makedefault" type="button"
+                                                      class="btn btn-default" value="<?= _('Make Default') ?>"
+                                                      Name="default">
+                        </td>
+                        <?php
+                    } else if ($mode == 'classes') {
+                        if (is_null($icon) || !is_null($icon) && $icon->getUrl() == '') {
+                            ?>
+                            <td><img src="Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>"
+                                     data-optionID="<?= $aIDs[$row] ?>"
+                                     data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>">
+                            </td>
+                            <td></td>
+                            <td>&nbsp;</td>
+                            <td align="left"><input type="checkbox" class="checkOnlyPersonView"
+                                                    data-ID="<?= $listID ?>"
+                                                    data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> />
+                                <?= _("Visible only in PersonView") ?>
+                            </td>
+                            <?php
+                        } else {
+                            ?>
+                            <td><img src="Images/x.gif" border="0" class="RemoveImage" data-ID="<?= $listID ?>"
+                                     data-optionID="<?= $aIDs[$row] ?>"></td>
+                            <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
+                            <td>&nbsp;</td>
+                            <td align="left"><input type="checkbox" class="checkOnlyPersonView"
+                                                    data-ID="<?= $listID ?>"
+                                                    data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView()) ? "checked" : "" ?> />
+                                <?= _("Visible only in PersonView") ?>
+                            </td>
+                            <?php
+                        }
+                    }
+                    ?>
+                </tr>
                 <?php
             } ?>
+        </table>
+        <br/>
+        <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+        <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
+            ?>
+            <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
+                   onclick="javascript:window.close();">
+            <?php
+        } elseif ($mode != 'grproles') {// dead code
+            ?>
+            <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
+                   onclick="javascript:document.location='<?= 'Menu.php' ?>';">
+            <?php
+        } ?>
     </div>
 </div>
 
@@ -544,42 +541,44 @@ if ($bDuplicateFound) {
     <div class="card-body">
         <?= _('Name for New') . ' ' . $noun ?>:&nbsp;
         <span class="SmallText">
-    <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
-</span>
+            <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
+        </span>
         <p></p>
         <input type="submit" class="btn btn-success" value="<?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
         <?php
         if ($iNewNameError > 0) {
         ?>
-        <div><span style="color: red;"><BR>
-      <?php
-      if ($iNewNameError == 1) {
-          ?>
-          <?= _('Error: You must enter a name') ?>
-          <?php
-      } else {
-          ?>
-          <?= _('Error: A ') . $noun . _(' by that name already exists.') ?>
-          <?php
-      }
-      ?>
-                <?= '</span></div>' ?>
+            <div>
+                <span style="color: red;">
+                    <BR>
                 <?php
-                }
+                    if ($iNewNameError == 1) {
                 ?>
-</center>
-                </form>
-        </div>
-    </div>
-    <?php
-    if ($embedded) {
-        ?>
-        </body></html>
+                    <?= _('Error: You must enter a name') ?>
+                <?php
+                    } else {
+                ?>
+                   <?= _('Error: A ') . $noun . _(' by that name already exists.') ?>
+                <?php
+                    }
+                ?>
+                </span>
+            </div>
         <?php
-    } else {
-        include 'Include/Footer.php';
-    }
+        }
+        ?>
+    </div>
+</div>
+</form>
+<?php
+if ($embedded) {
     ?>
+    </body></html>
+    <?php
+} else {
+    include 'Include/Footer.php';
+}
+?>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/IconPicker.js"></script>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/OptionManager.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/IconPicker.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/OptionManager.js"></script>
