@@ -209,6 +209,7 @@ switch ($mode) {
 
 $iNewNameError = 0;
 
+
 // Check if we're adding a field
 if (isset($_POST['AddField'])) {
     $newFieldName = InputUtils::FilterString($_POST['newFieldName']);
@@ -250,8 +251,6 @@ if (isset($_POST['AddField'])) {
             $lst->save();
 
             $iNewNameError = 0;
-
-            exit();
         }
     }
 }
