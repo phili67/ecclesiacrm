@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e79116bbd52e3db2b75b60e83a2356d",
+    "content-hash": "f9ce093465fe92e052a4750247f2330b",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -493,16 +493,16 @@
         },
         {
             "name": "endroid/qr-code",
-            "version": "3.9.1",
+            "version": "3.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "8605e2c958ed568788da4e16bd8a9502e32f375f"
+                "reference": "58d5872ca46b99b5c2e72cd2c8dea09ce2988156"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/8605e2c958ed568788da4e16bd8a9502e32f375f",
-                "reference": "8605e2c958ed568788da4e16bd8a9502e32f375f",
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/58d5872ca46b99b5c2e72cd2c8dea09ce2988156",
+                "reference": "58d5872ca46b99b5c2e72cd2c8dea09ce2988156",
                 "shasum": ""
             },
             "require": {
@@ -554,7 +554,7 @@
                 "qr",
                 "qrcode"
             ],
-            "time": "2020-07-10T10:16:06+00:00"
+            "time": "2020-10-07T09:42:59+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -6064,7 +6064,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.0",
+        "php": ">=7.3.0",
         "ext-gettext": "*"
     },
     "platform-dev": []
