@@ -40,7 +40,7 @@
         "@fullcalendar/timegrid": "^4.4.2",
         "admin-lte": "^3.0.5",
         "bootbox": "^5.4.0",
-        "bootstrap": "^4.5.2",
+        "bootstrap": "^4.5.3",
         "bootstrap-colorpicker": "^2.5.3",
         "bootstrap-datepicker": "^1.9.0",
         "bootstrap-show-password": "^1.2.1",

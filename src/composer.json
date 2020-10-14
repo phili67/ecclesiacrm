@@ -24,15 +24,15 @@
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
     "require": {
-        "php": ">=7.2.0",
+        "php": ">=7.3.0",
         "drewm/mailchimp-api": "^2.5",
         "symfony/dependency-injection": "3.4.26",
         "symfony/framework-bundle": "3.4.26",
         "symfony/cache": "4.3.11",
         "symfony/http-foundation": "3.4.35",
         "symfony/yaml": "^3.4",
-        "slim/slim": "^3.0",
-        "slim/php-view": "2.2",
+        "slim/slim": "^3.12.3",
+        "slim/php-view": "2.2.0",
         "monolog/monolog": "^1.17",
         "authorizenet/authorizenet": "1.9.4",
         "knplabs/github-api": "^2.0",
