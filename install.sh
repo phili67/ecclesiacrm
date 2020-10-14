@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dans le cas de php 7.2
-cp -rf propel/vendor/* src/vendor/propel
+#cp -rf propel/vendor/* src/vendor/propel
 
 
 npm install --unsafe-perm
