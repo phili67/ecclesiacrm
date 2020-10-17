@@ -1,3 +1,9 @@
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2020 Philippe Logel all right reserved not MIT licence
+//                This code can't be included in another software.
+//  Updated     : 2020/10/17
+//
 $(document).ready(function () {
 
   window.CRM.APIRequest({
@@ -771,6 +777,6 @@ function initDataTable() {
         var dateStart = moment().format(fmt);
         var dateEnd = moment().format(fmt);
 
-        addEvent(dateStart,dateEnd,i18next.t("Appointment"),sPageTitle);
+        addEvent(dateStart, dateEnd, i18next.t("Appointment"), sPageTitle, window.CRM.calendarID, true);
     });
 }
