@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
                                     // we add the calendars and the types
-                                    addCalendars(event.extendedProps.calendarID);
+                                    addCalendars(event.extendedProps.calendarID, ((event.extendedProps.groupID == "0") ? false : true));
                                     addCalendarEventTypes(event.extendedProps.eventTypeID, false);
                                     addAttendees(event.extendedProps.eventTypeID, true, event.extendedProps.eventID);
 
