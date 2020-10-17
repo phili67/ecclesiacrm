@@ -483,9 +483,16 @@ function addCalendarEventTypes(typeId, bAddAttendees) {
     });
 }
 
-function addCalendars(calendarId) {
+function addCalendars(calendarId, attendees) {
     if (typeof calendarId === 'undefined') {
         calendarId = [0, 0];
+    }
+
+    let calAttendees = true;
+
+    if (typeof attendees === 'undefined') {
+        calendarId = [0, 0];
+        calAttendees = false;
     }
 
     window.CRM.APIRequest({
@@ -531,8 +538,14 @@ function addCalendars(calendarId) {
                 }
 
                 elt.appendChild(option);
+
+
             }
         }
+
+        // By default attendees are checked
+        $("#addGroupAttendees").prop("disabled", (calAttendees == "0") ? true : false);
+        $("#addGroupAttendees").prop('checked', (calAttendees == "0") ? false : true);
     });
 }
 
@@ -931,7 +944,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
     return modal;
 }
 
-function addEvent(dateStart,dateEnd,windowTitle,title)
+function addEvent(dateStart, dateEnd, windowTitle, title, calendarID, attendees)
 {
     window.CRM.APIRequest({
         method: 'POST',
@@ -946,7 +959,7 @@ function addEvent(dateStart,dateEnd,windowTitle,title)
             modal = createEventEditorWindow(dateStart, dateEnd, 'createEvent', 0, '', 'v2/calendar', windowTitle, title);
 
             // we add the calendars and the types
-            addCalendars();
+            addCalendars(calendarID, attendees);
             addCalendarEventTypes(-1, true);
 
             // finish installing the window
