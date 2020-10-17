@@ -491,7 +491,6 @@ function addCalendars(calendarId, attendees) {
     let calAttendees = true;
 
     if (typeof attendees === 'undefined') {
-        calendarId = [0, 0];
         calAttendees = false;
     }
 
