@@ -112,7 +112,7 @@ class MenuBar extends Menu
         $menuItem->addLink("USISTAddressVerification.php");
 
 
-        $menuItem = new Menu (_("Meta Search Engine"), "fa fa-search", "v2/people/list/person", true, $menu);
+        $menuItem = new Menu (_("Meta Search Engine"), "fa fa-search", "v2/people/list/none", true, $menu);
         if (SessionUser::getUser()->isShowMapEnabled()) {
             $menuItem = new Menu (_("View on Map"), "fa fa-map-o", "v2/map/-1", true, $menu);
         }
