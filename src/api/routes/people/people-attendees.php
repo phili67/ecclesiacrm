@@ -396,7 +396,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
         ->Where('YEAR(event_start)='.$date->format('Y').' AND MONTH(event_start)='.$date->format('m').' AND Day(event_start)='.$date->format('d'))// We filter only the events from the current month : date('Y')
         ->findOne();
 
-     if (!empty($event)) {
+     if (!is_null($event)) {
        $_SESSION['Action'] = 'Add';
        $_SESSION['EID'] = $event->getID();
        $_SESSION['EName'] = $event->getTitle();
@@ -447,6 +447,7 @@ function attendeesStudent (Request $request, Response $response, array $args) {
        $event->setStart($date->format('Y-m-d H:i:s'));
        $event->setEnd($dateTime_End->format('Y-m-d H:i:s'));
        $event->setText(_("Attendance"));
+       $event->setGroupId($group->getId());
        $event->setInActive(false);
        $event->save();
 
