@@ -37,15 +37,20 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\VolunteerOpportunityQuery;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonCustomQuery;
+
 
 use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\ListOptionIconTableMap;
+
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomQuery;
+
 use EcclesiaCRM\SessionUser;
 
 
@@ -100,29 +105,48 @@ if (array_key_exists('group', $_GET)) {
 }
 
 // Get this person's data
+$person = PersonQuery::create('a')
+    ->leftJoinFamily()
+    ->addAlias('cls', ListOptionTableMap::TABLE_NAME)
+    ->addMultipleJoin(array(
+            array(PersonTableMap::alias('a', PersonTableMap::COL_PER_CLS_ID),
+                ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONID)),
+            array(ListOptionTableMap::Alias("cls",ListOptionTableMap::COL_LST_ID), 1)
+        )
+        , Criteria::LEFT_JOIN)
+    ->addAsColumn('ClassName', 'COALESCE('. ListOptionTableMap::alias( 'cls', ListOptionTableMap::COL_LST_OPTIONNAME." , 'Unassigned')"))
+    ->addAsColumn('ClassID', 'COALESCE('. ListOptionTableMap::alias( 'cls', ListOptionTableMap::COL_LST_OPTIONID." , 'Unassigned')"))
+    ->addAlias('clsicon', ListOptionIconTableMap::TABLE_NAME)
+    ->addJoin(ListOptionTableMap::alias('cls', ListOptionTableMap::COL_LST_OPTIONID),
+        ListOptionTableMap::alias('clsicon', ListOptionIconTableMap::COL_LST_IC_LST_OPTION_ID),
+        Criteria::LEFT_JOIN)
+    ->addAsColumn('ClassIcon', ListOptionIconTableMap::COL_LST_IC_LST_URL)
+    ->addAlias('fmr', ListOptionTableMap::TABLE_NAME)
+    ->addMultipleJoin(array(
+            array(PersonTableMap::alias('a', PersonTableMap::COL_PER_FMR_ID),
+                ListOptionTableMap::alias('fmr', ListOptionTableMap::COL_LST_OPTIONID)),
+            array(ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_ID), 2)
+        )
+        , Criteria::LEFT_JOIN)
+    ->addAsColumn('FamRole', ListOptionTableMap::Alias("fmr",ListOptionTableMap::COL_LST_OPTIONNAME))
+    ->addAlias('b', PersonTableMap::TABLE_NAME)
+    ->addJoin(PersonTableMap::alias('a', PersonTableMap::COL_PER_ENTEREDBY),
+        PersonTableMap::alias('b', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
+    ->addAsColumn('EnteredFirstName', PersonTableMap::alias('b',PersonTableMap::COL_PER_FIRSTNAME))
+    ->addAsColumn('EnteredLastName', PersonTableMap::alias('b',PersonTableMap::COL_PER_LASTNAME))
+    ->addAsColumn('EnteredId', PersonTableMap::alias('b',PersonTableMap::COL_PER_ID))
+    ->addAlias('c', PersonTableMap::TABLE_NAME)
+    ->addJoin(PersonTableMap::alias('a', PersonTableMap::COL_PER_EDITEDBY),
+        PersonTableMap::alias('c', PersonTableMap::COL_PER_ID), Criteria::LEFT_JOIN)
+    ->addAsColumn('EditedFirstName', PersonTableMap::alias('c',PersonTableMap::COL_PER_FIRSTNAME))
+    ->addAsColumn('EditedLastName', PersonTableMap::alias('c',PersonTableMap::COL_PER_LASTNAME))
+    ->addAsColumn('EditedId', PersonTableMap::alias('c',PersonTableMap::COL_PER_ID))
+    ->filterById($iPersonID)
+    ->findOne();
+
 $connection = Propel::getConnection();
 
-$sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, COALESCE(cls.lst_OptionID , 'Unassigned') AS sClassID, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
-        b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
-      FROM person_per a
-      LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
-      LEFT JOIN list_lst  cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-      LEFT JOIN list_icon clsicon ON clsicon.lst_ic_lst_Option_ID = cls.lst_OptionID
-      LEFT JOIN list_lst fmr ON a.per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-      LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
-      LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
-      WHERE a.per_ID = " . $iPersonID;
-
-$statement = $connection->prepare($sSQL);
-$statement->execute();
-$res = $statement->fetch(PDO::FETCH_ASSOC);
-
-extract($res);
-
-
-$person = PersonQuery::create()->findPk($iPersonID);
-
-if (empty($person)) {
+if (is_null($person)) {
     RedirectUtils::Redirect('members/404.php?type=Person');
     exit;
 }
@@ -189,7 +213,11 @@ if (!is_null($rawQry->findOneByPerId($iPersonID))) {
 // Get the Groups this Person is assigned to
 $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
     ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
-    ->addMultipleJoin(array(array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID), array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)), Criteria::LEFT_JOIN)
+    ->addMultipleJoin(
+        array(
+            array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID),
+            array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID)),
+        Criteria::LEFT_JOIN)
     ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
     ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID . ' = ' . $iPersonID . ' ORDER BY grp_Name')
     ->addAsColumn('roleName', ListOptionTableMap::COL_LST_OPTIONNAME)
@@ -302,23 +330,23 @@ foreach ($ormNextPersons as $ormNextPerson) {
 $sPageTitle = _('Person Profile');
 $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
 if ($previous_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
+    $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
 <span class="mat-button-wrapper"><i class="fa fa-hand-o-left"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-ripple mat-ripple" ></div>
 <div class="mat-button-focus-overlay"></div>
 </button>';
 }
 
-$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
+$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
 <span class="mat-button-wrapper"><i class="fa fa-list-ul"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-ripple mat-ripple" ></div>
 <div class="mat-button-focus-overlay"></div>
 </button>';
 
 if ($next_id > 0) {
-    $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
+    $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
 <span class="mat-button-wrapper"><i class="fa fa-hand-o-right"></i></span>
-<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-ripple mat-ripple"></div>
 <div class="mat-button-focus-overlay"></div>
 </button>
 </div>';
@@ -362,7 +390,7 @@ if (!empty($person->getDateDeactivated())) {
                         <div class="text-center">
                             <img
                                 src="<?= SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/photo' ?>"
-                                class="initials-image profile-user-img img-responsive img-rounded img-circle">
+                                class="initials-image profile-user-img img-responsive img-rounded img-circle" alt="">
                             <?php
                             if ($bOkToEdit) {
                                 ?>
@@ -422,20 +450,20 @@ if (!empty($person->getDateDeactivated())) {
                                     <b><?= _('Member Since') ?></b> <a class="float-right"><?= OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?></a>
                                 </li>
                                 <?php
-                                if (!empty($sClassIcon)) {
+                                if (!empty($person->getClassIcon())) {
                                     ?>
                                     <li class="list-group-item">
                                         <b><img
-                                                src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $sClassIcon ?>"
-                                                boder=0 width="18">
-                                            <?= _($sClassName) ?>
+                                                src="<?= SystemURLs::getRootPath() . "/skin/icons/markers/" . $person->getClassIcon() ?>"
+                                                width="18" alt="">
+                                            <?= _($person->getClassName()) ?>
                                         </b>
 
                                         <div class="float-right">
                                             <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs"
                                                data-person_id="<?= $person->getId() ?>"
-                                               data-classification_id="<?= $sClassID ?>"
-                                               data-classification_role="<?= $sClassName ?>">
+                                               data-classification_id="<?= $person->getClassID() ?>"
+                                               data-classification_role="<?= $person->getClassName() ?>">
                                                 <i class="fa fa-edit"></i>
                                             </a>
                                         </div>
@@ -455,8 +483,8 @@ if (!empty($person->getDateDeactivated())) {
                             as $groupAssigment) {
                             ?>
                             <li class="list-group-item">
-                                <a>
-                                    <i class="fa fa-group"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?></a>
+                                <b>
+                                    <i class="fa fa-group"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
                                 </b>
 
                                 <div class="float-right">
@@ -978,12 +1006,12 @@ if (!empty($person->getDateDeactivated())) {
                                         <table width=400px>
                                             <tr>
                                                 <td>
-                  <span class="time-line-head-red">
-                    <?php
-                    $now = new DateTime('');
-                    echo $now->format(SystemConfig::getValue('sDateFormatLong'))
-                    ?>
-                  </span>
+                                                  <span class="time-line-head-red">
+                                                    <?php
+                                                    $now = new DateTime('');
+                                                    echo $now->format(SystemConfig::getValue('sDateFormatLong'))
+                                                    ?>
+                                                  </span>
                                                 </td>
                                                 <td style="vertical-align: middle;">
                                                 </td>
@@ -1095,7 +1123,7 @@ if (!empty($person->getDateDeactivated())) {
                                             <td>
                                                 <img style="width:40px; height:40px;display:inline-block"
                                                      src="<?= SystemURLs::getRootPath() . '/api/persons/' . $familyMember->getId() . '/thumbnail' ?>"
-                                                     class="initials-image profile-user-img img-responsive img-circle no-border">
+                                                     class="initials-image profile-user-img img-responsive img-circle no-border" alt="">
                                                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>"
                                                    class="user-link"><?= $familyMember->getFullName() ?> </a>
                                             </td>
@@ -1209,7 +1237,8 @@ if (!empty($person->getDateDeactivated())) {
                                                                 <code>
                                                                     <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
                                                                        class="btn btn-default" role="button"><i
-                                                                            class="fa fa-list"></i></a>
+                                                                            class="fa fa-list"></i>
+                                                                    </a>
                                                                     <div class="btn-group">
                                                                         <button type="button"
                                                                                 class="btn btn-default"><?= _('Action') ?></button>
@@ -1587,12 +1616,9 @@ if (!empty($person->getDateDeactivated())) {
                                 <table width=370px>
                                     <tr>
                                         <td>
-                    <span class="time-line-head-yellow">
-                      <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
-                    </span>
-                                        </td>
-                                        <td style="vertical-align: middle;">
-                                            <label style="font-size: 12px"><?= _("Show") ?> : </label>
+                                            <span class="time-line-head-yellow">
+                                              <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+                                            </span>
                                         </td>
                                         <td>
                                             <select name="PropertyId" class="filter-timeline form-control input-sm" size="1"
@@ -1788,58 +1814,58 @@ if (!empty($person->getDateDeactivated())) {
                                     <table width=400px>
                                         <tr>
                                             <td>
-                      <span class="time-line-head-red">
-                        <?= _("All Files") ?>
-                      </span>
-                                                &nbsp;&nbsp;&nbsp;
-                                                <?php
-                                                if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
-                                                    ?>
+                                                  <span class="time-line-head-red">
+                                                    <?= _("All Files") ?>
+                                                  </span>
+                                                                            &nbsp;&nbsp;&nbsp;
+                                                  <?php
+                                                    if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+                                                  ?>
                                                     <a href="#" id="uploadFile">
-                          <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>"
-                                data-toggle="tooltip" data-placement="top"
-                                data-original-title="<?= _("Upload a file in EDrive") ?>">
-                            <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                            <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
-                          </span>
+                                                      <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>"
+                                                            data-toggle="tooltip" data-placement="top"
+                                                            data-original-title="<?= _("Upload a file in EDrive") ?>">
+                                                        <i class="fa fa-square fa-stack-2x" style="color:green"></i>
+                                                        <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                                                      </span>
                                                     </a>
-                                                    <?php
-                                                }
-                                                ?>
+                                                  <?php
+                                                    }
+                                                    ?>
 
                                                 <a class="new-folder" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
                                                    data-original-title="<?= _("Create a Folder") ?>">
-                      <span class="fa-stack fa-special-icon drag-elements">
-                        <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
-                        <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
-                      </span>
+                                                      <span class="fa-stack fa-special-icon drag-elements">
+                                                        <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
+                                                        <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
+                                                      </span>
                                                 </a>
 
                                                 <a class="trash-drop" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
                                                    data-original-title="<?= _("Delete") ?>">
-                      <span class="fa-stack fa-special-icon drag-elements">
-                        <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                      </span>
+                                                  <span class="fa-stack fa-special-icon drag-elements">
+                                                    <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                                                    <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                                  </span>
                                                 </a>
 
                                                 <a class="folder-back-drop" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
                                                    data-original-title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                        <span class="fa-stack fa-special-icon drag-elements">
-                          <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
-                          <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
-                        </span>
+                                                    <span class="fa-stack fa-special-icon drag-elements">
+                                                      <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
+                                                      <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
+                                                    </span>
                                                 </a>
                                                 <a class="filemanager-refresh" data-toggle="tooltip"
                                                    data-placement="top"
                                                    data-original-title="<?= _("Actualize files") ?>">
-                        <span class="fa-stack fa-special-icon drag-elements">
-                          <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
-                          <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
-                        </span>
+                                                    <span class="fa-stack fa-special-icon drag-elements">
+                                                      <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
+                                                      <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
+                                                    </span>
                                                 </a>
                                             </td>
                                         </tr>
