@@ -263,6 +263,8 @@ function addAttendees(typeID, first_time, eventID) {
         $('.ATTENDENCES-title').slideDown();
     }
 
+    $('.date-title').slideDown();
+
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
