@@ -53,7 +53,8 @@
         "phpoffice/phpword": "v0.17.*",
         "defuse/php-encryption": "^2.2",
         "endroid/qr-code": "^3.6",
-        "ext-gettext": "*"
+        "ext-gettext": "*",
+        "laminas/laminas-escaper": "^2.6"
     },
     "autoload": {
         "classmap": [
