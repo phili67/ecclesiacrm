@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // we add the calendars and the types
                     addCalendars();
-                    addCalendarEventTypes(-1,true);
+                    addCalendarEventTypes(undefined,true);
 
                     //Timepicker
                     $('.timepicker').datetimepicker({

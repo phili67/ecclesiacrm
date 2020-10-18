@@ -283,7 +283,7 @@ function addAttendees(typeID, first_time, eventID) {
             $(".ATTENDENCES-fields").html('<input id="countFieldsId" name="countFieldsId" type="hidden" value="0"><br>' + i18next.t('No attendees') + '<br>');
 
         } else {
-            if (eventID == 0) {
+            if (eventID == 0 && typeID != undefined) {
                 var time_format;
 
                 if (window.CRM.timeEnglish == true) {
@@ -478,7 +478,7 @@ function addCalendarEventTypes(typeId, bAddAttendees) {
         }
 
         if (bAddAttendees) {
-            addAttendees(global_typeID);
+            addAttendees((typeId != false )?global_typeID:undefined);
         }
     });
 }
