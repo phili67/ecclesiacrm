@@ -121,7 +121,7 @@ class OutputUtils {
     return str_replace(",",".",$number);
   }
 
-  public function securityFilter($fieldSec)
+  public static function securityFilter($fieldSec)
   {
     switch ($fieldSec) {
       case 1: // bAll
