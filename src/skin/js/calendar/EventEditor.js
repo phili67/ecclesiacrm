@@ -241,7 +241,7 @@ $(document).on('change', '#eventType', function (val) {
     var e = document.getElementById("eventType");
     var typeID = e.options[e.selectedIndex].value;
 
-    addAttendees(typeID);
+    addAttendees(typeID, false);
 });
 
 
@@ -263,6 +263,8 @@ function addAttendees(typeID, first_time, eventID) {
         $('.ATTENDENCES-title').slideDown();
     }
 
+    $('.date-title').slideDown();
+
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
@@ -283,7 +285,7 @@ function addAttendees(typeID, first_time, eventID) {
             $(".ATTENDENCES-fields").html('<input id="countFieldsId" name="countFieldsId" type="hidden" value="0"><br>' + i18next.t('No attendees') + '<br>');
 
         } else {
-            if (eventID == 0) {
+            if ( (eventID == 0 && typeID != undefined || typeID != undefined) && !first_time ) {
                 var time_format;
 
                 if (window.CRM.timeEnglish == true) {
@@ -295,18 +297,18 @@ function addAttendees(typeID, first_time, eventID) {
                 var time = moment().format('YYYY-MM-DD') + ' ' + eventTypes[0].startHour + ':' + eventTypes[0].startMin;
 
                 var timeStart = moment(time).format(time_format);
-                var timeEnd = moment(time).add(1, 'hours').format(time_format);
+                var timeEnd = moment(time).add(1, 'hours');
+
+                timeEnd = timeEnd.format(time_format);
 
                 $('#timeEventStart').val(timeStart);
                 $('#timeEventEnd').val(timeEnd);
 
                 // now we have to change the
                 var dateStart = $("#rangeStart").data('datestart');
+                $('#dateEventEnd').val(dateStart);
 
                 $("#rangeStart").html(i18next.t('From') + ' : ' + dateStart + ' ' + timeStart);
-
-                var timeEnd = moment(dateStart + ' ' + timeStart).add(1, 'hours').format(time_format);
-
                 $("#rangeEnd").html(i18next.t('to') + ' : ' + dateStart + ' ' + timeEnd);
             }
 
@@ -478,7 +480,7 @@ function addCalendarEventTypes(typeId, bAddAttendees) {
         }
 
         if (bAddAttendees) {
-            addAttendees(global_typeID);
+            addAttendees((typeId != false )?global_typeID:undefined);
         }
     });
 }
