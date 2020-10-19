@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-08-30T07:01:19.024Z\n"
+"POT-Creation-Date: 2020-10-19T17:00:39.892Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2172,6 +2172,59 @@ msgstr "Nachname (Familien Name)"
 
 msgid "Family Name"
 msgstr "Familien Name"
+
+#, fuzzy
+msgid "Number"
+msgstr "Schecknummer"
+
+msgid "Item"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Multiple"
+msgstr ""
+
+msgid "Donor"
+msgstr ""
+
+msgid "Buyer"
+msgstr ""
+
+msgid "Sale Price"
+msgstr ""
+
+#, fuzzy
+msgid "Estimated value"
+msgstr "Doppelte Werte"
+
+msgid "Material Value"
+msgstr ""
+
+msgid "Minimum Price"
+msgstr ""
+
+#, fuzzy
+msgid "Add buyer"
+msgstr "Person Hinzufügen"
+
+#, fuzzy
+msgid "Buyer Number"
+msgstr "Schecknummer"
+
+msgid "Save and Add"
+msgstr ""
+
+msgid "Generate Statement"
+msgstr ""
+
+msgid "Buyer Number Editor"
+msgstr ""
+
+#, fuzzy
+msgid "Select"
+msgstr "Rolle auswählen"
 
 #~ msgid "Attendances"
 #~ msgstr "Anwesenheiten"
