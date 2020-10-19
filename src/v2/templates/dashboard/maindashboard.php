@@ -504,11 +504,11 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                style="color:black;text-decoration: none"><?= _("Manage Pastoral Care") ?></a>
         </p>
     </div>
-    </div>
+</div>
+</div>
     <?php
 }
 ?>
-</div>
 
 <?php
 if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If the user has Finance permissions, then let's display the deposit line chart
