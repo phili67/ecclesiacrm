@@ -259,26 +259,6 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 
 
 <?php
-function implodeUnique($array, $withQuotes)
-{
-    array_unique($array);
-    asort($array);
-    if (count($array) > 0) {
-        if ($withQuotes) {
-            $string = implode("','", $array);
-
-            return "'" . $string . "'";
-        } else {
-            return implode(',', $array);
-        }
-    }
-
-    return '';
-}
-
-?>
-
-<?php
 if (SessionUser::getUser()->isAddRecords()) {
     ?>
         <div class="card-footer">
@@ -293,7 +273,6 @@ if (SessionUser::getUser()->isAddRecords()) {
                 </div>
             </div>
         </div>
-    </div>
     <?php
 }
 ?>
