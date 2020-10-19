@@ -29,7 +29,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 if ( !( SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -58,7 +58,7 @@ $out = fopen('php://output', 'w');
 if ($charset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
-  
+
 $labelArr = [];
 $labelArr[] = InputUtils::translate_special_charset("First Name",$charset);
 $labelArr[] = InputUtils::translate_special_charset("Last Name",$charset);
@@ -94,7 +94,7 @@ $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
                             ->joinWithPerson()
                             ->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce ORDER BY per_LastName, per_FirstName
                             ->findByGroupId($iGroupID);
-                            
+
 
 $maxNbrEvents = 0;
 
@@ -109,18 +109,18 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
     $lineRealPresence = 0;
     $lineNbrEvents = 0;
     $lineDates = [];
-    
+
     $person = $groupRoleMembership->getPerson();
     $family = $person->getFamily();
-        
+
     $homePhone = "";
     if (!empty($family)) {
         $homePhone = $family->getHomePhone();
-    
+
         if (empty($homePhone)) {
             $homePhone = $family->getCellPhone();
         }
-        
+
         if (empty($homePhone)) {
             $homePhone = $family->getWorkPhone();
         }
@@ -128,8 +128,8 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
 
     $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
     $lst_OptionName = $groupRole->getOptionName();
-    
-    
+
+
     if ($lst_OptionName == 'Student') {
       $assignedProperties = Record2propertyR2pQuery::Create()
                   ->findByR2pRecordId($person->getId());
@@ -139,14 +139,14 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
         $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
         $props.= $property->getProName().", ";
       }
-      
+
       $positionSize = 0;
       foreach ($activeEvents as $activeEvent) {// we loop in the events of the year
         $eventAttendees = EventAttendQuery::create()
               ->filterByPersonId($person->getId())
               ->filterByEventId($activeEvent->getId())
               ->find();
-              
+
         foreach ($eventAttendees as $eventAttendee) {
           if (!empty($eventAttendee->getCheckoutDate())) {
             $lineDates[] = 1;
@@ -160,11 +160,11 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
           $positionSize++;
         }
       }
-      
+
       if ($maxNbrEvents < $lineNbrEvents) {
         $maxNbrEvents = $lineNbrEvents;
       }
-      
+
       $lineArr[] = InputUtils::translate_special_charset($person->getFirstName(),$charset);
       $lineArr[] = InputUtils::translate_special_charset($person->getLastName(),$charset);
       $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")),$charset);
@@ -174,9 +174,9 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
       $lineArr[] = $group->getName();
       $lineArr[] = $props;
       $lineArr[] = "\"".$lineRealPresence."/".$lineNbrEvents."\"";
-      
-      $lineArr = array_merge($lineArr,$lineDates);      
-      
+
+      $lineArr = array_merge($lineArr,$lineDates);
+
       fputcsv($out, $lineArr, $delimiter);
     }
 }

@@ -27,7 +27,7 @@ function renderMailChimpDashboard (Request $request, Response $response, array $
     $renderer = new PhpRenderer('templates/email/mailchimp/');
 
     if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'dashboard.php', mailchimpDashboardArgumentsArray());
@@ -60,7 +60,7 @@ function renderMailChimpDebug (Request $request, Response $response, array $args
     $renderer = new PhpRenderer('templates/email/mailchimp/');
 
     if ( !( SessionUser::getUser()->isMailChimpEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'debug.php', mailchimpDebugArgumentsArray());
@@ -91,7 +91,7 @@ function renderMailChimpCampaign (Request $request, Response $response, array $a
     $mailchimp       = new MailChimpService();
 
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'campaign.php', mailchimpCampaignArgumentsArray($campaignId, $mailchimp));
@@ -127,7 +127,7 @@ function renderMailChimpManageList (Request $request, Response $response, array 
     $mailchimp       = new MailChimpService();
 
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'managelist.php', mailchimpManageListArgumentsArray($listId, $mailchimp));
@@ -167,7 +167,7 @@ function renderMailChimpDuplicateEmails (Request $request, Response $response, a
     $mailchimp       = new MailChimpService();
 
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'duplicateemails.php', mailchimpDuplicateEmailsArgumentsArray());
@@ -193,7 +193,7 @@ function renderMailChimpNotInMailchimpEmailsPersons (Request $request, Response 
     $mailchimp       = new MailChimpService();
 
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'notinmailchimpemailspersons.php', mailchimpNotInMailchimpEmailsArgumentsArrayPersons());
@@ -218,7 +218,7 @@ function renderMailChimpNotInMailchimpEmailsFamilies (Request $request, Response
     $mailchimp       = new MailChimpService();
 
     if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'notinmailchimpemailsfamilies.php', mailchimpNotInMailchimpEmailsArgumentsArrayFamilies());

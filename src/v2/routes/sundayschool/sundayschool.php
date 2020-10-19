@@ -41,7 +41,7 @@ function sundayschoolDashboard (Request $request, Response $response, array $arg
     $renderer = new PhpRenderer('templates/sundayschool/');
 
     if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'sundayschooldashboard.php', argumentsSundayschoolDashboardArray());
@@ -76,7 +76,7 @@ function sundayschoolView (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sundayschool/');
 
     if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     $groupId = $args['groupId'];
@@ -130,7 +130,7 @@ function sundayschoolReports (Request $request, Response $response, array $args)
     $renderer = new PhpRenderer('templates/sundayschool/');
 
     if ( !( SystemConfig::getBooleanValue("bEnabledSundaySchool") && SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
 

@@ -32,7 +32,7 @@ function renderPaddleNumList(Request $request, Response $response, array $args)
     $renderer = new PhpRenderer('templates/fundraiser/');
 
     if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'paddleNumList.php', argumentsPaddleNumListArray($args['CurrentFundraiser']));
@@ -56,7 +56,7 @@ function renderFindFundRaiser(Request $request, Response $response, array $args)
     $renderer = new PhpRenderer('templates/fundraiser/');
 
     if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'findFundRaiser.php', argumentsFindFundRaiserArray());
@@ -79,7 +79,7 @@ function renderDonatedItemEditor(Request $request, Response $response, array $ar
     $renderer = new PhpRenderer('templates/fundraiser/');
 
     if (!(SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'donatedItemEditor.php', argumentsDonatedItemEditorArray($args['donatedItemID'], $args['CurrentFundraiser']));

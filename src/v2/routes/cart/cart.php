@@ -36,7 +36,7 @@ function renderCarView (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/cart/');
 
     if ( !( SessionUser::getUser()->isShowCartEnabled() && Cart::HasPeople() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'cartview.php', argumentsCartViewArray());

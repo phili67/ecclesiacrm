@@ -18,11 +18,11 @@ $app->group('/pastoralcarelist', function () {
 
 function renderPastoralCareList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
-    
+
     if ( !(SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'pastoralcarelist.php', argumentsPastoralCareListArray());
 }
 
@@ -32,11 +32,11 @@ function argumentsPastoralCareListArray ()
     $sPageTitle = _("Pastoral Care Type Editor");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
-          
+
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
-                       'sPageTitle'    => $sPageTitle, 
+                       'sPageTitle'    => $sPageTitle,
                        'isPastoralCareEnabled' => ( (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId())?1:0 )
-                       ];   
+                       ];
    return $paramsArguments;
 }

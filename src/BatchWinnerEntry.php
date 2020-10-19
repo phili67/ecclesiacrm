@@ -142,7 +142,7 @@ require 'Include/Header.php';
                        onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
                            echo $linkBack;
                        } else {
-                           echo 'Menu.php';
+                           echo 'v2/dashboard';
                        } ?>';">
             </div>
         </div>

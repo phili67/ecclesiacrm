@@ -22,7 +22,7 @@ use Propel\Runtime\Propel;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -39,7 +39,7 @@ $remittance = InputUtils::LegacyFilterInput($_POST['remittance']);
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getValue('bCSVAdminOnly') && $output != 'pdf') {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -62,10 +62,10 @@ if ($sDateStart > $sDateEnd) {
 
 // Build SQL Query
 // Build SELECT SQL Portion
-$sSQL = "SELECT DISTINCT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country 
-       FROM family_fam LEFT OUTER JOIN person_per ON fam_ID = per_fam_ID 
-       WHERE per_cls_ID=1 AND fam_ID NOT IN 
-       (SELECT DISTINCT plg_FamID FROM pledge_plg WHERE plg_date BETWEEN '$sDateStart' AND '$sDateEnd' AND plg_PledgeOrPayment = 'Payment') 
+$sSQL = "SELECT DISTINCT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country
+       FROM family_fam LEFT OUTER JOIN person_per ON fam_ID = per_fam_ID
+       WHERE per_cls_ID=1 AND fam_ID NOT IN
+       (SELECT DISTINCT plg_FamID FROM pledge_plg WHERE plg_date BETWEEN '$sDateStart' AND '$sDateEnd' AND plg_PledgeOrPayment = 'Payment')
        ORDER BY fam_ID";
 
 //Execute SQL Statement
@@ -195,10 +195,10 @@ if ($output == 'pdf') {
     header('Content-Type: text/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
-    
+
     if ($charset == "UTF-8") {
        echo "\xEF\xBB\xBF";
     }
-    
+
     echo $buffer;
 }

@@ -46,7 +46,7 @@ $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
     (SessionUser::getUser()->isEditSelfEnabled() && $iPersonID == SessionUser::getUser()->getPersonId()) ) ) {
-  RedirectUtils::Redirect('Menu.php');
+  RedirectUtils::Redirect('v2/dashboard');
   exit;
 }
 
@@ -77,7 +77,7 @@ $ormPersonCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find()
                      ->toArray();
-                     
+
 $numCustomFields = count($ormPersonCustomFields);
 
 // Get the custom field data for this person.
@@ -202,7 +202,7 @@ require 'Include/Header-Short.php';
 
         if ($personSheet->getDateDeactivated() != null) {
           RedirectUtils::Redirect('members/404.php?type=Person');
-        }    
+        }
 
 
         if ($personSheet) {
@@ -283,7 +283,7 @@ require 'Include/Header-Short.php';
   $numColumn1Fields = ceil((float)$numCustomFields / 3.0);
   $numColumn2Fields = $numColumn1Fields;
   $numColumn3Fields = $numCustomFields - $numColumn1Fields*2;
-  
+
   for ($i = 0 ; $i < $numColumn1Fields ; $i++) {
     if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
         $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
@@ -310,7 +310,7 @@ require 'Include/Header-Short.php';
       </tr>
     <?php
         }
-    }    
+    }
   }
 ?>
     </table>
@@ -323,7 +323,7 @@ require 'Include/Header-Short.php';
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
         <?php
-          switch (strtolower($per_Gender)) {case 1:echo _('Male');break; case 2: echo _('Female');break;} 
+          switch (strtolower($per_Gender)) {case 1:echo _('Male');break; case 2: echo _('Female');break;}
         ?>
       </td>
     </tr>
@@ -336,12 +336,12 @@ require 'Include/Header-Short.php';
       <td class="LabelColumn"><?= _('Family') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
-      <?php 
+      <?php
         if ($fam_Name != '') {
           echo $fam_Name;
         } else {
           echo _('Unassigned');
-        } 
+        }
       ?>
       &nbsp;</td>
     </tr>
@@ -349,12 +349,12 @@ require 'Include/Header-Short.php';
       <td class="LabelColumn"><?= _('Family Role') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumnWithBottomBorder">
-      <?php 
+      <?php
         if ($sFamRole != '') {
           echo $sFamRole;
         } else {
           echo _('Unassigned');
-        } 
+        }
       ?>&nbsp;
       </td>
     </tr>
@@ -385,7 +385,7 @@ require 'Include/Header-Short.php';
       </tr>
     <?php
         }
-    }    
+    }
   }
 ?>
     </table>
@@ -439,16 +439,16 @@ require 'Include/Header-Short.php';
       </tr>
     <?php
         }
-    }    
+    }
   }
-?>    
+?>
       </table>
     </td>
 </tr>
 </table>
 <br>
 
-<?php 
+<?php
   if ($fam_ID) {
 ?>
 
@@ -470,12 +470,12 @@ require 'Include/Header-Short.php';
     while ($aRow = $statement->fetch(PDO::FETCH_BOTH)) {
         $per_BirthYear = '';
         $agr_Description = '';
-        
+
         extract($aRow);
 
         if ($per_DateDeactivated != null)// GDRP, when a person is completely deactivated
           continue;
-        
+
         // Alternate the row style
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass)
 
@@ -542,9 +542,9 @@ if ($ormAssignedGroups->count() == 0) {
             $firstRow = true;
             // Get the special properties for this group
             $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
-                          
+
             $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
-            
+
             $statement = $connection->prepare($sSQL);
             $statement->execute();
             $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );

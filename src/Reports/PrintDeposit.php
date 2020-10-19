@@ -25,7 +25,7 @@ use EcclesiaCRM\SessionUser;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -47,7 +47,7 @@ $iDepositSlipID = 0;
 if (array_key_exists("deposit", $_POST)) {
     $iDepositSlipID = InputUtils::LegacyFilterInput($_POST["deposit"], "int");
 }
-    
+
 if (!$iDepositSlipID && array_key_exists('iCurrentDeposit', $_SESSION)) {
     $iDepositSlipID = $_SESSION['iCurrentDeposit'];
 }
@@ -55,7 +55,7 @@ if (!$iDepositSlipID && array_key_exists('iCurrentDeposit', $_SESSION)) {
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 // If no DepositSlipId, redirect to the menu
 if ((!SessionUser::getUser()->isFinanceEnabled() && $bCSVAdminOnly && $output != "pdf") || !$iDepositSlipID) {
-    RedirectUtils::Redirect("Menu.php");
+    RedirectUtils::Redirect("v2/dashboard");
     exit;
 }
 

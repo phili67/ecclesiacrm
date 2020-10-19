@@ -43,7 +43,7 @@ function XMLparseIST($xmlstr, $xmlfield)
 
 // If user is not admin, redirect to the menu.
 if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

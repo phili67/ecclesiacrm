@@ -46,7 +46,7 @@ require 'Include/Header.php';
     $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
 
     if ($currentUserBelongToGroup == 0) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
     }
 ?>
 

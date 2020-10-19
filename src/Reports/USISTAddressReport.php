@@ -18,7 +18,7 @@ use EcclesiaCRM\SessionUser;
 
 // If user does not have permission redirect to the menu.
 if (!SessionUser::getUser()->isUSAddressVerificationEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

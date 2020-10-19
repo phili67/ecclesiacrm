@@ -19,7 +19,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 if ( !( SessionUser::getUser()->isShowMenuQueryEnabled() ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

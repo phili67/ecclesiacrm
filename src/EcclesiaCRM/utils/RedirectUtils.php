@@ -22,7 +22,7 @@ class RedirectUtils
         header('Location: ' . $finalLocation);
         exit;
     }
-    
+
     // Convert a relative URL into an absolute URL and return absolute URL.
     public static function RedirectURL($sRelativeURL)
     {
@@ -53,10 +53,10 @@ class RedirectUtils
             die($sErrorMessage);
         }
     }
-    
+
     public static function SecurityRedirect($missingRole) {
         LoggerUtils::getAppLogger()->info("Security Redirect Request due to Role: " . $missingRole);
-        self::Redirect("Menu.php");
+        self::Redirect("v2/dashboard");
     }
-        
+
 }

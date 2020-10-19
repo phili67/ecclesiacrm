@@ -18,11 +18,11 @@ $app->group('/propertylist', function () {
 
 function renderPropertyList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
-    
+
     if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     //Get the type to display
     $sType = $args['type'];
 
@@ -41,11 +41,11 @@ function renderPropertyList (Request $request, Response $response, array $args) 
             break;
 
         default:
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
             break;
     }
-    
+
     return $renderer->render($response, 'propertylist.php', argumentsPropertyListArray($sType,$sTypeName));
 }
 
@@ -55,13 +55,13 @@ function argumentsPropertyListArray ($sType,$sTypeName)
     $sPageTitle = _("Property List");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
-    
+
     // We need the properties types
     $propertyTypes = PropertyTypeQuery::Create()
                       ->filterByPrtClass($sType)
                       ->find();
 
-          
+
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
                        'CSPNonce'      => SystemURLs::getCSPNonce(),
@@ -70,6 +70,6 @@ function argumentsPropertyListArray ($sType,$sTypeName)
                        'sType'         => $sType,
                        'sTypeName'     => $sTypeName,
                        'isMenuOption'  => SessionUser::getUser()->isMenuOptionsEnabled()
-                       ];   
+                       ];
    return $paramsArguments;
 }

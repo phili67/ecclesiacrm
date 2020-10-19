@@ -28,10 +28,6 @@ $app->group('/meeting', function () {
 function renderMeetingDashboard (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/meeting');
 
-    if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
-    }
-
     return $renderer->render($response, 'meetingdashboard.php', argumentsMeetingArray());
 }
 

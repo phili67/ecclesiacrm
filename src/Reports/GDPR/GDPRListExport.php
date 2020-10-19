@@ -24,7 +24,7 @@ use EcclesiaCRM\SessionUser;
 
 
 if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
-  RedirectUtils::Redirect('Menu.php');
+  RedirectUtils::Redirect('v2/dashboard');
   exit;
 }
 
@@ -72,23 +72,23 @@ fputcsv($out, [InputUtils::translate_special_charset(_("Full Name"),$charset),
   InputUtils::translate_special_charset(_("Deactivated"),$charset) ], $delimiter);
 
 // only the unday groups
-                    
+
  foreach ($notes as $note) {
     $person = PersonQuery::Create()->findOneById($note->getPerId());
- 
+
     fputcsv($out, [
             InputUtils::translate_special_charset($note->getPerson()->getFullName(),$charset),
             InputUtils::translate_special_charset($note->getTitle(),$charset),
             InputUtils::translate_special_charset($note->getText(),$charset),
             InputUtils::translate_special_charset($note->getType(),$charset),
-            (!empty($note->getDateEntered()))?$note->getDateEntered()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"", 
+            (!empty($note->getDateEntered()))?$note->getDateEntered()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"",
             (!empty($note->getDateLastEdited()))?$note->getDateLastEdited()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"",
             InputUtils::translate_special_charset($note->getEditedByLastName()." ".$note->getEditedByFirstName(),
             $charset).' '.InputUtils::translate_special_charset($Address2,$charset).' '.InputUtils::translate_special_charset($city,$charset).' '.InputUtils::translate_special_charset($state,$charset).' '.$zip,
             (!is_null($note->getDeactivated()))?_("Yes"):_("No")
             ], $delimiter);
- 
- 
+
+
  }
 
 

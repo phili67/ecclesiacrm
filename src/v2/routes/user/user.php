@@ -20,11 +20,11 @@ $app->group('/users', function () {
 
 function renderUserList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/user/');
-    
+
     if ( !( SessionUser::getUser()->isAdmin() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'userlist.php', argumentsrenderUserListArray());
 }
 
@@ -47,7 +47,7 @@ function argumentsrenderUserListArray ()
     if ($usr_role_id == null) {
       $usr_role_id = $first_roleID;
     }
-    
+
     $paramsArguments = ['sRootPath'        => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
                        'sPageTitle'        => _('System Users Listing'),
@@ -58,6 +58,6 @@ function argumentsrenderUserListArray ()
                        'sessionUserId'     => SessionUser::getUser()->getId(),
                        'dateFormatLong'    => SystemConfig::getValue('sDateFormatLong')
                       ];
-   
+
    return $paramsArguments;
 }

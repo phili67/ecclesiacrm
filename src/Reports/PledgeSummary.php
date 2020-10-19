@@ -25,7 +25,7 @@ use EcclesiaCRM\PledgeQuery;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -39,7 +39,7 @@ $_SESSION['idefaultFY'] = $iFYID; // Remember the chosen FYID
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getValue('bCSVAdminOnly') && $output != 'pdf') {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -60,7 +60,7 @@ foreach ($funds as $fund) {
     $paymentCnt[$fun_name] = 0;
     $pledgeCnt[$fun_name] = 0;
     $pledgeFundTotal[$fun_name] = 0;
-    $paymentFundTotal[$fun_name] = 0;  
+    $paymentFundTotal[$fun_name] = 0;
 }
 
 $pledgeFundTotal['Unassigned'] = 0;
@@ -88,15 +88,15 @@ if (!empty($_POST['funds'])) {
          $pledges->filterByFundid ($fund_buf);
      }
 }
- 
+
 $pledges->useDonationFundQuery()
         //->orderByActive() // this can't be done due to the algorithm below
         //->orderByName()
         ->endUse()
         ->orderByFamId()
         ->find();
-        
-        
+
+
 
 
 // Create PDF Report
@@ -196,10 +196,10 @@ if ($output == 'pdf') {
                 $paidThisFam[$fundName] = $pledge->getAmount();
             }
         }
-        
+
         $thisRow++;
     }
-    
+
     // we loop a last time in the fund to finish the work
     foreach ($funds as $fund) {
         $fun_name = $fund->getName();
@@ -331,10 +331,10 @@ if ($output == 'pdf') {
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
-    
+
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
     if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";
-    }    
+    }
     echo $buffer;
 }

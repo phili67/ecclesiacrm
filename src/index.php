@@ -31,7 +31,7 @@ function endsWith($haystack, $needle)
 }
 
 $hasSession = SessionUser::isActive();
-$redirectTo = ($hasSession) ? '/menu' : '/login';
+$redirectTo = ($hasSession) ? '/v2/dashboard' : '/login';
 
 // Get the current request path and convert it into a magic filename
 // e.g. /list-events => /ListEvents.php
@@ -39,7 +39,7 @@ $shortName = str_replace(SystemURLs::getRootPath().'/', '', $_SERVER['REQUEST_UR
 $fileName = dashesToCamelCase($shortName, true).'.php';
 
 if (strtolower($shortName) == 'index.php' || strtolower($fileName) == 'index.php') {
-    // Index.php -> Menu.php or Login.php
+    // Index.php -> v2/dashboard or Login.php
     header('Location: '.SystemURLs::getRootPath().$redirectTo);
     exit;
 } elseif (!$hasSession) {

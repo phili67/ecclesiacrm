@@ -9,7 +9,7 @@
  *                This code can't be incoprorated in another software without any authorization
  *
  ******************************************************************************/
- 
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -34,7 +34,7 @@ $app->group('/personlist', function () {
 
 function renderPersonList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/people/');
-    
+
     $sMode = $args['mode'];
 
     if ( !( SessionUser::getUser()->isEditRecordsEnabled()
@@ -42,9 +42,9 @@ function renderPersonList (Request $request, Response $response, array $args) {
       || (strtolower($sMode) == 'inactive' && SessionUser::getUser()->isEditRecordsEnabled())
           )
        ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'personlist.php', argumentsPersonListArray($sMode));
 }
 
@@ -53,7 +53,7 @@ function argumentsPersonListArray ($sMode='Active')
     if (strtolower($sMode) == 'gdrp') {
        $time = new \DateTime('now');
        $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
-   
+
        $persons = PersonQuery::create()
                 ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a person is completely deactivated
                 ->_or() // or : this part is unusefull, it's only for debugging
@@ -62,7 +62,7 @@ function argumentsPersonListArray ($sMode='Active')
                 ->endUse()
                 ->orderByLastName()
                 ->find();
-            
+
     } else if (strtolower($sMode) == 'inactive') {
       if (SystemConfig::getValue('bGDPR')) {
         $time = new \DateTime('now');
@@ -78,7 +78,7 @@ function argumentsPersonListArray ($sMode='Active')
                 ->find();
       } else {
         $time = new \DateTime('now');
-    
+
         $persons = PersonQuery::create()
                 ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)
                 ->orderByLastName()
@@ -93,11 +93,11 @@ function argumentsPersonListArray ($sMode='Active')
     }
 
     $sPageTitle = _(ucfirst(_($sMode))) . ' : ' . _('Person List');
-    
+
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
     $sCSPNonce       = SystemURLs::getCSPNonce();
-          
+
     $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
                        'sRootDocument'        => $sRootDocument,
                        'sPageTitle'           => $sPageTitle,
@@ -106,6 +106,6 @@ function argumentsPersonListArray ($sMode='Active')
                        'persons'              => $persons,
                        'bNotGDRP'             => SessionUser::getUser()->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp'
                        ];
-                       
+
    return $paramsArguments;
 }

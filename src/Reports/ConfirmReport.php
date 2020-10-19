@@ -83,7 +83,7 @@ class PDF_ConfirmReport extends ChurchInfoReport
 }
 
 if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

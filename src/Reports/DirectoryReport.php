@@ -26,7 +26,7 @@ use Propel\Runtime\Propel;
 
 // Check for Create Directory user permission.
 if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -223,13 +223,13 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
 
         $pdoPersons = $connection->prepare($sSQL);
         $pdoPersons->execute();
-        
+
         if ($pdoPersons->rowCount()) {
             $aHead = $pdoPersons->fetch(PDO::FETCH_BOTH);
             $OutStr .= $pdf->sGetHeadString($rsCustomFields, $aHead);
             $bNoRecordName = false;
         }
-        
+
         // Find the Spouse of Household
         $sSQL = "SELECT * FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID
             WHERE per_fam_ID = ".$iFamilyID."
@@ -237,7 +237,7 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
 
         $pdoPersons = $connection->prepare($sSQL);
         $pdoPersons->execute();
-        
+
         if ($pdoPersons->rowCount()) {
             $aSpouse = $pdoPersons->fetch(PDO::FETCH_BOTH);
             $OutStr .= $pdf->sGetHeadString($rsCustomFields, $aSpouse);

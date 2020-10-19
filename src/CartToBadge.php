@@ -33,7 +33,7 @@ $sPageTitle = gettext('Cart to Badges');
 require 'Include/Header.php';
 
 if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() )) {
-   RedirectUtils::Redirect('Menu.php');
+   RedirectUtils::Redirect('v2/dashboard');
    exit;
 }
 

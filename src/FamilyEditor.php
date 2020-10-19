@@ -58,7 +58,7 @@ if (array_key_exists('FamilyID', $_GET)) {
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
 if ($iFamilyID > 0) {
     if (!(SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())))) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
 
@@ -66,7 +66,7 @@ if ($iFamilyID > 0) {
         ->findOneById($iFamilyID);
 
     if (empty($family)) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
 
@@ -74,7 +74,7 @@ if ($iFamilyID > 0) {
         RedirectUtils::Redirect('members/404.php');
     }
 } elseif (!SessionUser::getUser()->isAddRecordsEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

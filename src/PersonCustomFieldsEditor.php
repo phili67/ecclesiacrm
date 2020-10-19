@@ -30,7 +30,7 @@ use EcclesiaCRM\Map\PersonCustomMasterTableMap;
 
 // Security: user must be administrator to use this page
 if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

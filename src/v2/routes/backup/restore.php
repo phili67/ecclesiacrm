@@ -32,7 +32,7 @@ function renderRestore (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/backup/');
 
     if ( !( SessionUser::getUser()->isAdmin() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'restore.php', argumentsRestoreArray());

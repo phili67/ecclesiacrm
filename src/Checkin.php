@@ -120,7 +120,7 @@ if ($searchEventInActivEvent != null) {
         ->Where('type_id=' . $event->getType())
         ->find();
 } /*else if ($activeEvents->count() == 0 && is_null($event)) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }*/
 

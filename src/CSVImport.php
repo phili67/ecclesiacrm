@@ -29,7 +29,7 @@ use EcclesiaCRM\SessionUser;
 
 
 if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 /**

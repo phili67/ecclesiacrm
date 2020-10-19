@@ -44,7 +44,7 @@ function renderMap (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/map/');
 
     if ( !( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($args['GroupID']) ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
@@ -104,7 +104,7 @@ function renderMapArray ($iGroupID)
        $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
 
        if ($currentUserBelongToGroup == 0) {
-          RedirectUtils::Redirect('Menu.php');
+          RedirectUtils::Redirect('v2/dashboard');
        }
 
         $persons = PersonQuery::create()

@@ -25,7 +25,7 @@ use EcclesiaCRM\SessionUser;
 
 // Check for Create Directory user permission.
 if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -337,7 +337,7 @@ require 'Include/Header.php';
             <BR>
             <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Create Directory') ?>">
             <input type="button" class="btn btn-default" name="Cancel" <?= 'value="' . _('Cancel') . '"' ?>
-                   onclick="javascript:document.location='Menu.php';">
+                   onclick="javascript:document.location='v2/dashboard';">
         </p>
     </div>
     </form>

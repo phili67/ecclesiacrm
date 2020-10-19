@@ -464,9 +464,6 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
         }
 
 
-// the type of banner
-        $pastoralcareAlertType = "alert-success";
-
 // old alert style : alert-pastoral-care
         $retiredColor = 'success';
         if ((100.0 - $percentRetiredViewPersons) < 10.0) {
@@ -514,12 +511,19 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
         }
 
         // only retired, families and persons are concerned, the young people are only here to be showned
+        // the type of banner
+        $pastoralcareAlertType = "bg-gradient-green";
+        $pastoralcareAlertTypeHR = "#019501";
+
         if ((100.0 - $percentRetiredViewPersons) < 10.0 || (100.0 - $percentViewFamilies) < 10.0 || (100.0 - $percentViewPersons) < 10.0) {
-            $pastoralcareAlertType = "alert-danger";
+            $pastoralcareAlertType = "bg-gradient-red";
+            $pastoralcareAlertTypeHR = "#ad0000";
         } else if ((100.0 - $percentRetiredViewPersons) < 30.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 30.0) {
-            $pastoralcareAlertType = "alert-warning";
+            $pastoralcareAlertType = "bg-gradient-yellow";
+            $pastoralcareAlertTypeHR = "#cca500";
         } else if ((100.0 - $percentRetiredViewPersons) < 60.0 || (100.0 - $percentViewFamilies) < 30.0 || (100.0 - $percentViewFamilies) < 60.0) {
-            $pastoralcareAlertType = "alert-primary";
+            $pastoralcareAlertType = "bg-gradient-blue";
+            $pastoralcareAlertTypeHR = "#4557dd";
         }
 
         return ['startPeriod' => $range['startPeriod'],
@@ -539,7 +543,8 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
             'CountNotViewYoung' => $youngPersonsWithoutPastoralCare->count(),
             'PercentViewYoung' => round($percentYoungViewPersons,2),
             'youngColor' => $youngColor,
-            'PastoralcareAlertType' => $pastoralcareAlertType];
+            'PastoralcareAlertType' => $pastoralcareAlertType,
+            'PastoralcareAlertTypeHR' => $pastoralcareAlertTypeHR];
     }
 
     public function lastContactedPersons () {

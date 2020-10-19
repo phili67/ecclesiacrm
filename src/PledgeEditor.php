@@ -37,7 +37,7 @@ use EcclesiaCRM\map\PledgeTableMap;
 
 // Security
 if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'))) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -115,7 +115,7 @@ if ($sGroupKey) {
 
         // Security: User must have Finance permission or be the one who entered this record originally
         if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $pledge->getEditedby())) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
         }
     }
@@ -802,7 +802,7 @@ require 'Include/Header.php';
                                 $cancelText = _('Return');
                             } ?>
                             <input type="button" class="btn btn-default" value="<?= _($cancelText) ?>" name="PledgeCancel"
-                                   onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'Menu.php' ?>';">
+                                   onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'v2/dashboard' ?>';">
                         </div>
                     </div>
                 </div>

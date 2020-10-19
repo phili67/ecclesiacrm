@@ -21,7 +21,7 @@ use Propel\Runtime\Propel;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -89,7 +89,7 @@ if (!$output) {
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getValue('bCSVAdminOnly') && $output != 'pdf') {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -931,7 +931,7 @@ if ($output == 'pdf') {
     header('Content-Type: text/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
-    
+
     if ($charset == "UTF-8") {
        echo "\xEF\xBB\xBF";
     }

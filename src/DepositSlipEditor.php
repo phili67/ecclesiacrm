@@ -27,7 +27,7 @@ $dep_Closed = false;
 
 // Security: User must have finance permission or be the one who created this deposit
 if (!(SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'))) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -51,11 +51,11 @@ if ($iDepositSlipID) {
 
     // Security: User must have finance permission or be the one who created this deposit
     if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $thisDeposit->getEnteredby()) && SystemConfig::getBooleanValue('bEnabledFinance')) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
 } else {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
 }
 
 

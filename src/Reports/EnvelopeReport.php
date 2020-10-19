@@ -21,7 +21,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) && SystemConfig::getValue('bCSVAdminOnly') ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

@@ -20,7 +20,7 @@ use EcclesiaCRM\SessionUser;
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!SessionUser::getUser()->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -52,7 +52,7 @@ if (isset($_POST['Submit'])) {
             <div class="col-sm-offset-2 col-sm-8">
                 <button type="submit" class="btn btn-primary" name="Submit"><?= _('Create Report') ?></button>
                 <button type="button" class="btn btn-default" name="Cancel"
-                        onclick="javascript:document.location='Menu.php';"><?= _('Cancel') ?></button>
+                        onclick="javascript:document.location='v2/dashboard';"><?= _('Cancel') ?></button>
             </div>
         </div>
     </form>

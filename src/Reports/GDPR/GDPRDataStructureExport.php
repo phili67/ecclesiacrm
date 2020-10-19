@@ -23,7 +23,7 @@ use EcclesiaCRM\SessionUser;
 
 
 if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
-  RedirectUtils::Redirect('Menu.php');
+  RedirectUtils::Redirect('v2/dashboard');
   exit;
 }
 
@@ -32,7 +32,7 @@ if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
 $personCustMasts = PersonCustomMasterQuery::Create()
       ->orderByCustomName()
       ->find();
-      
+
 $personInfos = GdprInfoQuery::Create()->filterByAbout('Person')->find();
 
 $personProperties = PropertyQuery::Create()->filterByProClass('p')->find();
@@ -87,7 +87,7 @@ foreach ($personInfos as $personInfo) {
           ], $delimiter);
 }
 
-foreach ($personCustMasts as $personCustMast) { 
+foreach ($personCustMasts as $personCustMast) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($personCustMast->getTypeId())
             ->findOneById(4);
@@ -100,7 +100,7 @@ foreach ($personCustMasts as $personCustMast) {
           ], $delimiter);
 }
 
-foreach ($personProperties as $personProperty) { 
+foreach ($personProperties as $personProperty) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($personProperty->getProPrtId())
             ->findOneById(4);
@@ -126,7 +126,7 @@ foreach ($familyInfos as $familyInfo) {
           ], $delimiter);
 }
 
-foreach ($familyCustMasts as $familyCustMast) { 
+foreach ($familyCustMasts as $familyCustMast) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($familyCustMast->getTypeId())
             ->findOneById(4);
@@ -139,7 +139,7 @@ foreach ($familyCustMasts as $familyCustMast) {
           ], $delimiter);
 }
 
-foreach ($familyProperties as $familyProperty) { 
+foreach ($familyProperties as $familyProperty) {
           $dataType = ListOptionQuery::Create()
             ->filterByOptionId($familyProperty->getProPrtId())
             ->findOneById(4);
@@ -152,7 +152,7 @@ foreach ($familyProperties as $familyProperty) {
           ], $delimiter);
 }
 
-foreach ($pastoralCareTypes as $pastoralCareType) { 
+foreach ($pastoralCareTypes as $pastoralCareType) {
    fputcsv($out, [
             InputUtils::translate_special_charset($pastoralCareType->getTitle(),$charset),
             InputUtils::translate_special_charset(_("Pastoral Care"),$charset),

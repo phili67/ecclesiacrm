@@ -23,7 +23,7 @@ use EcclesiaCRM\Bootstrapper;
 
 // Security
 if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
