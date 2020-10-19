@@ -31,7 +31,7 @@ use EcclesiaCRM\SessionUser;
 
 
 if (!SessionUser::getUser()->isAdmin()) {
-    header('Location: Menu.php');
+    header('Location: v2/dashboard');
 }
 $sPageTitle = _('Edit Event Types');
 require 'Include/Header.php';

@@ -24,11 +24,11 @@ $app->group('/gdpr', function () {
 
 function renderGdprDashboard (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/gdpr/');
-    
+
     if ( !( SessionUser::getUser()->isGdrpDpoEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'dashboard.php', argumentsGdprDashBoardArray());
 }
 
@@ -40,17 +40,17 @@ function argumentsGdprDashBoardArray ()
                        'gdprSigner'       => SystemConfig::getValue('sGdprDpoSigner'),
                        'gdprSignerEmail'  => SystemConfig::getValue('sGdprDpoSignerEmail')
                       ];
-   
+
    return $paramsArguments;
 }
 
 function renderGdprDataStructure (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/gdpr/');
-    
+
     if ( !( SessionUser::getUser()->isGdrpDpoEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'gdprdatastructure.php', argumentsGdprDataStructureArray());
 }
 
@@ -61,7 +61,7 @@ function argumentsGdprDataStructureArray ()
     $personCustMasts = PersonCustomMasterQuery::Create()
           ->orderByCustomName()
           ->find();
-      
+
     $personInfos = GdprInfoQuery::Create()->filterByAbout('Person')->find();
 
     $personProperties = PropertyQuery::Create()->filterByProClass('p')->find();
@@ -90,6 +90,6 @@ function argumentsGdprDataStructureArray ()
                        'familyProperties'  => $familyProperties,
                        'pastoralCareTypes' => $pastoralCareTypes
                       ];
-   
+
    return $paramsArguments;
 }

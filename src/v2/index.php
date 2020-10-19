@@ -45,6 +45,9 @@ $app->add(new JwtAuthentication([
 // Set up
 require __DIR__.'/../Include/slim/error-handler.php';
 
+// the main dashboard
+require __DIR__ . '/routes/dashboard.php';
+
 // the routes
 require __DIR__ . '/routes/user/user.php';
 require __DIR__ . '/routes/calendar/calendar.php';

@@ -160,7 +160,7 @@ if (isset($_POST['User'])) {
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
 
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
 } elseif (isset($_GET['username'])) {

@@ -18,11 +18,11 @@ $app->group('/propertytypelist', function () {
 
 function renderPropertyTypeList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
-    
+
     if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'propertytypelist.php', argumentsPropertyTypeListArray());
 }
 
@@ -32,12 +32,12 @@ function argumentsPropertyTypeListArray ()
     $sPageTitle = _("Property Type List");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
-          
+
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
                        'CSPNonce'      => SystemURLs::getCSPNonce(),
-                       'sPageTitle'    => $sPageTitle, 
+                       'sPageTitle'    => $sPageTitle,
                        'isMenuOption' => SessionUser::getUser()->isMenuOptionsEnabled()
-                       ];   
+                       ];
    return $paramsArguments;
 }

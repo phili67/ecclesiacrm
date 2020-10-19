@@ -23,7 +23,7 @@ $sPageTitle = _('Free-Text Query');
 // Security: User must be an Admin to access this page.  It allows unrestricted database access!
 // Otherwise, re-direct them to the main menu.
 if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

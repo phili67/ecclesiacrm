@@ -32,7 +32,7 @@ require '../Include/Header.php';
 
         <p>
             <?= gettext("We could not find the member(s) you were looking for.") ?>
-            <?= gettext("Meanwhile, you may")?> <a href="<?= SystemURLs::getRootPath() ?>/Menu.php"> <?= gettext("return to member dashboard") ?></a>
+            <?= gettext("Meanwhile, you may")?> <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard"> <?= gettext("return to member dashboard") ?></a>
         </p>
     </div>
 </div>

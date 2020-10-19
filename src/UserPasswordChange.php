@@ -85,7 +85,7 @@ if (isset($_POST['Submit'])) {
             if (array_key_exists('FromUserList', $_GET) and $_GET['FromUserList'] == 'True') {
                 RedirectUtils::Redirect('v2/users');
             } else {
-                RedirectUtils::Redirect('Menu.php');
+                RedirectUtils::Redirect('v2/dashboard');
             }
         }
     }
@@ -155,7 +155,7 @@ if (isset($_POST['Submit'])) {
             if ($_GET['FromUserList'] == 'True') {
                 RedirectUtils::Redirect('v2/users');
             } else {
-                RedirectUtils::Redirect('Menu.php');
+                RedirectUtils::Redirect('v2/dashboard');
             }
         }
     }

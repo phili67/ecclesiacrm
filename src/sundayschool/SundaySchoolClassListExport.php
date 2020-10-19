@@ -21,7 +21,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 
 if ( !( SessionUser::getUser()->isCSVExportEnabled() ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 
@@ -65,28 +65,28 @@ $groups = GroupQuery::create()
                     ->orderByName(Criteria::ASC)
                     ->filterByType(4)
                     ->find();
-                    
-                    
+
+
 foreach ($groups as $group) {
     $iGroupID = $group->getID();
     $sundayschoolClass = $group->getName();
-        
-        
+
+
     $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
                             ->joinWithPerson()
                             ->usePersonQuery()
                               ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
-                            ->endUse()                            
+                            ->endUse()
                             ->orderBy(PersonTableMap::COL_PER_LASTNAME)
                             ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce per_LastName, per_FirstName
                             ->findByGroupId($iGroupID);
-                            
+
     foreach ($groupRoleMemberships as $groupRoleMembership) {
         $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
-            
+
         $lst_OptionName = $groupRole->getOptionName();
         $member = $groupRoleMembership->getPerson();
-    
+
         $firstName = $member->getFirstName();
         $middlename = $member->getMiddleName();
         $lastname = $member->getLastName();
@@ -96,13 +96,13 @@ foreach ($groups as $group) {
         $homePhone = $member->getHomePhone();
         $mobilePhone = $member->getCellPhone();
         $hideAge = $member->hideAge();
-                    
+
         $family = $member->getFamily();
-        
+
         $Address1 = $Address2 = $city = $state = $zip = " ";
         $dadFirstName = $dadLastName = $dadCellPhone = $dadEmail = " ";
         $momFirstName = $momLastName = $momCellPhone = $momEmail = " ";
-        
+
         if (!empty($family)) {
             $famID = $family->getID();
             $Address1 = $family->getAddress1();
@@ -110,12 +110,12 @@ foreach ($groups as $group) {
             $city = $family->getCity();
             $state = $family->getState();
             $zip = $family->getZip();
-                
-                
+
+
             if ($lst_OptionName == "Student") {
                 // only for a student
                 $FAmembers = FamilyQuery::create()->findOneByID($famID)->getAdults();
-            
+
                 // il faut encore chercher les membres de la famille
                 foreach ($FAmembers as $maf) {
                     if ($maf->getGender() == 1) {
@@ -134,26 +134,26 @@ foreach ($groups as $group) {
                 }
             }
         }
-        
+
         $assignedProperties = Record2propertyR2pQuery::Create()
                             ->findByR2pRecordId($member->getId());
-                            
+
         $props = " ";
         if ($lst_OptionName == "Student" && !empty($assignedProperties)) {
             foreach ($assignedProperties as $assproperty) {
                 $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
                 $props.= $property->getProName().", ";
             }
-                
+
             $props = chop($props, ", ");
         }
-        
+
         $birthDate = '';
         if ($birthYear != '' && !$birthDate && (!$member->getFlags() || $lst_OptionName == "Student")) {
             $publishDate = DateTime::createFromFormat('Y-m-d', $birthYear.'-'.$birthMonth.'-'.$birthDay);
             $birthDate = $publishDate->format(SystemConfig::getValue("sDateFormatLong"));
         }
-        
+
         fputcsv($out, [
             InputUtils::translate_special_charset($sundayschoolClass,$charset),
             InputUtils::translate_special_charset($lst_OptionName,$charset),

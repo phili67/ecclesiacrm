@@ -105,7 +105,7 @@ $(document).ready(function () {
             window.CRM.dataTableListing.ajax.reload(function () {
                 if (window.CRM.dataTableListing.data().count() == 0) {
                     bootbox.alert(i18next.t("You have no more items in your cart."), function () {
-                        window.location.href = window.CRM.root + "/Menu.php"
+                        window.location.href = window.CRM.root + "/v2/dashboard"
                     });
                 }
             });

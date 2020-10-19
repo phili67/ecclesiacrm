@@ -54,6 +54,6 @@ class GroupsDashboardItem implements DashboardItemInterface
 
     public static function shouldInclude($PageName)
     {
-        return $PageName == "/Menu.php" || $PageName == "/menu" || $PageName == "/v2/people/dashboard";
+        return $PageName == "/v2/dashboard" || $PageName == "/menu" || $PageName == "/v2/people/dashboard";
     }
 }

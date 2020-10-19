@@ -45,7 +45,7 @@ if (!empty($manager)) {
 
 // Security: user must be allowed to edit records to use this page.
 if ( !(SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

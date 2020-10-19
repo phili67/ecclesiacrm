@@ -351,7 +351,7 @@ class MenuBar extends Menu
 
         $menuItemItem = new Menu (_("Email Lists"), "fa fa-circle-o", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
 
-        if ($mailchimp->isLoaded()) {// to accelerate the Menu.php the first time
+        if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
             $mcLists = $mailchimp->getLists();
 
             foreach ($mcLists as $list) {
@@ -428,7 +428,7 @@ class MenuBar extends Menu
     {
 
         $menuItem = new Menu (_("Dashboard"), "fa fa-dashboard", "menu", true);
-        $menuItem->addLink("Menu.php");
+        $menuItem->addLink("v2/dashboard");
 
         $this->addMenu($menuItem);
 

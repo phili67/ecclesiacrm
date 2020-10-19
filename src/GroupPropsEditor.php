@@ -35,7 +35,7 @@ $person = PersonQuery::Create()->findOneById($iPersonID);
 
 // Security: user must be allowed to edit records to use this page.
 if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

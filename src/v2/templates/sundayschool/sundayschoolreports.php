@@ -148,7 +148,7 @@ require $sRootDocument . '/Include/Header.php';
                     </td>
                     <td width="25%">
                         <div class="col-rd-12">
-                            <input type="button" style="align=right" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/Menu.php';">
+                            <input type="button" style="align=right" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= $sRootPath ?>/v2/dashboard';">
                         </div>
                     </td>
                 </tr>

@@ -29,7 +29,7 @@ use EcclesiaCRM\SessionUser;
 // Otherwise, re-direct them to the main menu.
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

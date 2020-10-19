@@ -61,7 +61,7 @@ if ($iPersonID > 0) {
         ->findOneById($iPersonID);
 
     if (empty($person)) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit();
     }
 
@@ -75,11 +75,11 @@ if ($iPersonID > 0) {
         (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
     )
     ) {
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
 } elseif (!SessionUser::getUser()->isAddRecordsEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

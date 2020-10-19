@@ -37,7 +37,7 @@ function renderPastoralCareDashboard (Request $request, Response $response, arra
     $renderer = new PhpRenderer('templates/pastoralcare/');
 
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'pastoralcaredashboard.php', argumentsPastoralDashboardArray());
@@ -77,7 +77,7 @@ function renderPastoralCarePerson (Request $request, Response $response, array $
     $personId = $args['personId'];
 
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'pastoralcareperson.php', argumentsPastoralPersonListArray($personId));
@@ -134,7 +134,7 @@ function renderPastoralCareFamily (Request $request, Response $response, array $
     $familyId = $args['familyId'];
 
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'pastoralcarefamily.php', argumentsPastoralFamilyListArray($familyId));
@@ -190,7 +190,7 @@ function renderPastoralCareMembersList (Request $request, Response $response, ar
 
 
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'pastoralcareMembersList.php', argumentsPastoralCareMembersListListArray());

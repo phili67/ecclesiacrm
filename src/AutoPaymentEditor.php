@@ -1094,7 +1094,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              </div>
              <div class="col-md-4">
                     <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel"
-                           onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'Menu.php' ?>';">
+                           onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'v2/dashboard' ?>';">
              </div>
              <div class="col-md-4">
              </div>

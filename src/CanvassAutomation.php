@@ -23,7 +23,7 @@ $sPageTitle = _('Canvass Automation');
 
 // Security: User must have canvasser permission to use this form
 if (!SessionUser::getUser()->isCanvasserEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

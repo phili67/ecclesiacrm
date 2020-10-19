@@ -25,7 +25,7 @@ use EcclesiaCRM\SessionUser;
 
 // Security: User must have Manage Groups permission
 if (!SessionUser::getUser()->isManageGroupsEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

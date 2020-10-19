@@ -34,7 +34,7 @@ use EcclesiaCRM\SessionUser;
 
 // Security: User must have add records permission
 if (!SessionUser::getUser()->isAddRecordsEnabled()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

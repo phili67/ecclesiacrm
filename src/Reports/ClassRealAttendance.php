@@ -19,7 +19,7 @@ use EcclesiaCRM\SessionUser;
 
 //Security
 if (is_null(SessionUser::getUser())) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

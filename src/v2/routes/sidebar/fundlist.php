@@ -18,11 +18,11 @@ $app->group('/fundlist', function () {
 
 function renderFundList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
-    
+
     if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
-    
+
     return $renderer->render($response, 'fundlist.php', argumentsFundListArray());
 }
 
@@ -32,11 +32,11 @@ function argumentsFundListArray ()
     $sPageTitle = _("Donation Fund Editor");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
-          
+
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
-                       'sPageTitle'    => $sPageTitle, 
+                       'sPageTitle'    => $sPageTitle,
                        'isMenuOption' => SessionUser::getUser()->isMenuOptionsEnabled()
-                       ];   
+                       ];
    return $paramsArguments;
 }

@@ -45,7 +45,7 @@ function renderFamilyList (Request $request, Response $response, array $args) {
       || (strtolower($sMode) == 'empty' && SessionUser::getUser()->isEditRecordsEnabled())
           )
        ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
+      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'familylist.php', argumentsFamilyListArray($sMode));

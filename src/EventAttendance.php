@@ -19,7 +19,7 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
 if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
-  RedirectUtils::Redirect('Menu.php');
+  RedirectUtils::Redirect('v2/dashboard');
   exit;
 }
 

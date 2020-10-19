@@ -40,7 +40,7 @@ use EcclesiaCRM\UserConfigChoicesQuery;
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
 if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
+    RedirectUtils::Redirect('v2/dashboard');
     exit;
 }
 

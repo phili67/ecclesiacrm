@@ -41,7 +41,7 @@ switch ($mode) {
     case 'famroles':
     case 'classes':
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
         }
         break;
@@ -74,7 +74,7 @@ switch ($mode) {
         }
 
         if (!(SessionUser::getUser()->isManageGroupsEnabled() || !empty($manager))) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
         }
         break;
@@ -83,13 +83,13 @@ switch ($mode) {
     case 'famcustom':
     case 'securitygrp':
         if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
         }
         break;
 
     default:
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         break;
 }
 
@@ -149,7 +149,7 @@ switch ($mode) {
         if (!is_null($ormGroupList)) {
             $iDefaultRole = $ormGroupList->getDefaultRole();
         } else {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             exit;
         }
 
@@ -165,7 +165,7 @@ switch ($mode) {
         $per_cus = PersonCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
 
         if ($per_cus->count() == 0) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             break;
         }
 
@@ -181,7 +181,7 @@ switch ($mode) {
         $group_cus = GroupPropMasterQuery::Create()->filterByTypeId(12)->findBySpecial($listID);
 
         if ($group_cus->count() == 0) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             break;
         }
 
@@ -197,13 +197,13 @@ switch ($mode) {
         $fam_cus = FamilyCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
 
         if ($fam_cus->count() == 0) {
-            RedirectUtils::Redirect('Menu.php');
+            RedirectUtils::Redirect('v2/dashboard');
             break;
         }
 
         break;
     default:
-        RedirectUtils::Redirect('Menu.php');
+        RedirectUtils::Redirect('v2/dashboard');
         break;
 }
 
@@ -530,7 +530,7 @@ if ($mode == 'classes') {
         } elseif ($mode != 'grproles') {// dead code
             ?>
             <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit"
-                   onclick="javascript:document.location='<?= 'Menu.php' ?>';">
+                   onclick="javascript:document.location='<?= 'v2/dashboard' ?>';">
             <?php
         } ?>
     </div>
