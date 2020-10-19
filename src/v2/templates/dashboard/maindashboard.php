@@ -11,47 +11,13 @@
  ******************************************************************************/
 
 // Include the function library
-use EcclesiaCRM\DepositQuery;
-use EcclesiaCRM\Service\FinancialService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\MenuEventsCount;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PersonQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Service\PastoralCareService;
-
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
-
-
 require $sRootDocument . '/Include/Header.php';
-
-$financialService = new FinancialService();
-
-if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled())) {
-    RedirectUtils::Redirect('PersonView.php?PersonID=' . SessionUser::getUser()->getPersonId());
-    exit;
-}
-
-$depositData = false;  //Determine whether or not we should display the deposit line graph
-if (SessionUser::getUser()->isFinanceEnabled()) {
-    $deposits = DepositQuery::create()->filterByDate(['min' => date('Y-m-d', strtotime('-90 days'))])->find();
-    if (count($deposits) > 0) {
-        $depositData = $deposits->toJSON();
-    }
-}
-
-$showBanner = SystemConfig::getBooleanValue("bEventsOnDashboardPresence");
-
-$peopleWithBirthDays = MenuEventsCount::getBirthDates();
-$Anniversaries = MenuEventsCount::getAnniversaries();
-$peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
-$AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
-
 ?>
 
 <!-- Small boxes (Stat box) -->
@@ -152,36 +118,6 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 <!-- GDPR -->
 <?php
 if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
-    $time = new DateTime('now');
-    $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
-
-    // when a family is completely deactivated : we seek the families with more than one member. A one person family = a fmaily with an address
-    $subQuery = FamilyQuery::create()
-        ->withColumn('Family.Id', 'FamId')
-        ->leftJoinPerson()
-        ->withColumn('COUNT(Person.Id)', 'cnt')
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-        ->groupById();//groupBy('Family.Id');
-
-    $families = FamilyQuery::create()
-        ->addSelectQuery($subQuery, 'res')
-        ->where('res.cnt>1 AND Family.Id=res.FamId')
-        ->find();
-
-    $numFamilies = $families->count();
-
-    // for the persons
-    $persons = PersonQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
-        ->_or() // or : this part is unusefull, it's only for debugging
-        ->useFamilyQuery()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a Family is completely deactivated
-        ->endUse()
-        ->orderByLastName()
-        ->find();
-
-    $numPersons = $persons->count();
-
     if ($numPersons + $numFamilies > 0) {
         ?>
         <div class="alert bg-gradient-maroon alert-dismissible " id="Menu_GDRP">
@@ -247,7 +183,6 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
         <?php
     }
 }
-
 ?>
 
 <!-- birthday + anniversary -->
@@ -415,35 +350,6 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 <?php
 // The person can see the pastoral care
 if (SessionUser::getUser()->isPastoralCareEnabled()) {
-
-// Persons and Families never been searched
-
-    $pastoralService = new PastoralCareService();
-
-    /*
-     *  get all the stats of the pastoral care service
-     */
-
-    $pastoralServiceStats = $pastoralService->stats();
-
-    /*
-     *  get the period for the pastoral care
-     */
-
-    $range = $pastoralService->getRange();
-
-    /*
-     *  last pastoralcare search persons for the current system user
-     */
-
-    $caresPersons = $pastoralService->lastContactedPersons();
-
-    /*
-     *  last pastoralcare search families for the current system user
-     */
-
-    $caresFamilies = $pastoralService->lastContactedFamilies();
-
     /*
      * Now we can draw the view
      */
@@ -603,8 +509,6 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 }
 ?>
 </div>
-
-
 
 <?php
 if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If the user has Finance permissions, then let's display the deposit line chart
