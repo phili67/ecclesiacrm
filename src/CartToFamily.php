@@ -50,7 +50,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
         $dWeddingDate = InputUtils::LegacyFilterInput($_POST['WeddingDate']);
         if (strlen($dWeddingDate) > 0) {
-            $dWeddingDate = '"'.$dWeddingDate.'"';
+            $dWeddingDate = '"' . $dWeddingDate . '"';
         } else {
             $dWeddingDate = null;
         }
@@ -69,19 +69,19 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $per_Email = null;
 
         if ($iPersonAddress != 0) {
-            $person=PersonQuery::Create()->findOneById($iPersonAddress);
+            $person = PersonQuery::Create()->findOneById($iPersonAddress);
 
             if (!is_null($person)) {
-              $per_Address1  = $person->getAddress1();
-              $per_Address2  = $person->getAddress2();
-              $per_City      = $person->getCity();
-              $per_Zip       = $person->getZip();
-              $per_Country   = $person->getCountry();
-              $per_State     = $person->getState();
-              $per_HomePhone = $person->getHomePhone();
-              $per_WorkPhone = $person->getWorkPhone();
-              $per_CellPhone = $person->getCellPhone();
-              $per_Email     = $person->getEmail();
+                $per_Address1 = $person->getAddress1();
+                $per_Address2 = $person->getAddress2();
+                $per_City = $person->getCity();
+                $per_Zip = $person->getZip();
+                $per_Country = $person->getCountry();
+                $per_State = $person->getState();
+                $per_HomePhone = $person->getHomePhone();
+                $per_WorkPhone = $person->getWorkPhone();
+                $per_CellPhone = $person->getCellPhone();
+                $per_Email = $person->getEmail();
             }
         }
 
@@ -117,7 +117,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $sEmail = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
 
         if (strlen($sFamilyName) == 0) {
-            $sError = '<p class="alert alert-warning" align="center" style="color:red;">'._('No family name entered!').'</p>';
+            $sError = '<p class="alert alert-warning" align="center" style="color:red;">' . _('No family name entered!') . '</p>';
             $bError = true;
         } else {
             $fam = new Family();
@@ -141,8 +141,8 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
             //Get the key back
             $last = FamilyQuery::create()
-              ->addAsColumn('maxId', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
-              ->findOne();
+                ->addAsColumn('maxId', 'MAX(' . FamilyTableMap::COL_FAM_ID . ')')
+                ->findOne();
 
             $iFamilyID = $last->getMaxId();
 
@@ -153,16 +153,17 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         // Loop through the cart array
         $iCount = 0;
         foreach ($_SESSION['aPeopleCart'] as $element) {
-            $iPersonID = $_SESSION['aPeopleCart'][$element[key]];
+            $iPersonID = intval($element);
             $ormPerson = PersonQuery::Create()
-                         ->findOneById($iPersonID);
+                ->findOneById($iPersonID);
 
-            // Make sure they are not already in a family
-            if ($ormPerson->getFamId() == 0) {
+            // Make sure they are not already in a family : ??? I'm not sure this is a good idea ?
+            // Here's the way to move
+            if ( !is_null($ormPerson) /*&& $ormPerson->getFamId() == 0*/) {
                 $iFamilyRoleID = 0;
 
-                if (isset($_POST['role'.$iPersonID])) {
-                    $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role'.$iPersonID], 'int');
+                if (isset($_POST['role' . $iPersonID])) {
+                    $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role' . $iPersonID], 'int');
                 }
 
                 $ormPerson->setFamId($iFamilyID);
@@ -173,14 +174,14 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             }
         }
 
-        $sGlobalMessage = $iCount.' records(s) successfully added to selected Family.';
+        $sGlobalMessage = $iCount . ' records(s) successfully added to selected Family.';
 
         // empty the cart
-        if(sizeof($_SESSION['aPeopleCart'])>0) {
-          $_SESSION['aPeopleCart'] = [];
+        if (sizeof($_SESSION['aPeopleCart']) > 0) {
+            $_SESSION['aPeopleCart'] = [];
         }
 
-        RedirectUtils::Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
+        RedirectUtils::Redirect('FamilyView.php?FamilyID=' . $iFamilyID . '&Action=EmptyCart');
     }
 }
 
@@ -191,248 +192,331 @@ require 'Include/Header.php';
 echo $sError;
 ?>
 <form method="post">
-<div class="card">
-<?php
-if (count($_SESSION['aPeopleCart']) > 0) {
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"><label><?= _("Members") ?></label></h3>
+        </div>
+        <?php
+        if (count($_SESSION['aPeopleCart']) > 0) {
 
-    // Get all the families
-    $ormFamilies = FamilyQuery::Create()
-                    ->orderByName()
-                    ->find();
+        // Get all the families
+        $ormFamilies = FamilyQuery::Create()
+            ->filterByDateDeactivated(NULL)
+            ->filterByName('', \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
+            ->orderByName()
+            ->find();
 
-    // Get the family roles
-    $ormFamilyRoles = ListOptionQuery::Create()
-          ->filterById(2)
-          ->orderByOptionSequence()
-          ->find();
+        // Get the family roles
+        $ormFamilyRoles = ListOptionQuery::Create()
+            ->filterById(2)
+            ->orderByOptionSequence()
+            ->find();
 
 
-    $sRoleOptionsHTML = '';
-    foreach ($ormFamilyRoles as $ormFamilyRole) {
-        $sRoleOptionsHTML .= '<option value="'.$ormFamilyRole->getOptionId().'">'.$ormFamilyRole->getOptionName().'</option>';
-    }
+        $sRoleOptionsHTML = '';
+        foreach ($ormFamilyRoles as $ormFamilyRole) {
+            $sRoleOptionsHTML .= '<option value="' . $ormFamilyRole->getOptionId() . '">' . $ormFamilyRole->getOptionName() . '</option>';
+        }
 
-    $ormCartItems = PersonQuery::Create()
-                ->Where('per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')')
-                ->orderByLastName()
-                ->find();
-    ?>
-  <table class='table table-hover dt-responsive'>
-    <tr>
-    <td>&nbsp;</td>
-    <td><b><?= _('Name') ?></b></td>
-    <td align="center"><b><?= _('Assign Role') ?></b></td>
-
-    <?php
-    $count = 1;
-    foreach ($ormCartItems as $ormCartItem) {
-        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
+        $ormCartItems = PersonQuery::Create()
+            ->Where('per_ID IN (' . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')')
+            ->orderByLastName()
+            ->find();
         ?>
-        <tr class="<?= $sRowClass ?>">
-          <td align="center"><?= $count++ ?></td>
-          <td><img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail" class="direct-chat-img"> &nbsp <a href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a></td>
-          <td align="center">
-          <?php
-            if ($ormCartItem->getFamId() == 0) {
-              ?>
-                  <select name="role<?= $ormCartItem->getId() ?>" class="form-control"><?= $sRoleOptionsHTML ?></select>
-              <?php
-            } else {
-              ?>
-                  <?= _('Already in a family') ?>
-              <?php
+        <table class='table table-hover dt-responsive'>
+            <tr>
+                <td>&nbsp;</td>
+                <td><b><?= _('Name') ?></b></td>
+                <td align="center"><b><?= _('Assign Role') ?></b></td>
+
+                <?php
+                $count = 1;
+                foreach ($ormCartItems
+
+                as $ormCartItem) {
+                ?>
+            <tr>
+                <td align="center"><?= $count++ ?></td>
+                <td>
+                    <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail"
+                         class="direct-chat-img"> &nbsp <a
+                        href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a>
+                </td>
+                <td align="center">
+                    <?php
+                    if ($ormCartItem->getFamId() == 0) {
+                        ?>
+                        <select name="role<?= $ormCartItem->getId() ?>"
+                                class="form-control"><?= $sRoleOptionsHTML ?></select>
+                        <?php
+                    } else {
+                        ?>
+                        <?= _('Already in a family') ?>
+                        <?php
+                    }
+                    ?>
+                </td>
+            </tr>
+            <?php
             }
-          ?>
-          </td>
-        </tr>
-    <?php
-    }
-    ?>
+            ?>
+        </table>
+    </div>
 
-  </table>
-</div>
-<div class="card">
-<div class="table-responsive">
-<table align="center" class="table table-hover" id="cart-family-table" width="100%">
-  <thead>
-    <tr>
-        <th></th>
-        <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <td class="LabelColumn"><?= _('Add to Family') ?>:</td>
-    <td class="TextColumn">
-        <select name="FamilyID"  class="form-control">
-              <option value="0"><?= _('Create new family') ?></option>
-      <?php
-        // Create the family select drop-down
-        foreach ($ormFamilies as $ormFamily) {
-        ?>
-          <option value="<?= $ormFamily->getId()?>"><?= $ormFamily->getName() ?></option>
-        <?php
-        }
-        ?>
-       </select>
-    </td>
-  </tr>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title"><label><?= _("Choose or create a family") ?></label></h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <?= _('Add to Family') ?>:
+                </div>
+                <div class="col-md-6">
+                    <select name="FamilyID" class="form-control" id="FamilyID">
+                        <option value="0"><?= _('Create new family') ?></option>
+                        <option value="—————————————" disabled="disabled">—————————————</option>
+                        <?php
+                        // Create the family select drop-down
+                        foreach ($ormFamilies as $ormFamily) {
+                            ?>
+                            <option value="<?= $ormFamily->getId() ?>"><?= $ormFamily->getName() ?></option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <br class="family-class" / >
+            <div class="row family-class">
+                <div class="col-md-6">
 
-  <tr>
-    <td></td>
-    <td><p class="MediumLargeText"><?= _('If adding a new family, enter data below.') ?></p></td>
-  </tr>
+                </div>
+                <div class="col-md-6">
+                    <p class="MediumLargeText"><?= _('If adding a new family, enter data below.') ?></p>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Family Name') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class="form-control">
+                    <label color="red"><?= $sNameError ?></label>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Wedding Date') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1"
+                           size="15"
+                           class="form-control active date-picker">
+                    <label color="red"><BR><?= $sWeddingDateError ?></label>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Use address/contact data from') ?>:
+                </div>
+                <div class="col-md-6">
+                    <select name="PersonAddress" class="form-control">
+                        <option value="0"><?= _('Only the new data below') ?></option>
 
+                        <?php
+                        foreach ($ormCartItems as $ormCartItem) {
+                            if ($ormCartItem->getFamId() == 0) {
+                                ?>
+                                <option
+                                    value="<?= $ormCartItem->getId() ?>"><?= $ormCartItem->getFirstName() ?> <?= $ormCartItem->getLastName() ?></option>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Address') ?> 1:
+                </div>
+                <div class="col-md-6">
+                    <input type="text" Name="Address1" value="<?= $sAddress1 ?>" size="50" maxlength="250"
+                           class="form-control">
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Address') ?> 2:
+                </div>
+                <div class="col-md-6">
+                    <input type="text" Name="Address2" value="<?= $sAddress2 ?>" size="50" maxlength="250"
+                           class="form-control">
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('City') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class="form-control">
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class state-class" <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : "" ?>>
+                <div class="col-md-6">
+                    <?= _('State') ?>:
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    $statesDD = new StateDropDown();
+                    echo $statesDD->getDropDown($sState);
+                    ?>
+                    <?= _("OR") ?>
+                    <input class="form-control" type="text" name="StateTextbox"
+                           value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+                               echo $sState;
+                           } ?>" size="20" maxlength="30">
+                    <BR><?= _('(Use the textbox for countries other than US and Canada)') ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Zip') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Country') ?>:
+                </div>
+                <div class="col-md-6">
+                    <?= CountryDropDown::getDropDown($sCountry); ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Home Phone') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30"
+                           maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
+                           data-mask>
+                    <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
+                        echo ' checked';
+                    } ?>><?= _('Do not auto-format') ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Work Phone') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30"
+                           maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
+                           data-mask>
+                    <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?php if ($bNoFormat_WorkPhone) {
+                        echo ' checked';
+                    } ?>><?= _('Do not auto-format') ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Mobile Phone') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30"
+                           maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
+                           data-mask>
+                    <input type="checkbox" name="NoFormat_CellPhone" value="1" <?php if ($bNoFormat_CellPhone) {
+                        echo ' checked';
+                    } ?>><?= _('Do not auto-format') ?>
+                </div>
+            </div>
+            <br class="family-class" />
+            <div class="row family-class">
+                <div class="col-md-6">
+                    <?= _('Email') ?>:
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" Name="Email" value="<?= $sEmail ?>" size="30"
+                           maxlength="50">
+                </div>
+            </div>
+        </div>
 
-  <tr>
-    <td class="LabelColumn"><?= _('Family Name') ?>:</td>
-    <td class="TextColumnWithBottomBorder form-control"><input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class="form-control"><font color="red"><?= $sNameError ?></font></td>
-  </tr>
-
-  <tr>
-        <td class="LabelColumn"><?= _('Wedding Date') ?>:</td>
-    <td class="TextColumnWithBottomBorder"><input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1" size="15"  class="form-control active date-picker"><font color="red"><?php echo '<BR>'.$sWeddingDateError ?></font></td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Use address/contact data from') ?>:</td>
-    <td class="TextColumn">
-      <select name="PersonAddress"  class="form-control">
-         <option value="0"><?= _('Only the new data below') ?></option>
-
-      <?php
-      foreach ($ormCartItems as $ormCartItem) {
-        if ($ormCartItem->getFamId() == 0) {
-        ?>
-           <option value="<?= $ormCartItem->getId() ?>"><?= $ormCartItem->getFirstName()?> <?= $ormCartItem->getLastName() ?></option>
-        <?php
-        }
-      }
-      ?>
-      </select>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Address') ?> 1:</td>
-    <td class="TextColumn"><input type="text" Name="Address1" value="<?= $sAddress1 ?>" size="50" maxlength="250" class="form-control"></td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Address') ?> 2:</td>
-    <td class="TextColumn"><input type="text" Name="Address2" value="<?= $sAddress2 ?>" size="50" maxlength="250" class="form-control"></td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('City') ?>:</td>
-    <td class="TextColumn"><input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class="form-control"></td>
-  </tr>
-
-  <tr <?= (SystemConfig::getValue('bStateUnusefull'))?'style="display: none;"':""?>>
-    <td class="LabelColumn"><?= _('State') ?>:</td>
-    <td class="TextColumn">
-      <?php
-          $statesDD = new StateDropDown();
-          echo $statesDD->getDropDown($sState);
-      ?>
-      OR
-      <input class="form-control" type="text" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
-            echo $sState;
-        } ?>" size="20" maxlength="30">
-      <BR><?= _('(Use the textbox for countries other than US and Canada)') ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Zip')?>:</td>
-    <td class="TextColumn">
-      <input class="form-control" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
-    </td>
-
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Country') ?>:</td>
-    <td class="TextColumnWithBottomBorder">
-      <?= CountryDropDown::getDropDown($sCountry); ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td>&nbsp;</td><td></td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Home Phone') ?>:</td>
-    <td class="TextColumn">
-      <input class="form-control" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30" maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'" data-mask>
-      <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
-            echo ' checked';
-        } ?>><?= _('Do not auto-format') ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Work Phone') ?>:</td>
-    <td class="TextColumn">
-      <input class="form-control" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30" maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'" data-mask>
-      <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?php if ($bNoFormat_WorkPhone) {
-            echo ' checked';
-        } ?>><?= _('Do not auto-format') ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Mobile Phone') ?>:</td>
-    <td class="TextColumn">
-      <input class="form-control" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30" maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'" data-mask>
-      <input type="checkbox" name="NoFormat_CellPhone" value="1" <?php if ($bNoFormat_CellPhone) {
-            echo ' checked';
-        } ?>><?= _('Do not auto-format') ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= _('Email') ?>:</td>
-    <td class="TextColumnWithBottomBorder"><input class="form-control" type="text" Name="Email" value="<?= $sEmail ?>" size="30" maxlength="50"></td>
-  </tr>
-</tbody>
-</table>
-</div>
-<p align="center">
-<BR>
-<input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Add to Family') ?>">
-<BR><BR>
-</p>
-<?php
-} else {
-            echo "<p align=\"center\" class='alert alert-warning'>"._('Your cart is empty!').'</p>';
-        }
-?>
-</div>
+        <div class="card-footer">
+            <p align="center">
+                <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Add to Family') ?>">
+            </p>
+            <?php
+            } else {
+                echo "<p align=\"center\" class='alert alert-warning'>" . _('Your cart is empty!') . '</p>';
+            }
+            ?>
+        </div>
+    </div>
 </form>
 
 
-<script  nonce="<?= SystemURLs::getCSPNonce() ?>">
-    $(document).ready(function() {
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    var bStateUnusefull = <?= (SystemConfig::getValue('bStateUnusefull')) ?'true':'false' ?>;
+
+    $(document).ready(function () {
         $("#country-input").select2();
         $("#state-input").select2();
 
-        $(function() {
-          $("[data-mask]").inputmask();
+        $(function () {
+            $("[data-mask]").inputmask();
         });
 
 
         $("#cart-family-table").DataTable({
-            responsive:true,
+            responsive: true,
             paging: false,
             searching: false,
             ordering: false,
-            info:     false,
+            info: false,
             //dom: window.CRM.plugin.dataTable.dom,
-            fnDrawCallback: function( settings ) {
-              $("#selector thead").remove();
+            fnDrawCallback: function (settings) {
+                $("#selector thead").remove();
             }
+        });
+
+        $( "#FamilyID" ).change(function() {
+            var e = document.getElementById("FamilyID");
+            var res = e.options[e.selectedIndex].value;
+
+            $('.family-class').each(function(index, value) {
+                if (res !== "0") {
+                    $(this).hide();
+
+                } else {
+                    $(this).show();
+
+                    if (bStateUnusefull == true) {
+                        $(".state-class").hide();
+                    } else {
+                        $(".state-class").show();
+                    }
+
+                }
+            });
         });
     });
 </script>
