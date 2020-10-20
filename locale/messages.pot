@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-19 19:14+0200\n"
+"POT-Creation-Date: 2020-10-20 18:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -423,7 +423,7 @@ msgstr ""
 #: FamilyEditor.php:1096 PersonEditor.php:879 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:315 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:294 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr ""
 
@@ -795,8 +795,8 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:317
-#: CartToFamily.php:322 CSVExport.php:92 CSVExport.php:98 CSVImport.php:243
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
+#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:243
 #: CSVImport.php:244 DirectoryReports.php:196 DirectoryReports.php:289
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:49 FamilyEditor.php:734
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: AutoPaymentEditor.php:940 CartToFamily.php:327 CSVExport.php:103
+#: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:245 DirectoryReports.php:294
 #: external/templates/registration/family-register.php:60 FamilyEditor.php:746
 #: PersonEditor.php:1092 PersonEditor.php:1268 Reports/PDFLabel.php:859
@@ -820,7 +820,7 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: AutoPaymentEditor.php:948 CartToFamily.php:332 CSVExport.php:108
+#: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:246 DirectoryReports.php:300
 #: external/templates/registration/family-register.php:64 FamilyEditor.php:755
 #: PersonEditor.php:1101 PersonEditor.php:1296 Reports/PDFLabel.php:859
@@ -828,7 +828,7 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: AutoPaymentEditor.php:956 CartToFamily.php:347 CSVExport.php:115
+#: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:247 DirectoryReports.php:306
 #: external/templates/registration/family-register.php:75
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
@@ -836,7 +836,7 @@ msgstr ""
 msgid "Zip"
 msgstr ""
 
-#: AutoPaymentEditor.php:964 CartToFamily.php:355 CSVExport.php:125
+#: AutoPaymentEditor.php:964 CartToFamily.php:402 CSVExport.php:125
 #: CSVImport.php:248 FamilyEditor.php:779 PersonEditor.php:1126
 #: PersonEditor.php:1360
 msgid "Country"
@@ -853,7 +853,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:396 CSVExport.php:148
+#: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
 #: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:339
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
@@ -1300,11 +1300,23 @@ msgstr ""
 msgid "No family name entered!"
 msgstr ""
 
-#: CartToFamily.php:188
+#: CartToFamily.php:189
 msgid "Add Cart to Family"
 msgstr ""
 
-#: CartToFamily.php:223
+#: CartToFamily.php:197 EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537
+#: v2/templates/dashboard/maindashboard.php:476
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcarefamily.php:110
+#: v2/templates/pastoralcare/pastoralcareperson.php:113
+msgid "Members"
+msgstr ""
+
+#: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 EditEventAttendees.php:54
 #: EditEventAttendees.php:75 EventAttendance.php:184 EventNames.php:293
@@ -1325,27 +1337,31 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: CartToFamily.php:224
+#: CartToFamily.php:230
 msgid "Assign Role"
 msgstr ""
 
-#: CartToFamily.php:242
+#: CartToFamily.php:254
 msgid "Already in a family"
 msgstr ""
 
-#: CartToFamily.php:265 CartToFamily.php:404
+#: CartToFamily.php:268
+msgid "Choose or create a family"
+msgstr ""
+
+#: CartToFamily.php:273 CartToFamily.php:464
 msgid "Add to Family"
 msgstr ""
 
-#: CartToFamily.php:268
+#: CartToFamily.php:277
 msgid "Create new family"
 msgstr ""
 
-#: CartToFamily.php:283
+#: CartToFamily.php:296
 msgid "If adding a new family, enter data below."
 msgstr ""
 
-#: CartToFamily.php:288
+#: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:38 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1069
@@ -1356,25 +1372,29 @@ msgstr ""
 msgid "Family Name"
 msgstr ""
 
-#: CartToFamily.php:293 CSVImport.php:256 DirectoryReports.php:197
+#: CartToFamily.php:312 CSVImport.php:256 DirectoryReports.php:197
 #: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
 #: FamilyView.php:337
 msgid "Wedding Date"
 msgstr ""
 
-#: CartToFamily.php:298
+#: CartToFamily.php:324
 msgid "Use address/contact data from"
 msgstr ""
 
-#: CartToFamily.php:301
+#: CartToFamily.php:328
 msgid "Only the new data below"
 msgstr ""
 
-#: CartToFamily.php:342
+#: CartToFamily.php:382
+msgid "OR"
+msgstr ""
+
+#: CartToFamily.php:387
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr ""
 
-#: CartToFamily.php:366 CSVExport.php:132 CSVImport.php:249
+#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:249
 #: EditEventAttendees.php:79 EventAttendance.php:186
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:87
@@ -1390,14 +1410,14 @@ msgstr ""
 msgid "Home Phone"
 msgstr ""
 
-#: CartToFamily.php:371 CartToFamily.php:381 CartToFamily.php:391
+#: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:446 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1423
 #: PersonEditor.php:1453 PersonEditor.php:1482
 msgid "Do not auto-format"
 msgstr ""
 
-#: CartToFamily.php:376 CSVExport.php:137 CSVImport.php:250
+#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:250
 #: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
 #: FamilyView.php:357 GroupReports.php:150 PersonEditor.php:1431
 #: PersonEditor.php:1435 PersonView.php:649 PrintPastoralCarePerson.php:262
@@ -1406,7 +1426,7 @@ msgstr ""
 msgid "Work Phone"
 msgstr ""
 
-#: CartToFamily.php:386 CSVExport.php:142 CSVImport.php:251
+#: CartToFamily.php:439 CSVExport.php:142 CSVImport.php:251
 #: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
 #: FamilyEditor.php:862 FamilyView.php:364 PersonEditor.php:1462
 #: PersonEditor.php:1466 PersonView.php:609 PrintPastoralCarePerson.php:267
@@ -1414,7 +1434,7 @@ msgstr ""
 msgid "Mobile Phone"
 msgstr ""
 
-#: CartToFamily.php:409
+#: CartToFamily.php:468
 msgid "Your cart is empty!"
 msgstr ""
 
@@ -1727,7 +1747,7 @@ msgstr ""
 #: CSVImport.php:254 PersonView.php:579 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
-#: v2/templates/sundayschool/sundayschoolview.php:314
+#: v2/templates/sundayschool/sundayschoolview.php:293
 msgid "Birth Date"
 msgstr ""
 
@@ -4872,18 +4892,6 @@ msgstr ""
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:123
 msgid "Addresse"
-msgstr ""
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537
-#: v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
-#: v2/templates/pastoralcare/pastoralcarefamily.php:110
-#: v2/templates/pastoralcare/pastoralcareperson.php:113
-msgid "Members"
 msgstr ""
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:124
@@ -10243,7 +10251,7 @@ msgstr ""
 #: v2/templates/group/groupview.php:458
 #: v2/templates/sundayschool/sundayschooldashboard.php:332
 #: v2/templates/sundayschool/sundayschoolview.php:162
-#: v2/templates/sundayschool/sundayschoolview.php:288
+#: v2/templates/sundayschool/sundayschoolview.php:268
 msgid "Add"
 msgstr ""
 
@@ -10922,7 +10930,7 @@ msgstr ""
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:285
+#: v2/templates/sundayschool/sundayschoolview.php:265
 msgid "Add Members to Sunday Group"
 msgstr ""
 
