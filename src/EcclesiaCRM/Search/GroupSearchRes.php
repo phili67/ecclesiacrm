@@ -27,12 +27,12 @@ class GroupSearchRes extends BaseSearchRes
         if (SystemConfig::getBooleanValue("bSearchIncludeGroups")) {
             try {
 
-                if ( mb_strtolower($qry) == _('group') || mb_strtolower($qry) == _('groups') ) {// we search all the GroupMasters
+                if ( mb_strtolower($qry) == _('group') || mb_strtolower($qry) == _('groups') ) {// we search all the groups
                     $groups = GroupQuery::create()
                         ->withColumn('grp_Name', 'displayName')
                         ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/v2/group/",Group.Id,"/view")', 'uri')
                         ->select(['displayName', 'uri', 'Id']);
-                } else if ( mb_strtolower($qry) == _('sunday group') || mb_strtolower($qry) == _('sunday groups') ) {// we search all the GroupMasters
+                } else if ( mb_strtolower($qry) == _('sunday group') || mb_strtolower($qry) == _('sunday groups') ) {// we search all the sunday groups
                     $groups = GroupQuery::create()
                         ->filterByType(4)// a sunday group type
                         ->withColumn('grp_Name', 'displayName')
