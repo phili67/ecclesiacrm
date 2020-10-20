@@ -225,7 +225,7 @@ namespace EcclesiaCRM
           // Initialize the session
           $sessionName = 'CRM-'.SystemURLs::getRootPath();
           session_cache_limiter('private_no_expire:');
-          session_name($sessionName);
+          // session_name($sessionName);
           session_start();
           self::$bootStrapLogger->debug("Session initialized: " . $sessionName);
       }
