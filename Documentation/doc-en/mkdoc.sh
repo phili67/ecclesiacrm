@@ -15,9 +15,9 @@ if [[ "$reponse" == "y" ]]
 then
 
 
-sshpass -p "#aliasdircat1" ssh philippelo@imathgeo.com -p22 "rm -rf /home3/philippelo/docs.ecclesiacrm.com/en/*"
+sshpass -p "#Alias321!" ssh philippelo@imathgeo.com -p22 "rm -rf /home3/philippelo/docs.ecclesiacrm.com/en/*"
 
-sshpass -p "#aliasdircat1" scp -rp site/* philippelo@imathgeo.com:/home3/philippelo/docs.ecclesiacrm.com/en
+sshpass -p "#Alias321!" scp -rp site/* philippelo@imathgeo.com:/home3/philippelo/docs.ecclesiacrm.com/en
 
 fi
 

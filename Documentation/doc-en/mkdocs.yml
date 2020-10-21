@@ -17,7 +17,7 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-    
+
 # Customization
 extra:
   social:
@@ -40,19 +40,113 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: true
-      
+
 # the site map
-    
+
 site_name: EcclesiaCRM
 pages:
-- Home: 'index.md'
-- User Guide:
-    - 'Person management': 'user-guide/doc-persons.md'
-    - 'Family management': 'user-guide/doc-families.md'
-    - 'Groups management': 'user-guide/doc-groups.md'
-- Dev Guide:
-    - 'API': 'user-guide/doc-dev/api.md'
-- About:
-    - 'About': 'about/about.md'
-    - 'Licence': 'about/license.md'
-    - 'Release Notes': 'about/release-notes.md'
+  - "Home": 'index.md'
+  - "Book : Administrator":
+      - 'Setting Up EcclesiaCRM':
+          - 'System requirements': 'user-guide/doc-installation/doc-requirement.md'
+          - "Installation process": 'user-guide/doc-installation/doc-install.md'
+      - 'Persons managements':
+          - 'Overview': 'user-guide/doc-admin/person/doc-persons.md'
+          - 'Create a person': 'user-guide/doc-admin/person/doc-create-person.md'
+          - 'De-actiavte/delete a person': 'user-guide/doc-admin/person/doc-delete-person.md'
+          - 'Customization':
+              - 'Classifications management': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-classification.md'
+              - 'Property list': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-properties.md'
+              - 'Custom fields': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields.md'
+      - 'Families management':
+          - 'Overview': 'user-guide/doc-admin/family/doc-families.md'
+          - 'Register a family': 'user-guide/doc-admin/family/doc-create-family.md'
+          - 'Self-register families': 'user-guide/doc-admin/family/doc-create-family-auto.md'
+          - 'Self-verification families': 'user-guide/doc-admin/family/doc-verify-family-auto.md'
+          - 'De-activate delete a family': 'user-guide/doc-admin/family/doc-delete-family.md'
+          - 'customization':
+              - 'Family role': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
+              - 'Family properties': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-properties.md'
+              - 'Family custom fields': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields.md'
+      - 'Group management':
+          - 'Overview': 'user-guide/doc-admin/group/doc-groups.md'
+          - 'Create & Menu': 'user-guide/doc-admin/group/doc-groups-management.md'
+          - 'Group management': 'user-guide/doc-admin/group/doc-groups-managers.md'
+          - 'Members & roles': 'user-guide/doc-admin/group/doc-groups-members-roles.md'
+          - 'Export Contacts': 'user-guide/doc-admin/group/doc-groups-export-contacts.md'
+          - 'customization':
+              - 'Globals properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties.md'
+              - 'Group specific properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties.md'
+              - 'Group types': 'user-guide/doc-admin/group/doc-groups-management.md'
+      - 'Droits et gestion des utilisateurs du CRM':
+          - "User creation": 'user-guide/doc-users/doc-users.md'
+          - "User profile": 'user-guide/doc-users/doc-user-profile.md'
+      - 'Global Settings':
+          - "Foreign language localization": 'user-guide/doc-installation/doc-localization.md'
+          - "Foreign language export": 'user-guide/doc-installation/doc-report.md'
+          - "Integration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
+      - 'Tips':
+          - "Bug after database restauration": 'user-guide/doc-admin/doc-tips/doc-restauration-bdd-bug.md'
+  #    - 'Personalisation du CRM':
+
+
+  - "Book : User":
+      - "Manage your profile":
+          - 'Home': 'user-guide/doc-person/doc-person-profile.md'
+          - 'Settings': 'user-guide/doc-person/doc-person-settings.md'
+      - "calendars":
+          - 'Add & delete': 'user-guide/doc-person/doc-person-calendar.md'
+          - 'Create an event': 'user-guide/doc-person/doc-person-events.md'
+          - 'Share your calendar': 'user-guide/doc-person/doc-person-share-calendar.md'
+          - 'Share with a Mac': 'user-guide/doc-person/doc-person-share-mac.md'
+      - "Documents":
+          - 'Create-manage': 'user-guide/doc-person/doc-person-document-creation.md'
+          - 'Share them': 'user-guide/doc-person/doc-person-document-share.md'
+          - 'Images and Files': 'user-guide/doc-person/doc-person-document-images-files.md'
+          - 'Export to Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
+      - "Documents & Templates":
+          - 'Document templates': 'user-guide/doc-person/doc-person-document-templates.md'
+      - "EDrive":
+          - "EDrive in the CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
+          - 'EDrive outside the CRM':
+              - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
+              - 'Using the file manager': 'user-guide/doc-webdav-file/doc-webdav-use.md'
+      - 'Tipes':
+          - 'Export problem (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
+          - 'Menu bar': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
+          - 'View your addresses through AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
+
+  - "Book : DPO & GDPR":
+      - 'Overview': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
+      - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
+
+  - "Book : Pastor & Advisor":
+      - "Pastoral Care": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
+      - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+
+  - "Book : Sunday School":
+      - "Overview": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
+      - "Call the Register": 'user-guide/doc-sunday-school/doc-sunday-school-attendance.md'
+      - "Create - Edit - Sort": 'user-guide/doc-sunday-school/doc-sunday-school-add-edit.md'
+      - "Help Teacher": 'user-guide/doc-sunday-school/doc-sunday-school-help-teacher.md'
+      - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-badges.md'
+      - "Export : Face Book - attendance board": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
+      - "Side bar": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
+
+  - "Book : Mailing & Capaign":
+      - "MailChimp":
+          - 'Dashboard': 'user-guide/doc-mailchimp/dashboard.md'
+          - 'List Audience Management': 'user-guide/doc-mailchimp/manage_list.md'
+          - 'Segments management (tags)': 'user-guide/doc-mailchimp/manage_tag.md'
+          - 'Campaign management': 'user-guide/doc-mailchimp/manage_campaign.md'
+  - "Tools":
+      - "Geographical search": 'user-guide/doc-tools/doc-geographics.md'
+      - "Import datas": 'user-guide/doc-tools/doc-import.md'
+      - "Email": 'user-guide/doc-tools/doc-email.md'
+      - "Cart": 'user-guide/doc-tools/doc-cart.md'
+  - "Book : Developer":
+      - 'API': 'user-guide/doc-dev/api.md'
+  - "About":
+      - 'About': 'about/about.md'
+      - 'Licence': 'about/license.md'
+      - 'Releases notes': 'about/release-notes.md'

@@ -1,62 +1,60 @@
 
-# <center><big>Contributing to Ecclesia**CRM** </big></center>
+# <center><big>Participe in Ecclesia**CRM** </big></center>
 
-## An introduction to contributing to the EcclesiaCRM project.
+## To participate in the project EcclesiaCRM.
 
-The project welcomes, and depends on, contributions from developers and users in the open source community. Contributions can be made in a number of ways. A few examples are:
+The project relies on the volunteer contributors the users of open source. If you want to participate, you can : 
 
-* Code patches via pull requests
-* Documentation improvements
-* Bug reports and patch reviews
+* Send Patch Code via pul requests
+* Update the documentation
+* Send reports of the bugs or propose some improvements for the CRM  
 
-##First Steps
+##First step:
 
-1. Read this whole page "top to bottom."
-2. Introduce yourself in the developer chat at [Tchat](https://gitter.im/ecclesiacrm/Lobby)
-3. Take a look at the Open Issues page. We've made it easy for beginners with the Good First Bug Label.
-   These are issues that should be relatively easy to fix.
-4. Have fun!
+1. Read the whole page
+2. Make yourself known via our [Chat](https://gitter.im/ecclesiacrm/Lobby)
+3. Visit the part "report an issue", it was made to be as easy as possible in order to send the bug's report. 
+4. Have fun! 
 
 
-## Testing A Branch
+## Test a division
 
-As long as there is software, there is a need for software testers. We're no different. Even though we have many automated tests, there's still a very real need for actual human beings to test new features, bug fixes, and other aspects of the software.
+As long as one develops the software, one needs testing. 
 
-Setting Up A Testing Machine
+Set up a test 
 
-There are three system requirements for a testing machine:
+There are a few ways to test the software: 
 
 1. Oracle Virtual Box
-   * Oracle VirtualBox allows you to run virtual machines on your system for free.
+   * Oracle VirtualBox provides a free virtual machine
 2. wmware
-   * wmware is a profesional tool.
+   * wmware is a professional tool providing tests in an optimal way
 3. Hyper-V
-   * Hyper-V is now a role in Windows 10 and allow you to virtualise a Linux web server.
+   * Hyper-V is a free Windows 10 role that runs a Web Linux server 
      
-## Testing EcclesiaCRM
+## Test EcclesiaCRM
 
-1. Check out the branch you're going to test. You can use the GitHub Desktop Client, manually download the source from the GitHub Page, or click one of the following links:
-   * Most often, we'll want help testing the Development Branch
-   * Sometimes we'll need to test something in the Expiremental Branch
-2. If you downloaded a Zip file, please extract that ZIP to a directory
-3. From a command line, navigate to the directory containing the files
-4. Wait for the prompt that says EcclesiaCRM is now Hosted
-5. Test the features in question
-6. Report any issues
+1. Check the division that you want to test. You can use GitHub Deskop, which you can download freely on the GitHub page, or you can use one of the link below:  
+   * It can happens that we test some parts on experimental division 
+2. If you download a Zip file, you should retrieve it in "file"
+3. Via a command line, browse to the file
+4. Wait until the message: EcclesiaCRM is now Hosted Wait until the message: 
+5. Then, test the functionality 
+6. Finally, send your request on "Issues"
 
 
-## Reporting an issue?
+## How to report an issue 
 
-When reporting an issue, please include as much detail as you can. Let us know your platform and EcclesiaCRM version. If the problem is visual (for example a theme or design issue) please add a screenshot; and if you get an error please include the the full error and traceback.
+When reporting an issue, please include as much detail as you can. Let us know your platform and EcclesiaCRM version. If the problem is visual (for example a theme or design issue) please add a screenshot; and if you get an error please include the full error and traceback.
 
-## Installing for development
+## Which environment are we using ? 
 
-Need a vagrant box can you build use one
+We work on an docker environment
 
-## Running the tests
+## To enter tests
 
-[Need test so that the build systems can run] (https://github.com/EcclesiaCRM/CRM/issues/13)
+[To test if your request was send] (https://github.com/EcclesiaCRM/CRM/issues/13)
 
-## Submitting Pull Requests
+## Submit a Pull Requests
 
 Once you are happy with your changes or you are ready for some feedback, push it to your fork and send a pull request. For all change requests, documentation and unit tests will be required for acceptance.

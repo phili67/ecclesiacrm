@@ -1,41 +1,27 @@
-# <center><big>EcclesiaCRM documentation</big></center>
+# <center><big>Ecclesia**CRM** documentation</big></center>
 ----
 
-## Un tableau
+## CRM
 
-| First Header | Second Header | Third Header |
-| ------------ | ------------- | ------------ |
-| Content Cell | Content Cell  | Content Cell |
-| Content Cell | Content Cell  | Content Cell |
+Ecclesia**CRM** is a CRM (Customer Relationship Management).
 
-et un autre :
+![Screenshot](img/screenshot0.png)
 
-First Header | Second Header | Third Header
------------- | ------------- | ------------
-Content Cell | Content Cell  | Content Cell
-Content Cell | Content Cell  | Content Cell
+Il permet de gérer plusieurs aspects d'une vie d'église : Its main use is the management of the various aspects of the church's life: 
 
+* Management of individuals 
+* Management of families 
+* Management of groups 
+* Management of Sunday school 
+* Management of the church's events 
+* Management of the Sunday school's teachers 
+* Management of the members's files via a technologie close nto NextCloud/OwnCloud
+* Management of donations (per family or individual) 
+* Management of mails (via MailChimp) 
 
-First Header | Second Header | Third Header
-:----------- |:-------------:| -----------:
-Left         | Center        | Right
-Left         | Center        | Right
+## Management of the individuals 
 
-
-```python
-def fn():
-    pass
-```
-
-
-![Screenshot](img/screenshot1.png)
-
-> coucou
->> coucou1
->> coucou2
-
-
-## Commands
+One can add members with Church**CRM** 
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
