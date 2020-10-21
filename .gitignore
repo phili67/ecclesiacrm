@@ -39,8 +39,8 @@ src/locale/datatables
 src/locale/js
 
 # the documenation sh files
-doc-en/mkdoc.sh 
-doc-fr/mkdoc.sh 
+Documentation/doc-fr/mkdoc.sh 
+Documentation/doc-en/mkdoc.sh
 
 # Configuration files with passwords
 src/Include/Config.php
