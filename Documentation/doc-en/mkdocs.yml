@@ -46,7 +46,7 @@ markdown_extensions:
 site_name: EcclesiaCRM
 pages:
   - "Home": 'index.md'
-  - "Book : Administrator":
+  - "Manual: Administrator":
       - 'Setting Up EcclesiaCRM':
           - 'System requirements': 'user-guide/doc-installation/doc-requirement.md'
           - "Installation process": 'user-guide/doc-installation/doc-install.md'
@@ -78,7 +78,7 @@ pages:
               - 'Globals properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties.md'
               - 'Group specific properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties.md'
               - 'Group types': 'user-guide/doc-admin/group/doc-groups-management.md'
-      - 'Droits et gestion des utilisateurs du CRM':
+      - 'Rights and Administration of the CRM users':
           - "User creation": 'user-guide/doc-users/doc-users.md'
           - "User profile": 'user-guide/doc-users/doc-user-profile.md'
       - 'Global Settings':
@@ -90,7 +90,7 @@ pages:
   #    - 'Personalisation du CRM':
 
 
-  - "Book : User":
+  - "Manual: User":
       - "Manage your profile":
           - 'Home': 'user-guide/doc-person/doc-person-profile.md'
           - 'Settings': 'user-guide/doc-person/doc-person-settings.md'
@@ -111,29 +111,29 @@ pages:
           - 'EDrive outside the CRM':
               - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
               - 'Using the file manager': 'user-guide/doc-webdav-file/doc-webdav-use.md'
-      - 'Tipes':
+      - 'Tips':
           - 'Export problem (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
           - 'Menu bar': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
           - 'View your addresses through AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
 
-  - "Book : DPO & GDPR":
+  - "Manual: DPO & GDPR":
       - 'Overview': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
       - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
-  - "Book : Pastor & Advisor":
+  - "Manual: Pastor & Advisor":
       - "Pastoral Care": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
       - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
-  - "Book : Sunday School":
+  - "Manual: Sunday School":
       - "Overview": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
       - "Call the Register": 'user-guide/doc-sunday-school/doc-sunday-school-attendance.md'
       - "Create - Edit - Sort": 'user-guide/doc-sunday-school/doc-sunday-school-add-edit.md'
       - "Help Teacher": 'user-guide/doc-sunday-school/doc-sunday-school-help-teacher.md'
       - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-badges.md'
-      - "Export : Face Book - attendance board": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
+      - "Export : Face Manual - attendance board": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
       - "Side bar": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
-  - "Book : Mailing & Capaign":
+  - "Manual: Mailing & Capaign":
       - "MailChimp":
           - 'Dashboard': 'user-guide/doc-mailchimp/dashboard.md'
           - 'List Audience Management': 'user-guide/doc-mailchimp/manage_list.md'
@@ -144,7 +144,7 @@ pages:
       - "Import datas": 'user-guide/doc-tools/doc-import.md'
       - "Email": 'user-guide/doc-tools/doc-email.md'
       - "Cart": 'user-guide/doc-tools/doc-cart.md'
-  - "Book : Developer":
+  - "Manual: Developer":
       - 'API': 'user-guide/doc-dev/api.md'
   - "About":
       - 'About': 'about/about.md'

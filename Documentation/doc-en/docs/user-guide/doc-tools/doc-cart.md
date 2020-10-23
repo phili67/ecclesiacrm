@@ -29,7 +29,7 @@ There are different way to do it:
 
 - Add a single member:
 
-    1. Go to the left sidebar and click on "person and family", and then "display all members", one will get the members list where they'll be able to add one or several persons in the cart via the ad'hoc icon
+    1. Go to the left sidebar and click on "Peope & Family", and then "Meta Search Engine", one will get the members list where they'll be able to add one or several persons in the cart via the ad'hoc icon
     2. or enter the person's name in the search sidebar.
   		* when the name can be seen the button "add to cart" will appear
 		* if the person is not already in the cart, they will be added.
@@ -44,14 +44,14 @@ The button "add to cart" can be used for a single person and also for a group.
 
 ![Screenshot](../../img/cart/cart2.png)
 
-To this end, use "empty the cart in the group", use "select a group".
+To this end, use "Empty Cart to Group", use "Select an existing Group".
 
 ![Screenshot](../../img/cart/cart3.png)
 
 
 ##Delete a person from the cart
 
-1. open the cart menu, then "display cart", and the button "empty cart"
+1. open the cart menu, then "View Cart", and the button "Empty Cart"
 2. At the bottom of the page, one can view the persons in the cart which allows them to delete one or several persons from the cart
 
 > Note: To empty completely the cart click on the button "empty cart" at the top of the page, or in the menu. **Warning: To empty completely the cart click on the button "empty cart" at the top of the page, or in the menu.**
