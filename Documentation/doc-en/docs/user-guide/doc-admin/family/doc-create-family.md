@@ -5,6 +5,7 @@
 
 rien de plus simple, aller dans le menu "Personnes & Familles", "Familles", "Ajouter une Famille".
 Go to the menu in "Individuals and families", then "Families", and "Register a family"
+
 ![Screenshot](../../../img/family/admin/addFamily.png)
 
 ##Data

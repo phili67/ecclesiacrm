@@ -1,4 +1,4 @@
-You can ask the families to enroll themselves as well as theirs members 
+You can ask the families to enroll themselves as well as theirs members
 
 # Activate the self-registration
 
@@ -6,11 +6,11 @@ You can ask the families to enroll themselves as well as theirs members
 
 ![Screenshot](../../../img/family/admin/auto-inscription1.png)
 
-- Go to "family administration" 
+- Go to "family administration"
 
 ![Screenshot](../../../img/family/admin/auto-inscription2.png)
 
-- Activate : "bEnableSelfRegistration" 
+- Activate : "bEnableSelfRegistration"
 
 ![Screenshot](../../../img/family/admin/auto-inscription3.png)
 
@@ -20,40 +20,40 @@ You can ask the families to enroll themselves as well as theirs members
 
 - Validate at the bottom of the page
 
-![Screenshot](../../../img/family/admin/auto-inscription5.png#)
+![Screenshot](../../../img/family/admin/auto-inscription5.png)
 
-- Leave the session to see the end result 
+- Leave the session to see the end result
 
 ![Screenshot](../../../img/family/admin/auto-inscription6.png)
 
 # Families registration
 
-On CRM the login window will be 
+On CRM the login window will be
 
 ![Screenshot](../../../img/family/admin/auto-inscription7.png)
 
-Use "register a new family" 
+Use "register a new family"
 
 ![Screenshot](../../../img/family/admin/auto-inscription8.png)
 
-Enter the last name, and the data needed, with the number of children 
+Enter the last name, and the data needed, with the number of children
 
-Validate each members (spouse and children) 
+Validate each members (spouse and children)
 
 ![Screenshot](../../../img/family/admin/auto-inscription9.png)
 
-The new family is now registered 
+The new family is now registered
 
 ![Screenshot](../../../img/family/admin/auto-inscription10.png)
 
 
 # See the new registrants as administrator
 
-- Go to 
+- Go to
 
 ![Screenshot](../../../img/family/admin/auto-inscription11.png)
 
-- then choose 
+- then choose
 
 ![Screenshot](../../../img/family/admin/auto-inscription12.png)
 

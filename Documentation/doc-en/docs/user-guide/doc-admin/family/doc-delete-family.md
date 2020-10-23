@@ -1,8 +1,8 @@
-# <center><big>De-activate delete a family & Ecclesia**CRM** </big></center>
+# <center><big>De-activate Delete a family</big></center>
 
 ##Delete a family
 
-You can look for a family via a search link in the menu.
+You can look for a family via the search link in the menu.
 
 You'll fall onto this page:
 
@@ -15,12 +15,13 @@ A family removal can have legal impacts:
 
 ##Deactivate a family
 
-A family deactivated can no longer be look for in the data base RGPD.
+A family deactivated can no longer be look for in the data base GDPR.
 
 ![Screenshot](../../../img/family/admin/familydeactivate.png)
 
-After two years, the family will be transfer to the RGPD management and will be administered via DPO managing the RGPD part.
+#Note
+After two years, the family will be transfer to the GDPR management and will be administered via DPO managing the GDPR part.
 
-##RGPD :WARNING
+##GDPR :WARNING
 
-**Warning** An deactivate family should not be reactivated carelessly, indeed the deactivation date would be wrong, which could lead to legal proceedings because of the RGPD.
+**Warning** An deactivate family should not be reactivated carelessly, indeed the deactivation date would be wrong, which could lead to legal proceedings because of the GDPR.

@@ -21,9 +21,9 @@ theme:
 # Customization
 extra:
   social:
-    - type: 'github'
+    - icon: 'github'
       link: 'https://github.com/phili67/ecclesiacrm'
-    - type: 'twitter'
+    - icon: 'twitter'
       link: 'https://twitter.com/PhilippeLogel'
 #    - type: 'linkedin'
 #      link: 'https://linkedin.com/in/squidfunk'
