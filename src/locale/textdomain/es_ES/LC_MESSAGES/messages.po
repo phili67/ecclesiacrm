@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-20 18:40+0200\n"
+"POT-Creation-Date: 2020-10-23 15:12+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -464,7 +464,7 @@ msgstr "Tipo de Grupo"
 #: PersonView.php:1111 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:276 Reports/GroupReport.php:107
-#: sundayschool/SundaySchoolClassListExport.php:48
+#: sundayschool/SundaySchoolClassListExport.php:49
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
 #: v2/templates/pastoralcare/pastoralcareperson.php:114
 msgid "Role"
@@ -790,7 +790,7 @@ msgstr "Inactivo"
 #: external/templates/registration/family-register-members.php:74
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:897
 #: Reports/MemberEmailExport.php:20
-#: sundayschool/SundaySchoolClassListExport.php:49
+#: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/user/userlist.php:49
@@ -801,7 +801,7 @@ msgstr "Primer nombre"
 #: external/templates/registration/family-register-members.php:79
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:919 Reports/MemberEmailExport.php:21
-#: sundayschool/SundaySchoolClassListExport.php:50
+#: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
 msgid "Last Name"
 msgstr "Apellidos"
@@ -1437,7 +1437,7 @@ msgstr "(Use el cuadro de texto para otros países fuera de EE.UU. y Canadá)"
 #: PersonEditor.php:1406 PersonView.php:621 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReportEmail.php:159
 #: Reports/ConfirmReport.php:162
-#: sundayschool/SundaySchoolClassListExport.php:53
+#: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1784,7 +1784,7 @@ msgid "Work / Other Email"
 msgstr "Trabajo / Otro Email"
 
 #: CSVImport.php:254 PersonView.php:579 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:51
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 #: v2/templates/sundayschool/sundayschoolview.php:293
 msgid "Birth Date"
@@ -6154,7 +6154,7 @@ msgid "Family Member"
 msgstr "Miembro de Familia"
 
 #: external/templates/registration/family-register-members.php:101
-#: sundayschool/SundaySchoolClassListExport.php:52
+#: sundayschool/SundaySchoolClassListExport.php:53
 msgid "Mobile"
 msgstr "Teléfono Móvil"
 
@@ -6198,7 +6198,7 @@ msgid "Confirm"
 msgstr "Confirmar"
 
 #: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:54
+#: sundayschool/SundaySchoolClassListExport.php:55
 #: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Home Address"
 msgstr "Dirección de Hogar"
@@ -9087,31 +9087,31 @@ msgstr "Falso"
 msgid "True"
 msgstr "Verdadero"
 
-#: sundayschool/SundaySchoolClassListExport.php:55
+#: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
 msgstr "Nombre de Papá"
 
-#: sundayschool/SundaySchoolClassListExport.php:56
+#: sundayschool/SundaySchoolClassListExport.php:57
 msgid "Dad Mobile"
 msgstr "Teléfono Móvil de Papá"
 
-#: sundayschool/SundaySchoolClassListExport.php:57
+#: sundayschool/SundaySchoolClassListExport.php:58
 msgid "Dad Email"
 msgstr "Email de Papá"
 
-#: sundayschool/SundaySchoolClassListExport.php:58
+#: sundayschool/SundaySchoolClassListExport.php:59
 msgid "Mom Name"
 msgstr "Nombre de Mamá"
 
-#: sundayschool/SundaySchoolClassListExport.php:59
+#: sundayschool/SundaySchoolClassListExport.php:60
 msgid "Mom Mobile"
 msgstr "Teléfono Móvil de Mamá"
 
-#: sundayschool/SundaySchoolClassListExport.php:60
+#: sundayschool/SundaySchoolClassListExport.php:61
 msgid "Mom Email"
 msgstr "Email de Mamá"
 
-#: sundayschool/SundaySchoolClassListExport.php:61
+#: sundayschool/SundaySchoolClassListExport.php:62
 msgid "Properties"
 msgstr "Propiedades"
 
