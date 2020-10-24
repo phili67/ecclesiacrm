@@ -61,7 +61,7 @@ The new family is now registered
 
 ![Screenshot](../../../img/family/admin/auto-inscription13.png)
 
-- to visualize the family, or delete it click on the ID
+- to visualize the family, or delete it click on the Family ID : 18 for example
 
 > Note : It is possible to visualize each family individually and to activate or deactivate it, depending on the needs
 
