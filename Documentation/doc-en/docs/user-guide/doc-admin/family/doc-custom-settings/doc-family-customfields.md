@@ -5,7 +5,7 @@
 
 ![Screenshot](../../../../img/family/admin/settings/familyrole1.png)
 
-Choose in the menu " Change the family custom fields"
+Choose in the menu "Edit Custom Family Fields"
 
 ##To create a new custom field
 
