@@ -10,7 +10,6 @@ The groups in **CRM** have a preponderant place in :
 - Managing the Sundayschool groups
 - Classifying the menues, by "types" in the left sidebar; which is as possible with the classic groups than the sundayschool groups.
 
-
 Via the "basket", the users will be able to :
 
 - Do CSV extractions
