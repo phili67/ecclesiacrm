@@ -33,6 +33,8 @@ unlink(SystemURLs::getDocumentRoot()."/AddDonors.php");
 unlink(SystemURLs::getDocumentRoot()."/PaddleNumEditor");
 unlink(SystemURLs::getDocumentRoot()."/PaddleNumList.php");
 
+unlink(SystemURLs::getDocumentRoot()."ConvertIndividualToFamily.php");
+
 unlink(SystemURLs::getDocumentRoot()."/Menu.php");
 
 $logger->info("End of delete :  all unusefull files");
