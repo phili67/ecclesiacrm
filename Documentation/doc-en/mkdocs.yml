@@ -21,10 +21,10 @@ theme:
 # Customization
 extra:
   social:
-    - icon: 'github'
+    - icon: 'fontawesome/brands/github-alt'
       link: 'https://github.com/phili67/ecclesiacrm'
-    - icon: 'twitter'
-      link: 'https://twitter.com/PhilippeLogel'
+#    - icon: 'twitter'
+#      link: 'https://twitter.com/PhilippeLogel'
 #    - type: 'linkedin'
 #      link: 'https://linkedin.com/in/squidfunk'
 
@@ -42,8 +42,6 @@ markdown_extensions:
       permalink: true
 
 # the site map
-
-site_name: EcclesiaCRM
 pages:
   - "Home": 'index.md'
   - "Manual: Administrator":
