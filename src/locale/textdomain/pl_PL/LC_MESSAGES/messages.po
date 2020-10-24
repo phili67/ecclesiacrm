@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 15:12+0200\n"
+"POT-Creation-Date: 2020-10-24 15:21+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,7 +273,7 @@ msgid "Families"
 msgstr "Rodziny"
 
 #: api/routes/mailchimp.php:221 api/routes/people/people.php:197
-#: EcclesiaCRM/MenuBar/MenuBar.php:145 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:137 PersonView.php:478
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:104
@@ -369,7 +369,7 @@ msgstr "Dodaj do Grupy"
 #: api/routes/search.php:171 AutoPaymentEditor.php:822 BatchWinnerEntry.php:98
 #: BatchWinnerEntry.php:112 CSVImport.php:389 DirectoryReports.php:98
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:272
+#: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:459
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:103 PersonEditor.php:1020 PersonEditor.php:1040
@@ -426,7 +426,7 @@ msgstr "To pole jest wymagane."
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:64
+#: external/templates/registration/family-register-members.php:66
 #: FamilyEditor.php:1150 PersonEditor.php:883 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:2
@@ -437,7 +437,7 @@ msgstr "Mężczyzna"
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:65
+#: external/templates/registration/family-register-members.php:67
 #: FamilyEditor.php:1153 PersonEditor.php:884 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:3
@@ -664,7 +664,8 @@ msgstr "Osoba"
 
 #: api/routes/sidebar/sidebar-properties.php:72
 #: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:808
-#: AutoPaymentEditor.php:817 EcclesiaCRM/dto/ReportUtilities.php:71
+#: AutoPaymentEditor.php:817 ConvertIndividualToAddress.php:61
+#: ConvertIndividualToAddress.php:129 EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
@@ -840,7 +841,7 @@ msgstr "nieaktywne"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:237
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:74
+#: external/templates/registration/family-register-members.php:76
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:897
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
@@ -852,7 +853,7 @@ msgid "First Name"
 msgstr "Imię"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:239
-#: external/templates/registration/family-register-members.php:79
+#: external/templates/registration/family-register-members.php:81
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:919 Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
@@ -914,19 +915,19 @@ msgstr "Kraj"
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
-#: external/templates/registration/family-register-members.php:112
+#: external/templates/registration/family-register-members.php:114
 #: Reports/DirectoryReport.php:305 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Tel."
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:339
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
 #: EventAttendance.php:185
-#: external/templates/registration/family-register-members.php:86
+#: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
 #: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
 #: FamilyView.php:375 FamilyView.php:454 FamilyView.php:541
@@ -1682,15 +1683,20 @@ msgstr "Utwórz Listę Obecności"
 msgid "Return to Events"
 msgstr "Wróć do Menu Wyszukiwania"
 
-#: ConvertIndividualToFamily.php:47
-msgid "Convert Individuals to Families"
+#: ConvertIndividualToAddress.php:45
+#, fuzzy
+msgid "Convert Individuals to Addresses"
 msgstr "Przekształć Osoby w Rodziny"
 
-#: ConvertIndividualToFamily.php:129
+#: ConvertIndividualToAddress.php:128
+msgid "is now part of the"
+msgstr ""
+
+#: ConvertIndividualToAddress.php:142
 msgid "Convert Next"
 msgstr "Przekształć następną"
 
-#: ConvertIndividualToFamily.php:130
+#: ConvertIndividualToAddress.php:145
 msgid "Convert All"
 msgstr "Przekształć wszystkie"
 
@@ -4380,7 +4386,7 @@ msgstr "Wyślij Email do Grupy"
 msgid "Map Settings"
 msgstr "Zapisz Ustawienia"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:322
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
 #: FamilyView.php:464 PersonView.php:788 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4585,7 +4591,7 @@ msgid "Private Space"
 msgstr "Prywatne"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:398
-#: external/templates/registration/family-register-members.php:102
+#: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr ""
 
@@ -4609,9 +4615,9 @@ msgid "EDrive"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:218 EcclesiaCRM/MenuBar/MenuBar.php:313
-#: EcclesiaCRM/MenuBar/MenuBar.php:323 EcclesiaCRM/MenuBar/MenuBar.php:345
-#: EcclesiaCRM/MenuBar/MenuBar.php:430
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:434
 msgid "Dashboard"
 msgstr ""
 
@@ -4702,51 +4708,56 @@ msgstr "CSV - pogrupowane Rodziny"
 msgid "Empty Addresses"
 msgstr "Adres Kościoła"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:147
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+#, fuzzy
+msgid "Convert Individual to Address"
+msgstr "Przekształć Osoby w Rodziny"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
 #, fuzzy
 msgid "List Groups"
 msgstr "Wszystkie Grupy"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:209 v2/routes/people/people.php:186
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:186
 msgid "Group Assignment Helper"
 msgstr "Asystem Przypiswyania Grup"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:216
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
 #: v2/routes/sundayschool/sundayschool.php:110
 #, fuzzy
 msgid "Sunday School"
 msgstr "Bez Szkoły Niedzielnej"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:294 EcclesiaCRM/MenuBar/MenuBar.php:301
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
 #: Include/Footer.php:174
 msgid "Global Custom Menus"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:312
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
 #, fuzzy
 msgid "Custom Menus"
 msgstr "Pola Dodatkowe"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:324
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
 #, fuzzy
 msgid "By Classifications"
 msgstr "Klasyfikacja"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:331
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
 #, fuzzy
 msgid "Meetings"
 msgstr "Lista Grup"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:343 FamilyView.php:381 UserEditor.php:838
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:838
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
 #, fuzzy
 msgid "Email Lists"
 msgstr "Edytor Rodziny"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
 #: EcclesiaCRM/Search/PledgeSearchRes.php:62
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4755,66 +4766,66 @@ msgstr "Edytor Rodziny"
 msgid "Deposit"
 msgstr "Deposit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
 #, fuzzy
 msgid "Current"
 msgstr "Rola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:395 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Zarządzanie Kopertami"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:396
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Pokaż Wszystko"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:397 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "Szczegóły Płatności Elektronicznej"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Deposit Report"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:399
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Odcinek Deposit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:408 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:412 FundRaiserEditor.php:38
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Lista Przedmiotów w Zbiórce"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:410
+#: EcclesiaCRM/MenuBar/MenuBar.php:414
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Utwórz nową Zbiórkę"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:411
+#: EcclesiaCRM/MenuBar/MenuBar.php:415
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Wszystkie Cele"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:413
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
 #, fuzzy
 msgid "Edit Last Fundraiser"
 msgstr "Edytuj Użytkownika"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:472
+#: EcclesiaCRM/MenuBar/MenuBar.php:476
 #, fuzzy
 msgid "Data/Reports"
 msgstr "Utwórz Raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:474
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Menu Raportów"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:475 UserEditor.php:774
+#: EcclesiaCRM/MenuBar/MenuBar.php:479 UserEditor.php:774
 #, fuzzy
 msgid "Query Menu"
 msgstr "Podgląd Zapytania"
@@ -5096,7 +5107,7 @@ msgstr "Strona"
 #: EcclesiaCRM/Reports/PDF_Directory.php:328
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:103
+#: external/templates/registration/family-register-members.php:105
 #: Reports/DirectoryReport.php:309 Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Praca"
@@ -6350,11 +6361,11 @@ msgstr "Członek"
 msgid "Done"
 msgstr ""
 
-#: external/templates/registration/family-register-members.php:22
+#: external/templates/registration/family-register-members.php:20
 msgid "Register"
 msgstr ""
 
-#: external/templates/registration/family-register-members.php:22
+#: external/templates/registration/family-register-members.php:20
 #: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1110
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:100
@@ -6362,24 +6373,24 @@ msgstr ""
 msgid "Family Members"
 msgstr "Członkowie Rodziny"
 
-#: external/templates/registration/family-register-members.php:33
+#: external/templates/registration/family-register-members.php:35
 #, fuzzy
 msgid "Family Member"
 msgstr "Członkowie Rodziny"
 
-#: external/templates/registration/family-register-members.php:101
+#: external/templates/registration/family-register-members.php:103
 #: sundayschool/SundaySchoolClassListExport.php:53
 #, fuzzy
 msgid "Mobile"
 msgstr "Tel. Kom."
 
-#: external/templates/registration/family-register-members.php:143
+#: external/templates/registration/family-register-members.php:132
 #: PersonEditor.php:1002 Reports/ConfirmReport.php:226
 #: Reports/ConfirmReport.php:246
 msgid "Hide Age"
 msgstr "Ukryj Wiek"
 
-#: external/templates/registration/family-register-members.php:154
+#: external/templates/registration/family-register-members.php:156
 #: external/templates/registration/family-register.php:122
 #: external/templates/verify/enter-info.php:38 FinancialReports.php:94
 #: GroupReports.php:103
@@ -12600,6 +12611,9 @@ msgstr "Wyczyść Koszyk"
 #, fuzzy
 msgid "pending"
 msgstr "Ślub"
+
+#~ msgid "Convert Individuals to Families"
+#~ msgstr "Przekształć Osoby w Rodziny"
 
 #, fuzzy
 #~ msgid "View Buyers"

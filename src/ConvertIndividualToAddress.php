@@ -42,7 +42,7 @@ if ($_GET['all'] == 'true') {
 }
 
 //Set the page title
-$sPageTitle = gettext('Convert Individuals to Families');
+$sPageTitle = gettext('Convert Individuals to Addresses');
 
 require 'Include/Header.php';
 
