@@ -65,11 +65,14 @@ src/skin/ecclesiacrm.min.css
 src/skin/ecclesiacrm.min.css.map
 
 
+Documentation/doc-en/mkdoc.sh
+Documentation/doc-fr/mkdoc.sh
+
 # ignore the sufolders of propel
 propel/extract_schema.sh
 propel/generated-reversed-database/
 
-# ignore 
+# ignore
 prepare_archive.sh
 
 # ignore

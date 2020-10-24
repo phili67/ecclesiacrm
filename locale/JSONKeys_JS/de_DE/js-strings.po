@@ -1932,12 +1932,11 @@ msgid ""
 msgstr ""
 "Alle Newsletter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
 
-#, fuzzy
 msgid ""
 "Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
 "could take a while !"
 msgstr ""
-"Alle Newsletter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
+"Alle Familienvertreter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
 
 msgid "Email Marketing"
 msgstr "E-mail Marketing"
@@ -2173,128 +2172,50 @@ msgstr "Nachname (Familien Name)"
 msgid "Family Name"
 msgstr "Familien Name"
 
-#, fuzzy
 msgid "Number"
-msgstr "Schecknummer"
+msgstr "Nummer"
 
 msgid "Item"
-msgstr ""
+msgstr "Element"
 
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 msgid "Multiple"
-msgstr ""
+msgstr "Mehrfach"
 
 msgid "Donor"
-msgstr ""
+msgstr "Spender"
 
 msgid "Buyer"
-msgstr ""
+msgstr "Käufer"
 
 msgid "Sale Price"
-msgstr ""
+msgstr "Ausverkaufsware"
 
-#, fuzzy
 msgid "Estimated value"
-msgstr "Doppelte Werte"
+msgstr "Geschätzter Preis"
 
 msgid "Material Value"
-msgstr ""
+msgstr "Materialwert"
 
 msgid "Minimum Price"
-msgstr ""
+msgstr "Mindestpreis"
 
-#, fuzzy
 msgid "Add buyer"
-msgstr "Person Hinzufügen"
+msgstr "Käufer hinzufügen"
 
-#, fuzzy
 msgid "Buyer Number"
-msgstr "Schecknummer"
+msgstr "Käufernummer"
 
 msgid "Save and Add"
-msgstr ""
+msgstr "Speichern und hinzufügen"
 
 msgid "Generate Statement"
-msgstr ""
+msgstr "Angabe machen"
 
 msgid "Buyer Number Editor"
-msgstr ""
+msgstr "Käufer Nummerneditor"
 
-#, fuzzy
 msgid "Select"
-msgstr "Rolle auswählen"
-
-#~ msgid "Attendances"
-#~ msgstr "Anwesenheiten"
-
-#~ msgid "Never"
-#~ msgstr "Nie"
-
-#~ msgid "link"
-#~ msgstr "Link"
-
-#~ msgid "Present"
-#~ msgstr "Anwesend"
-
-#~ msgid "Absent"
-#~ msgstr "Abwesend"
-
-#~ msgid "Attendance"
-#~ msgstr "Anwesenheiten"
-
-#~ msgid "Add all tags for the selected members in the list..."
-#~ msgstr "Alle Etiketten für diesen Mitglieder List Fügen..."
-
-#, fuzzy
-#~ msgid "Audience Creation"
-#~ msgstr "Ereigniserstellung"
-
-#, fuzzy
-#~ msgid "Audience Title"
-#~ msgstr "Dokumente Titel"
-
-#, fuzzy
-#~ msgid "Your Audience Title"
-#~ msgstr "Ihre Liste Titel"
-
-#, fuzzy
-#~ msgid "Audience Name"
-#~ msgstr "Ressource Name Bearbeiten"
-
-#~ msgid "Share your Document"
-#~ msgstr "Dokumente freizugeben"
-
-#~ msgid "Sunday School Menu assignement"
-#~ msgstr "Sonntagsschule Menu zugewiesen"
-
-#~ msgid "Sunday School Sub Menu"
-#~ msgstr "Sonntagsschule submenu"
-
-#~ msgid "Sunday School"
-#~ msgstr "Sonntagsschule"
-
-#, fuzzy
-#~ msgid "Note Delete Confirmation"
-#~ msgstr "Bestätigung Benutzer löschen"
-
-#~ msgid "List Details"
-#~ msgstr "Details der Liste  "
-
-#~ msgid "Edit Value"
-#~ msgstr "Wert bearbeiten"
-
-#~ msgid ""
-#~ "Warning!  Do not select this option if you plan to add to an existing "
-#~ "database.<br/>"
-#~ msgstr ""
-#~ "Achtung ! Wählen Sie nicht diese Option, wenn Sie den Daten in ein "
-#~ "Datenbank hinzunfügen wollen. "
-
-#~ msgid ""
-#~ "Use only if unsatisfied with initial import.  All person and member data "
-#~ "will be destroyed!"
-#~ msgstr ""
-#~ "Verwenden Sie nur wenn Sie mit anfänglichen Import nicht zufrieden sind. "
-#~ "Alle Personendaten werden ZERSTÖRT!"
+msgstr "Auswählen"

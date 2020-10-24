@@ -134,6 +134,10 @@ class MenuBar extends Menu
             $menuItemItem = new Menu (_("View Inactive Families"), "fa fa-circle-o", "v2/familylist/inactive", true, $menuItem);
 
             $menuItem = new Menu (_("Empty Addresses"), "fa fa-angle-double-right", "v2/familylist/empty", true, $menu);
+
+            if (SessionUser::getUser()->isAdmin()) {
+                $menuItem = new Menu (_("Convert Individual to Address"), "fa fa-angle-double-right", "ConvertIndividualToAddress.php", true, $menu);
+            }
         }
 
         $this->addMenu($menu);

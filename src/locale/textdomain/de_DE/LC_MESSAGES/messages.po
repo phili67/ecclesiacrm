@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-20 18:40+0200\n"
+"POT-Creation-Date: 2020-10-24 15:21+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,12 +201,10 @@ msgid "Checks"
 msgstr "Scheck"
 
 #: api/routes/mailchimp.php:71
-#, fuzzy
 msgid "persons"
 msgstr "Personen"
 
 #: api/routes/mailchimp.php:71
-#, fuzzy
 msgid "people"
 msgstr "Menschen"
 
@@ -253,7 +251,7 @@ msgid "Families"
 msgstr "Familien"
 
 #: api/routes/mailchimp.php:221 api/routes/people/people.php:197
-#: EcclesiaCRM/MenuBar/MenuBar.php:145 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:137 PersonView.php:478
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:104
@@ -342,7 +340,7 @@ msgstr "Zu der Gruppe hinzugefügt"
 #: api/routes/search.php:171 AutoPaymentEditor.php:822 BatchWinnerEntry.php:98
 #: BatchWinnerEntry.php:112 CSVImport.php:389 DirectoryReports.php:98
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:272
+#: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:459
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:103 PersonEditor.php:1020 PersonEditor.php:1040
@@ -396,7 +394,7 @@ msgstr "Personaktiviert."
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:64
+#: external/templates/registration/family-register-members.php:66
 #: FamilyEditor.php:1150 PersonEditor.php:883 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:2
@@ -407,7 +405,7 @@ msgstr "Mann"
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:65
+#: external/templates/registration/family-register-members.php:67
 #: FamilyEditor.php:1153 PersonEditor.php:884 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
 #: queryparameteroptions_qpo.php:3
@@ -455,7 +453,7 @@ msgstr "Gruppenart"
 #: PersonView.php:1111 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:276 Reports/GroupReport.php:107
-#: sundayschool/SundaySchoolClassListExport.php:48
+#: sundayschool/SundaySchoolClassListExport.php:49
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
 #: v2/templates/pastoralcare/pastoralcareperson.php:114
 msgid "Role"
@@ -606,7 +604,8 @@ msgstr "Person"
 
 #: api/routes/sidebar/sidebar-properties.php:72
 #: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:808
-#: AutoPaymentEditor.php:817 EcclesiaCRM/dto/ReportUtilities.php:71
+#: AutoPaymentEditor.php:817 ConvertIndividualToAddress.php:61
+#: ConvertIndividualToAddress.php:129 EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
@@ -773,10 +772,10 @@ msgstr "inaktiv"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:237
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:74
+#: external/templates/registration/family-register-members.php:76
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:897
 #: Reports/MemberEmailExport.php:20
-#: sundayschool/SundaySchoolClassListExport.php:49
+#: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:257
 #: v2/templates/user/userlist.php:49
@@ -784,10 +783,10 @@ msgid "First Name"
 msgstr "Vorname"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:239
-#: external/templates/registration/family-register-members.php:79
+#: external/templates/registration/family-register-members.php:81
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:919 Reports/MemberEmailExport.php:21
-#: sundayschool/SundaySchoolClassListExport.php:50
+#: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
 msgid "Last Name"
 msgstr "Nachnahme/Familienname"
@@ -844,19 +843,19 @@ msgstr "Land"
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
-#: external/templates/registration/family-register-members.php:112
+#: external/templates/registration/family-register-members.php:114
 #: Reports/DirectoryReport.php:305 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Tel."
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:339
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
 #: EventAttendance.php:185
-#: external/templates/registration/family-register-members.php:86
+#: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
 #: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
 #: FamilyView.php:375 FamilyView.php:454 FamilyView.php:541
@@ -945,7 +944,7 @@ msgstr "Serieneingabemodus"
 
 #: BatchWinnerEntry.php:84
 msgid "Articles"
-msgstr ""
+msgstr "Artikel"
 
 #: BatchWinnerEntry.php:88 Reports/FundRaiserStatement.php:124
 #: Reports/FundRaiserStatement.php:167
@@ -1357,9 +1356,8 @@ msgid "Already in a family"
 msgstr "Ist schon in einer Familie"
 
 #: CartToFamily.php:268
-#, fuzzy
 msgid "Choose or create a family"
-msgstr "Neue Familie anlegen"
+msgstr "Neue oder Hinzufugen Familie"
 
 #: CartToFamily.php:273 CartToFamily.php:464
 msgid "Add to Family"
@@ -1401,7 +1399,7 @@ msgstr "Nur die neuen Daten unten"
 
 #: CartToFamily.php:382
 msgid "OR"
-msgstr "oder"
+msgstr ""
 
 #: CartToFamily.php:387
 msgid "(Use the textbox for countries other than US and Canada)"
@@ -1417,7 +1415,7 @@ msgstr "(Benutze die Textbox für Länder äußerhalb der USA und Canada)"
 #: PersonEditor.php:1406 PersonView.php:621 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReportEmail.php:159
 #: Reports/ConfirmReport.php:162
-#: sundayschool/SundaySchoolClassListExport.php:53
+#: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1574,15 +1572,19 @@ msgstr "Validieren Teilnahme"
 msgid "Return to Events"
 msgstr "Zurück zu den Ereignissen"
 
-#: ConvertIndividualToFamily.php:47
-msgid "Convert Individuals to Families"
-msgstr "Einzelpersonen in Familien konvertieren"
+#: ConvertIndividualToAddress.php:45
+msgid "Convert Individuals to Addresses"
+msgstr "Einzelpersonen in Adresse konvertieren"
 
-#: ConvertIndividualToFamily.php:129
+#: ConvertIndividualToAddress.php:128
+msgid "is now part of the"
+msgstr "ist jetzt ein Teil der"
+
+#: ConvertIndividualToAddress.php:142
 msgid "Convert Next"
 msgstr "nächsten konvertieren"
 
-#: ConvertIndividualToFamily.php:130
+#: ConvertIndividualToAddress.php:145
 msgid "Convert All"
 msgstr "Alle konvertieren"
 
@@ -1759,7 +1761,7 @@ msgid "Work / Other Email"
 msgstr "Email geschäftlich/weitere"
 
 #: CSVImport.php:254 PersonView.php:579 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:51
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 #: v2/templates/sundayschool/sundayschoolview.php:293
 msgid "Birth Date"
@@ -4241,7 +4243,7 @@ msgstr "Email Gruppe"
 msgid "Map Settings"
 msgstr "Karte Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:322
+#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
 #: FamilyView.php:464 PersonView.php:788 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4432,7 +4434,7 @@ msgid "Private Space"
 msgstr "Persönlicher Bereich"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:398
-#: external/templates/registration/family-register-members.php:102
+#: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Haus"
 
@@ -4453,9 +4455,9 @@ msgid "EDrive"
 msgstr "EDrive"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:218 EcclesiaCRM/MenuBar/MenuBar.php:313
-#: EcclesiaCRM/MenuBar/MenuBar.php:323 EcclesiaCRM/MenuBar/MenuBar.php:345
-#: EcclesiaCRM/MenuBar/MenuBar.php:430
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:434
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -4532,45 +4534,49 @@ msgstr "View aktiv Familien"
 msgid "Empty Addresses"
 msgstr "Lehre Adresse"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:147
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+msgid "Convert Individual to Address"
+msgstr "Einzelpersonen in adressen konvertieren"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
 msgid "List Groups"
 msgstr "Gruppen Liste"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:209 v2/routes/people/people.php:186
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:186
 msgid "Group Assignment Helper"
 msgstr "Gruppen Assistent"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:216
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
 #: v2/routes/sundayschool/sundayschool.php:110
 msgid "Sunday School"
 msgstr "Sonntagsschule"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:294 EcclesiaCRM/MenuBar/MenuBar.php:301
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
 #: Include/Footer.php:174
 msgid "Global Custom Menus"
 msgstr "Global Custom Menüs"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:312
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
 msgid "Custom Menus"
 msgstr "Custom Menüs"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:324
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
 msgid "By Classifications"
 msgstr "durch Klassifizierungen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:331
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
 msgid "Meetings"
 msgstr "Sitzungen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:343 FamilyView.php:381 UserEditor.php:838
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:838
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
 msgid "Email Lists"
 msgstr "Email liste"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
 #: EcclesiaCRM/Search/PledgeSearchRes.php:62
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4579,56 +4585,55 @@ msgstr "Email liste"
 msgid "Deposit"
 msgstr "Einlage"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
 msgid "Current"
 msgstr "Aktual"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:395 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Spendenumschlag Manager"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:396
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
 msgid "View All Deposits"
 msgstr "Anzeigen alle Einlagen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:397 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr "Neue elektronische Zahlmethode hinzufügen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
 msgid "Deposit Reports"
 msgstr "Einzahlungen Berichte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:399
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
 msgid "Edit Deposit Slip"
 msgstr "Einzahlungsbeleg editieren"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:408 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:412 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr "Spendenaktion"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:410
+#: EcclesiaCRM/MenuBar/MenuBar.php:414
 msgid "Create New Fundraiser"
 msgstr "Neuen Spendenaktion anlegen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:411
+#: EcclesiaCRM/MenuBar/MenuBar.php:415
 msgid "View All Fundraisers"
 msgstr "Alle Spendenaktionen anzeigen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:413
-#, fuzzy
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
 msgid "Edit Last Fundraiser"
 msgstr "Spendenaktion editieren"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:472
+#: EcclesiaCRM/MenuBar/MenuBar.php:476
 msgid "Data/Reports"
 msgstr "Daten/Berichte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:474
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
 msgid "Reports Menu"
 msgstr "Berichtemenü"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:475 UserEditor.php:774
+#: EcclesiaCRM/MenuBar/MenuBar.php:479 UserEditor.php:774
 msgid "Query Menu"
 msgstr "Query menü"
 
@@ -4891,7 +4896,7 @@ msgstr "Seite"
 #: EcclesiaCRM/Reports/PDF_Directory.php:328
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:103
+#: external/templates/registration/family-register-members.php:105
 #: Reports/DirectoryReport.php:309 Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Beruf"
@@ -5123,19 +5128,16 @@ msgid "groupmasters"
 msgstr "gruppenmanager"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#, fuzzy
 msgid "groupmaster"
 msgstr "gruppenmanager"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-#, fuzzy
 msgid "groupmanagers"
-msgstr "Gruppe Managern"
+msgstr "gruppemanagern"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-#, fuzzy
 msgid "groupmanager"
-msgstr "Gruppe Manager"
+msgstr "gruppemanager"
 
 #: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
 msgid "Individual Pastoral Cares"
@@ -6052,11 +6054,11 @@ msgstr "Mitglied(er)"
 msgid "Done"
 msgstr "Erledigt"
 
-#: external/templates/registration/family-register-members.php:22
+#: external/templates/registration/family-register-members.php:20
 msgid "Register"
 msgstr "Registrieren"
 
-#: external/templates/registration/family-register-members.php:22
+#: external/templates/registration/family-register-members.php:20
 #: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1110
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:100
@@ -6064,22 +6066,22 @@ msgstr "Registrieren"
 msgid "Family Members"
 msgstr "Familienmitglieder"
 
-#: external/templates/registration/family-register-members.php:33
+#: external/templates/registration/family-register-members.php:35
 msgid "Family Member"
 msgstr "Familienmitglied"
 
-#: external/templates/registration/family-register-members.php:101
-#: sundayschool/SundaySchoolClassListExport.php:52
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
 msgid "Mobile"
 msgstr "Mobiltel."
 
-#: external/templates/registration/family-register-members.php:143
+#: external/templates/registration/family-register-members.php:132
 #: PersonEditor.php:1002 Reports/ConfirmReport.php:226
 #: Reports/ConfirmReport.php:246
 msgid "Hide Age"
 msgstr "Alter verbergen"
 
-#: external/templates/registration/family-register-members.php:154
+#: external/templates/registration/family-register-members.php:156
 #: external/templates/registration/family-register.php:122
 #: external/templates/verify/enter-info.php:38 FinancialReports.php:94
 #: GroupReports.php:103
@@ -6112,7 +6114,7 @@ msgid "Confirm"
 msgstr "Bestätigen"
 
 #: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:54
+#: sundayschool/SundaySchoolClassListExport.php:55
 #: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Home Address"
 msgstr "Privatadresse"
@@ -6892,14 +6894,13 @@ msgstr "Neuen Spendenaktion anlegen"
 
 #: FundRaiserEditor.php:159
 msgid "infos"
-msgstr ""
+msgstr "infos"
 
 #: FundRaiserEditor.php:220
 msgid "Add Donated Item"
 msgstr "Sachspende hinzufügen"
 
 #: FundRaiserEditor.php:221 v2/templates/fundraiser/paddleNumList.php:48
-#, fuzzy
 msgid "Buyers"
 msgstr "Käufer"
 
@@ -8435,7 +8436,6 @@ msgid "M/F"
 msgstr "M/F"
 
 #: Reports/CanvassReports.php:321
-#, fuzzy
 msgid "Assigned groups for "
 msgstr "Festgelegte Gruppe"
 
@@ -8584,7 +8584,7 @@ msgstr "Gekaufte Artikel:"
 
 #: Reports/FundRaiserStatement.php:168
 msgid "Qty"
-msgstr ""
+msgstr "Menge"
 
 #: Reports/FundRaiserStatement.php:170
 #: v2/templates/fundraiser/donatedItemEditor.php:41
@@ -8983,31 +8983,31 @@ msgstr "Falsch"
 msgid "True"
 msgstr "Wahr"
 
-#: sundayschool/SundaySchoolClassListExport.php:55
+#: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
 msgstr "Vater Name"
 
-#: sundayschool/SundaySchoolClassListExport.php:56
+#: sundayschool/SundaySchoolClassListExport.php:57
 msgid "Dad Mobile"
 msgstr "Vater Mobil"
 
-#: sundayschool/SundaySchoolClassListExport.php:57
+#: sundayschool/SundaySchoolClassListExport.php:58
 msgid "Dad Email"
 msgstr "Email Vater"
 
-#: sundayschool/SundaySchoolClassListExport.php:58
+#: sundayschool/SundaySchoolClassListExport.php:59
 msgid "Mom Name"
 msgstr "Mutter Name"
 
-#: sundayschool/SundaySchoolClassListExport.php:59
+#: sundayschool/SundaySchoolClassListExport.php:60
 msgid "Mom Mobile"
 msgstr "Mutter Mobil"
 
-#: sundayschool/SundaySchoolClassListExport.php:60
+#: sundayschool/SundaySchoolClassListExport.php:61
 msgid "Mom Email"
 msgstr "Mutter Email"
 
-#: sundayschool/SundaySchoolClassListExport.php:61
+#: sundayschool/SundaySchoolClassListExport.php:62
 msgid "Properties"
 msgstr "Einstellungen"
 
@@ -9918,9 +9918,8 @@ msgid "Unclassified birthdates"
 msgstr "nicht klassifizierte Geburtstage"
 
 #: v2/templates/dashboard/maindashboard.php:365
-#, fuzzy
 msgid "Latest"
-msgstr "Neueste Mitglieder"
+msgstr "Neuester"
 
 #: v2/templates/dashboard/maindashboard.php:365
 msgid "Individual Pastoral Care"
@@ -10152,7 +10151,7 @@ msgstr "Kennzeichnung Hinz./Entfernen"
 
 #: v2/templates/email/mailchimp/managelist.php:143
 msgid "Keywords"
-msgstr ""
+msgstr "Keywords"
 
 #: v2/templates/email/mailchimp/managelist.php:163
 msgid "is not configured"
@@ -10180,7 +10179,7 @@ msgstr "Dokumentation support."
 
 #: v2/templates/fundraiser/donatedItemEditor.php:22
 msgid "Infos"
-msgstr ""
+msgstr "Infos"
 
 #: v2/templates/fundraiser/donatedItemEditor.php:36
 msgid "Sell to everyone"
@@ -10235,7 +10234,6 @@ msgid "Clear Filters"
 msgstr "Filter leeren"
 
 #: v2/templates/fundraiser/findFundRaiser.php:69
-#, fuzzy
 msgid "Fundraisers"
 msgstr "Spendenaktion"
 
@@ -11810,969 +11808,5 @@ msgstr "Leeren"
 msgid "pending"
 msgstr "steht aus"
 
-#~ msgid "View Buyers"
-#~ msgstr "Käufer anzeigen"
-
-#~ msgid "Fundraiser Listing"
-#~ msgstr "Fundraiser Liste"
-
-#~ msgid "Previous Page"
-#~ msgstr "letzter Seite"
-
-#~ msgid "Next Page"
-#~ msgstr "Nächste Seite"
-
-#~ msgid "Sale Price"
-#~ msgstr "Verkaufspreis"
-
-#~ msgid "Estimated value"
-#~ msgstr "Geschätzter Preis:"
-
-#~ msgid "Buyer Number Editor"
-#~ msgstr "Käufer Nummerneditor"
-
-#, fuzzy
-#~ msgid "Add buyer"
-#~ msgstr "Käufer hinzufügen"
-
-#~ msgid "Generate Statement"
-#~ msgstr "Mache Angabe"
-
-#~ msgid "Buyers for this fundraiser:"
-#~ msgstr "Käufer bei diese Spendenaktion:"
-
-#~ msgid "Select none"
-#~ msgstr "Keinen auswählen"
-
-#~ msgid "Show"
-#~ msgstr "Zeigen"
-
-#, fuzzy
-#~ msgid "Times"
-#~ msgstr "Zeitstrahl"
-
-#~ msgid "Display:"
-#~ msgstr "Anzeigen:"
-
-#~ msgid "choice"
-#~ msgstr "Wahl"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "Family Custom Searches"
-#~ msgstr "Benutzerdefinierte Familien Suche"
-
-#~ msgid "Person Custom Searches"
-#~ msgstr "Personen Benutzerdefinierte Suche"
-
-#~ msgid "Person Properties Searches"
-#~ msgstr "Personeigenschaft Suche"
-
-#~ msgid "Youngs"
-#~ msgstr "Jungen"
-
-#~ msgid "Young Persons not reached"
-#~ msgstr "Junge Leute nicht erreicht"
-
-#~ msgid "Youngs not reached"
-#~ msgstr "Jungen nicht erreicht"
-
-#, fuzzy
-#~ msgid "Singles Persons"
-#~ msgstr "Einzelpersonen"
-
-#~ msgid "Single Person"
-#~ msgstr "Einzelpersonen"
-
-#, fuzzy
-#~ msgid "Singles persons not reached"
-#~ msgstr "Einzelpersonen nicht erreicht"
-
-#~ msgid "View Lonely People"
-#~ msgstr "Einsame Menschen sehen"
-
-#~ msgid "Lonely people not reached"
-#~ msgstr "Einsame Leute nicht erreicht"
-
-#~ msgid "Young Members"
-#~ msgstr "Jungen Mitglieder"
-
-#~ msgid "Lonely People"
-#~ msgstr "Einsame Menschen"
-
-#~ msgid "Lonely"
-#~ msgstr "Einsame Leute"
-
-#~ msgid "Person not reached"
-#~ msgstr "Personen nicht erreicht"
-
-#~ msgid "Family not reached"
-#~ msgstr "Familien nicht erreicht"
-
-#~ msgid "See all Families"
-#~ msgstr "Alle Familien anzeigen"
-
-#~ msgid "Group View"
-#~ msgstr "Gruppenansicht"
-
-#~ msgid "CheckIn"
-#~ msgstr "Einchecken "
-
-#~ msgid "Person has been already checked in for this event"
-#~ msgstr "Person wurde bereits für diese Ereignis eingecheckt "
-
-#~ msgid "CheckOut Person"
-#~ msgstr "Auschecken Person"
-
-#~ msgid "Delete Checkin in Entry"
-#~ msgstr "Eincheck in Einträge löschen"
-
-#~ msgid "Adult Checking Out Person"
-#~ msgstr "Ausgewachsene Auschecken Person"
-
-#~ msgid "Adult Name (Optional)"
-#~ msgstr "Ausgewachsene Name (Optional)"
-
-#~ msgid "CheckOut"
-#~ msgstr "Auschecken"
-
-#~ msgid "Checked In Time"
-#~ msgstr "Im Zeit eingecheckt"
-
-#~ msgid "Checked In By"
-#~ msgstr "Angemeldet durch"
-
-#~ msgid "Checked Out Time"
-#~ msgstr "Uhrzeit der Abmeldung"
-
-#~ msgid "Checked Out By"
-#~ msgstr "Abgemeldet durch"
-
-#~ msgid "Present"
-#~ msgstr "Anwesend"
-
-#~ msgid "Absent"
-#~ msgstr "Abwesend"
-
-#~ msgid "Check-in and Check-out"
-#~ msgstr "Einchecken / Auschecken"
-
-#~ msgid "Church Event Editor"
-#~ msgstr "Kirche Ereignisse Editieren"
-
-#~ msgid "Attendees for Event ID:"
-#~ msgstr "Teilnehmer an Event mit iD:"
-
-#~ msgid "Toggle navigation"
-#~ msgstr "Schaltet Navigationselementen"
-
-#~ msgid "For your documents family etc ..."
-#~ msgstr "Einstellen der Dokumenttitel"
-
-#~ msgid "You can change here your password"
-#~ msgstr "Rücksetzen Ihrer Kennwort"
-
-#~ msgid "Change Custom Settings"
-#~ msgstr "Einstellung ändern"
-
-#~ msgid "Lock your session"
-#~ msgstr "Sitzung Sperren"
-
-#~ msgid "Quit EcclesiaCRM and close your session"
-#~ msgstr "EcclesiaCRM verlassen und Sitzung Sperren"
-
-#~ msgid "Sermon Text"
-#~ msgstr "Bibeltextes"
-
-#~ msgid " Since:"
-#~ msgstr " Seit:"
-
-#~ msgid "About Me"
-#~ msgstr "Über mich"
-
-#~ msgid "Filter and Cart"
-#~ msgstr "Filtern und dem Korb hinzufügen"
-
-#~ msgid "Show people <b>not</b> in this group type:"
-#~ msgstr "Leute anzeigen, die <b>nicht</b>in diesem Gruppentyp sind:"
-
-#~ msgid "Sort order"
-#~ msgstr "Sortierungsart"
-
-#~ msgid "By Name"
-#~ msgstr "Nach Namen"
-
-#~ msgid "By Family"
-#~ msgstr "Nach Familie"
-
-#~ msgid "By Zip Code"
-#~ msgstr "PLZ"
-
-#~ msgid "By Newest Entries"
-#~ msgstr "Nach Neueintritt"
-
-#~ msgid "By Recently Edited"
-#~ msgstr "Nach kürzlich geändert"
-
-#~ msgid "Apply Filter"
-#~ msgstr "Filter anwenden"
-
-#~ msgid "Male & Female"
-#~ msgstr "männlich & weiblich"
-
-#~ msgid "All Classifications"
-#~ msgstr "Alle Einordnungen"
-
-#~ msgid "All Family Roles"
-#~ msgstr "Alle Rollen in der Familie:"
-
-#~ msgid "All Contact Properties"
-#~ msgstr "Alle Eigenschaften von Kontakten"
-
-#~ msgid "All Group Types"
-#~ msgstr "Alle Gruppentypen"
-
-#~ msgid "All Groups"
-#~ msgstr "Alle Gruppen"
-
-#~ msgid "All Roles"
-#~ msgstr "Alle Rollen"
-
-#~ msgid "record returned"
-#~ msgstr "zurückgegebenen Einträge"
-
-#~ msgid "records returned"
-#~ msgstr "zurückgegebenen Einträge"
-
-#~ msgid "Photo"
-#~ msgstr "Fotos"
-
-#~ msgid "Cart"
-#~ msgstr "Korb"
-
-#~ msgid "Add to Group"
-#~ msgstr "Zur Gruppe hinzufügen"
-
-#~ msgid "No Limit"
-#~ msgstr "Kein Grenzwert"
-
-#~ msgid "Calendars"
-#~ msgstr "Kalender"
-
-#~ msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
-#~ msgstr ""
-#~ "Ausschließen/Einschließen Gruppen. Für ein Kalendar Hinzufügen, erst neue "
-#~ "Gruppe Hinzufügen."
-
-#~ msgid "Attendees Checked In"
-#~ msgstr "Teilnehmer Eingecheckt"
-
-#~ msgid "Tracking"
-#~ msgstr "Verfolgung"
-
-#~ msgid "You have no items in your cart."
-#~ msgstr "Du hast keine Datenelemente im Korb"
-
-#~ msgid "Back to Menu"
-#~ msgstr "Zurück zum Menü"
-
-#~ msgid "GZip"
-#~ msgstr "Gzip"
-
-#~ msgid "Restore Running, Please wait."
-#~ msgstr "Wiederherstellung läuft. Bitte warte."
-
-#~ msgid "Restore Complete"
-#~ msgstr "Registrierung vollständig."
-
-#~ msgid "Login to restored Database"
-#~ msgstr "Login zum wiederherstellen Datenbank"
-
-#~ msgid "Restore Error."
-#~ msgstr "Wiederherstellung Fehler"
-
-#~ msgid "Add Students"
-#~ msgstr "Students hinzufügen"
-
-#~ msgid "Send Message"
-#~ msgstr "Nachricht senden"
-
-#~ msgid "View Profile"
-#~ msgstr "Ansichtsprofil"
-
-#~ msgid "Compose New Message"
-#~ msgstr "Neue Nachricht verfassen"
-
-#~ msgid "Kids Emails"
-#~ msgstr "Kinder Email"
-
-#~ msgid "Parents Emails"
-#~ msgstr "Eltern Email"
-
-#~ msgid "Teachers Emails"
-#~ msgstr "Lehrer Email"
-
-#~ msgid "Attachment"
-#~ msgstr "Anhang"
-
-#~ msgid "Max. 32MB"
-#~ msgstr "Max. 32MB"
-
-#~ msgid "Discard"
-#~ msgstr "Verwerfen"
-
-#, fuzzy
-#~ msgid "Email Audiences"
-#~ msgstr "Email liste"
-
-#, fuzzy
-#~ msgid "Email Audience"
-#~ msgstr "Allen mailen"
-
-#, fuzzy
-#~ msgid "Create Audience"
-#~ msgstr "Datei Erstellen"
-
-#, fuzzy
-#~ msgid "Manage Email Audience"
-#~ msgstr "Email List verwalten"
-
-#~ msgid "'Default Option'"
-#~ msgstr "'Standart Option'"
-
-#~ msgid "Software Registration"
-#~ msgstr "Software registrieren"
-
-#~ msgid "If you need to make changes to registration data, go to "
-#~ msgstr "If you need to make changes to registration data, go to "
-
-#~ msgid "Admin->Edit General Settings"
-#~ msgstr "Editieren General Einstellung"
-
-#~ msgid ""
-#~ "Please register your copy of EcclesiaCRM by checking over this "
-#~ "information and pressing the Send button.  "
-#~ msgstr ""
-#~ "Bitte registrieren sie ihre Kopie von EcclesiaCRM indem sie diese "
-#~ "Information überprüfend und versenden."
-
-#~ msgid "This information is used only to track the usage of this software.  "
-#~ msgstr ""
-#~ "Diese Information wird nur nur Nachverfolgung der Softwarenutzung "
-#~ "verwendet."
-
-#~ msgid "Base URL"
-#~ msgstr "Basis-URL "
-
-#~ msgid "Member Role Change"
-#~ msgstr "Rolle der Mitglieder ändern"
-
-#~ msgid "Member's Name"
-#~ msgstr "Name des Mitglieds"
-
-#~ msgid "Current Role"
-#~ msgstr "Derzeitige Rolle"
-
-#~ msgid "Update"
-#~ msgstr "Aktualisieren"
-
-#~ msgid "Add Person to Group"
-#~ msgstr "Person zur Gruppe hinzufügen"
-
-#~ msgid "Select the group to add this person to"
-#~ msgstr "Wähle eine Gruppe aus um diese Person hinzuzufügen"
-
-#~ msgid "No Group Selected"
-#~ msgstr "Keine Gruppe ausgewählt"
-
-#~ msgid "Notes:"
-#~ msgstr "Hinweis:"
-
-#~ msgid "Canvassers"
-#~ msgstr "Mitarbeiter der Aktion"
-
-#~ msgid "BraveCanvassers"
-#~ msgstr "Mutige Aktionsmitarbeiter"
-
-#~ msgid "Canvasser:"
-#~ msgstr "Aktionsmitarbeiter"
-
-#~ msgid "Group successfully added to the Cart."
-#~ msgstr "Gruppe wurde erfolgreich im Korb hinzugefügt."
-
-#~ msgid "Group successfully removed from the Cart."
-#~ msgstr "Gruppe wurde erfolgreich aus dem Korb entfernt."
-
-#~ msgid "Profile Image successfully removed."
-#~ msgstr "Profilbild erfolgreich gelöscht."
-
-#~ msgid "Profile Image successfully updated."
-#~ msgstr "Profilbild erfolgreich aktualisiert."
-
-#~ msgid "Profile Image upload Error."
-#~ msgstr "Profilbild konnte nicht hochgeladen werden."
-
-#~ msgid "Selected record successfully removed from the Cart."
-#~ msgstr "Ausgewhälte Datensatz wurde erfolgreich aus dem Korb entfernt."
-
-#~ msgid "Menu"
-#~ msgstr "Menü"
-
-#~ msgid "The menu could not be assigned."
-#~ msgstr "Das Menü konnte nicht zugewiesen werden."
-
-#~ msgid "The menu is successfully assigned."
-#~ msgstr "Das Menü wurde zugewiesen."
-
-#~ msgid "The menu is successfully unassigned."
-#~ msgstr "Das Menü wurde nicht zugewiesen."
-
-#~ msgid "Sunday School group can't be modified, only in this two cases :"
-#~ msgstr ""
-#~ "Sonntagsschule gruppen können nicht geändert werden, aber nur in zwei "
-#~ "Fällen :"
-
-#~ msgid "You can create/delete sunday school group. "
-#~ msgstr "Sie können generieren/löschen Sonntagsschule Gruppe."
-
-#~ msgid ""
-#~ "Add new roles, but not modify or rename the Student and the Teacher roles."
-#~ msgstr ""
-#~ "Neuen Rollen Hinzufügen, aber nicht ändern oder umbenennen Sudent and "
-#~ "Lehrer Rollen."
-
-#~ msgid "Assign a New Menu Sunday School Category"
-#~ msgstr "Neuen Sonntagsschule Menü Kategorie zuweisen"
-
-#~ msgid "Sunday School Menu Properties"
-#~ msgstr "Sonntagsschule Menü Eigenschaften"
-
-#~ msgid "Edit Group Types"
-#~ msgstr "Gruppenarten editieren"
-
-#~ msgid "GDPR List"
-#~ msgstr "GDPR Liste"
-
-#~ msgid "Group Member Properties Editor"
-#~ msgstr "Einstellungseditor für Gruppenmitglieder Editieren"
-
-#~ msgid ""
-#~ "This group currently has no properties!  You can add them in the Group "
-#~ "Editor."
-#~ msgstr ""
-#~ "Diese Gruppe hat zur zeit keine Einstellungen! Du kannst Einstellungen "
-#~ "mit dem Gruppeneditor hinzufügen."
-
-#~ msgid "Editing"
-#~ msgstr "Bearbeiten"
-
-#~ msgid "data for member"
-#~ msgstr "Daten für Mitglied"
-
-#~ msgid "Style"
-#~ msgstr "Darstellung der Datenfelder"
-
-#, fuzzy
-#~ msgid "(Edit own family only.)"
-#~ msgstr "Nur eigene Familie ändern."
-
-#, fuzzy
-#~ msgid "(Canvass volunteer.)"
-#~ msgstr "Aktionsmitarbeiter"
-
-#, fuzzy
-#~ msgid "(Grants all privileges.)"
-#~ msgstr "Hat alle Rechte"
-
-#, fuzzy
-#~ msgid "(Allow to manage the query menu)"
-#~ msgstr "Benutzer darf Query menü verwenden"
-
-#, fuzzy
-#~ msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
-#~ msgstr "Haupt Dashboard und Kalender sichtbar"
-
-#~ msgid "Deactivate account"
-#~ msgstr "Deaktivieren Account"
-
-#~ msgid "User Deactivated"
-#~ msgstr "Benutzer deaktiviert."
-
-#~ msgid "User Activated"
-#~ msgstr "Benutzer aktiviert."
-
-#~ msgid "Note Delete Confirmation"
-#~ msgstr "Bestätigung zur Löschung von Hinweis"
-
-#~ msgid "Please confirm deletion of this note"
-#~ msgstr "Bitte bestätige das Löschen dieser Hinweiss"
-
-#~ msgid "Yes, delete this record"
-#~ msgstr "Ja, diesen Datensatz löschen"
-
-#~ msgid "Cloud Upload"
-#~ msgstr "Cloud Hochladen"
-
-#~ msgid "in"
-#~ msgstr "im"
-
-#~ msgid "Document Editor"
-#~ msgstr "Dokument Editor"
-
-#~ msgid "You must enter text for this document"
-#~ msgstr "Du musst einen Dokument Namen eingeben"
-
-#~ msgid "File Info"
-#~ msgstr "Dateiinfo"
-
-#~ msgid "Document Title"
-#~ msgstr "Dokument Titel"
-
-#~ msgid "Set your File Info"
-#~ msgstr "Dateiinfo definieren"
-
-#~ msgid "Set your Document title"
-#~ msgstr "Einstellen der Dokument titel"
-
-#~ msgid "Your Note type is"
-#~ msgstr "Einstellen der Hinweis titel"
-
-#~ msgid "Choose your Note Type"
-#~ msgstr "Wählen Hinweis Typ"
-
-#~ msgid "File input"
-#~ msgstr "Dateien fehlen"
-
-#~ msgid "Upload your file"
-#~ msgstr "Dateien zum Hochladen"
-
-#~ msgid "Private"
-#~ msgstr "Privat"
-
-#~ msgid "Add a Document"
-#~ msgstr "Dokument hinzufügen"
-
-#~ msgid "Property Delete Confirmation"
-#~ msgstr "Bestätigung zum Löschen der Eigenschaft"
-
-#~ msgid "Please confirm deletion of this property"
-#~ msgstr "Bitte bestätige das Löschen dieser Eigenschaft"
-
-#~ msgid ""
-#~ "Deleting this Property will also delete all assignments of this Property "
-#~ "to any People, Family, or Group records."
-#~ msgstr ""
-#~ "Wenn du diese Eingenschaft löscht werden auch alle Festlegungen dieser "
-#~ "Eingschaft bezüglich aller Personen, Familien und Gruppen gelöscht."
-
-#~ msgid "Property Editor"
-#~ msgstr "Eigenschaftseditor"
-
-#~ msgid "You must select a type"
-#~ msgstr "Du musst einen Typ auswählen"
-
-#~ msgid "Select Property Type"
-#~ msgstr "Wähle einen Eigenschaftstyp aus"
-
-#~ msgid "A"
-#~ msgstr "Ein"
-
-#~ msgid "with this property.."
-#~ msgstr "mit der Eigenschaft..."
-
-#~ msgid "Prompt"
-#~ msgstr "Prompt"
-
-#~ msgid ""
-#~ "Entering a Prompt value will allow the association of a free-form value."
-#~ msgstr ""
-#~ "Die Eingabe eines Promptwertes wird die Verknüpfung eines freien "
-#~ "Formwertes erlauben."
-
-#~ msgid "with this Property..."
-#~ msgstr "mit der Eigenschaft..."
-
-#~ msgid "Property Type Delete Confirmation"
-#~ msgstr "Eigenschaftstyp Löschbestätigung"
-
-#~ msgid "Warning"
-#~ msgstr "Warnung"
-
-#~ msgid "This property type is still being used by at least one property."
-#~ msgstr ""
-#~ "Dieser Eingenschaftstyp wird gerade von midestens einer Eingeschaft "
-#~ "benutzt."
-
-#~ msgid "If you delete this type, you will also remove all properties using"
-#~ msgstr ""
-#~ "Wenn du diesen Typ löscht, wirst du auch alle benutzten Eingschaften "
-#~ "löschen"
-
-#~ msgid "it and lose any corresponding property assignments."
-#~ msgstr "und alle verknüpften Eingenschaften."
-
-#~ msgid "Please confirm deletion of this Property Type"
-#~ msgstr "Bitte bestätige die Löschung dieses Eingenschaftstyps"
-
-#~ msgid "Property Type Editor"
-#~ msgstr "Eigenschaftstyp Editor"
-
-#~ msgid "List Members"
-#~ msgstr "Mitgliederliste"
-
-#~ msgid "Note Editor"
-#~ msgstr "Hinweis Editor"
-
-#~ msgid "Note Title"
-#~ msgstr "Hinweis Titel"
-
-#~ msgid "Add a Note"
-#~ msgstr "Neue Hinweis hinzufügen"
-
-#~ msgid "eMail Lists"
-#~ msgstr "eMail liste"
-
-#~ msgid "Manage Campaign"
-#~ msgstr "Kampagnen verwalten"
-
-#~ msgid "Create a Mailing list"
-#~ msgstr "Mailing list Erstellen"
-
-#~ msgid "Norwegian"
-#~ msgstr "Norwegisch"
-
-#~ msgid "Families Without NewsLetters"
-#~ msgstr "Familien ohne NewsLetters"
-
-#~ msgid "Families Without NewsLetter"
-#~ msgstr "Familien ohne NewsLetter"
-
-#~ msgid "Email Export"
-#~ msgstr "E-mail Export"
-
-#~ msgid "List"
-#~ msgstr "Liste"
-
-#~ msgid "Unsubscribed count since last send:"
-#~ msgstr "Abmeldungen seit letztem Versand:"
-
-#~ msgid "Cleaned count:"
-#~ msgstr "Gesäuberte Anzahl:"
-
-#~ msgid "Cleaned count since last send:"
-#~ msgstr "Gesäuberte Anzahl seit letztem Versand:"
-
-#~ msgid "Missing emails report"
-#~ msgstr "Fehlende Mails Report"
-
-#~ msgid "External Calendar API is disabled"
-#~ msgstr "Externe Kalendar API ist deaktiviert"
-
-#~ msgid "Default User Settings"
-#~ msgstr "Vorgabe Benutzereinstellungen"
-
-#~ msgid ""
-#~ "Set Permission True to give new users the ability to change their current "
-#~ "value.<BR>"
-#~ msgstr ""
-#~ "Setze die Erlaubnis auf WAHR um neuen Nutzern die Möglichkeit zu geben "
-#~ "ihre Einstellungen zu ändern.<BR>"
-
-#~ msgid "at the end, reload the page to see the results in the charts"
-#~ msgstr ""
-#~ "am ende, Laden Sie die Seite neu um die Ergebnisse im Diagramm anzuzeigen."
-
-#~ msgid "Reload"
-#~ msgstr "Neu laden"
-
-#~ msgid "User Settings"
-#~ msgstr "Benutzer Einstellung"
-
-#~ msgid "Data Cleared Successfully!"
-#~ msgstr "Datenlöschen war erfolgreich."
-
-#~ msgid "Please select the confirmation checkbox"
-#~ msgstr "Bitte bestätigen auswählen"
-
-#~ msgid ""
-#~ "Warning!  Do not select this option if you plan to add to an existing "
-#~ "database.<br/>"
-#~ msgstr ""
-#~ "Achtung! Bitte wählen sie diese Option nicht, wenn sie eine exisitierende "
-#~ "Datenbank ergänzen wollen.<br/>"
-
-#~ msgid ""
-#~ "Use only if unsatisfied with initial import.  All person and member data "
-#~ "will be destroyed!"
-#~ msgstr ""
-#~ "Bitte nur benutzen, wenn sie mit der ursprünglichen Bericht unzufrieden "
-#~ "sind. Alle Personen- und Mitgliederdaten werden gelöscht!"
-
-#~ msgid "Go To Labels"
-#~ msgstr "Zur Markierung springen"
-
-#~ msgid " Bold Italic"
-#~ msgstr "Fett Kursiv"
-
-#~ msgid " Italic"
-#~ msgstr "Kursiv"
-
-#~ msgid " Bold"
-#~ msgstr "Fett"
-
-#~ msgid "Family Members:"
-#~ msgstr "Familienmitglieder:"
-
-#~ msgid "None State"
-#~ msgstr "Kein Status"
-
-#~ msgid ""
-#~ "Warning:  By deleting this field, you will irrevokably lose all family "
-#~ "data assigned for this field!"
-#~ msgstr ""
-#~ "Warnung: Mit dem Löschen dieses Feldes gehen alle familienbezogenen "
-#~ "Daten, die mit diesem Feld verknüpft sind, unwiderruflich verloren!"
-
-#~ msgid ""
-#~ "Warning:  By deleting this field, you will irrevokably lose all person "
-#~ "data assigned for this field!"
-#~ msgstr ""
-#~ "Warnung: Mit dem Löschen dieses Feldes gehen alles personenbezogenen "
-#~ "Daten, die mit dieser Person verknüpft sind, unwiderruflich verloren!"
-
-#, fuzzy
-#~ msgid "Global Links"
-#~ msgstr "Global Links Menu"
-
-#, fuzzy
-#~ msgid "My Links"
-#~ msgstr "Meinen Links Menu"
-
-#~ msgid "Menu Links List Editor"
-#~ msgstr "Editor für Link Menu"
-
-#~ msgid "Add Profile"
-#~ msgstr "Profil Hinzufügen"
-
-#~ msgid "Activated"
-#~ msgstr "Aktivert"
-
-#~ msgid "CSV"
-#~ msgstr "CSV"
-
-#, fuzzy
-#~ msgid "All Pastoral care contributor"
-#~ msgstr "Pastoral Pflege für"
-
-#~ msgid "Donation Funds"
-#~ msgstr "Spende Fonds"
-
-#~ msgid "User Listing"
-#~ msgstr "Benutzer Auflistung"
-
-#~ msgid "Personal area"
-#~ msgstr "Persönlicher Bereich"
-
-#~ msgid "user permission to send email via mailto: links"
-#~ msgstr "Benutzer darf Emails durch mailto: links senden."
-
-#~ msgid "Select the event to which you would like to add your cart"
-#~ msgstr "Wähle die Ereignis aus zu der du den Korb hinzufügen willst"
-
-#~ msgid "No."
-#~ msgstr "Nu."
-
-#~ msgid "Number of groups:"
-#~ msgstr "Gruppen Anzahl : "
-
-#~ msgid "Deposit totals nach Währung Type"
-#~ msgstr "Gesamten Einlagen nach Währung Typ"
-
-#, fuzzy
-#~ msgid "Deactivated the Person"
-#~ msgstr "Diese Familie löschen"
-
-#, fuzzy
-#~ msgid "Activated the Person"
-#~ msgstr "Zur Familie hinzufügen"
-
-#~ msgid "Deactivated the Family"
-#~ msgstr "Diese Familie löschen"
-
-#~ msgid "Activated the Family"
-#~ msgstr "Zur Familie hinzufügen"
-
-#~ msgid "Filter"
-#~ msgstr "Filter"
-
-#~ msgid "Add Cart to Event"
-#~ msgstr "Korb zur Ereignis hinzufügen"
-
-#~ msgid "Add Cart to Group"
-#~ msgstr "Korb zur Gruppe hinzufügen"
-
-#~ msgid ""
-#~ "Warning: Field changes will be lost if you do not 'Save Changes' before "
-#~ "using a delete or 'add new' button!"
-#~ msgstr ""
-#~ "Warunung: Die Änderungen in der Maske gehen verloren wenn die Änderungen "
-#~ "nicht übernommen werden bevor gelöscht oder neune Einträge hinzugefügt "
-#~ "werden!"
-
-#~ msgid "No funds have been added yet"
-#~ msgstr "Bisher wurden keine Fonds hinzugefügt"
-
-#~ msgid "Create a new Event"
-#~ msgstr "Neues Event erstellen"
-
-#~ msgid "Editing Event ID: "
-#~ msgstr "Edit Event ID:"
-
-#~ msgid " errors. Please see below"
-#~ msgstr "Fehler. Siehe unten"
-
-#~ msgid "Items with a "
-#~ msgstr "Objekte im Korb:"
-
-#~ msgid "Select your event type"
-#~ msgstr "Eventtyp auswählen"
-
-#~ msgid "You must pick an event type."
-#~ msgstr "Es muss ein Eventtyp ausgewählt werden."
-
-#~ msgid "Event Desc"
-#~ msgstr "Ereignissbeschreibung"
-
-#~ msgid "Attendance Notes: "
-#~ msgstr "Besucher Hinweise:"
-
-#~ msgid "Event Sermon"
-#~ msgstr "Predigt"
-
-#~ msgid "Event Status"
-#~ msgstr "Ereignissstatus"
-
-#~ msgid "Add All Family Members to Cart"
-#~ msgstr "Alle Familienmitglieder zum Korb hinzufügen"
-
-#~ msgid "Edit Value"
-#~ msgstr "Wert bearbeiten"
-
-#~ msgid "Next payment date"
-#~ msgstr "Nächster Zahlungstermin"
-
-#~ msgid "Since"
-#~ msgstr "Seit"
-
-#~ msgid "Pledge or Payment"
-#~ msgstr "Zusage oder Zahlung"
-
-#~ msgid "NonDeductible"
-#~ msgstr "nichtabzugsfähig"
-
-#~ msgid "Deposit Slip"
-#~ msgstr "Einzahlungsbeleg"
-
-#~ msgid "Text for Event ID: "
-#~ msgstr "Text für Ereignisse ID:"
-
-#~ msgid "Person View"
-#~ msgstr "Person anzeigen"
-
-#~ msgid ""
-#~ "This will also delete all Roles and Group-Specific Property data "
-#~ "associated with this Group record."
-#~ msgstr ""
-#~ "Diese Aktion wird alle Rollen und gruppenspezifischen Daten und "
-#~ "Einstellungen löschen."
-
-#~ msgid "Add Group Members to Cart"
-#~ msgstr "Gruppenmitglieder dem Korb hinzufügen"
-
-#~ msgid "Add Group Member: "
-#~ msgstr "Gruppenmitglieder hinzufügen: "
-
-#~ msgid "Edit \"Why Came\" Notes"
-#~ msgstr "Bearbeite Hinweise zum Besuchsgrund:"
-
-#~ msgid "Payment Editor: "
-#~ msgstr "Zahlungen Editor"
-
-#~ msgid "Property successfully assigned."
-#~ msgstr "Eigenschaft erfolgreich festgelegt."
-
-#~ msgid " Property Assignment"
-#~ msgstr "Eigenschaft festgelegt."
-
-#~ msgid "Assigning"
-#~ msgstr "Festlegen"
-
-#~ msgid " Property Unassignment"
-#~ msgstr "Eingenschaftverknüpfung lösen"
-
-#~ msgid "Please confirm removal of this property from this"
-#~ msgstr "Bitte bestätige das Entfernen aller Eigenschaften von dieser"
-
-#~ msgid "Unassigning"
-#~ msgstr "Verknüpfung lösen"
-
-#~ msgid "Yes, unassign this Property"
-#~ msgstr "Ja, löse die Verknüpfung zu dieser Eigenschaft"
-
-#~ msgid "No, retain this assignment"
-#~ msgstr "Nein, belasse die Verknüpfung"
-
-#~ msgid "Please confirm removal of user status from:"
-#~ msgstr "Bitte bestätige die Entfernung des Benutzerstatus von:"
-
-#~ msgid "Please confirm the password reset of this user"
-#~ msgstr "Bitte bestätige die Zurücksetzung des PW dieses Benutzers"
-
-#~ msgid "\"Why Came\" notes for "
-#~ msgstr "Hinweis zu \"Warum Kirchenbesuch\""
-
-#~ msgid "Why did you come to the church?"
-#~ msgstr "Warum kommen sie in die Kirche?"
-
-#~ msgid "Why do you keep coming?"
-#~ msgstr "Warum kommen sie gerne wieder?"
-
-#~ msgid "Do you have any suggestions for us?"
-#~ msgstr "Haben sie Vorschläge für uns?"
-
-#~ msgid "How did you learn of the church?"
-#~ msgstr "Wie haben sie die Kirche kennengelernt?"
-
-#~ msgid "Error text"
-#~ msgstr "Fehlermeldung"
-
-#~ msgid "Create Attendance Sheet"
-#~ msgstr "Erstelle Besucherliste"
-
-#~ msgid "There was a problem retrieving the requested object"
-#~ msgstr "Es gab Probleme das Objekt zu empfangen."
-
-#~ msgid "Total $"
-#~ msgstr "Total €"
-
-#~ msgid "Credit card ..."
-#~ msgstr "Kreditkarte..."
-
-#~ msgid "Allow user to add new event"
-#~ msgstr "Benutzer darf neue Ereignisse hinzufügen"
-
-#~ msgid "No property assignments"
-#~ msgstr "Keine Eigenschaft hinzugefügt"
-
-#~ msgid "Your Cart is Empty"
-#~ msgstr "Dein Korb ist leer"
-
-#~ msgid "assigned"
-#~ msgstr "Zugewiesen"
-
-#~ msgid "Pastoral Care Editor"
-#~ msgstr "Pastoral Pflege Edit"
-
-#~ msgid "Make Check-Out"
-#~ msgstr "Auschecken Machen"
+#~ msgid "Convert Individuals to Families"
+#~ msgstr "Einzelpersonen in Familien konvertieren"

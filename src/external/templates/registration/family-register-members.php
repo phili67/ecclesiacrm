@@ -15,11 +15,13 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         </div>
 
         <div class="register-box-body">
-
             <div class="card card-primary">
                 <div class="card-header with-border">
-                    <h3
-                        class="card-title"><?= _('Register') . ' <b>"' . $family->getName() . '"</b> ' . $familyCount . ' ' . _('Family Members') ?></h3>
+                    <h3 class="card-title"><?= _('Register') . ' <b>"' . $family->getName() . '"</b> ' . $familyCount . ' ' . _('Family Members') ?></h3>
+                    <input id="famId" name="famId" type="hidden" value="<?= $family->getId() ?>">
+                    <input id="familyCount" name="familyCount" type="hidden" value="<?= $familyCount ?>">
+                    <input id="className" name="className" type="hidden" value="<?= $className ?>">
+
                 </div>
                 <!-- /.box-header -->
                 <div class="card-body">
@@ -125,6 +127,12 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                 <div class="form-group has-feedback">
                                     <div class="row">
                                         <div class="col-lg-6">
+                                            <div class="custom-control custom-checkbox">
+                                                <input class="custom-control-input" type="checkbox"  name="memberHideAge-<?= $x ?>">
+                                                <label for="customCheckbox2" class="custom-control-label"> <?= _('Hide Age') ?></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
                                             <div class="input-group">
                                                 <input type="text" class="form-control inputDatePicker"
                                                        name="memberBirthday-<?= $x ?>">
@@ -136,12 +144,6 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <label>
-                                                <input type="checkbox"
-                                                       name="memberHideAge-<?= $x ?>">&nbsp; <?= _('Hide Age') ?>
-                                            </label>
                                         </div>
                                     </div>
                                 </div>

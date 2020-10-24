@@ -7,6 +7,8 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Person;
 use Slim\Views\PhpRenderer;
 
+use EcclesiaCRM\FamilyQuery;
+
 $app->group('/register', function () {
 
     $enableSelfReg = SystemConfig::getBooleanValue('bEnableSelfRegistration');
@@ -39,15 +41,14 @@ $app->group('/register', function () {
             if ($body['familyPrimaryChurch'] == 'No') {
                 $className = 'Guest';
             }
-            $familyMembership = ListOptionQuery::create()->filterById(1)->filterByOptionName($className)->findOne();
-
-            $_SESSION['regFamily'] = $family;
-            $_SESSION['regFamilyClass'] = $familyMembership;
-            $_SESSION['regFamilyCount'] = $body['familyCount'];
-
             $familyRoles = ListOptionQuery::create()->filterById(2)->orderByOptionSequence()->find();
 
-            $pageObjects = ['sRootPath' => SystemURLs::getRootPath(), 'family' => $family, 'familyCount' => $_SESSION['regFamilyCount'], 'familyRoles' => $familyRoles];
+            $pageObjects = ['sRootPath' => SystemURLs::getRootPath(),
+                'family' => $family,
+                'familyCount' => $body['familyCount'],
+                'familyRoles' => $familyRoles,
+                'className' => $className,
+                'familyPrimaryChurch' => $body['familyPrimaryChurch']];
 
             return $renderer->render($response, 'family-register-members.php', $pageObjects);
         });
@@ -56,8 +57,15 @@ $app->group('/register', function () {
             $renderer = new PhpRenderer('templates/registration/');
 
             $body = $request->getParsedBody();
-            $family = $_SESSION['regFamily'];
-            $familyCount = $_SESSION['regFamilyCount'];
+
+            $famID = $body['famId'];
+            $family = FamilyQuery::create()->findOneById($famID);
+
+            $familyCount = $body['familyCount'];
+
+            $className = $body['className'];
+            $familyMembership = ListOptionQuery::create()->filterById(1)->filterByOptionName($className)->findOne();
+
             $familyMembers = [];
             for ($x = 1; $x <= $familyCount; $x++) {
                 $person = new Person();
@@ -97,9 +105,7 @@ $app->group('/register', function () {
                 $family->addPerson($person);
                 array_push($familyMembers, $person);
             }
-            $_SESSION['familyMembers'] = $familyMembers;
-
-            $pageObjects = ['sRootPath' => SystemURLs::getRootPath(), 'family' => $family, 'familyClass' => $_SESSION['regFamilyClass']];
+            $pageObjects = ['sRootPath' => SystemURLs::getRootPath(), 'family' => $family];
 
             return $renderer->render($response, 'family-register-done.php', $pageObjects);
         });

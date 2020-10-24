@@ -5,8 +5,6 @@
 *  website     : http://www.ecclesiacrm.com
 *  description : utility to convert individuals to families
 *
-*  Must be run manually by an administrator.  Type this URL.
-*    http://www.mydomain.com/ecclesiacrm/ConvertIndividualToFamily.php
 *
 *  By default this script does one at a time.  To do all entries
 *  at once use this URL
@@ -44,7 +42,7 @@ if ($_GET['all'] == 'true') {
 }
 
 //Set the page title
-$sPageTitle = gettext('Convert Individuals to Families');
+$sPageTitle = gettext('Convert Individuals to Addresses');
 
 require 'Include/Header.php';
 
@@ -56,11 +54,16 @@ $lastEntry = FamilyQuery::create()
     ->findOne();
 
 $iFamilyID = $lastEntry->getiFamilyID();
+?>
 
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"><?= _("Family")." ID" ?></h3>
+    </div>
+    <div class="card-body">
+        <?= $iFamilyID ?>
 
-echo $iFamilyID;
-
-
+<?php
 // Get list of people that are not assigned to a family
 $ormList = PersonQuery::create()
     ->filterByFamId(0)
@@ -69,11 +72,13 @@ $ormList = PersonQuery::create()
     ->find();
 
 foreach ($ormList as $per) {
-
     if ($per->getId() == 1) continue; // in the case of the super Admin continue
+    ?>
 
-    echo '<br><br><br>';
-    echo '*****************************************';
+    <br><br><br>
+    *****************************************
+
+    <?php
 
     $fam = new Family();
 
@@ -100,13 +105,16 @@ foreach ($ormList as $per) {
     $iNewFamilyID = $lastEntry->getiNewFamilyID();
 
     if ($iNewFamilyID != $iFamilyID) {
-        echo '<br><br>Error with family ID';
-
+        ?>
+        <br><br>Error with family ID
+        <?php
         break;
     }
 
-    echo '<br><br>';
+    ?>
+    <br><br>
 
+<?php
     // Now update person record
     $person = PersonQuery::create()->findOneById($per->getId());
 
@@ -114,19 +122,30 @@ foreach ($ormList as $per) {
     $person->setEditedBy($iUserID);
 
     $person->save();
+    ?>
 
-    echo '<br><br><br>';
-    echo $person->getFirstName()." ".$person->getLastName()." (per_ID = ".$person->getId().") is now part of the ";
-    echo $person->getLastName()." Family (fam_ID = ".$fam->getId().")<br>";
-    echo '*****************************************';
+    <br><br><br>
+    <?= $person->getFirstName()." ".$person->getLastName()." (per_ID = ".$person->getId().") "._("is now part of the")." " ?>
+    <?= $person->getLastName()." "._("Family")." (fam_ID = ".$fam->getId().")<br>" ?>
+    *****************************************
 
+        <?php
     if (!$bDoAll) {
         break;
     }
 }
-echo '<br><br>';
+?>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-2">
+                <a class="btn btn-primary" href="ConvertIndividualToFamily.php"><?= _('Convert Next') ?></a>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-success" href="ConvertIndividualToFamily.php?all=true"><?= _('Convert All') ?></a><br>
+            </div>
+        </div>
+    </div>
+</div>
 
-echo '<a href="ConvertIndividualToFamily.php">'.gettext('Convert Next').'</a><br><br>';
-echo '<a href="ConvertIndividualToFamily.php?all=true">'.gettext('Convert All').'</a><br>';
-
-require 'Include/Footer.php';
+<?php  require 'Include/Footer.php'; ?>
