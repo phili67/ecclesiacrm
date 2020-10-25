@@ -4,4 +4,4 @@ Select the group and click on the button as follows:
 
 ![Screenshot](../../../img/group/admin/exportcontacts.png)
 
-The exported file can be add to the adress notebook or to thunderBird.
+The exported file can be add to the address notebook or to thunderBird.

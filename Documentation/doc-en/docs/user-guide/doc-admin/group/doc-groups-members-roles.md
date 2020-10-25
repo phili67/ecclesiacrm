@@ -14,7 +14,7 @@ Then one can change the role
 ![Screenshot](../../../img/group/changeRoleMember2.png)
 
 
-##Add a role to a member
+##Add a new member role
 
 One chooses the group in which the role will be add
 
@@ -24,4 +24,5 @@ One can add a new role to a member of the group selected
 
 ![Screenshot](../../../img/group/addRole1.png)
 
-**Note** The students and teachers roles are selected by default in the sundayschool groups.
+**Note**
+- The students and teachers roles are selected by default in the sundayschool groups, you can't change them.

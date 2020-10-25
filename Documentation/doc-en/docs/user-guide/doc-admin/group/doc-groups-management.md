@@ -5,14 +5,18 @@ The different kinds of groups provide a group classification by categories, whic
 
 ##Add a new group
 
-Search for all the groups
+In the left sidebar, select the item "List Groups" in the "Groups" menu.
+
+![Screenshot](../../../img/group/groupListMenu.png)
+
+Then
 
 ![Screenshot](../../../img/group/addGroupName.png)
 
 Add:
 
 - The name, "test" for example
-- Then click on "add"
+- Then click on "Add New Group" button.
 
 
 ![Screenshot](../../../img/group/addGroupName2.png)
@@ -43,8 +47,12 @@ Choose the kind
 
 ![Screenshot](../../../img/group/assignGroupeProp3.png)
 
+And use the "Save" button to validate the kind.
+
 Here is the result:
 
 ![Screenshot](../../../img/group/assignGroupeProp4.png)
 
-**Note** The Sundayschool group is a special kind which we'll see in an other part.
+**Note**
+- The Sundayschool group is a special kind which we'll see in an other part.
+- all the groups kind are completely customizable (for example in foreign language).
