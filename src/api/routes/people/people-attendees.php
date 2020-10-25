@@ -268,7 +268,9 @@ function attendeesEvent (Request $request, Response $response, array $args) {
         if ($per->getCheckinId()) {
             $checkedInBy = PersonQuery::create()
                 ->findOneById($per->getCheckinId());
-            $item['checkinby'] = $checkedInBy->getFullName();
+            if ( !is_null($checkedInBy) ) {
+                $item['checkinby'] = $checkedInBy->getFullName();
+            }
         }
 
         //Get Person who checked person out
