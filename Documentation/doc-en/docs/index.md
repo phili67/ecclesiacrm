@@ -9,54 +9,59 @@ Ecclesia**CRM** is a CRM (Customer Relationship Management).
 
 ## Overview
 
-[EcclesiaCRM](https://www.ecclesiacrm.com) is is based on [ChurchCRM](http://churchcrm.io/) and which was based on InfoCentral.
+[EcclesiaCRM](https://www.ecclesiacrm.com) is based on [ChurchCRM](http://churchcrm.io/) which itself was based on InfoCentral.
 
-The software was developed by a team of volunteers, in their spare time, for the purpose of providing churches and with high-quality free software.
-
-If you'd like to find out more or want to help out, checkout our [github.com](https://github.com/phili67/ecclesiacrm) repo
-
---
-
-##How do I run EcclesiaCRM?
-
-Running EcclesiaCRM is not complicated if you have experience with Web applications. If you don't, there are a few things to get used to. It is important to understand is that EcclesiaCRM is a Web-based application, which means it has two distinct sides:
-
-The "server", on which the application actually runs. This is a centrally located computer that stores the files and information that EcclesiaCRM needs to run
-
-The "client", through which a user interacts with the application via a Web browser.
-
-There is only one server, but there can be an unlimited number of clients.
+The software has been developed by a team of volunteers for the purpose of making available a software of quality for churches.
+If you want to discover more about it or help developing the app, you can go on [github.com](https://github.com/phili67/ecclesiacrm).
 
 ---
 
-##Installation
+## Where to start on EcclesiaCRM ? 
 
-EcclesiaCRM is a PHP/MySQL application which runs on a web server, providing web pages so users can update and access the data in the database. You can run both the server and the browser on a single computer, but the real power of a web database application is visible when you have multiple users accessing the database from their own computers.
+If you have some experience on Web Applications, then start on EcclesiaCRM will be easy. Otherwise, there is some pre-requisite to have, as a matter of fact it is relevant to emphasize that Ecclesia CRM is an app based on the Internet, implying that :
+The "server", which is distant from EcclesiaCRm and will keep for you the files and infos you will need. 
 
-## Getting help
+The "client", which interacts from a web browser to the distant app. 
 
-To get help with EcclesiaCRM, please use the GitHub [issues](https://github.com/phili67/ecclesiacrm/issues).
+
+There is only one server, but an infinite number of users. 
+
 
 ---
 
-##Getting started
+## Installation
 
-The application is based on the concepts of people who are members of families and are also members of common interest groups.
+Ecclesia is an app PHP/MySQL running on a server, which supplies on web pages that will provide the data given by a data base, which would then be available for the users. However, you will see the main advantage of the app when you will be several to work together and from a distance on this app. 
 
-After you have installed the EcclesiaCRM application and can login, you are ready to configure the application.
+## If you need help 
 
-The first thing to do is enter your church name, address, phone and email address into the Report Settings.
 
-EcclesiaCRM will display “My Church” in large, bold letters at the top of each page.
+To have help on EcclesiaCRM, click on [issues](https://github.com/phili67/ecclesiacrm/issues).
+
+---
+
+## Get off to the right start
+
+
+The app is based on the idea that the members of a family or a group have the same interests. 
+
+After downloading the app and the first connection, you will  be ready to configure the app so it suits your needs. 
+
+
+The first thing to do will be to enter the name of the church, its address, its phone number and the mail address in Files. 
+
+
+EcclesiaCRM will display "My church" in bold in the upper headband.
 
 ---
 
 
-During the configuration stage, give some consideration to how you will use EcclesiaCRM:
+During the configuration, ask yourself in which ways do you want to use EcclesiaCRM : 
 
-1. What are the groups that you will use?
-2. What properties do you need to record for people, families and groups?
-3. Do you need to use custom fields?
-4. Who needs access to the administration features?
-5. Who should be given access to the Financial records?
-6. Who can add or change records?
+
+1. Which groups do you need ? 
+2. Which characteristics do you want to link with a member ? 
+3. Do you need customizable characteristics ? 
+4. Who is the administrator ? 
+5. Who will deal with the app's financial aspects ? 
+6. Who can add or change the records ? 
