@@ -13,11 +13,12 @@ Via the "Cart", the users will be able to :
 
 - Do CSV extractions
 - Print
-- access to a directory
-- access to labels
-- access to badges
+- create to a directory
+- create to labels
+- create to badges
+- create QR code badges
 - Making appointment
-- get an address book of the group persons
+- create exportable address book.
 
 
 ##Have access to the groups

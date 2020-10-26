@@ -14,7 +14,7 @@ On peut changer, le rôle
 ![Screenshot](../../../img/group/changeRoleMember2.png)
 
 
-##Ajouter un rôle de membre
+##Ajouter un nouveau rôle de membre
 
 On sélectionne le groupe sur lequel on veut travailler
 

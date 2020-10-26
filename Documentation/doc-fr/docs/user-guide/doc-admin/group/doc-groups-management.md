@@ -49,4 +49,6 @@ Voici le résultat
 
 ![Screenshot](../../../img/group/assignGroupeProp4.png)
 
-**Remarque** Le groupe école du dimanche est un groupe spécial que nous aborderons dans une autre partie.
+**Remarque**
+- Le groupe école du dimanche est un groupe spécial que nous aborderons dans une autre partie.
+- Tous les types de groupe sont complètement personnalisables.

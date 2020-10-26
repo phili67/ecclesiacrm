@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Les groupes dans Ecclesia**CRM** ont une place prépondérante dans le fait 
+Les groupes dans Ecclesia**CRM** ont une place prépondérante dans le fait
 
 - de réunir plusieurs personnes dans un même "container"
 - d'envoyer des mails
@@ -12,11 +12,14 @@ Les groupes dans Ecclesia**CRM** ont une place prépondérante dans le fait
 
 Vous pourrez aussi via le "Panier" faire
 
-- des extractions CSV 
-- imprimer 
+- des extractions CSV
+- imprimer
 - un annuaire
 - des étiquettes
 - des badges
+- créer des badges pour QR code
+- faire des appels
+- créer des groupes de contacts exportables
 
 Voir pour cela la section "Panier"
 
@@ -49,7 +52,7 @@ On va au bas de ces groupes
 
 On ajoute
 
-- le nom du groupe 
+- le nom du groupe
 - puis on fait ajouter
 
 ##Placer un ou plusieurs membre(s) dans le panier

@@ -1,9 +1,9 @@
 # <center><big>Gestion d'un groupe & Ecclesia**CRM** </big></center>
 
 
-Un manager de groupe peut ajouter ou retirer des membres du groupes ou gérer son groupe.
+Un manager de groupe peut ajouter ou retirer des membres du groupes ou gérer son groupe sans être un administrateur global de tous les groupes.
 
-Un manager peut être défini de manière 
+Un manager peut être défini de manière
 
 - Globale : ce manager pourra définir l'appartenance d'un membre pour tous les groupes
 - Locale  : on peut ici définir un manager que pour un groupe spécifique
@@ -14,7 +14,7 @@ Un manager peut être défini de manière
 
 Un utilisateur du système peut avoir le rôle : "gestion de groupe"
 
-Pour cela 
+Pour cela
 
 ![Screenshot](../../../img/group/admin/globalgroupmanagement1.png)
 
@@ -25,6 +25,8 @@ On édite un des utilisateurs
 On lui affecte ce rôle
 
 ![Screenshot](../../../img/group/admin/globalgroupmanagement3.png)
+
+On coche la case, puis on utilise le bouton "Enregistrer" en bas de page.
 
 ##Gestion local d'un groupe
 
@@ -39,3 +41,10 @@ On clique ensuite le bouton : "Ajouter Manager"
 ![Screenshot](../../../img/group/admin/localgroupmanagement2.png)
 
 On pourra ici choisir la personne à affecter.
+
+![Screenshot](../../../img/group/admin/localgroupmanagement3.png)
+
+Le résultat final :
+
+![Screenshot](../../../img/group/admin/localgroupmanagement4.png)
+
