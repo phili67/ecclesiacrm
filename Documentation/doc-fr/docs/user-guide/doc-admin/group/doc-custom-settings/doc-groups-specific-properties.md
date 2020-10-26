@@ -18,7 +18,7 @@ Pour cela on clique
 
 ![Screenshot](../../../../img/group/admin/specificPropsSettings2.png)
 
-Il suffit de cliquer 
+Il suffit de cliquer
 
 ![Screenshot](../../../../img/group/admin/specificPropsSettings3.png)
 
@@ -46,6 +46,11 @@ Voici un exemple
 
 ##Astuce
 
-En cliquant la case à cocher, on peut donner aux personnes la possibilité de modifier chacune pour elle même la valeur de ce champ.
+En cliquant la case à cocher "Prfile de la personne", on peut donner aux personnes la possibilité de modifier chacune pour elle même la valeur de ce champ.
 
 **En faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalisé.**
+
+
+Au final, voici le résultat en cliquan "Retourner au Groupe" :
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings8.png)
