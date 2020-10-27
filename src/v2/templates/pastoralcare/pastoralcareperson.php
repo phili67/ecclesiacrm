@@ -93,8 +93,7 @@ if ($ormPastoralCares->count() == 0) {
 </div>
 
 <?php
-
-    if (count($family->getActivatedPeople()) > 1) {
+    if (!is_null($family) &&count($family->getActivatedPeople()) > 1) {
 ?>
 
     <div class="card card-default">
