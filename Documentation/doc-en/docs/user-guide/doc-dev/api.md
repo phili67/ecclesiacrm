@@ -1,7 +1,7 @@
 # <center><big>Ecclesia**CRM** documentation de l'API</big></center>
 ----
 
-Ecclesia**CRM** utilise Slim 3.9.2 qui permet d'accéder de manière restreinte aux éléments du CRM.
+Ecclesia**CRM** use Slim 3.9.2 which allow to make api call to the restricted area of the CRM.
 
 
 
@@ -165,12 +165,12 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | numbersOfEventOfToday | Get all events from today
+`/types` | GET | getEventTypes | Get all event type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/types` | GET | getEventTypes | Get all event type
+`/names` | GET | eventNames | Get all event names
 
 ---
 Route | Method | function | Description
@@ -221,7 +221,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | manageEvent | manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+`/` | POST | manageEvent | manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
 
 * `{id}`->`int` :: eventID
 * `{id}`->`int` :: type ID
@@ -255,6 +255,11 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/interectPerson` | POST | cartIntersectPersons | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/emptyToGroup` | POST | emptyCartToGroup | No description
 
 ---
@@ -275,12 +280,37 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/removeGroups` | POST | removeGroupsFromCart | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/removeStudentGroup` | POST | removeStudentsGroupFromCart | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/removeTeacherGroup` | POST | removeTeachersGroupFromCart | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addAllStudents` | POST | addAllStudentsToCart | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addAllTeachers` | POST | addAllTeachersToCart | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeAllStudents` | POST | removeAllStudentsFromCart | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/removeAllTeachers` | POST | removeAllTeachersFromCart | No description
 
 ---
 Route | Method | function | Description
@@ -423,6 +453,16 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/uploadFile/{personID:[0-9]+}` | POST | uploadFile | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getRealLink` | POST | getRealLink | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setpathtopublicfolder` | POST | setpathtopublicfolder | No description
 
 ---
 ## API "sharedocument"
@@ -650,12 +690,27 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/{kioskId:[0-9]+}/reloadKiosk` | POST | reloadKiosk | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}/identifyKiosk` | POST | identifyKiosk | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/{kioskId:[0-9]+}/acceptKiosk` | POST | acceptKiosk | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/{kioskId:[0-9]+}/setAssignment` | POST | setKioskAssignment | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{kioskId:[0-9]+}` | DELETE | deleteKiosk | No description
 
 ---
 ## API "mailchimp"
@@ -789,6 +844,11 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/addAllFamilies` | POST | addAllFamilies | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/addgroup` | POST | addGroup | No description
 
 ---
@@ -815,13 +875,33 @@ Route | Method | function | Description
 * `{ref}`->`string` :: query string ref
 
 ---
+Route | Method | function | Description
+------|--------|----------|------------
+`/classifications/all` | GET | getAllClassifications | Returns all classifications
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/classification/assign` | POST | postPersonClassification | Returns all classifications
+
+---
 ## API "attendees"
 
    in route : "/api/routes/people/people-attendees.php
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/checkoutstudent` | POST | attendeesCheckOutStudent | No description
+`/event/{eventID:[0-9]+}` | GET | attendeesEvent | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/checkin` | POST | attendeesCheckIn | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/checkout` | POST | attendeesCheckOut | No description
 
 ---
 Route | Method | function | Description
@@ -847,6 +927,36 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/uncheckAll` | POST | attendeesUncheckAll | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/groups` | POST | attendeesGroups | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deletePerson` | POST | deleteAttendeesPerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addPerson` | POST | addAttendeesPerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/validate` | POST | validateAttendees | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/addFreeAttendees` | POST | addFreeAttendees | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/qrcodeCall` | POST | qrcodeCallAttendees | No description
 
 ---
 ## API "families"
@@ -946,16 +1056,23 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId}/verify` | POST | verifyFamily | Verify the family for the familyId
+`/{familyId:[0-9]+}/verify` | POST | verifyFamily | Verify the family for the familyId
 
 * `{id}`->`int` :: familyId as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/verify/{familyId}/now` | POST | verifyFamilyNow | Verify the family for the familyId now
+`/verify/{familyId:[0-9]+}/now` | POST | verifyFamilyNow | Verify the family for the familyId now
 
 * `{id}`->`int` :: familyId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/verify/url` | POST | verifyFamilyURL | Verify the family for the familyId now
+
+* `{id}`->`int` :: family
 
 ---
 Route | Method | function | Description
@@ -968,7 +1085,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{familyId:[0-9]+}/geolocation` | GET | familyGeolocation | Return the location for the family 
+`/{familyId:[0-9]+}/geolocation` | GET | familyGeolocation | Return the location for the family
 
 * `{id}`->`int` :: familyId as id
 
@@ -1188,6 +1305,11 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/cart/view` | GET | personCartView | Returns a list of the persons who are in the cart
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/volunteers/{personID:[0-9]+}` | POST | volunteersPerPersonId | Returns all the volunteers opportunities
 
 * `{id}`->`int` :: personId as id
@@ -1287,7 +1409,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/NotInMailChimp/emails` | GET | notInMailChimpEmails | No description
+`/NotInMailChimp/emails/{type}` | GET | notInMailChimpEmails | No description
 
 ---
 Route | Method | function | Description
@@ -1334,9 +1456,34 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | function ($request, $response, $args) | a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
+`/{query}` | GET | quickSearch | a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
 
 * `{ref}`->`string` :: query string as ref
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/comboElements/` | POST | comboElements | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getGroupForTypeID/` | POST | getGroupForTypeID | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getGroupRoleForGroupID/` | POST | getGroupRoleForGroupID | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getresult/` | POST | getSearchResult | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getresult/` | GET | getSearchResult | No description
 
 ---
 ## API "mapicons"
@@ -1400,55 +1547,6 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/edit` | POST | editMenuLink | No description
-
----
-## API "pastoralcare"
-
-   in route : "/api/routes/sidebar/sidebar-pastoralcare.php
-
-Route | Method | function | Description
-------|--------|----------|------------
-`/` | POST | getAllPastoralCare | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/deletetype` | POST | deletePastoralCareType | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/createtype` | POST | createPastoralCareType | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/settype` | POST | setPastoralCareType | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/edittype` | POST | editPastoralCareType | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/add` | POST | addPastoralCare | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/delete` | POST | deletePastoralCare | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/getinfo` | POST | getPastoralCareInfo | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
-`/modify` | POST | modifyPastoralCare | No description
 
 ---
 ## API "properties"
@@ -1588,6 +1686,119 @@ Route | Method | function | Description
 `/edit` | POST | editVolunteerOpportunity | No description
 
 ---
+## API "pastoralcare"
+
+   in route : "/api/routes/pastoralcare/pastoralcare.php
+
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | POST | getAllPastoralCare | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deletetype` | POST | deletePastoralCareType | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/createtype` | POST | createPastoralCareType | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/settype` | POST | setPastoralCareType | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/edittype` | POST | editPastoralCareType | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/add` | POST | addPastoralCarePerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/delete` | POST | deletePastoralCarePerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/getinfo` | POST | getPastoralCareInfoPerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/person/modify` | POST | modifyPastoralCarePerson | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/add` | POST | addPastoralCareFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/delete` | POST | deletePastoralCareFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/getinfo` | POST | getPastoralCareInfoFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/family/modify` | POST | modifyPastoralCareFamily | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/members` | POST | pastoralcareMembersDashboard | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/personNeverBeenContacted` | POST | personNeverBeenContacted | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/familyNeverBeenContacted` | POST | familyNeverBeenContacted | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/singleNeverBeenContacted` | POST | singleNeverBeenContacted | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/retiredNeverBeenContacted` | POST | retiredNeverBeenContacted | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/youngNeverBeenContacted` | POST | youngNeverBeenContacted | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getPersonByClassification` | POST | getPersonByClassificationPastoralCare | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/getPersonByClassification/{type:[0-9]+}` | POST | getPersonByClassificationPastoralCare | No description
+
+---
+## API "meeting"
+
+   in route : "/api/routes/meeting/meeting.php
+
 ## API "sundayschool"
 
    in route : "/api/routes/sundayschool.php
@@ -1635,13 +1846,15 @@ Route | Method | function | Description
 `/person/` | GET | getPersonFieldsByType | No description
 
 ---
-## API "dashboard"
+## API "synchronize"
 
-   in route : "/api/routes/system/system-dashboard.php
+   in route : "/api/routes/system/system-synchronize.php
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/page` | GET | function ($request,$response,$args) | No description
+`/page` | GET | function ($request,$response,$args) | Returns the dashboard items in function of the current page name : for CRMJsom.js
+
+* `{page}`->`string` :: current page name
 
 ---
 ## API "database"
@@ -1655,7 +1868,7 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/backupRemote` | POST | function() use ($app, $systemService) | No description
+`/backupRemote` | POST | function($request, $response, $args) | No description
 
 ---
 Route | Method | function | Description

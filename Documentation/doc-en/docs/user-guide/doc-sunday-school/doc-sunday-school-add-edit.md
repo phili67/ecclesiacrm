@@ -1,6 +1,6 @@
-In a SundaySchool group, one can: 
-- add members (students or teachers) 
-- do CVS extractions, make a group photo 
+In a SundaySchool group, one can:
+- add members (students or teachers)
+- do CVS extractions, make a group photo
 - make a list of participants
 - etc ...
 
@@ -11,7 +11,7 @@ In the sidebar: menu bar -> SundaySchool -> dashboard
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClass.png)
 
-Then check "bEnabledSundaySchool" "true": 
+Then check "bEnabledSundaySchool" "true":
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClass1.png)
 
@@ -19,7 +19,7 @@ Enter the name of the group
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClass2.png)
 
-The new view on display will be the new group: 
+The new view on display will be the new group:
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClassMembers.png)
 
@@ -40,13 +40,13 @@ Validate, and the teacher chosen apparate on the screen
 
 ##Delete a teacher
 
-The steps are the following: 
+The steps are the following:
 
 ![Screenshot](../../img/sundayschool/sundayschoolDeleteClassMembers1.png)
 
 ##Add students
 
-Go to the bottom of the page 
+Go to the bottom of the page
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClassMembers4.png)
 
@@ -54,7 +54,7 @@ As for the teachers
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClassMembers5.png)
 
-Validate 
+Validate
 
 ![Screenshot](../../img/sundayschool/sundayschoolAddClassMembers6.png)
 
@@ -66,7 +66,7 @@ Validate
 ![Screenshot](../../img/sundayschool/sundayschoolDeleteClassMembers2.png)
 
 
-##List by gender and age the students 
+##List by gender and age the students
 
 Click on the graphs
 - by months
@@ -82,6 +82,6 @@ Cancel the listing
 
 ##Extract the data
 
-One can easily extract a member if a group with the following buttons: 
+One can easily extract a member if a group with the following buttons:
 
-> Note : the administrator has to have given the legal rights to do extractions (RGPD) 
+> Note : the administrator has to have given the legal rights to do extractions (GDPR)

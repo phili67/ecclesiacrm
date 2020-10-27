@@ -44,7 +44,7 @@ Here one will set:
 * The person legally responsible for the reminders of everything done on the CRM (Confirm Signer) is the pastor
 * the Tax signer would be the treasurer
 * DPO GDPR Signer is the supervisor of all the stored data in the CRM
-* The email adress of the DPO
+* The email address of the DPO
 
 ##The rest is more standard
 
@@ -66,12 +66,12 @@ The email management is key in the CRM since each action is likely to send an em
 
   ![Screenshot](../../img/settings/email-settings.png)
 
-* one can set the server adress with the communication port, as on the tool tip
+* one can set the server address with the communication port, as on the tool tip
 * hey will ask an authentification
 * user's name
 * password
 * connection period
-* email adress
+* email address
 * For PHPmailer the settings may be in TLS (if the server connection is made in https).
 
 

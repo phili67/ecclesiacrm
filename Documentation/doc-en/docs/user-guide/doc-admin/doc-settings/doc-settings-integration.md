@@ -35,7 +35,7 @@ These settings are used for OpenLP, a form of presenting for churches (like Powe
 ## bEnabledDav && bEnabledDavWebBrowser
 
 These settings enable the management of the external access via a link to Api checking on **sabre.io**
-About the protocols: WebDav like NextCloud or Owncloud, CalDav to manage the calendars, and CardDav to manage the adress books.
+About the protocols: WebDav like NextCloud or Owncloud, CalDav to manage the calendars, and CardDav to manage the address books.
 
 bEnabledDav enable the complete deactivation of  Dav (WebDav, CalDav et CardDav)
 
@@ -45,5 +45,5 @@ bEnabledDavWebBrowser is activated: all accesses are to be made as follows:
 
 - For the calendars: **https://url_de_la_web_application/calendarserver.php**
 
-- For the adress books: **https://url_de_la_web_application/addressbookserver.php**
+- For the address books: **https://url_de_la_web_application/addressbookserver.php**
 

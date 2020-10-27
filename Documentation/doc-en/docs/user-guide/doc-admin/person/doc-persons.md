@@ -5,9 +5,9 @@ Ecclesia**CRM** gives the possibility to create a member who could be a system u
 
 **NewsLetter** a Family may receive the newsletter.
 
-##One member, an adress
+##One member, an address
 
-Each individual in the CRM has an adress, the family concept allows an actual adress assignment.
+Each individual in the CRM has an address, the family concept allows an actual address assignment.
 
 ##One member, several roles
 
@@ -64,16 +64,16 @@ The custom fields types are:
 
 A family can donate and the donation can be claim for the fiscal receipts.
 
-**Rappel** une adresse est un contener ayant des membres. Une adresse sous entend une possibilité de famille.
+**Reminder** an address is a container of members. So an address is most of the time a family.
 
 ## Some notes
 
-A family can keep some notes, which are exportable to Drive
+A family can keep some documents, which are exportable to the EDrive
 
-![Screenshot](../../../img/person/admin/personview.png)
+![Screenshot](../../../img/person/admin/documentview.png)
 
-## A EDrive
+## An EDrive
 
 ![Screenshot](../../../img/person/admin/edriveview.png)
 
-One can go see the part " user manual" and "EDrive in the CRM"
+One can go see the part "User Manual" and "EDrive in the CRM"
