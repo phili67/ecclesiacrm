@@ -104,6 +104,10 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/pastoralcare/pastoralcare.php -o output_file.md -n"pastoralcare"
 cat output_file.md >> api.md
 
+# meeting
+php slim-doc.php -i ../src/api/routes/meeting/meeting.php -o output_file.md -n"meeting"
+cat output_file.md >> api.md
+
 #sundayschool
 php slim-doc.php -i ../src/api/routes/sundayschool.php -o output_file.md -n"sundayschool"
 cat output_file.md >> api.md

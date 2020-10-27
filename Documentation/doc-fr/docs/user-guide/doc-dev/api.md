@@ -1795,6 +1795,10 @@ Route | Method | function | Description
 `/getPersonByClassification/{type:[0-9]+}` | POST | getPersonByClassificationPastoralCare | No description
 
 ---
+## API "meeting"
+
+   in route : "/api/routes/meeting/meeting.php
+
 ## API "sundayschool"
 
    in route : "/api/routes/sundayschool.php
