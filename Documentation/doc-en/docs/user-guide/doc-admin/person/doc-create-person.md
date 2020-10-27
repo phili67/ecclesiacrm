@@ -3,7 +3,7 @@
 
 ##Pour créer une personne To create a member
 
-Go to menu "Individual and families", then "Individual", and "add an Individual"
+Go to menu "People & Families", then "Persons", and "Add New Person"
 
 ![Screenshot](../../../img/person/admin/addPerson.png)
 
@@ -14,9 +14,9 @@ One can associate different data with during the creation of the member, such as
 - Their subscription to the NewsLetter
 - Their Facebook account ID
 
-##Adress
+##Address
 
-One can change the person's adress, or add a new one
+One can change the person's address, or add a new one
 
 
 ##Custom Fields
