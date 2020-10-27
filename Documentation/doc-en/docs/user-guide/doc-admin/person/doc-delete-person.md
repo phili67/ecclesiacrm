@@ -1,6 +1,6 @@
-# <center><big>De-activate delete a person & Ecclesia**CRM** </big></center>
+# <center><big>De-activate delete a person</big></center>
 
-##To delete a member
+##To delete a person
 
 Via the search bar in the left menu, one can search the person they want to delete, as following:
 
@@ -11,9 +11,9 @@ To delete a member may have legal impacts, if :
 - The member had made several deposits
 - The member had taken notes
 
-##Deactivate a member
+##Deactivate a person
 
-A member deactivated can no longer be look for in the data base GDPR.
+A member deactivated can no longer be look for in the data base (GDPR).
 
 ![Screenshot](../../../img/person/admin/persondeactivate.png)
 

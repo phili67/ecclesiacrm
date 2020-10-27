@@ -64,16 +64,16 @@ The custom fields types are:
 
 A family can donate and the donation can be claim for the fiscal receipts.
 
-**Reminder** an address is container of members. So an address is most of the time a family.
+**Reminder** an address is a container of members. So an address is most of the time a family.
 
 ## Some notes
 
-A family can keep some notes, which are exportable to Drive
+A family can keep some documents, which are exportable to the EDrive
 
-![Screenshot](../../../img/person/admin/personview.png)
+![Screenshot](../../../img/person/admin/documentview.png)
 
-## A EDrive
+## An EDrive
 
 ![Screenshot](../../../img/person/admin/edriveview.png)
 
-One can go see the part " user manual" and "EDrive in the CRM"
+One can go see the part "User Manual" and "EDrive in the CRM"
