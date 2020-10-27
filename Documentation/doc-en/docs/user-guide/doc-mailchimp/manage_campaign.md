@@ -45,7 +45,7 @@ and<br>
 
 And click on "ok"
 
-**Note** in the general settings, it is possible to add the adress and phone number of each user.
+**Note** in the general settings, it is possible to add the address and phone number of each user.
 
 ![Screenshot](../../img/mailchimp/mailchimpaddressphonesettings.png)
 

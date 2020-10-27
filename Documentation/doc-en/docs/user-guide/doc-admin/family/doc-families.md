@@ -5,9 +5,9 @@ Ecclesia**CRM** gives to the family a central role, in a polymorph form, a movin
 
 **NewsLetter** a Family may receive the newsletter.
 
-##One family, an adress
+##One family, an address
 
-Each individual in the CRM has an adress, the family concept allows an actual adress assignment.
+Each individual in the CRM has an address, the family concept allows an actual address assignment.
 
 ##One family, several roles
 
