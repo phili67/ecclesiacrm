@@ -4,10 +4,10 @@
 echo "# <center><big>Ecclesia**CRM** documentation de l'API</big></center>
 ----
 
-Ecclesia**CRM** utilise Slim 3.9.2 qui permet d'accéder de manière restreinte aux éléments du CRM.
+Ecclesia**CRM** use Slim 3.9.2 which allow to make api call to the restricted area of the CRM.
 
 
-" > "api.md" 
+" > "api.md"
 
 # events
 php slim-doc.php -i ../src/api/routes/calendar/calendar-calendarV2.php -o output_file.md -n"calendar"
@@ -31,7 +31,6 @@ cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/documents/documents-sharedocument.php -o output_file.md -n"sharedocument"
 cat output_file.md >> api.md
-
 
 #finances
 php slim-doc.php -i ../src/api/routes/finance/finance-deposits.php -o output_file.md -n"deposits"
@@ -92,9 +91,6 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-menulinks.php -o output_file.md -n"menulinks"
 cat output_file.md >> api.md
 
-php slim-doc.php -i ../src/api/routes/sidebar/sidebar-pastoralcare.php -o output_file.md -n"pastoralcare"
-cat output_file.md >> api.md
-
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-properties.php -o output_file.md -n"properties"
 cat output_file.md >> api.md
 
@@ -102,6 +98,10 @@ php slim-doc.php -i ../src/api/routes/sidebar/sidebar-roles.php -o output_file.m
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/sidebar/sidebar-volunteeropportunity.php -o output_file.md -n"volunteeropportunity"
+cat output_file.md >> api.md
+
+# pastoral care
+php slim-doc.php -i ../src/api/routes/pastoralcare/pastoralcare.php -o output_file.md -n"pastoralcare"
 cat output_file.md >> api.md
 
 #sundayschool
@@ -115,7 +115,7 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/system/system-custom-fields.php -o output_file.md -n"custom-fields"
 cat output_file.md >> api.md
 
-php slim-doc.php -i ../src/api/routes/system/system-dashboard.php -o output_file.md -n"dashboard"
+php slim-doc.php -i ../src/api/routes/system/system-synchronize.php -o output_file.md -n"synchronize"
 cat output_file.md >> api.md
 
 php slim-doc.php -i ../src/api/routes/system/system-database.php -o output_file.md -n"database"
@@ -142,6 +142,7 @@ cat output_file.md >> api.md
 
 # now we copy the file at the right place
 cp api.md doc-fr/docs/user-guide/doc-dev/
+cp api.md doc-en/docs/user-guide/doc-dev/
 
 rm output_file.md
 rm api.md
