@@ -29,7 +29,7 @@ With the up or down arrows one can establish an icon classification :
 - in the Googlemaps classification
 
 
-##To change an icon
+##To change the associate icon
 
 Click on the X on the left of the icon
 Then click on the +
@@ -40,5 +40,5 @@ One will now be able to choose the icon in the list
 
 ![Screenshot](../../../../img/person/admin/settings/choosePersonClassification.png)
 
-**Note** It is possible to add an icon by searching it on the server in the file :  /skin/icons/markers/
+**Note** It is possible to add an icon by adding it on the server in the folder :  /skin/icons/markers/
 It is possible to add an icon by searching it on the server in the file :
