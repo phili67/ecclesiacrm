@@ -1,4 +1,4 @@
-# <center><big>Classifications management & Ecclesia**CRM** </big></center>
+# <center><big>Classifications management</big></center>
 
 There one will be able to set :
 - The members' classifications
@@ -6,7 +6,7 @@ There one will be able to set :
 
 To access the management classifications
 
-##Go to the settings
+##Go to the settings : "Classifications Manager"
 
 ![Screenshot](../../../../img/person/admin/personCustomize.png)
 
@@ -17,9 +17,9 @@ To access the management classifications
 Then one will be able to:
 
 - enter a new classification
-- delete one
+- delete one, with x on the left of the Text Field
 - make it invisible on homepage.
-- assign a Googlemaps icon or Openstreet Map
+- assign a Googlemaps, a Openstreet Map or a Bing Map icon.
 
 ##Classification
 
