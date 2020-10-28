@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 17:51+0100\n"
+"POT-Creation-Date: 2020-10-28 17:54+0100\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10760,7 +10760,7 @@ msgstr "Toutes les personnes"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:51
 msgid "Only the visited/called persons"
-msgstr "Seul les personnes visitées/jointes"
+msgstr "Seules les personnes visitées/jointes"
 
 #
 #: v2/templates/pastoralcare/pastoralcareperson.php:245
