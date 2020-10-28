@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 15:21+0200\n"
+"POT-Creation-Date: 2020-10-28 17:51+0100\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -293,34 +293,34 @@ msgstr "Homme"
 msgid "Woman"
 msgstr "Femmme"
 
-#: api/routes/people/people-attendees.php:319
-#: api/routes/people/people-attendees.php:357
+#: api/routes/people/people-attendees.php:321
+#: api/routes/people/people-attendees.php:359
 msgid "POST to cart requires a personID and an eventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: api/routes/people/people-attendees.php:425
-#: api/routes/people/people-attendees.php:446
-#: api/routes/people/people-attendees.php:682
-#: api/routes/people/people-attendees.php:703
+#: api/routes/people/people-attendees.php:427
+#: api/routes/people/people-attendees.php:448
+#: api/routes/people/people-attendees.php:684
+#: api/routes/people/people-attendees.php:705
 msgid "Create From sunday school class view"
 msgstr "Créer à partir de la vue école du dimanche"
 
-#: api/routes/people/people-attendees.php:449
-#: api/routes/people/people-attendees.php:706
+#: api/routes/people/people-attendees.php:451
+#: api/routes/people/people-attendees.php:708
 msgid "Attendance"
 msgstr "Présence"
 
-#: api/routes/people/people-attendees.php:488
-#: api/routes/people/people-attendees.php:509
-#: api/routes/people/people-attendees.php:531
-#: api/routes/people/people-attendees.php:568
-#: api/routes/people/people-attendees.php:605
+#: api/routes/people/people-attendees.php:490
+#: api/routes/people/people-attendees.php:511
+#: api/routes/people/people-attendees.php:533
+#: api/routes/people/people-attendees.php:570
+#: api/routes/people/people-attendees.php:607
 msgid "POST to cart requires a EventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: api/routes/people/people-attendees.php:749
+#: api/routes/people/people-attendees.php:751
 msgid "POST to cart requires an EventID"
 msgstr "Envoi au Panier requière un EventID"
 
@@ -434,7 +434,7 @@ msgstr "Sexe"
 #: PersonEditor.php:1628 PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcarefamily.php:112
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:21
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/pastoralcare/pastoralcareperson.php:114
 #: v2/templates/people/peopledashboard.php:299 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Classification"
@@ -463,7 +463,7 @@ msgstr "Type de Groupe"
 #: Reports/CanvassReports.php:276 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
-#: v2/templates/pastoralcare/pastoralcareperson.php:114
+#: v2/templates/pastoralcare/pastoralcareperson.php:113
 msgid "Role"
 msgstr "Rôle"
 
@@ -877,7 +877,7 @@ msgstr "Téléphone"
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
-#: v2/templates/pastoralcare/pastoralcareperson.php:117
+#: v2/templates/pastoralcare/pastoralcareperson.php:116
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -998,8 +998,8 @@ msgstr "Créer un dossier"
 #: v2/templates/email/mailchimp/managelist.php:102
 #: v2/templates/pastoralcare/pastoralcarefamily.php:208
 #: v2/templates/pastoralcare/pastoralcarefamily.php:218
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
+#: v2/templates/pastoralcare/pastoralcareperson.php:214
+#: v2/templates/pastoralcare/pastoralcareperson.php:224
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -1338,7 +1338,7 @@ msgstr "Ajouter le panier à la famille"
 #: v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
-#: v2/templates/pastoralcare/pastoralcareperson.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:112
 msgid "Members"
 msgstr "Membres"
 
@@ -2128,7 +2128,7 @@ msgstr "Information à inclure"
 #: Reports/ConfirmReportEmail.php:243 Reports/ConfirmReport.php:225
 #: Reports/ConfirmReport.php:245
 #: v2/templates/pastoralcare/pastoralcarefamily.php:113
-#: v2/templates/pastoralcare/pastoralcareperson.php:116
+#: v2/templates/pastoralcare/pastoralcareperson.php:115
 msgid "Birthday"
 msgstr "Naissance"
 
@@ -5330,21 +5330,21 @@ msgstr "Autre"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
 #: FamilyView.php:562 v2/templates/pastoralcare/pastoralcarefamily.php:134
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
+#: v2/templates/pastoralcare/pastoralcareperson.php:139
 msgid "Head of Household"
 msgstr "Rep. Famille"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
 #: FamilyView.php:563 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
 msgid "Spouse"
 msgstr "Conjoint(e)"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
 #: FamilyView.php:565 v2/templates/pastoralcare/pastoralcarefamily.php:137
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
+#: v2/templates/pastoralcare/pastoralcareperson.php:142
 msgid "Child"
 msgstr "Enfant"
 
@@ -6154,7 +6154,7 @@ msgstr "S'inscrire"
 #: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1110
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:100
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
+#: v2/templates/pastoralcare/pastoralcareperson.php:102
 msgid "Family Members"
 msgstr "Membres de la famille"
 
@@ -10740,17 +10740,17 @@ msgid "Everyone"
 msgstr "Tout le monde"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:206
-#: v2/templates/pastoralcare/pastoralcareperson.php:213
+#: v2/templates/pastoralcare/pastoralcareperson.php:212
 msgid "Modify"
 msgstr "Modifier"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:242
-#: v2/templates/pastoralcare/pastoralcareperson.php:249
+#: v2/templates/pastoralcare/pastoralcareperson.php:248
 msgid "Return To PastoralCare Dashboard"
 msgstr "Retour Au tableau de bord Suivi pastoral"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:245
-#: v2/templates/pastoralcare/pastoralcareperson.php:252
+#: v2/templates/pastoralcare/pastoralcareperson.php:251
 msgid "Return To PastoralCare Members List"
 msgstr "Retour liste des membres suivi pastoral"
 
@@ -10760,10 +10760,10 @@ msgstr "Toutes les personnes"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:51
 msgid "Only the visited/called persons"
-msgstr "Seuls les personnes visités/jointes"
+msgstr "Seul les personnes visitées/jointes"
 
 #
-#: v2/templates/pastoralcare/pastoralcareperson.php:246
+#: v2/templates/pastoralcare/pastoralcareperson.php:245
 msgid "Return To Person View"
 msgstr "Retour à la vue Personne"
 
