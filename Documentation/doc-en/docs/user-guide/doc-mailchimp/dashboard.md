@@ -9,11 +9,12 @@ The use of TAgs is a way to get around that.
 ```
 
 So it is possible now
-- to create audience list
+
+- to create audience (mailing list)
 - to create campaign
 - to add segments
 - to use code fields
-- to crate templates within the CRM
+- to create templates within the CRM
 - etc ....
 
 
