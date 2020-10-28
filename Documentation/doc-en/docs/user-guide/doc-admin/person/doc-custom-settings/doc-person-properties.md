@@ -6,7 +6,7 @@ The properties will be visible if badges are edited for Sundayschool or lists.
 
 ##Go to settings
 
-![Screenshot](../../../../img/person/admin/personCustomize.png)
+![Screenshot](../../../../img/person/admin/settings/personCustomizeProperties.png)
 
 ##Settings
 
@@ -24,12 +24,14 @@ Here you can :
 
 Here you can enter:
 
-- name : Allergic
-- Message : to what
+- "name" : Allergic
+- "Prompt" : to what
 
 for example:
 
 ![Screenshot](../../../../img/person/admin/settings/addproperty2.png)
+
+- "The person: with this properties" is important too
 
 You'll end up with:
 

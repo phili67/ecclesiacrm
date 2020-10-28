@@ -80,8 +80,8 @@ pages:
           - "User creation": 'user-guide/doc-users/doc-users.md'
           - "User profile": 'user-guide/doc-users/doc-user-profile.md'
       - 'Global Settings':
-          - "Foreign language localization": 'user-guide/doc-installation/doc-localization.md'
-          - "Foreign language export": 'user-guide/doc-installation/doc-report.md'
+          - "Localization in foreign language + currency": 'user-guide/doc-installation/doc-localization.md'
+          - "Export in foreign language": 'user-guide/doc-installation/doc-report.md'
           - "Integration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
       - 'Tips':
           - "Bug after database restauration": 'user-guide/doc-admin/doc-tips/doc-restauration-bdd-bug.md'

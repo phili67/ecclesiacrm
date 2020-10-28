@@ -1,4 +1,4 @@
-Once the RGPD activated Ecclesia**CRM** will need a final setting made in CA with the DPO in order to answer better the legislative requirements of each EU country.
+Once the GDPR activated Ecclesia**CRM** will need a final setting made in with the Board of Administration of the Church with a DPO in order to answer better the legislative requirements of each EU country.
 
 ## Activation
 
@@ -7,7 +7,7 @@ It is also possible to answer later, to this end go to:
 
 ![Screenshot](../../img/rgpd/gdpr_setting1.png)
 
-Then choose the RGPD tab:
+Then choose the GDPR tab:
 
 ![Screenshot](../../img/rgpd/gdpr_setting2.png)
 

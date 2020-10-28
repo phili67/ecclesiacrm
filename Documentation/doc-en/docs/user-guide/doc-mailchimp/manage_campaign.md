@@ -1,5 +1,5 @@
 
-# <center><big>Campaign management Ecclesia**CRM** </big></center>
+# <center><big>Campaign management</big></center>
 
 **Warning** about the image management, the manager of the file has to point on the public file
 
