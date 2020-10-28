@@ -42,17 +42,17 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/", 
-            "text": "Server\n\n\n\n\nA Linux server\n\n\nA server LAMP : Linux Apache Mysql or Php is required  \n\n\nWith NGinx one may have issue ( not tested yet) \n\n\nphp 7.0 is required at the minimum\n\n\nA Mysql 5.7 database \n\n\nMariaDB also works\n\n\n\n\nMods to activate on Apache:\n\n\n\n\nPCRE and UTF-8 are required\n\n\nMultibyte Encoding\n\n\nPHP Phar\n\n\nPHP Session\n\n\nPHP XML\n\n\nPHP EXIF\n\n\nPHP iconv\n\n\nOpenSSL\n\n\nMod Rewrite\n\n\nGD Library to handle the pictures\n\n\nFileInfo Extension for the files' infos  \n\n\ncURL\n\n\nlocale gettext\n\n\nInclude/Config the configuration file is accessible in writing \n\n\nthe picture file is accessible in writing also\n\n\n\n\nMemory\n\n\n\n\nMax file upload size  32M\n\n\nMax POST size  32M\n\n\nPHP Memory Limit  128M\n\n\n\n\nMode evasive and security\n\n\n\n\nApache mod-evasive may make the CRM ineffective \n\n\nApache mod-security has to be be turned off \n\n\n\n\nOptional : WebDAV\n\n\n\n\nWebDAV/CalDav and CardDav are assets for the connection to work like NextCloud ...\n\n\nThe file \"data\" has to be fix to 755\n\n\nThe file \"private\" has to be fix to 755 as well as userid\n\n\nThe file \"public\" has to be fix to 755 as well as userid\n\n\n\n\nThe last point is useless for the operation but a true asset for the app", 
+            "text": "Server\n\n\n\n\nA Linux server\n\n\nA server LAMP : Linux Apache Mysql or Php is required\n\n\nWith NGinx one may have issue ( not tested yet)\n\n\nphp 7.3 is required at the minimum\n\n\nA Mysql 5.7 database\n\n\nMariaDB also works\n\n\n\n\nMods to activate on Apache:\n\n\n\n\nPCRE and UTF-8 are required\n\n\nMultibyte Encoding\n\n\nPHP Phar\n\n\nPHP Session\n\n\nPHP XML\n\n\nPHP EXIF\n\n\nPHP iconv\n\n\nOpenSSL\n\n\nMod Rewrite\n\n\nGD Library to handle the pictures\n\n\nFileInfo Extension for the files' infos\n\n\ncURL\n\n\nlocale gettext\n\n\nInclude/Config the configuration file is accessible in writing\n\n\nthe picture file is accessible in writing also\n\n\n\n\nMemory\n\n\n\n\nMax file upload size  32M\n\n\nMax POST size  32M\n\n\nPHP Memory Limit  128M\n\n\n\n\nMode evasive and security\n\n\n\n\nApache mod-evasive may make the CRM ineffective\n\n\nApache mod-security has to be be turned off\n\n\n\n\nOptional : WebDAV\n\n\n\n\nWebDAV/CalDav and CardDav are assets for the connection to work like NextCloud ...\n\n\nThe file \"data\" has to be fix to 755\n\n\nThe file \"private\" has to be fix to 755 as well as userid\n\n\nThe file \"public\" has to be fix to 755 as well as userid\n\n\n\n\nThe last point is useless for the operation but a true asset for the app", 
             "title": "System requirements"
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/#server", 
-            "text": "A Linux server  A server LAMP : Linux Apache Mysql or Php is required    With NGinx one may have issue ( not tested yet)   php 7.0 is required at the minimum  A Mysql 5.7 database   MariaDB also works", 
+            "text": "A Linux server  A server LAMP : Linux Apache Mysql or Php is required  With NGinx one may have issue ( not tested yet)  php 7.3 is required at the minimum  A Mysql 5.7 database  MariaDB also works", 
             "title": "Server"
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/#mods-to-activate-on-apache", 
-            "text": "PCRE and UTF-8 are required  Multibyte Encoding  PHP Phar  PHP Session  PHP XML  PHP EXIF  PHP iconv  OpenSSL  Mod Rewrite  GD Library to handle the pictures  FileInfo Extension for the files' infos    cURL  locale gettext  Include/Config the configuration file is accessible in writing   the picture file is accessible in writing also", 
+            "text": "PCRE and UTF-8 are required  Multibyte Encoding  PHP Phar  PHP Session  PHP XML  PHP EXIF  PHP iconv  OpenSSL  Mod Rewrite  GD Library to handle the pictures  FileInfo Extension for the files' infos  cURL  locale gettext  Include/Config the configuration file is accessible in writing  the picture file is accessible in writing also", 
             "title": "Mods to activate on Apache:"
         }, 
         {
@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/#mode-evasive-and-security", 
-            "text": "Apache mod-evasive may make the CRM ineffective   Apache mod-security has to be be turned off", 
+            "text": "Apache mod-evasive may make the CRM ineffective  Apache mod-security has to be be turned off", 
             "title": "Mode evasive and security"
         }, 
         {
@@ -722,18 +722,28 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-localization/", 
-            "text": "To set your server in foreign language\n\n\nMise en place d'un CRM enti\u00e8rement francis\u00e9", 
-            "title": "Foreign language localization"
+            "text": "To set your CRM in a foreign language, for example in french\n\n\n\n\nNow choose the Localization tab\n\n\n\n\nTo set your foreign parameters\n\n\n\n\nsLanguage : for the language\n\n\nbStateUnusefull : in France this parameter is unusefull\n\n\nsPhoneFormat : you can set your phone format\n\n\netc ...\n\n\n\n\nTo set the currency", 
+            "title": "Localization in foreign language + currency"
         }, 
         {
-            "location": "/user-guide/doc-installation/doc-localization/#mise-en-place-dun-crm-entierement-francise", 
+            "location": "/user-guide/doc-installation/doc-localization/#to-set-your-crm-in-a-foreign-language-for-example-in-french", 
+            "text": "Now choose the Localization tab", 
+            "title": "To set your CRM in a foreign language, for example in french"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-localization/#to-set-your-foreign-parameters", 
+            "text": "sLanguage : for the language  bStateUnusefull : in France this parameter is unusefull  sPhoneFormat : you can set your phone format  etc ...", 
+            "title": "To set your foreign parameters"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-localization/#to-set-the-currency", 
             "text": "", 
-            "title": "Mise en place d'un CRM enti\u00e8rement francis\u00e9"
+            "title": "To set the currency"
         }, 
         {
             "location": "/user-guide/doc-installation/doc-report/", 
             "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais.\n\n\nPour acc\u00e9der aux r\u00e9glages, la proc\u00e9dure est la m\u00eame que pour la partie localisation.\n\n\nVous pourrez r\u00e9gler les rapports en cliquant sur :\n\n\n\n\nLes rapports se situent\n\n\n\n\nLes annuaires \u00e0 cr\u00e9er.\n\n\nLes exports aux niveau \u00e9cole du dimanche.\n\n\nLes rapports financiers.\n\n\nLe mail de notification quand on change un identifiant ou autre.\n\n\netc ...\n\n\n\n\nVous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
-            "title": "Foreign language export"
+            "title": "Export in foreign language"
         }, 
         {
             "location": "/user-guide/doc-installation/doc-report/#les-rapports-se-situent", 
@@ -1327,18 +1337,28 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/", 
-            "text": "MailChimp \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n is compatible with MailChimp \n\n\nThe free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.\n\n\n\n\n\nActivation\n\n\nTo activate the feature one has to go to \"general settings\"\n\n\n\n\nThen in \"activation\"\n\n\n\n\nAdd the role \"MailChimp\" to a user\n\n\nA user has to be given the role \"MailChimp\" in order to be able to use it.\nTo this end, go to:\n\n\n\n\nThen select the user and edit them after having added the role \"MailChimp\n\n\n\n\nThen tick the box and save\n\n\n\n\nMailchimp : Introduction\n\n\nMailchimp is a mailing system that can send a Newsletter, which allows a member to send an email to a large group of members.\n\n\nWith Mailchimp, one can:\n\n\n\n\nmake a mailing list (GDPR)\n\n\nAdd CRM members to a list\n\n\nmake campaigns\n\n\nmodify\n\n\n\n\nAnd without logging out from Ecclesia\nCRM\n.\n\n\nWarning : check the connectivity of the CRM\n\n\nTo check it one can go to : Email -\n Mailchimp -\n dashboard \n\n\nThen click on the button \"Debug\".\n\n\nEstablishment: get a Mailchimp key\n\n\nOne can get it with the link :  \nsuivant\n\n\nSet Eccelesia\nCRM\n for Mailchimp\n\n\nThen enter the Mailchimp key in Ecclesia\nCRM\n\n\n\n\nGo to general settings \nsMailChimpApiKey\n \n\n\nEnter the Mailchimp key \n\n\nOne can also set the number of subscribers on the list. \niMailChimpApiMaxMembersCount\n\nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate: \nbMailChimpWithAddressPhone\n\n\n\n\nResult", 
+            "text": "MailChimp\n\n\nEcclesia\nCRM\n is fully compatible with MailChimp \n\n\nThe free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.\n\n\n\n\n\nSo it is possible now\n- to create audience list\n- to create campaign\n- to add segments\n- to use code fields\n- to crate templates within the CRM\n- etc ....\n\n\nActivation\n\n\nTo activate the feature one has to go to \"Edit General Settings\"\n\n\n\n\nThen in \"Enabled Features\"\n\n\n\n\nEstablishment: get a Mailchimp key\n\n\nOne can get it with the link :  \nsuivant\n\n\nSet Eccelesia\nCRM\n for Mailchimp\n\n\nThen enter the Mailchimp key in Ecclesia\nCRM\n\n\n\n\nGo to general settings \nsMailChimpApiKey\n \n\n\nEnter the Mailchimp key \n\n\nOne can also set the number of subscribers on the list. \niMailChimpApiMaxMembersCount\n\nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate: \nbMailChimpWithAddressPhone\n\n\n\n\nAdd the role \"MailChimp\" to a user\n\n\nA user has to be given the role \"MailChimp\" in order to be able to use it.\nTo this end, go to:\n\n\n\n\nThen select the user and edit them after having added the role \"MailChimp\n\n\n\n\nThen tick the box and save\n\n\n\n\nMailchimp : Introduction\n\n\nMailchimp is a mailing system that can send a Newsletter, which allows a member to send an email to a large group of members.\n\n\nWith Mailchimp, one can:\n\n\n\n\nmake a mailing list (GDPR)\n\n\nAdd CRM members to a list\n\n\nmake campaigns\n\n\nmodify\n\n\n\n\nAnd without logging out from Ecclesia\nCRM\n.\n\n\nWarning : check the connectivity of the CRM\n\n\nTo check it one can go to : Email -\n Mailchimp -\n dashboard \n\n\nThen click on the button \"Debug\".\n\n\nResult", 
             "title": "Dashboard"
         }, 
         {
-            "location": "/user-guide/doc-mailchimp/dashboard/#mailchimp-ecclesiacrm", 
-            "text": "Ecclesia CRM  is compatible with MailChimp   The free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.", 
-            "title": "MailChimp &amp; EcclesiaCRM "
+            "location": "/user-guide/doc-mailchimp/dashboard/#mailchimp", 
+            "text": "Ecclesia CRM  is fully compatible with MailChimp   The free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.  So it is possible now\n- to create audience list\n- to create campaign\n- to add segments\n- to use code fields\n- to crate templates within the CRM\n- etc ....", 
+            "title": "MailChimp"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/#activation", 
-            "text": "To activate the feature one has to go to \"general settings\"   Then in \"activation\"", 
+            "text": "To activate the feature one has to go to \"Edit General Settings\"   Then in \"Enabled Features\"", 
             "title": "Activation"
+        }, 
+        {
+            "location": "/user-guide/doc-mailchimp/dashboard/#establishment-get-a-mailchimp-key", 
+            "text": "One can get it with the link :   suivant", 
+            "title": "Establishment: get a Mailchimp key"
+        }, 
+        {
+            "location": "/user-guide/doc-mailchimp/dashboard/#set-eccelesiacrm-for-mailchimp", 
+            "text": "Then enter the Mailchimp key in Ecclesia CRM   Go to general settings  sMailChimpApiKey    Enter the Mailchimp key   One can also set the number of subscribers on the list.  iMailChimpApiMaxMembersCount \nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate:  bMailChimpWithAddressPhone", 
+            "title": "Set EccelesiaCRM for Mailchimp"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/#add-the-role-mailchimp-to-a-user", 
@@ -1354,16 +1374,6 @@
             "location": "/user-guide/doc-mailchimp/dashboard/#warning-check-the-connectivity-of-the-crm", 
             "text": "To check it one can go to : Email -  Mailchimp -  dashboard   Then click on the button \"Debug\".", 
             "title": "Warning : check the connectivity of the CRM"
-        }, 
-        {
-            "location": "/user-guide/doc-mailchimp/dashboard/#establishment-get-a-mailchimp-key", 
-            "text": "One can get it with the link :   suivant", 
-            "title": "Establishment: get a Mailchimp key"
-        }, 
-        {
-            "location": "/user-guide/doc-mailchimp/dashboard/#set-eccelesiacrm-for-mailchimp", 
-            "text": "Then enter the Mailchimp key in Ecclesia CRM   Go to general settings  sMailChimpApiKey    Enter the Mailchimp key   One can also set the number of subscribers on the list.  iMailChimpApiMaxMembersCount \nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate:  bMailChimpWithAddressPhone", 
-            "title": "Set EccelesiaCRM for Mailchimp"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/#result", 
