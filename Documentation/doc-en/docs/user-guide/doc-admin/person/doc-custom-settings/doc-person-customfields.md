@@ -3,7 +3,7 @@
 
 ##Go to customization settings
 
-![Screenshot](../../../../img/person/admin/personCustomize.png)
+![Screenshot](../../../../img/person/admin/settings/personCustomizeCustomField.png)
 
 Choose in the menu " Change the family custom fields"
 
