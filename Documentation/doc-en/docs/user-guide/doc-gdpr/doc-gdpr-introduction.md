@@ -37,4 +37,4 @@ The tax laws being a priority, more than the GDPR.
 
 ## MailChimp
 
-When GDPR function is activated, every MailChimp mailing list automatically becomes RGPD and can not be legally used by MailChimp for commercial purposes.
+When GDPR function is activated, every MailChimp mailing list automatically becomes GDPR and can not be legally used by MailChimp for commercial purposes.
