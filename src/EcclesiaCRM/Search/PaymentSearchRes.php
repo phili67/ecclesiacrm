@@ -44,7 +44,7 @@ class PaymentSearchRes extends BaseSearchRes
                                 $elt = [
                                     "id" => -1,
                                     "img" => '<img src="/Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                    "searchresult" => '<a href="'.SystemURLs::getRootPath().'/DepositSlipEditor.php?DepositSlipID='.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
+                                    "searchresult" => '<a href="'.SystemURLs::getRootPath().'/DepositSlipEditor.php?DepositSlipID='.$Payment['dep_ID'].'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$Payment['displayName'].'</a>',
                                     "address" => "",
                                     "type" => _($this->getGlobalSearchType()),
                                     "realType" => " ".$this->getGlobalSearchType(),

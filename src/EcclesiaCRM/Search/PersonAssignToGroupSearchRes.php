@@ -85,7 +85,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res = '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res = '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
 
                             $res .= '<span class="fa-stack">'
@@ -121,7 +121,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                                 }
                             }
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" data-original-title="' . _('Print') . '">';
+                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 . '<i class="fa fa-square fa-stack-2x"></i>'
@@ -134,8 +134,8 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $per->getPerson()->getId(),
                                 "img" => '<img src="/api/persons/' . $per->getPerson()->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(),
-                                        $per->getPerson()->getSuffix(), 3) . '</a> (<a href="'.SystemURLs::getRootPath().'/v2/group/'.$per->getGroupId().'/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$per->getgroupName().'</a>)',
+                                "searchresult" => '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $per->getPerson()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . OutputUtils::FormatFullName($per->getPerson()->getTitle(), $per->getPerson()->getFirstName(), $per->getPerson()->getMiddleName(), $per->getPerson()->getLastName(),
+                                        $per->getPerson()->getSuffix(), 3) . '</a> (<a href="'.SystemURLs::getRootPath().'/v2/group/'.$per->getGroupId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$per->getgroupName().'</a>)',
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address,
                                 "type" => " " . _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

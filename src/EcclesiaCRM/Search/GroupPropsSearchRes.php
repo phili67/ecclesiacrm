@@ -74,7 +74,7 @@ class GroupPropsSearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/GroupEditor.php?GroupID=' . $group->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/GroupEditor.php?GroupID=' . $group->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -109,7 +109,7 @@ class GroupPropsSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/group/' . $group->getId() . '/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/v2/group/' . $group->getId() . '/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -122,7 +122,7 @@ class GroupPropsSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $group->getId(),
                                 "img" => '<img src="/Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">'.$group->getName().'</a>',
+                                "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
                                 "address" => "",
                                 "type" => " "._($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
