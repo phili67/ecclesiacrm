@@ -40,14 +40,14 @@ $user = SessionUser::getUser();
     <div class="col-md-12">
         <a href="#" id="uploadFile">
     <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $user->getPersonId() ?>"
-          data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Upload a file in EDrive") ?>">
+          data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
       <i class="fa fa-square fa-stack-2x" style="color:green"></i>
       <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
     </span>
         </a>
 
         <a class="filemanager-download" data-toggle="tooltip" data-placement="top"
-           data-original-title="<?= _("Download") ?>" style="display: none;">
+           title="<?= _("Download") ?>" style="display: none;">
   <span class="fa-stack fa-special-icon drag-elements">
     <i class="fa fa-square fa-stack-2x" style="color:orange"></i>
     <i class="fa  fa-cloud-download fa-stack-1x fa-inverse"></i>
@@ -55,7 +55,7 @@ $user = SessionUser::getUser();
         </a>
 
         <a class="new-folder" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top"
-           data-original-title="<?= _("Create a Folder") ?>">
+           title="<?= _("Create a Folder") ?>">
 <span class="fa-stack fa-special-icon drag-elements">
   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
   <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
@@ -63,7 +63,7 @@ $user = SessionUser::getUser();
         </a>
 
         <a class="trash-drop" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top"
-           data-original-title="<?= _("Delete") ?>">
+           title="<?= _("Delete") ?>">
 <span class="fa-stack fa-special-icon drag-elements">
   <i class="fa fa-square fa-stack-2x" style="color:red"></i>
   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
@@ -72,14 +72,14 @@ $user = SessionUser::getUser();
 
         <a class="folder-back-drop" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip"
            data-placement="top"
-           data-original-title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+           title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
   <span class="fa-stack fa-special-icon drag-elements">
     <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
     <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
   </span>
         </a>
         <a class="filemanager-refresh" data-toggle="tooltip" data-placement="top"
-           data-original-title="<?= _("Actualize files") ?>">
+           title="<?= _("Actualize files") ?>">
   <span class="fa-stack fa-special-icon drag-elements">
     <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
     <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>

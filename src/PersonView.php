@@ -794,7 +794,7 @@ if (!empty($person->getDateDeactivated())) {
                         ?>
                         <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="top"
-                           data-original-title="<?= _("Create a document") ?>"><i
+                           title="<?= _("Create a document") ?>"><i
                                 class="fa fa-file-o"></i><?= _("Create a document") ?></a>
                         <?php
                     }
@@ -1824,7 +1824,7 @@ if (!empty($person->getDateDeactivated())) {
                                                     <a href="#" id="uploadFile">
                                                       <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>"
                                                             data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="<?= _("Upload a file in EDrive") ?>">
+                                                            title="<?= _("Upload a file in EDrive") ?>">
                                                         <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                                                         <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                                                       </span>
@@ -1835,7 +1835,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                                 <a class="new-folder" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
-                                                   data-original-title="<?= _("Create a Folder") ?>">
+                                                   title="<?= _("Create a Folder") ?>">
                                                       <span class="fa-stack fa-special-icon drag-elements">
                                                         <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                                                         <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
@@ -1844,7 +1844,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                                 <a class="trash-drop" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
-                                                   data-original-title="<?= _("Delete") ?>">
+                                                   title="<?= _("Delete") ?>">
                                                   <span class="fa-stack fa-special-icon drag-elements">
                                                     <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                                                     <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
@@ -1853,7 +1853,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                                 <a class="folder-back-drop" data-personid="<?= $iPersonID ?>"
                                                    data-toggle="tooltip" data-placement="top"
-                                                   data-original-title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                                                   title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
                                                     <span class="fa-stack fa-special-icon drag-elements">
                                                       <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
                                                       <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
@@ -1861,7 +1861,7 @@ if (!empty($person->getDateDeactivated())) {
                                                 </a>
                                                 <a class="filemanager-refresh" data-toggle="tooltip"
                                                    data-placement="top"
-                                                   data-original-title="<?= _("Actualize files") ?>">
+                                                   title="<?= _("Actualize files") ?>">
                                                     <span class="fa-stack fa-special-icon drag-elements">
                                                       <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
                                                       <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
