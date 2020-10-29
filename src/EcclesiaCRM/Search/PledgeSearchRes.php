@@ -66,7 +66,7 @@ class PledgeSearchRes extends BaseSearchRes
                                 if ($this->global_search) {
                                     $res = "";
                                     if (SessionUser::getUser()->isShowCartEnabled()) {
-                                        $res = '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                        $res = '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                     }
 
                                     $res .= '<span class="fa-stack">'
@@ -81,7 +81,7 @@ class PledgeSearchRes extends BaseSearchRes
                                     $elt = [
                                         'id' => $Pledge->getDepositId(),
                                         'img' => '<img src="/Images/Bank.png" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                        'searchresult' => '<a href="'.SystemURLs::getRootPath()."/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
+                                        'searchresult' => '<a href="'.SystemURLs::getRootPath()."/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
                                         'address' => "",
                                         'type' => " "._($this->getGlobalSearchType()),
                                         'realType' => $this->getGlobalSearchType(),

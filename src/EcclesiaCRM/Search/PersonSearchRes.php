@@ -260,7 +260,7 @@ class PersonSearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $person->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/PersonEditor.php?PersonID=' . $person->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -299,7 +299,7 @@ class PersonSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $person->getId() . '"  data-toggle="tooltip" data-placement="top" data-original-title="' . _('Print') . '">';
+                                $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $person->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -311,7 +311,7 @@ class PersonSearchRes extends BaseSearchRes
 
                             $elt = [
                                 'id' => $person->getId(),
-                                'searchresult' => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$person->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3).'</a>',
+                                'searchresult' => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$person->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3).'</a>',
                                 'img' => '<img src="/api/persons/'.$person->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
                                 'address' => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address,
                                 'type' => _($this->getGlobalSearchType()),

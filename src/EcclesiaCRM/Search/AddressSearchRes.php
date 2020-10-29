@@ -67,7 +67,7 @@ class AddressSearchRes extends BaseSearchRes
 
                             $res = "";
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $address->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -106,7 +106,7 @@ class AddressSearchRes extends BaseSearchRes
                             }
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
-                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $address->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
                                 .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -120,7 +120,7 @@ class AddressSearchRes extends BaseSearchRes
                             $elt = [
                                 "id" => $address->getId(),
                                 "img" => '<img src="/api/families/'.$address->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => _("Addresse").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$address->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$address->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
+                                "searchresult" => _("Addresse").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$address->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$address->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address->getAddress(),
                                 "type" => _($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),

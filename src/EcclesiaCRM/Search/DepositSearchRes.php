@@ -71,7 +71,7 @@ class DepositSearchRes extends BaseSearchRes
                             if ($this->global_search) {
                                 $res = "";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                    $res .= '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
                                 $res .= '<span class="fa-stack">'
                                     .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -84,7 +84,7 @@ class DepositSearchRes extends BaseSearchRes
                                 $elt = [
                                     "id" => -1,
                                     "img" => '<img src="/Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                    "searchresult" => '<a href="'.SystemURLs::getRootPath()."/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$Deposit->getComment().'</a>',
+                                    "searchresult" => '<a href="'.SystemURLs::getRootPath()."/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Deposit->getComment().'</a>',
                                     "address" => "",
                                     "type" => _($this->getGlobalSearchType()),
                                     "realType" => $this->getGlobalSearchType(),

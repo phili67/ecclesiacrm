@@ -80,7 +80,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
 
                                 $res = "";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $fam->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $fam->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
                                 $res .= '<span class="fa-stack">'
                                     .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -117,7 +117,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                                 }
 
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
-                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $fam->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" data-original-title="' . _('Edit') . '">';
+                                    $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $fam->getFamily()->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                                 }
                                 $res .= '<span class="fa-stack">'
                                     .'<i class="fa fa-square fa-stack-2x"></i>'
@@ -130,7 +130,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                                 $elt = [
                                     "id" => $fam->getFamily()->getId(),
                                     "img" =>'<img src="/api/families/'.$fam->getFamily()->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                    "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getFamily()->getId().'" data-toggle="tooltip" data-placement="top" data-original-title="'._('Edit').'">'.$fam->getFamily()->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
+                                    "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$fam->getFamily()->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$fam->getFamily()->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
                                     "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$fam->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                                     "type" => _($this->getGlobalSearchType()),
                                     "realType" => $this->getGlobalSearchType(),
