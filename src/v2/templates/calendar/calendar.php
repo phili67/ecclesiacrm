@@ -115,12 +115,12 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
                                         class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
-                                        data-original-title="<?= _("Exclude/include Calendars") ?>"
+                                        title="<?= _("Exclude/include Calendars") ?>"
                                         id="manage-all-calendars"></i>
                                 </button>
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
                                         class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
-                                        data-original-title="<?= _("Add New Calendar") ?>"
+                                        title="<?= _("Add New Calendar") ?>"
                                         id="add-calendar"></i>
                                 </button>
                             </div>
@@ -155,7 +155,7 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
                                         class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
-                                        data-original-title="<?= _("Exclude/include Resource") ?>"
+                                        title="<?= _("Exclude/include Resource") ?>"
                                         id="manage-all-reservation"></i>
                                 </button>
                                 <?php
@@ -163,9 +163,9 @@ require $sRootDocument . '/Include/Header.php';
                                     ?>
                                     <button type="button" class="btn btn-tool" data-card-widget=""><i
                                             class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
-                                            data-original-title="<?= _("Add New Calendar") ?>"
+                                            title="<?= _("Add New Calendar") ?>"
                                         <i class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
-                                           data-original-title="<?= _("Add New Resource Calendar") ?>"
+                                           title="<?= _("Add New Resource Calendar") ?>"
                                            id="add-reservation-calendar"></i>
                                     </button>
                                     <?php
@@ -200,7 +200,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <div class="card-tools card-tools-calendar">
                                     <button type="button" class="btn btn-tool" data-card-widget="">
                                         <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
-                                           data-original-title="<?= _("Add New Calendar") ?>"
+                                           title="<?= _("Add New Calendar") ?>"
                                            id="manage-all-groups"></i>
                                     </button>
                                 </div>
@@ -232,7 +232,7 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget="">
                                     <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
-                                       data-original-title="<?= _("Exclude/include the Shared") ?>"
+                                       title="<?= _("Exclude/include the Shared") ?>"
                                        id="manage-all-shared"></i>&nbsp;
                                 </button>
                             </div>

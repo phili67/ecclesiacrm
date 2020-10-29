@@ -486,7 +486,7 @@ require 'Include/Header.php';
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
-                           data-placement="top" data-original-title="<?= _("Create a document") ?>"><i
+                           data-placement="top" title="<?= _("Create a document") ?>"><i
                                 class="fa fa-file-o"></i><?= _("Create a document") ?></a>
                         <?php
                     }
