@@ -116,6 +116,8 @@ Here one will be able to sava, send, delete or fix a date and a time for their c
 
 ![Screenshot](../../img/mailchimp/campaignplanification3.png)
 
-It is possible to modify it later too.
 
-**Note**It is advised to create a bank of documents to use them later, to do this one has to go to "document bank", and "user guide", then "documents"
+**Note**
+- It is advised to create a bank of templates to use them later, to do this one has to go in "Manual: User" and "Documents" and last in "Documents & Templates".
+- It is possible to modify it later too.
+- You can schedule your campaign.
