@@ -45,7 +45,7 @@ One'll has several possibilities
 
 ##Modify a subscriber's status
 
-One can change the status from "subscribed" to "unsubscribed" by choosing the member and clicking on the pencil:
+One can change the status from "subscribed" to "Unsubscribed" by choosing the member and clicking on the pencil:
 
 ![Screenshot](../../img/mailchimp/modifyUserStatut.png)
 
@@ -77,7 +77,7 @@ Select the said members
 
 ![Screenshot](../../img/mailchimp/selectMembers.png)
 
-And click on the button "delete"
+And click on the button "Delete"
 
 ![Screenshot](../../img/mailchimp/deleteMembers2.png)
 

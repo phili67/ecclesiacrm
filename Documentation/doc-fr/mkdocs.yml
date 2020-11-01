@@ -12,12 +12,12 @@ theme:
   name: 'material'
   language: 'fr'
   palette:
-    primary: 'cyan'
-    accent: 'cyan'
+    primary: 'brown'
+    accent: 'brown'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-    
+
 # Customization
 extra:
   social:
@@ -40,17 +40,17 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: true
-      
+
 # the site map
-    
+
 site_name: EcclesiaCRM
 pages:
 - "Accueil": 'index.md'
 - "Manuel : Administrateur":
-    - 'Mise en place du CRM': 
+    - 'Mise en place du CRM':
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
-    - 'Gestion des personnes': 
+    - 'Gestion des personnes':
         - 'Présentation': 'user-guide/doc-admin/person/doc-persons.md'
         - 'Créer une personne': 'user-guide/doc-admin/person/doc-create-person.md'
         - 'Désactiver/supprimer une personne': 'user-guide/doc-admin/person/doc-delete-person.md'
@@ -58,7 +58,7 @@ pages:
             - 'Gestionnaire de Classification': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-classification.md'
             - 'Liste des propriétés': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-properties.md'
             - 'Champs personnalisables': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields.md'
-    - 'Gestion des familles': 
+    - 'Gestion des familles':
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
         - 'Auto-inscription de famille': 'user-guide/doc-admin/family/doc-create-family-auto.md'
@@ -68,7 +68,7 @@ pages:
             - 'Rôles de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
             - 'Propriétés de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-properties.md'
             - 'Champs personnalisables de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields.md'
-    - 'Gestion des groupes': 
+    - 'Gestion des groupes':
         - 'Présentation': 'user-guide/doc-admin/group/doc-groups.md'
         - 'Création & Menu': 'user-guide/doc-admin/group/doc-groups-management.md'
         - 'Gestion du groupe': 'user-guide/doc-admin/group/doc-groups-managers.md'
@@ -78,7 +78,7 @@ pages:
             - 'Propriétés globales': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties.md'
             - 'Propriétés spécifiques': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties.md'
             - 'Types de groupes': 'user-guide/doc-admin/group/doc-groups-management.md'
-    - 'Droits et gestion des utilisateurs du CRM': 
+    - 'Droits et gestion des utilisateurs du CRM':
         - "Mise en place d'un utilisateur": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs": 'user-guide/doc-users/doc-user-profile.md'
     - 'Réglages généraux':
@@ -91,7 +91,7 @@ pages:
 
 
 - "Manuel : Utilisateur":
-    - "Gérer son profile": 
+    - "Gérer son profile":
         - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
         - 'Réglages personnels': 'user-guide/doc-person/doc-person-settings.md'
     - "calendriers":
@@ -99,19 +99,19 @@ pages:
         - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
         - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
         - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
-    - "Documents": 
+    - "Documents":
         - 'Créer-Gérer': 'user-guide/doc-person/doc-person-document-creation.md'
         - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
         - 'Images et Fichiers': 'user-guide/doc-person/doc-person-document-images-files.md'
         - 'Export sous Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
-    - "Documents & Modèles": 
+    - "Documents & Modèles":
         - 'Modèles de document': 'user-guide/doc-person/doc-person-document-templates.md'
     - "EDrive":
         - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
-        - 'EDrive en dehors du CRM': 
+        - 'EDrive en dehors du CRM':
             - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
             - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
-    - 'Astuces': 
+    - 'Astuces':
         - 'Problème Export de Tableau (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
         - 'Barre de Menu': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
         - 'Visualiser les addresses dans AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
@@ -119,7 +119,7 @@ pages:
 - "Manuel : DPO & RGPD":
     - 'Introduction': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
     - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
-        
+
 - "Manuel : Pasteur & Conseiller":
     - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
     - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
@@ -132,7 +132,7 @@ pages:
     - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-badges.md'
     - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
     - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
-    
+
 - "Manuel : Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
