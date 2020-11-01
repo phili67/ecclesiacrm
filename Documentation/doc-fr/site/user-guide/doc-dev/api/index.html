@@ -64,7 +64,7 @@
     
     
     
-      <body data-md-color-primary="cyan" data-md-color-accent="cyan">
+      <body data-md-color-primary="brown" data-md-color-accent="brown">
     
   
     <svg class="md-svg">
@@ -1787,13 +1787,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-pastoralcare" title="API "pastoralcare"" class="md-nav__link">
-    API "pastoralcare"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-properties" title="API "properties"" class="md-nav__link">
     API "properties"
   </a>
@@ -1810,6 +1803,20 @@
         <li class="md-nav__item">
   <a href="#api-volunteeropportunity" title="API "volunteeropportunity"" class="md-nav__link">
     API "volunteeropportunity"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-pastoralcare" title="API "pastoralcare"" class="md-nav__link">
+    API "pastoralcare"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-meeting" title="API "meeting"" class="md-nav__link">
+    API "meeting"
   </a>
   
 </li>
@@ -1836,8 +1843,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-dashboard" title="API "dashboard"" class="md-nav__link">
-    API "dashboard"
+  <a href="#api-synchronize" title="API "synchronize"" class="md-nav__link">
+    API "synchronize"
   </a>
   
 </li>
@@ -2154,13 +2161,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-pastoralcare" title="API "pastoralcare"" class="md-nav__link">
-    API "pastoralcare"
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#api-properties" title="API "properties"" class="md-nav__link">
     API "properties"
   </a>
@@ -2177,6 +2177,20 @@
         <li class="md-nav__item">
   <a href="#api-volunteeropportunity" title="API "volunteeropportunity"" class="md-nav__link">
     API "volunteeropportunity"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-pastoralcare" title="API "pastoralcare"" class="md-nav__link">
+    API "pastoralcare"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-meeting" title="API "meeting"" class="md-nav__link">
+    API "meeting"
   </a>
   
 </li>
@@ -2203,8 +2217,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-dashboard" title="API "dashboard"" class="md-nav__link">
-    API "dashboard"
+  <a href="#api-synchronize" title="API "synchronize"" class="md-nav__link">
+    API "synchronize"
   </a>
   
 </li>
@@ -2275,7 +2289,7 @@
                 
                 <h1 id="ecclesiacrm-documentation-de-lapi"><center><big>Ecclesia<strong>CRM</strong> documentation de l'API</big></center><a class="headerlink" href="#ecclesiacrm-documentation-de-lapi" title="Permanent link">&para;</a></h1>
 <hr />
-<p>Ecclesia<strong>CRM</strong> utilise Slim 3.9.2 qui permet d'accéder de manière restreinte aux éléments du CRM.</p>
+<p>Ecclesia<strong>CRM</strong> use Slim 3.9.2 which allow to make api call to the restricted area of the CRM.</p>
 <h2 id="api-calendar">API "calendar"<a class="headerlink" href="#api-calendar" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/calendar/calendar-calendarV2.php</p>
 <table>
@@ -2723,10 +2737,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/numbers</code></td>
+<td><code>/types</code></td>
 <td>GET</td>
-<td>numbersOfEventOfToday</td>
-<td>Get all events from today</td>
+<td>getEventTypes</td>
+<td>Get all event type</td>
 </tr>
 </tbody>
 </table>
@@ -2742,10 +2756,10 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/types</code></td>
+<td><code>/names</code></td>
 <td>GET</td>
-<td>getEventTypes</td>
-<td>Get all event type</td>
+<td>eventNames</td>
+<td>Get all event names</td>
 </tr>
 </tbody>
 </table>
@@ -2900,7 +2914,7 @@
 <td><code>/</code></td>
 <td>POST</td>
 <td>manageEvent</td>
-<td>manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]</td>
+<td>manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]</td>
 </tr>
 </tbody>
 </table>
@@ -2961,6 +2975,25 @@
 <li><code>{id}</code>-&gt;<code>int</code> :: studentGroup id</li>
 <li><code>{id}</code>-&gt;<code>int</code> :: teacherGroup id</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/interectPerson</code></td>
+<td>POST</td>
+<td>cartIntersectPersons</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <table>
 <thead>
@@ -3049,6 +3082,25 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/removeGroups</code></td>
+<td>POST</td>
+<td>removeGroupsFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/removeStudentGroup</code></td>
 <td>POST</td>
 <td>removeStudentsGroupFromCart</td>
@@ -3071,6 +3123,82 @@
 <td><code>/removeTeacherGroup</code></td>
 <td>POST</td>
 <td>removeTeachersGroupFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addAllStudents</code></td>
+<td>POST</td>
+<td>addAllStudentsToCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addAllTeachers</code></td>
+<td>POST</td>
+<td>addAllTeachersToCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeAllStudents</code></td>
+<td>POST</td>
+<td>removeAllStudentsFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeAllTeachers</code></td>
+<td>POST</td>
+<td>removeAllTeachersFromCart</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -3571,6 +3699,44 @@
 <td><code>/uploadFile/{personID:[0-9]+}</code></td>
 <td>POST</td>
 <td>uploadFile</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getRealLink</code></td>
+<td>POST</td>
+<td>getRealLink</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/setpathtopublicfolder</code></td>
+<td>POST</td>
+<td>setpathtopublicfolder</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -4342,6 +4508,44 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/{kioskId:[0-9]+}/reloadKiosk</code></td>
+<td>POST</td>
+<td>reloadKiosk</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}/identifyKiosk</code></td>
+<td>POST</td>
+<td>identifyKiosk</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/{kioskId:[0-9]+}/acceptKiosk</code></td>
 <td>POST</td>
 <td>acceptKiosk</td>
@@ -4364,6 +4568,25 @@
 <td><code>/{kioskId:[0-9]+}/setAssignment</code></td>
 <td>POST</td>
 <td>setKioskAssignment</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/{kioskId:[0-9]+}</code></td>
+<td>DELETE</td>
+<td>deleteKiosk</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -4857,6 +5080,25 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/addAllFamilies</code></td>
+<td>POST</td>
+<td>addAllFamilies</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/addgroup</code></td>
 <td>POST</td>
 <td>addGroup</td>
@@ -4930,6 +5172,44 @@
 <li><code>{ref}</code>-&gt;<code>string</code> :: query string ref</li>
 </ul>
 <hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/classifications/all</code></td>
+<td>GET</td>
+<td>getAllClassifications</td>
+<td>Returns all classifications</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/classification/assign</code></td>
+<td>POST</td>
+<td>postPersonClassification</td>
+<td>Returns all classifications</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="api-attendees">API "attendees"<a class="headerlink" href="#api-attendees" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/people/people-attendees.php</p>
 <table>
@@ -4943,9 +5223,47 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/checkoutstudent</code></td>
+<td><code>/event/{eventID:[0-9]+}</code></td>
+<td>GET</td>
+<td>attendeesEvent</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkin</code></td>
 <td>POST</td>
-<td>attendeesCheckOutStudent</td>
+<td>attendeesCheckIn</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/checkout</code></td>
+<td>POST</td>
+<td>attendeesCheckOut</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -5041,6 +5359,120 @@
 <td><code>/uncheckAll</code></td>
 <td>POST</td>
 <td>attendeesUncheckAll</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/groups</code></td>
+<td>POST</td>
+<td>attendeesGroups</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletePerson</code></td>
+<td>POST</td>
+<td>deleteAttendeesPerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addPerson</code></td>
+<td>POST</td>
+<td>addAttendeesPerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/validate</code></td>
+<td>POST</td>
+<td>validateAttendees</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/addFreeAttendees</code></td>
+<td>POST</td>
+<td>addFreeAttendees</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/qrcodeCall</code></td>
+<td>POST</td>
+<td>qrcodeCallAttendees</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -5356,7 +5788,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/{familyId}/verify</code></td>
+<td><code>/{familyId:[0-9]+}/verify</code></td>
 <td>POST</td>
 <td>verifyFamily</td>
 <td>Verify the family for the familyId</td>
@@ -5378,7 +5810,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/verify/{familyId}/now</code></td>
+<td><code>/verify/{familyId:[0-9]+}/now</code></td>
 <td>POST</td>
 <td>verifyFamilyNow</td>
 <td>Verify the family for the familyId now</td>
@@ -5387,6 +5819,28 @@
 </table>
 <ul>
 <li><code>{id}</code>-&gt;<code>int</code> :: familyId as id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/verify/url</code></td>
+<td>POST</td>
+<td>verifyFamilyURL</td>
+<td>Verify the family for the familyId now</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{id}</code>-&gt;<code>int</code> :: family</li>
 </ul>
 <hr />
 <table>
@@ -6166,6 +6620,25 @@
 </thead>
 <tbody>
 <tr>
+<td><code>/cart/view</code></td>
+<td>GET</td>
+<td>personCartView</td>
+<td>Returns a list of the persons who are in the cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><code>/volunteers/{personID:[0-9]+}</code></td>
 <td>POST</td>
 <td>volunteersPerPersonId</td>
@@ -6508,7 +6981,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/NotInMailChimp/emails</code></td>
+<td><code>/NotInMailChimp/emails/{type}</code></td>
 <td>GET</td>
 <td>notInMailChimpEmails</td>
 <td>No description</td>
@@ -6647,9 +7120,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>/search/{query}</code></td>
+<td><code>/{query}</code></td>
 <td>GET</td>
-<td>function ($request, $response, $args)</td>
+<td>quickSearch</td>
 <td>a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query</td>
 </tr>
 </tbody>
@@ -6657,6 +7130,101 @@
 <ul>
 <li><code>{ref}</code>-&gt;<code>string</code> :: query string as ref</li>
 </ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/comboElements/</code></td>
+<td>POST</td>
+<td>comboElements</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getGroupForTypeID/</code></td>
+<td>POST</td>
+<td>getGroupForTypeID</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getGroupRoleForGroupID/</code></td>
+<td>POST</td>
+<td>getGroupRoleForGroupID</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getresult/</code></td>
+<td>POST</td>
+<td>getSearchResult</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getresult/</code></td>
+<td>GET</td>
+<td>getSearchResult</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="api-mapicons">API "mapicons"<a class="headerlink" href="#api-mapicons" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/sidebar/sidebar-mapicons.php</p>
@@ -6866,179 +7434,6 @@
 <td><code>/edit</code></td>
 <td>POST</td>
 <td>editMenuLink</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="api-pastoralcare">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/sidebar/sidebar-pastoralcare.php</p>
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/</code></td>
-<td>POST</td>
-<td>getAllPastoralCare</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/deletetype</code></td>
-<td>POST</td>
-<td>deletePastoralCareType</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/createtype</code></td>
-<td>POST</td>
-<td>createPastoralCareType</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/settype</code></td>
-<td>POST</td>
-<td>setPastoralCareType</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/edittype</code></td>
-<td>POST</td>
-<td>editPastoralCareType</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/add</code></td>
-<td>POST</td>
-<td>addPastoralCare</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/delete</code></td>
-<td>POST</td>
-<td>deletePastoralCare</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/getinfo</code></td>
-<td>POST</td>
-<td>getPastoralCareInfo</td>
-<td>No description</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<table>
-<thead>
-<tr>
-<th>Route</th>
-<th>Method</th>
-<th>function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/modify</code></td>
-<td>POST</td>
-<td>modifyPastoralCare</td>
 <td>No description</td>
 </tr>
 </tbody>
@@ -7525,6 +7920,409 @@
 </tbody>
 </table>
 <hr />
+<h2 id="api-pastoralcare">API "pastoralcare"<a class="headerlink" href="#api-pastoralcare" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/pastoralcare/pastoralcare.php</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>getAllPastoralCare</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deletetype</code></td>
+<td>POST</td>
+<td>deletePastoralCareType</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/createtype</code></td>
+<td>POST</td>
+<td>createPastoralCareType</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/settype</code></td>
+<td>POST</td>
+<td>setPastoralCareType</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/edittype</code></td>
+<td>POST</td>
+<td>editPastoralCareType</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/add</code></td>
+<td>POST</td>
+<td>addPastoralCarePerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/delete</code></td>
+<td>POST</td>
+<td>deletePastoralCarePerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/getinfo</code></td>
+<td>POST</td>
+<td>getPastoralCareInfoPerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/person/modify</code></td>
+<td>POST</td>
+<td>modifyPastoralCarePerson</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/add</code></td>
+<td>POST</td>
+<td>addPastoralCareFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/delete</code></td>
+<td>POST</td>
+<td>deletePastoralCareFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/getinfo</code></td>
+<td>POST</td>
+<td>getPastoralCareInfoFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/family/modify</code></td>
+<td>POST</td>
+<td>modifyPastoralCareFamily</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/members</code></td>
+<td>POST</td>
+<td>pastoralcareMembersDashboard</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/personNeverBeenContacted</code></td>
+<td>POST</td>
+<td>personNeverBeenContacted</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/familyNeverBeenContacted</code></td>
+<td>POST</td>
+<td>familyNeverBeenContacted</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/singleNeverBeenContacted</code></td>
+<td>POST</td>
+<td>singleNeverBeenContacted</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/retiredNeverBeenContacted</code></td>
+<td>POST</td>
+<td>retiredNeverBeenContacted</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/youngNeverBeenContacted</code></td>
+<td>POST</td>
+<td>youngNeverBeenContacted</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification</code></td>
+<td>POST</td>
+<td>getPersonByClassificationPastoralCare</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/getPersonByClassification/{type:[0-9]+}</code></td>
+<td>POST</td>
+<td>getPersonByClassificationPastoralCare</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="api-meeting">API "meeting"<a class="headerlink" href="#api-meeting" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/meeting/meeting.php</p>
 <h2 id="api-sundayschool">API "sundayschool"<a class="headerlink" href="#api-sundayschool" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/sundayschool.php</p>
 <table>
@@ -7664,8 +8462,8 @@
 </tbody>
 </table>
 <hr />
-<h2 id="api-dashboard">API "dashboard"<a class="headerlink" href="#api-dashboard" title="Permanent link">&para;</a></h2>
-<p>in route : "/api/routes/system/system-dashboard.php</p>
+<h2 id="api-synchronize">API "synchronize"<a class="headerlink" href="#api-synchronize" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/system/system-synchronize.php</p>
 <table>
 <thead>
 <tr>
@@ -7680,10 +8478,13 @@
 <td><code>/page</code></td>
 <td>GET</td>
 <td>function ($request,$response,$args)</td>
-<td>No description</td>
+<td>Returns the dashboard items in function of the current page name : for CRMJsom.js</td>
 </tr>
 </tbody>
 </table>
+<ul>
+<li><code>{page}</code>-&gt;<code>string</code> :: current page name</li>
+</ul>
 <hr />
 <h2 id="api-database">API "database"<a class="headerlink" href="#api-database" title="Permanent link">&para;</a></h2>
 <p>in route : "/api/routes/system/system-database.php</p>
@@ -7719,7 +8520,7 @@
 <tr>
 <td><code>/backupRemote</code></td>
 <td>POST</td>
-<td>function() use ($app, $systemService)</td>
+<td>function($request, $response, $args)</td>
 <td>No description</td>
 </tr>
 </tbody>

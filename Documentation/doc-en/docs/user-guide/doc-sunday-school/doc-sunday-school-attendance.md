@@ -4,26 +4,33 @@ For a SundaySchool group, one can call the register
 
 ##Call the register
 
-It can be done by different ways, the easiest is : 
+It can be done by different ways, the easiest is :
 
-1. Choose the group<br>
-![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)<br>
-2. then activate<br>
-![Screenshot](../../img/sundayschool/sundayschoolAttendance1.png)<br>
+1. Choose the group
+
+![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)
+
+2. then activate
+
+![Screenshot](../../img/sundayschool/sundayschoolAttendance1.png)
+
 3. One can now create the event "call the register"
-![Screenshot](../../img/sundayschool/sundayschoolAttendance2.png)<br>
-4. And is now able to do it<br> 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)<br>
 
-Lastly: 
+![Screenshot](../../img/sundayschool/sundayschoolAttendance2.png)
+
+4. And is now able to do it
+
+![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)
+
+Lastly:
 * Select or deselect all the boxes
 * Then select in the "attendance list", at the bottom of the page
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)<br>
+![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)
 
-> **Note** : one can take some notes in the text section, and drag and drop images and files 
+> **Note** : one can take some notes in the text section, and drag and drop images and files
 
-##Export the group in CVS or PDF 
+##Export the group in CVS or PDF
 
 Choose the group
 
@@ -39,7 +46,7 @@ Click on one or the other button
 
 The history of the attendance lists from the last few months will be on display
 
-> Note : the export of the lists will be done automatically with the attendance statistics 
+> Note : the export of the lists will be done automatically with the attendance statistics
 
 
 

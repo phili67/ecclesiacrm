@@ -1,8 +1,8 @@
 # Project information
-site_name: 'Ecclesia for MkDocs'
-site_description: 'A Material Design theme for MkDocs'
+site_name: 'EcclesiaCRM Documentation'
+site_description: 'a full documentation of the CRM'
 site_author: 'Philippe Logel'
-site_url: 'https://github.com/phili67/ecclesiacrm/releases/'
+site_url: 'https://github.com/phili67/ecclesiacrm'
 
 # Copyright
 copyright: 'Copyright &copy; 2017 - 2018 Philippe Logel'
@@ -12,8 +12,8 @@ theme:
   name: 'material'
   language: 'en'
   palette:
-    primary: 'cyan'
-    accent: 'cyan'
+    primary: 'brown'
+    accent: 'brown'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'

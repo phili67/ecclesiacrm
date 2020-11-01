@@ -782,22 +782,22 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-profile/", 
-            "text": "A user has a personal space where one can store their documents \n\n\n\n\n\n\nTo have access: \n\n\n\n\n\n\n\n\nPersonal space: \n\n\n\n\n\n\n\n\nThey can modify: \n\n\n\n\nthe documents \n\n\ntheir profile\n\n\ntheir family \n\n\netc ....", 
+            "text": "A user has a personal space where one can store their documents\n\n\n\n\nTo have access:\n\n\n\n\n\n\n\n\nPersonal space:\n\n\n\n\n\n\n\n\nThey can modify:\n\n\nthe documents\n\n\ntheir profile\n\n\ntheir family\n\n\netc ....", 
             "title": "Home"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-settings/", 
-            "text": "A user has the following rights, granted by the administrator \n\n\n\n\n\n\nModify the personal settings\n\n\n\n\n\n\n\n\nModify the following settings \n\n\n\n\n\n\n\n\nNote : Depending on one's administrator, one will not always have access to all these settings: \n\n\n\n\nbEmailMailto : User's permission to send them emails via Mailto's links.  \n\n\nsMailtoDelimiter : User's permission to send them emails via Mailto's links.  \n\n\nbUSAddressVerification :User's permission to use the Address Verification IST\n\n\nbShowTooltip : Permission to display the tool tips\n\n\nsCSVExportDelemiter : to export in another text coding \n\n\nsCSVExportCharset : by default UFT-8 for european coding; use Windows-1252 for french coding. \n\n\nbSidebarExpandOnHover : The sidebar opens by default at the skimming of the mouse. \n\n\nbSidebarCollapse : The sidebar is closed by default\n\n\nsMapExternalProvider : when one will want to see a person's address on a map on their phone, they will be able to choose the type of map (Apple Maps, GoogleMaps, BingMaps). \n\n\nsStyle : one can choose the topic style \n\n\n\n\nThey will be chosen by the CRM administrator", 
+            "text": "A user has the following rights, granted by the administrator\n\n\n\n\nModify the personal settings\n\n\n\n\n\n\n\n\nModify the following settings\n\n\n\n\n\n\nNote : Depending on one's administrator, one will not always have access to all these settings:\n\n\n\n\nbEmailMailto : User's permission to send them emails via Mailto's links.\n\n\nsMailtoDelimiter : User's permission to send them emails via Mailto's links.\n\n\nbUSAddressVerification :User's permission to use the Address Verification IST\n\n\nbShowTooltip : Permission to display the tool tips\n\n\nsCSVExportDelemiter : to export in another text coding\n\n\nsCSVExportCharset : by default UFT-8 for european coding; use Windows-1252 for french coding.\n\n\nbSidebarExpandOnHover : The sidebar opens by default at the skimming of the mouse.\n\n\nbSidebarCollapse : The sidebar is closed by default\n\n\nsMapExternalProvider : when one will want to see a person's address on a map on their phone, they will be able to choose the type of map (Apple Maps, GoogleMaps, BingMaps).\n\n\nsStyle : one can choose the topic style\n\n\n\n\nThey will be chosen by the CRM administrator", 
             "title": "Settings"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-calendar/", 
-            "text": "A user can create personal calendars and open them on his cellphone or share them to other users. \n\n\nCalendars\n\n\nChoose \"Events and calendars\" in the sidebar\n\n\n\n\nThere are three types of calendars: \n\n\n\n\n\n\npersonal calendar\n\n\n\n\n\n\ngroup calendar\n\n\n\n\n\n\nbooking calendar\n\n\n\n\n\n\nshared calendar\n\n\n\n\n\n\nTo add a new calendar\n\n\n\n\n\n\nClick on \"+\"\n\n\n\n\n\n\n\n\nthen choose a name\n\n\n\n\n\n\nChange the color\n\n\n\n\n\n\nClick on the calendar icon\n\n\n\n\n\n\n\n\nChoose the desired color\n\n\n\n\n\n\n\n\nThe result is on the right\n\n\n\n\n\n\nInclude/exclude calendars\n\n\n\n\n\n\nOne can include/exclude some calendars\n\n\n\n\nclick on the wheel\n\n\n\n\n\n\n\n\nSelect the calendar to include/exclude \n\n\n\n\n\n\n\n\nThe result: \n\n\n\n\n\n\n\n\nIn the sidebar the calendar is hidden and not deleted\n\n\n\n\n\n\n\n\n\n\nTo delete a calendar\n\n\n\n\n\n\nGo to the part management (second wheel)\n\n\n\n\n\n\n\n\nClick on \"delete\"\n\n\n\n\n\n\n\n\nNotes\n\n\nThere are two links in this window: \n- One of the link is for the shared calendars and comes in handy when the server is compatible with Caldav. \n- The other link is usable as long as the administrator settings allow it, to this end one can go to the settings part of the administrator manual.", 
+            "text": "A user can create personal calendars and open them on his cellphone or share them to other users.\n\n\nCalendars\n\n\nChoose \"Events and calendars\" in the sidebar\n\n\n\n\nThere are three types of calendars:\n\n\n\n\n\n\npersonal calendar\n\n\n\n\n\n\ngroup calendar\n\n\n\n\n\n\nbooking calendar\n\n\n\n\n\n\nshared calendar\n\n\n\n\n\n\nTo add a new calendar\n\n\n\n\n\n\nClick on \"+\"\n\n\n\n\n\n\n\n\nthen choose a name\n\n\n\n\n\n\nChange the color\n\n\n\n\n\n\nClick on the calendar icon\n\n\n\n\n\n\n\n\nChoose the desired color\n\n\n\n\n\n\n\n\nThe result is on the right\n\n\n\n\n\n\nInclude/exclude calendars\n\n\n\n\n\n\nOne can include/exclude some calendars\n\n\n\n\nclick on the wheel\n\n\n\n\n\n\n\n\nSelect the calendar to include/exclude\n\n\n\n\n\n\n\n\nThe result:\n\n\n\n\n\n\n\n\nIn the sidebar the calendar is hidden and not deleted\n\n\n\n\n\n\n\n\n\n\nTo delete a calendar\n\n\n\n\nGo to the part management (second wheel)\n\n\n\n\n\n\n\n\nClick on \"delete\"\n\n\n\n\n\n\nNotes\n\n\nThere are two links in this window:\n- One of the link is for the shared calendars and comes in handy when the server is compatible with Caldav.\n- The other link is usable as long as the administrator settings allow it, to this end one can go to the settings part of the administrator manual.", 
             "title": "Add & delete"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-calendar/#calendars", 
-            "text": "Choose \"Events and calendars\" in the sidebar   There are three types of calendars:     personal calendar    group calendar    booking calendar    shared calendar", 
+            "text": "Choose \"Events and calendars\" in the sidebar   There are three types of calendars:    personal calendar    group calendar    booking calendar    shared calendar", 
             "title": "Calendars"
         }, 
         {
@@ -812,7 +812,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-calendar/#includeexclude-calendars", 
-            "text": "One can include/exclude some calendars   click on the wheel     Select the calendar to include/exclude      The result:      In the sidebar the calendar is hidden and not deleted", 
+            "text": "One can include/exclude some calendars   click on the wheel     Select the calendar to include/exclude     The result:     In the sidebar the calendar is hidden and not deleted", 
             "title": "Include/exclude calendars"
         }, 
         {
@@ -822,47 +822,47 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-calendar/#notes", 
-            "text": "There are two links in this window: \n- One of the link is for the shared calendars and comes in handy when the server is compatible with Caldav. \n- The other link is usable as long as the administrator settings allow it, to this end one can go to the settings part of the administrator manual.", 
+            "text": "There are two links in this window:\n- One of the link is for the shared calendars and comes in handy when the server is compatible with Caldav.\n- The other link is usable as long as the administrator settings allow it, to this end one can go to the settings part of the administrator manual.", 
             "title": "Notes"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-events/", 
-            "text": "One can create different events: a group, a person or a shared event. \n\n\nCreate an event\n\n\n\n\n\n\nGo to \"calendar\" \n\n\n\n\n\n\nClick on the calendar area desired: \n\n\n\n\n\n\n\n\nAnd one can enter the event as following: \n\n\n\n\n\n\n\n\nDo not forget to choose a calendar\n\n\nIt is possible to change the date and make the event recurring \n   To this end, click on the date and it will open: \n\n\n\n\n\n\n\n\nThen one can custom the event \n\n\nadd text \n\n\n\n\n\n\n\n\n\n\nOr go to \"list the events\" \n\n\n\n\n\n\nThe above-mentioned steps are the same \n\n\n\n\n\n\n\n\nActivate a document \n\n\n\n\nA document can be made active or inactive \n\n\n\n\n\n\n\n\nNotes\n\n\n\n\nOne can now add participants to the events \n\n\nThey can be add to a reminder\n\n\nan inactive event will not appear in the calendar and will be displayed only in the events list; therefore it is possible to prepare events ahead of time and activate them progressively.", 
+            "text": "One can create different events: a group, a person or a shared event.\n\n\nCreate an event\n\n\n\n\nGo to \"calendar\"\n\n\n\n\n\n\n\n\nClick on the calendar area desired:\n\n\n\n\n\n\n\n\nAnd one can enter the event as following:\n\n\n\n\n\n\n\n\nDo not forget to choose a calendar\n\n\nIt is possible to change the date and make the event recurring\nTo this end, click on the date and it will open:\n\n\n\n\n\n\n\n\nThen one can custom the event\n\n\nadd text\n\n\n\n\n\n\n\n\nOr go to \"list Church Events\"\n\n\n\n\n\n\n\n\n\n\nThe above-mentioned steps are the same\n\n\n\n\n\n\nActivate a document\n\n\n\n\n\n\nA document can be made active or inactive\n\n\n\n\n\n\nNotes\n\n\n\n\nOne can now add participants to the events\n\n\nThey can be add to a reminder\n\n\nan inactive event will not appear in the calendar and will be displayed only in the events list; therefore it is possible to prepare events ahead of time and activate them progressively.", 
             "title": "Create an event"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-events/#create-an-event", 
-            "text": "Go to \"calendar\"     Click on the calendar area desired:      And one can enter the event as following:      Do not forget to choose a calendar  It is possible to change the date and make the event recurring \n   To this end, click on the date and it will open:      Then one can custom the event   add text       Or go to \"list the events\"     The above-mentioned steps are the same      Activate a document    A document can be made active or inactive", 
+            "text": "Go to \"calendar\"     Click on the calendar area desired:     And one can enter the event as following:     Do not forget to choose a calendar  It is possible to change the date and make the event recurring\nTo this end, click on the date and it will open:     Then one can custom the event  add text     Or go to \"list Church Events\"      The above-mentioned steps are the same    Activate a document    A document can be made active or inactive", 
             "title": "Create an event"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-events/#notes", 
-            "text": "One can now add participants to the events   They can be add to a reminder  an inactive event will not appear in the calendar and will be displayed only in the events list; therefore it is possible to prepare events ahead of time and activate them progressively.", 
+            "text": "One can now add participants to the events  They can be add to a reminder  an inactive event will not appear in the calendar and will be displayed only in the events list; therefore it is possible to prepare events ahead of time and activate them progressively.", 
             "title": "Notes"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-calendar/", 
-            "text": "A user can create personal calendars and open them on his phone and share it to other users. \n\n\nShare a calendar\n\n\n\n\n\n\nGo to the management part (second star wheel next to the calendar) \n\n\n\n\n\n\n\n\nclick on \"management\" \n\n\n\n\n\n\n\n\nHere's the result\n\n\n\n\n\n\n\n\nIn the text field add a person, a family or a group\n\n\n\n\n\n\nOne can choose the options Reading/Writing\n\n\n\n\n\n\nNotes\n\n\n\n\nthe steps are the same for the shared and group calendars \n\n\na group calendar can only be add by an administrator", 
+            "text": "A user can create personal calendars and open them on his phone and share it to other users.\n\n\nShare a calendar\n\n\n\n\nGo to the management part (second star wheel next to the calendar)\n\n\n\n\n\n\n\n\nclick on \"management\"\n\n\n\n\n\n\n\n\nHere's the result\n\n\n\n\n\n\n\n\n\n\nIn the text field add a person, a family or a group\n\n\n\n\n\n\nOne can choose the options Reading/Writing\n\n\n\n\n\n\nNotes\n\n\n\n\nthe steps are the same for the shared and group calendars\n\n\na group calendar can only be add by an administrator", 
             "title": "Share your calendar"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-calendar/#share-a-calendar", 
-            "text": "Go to the management part (second star wheel next to the calendar)      click on \"management\"      Here's the result     In the text field add a person, a family or a group    One can choose the options Reading/Writing", 
+            "text": "Go to the management part (second star wheel next to the calendar)     click on \"management\"     Here's the result      In the text field add a person, a family or a group    One can choose the options Reading/Writing", 
             "title": "Share a calendar"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-calendar/#notes", 
-            "text": "the steps are the same for the shared and group calendars   a group calendar can only be add by an administrator", 
+            "text": "the steps are the same for the shared and group calendars  a group calendar can only be add by an administrator", 
             "title": "Notes"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-mac/", 
-            "text": "A calendar can be shared with a Mac, an iPhone or Thunderbird. \n\n\nEcclesiaCRM is compatible CalDAV \n\n\nShare a calendar on a Mac\n\n\n\n\n\n\nOpen Calendar on a Mac and add a new one\n\n\n\n\n\n\n\n\nThe features are the following, one will have to enter the user's login in EcclesiaCRM\n\n\n\n\n\n\n\n\nHere's the result\n\n\n\n\n\n\nOne will be able to add events, if the calendar is accessible in writing. \n\n\nEverything will be pass on a Mac\n\n\n\n\n\n\n\n\nShare a calendar in IOS\n\n\nThe steps are the same as on a Mac\n\n\nEnter the url in the form: http://192.168.151.205/calendarserver.php/principals/plogel2/\n\n\nShare in Thunderbird Share in\n\n\n\n\n\n\nOne has to have the calendar's address\n\n\n\n\n\n\n\n\nthen select the address and enter it in Thunderbird.\n\n\n\n\n\n\nHowever it has to be done for every calendar\n\n\n\n\n\n\nFor Outlook one needs a synchronizer (as in Zimbra)\n\n\nYou can download it here: \n\n\nhttps://sourceforge.net/projects/outlookcaldavsynchronizer/\n\n\nNotes\n\n\n\n\nthe steps are the same for the shared and group calendars \n\n\na group calendar can only be add by an administrator", 
+            "text": "A calendar can be shared with a Mac, an iPhone or Thunderbird.\n\n\nEcclesiaCRM is compatible CalDAV\n\n\nShare a calendar on a Mac\n\n\n\n\nOpen Calendar on a Mac and add a new one\n\n\n\n\n\n\n\n\nThe features are the following, one will have to enter the user's login in EcclesiaCRM\n\n\n\n\n\n\n\n\nHere's the result\n\n\n\n\n\n\n\n\nOne will be able to add events, if the calendar is accessible in writing.\n\n\nEverything will be pass on a Mac\n\n\n\n\nShare a calendar in IOS\n\n\nThe steps are the same as on a Mac\n\n\nEnter the url in the form: http://192.168.151.205/calendarserver.php/principals/plogel2/\n\n\nShare in Thunderbird Share in\n\n\n\n\nOne has to have the calendar's address\n\n\n\n\n\n\n\n\n\n\nthen select the address and enter it in Thunderbird.\n\n\n\n\n\n\nHowever it has to be done for every calendar\n\n\n\n\n\n\nFor Outlook one needs a synchronizer (as in Zimbra)\n\n\nYou can download it here:\n\n\nhttps://sourceforge.net/projects/outlookcaldavsynchronizer/\n\n\nNotes\n\n\n\n\nthe steps are the same for the shared and group calendars\n\n\na group calendar can only be add by an administrator", 
             "title": "Share with a Mac"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-mac/#share-a-calendar-on-a-mac", 
-            "text": "Open Calendar on a Mac and add a new one     The features are the following, one will have to enter the user's login in EcclesiaCRM     Here's the result    One will be able to add events, if the calendar is accessible in writing.   Everything will be pass on a Mac", 
+            "text": "Open Calendar on a Mac and add a new one     The features are the following, one will have to enter the user's login in EcclesiaCRM     Here's the result     One will be able to add events, if the calendar is accessible in writing.  Everything will be pass on a Mac", 
             "title": "Share a calendar on a Mac"
         }, 
         {
@@ -872,32 +872,32 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-mac/#share-in-thunderbird-share-in", 
-            "text": "One has to have the calendar's address     then select the address and enter it in Thunderbird.    However it has to be done for every calendar", 
+            "text": "One has to have the calendar's address      then select the address and enter it in Thunderbird.    However it has to be done for every calendar", 
             "title": "Share in Thunderbird Share in"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-mac/#for-outlook-one-needs-a-synchronizer-as-in-zimbra", 
-            "text": "You can download it here:   https://sourceforge.net/projects/outlookcaldavsynchronizer/", 
+            "text": "You can download it here:  https://sourceforge.net/projects/outlookcaldavsynchronizer/", 
             "title": "For Outlook one needs a synchronizer (as in Zimbra)"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-share-mac/#notes", 
-            "text": "the steps are the same for the shared and group calendars   a group calendar can only be add by an administrator", 
+            "text": "the steps are the same for the shared and group calendars  a group calendar can only be add by an administrator", 
             "title": "Notes"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/", 
-            "text": "It is possible with the EcclesiaCRM version 4.1 and higher to manage the documents models. \n\n\nDisplay all the documents\n\n\n\n\n\n\nGo to personal space \n\n\n\n\n\n\n\n\nCliquez l'onglet Documents click on the tab \"document\" \n\n\n\n\n\n\n\n\nHere's the list of documents \n\n\n\n\n\n\n\n\nIt is possible to list them by type\n\n\n\n\n\n\n\n\nCreation\n\n\n\n\n\n\nGo to a document, CKEditor\n\n\n\n\nGo to personal space \n\n\n\n\n\n\n\n\n\n\nAdd a document \n\n\n\n\n\n\n\n\nEditing\n\n\nClick on the icon \n\n\n\n\nDeleting\n\n\nClick on the icon \n\n\n\n\n\n\nOne can create three types of document\n\n\n\n\n\n\n\n\nThe standard documents\none can have a word processing. it is possible to work in full screen mode.\n \n     \n\n     It is a CKeditor document on display in the CRM.\nOne can formate it as desired.\n\n\n\n\n\n\nVideos\n\n\nIt is a standard CKeditor document in a video format. \n\n\n\n\n\n\nTo add a Youtube video the process is complex because of the rights: \n\n\n\n\n\n\nGo on Youtube: \n\n\n\n\n\n\n\n\n\n\nClick on the link \"share\"\n\n\n\n\n\n\n\n\nClick on the link \"include\"\n\n\n\n\n\n\n\n\nCopy the link as following\n\n\n\n\n\n\n\n\nGo on EcclesiaCRM and create a document (see the first step) and choose the type \"standard video\" \n\n\n\n\n\n\n\n\nClick on the icon \n\n\n\n\n\n\n\n\npaste the link\n\n\n\n\n\n\n\n\n\n\nGive a name to the document\n\n\n\n\n\n\n\n\n\n\n\n\nThe standard audio files \n\n\n\n\n\n\nIt is a standard CKeditor document in an audio format, it is only useful for the listing \n\n\nNotes\n\n\n\n\nOne can do the same with the shared and group calendars\n\n\nA group calendar can only be add by an administrator", 
+            "text": "It is possible with the EcclesiaCRM version 4.1 and higher to manage the documents models.\n\n\nDisplay all the documents\n\n\n\n\n\n\nGo to personal space\n\n\n\n\n\n\n\n\nCliquez l'onglet Documents click on the tab \"document\"\n\n\n\n\n\n\n\n\nHere's the list of documents\n\n\n\n\n\n\n\n\nIt is possible to list them by type\n\n\n\n\n\n\n\n\nCreation\n\n\n\n\n\n\nGo to a document, CKEditor\n\n\n\n\nGo to personal space\n\n\n\n\n\n\n\n\n\n\nAdd a document\n\n\n\n\n\n\n\n\nEditing\n\n\nClick on the icon\n\n\n\n\nDeleting\n\n\nClick on the icon\n\n\n\n\n\n\nOne can create three types of document\n\n\n\n\n\n\nThe standard documents\none can have a word processing. it is possible to work in full screen mode.\n\n\n\n\n\n\nIt is a CKeditor document on display in the CRM.\nOne can formate it as desired.\n\n\n\n\nVideos\n\n\n\n\nIt is a standard CKeditor document in a video format.\n\n\n\n\n\n\nTo add a Youtube video the process is complex because of the rights:\n\n\n\n\n\n\nGo on Youtube:\n\n\n\n\n\n\n\n\n\n\nClick on the link \"share\"\n\n\n\n\n\n\n\n\nClick on the link \"include\"\n\n\n\n\n\n\n\n\nCopy the link as following\n\n\n\n\n\n\n\n\nGo on EcclesiaCRM and create a document (see the first step) and choose the type \"standard video\"\n\n\n\n\n\n\n\n\nClick on the icon\n\n\n\n\n\n\n\n\npaste the link\n\n\n\n\n\n\n\n\nGive a name to the document\n\n\n\n\n\n\n\n\nThe standard audio files\n\n\n\n\nIt is a standard CKeditor document in an audio format, it is only useful for the listing\n\n\nNotes\n\n\n\n\nOne can do the same with the shared and group calendars\n\n\nA group calendar can only be add by an administrator", 
             "title": "Create-manage"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/#display-all-the-documents", 
-            "text": "Go to personal space      Cliquez l'onglet Documents click on the tab \"document\"      Here's the list of documents      It is possible to list them by type", 
+            "text": "Go to personal space     Cliquez l'onglet Documents click on the tab \"document\"     Here's the list of documents     It is possible to list them by type", 
             "title": "Display all the documents"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/#creation", 
-            "text": "Go to a document, CKEditor   Go to personal space       Add a document", 
+            "text": "Go to a document, CKEditor   Go to personal space      Add a document", 
             "title": "Creation"
         }, 
         {
@@ -912,7 +912,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/#one-can-create-three-types-of-document", 
-            "text": "The standard documents one can have a word processing. it is possible to work in full screen mode.  \n      \n     It is a CKeditor document on display in the CRM. One can formate it as desired.    Videos  It is a standard CKeditor document in a video format.     To add a Youtube video the process is complex because of the rights:     Go on Youtube:       Click on the link \"share\"     Click on the link \"include\"     Copy the link as following     Go on EcclesiaCRM and create a document (see the first step) and choose the type \"standard video\"      Click on the icon      paste the link      Give a name to the document       The standard audio files     It is a standard CKeditor document in an audio format, it is only useful for the listing", 
+            "text": "The standard documents one can have a word processing. it is possible to work in full screen mode.    It is a CKeditor document on display in the CRM. One can formate it as desired.   Videos   It is a standard CKeditor document in a video format.    To add a Youtube video the process is complex because of the rights:    Go on Youtube:      Click on the link \"share\"     Click on the link \"include\"     Copy the link as following     Go on EcclesiaCRM and create a document (see the first step) and choose the type \"standard video\"     Click on the icon     paste the link     Give a name to the document     The standard audio files   It is a standard CKeditor document in an audio format, it is only useful for the listing", 
             "title": "One can create three types of document"
         }, 
         {
@@ -922,12 +922,12 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-share/", 
-            "text": "A user can share their documents with all the other users\n\n\nShare a document\n\n\n\n\n\n\nGo to personal settings \n\n\n\n\n\n\n\n\nGo to the tab \"document\"\n\n\n\n\n\n\n\n\nChoose the following icon\n\n\n\n\n\n\n\n\nThe following window will open\n\n\n\n\n\n\n\n\nChoose the name of: \n\n\n\n\na person\n\n\na family \n\n\na group\n\n\n\n\na document is shared when the icon has turned green\n\n\n\n\n\n\n\n\nIt is possible to fix the rights for each of the person that have access to the shared documents \n\n\n\n\n\n\n\n\nModify the sharing or the rights\n\n\nClick again on the following icon \n\n\n\n\nNote\n\n\nWith the dialog box, it is possible to delete: \n\n\n\n\nusers having access to the shared documents \n\n\nor the sharing itself via the same steps", 
+            "text": "A user can share their documents with all the other users\n\n\nShare a document\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nGo to the tab \"document\"\n\n\n\n\n\n\n\n\nChoose the following icon\n\n\n\n\n\n\n\n\nThe following window will open\n\n\n\n\n\n\n\n\n\n\nChoose the name of:\n\n\n\n\n\n\na person\n\n\n\n\na family\n\n\na group\n\n\n\n\na document is shared when the icon has turned green\n\n\n\n\n\n\nIt is possible to fix the rights for each of the person that have access to the shared documents\n\n\n\n\n\n\nModify the sharing or the rights\n\n\nClick again on the following icon\n\n\n\n\nNote\n\n\nWith the dialog box, it is possible to delete:\n\n\n\n\nusers having access to the shared documents\n\n\nor the sharing itself via the same steps", 
             "title": "Share them"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-share/#share-a-document", 
-            "text": "Go to personal settings      Go to the tab \"document\"     Choose the following icon     The following window will open     Choose the name of:    a person  a family   a group   a document is shared when the icon has turned green     It is possible to fix the rights for each of the person that have access to the shared documents", 
+            "text": "Go to personal settings     Go to the tab \"document\"     Choose the following icon     The following window will open      Choose the name of:    a person   a family  a group   a document is shared when the icon has turned green    It is possible to fix the rights for each of the person that have access to the shared documents", 
             "title": "Share a document"
         }, 
         {
@@ -937,17 +937,17 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-share/#note", 
-            "text": "With the dialog box, it is possible to delete:    users having access to the shared documents   or the sharing itself via the same steps", 
+            "text": "With the dialog box, it is possible to delete:   users having access to the shared documents  or the sharing itself via the same steps", 
             "title": "Note"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/", 
-            "text": "The EcclesiaCRM version 5.5.0 or higher allows to deal with the text zones in one's documents \n\n\n\n\nThe drag and drop of images \n\n\nthe box of image and link management are now integrated to EDrive\n\n\n\n\nTo this end: \n\n\nCreate or edit a document\n\n\n\n\n\n\nOpen a document, CKEditor\n\n\n\n\nGo to a personal space \n\n\n\n\n\n\n\n\n\n\nAdd a document \n\n\n\n\n\n\n\n\nEdition\n\n\nClick on the icon: \n\n\n\n\nDrag and drop images\n\n\nOnce the document is opened drag and drop the image in. \n\n\n\n\nHere's the result: \n\n\n\n\nThe file is in Edrive if it is activate  (*)\n\n\n\n\nNote\n one can update the drive with the button above \n\n\nDrag and drop the files\n\n\nOnce the document is opened drag and drop the files in. \n\n\n\n\nhere's the result: \n\n\n\n\nThe file is in Edrive if it is activate  (*)\n\n\n\n\nNote\n one can update the drive with the button above \n\n\nInclude photographs in EDrive (*)\n\n\nSelect: \n\n\n\n\nthen click\n\n\n\n\nchoose the line: \n\n\n\n\nAnd click on the icon \n\n\n\n\nOne can manage all the standard settings on CKEditor. The link is dependent on an API (**) \n\n\n\n\nHere's the result: \n\n\n\n\nInclude files in EDrive (*)\n\n\nTo this end select: \n\n\n\n\nThen click \n\n\n\n\nChoose the file in EDrive, the result will be: \n\n\nOne can choose here the name of the link on the page. The link is dependent on an API (**) \n\n\n\n\nhere's the result: \n\n\n\n\nNote\n \n\n\n(*) To active the EDrive, go to \"system settings\" -\n \"user system\" \n\n\nThen edit the user and add the role \n\n\n(**) The link to the document are via an API, except if the document is in public \n\n\nIn this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)", 
+            "text": "The EcclesiaCRM version 5.5.0 or higher allows to deal with the text zones in one's documents\n\n\n\n\nThe drag and drop of images\n\n\nthe box of image and link management are now integrated to EDrive\n\n\n\n\nTo this end:\n\n\nCreate or edit a document\n\n\n\n\n\n\nOpen a document, CKEditor\n\n\n\n\n\n\nGo to a personal space\n\n\n\n\n\n\n\n\n\n\nAdd a document\n\n\n\n\n\n\nEdition\n\n\nClick on the icon:\n\n\n\n\nDrag and drop images\n\n\nOnce the document is opened drag and drop the image in.\n\n\n\n\nHere's the result:\n\n\n\n\nThe file is in Edrive if it is activate  (*)\n\n\n\n\nNote\n one can update the drive with the button above\n\n\nDrag and drop the files\n\n\nOnce the document is opened drag and drop the files in.\n\n\n\n\nhere's the result:\n\n\n\n\nThe file is in Edrive if it is activate  (*)\n\n\n\n\nNote\n one can update the drive with the button above\n\n\nInclude photographs in EDrive (*)\n\n\nSelect:\n\n\n\n\nthen click\n\n\n\n\nchoose the line:\n\n\n\n\nAnd click on the icon\n\n\n\n\nOne can manage all the standard settings on CKEditor. The link is dependent on an API (**)\n\n\n\n\nHere's the result:\n\n\n\n\nInclude files in EDrive (*)\n\n\nTo this end select:\n\n\n\n\nThen click\n\n\n\n\nChoose the file in EDrive, the result will be:\n\n\nOne can choose here the name of the link on the page. The link is dependent on an API (**)\n\n\n\n\nhere's the result:\n\n\n\n\nNote\n\n\n(*) To active the EDrive, go to \"system settings\" -\n \"user system\"\n\n\nThen edit the user and add the role\n\n\n(**) The link to the document are via an API, except if the document is in public\n\n\nIn this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)", 
             "title": "Images and Files"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/#create-or-edit-a-document", 
-            "text": "Open a document, CKEditor   Go to a personal space       Add a document", 
+            "text": "Open a document, CKEditor    Go to a personal space      Add a document", 
             "title": "Create or edit a document"
         }, 
         {
@@ -957,22 +957,22 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/#drag-and-drop-images", 
-            "text": "Once the document is opened drag and drop the image in.    Here's the result:    The file is in Edrive if it is activate  (*)   Note  one can update the drive with the button above", 
+            "text": "Once the document is opened drag and drop the image in.   Here's the result:   The file is in Edrive if it is activate  (*)   Note  one can update the drive with the button above", 
             "title": "Drag and drop images"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/#drag-and-drop-the-files", 
-            "text": "Once the document is opened drag and drop the files in.    here's the result:    The file is in Edrive if it is activate  (*)   Note  one can update the drive with the button above", 
+            "text": "Once the document is opened drag and drop the files in.   here's the result:   The file is in Edrive if it is activate  (*)   Note  one can update the drive with the button above", 
             "title": "Drag and drop the files"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/#include-photographs-in-edrive", 
-            "text": "Select:    then click   choose the line:    And click on the icon    One can manage all the standard settings on CKEditor. The link is dependent on an API (**)    Here's the result:", 
+            "text": "Select:   then click   choose the line:   And click on the icon   One can manage all the standard settings on CKEditor. The link is dependent on an API (**)   Here's the result:", 
             "title": "Include photographs in EDrive (*)"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-images-files/#include-files-in-edrive", 
-            "text": "To this end select:    Then click    Choose the file in EDrive, the result will be:   One can choose here the name of the link on the page. The link is dependent on an API (**)    here's the result:    Note    (*) To active the EDrive, go to \"system settings\" -  \"user system\"   Then edit the user and add the role   (**) The link to the document are via an API, except if the document is in public   In this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)", 
+            "text": "To this end select:   Then click   Choose the file in EDrive, the result will be:  One can choose here the name of the link on the page. The link is dependent on an API (**)   here's the result:   Note  (*) To active the EDrive, go to \"system settings\" -  \"user system\"  Then edit the user and add the role  (**) The link to the document are via an API, except if the document is in public  In this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)", 
             "title": "Include files in EDrive (*)"
         }, 
         {
@@ -1002,52 +1002,52 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-templates/", 
-            "text": "It is possible with the EcclesiaCRM version 4.1 and higher to manage the documents models. \n\n\nCreation\n\n\n\n\n\n\nGo to a document, CKEditor \n\n\n\n\nTo this end, go to personal space \n\n\n\n\n\n\n\n\n\n\nAdd a document \n\n\n\n\n\n\n\n\nThe first three icons of the list are for the models management \n\n\n\n\n\n\n\n\nCreate it \n\n\n\n\n\n\nFormate a document as one wishes \n\n\n\n\n\n\nThen one can add it to the list of models \n\n\n\n\nClick on the icon\n\n\nGive a name and a description to the model\n\n\n\n\n\n\n\n\n\n\n\n\nProfile management \n\n\n\n\nWhen a profile is created, it is possible to rename it or delete it \n\n\n\n\n\n\n\n\none can delete and rename it easily: \n\n\n\n\n\n\n\n\n\n\nApplication \n\n\n\n\n\n\n\n\nNotes\n\n\n\n\nOne can do the same with the shared and group calendars\n\n\nA group calendar can only be add by an administrator \n\n\nThe models are useful with MailChimp and for the mailing campaigns.", 
+            "text": "It is possible with the EcclesiaCRM version 4.1 and higher to manage the documents models.\n\n\nCreation\n\n\n\n\n\n\nGo to a document, CKEditor\n\n\n\n\n\n\nTo this end, go to personal space\n\n\n\n\n\n\n\n\n\n\nAdd a document\n\n\n\n\n\n\n\n\nThe first three icons of the list are for the models management\n\n\n\n\n\n\n\n\n\n\nCreate it\n\n\n\n\n\n\nFormate a document as one wishes\n\n\n\n\n\n\nThen one can add it to the list of models\n\n\n\n\n\n\nClick on the icon\n\n\n\n\n\n\nGive a name and a description to the model\n\n\n\n\n\n\nProfile management\n\n\n\n\n\n\nWhen a profile is created, it is possible to rename it or delete it\n\n\n\n\n\n\n\n\n\n\none can delete and rename it easily:\n\n\n\n\n\n\n\n\nApplication\n\n\n\n\n\n\nNotes\n\n\n\n\nOne can do the same with the shared and group calendars\n\n\nA group calendar can only be add by an administrator\n\n\nThe models are useful with MailChimp and for the mailing campaigns.", 
             "title": "Document templates"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-templates/#creation", 
-            "text": "Go to a document, CKEditor    To this end, go to personal space       Add a document      The first three icons of the list are for the models management      Create it     Formate a document as one wishes     Then one can add it to the list of models    Click on the icon  Give a name and a description to the model       Profile management    When a profile is created, it is possible to rename it or delete it      one can delete and rename it easily:       Application", 
+            "text": "Go to a document, CKEditor    To this end, go to personal space      Add a document     The first three icons of the list are for the models management      Create it    Formate a document as one wishes    Then one can add it to the list of models    Click on the icon    Give a name and a description to the model    Profile management    When a profile is created, it is possible to rename it or delete it      one can delete and rename it easily:     Application", 
             "title": "Creation"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-templates/#notes", 
-            "text": "One can do the same with the shared and group calendars  A group calendar can only be add by an administrator   The models are useful with MailChimp and for the mailing campaigns.", 
+            "text": "One can do the same with the shared and group calendars  A group calendar can only be add by an administrator  The models are useful with MailChimp and for the mailing campaigns.", 
             "title": "Notes"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/", 
-            "text": "It is possible in the 5.0 d'Ecclesia\nCRM\n and higher, to manage the files with a file manager \n\n\nEDrive has a public and a private part, which are two different files and which: \n\n\n\n\n\n\nallows a clair link in the public part ( for MailChimp, for documents and images, files and to share a file to a person who is not a CRM user) \n\n\n\n\n\n\nin other cases the files have an url which will only be valid during the connection\n\n\n\n\n\n\nSee all the events on one's EDrive\n\n\n\n\n\n\nto this end go to one's personal space\n\n\n\n\n\n\n\n\nclick on the tab EDrive \n\n\n\n\n\n\n\n\nOr one can also access as following: \n\n\n\n\n\n\n\n\nBy default, every user has a public file ( key for Mailchimp).  \n\n\nThis file can be use to add images or documents to one's mail campaigns. \n\n\nAdd a file to one's EDrive\n\n\n\n\n\n\nto this end click on the icon\n \n       \n\n\n\n\n\n\nA dialog box will open\n\n       \n\n\n\n\n\n\nOne will be able to download the files on the server in one's personal space\n\n       \n\n\n\n\n\n\nChoose the files\n\n       \n\n\n\n\n\n\nthey are displayed\n\n       \n\n\n\n\n\n\nThen they will be on the server\n\n       \n\n\n\n\n\n\nNotes\n \n\n\nThe public file is used here: \n\n\nDisplay the file content\n\n\nEDrive is a real drive, click on the line: \n\n\n\n\n\n\nFor a PDF file\n\n       \n\n\n\n\n\n\nFor an image file\n\n       \n\n\n\n\n\n\nThen one will be able to preview the videos or mp3 files\n\n\n\n\n\n\nCreate a file\n\n\nthe steps are simple: \n\n\n\n\n\n\nclick on the button\n\n       \n\n\n\n\n\n\nenter the name of the file wanted\n\n       \n\n\n\n\n\n\nAnd it will be on display\n\n       \n\n\n\n\n\n\nChange the name of a file\n\n\n\n\n\n\ndouble click on the file's namer\n\n       \n\n\n\n\n\n\nEnter the new name\n \n       \n\n\n\n\n\n\nClick on \"enter\"\n\n       \n\n\n\n\n\n\nMove a file in a folder\n\n\n\n\n\n\nSelect the icon and move it in the wanted folder\n\n       \n\n\n\n\n\n\nthe drop is done\n\n       \n\n\n\n\n\n\nTo go to the wanted folder, double click on the icon of the folder\n\n       \n\n\n\n\n\n\nCome up from a folder\n\n\nclick on the following icon:  \n\n\nCome up a level a file in the parent folder\n\n\nDrag and drop the icon of the file or folder on \n\n\nThe file or folder will come up in the parent folder\n\n\ndelete an element\n\n\nTwo options: \n\n\n\n\n\n\nClick on the element and drag and drop in the Recycle bin \n\n\n\n\n\n\nor one clicks on \n\n\n\n\n\n\nTo conclude, it is a complete file manager \n\n\nEDrive is also via Webdav, like NextCloud or OwnCloud .... EcclesiaCRM is also Cloud.", 
+            "text": "It is possible in the 5.0 d'Ecclesia\nCRM\n and higher, to manage the files with a file manager\n\n\nEDrive has a public and a private part, which are two different files and which:\n\n\n\n\n\n\nallows a clair link in the public part ( for MailChimp, for documents and images, files and to share a file to a person who is not a CRM user)\n\n\n\n\n\n\nin other cases the files have an url which will only be valid during the connection\n\n\n\n\n\n\nSee all the events on one's EDrive\n\n\n\n\nto this end go to one's personal space\n\n\n\n\n\n\n\n\nclick on the tab EDrive\n\n\n\n\n\n\n\n\nOr one can also access as following:\n\n\n\n\n\n\nBy default, every user has a public file ( key for Mailchimp).\n\n\nThis file can be use to add images or documents to one's mail campaigns.\n\n\nAdd a file to one's EDrive\n\n\n\n\n\n\nto this end click on the icon\n\n\n\n\n\n\n\n\nA dialog box will open\n\n\n\n\n\n\n\n\nOne will be able to download the files on the server in one's personal space\n\n\n\n\n\n\n\n\nChoose the files\n\n\n\n\n\n\n\n\nthey are displayed\n\n\n\n\n\n\n\n\nThen they will be on the server\n\n\n\n\n\n\n\n\nNotes\n\n\nThe public file is used here:\n\n\nDisplay the file content\n\n\nEDrive is a real drive, click on the line:\n\n\n\n\n\n\nFor a PDF file\n\n\n\n\n\n\n\n\nFor an image file\n\n\n\n\n\n\n\n\nThen one will be able to preview the videos or mp3 files\n\n\n\n\n\n\nCreate a file\n\n\nthe steps are simple:\n\n\n\n\n\n\nclick on the button\n\n\n\n\n\n\n\n\nenter the name of the file wanted\n\n\n\n\n\n\n\n\nAnd it will be on display\n\n\n\n\n\n\n\n\nChange the name of a file\n\n\n\n\n\n\ndouble click on the file's namer\n\n\n\n\n\n\n\n\nEnter the new name\n\n\n\n\n\n\n\n\nClick on \"enter\"\n\n\n\n\n\n\n\n\nMove a file in a folder\n\n\n\n\n\n\nSelect the icon and move it in the wanted folder\n\n\n\n\n\n\n\n\nthe drop is done\n\n\n\n\n\n\n\n\nTo go to the wanted folder, double click on the icon of the folder\n\n\n\n\n\n\n\n\nCome up from a folder\n\n\nclick on the following icon:  \n\n\nCome up a level a file in the parent folder\n\n\nDrag and drop the icon of the file or folder on \n\n\nThe file or folder will come up in the parent folder\n\n\ndelete an element\n\n\nTwo options:\n\n\n\n\n\n\nClick on the element and drag and drop in the Recycle bin \n\n\n\n\n\n\nor one clicks on \n\n\n\n\n\n\nTo conclude, it is a complete file manager\n\n\nEDrive is also via Webdav, like NextCloud or OwnCloud .... EcclesiaCRM is also Cloud.", 
             "title": "EDrive in the CRM"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#see-all-the-events-on-ones-edrive", 
-            "text": "to this end go to one's personal space     click on the tab EDrive      Or one can also access as following:      By default, every user has a public file ( key for Mailchimp).    This file can be use to add images or documents to one's mail campaigns.", 
+            "text": "to this end go to one's personal space     click on the tab EDrive     Or one can also access as following:    By default, every user has a public file ( key for Mailchimp).  This file can be use to add images or documents to one's mail campaigns.", 
             "title": "See all the events on one's EDrive"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#add-a-file-to-ones-edrive", 
-            "text": "to this end click on the icon  \n           A dialog box will open \n           One will be able to download the files on the server in one's personal space \n           Choose the files \n           they are displayed \n           Then they will be on the server \n           Notes    The public file is used here:", 
+            "text": "to this end click on the icon     A dialog box will open     One will be able to download the files on the server in one's personal space     Choose the files     they are displayed     Then they will be on the server     Notes  The public file is used here:", 
             "title": "Add a file to one's EDrive"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#display-the-file-content", 
-            "text": "EDrive is a real drive, click on the line:     For a PDF file \n           For an image file \n           Then one will be able to preview the videos or mp3 files", 
+            "text": "EDrive is a real drive, click on the line:    For a PDF file     For an image file     Then one will be able to preview the videos or mp3 files", 
             "title": "Display the file content"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#create-a-file", 
-            "text": "the steps are simple:     click on the button \n           enter the name of the file wanted \n           And it will be on display", 
+            "text": "the steps are simple:    click on the button     enter the name of the file wanted     And it will be on display", 
             "title": "Create a file"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#change-the-name-of-a-file", 
-            "text": "double click on the file's namer \n           Enter the new name  \n           Click on \"enter\"", 
+            "text": "double click on the file's namer     Enter the new name     Click on \"enter\"", 
             "title": "Change the name of a file"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#move-a-file-in-a-folder", 
-            "text": "Select the icon and move it in the wanted folder \n           the drop is done \n           To go to the wanted folder, double click on the icon of the folder", 
+            "text": "Select the icon and move it in the wanted folder     the drop is done     To go to the wanted folder, double click on the icon of the folder", 
             "title": "Move a file in a folder"
         }, 
         {
@@ -1062,7 +1062,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#delete-an-element", 
-            "text": "Two options:     Click on the element and drag and drop in the Recycle bin     or one clicks on     To conclude, it is a complete file manager   EDrive is also via Webdav, like NextCloud or OwnCloud .... EcclesiaCRM is also Cloud.", 
+            "text": "Two options:    Click on the element and drag and drop in the Recycle bin     or one clicks on     To conclude, it is a complete file manager  EDrive is also via Webdav, like NextCloud or OwnCloud .... EcclesiaCRM is also Cloud.", 
             "title": "delete an element"
         }, 
         {
@@ -1092,17 +1092,17 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-tips/doc-export-CSV/", 
-            "text": "One can have coding and separator problems in the case of a CVS export. It could occur when exporting a dictionary, the SundaySchool classes or when one will export some data in table form. \n\n\nExcel\n or \nLibreOffice\n for example, may have problems to open the exported document. \n\n\nResolve the problem: \n\n\n\n\n\n\nGo to personal settings \n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following: \n\n\n\n\nbSidebarExpandOnHover : The sidebar opens by default at the skimming of the mouse. \n\n\nbSidebarCollapse : The sidebar is closed by default \n\n\n\n\nThe problem should now be solved.", 
+            "text": "One can have coding and separator problems in the case of a CVS export. It could occur when exporting a dictionary, the SundaySchool classes or when one will export some data in table form.\n\n\nExcel\n or \nLibreOffice\n for example, may have problems to open the exported document.\n\n\nResolve the problem:\n\n\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following:\n\n\n\n\nbSidebarExpandOnHover : The sidebar opens by default at the skimming of the mouse.\n\n\nbSidebarCollapse : The sidebar is closed by default\n\n\n\n\nThe problem should now be solved.", 
             "title": "Export problem (CSV)"
         }, 
         {
             "location": "/user-guide/doc-person/doc-tips/doc-export-sidebar/", 
-            "text": "The menu bar can be closed or opened at the skimming of the mouse. \n\n\n\n\nOn an iPad it may be useful to have the menu bar closed\n\n\nOn a computer it can be opened\n\n\n\n\nTo deal with the problem\n\n\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following: \n\n\n\n\nsCSVExportDelemiter :In Europe one would rather choose: \n;\n Elsewhere rather: \n,\n. \n\n\nsCSVExportCharset : By default in \nUTF-8\n, For the european coding use: \nWindows-1252\n For the coding in french. \n\n\n\n\nThe problem should now be solved.", 
+            "text": "The menu bar can be closed or opened at the skimming of the mouse.\n\n\n\n\nOn an iPad it may be useful to have the menu bar closed\n\n\nOn a computer it can be opened\n\n\n\n\nTo deal with the problem\n\n\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following:\n\n\n\n\nsCSVExportDelemiter :In Europe one would rather choose: \n;\n Elsewhere rather: \n,\n.\n\n\nsCSVExportCharset : By default in \nUTF-8\n, For the european coding use: \nWindows-1252\n For the coding in french.\n\n\n\n\nThe problem should now be solved.", 
             "title": "Menu bar"
         }, 
         {
             "location": "/user-guide/doc-person/doc-tips/doc-export-export-address-smartphone/", 
-            "text": "It could happen that when one clicks on an address they would want the address in \nAppleMap\n instead of \nGoogleMap\n, it may be useful : \n\n\n\n\nin Android : GoogleMap\n\n\nin iPhone  : AppleMap\n\n\n\n\nTo deal with the problem\n\n\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following: \n\n\n\n\nsMapExternalProvider : When one will want to see an address on a map on their smartphone they will be able to choose the type of map (Apple Maps, GoogleMaps, BingMaps).\n\n\n\n\nThe problem should now be solved.", 
+            "text": "It could happen that when one clicks on an address they would want the address in \nAppleMap\n instead of \nGoogleMap\n, it may be useful :\n\n\n\n\nin Android : GoogleMap\n\n\nin iPhone  : AppleMap\n\n\n\n\nTo deal with the problem\n\n\n\n\n\n\nGo to personal settings\n\n\n\n\n\n\n\n\nChange the following settings\n\n\n\n\n\n\n\n\nThen set them as following:\n\n\n\n\nsMapExternalProvider : When one will want to see an address on a map on their smartphone they will be able to choose the type of map (Apple Maps, GoogleMaps, BingMaps).\n\n\n\n\nThe problem should now be solved.", 
             "title": "View your addresses through AppleMap, GoogleMap"
         }, 
         {
@@ -1217,12 +1217,12 @@
         }, 
         {
             "location": "/user-guide/doc-sunday-school/doc-sunday-school-attendance/", 
-            "text": "For a SundaySchool group, one can call the register\n\n\n\n\nNote : every user can call the register as long as they are a teacher in this group\n\n\n\n\nCall the register\n\n\nIt can be done by different ways, the easiest is : \n\n\n\n\nChoose the group\n\n\n\n\nthen activate\n\n\n\n\nOne can now create the event \"call the register\"\n\n\n\nAnd is now able to do it\n \n\n\n\n\n\nLastly: \n\n Select or deselect all the boxes\n\n Then select in the \"attendance list\", at the bottom of the page\n\n\n\n\n\n\nNote\n : one can take some notes in the text section, and drag and drop images and files \n\n\n\n\nExport the group in CVS or PDF\n\n\nChoose the group\n\n\n\n\nThis view will be on display\n\n\n\n\nClick on one or the other button\n\n\n\n\nThe history of the attendance lists from the last few months will be on display\n\n\n\n\nNote : the export of the lists will be done automatically with the attendance statistics", 
+            "text": "For a SundaySchool group, one can call the register\n\n\n\n\nNote : every user can call the register as long as they are a teacher in this group\n\n\n\n\nCall the register\n\n\nIt can be done by different ways, the easiest is :\n\n\n\n\nChoose the group\n\n\n\n\n\n\n\n\nthen activate\n\n\n\n\n\n\n\n\nOne can now create the event \"call the register\"\n\n\n\n\n\n\n\n\nAnd is now able to do it\n\n\n\n\n\n\nLastly:\n\n Select or deselect all the boxes\n\n Then select in the \"attendance list\", at the bottom of the page\n\n\n\n\n\n\nNote\n : one can take some notes in the text section, and drag and drop images and files\n\n\n\n\nExport the group in CVS or PDF\n\n\nChoose the group\n\n\n\n\nThis view will be on display\n\n\n\n\nClick on one or the other button\n\n\n\n\nThe history of the attendance lists from the last few months will be on display\n\n\n\n\nNote : the export of the lists will be done automatically with the attendance statistics", 
             "title": "Call the Register"
         }, 
         {
             "location": "/user-guide/doc-sunday-school/doc-sunday-school-attendance/#call-the-register", 
-            "text": "It can be done by different ways, the easiest is :    Choose the group   then activate   One can now create the event \"call the register\"  And is now able to do it     Lastly:   Select or deselect all the boxes  Then select in the \"attendance list\", at the bottom of the page    Note  : one can take some notes in the text section, and drag and drop images and files", 
+            "text": "It can be done by different ways, the easiest is :   Choose the group     then activate     One can now create the event \"call the register\"     And is now able to do it    Lastly:  Select or deselect all the boxes  Then select in the \"attendance list\", at the bottom of the page    Note  : one can take some notes in the text section, and drag and drop images and files", 
             "title": "Call the register"
         }, 
         {
@@ -1337,7 +1337,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/", 
-            "text": "MailChimp\n\n\nEcclesia\nCRM\n is fully compatible with MailChimp \n\n\nThe free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.\n\n\n\n\n\nSo it is possible now\n\n\n\n\nto create audience (mailing list)\n\n\nto create campaign\n\n\nto add segments\n\n\nto use code fields\n\n\nto create templates within the CRM\n\n\netc ....\n\n\n\n\nActivation\n\n\nTo activate the feature one has to go to \"Edit General Settings\"\n\n\n\n\nThen in \"Enabled Features\"\n\n\n\n\nEstablishment: get a Mailchimp key\n\n\nOne can get it with the link :  \nsuivant\n\n\nSet Eccelesia\nCRM\n for Mailchimp\n\n\nThen enter the Mailchimp key in Ecclesia\nCRM\n\n\n\n\nGo to general settings \nsMailChimpApiKey\n \n\n\nEnter the Mailchimp key \n\n\nOne can also set the number of subscribers on the list. \niMailChimpApiMaxMembersCount\n\nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate: \nbMailChimpWithAddressPhone\n\n\n\n\nAdd the role \"MailChimp\" to a user\n\n\nA user has to be given the role \"MailChimp\" in order to be able to use it.\nTo this end, go to:\n\n\n\n\nThen select the user and edit them after having added the role \"MailChimp\n\n\n\n\nThen tick the box and save\n\n\n\n\nMailchimp : Introduction\n\n\nMailchimp is a mailing system that can send a Newsletter, which allows a member to send an email to a large group of members.\n\n\nWith Mailchimp, one can:\n\n\n\n\nmake a mailing list (GDPR)\n\n\nAdd CRM members to a list\n\n\nmake campaigns\n\n\nmodify\n\n\n\n\nAnd without logging out from Ecclesia\nCRM\n.\n\n\nWarning : check the connectivity of the CRM\n\n\nTo check it one can go to : Email -\n Mailchimp -\n dashboard \n\n\nThen click on the button \"Debug\".\n\n\nResult", 
+            "text": "MailChimp\n\n\nEcclesia\nCRM\n is fully compatible with MailChimp \n\n\nThe free version of Mailchimp can now only make one list (Audience).\nThe use of TAgs is a way to get around that.\n\n\n\n\n\nSo it is possible now\n\n\n\n\nto create audience (mailing list)\n\n\nto create campaign\n\n\nto add segments\n\n\nto use code fields\n\n\nto create templates within the CRM\n\n\netc ....\n\n\n\n\nActivation\n\n\nTo activate the feature one has to go to \"Edit General Settings\"\n\n\n\n\nThen in \"Enabled Features\"\n\n\n\n\nEstablishment: get a Mailchimp key\n\n\nOne can get it with the link :  \nsuivant\n\n\nSet Eccelesia\nCRM\n for Mailchimp\n\n\nThen enter the Mailchimp key in Ecclesia\nCRM\n\n\n\n\nGo to general settings \nsMailChimpApiKey\n \n\n\nEnter the Mailchimp key \n\n\nOne can also set the number of subscribers on the list. \niMailChimpApiMaxMembersCount\n\nNote: It is advised to fix a low number, to avoid being see as a spammer\n4.It is possible to add the address and phone numbers of the subscribers, and activate: \nbMailChimpWithAddressPhone\n\n\n\n\nAdd the role \"MailChimp\" to a user\n\n\nA user has to be given the role \"MailChimp\" in order to be able to use it.\nTo this end, go to:\n\n\n\n\nThen select the user and edit them after having added the role \"MailChimp\n\n\n\n\nThen tick the box and save\n\n\n\n\nMailchimp : Introduction\n\n\nMailchimp is a mailing system that can send a Newsletter, which allows a member to send an email to a large group of members.\n\n\nWith Mailchimp, one can:\n\n\n\n\nmake a mailing list (GDPR)\n\n\nAdd CRM members to a list\n\n\nmake campaigns\n\n\nmodify\n\n\n\n\nAnd without logging out from Ecclesia\nCRM\n.\n\n\nWarning : check the connectivity of the CRM\n\n\nTo check it one can go to : Email -\n Mailchimp -\n dashboard \n\n\nThen click on the button \"Debug\".\n\n\nYou should see a report of the connexion.\n\n\nResult", 
             "title": "Dashboard"
         }, 
         {
@@ -1372,7 +1372,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/dashboard/#warning-check-the-connectivity-of-the-crm", 
-            "text": "To check it one can go to : Email -  Mailchimp -  dashboard   Then click on the button \"Debug\".", 
+            "text": "To check it one can go to : Email -  Mailchimp -  dashboard   Then click on the button \"Debug\".  You should see a report of the connexion.", 
             "title": "Warning : check the connectivity of the CRM"
         }, 
         {
@@ -1382,7 +1382,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_list/", 
-            "text": "Manage Audience (List) Mailchimp\n\n\nMake a mailing list\n\n\nGo to the dashboard in Mailchimp and click on the button:\n\n\n\nHere is the dialog box:\n\n\n\n\n\n\na title for the mailing list\n\n\na topic for the dissemination campaign\n\n\na permission reminder in your dissemination campaign allows the recipients to know where they subscribed\nIt may help to not be categorized as a spammer by the recipients. Mailchimp will automatically insert the permission reminder in every email with the merge tag\n*|LIST:DESCRIPTION|*\n.\n\n\nAbout the archive bar, see the following link \nsuivant\n\n\n\n\nAdd members to the list\n\n\nIn all the list, choose one and click on \"modify\"\n\n\n\n\nOne'll be able to change the name of the list, or other properties with the button:\n\n\n\n\nOne has to use the following dialog box\n\n\n\n\nThen at the bottom of the page\n\n\n\n\nOne'll has several possibilities\n\n\n\n\nAdd a member\n\n\na family\n\n\nthe members of a group\n\n\nall the CRM members with : *\n\n\nall NewsLetter subscribers by writing : NewsLetter\n\n\n\n\nModify a subscriber's status\n\n\nOne can change the status from \"subscribed\" to \"unsubscribed\" by choosing the member and clicking on the pencil:\n\n\n\n\nThen to select the status as following:\n\n\n\n\nModify the status of several subscribers\n\n\nSelect the said members\n\n\n\n\nThen click on the menu and choose the option wanted:\n\n\n\n\nDelete a member from the mailing list\n\n\nClick on the basket\n\n\n\n\nDelete several members from the mailing list\n\n\nSelect the said members\n\n\n\n\nAnd click on the button \"delete\"", 
+            "text": "Manage Audience (List) Mailchimp\n\n\nMake a mailing list\n\n\nGo to the dashboard in Mailchimp and click on the button:\n\n\n\nHere is the dialog box:\n\n\n\n\n\n\na title for the mailing list\n\n\na topic for the dissemination campaign\n\n\na permission reminder in your dissemination campaign allows the recipients to know where they subscribed\nIt may help to not be categorized as a spammer by the recipients. Mailchimp will automatically insert the permission reminder in every email with the merge tag\n*|LIST:DESCRIPTION|*\n.\n\n\nAbout the archive bar, see the following link \nsuivant\n\n\n\n\nAdd members to the list\n\n\nIn all the list, choose one and click on \"modify\"\n\n\n\n\nOne'll be able to change the name of the list, or other properties with the button:\n\n\n\n\nOne has to use the following dialog box\n\n\n\n\nThen at the bottom of the page\n\n\n\n\nOne'll has several possibilities\n\n\n\n\nAdd a member\n\n\na family\n\n\nthe members of a group\n\n\nall the CRM members with : *\n\n\nall NewsLetter subscribers by writing : NewsLetter\n\n\n\n\nModify a subscriber's status\n\n\nOne can change the status from \"subscribed\" to \"Unsubscribed\" by choosing the member and clicking on the pencil:\n\n\n\n\nThen to select the status as following:\n\n\n\n\nModify the status of several subscribers\n\n\nSelect the said members\n\n\n\n\nThen click on the menu and choose the option wanted:\n\n\n\n\nDelete a member from the mailing list\n\n\nClick on the basket\n\n\n\n\nDelete several members from the mailing list\n\n\nSelect the said members\n\n\n\n\nAnd click on the button \"Delete\"", 
             "title": "List Audience Management"
         }, 
         {
@@ -1402,7 +1402,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_list/#modify-a-subscribers-status", 
-            "text": "One can change the status from \"subscribed\" to \"unsubscribed\" by choosing the member and clicking on the pencil:   Then to select the status as following:", 
+            "text": "One can change the status from \"subscribed\" to \"Unsubscribed\" by choosing the member and clicking on the pencil:   Then to select the status as following:", 
             "title": "Modify a subscriber's status"
         }, 
         {
@@ -1417,7 +1417,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_list/#delete-several-members-from-the-mailing-list", 
-            "text": "Select the said members   And click on the button \"delete\"", 
+            "text": "Select the said members   And click on the button \"Delete\"", 
             "title": "Delete several members from the mailing list"
         }, 
         {
@@ -1447,12 +1447,12 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/", 
-            "text": "Campaign management\n\n\nWarning\n about the image management, the manager of the file has to point on the public file\n\n\nBecause every image inserted in the campaign has to have public link (and not private)\n\n\nCreate a campaign\n\n\nClick on the following button or select each member without tags\n\n\n\n\nOr select a tag\n\n\n\n\nthen one will be able to create the body text of the campaign\n\n\n\n\nOne can now select the campaign's title and the email's object\n\n\nManagement of a standard email (code field: mailing)\n\n\nIt is now possible to use Mailchimp code Fields, which can make standard email\n\n\n\n\nThe following example shows the FNAME, LNAME and the creation date of the email\n\n\n\n\nWhen the campaign is sent the FNAME and LNAME of each user will be substitute to the code field.\n\n\n\n\nOne can create an unsubscribing link with the mailing list\n\nTo this end, one has to use a code field\n\n \n\nWich results in\n\n\n\nThen selects the link\n*|UNSUB|*\n et on utilise le bouton \n\n \n\nand\n\n\n\n\n\n\nAnd click on \"ok\"\n\n\nNote\n in the general settings, it is possible to add the address and phone number of each user.\n\n\n\n\nInsert pictures or documents\n\n\n\n\nDrop them in the text zone\n\n\nThe image's link is public\n\n\nYou can change the size\n\n\n\n\nWith the file manager\n\n\n\ndialog box\n\n\n\nClick on \"browse the server\"\n\n\n\nthen the file manager\n\n\n\nOne can download a picture with the server\n\n\n\nAnd selects the file to drop\n\n\n\n\n\n\n\n\nAnd dropping a file is possible in an email too\n\n\nHere's the attachment file\n\n\n\n\n\n\n\n\nOnce the campaign is done, one can \"save\" it\n\n\nPlan the mailing\n\n\nSave the campaign and one will be on the sending page\n\n\n\n\n\nHere one will be able to sava, send, delete or fix a date and a time for their campaign\n\n\n\n\nIt is possible to modify it later too.\n\n\nNote\nIt is advised to create a bank of documents to use them later, to do this one has to go to \"document bank\", and \"user guide\", then \"documents\"", 
+            "text": "Campaign management\n\n\nWarning\n about the pictures management, the file manager has to point on the public file. This is normally automatic.\n\n\nBecause every image inserted in the campaign has to have public links (and not private).\n\n\nCreate a campaign\n\n\nClick on the following button or select each member without tags\n\n\n\n\nOr select a tag\n\n\n\n\nthen one will be able to create the body text of the campaign\n\n\n\n\nOne can now select the campaign's title and the email's object\n\n\nManagement of a standard email (code field: mailing)\n\n\nIt is now possible to use Mailchimp code Fields, which can make standard email\n\n\n\n\nThe following example shows the FNAME, LNAME and the creation date of the email\n\n\n\n\nWhen the campaign is sent the FNAME and LNAME of each user will be substitute to the code field.\n\n\n\n\nOne can create an unsubscribing link with the mailing list\n\nTo this end, one has to use a code field\n\n\n\n\n\n\nWich results in\n\n\n\n\nThen selects the text \n*|UNSUB|*\n\n\n\n\nand\n\n\n\n\nAnd click on \"ok\"\n\n\nNote\n in the general settings, it is possible to add the address and phone number of each user.\n\n\n\n\nInsert pictures or documents\n\n\n\n\nDrop them in the text zone\n\n\n\n\n\n\nThe image's link is public\n\n\n\n\nYou can change the size\n\n\n\n\nWith the file manager\n\n\n\n\n\n\ndialog box\n\n\n\n\nClick on \"browse the server\"\n\n\n\n\nthen the file manager\n\n\n\n\nOne can download a picture with the server\n\n\n\n\nAnd selects the file to drop\n\n\n\n\n\n\nAnd dropping a file is possible in an email too\n\n\n\n\n\n\nHere's the attachment file\n\n\n\n\nOnce the campaign is done, one can \"save\" it\n\n\nPlan the mailing\n\n\nSave the campaign and one will be on the sending page\n\n\n\n\n\n\nHere one will be able to sava, send, delete or fix a date and a time for their campaign\n\n\n\n\nNote\n\n- It is advised to create a bank of templates to use them later, to do this one has to go in \"Manual: User\" and \"Documents\" and last in \"Documents \n Templates\".\n- It is possible to modify it later too.\n- You can schedule your campaign.", 
             "title": "Campaign management"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/#campaign-management", 
-            "text": "Warning  about the image management, the manager of the file has to point on the public file  Because every image inserted in the campaign has to have public link (and not private)", 
+            "text": "Warning  about the pictures management, the file manager has to point on the public file. This is normally automatic.  Because every image inserted in the campaign has to have public links (and not private).", 
             "title": "Campaign management"
         }, 
         {
@@ -1462,17 +1462,17 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/#management-of-a-standard-email-code-field-mailing", 
-            "text": "It is now possible to use Mailchimp code Fields, which can make standard email   The following example shows the FNAME, LNAME and the creation date of the email   When the campaign is sent the FNAME and LNAME of each user will be substitute to the code field.   One can create an unsubscribing link with the mailing list \nTo this end, one has to use a code field \n  \nWich results in  \nThen selects the link *|UNSUB|*  et on utilise le bouton  \n  \nand    And click on \"ok\"  Note  in the general settings, it is possible to add the address and phone number of each user.", 
+            "text": "It is now possible to use Mailchimp code Fields, which can make standard email   The following example shows the FNAME, LNAME and the creation date of the email   When the campaign is sent the FNAME and LNAME of each user will be substitute to the code field.   One can create an unsubscribing link with the mailing list \nTo this end, one has to use a code field    Wich results in   Then selects the text  *|UNSUB|*   and   And click on \"ok\"  Note  in the general settings, it is possible to add the address and phone number of each user.", 
             "title": "Management of a standard email (code field: mailing)"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/#insert-pictures-or-documents", 
-            "text": "Drop them in the text zone \nThe image's link is public \nYou can change the size   With the file manager  \ndialog box  \nClick on \"browse the server\"  \nthen the file manager  \nOne can download a picture with the server  \nAnd selects the file to drop     And dropping a file is possible in an email too \nHere's the attachment file     Once the campaign is done, one can \"save\" it", 
+            "text": "Drop them in the text zone    The image's link is public   You can change the size   With the file manager    dialog box   Click on \"browse the server\"   then the file manager   One can download a picture with the server   And selects the file to drop    And dropping a file is possible in an email too    Here's the attachment file   Once the campaign is done, one can \"save\" it", 
             "title": "Insert pictures or documents"
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/#plan-the-mailing", 
-            "text": "Save the campaign and one will be on the sending page   \nHere one will be able to sava, send, delete or fix a date and a time for their campaign   It is possible to modify it later too.  Note It is advised to create a bank of documents to use them later, to do this one has to go to \"document bank\", and \"user guide\", then \"documents\"", 
+            "text": "Save the campaign and one will be on the sending page    Here one will be able to sava, send, delete or fix a date and a time for their campaign   Note \n- It is advised to create a bank of templates to use them later, to do this one has to go in \"Manual: User\" and \"Documents\" and last in \"Documents   Templates\".\n- It is possible to modify it later too.\n- You can schedule your campaign.", 
             "title": "Plan the mailing"
         }, 
         {

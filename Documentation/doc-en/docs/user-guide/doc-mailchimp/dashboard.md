@@ -78,7 +78,7 @@ To check it one can go to : Email -> Mailchimp -> dashboard <br>![Screenshot](..
 
 Then click on the button "Debug".
 
-
+You should see a report of the connexion.
 
 ##Result
 
