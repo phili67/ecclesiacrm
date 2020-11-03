@@ -8,15 +8,15 @@ Here one can add properties at the pastoral level
 
 Go to:
 
-![Screenshot](/img/pastoralcare/pastoralcare_settings1.png)
+![Screenshot](../../../img/pastoralcare/pastoralcare_settings1.png)
 
 One can make a new entitled for the pastoral care notes
 
-![Screenshot](/img/pastoralcare/pastoralcare_settings2.png)
+![Screenshot](../../../img/pastoralcare/pastoralcare_settings2.png)
 
 
 ##Legal rights
 
-![Screenshot](/img/pastoralcare/pastoralcare_settings3.png)
+![Screenshot](../../../img/pastoralcare/pastoralcare_settings3.png)
 
 If the box is checked everyone will be able to see the pastoral care notes, which is not always useful for all the pastors to see all the notes

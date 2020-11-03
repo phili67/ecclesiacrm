@@ -1,11 +1,11 @@
 # Project information
-site_name: 'Ecclesia for MkDocs'
-site_description: 'A Material Design theme for MkDocs'
+site_name: 'Documentation EcclesiaCRM'
+site_description: 'Une documentation complète du CRM'
 site_author: 'Philippe Logel'
-site_url: 'https://github.com/phili67/ecclesiacrm/releases/'
+site_url: 'https://github.com/phili67/ecclesiacrm'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2019 Philippe Logel'
+copyright: 'Copyright &copy; 2017 - 2020 Philippe Logel'
 
 # Configuration
 theme:
@@ -121,8 +121,12 @@ pages:
     - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
 - "Manuel : Pasteur & Conseiller":
-    - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
-    - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+      - "Tableau de bord": 'user-guide/doc-pastoral-care/doc-pastoral-care-dashboard.md'
+      - "Activer pour un utilisateur": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
+      - "Ajouter : Personne & Famille": 'user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family.md'
+      - "Classifications": 'user-guide/doc-pastoral-care/doc-pastoral-care-classifications.md'
+      - "Réglages":
+            - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
 - "Manuel : Ecole du dimanche":
     - "Introduction": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
