@@ -2,7 +2,7 @@ It is possible with the EcclesiaCRM version 4.1 and higher to manage the documen
 
 ##Display all the documents
 
-1. Go to personal space
+1. Go to private space
 
       ![Screenshot](../../img/person/user22.png)
 
@@ -23,13 +23,13 @@ It is possible with the EcclesiaCRM version 4.1 and higher to manage the documen
 
 1. Go to a document, CKEditor
 
-    - Go to personal space
+    - Go to private space
 
        ![Screenshot](../../img/person/user22.png)
 
 2. Add a document
 
-       ![Screenshot](../../img/person/user23.png)
+      ![Screenshot](../../img/person/user23.png)
 
 ##Editing
 
@@ -43,9 +43,9 @@ Click on the icon
 
 ![Screenshot](../../img/person/docdel.png)
 
-![Screenshot](../../img/person/docedit.png)
-
 ##One can create three types of document
+
+![Screenshot](../../img/person/docedit.png)
 
 ![Screenshot](../../img/person/user30.png)
 
