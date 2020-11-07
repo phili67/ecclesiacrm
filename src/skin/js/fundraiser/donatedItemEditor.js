@@ -9,6 +9,10 @@ $(document).ready(function () {
         window.open(window.CRM.root + '/browser/browse.php?DonatedItemID=' + donatedItem);
     });
 
+    $("#PictureURL").on("change paste keyup",function () {
+        $("#image").attr("src",$(this).val());
+    });
+
     $(window).on('focus', function () {
         window.CRM.APIRequest({
             method: "POST",
