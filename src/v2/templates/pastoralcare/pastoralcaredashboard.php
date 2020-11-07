@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="margin">
         <label><?= _("Visit/Call randomly") ?></label>
         <div class="btn-group">
-            <a class="btn btn-app newPastorCare" data-typeid="2"><i
+            <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
                class="fa fa-sticky-note"></i><?= _("Family") ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>

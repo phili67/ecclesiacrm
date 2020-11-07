@@ -59,7 +59,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
             </div>
             <div class="card-body">
                 <p>
-                    <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?>>
+                    <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
                         <i class="fa fa-list-alt"></i><?= _("Create list") ?>
                     </button>
                     <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
@@ -74,7 +74,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                     <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app">
                         <i class="fa fa-bell-slash"></i><?= _("Families Not In MailChimp") ?>
                     </a>
-                    <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app">
+                    <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
                         <i class="fa fa-stethoscope"></i><?= _("Debug") ?>
                     </a>
                 </p>

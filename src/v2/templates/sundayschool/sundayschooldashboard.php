@@ -143,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
         if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
             ?>
             <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
-               title="<?= _('Generate class lists and attendance sheets'); ?>"><i
+               title="<?= _('Generate class lists and attendance sheets'); ?>" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To export your attendance, Photobooks, Attendance sheet, and Class list") ?>"><i
                     class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
             <?php
         }

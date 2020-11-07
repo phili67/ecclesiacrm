@@ -83,6 +83,10 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
 
                 <div class="col-md-4 col-xs-6">
+                    <div class="alert alert-info">
+                      <i class="fa fa-info-circle"></i> <?= _("To add some buyers use the side bar and the menu Item") ?> : "<?= _("Edit Last Fundraiser") ?>"
+                    </div>
+
                     <div class="form-group">
                         <label><?= _('Buyer') ?>:</label>
                         <?php if ($bMultibuy) {
@@ -114,10 +118,12 @@ require $sRootDocument . '/Include/Header.php';
                         <label><?= _('Replicate item') ?></label>
                         <div class="input-group mb-3">
                             <!-- /btn-group -->
-                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control">
+                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control"
+                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate this item as many times you want") ?>">
                             <div class="input-group-append">
                                 <input type="button" class="btn btn-primary" id="donatedItemGo" value="<?= _('Go') ?>"
-                                       name="DonatedItemReplicate" data-donateditemid="<?= $iDonatedItemID ?>">
+                                       name="DonatedItemReplicate" data-donateditemid="<?= $iDonatedItemID ?>"
+                                       data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate it") ?>">
                             </div>
                         </div>
                     </div>
@@ -128,7 +134,8 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="form-group">
                         <label><?= _('Description') ?>:</label>
                         <textarea name="Description" id="Description" rows="5" cols="90"
-                                  class="form-control"><?= htmlentities($sDescription) ?></textarea>
+                                  class="form-control"
+                                  data-toggle="tooltip" data-placement="bottom" title="<?= _("A small description to help us to sell this item") ?>"><?= htmlentities($sDescription) ?></textarea>
                     </div>
 
                     <div class="form-group">
@@ -137,10 +144,12 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="input-group mb-3">
                             <!-- /btn-group -->
                             <input type="text" name="PictureURL" id="PictureURL" class="form-control"
-                                   value="<?= htmlentities($sPictureURL) ?>">
+                                   value="<?= htmlentities($sPictureURL) ?>"
+                                   data-toggle="tooltip" data-placement="top" title="<?= _("Paste an URL") ?>">
                             <div class="input-group-append">
                             <span class="btn btn-primary" id="donatedItemPicture"
-                                  data-donateditemid="<?= $iDonatedItemID ?>"> <i
+                                  data-donateditemid="<?= $iDonatedItemID ?>"
+                                  data-toggle="tooltip" data-placement="top" title="<?= _("Use the EDrive to browse or uppload a file") ?>"> <i
                                     class="fa fa-cloud-download"></i></span>
                             </div>
                         </div>

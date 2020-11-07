@@ -20,7 +20,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="margin">
         <label><?= _("Classification") ?></label>
         <div class="btn-group">
-            <a class="btn btn-app changeType" data-typeid="<?= $aMemberTypes[0]['OptionName'] ?>>"><i
+            <a class="btn btn-app changeType" data-typeid="<?= $aMemberTypes[0]['OptionName'] ?>>" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Filter by member types") ?>"><i
                     class="fa fa-sticky-note"></i><?= $aMemberTypes[0]['OptionName'] ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>

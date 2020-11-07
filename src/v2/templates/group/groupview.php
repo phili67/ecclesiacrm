@@ -47,11 +47,12 @@ require $sRootDocument . '/Include/Header.php';
             <?php
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
-                <a class="btn btn-danger" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
+                <a class="btn btn-danger" href="<?= $sRootPath ?>/api/groups/addressbook/extract/<?= $iGroupID ?>"
+                   data-toggle="tooltip"  data-placement="bottom" title="<?= _("Click to create an addressbook of the Group") ?>">
                     <?= _('Address Book') ?>
                     <span class="badge  bg-white">
-              <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
-            </span>
+                    <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
+                    </span>
                 </a>
                 <?php
             }
@@ -89,7 +90,8 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
             ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
+            <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"
+               data-toggle="tooltip"  data-placement="bottom" title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
             <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= _("Delete this Group") ?></button>
             <?php
         }
@@ -103,7 +105,8 @@ require $sRootDocument . '/Include/Header.php';
                 <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= _("Group reports") ?></button>
             </form>
 
-            <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>"> <i
+            <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>" data-toggle="tooltip"
+               data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
                     class="fa fa-file-picture-o"></i> <span
                     class="cartActionDescription"><?= _("Group Badges") ?></span></a>
             <?php
@@ -290,7 +293,8 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                         }
                         ?>
                     </div>
-                    <a class="btn btn-primary" id="add-manager"><?= _("Add Manager") ?></a>
+                    <a class="btn btn-primary" id="add-manager"
+                       data-toggle="tooltip"  data-placement="bottom" title="<?= _("Add a specific maanager only for this group") ?>"><?= _("Add Manager") ?></a>
                 </div>
             </div>
         </div>

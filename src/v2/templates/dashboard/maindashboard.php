@@ -501,6 +501,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
         </ul>
         <p class="text-center">
             <a class="btn btn-default align-center" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard"
+               data-toggle="tooltip"  data-placement="top" title="<?= _("Visit/Call your church members") ?>"
                style="color:black;text-decoration: none"><?= _("Manage Pastoral Care") ?></a>
         </p>
     </div>
