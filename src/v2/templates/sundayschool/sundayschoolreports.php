@@ -36,7 +36,8 @@ require $sRootDocument . '/Include/Header.php';
                     <td><?= _('Select Group')?>: <br/><?=_('To select multiple hold CTL') ?></td>
                     <td>
                         <!-- Create the group select drop-down -->
-                        <select id="GroupID" name="GroupID[]" multiple size="8" style="width:100%">
+                        <select id="GroupID" name="GroupID[]" multiple size="8" style="width:100%"
+                                data-toggle="tooltip"  data-placement="bottom" title="<?= _("Select one or more groups") ?>">
                             <option value="0"><?= _('None') ?></option>
                             <?php
                             foreach ($groups as $group) {

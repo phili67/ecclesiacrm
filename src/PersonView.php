@@ -784,7 +784,8 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-purple"
-                           href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"><i
+                           href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"
+                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
                                 class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
                         <?php
                     }
@@ -793,7 +794,7 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
-                           data-placement="top"
+                           data-placement="bottom"
                            title="<?= _("Create a document") ?>"><i
                                 class="fa fa-file-o"></i><?= _("Create a document") ?></a>
                         <?php
@@ -801,8 +802,10 @@ if (!empty($person->getDateDeactivated())) {
                     if (SessionUser::getUser()->isManageGroupsEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"><i
-                                class="fa fa-users"></i> <?= _("Assign New Group") ?></a>
+                        <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"
+                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
+                                class="fa fa-users">
+                            </i> <?= _("Assign New Group") ?></a>
                         <?php
                     }
 
@@ -811,13 +814,15 @@ if (!empty($person->getDateDeactivated())) {
                             $buttons++;
                             ?>
                             <a class="btn btn-app"
-                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i
+                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
                                     class="fa fa-user-secret"></i> <?= _('Make User') ?></a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app"
-                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"><i
+                               href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"
+                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
                                     class="fa fa-user-secret"></i> <?= _('Edit User') ?></a>
                             <?php
                         }
@@ -1622,7 +1627,8 @@ if (!empty($person->getDateDeactivated())) {
                                         </td>
                                         <td>
                                             <select name="PropertyId" class="filter-timeline form-control input-sm" size="1"
-                                                    style="width:170px" data-placeholder="<?= _("Select") ?> ...">
+                                                    style="width:170px" data-placeholder="<?= _("Select") ?> ..."
+                                                    data-toggle="tooltip" data-placement="bottom" title="<?= _("Filter your documents by : ") ?>">
                                                 <option value="all"><?= _("All type") ?></option>
                                                 <option value="note"><?= MiscUtils::noteType("note") ?></option>
                                                 <option value="video"><?= MiscUtils::noteType("video") ?></option>
@@ -1664,7 +1670,7 @@ if (!empty($person->getDateDeactivated())) {
                              ?>
                              <!--<a href="<?= $item['editLink'] ?>">-->
                              <?= $item['editLink'] ?>
-                             <span class="fa-stack">
+                             <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Edit this document") ?>">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
                         </span>
@@ -1674,7 +1680,7 @@ if (!empty($person->getDateDeactivated())) {
                          if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
                              ?>
                              <?= $item['deleteLink'] ?>
-                             <span class="fa-stack">
+                             <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Delete this document") ?>">
                           <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                           <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                         </span>
@@ -1684,7 +1690,8 @@ if (!empty($person->getDateDeactivated())) {
                          if (!isset($item['sharePersonID']) && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
                              ?>
                              <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>"
-                                   data-shared="<?= $item['isShared'] ?>">
+                                   data-shared="<?= $item['isShared'] ?>"
+                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("Share this document to another user") ?>">
                           <i class="fa fa-square fa-stack-2x"
                              style="color:<?= $item['isShared'] ? "green" : "#777" ?>"></i>
                           <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>
@@ -1696,7 +1703,8 @@ if (!empty($person->getDateDeactivated())) {
                                                     if ($item['type'] == 'note' && $person->getId() == SessionUser::getUser()->getPersonId()) {
                                                         ?>
                                                         <span class="fa-stack saveNoteAsWordFile"
-                                                              data-id="<?= $item['id'] ?>">
+                                                              data-id="<?= $item['id'] ?>"
+                                                              data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>">
                           <i class="fa fa-square fa-stack-2x" style="color:#001FFF"></i>
                           <i class="fa fa-file-word-o fa-stack-1x fa-inverse"></i>
                         </span>

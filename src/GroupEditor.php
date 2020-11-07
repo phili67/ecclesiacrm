@@ -99,7 +99,8 @@ require 'Include/Header.php';
             <div class="row">
               <div class="col-sm-12">
                 <label for="GroupType"><?= _('Type of Group and Menu Category') ?>:</label>
-                <select class="form-control input-small" name="GroupType">
+                <select class="form-control input-small" name="GroupType"
+                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("This will include the group in a menu item in the left sidebar") ?>">
                   <option value="0"><?= _('Unassigned') ?></option>
                   <option value="0">-----------------------</option>
                 <?php
@@ -154,17 +155,21 @@ require 'Include/Header.php';
                 <?= _('Enabled') ?><br/>
                 <div class="row">
                   <div class="col-sm-4">
-                    <button type="button" id="disableGroupProps" class="btn btn-danger groupSpecificProperties"><?= _('Disable Group Specific Properties') ?></button><br/>
+                    <button type="button" id="disableGroupProps" class="btn btn-danger groupSpecificProperties"
+                            data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to classify your groups or to make a sort of Doodle") ?>">
+                        <?= _('Disable Group Specific Properties') ?></button><br/>
                   </div>
                   <div class="col-sm-4">
-                    <a  class="btn btn-success" href="GroupPropsFormEditor.php?GroupID=<?= $iGroupID?>"><?= _('Edit Group-Specific Properties Form') ?></a>
+                    <a  class="btn btn-success" href="GroupPropsFormEditor.php?GroupID=<?= $iGroupID?>"
+                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to make a sort of doodle") ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
                   </div>
                 </div>
           <?php
             } else {
           ?>
                 <?= _('Disabled') ?><br/>
-                <button type="button" id="enableGroupProps" class="btn btn-danger groupSpecificProperties"><?= _('Enable Group Specific Properties') ?></button>&nbsp;
+                <button type="button" id="enableGroupProps" class="btn btn-danger groupSpecificProperties"
+                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("Group-specific properties are useful to classify your groups or to make a sort of Doodle") ?>"><?= _('Enable Group Specific Properties') ?></button>&nbsp;
           <?php
             }
           ?>

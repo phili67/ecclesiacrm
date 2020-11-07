@@ -96,7 +96,8 @@ if (SessionUser::getUser()->isAddRecords()) {
                data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fa fa-file-pdf-o"></i> <span
                     class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
 
-            <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>"> <i
+            <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>"
+               data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
                     class="fa fa-file-picture-o"></i> <span
                     class="cartActionDescription"><?= _("Student Badges") ?></span></a>
             <?php

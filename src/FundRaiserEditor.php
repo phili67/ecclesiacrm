@@ -218,7 +218,7 @@ require 'Include/Header.php';
                         if ($iFundRaiserID > 0) {
                             ?>
                             <input type=button class="btn btn-success btn-sm" value="<?= _('Add Donated Item') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/donatedItemEditor/0/<?= $iFundRaiserID ?>';">
-                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';">
+                            <input type=button class="btn btn-danger btn-sm" value="<?= _('Buyers') ?>" name=AddDonatedItem onclick="javascript:document.location='v2/fundraiser/paddlenum/list/<?= $iFundRaiserID ?>';" data-toggle="tooltip" data-placement="bottom" title="<?= _("Add buyers to your Fundraiser") ?>">
                             <br/><br/>
                             <input type=button class="btn btn-success btn-sm" value="<?= _('Generate Catalog') ?>" name=GenerateCatalog onclick="javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
                             <input type=button class="btn btn-info btn-sm" value="<?= _('Generate Bid Sheets') ?>" name=GenerateBidSheets onclick="javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=<?= $iFundRaiserID ?>';">
