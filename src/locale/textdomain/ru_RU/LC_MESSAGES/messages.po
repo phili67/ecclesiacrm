@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-28 17:51+0100\n"
+"POT-Creation-Date: 2020-11-07 16:53+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: v2/templates/dashboard/maindashboard.php:411
 #: v2/templates/dashboard/maindashboard.php:466
 #: v2/templates/group/groupbadge.php:126
-#: v2/templates/sundayschool/sundayschoolreports.php:40
+#: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Ни один"
 
@@ -372,12 +372,12 @@ msgstr "Добавить в группу "
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:459
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 PersonEditor.php:1020 PersonEditor.php:1040
+#: GroupEditor.php:104 PersonEditor.php:1020 PersonEditor.php:1040
 #: PersonEditor.php:1630 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:243 SystemSettings.php:230 v2/routes/group/groups.php:67
 #: v2/templates/fundraiser/donatedItemEditor.php:43
-#: v2/templates/fundraiser/donatedItemEditor.php:93
+#: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
 #: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
 #: v2/templates/map/MapUsingGoogle.php:112
@@ -447,8 +447,8 @@ msgstr "Жен"
 #: api/routes/search.php:191 CSVExport.php:355 CSVImport.php:241
 #: FamilyEditor.php:1096 PersonEditor.php:879 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:294 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:210
+#: v2/templates/sundayschool/sundayschoolview.php:295 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Пол"
 
@@ -485,7 +485,7 @@ msgstr "Все типы групп"
 #: api/routes/sidebar/sidebar-general-roles.php:108
 #: api/routes/sidebar/sidebar-general-roles.php:149 FamilyEditor.php:1097
 #: FamilyView.php:538 OptionManager.php:100 OptionManager.php:141
-#: PersonView.php:1111 PrintPastoralCarePerson.php:449
+#: PersonView.php:1116 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:276 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
@@ -529,7 +529,7 @@ msgstr "Все классификации"
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:320
 #: v2/templates/gdpr/gdprdatastructure.php:42
-#: v2/templates/group/groupview.php:390
+#: v2/templates/group/groupview.php:394
 msgid "Type"
 msgstr "Тип"
 
@@ -589,7 +589,7 @@ msgstr "Редактор группы"
 msgid "Group Member Role"
 msgstr "Роли Группа"
 
-#: api/routes/sidebar/sidebar-general-roles.php:151 GroupEditor.php:121
+#: api/routes/sidebar/sidebar-general-roles.php:151 GroupEditor.php:122
 #: OptionManager.php:143
 #, fuzzy
 msgid "Group Member Roles"
@@ -673,7 +673,7 @@ msgstr "Персона"
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
-#: members/404.php:16 PersonView.php:893 PledgeEditor.php:588
+#: members/404.php:16 PersonView.php:898 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
 #: v2/routes/sidebar/propertylist.php:36
@@ -812,7 +812,7 @@ msgstr "Дата"
 
 #: AutoPaymentEditor.php:866 ElectronicPaymentList.php:219 PledgeEditor.php:604
 #: ReminderReport.php:45 SelectDelete.php:322
-#: v2/templates/sundayschool/sundayschoolreports.php:59
+#: v2/templates/sundayschool/sundayschoolreports.php:60
 #: queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Отчетный год"
@@ -871,10 +871,10 @@ msgstr "Фамилия"
 #: PersonEditor.php:1080 PersonEditor.php:1086 PersonEditor.php:1220
 #: PersonEditor.php:1244 PersonView.php:564 Reports/ConfirmReportEmail.php:144
 #: Reports/ConfirmReportEmail.php:149 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:580
-#: v2/templates/dashboard/maindashboard.php:594
-#: v2/templates/dashboard/maindashboard.php:609
-#: v2/templates/dashboard/maindashboard.php:624
+#: v2/templates/dashboard/maindashboard.php:581
+#: v2/templates/dashboard/maindashboard.php:595
+#: v2/templates/dashboard/maindashboard.php:610
+#: v2/templates/dashboard/maindashboard.php:625
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "Адрес"
@@ -932,7 +932,7 @@ msgstr "Телефон"
 #: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
 #: FamilyView.php:375 FamilyView.php:454 FamilyView.php:541
 #: GroupReports.php:152 PersonEditor.php:1504 PersonEditor.php:1508
-#: PersonView.php:635 PersonView.php:758 PersonView.php:1113
+#: PersonView.php:635 PersonView.php:758 PersonView.php:1118
 #: PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:280 Reports/ConfirmReportEmail.php:224
 #: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
@@ -990,11 +990,11 @@ msgstr ""
 #: AutoPaymentEditor.php:1093 CanvassEditor.php:273 DepositSlipEditor.php:117
 #: FamilyEditor.php:715 FamilyEditor.php:813 FamilyEditor.php:888
 #: FamilyEditor.php:976 FamilyEditor.php:998 FamilyEditor.php:1072
-#: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:176
+#: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:872 PersonEditor.php:1013 PersonEditor.php:1200
 #: PersonEditor.php:1622 PersonEditor.php:1702 PersonEditor.php:1790
 #: PledgeEditor.php:793 UserEditor.php:867 UserPasswordChange.php:225
-#: v2/templates/fundraiser/donatedItemEditor.php:158
+#: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Сохранить"
 
@@ -1003,12 +1003,12 @@ msgstr "Сохранить"
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1070 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 PersonEditor.php:1798 PersonView.php:1933
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:128
-#: SettingsIndividual.php:226 TaxReport.php:53 UserEditor.php:868
-#: UserEditor.php:1015 v2/templates/fundraiser/donatedItemEditor.php:169
+#: ManageEnvelopes.php:144 PersonEditor.php:1798 PersonView.php:1941
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:146
+#: SettingsIndividual.php:389 TaxReport.php:53 UserEditor.php:868
+#: UserEditor.php:1015 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:330
-#: v2/templates/sundayschool/sundayschoolreports.php:151
+#: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -1044,7 +1044,7 @@ msgstr "Введите победителей"
 msgid "File Manager"
 msgstr "Конверт менеджер"
 
-#: browser/browse.php:43 PersonView.php:1827
+#: browser/browse.php:43 PersonView.php:1835
 #, fuzzy
 msgid "Upload a file in EDrive"
 msgstr "Загрузить файл CSV"
@@ -1053,7 +1053,7 @@ msgstr "Загрузить файл CSV"
 msgid "Download"
 msgstr ""
 
-#: browser/browse.php:58 PersonView.php:1838
+#: browser/browse.php:58 PersonView.php:1846
 #, fuzzy
 msgid "Create a Folder"
 msgstr "Создать файл"
@@ -1061,8 +1061,8 @@ msgstr "Создать файл"
 #: browser/browse.php:66 DepositSlipEditor.php:311 EditEventAttendees.php:120
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1071
-#: FindDepositSlip.php:131 ListEvents.php:393 PersonView.php:1847
-#: PersonView.php:1934 v2/templates/email/mailchimp/campaign.php:35
+#: FindDepositSlip.php:131 ListEvents.php:393 PersonView.php:1855
+#: PersonView.php:1942 v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
 #: v2/templates/email/mailchimp/managelist.php:102
 #: v2/templates/pastoralcare/pastoralcarefamily.php:208
@@ -1072,15 +1072,15 @@ msgstr "Создать файл"
 msgid "Delete"
 msgstr "Удалить"
 
-#: browser/browse.php:75 PersonView.php:1856
+#: browser/browse.php:75 PersonView.php:1864
 msgid "Up One Level"
 msgstr ""
 
-#: browser/browse.php:82 PersonView.php:1864
+#: browser/browse.php:82 PersonView.php:1872
 msgid "Actualize files"
 msgstr ""
 
-#: browser/browse.php:99 PersonView.php:1883
+#: browser/browse.php:99 PersonView.php:1891
 #, fuzzy
 msgid "Preview"
 msgstr "Предыдущая страниц"
@@ -1429,9 +1429,9 @@ msgstr "Участники группы:"
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:274
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:608
-#: v2/templates/dashboard/maindashboard.php:623
-#: v2/templates/group/groupview.php:391 v2/templates/people/familylist.php:55
+#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:609
+#: v2/templates/dashboard/maindashboard.php:624
+#: v2/templates/group/groupview.php:395 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1468,8 +1468,8 @@ msgstr "При добавлении нового семейства, введи�
 #: LettersAndLabels.php:71 PersonEditor.php:1069
 #: Reports/ConfirmReportEmail.php:139 Reports/ConfirmReport.php:142
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:579
-#: v2/templates/dashboard/maindashboard.php:593
+#: v2/templates/dashboard/maindashboard.php:580
+#: v2/templates/dashboard/maindashboard.php:594
 msgid "Family Name"
 msgstr "Фамилия"
 
@@ -1576,12 +1576,12 @@ msgstr "Выберите событие"
 msgid "Select event"
 msgstr "Выберите событие"
 
-#: Checkin.php:207 FamilyView.php:876 PersonView.php:1561
+#: Checkin.php:207 FamilyView.php:876 PersonView.php:1566
 #, fuzzy
 msgid "From"
 msgstr "C:"
 
-#: Checkin.php:207 FamilyView.php:885 PersonView.php:1570
+#: Checkin.php:207 FamilyView.php:885 PersonView.php:1575
 #, fuzzy
 msgid "To"
 msgstr "кому"
@@ -1891,7 +1891,7 @@ msgstr "Работа / Другая Email"
 #: CSVImport.php:254 PersonView.php:579 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
-#: v2/templates/sundayschool/sundayschoolview.php:293
+#: v2/templates/sundayschool/sundayschoolview.php:294
 msgid "Birth Date"
 msgstr "Дата рождения"
 
@@ -2136,7 +2136,7 @@ msgid "Run Transactions"
 msgstr "Запуск Сделки"
 
 #: DepositSlipEditor.php:218 EditEventAttendees.php:81 EventNames.php:297
-#: ListEvents.php:359 PersonView.php:1244
+#: ListEvents.php:359 PersonView.php:1249
 msgid "Action"
 msgstr "Действие"
 
@@ -2172,7 +2172,7 @@ msgid "Return to Deposit Listing"
 msgstr "Депозит Листинг"
 
 #: DepositSlipEditor.php:302 FamilyView.php:1063 FindDepositSlip.php:121
-#: PersonView.php:1921
+#: PersonView.php:1929
 msgid "Confirm Delete"
 msgstr "Подтвердить удаление"
 
@@ -2231,7 +2231,7 @@ msgstr "Информация, включает в себя"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Service/CalendarService.php:31
 #: external/templates/verify/verify-family-info.php:107 FamilyView.php:540
-#: PersonView.php:1112 Reports/ConfirmReportEmail.php:225
+#: PersonView.php:1117 Reports/ConfirmReportEmail.php:225
 #: Reports/ConfirmReportEmail.php:243 Reports/ConfirmReport.php:225
 #: Reports/ConfirmReport.php:245
 #: v2/templates/pastoralcare/pastoralcarefamily.php:113
@@ -4386,7 +4386,7 @@ msgid "Map Settings"
 msgstr "Сохранить настройки"
 
 #: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:464 PersonView.php:788 PrintPastoralCarePerson.php:639
+#: FamilyView.php:464 PersonView.php:789 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:854
 #: v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
@@ -4574,7 +4574,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:250 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:253 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
 msgstr "Область"
@@ -4604,12 +4604,12 @@ msgstr "Новый пароль"
 msgid "Change Settings"
 msgstr "Сохранить настройки"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:664 PersonView.php:975
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:664 PersonView.php:980
 #, fuzzy
 msgid "Documents"
 msgstr "Комментарий "
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:989 UserEditor.php:727
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:994 UserEditor.php:727
 msgid "EDrive"
 msgstr ""
 
@@ -4810,6 +4810,7 @@ msgid "View All Fundraisers"
 msgstr "Все средства,"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:417
+#: v2/templates/fundraiser/donatedItemEditor.php:87
 #, fuzzy
 msgid "Edit Last Fundraiser"
 msgstr "Редактирование пользователя"
@@ -4929,7 +4930,7 @@ msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:233
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:275
-#: v2/templates/dashboard/maindashboard.php:581
+#: v2/templates/dashboard/maindashboard.php:582
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 #, fuzzy
 msgid "Created"
@@ -4937,9 +4938,9 @@ msgstr "Создать файл"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:238
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:280
-#: v2/templates/dashboard/maindashboard.php:595
-#: v2/templates/dashboard/maindashboard.php:610
-#: v2/templates/dashboard/maindashboard.php:625
+#: v2/templates/dashboard/maindashboard.php:596
+#: v2/templates/dashboard/maindashboard.php:611
+#: v2/templates/dashboard/maindashboard.php:626
 #, fuzzy
 msgid "Updated"
 msgstr "Обновить"
@@ -5082,7 +5083,7 @@ msgstr "Область"
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:38
 #: v2/templates/sundayschool/sundayschooldashboard.php:207
-#: v2/templates/sundayschool/sundayschoolview.php:141
+#: v2/templates/sundayschool/sundayschoolview.php:142
 #, fuzzy
 msgid "Teachers"
 msgstr "Дополнительные Преподаватели"
@@ -5140,7 +5141,7 @@ msgstr "Каталог"
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
 #: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:233
+#: v2/templates/sundayschool/sundayschoolview.php:234
 #, fuzzy
 msgid "Students"
 msgstr "Дополнительные Студенты"
@@ -5219,7 +5220,7 @@ msgstr "Адрес"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:514
-#: PersonView.php:857 PrintPastoralCarePerson.php:654
+#: PersonView.php:862 PrintPastoralCarePerson.php:654
 #: v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
 #: v2/templates/people/familylist.php:108
@@ -5389,7 +5390,7 @@ msgid "Person Properties"
 msgstr "Персона"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:144 PersonView.php:930
+#: Include/Footer.php:144 PersonView.php:935
 #, fuzzy
 msgid "Volunteer Opportunities"
 msgstr "Волонтер Возможность редактор"
@@ -5865,8 +5866,8 @@ msgstr "Дата Событие"
 #: EditEventAttendees.php:56 FundRaiserEditor.php:196 GroupEditor.php:92
 #: GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
 #: GroupPropsFormEditor.php:477
-#: v2/templates/fundraiser/donatedItemEditor.php:129
-#: v2/templates/group/groupview.php:392
+#: v2/templates/fundraiser/donatedItemEditor.php:135
+#: v2/templates/group/groupview.php:396
 msgid "Description"
 msgstr "Описание"
 
@@ -6071,8 +6072,8 @@ msgstr ""
 msgid "Bank ACH"
 msgstr "Банк:    "
 
-#: ElectronicPaymentList.php:271 GroupEditor.php:166
-#: v2/templates/group/groupview.php:251
+#: ElectronicPaymentList.php:271 GroupEditor.php:170
+#: v2/templates/group/groupview.php:254
 msgid "Disabled"
 msgstr ""
 
@@ -6317,7 +6318,7 @@ msgid "Login Name"
 msgstr "Войти Имя"
 
 #: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:119
+#: v2/templates/fundraiser/donatedItemEditor.php:124
 msgid "Go"
 msgstr "Дальше"
 
@@ -6366,7 +6367,7 @@ msgid "Register"
 msgstr ""
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1110
+#: FamilyEditor.php:1070 FamilyView.php:527 PersonView.php:1115
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:100
 #: v2/templates/pastoralcare/pastoralcareperson.php:102
@@ -6522,7 +6523,7 @@ msgstr "Семейный с боковым видом"
 msgid "You must enter a name"
 msgstr "Введите имя"
 
-#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:129
+#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:130
 #: GroupPropsEditor.php:266 GroupPropsFormEditor.php:402
 #: PersonCustomFieldsEditor.php:387
 msgid "Select a group"
@@ -6732,7 +6733,7 @@ msgid "Unk"
 msgstr "Unk"
 
 #: FamilyEditor.php:1294 PersonEditor.php:1794 PledgeEditor.php:795
-#: v2/templates/fundraiser/donatedItemEditor.php:164
+#: v2/templates/fundraiser/donatedItemEditor.php:173
 msgid "Save and Add"
 msgstr "Сохранить и добавить"
 
@@ -6789,17 +6790,17 @@ msgstr "Сообщение"
 msgid "EcclesiaCRM text message"
 msgstr ""
 
-#: FamilyView.php:433 PersonView.php:741 v2/templates/group/groupview.php:81
+#: FamilyView.php:433 PersonView.php:741 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "Удалить из корзины"
 
 #: FamilyView.php:440 PersonView.php:749 QueryView.php:219
-#: v2/templates/group/groupview.php:85
+#: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "Добавить в корзину"
 
 #: FamilyView.php:456 PersonView.php:761 v2/templates/cart/cartview.php:76
-#: v2/templates/group/groupview.php:179
+#: v2/templates/group/groupview.php:182
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
@@ -6815,17 +6816,17 @@ msgstr "Проверить"
 msgid "Add New Member"
 msgstr "Добавить событие"
 
-#: FamilyView.php:489 FamilyView.php:490 PersonView.php:797 PersonView.php:798
+#: FamilyView.php:489 FamilyView.php:490 PersonView.php:798 PersonView.php:799
 #, fuzzy
 msgid "Create a document"
 msgstr "Создать отчет"
 
-#: FamilyView.php:498 PersonView.php:830
+#: FamilyView.php:498 PersonView.php:835
 #, fuzzy
 msgid "Deactivate"
 msgstr "неактивно"
 
-#: FamilyView.php:498 PersonView.php:830
+#: FamilyView.php:498 PersonView.php:835
 #, fuzzy
 msgid "Activate"
 msgstr "Активен"
@@ -6840,77 +6841,77 @@ msgstr "Добавить в семьи"
 msgid "Delete this Family"
 msgstr "Выберите Семья:"
 
-#: FamilyView.php:645 PersonView.php:881
+#: FamilyView.php:645 PersonView.php:886
 msgid "Timeline"
 msgstr ""
 
-#: FamilyView.php:648 PersonView.php:925 PrintPastoralCarePerson.php:594
-#: PrintView.php:603 v2/templates/group/groupview.php:317
-#: v2/templates/group/groupview.php:375
+#: FamilyView.php:648 PersonView.php:930 PrintPastoralCarePerson.php:594
+#: PrintView.php:603 v2/templates/group/groupview.php:321
+#: v2/templates/group/groupview.php:379
 #, fuzzy
 msgid "Assigned Properties"
 msgstr "Заданными свойствами"
 
-#: FamilyView.php:655 PersonView.php:948
+#: FamilyView.php:655 PersonView.php:953
 #, fuzzy
 msgid "Automatic Payments"
 msgstr "Автоматический способ оплаты"
 
-#: FamilyView.php:658 PersonView.php:955
+#: FamilyView.php:658 PersonView.php:960
 msgid "Pledges and Payments"
 msgstr "Объявленные и платежи"
 
-#: FamilyView.php:801 PersonView.php:1409 v2/templates/group/groupview.php:330
+#: FamilyView.php:801 PersonView.php:1414 v2/templates/group/groupview.php:334
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Связать новое свойство"
 
-#: FamilyView.php:808 PersonView.php:1415 PersonView.php:1486
-#: PersonView.php:1625
+#: FamilyView.php:808 PersonView.php:1420 PersonView.php:1491
+#: PersonView.php:1630
 msgid "Select"
 msgstr "Выбрать"
 
-#: FamilyView.php:811 PersonView.php:1417 QueryView.php:458 QueryView.php:475
-#: v2/templates/group/groupview.php:335
+#: FamilyView.php:811 PersonView.php:1422 QueryView.php:458 QueryView.php:475
+#: v2/templates/group/groupview.php:339
 #, fuzzy
 msgid "select an option"
 msgstr "Специальная опция"
 
-#: FamilyView.php:832 PersonView.php:1438 PersonView.php:1501
-#: v2/templates/group/groupview.php:351
+#: FamilyView.php:832 PersonView.php:1443 PersonView.php:1506
+#: v2/templates/group/groupview.php:355
 msgid "Assign"
 msgstr "Назначить"
 
-#: FamilyView.php:860 PersonView.php:1533
+#: FamilyView.php:860 PersonView.php:1538
 msgid "Add a new automatic payment"
 msgstr "Добавить новую автоматическую оплату"
 
-#: FamilyView.php:869 PersonView.php:1554
+#: FamilyView.php:869 PersonView.php:1559
 msgid "Show Pledges"
 msgstr "Показать Обязательства"
 
-#: FamilyView.php:873 PersonView.php:1558
+#: FamilyView.php:873 PersonView.php:1563
 msgid "Show Payments"
 msgstr "Показать платежи"
 
-#: FamilyView.php:908 PersonView.php:1583
+#: FamilyView.php:908 PersonView.php:1588
 msgid "Add a new pledge"
 msgstr "Добавить новый залог"
 
-#: FamilyView.php:910 PersonView.php:1585
+#: FamilyView.php:910 PersonView.php:1590
 msgid "Add a new payment"
 msgstr "Добавить новый платеж"
 
-#: FamilyView.php:918 PersonView.php:1601
+#: FamilyView.php:918 PersonView.php:1606
 msgid " Canvass Entry"
 msgstr " Canvass запись"
 
-#: FamilyView.php:1066 PersonView.php:1927
+#: FamilyView.php:1066 PersonView.php:1935
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:1067 PersonView.php:1929
+#: FamilyView.php:1067 PersonView.php:1937
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -7098,7 +7099,7 @@ msgstr "График Общая сумма:"
 msgid "0 - No Minimum"
 msgstr "0 - Нет Минимальный"
 
-#: FinancialReports.php:389
+#: FinancialReports.php:389 SettingsIndividual.php:165
 msgid "Other Settings"
 msgstr "Другие настройки"
 
@@ -7254,6 +7255,11 @@ msgstr "Добавить пожертвовал пункт"
 msgid "Buyers"
 msgstr "Покупатель"
 
+#: FundRaiserEditor.php:221
+#, fuzzy
+msgid "Add buyers to your Fundraiser"
+msgstr "Покупатели на этот сбор средств:"
+
 #: FundRaiserEditor.php:223
 msgid "Generate Catalog"
 msgstr "Создание каталога"
@@ -7395,54 +7401,68 @@ msgstr "Группа Листинг"
 msgid "Type of Group and Menu Category"
 msgstr ""
 
-#: GroupEditor.php:123
+#: GroupEditor.php:103
+msgid "This will include the group in a menu item in the left sidebar"
+msgstr ""
+
+#: GroupEditor.php:124
 #, fuzzy
 msgid "Clone roles"
 msgstr "Клонов роли"
 
-#: GroupEditor.php:127
+#: GroupEditor.php:128
 #, fuzzy
 msgid "from group"
 msgstr "от группы"
 
-#: GroupEditor.php:149
+#: GroupEditor.php:150
 #, fuzzy
 msgid "Group Specific Properties"
 msgstr "Групповые специфические свойства"
 
-#: GroupEditor.php:154
+#: GroupEditor.php:155
 msgid "Enabled"
 msgstr ""
 
-#: GroupEditor.php:157
+#: GroupEditor.php:159 GroupEditor.php:172
+msgid ""
+"Group-specific properties are useful to classify your groups or to make a "
+"sort of Doodle"
+msgstr ""
+
+#: GroupEditor.php:160
 #, fuzzy
 msgid "Disable Group Specific Properties"
 msgstr "Групповые специфические свойства"
 
-#: GroupEditor.php:160 v2/templates/group/groupview.php:424
+#: GroupEditor.php:164
+msgid "Group-specific properties are useful to make a sort of doodle"
+msgstr ""
+
+#: GroupEditor.php:164 v2/templates/group/groupview.php:428
 msgid "Edit Group-Specific Properties Form"
 msgstr "Edit Group-Specific Properties Форма"
 
-#: GroupEditor.php:167
+#: GroupEditor.php:172
 #, fuzzy
 msgid "Enable Group Specific Properties"
 msgstr "Групповые специфические свойства"
 
-#: GroupEditor.php:185
+#: GroupEditor.php:190
 #, fuzzy
 msgid "Group Roles"
 msgstr "Группа Роли"
 
-#: GroupEditor.php:191
+#: GroupEditor.php:196
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 
-#: GroupEditor.php:196
+#: GroupEditor.php:201
 #, fuzzy
 msgid "New Role"
 msgstr "Новая роль"
 
-#: GroupEditor.php:198
+#: GroupEditor.php:203
 #, fuzzy
 msgid "Add New Role"
 msgstr "Новая роль"
@@ -7475,7 +7495,7 @@ msgstr "Нет свойства, которые были добавлены ещ
 msgid "Return to Person"
 msgstr "Вернуться к человеку записи"
 
-#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:369
+#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:373
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Групповые специфические свойства"
@@ -7499,7 +7519,7 @@ msgstr "Человек Посмотреть"
 msgid "Add Group-Specific Properties"
 msgstr "Групповые специфические свойства"
 
-#: GroupReports.php:38 v2/templates/group/groupview.php:103
+#: GroupReports.php:38 v2/templates/group/groupview.php:105
 msgid "Group reports"
 msgstr "Доклады Группа"
 
@@ -7603,7 +7623,7 @@ msgstr "Недвижимость"
 msgid "Edit Custom Person Fields"
 msgstr "Пользовательские лицо Поля"
 
-#: Include/Footer.php:105 v2/templates/group/groupview.php:311
+#: Include/Footer.php:105 v2/templates/group/groupview.php:315
 #, fuzzy
 msgid "Group Properties"
 msgstr "Групповые специфические свойства"
@@ -7999,12 +8019,13 @@ msgstr "Дата начала / Время"
 msgid "End Date/Time"
 msgstr "Дата начала / Время"
 
-#: ListEvents.php:367 v2/templates/group/groupview.php:251
+#: ListEvents.php:367 v2/templates/group/groupview.php:254
 #: v2/templates/sidebar/kioskmanager.php:29
 msgid "Active"
 msgstr "Активен"
 
-#: ListEvents.php:412 SettingsIndividual.php:110 UserEditor.php:887
+#: ListEvents.php:412 SettingsIndividual.php:113 SettingsIndividual.php:169
+#: UserEditor.php:887
 #, fuzzy
 msgid "Notes"
 msgstr "Примечание:"
@@ -8448,99 +8469,142 @@ msgstr "Семья"
 msgid "Printable Page"
 msgstr "Версия для печати Страница"
 
-#: PersonView.php:805
+#: PersonView.php:788
+#, fuzzy
+msgid "Add a pastoral care note"
+msgstr "Добавить в корзину"
+
+#: PersonView.php:806
+#, fuzzy
+msgid "Assign this user to a group"
+msgstr "Не назначен"
+
+#: PersonView.php:808
 #, fuzzy
 msgid "Assign New Group"
 msgstr "Назначенные группы"
 
-#: PersonView.php:815
+#: PersonView.php:818
+#, fuzzy
+msgid "Create a CRM user"
+msgstr "Создать файл"
+
+#: PersonView.php:819
 msgid "Make User"
 msgstr "Сделать Пользователь"
 
-#: PersonView.php:821
+#: PersonView.php:825
+#, fuzzy
+msgid "Add rights to this user"
+msgstr "Донорские пункты для этого сбор средств"
+
+#: PersonView.php:826
 msgid "Edit User"
 msgstr "Редактирование пользователя"
 
-#: PersonView.php:830
+#: PersonView.php:835
 #, fuzzy
 msgid " this Person"
 msgstr "Персона"
 
-#: PersonView.php:843 PersonView.php:850
+#: PersonView.php:848 PersonView.php:855
 msgid "Delete this Record"
 msgstr "Удалить эту запись"
 
-#: PersonView.php:910 PrintPastoralCarePerson.php:497 PrintView.php:506
+#: PersonView.php:915 PrintPastoralCarePerson.php:497 PrintView.php:506
 #, fuzzy
 msgid "Assigned Groups"
 msgstr "Назначенные группы"
 
-#: PersonView.php:1086
+#: PersonView.php:1091
 msgid "click to download"
 msgstr ""
 
-#: PersonView.php:1201 PrintPastoralCarePerson.php:509 PrintView.php:518
+#: PersonView.php:1206 PrintPastoralCarePerson.php:509 PrintView.php:518
 msgid "No group assignments."
 msgstr "Нет Группа заданий."
 
-#: PersonView.php:1254
+#: PersonView.php:1259
 #, fuzzy
 msgid "Change Role"
 msgstr "Новая роль"
 
-#: PersonView.php:1261
+#: PersonView.php:1266
 #, fuzzy
 msgid "Update Properties"
 msgstr "Недвижимость"
 
-#: PersonView.php:1297
+#: PersonView.php:1302
 #, fuzzy
 msgid "Group Informations"
 msgstr "Доклады Группа"
 
-#: PersonView.php:1328
+#: PersonView.php:1333
 #, fuzzy
 msgid "Person Informations"
 msgstr "Человек из группы"
 
-#: PersonView.php:1351
+#: PersonView.php:1356
 #, fuzzy
 msgid "Modify Specific Properties"
 msgstr "Групповые специфические свойства"
 
-#: PersonView.php:1393 PrintPastoralCarePerson.php:606 PrintView.php:615
+#: PersonView.php:1398 PrintPastoralCarePerson.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Нет свойства заданий."
 
-#: PersonView.php:1463
+#: PersonView.php:1468
 msgid "No volunteer opportunity assignments."
 msgstr "Нет на общественных началах Возможность задания."
 
-#: PersonView.php:1478
+#: PersonView.php:1483
 #, fuzzy
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Назначьте Возможность Нью-добровольцев"
 
-#: PersonView.php:1538 PersonView.php:1590
+#: PersonView.php:1543 PersonView.php:1595
 #, fuzzy
 msgid "You must set an address for this person"
 msgstr "Введите имя"
 
-#: PersonView.php:1626
+#: PersonView.php:1631
+#, fuzzy
+msgid "Filter your documents by : "
+msgstr "Фильтр по Тип компенсации:"
+
+#: PersonView.php:1632
 #, fuzzy
 msgid "All type"
 msgstr "Все данные"
 
-#: PersonView.php:1631
+#: PersonView.php:1637
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1742
+#: PersonView.php:1673
+#, fuzzy
+msgid "Edit this document"
+msgstr "Редактировать этот группу"
+
+#: PersonView.php:1683
+#, fuzzy
+msgid "Delete this document"
+msgstr "Удалить эту группу"
+
+#: PersonView.php:1694
+msgid "Share this document to another user"
+msgstr ""
+
+#: PersonView.php:1707
+msgid "Export this document to word Format"
+msgstr ""
+
+#: PersonView.php:1750
 #, fuzzy
 msgid "Last modification by"
 msgstr "Семья подтверждения удаления"
 
-#: PersonView.php:1818
+#: PersonView.php:1826
 #, fuzzy
 msgid "All Files"
 msgstr "Все семьи"
@@ -9056,7 +9120,7 @@ msgid "Donated Items:"
 msgstr "Предоставленной продукции:"
 
 #: Reports/FundRaiserStatement.php:126
-#: v2/templates/fundraiser/donatedItemEditor.php:87
+#: v2/templates/fundraiser/donatedItemEditor.php:91
 msgid "Buyer"
 msgstr "Покупатель"
 
@@ -9232,7 +9296,7 @@ msgid "Greeting"
 msgstr "Группа Листинг"
 
 #: Reports/PhotoBook.php:167 Reports/PhotoBook.php:208
-#: v2/templates/sundayschool/sundayschoolreports.php:142
+#: v2/templates/sundayschool/sundayschoolreports.php:143
 #, fuzzy
 msgid "PhotoBook"
 msgstr "Фотографии"
@@ -9470,29 +9534,39 @@ msgstr "Нет, отменить эту удаление"
 msgid "Delete Person Record"
 msgstr "Удалить эту запись"
 
-#: SettingsIndividual.php:94
+#: SettingsIndividual.php:96
 msgid "My User Settings"
 msgstr "Мои настройки пользователя"
 
-#: SettingsIndividual.php:108 SystemSettings.php:141 UserEditor.php:885
-msgid "Variable name"
-msgstr "Имя переменной"
+#: SettingsIndividual.php:109
+#, fuzzy
+msgid "Classic User Profile Settings"
+msgstr "Мои настройки пользователя"
 
-#: SettingsIndividual.php:109 UserEditor.php:886
+#: SettingsIndividual.php:114 SettingsIndividual.php:170 UserEditor.php:886
 msgid "Current Value"
 msgstr "Текущая стоимость"
 
-#: SettingsIndividual.php:132 SettingsIndividual.php:227 SystemSettings.php:281
+#: SettingsIndividual.php:115 SettingsIndividual.php:171 SystemSettings.php:141
+#: UserEditor.php:885
+msgid "Variable name"
+msgstr "Имя переменной"
+
+#: SettingsIndividual.php:147 SettingsIndividual.php:390 SystemSettings.php:281
 #: UserEditor.php:1014
 msgid "Save Settings"
 msgstr "Сохранить настройки"
 
-#: SettingsIndividual.php:182 SystemSettings.php:210 UserEditor.php:921
+#: SettingsIndividual.php:165
+msgid "Skin"
+msgstr ""
+
+#: SettingsIndividual.php:345 SystemSettings.php:210 UserEditor.php:921
 #: UserEditor.php:970
 msgid "False"
 msgstr ""
 
-#: SettingsIndividual.php:183 SystemSettings.php:211 UserEditor.php:922
+#: SettingsIndividual.php:346 SystemSettings.php:211 UserEditor.php:922
 #: UserEditor.php:971
 msgid "True"
 msgstr ""
@@ -10583,31 +10657,35 @@ msgid "Young People not reached"
 msgstr "Человек Листинг"
 
 #: v2/templates/dashboard/maindashboard.php:504
+msgid "Visit/Call your church members"
+msgstr ""
+
+#: v2/templates/dashboard/maindashboard.php:505
 #, fuzzy
 msgid "Manage Pastoral Care"
 msgstr "Люди"
 
-#: v2/templates/dashboard/maindashboard.php:521
+#: v2/templates/dashboard/maindashboard.php:522
 #, fuzzy
 msgid "Deposit Tracking"
 msgstr "Депозит Листинг"
 
-#: v2/templates/dashboard/maindashboard.php:544
+#: v2/templates/dashboard/maindashboard.php:545
 #, fuzzy
 msgid "Latest Families"
 msgstr "Семьи"
 
-#: v2/templates/dashboard/maindashboard.php:552
+#: v2/templates/dashboard/maindashboard.php:553
 #, fuzzy
 msgid "Updated Families"
 msgstr "Обновление Family Records"
 
-#: v2/templates/dashboard/maindashboard.php:559
+#: v2/templates/dashboard/maindashboard.php:560
 #, fuzzy
 msgid "Latest Members"
 msgstr "Всего пользователей"
 
-#: v2/templates/dashboard/maindashboard.php:566
+#: v2/templates/dashboard/maindashboard.php:567
 #, fuzzy
 msgid "Updated Members"
 msgstr "Посещение Пользователи"
@@ -10692,6 +10770,11 @@ msgstr ""
 msgid "MailChimp Management"
 msgstr " Недвижимость Unassignment"
 
+#: v2/templates/email/mailchimp/dashboard.php:62
+#, fuzzy
+msgid "Create an audience or List"
+msgstr "Создать файл"
+
 #: v2/templates/email/mailchimp/dashboard.php:63
 #, fuzzy
 msgid "Create list"
@@ -10701,6 +10784,11 @@ msgstr "Создать файл"
 #, fuzzy
 msgid "Generate CSV"
 msgstr "Создание:"
+
+#: v2/templates/email/mailchimp/dashboard.php:77
+#, fuzzy
+msgid "To debug your email connection"
+msgstr "Сохранить настройки"
 
 #: v2/templates/email/mailchimp/dashboard.php:78
 msgid "Debug"
@@ -10840,21 +10928,46 @@ msgstr "Материальная ценность"
 msgid "Minimum Price"
 msgstr "Минимальная цена"
 
-#: v2/templates/fundraiser/donatedItemEditor.php:89
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+msgid "To add some buyers use the side bar and the menu Item"
+msgstr ""
+
+#: v2/templates/fundraiser/donatedItemEditor.php:93
 msgid "Multiple"
 msgstr "Выбор нескольких элементов"
 
-#: v2/templates/fundraiser/donatedItemEditor.php:108
+#: v2/templates/fundraiser/donatedItemEditor.php:112
 #, fuzzy
 msgid "Final Price"
 msgstr "Окончательная цена"
 
-#: v2/templates/fundraiser/donatedItemEditor.php:114
+#: v2/templates/fundraiser/donatedItemEditor.php:118
 msgid "Replicate item"
 msgstr ""
 
-#: v2/templates/fundraiser/donatedItemEditor.php:135
+#: v2/templates/fundraiser/donatedItemEditor.php:122
+msgid "Replicate this item as many times you want"
+msgstr ""
+
+#: v2/templates/fundraiser/donatedItemEditor.php:126
+#, fuzzy
+msgid "Replicate it"
+msgstr "е-мейл"
+
+#: v2/templates/fundraiser/donatedItemEditor.php:138
+msgid "A small description to help us to sell this item"
+msgstr ""
+
+#: v2/templates/fundraiser/donatedItemEditor.php:142
 msgid "Picture URL"
+msgstr ""
+
+#: v2/templates/fundraiser/donatedItemEditor.php:148
+msgid "Paste an URL"
+msgstr ""
+
+#: v2/templates/fundraiser/donatedItemEditor.php:152
+msgid "Use the EDrive to browse or upload a file"
 msgstr ""
 
 #: v2/templates/fundraiser/findFundRaiser.php:32
@@ -10972,33 +11085,48 @@ msgid "Total Members"
 msgstr "Всего пользователей"
 
 #: v2/templates/group/groupview.php:51
+msgid "Click to create an addressbook of the Group"
+msgstr ""
+
+#: v2/templates/group/groupview.php:52
 #, fuzzy
 msgid "Address Book"
 msgstr "Адрес"
 
-#: v2/templates/group/groupview.php:67
+#: v2/templates/group/groupview.php:68
 #, fuzzy
 msgid "Group Functions"
 msgstr "Группа Листинг"
 
-#: v2/templates/group/groupview.php:73
+#: v2/templates/group/groupview.php:74
 msgid "Map this group"
 msgstr "Карта эту группу"
 
-#: v2/templates/group/groupview.php:92
+#: v2/templates/group/groupview.php:94
+msgid ""
+"To add special Group roles or to modify the role by default or to enable "
+"Group-specific properties"
+msgstr ""
+
+#: v2/templates/group/groupview.php:94
 msgid "Edit this Group"
 msgstr "Редактировать этот группу"
 
-#: v2/templates/group/groupview.php:93
+#: v2/templates/group/groupview.php:95
 msgid "Delete this Group"
 msgstr "Удалить эту группу"
 
-#: v2/templates/group/groupview.php:108
+#: v2/templates/group/groupview.php:109
+#: v2/templates/sundayschool/sundayschoolview.php:100
+msgid "Create here your badges or QR-Code to call the register with them"
+msgstr ""
+
+#: v2/templates/group/groupview.php:111
 #, fuzzy
 msgid "Group Badges"
 msgstr "Участники группы:"
 
-#: v2/templates/group/groupview.php:118
+#: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:38
 #: v2/templates/pastoralcare/pastoralcarefamily.php:65
@@ -11008,124 +11136,128 @@ msgstr "Участники группы:"
 msgid "Appointment"
 msgstr "Депозит Сообщить"
 
-#: v2/templates/group/groupview.php:168
+#: v2/templates/group/groupview.php:171
 msgid "Email Group"
 msgstr "Email Группа"
 
-#: v2/templates/group/groupview.php:226
+#: v2/templates/group/groupview.php:229
 #, fuzzy
 msgid "Text Group"
 msgstr "Выберите группу"
 
-#: v2/templates/group/groupview.php:227
+#: v2/templates/group/groupview.php:230
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 
-#: v2/templates/group/groupview.php:243
+#: v2/templates/group/groupview.php:246
 #, fuzzy
 msgid "Quick Settings"
 msgstr "Сохранить настройки"
 
-#: v2/templates/group/groupview.php:253
+#: v2/templates/group/groupview.php:256
 #, fuzzy
 msgid "Email export"
 msgstr "Email Корзина"
 
-#: v2/templates/group/groupview.php:254
+#: v2/templates/group/groupview.php:257
 #, fuzzy
 msgid "Include"
 msgstr "Включить:"
 
-#: v2/templates/group/groupview.php:254
+#: v2/templates/group/groupview.php:257
 #, fuzzy
 msgid "Exclude"
 msgstr "Включить:"
 
-#: v2/templates/group/groupview.php:262
+#: v2/templates/group/groupview.php:265
 msgid ""
 "Assign a group manager only for This Group. He can add or remove member from "
 "This Group, but not create Members."
 msgstr ""
 
-#: v2/templates/group/groupview.php:262
+#: v2/templates/group/groupview.php:265
 #, fuzzy
 msgid "Group Managers"
 msgstr "Участники группы:"
 
-#: v2/templates/group/groupview.php:268
+#: v2/templates/group/groupview.php:271
 #, fuzzy
 msgid "Assigned Managers"
 msgstr "Назначение агитаторов"
 
-#: v2/templates/group/groupview.php:288
+#: v2/templates/group/groupview.php:291
 #, fuzzy
 msgid "No assigned Manager"
 msgstr "Не назначен"
 
-#: v2/templates/group/groupview.php:293
+#: v2/templates/group/groupview.php:297
+msgid "Add a specific manager only for this group"
+msgstr ""
+
+#: v2/templates/group/groupview.php:297
 #, fuzzy
 msgid "Add Manager"
 msgstr "Добавить Покупателю"
 
-#: v2/templates/group/groupview.php:311
+#: v2/templates/group/groupview.php:315
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
-#: v2/templates/group/groupview.php:369
+#: v2/templates/group/groupview.php:373
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: v2/templates/group/groupview.php:383
+#: v2/templates/group/groupview.php:387
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Нет свойства, которые были добавлены еще"
 
-#: v2/templates/group/groupview.php:415
+#: v2/templates/group/groupview.php:419
 msgid "Disabled for this group."
 msgstr "Отключено для этой группы."
 
-#: v2/templates/group/groupview.php:415
+#: v2/templates/group/groupview.php:419
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: v2/templates/group/groupview.php:439
+#: v2/templates/group/groupview.php:443
 msgid "Group Members:"
 msgstr "Участники группы:"
 
-#: v2/templates/group/groupview.php:453
+#: v2/templates/group/groupview.php:457
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Участники группы:"
 
-#: v2/templates/group/groupview.php:458
+#: v2/templates/group/groupview.php:462
 #: v2/templates/sundayschool/sundayschooldashboard.php:332
-#: v2/templates/sundayschool/sundayschoolview.php:162
-#: v2/templates/sundayschool/sundayschoolview.php:268
+#: v2/templates/sundayschool/sundayschoolview.php:163
+#: v2/templates/sundayschool/sundayschoolview.php:269
 #, fuzzy
 msgid "Add"
 msgstr "Адрес"
 
-#: v2/templates/group/groupview.php:464
+#: v2/templates/group/groupview.php:468
 msgid "Remove Selected Members from group"
 msgstr ""
 
-#: v2/templates/group/groupview.php:471
+#: v2/templates/group/groupview.php:475
 #, fuzzy
 msgid "Add Selected Members to Cart"
 msgstr "Добавить группу Пользователей в корзину"
 
-#: v2/templates/group/groupview.php:477
+#: v2/templates/group/groupview.php:481
 #, fuzzy
 msgid "Add Selected Members to Group"
 msgstr "Добавить человека в группу"
 
-#: v2/templates/group/groupview.php:478
+#: v2/templates/group/groupview.php:482
 msgid "Move Selected Members to Group"
 msgstr ""
 
@@ -11176,10 +11308,18 @@ msgstr ""
 msgid "Room names"
 msgstr ""
 
+#: v2/templates/meeting/meetingdashboard.php:23
+msgid "Create first a room and manage theme with the arrow button"
+msgstr ""
+
 #: v2/templates/meeting/meetingdashboard.php:24
 #, fuzzy
 msgid "Create Room"
 msgstr "Создать отчет"
+
+#: v2/templates/meeting/meetingdashboard.php:38
+msgid "This action will delete all your rooms"
+msgstr ""
 
 #: v2/templates/meeting/meetingdashboard.php:38
 #, fuzzy
@@ -11197,6 +11337,11 @@ msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
+msgstr ""
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:24
+msgid ""
+"Pastoral care with a familly. You can validated all the persons together."
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:33
@@ -11272,6 +11417,11 @@ msgstr "Вернуться к человеку записи"
 #, fuzzy
 msgid "Return To PastoralCare Members List"
 msgstr "Добавить в корзину"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:23
+#, fuzzy
+msgid "Filter by member types"
+msgstr "Фильтр по Тип компенсации:"
 
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:50
 #, fuzzy
@@ -11680,6 +11830,10 @@ msgstr ""
 msgid "Generate class lists and attendance sheets"
 msgstr "Создание списков классов и посещаемости листы"
 
+#: v2/templates/sundayschool/sundayschooldashboard.php:146
+msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
+msgstr ""
+
 #: v2/templates/sundayschool/sundayschooldashboard.php:154
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr ""
@@ -11690,25 +11844,25 @@ msgid "Export to CSV"
 msgstr "Экспортировать результаты в CSV файл"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:110
+#: v2/templates/sundayschool/sundayschoolview.php:111
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Удалить из корзины"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:168
-#: v2/templates/sundayschool/sundayschoolview.php:116
+#: v2/templates/sundayschool/sundayschoolview.php:117
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Добавить Результаты в корзину"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:176
-#: v2/templates/sundayschool/sundayschoolview.php:125
+#: v2/templates/sundayschool/sundayschoolview.php:126
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Удалить из корзины"
 
 #: v2/templates/sundayschool/sundayschooldashboard.php:181
-#: v2/templates/sundayschool/sundayschoolview.php:131
+#: v2/templates/sundayschool/sundayschoolview.php:132
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Добавить группу Пользователей в корзину"
@@ -11736,62 +11890,67 @@ msgstr "Имя Пользователя"
 msgid "To select multiple hold CTL"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolreports.php:50
+#: v2/templates/sundayschool/sundayschoolreports.php:40
+#, fuzzy
+msgid "Select one or more groups"
+msgstr "Выбор группы"
+
+#: v2/templates/sundayschool/sundayschoolreports.php:51
 msgid "Multiple groups will have a Page Break between Groups<br>"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolreports.php:52
+#: v2/templates/sundayschool/sundayschoolreports.php:53
 msgid "List all Roles (unchecked will list Teacher/Student roles only)"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolreports.php:54
+#: v2/templates/sundayschool/sundayschoolreports.php:55
 #, fuzzy
 msgid "With Photos"
 msgstr "Фотографии"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:66
+#: v2/templates/sundayschool/sundayschoolreports.php:67
 #, fuzzy
 msgid "First Sunday"
 msgstr "Первое воскресенье"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:71
+#: v2/templates/sundayschool/sundayschoolreports.php:72
 #, fuzzy
 msgid "Last Sunday"
 msgstr "Последнее воскресенье"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:76
-#: v2/templates/sundayschool/sundayschoolreports.php:81
-#: v2/templates/sundayschool/sundayschoolreports.php:86
-#: v2/templates/sundayschool/sundayschoolreports.php:91
-#: v2/templates/sundayschool/sundayschoolreports.php:96
-#: v2/templates/sundayschool/sundayschoolreports.php:101
-#: v2/templates/sundayschool/sundayschoolreports.php:106
-#: v2/templates/sundayschool/sundayschoolreports.php:111
+#: v2/templates/sundayschool/sundayschoolreports.php:77
+#: v2/templates/sundayschool/sundayschoolreports.php:82
+#: v2/templates/sundayschool/sundayschoolreports.php:87
+#: v2/templates/sundayschool/sundayschoolreports.php:92
+#: v2/templates/sundayschool/sundayschoolreports.php:97
+#: v2/templates/sundayschool/sundayschoolreports.php:102
+#: v2/templates/sundayschool/sundayschoolreports.php:107
+#: v2/templates/sundayschool/sundayschoolreports.php:112
 #, fuzzy
 msgid "No Sunday School"
 msgstr "Нет Воскресная школа"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:116
+#: v2/templates/sundayschool/sundayschoolreports.php:117
 #, fuzzy
 msgid "Extra Students"
 msgstr "Дополнительные Студенты"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:120
+#: v2/templates/sundayschool/sundayschoolreports.php:121
 #, fuzzy
 msgid "Extra Teachers"
 msgstr "Дополнительные Преподаватели"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:133
+#: v2/templates/sundayschool/sundayschoolreports.php:134
 #, fuzzy
 msgid "Class List"
 msgstr "Создать список классов"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:136
+#: v2/templates/sundayschool/sundayschoolreports.php:137
 #, fuzzy
 msgid "Attendance Sheet"
 msgstr "Создать посещаемости лист"
 
-#: v2/templates/sundayschool/sundayschoolreports.php:139
+#: v2/templates/sundayschool/sundayschoolreports.php:140
 #, fuzzy
 msgid "Real Attendance Sheet"
 msgstr "Создать посещаемости лист"
@@ -11833,52 +11992,52 @@ msgstr "Редактировать этот группу"
 msgid "Export Attendance"
 msgstr "Создать посещаемости лист"
 
-#: v2/templates/sundayschool/sundayschoolview.php:101
+#: v2/templates/sundayschool/sundayschoolview.php:102
 #, fuzzy
 msgid "Student Badges"
 msgstr "Дополнительные Студенты"
 
-#: v2/templates/sundayschool/sundayschoolview.php:157
+#: v2/templates/sundayschool/sundayschoolview.php:158
 #, fuzzy
 msgid "Add Teachers to the Team"
 msgstr "Добавить группу Пользователей в корзину"
 
-#: v2/templates/sundayschool/sundayschoolview.php:181
+#: v2/templates/sundayschool/sundayschoolview.php:182
 msgid "Quick Status"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:195
+#: v2/templates/sundayschool/sundayschoolview.php:196
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "День рождения Дата"
 
-#: v2/templates/sundayschool/sundayschoolview.php:222
+#: v2/templates/sundayschool/sundayschoolview.php:223
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:235
+#: v2/templates/sundayschool/sundayschoolview.php:236
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Месяц истечения"
 
-#: v2/templates/sundayschool/sundayschoolview.php:236
+#: v2/templates/sundayschool/sundayschoolview.php:237
 #, fuzzy
 msgid "On"
 msgstr "Oднократно"
 
-#: v2/templates/sundayschool/sundayschoolview.php:237
+#: v2/templates/sundayschool/sundayschoolview.php:238
 msgid "Off"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:244
+#: v2/templates/sundayschool/sundayschoolview.php:245
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:248
+#: v2/templates/sundayschool/sundayschoolview.php:249
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:265
+#: v2/templates/sundayschool/sundayschoolview.php:266
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Добавить человека в группу"
@@ -12646,9 +12805,6 @@ msgstr "Свадьба"
 #~ msgid "Generate Statement"
 #~ msgstr "Создание заявление"
 
-#~ msgid "Buyers for this fundraiser:"
-#~ msgstr "Покупатели на этот сбор средств:"
-
 #~ msgid "Select none"
 #~ msgstr "Очистить все"
 
@@ -12872,10 +13028,6 @@ msgstr "Свадьба"
 #, fuzzy
 #~ msgid "Email Audience"
 #~ msgstr "е-мейл"
-
-#, fuzzy
-#~ msgid "Create Audience"
-#~ msgstr "Создать файл"
 
 #, fuzzy
 #~ msgid "Manage Email Audience"
