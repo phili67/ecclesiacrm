@@ -64,7 +64,7 @@ EDrive is a real drive, click on the line:
 - Then one will be able to preview the videos or mp3 files
 
 
-##Create a file
+##Create a folder
 
 the steps are simple:
 

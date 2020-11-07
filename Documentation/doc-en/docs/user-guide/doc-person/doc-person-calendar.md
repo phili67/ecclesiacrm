@@ -2,7 +2,7 @@ A user can create personal calendars and open them on his cellphone or share the
 
 ##Calendars
 
-   Choose "Events and calendars" in the sidebar
+  Choose "Events" & "Calendars" in the sidebar
 
   ![Screenshot](../../img/person/user5.png)
 
@@ -12,7 +12,7 @@ There are three types of calendars:
 
 - group calendar
 
-- booking calendar
+- resources calendar
 
 - shared calendar
 
@@ -20,7 +20,7 @@ There are three types of calendars:
 
 - Click on "+"
 
-     ![Screenshot](../../img/person/user6.png)
+  ![Screenshot](../../img/person/user6.png)
 
 - then choose a name
 
@@ -28,11 +28,11 @@ There are three types of calendars:
 
 - Click on the calendar icon
 
-     ![Screenshot](../../img/person/user12.png)
+  ![Screenshot](../../img/person/user12.png)
 
 - Choose the desired color
 
-     ![Screenshot](../../img/person/user13.png)
+  ![Screenshot](../../img/person/user13.png)
 
 - The result is on the right
 

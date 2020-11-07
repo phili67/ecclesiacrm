@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="A Material Design theme for MkDocs">
+        <meta name="description" content="Une documentation complète du CRM">
       
       
-        <link rel="canonical" href="https://github.com/phili67/ecclesiacrm/releases/user-guide/doc-pastoral-care/doc-pastoral-care/">
+        <link rel="canonical" href="https://github.com/phili67/ecclesiacrm/user-guide/doc-pastoral-care/doc-pastoral-care/">
       
       
         <meta name="author" content="Philippe Logel">
@@ -38,7 +38,7 @@
     
     
       
-        <title>Suivi Pastoral - EcclesiaCRM</title>
+        <title>Activer pour un utilisateur - EcclesiaCRM</title>
       
     
     
@@ -81,7 +81,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/phili67/ecclesiacrm/releases/" title="EcclesiaCRM" class="md-header-nav__button md-logo">
+        <a href="https://github.com/phili67/ecclesiacrm" title="EcclesiaCRM" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -98,7 +98,7 @@
                 EcclesiaCRM
               </span>
               <span class="md-header-nav__topic">
-                Suivi Pastoral
+                Activer pour un utilisateur
               </span>
             
           
@@ -1266,6 +1266,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../doc-pastoral-care-dashboard/" title="Tableau de bord" class="md-nav__link">
+      Tableau de bord
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -1277,11 +1289,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Suivi Pastoral
+        Activer pour un utilisateur
       </label>
     
-    <a href="./" title="Suivi Pastoral" class="md-nav__link md-nav__link--active">
-      Suivi Pastoral
+    <a href="./" title="Activer pour un utilisateur" class="md-nav__link md-nav__link--active">
+      Activer pour un utilisateur
     </a>
     
       
@@ -1301,20 +1313,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#creer-une-note-de-suivi-pastoral" title="Créer une note de suivi pastoral" class="md-nav__link">
-    Créer une note de suivi pastoral
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filtrage-par-pasteur-ou-conseiller" title="Filtrage par pasteur ou conseiller" class="md-nav__link">
-    Filtrage par pasteur ou conseiller
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -1330,9 +1328,57 @@
 
 
   <li class="md-nav__item">
+    <a href="../doc-pastoral-care-add-person-family/" title="Ajouter : Personne & Famille" class="md-nav__link">
+      Ajouter : Personne & Famille
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../doc-pastoral-care-classifications/" title="Classifications" class="md-nav__link">
+      Classifications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Réglages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        Réglages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../doc-settings/doc-settings-pastoral-care/" title="Personnalisation" class="md-nav__link">
       Personnalisation
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1740,20 +1786,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#creer-une-note-de-suivi-pastoral" title="Créer une note de suivi pastoral" class="md-nav__link">
-    Créer une note de suivi pastoral
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filtrage-par-pasteur-ou-conseiller" title="Filtrage par pasteur ou conseiller" class="md-nav__link">
-    Filtrage par pasteur ou conseiller
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -1769,50 +1801,17 @@
               
                 
                 
-                <h1 id="suivi-pastoral-ecclesiacrm"><center><big>Suivi pastoral &amp; Ecclesia<strong>CRM</strong> </big></center><a class="headerlink" href="#suivi-pastoral-ecclesiacrm" title="Permanent link">&para;</a></h1>
+                <h1 id="suivi-pastoral-pour-une-personne-ou-une-famille"><center><big>Suivi pastoral pour une personne ou une famille</big></center><a class="headerlink" href="#suivi-pastoral-pour-une-personne-ou-une-famille" title="Permanent link">&para;</a></h1>
 <p>Chaque pasteur, conseiller en relation d'aide, ou même responsable autorisé a la possibilité de pouvoir gérer le suivi pastoral.</p>
 <h2 id="activer-le-suivi-pastoral-pour-un-utilisateur-du-systeme">Activer le suivi pastoral pour un utilisateur du système<a class="headerlink" href="#activer-le-suivi-pastoral-pour-un-utilisateur-du-systeme" title="Permanent link">&para;</a></h2>
 <p>Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le rôle de suivi pastoral.</p>
-<p>Aller pour cela dans 
+<p>Aller pour cela dans
 <img alt="Screenshot" src="../../../img/settings/usersettings.png" /></p>
 <p>Sélectionner l'utilisateur, puis l'éditerer et lui ajouterer le rôle suivi pastoral.</p>
 <p><img alt="Screenshot" src="../../../img/settings/usersettingsedit.png" /></p>
 <p>On coche cette case et on enregistre</p>
 <p><img alt="Screenshot" src="../../../img/settings/usersettingseditpastoralcare.png" /></p>
 <p>Cet utilisateur pourra maintenant ajouter une note de suivi pastoral.</p>
-<h2 id="creer-une-note-de-suivi-pastoral">Créer une note de suivi pastoral<a class="headerlink" href="#creer-une-note-de-suivi-pastoral" title="Permanent link">&para;</a></h2>
-<p>Dans un premier temps, rechercher un utilisateur avec le menu dans la barre latérale gauche</p>
-<p><img alt="Screenshot" src="../../../img/searchperson.png" /></p>
-<p>Voici son profile</p>
-<p><img alt="Screenshot" src="../../../img/pastoralcare/pastoralcarefirst.png" /></p>
-<p>On clique sur le bouton ci-dessus et on peut commencer le suivi pastoral</p>
-<p><img alt="Screenshot" src="../../../img/pastoralcare/pastoralcare1.png" /></p>
-<p>La vue se sépare en deux parties </p>
-<ul>
-<li>les boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.</li>
-<li>voici les types prédéfinies, vous pourrez dans la partie personnalisation en rajouter</li>
-</ul>
-<p><img alt="Screenshot" src="../../../img/pastoralcare/pastoralcare2.png" /></p>
-<ul>
-<li>Sélectionnons par exemple : Pourquoi êtes-vous venu à l'église dans le petit menu<br>
-<img alt="Screenshot" src="../../../img/pastoralcare/pastoralcare3.png" /><br><ul>
-<li>Il sera possible dans la fenêtre ci-dessus, de glisser déposer des images documents dans la zone </li>
-<li>d'utiliser </li>
-<li>d'utiliser des modèles de documents <a href="../../doc-person/doc-person-document-templates/">Modèle</a></li>
-<li>de mettre en place des tableaux</li>
-<li>etc ...</li>
-</ul>
-</li>
-</ul>
-<p><strong>Remarque</strong> Vous remarquerez les boutons radio "Afficher" "Masquer", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.</p>
-<p><strong>Il est important par exemple de savoir que la personne a été suivi mais pas de voir les notes prises durant le suivi.</strong></p>
-<ul>
-<li>Voici le résultat après saisie</li>
-</ul>
-<p><img alt="Screenshot" src="../../../img/pastoralcare/pastoralcare4.png" /></p>
-<h2 id="filtrage-par-pasteur-ou-conseiller">Filtrage par pasteur ou conseiller<a class="headerlink" href="#filtrage-par-pasteur-ou-conseiller" title="Permanent link">&para;</a></h2>
-<p>Pour cela, prenez le bouton de droite.</p>
-<p><img alt="Screenshot" src="../../../img/pastoralcare/pastoralcare5.png" /></p>
                 
                   
                 
@@ -1831,7 +1830,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../doc-gdpr/doc-gdpr-activation/" title="Activation & Gestion" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../doc-pastoral-care-dashboard/" title="Tableau de bord" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1840,19 +1839,19 @@
                 <span class="md-footer-nav__direction">
                   Précédent
                 </span>
-                Activation & Gestion
+                Tableau de bord
               </span>
             </div>
           </a>
         
         
-          <a href="../doc-settings/doc-settings-pastoral-care/" title="Personnalisation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../doc-pastoral-care-add-person-family/" title="Ajouter : Personne & Famille" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Suivant
                 </span>
-                Personnalisation
+                Ajouter : Personne & Famille
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1868,7 +1867,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2019 Philippe Logel
+            Copyright &copy; 2017 - 2020 Philippe Logel
           </div>
         
         powered by

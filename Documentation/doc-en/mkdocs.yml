@@ -5,7 +5,7 @@ site_author: 'Philippe Logel'
 site_url: 'https://github.com/phili67/ecclesiacrm'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2018 Philippe Logel'
+copyright: 'Copyright &copy; 2017 - 202O Philippe Logel'
 
 # Configuration
 theme:
@@ -119,8 +119,12 @@ pages:
       - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
   - "Manual: Pastor & Advisor":
-      - "Pastoral Care": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
-      - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+      - "Dashboard": 'user-guide/doc-pastoral-care/doc-pastoral-care-dashboard.md'
+      - "Enable for an User": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
+      - "Add : Person & Family": 'user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family.md'
+      - "Classifications": 'user-guide/doc-pastoral-care/doc-pastoral-care-classifications.md'
+      - "Settings":
+          - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
   - "Manual: Sunday School":
       - "Overview": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
@@ -131,7 +135,7 @@ pages:
       - "Export : Face Manual - attendance board": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
       - "Side bar": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
-  - "Manual: Mailing & Capaign":
+  - "Manual: Mailing & Campaign":
       - "MailChimp":
           - 'Dashboard': 'user-guide/doc-mailchimp/dashboard.md'
           - 'List Audience Management': 'user-guide/doc-mailchimp/manage_list.md'

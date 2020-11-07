@@ -1141,29 +1141,99 @@
             "title": "Menu RGPD"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/", 
-            "text": "Suivi pastoral \n Ecclesia\nCRM\n \n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nActiver le suivi pastoral pour un utilisateur du syst\u00e8me\n\n\nPour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.\n\n\nAller pour cela dans \n\n\n\nS\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.\n\n\n\n\nOn coche cette case et on enregistre\n\n\n\n\nCet utilisateur pourra maintenant ajouter une note de suivi pastoral.\n\n\nCr\u00e9er une note de suivi pastoral\n\n\nDans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche\n\n\n\n\nVoici son profile\n\n\n\n\nOn clique sur le bouton ci-dessus et on peut commencer le suivi pastoral\n\n\n\n\nLa vue se s\u00e9pare en deux parties \n\n\n\n\nles boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.\n\n\nvoici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter\n\n\n\n\n\n\n\n\nS\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu\n\n\n\n\nIl sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone \n\n\nd'utiliser \n\n\nd'utiliser des mod\u00e8les de documents \nMod\u00e8le\n\n\nde mettre en place des tableaux\n\n\netc ...\n\n\n\n\n\n\n\n\nRemarque\n Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.\n\n\nIl est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.\n\n\n\n\nVoici le r\u00e9sultat apr\u00e8s saisie\n\n\n\n\n\n\nFiltrage par pasteur ou conseiller\n\n\nPour cela, prenez le bouton de droite.", 
-            "title": "Suivi Pastoral"
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-dashboard/", 
+            "text": "Tableau de bord : Suivi pastoral\n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nTableau de bord principal succinct\n\n\nQuand vous ouvrez une session\n\n\n\n\nVous pourrez noter la couleur rouge du panneau d'alerte de suivi pastoral\n\n\n\n\nrouge signifie: moins de 10% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9\n\n\njaune signifie: moins de 30% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9\n\n\nbleu  signifie: moins de 60% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9\n\n\nvert  signifie: votre \u00e9glise est bien suivie\n\n\n\n\nEn cliquant le bouton \"G\u00e9rer le suivi pastoral\" vous obtiendrez de meilleures informations sur la sant\u00e9 de votre \u00e9glise.\n\n\nTableau de bord principal complet\n\n\nPour avoir des informations compl\u00e8tes sur la sant\u00e9 de votre \u00e9glise, allez dans la barre de menu\n\n\n\n\nVous obtiendrez la vue suivante, avec tous les d\u00e9tails n\u00e9cessaires\n\n\n\n\nAppelez/contactez al\u00e9atoirement, une personne seule, une famille etc ...\n\n\nEn utulisant le menu : \"Visiter/Appeler al\u00e9atoirement\"\n\n\n\n\nPour une personne seule vous obtiendrez", 
+            "title": "Tableau de bord"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#suivi-pastoral-ecclesiacrm", 
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-dashboard/#tableau-de-bord-suivi-pastoral", 
             "text": "Chaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.", 
-            "title": "Suivi pastoral &amp; EcclesiaCRM "
+            "title": "Tableau de bord : Suivi pastoral"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-dashboard/#tableau-de-bord-principal-succinct", 
+            "text": "Quand vous ouvrez une session   Vous pourrez noter la couleur rouge du panneau d'alerte de suivi pastoral   rouge signifie: moins de 10% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9  jaune signifie: moins de 30% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9  bleu  signifie: moins de 60% de votre \u00e9glise a \u00e9t\u00e9 contact\u00e9  vert  signifie: votre \u00e9glise est bien suivie   En cliquant le bouton \"G\u00e9rer le suivi pastoral\" vous obtiendrez de meilleures informations sur la sant\u00e9 de votre \u00e9glise.", 
+            "title": "Tableau de bord principal succinct"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-dashboard/#tableau-de-bord-principal-complet", 
+            "text": "Pour avoir des informations compl\u00e8tes sur la sant\u00e9 de votre \u00e9glise, allez dans la barre de menu   Vous obtiendrez la vue suivante, avec tous les d\u00e9tails n\u00e9cessaires", 
+            "title": "Tableau de bord principal complet"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-dashboard/#appelezcontactez-aleatoirement-une-personne-seule-une-famille-etc", 
+            "text": "En utulisant le menu : \"Visiter/Appeler al\u00e9atoirement\"   Pour une personne seule vous obtiendrez", 
+            "title": "Appelez/contactez al\u00e9atoirement, une personne seule, une famille etc ..."
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/", 
+            "text": "Suivi pastoral pour une personne ou une famille\n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nActiver le suivi pastoral pour un utilisateur du syst\u00e8me\n\n\nPour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.\n\n\nAller pour cela dans\n\n\n\nS\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.\n\n\n\n\nOn coche cette case et on enregistre\n\n\n\n\nCet utilisateur pourra maintenant ajouter une note de suivi pastoral.", 
+            "title": "Activer pour un utilisateur"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#suivi-pastoral-pour-une-personne-ou-une-famille", 
+            "text": "Chaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.", 
+            "title": "Suivi pastoral pour une personne ou une famille"
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#activer-le-suivi-pastoral-pour-un-utilisateur-du-systeme", 
-            "text": "Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.  Aller pour cela dans   S\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.   On coche cette case et on enregistre   Cet utilisateur pourra maintenant ajouter une note de suivi pastoral.", 
+            "text": "Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.  Aller pour cela dans  S\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.   On coche cette case et on enregistre   Cet utilisateur pourra maintenant ajouter une note de suivi pastoral.", 
             "title": "Activer le suivi pastoral pour un utilisateur du syst\u00e8me"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#creer-une-note-de-suivi-pastoral", 
-            "text": "Dans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche   Voici son profile   On clique sur le bouton ci-dessus et on peut commencer le suivi pastoral   La vue se s\u00e9pare en deux parties    les boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.  voici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter     S\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu   Il sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone   d'utiliser   d'utiliser des mod\u00e8les de documents  Mod\u00e8le  de mettre en place des tableaux  etc ...     Remarque  Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.  Il est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.   Voici le r\u00e9sultat apr\u00e8s saisie", 
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family/", 
+            "text": "Pastoral care for Person or Family\n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nCr\u00e9er une note de suivi pastoral\n\n\nDans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche\n\n\n\n\nVoici son profile\n\n\n\n\nOn clique sur le bouton ci-dessus et on peut commencer le suivi pastoral\n\n\n\n\nLa vue se s\u00e9pare en deux parties\n\n\n\n\nles boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.\n\n\nvoici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter\n\n\n\n\n\n\n\n\nS\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu\n\n\n\n\nIl sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone\n\n\nd'utiliser\n\n\nd'utiliser des mod\u00e8les de documents \nMod\u00e8le\n\n\nde mettre en place des tableaux\n\n\netc ...\n\n\n\n\n\n\n\n\nRemarque\n Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.\n\n\nIl est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.\n\n\n\n\nVoici le r\u00e9sultat apr\u00e8s saisie\n\n\n\n\n\n\nMake a pastoral care note for a family\n\n\nVous pourrez \u00e9galement fait un suivi pastoral pour une famille :\n\n\n\n\nRechercher et choisir une famille\n\n\net utiliser la m\u00eame m\u00e9thode que pour une personne\n\n\n\n\n\n\nVous pourrez ajouter le m\u00eame commentaire pour chaque membre de la famille en cliquant \"Inclure\" :\n\n\n\n\nFiltrage par pasteur ou conseiller\n\n\nPour cela, prenez le bouton de droite.", 
+            "title": "Ajouter : Personne & Famille"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family/#pastoral-care-for-person-or-family", 
+            "text": "Chaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.", 
+            "title": "Pastoral care for Person or Family"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family/#creer-une-note-de-suivi-pastoral", 
+            "text": "Dans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche   Voici son profile   On clique sur le bouton ci-dessus et on peut commencer le suivi pastoral   La vue se s\u00e9pare en deux parties   les boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.  voici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter     S\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu   Il sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone  d'utiliser  d'utiliser des mod\u00e8les de documents  Mod\u00e8le  de mettre en place des tableaux  etc ...     Remarque  Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.  Il est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.   Voici le r\u00e9sultat apr\u00e8s saisie", 
             "title": "Cr\u00e9er une note de suivi pastoral"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#filtrage-par-pasteur-ou-conseiller", 
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family/#make-a-pastoral-care-note-for-a-family", 
+            "text": "Vous pourrez \u00e9galement fait un suivi pastoral pour une famille :   Rechercher et choisir une famille  et utiliser la m\u00eame m\u00e9thode que pour une personne    Vous pourrez ajouter le m\u00eame commentaire pour chaque membre de la famille en cliquant \"Inclure\" :", 
+            "title": "Make a pastoral care note for a family"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family/#filtrage-par-pasteur-ou-conseiller", 
             "text": "Pour cela, prenez le bouton de droite.", 
             "title": "Filtrage par pasteur ou conseiller"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/", 
+            "text": "Pastoral Care by Classifications\n\n\nEach pastor, counsellor in self help, and supervisor allowed can manage the pastoral care for single person or for family.\n\n\nActivate the pastoral care for a system user\n\n\nFor a user to be allowed to use the pastoral care, he must be assigned the role pastoral care\n\n\nTo do this, go to:\n\n\n\nSelect a user, then edit them and add the role pastoral care\n\n\n\n\nOne ticks the box and saves:\n\n\n\n\nThe user will now be able to add notes on the pastoral care\n\n\nMake a pastoral care note for a person\n\n\nSearch a user with the menu in the leftside bar.\n\n\n\n\nHere's the profile :\n\n\n\n\nOne has to click on the button and can now begin the pastoral care\n\n\n\n\nThe view is divided in two parts :\n\n\n\n\nThe buttons to choose the type, print or filter the notes taken for those who have followed the pastoral care\n\n\nand the personalization part, with the preset types\n\n\n\n\n\n\n\n\nFor example: choose \"why did you come to church?\" in the menu\n\n\n\n\nIl sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone\n\n\nYou can drag and drop documents, images in the zon above\n\n\nYou can use document templates \nMod\u00e8le\n\n\nadding some tables\n\n\netc ...\n\n\n\n\n\n\n\n\nNote\n the radio buttons \"Show\" \"hide\" allows to show or not the notes taken by a pastor\n\n\nIt may be useful to know that a member is taken care of, without the notes shown to everyone\n\n\n\n\nAfter entering, here's the result\n\n\n\n\n\n\nMake a pastoral care note for a family\n\n\nYou can add one for a family too :\n\n\n\n\nSearch and Choose a family\n\n\nand follow the same steps as for a person\n\n\n\n\n\n\nYou can add the same comment for all the members of this family, by checking the box \"include\" :\n\n\n\n\nFiltering by a pastor or counsellor\n\n\nClick on the button on the right", 
+            "title": "Classifications"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/#pastoral-care-by-classifications", 
+            "text": "Each pastor, counsellor in self help, and supervisor allowed can manage the pastoral care for single person or for family.", 
+            "title": "Pastoral Care by Classifications"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/#activate-the-pastoral-care-for-a-system-user", 
+            "text": "For a user to be allowed to use the pastoral care, he must be assigned the role pastoral care  To do this, go to:  Select a user, then edit them and add the role pastoral care   One ticks the box and saves:   The user will now be able to add notes on the pastoral care", 
+            "title": "Activate the pastoral care for a system user"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/#make-a-pastoral-care-note-for-a-person", 
+            "text": "Search a user with the menu in the leftside bar.   Here's the profile :   One has to click on the button and can now begin the pastoral care   The view is divided in two parts :   The buttons to choose the type, print or filter the notes taken for those who have followed the pastoral care  and the personalization part, with the preset types     For example: choose \"why did you come to church?\" in the menu   Il sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone  You can drag and drop documents, images in the zon above  You can use document templates  Mod\u00e8le  adding some tables  etc ...     Note  the radio buttons \"Show\" \"hide\" allows to show or not the notes taken by a pastor  It may be useful to know that a member is taken care of, without the notes shown to everyone   After entering, here's the result", 
+            "title": "Make a pastoral care note for a person"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/#make-a-pastoral-care-note-for-a-family", 
+            "text": "You can add one for a family too :   Search and Choose a family  and follow the same steps as for a person    You can add the same comment for all the members of this family, by checking the box \"include\" :", 
+            "title": "Make a pastoral care note for a family"
+        }, 
+        {
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care-classifications/#filtering-by-a-pastor-or-counsellor", 
+            "text": "Click on the button on the right", 
+            "title": "Filtering by a pastor or counsellor"
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care/", 
