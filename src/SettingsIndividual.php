@@ -107,9 +107,9 @@ $configs = UserConfigQuery::create()->orderById()->findByPersonId($iPersonID);
                        id="user-listing-table" style="width:100%;">
                     <thead>
                     <tr>
-                        <th><?= _('Variable name') ?></th>
+                        <th><?= _('Notes') ?></th>
                         <th><?= _('Current Value') ?></th>
-                        <th><?= _('Notes') ?></h3></th>
+                        <th><?= _('Variable name') ?></h3></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -118,6 +118,8 @@ $configs = UserConfigQuery::create()->orderById()->findByPersonId($iPersonID);
 
                     // List Individual Settings
                     foreach ($configs as $config) {
+                        if ($config->getName() == "bSidebarExpandOnHover") continue;
+
                         if (!(($config->getPermission() == 'TRUE') || SessionUser::getUser()->isAdmin())) {
                             continue;
                         } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
@@ -141,9 +143,101 @@ $configs = UserConfigQuery::create()->orderById()->findByPersonId($iPersonID);
                         ?>
                         <tr>
                             <td class=LabelColumn>
-                                <?= $config->getName() ?>
-                                <input type=hidden name="type[<?= $config->getId() ?>]"
-                                       value="<?= $config->getType() ?>">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <?php if ($config->getName() == 'sStyleSideBar') { ?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 20%; float: left; height: 20px; background: #222"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'sStyleNavBarColor') { ?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 7px; background: #e4a337"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 20%; float: left; height: 20px; background: #e2dddd"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'sStyleBrandLinkColor') { ?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 20%; float: left; height: 7px; background: #4674aa"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 20%; float: left; height: 20px; background: #e2dddd"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'sStyleSideBarColor') { ?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 20%; float: left; height: 7px; background: #4674aa"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 20%; float: left; height: 20px; background: #e2dddd">
+                                                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1); padding: 2px;" class="clearfix">
+                                                            <span style="display:block; top:10px; width: 90%; float: left; height: 7px; background: #5aac84">
+                                                            <span style="display:block; top:10px; width: 10%; float: left; height: 7px; background: #e2dddd"></span>
+                                                        </div>
+                                                    </span>
+                                                    <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'bSidebarCollapse') {?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 7%; float: left; height: 7px; background: #fefefe"></span>
+                                                    <span style="display:block; width: 93%; float: left; height: 7px; background: #fefefe"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 7%; float: left; height: 20px; background: #222"></span>
+                                                    <span style="display:block; width: 93%; float: left; height: 20px; background: #f4f5f7"></span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'sStyleFontSize') {?>
+                                            <a href="javascript:void(0)" data-skin="skin-black" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">
+                                                <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                                    <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="display:block; width: 20%; float: left; height: 20px; background: #e2dddd"></span>
+                                                    <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7">
+                                                        &nbsp; <big>A</big>A<small>A</small>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        <?php } else if ($config->getName() == 'sMapExternalProvider') { ?>
+                                            <span class="pull-right"><i class="fa fa-map-o fa-6"></i></span>
+                                        <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') {?>
+                                            <span class="pull-right"><i class="fa fa-envelope fa-6"></i></span>
+                                        <?php } else if ($config->getName() == 'bUSAddressVerification') { ?>
+                                            <span class="pull-right"><i class="fa fa-address-card-o fa-6"></i><i class="fa fa-check fa-6"></i></span>
+                                        <?php } else if ($config->getName() == 'bShowTooltip') { ?>
+                                            <span class="pull-right"><i class="fa fa-info-circle fa-6"></i></span>
+                                        <?php } else if ($config->getName() == 'sCSVExportDelemiter' || $config->getName() == 'sCSVExportCharset') { ?>
+                                            <span class="pull-right"><i class="fa fa-file-excel-o fa-6"></i></span>
+                                        <?php } ?>
+
+
+                                    </div>
+                                    <div class="col-md-9">
+                                        <?= _($config->getTooltip()) ?>
+                                        <input type=hidden name="type[<?= $config->getId() ?>]"
+                                               value="<?= $config->getType() ?>">
+                                    </div>
+                                </div>
                             </td>
                             <?php
                             // Current Value
@@ -210,7 +304,9 @@ $configs = UserConfigQuery::create()->orderById()->findByPersonId($iPersonID);
 
                             // Notes
                             ?>
-                            <td><?= _($config->getTooltip()) ?></td>
+                            <td>
+                                <a data-toggle="popover" title="<?= $config->getName() ?>" target="_blank"><i class="fa fa-fw fa-question-circle"></i></a>
+                            </td>
                         </tr>
                         <?php
                         $r++;
