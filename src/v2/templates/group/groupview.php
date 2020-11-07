@@ -294,7 +294,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                         ?>
                     </div>
                     <a class="btn btn-primary" id="add-manager"
-                       data-toggle="tooltip"  data-placement="bottom" title="<?= _("Add a specific maanager only for this group") ?>"><?= _("Add Manager") ?></a>
+                       data-toggle="tooltip"  data-placement="bottom" title="<?= _("Add a specific manager only for this group") ?>"><?= _("Add Manager") ?></a>
                 </div>
             </div>
         </div>

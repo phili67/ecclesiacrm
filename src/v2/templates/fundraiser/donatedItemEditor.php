@@ -149,7 +149,7 @@ require $sRootDocument . '/Include/Header.php';
                             <div class="input-group-append">
                             <span class="btn btn-primary" id="donatedItemPicture"
                                   data-donateditemid="<?= $iDonatedItemID ?>"
-                                  data-toggle="tooltip" data-placement="top" title="<?= _("Use the EDrive to browse or uppload a file") ?>"> <i
+                                  data-toggle="tooltip" data-placement="top" title="<?= _("Use the EDrive to browse or upload a file") ?>"> <i
                                     class="fa fa-cloud-download"></i></span>
                             </div>
                         </div>
