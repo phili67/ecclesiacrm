@@ -536,7 +536,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
             $userConf->setId ($id);
             $userConf->setName($userDefault->getName());
             $userConf->setValue($value);
-            $userConf->setType($userDefault->getType());
+            $userConf->setType($current_type);
             $userConf->setChoicesId($userDefault->getChoicesId());
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
             $userConf->setPermission($permission);
@@ -551,6 +551,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
 
           $userConf->setValue($value);
           $userConf->setPermission($permission);
+          $userConf->setType($current_type);
 
           $userConf->save();
 
