@@ -118,9 +118,7 @@ $numberRow = 0;
                     $r = 1;
 
                     // List Individual Settings
-                    foreach ($configs
-
-                    as $config) {
+                    foreach ($configs as $config) {
                     ?>
                     <?php
                     if ($config->getName() == "bSidebarExpandOnHover") continue;
@@ -178,7 +176,7 @@ $numberRow = 0;
                     ?>
                     <div class="col-md-7">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <?php if ($config->getName() == 'sStyleSideBar') { ?>
                                     <a href="javascript:void(0)" data-skin="skin-black"
                                        style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
@@ -292,19 +290,19 @@ $numberRow = 0;
                                         </div>
                                     </a>
                                 <?php } else if ($config->getName() == 'sMapExternalProvider') { ?>
-                                    <span class="pull-right align-text-bottom"><i class="fa fa-map-o fa-lg"></i></span>
+                                    <span class="align-text-bottom"><i class="fa fa-map-o fa-lg"></i></span>
                                 <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') { ?>
-                                    <span class="pull-right align-text-bottom"><i class="fa fa-envelope fa-lg"></i></span>
+                                    <span class="align-text-bottom"><i class="fa fa-envelope fa-lg"></i></span>
                                 <?php } else if ($config->getName() == 'bUSAddressVerification') { ?>
-                                    <span class="pull-right align-text-bottom"><i class="fa fa-address-card-o fa-lg"></i><i
+                                    <span class="align-text-bottom"><i class="fa fa-address-card-o fa-lg"></i><i
                                             class="fa fa-check fa-lg"></i></span>
                                 <?php } else if ($config->getName() == 'bShowTooltip') { ?>
-                                    <span class="pull-right align-text-bottom"><i class="fa fa-info-circle fa-lg"></i></span>
+                                    <span class="align-text-bottom"><i class="fa fa-info-circle fa-lg"></i></span>
                                 <?php } else if ($config->getName() == 'sCSVExportDelemiter' || $config->getName() == 'sCSVExportCharset') { ?>
-                                    <span class="pull-right align-text-bottom"><i class="fa fa-file-excel-o fa-lg"></i></span>
+                                    <span class="align-text-bottom"><i class="fa fa-file-excel-o fa-lg"></i></span>
                                 <?php } ?>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <?= _($config->getTooltip()) ?>
                                 <input type=hidden name="type[<?= $config->getId() ?>]"
                                        value="<?= $config->getType() ?>">
