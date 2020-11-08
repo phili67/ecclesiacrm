@@ -78,7 +78,7 @@ pages:
               - 'Group types': 'user-guide/doc-admin/group/doc-groups-management.md'
       - 'Rights and Administration of the CRM users':
           - "User creation": 'user-guide/doc-users/doc-users.md'
-          - "User profile": 'user-guide/doc-users/doc-user-profile.md'
+          - "User role": 'user-guide/doc-users/doc-user-role.md'
       - 'Global Settings':
           - "Localization in foreign language + currency": 'user-guide/doc-installation/doc-localization.md'
           - "Export in foreign language": 'user-guide/doc-installation/doc-report.md'
