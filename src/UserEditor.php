@@ -292,7 +292,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->createHomeDir();
 
                     if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars
-                      $user->createGroupAdminCalendars();
+                        $user->createGroupAdminCalendars();
                     }
 
                     $email = new NewAccountEmail($user, $rawPassword);
@@ -313,7 +313,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
                     if ($roleID > 0) {
-                      $user->setRoleId($roleID);
+                        $user->setRoleId($roleID);
                     }
                     $user->setMainDashboard($MainDashboard);
                     $user->setSeePrivacyData($SeePrivacyData);
@@ -336,7 +336,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
 
                     if (strtolower($oldUserName) != "admin") {
-                      $user->setUserName($sUserName);
+                        $user->setUserName($sUserName);
                     }
 
                     $user->setEditSelf($EditSelf);
@@ -344,18 +344,18 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->save();
 
                     if (strtolower($oldUserName) != "admin") {
-                      $user->renameHomeDir($oldUserName,$sUserName);
+                        $user->renameHomeDir($oldUserName,$sUserName);
                     }
 
                     $user->createTimeLineNote("updated");// the calendars are moved from one username to another in the function : renameHomeDir
 
                     if ($ManageGroups || $Admin) {
-                      if ( !$old_ManageGroups ) {// only when the user has now the role group manager
-                        $user->deleteGroupAdminCalendars();
-                        $user->createGroupAdminCalendars();
-                      }
+                        if ( !$old_ManageGroups ) {// only when the user has now the role group manager
+                            $user->deleteGroupAdminCalendars();
+                            $user->createGroupAdminCalendars();
+                        }
                     } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
-                      $user->deleteGroupAdminCalendars();
+                        $user->deleteGroupAdminCalendars();
                     }
 
                     $email = new UpdateAccountEmail($user, _("The same as before"));
@@ -376,10 +376,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         if (!$bNewUser) {
             // Get the data on this user
             $user = UserQuery::create()
-                    ->innerJoinWithPerson()
-                      ->withColumn('Person.FirstName','FirstName')
-                      ->withColumn('Person.LastName','LastName')
-                    ->findOneByPersonId($iPersonID);
+                ->innerJoinWithPerson()
+                ->withColumn('Person.FirstName','FirstName')
+                ->withColumn('Person.LastName','LastName')
+                ->findOneByPersonId($iPersonID);
 
             $sUser = $user->getLastName().', '.$user->getFirstName();
             $sUserName = $user->getUserName();
@@ -482,10 +482,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
 
         $people = PersonQuery::create()
-           ->leftJoinUser()
-           ->withColumn('User.PersonId','UserPersonId')
-           ->orderByLastName()
-           ->find();
+            ->leftJoinUser()
+            ->withColumn('User.PersonId','UserPersonId')
+            ->orderByLastName()
+            ->find();
     }
 }
 
@@ -504,8 +504,8 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         } elseif ($current_type == 'number') {
             $value = InputUtils::LegacyFilterInput($new_value[$id], 'float');
         } elseif ($current_type == 'date') {
-           // todo dates !!!! PL
-           $value = InputUtils::LegacyFilterInput($new_value[$id], 'date');
+            // todo dates !!!! PL
+            $value = InputUtils::LegacyFilterInput($new_value[$id], 'date');
         } elseif ($current_type == 'boolean') {
             if ($new_value[$id] != '1') {
                 $value = '';
@@ -513,7 +513,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
                 $value = '1';
             }
         } elseif ($current_type == 'choice') {
-          $value = $new_value[$id];
+            $value = $new_value[$id];
         }
 
         if ($new_permission[$id] != 'TRUE') {
@@ -526,33 +526,34 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         $userConf = UserConfigQuery::create()->filterById($id)->findOneByPersonId ($iPersonID);
 
         if ( is_null ($userConf) ) { // If Row does not exist then insert default values.
-          // Defaults will be replaced in the following Update
-          $userDefault = UserConfigQuery::create()->filterById($id)->findOneByPersonId (0);
+            // Defaults will be replaced in the following Update
+            $userDefault = UserConfigQuery::create()->filterById($id)->findOneByPersonId (0);
 
-          if ( !is_null ($userDefault) ) {
-            $userConf = new UserConfig();
+            if ( !is_null ($userDefault) ) {
+                $userConf = new UserConfig();
 
-            $userConf->setPersonId ($iPersonID);
-            $userConf->setId ($id);
-            $userConf->setName($userDefault->getName());
-            $userConf->setValue($value);
-            $userConf->setType($userDefault->getType());
-            $userConf->setChoicesId($userDefault->getChoicesId());
-            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
-            $userConf->setPermission($permission);
-            $userConf->setCat($userDefault->getCat());
+                $userConf->setPersonId ($iPersonID);
+                $userConf->setId ($id);
+                $userConf->setName($userDefault->getName());
+                $userConf->setValue($value);
+                $userConf->setType($current_type);
+                $userConf->setChoicesId($userDefault->getChoicesId());
+                $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+                $userConf->setPermission($permission);
+                $userConf->setCat($userDefault->getCat());
 
-            $userConf->save();
-          } else {
-            echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
-            exit;
-          }
+                $userConf->save();
+            } else {
+                echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
+                exit;
+            }
         } else {
 
-          $userConf->setValue($value);
-          $userConf->setPermission($permission);
+            $userConf->setValue($value);
+            $userConf->setPermission($permission);
+            $userConf->setType($current_type);
 
-          $userConf->save();
+            $userConf->save();
 
         }
 
@@ -569,327 +570,327 @@ require 'Include/Header.php';
 
 $first_roleID = 0;
 foreach ($userRoles as $userRole) {
-  $first_roleID = $userRole->getId();
-  break;
+    $first_roleID = $userRole->getId();
+    break;
 }
 
 if ($usr_role_id == null) {
-  $usr_role_id = $first_roleID;
+    $usr_role_id = $first_roleID;
 }
 
 ?>
 
 <div class="card">
-  <div class="card-header with-border">
-      <h3 class="card-title"><?= _("Role management") ?></h3>
-  </div>
-  <div class="card-body">
-      <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= _("Add Role") ?></a>
-      <a href="#" id="manageRole" class="btn btn-app"><i class="fa fa-gear"></i><?= _("Manage Roles")?></a>
-      <div class="btn-group">
-        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Current User") ?></a>
-        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu" role="menu" id="AllRoles">
-            <?php
-               foreach ($userRoles as $userRole) {
-            ?>
-               <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a>
-            <?php
-               }
-            ?>
+    <div class="card-header with-border">
+        <h3 class="card-title"><?= _("Role management") ?></h3>
+    </div>
+    <div class="card-body">
+        <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= _("Add Role") ?></a>
+        <a href="#" id="manageRole" class="btn btn-app"><i class="fa fa-gear"></i><?= _("Manage Roles")?></a>
+        <div class="btn-group">
+            <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Current User") ?></a>
+            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu" role="menu" id="AllRoles">
+                <?php
+                foreach ($userRoles as $userRole) {
+                    ?>
+                    <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a>
+                    <?php
+                }
+                ?>
+            </div>
         </div>
-      </div>
-  </div>
-<!-- /.box-body -->
+    </div>
+    <!-- /.box-body -->
 </div><!-- Default box -->
 
 <form method="post" action="UserEditor.php">
 
-<input id="roleID" name="roleID" type="hidden" value="<?= $usr_role_id ?>">
-<input type="hidden" name="Action" value="<?= $sAction ?>">
-<input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
-<input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
+    <input id="roleID" name="roleID" type="hidden" value="<?= $usr_role_id ?>">
+    <input type="hidden" name="Action" value="<?= $sAction ?>">
+    <input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
+    <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
 
-<?php
-  // Are we adding?
-  if ($bShowPersonSelect) {
-  //Yes, so display the people drop-down
-?>
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3">
-             <?= _('Person to Make User') ?>:
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
-              <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
+    <?php
+    // Are we adding?
+    if ($bShowPersonSelect) {
+        //Yes, so display the people drop-down
+        ?>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <?= _('Person to Make User') ?>:
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
+                            <?php
+                            // Loop through all the people
+                            foreach ($people as $member) {
+                                if ( is_null($member->getUserPersonId() ) ) {
+                                    ?>
+                                    <option value="<?= $member->getId() ?>"<?= ($member->getId() == $iPersonID)?' selected':'' ?> data-email="<?= $member->getEmail() ?>"><?= $member->getLastName() . ', ' . $member->getFirstName() ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <?= _('Login Name') ?>:
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="alert alert-info">
+                <?= _('Note: Changes will not take effect until next logon.') ?>
+            </div>
+            <table class="table table-hover data-person data-table1 no-footer dtr-inline" style="width:100%" id="table1">
+                <thead>
                 <?php
-                  // Loop through all the people
-                  foreach ($people as $member) {
-                    if ( is_null($member->getUserPersonId() ) ) {
-                ?>
-                <option value="<?= $member->getId() ?>"<?= ($member->getId() == $iPersonID)?' selected':'' ?> data-email="<?= $member->getEmail() ?>"><?= $member->getLastName() . ', ' . $member->getFirstName() ?></option>
+
+                // Are we adding?
+                if ($bShowPersonSelect) {
+                    //Yes, so display the people drop-down
+                    ?>
+                    <th></th>
+                    <th></th>
+                    <?php
+                } else { // No, just display the user name?>
+                    <th><?= _('User') ?>:</th>
+                    <th><?= $sUser ?></th>
+                    <?php
+                } ?>
+                </thead>
+                <tbody>
+                <?php if ($sErrorText != '') {
+                    ?>
+                    <tr>
+                        <td>
+                            <span style="color:red;" id="PasswordError"><?= $sErrorText ?>)</span>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <?php
+                } ?>
+
                 <?php
-                    }
-                  }
+                // Are we adding?
+                if (!$bShowPersonSelect) {
+                    //Yes, so display the people drop-down
+                    ?>
+                    <tr>
+                        <td><?= _('Login Name') ?>:</td>
+                        <td><input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>></td>
+                    </tr>
+                    <?php
+                }
                 ?>
-              </select>
-          </div>
-          <div class="col-lg-2 col-md-2 col-sm-2">
-            <?= _('Login Name') ?>:
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-3">
-            <input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>>
-          </div>
+                <tr>
+                    <td><?= _('Add Records') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?= ($usr_AddRecords)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Edit Records') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?= ($usr_EditRecords)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Delete Records') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?= ($usr_DeleteRecords)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Show Cart') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?= ($usr_ShowCart)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Show Map') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?= ($usr_ShowMap)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('EDrive') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="EDrive" value="1"<?= ($usr_EDrive)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Manage Properties and Classifications') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?= ($usr_MenuOptions)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Manage Groups and Roles') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?= ($usr_ManageGroups)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Manage Donations and Finance') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?= ($usr_Finance)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('View, Add and Edit Notes') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?= ($usr_Notes)?' checked':'' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Edit Self') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="EditSelf" value="1"<?= ($usr_EditSelf)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?= _('Canvasser') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="Canvasser" value="1"<?= ($usr_Canvasser)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?= _('Admin') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="Admin" value="1"<?= ($usr_Admin)?' checked':''?>>
+                        &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Query Menu') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?= ($usr_showMenuQuery)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Can Send Email') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="CanSendEmail" value="1"<?= ($usr_CanSendEmail)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Allow to use the mail function and button in the CRM') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('CSV Export') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?= ($usr_ExportCSV)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Create Directory') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="CreateDirectory" value="1"<?= ($usr_CreateDirectory)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('User permission to create directories') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Sunday school PDF') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF" value="1"<?= ($usr_ExportSundaySchoolPDF)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Sunday school CSV') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV" value="1"<?= ($usr_ExportSundaySchoolCSV)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Main Dashboard') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?= ($usr_MainDashboard)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('See Privacy Data') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?= ($usr_SeePrivacyData)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('MailChimp') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="MailChimp" value="1"<?= ($usr_MailChimp)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _("GRPD Data Protection Officer") ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?= ($usr_GDRP_DPO)?' checked':'' ?>>
+                        &nbsp;<span class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Pastoral Care') ?>:</td>
+                    <td>
+                        <input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?= ($usr_PastoralCare)?' checked':'' ?>>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="save">&nbsp;
+                    <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location='v2/users';">
+                </div>
+            </div>
         </div>
+        <!-- /.box-body -->
     </div>
-</div>
-<?php
-  }
-?>
-
-<div class="card">
-    <div class="card-body">
-        <div class="alert alert-info">
-            <?= _('Note: Changes will not take effect until next logon.') ?>
-        </div>
-      <table class="table table-hover data-person data-table1 no-footer dtr-inline" style="width:100%" id="table1">
-        <thead>
-          <?php
-
-          // Are we adding?
-          if ($bShowPersonSelect) {
-              //Yes, so display the people drop-down
-              ?>
-                  <th></th>
-                  <th></th>
-              <?php
-          } else { // No, just display the user name?>
-                  <th><?= _('User') ?>:</th>
-                  <th><?= $sUser ?></th>
-              <?php
-          } ?>
-          </thead>
-          <tbody>
-          <?php if ($sErrorText != '') {
-              ?>
-              <tr>
-                  <td>
-                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?>)</span>
-                  </td>
-                  <td>
-                  </td>
-              </tr>
-              <?php
-          } ?>
-
-          <?php
-          // Are we adding?
-          if (!$bShowPersonSelect) {
-              //Yes, so display the people drop-down
-          ?>
-          <tr>
-              <td><?= _('Login Name') ?>:</td>
-              <td><input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>></td>
-          </tr>
-          <?php
-            }
-          ?>
-          <tr>
-              <td><?= _('Add Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?= ($usr_AddRecords)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Edit Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?= ($usr_EditRecords)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Delete Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?= ($usr_DeleteRecords)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Show Cart') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?= ($usr_ShowCart)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Show Map') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?= ($usr_ShowMap)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('EDrive') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="EDrive" value="1"<?= ($usr_EDrive)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Manage Properties and Classifications') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?= ($usr_MenuOptions)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Manage Groups and Roles') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?= ($usr_ManageGroups)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Manage Donations and Finance') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?= ($usr_Finance)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('View, Add and Edit Notes') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?= ($usr_Notes)?' checked':'' ?>></td>
-          </tr>
-
-          <tr>
-              <td><?= _('Edit Self') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="EditSelf" value="1"<?= ($usr_EditSelf)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
-                </td>
-          </tr>
-          <tr>
-              <td><?= _('Canvasser') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="Canvasser" value="1"<?= ($usr_Canvasser)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
-              </td>
-          </tr>
-          <tr>
-              <td><?= _('Admin') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="Admin" value="1"<?= ($usr_Admin)?' checked':''?>>
-                  &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Query Menu') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?= ($usr_showMenuQuery)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Can Send Email') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="CanSendEmail" value="1"<?= ($usr_CanSendEmail)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Allow to use the mail function and button in the CRM') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('CSV Export') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?= ($usr_ExportCSV)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Create Directory') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="CreateDirectory" value="1"<?= ($usr_CreateDirectory)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('User permission to create directories') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Sunday school PDF') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF" value="1"<?= ($usr_ExportSundaySchoolPDF)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Sunday school CSV') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV" value="1"<?= ($usr_ExportSundaySchoolCSV)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Main Dashboard') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?= ($usr_MainDashboard)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('See Privacy Data') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?= ($usr_SeePrivacyData)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('MailChimp') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="MailChimp" value="1"<?= ($usr_MailChimp)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
-                </td>
-          </tr>
-
-          <tr>
-              <td><?= _("GRPD Data Protection Officer") ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?= ($usr_GDRP_DPO)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
-              </td>
-          </tr>
-
-          <tr>
-              <td><?= _('Pastoral Care') ?>:</td>
-              <td>
-                <input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?= ($usr_PastoralCare)?' checked':'' ?>>
-              </td>
-          </tr>
-
-        </tbody>
-      </table>
-      <br>
-      <div class="row">
-          <div class="col-md-2">
-          </div>
-          <div class="col-md-6">
-             <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="save">&nbsp;
-             <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location='v2/users';">
-          </div>
-      </div>
-    </div>
-    <!-- /.box-body -->
-</div>
-<!-- /.box -->
-<!-- Default box -->
-<div class="card">
-    <div class="card-body card-danger">
-        <div
-            class="alert alert-info"><?= _('Set Permission True to give this user the ability to change their current value.') ?>
-        </div>
+    <!-- /.box -->
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-body card-danger">
+            <div
+                class="alert alert-info"><?= _('Set Permission True to give this user the ability to change their current value.') ?>
+            </div>
             <table class="table table-hover data-person data-table2 no-footer dtr-inline" style="width:100%" >
-              <thead>
+                <thead>
                 <tr>
                     <th><?= _('Permission') ?></h3></th>
                     <th><?= _('Variable name') ?></th>
                     <th><?= _('Current Value') ?></h3></th>
                     <th><?= _('Notes') ?></th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
 
-              <?php
+                <?php
                 //First get default settings, then overwrite with settings from this user
 
                 // Get default settings
@@ -900,7 +901,7 @@ if ($usr_role_id == null) {
                     $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId ($usr_per_ID);
 
                     if ( is_null ($userConfig) ) {// when the user is created there isn't any settings: so we load the default one
-                      $userConfig = $defaultConfig;
+                        $userConfig = $defaultConfig;
                     }
 
                     // Default Permissions
@@ -914,97 +915,97 @@ if ($usr_role_id == null) {
                         $sel1 = 'SELECTED';
                         $sel2 = '';
                     }
-                  ?>
+                    ?>
                     <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
-                    <td>
-                      <select class="form-control input-sm"  name="new_permission[<?= $userConfig->getId() ?>]">
-                        <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
-                        <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
-                      </select>
-                    </td>
+                        <td>
+                            <select class="form-control input-sm"  name="new_permission[<?= $userConfig->getId() ?>]">
+                                <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
+                                <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
+                            </select>
+                        </td>
 
-                  <?php
-                    // Variable Name & Type
-                  ?>
+                        <?php
+                        // Variable Name & Type
+                        ?>
 
-                    <td>
-                      <?= $userConfig->getName() ?>
-                    </td>
+                        <td>
+                            <?= $userConfig->getName() ?>
+                        </td>
 
-                  <?php
-                    // Current Value
-                    if ($userConfig->getType() == 'text') {
-                  ?>
-                    <td>
-                       <input class="form-control input-md" type="text" size="30" maxlength="255" name="new_value[<?= $userConfig->getId() ?>]"
-            value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
-                    </td>
-                  <?php
-                    } elseif ($userConfig->getType() == 'textarea') {
-                  ?>
-                    <td>
+                        <?php
+                        // Current Value
+                        if ($userConfig->getType() == 'text') {
+                            ?>
+                            <td>
+                                <input class="form-control input-md" type="text" size="30" maxlength="255" name="new_value[<?= $userConfig->getId() ?>]"
+                                       value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
+                            </td>
+                            <?php
+                        } elseif ($userConfig->getType() == 'textarea') {
+                            ?>
+                            <td>
                       <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
                             <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
                       </textarea>
-                    </td>
-                  <?php
-                    } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
-                     // todo dates !!!! PL
-                  ?>
-                    <td>
-                      <input class="form-control input-md" type="text" size="15"
-                           maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getValue() ?>">
-                    </td>
-                  <?php
-                    } elseif ($userConfig->getType() == 'boolean') {
-                        if ( $userConfig->getValue() ) {
-                            $sel2 = 'SELECTED';
-                            $sel1 = '';
-                        } else {
-                            $sel1 = 'SELECTED';
-                            $sel2 = '';
+                            </td>
+                            <?php
+                        } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
+                            // todo dates !!!! PL
+                            ?>
+                            <td>
+                                <input class="form-control input-md" type="text" size="15"
+                                       maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getValue() ?>">
+                            </td>
+                            <?php
+                        } elseif ($userConfig->getType() == 'boolean') {
+                            if ( $userConfig->getValue() ) {
+                                $sel2 = 'SELECTED';
+                                $sel1 = '';
+                            } else {
+                                $sel1 = 'SELECTED';
+                                $sel2 = '';
+                            }
+                            ?>
+                            <td>
+                                <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
+                                    <option value="" <?= $sel1 ?>><?= _('False') ?>
+                                    <option value="1" <?= $sel2 ?>><?= _('True') ?>
+                                </select>
+                            </td>
+                            <?php
+                        } elseif ($userConfig->getType() == 'choice') {
+                            // we seach ever the default settings
+                            $userChoices = UserConfigChoicesQuery::create()->findOneById (($defaultConfig->getChoicesId() == null)?0:$defaultConfig->getChoicesId());
+
+                            $choices = explode(",", $userChoices->getChoices());
+                            ?>
+                            <td>
+                                <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
+                                    <?php
+                                    foreach ($choices as $choice) {
+                                    ?>
+                                    <option value="<?= $choice ?>" <?= (($userConfig->getValue() == $choice)?' selected':'') ?>> <?= $choice ?>
+                                        <?php
+                                        }
+                                        ?>
+                                </select>
+                            </td>
+                            <?php
                         }
-                  ?>
-                    <td>
-                      <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
-                        <option value="" <?= $sel1 ?>><?= _('False') ?>
-                        <option value="1" <?= $sel2 ?>><?= _('True') ?>
-                      </select>
-                    </td>
-                  <?php
-                    } elseif ($userConfig->getType() == 'choice') {
-                      // we seach ever the default settings
-                      $userChoices = UserConfigChoicesQuery::create()->findOneById (($defaultConfig->getChoicesId() == null)?0:$defaultConfig->getChoicesId());
 
-                      $choices = explode(",", $userChoices->getChoices());
-                  ?>
-                    <td>
-                      <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
+                        // Notes
+                        ?>
+                        <td>
+                            <input type="hidden" name="type[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getType() ?>">
+                            <?= _($userConfig->getTooltip()) ?>
+                        </td>
+                    </tr>
                     <?php
-                      foreach ($choices as $choice) {
-                    ?>
-                        <option value="<?= $choice ?>" <?= (($userConfig->getValue() == $choice)?' selected':'') ?>> <?= $choice ?>
-                    <?php
-                      }
-                    ?>
-                      </select>
-                    </td>
-                  <?php
-                    }
-
-                    // Notes
-                  ?>
-                    <td>
-                      <input type="hidden" name="type[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getType() ?>">
-                        <?= _($userConfig->getTooltip()) ?>
-                    </td>
-                  </tr>
-              <?php
                 }
 
                 // Cancel, Save Buttons
-              ?>
-              </tbody>
+                ?>
+                </tbody>
             </table>
             <div class="row">
                 <div class="col-md-2">
@@ -1015,10 +1016,10 @@ if ($usr_role_id == null) {
                     <input type="submit" class="btn btn-default" name="cancel" value="<?= _('Cancel') ?>">
                 </div>
             </div>
+        </div>
+        <!-- /.box-body -->
     </div>
-    <!-- /.box-body -->
-</div>
-<!-- /.box -->
+    <!-- /.box -->
 
 </form>
 
