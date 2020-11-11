@@ -16,6 +16,7 @@ Then set them as following:
 
 * bSidebarExpandOnHover : The sidebar opens by default at the skimming of the mouse.
 * bSidebarCollapse : The sidebar is closed by default
+* the interface color...
 
 
 The problem should now be solved.

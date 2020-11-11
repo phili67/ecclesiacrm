@@ -6,18 +6,18 @@ EcclesiaCRM is compatible CalDAV
 
 1. Open Calendar on a Mac and add a new one
 
-![Screenshot](../../img/person/user_cal_share1.png)
+    ![Screenshot](../../img/person/user_cal_share1.png)
 
 2. The features are the following, one will have to enter the user's login in EcclesiaCRM
 
-![Screenshot](../../img/person/user_cal_share2.png)
+    ![Screenshot](../../img/person/user_cal_share2.png)
 
 4. Here's the result
 
-![Screenshot](../../img/person/user_cal_share3.png)
+    ![Screenshot](../../img/person/user_cal_share3.png)
 
--  One will be able to add events, if the calendar is accessible in writing.
-- Everything will be pass on a Mac
+    -  One will be able to add events, if the calendar is accessible in writing.
+    - Everything will be pass on a Mac
 
 ##Share a calendar in IOS
 
@@ -29,7 +29,7 @@ Enter the url in the form: http://192.168.151.205/calendarserver.php/principals/
 
 - One has to have the calendar's address
 
-![Screenshot](../../img/person/user11.png)
+    ![Screenshot](../../img/person/user11.png)
 
 - then select the address and enter it in Thunderbird.
 

@@ -4,37 +4,37 @@ One can create different events: a group, a person or a shared event.
 
 1. Go to "calendar"
 
-![Screenshot](../../img/person/user15.png)
+    ![Screenshot](../../img/person/user15.png)
 
-- Click on the calendar area desired:
+    - Click on the calendar area desired:
 
-![Screenshot](../../img/person/user18.png)
+        ![Screenshot](../../img/person/user18.png)
 
-- And one can enter the event as following:
+    - And one can enter the event as following:
 
-![Screenshot](../../img/person/user19.png)
+        ![Screenshot](../../img/person/user19.png)
 
-- Do not forget to choose a calendar
-- It is possible to change the date and make the event recurring
-To this end, click on the date and it will open:
+    - Do not forget to choose a calendar
+    - It is possible to change the date and make the event recurring
+    - To this end, click on the date and it will open:
 
-![Screenshot](../../img/person/user20.png)
+        ![Screenshot](../../img/person/user20.png)
 
-- Then one can custom the event
-- add text
+    - Then one can custom the event
+    - add text
 
-![Screenshot](../../img/person/user21.png)
+    ![Screenshot](../../img/person/user21.png)
 
 
 2. Or go to "list Church Events"
 
-![Screenshot](../../img/person/user16.png)
+    ![Screenshot](../../img/person/user16.png)
 
-- The above-mentioned steps are the same
+    - The above-mentioned steps are the same
 
 3. Activate a document
 
--  A document can be made active or inactive
+    -  A document can be made active or inactive
 
 
 ##Notes
