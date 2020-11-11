@@ -101,11 +101,10 @@ nav:
         - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
     - "Documents":
         - 'Créer-Gérer': 'user-guide/doc-person/doc-person-document-creation.md'
-        - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
         - 'Images et Fichiers': 'user-guide/doc-person/doc-person-document-images-files.md'
+        - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
         - 'Export sous Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
-    - "Documents & Modèles":
-        - 'Modèles de document': 'user-guide/doc-person/doc-person-document-templates.md'
+        - "Documents & Modèles": 'user-guide/doc-person/doc-person-document-templates.md'
     - "EDrive":
         - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
         - 'EDrive en dehors du CRM':
@@ -125,8 +124,7 @@ nav:
       - "Activer pour un utilisateur": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
       - "Ajouter : Personne & Famille": 'user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family.md'
       - "Classifications": 'user-guide/doc-pastoral-care/doc-pastoral-care-classifications.md'
-      - "Réglages":
-            - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+      - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
 - "Manuel : Ecole du dimanche":
     - "Introduction": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
@@ -143,13 +141,16 @@ nav:
         - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
         - 'Gérer les Tags (étiquettes)': 'user-guide/doc-mailchimp/manage_tag.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
+
 - "Outils":
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
     - "Import de données": 'user-guide/doc-tools/doc-import.md'
     - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Panier": 'user-guide/doc-tools/doc-cart.md'
+
 - "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/api.md'
+
 - "À propos":
     - 'A propos': 'about/about.md'
     - 'Licence': 'about/license.md'
