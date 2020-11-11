@@ -233,7 +233,8 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
     <div class="card-header with-border">
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right">
-            <label><?= _("Edition Mode") ?> <input data-size="mini" id="editionMode" type="checkbox"
+            <label><?= _("Edition Mode") ?> <input data-width="100"
+                                                   data-size="mini" id="editionMode" type="checkbox"
                                                    data-toggle="toggle" data-on="<?= _("On") ?>"
                                                    data-off="<?= _("Off") ?>">
         </div>
