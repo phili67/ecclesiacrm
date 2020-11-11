@@ -8,25 +8,25 @@ It can be done by different ways, the easiest is :
 
 1. Choose the group
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)
 
 2. then activate
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance1.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance1.png)
 
 3. One can now create the event "call the register"
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance2.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance2.png)
 
 4. And is now able to do it
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)
 
-Lastly:
-* Select or deselect all the boxes
-* Then select in the "attendance list", at the bottom of the page
+    Lastly:
+    * Select or deselect all the checkboxes
+    * Then select in the "attendance list", at the bottom of the page
 
-![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)
 
 > **Note** : one can take some notes in the text section, and drag and drop images and files
 
@@ -34,7 +34,7 @@ Lastly:
 
 Choose the group
 
-![Screenshot](../../img/sundayschool/sundayschoolBadge1.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)
 
 This view will be on display
 
