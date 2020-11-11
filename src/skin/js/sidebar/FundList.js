@@ -74,11 +74,12 @@ $(document).ready(function () {
         +'    <input class="form-control input-md" name="Name" id="Name" style="width:100%">'
         +'  </div>'
         +'</div>'
+        +'<br/>'
         +'<div class="row">'
-        +'  <div class="col-lg-2">'
+        +'  <div class="col-lg-3">'
         +'    <label for="depositDate">'+i18next.t("Description")+'</label>'
         +'  </div>'
-        +'  <div class="col-lg-10">'
+        +'  <div class="col-lg-9">'
         +'    <input class="form-control input-md" name="description" id="description" style="width:100%">'
         +'  </div>'
         +'</div>'
@@ -120,6 +121,7 @@ $(document).ready(function () {
         var modal = bootbox.dialog({
          message: BootboxContentFundList,
          title: i18next.t("Fund Editor"),
+         size: 'large',
          buttons: [
           {
            label: i18next.t("Save"),
@@ -164,6 +166,7 @@ $(document).ready(function () {
     var modal = bootbox.dialog({
      message: BootboxContentFundList,
      title: i18next.t("Add Fund"),
+     size: 'large',
      buttons: [
       {
        label: i18next.t("Save"),

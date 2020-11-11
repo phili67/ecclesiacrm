@@ -70,6 +70,7 @@ $(document).ready(function () {
         +'    <input class="form-control input-md" name="Title" id="Title" style="width:100%">'
         +'  </div>'
         +'</div>'
+        +'<br/>'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
         +'    <label>'+i18next.t("Description")+'</label>'
@@ -125,6 +126,7 @@ $(document).ready(function () {
         var modal = bootbox.dialog({
          message: BootboxContentPastoralCareTypeList,
          title: i18next.t("Pastoral Care Type Editor"),
+         size: 'large',
          buttons: [
           {
            label: i18next.t("Save"),
@@ -169,6 +171,7 @@ $(document).ready(function () {
     var modal = bootbox.dialog({
      message: BootboxContentPastoralCareTypeList,
      title: i18next.t("Add Pastoral Care Type"),
+     size: 'large',
      buttons: [
       {
        label: i18next.t("Save"),
