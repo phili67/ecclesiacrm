@@ -119,19 +119,14 @@ $numberRow = 0;
 
                     // List Individual Settings
                     foreach ($configs as $config) {
-                    ?>
-                    <?php
-                    if ($config->getName() == "bSidebarExpandOnHover") continue;
-
+                        if ($config->getName() == "bSidebarExpandOnHover"
+                           || !(($config->getPermission() == 'TRUE') || $config->getName() != "bSidebarExpandOnHover" || SessionUser::getUser()->isAdmin())) {
+                            continue;
+                        }
                     ?>
                     <div class="row">
                         <?php
-
-                        if (!(($config->getPermission() == 'TRUE') || SessionUser::getUser()->isAdmin())) {
-                            continue;
-                        } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
-
-                        // Cancel, Save Buttons every 20 rows
+                        // Cancel, Save Buttons every 20 rows or the bsiderbar collapsed
                         if ($r == 20 || $config->getName() == "bSidebarCollapse") {
                         ?>
                     </div>
