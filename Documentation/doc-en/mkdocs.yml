@@ -42,7 +42,7 @@ markdown_extensions:
       permalink: true
 
 # the site map
-pages:
+nav:
   - "Home": 'index.md'
   - "Manual: Administrator":
       - 'Setting Up EcclesiaCRM':
@@ -76,7 +76,7 @@ pages:
               - 'Globals properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties.md'
               - 'Group specific properties': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties.md'
               - 'Group types': 'user-guide/doc-admin/group/doc-groups-management.md'
-      - 'Rights and Administration of the CRM users':
+      - 'Rights & CRM users managements':
           - "User creation": 'user-guide/doc-users/doc-users.md'
           - "User role": 'user-guide/doc-users/doc-user-role.md'
       - 'Global Settings':
@@ -98,12 +98,11 @@ pages:
           - 'Share your calendar': 'user-guide/doc-person/doc-person-share-calendar.md'
           - 'Share with a Mac': 'user-guide/doc-person/doc-person-share-mac.md'
       - "Documents":
-          - 'Create-manage': 'user-guide/doc-person/doc-person-document-creation.md'
-          - 'Share them': 'user-guide/doc-person/doc-person-document-share.md'
-          - 'Images and Files': 'user-guide/doc-person/doc-person-document-images-files.md'
+          - 'Create & manage': 'user-guide/doc-person/doc-person-document-creation.md'
+          - 'Images & Files': 'user-guide/doc-person/doc-person-document-images-files.md'
+          - 'Sharing': 'user-guide/doc-person/doc-person-document-share.md'
           - 'Export to Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
-      - "Documents & Templates":
-          - 'Document templates': 'user-guide/doc-person/doc-person-document-templates.md'
+      - "Documents & Templates": 'user-guide/doc-person/doc-person-document-templates.md'
       - "EDrive":
           - "EDrive in the CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
           - 'EDrive outside the CRM':
@@ -123,8 +122,7 @@ pages:
       - "Enable for an User": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
       - "Add : Person & Family": 'user-guide/doc-pastoral-care/doc-pastoral-care-add-person-family.md'
       - "Classifications": 'user-guide/doc-pastoral-care/doc-pastoral-care-classifications.md'
-      - "Settings":
-          - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+      - "Customization": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
   - "Manual: Sunday School":
       - "Overview": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
@@ -141,13 +139,16 @@ pages:
           - 'List Audience Management': 'user-guide/doc-mailchimp/manage_list.md'
           - 'Segments management (tags)': 'user-guide/doc-mailchimp/manage_tag.md'
           - 'Campaign management': 'user-guide/doc-mailchimp/manage_campaign.md'
+
   - "Tools":
       - "Geographical search": 'user-guide/doc-tools/doc-geographics.md'
       - "Import datas": 'user-guide/doc-tools/doc-import.md'
       - "Email": 'user-guide/doc-tools/doc-email.md'
       - "Cart": 'user-guide/doc-tools/doc-cart.md'
+
   - "Manual: Developer":
       - 'API': 'user-guide/doc-dev/api.md'
+
   - "About":
       - 'About': 'about/about.md'
       - 'Licence': 'about/license.md'

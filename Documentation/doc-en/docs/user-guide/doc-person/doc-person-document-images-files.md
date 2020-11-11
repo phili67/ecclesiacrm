@@ -58,7 +58,7 @@ The file is in Edrive if it is activate  (*)
 **Note** one can update the drive with the button above
 
 
-##Include photographs in EDrive (*)
+##Include Pictures in EDrive (*)
 
 Select:
 
@@ -68,7 +68,7 @@ then click
 
 ![Screenshot](../../img/person/includeImage2.png)
 
-choose the line:
+choose a line:
 
 ![Screenshot](../../img/person/includeImage3.png)
 
@@ -94,9 +94,7 @@ Then click
 
 ![Screenshot](../../img/person/includelink2.png)
 
-Choose the file in EDrive, the result will be:
-
-One can choose here the name of the link on the page. The link is dependent on an API (**)
+Choose the file in EDrive, the result will be and One can choose here the name of the link on the page. The link is dependent on an API (**)
 
 ![Screenshot](../../img/person/includelink3.png)
 
@@ -105,12 +103,12 @@ here's the result:
 ![Screenshot](../../img/person/includelink4.png)
 
 
-**Note**
+**Notes**
 
-(*) To active the EDrive, go to "system settings" -> "user system"
+- (*) To active the EDrive, go to "Manual Administrator" -> "Rights & CRM users managements" -> "User role"
 
-Then edit the user and add the role
+  Then edit the user and add the role
 
-(**) The link to the document are via an API, except if the document is in public
+- (**) The link to the document are via an API, except if the document is in the public folder
 
-In this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)
+  In this case, the links are clear ( useful for Mailchimp or to share a document to someone who is not a CRM user)

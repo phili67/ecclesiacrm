@@ -28,15 +28,17 @@ a document is shared when the icon has turned green
 
 ![Screenshot](../../img/person/user46.png)
 
-6. It is possible to fix the rights for each of the person that have access to the shared documents
-
-![Screenshot](../../img/person/user45.png)
-
 ##Modify the sharing or the rights
 
 Click again on the following icon
 
 ![Screenshot](../../img/person/user46.png)
+
+It is possible to fix the rights for each of the person that have access to the shared documents
+
+![Screenshot](../../img/person/user45.png)
+
+
 
 ##Note
 With the dialog box, it is possible to delete:

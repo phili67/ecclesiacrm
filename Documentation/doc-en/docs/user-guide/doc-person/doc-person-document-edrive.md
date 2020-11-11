@@ -35,7 +35,6 @@ This file can be use to add images or documents to one's mail campaigns.
 ![Screenshot](../../img/person/edrive3.png)
 
 3. One will be able to download the files on the server in one's personal space<br>
-![Screenshot](../../img/person/edrive3.png)
 
 4. Choose the files<br>
 ![Screenshot](../../img/person/edrive4.png)
