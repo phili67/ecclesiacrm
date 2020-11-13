@@ -10,33 +10,50 @@ Click on the button "student badges"
 
 ![Screenshot](../../img/sundayschool/sundayschoolBadge2.png)
 
-the view on display will be: 
+the view on display will be:
 
 ![Screenshot](../../img/sundayschool/sundayschoolBadge3.png)
 
-choose amongst the options: 
+choose amongst the options:
 
 - the name of the SundaySchool
-- The background and title color 
-![Screenshot](../../img/sundayschool/sundayschoolBadge4.png)
-- Choose an image and place it: 
+- The background and title color
+
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge4.png)
+
+- Choose an image and place it:
     * on the left
     * on the light
     * in the middle
 - to select a background image, click on its title
-![Screenshot](../../img/sundayschool/sundayschoolBadge5.png)
+
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge5.png)
+
 - to delete it, click on the red X
-![Screenshot](../../img/sundayschool/sundayschoolBadge6.png)
+
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge6.png)
+
 - Type of badges
-![Screenshot](../../img/sundayschool/sundayschoolBadgeDimension.png)
 
-** click on the button "produce badges".** 
+    ![Screenshot](../../img/sundayschool/sundayschoolBadgeDimension.png)
 
-Here's the result with an image on the left: 
+- With QR codes
 
-![Screenshot](../../img/sundayschool/sundayschoolBadge7.png)
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge7.png)
 
-> **Note** :the printer should be on "borderless" mode.<br> 
+- click on the button "Generate Badges".
+- Here's the result with an image on the left:
+
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge8.png)
+
+- With QR Codes
+
+    ![Screenshot](../../img/sundayschool/sundayschoolBadge9.png)
+
+
+
+
+> **Note** :the printer should be on "borderless" mode.<br>
 
 
 
