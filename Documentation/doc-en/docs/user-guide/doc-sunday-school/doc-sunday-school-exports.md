@@ -7,7 +7,7 @@ You can create
 
  ##To create extractions
 
-Go to the menu "SundaySchool" -> "dashboard"
+Go to the menu "Sunday School" -> "Dashboard"
 
 ![Screenshot](../../img/sundayschool/sundayschoolExport1.png)
 
@@ -21,7 +21,7 @@ Then select one or several groups
 
 ##To do a group photo
 
-Cliquer le bouton rouge : "Trombinoscope" Click on the red button "group photo"
+Click on the red button "PhotoBook"
 
 ![Screenshot](../../img/sundayschool/sundayschoolExport4.png)
 
@@ -33,10 +33,15 @@ Click on the button ad'hoc
 
 > **Note** : it will provide the list of students to split between the teachers ( it can also provide some students' allergies and if they do not want to be photographed)
 
-##Attendance lists
+##Attendance Sheet
 
-![Screenshot](../../img/sundayschool/sundayschoolExport5.png)
-![Screenshot](../../img/sundayschool/sundayschoolExport4.png)
+- select a group
+
+    ![Screenshot](../../img/sundayschool/sundayschoolExport5.png)
+
+- the click Attendance Sheet
+
+    ![Screenshot](../../img/sundayschool/sundayschoolExport4.png)
 
 There are two kinds :
 

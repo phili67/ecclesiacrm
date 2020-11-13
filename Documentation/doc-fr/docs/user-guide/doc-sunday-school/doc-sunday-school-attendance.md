@@ -40,6 +40,9 @@ Il est possible de le faire de différente manière, la plus simple est
 
 Pour terminer
 * cliquer tout cocher ou tout décocher
+
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance11.png)
+
 * puis cocher dans la liste les présents
 * en bas de page
 
@@ -65,6 +68,3 @@ Cliquez sur un ou l'autre bouton.
 Vous obtiendrez l'historique réelle des appels sur plusieurs mois, en sélectionnant la période ...
 
 > Note : L'export se fera naturellement avec les statistiques de présence ....
-
-
-

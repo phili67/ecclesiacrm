@@ -1,12 +1,12 @@
 > Note : the PDF and CVS exports are only possible if the administrator gives permission
 
-##Create badges
-
 Choose a SundaySchool group
 
 ![Screenshot](../../img/sundayschool/sundayschoolBadge1.png)
 
-Click on the button "student badges"
+## Create Badges
+
+Click on the button "Student Badges"
 
 ![Screenshot](../../img/sundayschool/sundayschoolBadge2.png)
 
@@ -37,11 +37,15 @@ choose amongst the options:
 
     ![Screenshot](../../img/sundayschool/sundayschoolBadgeDimension.png)
 
-- With QR codes
+## Create QR codes
 
     ![Screenshot](../../img/sundayschool/sundayschoolBadge7.png)
 
 - click on the button "Generate Badges".
+
+
+## Results
+
 - Here's the result with an image on the left:
 
     ![Screenshot](../../img/sundayschool/sundayschoolBadge8.png)

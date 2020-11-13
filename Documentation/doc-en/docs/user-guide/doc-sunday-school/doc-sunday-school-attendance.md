@@ -22,26 +22,30 @@ It can be done by different ways, the easiest is :
 
     ![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)
 
-5. QR code Call
+##QR code Call
 
-    ![Screenshot](../../img/sundayschool/sundayschoolAttendance6.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance6.png)
 
-    You choose see this window
+You choose see this window
 
-    ![Screenshot](../../img/sundayschool/sundayschoolAttendance7.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance7.png)
 
-    If you prepare QR Code badges for your group, you can use the badge like this, or with a smartphone
+If you prepare QR Code badges for your group, you can use the badge like this, or with a smartphone
 
-    ![Screenshot](../../img/sundayschool/sundayschoolAttendance9.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance9.png)
 
-    And ... it's done
+And ... it's done
 
-    ![Screenshot](../../img/sundayschool/sundayschoolAttendance10.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance10.png)
 
 
 Lastly:
+
 * Select or deselect all the boxes
-* Then select in the "attendance list", at the bottom of the page
+
+    ![Screenshot](../../img/sundayschool/sundayschoolAttendance11.png)
+
+* Then select in the "Validate Attendance", at the bottom of the page
 
     ![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)
 
