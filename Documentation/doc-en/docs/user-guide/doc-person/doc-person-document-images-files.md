@@ -9,13 +9,13 @@ To this end:
 
 1. Open a document, CKEditor
 
-- Go to a personal space
+    - Go to a personal space
 
-![Screenshot](../../img/person/user22.png)
+    ![Screenshot](../../img/person/user22.png)
 
 2. Add a document
 
-![Screenshot](../../img/person/user23.png)
+    ![Screenshot](../../img/person/user23.png)
 
 ##Edition
 
