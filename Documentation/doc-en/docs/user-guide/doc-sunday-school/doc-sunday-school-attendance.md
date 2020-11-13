@@ -21,6 +21,7 @@ It can be done by different ways, the easiest is :
 4. And is now able to do it
 
     ![Screenshot](../../img/sundayschool/sundayschoolAttendance3.png)
+<<<<<<< HEAD
 
 5. QR code Call
 
@@ -38,10 +39,12 @@ It can be done by different ways, the easiest is :
 
     ![Screenshot](../../img/sundayschool/sundayschoolAttendance10.png)
 
+=======
+>>>>>>> 4acb1ea2a13d99ba7d36dfc66677fb68f2d1a00e
 
-Lastly:
-* Select or deselect all the boxes
-* Then select in the "attendance list", at the bottom of the page
+    Lastly:
+    * Select or deselect all the checkboxes
+    * Then select in the "attendance list", at the bottom of the page
 
     ![Screenshot](../../img/sundayschool/sundayschoolAttendance4.png)
 
@@ -51,7 +54,7 @@ Lastly:
 
 Choose the group
 
-![Screenshot](../../img/sundayschool/sundayschoolBadge1.png)
+![Screenshot](../../img/sundayschool/sundayschoolAttendance0.png)
 
 This view will be on display
 
