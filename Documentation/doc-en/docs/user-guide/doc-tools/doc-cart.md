@@ -2,6 +2,10 @@
 
 The cart contains temporarily the members that one added. One can add as many people as they want, and they can manage them by groups to send emails, or make a directory, badges or letters head.
 
+And is possible to fill the cart each times you see the plus cart icon like below
+
+![Screenshot](../../img/cart/cart0.png)
+
 One can also assign the selected members to a group or to a family.
 
 Any member can be add to the cart and it will change nothing to the member's profile.
@@ -19,7 +23,7 @@ Via the board "Manual: Administrator → rights and administration of the CRM us
 
 the access to the cart is in the toolbar, it will show the number of items in the cart, which depends of the members added or deleted.
 
-![Screenshot](../../img/cart/cart1.png)<br>
+![Screenshot](../../img/cart/cart1.png)
 
 A context menu will appear by clicking on the cart which allows the user to see the content.
 

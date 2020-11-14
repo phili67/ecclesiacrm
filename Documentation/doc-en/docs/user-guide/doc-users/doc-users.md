@@ -41,7 +41,7 @@ A user has the following rights:
 
 1. user's rights ( for a system administrator)
 
-	*  they can manage the basket
+	*  they can manage the cart
 	*  the storage (create members)
 	*  modify member account
 	*  See the Google Maps
@@ -49,7 +49,7 @@ A user has the following rights:
 	*  Administrator of the groups and roles:
 	*  Administrator of the finances management:
 	*  See, add and modify documents:
-	*  Modify their own account ( only for their own family)
+	*  Modify their own account (only for their own family)
 	*  Lobbyist
 	*  Create the administrators
 	*  Deal with the default colors of the CRM
@@ -58,7 +58,7 @@ A user has the following rights:
 	+ send emails
 	+ manage the separator for the group mails
 	+ create directories
-	+ Export a basket content to a CVS format (in Excel ot LibreOffice Calc)
+	+ Export a cart content to a CVS format (in Excel ot LibreOffice Calc)
 	+ display the tooltips
 	+ Add events to a calendar
 	+ See the private data
