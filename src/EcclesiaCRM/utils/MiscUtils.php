@@ -1151,7 +1151,7 @@ public static function FileSizeConvert($bytes)
       return $res;
   }
 
-  public static function ConvertToBoolean($sInput)
+  public static function ConvertToStringBoolean($sInput)
   {
       if (empty($sInput)) {
           return false;
