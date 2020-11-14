@@ -123,7 +123,7 @@ class Family
 $sPageTitle = _('CSV Import');
 require 'Include/Header.php'; ?>
 
-<div class="card import-users" style="display: box;">
+<div class="card import-users" style="display:box;">
 <div class="card-header with-border">
    <h3 class="card-title"><?= _('Import Data')?></h3>
 </div>
@@ -248,7 +248,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
                 <option value="13"><?= _('Country') ?></option>
                 <option value="14"><?= _('Home Phone') ?></option>
                 <option value="15"><?= _('Work Phone') ?></option>
-                <option value="16"><?= _('Mobile Phone') ?></option>
+                <option value="16"><?= _('Cell Phone') ?></option>
                 <option value="17"><?= _('Email') ?></option>
                 <option value="18"><?= _('Work / Other Email') ?></option>
                 <option value="19"><?= _('Birth Date') ?></option>
@@ -828,7 +828,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                             }
 
                             // aColumnID is the custom table column name
-                            sqlCustomField($sSQLFamCustom, $currentType, $currentFieldData, $colID, $sCountry);
+                            MiscUtils::sqlCustomField($sSQLFamCustom, $currentType, $currentFieldData, $colID, $sCountry);
                         }
                     }
 
@@ -884,7 +884,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                         }
 
                         // aColumnID is the custom table column name
-                        sqlCustomField($sSQLcustom, $currentType, $currentFieldData, $aColumnID[$col], $sCountry);
+                        MiscUtils::sqlCustomField($sSQLcustom, $currentType, $currentFieldData, $aColumnID[$col], $sCountry);
                     }
                 }
 
@@ -980,7 +980,7 @@ if ($iStage == 1) {
         <div class="row">
           <div class="col-lg-12">
             <h3><?= _("The next step should be, if not select the other CSV seperator") ?></h3>
-            <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=50%>
+            <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=100%>
           </div>
         </div>
         <div class="row">

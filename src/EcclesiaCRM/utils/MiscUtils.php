@@ -1158,16 +1158,16 @@ public static function FileSizeConvert($bytes)
       } else {
           if (is_numeric($sInput)) {
               if ($sInput == 1) {
-                  return true;
+                  return 'true';
               } else {
-                  return false;
+                  return 'false';
               }
           } else {
               $sInput = strtolower($sInput);
-              if (in_array($sInput, ['true', 'yes', 'si'])) {
-                  return true;
+              if (in_array(strtolower($sInput), ['true', 'yes', 'si'])) {
+                  return 'true';
               } else {
-                  return false;
+                  return 'false';
               }
           }
       }
