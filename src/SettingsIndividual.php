@@ -370,7 +370,11 @@ $numberRow = 0;
                 </div>
                 <br/>
                 <?php
-                $r++;
+                    if ($config->getName() == 'sStyleBrandLinkColor') {
+                        $r=20;
+                    } else {
+                        $r++;
+                    }
                 }
                 ?>
             </div>
