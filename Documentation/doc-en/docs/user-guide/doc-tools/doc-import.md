@@ -6,7 +6,9 @@ The function " import a CVS file" is in the administrator menu.
 
 ![Screenshot](../../img/tools/importCSV.png)
 
-Here one will find the manuel to import the data file automatically; the families can be form automatically in the file by means of the members' gender and the reunification is made according to the address.
+Here one will find the manuel to import the data file automatically;
+
+The families can be form automatically in the file by means of the members' gender and the reunification is made according to the address.
 Here are the basic informations:
 
 - Title (for the family's creation)
