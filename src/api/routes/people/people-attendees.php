@@ -226,7 +226,11 @@ function attendeesEvent (Request $request, Response $response, array $args) {
 
     $group = GroupQuery::create()->findOneById($groupID);
 
-    $bSundaySchool = $group->isSundaySchool();
+    $bSundaySchool = false;
+
+    if ( !is_null ($group) ) {
+        $bSundaySchool = $group->isSundaySchool();
+    }
 
     if ($bSundaySchool) {
             $genderMale = _("Boy");
