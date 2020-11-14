@@ -7,7 +7,7 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
- *  Copyright 2018 Philippe Logel
+ *  Copyright 2020 Philippe Logel
  *
  ******************************************************************************/
 
@@ -21,8 +21,6 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\SessionUser;
@@ -123,7 +121,7 @@ class Family
 $sPageTitle = _('CSV Import');
 require 'Include/Header.php'; ?>
 
-<div class="card import-users" style="display:box;">
+<div class="card import-users" style="display:block;">
 <div class="card-header with-border">
    <h3 class="card-title"><?= _('Import Data')?></h3>
 </div>
@@ -277,7 +275,6 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             <span style="color:blue;float:right"><?= _("Scroll right to see the other columns") ?></span>
             <span style="color:red;float:left">• <?= _("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
             <span style="color:red;float:left">• <?= _("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
-            </ul>
           </div>
         </div>
         <div class="row">
@@ -295,7 +292,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         <div class="row">
           <div class="col-lg-1" style="width:10px">
-             <input type="checkbox" value="1" name="MakeFamilyRecords" checked="true">
+             <input type="checkbox" value="1" name="MakeFamilyRecords" checked=true>
           </div>
           <div class="col-lg-3">
             <select name="MakeFamilyRecordsMode" class="form-control input-sm">
@@ -1035,7 +1032,7 @@ if ($iStage == 1) {
   </div>
   <div class="card-body">
     <button type="button" class="btn btn-danger" id="clear-people"><?= _('Clear Persons and Families') ?></button>
-    <span id="import-success" style="color:green"></label>
+    <label id="import-success" style="color:green"></label>
 <?php
 }
 
