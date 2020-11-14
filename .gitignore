@@ -81,3 +81,9 @@ package-lock.json
 .DS_Store
 ._.DS_Store
 
+# ignore
+
+upload-71-plateform.sh
+upload-github-release.sh
+upload-imathgeo.com
+
