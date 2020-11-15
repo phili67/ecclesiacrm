@@ -37,5 +37,7 @@ Pour une personne seule vous obtiendrez
 
 ![Screenshot](../../img/pastoralcare/pastoral_care_add_randomly1.png)
 
+>Astuce : il est préférable de passer par une famille, vous pourrez cocher tous les membres de celle-ci et obtenir un meilleur score au final.
+
 
 

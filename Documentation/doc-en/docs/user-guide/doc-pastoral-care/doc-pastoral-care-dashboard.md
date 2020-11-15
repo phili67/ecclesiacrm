@@ -33,9 +33,11 @@ Open the menu called : "Visit/call randomly"
 
 ![Screenshot](../../img/pastoralcare/pastoral_care_add_randomly.png)
 
-For a single person, ou get
+For a single person, you get
 
 ![Screenshot](../../img/pastoralcare/pastoral_care_add_randomly1.png)
+
+>Tips : it's better to choose a family to check all the members of a family together !!
 
 
 
