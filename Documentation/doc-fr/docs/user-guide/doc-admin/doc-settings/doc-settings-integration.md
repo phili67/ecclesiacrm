@@ -32,7 +32,7 @@ Il est possible de fixer le nombre maximum de personnes à **iMailChimpApiMaxMem
 
 ## sOLPURL & sOLPUserName & sOLPPassword
 
-Ces réglages sont utilisés pour OpenLP, un système de présentation pour les églises (Comme PowerPoint).
+Ces réglages sont utilisgit sés pour OpenLP, un système de présentation pour les églises (Comme PowerPoint).
 
 ## bEnabledDav && bEnabledDavWebBrowser
 
