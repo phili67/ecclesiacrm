@@ -39,6 +39,14 @@ $(document).ready(function () {
                 render: function(data, type, full, meta) {
                     return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
                 }
+            },
+            {
+                width: 'auto',
+                title:i18next.t("Visits/calls"),
+                data:'Visits',
+                render: function(data, type, full, meta) {
+                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                }
             }
         ],
         responsive: true,
