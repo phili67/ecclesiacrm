@@ -32,19 +32,19 @@ On coche la case, puis on utilise le bouton "Enregistrer" en bas de page.
 
 Il faut dans ce cas sélectionner le groupe pour lequel vous aimeriez ajouter un admin local
 
-On sélection ensuite l'icône "+" qui permet de déployer le volet permettant d'affecter le manager local
+1. On sélection ensuite l'icône "+" qui permet de déployer le volet permettant d'affecter le manager local
 
-![Screenshot](../../../img/group/admin/localgroupmanagement1.png)
+    ![Screenshot](../../../img/group/admin/localgroupmanagement1.png)
 
-On clique ensuite le bouton : "Ajouter Manager"
+2. On clique ensuite le bouton : "Ajouter Manager"
 
-![Screenshot](../../../img/group/admin/localgroupmanagement2.png)
+    ![Screenshot](../../../img/group/admin/localgroupmanagement2.png)
 
-On pourra ici choisir la personne à affecter.
+3. On pourra ici choisir la personne à affecter.
 
-![Screenshot](../../../img/group/admin/localgroupmanagement3.png)
+    ![Screenshot](../../../img/group/admin/localgroupmanagement3.png)
 
-Le résultat final :
+4. Le résultat final :
 
-![Screenshot](../../../img/group/admin/localgroupmanagement4.png)
+    ![Screenshot](../../../img/group/admin/localgroupmanagement4.png)
 
