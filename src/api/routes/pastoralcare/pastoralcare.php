@@ -370,7 +370,7 @@ function pastoralcareMembersDashboard(Request $request, Response $response, arra
 
     $users = UserQuery::create()
         ->filterByPastoralCare(true)
-        ->filterByPersonId(SessionUser::getUser()->getPerson(), \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
+        ->filterByPersonId(1, \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
         ->usePersonQuery()
         ->addAsColumn('PersonID', \EcclesiaCRM\Map\PersonTableMap::COL_PER_ID)
         ->addAsColumn('LastName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_LASTNAME)
@@ -379,7 +379,56 @@ function pastoralcareMembersDashboard(Request $request, Response $response, arra
         ->find();
 
     if ( !is_null($users) ) {
-        return $response->withJson(["Pastors" => $users->toArray()]);
+        $res = [];
+        foreach ($users as $user) {
+
+            $choice = SystemConfig::getValue('sPastoralcarePeriod');
+
+            $date = new \DateTime('now');
+
+            switch ($choice) {
+                case 'Yearly 1':// choice 1 : Year-01-01 to Year-12-31
+                    $realDate = $date->format('Y') . "-01-01";
+
+                    $start = new \DateTime($realDate);
+
+                    $startPeriod = $start->format('Y-m-d');
+
+                    $start->add(new \DateInterval('P1Y'));
+                    $start->sub(new \DateInterval('P1D'));
+
+                    $endPeriod = $start->format('Y-m-d');
+                    break;
+                case '365': // choice 2 : one year before now
+                    $endPeriod = $date->format('Y-m-d');
+                    $date->sub(new \DateInterval('P365D'));
+                    $startPeriod = $date->format('Y-m-d');
+                    break;
+                case 'Yearly 2':// choice 3 : from september to september
+                    if ((int)$date->format('m') < 9) {
+                        $realDate = ($date->format('Y') - 1) . "-09-01";
+                    } else {
+                        $realDate = $date->format('Y') . "-09-01";
+                    }
+
+                    $start = new \DateTime($realDate);
+
+                    $startPeriod = $start->format('Y-m-d');
+
+                    $start->add(new \DateInterval('P1Y'));
+                    $start->sub(new \DateInterval('P1D'));
+
+                    $endPeriod = $start->format('Y-m-d');
+                    break;
+            }
+
+            $ormPastors = PastoralCareQuery::Create()
+                ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
+                ->findByPastorId($user->getId());
+
+            $res[] = ['LastName' => $user->getLastName(), 'FirstName' => $user->getFirstName(), 'PersonID' => $user->getPersonID(), 'Visits' => $ormPastors->count()];
+        }
+        return $response->withJson(["Pastors" => $res]);
     }
 
     return null;
