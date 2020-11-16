@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-10-19T17:00:39.892Z\n"
+"POT-Creation-Date: 2020-11-16T19:37:10.366Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1936,7 +1936,8 @@ msgid ""
 "Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
 "could take a while !"
 msgstr ""
-"Alle Familienvertreter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
+"Alle Familienvertreter Subskribenten von EcclesiaCRM Laden<br>das könnte "
+"dauern !"
 
 msgid "Email Marketing"
 msgstr "E-mail Marketing"
@@ -2141,6 +2142,9 @@ msgstr "Leute Entfernen"
 
 msgid "Nothing to remove."
 msgstr "Nichts zu entfernen."
+
+msgid "Visits/calls"
+msgstr "Besuche/Anrufe"
 
 msgid "Last visit/call"
 msgstr "letzten Besuch/Anruf"
