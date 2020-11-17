@@ -8,6 +8,42 @@ $(document).ready(function () {
 
     window.CRM.neverDate = moment('1900-01-01 00:00').format( window.CRM.fmt );
 
+    columnsPastoralCareMembers = [
+        {
+            width: 'auto',
+            title:i18next.t("Name"),
+            data:'LastName',
+            render: function(data, type, full, meta) {
+                res = '';
+                if (window.CRM.bThumbnailIconPresence) {
+                    res += '<img src="/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
+                }
+                return res + '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+            }
+        },
+        {
+            width: 'auto',
+            title:i18next.t("First Name"),
+            data:'FirstName',
+            render: function(data, type, full, meta) {
+                return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+            }
+        }
+    ];
+
+    if (window.CRM.bPastoralcareStats) {
+        columnsPastoralCareMembers.push(
+            {
+                width: 'auto',
+                title:i18next.t("Visits/calls"),
+                data:'Visits',
+                render: function(data, type, full, meta) {
+                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                }
+            }
+        )
+    }
+
     window.CRM.dataPastoralcareMembers = $("#pastoralcareMembers").DataTable({
         ajax:{
             url: window.CRM.root + "/api/pastoralcare/members",
@@ -19,36 +55,7 @@ $(document).ready(function () {
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
-        columns: [
-            {
-                width: 'auto',
-                title:i18next.t("Name"),
-                data:'LastName',
-                render: function(data, type, full, meta) {
-                    res = '';
-                    if (window.CRM.bThumbnailIconPresence) {
-                        res += '<img src="/api/persons/' + full.PersonID + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> ';
-                    }
-                    return res + '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
-                }
-            },
-            {
-                width: 'auto',
-                title:i18next.t("First Name"),
-                data:'FirstName',
-                render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
-                }
-            },
-            {
-                width: 'auto',
-                title:i18next.t("Visits/calls"),
-                data:'Visits',
-                render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
-                }
-            }
-        ],
+        columns: columnsPastoralCareMembers,
         responsive: true,
         createdRow : function (row,data,index) {
             $(row).addClass("menuLinksRow");

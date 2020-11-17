@@ -263,8 +263,8 @@ class SystemConfig
             "bSearchFinancesGDPR" => new ConfigItem(2084, "bSearchFinancesGDPR", "boolean", "1", _("Allow to get the name in the search sequence in case of pledges and deposits")),
             "sPastoralcarePeriod" => new ConfigItem(2085, "sPastoralcarePeriod", "choice", "Yearly 1", _("'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 days to now, 'Yearly 2' : from september to september."), "", '{"Choices":["Yearly 1", "Yearly 2", "365"]}'),
             "sJitsiDomain" => new ConfigItem(2086, "sJitsiDomain", "text", "meet.jit.si", _("The jitsi domain name, by default : meet.jit.si")),
-            "sJitsiDomainScriptPath" => new ConfigItem(2087, "sJitsiDomainScriptPath", "text", "https://meet.jit.si/external_api.js", _("The jitsi domain name script path, by default : https://meet.jit.si/external_api.js"))
-
+            "sJitsiDomainScriptPath" => new ConfigItem(2087, "sJitsiDomainScriptPath", "text", "https://meet.jit.si/external_api.js", _("The jitsi domain name script path, by default : https://meet.jit.si/external_api.js")),
+            "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)"))
         );
     }
 
@@ -279,7 +279,7 @@ class SystemConfig
             _('People Setup') => ["sDirClassifications", "sDirRoleHead", "sDirRoleSpouse", "sDirRoleChild", "sDefaultCity", "sDefaultState", "sDefaultCountry", "bShowFamilyData"/*,"bHidePersonAddress"*/, "bHideFriendDate", "bHideFamilyNewsletter", "bHideWeddingDate", "bHideLatLon", "bForceUppercaseZip", "bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle", "iPersonAddressStyle", "sNewPersonNotificationRecipientIDs"],
             _('Email Setup') => ["sSMTPHost", "bSMTPAuth", "sSMTPUser", "sSMTPPass", "iSMTPTimeout", "sToEmailAddress", "bPHPMailerAutoTLS", "sPHPMailerSMTPSecure"],
             _('Map Settings') => ["sMapProvider", "sNominatimLink", "sGoogleMapKey", "sBingMapKey", "iMapZoom", "iLittleMapZoom", "sISTusername", "sISTpassword"],
-            _('Pastoral Care') => ["sPastoralcarePeriod"],
+            _('Pastoral Care') => ["sPastoralcarePeriod", "bPastoralcareStats"],
             _('Sundayschool Attendance') => ["bCheckedAttendees", "bCheckedAttendeesCurrentUser"],
             _('Integration') => ["sMailChimpApiKey", "iMailChimpApiMaxMembersCount", "bMailChimpWithAddressPhone", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID", "bEnableGravatarPhotos", "bEnableGooglePhotos", "iRemotePhotoCacheDuration", "sNexmoAPIKey", "sNexmoAPISecret", "sNexmoFromNumber", "sOLPURL", "sOLPUserName", "sOLPPassword", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
             _('GDPR') => ["bGDPR", "sGdprDpoSigner", "sGdprDpoSignerEmail", "iGdprExpirationDate", "bSearchFinancesGDPR"],
