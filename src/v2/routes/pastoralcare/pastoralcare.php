@@ -13,16 +13,22 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+use EcclesiaCRM\Service\PastoralCareService;
+use EcclesiaCRM\SessionUser;
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
-use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Service\PastoralCareService;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\UserQuery;
+
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\PastoralCareTableMap;
 
 use Slim\Views\PhpRenderer;
 
@@ -47,7 +53,9 @@ function renderPastoralCareListForUser (Request $request, Response $response, ar
 
 function argumentsPastoralCareListForUserArray ($UserID)
 {
-    $sPageTitle = _("Pastoral care List of members");
+    $user = UserQuery::create()->findOneByPersonId($UserID);
+
+    $sPageTitle = _("Pastoral care list of members for")." : ".$user->getPerson()->getFullName();
 
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sCSPNonce       = SystemURLs::getCSPNonce();
@@ -95,13 +103,13 @@ function argumentsPastoralCareListForUserArray ($UserID)
     $members = PastoralCareQuery::Create()
         ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
         ->usePersonRelatedByPersonIdQuery()
-            ->addAsColumn('FollowedPersonLastName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_LASTNAME)
-            ->addAsColumn('FollowedPersonFirstName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_FIRSTNAME)
-            ->addAsColumn('FollowedPersonPerId', \EcclesiaCRM\Map\PersonTableMap::COL_PER_ID)
+            ->addAsColumn('FollowedPersonLastName', PersonTableMap::COL_PER_LASTNAME)
+            ->addAsColumn('FollowedPersonFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('FollowedPersonPerId', PersonTableMap::COL_PER_ID)
         ->endUse()
         ->useFamilyQuery()
-        ->addAsColumn('FollowedFamName', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_NAME)
-        ->addAsColumn('FollowedFamID', \EcclesiaCRM\Map\FamilyTableMap::COL_FAM_ID)
+        ->addAsColumn('FollowedFamName', FamilyTableMap::COL_FAM_NAME)
+        ->addAsColumn('FollowedFamID', FamilyTableMap::COL_FAM_ID)
         ->endUse()
         ->findByPastorId($UserID);
 

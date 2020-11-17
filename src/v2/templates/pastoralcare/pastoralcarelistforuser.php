@@ -10,26 +10,27 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-
 <div class="card card-default">
     <div class="card-header with-border">
         <h3 class="card-title">
-            <?= _("Family Members") ?>
+            <?= _("Members")." / "._("Families") ?>
         </h3>
         <div class="card-tools pull-right">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
         </div>
     </div>
     <div class="card-body">
-        <table class="table user-list table-hover data-person" width="100%">
+        <table id="MemberTable" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" width="100%">
             <thead>
-            <tr>
-                <th><span><?= _("Members") ?></span></th>
-            </tr>
+                <tr>
+                    <th><span><?= _("Members") ?></span></th>
+                    <th><span><?= _("Pastoral Care")." : "._("Date") ?></span></th>
+                </tr>
             </thead>
             <tbody>
             <?php
@@ -43,17 +44,21 @@ require $sRootDocument . '/Include/Header.php';
                                 width="40" height="40"
                                 class="initials-image img-circle"/>
                             <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $member['FollowedPersonPerId'] ?>"
-                               class="user-link"><?= $member['FollowedPersonFirstName']." ".$member['FollowedPersonLastName'] ?> </a>
+                               class="user-link"><?= _("Person") ?> : <?= $member['FollowedPersonFirstName']." ".$member['FollowedPersonLastName'] ?> </a>
                         <?php } else { ?>
                             <img
                                 src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $member['FollowedFamID'] ?>/thumbnail"
                                 width="40" height="40"
                                 class="initials-image img-circle"/>
                             <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $member['FollowedFamID'] ?>"
-                               class="user-link"><?= $member['FollowedFamName'] ?> </a>
+                               class="user-link"><?= _("Family") ?> : <?= $member['FollowedFamName'] ?> </a>
                         <?php } ?>
                     </td>
+                    <td>
+                        <?= (new DateTime($member['Date']))->format(SystemConfig::getValue('sDateFormatLong').' H:i:s') ?>
+                    </td>
                 </tr>
+
                 <?php
             }
             ?>
@@ -76,3 +81,11 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+<script nonce="<?= $sCSPNonce ?>">
+    $('#MemberTable').DataTable({
+        "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+        },
+    });
+</script>
