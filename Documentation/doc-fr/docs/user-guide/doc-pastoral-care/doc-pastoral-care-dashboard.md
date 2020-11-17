@@ -20,7 +20,7 @@ Trois types de suivi est possible
 
 Le deuxième argument "bPastoralcareStats" permet de consulter les stats pour chaque pasteur durant la période.
 
->Note: le but ici n'est pas de voir ce que l'autre fait mais de pouvoir reprendre le suivi en cas d'absence.
+>Note: il permet de consulter son propre suivi ou de reprendre le suivi d'un collègue pasteur (voir pour cela plus bas)
 
 ##Tableau de bord principal succinct
 
@@ -47,9 +47,14 @@ Vous obtiendrez la vue suivante, avec tous les détails nécessaires
 
 ![Screenshot](../../img/pastoralcare/pastoral_care_dashboard_full.png)
 
->Note: Les stats permettent de pouvoir suivre son propre suivi ou de reprendre un suivi fait par un autre pasteur ou conseiller.
->Pour cela cliquer simplement sur le lien des stats
+##Suivi plus fin des membres
 
+On a ci-dessous le nombre d'appels ou visites effectués durant la période fixée pour le suivi pastoral (voir plus haut pour les réglages).
+
+![Screenshot](../../img/pastoralcare/pastoral_care_dashboard_full1.png)
+
+>Note: Les stats permettent de pouvoir suivre son propre suivi ou de reprendre le suivi fait par un autre pasteur ou conseiller.
+>Pour cela cliquer simplement sur le lien des stats, vous obtiendrez une vue qui listera tous les membres suivis durant la période annuelle.
 
 ## Appelez/contactez aléatoirement, une personne seule, une famille etc ...
 
