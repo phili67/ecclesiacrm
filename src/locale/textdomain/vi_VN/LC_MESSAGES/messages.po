@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-17 09:25+0100\n"
+"POT-Creation-Date: 2020-11-17 18:54+0100\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -257,6 +257,7 @@ msgstr "Xem tất cả thành viên"
 #: v2/templates/dashboard/maindashboard.php:33
 #: v2/templates/email/mailchimp/managelist.php:143
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:72
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
 #: v2/templates/people/peoplelist.php:37
@@ -642,6 +643,7 @@ msgstr ""
 #: Reports/NewsLetterLabels.php:55 v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:47
 #, fuzzy
 msgid "Person"
 msgstr "Chỉnh sửa thành viên"
@@ -665,6 +667,7 @@ msgstr "Chỉnh sửa thành viên"
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:54
 msgid "Family"
 msgstr "Gia đình"
 
@@ -791,6 +794,7 @@ msgstr "Vô hiệu hóa"
 #: PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
 #: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:104
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "Ngày"
 
@@ -1384,6 +1388,8 @@ msgstr "Thêm vào giỏ hàng rồi gửi đến Gia đình"
 #: v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
 #: v2/templates/pastoralcare/pastoralcareperson.php:112
 #, fuzzy
 msgid "Members"
@@ -4345,6 +4351,7 @@ msgstr "Lưu thay đổi"
 #: FamilyView.php:464 PersonView.php:789 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:855
 #: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr ""
 
@@ -9315,6 +9322,7 @@ msgid ""
 msgstr ""
 
 #: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 #, fuzzy
 msgid "Return to Family View"
 msgstr "Xem gia đình"
@@ -10029,22 +10037,27 @@ msgstr "Chỉnh sửa thành viên"
 msgid "Meeting Dashboard"
 msgstr "Bảng điều khiển"
 
-#: v2/routes/pastoralcare/pastoralcare.php:51
+#: v2/routes/pastoralcare/pastoralcare.php:58
+#, fuzzy
+msgid "Pastoral care list of members for"
+msgstr "Thêm vào giỏ"
+
+#: v2/routes/pastoralcare/pastoralcare.php:143
 #, fuzzy
 msgid "Pastoral care Dashboard"
 msgstr "Bảng điều khiển"
 
-#: v2/routes/pastoralcare/pastoralcare.php:109
+#: v2/routes/pastoralcare/pastoralcare.php:201
 #, fuzzy
 msgid "Individual Pastoral care"
 msgstr "Thêm vào giỏ"
 
-#: v2/routes/pastoralcare/pastoralcare.php:164
+#: v2/routes/pastoralcare/pastoralcare.php:256
 #, fuzzy
 msgid "Family Pastoral care"
 msgstr "Xem tất cả thành viên"
 
-#: v2/routes/pastoralcare/pastoralcare.php:207
+#: v2/routes/pastoralcare/pastoralcare.php:299
 msgid "Pastoral care members list by classification"
 msgstr ""
 
@@ -11292,11 +11305,13 @@ msgid "Modify"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:242
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
 #: v2/templates/pastoralcare/pastoralcareperson.php:248
 msgid "Return To PastoralCare Dashboard"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:245
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:251
 #, fuzzy
 msgid "Return To PastoralCare Members List"
