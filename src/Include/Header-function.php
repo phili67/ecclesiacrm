@@ -169,6 +169,7 @@ function Header_body_scripts()
             sChurchCountry:"<?= SystemConfig::getValue('sChurchCountry') ?>",
             bEDrive:<?= (SessionUser::getUser()->isEDrive())?"true":"false" ?>,
             bThumbnailIconPresence:<?= (SystemConfig::getBooleanValue("bThumbnailIconPresence"))?"true":"false" ?>,
+            bPastoralcareStats:<?= (SystemConfig::getBooleanValue("bPastoralcareStats"))?"true":"false" ?>,
             plugin: {
                 dataTable : {
                    "language": {
