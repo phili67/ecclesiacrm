@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 20:37+0100\n"
+"POT-Creation-Date: 2020-11-17 09:25+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4217,6 +4217,10 @@ msgstr ""
 "Der Jitsi Domänennamen script path, standardmäßig https://meet.jit.si/"
 "external_api.js"
 
+#: EcclesiaCRM/dto/SystemConfig.php:267
+msgid "Get the statistics of calls/visits (for each pastors counselors)"
+msgstr "Pastoral Pflege Anrufe / Besuche statistisch für alle Pastoren Berater"
+
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
 msgstr "Kirche Informationen"
@@ -5117,7 +5121,7 @@ msgstr "Studenten"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:178
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:179
 msgid "Print"
 msgstr "Drucken"
 
@@ -7413,7 +7417,7 @@ msgstr "Problem auf GitHub anzeigen"
 msgid "OK"
 msgstr "Ok"
 
-#: Include/Header-function.php:177
+#: Include/Header-function.php:178
 msgid "Change columns"
 msgstr "Spalten ändern"
 
@@ -9996,27 +10000,28 @@ msgstr "Statistics"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 msgid "Period  from"
 msgstr "Zeitraum von"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 msgid "to"
 msgstr "zu"
 
 #: v2/templates/dashboard/maindashboard.php:479
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:147
 msgid "Persons not reached"
 msgstr "Personen nicht erreicht"
 
 #: v2/templates/dashboard/maindashboard.php:483
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:157
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:160
 msgid "Families not reached"
 msgstr "Familien nicht erreicht"
 
 #: v2/templates/dashboard/maindashboard.php:487
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:172
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Single Persons not reached"
 msgstr "Einzelpersonen nicht erreicht"
 
@@ -10030,7 +10035,7 @@ msgid "Young People"
 msgstr "Jungen Menschen"
 
 #: v2/templates/dashboard/maindashboard.php:498
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:201
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:204
 msgid "Young People not reached"
 msgstr "Jungen Leute nicht erreicht"
 
@@ -10702,10 +10707,11 @@ msgid "Count"
 msgstr "Anzahl"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-msgid "Other Pastoral Care Members"
+#, fuzzy
+msgid "Pastoral Care Members"
 msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:188
 msgid "Retired not reached"
 msgstr "pensioniert nicht erreicht"
 

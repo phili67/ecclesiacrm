@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 20:37+0100\n"
+"POT-Creation-Date: 2020-11-17 09:25+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4356,6 +4356,10 @@ msgid ""
 "external_api.js"
 msgstr ""
 
+#: EcclesiaCRM/dto/SystemConfig.php:267
+msgid "Get the statistics of calls/visits (for each pastors counselors)"
+msgstr ""
+
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
 msgstr ""
@@ -5351,7 +5355,7 @@ msgstr "Dodatkowi Uczniowie"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:178
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:179
 msgid "Print"
 msgstr ""
 
@@ -7805,7 +7809,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: Include/Header-function.php:177
+#: Include/Header-function.php:178
 #, fuzzy
 msgid "Change columns"
 msgstr "Nowa Rola"
@@ -10611,30 +10615,31 @@ msgstr "Hrabstwo"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 #, fuzzy
 msgid "Period  from"
 msgstr "osób z"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 msgid "to"
 msgstr ""
 
 #: v2/templates/dashboard/maindashboard.php:479
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:147
 #, fuzzy
 msgid "Persons not reached"
 msgstr "Lista Osób"
 
 #: v2/templates/dashboard/maindashboard.php:483
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:157
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:160
 #, fuzzy
 msgid "Families not reached"
 msgstr "Nie poprawny Email"
 
 #: v2/templates/dashboard/maindashboard.php:487
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:172
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 #, fuzzy
 msgid "Single Persons not reached"
 msgstr "Lista Osób"
@@ -10651,7 +10656,7 @@ msgid "Young People"
 msgstr "Osoby"
 
 #: v2/templates/dashboard/maindashboard.php:498
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:201
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:204
 #, fuzzy
 msgid "Young People not reached"
 msgstr "Lista Osób"
@@ -11378,10 +11383,10 @@ msgstr "Kraj"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 #, fuzzy
-msgid "Other Pastoral Care Members"
+msgid "Pastoral Care Members"
 msgstr "Dodaj do Koszyka"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:188
 msgid "Retired not reached"
 msgstr ""
 
