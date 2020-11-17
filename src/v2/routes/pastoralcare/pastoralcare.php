@@ -13,16 +13,22 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
+use EcclesiaCRM\Service\PastoralCareService;
+use EcclesiaCRM\SessionUser;
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
-use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Service\PastoralCareService;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\UserQuery;
+
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\PastoralCareTableMap;
 
 use Slim\Views\PhpRenderer;
 
@@ -31,7 +37,93 @@ $app->group('/pastoralcare', function () {
     $this->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily' );
     $this->get('/dashboard', 'renderPastoralCareDashboard' );
     $this->get('/membersList', 'renderPastoralCareMembersList' );
+    $this->get('/listforuser/{UserID:[0-9]+}', 'renderPastoralCareListForUser' );
 });
+
+
+function renderPastoralCareListForUser (Request $request, Response $response, array $args) {
+    $renderer = new PhpRenderer('templates/pastoralcare/');
+
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+    }
+
+    return $renderer->render($response, 'pastoralcarelistforuser.php', argumentsPastoralCareListForUserArray($args['UserID']));
+}
+
+function argumentsPastoralCareListForUserArray ($UserID)
+{
+    $user = UserQuery::create()->findOneByPersonId($UserID);
+
+    $sPageTitle = _("Pastoral care list of members for")." : ".$user->getPerson()->getFullName();
+
+    $sRootDocument   = SystemURLs::getDocumentRoot();
+    $sCSPNonce       = SystemURLs::getCSPNonce();
+
+    $choice = SystemConfig::getValue('sPastoralcarePeriod');
+
+    $date = new \DateTime('now');
+
+    switch ($choice) {
+        case 'Yearly 1':// choice 1 : Year-01-01 to Year-12-31
+            $realDate = $date->format('Y') . "-01-01";
+
+            $start = new \DateTime($realDate);
+
+            $startPeriod = $start->format('Y-m-d');
+
+            $start->add(new \DateInterval('P1Y'));
+            $start->sub(new \DateInterval('P1D'));
+
+            $endPeriod = $start->format('Y-m-d');
+            break;
+        case '365': // choice 2 : one year before now
+            $endPeriod = $date->format('Y-m-d');
+            $date->sub(new \DateInterval('P365D'));
+            $startPeriod = $date->format('Y-m-d');
+            break;
+        case 'Yearly 2':// choice 3 : from september to september
+            if ((int)$date->format('m') < 9) {
+                $realDate = ($date->format('Y') - 1) . "-09-01";
+            } else {
+                $realDate = $date->format('Y') . "-09-01";
+            }
+
+            $start = new \DateTime($realDate);
+
+            $startPeriod = $start->format('Y-m-d');
+
+            $start->add(new \DateInterval('P1Y'));
+            $start->sub(new \DateInterval('P1D'));
+
+            $endPeriod = $start->format('Y-m-d');
+            break;
+    }
+
+    $members = PastoralCareQuery::Create()
+        ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
+        ->usePersonRelatedByPersonIdQuery()
+            ->addAsColumn('FollowedPersonLastName', PersonTableMap::COL_PER_LASTNAME)
+            ->addAsColumn('FollowedPersonFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+            ->addAsColumn('FollowedPersonPerId', PersonTableMap::COL_PER_ID)
+        ->endUse()
+        ->useFamilyQuery()
+        ->addAsColumn('FollowedFamName', FamilyTableMap::COL_FAM_NAME)
+        ->addAsColumn('FollowedFamID', FamilyTableMap::COL_FAM_ID)
+        ->endUse()
+        ->findByPastorId($UserID);
+
+
+    $paramsArguments = [
+        'sRootPath'            => SystemURLs::getRootPath(),
+        'sRootDocument'        => $sRootDocument,
+        'sPageTitle'           => $sPageTitle,
+        'currentPastorId'      => $UserID,
+        'sCSPNonce'            => $sCSPNonce,
+        'members'              => $members->toArray()
+    ];
+    return $paramsArguments;
+}
 
 function renderPastoralCareDashboard (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/pastoralcare/');

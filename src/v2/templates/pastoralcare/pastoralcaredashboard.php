@@ -126,7 +126,10 @@ require $sRootDocument . '/Include/Header.php';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <?= _("Other Pastoral Care Members") ?> (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
+                    <?= _("Pastoral Care Members") ?>
+                    <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
+                        (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
+                    <?php } ?>
                 </div>
             </div>
             <div class="card-body">

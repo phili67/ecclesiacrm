@@ -38,7 +38,7 @@ $(document).ready(function () {
                 title:i18next.t("Visits/calls"),
                 data:'Visits',
                 render: function(data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + "/PersonView.php?PersonID=" + full.PersonID + '">'+ data + '</a>';
+                    return '<a href="' + window.CRM.root + "/v2/pastoralcare/listforuser/" + full.UserID + '">'+ data + '</a>';
                 }
             }
         )

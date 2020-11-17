@@ -61,7 +61,67 @@ $app->group('/pastoralcare', function () {
 
   $this->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
 
+  $this->get('/getlistforuser/{UserID:[0-9]+}', 'getPastoralCareListForUser' );
+
 });
+
+function getPastoralCareListForUser(Request $request, Response $response, array $args) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
+
+
+    if ( isset ($args['UserID']) ) {
+        $choice = SystemConfig::getValue('sPastoralcarePeriod');
+
+        $date = new \DateTime('now');
+
+        switch ($choice) {
+            case 'Yearly 1':// choice 1 : Year-01-01 to Year-12-31
+                $realDate = $date->format('Y') . "-01-01";
+
+                $start = new \DateTime($realDate);
+
+                $startPeriod = $start->format('Y-m-d');
+
+                $start->add(new \DateInterval('P1Y'));
+                $start->sub(new \DateInterval('P1D'));
+
+                $endPeriod = $start->format('Y-m-d');
+                break;
+            case '365': // choice 2 : one year before now
+                $endPeriod = $date->format('Y-m-d');
+                $date->sub(new \DateInterval('P365D'));
+                $startPeriod = $date->format('Y-m-d');
+                break;
+            case 'Yearly 2':// choice 3 : from september to september
+                if ((int)$date->format('m') < 9) {
+                    $realDate = ($date->format('Y') - 1) . "-09-01";
+                } else {
+                    $realDate = $date->format('Y') . "-09-01";
+                }
+
+                $start = new \DateTime($realDate);
+
+                $startPeriod = $start->format('Y-m-d');
+
+                $start->add(new \DateInterval('P1Y'));
+                $start->sub(new \DateInterval('P1D'));
+
+                $endPeriod = $start->format('Y-m-d');
+                break;
+        }
+
+        $ormPastors = PastoralCareQuery::Create()
+            ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
+            ->findByPastorId($args['UserID']);
+
+        $response->withJson(['ListOfMembers' => $ormPastors->toArray()]);
+    }
+
+
+}
+
 
 function getAllPastoralCare(Request $request, Response $response, array $args) {
   if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
@@ -426,7 +486,7 @@ function pastoralcareMembersDashboard(Request $request, Response $response, arra
                 ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
                 ->findByPastorId($user->getId());
 
-            $res[] = ['LastName' => $user->getLastName(), 'FirstName' => $user->getFirstName(), 'PersonID' => $user->getPersonID(), 'Visits' => $ormPastors->count()];
+            $res[] = ['LastName' => $user->getLastName(), 'FirstName' => $user->getFirstName(), 'PersonID' => $user->getPersonID(), 'Visits' => $ormPastors->count(), 'UserID' => $user->getId()];
         }
         return $response->withJson(["Pastors" => $res]);
     }

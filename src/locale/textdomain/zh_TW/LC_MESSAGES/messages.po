@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-16 20:37+0100\n"
+"POT-Creation-Date: 2020-11-17 18:54+0100\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,6 +265,7 @@ msgstr "人"
 #: v2/templates/dashboard/maindashboard.php:33
 #: v2/templates/email/mailchimp/managelist.php:143
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:72
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
 #: v2/templates/people/peoplelist.php:37
@@ -659,6 +660,7 @@ msgstr "自定義家庭字段編輯器"
 #: Reports/NewsLetterLabels.php:55 v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:47
 msgid "Person"
 msgstr "人"
 
@@ -681,6 +683,7 @@ msgstr "人"
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:54
 msgid "Family"
 msgstr "家庭"
 
@@ -807,6 +810,7 @@ msgstr ""
 #: PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
 #: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:104
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "日期"
 
@@ -1407,6 +1411,8 @@ msgstr "加入購物車家庭"
 #: v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:53
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
 #: v2/templates/pastoralcare/pastoralcareperson.php:112
 #, fuzzy
 msgid "Members"
@@ -4345,6 +4351,10 @@ msgid ""
 "external_api.js"
 msgstr ""
 
+#: EcclesiaCRM/dto/SystemConfig.php:267
+msgid "Get the statistics of calls/visits (for each pastors counselors)"
+msgstr ""
+
 #: EcclesiaCRM/dto/SystemConfig.php:274
 msgid "Church Information"
 msgstr ""
@@ -4386,6 +4396,7 @@ msgstr "保存設置"
 #: FamilyView.php:464 PersonView.php:789 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:855
 #: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr ""
 
@@ -5340,7 +5351,7 @@ msgstr "額外的學生"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:178
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:179
 msgid "Print"
 msgstr ""
 
@@ -7790,7 +7801,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: Include/Header-function.php:177
+#: Include/Header-function.php:178
 #, fuzzy
 msgid "Change columns"
 msgstr "新角色"
@@ -9379,6 +9390,7 @@ msgid ""
 msgstr "很抱歉，這個家庭的捐款記錄。這家人可能不會被刪除。"
 
 #: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 msgid "Return to Family View"
 msgstr "返回家庭觀"
 
@@ -10098,22 +10110,27 @@ msgstr "從組人"
 msgid "Meeting Dashboard"
 msgstr "保存設置"
 
-#: v2/routes/pastoralcare/pastoralcare.php:51
+#: v2/routes/pastoralcare/pastoralcare.php:58
+#, fuzzy
+msgid "Pastoral care list of members for"
+msgstr "添加到購物車"
+
+#: v2/routes/pastoralcare/pastoralcare.php:143
 #, fuzzy
 msgid "Pastoral care Dashboard"
 msgstr "添加到購物車"
 
-#: v2/routes/pastoralcare/pastoralcare.php:109
+#: v2/routes/pastoralcare/pastoralcare.php:201
 #, fuzzy
 msgid "Individual Pastoral care"
 msgstr "購物車中添加個人"
 
-#: v2/routes/pastoralcare/pastoralcare.php:164
+#: v2/routes/pastoralcare/pastoralcare.php:256
 #, fuzzy
 msgid "Family Pastoral care"
 msgstr "人"
 
-#: v2/routes/pastoralcare/pastoralcare.php:207
+#: v2/routes/pastoralcare/pastoralcare.php:299
 msgid "Pastoral care members list by classification"
 msgstr ""
 
@@ -10567,30 +10584,31 @@ msgstr "國"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 #, fuzzy
 msgid "Period  from"
 msgstr "人從"
 
 #: v2/templates/dashboard/maindashboard.php:474
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:48
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
 msgid "to"
 msgstr ""
 
 #: v2/templates/dashboard/maindashboard.php:479
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:144
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:147
 #, fuzzy
 msgid "Persons not reached"
 msgstr "人上市"
 
 #: v2/templates/dashboard/maindashboard.php:483
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:157
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:160
 #, fuzzy
 msgid "Families not reached"
 msgstr "電子郵件是無效的"
 
 #: v2/templates/dashboard/maindashboard.php:487
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:172
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 #, fuzzy
 msgid "Single Persons not reached"
 msgstr "人上市"
@@ -10607,7 +10625,7 @@ msgid "Young People"
 msgstr "人"
 
 #: v2/templates/dashboard/maindashboard.php:498
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:201
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:204
 #, fuzzy
 msgid "Young People not reached"
 msgstr "人上市"
@@ -11334,10 +11352,10 @@ msgstr "國家"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:129
 #, fuzzy
-msgid "Other Pastoral Care Members"
+msgid "Pastoral Care Members"
 msgstr "添加到購物車"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:185
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:188
 msgid "Retired not reached"
 msgstr ""
 
@@ -11363,12 +11381,14 @@ msgid "Modify"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:242
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
 #: v2/templates/pastoralcare/pastoralcareperson.php:248
 #, fuzzy
 msgid "Return To PastoralCare Dashboard"
 msgstr "返回到人記錄"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:245
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:79
 #: v2/templates/pastoralcare/pastoralcareperson.php:251
 #, fuzzy
 msgid "Return To PastoralCare Members List"
