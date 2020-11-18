@@ -17,7 +17,6 @@ use EcclesiaCRM\SessionUser;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-
 <div class="card card-primary card-body">
     <div class="margin">
         <label><?= _("Visit/Call randomly") ?></label>
@@ -36,7 +35,16 @@ require $sRootDocument . '/Include/Header.php';
                 <a class="dropdown-item newPastorCare" data-typeid="5"><?= _("Single") ?></a>
             </div>
             &nbsp;
+            &nbsp;
             <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+            &nbsp;
+            &nbsp;
+            <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
+                <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>"
+                   class="btn btn-app bg-success"
+                   data-toggle="tooltip" data-placement="bottom"
+                   title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fa fa-list"></i><?= _("Lists") ?></a>
+            <?php } ?>
         </div>
     </div>
 </div>
