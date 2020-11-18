@@ -44,7 +44,7 @@ $app->group('/pastoralcare', function () {
 function renderPastoralCareListForUser (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/pastoralcare/');
 
-    if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() || SessionUser::getId() == $args['UserID'] ) ) {
         return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 

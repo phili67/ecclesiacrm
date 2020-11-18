@@ -12,6 +12,7 @@
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -30,7 +31,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?php foreach ($aMemberTypes as $aMemberType) {
                     ?>
                     <a class="dropdown-item changeType" data-typeid="<?= $aMemberType['OptionName'] ?>"><?= $aMemberType['OptionName'] ?></a>
-                <?php
+                    <?php
                 }
                 ?>
             </div>
@@ -40,25 +41,28 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <div class="row">
+<?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="row">
                             <span style="color: red">*</span><?= _("For") ?> &nbsp;&nbsp;
                             <input type="radio" name="type" value="1" checked="" class="typeSort"> <?= _("All persons") ?> &nbsp;&nbsp;
                             <input type="radio" name="type" value="2" class="typeSort"> <?= _("Only the visited/called persons") ?> &nbsp;&nbsp;
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="pastoralCareMembersList"
-                       width="100%"></table>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="pastoralCareMembersList"
+                           width="100%"></table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
@@ -101,4 +105,3 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <?php
 }
 ?>
-
