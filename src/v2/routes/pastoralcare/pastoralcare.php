@@ -55,8 +55,6 @@ function argumentsPastoralCareListForUserArray ($UserID)
 {
     $user = UserQuery::create()->findOneByPersonId($UserID);
 
-    $sPageTitle = _("Pastoral care list of members for")." : ".$user->getPerson()->getFullName();
-
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sCSPNonce       = SystemURLs::getCSPNonce();
 
@@ -113,6 +111,11 @@ function argumentsPastoralCareListForUserArray ($UserID)
         ->endUse()
         ->findByPastorId($UserID);
 
+    $realStart = (new DateTime($startPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
+    $realEnd = (new DateTime($endPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
+
+
+    $sPageTitle = _("Pastoral care list of members for")." : ".$user->getPerson()->getFullName()."<br/>". _("Period  from") . " : " . $realStart . " " . _("to") . " " . $realEnd;
 
     $paramsArguments = [
         'sRootPath'            => SystemURLs::getRootPath(),
