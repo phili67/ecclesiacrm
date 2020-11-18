@@ -430,7 +430,7 @@ function pastoralcareMembersDashboard(Request $request, Response $response, arra
 
     $users = UserQuery::create()
         ->filterByPastoralCare(true)
-        ->filterByPersonId(1, \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
+        //->filterByPersonId(1, \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
         ->usePersonQuery()
         ->addAsColumn('PersonID', \EcclesiaCRM\Map\PersonTableMap::COL_PER_ID)
         ->addAsColumn('LastName', \EcclesiaCRM\Map\PersonTableMap::COL_PER_LASTNAME)

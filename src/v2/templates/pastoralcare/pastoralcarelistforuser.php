@@ -70,13 +70,10 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <div class="text-center">
-    <input type="button" class="btn btn-success" value="<?= _('Return to Family View') ?>" name="Cancel"
-           onclick="javascript:document.location='<?= $sRootPath . '/FamilyView.php?FamilyID=' . $currentFamilyID ?>';">
-
-    <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Dashboard') ?>" name="Cancel"
+    <input type="button" class="btn btn-success" value="<?= _('Return To PastoralCare Dashboard') ?>" name="Cancel"
            onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/dashboard';">
 
-    <input type="button" class="btn btn-default" value="<?= _('Return To PastoralCare Members List') ?>" name="Cancel"
+    <input type="button" class="btn btn-primary" value="<?= _('Return To PastoralCare Members List') ?>" name="Cancel"
            onclick="javascript:document.location='<?= $sRootPath ?>/v2/pastoralcare/membersList';">
 </div>
 
@@ -88,4 +85,6 @@ require $sRootDocument . '/Include/Header.php';
             "url": window.CRM.plugin.dataTable.language.url
         },
     });
+
+    $.fn.dataTable.moment( window.CRM.fmt  );
 </script>
