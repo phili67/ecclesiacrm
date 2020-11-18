@@ -12,6 +12,7 @@
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -22,7 +23,7 @@ require $sRootDocument . '/Include/Header.php';
         <label><?= _("Visit/Call randomly") ?></label>
         <div class="btn-group">
             <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
-               class="fa fa-sticky-note"></i><?= _("Family") ?></a>
+                    class="fa fa-sticky-note"></i><?= _("Family") ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
@@ -122,95 +123,102 @@ require $sRootDocument . '/Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Pastoral Care Members") ?>
-                    <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
-                        (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
-                    <?php } ?>
+    <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Pastoral Care Members") ?>
+                        <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
+                            (<?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?>)
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="pastoralcareMembers"
+                           width="100%"></table>
                 </div>
             </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="pastoralcareMembers"
-                       width="100%"></table>
-            </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Persons not reached") ?>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="personNeverBeenContacted"
-                       width="100%"></table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Families not reached") ?>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="familyNeverBeenContacted"
-                       width="100%"></table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Single Persons not reached") ?>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="singleNeverBeenContacted"
-                       width="100%"></table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Retired not reached") ?>
-                </div>
-            </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="retiredNeverBeenContacted"
-                       width="100%"></table>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    <?= _("Young People not reached") ?>
+<?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Persons not reached") ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="personNeverBeenContacted"
+                           width="100%"></table>
                 </div>
             </div>
-            <div class="card-body">
-                <table class=" dataTable table table-striped table-condensed" id="youngNeverBeenContacted"
-                       width="100%"></table>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Families not reached") ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="familyNeverBeenContacted"
+                           width="100%"></table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Single Persons not reached") ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="singleNeverBeenContacted"
+                           width="100%"></table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Retired not reached") ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="retiredNeverBeenContacted"
+                           width="100%"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <?= _("Young People not reached") ?>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class=" dataTable table table-striped table-condensed" id="youngNeverBeenContacted"
+                           width="100%"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php } ?>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
@@ -253,4 +261,3 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     <?php
 }
 ?>
-
