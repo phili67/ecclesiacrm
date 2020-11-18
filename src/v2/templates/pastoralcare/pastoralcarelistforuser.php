@@ -84,7 +84,9 @@ require $sRootDocument . '/Include/Header.php';
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
-    });
+    })
+
+    window.CRM.fmt = window.CRM.datePickerformat.toUpperCase()+ ' HH:mm:ss';
 
     $.fn.dataTable.moment( window.CRM.fmt  );
 </script>
