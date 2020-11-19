@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-19 18:13+0100\n"
+"POT-Creation-Date: 2020-11-19 22:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11681,6 +11681,14 @@ msgstr ""
 
 #: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 brand link color style"
+msgstr ""
+
+#: userconfig_ucfg.php:15
+msgid "choice"
+msgstr ""
+
+#: userconfig_ucfg.php:16
+msgid "boolean"
 msgstr ""
 
 # extra changes

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-19 18:03+0100\n"
+"POT-Creation-Date: 2020-11-19 22:52+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10712,7 +10712,9 @@ msgstr "Listen"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:60
 msgid "• Statistics about persons, families ... who remain to be contacted."
-msgstr "• Statistiken über Personen, Familien ..., die noch kontaktiert werden müssen."
+msgstr ""
+"• Statistiken über Personen, Familien ..., die noch kontaktiert werden "
+"müssen."
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:64
 msgid "of members"
@@ -11892,6 +11894,14 @@ msgstr "AdminLTE 3.0 Farbe navbar Stile"
 #: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 brand link color style"
 msgstr "AdminLTE 3.0 Farbe Linj Stile"
+
+#: userconfig_ucfg.php:15
+msgid "choice"
+msgstr ""
+
+#: userconfig_ucfg.php:16
+msgid "boolean"
+msgstr ""
 
 msgid "Jan"
 msgstr "Jan"
