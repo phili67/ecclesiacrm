@@ -2,7 +2,7 @@
 
 /*******************************************************************************
  *
- *  filename    : sidebare-pastoralecare.php
+ *  filename    : pastoralecare.php api
  *  last change : 2020-06-24
  *  description : manage the Pastoral Care
  *
@@ -32,36 +32,36 @@ use EcclesiaCRM\Service\PastoralCareService;
 
 $app->group('/pastoralcare', function () {
 
-  $this->post('/', 'getAllPastoralCare' );
-  $this->post('/deletetype', 'deletePastoralCareType' );
-  $this->post('/createtype', 'createPastoralCareType' );
-  $this->post('/settype', 'setPastoralCareType' );
-  $this->post('/edittype', 'editPastoralCareType' );
+    $this->post('/', 'getAllPastoralCare' );
+    $this->post('/deletetype', 'deletePastoralCareType' );
+    $this->post('/createtype', 'createPastoralCareType' );
+    $this->post('/settype', 'setPastoralCareType' );
+    $this->post('/edittype', 'editPastoralCareType' );
 
-  $this->post('/person/add', 'addPastoralCarePerson' );
-  $this->post('/person/delete', 'deletePastoralCarePerson' );
-  $this->post('/person/getinfo', 'getPastoralCareInfoPerson' );
-  $this->post('/person/modify', 'modifyPastoralCarePerson' );
+    $this->post('/person/add', 'addPastoralCarePerson' );
+    $this->post('/person/delete', 'deletePastoralCarePerson' );
+    $this->post('/person/getinfo', 'getPastoralCareInfoPerson' );
+    $this->post('/person/modify', 'modifyPastoralCarePerson' );
 
-  $this->post('/family/add', 'addPastoralCareFamily' );
-  $this->post('/family/delete', 'deletePastoralCareFamily' );
-  $this->post('/family/getinfo', 'getPastoralCareInfoFamily' );
-  $this->post('/family/modify', 'modifyPastoralCareFamily' );
+    $this->post('/family/add', 'addPastoralCareFamily' );
+    $this->post('/family/delete', 'deletePastoralCareFamily' );
+    $this->post('/family/getinfo', 'getPastoralCareInfoFamily' );
+    $this->post('/family/modify', 'modifyPastoralCareFamily' );
 
-  $this->post('/members', 'pastoralcareMembersDashboard' );
-  $this->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
-  $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
-  $this->post('/singleNeverBeenContacted', 'singleNeverBeenContacted' );
-  $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
-  $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
+    $this->post('/members', 'pastoralcareMembersDashboard' );
+    $this->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
+    $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
+    $this->post('/singleNeverBeenContacted', 'singleNeverBeenContacted' );
+    $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
+    $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
 
-  $this->post('/createRandomly', 'createRandomlyPastoralCare');
+    $this->post('/createRandomly', 'createRandomlyPastoralCare');
 
-  $this->post('/getPersonByClassification', 'getPersonByClassificationPastoralCare' );
+    $this->post('/getPersonByClassification', 'getPersonByClassificationPastoralCare' );
 
-  $this->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
+    $this->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
 
-  $this->get('/getlistforuser/{UserID:[0-9]+}', 'getPastoralCareListForUser' );
+    $this->get('/getlistforuser/{UserID:[0-9]+}', 'getPastoralCareListForUser' );
 
 });
 
@@ -90,8 +90,9 @@ function getPastoralCareListForUser(Request $request, Response $response, array 
                 $endPeriod = $start->format('Y-m-d');
                 break;
             case '365': // choice 2 : one year before now
+                $date->add(new \DateInterval('P1D'));
                 $endPeriod = $date->format('Y-m-d');
-                $date->sub(new \DateInterval('P365D'));
+                $date->sub(new \DateInterval('P366D'));
                 $startPeriod = $date->format('Y-m-d');
                 break;
             case 'Yearly 2':// choice 3 : from september to september
@@ -124,176 +125,176 @@ function getPastoralCareListForUser(Request $request, Response $response, array 
 
 
 function getAllPastoralCare(Request $request, Response $response, array $args) {
-  if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
-    return $response->withStatus(401);
-  }
+    if ( !( SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
+        return $response->withStatus(401);
+    }
 
-  return PastoralCareTypeQuery::Create()->find()->toJSON();
+    return PastoralCareTypeQuery::Create()->find()->toJSON();
 }
 
 function deletePastoralCareType (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->pastoralCareTypeId) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
-    $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
+    if (isset ($input->pastoralCareTypeId) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+        $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
 
-    if ($pstCareType != null) {
-      $pstCareType->delete();
+        if ($pstCareType != null) {
+            $pstCareType->delete();
+        }
+
+        return $response->withJson(['status' => "success"]);
+
     }
 
-    return $response->withJson(['status' => "success"]);
-
-  }
-
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function createPastoralCareType(Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
-    $pstCareType = new PastoralCareType();
+    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+        $pstCareType = new PastoralCareType();
 
-    $pstCareType->setVisible($input->Visible);
-    $pstCareType->setTitle($input->Title);
-    $pstCareType->setDesc($input->Description);
+        $pstCareType->setVisible($input->Visible);
+        $pstCareType->setTitle($input->Title);
+        $pstCareType->setDesc($input->Description);
 
-    $pstCareType->save();
+        $pstCareType->save();
 
-    return $response->withJson(['status' => "success"]);
-  }
+        return $response->withJson(['status' => "success"]);
+    }
 
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function setPastoralCareType (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->pastoralCareTypeId) && isset ($input->Visible)
-    && isset ($input->Title) && isset ($input->Description) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
-    $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
+    if (isset ($input->pastoralCareTypeId) && isset ($input->Visible)
+        && isset ($input->Title) && isset ($input->Description) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+        $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
 
-    $pstCareType->setVisible($input->Visible);
-    $pstCareType->setTitle($input->Title);
-    $pstCareType->setDesc($input->Description);
+        $pstCareType->setVisible($input->Visible);
+        $pstCareType->setTitle($input->Title);
+        $pstCareType->setDesc($input->Description);
 
-    $pstCareType->save();
+        $pstCareType->save();
 
-    return $response->withJson(['status' => "success"]);
-  }
+        return $response->withJson(['status' => "success"]);
+    }
 
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function editPastoralCareType (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->pastoralCareTypeId)  && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
-    return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
-  }
+    if (isset ($input->pastoralCareTypeId)  && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+        return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
+    }
 
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function addPastoralCarePerson (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->typeID)  && isset ($input->personID) && isset ($input->currentPastorId)
-    && isset ($input->visibilityStatus) && isset ($input->noteText)
-    && SessionUser::getUser()->isPastoralCareEnabled() ){
-    $pstCare = new PastoralCare();
+    if (isset ($input->typeID)  && isset ($input->personID) && isset ($input->currentPastorId)
+        && isset ($input->visibilityStatus) && isset ($input->noteText)
+        && SessionUser::getUser()->isPastoralCareEnabled() ){
+        $pstCare = new PastoralCare();
 
-    $pstCare->setTypeId($input->typeID);
+        $pstCare->setTypeId($input->typeID);
 
-    $pstCare->setPersonId($input->personID);
-    $pstCare->setPastorId($input->currentPastorId);
+        $pstCare->setPersonId($input->personID);
+        $pstCare->setPastorId($input->currentPastorId);
 
-    $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
+        $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
 
-    if ($pastor != null) {
-      $pstCare->setPastorName($pastor->getFullName());
+        if ($pastor != null) {
+            $pstCare->setPastorName($pastor->getFullName());
+        }
+
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+        $pstCare->setDate($date->format('Y-m-d H:i:s'));
+
+        $pstCare->setVisible($input->visibilityStatus);
+        $pstCare->setText($input->noteText);
+
+        $pstCare->save();
+
+        return $response->withJson(['status' => "success"]);
+
     }
 
-    $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-    $pstCare->setDate($date->format('Y-m-d H:i:s'));
-
-    $pstCare->setVisible($input->visibilityStatus);
-    $pstCare->setText($input->noteText);
-
-    $pstCare->save();
-
-    return $response->withJson(['status' => "success"]);
-
-  }
-
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function deletePastoralCarePerson (Request $request, Response $response, array $args) {
-   $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->ID)  && SessionUser::getUser()->isPastoralCareEnabled() ){
-    $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
+    if (isset ($input->ID)  && SessionUser::getUser()->isPastoralCareEnabled() ){
+        $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
 
-    if ($pstCare != null) {
-      $pstCare->delete();
+        if ($pstCare != null) {
+            $pstCare->delete();
+        }
+
+        return $response->withJson(['status' => "success"]);
+
     }
 
-    return $response->withJson(['status' => "success"]);
-
-  }
-
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function getPastoralCareInfoPerson (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->ID) && SessionUser::getUser()->isPastoralCareEnabled() ){
-    $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
+    if (isset ($input->ID) && SessionUser::getUser()->isPastoralCareEnabled() ){
+        $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
 
-    $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
+        $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
 
-    return $response->withJson(["id"=> $pstCare->getId(),"typeid" => $pstCare->getTypeId(),"typedesc" => $typeDesc,"visible" => $pstCare->getVisible(),"text" => $pstCare->getText()]);
+        return $response->withJson(["id"=> $pstCare->getId(),"typeid" => $pstCare->getTypeId(),"typedesc" => $typeDesc,"visible" => $pstCare->getVisible(),"text" => $pstCare->getText()]);
 
-  }
+    }
 
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 function modifyPastoralCarePerson (Request $request, Response $response, array $args) {
-  $input = (object)$request->getParsedBody();
+    $input = (object)$request->getParsedBody();
 
-  if (isset ($input->ID) && isset ($input->typeID)  && isset ($input->personID)
-    && isset ($input->currentPastorId)
-    && isset ($input->visibilityStatus) && isset ($input->noteText)
-    && SessionUser::getUser()->isPastoralCareEnabled() ){
-    $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
+    if (isset ($input->ID) && isset ($input->typeID)  && isset ($input->personID)
+        && isset ($input->currentPastorId)
+        && isset ($input->visibilityStatus) && isset ($input->noteText)
+        && SessionUser::getUser()->isPastoralCareEnabled() ){
+        $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
 
-    $pstCare->setTypeId($input->typeID);
+        $pstCare->setTypeId($input->typeID);
 
-    $pstCare->setPersonId($input->personID);
-    $pstCare->setPastorId($input->currentPastorId);
+        $pstCare->setPersonId($input->personID);
+        $pstCare->setPastorId($input->currentPastorId);
 
-    $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
+        $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
 
-    if ($pastor != null) {
-      $pstCare->setPastorName($pastor->getFullName());
+        if ($pastor != null) {
+            $pstCare->setPastorName($pastor->getFullName());
+        }
+
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+        $pstCare->setDate($date->format('Y-m-d H:i:s'));
+
+        $pstCare->setVisible($input->visibilityStatus);
+        $pstCare->setText($input->noteText);
+
+        $pstCare->save();
+
+        return $response->withJson(['status' => "success"]);
+
     }
 
-    $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-    $pstCare->setDate($date->format('Y-m-d H:i:s'));
-
-    $pstCare->setVisible($input->visibilityStatus);
-    $pstCare->setText($input->noteText);
-
-    $pstCare->save();
-
-    return $response->withJson(['status' => "success"]);
-
-  }
-
-  return $response->withJson(['status' => "failed"]);
+    return $response->withJson(['status' => "failed"]);
 }
 
 
@@ -460,10 +461,11 @@ function pastoralcareMembersDashboard(Request $request, Response $response, arra
                     $endPeriod = $start->format('Y-m-d');
                     break;
                 case '365': // choice 2 : one year before now
+                    $date->add(new \DateInterval('P1D'));
                     $endPeriod = $date->format('Y-m-d');
-                    $date->sub(new \DateInterval('P365D'));
+                    $date->sub(new \DateInterval('P366D'));
                     $startPeriod = $date->format('Y-m-d');
-                    break;
+                    break;                    break;
                 case 'Yearly 2':// choice 3 : from september to september
                     if ((int)$date->format('m') < 9) {
                         $realDate = ($date->format('Y') - 1) . "-09-01";
