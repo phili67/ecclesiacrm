@@ -409,6 +409,8 @@ class MenuBar extends Menu
     private function addFundraiserMenu()
     {
         // the menu Fundraisers
+        if ( ! SessionUser::getUser()->isFinanceEnabled() ) return;
+
         $menu = new Menu (_("Fundraiser"), "fa fa-money", "#", SessionUser::getUser()->isFinanceEnabled());
 
         $menuItem = new Menu (_("Create New Fundraiser"), "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=-1", SessionUser::getUser()->isFinanceEnabled(), $menu);
