@@ -571,7 +571,7 @@ WHERE p.per_DateDeactivated IS NULL AND p.per_ID!=0";
                 ->filterByDateDeactivated(null)
             ->endUse()
             ->joinWithFamily()
-            ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
+            ->groupBy(PastoralCareTableMap::COL_PST_CR_FAMILY_ID)
             ->orderByDate(Criteria::DESC)
             ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"))
             ->findByPastorId(SessionUser::getUser()->getPerson()->getId());
