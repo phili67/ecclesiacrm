@@ -2050,7 +2050,7 @@ msgid "Deleting all tags for the selected members in the list..."
 msgstr "Suppression de toutes les étiquettes pour les membres sélectionnés..."
 
 msgid "Add your tag name"
-msgstr "Ajouter nom de Groupe"
+msgstr "Ajouter nom d'étiquette"
 
 msgid "Adding tag..."
 msgstr "Ajout étiquette"
