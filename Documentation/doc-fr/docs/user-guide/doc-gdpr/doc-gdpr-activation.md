@@ -21,16 +21,16 @@ On choisira l'onglet RGPD
 Une fois la fonction activée, un nouveau menu apparaitra
 
 ![Screenshot](../../img/rgpd/gdpr_setting3.png)
-  
+
 ## Menu RGPD
 
 - Au niveau Suivi : Chaque action sur chaque utilisateur est enregistrée, afin de tracer au mieux toute modification faite par un superviseur.
 
-![Screenshot](../../img/rgpd/gdpr_tracking.png)
+    ![Screenshot](../../img/rgpd/gdpr_tracking.png)
 
 - Structure de données
 
-![Screenshot](../../img/rgpd/gdpr_why.png)
+    ![Screenshot](../../img/rgpd/gdpr_why.png)
 
 Chaque partie de la structure de données doit être justifiée via les commentaires.
 

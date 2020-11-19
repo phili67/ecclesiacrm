@@ -11,29 +11,31 @@ Pour contourner le problème il est possible d'utiliser des Etiquettes (Tags).
 
 ##Activation
 
-Il faut activer la fonctionnalité dans un premier temps, pour cela, aller dans les réglages généraux
+Voici la marche à suivre
 
-![Screenshot](/img/settings/generalsettings.png)
+1. Il faut activer la fonctionnalité dans un premier temps, pour cela, aller dans les réglages généraux
 
-Puis dans la partie activation
+    ![Screenshot](../../img/settings/generalsettings.png)
 
-![Screenshot](/img/settings/mailchimpactivation.png)
+2. Puis dans la partie activation
+
+    ![Screenshot](../../img/settings/mailchimpactivation.png)
 
 
 ##Ajouter le rôle "Mailchimp" à un utilisateur
 
 Pour qu'un utilisateur puisse utiliser le suivi Mailchimp, il faut lui donner ce rôle.
 
-Aller pour cela dans 
-![Screenshot](/img/settings/usersettings.png)
+1. Aller pour cela dans
+    ![Screenshot](../../img/settings/usersettings.png)
 
-Sélectionner l'utilisateur, puis vous l'éditerez et lui ajouterez le rôle Mailchimp.
+2. Sélectionner l'utilisateur, puis vous l'éditerez et lui ajouterez le rôle Mailchimp.
 
-![Screenshot](/img/settings/usersettingsedit.png)
+    ![Screenshot](../../img/settings/usersettingsedit.png)
 
-On coche cette case et on enregistre
+3. On coche cette case et on enregistre
 
-![Screenshot](/img/settings/usersettingseditmailchimp.png)
+    ![Screenshot](../../img/settings/usersettingseditmailchimp.png)
 
 
 ##Mailchimp : Introduction
@@ -52,7 +54,9 @@ Et ceci, sans jamais quitter Ecclesia**CRM**.
 
 ##IMPORTANT : Vérifier la connectivité de votre CRM
 
-Pour cela aller dans la partie : Email -> Mailchimp -> Tableau de bord <br>![Screenshot](../../img/mailchimp/debog.png)
+Pour cela aller dans la partie : Email -> Mailchimp -> Tableau de bord
+
+![Screenshot](../../img/mailchimp/debog.png)
 
 Vous cliquerez le bouton Debug.
 
@@ -65,8 +69,10 @@ Vous pourrez en obtenir une au lien [suivant](https://mailchimp.com)
 
 Puis saisir la clé MailChimp dans Ecclesia**CRM**
 
-1. Pour cela aller dans les réglages généraux **sMailChimpApiKey** <br>![Screenshot](../../img/mailchimp/settings.png)
-2. Puis saisir votre clé MailChimp <br>![Screenshot](../../img/mailchimp/integration.png)
+1. Pour cela aller dans les réglages généraux **sMailChimpApiKey**
+    ![Screenshot](../../img/mailchimp/settings.png)
+2. Puis saisir votre clé MailChimp
+    ![Screenshot](../../img/mailchimp/integration.png)
 3. Vous pourrez également fixer le nombre maximum d'abonnés à vos listes **iMailChimpApiMaxMembersCount**
    Il est conseillé, bien entendu de fixer cette valeur assez petite pour éviter que vous soyez considérez comme un spammeur.
 4. Il est possible de rajouter les adresses et le numéros de téléphones pour les abonnés, pour faire du vrai mailing, il suffit d'activer maintenant : **bMailChimpWithAddressPhone**

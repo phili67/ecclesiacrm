@@ -119,6 +119,10 @@ nav:
     - 'Introduction': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
     - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
+- "Manuel : Visio":
+      - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
+      - 'Gestion': 'user-guide/doc-visio/doc-visio-management.md'
+
 - "Manuel : Pasteur & Conseiller":
       - "Tableau de bord": 'user-guide/doc-pastoral-care/doc-pastoral-care-dashboard.md'
       - "Activer pour un utilisateur": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
@@ -143,10 +147,10 @@ nav:
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 
 - "Outils":
-    - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
-    - "Import de données": 'user-guide/doc-tools/doc-import.md'
-    - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Panier": 'user-guide/doc-tools/doc-cart.md'
+    - "Email": 'user-guide/doc-tools/doc-email.md'
+    - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
+    - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
 
 - "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/api.md'

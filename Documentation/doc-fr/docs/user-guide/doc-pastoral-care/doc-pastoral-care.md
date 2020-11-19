@@ -7,6 +7,7 @@ Chaque pasteur, conseiller en relation d'aide, ou même responsable autorisé a 
 Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le rôle de suivi pastoral.
 
 Aller pour cela dans
+
 ![Screenshot](../../img/settings/usersettings.png)
 
 Sélectionner l'utilisateur, puis l'éditerer et lui ajouterer le rôle suivi pastoral.
