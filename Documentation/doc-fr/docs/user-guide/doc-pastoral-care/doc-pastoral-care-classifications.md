@@ -1,78 +1,80 @@
 # <center><big>Pastoral Care by Classifications</big></center>
 
-Each pastor, counsellor in self help, and supervisor allowed can manage the pastoral care for single person or for family.
+Chaque pasteur, conseiller en relation d'aide, et superviseur autirsé peut gérer le suivi pastoral individuel ou familiale
 
-##Activate the pastoral care for a system user
+##Activer le suivi pastoral pour un utilisateur du système
 
-For a user to be allowed to use the pastoral care, he must be assigned the role pastoral care
+Pour assigner le rôle de suivi pastoral
 
-To do this, go to:
+Aller:
 ![Screenshot](../../img/settings/usersettings.png)
 
-Select a user, then edit them and add the role pastoral care
+Sélectionner un utilisateur, puis éditer le comme ci-dessous
 
 ![Screenshot](../../img/settings/usersettingsedit.png)
 
-One ticks the box and saves:
+Puis cocher la case à cocher comme ci-dessous
 
 ![Screenshot](../../img/settings/usersettingseditpastoralcare.png)
 
-The user will now be able to add notes on the pastoral care
+L'utilisateur pourra maintenant ajouter des notes de suivi pastoral
 
-##Make a pastoral care note for a person
+##Créer une note de suivi pastoral pour une personne
 
-Search a user with the menu in the leftside bar.
+Rechercher la personne via le menu dans la barre latérale gauche
 
 ![Screenshot](../../img/searchperson.png)
 
-Here's the profile :
+Voici son profile :
 
 ![Screenshot](../../img/pastoralcare/pastoralcarefirst.png)
 
-One has to click on the button and can now begin the pastoral care
+On peut maintenant cliquer le bouton et commencer à gérer son suivi pastoral
 
 ![Screenshot](../../img/pastoralcare/pastoralcare1.png)
 
-The view is divided in two parts :
+La vue est séparée en deux parties :
 
-- The buttons to choose the type, print or filter the notes taken for those who have followed the pastoral care
-- and the personalization part, with the preset types
+- Les boutons pour choisir le type de suivi pastoral, imprimer ou les filtres par conseiller pour ceux qui ont suivis cette personne
+- et la partie personalisation qui se trouve au niveau de la flèche comme ci-dessous
 
 ![Screenshot](../../img/pastoralcare/pastoralcare2.png)
 
--  For example: choose "why did you come to church?" in the menu<br>
-![Screenshot](../../img/pastoralcare/pastoralcare3.png)<br>
+-  Par exemple: choisir "Note de suivi pastoral classqieu" dans le menu
+
+    ![Screenshot](../../img/pastoralcare/pastoralcare3.png)
+
     - Il sera possible dans la fenêtre ci-dessus, de glisser déposer des images documents dans la zone
-    - You can drag and drop documents, images in the zon above
-    - You can use document templates [Modèle](../../user-guide/doc-person/doc-person-document-templates.md)
-    - adding some tables
+    - vous pourrez glisser déposer des documents, images comme ci-dessous
+    - Vous pourrez utiliser des modèles de documents [Modèle](../../user-guide/doc-person/doc-person-document-templates.md)
+    - ajouter des tableaux
     - etc ...
 
-**Note** the radio buttons "Show" "hide" allows to show or not the notes taken by a pastor
+**Note** les boutons radios "Afficher" "Masquer" permetent de masquer ou afficher le contenu de la note aux autres conseillers de suivi pastoral
 
-**It may be useful to know that a member is taken care of, without the notes shown to everyone**
+**Il peut être utile nottament dans le cas de la relation d'aide de masquer le suivi**
 
 
-- After entering, here's the result
+- Après suivi, voici le résultat
 
-![Screenshot](../../img/pastoralcare/pastoralcare4.png)
+    ![Screenshot](../../img/pastoralcare/pastoralcare4.png)
 
-##Make a pastoral care note for a family
+##Créer une note de suivi pastoral pour une famille
 
-You can add one for a family too :
+Vous pourrez en saisir une pour une famille également :
 
-- Search and Choose a family
-- and follow the same steps as for a person
+- Rechercher une famille
+- puis suivre la même démarche que pour une personne (voir ci-dessus)
 
-![Screenshot](../../img/pastoralcare/pastoralcarefamily1.png)
+    ![Screenshot](../../img/pastoralcare/pastoralcarefamily1.png)
 
-You can add the same comment for all the members of this family, by checking the box "include" :
+Vous pourrez ajouter la même note de suivi pour tous les membres d'une même famille en cochant la case "Inclure" :
 
 ![Screenshot](../../img/pastoralcare/pastoralcarefamily2.png)
 
 
-##Filtering by a pastor or counsellor
+##Filtrer par pasteur ou conseiller
 
-Click on the button on the right
+Pour cela cliquer le bouton à droite
 
 ![Screenshot](../../img/pastoralcare/pastoralcare5.png)

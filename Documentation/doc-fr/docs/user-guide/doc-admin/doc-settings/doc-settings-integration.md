@@ -1,4 +1,4 @@
-Ici vous pourrez régler les paramètres d'intégration avec d'autres applications 
+Ici vous pourrez régler les paramètres d'intégration avec d'autres applications
 
 - MailChimp
 - Les outils permettant d'intégrer les calendrier externes d'EcclesiaCRM.
@@ -7,13 +7,13 @@ Ici vous pourrez régler les paramètres d'intégration avec d'autres applicatio
 
 ## Comment y accéder ?
 
-Aller dans : 
+Aller dans :
 
-![Screenshot](/img/settings/settings1.png)
+![Screenshot](../../../img/settings/settings1.png)
 
 Puis sélectionner l'onglet : "Intégration"
 
-![Screenshot](/img/settings/settings2.png)
+![Screenshot](../../../img/settings/settings2.png)
 
 Il y a plusieurs pôles possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.
 
@@ -32,7 +32,7 @@ Il est possible de fixer le nombre maximum de personnes à **iMailChimpApiMaxMem
 
 ## sOLPURL & sOLPUserName & sOLPPassword
 
-Ces réglages sont utilisés pour OpenLP, un système de présentation pour les églises (Comme PowerPoint).
+Ces réglages sont utilisgit sés pour OpenLP, un système de présentation pour les églises (Comme PowerPoint).
 
 ## bEnabledDav && bEnabledDavWebBrowser
 
