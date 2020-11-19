@@ -120,26 +120,28 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-            <div class="inner">
-                <h3 id="groupStatsSundaySchoolKids">
-                    0
-                </h3>
+    <?php if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) { ?>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3 id="groupStatsSundaySchoolKids">
+                        0
+                    </h3>
 
-                <p>
-                    <?= _('Sunday School Kids') ?>
-                </p>
+                    <p>
+                        <?= _('Sunday School Kids') ?>
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-child"></i>
+                </div>
+                <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
+                    <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
-            <div class="icon">
-                <i class="fa fa-child"></i>
-            </div>
-            <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
-                <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
-            </a>
         </div>
-    </div>
+    <?php } ?>
     <!-- ./col -->
     <div class="col-lg-3 col-md-6 col-sm-6">
         <!-- small box -->
@@ -177,8 +179,8 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-body">
                 <p>
                     <a class="MediumText" href="<?= $sRootPath ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
-                <br>
-                <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
+                    <br>
+                    <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
                 </p>
                 <?php
                 if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
@@ -199,8 +201,8 @@ require $sRootDocument . '/Include/Header.php';
                 }
                 ?>
                 <p>
-                <a class="MediumText" href="<?= $sRootPath ?>/LettersAndLabels.php"><?= _('Letters and Mailing Labels') ?></a>
-                <br><?= _('Generate letters and mailing labels.') ?>
+                    <a class="MediumText" href="<?= $sRootPath ?>/LettersAndLabels.php"><?= _('Letters and Mailing Labels') ?></a>
+                    <br><?= _('Generate letters and mailing labels.') ?>
                 </p>
                 <?php
                 if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
