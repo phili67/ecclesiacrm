@@ -7,15 +7,13 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
 // Security
 require $sRootDocument . '/Include/Header.php';
 ?>
 <div
-    class="card" <?= (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? 'style="display: none;"' : "" ?>>
+    class="card">
     <div class="card-header with-border">
         <h3 class="card-title"><i class="fa fa-filter"></i> <?= _('Filters') ?></h3>
     </div>
