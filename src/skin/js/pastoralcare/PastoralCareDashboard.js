@@ -52,6 +52,7 @@ $(document).ready(function () {
             dataSrc: "Pastors"
         },
         bSort : true,
+        pageLength: 4,
         "language": {
             "url": window.CRM.plugin.dataTable.language.url
         },
