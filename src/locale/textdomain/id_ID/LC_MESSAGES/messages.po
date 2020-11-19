@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-17 18:54+0100\n"
+"POT-Creation-Date: 2020-11-19 18:03+0100\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,7 +246,7 @@ msgstr "Semua Keluarga"
 #: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
 #: v2/templates/email/mailchimp/managelist.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:59
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 #, fuzzy
 msgid "Persons"
@@ -259,11 +259,11 @@ msgstr "orang dari"
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:33
 #: v2/templates/email/mailchimp/managelist.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:72
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 #: v2/templates/sundayschool/sundayschooldashboard.php:61
 msgid "Families"
 msgstr "Keluarga"
@@ -275,7 +275,7 @@ msgstr "Keluarga"
 #: v2/templates/dashboard/maindashboard.php:104
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:153
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 msgid "Groups"
 msgstr ""
 
@@ -451,7 +451,7 @@ msgstr "Jenis Kelamin"
 #: FamilyView.php:539 FinancialReports.php:153 OptionManager.php:109
 #: PersonEditor.php:1628 PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcarefamily.php:112
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:21
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/pastoralcare/pastoralcareperson.php:114
 #: v2/templates/people/peopledashboard.php:299 queryparameters_qrp.php:19
 msgid "Classification"
@@ -1375,7 +1375,7 @@ msgstr "Tambahkan Cart di Keluarga"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537
 #: v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
@@ -1724,7 +1724,7 @@ msgstr "Area Keluarga Kustom"
 #: v2/templates/fundraiser/findFundRaiser.php:18
 #: v2/templates/pastoralcare/pastoralcarefamily.php:90
 #: v2/templates/pastoralcare/pastoralcareperson.php:90
-#: v2/templates/people/peoplelist.php:20
+#: v2/templates/people/peoplelist.php:18
 msgid "Filters"
 msgstr "Penyaring"
 
@@ -4518,7 +4518,7 @@ msgstr ""
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
 #: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:434
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
 #, fuzzy
 msgid "Dashboard"
 msgstr "Dasbor Orang"
@@ -4691,35 +4691,35 @@ msgstr "Laporan Slip Setoran"
 msgid "Edit Deposit Slip"
 msgstr "Laporan Slip Setoran"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:412 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:414
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Buat keluarga baru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:415
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 #, fuzzy
 msgid "Edit Last Fundraiser"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:476
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
 msgid "Data/Reports"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "Reports Menu"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479 UserEditor.php:775
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:775
 msgid "Query Menu"
 msgstr ""
 
@@ -5168,9 +5168,9 @@ msgstr "Tambah Event Baru"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:143
 #: v2/templates/dashboard/maindashboard.php:43
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:85
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:92
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 #, fuzzy
 msgid "Singles"
 msgstr "Tambah Event Baru"
@@ -5201,7 +5201,7 @@ msgid "sunday groups"
 msgstr "Tentukan peran"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 #, fuzzy
 msgid "Sunday Groups"
 msgstr "Pilih Group"
@@ -5246,7 +5246,7 @@ msgid "Group Manager"
 msgstr "Keanggotaan Kelompok"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 #, fuzzy
 msgid "groupmasters"
 msgstr "Pilih Group"
@@ -7243,16 +7243,16 @@ msgstr ""
 msgid "Direction"
 msgstr "Aksi"
 
-#: GeoPage.php:431 v2/templates/people/peoplelist.php:98
+#: GeoPage.php:431 v2/templates/people/peoplelist.php:96
 #, fuzzy
 msgid "Add All to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: GeoPage.php:435 v2/templates/people/peoplelist.php:100
+#: GeoPage.php:435 v2/templates/people/peoplelist.php:98
 msgid "Intersect with Cart"
 msgstr ""
 
-#: GeoPage.php:438 v2/templates/people/peoplelist.php:101
+#: GeoPage.php:438 v2/templates/people/peoplelist.php:99
 msgid "Remove All from Cart"
 msgstr ""
 
@@ -9000,7 +9000,7 @@ msgstr ""
 #: Reports/GDPR/GDPRDataStructureExport.php:73
 #: v2/routes/sidebar/menulinklist.php:42
 #: v2/templates/gdpr/gdprdatastructure.php:41
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:49
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:52
 #, fuzzy
 msgid "For"
 msgstr "dari"
@@ -9219,7 +9219,6 @@ msgid ""
 msgstr ""
 
 #: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 #, fuzzy
 msgid "Return to Family View"
 msgstr "Area Keluarga Kustom"
@@ -9906,27 +9905,43 @@ msgstr "orang dari"
 msgid "Meeting Dashboard"
 msgstr "Dasbor Orang"
 
-#: v2/routes/pastoralcare/pastoralcare.php:58
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
 #, fuzzy
 msgid "Pastoral care list of members for"
 msgstr "Orang"
 
-#: v2/routes/pastoralcare/pastoralcare.php:143
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/dashboard/maindashboard.php:474
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+#, fuzzy
+msgid "Period  from"
+msgstr "orang dari"
+
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/dashboard/maindashboard.php:474
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+msgid "to"
+msgstr ""
+
+#: v2/routes/pastoralcare/pastoralcare.php:147
 #, fuzzy
 msgid "Pastoral care Dashboard"
 msgstr "Dasbor Orang"
 
-#: v2/routes/pastoralcare/pastoralcare.php:201
+#: v2/routes/pastoralcare/pastoralcare.php:205
 #, fuzzy
 msgid "Individual Pastoral care"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: v2/routes/pastoralcare/pastoralcare.php:256
+#: v2/routes/pastoralcare/pastoralcare.php:260
 #, fuzzy
 msgid "Family Pastoral care"
 msgstr "Orang"
 
-#: v2/routes/pastoralcare/pastoralcare.php:299
+#: v2/routes/pastoralcare/pastoralcare.php:303
 msgid "Pastoral care members list by classification"
 msgstr ""
 
@@ -10373,33 +10388,20 @@ msgstr "Tambahkan Individu ke Keranjang."
 msgid "Statistics"
 msgstr "Provinsi"
 
-#: v2/templates/dashboard/maindashboard.php:474
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
-#, fuzzy
-msgid "Period  from"
-msgstr "orang dari"
-
-#: v2/templates/dashboard/maindashboard.php:474
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
-msgid "to"
-msgstr ""
-
 #: v2/templates/dashboard/maindashboard.php:479
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:147
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 #, fuzzy
 msgid "Persons not reached"
 msgstr "E-mail pribadi"
 
 #: v2/templates/dashboard/maindashboard.php:483
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:160
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 #, fuzzy
 msgid "Families not reached"
 msgstr "Peminta dukungan"
 
 #: v2/templates/dashboard/maindashboard.php:487
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
 #, fuzzy
 msgid "Single Persons not reached"
 msgstr "E-mail pribadi"
@@ -10410,13 +10412,13 @@ msgid "Retired Persons not reached"
 msgstr "Area Pribadi Kustom"
 
 #: v2/templates/dashboard/maindashboard.php:495
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:111
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 #, fuzzy
 msgid "Young People"
 msgstr "Orang"
 
 #: v2/templates/dashboard/maindashboard.php:498
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:204
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
 #, fuzzy
 msgid "Young People not reached"
 msgstr "E-mail pribadi"
@@ -10887,9 +10889,9 @@ msgstr "Keanggotaan Kelompok"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:65
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:38
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 #, fuzzy
 msgid "Appointment"
@@ -11098,7 +11100,7 @@ msgid ""
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:33
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:98
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:108
 #, fuzzy
 msgid "Retired"
 msgstr "Wajib"
@@ -11112,29 +11114,37 @@ msgstr ""
 msgid "Single"
 msgstr "Tambah Event Baru"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+#, fuzzy
+msgid "Lists"
+msgstr "Keluarga"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:60
+msgid "• Statistics about persons, families ... who remain to be contacted."
+msgstr ""
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
 #, fuzzy
 msgid "of members"
 msgstr "Anggota"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
-#, fuzzy
-msgid "To reach"
-msgstr "E-mail pribadi"
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+msgid "to contact"
+msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 #: v2/templates/people/peopledashboard.php:264
 #: v2/templates/people/peopledashboard.php:301
 #, fuzzy
 msgid "Count"
 msgstr "Negara"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 #, fuzzy
 msgid "Pastoral Care Members"
 msgstr "Orang"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:188
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:203
 msgid "Retired not reached"
 msgstr ""
 
@@ -11159,28 +11169,28 @@ msgid "Modify"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:242
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:248
 msgid "Return To PastoralCare Dashboard"
 msgstr ""
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:245
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:79
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
 #: v2/templates/pastoralcare/pastoralcareperson.php:251
 msgid "Return To PastoralCare Members List"
 msgstr ""
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:23
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
 #, fuzzy
 msgid "Filter by member types"
 msgstr "Peran Keluarga"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:50
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
 #, fuzzy
 msgid "All persons"
 msgstr "Lihat semua Orang"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:51
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
 msgid "Only the visited/called persons"
 msgstr ""
 
@@ -11370,96 +11380,96 @@ msgstr ""
 msgid "# number of people"
 msgstr "Jumlah Kolom"
 
-#: v2/templates/people/peoplelist.php:24
+#: v2/templates/people/peoplelist.php:22
 msgid "Enter the search term"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:27
+#: v2/templates/people/peoplelist.php:25
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:35
+#: v2/templates/people/peoplelist.php:33
 #, fuzzy
 msgid "Filter Hints"
 msgstr "Penyaring"
 
-#: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
+#: v2/templates/people/peoplelist.php:35 query_qry.php:14 query_qry.php:59
 msgid "Volunteers"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 #, fuzzy
 msgid "phone number"
 msgstr "Nomor Rute Bank"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 #, fuzzy
 msgid "first name"
 msgstr "Nama Depan"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "name"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 #, fuzzy
 msgid "group name"
 msgstr "Keanggotaan Kelompok"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 #, fuzzy
 msgid "check number"
 msgstr "Nomor Rute Bank"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "city"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "street"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "zip code"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "or what else"
 msgstr ""
 
-#: v2/templates/people/peoplelist.php:43
+#: v2/templates/people/peoplelist.php:41
 #, fuzzy
 msgid "Choose your person filters"
 msgstr "Area Pribadi Kustom"
 
-#: v2/templates/people/peoplelist.php:51
+#: v2/templates/people/peoplelist.php:49
 #, fuzzy
 msgid "Group filters"
 msgstr "Laporan direktori"
 
-#: v2/templates/people/peoplelist.php:65 queryparameters_qrp.php:9
+#: v2/templates/people/peoplelist.php:63 queryparameters_qrp.php:9
 #, fuzzy
 msgid "Search"
 msgstr "Ibu Kepala Keluarga"
 
-#: v2/templates/people/peoplelist.php:73
+#: v2/templates/people/peoplelist.php:71
 #, fuzzy
 msgid "Search Results"
 msgstr "Tambah Pembayaran"
 
-#: v2/templates/people/peoplelist.php:83
+#: v2/templates/people/peoplelist.php:81
 #, fuzzy
 msgid "Results count:"
 msgstr "Laporan direktori"
 
-#: v2/templates/people/peoplelist.php:95
+#: v2/templates/people/peoplelist.php:93
 #, fuzzy
 msgid "Add This Page to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: v2/templates/people/peoplelist.php:97
+#: v2/templates/people/peoplelist.php:95
 #, fuzzy
 msgid "Remove This Page from Cart"
 msgstr "Buat Direktori dari Cart"
@@ -12476,6 +12486,10 @@ msgstr "Kosongkan Cart"
 #, fuzzy
 msgid "pending"
 msgstr "Tanggal Pernikahan"
+
+#, fuzzy
+#~ msgid "To reach"
+#~ msgstr "E-mail pribadi"
 
 #~ msgid "Convert Individuals to Families"
 #~ msgstr "Konversi beberapa individu menjadi Keluarga"

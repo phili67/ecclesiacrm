@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-17 18:54+0100\n"
+"POT-Creation-Date: 2020-11-19 18:03+0100\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,7 +236,7 @@ msgstr "Toutes les familles"
 #: api/routes/people/people.php:121 EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
 #: v2/templates/email/mailchimp/managelist.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:59
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
 msgstr "Personnes"
@@ -248,11 +248,11 @@ msgstr "Personnes"
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:33
 #: v2/templates/email/mailchimp/managelist.php:143
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:72
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
 #: v2/templates/people/peopledashboard.php:84
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 #: v2/templates/sundayschool/sundayschooldashboard.php:61
 msgid "Families"
 msgstr "Familles"
@@ -264,7 +264,7 @@ msgstr "Familles"
 #: v2/templates/dashboard/maindashboard.php:104
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:153
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 msgid "Groups"
 msgstr "Groupes"
 
@@ -434,7 +434,7 @@ msgstr "Sexe"
 #: FamilyView.php:539 FinancialReports.php:153 OptionManager.php:109
 #: PersonEditor.php:1628 PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcarefamily.php:112
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:21
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/pastoralcare/pastoralcareperson.php:114
 #: v2/templates/people/peopledashboard.php:299 queryparameters_qrp.php:19
 msgid "Classification"
@@ -1340,7 +1340,7 @@ msgstr "Ajouter le panier à la famille"
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:537
 #: v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:53
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:110
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
@@ -1677,7 +1677,7 @@ msgstr "Champs personnalisés de Famille"
 #: v2/templates/fundraiser/findFundRaiser.php:18
 #: v2/templates/pastoralcare/pastoralcarefamily.php:90
 #: v2/templates/pastoralcare/pastoralcareperson.php:90
-#: v2/templates/people/peoplelist.php:20
+#: v2/templates/people/peoplelist.php:18
 msgid "Filters"
 msgstr "Filtres"
 
@@ -4558,7 +4558,7 @@ msgstr "EDrive"
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
 #: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:434
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -4710,32 +4710,32 @@ msgstr "Rapports des dépôts"
 msgid "Edit Deposit Slip"
 msgstr "Modifier bordereau"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:412 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr "Collecte de fonds"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:414
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
 msgid "Create New Fundraiser"
 msgstr "Créer nouvelle collecte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:415
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
 msgid "View All Fundraisers"
 msgstr "Afficher toutes les collectes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Modifier dernière collecte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:476
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
 msgid "Data/Reports"
 msgstr "Données/Rapports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "Reports Menu"
 msgstr "Menu des Rapports"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:479 UserEditor.php:775
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:775
 msgid "Query Menu"
 msgstr "Menu Requête"
 
@@ -5158,9 +5158,9 @@ msgstr "personnes seules"
 
 #: EcclesiaCRM/Search/FamilySearchRes.php:143
 #: v2/templates/dashboard/maindashboard.php:43
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:85
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:92
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 msgid "Singles"
 msgstr "Personnes Seules"
 
@@ -5187,7 +5187,7 @@ msgid "sunday groups"
 msgstr "groupes école du dimanche"
 
 #: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 msgid "Sunday Groups"
 msgstr "Groupes école du dimanche"
 
@@ -5225,7 +5225,7 @@ msgid "Group Manager"
 msgstr "Manager de Groupe"
 
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:37
+#: v2/templates/people/peoplelist.php:35
 msgid "groupmasters"
 msgstr "groupemanagers"
 
@@ -7111,15 +7111,15 @@ msgstr "Distance"
 msgid "Direction"
 msgstr "Direction"
 
-#: GeoPage.php:431 v2/templates/people/peoplelist.php:98
+#: GeoPage.php:431 v2/templates/people/peoplelist.php:96
 msgid "Add All to Cart"
 msgstr "Tout ajouter au panier"
 
-#: GeoPage.php:435 v2/templates/people/peoplelist.php:100
+#: GeoPage.php:435 v2/templates/people/peoplelist.php:98
 msgid "Intersect with Cart"
 msgstr "Intersection avec le panier"
 
-#: GeoPage.php:438 v2/templates/people/peoplelist.php:101
+#: GeoPage.php:438 v2/templates/people/peoplelist.php:99
 msgid "Remove All from Cart"
 msgstr "Tout supprimer du Panier"
 
@@ -8804,7 +8804,7 @@ msgstr ""
 #: Reports/GDPR/GDPRDataStructureExport.php:73
 #: v2/routes/sidebar/menulinklist.php:42
 #: v2/templates/gdpr/gdprdatastructure.php:41
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:49
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:52
 msgid "For"
 msgstr "Pour"
 
@@ -9004,7 +9004,6 @@ msgstr ""
 "ne peut pas être supprimé."
 
 #: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 msgid "Return to Family View"
 msgstr "Retourner sur Voir la Famille"
 
@@ -9689,24 +9688,38 @@ msgstr "Badges pour le groupe"
 msgid "Meeting Dashboard"
 msgstr "Tableau de bord des Conférences"
 
-#: v2/routes/pastoralcare/pastoralcare.php:58
-#, fuzzy
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
 msgid "Pastoral care list of members for"
-msgstr "Autres membres pour le suivi pastoral"
+msgstr "Liste des Membres pour le suivi pastoral"
 
-#: v2/routes/pastoralcare/pastoralcare.php:143
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/dashboard/maindashboard.php:474
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+msgid "Period  from"
+msgstr "Période de"
+
+#: v2/routes/pastoralcare/pastoralcare.php:119
+#: v2/templates/dashboard/maindashboard.php:474
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:57
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:142
+msgid "to"
+msgstr "à"
+
+#: v2/routes/pastoralcare/pastoralcare.php:147
 msgid "Pastoral care Dashboard"
 msgstr "Tableau de bord Suivi pastoral"
 
-#: v2/routes/pastoralcare/pastoralcare.php:201
+#: v2/routes/pastoralcare/pastoralcare.php:205
 msgid "Individual Pastoral care"
 msgstr "Suivi pastoral individuel"
 
-#: v2/routes/pastoralcare/pastoralcare.php:256
+#: v2/routes/pastoralcare/pastoralcare.php:260
 msgid "Family Pastoral care"
 msgstr "Suivi pastoral familial"
 
-#: v2/routes/pastoralcare/pastoralcare.php:299
+#: v2/routes/pastoralcare/pastoralcare.php:303
 msgid "Pastoral care members list by classification"
 msgstr "Liste membres suivi pastoral par classification"
 
@@ -10141,30 +10154,18 @@ msgstr "Suivis pastoraux individuels"
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: v2/templates/dashboard/maindashboard.php:474
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
-msgid "Period  from"
-msgstr "Période de"
-
-#: v2/templates/dashboard/maindashboard.php:474
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:48
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:131
-msgid "to"
-msgstr "à"
-
 #: v2/templates/dashboard/maindashboard.php:479
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:147
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 msgid "Persons not reached"
 msgstr "Personnes non contactées"
 
 #: v2/templates/dashboard/maindashboard.php:483
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:160
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Families not reached"
 msgstr "Familles non contactées"
 
 #: v2/templates/dashboard/maindashboard.php:487
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:175
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:190
 msgid "Single Persons not reached"
 msgstr "Personnes Seules non contactées"
 
@@ -10173,12 +10174,12 @@ msgid "Retired Persons not reached"
 msgstr "Retraités non conctactés"
 
 #: v2/templates/dashboard/maindashboard.php:495
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:111
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 msgid "Young People"
 msgstr "Les jeunes"
 
 #: v2/templates/dashboard/maindashboard.php:498
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:204
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:219
 msgid "Young People not reached"
 msgstr "Les jeunes non contactées"
 
@@ -10633,9 +10634,9 @@ msgstr "Badges du Groupe"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:38
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:65
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:38
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 msgid "Appointment"
 msgstr "Rendez-vous"
@@ -10850,7 +10851,7 @@ msgstr ""
 "ses membres."
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:33
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:98
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:108
 msgid "Retired"
 msgstr "Retraités"
 
@@ -10862,26 +10863,33 @@ msgstr "Jeune"
 msgid "Single"
 msgstr "Personne Seule"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:46
+msgid "Lists"
+msgstr "Listes"
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:60
+msgid "• Statistics about persons, families ... who remain to be contacted."
+msgstr "• Statistiques à propos des personnes, familles ... qui restent à contacter."
+
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
 msgid "of members"
 msgstr "des membres"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:54
-msgid "To reach"
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:64
+msgid "to contact"
 msgstr "à joindre"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:55
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 #: v2/templates/people/peopledashboard.php:264
 #: v2/templates/people/peopledashboard.php:301
 msgid "Count"
 msgstr "Effectifs"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:129
-#, fuzzy
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:140
 msgid "Pastoral Care Members"
-msgstr "Autres membres pour le suivi pastoral"
+msgstr "Membres pour le suivi pastoral"
 
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:188
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:203
 msgid "Retired not reached"
 msgstr "Retraités non contactés"
 
@@ -10906,26 +10914,26 @@ msgid "Modify"
 msgstr "Modifier"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:242
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:248
 msgid "Return To PastoralCare Dashboard"
 msgstr "Retour Au tableau de bord Suivi pastoral"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:245
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:79
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
 #: v2/templates/pastoralcare/pastoralcareperson.php:251
 msgid "Return To PastoralCare Members List"
 msgstr "Retour liste des membres suivi pastoral"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:23
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
 msgid "Filter by member types"
 msgstr "Filtrer par type de membres"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:50
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
 msgid "All persons"
 msgstr "Toutes les personnes"
 
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:51
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
 msgid "Only the visited/called persons"
 msgstr "Seules les personnes visitées/jointes"
 
@@ -11109,11 +11117,11 @@ msgstr "Filles"
 msgid "# number of people"
 msgstr "# Nombre de Personnes"
 
-#: v2/templates/people/peoplelist.php:24
+#: v2/templates/people/peoplelist.php:22
 msgid "Enter the search term"
 msgstr "Saisir le terme à chercher"
 
-#: v2/templates/people/peoplelist.php:27
+#: v2/templates/people/peoplelist.php:25
 msgid ""
 "Search terms like : name, first name, phone number, property, group name, "
 "etc ..."
@@ -11121,75 +11129,75 @@ msgstr ""
 "Termes à rechercher : nom, prénom, numéro de téléphone, propriété, nom de "
 "groupe, etc ...."
 
-#: v2/templates/people/peoplelist.php:35
+#: v2/templates/people/peoplelist.php:33
 msgid "Filter Hints"
 msgstr "Conseils Filtre"
 
-#: v2/templates/people/peoplelist.php:37 query_qry.php:14 query_qry.php:59
+#: v2/templates/people/peoplelist.php:35 query_qry.php:14 query_qry.php:59
 msgid "Volunteers"
 msgstr "Bénévoles"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "phone number"
 msgstr "numéro de téléphone"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "first name"
 msgstr "prénom"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "name"
 msgstr "nom"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "group name"
 msgstr "Nom du groupe"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "check number"
 msgstr "Numéro du chèque"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "city"
 msgstr "ville"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "street"
 msgstr "rue"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "zip code"
 msgstr "code postal"
 
-#: v2/templates/people/peoplelist.php:38
+#: v2/templates/people/peoplelist.php:36
 msgid "or what else"
 msgstr "ou autre"
 
-#: v2/templates/people/peoplelist.php:43
+#: v2/templates/people/peoplelist.php:41
 msgid "Choose your person filters"
 msgstr "Choisir le filtre de personne"
 
-#: v2/templates/people/peoplelist.php:51
+#: v2/templates/people/peoplelist.php:49
 msgid "Group filters"
 msgstr "Filtres de groupe"
 
-#: v2/templates/people/peoplelist.php:65 queryparameters_qrp.php:9
+#: v2/templates/people/peoplelist.php:63 queryparameters_qrp.php:9
 msgid "Search"
 msgstr "Rechercher"
 
-#: v2/templates/people/peoplelist.php:73
+#: v2/templates/people/peoplelist.php:71
 msgid "Search Results"
 msgstr "Résultats de recherche"
 
-#: v2/templates/people/peoplelist.php:83
+#: v2/templates/people/peoplelist.php:81
 msgid "Results count:"
 msgstr "Nombre de Résultats : "
 
-#: v2/templates/people/peoplelist.php:95
+#: v2/templates/people/peoplelist.php:93
 msgid "Add This Page to Cart"
 msgstr "Ajouter Cette Page au Panier"
 
-#: v2/templates/people/peoplelist.php:97
+#: v2/templates/people/peoplelist.php:95
 msgid "Remove This Page from Cart"
 msgstr "Supprimer Cette Page du Panier"
 
@@ -12184,6 +12192,9 @@ msgstr "Vide"
 msgid "pending"
 msgstr "En attente"
 
+#~ msgid "To reach"
+#~ msgstr "à joindre"
+
 #~ msgid "Convert Individuals to Families"
 #~ msgstr "Convertir les individus en familles"
 
@@ -12814,9 +12825,6 @@ msgstr "En attente"
 
 #~ msgid "Email Export"
 #~ msgstr "Exporter un Email"
-
-#~ msgid "List"
-#~ msgstr "Liste"
 
 #~ msgid "Unsubscribed count since last send:"
 #~ msgstr "Nombre de désabonnés depuis la dernière fois :"

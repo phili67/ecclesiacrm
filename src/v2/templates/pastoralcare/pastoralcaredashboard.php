@@ -57,11 +57,11 @@ require $sRootDocument . '/Include/Header.php';
                     class="card-title"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
             </div>
             <div class="card-body">
-                <div class="alert alert-default-info"><?= _("• Statitics about the persons, families ... who still have to be contacted by the church !<br>• The less the progress bars are, the better it is !") ?></div>
+                <div class="alert alert-default-info"><?= _("• Statistics about persons, families ... who remain to be contacted.") ?></div>
                 <table class="table table-condensed">
                     <tr>
                         <th><?= _('Members') ?></th>
-                        <th>% <?= _('of members').' '._('To reach') ?></th>
+                        <th>% <?= _('of members').' '._('to contact') ?></th>
                         <th style="width: 40px"><?= _('Count') ?></th>
                     </tr>
                     <tr>
