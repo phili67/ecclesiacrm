@@ -76,8 +76,9 @@ function argumentsPastoralCareListForUserArray ($UserID)
             $endPeriod = $start->format('Y-m-d');
             break;
         case '365': // choice 2 : one year before now
+            $date->add(new \DateInterval('P1D'));
             $endPeriod = $date->format('Y-m-d');
-            $date->sub(new \DateInterval('P365D'));
+            $date->sub(new \DateInterval('P366D'));
             $startPeriod = $date->format('Y-m-d');
             break;
         case 'Yearly 2':// choice 3 : from september to september
@@ -101,9 +102,9 @@ function argumentsPastoralCareListForUserArray ($UserID)
     $members = PastoralCareQuery::Create()
         ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
         ->usePersonRelatedByPersonIdQuery()
-            ->addAsColumn('FollowedPersonLastName', PersonTableMap::COL_PER_LASTNAME)
-            ->addAsColumn('FollowedPersonFirstName', PersonTableMap::COL_PER_FIRSTNAME)
-            ->addAsColumn('FollowedPersonPerId', PersonTableMap::COL_PER_ID)
+        ->addAsColumn('FollowedPersonLastName', PersonTableMap::COL_PER_LASTNAME)
+        ->addAsColumn('FollowedPersonFirstName', PersonTableMap::COL_PER_FIRSTNAME)
+        ->addAsColumn('FollowedPersonPerId', PersonTableMap::COL_PER_ID)
         ->endUse()
         ->useFamilyQuery()
         ->addAsColumn('FollowedFamName', FamilyTableMap::COL_FAM_NAME)
@@ -172,7 +173,7 @@ function renderPastoralCarePerson (Request $request, Response $response, array $
     $personId = $args['personId'];
 
     if ( !( SessionUser::getUser()->isPastoralCareEnabled() ) ) {
-      return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
     }
 
     return $renderer->render($response, 'pastoralcareperson.php', argumentsPastoralPersonListArray($personId));
@@ -184,17 +185,17 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
 
 
     $ormPastoralCares = PastoralCareQuery::Create()
-                          ->orderByDate(Propel\Runtime\ActiveQuery\Criteria::DESC)
-                          ->leftJoinWithPastoralCareType()
-                          ->findByPersonId($currentPersonID);
+        ->orderByDate(Propel\Runtime\ActiveQuery\Criteria::DESC)
+        ->leftJoinWithPastoralCareType()
+        ->findByPersonId($currentPersonID);
 
     $ormPastors = PastoralCareQuery::Create()
-                          ->groupBy(PastoralCareTableMap::COL_PST_CR_PASTOR_ID)
-                          ->orderByPastorName(Propel\Runtime\ActiveQuery\Criteria::DESC)
-                          ->findByPersonId($currentPersonID);
+        ->groupBy(PastoralCareTableMap::COL_PST_CR_PASTOR_ID)
+        ->orderByPastorName(Propel\Runtime\ActiveQuery\Criteria::DESC)
+        ->findByPersonId($currentPersonID);
 
     $ormPastoralTypeCares = PastoralCareTypeQuery::Create()
-                          ->find();
+        ->find();
 
     //Get name
     $person = PersonQuery::Create()->findOneById ($currentPersonID);
@@ -208,19 +209,19 @@ function argumentsPastoralPersonListArray ($currentPersonID=0)
     $sCSPNonce       = SystemURLs::getCSPNonce();
 
     $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
-                       'sRootDocument'        => $sRootDocument,
-                       'sPageTitle'           => $sPageTitle,
-                       'ormPastoralCares'     => $ormPastoralCares,
-                       'currentPersonID'      => $currentPersonID,
-                       'currentPastorId'      => $currentPastorId,
-                       'ormPastors'           => $ormPastors,
-                       'ormPastoralTypeCares' => $ormPastoralTypeCares,
-                       'person'               => $person,
-                       'family'               => $family,
-                       'sDateFormatLong'      => $sDateFormatLong,
-                       'sCSPNonce'            => $sCSPNonce
-                       ];
-   return $paramsArguments;
+        'sRootDocument'        => $sRootDocument,
+        'sPageTitle'           => $sPageTitle,
+        'ormPastoralCares'     => $ormPastoralCares,
+        'currentPersonID'      => $currentPersonID,
+        'currentPastorId'      => $currentPastorId,
+        'ormPastors'           => $ormPastors,
+        'ormPastoralTypeCares' => $ormPastoralTypeCares,
+        'person'               => $person,
+        'family'               => $family,
+        'sDateFormatLong'      => $sDateFormatLong,
+        'sCSPNonce'            => $sCSPNonce
+    ];
+    return $paramsArguments;
 }
 
 function renderPastoralCareFamily (Request $request, Response $response, array $args) {
