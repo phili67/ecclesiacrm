@@ -10707,13 +10707,12 @@ msgid "Single"
 msgstr "Einzelpersone"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:46
-#, fuzzy
 msgid "Lists"
-msgstr "Liste"
+msgstr "Listen"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:60
 msgid "• Statistics about persons, families ... who remain to be contacted."
-msgstr ""
+msgstr "• Statistiken über Personen, Familien ..., die noch kontaktiert werden müssen."
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:64
 msgid "of members"
@@ -10721,7 +10720,7 @@ msgstr "der Mitglieder"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:64
 msgid "to contact"
-msgstr ""
+msgstr "Kontakt aufnehmen"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:65
 #: v2/templates/people/peopledashboard.php:264
@@ -10730,7 +10729,6 @@ msgid "Count"
 msgstr "Anzahl"
 
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:140
-#, fuzzy
 msgid "Pastoral Care Members"
 msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
