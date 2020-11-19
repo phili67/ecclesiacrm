@@ -57,6 +57,7 @@ require $sRootDocument . '/Include/Header.php';
                     class="card-title"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
             </div>
             <div class="card-body">
+                <div class="alert alert-info"><?= _("Statitics about the persons, families .... who still have to be contacted by the church !") ?></div>
                 <table class="table table-condensed">
                     <tr>
                         <th><?= _('Members') ?></th>
