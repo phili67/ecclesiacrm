@@ -1,6 +1,6 @@
 Il est possible depuis la version 5.0 d'Ecclesia**CRM** de gérer des fichiers via un gestionnaire de fichiers.
 
-EDrive possède une partie publique (public) et privée qui sont deux dossiers foncièrement différents et qui 
+EDrive possède une partie publique (public) et privée qui sont deux dossiers foncièrement différents et qui
 
 - permettent dans tout ce qui est public d'avoir le lien en clair (utile pour MailChimp pour ses images et ses documents, pour les événements, et pour partager un fichier avec quelqu'un en dehors du CRM).
 
@@ -20,8 +20,8 @@ EDrive possède une partie publique (public) et privée qui sont deux dossiers f
 3. Ou vous pourrez y accéder comme cela
 
       ![Screenshot](../../img/person/edrive1.png)
-      
-      
+
+
 Vous constaterez que de base vous avez un dossier Public (ce dossier est capital pour Mailchimp).
 
 Ce dossier sera utile pour joindre des images ou document avec vos campagnes de mailings.
@@ -34,34 +34,33 @@ Ce dossier sera utile pour joindre des images ou document avec vos campagnes de 
 
 2. Une boite de dialogue va s'ouvrir<br>
        ![Screenshot](../../img/person/edrive3.png)
-       
+
 3. Vous pourrez le ou <u>les</u> fichiers pour les télécharger sur le serveur dans votre espace personnel<br>
-       ![Screenshot](../../img/person/edrive3.png)
 
 4. Choisir les fichiers<br>
        ![Screenshot](../../img/person/edrive4.png)
 
 5. Vous constaterez qu'ils sont présents<br>
        ![Screenshot](../../img/person/edrive5.png)
-      
+
 6. Attendez un peu et ils seront présents sur le serveur<br>
        ![Screenshot](../../img/person/edrive6.png)
-       
 
-**Remarque** 
+
+**Remarque**
 
 Vous constaterez que le dossier public est utilisé ici.
-       
+
 ## Visualiser le contenu du fichier
-       
-Le petit "EDrive" est un vrai drive, cliquez sur la ligne 
+
+Le petit "EDrive" est un vrai drive, cliquez sur la ligne
 
 - Pour un fichier PDF<br>
        ![Screenshot](../../img/person/edrive7.png)
 
 - Pour un fichier Image<br>
        ![Screenshot](../../img/person/edrive8.png)
-       
+
 - Vous pourrez prévisualiser des vidéos ou des fichiers mp3, etc ...
 
 ## Création d'un dossier
