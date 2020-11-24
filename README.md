@@ -58,8 +58,8 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 ![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.png)
 ![Calendar](https://www.ecclesiacrm.com/screenshots/calendar.png)
 ![Calendar Events](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
-![Calendar Events](https://www.ecclesiacrm.com/screenshots/Mettings.png)
-![Calendar Events](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
+![Meetings](https://www.ecclesiacrm.com/screenshots/Mettings.png)
+![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
 
