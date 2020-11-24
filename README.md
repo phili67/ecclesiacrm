@@ -63,10 +63,11 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 ## Event calendar (with location, with reccurences, etc ...)
 ![Calendar Events](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
 
-##Meetings with Jitsi
+## Meetings with Jitsi
+
 ![Meetings](https://www.ecclesiacrm.com/screenshots/Mettings.png)
 
-##Pastoral care with statistics
+## Pastoral care with statistics
 ![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
