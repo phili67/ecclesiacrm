@@ -78,6 +78,14 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 
 ## Pastoral care with statistics
 ![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
+
+## Mailchimp is completely integrated
+
+# you can create your campaigns
+
+![Pastoral Care](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
+
+# your lists (audiences) templates etc ...
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
 
