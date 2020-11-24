@@ -10,13 +10,13 @@ Pour cela
 1. Aller dans un document, CKEditor
 
     - Pour cela aller dans votre personnel
-       
-       ![Screenshot](../../img/person/user22.png)
+
+     ![Screenshot](../../img/person/user22.png)
 
 2. Ajouter un document
-    
-       ![Screenshot](../../img/person/user23.png)
-       
+
+     ![Screenshot](../../img/person/user23.png)
+
 ## Edition
 
 Cliquez l'icône
@@ -26,7 +26,7 @@ Cliquez l'icône
 
 ## Glisser déposer d'images
 
-Une fois le document ouvert, glisser déposer le fichier sur le document 
+Une fois le document ouvert, glisser déposer le fichier sur le document
 
 ![Screenshot](../../img/person/dragNDrop1.png)
 
@@ -43,7 +43,7 @@ Ou se trouve le fichier .... dans votre EDrive, si le rôle est activé EDrive e
 
 ## Glisser déposer des fichiers
 
-Une fois le document ouvert, glisser déposer le fichier sur le document 
+Une fois le document ouvert, glisser déposer le fichier sur le document
 
 ![Screenshot](../../img/person/dragNDrop1file.png)
 
@@ -60,7 +60,7 @@ Ou se trouve le fichier .... dans votre EDrive, si le rôle est activé EDrive e
 
 ## Inclure des photos de votre EDrive (*)
 
-Pour cela sélectionnez 
+Pour cela sélectionnez
 
 ![Screenshot](../../img/person/includeImage1.png)
 
@@ -89,7 +89,7 @@ Et voilà
 ## Inclure des fichiers de votre EDrive (*)
 
 
-Pour cela sélectionnez 
+Pour cela sélectionnez
 
 ![Screenshot](../../img/person/includelink1.png)
 
@@ -109,7 +109,7 @@ Et voilà le résultat
 ![Screenshot](../../img/person/includelink4.png)
 
 
-** Remarque ** 
+** Remarque **
 
 (*) pour activer le rôle EDrive aller dans "Réglages Systèmes" -> "Utilisateurs du système"
 
