@@ -53,7 +53,7 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 - **Password:** contact us for the password.
 
 
-## New UI
+## New UI (Admin LTE 3)
 
 ![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.png)
 
@@ -62,6 +62,15 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 
 ## Event calendar (with location, with reccurences, etc ...)
 ![Calendar Events](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
+
+## Meta search engine
+
+# with filters
+![Calendar Events](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine.png)
+
+# with keywords
+![Calendar Events](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine1.png)
+
 
 ## Meetings with Jitsi
 
