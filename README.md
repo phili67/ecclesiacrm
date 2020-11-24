@@ -56,9 +56,17 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 ## New UI
 
 ![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.png)
+
+## Full calendar (groups, resources, etc ..)
 ![Calendar](https://www.ecclesiacrm.com/screenshots/calendar.png)
+
+## Event calendar (with location, with reccurences, etc ...)
 ![Calendar Events](https://www.ecclesiacrm.com/screenshots/calendarEvent.png)
+
+##Meetings with Jitsi
 ![Meetings](https://www.ecclesiacrm.com/screenshots/Mettings.png)
+
+##Pastoral care with statistics
 ![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
