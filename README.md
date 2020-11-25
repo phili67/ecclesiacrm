@@ -57,6 +57,11 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 
 ![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.png)
 
+## EDrive
+
+![EDrive](https://www.ecclesiacrm.com/screenshots/EDrive.png)
+
+
 ## Full calendar (groups, resources, etc ..)
 ![Calendar](https://www.ecclesiacrm.com/screenshots/calendar.png)
 
@@ -83,7 +88,7 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 
 # you can create your campaigns
 
-![Pastoral Care](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
+![MailChimp](https://www.ecclesiacrm.com/screenshots/mailchimp.png)
 
 # your lists (audiences) templates etc ...
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
