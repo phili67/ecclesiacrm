@@ -76,13 +76,17 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 # with keywords
 ![Calendar Events](https://www.ecclesiacrm.com/screenshots/PowerfullSearchEngine1.png)
 
-
 ## Meetings with Jitsi
 
 ![Meetings](https://www.ecclesiacrm.com/screenshots/Mettings.png)
 
 ## Pastoral care with statistics
+
 ![Pastoral Care](https://www.ecclesiacrm.com/screenshots/PastoralCare.png)
+
+## Sunday school QR code call
+
+![Pastoral Care](https://www.ecclesiacrm.com/screenshots/QRCode_call.png)
 
 ## Mailchimp is completely integrated
 
