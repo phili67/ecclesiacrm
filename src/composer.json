@@ -36,7 +36,7 @@
         "monolog/monolog": "^1.17",
         "authorizenet/authorizenet": "1.9.4",
         "knplabs/github-api": "^2.0",
-        "propel/propel": "2.0.0-alpha11",
+        "propel/propel": "dev-master",
         "setasign/fpdf": "1.8.1",
         "phpmailer/phpmailer": "6.1.6",
         "verot/class.upload.php": "dev-master",
