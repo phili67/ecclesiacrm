@@ -10,18 +10,20 @@
 
 namespace EcclesiaCRM\MyPDO;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Sabre\CalDAV;
 use Sabre\DAV;
 use Sabre\VObject;
 use EcclesiaCRM\MyPDO\VObjectExtract;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
+use EcclesiaCRM\Bootstrapper;
 
 class CalDavPDO extends SabreCalDavBase\PDO
 {
-
-    function __construct(\PDO $pdo)
+    function __construct($interface=null)
     {
+        $pdo = new \PDO(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword());
 
         parent::__construct($pdo);
 
@@ -661,24 +663,65 @@ SQL;
 
         $extraData = VObjectExtract::calendarData($calendarData);
 
+        LoggerUtils::getAppLogger()->info('INSERT INTO ' . $this->calendarObjectTableName . ' (
+            event_calendarid,
+            event_uri,
+            event_calendardata,
+            event_lastmodified,
+            event_title,
+            event_desc,
+            event_location,
+            event_last_occurence,
+            event_etag,
+            event_size,
+            event_componenttype,
+            event_start,
+            event_end,
+            event_uid,
+            event_grpid)
+        VALUES ("'
+                .$calendarId.'","'
+                .$objectUri.'",\''
+                .$calendarData.'\',"'
+                .time().'","'
+                .$extraData['title'].'","'
+                .$extraData['description'].'","'
+                .$extraData['location'].'","'
+                .$extraData['freqlastOccurence'].'","'
+                .$extraData['etag'].'","'
+                .$extraData['size'].'","'
+                .$extraData['componentType'].'","'
+                .$extraData['firstOccurence'].'","'
+                .$extraData['lastOccurence'].'","'
+                .$extraData['uid'].'","'
+                .$groupId.'")');
+
         $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-        $stmt->execute([
-            $calendarId,
-            $objectUri,
-            $calendarData,
-            time(),
-            $extraData['title'],
-            $extraData['description'],
-            $extraData['location'],
-            $extraData['freqlastOccurence'],
-            $extraData['etag'],
-            $extraData['size'],
-            $extraData['componentType'],
-            $extraData['firstOccurence'],
-            $extraData['lastOccurence'],
-            $extraData['uid'],
-            $groupId,
-        ]);
+
+        try {
+            $stmt->execute([
+                $calendarId,
+                $objectUri,
+                $calendarData,
+                time(),
+                $extraData['title'],
+                $extraData['description'],
+                $extraData['location'],
+                $extraData['freqlastOccurence'],
+                $extraData['etag'],
+                $extraData['size'],
+                $extraData['componentType'],
+                $extraData['firstOccurence'],
+                $extraData['lastOccurence'],
+                $extraData['uid'],
+                $groupId,
+            ]);
+        } catch (PDOException $Exception ) {
+            // PHP Fatal Error. Second Argument Has To Be An Integer, But PDOException::getCode Returns A
+            // String.
+            LoggerUtils::getAppLogger()->info( "erreur : ".$Exception->getMessage( ) ." ". $Exception->getCode());
+        }
+
         $this->addChange($calendarId, $objectUri, 1);
 
         return '"' . $extraData['etag'] . '"';
