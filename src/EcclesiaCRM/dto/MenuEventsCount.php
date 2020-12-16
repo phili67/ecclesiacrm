@@ -54,10 +54,8 @@ class MenuEventsCount
 
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         // get all the calendars for the current user
         $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower(SessionUser::getUser()->getUserName()), "displayname", false);
