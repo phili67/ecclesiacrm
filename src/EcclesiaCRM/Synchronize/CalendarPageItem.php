@@ -12,7 +12,6 @@
 namespace EcclesiaCRM\Synchronize;
 
 use EcclesiaCRM\Synchronize\DashboardItemInterface;
-use Propel\Runtime\Propel;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 
@@ -24,11 +23,8 @@ class CalendarPageItem implements DashboardItemInterface {
 
     private static function getAllCalendarsMD5 () {
         // new way to manage events
-        // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend  = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend  = new CalDavPDO();
 
         $types = ["personal", "group", "reservation", "share"];
         $only_visible = false;
