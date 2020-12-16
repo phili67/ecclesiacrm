@@ -15,7 +15,6 @@ use Sabre\DAV\PropPatch;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
-use Propel\Runtime\Propel;
 
 
 /**
@@ -40,11 +39,8 @@ class Group extends BaseGroup
 
     public function addPerson2group2roleP2g2r(ChildPerson2group2roleP2g2r $l)
     {
-      // we'll connect to sabre to create the group
-      $pdo = Propel::getConnection();
-
       // We set the BackEnd for sabre Backends
-      $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
+      $carddavBackend = new CardDavPDO();
 
       $groupId  = $l->getGroupId();
       $personId = $l->getPersonId();
@@ -120,12 +116,9 @@ END:VCARD';
         // we first delete the calendar
         $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
 
-        // we'll connect to sabre to create the group
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-        $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
+        $carddavBackend  = new CardDavPDO();
 
         // we delete the calendar
         $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()]);
@@ -199,11 +192,9 @@ END:VCARD';
         parent::postInsert($con);
 
         // a group is binded to a calendar
-        // we'll connect to sabre to create the group
-        $pdo = Propel::getConnection();
 
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         // we create the uuid name
         $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
@@ -258,12 +249,9 @@ END:VCARD';
             // Now a group is binded to a calendar !!!
             $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
 
-            // we'll connect to sabre to create the group
-            $pdo = Propel::getConnection();
-
             // We set the BackEnd for sabre Backends
-            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-            $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
+            $calendarBackend = new CalDavPDO();
+            $carddavBackend  = new CardDavPDO();
 
             // Updating the calendar
             $propPatch = new PropPatch([
