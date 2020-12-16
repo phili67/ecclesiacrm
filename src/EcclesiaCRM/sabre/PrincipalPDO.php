@@ -22,8 +22,7 @@ use EcclesiaCRM\Bootstrapper;
 class PrincipalPDO extends SabrePrincipalBase\PDO {
 
     function __construct($interface=null) {
-
-        $pdo = new \PDO(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword());
+        $pdo = new \PDO(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword(),array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
 
         parent::__construct($pdo);
     }
