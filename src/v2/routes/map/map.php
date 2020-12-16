@@ -3,7 +3,6 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -11,7 +10,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\FamilyQuery;
 use EcclesiaCRM\Base\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\GroupQuery;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -20,18 +18,8 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 
 use EcclesiaCRM\EventQuery;
 
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
-use Propel\Runtime\Propel;
 
 use Slim\Views\PhpRenderer;
 
@@ -65,11 +53,9 @@ function renderMapArray ($iGroupID)
 
     // new way to manage events
     // we get the PDO for the Sabre connection from the Propel connection
-    $pdo = Propel::getConnection();
-
     // We set the BackEnd for sabre Backends
-    $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-    $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+    $calendarBackend = new CalDavPDO();
+    $principalBackend = new PrincipalPDO();
     // get all the calendars for the current user
 
     $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
