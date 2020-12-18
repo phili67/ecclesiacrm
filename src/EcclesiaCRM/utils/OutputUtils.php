@@ -73,7 +73,7 @@ class OutputUtils {
 
   // Wrapper for number_format that uses the locale information
   // There are three modes: money, integer, and intmoney (whole number money)
-  public function formatNumber($iNumber, $sMode = 'integer',$currency_vis=false)
+  public static function formatNumber($iNumber, $sMode = 'integer',$currency_vis=false)
   {
       //$aLocaleInfo = localeconv();
       global $aLocaleInfo;
@@ -106,17 +106,17 @@ class OutputUtils {
   }
 
 
-  public function money_localized ($number)
+  public static function money_localized ($number)
   {
     return OutputUtils::formatNumber($number,'money');
   }
 
-  public function number_localized($number)
+  public static function number_localized($number)
   {
     return OutputUtils::formatNumber($number,'float');
   }
 
-  public function number_dot ($number)
+  public static function number_dot ($number)
   {
     return str_replace(",",".",$number);
   }
