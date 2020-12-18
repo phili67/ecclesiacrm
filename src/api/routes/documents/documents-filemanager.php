@@ -697,10 +697,10 @@ function getRealLink(Request $request, Response $response, array $args)
             $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 
             if (strpos($params->pathFile, $publicDir) === false) {
-                $dropAddress = $protocol . "://" . $_SERVER[HTTP_HOST] . "/api/filemanager/getFile/" . $user->getPersonId() . "/" . $userName . $currentpath . $fileName;
+                $dropAddress = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/api/filemanager/getFile/" . $user->getPersonId() . "/" . $userName . $currentpath . $fileName;
             } else {
                 $fileName = str_replace($publicDir, "", $params->pathFile);
-                $dropAddress = $protocol . "://" . $_SERVER[HTTP_HOST] . "/" . $publicNoteDir . "/" . $fileName;
+                $dropAddress = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/" . $publicNoteDir . "/" . $fileName;
             }
 
             return $response->withJson(['success' => "success", "privateNoteDir" => $privateNoteDir, "publicNoteDir" => $publicNoteDir, 'fileName' => $fileName, "address" => $dropAddress]);
