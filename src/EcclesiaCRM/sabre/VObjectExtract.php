@@ -35,7 +35,7 @@ class VObjectExtract {
           $vObject = $vcalendar->expand($realStartDate, $realEndDate);
 
           if (!empty($vObject)) {
-            return nil;
+            return NULL;
           }
         } catch (Exception $e) {
           $vObject = VObject\Reader::read($calendarData);
