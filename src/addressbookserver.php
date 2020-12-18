@@ -1,7 +1,7 @@
 <?php
 
 //
-// CalendarServer 
+// CalendarServer
 // CalDAV support
 //
 //  This code is under copyright not under MIT Licence
@@ -46,7 +46,7 @@ date_default_timezone_set(SystemConfig::getValue('sTimeZone')); //<------ Be car
 /* Database */
 // Propel connection : pdo
 
-$pdo = Propel::getConnection()->getWrappedConnection();
+//$pdo = Propel::getConnection()->getWrappedConnection();
 
 // Normal Sabre way : be carefull to connect in UTF8 mode
 /*$pdo = new PDO('mysql:dbname='.$sDATABASE.';host='.$sSERVERNAME.';charset=utf8', $sUSER, $sPASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -68,8 +68,8 @@ set_error_handler("exception_error_handler");*/
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
-$principalBackend = new PrincipalPDO($pdo);
-$carddavBackend   = new CardDavPDO($pdo);
+$principalBackend = new PrincipalPDO();
+$carddavBackend   = new CardDavPDO();
 
 
 // Directory structure
@@ -82,7 +82,7 @@ $server = new Sabre\DAV\Server($tree);
 
 $server->setBaseUri(SystemURLs::getRootPath().'/addressbookserver.php');
 
-// Server Plugins 
+// Server Plugins
 $authPlugin = new Auth\Plugin($authBackend);
 $server->addPlugin($authPlugin);
 
