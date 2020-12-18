@@ -58,9 +58,9 @@ class MailChimpService
         }
         $_SESSION['MailChimpLists'] = $lists;
       }
-      else{
+      /*else{
         LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
-      }
+      }*/
       return $_SESSION['MailChimpLists'];
     }
     public  function reloadMailChimpDatas ()
@@ -84,9 +84,9 @@ class MailChimpService
         $campaigns = $this->myMailchimp->get("campaigns")['campaigns'];
         $_SESSION['MailChimpCampaigns'] = $campaigns;
       }
-      else{
+      /*else{
         LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
-      }
+      }*/
       return $_SESSION['MailChimpCampaigns'];
     }
     public function getConnectionStatus()
