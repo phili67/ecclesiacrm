@@ -54,9 +54,6 @@ class GroupService
         }
 
       // we'll connect to sabre to create the group
-      // we'll delete the card from the member
-      $pdo = Propel::getConnection();
-
       // We set the BackEnd for sabre Backends
       $carddavBackend = new CardDavPDO();
 
@@ -110,9 +107,6 @@ class GroupService
 
         // We set the BackEnd for sabre Backends
         // we'll connect to sabre to create the group
-        // we'll delete the card from the member
-        $pdo = Propel::getConnection();
-
         $carddavBackend = new CardDavPDO();
 
         $addressbookId = $carddavBackend->getAddressBookForGroup ($iGroupID)['id'];
