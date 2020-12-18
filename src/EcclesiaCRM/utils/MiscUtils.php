@@ -35,7 +35,7 @@ class MiscUtils {
   //
   // $special is currently only used for the phone country and the list ID for custom drop-down choices.
   //
-  function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
+  public static function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   {
       switch ($type) {
       // boolean
@@ -582,7 +582,7 @@ public static function FileSizeConvert($bytes)
     return $icon." bg-gray-light";
   }
 
-  public static function simpleEmbedFiles ($path,$realPath=nil) {
+  public static function simpleEmbedFiles ($path,$realPath=NULL) {
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
@@ -896,7 +896,7 @@ public static function FileSizeConvert($bytes)
   }
 
   public static function getPhotoCacheExpirationTimestamp() {
-    $cacheLength = SystemConfig::getValue(iPhotoClientCacheDuration);
+    $cacheLength = SystemConfig::getValue('iPhotoClientCacheDuration');
     $cacheLength = MiscUtils::getRandomCache($cacheLength,0.5*$cacheLength);
     //echo time() +  $cacheLength;
     //die();
