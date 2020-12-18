@@ -52,16 +52,16 @@ class GroupService
             $sSQL = 'UPDATE person_custom SET '.$aRow['custom_Field'].' = NULL WHERE '.$aRow['custom_Field'].' = '.$personID;
             RunQuery($sSQL);
         }
-        
+
       // we'll connect to sabre to create the group
       // we'll delete the card from the member
       $pdo = Propel::getConnection();
-        
+
       // We set the BackEnd for sabre Backends
-      $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
-      
+      $carddavBackend = new CardDavPDO();
+
       $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID)['id'];
-      
+
       $carddavBackend->deleteCardForPerson($addressbookId,$personID);
     }
 
@@ -104,19 +104,19 @@ class GroupService
                 RunQuery($sSQL);
             }
         }
-        
+
         // we get the person info
         $person = PersonQuery::create()->findPk($iPersonID);
-        
+
         // We set the BackEnd for sabre Backends
         // we'll connect to sabre to create the group
         // we'll delete the card from the member
         $pdo = Propel::getConnection();
-    
-        $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
-      
-        $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID)['id'];
-      
+
+        $carddavBackend = new CardDavPDO();
+
+        $addressbookId = $carddavBackend->getAddressBookForGroup ($iGroupID)['id'];
+
          // now we'll create all the cards
         $card = 'BEGIN:VCARD
 VERSION:3.0
@@ -146,13 +146,13 @@ FN:'.$person->getFirstName().' '.$person->getLastName();
         if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
           $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getAddress1().';'.$person->getCity().';;'.$person->getZip();
         } else if (!is_null ($person->getFamily())) {
-          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();        
+          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();
         }
 
         $card .= "\nitem1.X-ABADR:fr
 UID:".\Sabre\DAV\UUIDUtil::getUUID().'
 END:VCARD';
-        
+
         $carddavBackend->createCard(addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
 
         return $this->getGroupMembers($iGroupID, $iPersonID);
@@ -387,7 +387,7 @@ END:VCARD';
         	if (array_key_exists('p2g2r_per_ID',$row) && array_key_exists('lst_OptionName',$row))
         	{
             $dbPerson = PersonQuery::create()->findPk($row['p2g2r_per_ID']);
-        			
+
        			if (array_key_exists('displayName',$dbPerson))
        			{
 	            $person['displayName'] = $dbPerson->getFullName();
