@@ -25,7 +25,7 @@ class CardDavPDO extends SabreCardDavBase\PDO {
     var $addressBookShareObjectTableName;
 
     function __construct($interface=null) {
-        $pdo = new \PDO(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword(),array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+        $pdo = Bootstrapper::GetPDO();
 
         parent::__construct($pdo);
 

@@ -23,7 +23,7 @@ class CalDavPDO extends SabreCalDavBase\PDO
 {
     function __construct($interface=null)
     {
-        $pdo = new \PDO(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword(),array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+        $pdo = Bootstrapper::GetPDO();
 
         parent::__construct($pdo);
 
@@ -660,9 +660,43 @@ SQL;
 
         list($calendarId, $instanceId) = $calendarId;
 
+
         $extraData = VObjectExtract::calendarData($calendarData);
 
-        $stmt = $this->pdo->prepare('INSERT IGNORE INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+        LoggerUtils::getAppLogger()->info('INSERT INTO ' . $this->calendarObjectTableName . ' (
+            event_calendarid,
+            event_uri,
+            event_calendardata,
+            event_lastmodified,
+            event_title,
+            event_desc,
+            event_location,
+            event_last_occurence,
+            event_etag,
+            event_size,
+            event_componenttype,
+            event_start,
+            event_end,
+            event_uid,
+            event_grpid)
+        VALUES ("'
+                .$calendarId.'","'
+                .$objectUri.'",\''
+                .$calendarData.'\',"'
+                .time().'","'
+                .$extraData['title'].'","'
+                .$extraData['description'].'","'
+                .$extraData['location'].'","'
+                .$extraData['freqlastOccurence'].'","'
+                .$extraData['etag'].'","'
+                .$extraData['size'].'","'
+                .$extraData['componentType'].'","'
+                .$extraData['firstOccurence'].'","'
+                .$extraData['lastOccurence'].'","'
+                .$extraData['uid'].'","'
+                .$groupId.'")');
+
+        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
 
         try {
             $stmt->execute([
@@ -723,7 +757,7 @@ SQL;
 
         $extraData = VObjectExtract::calendarData($calendarData);
 
-        $stmt = $this->pdo->prepare('UPDATE IGNORE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
 
         // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
