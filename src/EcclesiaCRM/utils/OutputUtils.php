@@ -86,21 +86,21 @@ class OutputUtils {
 
       switch ($sMode) {
       case 'money':
-        return ($currency_vis?$currency:'').' '.number_format($iNumber, 2, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        return ($currency_vis?$currency:'').' '.number_format((float)$iNumber, 2, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
         break;
 
       case 'intmoney':
-        return ($currency_vis?$currency:'').' '.number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+        return ($currency_vis?$currency:'').' '.number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
         break;
 
       case 'float':
         $iDecimals = 2; // need to calculate # decimals in original number
-        return number_format($iNumber, $iDecimals, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        return number_format((float)$iNumber, $iDecimals, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
         break;
 
       case 'integer':
       default:
-        return number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+        return number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
         break;
     }
   }
