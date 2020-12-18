@@ -153,7 +153,7 @@ class MailChimpService
         $i++;
       }
 
-      return nil;
+      return NULL;
     }
     public  function getListMembersFromListId ($list_id) {
       $mcLists = $this->getLists();
@@ -663,7 +663,7 @@ class MailChimpService
 
       return $resultContent;
     }
-    private function setCampaignStatus ($campaignID,$status,$send_time = nil) {
+    private function setCampaignStatus ($campaignID,$status,$send_time = NULL) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
 
       $res = [];
@@ -766,7 +766,7 @@ class MailChimpService
 
       return $res;
     }
-    public function postMember($list_id,$id,$first_name,$last_name,$mail,$address=nil,$phone=nil,$status)
+    public function postMember($list_id,$id,$first_name,$last_name,$mail,$address=NULL,$phone=NULL,$status)
     {
       if ( !empty($mail) ) {
         $merge_fields = ['FNAME'=>$first_name, 'LNAME'=>$last_name];
@@ -793,7 +793,7 @@ class MailChimpService
         return $result;
       }
 
-      return nil;
+      return NULL;
     }
 
     private function delete_list_member ($list_id,$email) {
