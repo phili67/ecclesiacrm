@@ -47,11 +47,15 @@ class NotificationService
       }
       return $notifications;
     }
+
+    return NULL;
   }
 
   public static function hasActiveNotifications()
   {
-    return count(NotificationService::getNotifications()) > 0;
+      if (!is_null(NotificationService::getNotifications()))
+        return count(NotificationService::getNotifications()) > 0;
+      return 0;
   }
 
   public static function isUpdateRequired()
