@@ -104,6 +104,8 @@ function argumentsPeopleDashboardArray ()
             if (!stristr($sEmailLink, $sEmail)) {
                 $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
                 $virt_RoleName = $emailAccount['virt_RoleName'];
+
+                $roleEmails = new stdClass();
                 $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
             }
         }
