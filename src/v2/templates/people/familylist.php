@@ -98,8 +98,8 @@ require $sRootDocument . '/Include/Header.php';
                   <td><?= $family->getHomePhone() ?></td>
                   <td><?= $family->getCellPhone() ?></td>
                   <td><?= $family->getEmail() ?></td>
-                  <td><?= date_format($family->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><?= date_format($family->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td><?= (!is_null($family->getDateEntered()) && !is_null(SystemConfig::getValue('sDateFormatLong')) )?date_format($family->getDateEntered(), SystemConfig::getValue('sDateFormatLong')):"" ?></td>
+                  <td><?= (!is_null($family->getDateLastEdited()) && !is_null(SystemConfig::getValue('sDateFormatLong')) )?date_format($family->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')):"" ?></td>
                 <?php
                 } else {
                 ?>
