@@ -344,9 +344,9 @@ class FinancialService
     {
         MiscUtils::requireUserGroupMembership('bFinance');
         $sSQL = 'SELECT * from pledge_plg
-            INNER JOIN 
-            donationfund_fun 
-            ON 
+            INNER JOIN
+            donationfund_fun
+            ON
             pledge_plg.plg_fundID = donationfund_fun.fun_ID';
 
         if ($depID) {
@@ -399,14 +399,15 @@ class FinancialService
                 pledge_plg.plg_depID = deposit_dep.dep_ID
                 AND
                 plg_CheckNo LIKE \'%'.$searchTerm.'%\'
-            WHERE  
+            WHERE
             dep_Comment LIKE \'%'.$searchTerm.'%\'
-            OR 
+            OR
             dep_Date LIKE \'%'.$searchTerm.'%\'
             OR
             plg_CheckNo LIKE \'%'.$searchTerm.'%\'
             LIMIT 15';
-        $result = mysqli_query($cnInfoCentral, $fetch);
+
+        $result = RunQuery($fetch);
         $deposits = [];
         while ($row = mysqli_fetch_array($result)) {
             $row_array['id'] = $row['dep_ID'];
@@ -425,10 +426,12 @@ class FinancialService
             FROM deposit_dep
             LEFT JOIN pledge_plg ON
                 pledge_plg.plg_depID = deposit_dep.dep_ID
-            WHERE 
+            WHERE
             plg_CheckNo LIKE \'%'.$searchTerm.'%\'
             LIMIT 15';
-        $result = mysqli_query($cnInfoCentral, $fetch);
+
+        $result = RunQuery($fetch);
+
         $deposits = [];
         while ($row = mysqli_fetch_array($result)) {
             $family = FamilyQuery::create()->findOneById($row['plg_FamID']);
@@ -525,7 +528,7 @@ class FinancialService
     {
         $currencyDenoms = json_decode($payment->cashDenominations);
         foreach ($currencyDenoms as $cdom) {
-            $sSQL = "INSERT INTO pledge_denominations_pdem (pdem_plg_GroupKey, plg_depID, pdem_denominationID, pdem_denominationQuantity) 
+            $sSQL = "INSERT INTO pledge_denominations_pdem (pdem_plg_GroupKey, plg_depID, pdem_denominationID, pdem_denominationQuantity)
       VALUES ('".$groupKey."','".$payment->DepositID."','".$cdom->currencyID."','".$cdom->Count."')";
             if (isset($sSQL)) {
                 RunQuery($sSQL);
@@ -562,21 +565,21 @@ class FinancialService
         }
                 $sSQL = "INSERT INTO pledge_plg
                     (plg_famID,
-                    plg_FYID, 
-                    plg_date, 
+                    plg_FYID,
+                    plg_date,
                     plg_amount,
-                    plg_schedule, 
-                    plg_method, 
-                    plg_comment, 
-                    plg_DateLastEdited, 
-                    plg_EditedBy, 
-                    plg_PledgeOrPayment, 
-                    plg_fundID, 
-                    plg_depID, 
-                    plg_CheckNo, 
-                    plg_scanString, 
-                    plg_aut_ID, 
-                    plg_NonDeductible, 
+                    plg_schedule,
+                    plg_method,
+                    plg_comment,
+                    plg_DateLastEdited,
+                    plg_EditedBy,
+                    plg_PledgeOrPayment,
+                    plg_fundID,
+                    plg_depID,
+                    plg_CheckNo,
+                    plg_scanString,
+                    plg_aut_ID,
+                    plg_NonDeductible,
                     plg_GroupKey)
                     VALUES ('".
           $payment->FamilyID."','".
@@ -882,8 +885,8 @@ class FinancialService
     public function getCurrencyTypeOnDeposit($currencyID, $depositID)
     {
         $currencies = [];
-    // Get the list of Currency denominations
-    $sSQL = 'select sum(pdem_denominationQuantity) from pledge_denominations_pdem
+        // Get the list of Currency denominations
+        $sSQL = 'select sum(pdem_denominationQuantity) from pledge_denominations_pdem
                  where  plg_depID = '.$depositID.'
                  AND
                  pdem_denominationID = '.$currencyID;
