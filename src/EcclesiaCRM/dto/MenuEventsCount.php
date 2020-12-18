@@ -76,7 +76,9 @@ class MenuEventsCount
                 // the events are formatted with expand in Z DateTimeZone, so we have to change DateTimeZone, to the right date
                 // TO DO : in rare cases the DateTimeZone isn't the same as the now time !!!!
                 $newVCalendar = $vcalendar->expand(new \DateTime($start_date), new \DateTime($end_date), new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $count += count($newVCalendar->VEVENT);
+                if (!is_null($newVCalendar->VEVENT)) {
+                    $count += count($newVCalendar->VEVENT);
+                }
 
                 if (!is_null($newVCalendar->VEVENT)) {
                     foreach ($newVCalendar->VEVENT->VALARM as $alarm) {
