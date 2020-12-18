@@ -283,7 +283,7 @@ class InputUtils {
   {
       // or use htmlspecialchars( stripslashes( ))
       $sInput = strip_tags(trim($sInput));
-      if (get_magic_quotes_gpc()) {
+      if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $sInput = stripslashes($sInput);
       }
       return $sInput;
@@ -292,7 +292,7 @@ class InputUtils {
   public static function FilterHTML($sInput)
   {
       $sInput = strip_tags(trim($sInput), self::$AllowedHTMLTags);
-      if (get_magic_quotes_gpc()) {
+      if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $sInput = stripslashes($sInput);
       }
       return $sInput;
@@ -301,7 +301,7 @@ class InputUtils {
   public static function FilterChar($sInput,$size=1)
   {
      $sInput = mb_substr(trim($sInput), 0, $size);
-      if (get_magic_quotes_gpc()) {
+      if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
         $sInput = stripslashes($sInput);
       }
 
