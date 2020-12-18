@@ -246,8 +246,8 @@ class VObjectExtract {
         return [
             'freq' => $freq,
             'title' => $title,
-            'etag' => md5($calendarData),
-            'size' => strlen($calendarData),
+            'etag' => md5((string)$calendarData),
+            'size' => strlen((string)$calendarData),
             'componentType' => $componentType,
             'firstOccurence' => $firstOccurence,
             'lastOccurence' => $lastOccurence,
