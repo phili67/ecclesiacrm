@@ -103,7 +103,7 @@ function argumentsPeopleDashboardArray ()
                 $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
             // Add email only if email address is not already in string
             if (!stristr($sEmailLink, $sEmail)) {
-                $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
                 $virt_RoleName = $emailAccount['virt_RoleName'];
 
                 $roleEmails[$virt_RoleName] .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
