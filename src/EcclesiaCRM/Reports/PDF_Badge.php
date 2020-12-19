@@ -110,8 +110,11 @@ class PDF_Badge extends PDF_Label
         $_PosX = $this->_Margin_Left + ($this->_COUNTX * ($this->_Width + $this->_X_Space));
         $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
 
+
         $this->SetFillColor($back_red,$back_gren,$back_blue);
-        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, F);
+
+
+        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, 'F');
 
         if ($image != "../Images/" && file_exists($image)) {
           if ($sImagePosition == 'Left') {
