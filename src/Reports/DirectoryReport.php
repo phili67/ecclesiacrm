@@ -21,6 +21,7 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\Bootstrapper;
 use Propel\Runtime\Propel;
 
 
@@ -161,15 +162,20 @@ if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DP
     $sWhereExt .= ' AND per_DateDeactivated is null';
 }
 
+$mysqlsubversion = 0;
 
-$mysqlinfo = mysqli_get_server_info($cnInfoCentral);
+$pdo  = Bootstrapper::GetPDO();
+$mysqlinfo = $pdo->getAttribute(PDO::ATTR_SERVER_VERSION);
+
 $mysqltmp = explode('.', $mysqlinfo);
 $mysqlversion = $mysqltmp[0];
-if (count($mysqltmp[1] > 1)) {
+
+if ($mysqltmp[1] > 1) {
     $mysqlsubversion = $mysqltmp[1];
 } else {
     $mysqlsubversion = 0;
 }
+
 if ($mysqlversion >= 4) {
     // This query is similar to that of the CSV export with family roll-up.
     // Here we want to gather all unique families, and those that are not attached to a family.
@@ -180,13 +186,17 @@ if ($mysqlversion >= 4) {
 } elseif ($mysqlversion == 3 && $mysqlsubversion >= 22) {
     // If UNION not supported use this query with temporary table.  Prior to version 3.22 no IF EXISTS statement.
     $sSQL = 'DROP TABLE IF EXISTS tmp;';
-    $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
+    $rsRecords = $connection->prepare($sSQL);
+    $rsRecords->execute();
     $sSQL = "CREATE TABLE tmp TYPE = InnoDB SELECT *, 0 AS memberCount, per_LastName AS SortMe FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID WHERE per_fam_ID = 0 $sWhereExt $sClassQualifier ;";
-    $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
+    $rsRecords = $connection->prepare($sSQL);
+    $rsRecords->execute();
     $sSQL = "INSERT INTO tmp SELECT *, COUNT(*) AS memberCount, fam_Name AS SortMe FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID WHERE per_fam_ID > 0 $sWhereExt $sClassQualifier GROUP BY per_fam_ID HAVING memberCount = 1;";
-    $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
+    $rsRecords = $connection->prepare($sSQL);
+    $rsRecords->execute();
     $sSQL = "INSERT INTO tmp SELECT *, COUNT(*) AS memberCount, fam_Name AS SortMe FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID WHERE per_fam_ID > 0 $sWhereExt $sClassQualifier GROUP BY per_fam_ID HAVING memberCount > 1;";
-    $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
+    $rsRecords = $connection->prepare($sSQL);
+    $rsRecords->execute();
     $sSQL = 'SELECT DISTINCT * FROM tmp ORDER BY SortMe';
 } else {
     die(_('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM.'));
@@ -353,7 +363,8 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
 
 if ($mysqlversion == 3 && $mysqlsubversion >= 22) {
     $sSQL = 'DROP TABLE IF EXISTS tmp;';
-    mysqli_query($cnInfoCentral, $sSQL);
+    $rsRecords = $connection->prepare($sSQL);
+    $rsRecords->execute();
 }
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 
