@@ -7,7 +7,7 @@ require '../Include/Functions.php';
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
-use Slim\Middleware\JwtAuthentication;
+use Tuupola\Middleware\JwtAuthentication;
 use Slim\Container;
 use Slim\App;
 
