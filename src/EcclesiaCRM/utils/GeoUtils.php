@@ -34,8 +34,8 @@ class GeoUtils
                     $provider = new BingMaps($adapter, SystemConfig::getValue("sBingMapKey"));
                     break;
                 case "OpenStreetMap":
-                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"));
-                    break;                
+                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sChurchEmail") );
+                    break;
             }
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
             $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());
