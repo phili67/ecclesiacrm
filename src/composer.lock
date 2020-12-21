@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d7ca4e3c34904d3b48de5a06112f393",
+    "content-hash": "64e995a7f90bdc685416da06010d6bb4",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -742,21 +742,21 @@
         },
         {
             "name": "geocoder-php/google-maps-provider",
-            "version": "4.1.0",
+            "version": "4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/google-maps-provider.git",
-                "reference": "5df14e623127026e621260e1909548628342e174"
+                "reference": "830e5cd42eba6cb42a7a72788049edcb73f2d632"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/5df14e623127026e621260e1909548628342e174",
-                "reference": "5df14e623127026e621260e1909548628342e174",
+                "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/830e5cd42eba6cb42a7a72788049edcb73f2d632",
+                "reference": "830e5cd42eba6cb42a7a72788049edcb73f2d632",
                 "shasum": ""
             },
             "require": {
                 "geocoder-php/common-http": "^4.0",
-                "php": "^7.0",
+                "php": "^7.2",
                 "willdurand/geocoder": "^4.0"
             },
             "provide": {
@@ -764,10 +764,9 @@
             },
             "require-dev": {
                 "geocoder-php/provider-integration-tests": "^1.0",
-                "nyholm/psr7": "^0.2.2",
                 "php-http/curl-client": "^1.7",
                 "php-http/message": "^1.0",
-                "phpunit/phpunit": "^6.1"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "extra": {
@@ -795,25 +794,25 @@
             ],
             "description": "Geocoder GoogleMaps adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
-            "time": "2017-09-16T13:21:54+00:00"
+            "time": "2020-07-04T13:18:10+00:00"
         },
         {
             "name": "geocoder-php/nominatim-provider",
-            "version": "4.1.0",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/nominatim-provider.git",
-                "reference": "8f3dc10b1743cb5fc6bb38e84791d869d4e6f297"
+                "reference": "09ed04eca12599ba88924ecb7cbaa5d96bd86fa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/8f3dc10b1743cb5fc6bb38e84791d869d4e6f297",
-                "reference": "8f3dc10b1743cb5fc6bb38e84791d869d4e6f297",
+                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/09ed04eca12599ba88924ecb7cbaa5d96bd86fa3",
+                "reference": "09ed04eca12599ba88924ecb7cbaa5d96bd86fa3",
                 "shasum": ""
             },
             "require": {
-                "geocoder-php/common-http": "^4.0",
-                "php": "^7.0",
+                "geocoder-php/common-http": "^4.1",
+                "php": "^7.2",
                 "willdurand/geocoder": "^4.0"
             },
             "provide": {
@@ -821,10 +820,9 @@
             },
             "require-dev": {
                 "geocoder-php/provider-integration-tests": "^1.0",
-                "nyholm/psr7": "^0.2.2",
                 "php-http/curl-client": "^1.7",
                 "php-http/message": "^1.0",
-                "phpunit/phpunit": "6.3.*"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "extra": {
@@ -846,13 +844,13 @@
             ],
             "authors": [
                 {
-                    "name": "William DURAND",
+                    "name": "William Durand",
                     "email": "william.durand1@gmail.com"
                 }
             ],
             "description": "Geocoder Nominatim adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
-            "time": "2018-02-15T12:58:08+00:00"
+            "time": "2020-12-10T08:12:58+00:00"
         },
         {
             "name": "goetas-webservices/xsd2php-runtime",
@@ -1426,6 +1424,98 @@
             "time": "2020-12-11T19:39:25+00:00"
         },
         {
+            "name": "laminas/laminas-diactoros",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-diactoros.git",
+                "reference": "4ff7400c1c12e404144992ef43c8b733fd9ad516"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/4ff7400c1c12e404144992ef43c8b733fd9ad516",
+                "reference": "4ff7400c1c12e404144992ef43c8b733fd9ad516",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^7.3 || ~8.0.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "conflict": {
+                "phpspec/prophecy": "<1.9.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "replace": {
+                "zendframework/zend-diactoros": "^2.2.1"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-libxml": "*",
+                "http-interop/http-factory-tests": "^0.8.0",
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "php-http/psr7-integration-tests": "^1.1",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "config-provider": "Laminas\\Diactoros\\ConfigProvider",
+                    "module": "Laminas\\Diactoros"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions/create_uploaded_file.php",
+                    "src/functions/marshal_headers_from_sapi.php",
+                    "src/functions/marshal_method_from_sapi.php",
+                    "src/functions/marshal_protocol_version_from_sapi.php",
+                    "src/functions/marshal_uri_from_sapi.php",
+                    "src/functions/normalize_server.php",
+                    "src/functions/normalize_uploaded_files.php",
+                    "src/functions/parse_cookie_header.php",
+                    "src/functions/create_uploaded_file.legacy.php",
+                    "src/functions/marshal_headers_from_sapi.legacy.php",
+                    "src/functions/marshal_method_from_sapi.legacy.php",
+                    "src/functions/marshal_protocol_version_from_sapi.legacy.php",
+                    "src/functions/marshal_uri_from_sapi.legacy.php",
+                    "src/functions/normalize_server.legacy.php",
+                    "src/functions/normalize_uploaded_files.legacy.php",
+                    "src/functions/parse_cookie_header.legacy.php"
+                ],
+                "psr-4": {
+                    "Laminas\\Diactoros\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "PSR HTTP Message implementations",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "http",
+                "laminas",
+                "psr",
+                "psr-17",
+                "psr-7"
+            ],
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-11-18T18:39:28+00:00"
+        },
+        {
             "name": "laminas/laminas-escaper",
             "version": "2.7.0",
             "source": {
@@ -1793,16 +1883,61 @@
         },
         {
             "name": "nexmo/client",
-            "version": "1.5.2",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Nexmo/nexmo-php.git",
-                "reference": "f192c84ec3cc3e2657fc754e0da1a17e39ac5542"
+                "url": "https://github.com/Nexmo/nexmo-php-complete.git",
+                "reference": "c6d11d953c8c5594590bb9ebaba9616e76948f93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/f192c84ec3cc3e2657fc754e0da1a17e39ac5542",
-                "reference": "f192c84ec3cc3e2657fc754e0da1a17e39ac5542",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-php-complete/zipball/c6d11d953c8c5594590bb9ebaba9616e76948f93",
+                "reference": "c6d11d953c8c5594590bb9ebaba9616e76948f93",
+                "shasum": ""
+            },
+            "require": {
+                "nexmo/client-core": "^1.0",
+                "php": ">=5.6",
+                "php-http/guzzle6-adapter": "^1.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Lytle",
+                    "email": "tim@nexmo.com",
+                    "homepage": "http://twitter.com/tjlytle",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael Heap",
+                    "email": "michael.heap@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Lorna Mitchell",
+                    "email": "lorna.mitchell@vonage.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Client for using Nexmo's API.",
+            "time": "2019-11-26T15:25:11+00:00"
+        },
+        {
+            "name": "nexmo/client-core",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nexmo/nexmo-php.git",
+                "reference": "182d41a02ebd3e4be147baea45458ccfe2f528c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/182d41a02ebd3e4be147baea45458ccfe2f528c4",
+                "reference": "182d41a02ebd3e4be147baea45458ccfe2f528c4",
                 "shasum": ""
             },
             "require": {
@@ -1810,7 +1945,7 @@
                 "php": ">=5.6",
                 "php-http/client-implementation": "^1.0",
                 "php-http/guzzle6-adapter": "^1.0",
-                "zendframework/zend-diactoros": "^1.3"
+                "zendframework/zend-diactoros": "^1.8.4 || ^2.0"
             },
             "require-dev": {
                 "estahn/phpunit-json-assertions": "^1.0.0",
@@ -1837,7 +1972,7 @@
                 }
             ],
             "description": "PHP Client for using Nexmo's API.",
-            "time": "2018-11-14T14:12:22+00:00"
+            "time": "2019-05-13T20:27:43+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -2881,6 +3016,58 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2019-04-30T12:38:16+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -2929,6 +3116,112 @@
                 "response"
             ],
             "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "psr/http-server-handler",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-handler.git",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-handler/zipball/aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "reference": "aff2f80e33b7f026ec96bb42f63242dc50ffcae7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side request handler",
+            "keywords": [
+                "handler",
+                "http",
+                "http-interop",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response",
+                "server"
+            ],
+            "time": "2018-10-30T16:46:14+00:00"
+        },
+        {
+            "name": "psr/http-server-middleware",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-server-middleware.git",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-server-middleware/zipball/2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "reference": "2296f45510945530b9dceb8bcedb5cb84d40c5f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Server\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP server-side middleware",
+            "keywords": [
+                "http",
+                "http-interop",
+                "middleware",
+                "psr",
+                "psr-15",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2018-10-30T17:12:04+00:00"
         },
         {
             "name": "psr/log",
@@ -6192,35 +6485,34 @@
             "time": "2020-10-24T10:57:07+00:00"
         },
         {
-            "name": "tuupola/slim-jwt-auth",
-            "version": "2.4.0",
+            "name": "tuupola/callable-handler",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tuupola/slim-jwt-auth.git",
-                "reference": "bca54de41a8207d4d67faf3601a06a96cb7ed48f"
+                "url": "https://github.com/tuupola/callable-handler.git",
+                "reference": "0bc7b88630ca753de9aba8f411046856f5ca6f8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tuupola/slim-jwt-auth/zipball/bca54de41a8207d4d67faf3601a06a96cb7ed48f",
-                "reference": "bca54de41a8207d4d67faf3601a06a96cb7ed48f",
+                "url": "https://api.github.com/repos/tuupola/callable-handler/zipball/0bc7b88630ca753de9aba8f411046856f5ca6f8c",
+                "reference": "0bc7b88630ca753de9aba8f411046856f5ca6f8c",
                 "shasum": ""
             },
             "require": {
-                "firebase/php-jwt": "^3.0 || ^4.0 || ^5.0",
-                "php": "^5.5 || ^7.0",
-                "psr/http-message": "^1.0",
-                "psr/log": "^1.0"
+                "php": "^7.1|^8.0",
+                "psr/http-server-middleware": "^1.0"
             },
             "require-dev": {
-                "overtrue/phplint": "^0.2.4",
-                "phpunit/phpunit": "^4.6",
-                "squizlabs/php_codesniffer": "^2.3",
-                "zendframework/zend-diactoros": "^1.3"
+                "overtrue/phplint": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.2",
+                "tuupola/http-factory": "^0.4.0|^1.0",
+                "zendframework/zend-diactoros": "^1.6.0|^2.0"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Slim\\Middleware\\": "src"
+                    "Tuupola\\Middleware\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6231,20 +6523,160 @@
                 {
                     "name": "Mika Tuupola",
                     "email": "tuupola@appelsiini.net",
-                    "homepage": "http://www.appelsiini.net/",
+                    "homepage": "https://appelsiini.net/",
                     "role": "Developer"
                 }
             ],
-            "description": "PSR-7 JWT Authentication Middleware",
+            "description": "Compatibility layer for PSR-7 double pass and PSR-15 middlewares.",
+            "homepage": "https://github.com/tuupola/callable-handler",
+            "keywords": [
+                "middleware",
+                "psr-15",
+                "psr-7"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/tuupola",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-09T08:31:54+00:00"
+        },
+        {
+            "name": "tuupola/http-factory",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tuupola/http-factory.git",
+                "reference": "aa48841a9f572b9cebe9d3ac5d5d3362a83f57ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tuupola/http-factory/zipball/aa48841a9f572b9cebe9d3ac5d5d3362a83f57ac",
+                "reference": "aa48841a9f572b9cebe9d3ac5d5d3362a83f57ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0",
+                "psr/http-factory": "^1.0"
+            },
+            "conflict": {
+                "nyholm/psr7": "<1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "^1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "^0.7.0",
+                "overtrue/phplint": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tuupola\\Http\\Factory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mika Tuupola",
+                    "email": "tuupola@appelsiini.net",
+                    "homepage": "https://appelsiini.net/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lightweight autodiscovering PSR-17 HTTP factories",
+            "homepage": "https://github.com/tuupola/http-factory",
+            "keywords": [
+                "http",
+                "psr-17",
+                "psr-7"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/tuupola",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-01T07:46:32+00:00"
+        },
+        {
+            "name": "tuupola/slim-jwt-auth",
+            "version": "3.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tuupola/slim-jwt-auth.git",
+                "reference": "1c3668deebbcbdc49c9abe6cce4f6e0c8c5e09b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tuupola/slim-jwt-auth/zipball/1c3668deebbcbdc49c9abe6cce4f6e0c8c5e09b5",
+                "reference": "1c3668deebbcbdc49c9abe6cce4f6e0c8c5e09b5",
+                "shasum": ""
+            },
+            "require": {
+                "firebase/php-jwt": "^3.0|^4.0|^5.0",
+                "php": "^7.1|^8.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "psr/log": "^1.0",
+                "tuupola/callable-handler": "^0.3.0|^0.4.0|^1.0",
+                "tuupola/http-factory": "^0.4.0|^1.0.2"
+            },
+            "require-dev": {
+                "codedungeon/phpunit-result-printer": "^0.23.4",
+                "equip/dispatch": "^2.0",
+                "overtrue/phplint": "^1.0",
+                "phpstan/phpstan": "^0.12.43",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0",
+                "squizlabs/php_codesniffer": "^3.4",
+                "zendframework/zend-diactoros": "^1.3|^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tuupola\\Middleware\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mika Tuupola",
+                    "email": "tuupola@appelsiini.net",
+                    "homepage": "https://appelsiini.net/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PSR-7 and PSR-15 JWT Authentication Middleware",
             "homepage": "https://github.com/tuupola/slim-jwt-auth",
             "keywords": [
                 "auth",
                 "json",
                 "jwt",
                 "middleware",
+                "psr-15",
                 "psr-7"
             ],
-            "time": "2018-04-03T06:12:18+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/tuupola",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-10-28T09:53:52+00:00"
         },
         {
             "name": "verot/class.upload.php",
@@ -6345,69 +6777,6 @@
                 "geoip"
             ],
             "time": "2020-07-04T13:18:10+00:00"
-        },
-        {
-            "name": "zendframework/zend-diactoros",
-            "version": "1.8.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "a85e67b86e9b8520d07e6415fcbcb8391b44a75b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/a85e67b86e9b8520d07e6415fcbcb8391b44a75b",
-                "reference": "a85e67b86e9b8520d07e6415fcbcb8391b44a75b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "psr/http-message": "^1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "php-http/psr7-integration-tests": "dev-master",
-                "phpunit/phpunit": "^5.7.16 || ^6.0.8 || ^7.2.7",
-                "zendframework/zend-coding-standard": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-release-1.8": "1.8.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions/create_uploaded_file.php",
-                    "src/functions/marshal_headers_from_sapi.php",
-                    "src/functions/marshal_method_from_sapi.php",
-                    "src/functions/marshal_protocol_version_from_sapi.php",
-                    "src/functions/marshal_uri_from_sapi.php",
-                    "src/functions/normalize_server.php",
-                    "src/functions/normalize_uploaded_files.php",
-                    "src/functions/parse_cookie_header.php"
-                ],
-                "psr-4": {
-                    "Zend\\Diactoros\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "description": "PSR HTTP Message implementations",
-            "homepage": "https://github.com/zendframework/zend-diactoros",
-            "keywords": [
-                "http",
-                "psr",
-                "psr-7"
-            ],
-            "abandoned": "laminas/laminas-diactoros",
-            "time": "2019-08-06T17:53:53+00:00"
         }
     ],
     "packages-dev": [],
