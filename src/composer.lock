@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64e995a7f90bdc685416da06010d6bb4",
+    "content-hash": "baa2f5902ccc3bab0b33ecd7df5bf827",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -624,21 +624,21 @@
         },
         {
             "name": "geocoder-php/bing-maps-provider",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/bing-maps-provider.git",
-                "reference": "c328da1670a634e50440c5a6cf36b302e4d90e89"
+                "reference": "c01c7dea17ccfd590043e7685f2fa54b4e2f432a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/bing-maps-provider/zipball/c328da1670a634e50440c5a6cf36b302e4d90e89",
-                "reference": "c328da1670a634e50440c5a6cf36b302e4d90e89",
+                "url": "https://api.github.com/repos/geocoder-php/bing-maps-provider/zipball/c01c7dea17ccfd590043e7685f2fa54b4e2f432a",
+                "reference": "c01c7dea17ccfd590043e7685f2fa54b4e2f432a",
                 "shasum": ""
             },
             "require": {
                 "geocoder-php/common-http": "^4.0",
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "willdurand/geocoder": "^4.0"
             },
             "provide": {
@@ -646,9 +646,9 @@
             },
             "require-dev": {
                 "geocoder-php/provider-integration-tests": "^1.0",
-                "php-http/curl-client": "^1.7",
+                "php-http/curl-client": "^2.2",
                 "php-http/message": "^1.0",
-                "phpunit/phpunit": "^7.5"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -676,24 +676,24 @@
             ],
             "description": "Geocoder BigMaps adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
-            "time": "2020-07-04T13:18:10+00:00"
+            "time": "2020-12-21T16:41:18+00:00"
         },
         {
             "name": "geocoder-php/common-http",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/php-common-http.git",
-                "reference": "2995af04aa877ecb705054556bdea540662db971"
+                "reference": "9f44a006d4b45d01dd31ea9b38ee7fb5724cd73e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/php-common-http/zipball/2995af04aa877ecb705054556bdea540662db971",
-                "reference": "2995af04aa877ecb705054556bdea540662db971",
+                "url": "https://api.github.com/repos/geocoder-php/php-common-http/zipball/9f44a006d4b45d01dd31ea9b38ee7fb5724cd73e",
+                "reference": "9f44a006d4b45d01dd31ea9b38ee7fb5724cd73e",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "php-http/client-implementation": "^1.0",
                 "php-http/discovery": "^1.6",
                 "php-http/httplug": "^1.0 || ^2.0",
@@ -706,7 +706,7 @@
                 "nyholm/psr7": "^1.0",
                 "php-http/message": "^1.0",
                 "php-http/mock-client": "^1.0",
-                "phpunit/phpunit": "^7.5",
+                "phpunit/phpunit": "^9.5",
                 "symfony/stopwatch": "~2.5"
             },
             "type": "library",
@@ -738,25 +738,25 @@
             "keywords": [
                 "http geocoder"
             ],
-            "time": "2020-07-04T13:18:10+00:00"
+            "time": "2020-12-21T09:30:01+00:00"
         },
         {
             "name": "geocoder-php/google-maps-provider",
-            "version": "4.5.0",
+            "version": "4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/google-maps-provider.git",
-                "reference": "830e5cd42eba6cb42a7a72788049edcb73f2d632"
+                "reference": "1e88138b66bf31b7e025b7bd579edb2cc9690414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/830e5cd42eba6cb42a7a72788049edcb73f2d632",
-                "reference": "830e5cd42eba6cb42a7a72788049edcb73f2d632",
+                "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/1e88138b66bf31b7e025b7bd579edb2cc9690414",
+                "reference": "1e88138b66bf31b7e025b7bd579edb2cc9690414",
                 "shasum": ""
             },
             "require": {
                 "geocoder-php/common-http": "^4.0",
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "willdurand/geocoder": "^4.0"
             },
             "provide": {
@@ -764,9 +764,9 @@
             },
             "require-dev": {
                 "geocoder-php/provider-integration-tests": "^1.0",
-                "php-http/curl-client": "^1.7",
+                "php-http/curl-client": "^2.2",
                 "php-http/message": "^1.0",
-                "phpunit/phpunit": "^7.5"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -794,25 +794,25 @@
             ],
             "description": "Geocoder GoogleMaps adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
-            "time": "2020-07-04T13:18:10+00:00"
+            "time": "2020-12-21T16:41:18+00:00"
         },
         {
             "name": "geocoder-php/nominatim-provider",
-            "version": "5.3.0",
+            "version": "5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/nominatim-provider.git",
-                "reference": "09ed04eca12599ba88924ecb7cbaa5d96bd86fa3"
+                "reference": "80f39ce41bcd0e4d9de3e83c40caf92d089fecf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/09ed04eca12599ba88924ecb7cbaa5d96bd86fa3",
-                "reference": "09ed04eca12599ba88924ecb7cbaa5d96bd86fa3",
+                "url": "https://api.github.com/repos/geocoder-php/nominatim-provider/zipball/80f39ce41bcd0e4d9de3e83c40caf92d089fecf2",
+                "reference": "80f39ce41bcd0e4d9de3e83c40caf92d089fecf2",
                 "shasum": ""
             },
             "require": {
                 "geocoder-php/common-http": "^4.1",
-                "php": "^7.2",
+                "php": "^7.3 || ^8.0",
                 "willdurand/geocoder": "^4.0"
             },
             "provide": {
@@ -820,9 +820,9 @@
             },
             "require-dev": {
                 "geocoder-php/provider-integration-tests": "^1.0",
-                "php-http/curl-client": "^1.7",
+                "php-http/curl-client": "^2.2",
                 "php-http/message": "^1.0",
-                "phpunit/phpunit": "^7.5"
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -850,7 +850,7 @@
             ],
             "description": "Geocoder Nominatim adapter",
             "homepage": "http://geocoder-php.org/Geocoder/",
-            "time": "2020-12-10T08:12:58+00:00"
+            "time": "2020-12-21T16:41:18+00:00"
         },
         {
             "name": "goetas-webservices/xsd2php-runtime",
@@ -1350,16 +1350,16 @@
         },
         {
             "name": "knplabs/github-api",
-            "version": "v2.18.0",
+            "version": "v2.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/php-github-api.git",
-                "reference": "60d0d5fd450aae8fa147eea53f1fee4b0f59a57f"
+                "reference": "271b3ca6f7b315c3dae1fcf2be8bb2912a93587d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/60d0d5fd450aae8fa147eea53f1fee4b0f59a57f",
-                "reference": "60d0d5fd450aae8fa147eea53f1fee4b0f59a57f",
+                "url": "https://api.github.com/repos/KnpLabs/php-github-api/zipball/271b3ca6f7b315c3dae1fcf2be8bb2912a93587d",
+                "reference": "271b3ca6f7b315c3dae1fcf2be8bb2912a93587d",
                 "shasum": ""
             },
             "require": {
@@ -1383,7 +1383,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-2.x": "2.18.x-dev",
+                    "dev-2.x": "2.19.x-dev",
                     "dev-master": "3.0.x-dev"
                 }
             },
@@ -1421,7 +1421,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-11T19:39:25+00:00"
+            "time": "2020-12-21T18:32:50+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -6721,24 +6721,24 @@
         },
         {
             "name": "willdurand/geocoder",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/geocoder-php/php-common.git",
-                "reference": "199d6a853947a5051e7ff14d35849759009bad5d"
+                "reference": "3e86f5b10ab0cef1cf03f979fe8e34b6476daff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/geocoder-php/php-common/zipball/199d6a853947a5051e7ff14d35849759009bad5d",
-                "reference": "199d6a853947a5051e7ff14d35849759009bad5d",
+                "url": "https://api.github.com/repos/geocoder-php/php-common/zipball/3e86f5b10ab0cef1cf03f979fe8e34b6476daff0",
+                "reference": "3e86f5b10ab0cef1cf03f979fe8e34b6476daff0",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "nyholm/nsa": "^1.1",
-                "phpunit/phpunit": "^7.5",
+                "phpunit/phpunit": "^9.5",
                 "symfony/stopwatch": "~2.5"
             },
             "suggest": {
@@ -6776,7 +6776,7 @@
                 "geocoding",
                 "geoip"
             ],
-            "time": "2020-07-04T13:18:10+00:00"
+            "time": "2020-12-21T09:30:01+00:00"
         }
     ],
     "packages-dev": [],
