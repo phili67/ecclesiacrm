@@ -24,8 +24,11 @@ class CardDavPDO extends SabreCardDavBase\PDO {
 
     var $addressBookShareObjectTableName;
 
-    function __construct($interface=null) {
-        $pdo = Bootstrapper::GetPDO();
+    function __construct($pdo=null) {
+
+        if (is_null($pdo)) {
+            $pdo = Bootstrapper::GetPDO();
+        }
 
         parent::__construct($pdo);
 

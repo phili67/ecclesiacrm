@@ -21,8 +21,10 @@ use EcclesiaCRM\Bootstrapper;
 
 class PrincipalPDO extends SabrePrincipalBase\PDO {
 
-    function __construct($interface=null) {
-        $pdo = Bootstrapper::GetPDO();
+    function __construct($pdo=null) {
+        if (is_null($pdo)) {
+            $pdo = Bootstrapper::GetPDO();
+        }
 
         parent::__construct($pdo);
     }
