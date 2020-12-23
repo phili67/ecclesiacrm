@@ -191,7 +191,6 @@ class SystemConfig
             "sDepositSlipType" => new ConfigItem(2001, "sDepositSlipType", "choice", "QBDT", _("Deposit ticket type.  QBDT - Quickbooks"), "", '{"Choices":["QBDT"]}'),
             "bAllowEmptyLastName" => new ConfigItem(2010, "bAllowEmptyLastName", "boolean", "0", _("Set true to allow empty lastname in Person Editor.  Set false to validate last name and inherit from family when left empty.")),
             "iPersonNameStyle" => new ConfigItem(2020, "iPersonNameStyle", "choice", "4", "", "", json_encode(SystemConfig::getNameChoices())),
-            "iPersonAddressStyle" => new ConfigItem(2048, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices())),
             "bDisplayBillCounts" => new ConfigItem(2002, "bDisplayBillCounts", "boolean", "1", _("Display bill counts on deposit slip")),
             "sCloudURL" => new ConfigItem(2003, "sCloudURL", "text", "http://demo.ecclesiacrm.com/", _("EcclesiaCRM Cloud Access URL")),
             "sNexmoAPIKey" => new ConfigItem(2012, "sNexmoAPIKey", "text", "", _("Nexmo SMS API Key")),
@@ -264,7 +263,8 @@ class SystemConfig
             "sPastoralcarePeriod" => new ConfigItem(2085, "sPastoralcarePeriod", "choice", "Yearly 1", _("'Yearly 1' : from 1 january to 31 december, '365' : in a range from now-365 days to now, 'Yearly 2' : from september to september."), "", '{"Choices":["Yearly 1", "Yearly 2", "365"]}'),
             "sJitsiDomain" => new ConfigItem(2086, "sJitsiDomain", "text", "meet.jit.si", _("The jitsi domain name, by default : meet.jit.si")),
             "sJitsiDomainScriptPath" => new ConfigItem(2087, "sJitsiDomainScriptPath", "text", "https://meet.jit.si/external_api.js", _("The jitsi domain name script path, by default : https://meet.jit.si/external_api.js")),
-            "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)"))
+            "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)")),
+            "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices()))
         );
     }
 
