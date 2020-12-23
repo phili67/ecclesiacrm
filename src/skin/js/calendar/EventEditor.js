@@ -908,11 +908,11 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 eventCreated = true;
                             }
 
-                            if (page == 'ListEvent.php') {
+                            if ( page.includes("ListEvent.php") ) {
                                 location.reload();
-                            } else if (page == 'Checkin.php') {
+                            } else if ( page.includes("Checkin.php") ) {
                                 window.location.href = window.CRM.root + '/Checkin.php';
-                            } else if (page == "/v2/calendar") {
+                            } else if (page.includes("/v2/calendar")) {
                                 // we reload all the events
                                 window.CRM.calendar.refetchEvents();
                             } else {
