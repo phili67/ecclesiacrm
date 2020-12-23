@@ -5,6 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
 use EcclesiaCRM\Person2group2roleP2g2r as ChildPerson2group2roleP2g2r;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -204,16 +205,18 @@ END:VCARD';
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
 
         // all the group calendars are binded to the principal admin
-        $calendar = $calendarBackend->createCalendar('principals/'.strtolower($userAdmin->getUserName()), $uuid, [
-            '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
-            '{DAV:}displayname'                                               => $this->getName(),
-            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
-          ]);
-
-
-        $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid($calendar[0]);
-        $calendarInstance->setGroupId($this->getId());
-        $calendarInstance->save();
+        $calendar = $calendarBackend->createCalendar(
+            'principals/'.strtolower($userAdmin->getUserName()),
+            $uuid,
+            [
+                '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
+                '{DAV:}displayname'                                               => $this->getName(),
+                '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
+            ],
+            1,
+            '',
+            $this->getId()
+        );
 
         // we filter all the user who are admin or group manager and not the principal admin
         $users = UserQuery::Create()
@@ -247,18 +250,20 @@ END:VCARD';
             parent::postSave($con);
 
             // Now a group is binded to a calendar !!!
-            $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
 
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO();
             $carddavBackend  = new CardDavPDO();
+
+            $calendarID = $calendarBackend->getByGroupid( $this->getId() );
 
             // Updating the calendar
             $propPatch = new PropPatch([
                 '{DAV:}displayname'                                       => $this->getName()
               ]);
 
-            $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
+            $calendarBackend->updateCalendar([$calendarID[0],$calendarID[1]], $propPatch);
+            //$calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
 
             $result = $propPatch->commit();
 
@@ -271,6 +276,8 @@ END:VCARD';
               ],
               $this->getId()
             );
+
+            LoggerUtils::getAppLogger()->info("really finished");
         }
     }
 
