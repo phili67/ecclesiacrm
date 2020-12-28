@@ -48,7 +48,7 @@ class MailChimpService
        return isset($_SESSION['MailChimpLists']);
     }
     private function getListsFromCache(){
-      if (!isset($_SESSION['MailChimpLists']) ){// the second part can be used to force update
+      if ( !isset($_SESSION['MailChimpLists']) && !is_null($this->myMailchimp) ){// the second part can be used to force update
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
