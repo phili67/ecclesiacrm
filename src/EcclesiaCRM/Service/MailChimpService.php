@@ -829,6 +829,8 @@ class MailChimpService
     }
 
     public function deleteMember($list_id,$email){
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($email);
 
         $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash");
@@ -896,6 +898,8 @@ class MailChimpService
     }
     public function getStatusMember ($list_id,$mail)
     {
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($mail);
 
         $result = $this->myMailchimp->get("lists/$list_id/members/$subscriber_hash");
@@ -929,6 +933,8 @@ class MailChimpService
     }
     public function updateMember($list_id,$first_name,$last_name,$mail,$status) // status : Unsubscribed , Subscribed
     {
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($mail);
 
         if (!empty($name) && !empty($last_name)) {
