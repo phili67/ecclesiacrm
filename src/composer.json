@@ -31,13 +31,11 @@
         "slim/php-view": "2.2.0",
         "monolog/monolog": "^1.17",
         "authorizenet/authorizenet": "1.9.4",
-        "knplabs/github-api": "3.*",
         "setasign/fpdf": "1.8.*",
         "phpmailer/phpmailer": "6.1.6",
         "verot/class.upload.php": "dev-master",
         "ifsnop/mysqldump-php": "2.*",
         "php-http/message": "1.6.0",
-        "php-http/guzzle6-adapter": "2.*",
         "geocoder-php/google-maps-provider": "4.*",
         "geocoder-php/bing-maps-provider": "4.*",
         "geocoder-php/nominatim-provider": "5.*",
@@ -50,7 +48,12 @@
         "defuse/php-encryption": "^2.2",
         "endroid/qr-code": "4.*",
         "ext-gettext": "*",
-        "laminas/laminas-escaper": "2.*"
+        "laminas/laminas-escaper": "2.*",
+        "php-http/curl-client": "^2.2",
+        "nyholm/psr7": "^1.4",
+        "knplabs/github-api": "^3.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "http-interop/http-factory-guzzle": "^1.0"
     },
     "autoload": {
         "classmap": [
