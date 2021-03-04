@@ -9,7 +9,7 @@ use Geocoder\Provider\BingMaps\BingMaps;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\Provider\Nominatim\Nominatim;
 use Geocoder\StatefulGeocoder;
-use Http\Adapter\Guzzle6\Client;
+use Http\Client\Curl\Client;
 use Geocoder\Query\GeocodeQuery;
 
 class GeoUtils
@@ -21,7 +21,12 @@ class GeoUtils
         $logger = LoggerUtils::getAppLogger();
 
         $provider = null;
-        $adapter = new Client();
+        $options = [
+            CURLOPT_CONNECTTIMEOUT => 2,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ];
+
+        $adapter  = new Client(null, null, $options);
 
         $lat = 0;
         $long = 0;
