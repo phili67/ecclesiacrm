@@ -31,14 +31,16 @@ namespace EcclesiaCRM
               }
           }
       }
-      
+
       /**
      * Import SQL from file.
      *
      * @param string path to sql file
      */
-      public static function sqlImport($file, $mysqli)
+      public static function sqlImport($file, $pdo)
       {
+          $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 0);
+
           $delimiter = ';';
           $file = fopen($file, 'r');
           $isFirstRow = true;
@@ -76,7 +78,7 @@ namespace EcclesiaCRM
                       $offset = $delimiterOffset + strlen($delimiter);
                   } else {
                       $sql = trim($sql.' '.trim(mb_substr($row, 0, $delimiterOffset)));
-                      self::query($sql, $mysqli);
+                      self::query($sql, $pdo);
                       $row = mb_substr($row, $delimiterOffset + strlen($delimiter));
                       $offset = 0;
                       $sql = '';
@@ -85,10 +87,12 @@ namespace EcclesiaCRM
               $sql = trim($sql.' '.$row);
           }
           if (strlen($sql) > 0) {
-              self::query($row, $mysqli);
+              self::query($row, $pdo);
           }
 
           fclose($file);
+
+          $pdo->setAttribute(\PDO::ATTR_AUTOCOMMIT, 1);
       }
 
       /**
@@ -164,13 +168,13 @@ namespace EcclesiaCRM
           return $isQuoted;
       }
 
-      private static function query($sql, $mysqli)
+      private static function query($sql, $pdo)
       {
           if (preg_match("/DEFINER\s*=.*@.*/", $sql)) {
                return;
           }
-          if (!$query = $mysqli->query($sql)) {
-              throw new \Exception("Cannot execute request to the database {$sql}: ".$mysqli->error);
+          if (!$query = $pdo->query($sql)) {
+              throw new \Exception("Cannot execute request to the database {$sql}: ".$pdo->error);
           }
       }
   }
