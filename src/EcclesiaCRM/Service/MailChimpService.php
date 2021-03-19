@@ -437,7 +437,7 @@ class MailChimpService
     public function deleteSegment ($list_id, $tag_id) {
       $result = $this->myMailchimp->delete("lists/$list_id/segments/$tag_id");
 
-      if ( !array_key_exists ('title',$result) ) {
+      if ( gettype($result) == 'boolean' && $result == true ) {
         // We've to remove all the segments for each user
         $this->delete_Segment ($list_id, $tag_id);
       }
@@ -643,7 +643,7 @@ class MailChimpService
 
       $result = $this->myMailchimp->delete("campaigns/$campaignID");
 
-      if ( !array_key_exists ('title',$result) ) {
+      if ( gettype($result) == 'boolean' && $result == true ) {
         $this->delete_Campaign ($campaignID);
       }
 
