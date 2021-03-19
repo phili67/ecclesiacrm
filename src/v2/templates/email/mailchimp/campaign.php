@@ -111,7 +111,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <!-- Philippe Logel -->
                                     <input class="form-control date-picker input-sm" type="text" id="dateCampaign"
                                            name="dateCampaign"
-                                           value="<?= (isset($campaign[send_time])) ? OutputUtils::change_date_for_place_holder($campaign[send_time]) : "" ?>"
+                                           value="<?= (isset($campaign['send_time'])) ? OutputUtils::change_date_for_place_holder($campaign['send_time']) : "" ?>"
                                             maxlength="10" id="sel1" size="11"
                                             placeholder="<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>
                                     " <?= ($campaign['status'] == "schedule") ? "" : "disabled" ?>>
@@ -125,7 +125,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <!-- Philippe Logel -->
                                     <input type="text" class="form-control timepicker input-sm" id="timeCampaign"
                                            name="timeCampaign"
-                                           value="<?= (isset($campaign[send_time])) ? OutputUtils::change_time_for_place_holder($campaign[send_time]) : "00:00" ?>" <?= ($campaign['status'] == "schedule") ? "" : "disabled" ?>>
+                                           value="<?= (isset($campaign['send_time'])) ? OutputUtils::change_time_for_place_holder($campaign['send_time']) : "00:00" ?>" <?= ($campaign['status'] == "schedule") ? "" : "disabled" ?>>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -163,7 +163,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src="<?= $sRootPath ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.isCampaignSent = <?= (($campaign['status'] == "sent") ? 1 : 0) ?>;
@@ -175,10 +175,14 @@ require $sRootDocument . '/Include/Header.php';
     window.CRM.sDateFormatLong = "<?= $sDateFormatLong ?>";
 
     //Timepicker
-    $('.timepicker').timepicker({
-        showInputs: false,
-        showMeridian: (window.CRM.timeEnglish == true) ? true : false,
-        minuteStep: 15
+    $('.timepicker').datetimepicker({
+        format: 'LT',
+        locale: window.CRM.lang,
+        icons:
+            {
+                up: 'fa fa-angle-up',
+                down: 'fa fa-angle-down'
+            }
     });
 </script>
 
