@@ -26,7 +26,7 @@
     "require": {
         "php": ">=7.3.0",
         "propel/propel": "dev-master",
-        "drewm/mailchimp-api": "^2.5",
+        "drewm/mailchimp-api": "v2.5.4",
         "slim/slim": "3.*",
         "slim/php-view": "2.2.0",
         "monolog/monolog": "^1.17",
