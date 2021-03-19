@@ -686,7 +686,7 @@ class MailChimpService
       return $resultContent;
     }
     public function setCampaignContent ($campaignID,$htmlBody) {
-      $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
+      $resultContent = $this->myMailchimp->put("campaigns/".$campaignID."/content", ["html" => $htmlBody]);
 
       return $resultContent;
     }
@@ -835,7 +835,7 @@ class MailChimpService
 
         $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash");
 
-        if (!array_key_exists ('title',$result) ) {
+        if ( gettype($result) == 'boolean' and $result == true ) {
           $this->delete_list_member ($list_id,$email);
         }
 
