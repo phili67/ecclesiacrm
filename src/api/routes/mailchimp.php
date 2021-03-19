@@ -441,7 +441,7 @@ function removeTag (Request $request, Response $response, array $args) {
 
      $res = $mailchimp->deleteSegment($input->list_id, $input->tag_ID);
 
-     if ( !array_key_exists ('title',$res) ) {
+     if ( gettype($res) == 'boolean' && $res == true ) {
          return $response->withJson(['success' => true, "result" => $res]);
     } else {
          return $response->withJson(['success' => false, "error" => $res]);
@@ -533,7 +533,7 @@ function campaignDelete (Request $request, Response $response, array $args) {
 
     $res = $mailchimp->deleteCampaign ($input->campaign_id);
 
-    if ( !array_key_exists ('title',$res) ) {
+    if ( gettype($res) == 'boolean' && $res == true ) {
       return $response->withJson(['success' => true,'content' => $res]);
     } else {
       return $response->withJson(['success' => false, "error" => $res]);
