@@ -21,13 +21,15 @@ $(document).ready(function () {
         $("#addCreateTagsDropAll").append('<div class="dropdown-divider"></div>');
 
 
-        var len = data.result.length;
+        if ( data.result != undefined ) {
+            var len = data.result.length;
 
-        for (i=0; i<len; ++i) {
-          $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
-          $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '"><i class="fa fa-tag"></i> ' +  data.result[i].name + '</a>');
+            for (i = 0; i < len; ++i) {
+                $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fa fa-tag"></i> ' + data.result[i].name + '</a>');
+                $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fa fa-tag"></i> ' + data.result[i].name + '</a>');
 
-          $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' +  data.result[i].list_id +'"><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tag") + ' : '  +  data.result[i].name + '</a>');
+                $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' + data.result[i].list_id + '"><i class="fa fa-minus"></i><i class="fa fa-tag"></i> ' + i18next.t("Delete tag") + ' : ' + data.result[i].name + '</a>');
+            }
         }
       });
    }
