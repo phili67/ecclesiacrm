@@ -22,19 +22,19 @@ class Photo {
     $this->remotesEnabled = SystemConfig::getBooleanValue('bEnableGooglePhotos') || SystemConfig::getBooleanValue('bEnableGravatarPhotos');
     $this->photoHunt();
   }
-  
+
   private function setURIs($photoPath) {
     $this->photoURI = $photoPath;
-    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/thumbnails/" . $this->id . ".jpg"; 
+    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/thumbnails/" . $this->id . ".jpg";
   }
- 
+
   private function shouldRefreshPhotoFile($photoFile) {
     if ($this->remotesEnabled) {
       // if the system has remotes enabled, calculate the cutoff timestamp for refreshing remote photos.
       $remotecachethreshold = date_create();
-      date_sub($remotecachethreshold,date_interval_create_from_date_string(SystemConfig::getValue("iRemotePhotoCacheDuration")));
+      date_sub($remotecachethreshold,date_interval_create_from_date_string(SystemConfig::getValue("iRemotePhotoCacheDuration")." hours"));
       if (strpos($photoFile,"remote") !== false || strpos($photoFile,"initials") !== false ) {
-        return filemtime($photoFile) < date_timestamp_get($remotecachethreshold); 
+        return filemtime($photoFile) < date_timestamp_get($remotecachethreshold);
       }
     }
     else{
@@ -42,29 +42,29 @@ class Photo {
       return strpos($photoFile,"remote") !== false;
     }
   }
-  
+
   public static function getValidExtensions() {
       return Photo::$validExtensions;
   }
-  
+
   private function photoHunt() {
     $baseName = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id;
     $extensions = Photo::$validExtensions;
-   
+
     foreach($extensions as $ext) {
       $photoFiles = array($baseName . "." . $ext,$baseName . "-remote." . $ext,$baseName . "-initials." . $ext);
       foreach ($photoFiles as $photoFile)
       {
         if (file_exists($photoFile)) {
           $this->setURIs($photoFile);
-          if ($ext !== "png") 
+          if ($ext !== "png")
           {
             $this->convertToPNG();
           }
           if ($this->shouldRefreshPhotoFile($photoFile)) {
             //if we found the file, but it's remote and aged, then we should update it.
             $this->delete();
-            break 2;  
+            break 2;
           }
           return;
          }
@@ -93,11 +93,11 @@ class Photo {
         }
       }
     }
- 
+
     # stil no image - generate it from initials
     $this->renderInitials();
   }
-  
+
   private function convertToPNG() {
     $image = $this->getGDImage($this->getPhotoURI());
     $this->delete();
@@ -105,10 +105,10 @@ class Photo {
     imagepng($image,$targetPath);
     $this->setURIs($targetPath);
   }
-  
+
   private function getGDImage($sourceImagePath) {
     $sourceImageType = exif_imagetype($sourceImagePath);
-    switch ($sourceImageType) 
+    switch ($sourceImageType)
     {
         case IMAGETYPE_GIF:
             $sourceGDImage = imagecreatefromgif($sourceImagePath);
@@ -122,7 +122,7 @@ class Photo {
     }
     return $sourceGDImage;
   }
-  
+
   private function createThumbnail() {
     $thumbWidth = SystemConfig::getValue("iThumbnailWidth");
     $img =  $this->getGDImage($this->photoURI); //just in case we have legacy JPG/GIF that don't have a thumbnail.
@@ -152,7 +152,7 @@ class Photo {
     $this->photoContentType = $finfo->file($this->photoURI);
     return $this->photoContentType;
   }
-  
+
   public function getThumbnailContentType() {
     $finfo = new \finfo(FILEINFO_MIME);
     $this->thumbnailContentType = $finfo->file($this->photoThumbURI);
@@ -166,7 +166,7 @@ class Photo {
     }
     return $this->photoThumbURI;
   }
-  
+
   public function getPhotoURI() {
     return $this->photoURI;
   }
@@ -218,7 +218,7 @@ class Photo {
     $blue = rand(0, 150);
     return imagecolorallocate($image, $red, $green, $blue);
   }
-  
+
   private function getInitialsString() {
     $retstr = "";
     if ($this->photoType == "Person")
@@ -237,7 +237,7 @@ class Photo {
     }
     return $retstr;
   }
-  
+
   private function renderInitials() {
     $initials = $this->getInitialsString();
     $targetPath = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id."-initials.png";
@@ -256,7 +256,7 @@ class Photo {
     imagepng($image,$targetPath);
     $this->setURIs($targetPath);
   }
-  
+
   public function setImageFromBase64($base64) {
       $this->delete();
       $fileName = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id.".png";
@@ -270,7 +270,7 @@ class Photo {
       }
 
   }
-  
+
   public function delete() {
     $deleted = false;
     if (file_exists($this->photoURI))
@@ -284,14 +284,14 @@ class Photo {
       $deleted = true;
     }
     return $deleted;
-  }  
-  
+  }
+
   public function refresh() {
     if (strpos($this->photoURI, "initials") || strpos($this->photoURI, "remote")) {
       $this->delete();
     }
     $this->photoURI = $this->photoHunt(SystemURLs::getImagesRoot() . "/" . $photoType . "/" . $id);
-    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $photoType . "/thumbnails/" . $id . ".jpg"; 
+    $this->photoThumbURI = SystemURLs::getImagesRoot() . "/" . $photoType . "/thumbnails/" . $id . ".jpg";
   }
-  
+
 }
