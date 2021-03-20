@@ -167,7 +167,7 @@ class MailChimpService
             // in the case the list is no more in the cache
             $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
 
-            if (count($listmembers[0]) == 0) {
+            if (is_null($listmembers) == null || (!is_null($listmembers) != null && gettype($listmembers) == 'array' && count($listmembers[0]) == 0) ) {
               return [];
             }
 
@@ -281,7 +281,7 @@ class MailChimpService
     public function deleteList ($list_id) {
         $result = $this->myMailchimp->delete("lists/$list_id");
 
-        if ( !array_key_exists ('title',$result) ) {
+        if ( gettype($result) == 'boolean' && $result == true ) {
           // we use always the cache to improve the performance
           $this->delete_List($list_id);
         }
