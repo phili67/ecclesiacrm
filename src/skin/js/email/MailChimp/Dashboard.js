@@ -31,7 +31,7 @@ $(document).ready(function () {
           for (i=0;i<len;i++) {
             var list = data.MailChimpLists[i];
 
-            listViews += '<div class="card">'
+            listViews += '<div class="card card-gray">'
             +'    <div class="card-header   with-border">'
             +'      <h3 class="card-title"><i class="fa fa-list"></i> '+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
@@ -64,31 +64,36 @@ $(document).ready(function () {
 
             listViews += '        </div>';
 
-            var lenTags = data.MailChimpLists[i].tags.length;
-
-            if (lenTags) {
-
-                listViews += '        <div class="col-lg-3">'
-                +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
-
-                var tags    = data.MailChimpLists[i].tags;
-
-                var tagsButtons = '';
+            if ( data.MailChimpLists[i].tags !== undefined ) {
+                var lenTags = data.MailChimpLists[i].tags.length;
 
                 if (lenTags) {
-                  for (k=0;k<lenTags;k++) {
-                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
-                  }
+
+                    listViews += '        <div class="col-lg-3">'
+                        + '           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+
+                    var tags = data.MailChimpLists[i].tags;
+
+                    var tagsButtons = '';
+
+                    if (lenTags) {
+                        for (k = 0; k < lenTags; k++) {
+                            tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                        }
+                    }
+
+                    listViews += tagsButtons;
+
+                    listViews += '        </div>';
+
                 }
-
-                listViews += tagsButtons;
-
-                listViews += '        </div>';
-
             }
 
-            listViews += '      </div>'
+            listViews += '      </div>' +
+                '</div>'
+                +'<div class="card-footer">'
             +'<a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fa fa-pencil"></i> ' + i18next.t('Modify') + '</a>'
+                +'</div>'
             +'    </div>';
 
             listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
