@@ -157,7 +157,7 @@ function searchList (Request $request, Response $response, array $args) {
           ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
           ->find();
 
-      if (!empty($families))
+      if ( $families->count() > 0 )
       {
         $data = [];
         $id++;
@@ -366,7 +366,7 @@ function deleteList (Request $request, Response $response, array $args) {
      if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
        $res = $mailchimp->deleteList($input->list_id);
 
-       if ( !array_key_exists ('title',$res) ) {
+       if ( gettype($res) == 'boolean' && $res == true ) {
          return $response->withJson(['success' => true, "result" => $res]);
        } else {
          return $response->withJson(['success' => false, "error" => $res]);
