@@ -22,7 +22,6 @@ use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\CalendarinstancesQuery;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use Propel\Runtime\Propel;
 
 $app->group('/attendees', function () {
 
@@ -411,11 +410,9 @@ function attendeesStudent (Request $request, Response $response, array $args) {
        $_SESSION['EventID'] = $event->getID();
      } else {
        // new way to manage events : sabre
-       // we get the PDO for the Sabre connection from the Propel connection
-       $pdo = Propel::getConnection();
 
        // We set the BackEnd for sabre Backends
-       $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+       $calendarBackend = new CalDavPDO();
 
        $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
@@ -668,11 +665,8 @@ function attendeesGroups (Request $request, Response $response, array $args) {
                     $_SESSION['EventID'] = $event->getID();
                 } else {
                     // new way to manage events : sabre
-                    // we get the PDO for the Sabre connection from the Propel connection
-                    $pdo = Propel::getConnection();
-
                     // We set the BackEnd for sabre Backends
-                    $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+                    $calendarBackend = new CalDavPDO();
 
                     $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 

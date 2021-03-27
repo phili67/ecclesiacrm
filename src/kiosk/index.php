@@ -24,12 +24,12 @@ require __DIR__ . '/routes/kiosk.php';
 
 $windowOpen = new DateTime(SystemConfig::getValue("sKioskVisibilityTimestamp")) > new DateTime();
 
-if (isset($_COOKIE['kioskCookie'])) {
+if ( isset($_COOKIE['kioskCookie']) ) {
     $g = hash('sha256', $_COOKIE['kioskCookie']);
     $Kiosk =  KioskDeviceQuery::create()
           ->findOneByGUIDHash($g);
     if (is_null($Kiosk)) {
-        setcookie(kioskCookie, '', time() - 3600);
+        setcookie('kioskCookie', '', time() - 3600);
         header('Location: '.$_SERVER['REQUEST_URI']);
     }
 }

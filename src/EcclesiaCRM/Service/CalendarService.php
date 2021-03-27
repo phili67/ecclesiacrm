@@ -18,7 +18,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
-use Propel\Runtime\Propel;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\MyPDO\VObjectExtract;
 
@@ -107,12 +106,10 @@ class CalendarService
 
 
         // new way to manage events
-        // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
 
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-        $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
+        $principalBackend = new PrincipalPDO();
         // get all the calendars for the current user
 
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);

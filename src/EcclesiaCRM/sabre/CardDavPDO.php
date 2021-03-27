@@ -14,23 +14,27 @@ use EcclesiaCRM\PersonQuery;
 
 use Sabre\CardDAV;
 use Sabre\DAV;
-use Sabre\VObject;
-use Sabre\DAV\Exception\Forbidden;
 use Sabre\DAV\Xml\Element\Sharee;
+
+use EcclesiaCRM\Bootstrapper;
 
 use Sabre\CardDAV\Backend as SabreCardDavBase;
 
 class CardDavPDO extends SabreCardDavBase\PDO {
 
     var $addressBookShareObjectTableName;
-    
-    function __construct(\PDO $pdo) {
+
+    function __construct($pdo=null) {
+
+        if (is_null($pdo)) {
+            $pdo = Bootstrapper::GetPDO();
+        }
 
         parent::__construct($pdo);
-        
+
         $this->addressBookShareObjectTableName = 'addressbookshare';
     }
-    
+
     /**
      * Merges all vcard objects, and builds one big vcf export
      *
@@ -38,20 +42,20 @@ class CardDavPDO extends SabreCardDavBase\PDO {
      * @return string
      */
     function generateVCFForAddressBook($addressBookId) {
-    
+
         $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->cardsTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
 
         $output = "";
-        
+
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             $person = PersonQuery::create()->findOneById ($row['personId']);
-            
+
             if (!is_null ($person) && !$person->isDeactivated()) {
               $output .= $row['carddata']."\n";
             }
         }
-        
+
         return $output;
 
     }
@@ -107,7 +111,7 @@ class CardDavPDO extends SabreCardDavBase\PDO {
                 '{http://sabredav.org/ns}sync-token'                          => $row['synctoken'] ? $row['synctoken'] : '0',
             ];
         }
-        
+
         // now we've to work with the shares
         $stmt = $this->pdo->prepare(<<<SQL
 SELECT {$this->addressBooksTableName}.id as addressBookid, {$this->addressBooksTableName}.uri as uri, {$this->addressBooksTableName}.principaluri as realprincipaluri,
@@ -123,7 +127,7 @@ WHERE {$this->addressBookShareObjectTableName}.principaluri = ? ORDER BY {$this-
 SQL
         );
         $stmt->execute([$principalUri]);
-        
+
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
 
             if ($row['access'] > 1) {
@@ -144,12 +148,12 @@ SQL
                 // the future.
                 $addressBook['read-only'] = (int)$row['access'] === \Sabre\DAV\Sharing\Plugin::ACCESS_READ;
                 $addressBook['read-write'] = (int)$row['access'] === \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE;
-              
+
               // we can add the addressBook
               $addressBooks[] = $addressBook;
             }
         }
-        
+
         return $addressBooks;
     }
 
@@ -194,7 +198,7 @@ SQL
         );
 
     }
-    
+
    /**
      * Deletes an entire addressbook and all its contents
      *
@@ -215,7 +219,7 @@ SQL
         $stmt = $this->pdo->prepare('DELETE FROM ' . $this->addressBookShareObjectTableName . ' WHERE addressbookid = ?');
         $stmt->execute([$addressBookId]);
     }
-    
+
    /**
      * Updates the list of shares.
      *
@@ -295,7 +299,7 @@ INSERT INTO ' . $this->addressBookShareObjectTableName . '
 
         }
     }
-    
+
     /**
      * Returns the list of people whom a calendar is shared with.
      *
@@ -347,7 +351,7 @@ SQL;
         }
         return $result;
 
-    }    
+    }
 
 
 /// This code should be rewritten too ... because of tight access
@@ -412,7 +416,7 @@ SQL;
      * @return array
      */
     function getCardForPerson($addressBookId, $personId) {
-        
+
         $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->cardsTableName . ' WHERE addressbookid = ? AND personId = ? LIMIT 1');
         $stmt->execute([$addressBookId, $personId]);
 
@@ -488,7 +492,7 @@ SQL;
         return $stmt->rowCount() === 1;
 
     }
-    
+
     /**
      * Deletes a card
      *

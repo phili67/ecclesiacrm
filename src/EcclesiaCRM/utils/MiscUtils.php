@@ -35,7 +35,7 @@ class MiscUtils {
   //
   // $special is currently only used for the phone country and the list ID for custom drop-down choices.
   //
-  function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
+  public static function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   {
       switch ($type) {
       // boolean
@@ -352,9 +352,11 @@ class MiscUtils {
  * @param string $dir the directory name
  */
   public static function delTree($dir) {
-   $files = array_diff(scandir($dir), array('.','..'));
+    if ( ! is_dir($dir) ) return false;
+
+    $files = array_diff(scandir($dir), array('.','..'));
     foreach ($files as $file) {
-      (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file");
+        (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file");
     }
     return rmdir($dir);
   }
@@ -582,7 +584,7 @@ public static function FileSizeConvert($bytes)
     return $icon." bg-gray-light";
   }
 
-  public static function simpleEmbedFiles ($path,$realPath=nil) {
+  public static function simpleEmbedFiles ($path,$realPath=NULL) {
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
@@ -896,7 +898,7 @@ public static function FileSizeConvert($bytes)
   }
 
   public static function getPhotoCacheExpirationTimestamp() {
-    $cacheLength = SystemConfig::getValue(iPhotoClientCacheDuration);
+    $cacheLength = SystemConfig::getValue('iPhotoClientCacheDuration');
     $cacheLength = MiscUtils::getRandomCache($cacheLength,0.5*$cacheLength);
     //echo time() +  $cacheLength;
     //die();

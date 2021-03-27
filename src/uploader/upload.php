@@ -17,7 +17,7 @@ if ( ! (SessionUser::isActive() && SessionUser::getUser()->isEDrive()) ) {
 
 
 $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-    
+
 $privateNoteDir = $userDir = $user->getUserRootDir();
 $publicNoteDir  = $user->getUserPublicDir();
 $userName       = $user->getUserName();
@@ -32,12 +32,12 @@ switch ($_GET['type']) {
   case 'privateImages':
   case 'privateDocuments':
     $dropDir = $privateNoteDir. "/". $userName . $currentpath ;
-    $dropAddress = $protocol."://".$_SERVER[HTTP_HOST]."/api/filemanager/getFile/".$user->getPersonId(). "/". $userName. $currentpath . $fileName;
+    $dropAddress = $protocol."://".$_SERVER['HTTP_HOST']."/api/filemanager/getFile/".$user->getPersonId(). "/". $userName. $currentpath . $fileName;
     break;
   case 'publicImages':
   case 'publicDocuments':
     $dropDir = $publicNoteDir. "/" ;
-    $dropAddress = $protocol."://".$_SERVER[HTTP_HOST]."/". $publicNoteDir ."/" . $fileName;
+    $dropAddress = $protocol."://".$_SERVER['HTTP_HOST']."/". $publicNoteDir ."/" . $fileName;
     break;
 }
 
@@ -66,8 +66,8 @@ else
     $rec = ImageTreatment::imageCreateFromAny(dirname(__FILE__)."/../".$dropDir."/" . $fileName);
     ImageTreatment::saveImageCreateFromAny($rec, "../".$dropDir."/" . $fileName);
     imagedestroy($res['image']);
-    
-    
+
+
     // now we create the note
     $note = new Note();
     $note->setPerId($user->getPersonId());
@@ -78,9 +78,9 @@ else
     $note->setType('file');
     $note->setEntered(SessionUser::getUser()->getPersonId());
     $note->setInfo(gettext('Create file'));
-  
+
     $note->save();
- 
+
     echo json_encode([
         "uploaded" => 1,
         "fileName" =>  $fileName,

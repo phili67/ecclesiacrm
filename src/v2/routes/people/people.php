@@ -95,6 +95,7 @@ function argumentsPeopleDashboardArray ()
     $emailList = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     $sEmailLink = '';
+    $roleEmails = [];
     foreach ($emailList as $emailAccount) {
         $sEmail = MiscUtils::SelectWhichInfo($emailAccount['per_Email'], $emailAccount['fam_Email'], false);
         if ($sEmail) {
@@ -102,9 +103,10 @@ function argumentsPeopleDashboardArray ()
                 $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
             // Add email only if email address is not already in string
             if (!stristr($sEmailLink, $sEmail)) {
-                $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                $sEmailLink .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
                 $virt_RoleName = $emailAccount['virt_RoleName'];
-                $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+
+                $roleEmails[$virt_RoleName] .= $sEmail . SessionUser::getUser()->MailtoDelimiter();
             }
         }
     }

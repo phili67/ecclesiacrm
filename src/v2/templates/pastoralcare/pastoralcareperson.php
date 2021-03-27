@@ -28,6 +28,7 @@ if ($ormPastoralCares->count() == 0) {
 
     <?php
 }
+$sFamilyEmails = [];
 ?>
 
 <div class="card card-primary card-body">

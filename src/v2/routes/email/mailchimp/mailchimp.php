@@ -102,7 +102,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
    $mailChimpStatus = $mailchimp->getConnectionStatus();
    $campaign        = $mailchimp->getCampaignFromId($campaignId);
 
-   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" class="status">('._($campaign['status']).')</span></b>';
+   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title'].' <b><span style="color:'.(($campaign['status'] == "sent")?'green':'gray').';float:right" >('._($campaign['status']).')</span></b>';
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),

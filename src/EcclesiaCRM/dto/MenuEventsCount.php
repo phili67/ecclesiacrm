@@ -54,10 +54,8 @@ class MenuEventsCount
 
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         // get all the calendars for the current user
         $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower(SessionUser::getUser()->getUserName()), "displayname", false);
@@ -78,7 +76,9 @@ class MenuEventsCount
                 // the events are formatted with expand in Z DateTimeZone, so we have to change DateTimeZone, to the right date
                 // TO DO : in rare cases the DateTimeZone isn't the same as the now time !!!!
                 $newVCalendar = $vcalendar->expand(new \DateTime($start_date), new \DateTime($end_date), new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                $count += count($newVCalendar->VEVENT);
+                if (!is_null($newVCalendar->VEVENT)) {
+                    $count += count($newVCalendar->VEVENT);
+                }
 
                 if (!is_null($newVCalendar->VEVENT)) {
                     foreach ($newVCalendar->VEVENT->VALARM as $alarm) {

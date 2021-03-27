@@ -1,7 +1,7 @@
 <?php
 
 //
-// CalendarServer 
+// CalendarServer
 // CalDAV support
 //
 //  This code is under copyright not under MIT Licence
@@ -45,7 +45,7 @@ date_default_timezone_set(SystemConfig::getValue('sTimeZone')); //<------ Be car
 /* Database */
 // Propel connection : pdo
 
-$pdo = Propel::getConnection()->getWrappedConnection();
+//$pdo = Propel::getConnection()->getWrappedConnection();
 
 // Normal Sabre way : be carefull to connect in UTF8 mode
 /*$pdo = new PDO('mysql:dbname='.$sDATABASE.';host='.$sSERVERNAME.';charset=utf8', $sUSER, $sPASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -67,8 +67,8 @@ set_error_handler("exception_error_handler");*/
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
-$calendarBackend = new CalDavPDO($pdo);
-$principalBackend = new PrincipalPDO($pdo);
+$calendarBackend = new CalDavPDO();
+$principalBackend = new PrincipalPDO();
 
 
 // Directory structure
@@ -81,23 +81,23 @@ $server = new Sabre\DAV\Server($tree);
 
 $server->setBaseUri(SystemURLs::getRootPath().'/calendarserver.php');
 
-// Server Plugins 
+// Server Plugins
 $authPlugin = new Auth\Plugin($authBackend);
 $server->addPlugin($authPlugin);
 
 $aclPlugin = new Sabre\DAVACL\Plugin();
 $server->addPlugin($aclPlugin);
 
-// CalDAV support 
+// CalDAV support
 $caldavPlugin = new Sabre\CalDAV\Plugin();
 $server->addPlugin($caldavPlugin);
 
-// Calendar subscription support 
+// Calendar subscription support
 $server->addPlugin(
     new Sabre\CalDAV\Subscriptions\Plugin()
 );
 
-// Calendar scheduling support 
+// Calendar scheduling support
 $server->addPlugin(
     new Sabre\CalDAV\Schedule\Plugin()
 );
@@ -106,10 +106,10 @@ $server->addPlugin(
     new Sabre\CalDAV\Schedule\IMipPlugin('philippe.logel@imathgeo.com')
 );
 
-// WebDAV-Sync plugin 
+// WebDAV-Sync plugin
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());
 
-// CalDAV Sharing support 
+// CalDAV Sharing support
 $server->addPlugin(new Sabre\DAV\Sharing\Plugin());
 $server->addPlugin(new Sabre\CalDAV\SharingPlugin());
 

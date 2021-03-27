@@ -253,6 +253,11 @@ namespace EcclesiaCRM
           self::$serviceContainer->setLogger('defaultLogger', $ormLogger);
       }
 
+      public static function GetPDO ()
+      {
+          return new \PDO(self::GetDSN(), self::GetUser(), self::GetPassword(),array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+      }
+
       public static function GetDSN()
       {
            return 'mysql:host=' . self::$databaseServerName . ';port='.self::$databasePort.';dbname=' . self::$databaseName;

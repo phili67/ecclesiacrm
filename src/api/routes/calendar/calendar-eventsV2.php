@@ -39,7 +39,6 @@ use Sabre\VObject;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\VObjectExtract;
-use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
@@ -390,11 +389,8 @@ function manageEvent(Request $request, Response $response, array $args)
 
     if (!strcmp($input->eventAction, 'createEvent')) {
         // new way to manage events
-        // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
@@ -575,10 +571,8 @@ function manageEvent(Request $request, Response $response, array $args)
 
     } else if (!strcmp($input->eventAction, 'moveEvent')) {
 
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         $event = $calendarBackend->getCalendarObjectById($input->calendarID, $input->eventID);
 
@@ -758,10 +752,8 @@ function manageEvent(Request $request, Response $response, array $args)
 
         return $response->withJson(["status" => "failed"]);
     } else if (!strcmp($input->eventAction, 'resizeEvent')) {
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         $event = $calendarBackend->getCalendarObjectById($input->calendarID, $input->eventID);
 
@@ -880,11 +872,8 @@ function manageEvent(Request $request, Response $response, array $args)
         return $response->withJson(['status' => "success"]);
     } else if (!strcmp($input->eventAction, 'suppress')) {
         // new way to manage events
-        // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
         $event = $calendarBackend->getCalendarObjectById($input->calendarID, $input->eventID);
 
         if (isset ($input->reccurenceID)) {
@@ -921,10 +910,8 @@ function manageEvent(Request $request, Response $response, array $args)
 
         $oldCalendarID = [$old_event->getEventCalendarid(), 0];
 
-        $pdo = Propel::getConnection();
-
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         $event = $calendarBackend->getCalendarObjectById($oldCalendarID, $input->eventID);
 

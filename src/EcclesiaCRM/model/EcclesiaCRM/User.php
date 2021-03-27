@@ -5,25 +5,12 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\Base\User as BaseUser;
 use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\Connection\ConnectionInterface;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\NoteQuery;
-use EcclesiaCRM\PrincipalsQuery;
-use EcclesiaCRM\Principals;
-use EcclesiaCRM\UserRoleQuery;
-use EcclesiaCRM\UserConfigQuery;
-use EcclesiaCRM\UserConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use Sabre\DAV\Sharing;
 use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use EcclesiaCRM\SessionUser;
-use Propel\Runtime\Propel;
 
 
 /**
@@ -52,8 +39,7 @@ class User extends BaseUser
 
           // transfert the calendars to a user
           // now we code now in Sabre
-          $pdo = Propel::getConnection();
-          $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+          $principalBackend = new PrincipalPDO();
 
           // puis on delete le user
           $principalBackend->deletePrincipal('principals/'.$this->getUserName());
@@ -70,8 +56,7 @@ class User extends BaseUser
 
         // transfert the calendars to a user
         // now we code now in Sabre
-        $pdo = Propel::getConnection();
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
 
@@ -96,8 +81,7 @@ class User extends BaseUser
 
         // transfert the calendars to a user
         // now we code now in Sabre
-        $pdo = Propel::getConnection();
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
 
         if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
           // we have to add the groupCalendars
@@ -159,9 +143,8 @@ class User extends BaseUser
 
               // transfert the calendars to a user
               // now we code now in Sabre
-              $pdo = Propel::getConnection();
-              $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-              $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+              $calendarBackend = new CalDavPDO();
+              $principalBackend = new PrincipalPDO();
 
               $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
               $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
@@ -191,11 +174,10 @@ class User extends BaseUser
             $this->save();
 
             // now we code in Sabre
-            $pdo = Propel::getConnection();
-            $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+            $principalBackend = new PrincipalPDO();
 
             $res = $principalBackend->getPrincipalByPath ("principals/".strtolower( $this->getUserName() ));
-            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+            $calendarBackend = new CalDavPDO();
 
             if (empty($res)) {
               $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
@@ -221,8 +203,7 @@ class User extends BaseUser
     public function deleteHomeDir()
     {
       // we code first in Sabre
-      $pdo = Propel::getConnection();
-      $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+      $principalBackend = new PrincipalPDO();
 
       $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
 

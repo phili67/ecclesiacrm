@@ -48,7 +48,7 @@ class MailChimpService
        return isset($_SESSION['MailChimpLists']);
     }
     private function getListsFromCache(){
-      if (!isset($_SESSION['MailChimpLists']) ){// the second part can be used to force update
+      if ( !isset($_SESSION['MailChimpLists']) && !is_null($this->myMailchimp) ){// the second part can be used to force update
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
@@ -58,9 +58,9 @@ class MailChimpService
         }
         $_SESSION['MailChimpLists'] = $lists;
       }
-      else{
+      /*else{
         LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
-      }
+      }*/
       return $_SESSION['MailChimpLists'];
     }
     public  function reloadMailChimpDatas ()
@@ -84,9 +84,9 @@ class MailChimpService
         $campaigns = $this->myMailchimp->get("campaigns")['campaigns'];
         $_SESSION['MailChimpCampaigns'] = $campaigns;
       }
-      else{
+      /*else{
         LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
-      }
+      }*/
       return $_SESSION['MailChimpCampaigns'];
     }
     public function getConnectionStatus()
@@ -153,7 +153,7 @@ class MailChimpService
         $i++;
       }
 
-      return nil;
+      return NULL;
     }
     public  function getListMembersFromListId ($list_id) {
       $mcLists = $this->getLists();
@@ -167,7 +167,7 @@ class MailChimpService
             // in the case the list is no more in the cache
             $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
 
-            if (count($listmembers[0]) == 0) {
+            if (is_null($listmembers) == null || (!is_null($listmembers) != null && gettype($listmembers) == 'array' && count($listmembers[0]) == 0) ) {
               return [];
             }
 
@@ -281,7 +281,7 @@ class MailChimpService
     public function deleteList ($list_id) {
         $result = $this->myMailchimp->delete("lists/$list_id");
 
-        if ( !array_key_exists ('title',$result) ) {
+        if ( gettype($result) == 'boolean' && $result == true ) {
           // we use always the cache to improve the performance
           $this->delete_List($list_id);
         }
@@ -437,7 +437,7 @@ class MailChimpService
     public function deleteSegment ($list_id, $tag_id) {
       $result = $this->myMailchimp->delete("lists/$list_id/segments/$tag_id");
 
-      if ( !array_key_exists ('title',$result) ) {
+      if ( gettype($result) == 'boolean' && $result == true ) {
         // We've to remove all the segments for each user
         $this->delete_Segment ($list_id, $tag_id);
       }
@@ -643,7 +643,7 @@ class MailChimpService
 
       $result = $this->myMailchimp->delete("campaigns/$campaignID");
 
-      if ( !array_key_exists ('title',$result) ) {
+      if ( gettype($result) == 'boolean' && $result == true ) {
         $this->delete_Campaign ($campaignID);
       }
 
@@ -663,7 +663,7 @@ class MailChimpService
 
       return $resultContent;
     }
-    private function setCampaignStatus ($campaignID,$status,$send_time = nil) {
+    private function setCampaignStatus ($campaignID,$status,$send_time = NULL) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
 
       $res = [];
@@ -686,7 +686,7 @@ class MailChimpService
       return $resultContent;
     }
     public function setCampaignContent ($campaignID,$htmlBody) {
-      $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
+      $resultContent = $this->myMailchimp->put("campaigns/".$campaignID."/content", ["html" => $htmlBody]);
 
       return $resultContent;
     }
@@ -766,7 +766,7 @@ class MailChimpService
 
       return $res;
     }
-    public function postMember($list_id,$id,$first_name,$last_name,$mail,$address=nil,$phone=nil,$status)
+    public function postMember($list_id,$id,$first_name,$last_name,$mail,$address=NULL,$phone=NULL,$status)
     {
       if ( !empty($mail) ) {
         $merge_fields = ['FNAME'=>$first_name, 'LNAME'=>$last_name];
@@ -793,7 +793,7 @@ class MailChimpService
         return $result;
       }
 
-      return nil;
+      return NULL;
     }
 
     private function delete_list_member ($list_id,$email) {
@@ -829,11 +829,13 @@ class MailChimpService
     }
 
     public function deleteMember($list_id,$email){
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($email);
 
         $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash");
 
-        if (!array_key_exists ('title',$result) ) {
+        if ( gettype($result) == 'boolean' and $result == true ) {
           $this->delete_list_member ($list_id,$email);
         }
 
@@ -896,6 +898,8 @@ class MailChimpService
     }
     public function getStatusMember ($list_id,$mail)
     {
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($mail);
 
         $result = $this->myMailchimp->get("lists/$list_id/members/$subscriber_hash");
@@ -929,6 +933,8 @@ class MailChimpService
     }
     public function updateMember($list_id,$first_name,$last_name,$mail,$status) // status : Unsubscribed , Subscribed
     {
+        if ( is_null($this->myMailchimp) ) return null;
+
         $subscriber_hash = $this->myMailchimp->subscriberHash($mail);
 
         if (!empty($name) && !empty($last_name)) {

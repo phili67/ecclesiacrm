@@ -32,19 +32,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
 
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
-
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use EcclesiaCRM\MyPDO\PrincipalPDO;
-use Propel\Runtime\Propel;
 
 
 $eType = 'All';
@@ -96,11 +84,9 @@ if (isset($_POST['Action']) && isset($_POST['EID'])) {
         $calendarId = [$propel_event->getEventCalendarid(),0];
 
         // new way to manage events
-        // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();
 
         // We set the BackEnd for sabre Backends
-        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $calendarBackend = new CalDavPDO();
         $event = $calendarBackend->getCalendarObjectById($calendarId,$eID);
 
         // We have to use the sabre way to ensure the event is reflected in external connection : CalDav

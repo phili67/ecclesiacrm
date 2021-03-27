@@ -29,11 +29,6 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\LabelAlignment;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Response\QrCodeResponse;
-
 function GenerateLabels(&$pdf, $iGroupId, $useCart=0, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition, $useQRCode)
 {
     $group = GroupQuery::create()->findOneById($iGroupId);

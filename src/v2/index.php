@@ -7,7 +7,7 @@ require '../Include/Functions.php';
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
-use Slim\Middleware\JwtAuthentication;
+use Tuupola\Middleware\JwtAuthentication;
 use Slim\Container;
 use Slim\App;
 
@@ -29,18 +29,24 @@ $app = new App($container);
 
 $app->add(new VersionMiddleware());
 
-$app->add(new JwtAuthentication([
-    "secret" => TokenQuery::Create()->findOneByType("secret")->getToken(),
-    "path" => "/v2",
-    "algorithm" => ["HS256"],
-    "error" => function ($response, $arguments) {
-        $data["status"] = "error";
-        $data["message"] = $arguments["message"];
-        return $response
-            ->withHeader("Content-Type", "application/json")
-            ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-    }
-]));
+$tokenJWT = null;
+
+if ( !is_null (TokenQuery::Create()->findOneByType("secret")) ) {
+    $tokenJWT = TokenQuery::Create()->findOneByType("secret")->getToken();
+
+    $app->add(new JwtAuthentication([
+        "secret" => $tokenJWT,
+        "path" => "/v2",
+        "algorithm" => ["HS256"],
+        "error" => function ($response, $arguments) {
+            $data["status"] = "error";
+            $data["message"] = $arguments["message"];
+            return $response
+                ->withHeader("Content-Type", "application/json")
+                ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+        }
+    ]));
+}
 
 // Set up
 require __DIR__.'/../Include/slim/error-handler.php';

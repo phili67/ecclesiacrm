@@ -42,10 +42,15 @@
 
 namespace EcclesiaCRM\Reports;
 
-use \Endroid\QrCode\ErrorCorrectionLevel;
-use \Endroid\QrCode\LabelAlignment;
-use \Endroid\QrCode\QrCode;
-use \Endroid\QrCode\Response\QrCodeResponse;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\Writer\PngWriter;
+
 
 
 class PDF_Badge extends PDF_Label
@@ -58,38 +63,31 @@ class PDF_Badge extends PDF_Label
 
     public function create_QR_Code($groupID,$personId)
     {
-        // Create a basic QR code
-        $qrCode = new QrCode($groupID." ".$personId);
-        $qrCode->setSize(300);
+        $writer = new PngWriter();
 
-// Set advanced options
-        $qrCode->setWriterByName('png');
-        $qrCode->setEncoding('UTF-8');
-        $qrCode->setErrorCorrectionLevel(ErrorCorrectionLevel::HIGH());
-        $qrCode->setForegroundColor(['r' => 0, 'g' => 0, 'b' => 0, 'a' => 0]);
-        $qrCode->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0]);
-        //$qrCode->setLabel('Scan the code', 16, __DIR__.'/../assets/fonts/noto_sans.otf', LabelAlignment::CENTER());
-        //$qrCode->setLogoPath(__DIR__.'/../assets/images/symfony.png');
-        //$qrCode->setLogoSize(150, 200);
-        $qrCode->setValidateResult(false);
+// Create QR code
+        $qrCode = QrCode::create($groupID." ".$personId)
+            ->setEncoding(new Encoding('UTF-8'))
+            ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+            ->setSize(300)
+            ->setMargin(10)
+            ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+            ->setForegroundColor(new Color(0, 0, 0))
+            ->setBackgroundColor(new Color(255, 255, 255));
 
-// Apply a margin and round block sizes to improve readability
-// Please note that rounding block sizes can result in additional margin
-        $qrCode->setRoundBlockSize(true);
-        $qrCode->setMargin(10);
+// Create generic logo
+        /*$logo = Logo::create(__DIR__.'/assets/symfony.png')
+            ->setResizeToWidth(50);*/
 
-// Set additional writer options (SvgWriter example)
-        $qrCode->setWriterOptions(['exclude_xml_declaration' => true]);
+// Create generic label
+        $label = Label::create('EcclesiaCRM')
+            ->setTextColor(new Color(255, 0, 0))
+            ->setBackgroundColor(new Color(0, 0, 0));
 
-// Directly output the QR code
-        /*header('Content-Type: '.$qrCode->getContentType());
-        echo $qrCode->writeString();*/
+        $result = $writer->write($qrCode, null, $label);
 
-// Save it to a file
-        $qrCode->writeFile('../tmp_attach/qrcode_'.$groupID."_".$personId.'.png');
-
-// Generate a data URI to include image data inline (i.e. inside an <img> tag)
-        //ls$dataUri = $qrCode->writeDataUri();
+        // Save it to a file
+        $result->saveToFile('../tmp_attach/qrcode_'.$groupID."_".$personId.'.png');
 
         return '../tmp_attach/qrcode_'.$groupID."_".$personId.'.png';
     }
@@ -111,7 +109,7 @@ class PDF_Badge extends PDF_Label
         $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
 
         $this->SetFillColor($back_red,$back_gren,$back_blue);
-        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, F);
+        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, 'F');
 
         if ($image != "../Images/" && file_exists($image)) {
           if ($sImagePosition == 'Left') {

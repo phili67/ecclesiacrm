@@ -35,7 +35,7 @@ class VObjectExtract {
           $vObject = $vcalendar->expand($realStartDate, $realEndDate);
 
           if (!empty($vObject)) {
-            return nil;
+            return NULL;
           }
         } catch (Exception $e) {
           $vObject = VObject\Reader::read($calendarData);
@@ -246,8 +246,8 @@ class VObjectExtract {
         return [
             'freq' => $freq,
             'title' => $title,
-            'etag' => md5($calendarData),
-            'size' => strlen($calendarData),
+            'etag' => md5((string)$calendarData),
+            'size' => strlen((string)$calendarData),
             'componentType' => $componentType,
             'firstOccurence' => $firstOccurence,
             'lastOccurence' => $lastOccurence,

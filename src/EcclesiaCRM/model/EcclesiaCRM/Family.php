@@ -396,7 +396,7 @@ class Family extends BaseFamily implements iPhoto
 
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
-      $array = parent::toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, $includeForeignObjects);
+      $array = (array)parent::toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, $includeForeignObjects);
       $array['FamilyString']=$this->getFamilyString();
       return $array;
     }

@@ -1,6 +1,5 @@
 <?php
 // Routes
-use EcclesiaCRM\Utils\OutputUtils;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -57,11 +56,8 @@ $app->group('/groups', function () {
       // we get the group
       $group = GroupQuery::create()->findOneById ($args['groupId']);
 
-      // we'll connect to sabre to create the group
-      $pdo = Propel::getConnection();
-
       // We set the BackEnd for sabre Backends
-      $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
+      $carddavBackend = new CardDavPDO();
 
       $addressbook = $carddavBackend->getAddressBookForGroup ($args['groupId']);
 
@@ -779,6 +775,9 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
 
     $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
     $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
+
+    $roleEmails = new stdClass();
+
     $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
     $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
     $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
@@ -791,6 +790,7 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
 
     $emailLink = mb_substr($sEmailLink, 0, -3);
 
+    $dropDown = new stdClass();
     $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
     $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
 

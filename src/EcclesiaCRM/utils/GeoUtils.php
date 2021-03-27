@@ -9,7 +9,7 @@ use Geocoder\Provider\BingMaps\BingMaps;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\Provider\Nominatim\Nominatim;
 use Geocoder\StatefulGeocoder;
-use Http\Adapter\Guzzle6\Client;
+use Http\Client\Curl\Client;
 use Geocoder\Query\GeocodeQuery;
 
 class GeoUtils
@@ -21,7 +21,12 @@ class GeoUtils
         $logger = LoggerUtils::getAppLogger();
 
         $provider = null;
-        $adapter = new Client();
+        $options = [
+            CURLOPT_CONNECTTIMEOUT => 2,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ];
+
+        $adapter  = new Client(null, null, $options);
 
         $lat = 0;
         $long = 0;
@@ -34,8 +39,8 @@ class GeoUtils
                     $provider = new BingMaps($adapter, SystemConfig::getValue("sBingMapKey"));
                     break;
                 case "OpenStreetMap":
-                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"));
-                    break;                
+                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"), SystemConfig::getValue("sChurchEmail") );
+                    break;
             }
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
             $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());

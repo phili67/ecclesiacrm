@@ -10,18 +10,22 @@
 
 namespace EcclesiaCRM\MyPDO;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Sabre\CalDAV;
 use Sabre\DAV;
-use Sabre\VObject;
-use EcclesiaCRM\MyPDO\VObjectExtract;
+
+use EcclesiaCRM\Bootstrapper;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
 
+
 class CalDavPDO extends SabreCalDavBase\PDO
 {
-
-    function __construct(\PDO $pdo)
+    function __construct($pdo=null)
     {
+        if (is_null($pdo)) {
+            $pdo = Bootstrapper::GetPDO();
+        }
 
         parent::__construct($pdo);
 
@@ -530,6 +534,39 @@ SQL
      * @param mixed $calendarId
      * @return \Sabre\DAV\Xml\Element\Sharee[]
      */
+
+    function getByGroupid($groupID)
+    {
+        $query = <<<SQL
+SELECT
+    calendarid, id
+FROM {$this->calendarInstancesTableName}
+WHERE
+    grpid = ?
+SQL;
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$groupID]);
+        $row = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        return $row;
+    }
+
+    /**
+     * Returns the list of people whom a calendar is shared with.
+     *
+     * Every item in the returned list must be a Sharee object with at
+     * least the following properties set:
+     *   $href
+     *   $shareAccess
+     *   $inviteStatus
+     *
+     * and optionally:
+     *   $properties
+     *
+     * @param mixed $calendarId
+     * @return \Sabre\DAV\Xml\Element\Sharee[]
+     */
     function getGroupId($calendarId)
     {
 
@@ -567,9 +604,8 @@ SQL;
      * @param int : 1 = personal, 2 = room, 3 = computer, 4 = video
      * @return string
      */
-    function createCalendar($principalUri, $calendarUri, array $properties, $cal_type = 1, $desc = null)
+    function createCalendar($principalUri, $calendarUri, array $properties, $cal_type = 1, $desc = null, $groupid=0)
     {
-
         $fieldNames = [
             'principaluri',
             'uri',
@@ -577,13 +613,14 @@ SQL;
             'cal_type',
             'description',
             'calendarid',
+            'grpid'
         ];
         $values = [
             ':principaluri' => $principalUri,
             ':uri' => $calendarUri,
             ':transparent' => 0,
             ':cal_type' => $cal_type,
-            ':description' => $desc,
+            ':description' => $desc
         ];
 
 
@@ -601,14 +638,17 @@ SQL;
         if (isset($properties[$transp])) {
             $values[':transparent'] = $properties[$transp]->getValue() === 'transparent' ? 1 : 0;
         }
+
         $stmt = $this->pdo->prepare("INSERT INTO " . $this->calendarTableName . " (synctoken, components) VALUES (1, ?)");
         $stmt->execute([$components]);
+
 
         $calendarId = $this->pdo->lastInsertId(
             $this->calendarTableName . '_id_seq'
         );
 
         $values[':calendarid'] = $calendarId;
+        $values[':grpid'] = $groupid;
 
         foreach ($this->propertyMap as $xmlName => $dbName) {
             if (isset($properties[$xmlName])) {
@@ -626,7 +666,6 @@ SQL;
             $calendarId,
             $this->pdo->lastInsertId($this->calendarInstancesTableName . '_id_seq')
         ];
-
     }
 
     /**
@@ -658,27 +697,34 @@ SQL;
 
         list($calendarId, $instanceId) = $calendarId;
 
-
         $extraData = VObjectExtract::calendarData($calendarData);
 
-        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
-        $stmt->execute([
-            $calendarId,
-            $objectUri,
-            $calendarData,
-            time(),
-            $extraData['title'],
-            $extraData['description'],
-            $extraData['location'],
-            $extraData['freqlastOccurence'],
-            $extraData['etag'],
-            $extraData['size'],
-            $extraData['componentType'],
-            $extraData['firstOccurence'],
-            $extraData['lastOccurence'],
-            $extraData['uid'],
-            $groupId,
-        ]);
+        $stmt = $this->pdo->prepare('INSERT IGNORE INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+
+        try {
+            $stmt->execute([
+                $calendarId,
+                $objectUri,
+                $calendarData,
+                time(),
+                $extraData['title'],
+                $extraData['description'],
+                $extraData['location'],
+                $extraData['freqlastOccurence'],
+                $extraData['etag'],
+                $extraData['size'],
+                $extraData['componentType'],
+                $extraData['firstOccurence'],
+                $extraData['lastOccurence'],
+                $extraData['uid'],
+                $groupId,
+            ]);
+        } catch (PDOException $Exception ) {
+            // PHP Fatal Error. Second Argument Has To Be An Integer, But PDOException::getCode Returns A
+            // String.
+            LoggerUtils::getAppLogger()->info( "erreur : ".$Exception->getMessage( ) ." ". $Exception->getCode());
+        }
+
         $this->addChange($calendarId, $objectUri, 1);
 
         return '"' . $extraData['etag'] . '"';
@@ -714,7 +760,7 @@ SQL;
 
         $extraData = VObjectExtract::calendarData($calendarData);
 
-        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt = $this->pdo->prepare('UPDATE IGNORE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
 
         // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
