@@ -160,6 +160,11 @@ if (isset($_POST['User'])) {
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
 
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
+
+        if ( isset($_SESSION['lastPage']) ) {
+            RedirectUtils::Redirect( $_SESSION['lastPage'] );
+            exit;
+        }
         RedirectUtils::Redirect('v2/dashboard');
         exit;
     }
@@ -169,6 +174,7 @@ if (isset($_POST['User'])) {
 
 $id = 0;
 $type = "";
+$lastPage = null;
 
 // we hold down the last id
 if (isset($_SESSION['iUserID'])) {
@@ -178,6 +184,11 @@ if (isset($_SESSION['iUserID'])) {
 // we hold down the last type of login : lock or nothing
 if (isset($_SESSION['iLoginType'])) {
     $type = $_SESSION['iLoginType'];
+}
+
+// last page
+if ( isset($_SESSION['lastPage']) ) {
+    $lastPage = $_SESSION['lastPage'];
 }
 
 
@@ -204,6 +215,8 @@ session_start();
 $_SESSION['iLoginType'] = $type;
 $_SESSION['username'] = $urlUserName;
 $_SESSION['iUserID'] = $id;
+$_SESSION['lastPage'] = $lastPage;
+
 
 if ($type == "Lock" && $id > 0) {// this point is important for the photo in a lock session
     $person = PersonQuery::Create()
