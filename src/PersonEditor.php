@@ -404,8 +404,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-
             $family->save();
+
+            $family->updateLanLng();
+            $family->save();
+
 
             //Get the key back You use the same code in /v2/cart/view
             $iFamily = $family->getId();
@@ -430,6 +433,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                 $family->setEmail($sEmail);
                 $family->setDateEntered(date('YmdHis'));
                 $family->setEnteredBy(SessionUser::getUser()->getPersonId());
+
+                $family->updateLanLng();
 
                 $family->save();
 
