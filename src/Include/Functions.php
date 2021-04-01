@@ -38,10 +38,10 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
             RedirectUtils::Redirect('Login.php');
             exit;
         } else {
-            if ($_SESSION['lastPage'] != $_SERVER['PHP_SELF']) {
-                $_SESSION['lastPage'] = $_SERVER['PHP_SELF'];            
-                $_SESSION['tLastOperation'] = time();
+            if (!str_contains($_SERVER['REQUEST_URI'], '/api/')) {
+                $_SESSION['lastPage'] = $_SERVER['REQUEST_URI'];
             }
+            $_SESSION['tLastOperation'] = time();
         }
     }
 
