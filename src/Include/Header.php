@@ -209,14 +209,15 @@ Header_system_notifications();
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="true">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon  fa fa-search"></i>
-                        <p>
-                        <!-- search form -->
-                        <select class="form-control multiSearch" style="width:180px"></select>
-                        <!-- /.search form -->
-                        </p>
-                        </a>
+                        <div class="input-group">
+                            <select class="form-control multiSearch"></select>
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar btn-sm">
+                                    <i class="fa fa-search fa-fw"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <br/>
                     </li>
                     <?php MenuRenderer::RenderMenu() ?>
                 </ul>
