@@ -90,8 +90,8 @@ require $sRootDocument . '/Include/Header.php';
                   <td><?= $person->getHomePhone() ?></td>
                   <td><?= $person->getCellPhone() ?></td>
                   <td><?= $person->getEmail() ?></td>
-                  <td><?= date_format($person->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><?= date_format($person->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                    <td><?= (!is_null($person->getDateEntered()))?date_format($person->getDateEntered(), SystemConfig::getValue('sDateFormatLong')):'' ?></td>
+                    <td><?= (!is_null($person->getDateLastEdited()))?date_format($person->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')):'' ?></td>
                 <?php
                 } else {
                 ?>
