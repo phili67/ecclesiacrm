@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
@@ -23,12 +24,12 @@ use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/map', function () {
-    $this->get('/{GroupID}', 'renderMap');
+$app->group('/map', function (RouteCollectorProxy $group) {
+    $group->get('/{GroupID}', 'renderMap');
 });
 
 
-function renderMap (Request $request, Response $response, array $args) {
+function renderMap (Request   $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/map/');
 
     if ( !( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($args['GroupID']) ) ) {
