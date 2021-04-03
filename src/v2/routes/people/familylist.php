@@ -10,27 +10,24 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\Map\FamilyTableMap;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\PledgeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use Propel\Runtime\Propel;
-use EcclesiaCRM\Map\PersonTableMap;
+
+use EcclesiaCRM\Map\FamilyTableMap;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/familylist', function () {
-    $this->get('', 'renderFamilyList' );
-    $this->get('/', 'renderFamilyList' );
-    $this->get('/{mode}', 'renderFamilyList' );
+$app->group('/familylist', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderFamilyList' );
+    $group->get('/', 'renderFamilyList' );
+    $group->get('/{mode}', 'renderFamilyList' );
 });
 
 
