@@ -14,8 +14,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 
@@ -30,38 +31,38 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Service\PastoralCareService;
 
 
-$app->group('/pastoralcare', function () {
+$app->group('/pastoralcare', function (RouteCollectorProxy $group) {
 
-    $this->post('/', 'getAllPastoralCare' );
-    $this->post('/deletetype', 'deletePastoralCareType' );
-    $this->post('/createtype', 'createPastoralCareType' );
-    $this->post('/settype', 'setPastoralCareType' );
-    $this->post('/edittype', 'editPastoralCareType' );
+    $group->post('/', 'getAllPastoralCare' );
+    $group->post('/deletetype', 'deletePastoralCareType' );
+    $group->post('/createtype', 'createPastoralCareType' );
+    $group->post('/settype', 'setPastoralCareType' );
+    $group->post('/edittype', 'editPastoralCareType' );
 
-    $this->post('/person/add', 'addPastoralCarePerson' );
-    $this->post('/person/delete', 'deletePastoralCarePerson' );
-    $this->post('/person/getinfo', 'getPastoralCareInfoPerson' );
-    $this->post('/person/modify', 'modifyPastoralCarePerson' );
+    $group->post('/person/add', 'addPastoralCarePerson' );
+    $group->post('/person/delete', 'deletePastoralCarePerson' );
+    $group->post('/person/getinfo', 'getPastoralCareInfoPerson' );
+    $group->post('/person/modify', 'modifyPastoralCarePerson' );
 
-    $this->post('/family/add', 'addPastoralCareFamily' );
-    $this->post('/family/delete', 'deletePastoralCareFamily' );
-    $this->post('/family/getinfo', 'getPastoralCareInfoFamily' );
-    $this->post('/family/modify', 'modifyPastoralCareFamily' );
+    $group->post('/family/add', 'addPastoralCareFamily' );
+    $group->post('/family/delete', 'deletePastoralCareFamily' );
+    $group->post('/family/getinfo', 'getPastoralCareInfoFamily' );
+    $group->post('/family/modify', 'modifyPastoralCareFamily' );
 
-    $this->post('/members', 'pastoralcareMembersDashboard' );
-    $this->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
-    $this->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
-    $this->post('/singleNeverBeenContacted', 'singleNeverBeenContacted' );
-    $this->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
-    $this->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
+    $group->post('/members', 'pastoralcareMembersDashboard' );
+    $group->post('/personNeverBeenContacted', 'personNeverBeenContacted' );
+    $group->post('/familyNeverBeenContacted', 'familyNeverBeenContacted' );
+    $group->post('/singleNeverBeenContacted', 'singleNeverBeenContacted' );
+    $group->post('/retiredNeverBeenContacted', 'retiredNeverBeenContacted' );
+    $group->post('/youngNeverBeenContacted', 'youngNeverBeenContacted' );
 
-    $this->post('/createRandomly', 'createRandomlyPastoralCare');
+    $group->post('/createRandomly', 'createRandomlyPastoralCare');
 
-    $this->post('/getPersonByClassification', 'getPersonByClassificationPastoralCare' );
+    $group->post('/getPersonByClassification', 'getPersonByClassificationPastoralCare' );
 
-    $this->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
+    $group->post('/getPersonByClassification/{type:[0-9]+}', 'getPersonByClassificationPastoralCare' );
 
-    $this->get('/getlistforuser/{UserID:[0-9]+}', 'getPastoralCareListForUser' );
+    $group->get('/getlistforuser/{UserID:[0-9]+}', 'getPastoralCareListForUser' );
 
 });
 
