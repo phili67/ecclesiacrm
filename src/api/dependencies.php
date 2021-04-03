@@ -11,15 +11,31 @@ use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
 
-/*$container['PersonService'] = new PersonService();
-$container['GroupService'] = new GroupService();
+$container->set('PersonService', function () {
+    return new PersonService();
+});
 
-$container['FinancialService'] = new FinancialService();
-$container['ReportingService'] = new ReportingService();*/
+$container->set('GroupService', function () {
+    return new GroupService();
+});
+
+
+$container->set('FinancialService', function () {
+    return new FinancialService();
+});
+
+$container->set('ReportingService', function () {
+    return new ReportingService();
+});
 
 $container->set('SystemService', function () {
     return new SystemService();
 });
 
-/*$container['CalendarService'] = new CalendarService();
-$container['Logger'] = LoggerUtils::getAppLogger();*/
+$container->set('Logger', function () {
+    return LoggerUtils::getAppLogger();
+});
+
+$container->set('CalendarService', function () {
+    return new CalendarService();
+});
