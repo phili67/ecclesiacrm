@@ -1,8 +1,10 @@
 <?php
 
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\Service\SundaySchoolService;
-use Slim\Http\Request;
-use Slim\Http\Response;
 
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\Cart;
@@ -11,12 +13,12 @@ use EcclesiaCRM\Utils\MiscUtils;
 
 use Propel\Runtime\Propel;
 
-$app->group('/cart', function () {
+$app->group('/cart', function (RouteCollectorProxy $group) {
 
 /*
  * @! Get all people in Cart
  */
-    $this->get('/', 'getAllPeopleInCart' );
+    $group->get('/', 'getAllPeopleInCart' );
 /*
  * @! Get user info by id
  * #! param: ref->array :: Persons id in array ref
@@ -26,26 +28,26 @@ $app->group('/cart', function () {
  * #! param: id->int :: studentGroup id
  * #! param: id->int :: teacherGroup id
  */
-    $this->post('/', 'cartOperation' );
-    $this->post('/interectPerson', 'cartIntersectPersons' );
-    $this->post('/emptyToGroup', 'emptyCartToGroup' );
-    $this->post('/emptyToEvent', 'emptyCartToEvent' );
-    $this->post('/emptyToNewGroup', 'emptyCartToNewGroup' );
-    $this->post('/removeGroup', 'removeGroupFromCart' );
-    $this->post('/removeGroups', 'removeGroupsFromCart' );
-    $this->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
-    $this->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
-    $this->post('/addAllStudents', 'addAllStudentsToCart' );
-    $this->post('/addAllTeachers', 'addAllTeachersToCart' );
-    $this->post('/removeAllStudents', 'removeAllStudentsFromCart' );
-    $this->post('/removeAllTeachers', 'removeAllTeachersFromCart' );
-    $this->post('/delete', 'deletePersonCart' );
-    $this->post('/deactivate', 'deactivatePersonCart' );
+    $group->post('/', 'cartOperation' );
+    $group->post('/interectPerson', 'cartIntersectPersons' );
+    $group->post('/emptyToGroup', 'emptyCartToGroup' );
+    $group->post('/emptyToEvent', 'emptyCartToEvent' );
+    $group->post('/emptyToNewGroup', 'emptyCartToNewGroup' );
+    $group->post('/removeGroup', 'removeGroupFromCart' );
+    $group->post('/removeGroups', 'removeGroupsFromCart' );
+    $group->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
+    $group->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
+    $group->post('/addAllStudents', 'addAllStudentsToCart' );
+    $group->post('/addAllTeachers', 'addAllTeachersToCart' );
+    $group->post('/removeAllStudents', 'removeAllStudentsFromCart' );
+    $group->post('/removeAllTeachers', 'removeAllTeachersFromCart' );
+    $group->post('/delete', 'deletePersonCart' );
+    $group->post('/deactivate', 'deactivatePersonCart' );
 
 /*
  * @! Remove all People in the Cart
  */
-    $this->delete('/', 'removePersonCart' );
+    $group->delete('/', 'removePersonCart' );
 
 });
 
@@ -53,7 +55,7 @@ function getAllPeopleInCart (Request $request, Response $response, array $args) 
   return $response->withJSON(['PeopleCart' =>  Cart::PeopleInCart(), 'FamiliesCart' => Cart::FamiliesInCart(), 'GroupsCart' => Cart::GroupsInCart()]);
 }
 
-function cartIntersectPersons ($request, $response, $args) {
+function cartIntersectPersons (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
@@ -70,7 +72,7 @@ function cartIntersectPersons ($request, $response, $args) {
       return $response->withJson(['status' => "failed"]);
 }
 
-function cartOperation ($request, $response, $args) {
+function cartOperation (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
@@ -126,7 +128,7 @@ function cartOperation ($request, $response, $args) {
       return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
   }
 
-function emptyCartToGroup ($request, $response, $args) {
+function emptyCartToGroup (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
@@ -141,7 +143,7 @@ function emptyCartToGroup ($request, $response, $args) {
     ]);
 }
 
-function emptyCartToEvent ($request, $response, $args) {
+function emptyCartToEvent (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
@@ -156,7 +158,7 @@ function emptyCartToEvent ($request, $response, $args) {
     ]);
 }
 
-function emptyCartToNewGroup ($request, $response, $args) {
+function emptyCartToNewGroup (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin() && !SessionUser::getUser()->isManageGroupsEnabled()) {
         return $response->withStatus(401);
     }
@@ -168,10 +170,10 @@ function emptyCartToNewGroup ($request, $response, $args) {
 
     Cart::EmptyToNewGroup($group->getId());
 
-    echo $group->toJSON();
+    return $response->write($group->toJSON());
 }
 
-function removeGroupFromCart($request, $response, $args) {
+function removeGroupFromCart(Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -186,7 +188,7 @@ function removeGroupFromCart($request, $response, $args) {
     ]);
 }
 
-function removeGroupsFromCart($request, $response, $args) {
+function removeGroupsFromCart(Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -203,7 +205,7 @@ function removeGroupsFromCart($request, $response, $args) {
     ]);
 }
 
-function addAllStudentsToCart ($request, $response, $args) {
+function addAllStudentsToCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -224,7 +226,7 @@ function addAllStudentsToCart ($request, $response, $args) {
     ]);
 }
 
-function removeAllStudentsFromCart ($request, $response, $args) {
+function removeAllStudentsFromCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -248,7 +250,7 @@ function removeAllStudentsFromCart ($request, $response, $args) {
 
 
 
-function removeStudentsGroupFromCart ($request, $response, $args) {
+function removeStudentsGroupFromCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -263,7 +265,7 @@ function removeStudentsGroupFromCart ($request, $response, $args) {
     ]);
 }
 
-function addAllTeachersToCart ($request, $response, $args) {
+function addAllTeachersToCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -283,7 +285,7 @@ function addAllTeachersToCart ($request, $response, $args) {
     ]);
 }
 
-function removeAllTeachersFromCart ($request, $response, $args) {
+function removeAllTeachersFromCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -306,7 +308,7 @@ function removeAllTeachersFromCart ($request, $response, $args) {
 
 
 
-function removeTeachersGroupFromCart ($request, $response, $args) {
+function removeTeachersGroupFromCart (Request $request, Response $response, array $args) {
     if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
         return $response->withStatus(401);
     }
@@ -321,7 +323,7 @@ function removeTeachersGroupFromCart ($request, $response, $args) {
     ]);
 }
 
-function deletePersonCart ($request, $response, $args) {
+function deletePersonCart (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -354,7 +356,7 @@ function deletePersonCart ($request, $response, $args) {
     ]);
 }
 
-function deactivatePersonCart ($request, $response, $args) {
+function deactivatePersonCart (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -388,7 +390,7 @@ function deactivatePersonCart ($request, $response, $args) {
 }
 
 
-function removePersonCart ($request, $response, $args) {
+function removePersonCart (Request $request, Response $response, array $args) {
 
     $cartPayload = (object)$request->getParsedBody();
 
