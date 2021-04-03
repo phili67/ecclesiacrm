@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
@@ -17,10 +18,10 @@ use EcclesiaCRM\CalendarinstancesQuery;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/group', function () {
-    $this->get('/list', 'groupList' );
-    $this->get('/{groupID:[0-9]+}/view', 'groupView' );
-    $this->get('/{groupId:[0-9]+}/badge/{useCart:[0-9]+}/{type}', 'groupBadge' );
+$app->group('/group', function (RouteCollectorProxy $group) {
+    $group->get('/list', 'groupList' );
+    $group->get('/{groupID:[0-9]+}/view', 'groupView' );
+    $group->get('/{groupId:[0-9]+}/badge/{useCart:[0-9]+}/{type}', 'groupBadge' );
 });
 
 
