@@ -1,5 +1,9 @@
 <?php
 
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FamilyCustomQuery;
@@ -15,8 +19,7 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\Propel;
-use Slim\Http\Request;
-use Slim\Http\Response;
+
 
 use EcclesiaCRM\Backup\RestoreBackup;
 use EcclesiaCRM\Backup\CreateBackup;
@@ -24,42 +27,42 @@ use EcclesiaCRM\Backup\DownloadManager;
 
 // Routes
 
-$app->group('/database', function () {
-    $this->post('/backup', function ($request, $response, $args) {
+$app->group('/database', function (RouteCollectorProxy $group) {
+    $group->post('/backup', function (Request $request, Response $response, array $args) {
         $input = (object) $request->getParsedBody();
 
         $createBackup = new CreateBackup($input);
         $backup = $createBackup->run();
 
-        echo json_encode(get_object_vars($backup));
+        return $response->write(json_encode(get_object_vars($backup)));
     });
 
-    $this->post('/backupRemote', function($request, $response, $args) {
+    $group->post('/backupRemote', function(Request $request, Response $response, array $args) {
         // without parameters the backup is done on the remote server
         $input = (object) $request->getParsedBody();
 
         $createBackup = new CreateBackup($input);
         $backup = $createBackup->run();
 
-        echo json_encode(get_object_vars($backup));
+        return $response->write(json_encode(get_object_vars($backup)));
     });
 
-    $this->post('/restore', function ($request, $response, $args) {
+    $group->post('/restore', function (Request $request, Response $response, array $args) {
         $fileName = $_FILES['restoreFile'];
 
         $restoreJob = new RestoreBackup($fileName);
         $restore = $restoreJob->run();
 
-        echo json_encode(get_object_vars($restore));
+        return $response->write(json_encode(get_object_vars($restore)));
     });
 
-    $this->get('/download/{filename}', function ($request, $response, $args) {
+    $group->get('/download/{filename}', function (Request $request, Response $response, array $args) {
         $filename = $args['filename'];
         DownloadManager::run($filename);
         exit;// bug resolution for safari
     });
 
-    $this->delete('/people/clear', 'clearPeopleTables');
+    $group->delete('/people/clear', 'clearPeopleTables');
 });
 
 function clearPeopleTables(Request $request, Response $response, array $p_args)
