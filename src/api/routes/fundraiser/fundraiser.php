@@ -1,8 +1,9 @@
 <?php
 
 // Routes
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\DonatedItemQuery;
 use EcclesiaCRM\DonatedItem;
@@ -24,38 +25,38 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\InputUtils;
 
-$app->group('/fundraiser', function () {
+$app->group('/fundraiser', function (RouteCollectorProxy $group) {
 
-    $this->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiserForID' );
-    $this->post('/replicate', 'replicateFundraiser' );
+    $group->post('/{FundRaiserID:[0-9]+}', 'getAllFundraiserForID' );
+    $group->post('/replicate', 'replicateFundraiser' );
 
 // donatedItem
-    $this->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser' );
-    $this->post('/donateditem/currentpicture', 'donatedItemCurrentPicture' );
-    $this->delete('/donateditem', 'deleteDonatedItem' );
-    $this->post('/donatedItem/submit/picture', 'donatedItemSubmitPicture' );
+    $group->post('/donatedItemSubmit', 'donatedItemSubmitFundraiser' );
+    $group->post('/donateditem/currentpicture', 'donatedItemCurrentPicture' );
+    $group->delete('/donateditem', 'deleteDonatedItem' );
+    $group->post('/donatedItem/submit/picture', 'donatedItemSubmitPicture' );
 
     // FindFundRaiser.php
-    $this->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser' );
+    $group->post('/findFundRaiser/{fundRaiserID:[0-9]+}/{startDate}/{endDate}', 'findFundRaiser' );
 
 // paddlenum
-    $this->delete('/paddlenum', 'deletePaddleNum' );
-    $this->post('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList' );
-    $this->post('/paddlenum/add/donnors', 'addDonnors' );
+    $group->delete('/paddlenum', 'deletePaddleNum' );
+    $group->post('/paddlenum/list/{fundRaiserID:[0-9]+}', 'getPaddleNumList' );
+    $group->post('/paddlenum/add/donnors', 'addDonnors' );
 
 /*
  * @! Returns a list of all the persons who are in the cart
  */
-    $this->get('/paddlenum/persons/all/{fundRaiserID:[0-9]+}', "getAllPersonsNum" );
+    $group->get('/paddlenum/persons/all/{fundRaiserID:[0-9]+}', "getAllPersonsNum" );
 /*
  * @! Returns a list of all the persons who are in the cart
  */
-    $this->post('/paddlenum/add', 'addPaddleNum' );
+    $group->post('/paddlenum/add', 'addPaddleNum' );
 
 /*
  * @! Returns a list of all the persons who are in the cart
  */
-    $this->post('/paddlenum/info', 'paddleNumInfo' );
+    $group->post('/paddlenum/info', 'paddleNumInfo' );
 
 });
 
