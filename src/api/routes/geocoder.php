@@ -1,12 +1,14 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\Utils\GeoUtils;
 
-$app->group('/geocoder', function () {
-    $this->post('/address', 'getGeoLocals' );
-    $this->post('/address/', 'getGeoLocals' );
+$app->group('/geocoder', function (RouteCollectorProxy $group) {
+    $group->post('/address', 'getGeoLocals' );
+    $group->post('/address/', 'getGeoLocals' );
 });
 
 
