@@ -1,64 +1,62 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 
 // Routes
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Service\MailChimpService;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use PHPMailer\PHPMailer\PHPMailer;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 
 
-$app->group('/mailchimp', function () {
+$app->group('/mailchimp', function (RouteCollectorProxy $group) {
 
-    $this->get('/search/{query}', 'searchList' );
-    $this->get('/list/{listID}', 'oneList' );
-    $this->get('/lists', 'lists' );
-    $this->get('/listmembers/{listID}', 'listmembers' );
-    $this->post('/createlist', 'createList' );
-    $this->post('/modifylist', 'modifyList' );
-    $this->post('/deleteallsubscribers', 'deleteallsubscribers' );
-    $this->post('/deletelist', 'deleteList' );
+    $group->get('/search/{query}', 'searchList' );
+    $group->get('/list/{listID}', 'oneList' );
+    $group->get('/lists', 'lists' );
+    $group->get('/listmembers/{listID}', 'listmembers' );
+    $group->post('/createlist', 'createList' );
+    $group->post('/modifylist', 'modifyList' );
+    $group->post('/deleteallsubscribers', 'deleteallsubscribers' );
+    $group->post('/deletelist', 'deleteList' );
 
-    $this->post('/list/removeTag', 'removeTag' );
-    $this->post('/list/removeAllTagsForMembers', 'removeAllTagsForMembers' );
-    $this->post('/list/addTag', 'addTag' );
-    $this->post('/list/getAllTags', 'getAllTags' );
-    $this->post('/list/removeTagForMembers', 'removeTagForMembers' );
+    $group->post('/list/removeTag', 'removeTag' );
+    $group->post('/list/removeAllTagsForMembers', 'removeAllTagsForMembers' );
+    $group->post('/list/addTag', 'addTag' );
+    $group->post('/list/getAllTags', 'getAllTags' );
+    $group->post('/list/removeTagForMembers', 'removeTagForMembers' );
 
-    $this->post('/campaign/actions/create', 'campaignCreate' );
-    $this->post('/campaign/actions/delete', 'campaignDelete' );
-    $this->post('/campaign/actions/send', 'campaignSend' );
-    $this->post('/campaign/actions/save', 'campaignSave' );
-    $this->get('/campaign/{campaignID}/content', 'campaignContent' );
+    $group->post('/campaign/actions/create', 'campaignCreate' );
+    $group->post('/campaign/actions/delete', 'campaignDelete' );
+    $group->post('/campaign/actions/send', 'campaignSend' );
+    $group->post('/campaign/actions/save', 'campaignSave' );
+    $group->get('/campaign/{campaignID}/content', 'campaignContent' );
 
-    $this->post('/status', 'statusList' );
-    $this->post('/suppress', 'suppress' );
-    $this->post('/suppressMembers', 'suppressMembers' );
-    $this->post('/addallnewsletterpersons', 'addallnewsletterpersons' );
-    $this->post('/addallpersons', 'addallpersons' );
-    $this->post('/addperson', 'addPerson' );
-    $this->post('/addfamily', 'addFamily' );
-    $this->post('/addAllFamilies', 'addAllFamilies' );
-    $this->post('/addgroup', 'addGroup' );
+    $group->post('/status', 'statusList' );
+    $group->post('/suppress', 'suppress' );
+    $group->post('/suppressMembers', 'suppressMembers' );
+    $group->post('/addallnewsletterpersons', 'addallnewsletterpersons' );
+    $group->post('/addallpersons', 'addallpersons' );
+    $group->post('/addperson', 'addPerson' );
+    $group->post('/addfamily', 'addFamily' );
+    $group->post('/addAllFamilies', 'addAllFamilies' );
+    $group->post('/addgroup', 'addGroup' );
 
-    $this->post('/testConnection', 'testEmailConnectionMVC' );
+    $group->post('/testConnection', 'testEmailConnectionMVC' );
 
 });
 
