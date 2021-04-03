@@ -1,7 +1,8 @@
 <?php
 // Routes
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 
 use EcclesiaCRM\Group;
@@ -33,26 +34,26 @@ use Propel\Runtime\Propel;
 
 
 
-$app->group('/groups', function () {
+$app->group('/groups', function (RouteCollectorProxy $group) {
  /*
  * @! Get all the Groups
  */
-    $this->get('/', "getAllGroups" );
+    $group->get('/', "getAllGroups" );
 
  /*
  * @! Get the first Group of the list
  */
-    $this->get('/defaultGroup' , "defaultGroup");
+    $group->get('/defaultGroup' , "defaultGroup");
 
  /*
  * @! Get all the properties of a group
  */
-    $this->post('/groupproperties/{groupID:[0-9]+}', "groupproperties" );
+    $group->post('/groupproperties/{groupID:[0-9]+}', "groupproperties" );
 
  /*
  * @! get addressbook from a groupID through the url
  */
-    $this->get('/addressbook/extract/{groupId:[0-9]+}', function ($request, $response, $args) {
+    $group->get('/addressbook/extract/{groupId:[0-9]+}', function (Request $request, Response $response, array $args) {
       // we get the group
       $group = GroupQuery::create()->findOneById ($args['groupId']);
 
@@ -66,7 +67,7 @@ $app->group('/groups', function () {
       $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
       $size = strlen($output);
 
-      $response = $this->response
+      $response = $response
                 ->withHeader('Content-Type', 'application/octet-stream')
                 ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
                 ->withHeader('Pragma', 'no-cache')
@@ -81,58 +82,58 @@ $app->group('/groups', function () {
       return $response;
     });
 
-    $this->get('/search/{query}', "searchGroup" );
+    $group->get('/search/{query}', "searchGroup" );
 
-    $this->post('/deleteAllManagers', "deleteAllManagers" );
-    $this->post('/deleteManager', "deleteManager" );
-    $this->post('/getmanagers', "getManagers" );
-    $this->post('/addManager', "addManager" );
+    $group->post('/deleteAllManagers', "deleteAllManagers" );
+    $group->post('/deleteManager', "deleteManager" );
+    $group->post('/getmanagers', "getManagers" );
+    $group->post('/addManager', "addManager" );
 
-    $this->get('/groupsInCart', "groupsInCart" );
+    $group->get('/groupsInCart', "groupsInCart" );
 
-    $this->post('/', "newGroup" );
-    $this->post('/{groupID:[0-9]+}', "updateGroup" );
-    $this->get('/{groupID:[0-9]+}', "groupInfo" );
-    $this->get('/{groupID:[0-9]+}/cartStatus', "groupCartStatus" );
-    $this->delete('/{groupID:[0-9]+}', "deleteGroup" );
-    $this->get('/{groupID:[0-9]+}/members', "groupMembers" );
+    $group->post('/', "newGroup" );
+    $group->post('/{groupID:[0-9]+}', "updateGroup" );
+    $group->get('/{groupID:[0-9]+}', "groupInfo" );
+    $group->get('/{groupID:[0-9]+}/cartStatus', "groupCartStatus" );
+    $group->delete('/{groupID:[0-9]+}', "deleteGroup" );
+    $group->get('/{groupID:[0-9]+}/members', "groupMembers" );
 
-    $this->get('/{groupID:[0-9]+}/events', "groupEvents" );
+    $group->get('/{groupID:[0-9]+}/events', "groupEvents" );
 
-    $this->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', "removePersonFromGroup" );
-    $this->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', "addPersonToGroup" );
-    $this->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', "addTeacherToGroup" );
+    $group->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', "removePersonFromGroup" );
+    $group->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', "addPersonToGroup" );
+    $group->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', "addTeacherToGroup" );
 
-    $this->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', "userRoleByUserId" );
-    $this->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', "rolesByRoleId" );
-    $this->get('/{groupID:[0-9]+}/roles', "allRoles" );
+    $group->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', "userRoleByUserId" );
+    $group->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', "rolesByRoleId" );
+    $group->get('/{groupID:[0-9]+}/roles', "allRoles" );
 
 
-    $this->post('/{groupID:[0-9]+}/defaultRole', "defaultRoleForGroup" );
+    $group->post('/{groupID:[0-9]+}/defaultRole', "defaultRoleForGroup" );
 
-    $this->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {
+    $group->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function (Request $request, Response $response, array $args) {
         $groupID = $args['groupID'];
         $roleID = $args['roleID'];
-        echo json_encode($this->GroupService->deleteGroupRole($groupID, $roleID));
+        return $response->write(json_encode($this->GroupService->deleteGroupRole($groupID, $roleID)));
     });
-    $this->post('/{groupID:[0-9]+}/roles', function ($request, $response, $args) {
+    $group->post('/{groupID:[0-9]+}/roles', function (Request $request, Response $response, array $args) {
         $groupID = $args['groupID'];
         $roleName = $request->getParsedBody()['roleName'];
-        echo $this->GroupService->addGroupRole($groupID, $roleName);
+        return $response->write(json_encode($this->GroupService->addGroupRole($groupID, $roleName)));
     });
-    $this->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', function ($request, $response, $args) {
+    $group->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', function (Request $request, Response $response, array $args) {
         $groupID = $args['groupID'];
         $input = $request->getParsedBody();
         if ($input['GroupSpecificPropertyStatus']) {
             $this->GroupService->enableGroupSpecificProperties($groupID);
-            echo json_encode(['status' => 'group specific properties enabled']);
+            return $response->withJson(['status' => 'group specific properties enabled']);
         } else {
             $this->GroupService->disableGroupSpecificProperties($groupID);
-            echo json_encode(['status' => 'group specific properties disabled']);
+            return $response->withJson(['status' => 'group specific properties disabled']);
         }
     });
-    $this->post('/{groupID:[0-9]+}/settings/active/{value}', "settingsActiveValue" );
-    $this->post('/{groupID:[0-9]+}/settings/email/export/{value}', "settingsEmailExportVvalue" );
+    $group->post('/{groupID:[0-9]+}/settings/active/{value}', "settingsActiveValue" );
+    $group->post('/{groupID:[0-9]+}/settings/email/export/{value}', "settingsEmailExportVvalue" );
 
  /*
  * @! delete Group Specific property custom field
@@ -140,43 +141,43 @@ $app->group('/groups', function () {
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $this->post('/deletefield', "deleteGroupField" );
+    $group->post('/deletefield', "deleteGroupField" );
  /*
  * @! delete Group Specific property custom field
  * #! param: id->int :: PropID as id
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $this->post('/upactionfield', "upactionGroupField" );
+    $group->post('/upactionfield', "upactionGroupField" );
  /*
  * @! delete Group Specific property custom field
  * #! param: id->int :: PropID as id
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $this->post('/downactionfield', "downactionGroupField" );
+    $group->post('/downactionfield', "downactionGroupField" );
 
     /*
      * @! get all sundayschool teachers
      * #! param: id->int :: groupID as id
      */
 
-    $this->get('/{groupID:[0-9]+}/sundayschool', "groupSundaySchool" );
+    $group->get('/{groupID:[0-9]+}/sundayschool', "groupSundaySchool" );
 });
 
 
 
-function getAllGroups () {
-    echo GroupQuery::create()->groupByName()->find()->toJSON();
+function getAllGroups (Request $request, Response $response, array $args) {
+    return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
 }
 
-function defaultGroup ($request, $response, $args) {
+function defaultGroup (Request $request, Response $response, array $args) {
   $res = GroupQuery::create()->orderByName()->findOne()->getId();
 
   return $response->withJson($res);
 }
 
-function groupproperties ($request, $response, $args) {
+function groupproperties (Request $request, Response $response, array $args) {
   $ormAssignedProperties = Record2propertyR2pQuery::Create()
                         ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
                         ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
@@ -190,10 +191,10 @@ function groupproperties ($request, $response, $args) {
                         ->addAscendingOrderByColumn('ProTypeName')
                         ->findByR2pRecordId($args['groupID']);
 
-  return $ormAssignedProperties->toJSON();
+  return $response->write($ormAssignedProperties->toJSON());
 }
 
-function searchGroup($request, $response, $args) {
+function searchGroup(Request $request, Response $response, array $args) {
   $query = $args['query'];
 
   $searchLikeString = '%'.$query.'%';
@@ -224,7 +225,7 @@ function searchGroup($request, $response, $args) {
   return $response->withJson($return);
 }
 
-function deleteAllManagers ($request, $response, $args) {
+function deleteAllManagers (Request $request, Response $response, array $args) {
     $options = (object) $request->getParsedBody();
 
     if ( isset ($options->groupID) ) {
@@ -239,7 +240,7 @@ function deleteAllManagers ($request, $response, $args) {
     return $response->withJson(['status' => "failed"]);
 }
 
-function deleteManager ($request, $response, $args) {
+function deleteManager (Request $request, Response $response, array $args) {
     $options = (object) $request->getParsedBody();
 
     if ( isset ($options->groupID) && isset ($options->personID) ) {
@@ -272,7 +273,7 @@ function deleteManager ($request, $response, $args) {
     return $response->withJson(['status' => "failed"]);
 }
 
-function getManagers ($request, $response, $args) {
+function getManagers (Request $request, Response $response, array $args) {
     $option = (object) $request->getParsedBody();
 
     if (isset ($option->groupID)) {
@@ -299,7 +300,7 @@ function getManagers ($request, $response, $args) {
     return $response->withJson(['status' => "failed"]);
 }
 
-function addManager ($request, $response, $args) {
+function addManager (Request $request, Response $response, array $args) {
     $options = (object)$request->getParsedBody();
 
     if (isset ($options->personID) && isset($options->groupID)) {
@@ -316,7 +317,7 @@ function addManager ($request, $response, $args) {
     return $response->withJson(['status' => "failed"]);
 }
 
-function groupsInCart () {
+function groupsInCart (Request $request, Response $response, array $args) {
     $groupsInCart = [];
     $groups = GroupQuery::create()->find();
     foreach ($groups as $group) {
@@ -324,10 +325,10 @@ function groupsInCart () {
             array_push($groupsInCart, $group->getId());
         }
     }
-    echo json_encode(['groupsInCart' => $groupsInCart]);
+    return $response->withJson(['groupsInCart' => $groupsInCart]);
 }
 
-function newGroup ($request, $response, $args) {
+function newGroup (Request $request, Response $response, array $args) {
     $groupSettings = (object) $request->getParsedBody();
     $group = new Group();
     if ($groupSettings->isSundaySchool) {
@@ -348,10 +349,10 @@ function newGroup ($request, $response, $args) {
       $groupType->save();
     }
 
-    echo $group->toJSON();
+    return $response->write( $group->toJSON() );
 }
 
-function updateGroup ($request, $response, $args) {
+function updateGroup (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $input = (object) $request->getParsedBody();
     $group = GroupQuery::create()->findOneById($groupID);
@@ -375,24 +376,24 @@ function updateGroup ($request, $response, $args) {
 
     $group->save();
 
-    echo $group->toJSON();
+    return $response->write( $group->toJSON() );
 }
 
-function groupInfo ($request, $response, $args) {
-  echo GroupQuery::create()->findOneById($args['groupID'])->toJSON();
+function groupInfo (Request $request, Response $response, array $args) {
+    return $response->write( GroupQuery::create()->findOneById($args['groupID'])->toJSON());
 }
 
-function groupCartStatus ($request, $response, $args) {
-  echo GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart();
+function groupCartStatus (Request $request, Response $response, array $args) {
+    return $response->write( GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart());
 }
 
-function deleteGroup ($request, $response, $args) {
+function deleteGroup (Request $request, Response $response, array $args) {
   $groupID = $args['groupID'];
   GroupQuery::create()->findOneById($groupID)->delete();
-  echo json_encode(['status'=>'success']);
+  return $response->withJson(['status'=>'success']);
 }
 
-function groupMembers ($request, $response, $args) {
+function groupMembers (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
         ->joinWithPerson()
@@ -426,18 +427,18 @@ function groupMembers ($request, $response, $args) {
       }
     }
 
-    echo $members->toJSON();
+    return $response->write($members->toJSON());
 }
 
-function groupEvents ($request, $response, $args) {
+function groupEvents (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
         ->joinWithPerson()
         ->findByGroupId($groupID);
-    echo $members->toJSON();
+    return $response->write($members->toJSON());
 }
 
-function removePersonFromGroup ($request, $response, $args) {
+function removePersonFromGroup (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $userID = $args['userID'];
     $person = PersonQuery::create()->findPk($userID);
@@ -458,10 +459,10 @@ function removePersonFromGroup ($request, $response, $args) {
             $note->save();
         }
     }
-    echo json_encode(['success' => 'true']);
+    return $response->withJson(['success' => 'true']);
 }
 
-function addPersonToGroup ($request, $response, $args) {
+function addPersonToGroup (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $userID = $args['userID'];
     $person = PersonQuery::create()->findPk($userID);
@@ -492,10 +493,11 @@ function addPersonToGroup ($request, $response, $args) {
         ->joinWithPerson()
         ->filterByPersonId($input->PersonID)
         ->findByGroupId($groupID);
-    echo $members->toJSON();
+
+    return  $response->write($members->toJSON());
 }
 
-function addTeacherToGroup ($request, $response, $args) {
+function addTeacherToGroup (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $userID = $args['userID'];
     $person = PersonQuery::create()->findPk($userID);
@@ -526,20 +528,22 @@ function addTeacherToGroup ($request, $response, $args) {
         ->joinWithPerson()
         ->filterByPersonId($input->PersonID)
         ->findByGroupId($groupID);
-    echo $members->toJSON();
+
+    return  $response->write($members->toJSON());
 }
 
-function userRoleByUserId ($request, $response, $args) {
+function userRoleByUserId (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $userID = $args['userID'];
     $roleID = $request->getParsedBody()['roleID'];
     $membership = EcclesiaCRM\Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
     $membership->setRoleId($roleID);
     $membership->save();
-    echo $membership->toJSON();
+
+    return  $response->write($membership->toJSON());
 }
 
-function rolesByRoleId ($request, $response, $args) {
+function rolesByRoleId (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $roleID = $args['roleID'];
     $input = (object) $request->getParsedBody();
@@ -548,34 +552,34 @@ function rolesByRoleId ($request, $response, $args) {
         $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
         $groupRole->setOptionName($input->groupRoleName);
         $groupRole->save();
-        return json_encode(['success' => true]);
+        return $response->write(['success' => true]);
     } elseif (isset($input->groupRoleOrder)) {
         $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
         $groupRole->setOptionSequence($input->groupRoleOrder);
         $groupRole->save();
-        return json_encode(['success' => true]);
+        return $response->write(['success' => true]);
     }
-    echo json_encode(['success' => false]);
+    return  $response->write(['success' => false]);
 }
 
-function allRoles ($request, $response, $args) {
+function allRoles (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $group = GroupQuery::create()->findOneById($groupID);
     $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
-    echo $roles->toJSON();
+    return $response->write($roles->toJSON());
 }
 
-function defaultRoleForGroup ($request, $response, $args) {
+function defaultRoleForGroup (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $roleID = $request->getParsedBody()['roleID'];
     $group = GroupQuery::create()->findPk($groupID);
     $group->setDefaultRole($roleID);
     $group->save();
-    echo json_encode(['success' => true]);
+    return $response->withJson(['success' => true]);
 }
 
 
-function settingsActiveValue ($request, $response, $args) {
+function settingsActiveValue (Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $flag = $args['value'];
     if ($flag == "true" || $flag == "false") {
@@ -592,7 +596,7 @@ function settingsActiveValue ($request, $response, $args) {
     }
 }
 
-function settingsEmailExportVvalue($request, $response, $args) {
+function settingsEmailExportVvalue(Request $request, Response $response, array $args) {
     $groupID = $args['groupID'];
     $flag = $args['value'];
     if ($flag == "true" || $flag == "false") {
