@@ -1,21 +1,22 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\KioskDeviceQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-$app->group('/kiosks', function () {
+$app->group('/kiosks', function (RouteCollectorProxy $group) {
 
-    $this->get('/', 'getKioskDevices' );
-    $this->post('/allowRegistration', 'allowDeviceRegistration' );
-    $this->post('/{kioskId:[0-9]+}/reloadKiosk', 'reloadKiosk' );
-    $this->post('/{kioskId:[0-9]+}/identifyKiosk', 'identifyKiosk' );
-    $this->post('/{kioskId:[0-9]+}/acceptKiosk', 'acceptKiosk' );
-    $this->post('/{kioskId:[0-9]+}/setAssignment', 'setKioskAssignment' );
-    $this->delete('/{kioskId:[0-9]+}', 'deleteKiosk' );
+    $group->get('/', 'getKioskDevices' );
+    $group->post('/allowRegistration', 'allowDeviceRegistration' );
+    $group->post('/{kioskId:[0-9]+}/reloadKiosk', 'reloadKiosk' );
+    $group->post('/{kioskId:[0-9]+}/identifyKiosk', 'identifyKiosk' );
+    $group->post('/{kioskId:[0-9]+}/acceptKiosk', 'acceptKiosk' );
+    $group->post('/{kioskId:[0-9]+}/setAssignment', 'setKioskAssignment' );
+    $group->delete('/{kioskId:[0-9]+}', 'deleteKiosk' );
 
 });
 
