@@ -1,21 +1,22 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\SessionUser;
 
-$app->group('/register', function () {
-    $this->post('', 'registerEcclesiaCRM' );
-    $this->post('/isRegisterRequired', 'systemregister');
-    $this->post('/getRegistredDatas', 'getRegistredDatas');
+$app->group('/register', function (RouteCollectorProxy $group) {
+    $group->post('', 'registerEcclesiaCRM' );
+    $group->post('/isRegisterRequired', 'systemregister');
+    $group->post('/getRegistredDatas', 'getRegistredDatas');
 });
 
 function registerEcclesiaCRM (Request $request, Response $response, array $args) {
     $input = (object) $request->getParsedBody();
-    
+
     $headers = [];
     $headers[] = 'Content-type: application/json';
 
@@ -57,7 +58,7 @@ function systemregister (Request $request, Response $response, array $args) {
   } else {
     $isRegisterRequired = 0;
   }
-  
+
   return $response->withJson(["Register" => $isRegisterRequired]);
 }
 
