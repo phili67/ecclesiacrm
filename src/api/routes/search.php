@@ -8,8 +8,9 @@
 *
 ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -42,13 +43,13 @@ use EcclesiaCRM\GroupQuery;
  * #! param: ref->string :: query string as ref
  */
 
-$app->group('/search', function () {
-    $this->get('/{query}', 'quickSearch' );
-    $this->post('/comboElements/', 'comboElements' );
-    $this->post('/getGroupForTypeID/', 'getGroupForTypeID' );
-    $this->post('/getGroupRoleForGroupID/', 'getGroupRoleForGroupID' );
-    $this->post('/getresult/', 'getSearchResult' );
-    $this->get('/getresult/', 'getSearchResult' );// for test
+$app->group('/search', function (RouteCollectorProxy $group) {
+    $group->get('/{query}', 'quickSearch' );
+    $group->post('/comboElements/', 'comboElements' );
+    $group->post('/getGroupForTypeID/', 'getGroupForTypeID' );
+    $group->post('/getGroupRoleForGroupID/', 'getGroupRoleForGroupID' );
+    $group->post('/getresult/', 'getSearchResult' );
+    $group->get('/getresult/', 'getSearchResult' );// for test
 });
 
 function getSearchResult (Request $request, Response $response, array $args) {
