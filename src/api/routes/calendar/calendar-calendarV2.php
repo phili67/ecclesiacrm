@@ -8,8 +8,9 @@
 //
 
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Http\Response as Response;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\CalendarinstancesQuery;
@@ -32,123 +33,123 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 
-$app->group('/calendar', function () {
+$app->group('/calendar', function (RouteCollectorProxy $group) {
 
     /*
      * @! Get all events for all calendars for a specified range
      * #! param: ref->start :: the start date : YYYY-MM-DD
      * #! param: ref->end   :: the end date : YYYY-MM-DD
      */
-    $this->post('/getallevents', 'getallCalendarEvents' );
+    $group->post('/getallevents', 'getallCalendarEvents' );
     /*
      * @! get all the number of calendar for the current user
      */
-    $this->post('/numberofcalendars', 'numberOfCalendars' );
+    $group->post('/numberofcalendars', 'numberOfCalendars' );
     /*
      * @! Show Hide calendar
      * #! param: ref->array :: calIDs
      * #! param: id->bool   :: isPresent
      */
-    $this->post('/showhidecalendars', 'showHideCalendars' );
+    $group->post('/showhidecalendars', 'showHideCalendars' );
     /*
      * @! set Description type for a calendar
      * #! param: ref->array  :: calIDs
      * #! param: ref->string :: desc
      * #! param: ref->string :: type
      */
-    $this->post('/setDescriptionType', 'setCalendarDescriptionType' );
+    $group->post('/setDescriptionType', 'setCalendarDescriptionType' );
     /*
      * @! Get all calendars for a specified user
      * #! param: ref->string :: type
      * #! param: ref->bool   :: onlyvisible
      * #! param: ref->bool   :: allCalendars
      */
-    $this->post('/getallforuser', 'getAllCalendarsForUser' );
+    $group->post('/getallforuser', 'getAllCalendarsForUser' );
     /*
      * @! Get infos for a calendar
      * #! param: ref->array  :: calIDs
      * #! param: ref->string :: type
      */
-    $this->post('/info', 'calendarInfo' );
+    $group->post('/info', 'calendarInfo' );
     /*
     * @! Set color for a calendar
     * #! param: ref->array  :: calIDs
     * #! param: ref->hex    :: color : #FFF
     */
-    $this->post('/setcolor', 'setCalendarColor' );
+    $group->post('/setcolor', 'setCalendarColor' );
     /*
     * @! Check the calendar to make it visible
     * #! param: ref->array  :: calIDs
     * #! param: ref->bool   :: isChecked
     */
-    $this->post('/setckecked', 'setCheckedCalendar' );
+    $group->post('/setckecked', 'setCheckedCalendar' );
     /*
      * @! Create a new calendar
      * #! param: ref->string  :: title
      */
-    $this->post('/new', 'newCalendar' );
+    $group->post('/new', 'newCalendar' );
     /*
     * @! Create new calendar reservation
     * #! param: ref->string :: title
     * #! param: ref->string :: type
     * #! param: ref->string :: desc
     */
-    $this->post('/newReservation', 'newCalendarReservation' );
+    $group->post('/newReservation', 'newCalendarReservation' );
     /*
     * @! Change calendar name
     * #! param: ref->array  :: calIDs
     * #! param: ref->string :: title
     */
-    $this->post('/modifyname', 'modifyCalendarName' );
+    $group->post('/modifyname', 'modifyCalendarName' );
     /*
     * @! get attendees for a calendar
     * #! param: ref->array  :: calIDs
     */
-    $this->post('/getinvites', 'getCalendarInvites' );
+    $group->post('/getinvites', 'getCalendarInvites' );
     /*
     * @! Delete a share calendar for a person
     * #! param: ref->array  :: calIDs
     * #! param: ref->int    :: principal
     */
-    $this->post('/sharedelete', 'shareCalendarDelete' );
+    $group->post('/sharedelete', 'shareCalendarDelete' );
     /*
     * @! Share a calendar with a person
     * #! param: ref->array  :: calIDs
     * #! param: id->int     :: person ID
     * #! param: ref->bool   :: notification
     */
-    $this->post('/shareperson', 'shareCalendarPerson');
+    $group->post('/shareperson', 'shareCalendarPerson');
     /*
     * @! Share a calendar with a person
     * #! param: ref->array  :: calIDs
     * #! param: id->int     :: family ID
     * #! param: ref->bool   :: notification
     */
-    $this->post('/sharefamily', 'shareCalendarFamily' );
+    $group->post('/sharefamily', 'shareCalendarFamily' );
     /*
    * @! Share a calendar with an entire group
    * #! param: ref->array  :: calIDs
    * #! param: id->int     :: group ID
    * #! param: ref->bool   :: notification
    */
-    $this->post('/sharegroup', 'shareCalendarGroup' );
+    $group->post('/sharegroup', 'shareCalendarGroup' );
     /*
    * @! Share a calendar with an entire group
    * #! param: ref->array  :: calIDs
    */
-    $this->post('/sharestop', 'shareCalendarStop');
+    $group->post('/sharestop', 'shareCalendarStop');
     /*
    * @! Set right access for a calendar
    * #! param: ref->array  :: calIDs
    * #! param: ref->int    :: principal
    * #! param: ref->int    :: rightAccess
    */
-    $this->post('/setrights', 'setCalendarRights' );
+    $group->post('/setrights', 'setCalendarRights' );
     /*
    * @! Delete a calendar
    * #! param: ref->array  :: calIDs
    */
-    $this->post('/delete', 'deleteCalendar' );
+    $group->post('/delete', 'deleteCalendar' );
 
 });
 
@@ -156,7 +157,7 @@ function getallCalendarEvents (Request $request, Response $response, array $args
     $params = (object)$request->getParsedBody();
 
     $calendarService = new CalendarService();
-    return $response->withJson($calendarService->getEvents($params->start, $params->end));
+    return $response->withJson($calendarService->getEvents($params->start, $params->end));;
 }
 
 function numberOfCalendars (Request $request, Response $response, array $args) {

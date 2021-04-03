@@ -14,8 +14,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -33,6 +34,7 @@ use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
 
+
 use EcclesiaCRM\CalendarinstancesQuery;
 
 use Sabre\VObject;
@@ -42,62 +44,62 @@ use EcclesiaCRM\MyPDO\VObjectExtract;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
-$app->group('/events', function () {
+$app->group('/events', function (RouteCollectorProxy $group) {
 
     /*
       * @! Get all events for all calendars for a specified range
       */
-    $this->get('/', "getAllEvents" );
+    $group->get('/', "getAllEvents" );
     /*
       * @! Get all events after now
       */
-    $this->get('/notDone', "getNotDoneEvents" );
+    $group->get('/notDone', "getNotDoneEvents" );
     /*
      * @! Get all events from today
      */
-    $this->get('/numbers', "numbersOfEventOfToday") ;
+    $group->get('/numbers', "numbersOfEventOfToday") ;
     /*
      * @! Get all event type
      */
-    $this->get('/types', "getEventTypes" );
+    $group->get('/types', "getEventTypes" );
     /*
      * @! Get all event names
      */
-    $this->get('/names', "eventNames" );
+    $group->get('/names', "eventNames" );
     /*
      * @! delete event type
      * #! param: id->int  :: type ID
      */
-    $this->post('/deleteeventtype', "deleteeventtype" );
+    $group->post('/deleteeventtype', "deleteeventtype" );
     /*
      * @! get event info
      * #! param: id->int  :: event ID
      */
-    $this->post('/info', "eventInfo" );
+    $group->post('/info', "eventInfo" );
     /*
     * @! Set a person for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: person ID
     */
-    $this->post('/person', "personCheckIn" );
+    $group->post('/person', "personCheckIn" );
     /*
     * @! Set the group persons for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: group ID
     */
-    $this->post('/group', "groupCheckIn" );
+    $group->post('/group', "groupCheckIn" );
     /*
     * @! Set the family persons for the event + check
     * #! param: id->int  :: event ID
     * #! param: id->int  :: family ID
     */
-    $this->post('/family', "familyCheckIn" );
+    $group->post('/family', "familyCheckIn" );
     /*
     * @! get event count
     * #! param: id->int  :: event ID
     * #! param: id->int  :: type ID
     */
-    $this->post('/attendees', "eventCount" );
+    $group->post('/attendees', "eventCount" );
     /*
     * @! manage an event eventAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
     * #! param: id->int       :: eventID
@@ -108,7 +110,7 @@ $app->group('/events', function () {
     * #! param: ref->start    :: the end date : YYYY-MM-DD
     * #! param: ref->location :: location
     */
-    $this->post('/', "manageEvent" );
+    $group->post('/', "manageEvent" );
 
 });
 
@@ -116,7 +118,8 @@ function getAllEvents(Request $request, Response $response, array $args)
 {
     $Events = EventQuery::create()
         ->find();
-    return $response->write($Events->toJSON());
+
+    return $response->withJson($Events->toArray());
 }
 
 function getNotDoneEvents(Request $request, Response $response, array $args)
