@@ -10,5 +10,5 @@ $app->post('/issues', function (Request $request, Response $response, $args) {
 
     $SystemService = $this->get('SystemService');
 
-    return $response->withJson($SystemService->reportIssue($input));
+    return $response->write($SystemService->reportIssue($input));
 });
