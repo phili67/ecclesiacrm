@@ -1,18 +1,17 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/pastoralcarelist', function () {
-    $this->get('', 'renderPastoralCareList');
-    $this->get('/', 'renderPastoralCareList');
+$app->group('/pastoralcarelist', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderPastoralCareList');
+    $group->get('/', 'renderPastoralCareList');
 });
 
 
