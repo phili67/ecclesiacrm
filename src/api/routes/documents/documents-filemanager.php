@@ -1,8 +1,9 @@
 <?php
 
 // copyright 2018 Philippe Logel All rights reserved not MIT licence
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 // Documents filemanager APIs
 use EcclesiaCRM\UserQuery;
@@ -15,22 +16,22 @@ use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 
-$app->group('/filemanager', function () {
+$app->group('/filemanager', function (RouteCollectorProxy $group) {
 
-    $this->post('/{personID:[0-9]+}', 'getAllFileNoteForPerson' );
-    $this->get('/getFile/{personID:[0-9]+}/[{path:.*}]', 'getRealFile' );
-    $this->post('/getPreview', 'getPreview' );
-    $this->post('/changeFolder', 'changeFolder' );
-    $this->post('/folderBack', 'folderBack' );
-    $this->post('/deleteOneFolder', 'deleteOneFolder' );
-    $this->post('/deleteOneFile', 'deleteOneFile' );
-    $this->post('/deleteFiles', 'deleteFiles' );
-    $this->post('/movefiles', 'movefiles' );
-    $this->post('/newFolder', 'newFolder' );
-    $this->post('/rename', 'renameFile' );
-    $this->post('/uploadFile/{personID:[0-9]+}', 'uploadFile' );
-    $this->post('/getRealLink', 'getRealLink' );
-    $this->post('/setpathtopublicfolder', 'setpathtopublicfolder' );
+    $group->post('/{personID:[0-9]+}', 'getAllFileNoteForPerson' );
+    $group->get('/getFile/{personID:[0-9]+}/[{path:.*}]', 'getRealFile' );
+    $group->post('/getPreview', 'getPreview' );
+    $group->post('/changeFolder', 'changeFolder' );
+    $group->post('/folderBack', 'folderBack' );
+    $group->post('/deleteOneFolder', 'deleteOneFolder' );
+    $group->post('/deleteOneFile', 'deleteOneFile' );
+    $group->post('/deleteFiles', 'deleteFiles' );
+    $group->post('/movefiles', 'movefiles' );
+    $group->post('/newFolder', 'newFolder' );
+    $group->post('/rename', 'renameFile' );
+    $group->post('/uploadFile/{personID:[0-9]+}', 'uploadFile' );
+    $group->post('/getRealLink', 'getRealLink' );
+    $group->post('/setpathtopublicfolder', 'setpathtopublicfolder' );
 
 });
 
