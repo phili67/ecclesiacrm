@@ -1,17 +1,18 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-use EcclesiaCRM\Service\CalendarService;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\data\Countries;
 use EcclesiaCRM\data\States;
 
 
-$app->group('/public/data', function () {
-    $this->get('/countries', 'getCountries' );
-    $this->get('/countries/', 'getCountries' );
-    $this->get('/countries/{countryCode}/states', 'getStates' );
-    $this->get('/countries/{countryCode}/states/', 'getStates' );
+$app->group('/public/data', function (RouteCollectorProxy $group) {
+    $group->get('/countries', 'getCountries' );
+    $group->get('/countries/', 'getCountries' );
+    $group->get('/countries/{countryCode}/states', 'getStates' );
+    $group->get('/countries/{countryCode}/states/', 'getStates' );
 });
 
 
