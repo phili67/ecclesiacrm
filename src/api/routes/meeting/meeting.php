@@ -15,8 +15,9 @@
  ******************************************************************************/
 
 // Routes
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\SessionUser;
 
@@ -26,12 +27,12 @@ use EcclesiaCRM\PersonMeetingQuery;
 use EcclesiaCRM\PersonMeeting;
 
 
-$app->group('/meeting', function () {
-    $this->get('/', 'getAllMettings');
-    $this->get('/getLastMeeting', 'getLastMeeting');
-    $this->post('/createMeetingRoom', 'createMeetingRoom');
-    $this->post('/selectMeetingRoom', 'selectMeetingRoom');
-    $this->delete('/deleteAllMeetingRooms', 'deleteAllMeetingRooms');
+$app->group('/meeting', function (RouteCollectorProxy $group) {
+    $group->get('/', 'getAllMettings');
+    $group->get('/getLastMeeting', 'getLastMeeting');
+    $group->post('/createMeetingRoom', 'createMeetingRoom');
+    $group->post('/selectMeetingRoom', 'selectMeetingRoom');
+    $group->delete('/deleteAllMeetingRooms', 'deleteAllMeetingRooms');
 });
 
 function deleteAllMeetingRooms(Request $request, Response $response, array $args)
@@ -67,7 +68,7 @@ function selectMeetingRoom(Request $request, Response $response, array $args)
         return $response->withJson($lpm->toArray());
     }
 
-    echo null;
+    return $response;
 }
 
 function createMeetingRoom(Request $request, Response $response, array $args)
