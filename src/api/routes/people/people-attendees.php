@@ -1,9 +1,11 @@
 <?php
 // Copyright 2018 Philippe Logel all right reserved
-use EcclesiaCRM\ListOptionQuery;
-use Slim\Http\Request;
-use Slim\Http\Response;
 
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
+use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventTypesQuery;
@@ -23,24 +25,24 @@ use EcclesiaCRM\CalendarinstancesQuery;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 
-$app->group('/attendees', function () {
+$app->group('/attendees', function (RouteCollectorProxy $group) {
 
-    $this->get('/event/{eventID:[0-9]+}', 'attendeesEvent' );
+    $group->get('/event/{eventID:[0-9]+}', 'attendeesEvent' );
 
-    $this->post('/checkin', 'attendeesCheckIn' );
-    $this->post('/checkout', 'attendeesCheckOut' );
-    $this->post('/student', 'attendeesStudent' );
-    $this->post('/delete', 'attendeesDelete' );
-    $this->post('/deleteAll', 'attendeesDeleteAll' );
-    $this->post('/checkAll', 'attendeesCheckAll' );
-    $this->post('/uncheckAll', 'attendeesUncheckAll' );
-    $this->post('/groups', 'attendeesGroups' );
-    $this->post('/deletePerson', 'deleteAttendeesPerson' );
-    $this->post('/addPerson', 'addAttendeesPerson' );
-    $this->post('/validate', 'validateAttendees' );
-    $this->post('/addFreeAttendees', 'addFreeAttendees' );
+    $group->post('/checkin', 'attendeesCheckIn' );
+    $group->post('/checkout', 'attendeesCheckOut' );
+    $group->post('/student', 'attendeesStudent' );
+    $group->post('/delete', 'attendeesDelete' );
+    $group->post('/deleteAll', 'attendeesDeleteAll' );
+    $group->post('/checkAll', 'attendeesCheckAll' );
+    $group->post('/uncheckAll', 'attendeesUncheckAll' );
+    $group->post('/groups', 'attendeesGroups' );
+    $group->post('/deletePerson', 'deleteAttendeesPerson' );
+    $group->post('/addPerson', 'addAttendeesPerson' );
+    $group->post('/validate', 'validateAttendees' );
+    $group->post('/addFreeAttendees', 'addFreeAttendees' );
 
-    $this->post('/qrcodeCall', 'qrcodeCallAttendees' );
+    $group->post('/qrcodeCall', 'qrcodeCallAttendees' );
 
 });
 
