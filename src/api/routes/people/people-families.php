@@ -2,8 +2,9 @@
 
 /* Contributors Philippe Logel */
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 // Routes
 use Propel\Runtime\Propel;
@@ -26,7 +27,6 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\MailChimpService;
@@ -35,136 +35,136 @@ use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Service\FinancialService;
 
 
-$app->group('/families', function () {
+$app->group('/families', function (RouteCollectorProxy $group) {
 
 /*
  * @! Return family properties for familyID
  * #! param: id->int   :: familyId as id
  */
-    $this->post('/familyproperties/{familyID:[0-9]+}', "postfamilyproperties" );
+    $group->post('/familyproperties/{familyID:[0-9]+}', "postfamilyproperties" );
 /*
  * @! Return if mailchimp is activated for family
  * #! param: id->int   :: familyId as id
  * #! param: ref->string :: email as ref
  */
-    $this->post('/isMailChimpActive', "isMailChimpActiveFamily" );
+    $group->post('/isMailChimpActive', "isMailChimpActiveFamily" );
 /*
  * @! Return the family as json
  * #! param: id->int   :: familyId as id
  */
-    $this->get('/{familyId:[0-9]+}', "getFamily" );
+    $group->get('/{familyId:[0-9]+}', "getFamily" );
 /*
  * @! Return the family info as json
  * #! param: id->int   :: familyId as id
  */
-    $this->post('/info', "familyInfo" );
+    $group->post('/info', "familyInfo" );
 /*
  * @! Return the numbers of Anniversaries for MenuEvent
  */
-    $this->get('/numbers', "numbersOfAnniversaries" );
+    $group->get('/numbers', "numbersOfAnniversaries" );
 /*
  * @! Returns a list of the families who's name matches the :query parameter
  * #! param: ref->string :: query as ref
  */
-    $this->get('/search/{query}', "searchFamily" );
+    $group->get('/search/{query}', "searchFamily" );
 /*
  * @! Returns a list of the self-registered families
  */
-    $this->get('/self-register', "selfRegisterFamily" );
+    $group->get('/self-register', "selfRegisterFamily" );
 /*
  * @! Returns a list of the self-verified families
  */
-    $this->get('/self-verify', "selfVerifyFamily" );
+    $group->get('/self-verify', "selfVerifyFamily" );
 /*
  * @! Returns a list of the pending self-verified families
  */
-    $this->get('/pending-self-verify', "pendingSelfVerify" );
+    $group->get('/pending-self-verify', "pendingSelfVerify" );
 /*
  * @! Returns a family string based on the scan string of an MICR reader containing a routing and account number
  * #! param: ref->string :: scanString as ref
  */
-    $this->get('/byCheckNumber/{scanString}', "byCheckNumberScan" );
+    $group->get('/byCheckNumber/{scanString}', "byCheckNumberScan" );
 
  /*
  * @! Returns the photo for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->get('/{familyId:[0-9]+}/photo', function ($request, $response, $args) {
-        $res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+    $group->get('/{familyId:[0-9]+}/photo', function (Request $request, Response $response, array $args) {
+        //$res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
-        return $res->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
+        return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     });
 
  /*
  * @! Returns the thumbnail for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->get('/{familyId:[0-9]+}/thumbnail', function ($request, $response, $args) {
-        $res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+    $group->get('/{familyId:[0-9]+}/thumbnail', function (Request $request, Response $response, array $args) {
+        //$res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
-        return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
+        return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
  /*
  * @! Post the photo for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->post('/{familyId:[0-9]+}/photo', "postFamilyPhoto" );
+    $group->post('/{familyId:[0-9]+}/photo', "postFamilyPhoto" );
 
  /*
  * @! Delete the photo for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->delete('/{familyId:[0-9]+}/photo', "deleteFamilyPhoto" );
+    $group->delete('/{familyId:[0-9]+}/photo', "deleteFamilyPhoto" );
 
  /*
  * @! Verify the family for the familyId
  * #! param: id->int :: familyId as id
  */
-    $this->post('/{familyId:[0-9]+}/verify', "verifyFamily" );
+    $group->post('/{familyId:[0-9]+}/verify', "verifyFamily" );
 
  /*
  * @! Verify the family for the familyId now
  * #! param: id->int :: familyId as id
  */
-    $this->post('/verify/{familyId:[0-9]+}/now', "verifyFamilyNow" );
+    $group->post('/verify/{familyId:[0-9]+}/now', "verifyFamilyNow" );
 
 /*
  * @! Verify the family for the familyId now
  * #! param: id->int :: family
  */
-    $this->post('/verify/url', 'verifyFamilyURL' );
+    $group->post('/verify/url', 'verifyFamilyURL' );
 
 /*
  * @! Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
  * #! param: id->int   :: familyId as id
  * #! param: ref->bool :: status as ref
  */
-    $this->post('/{familyId:[0-9]+}/activate/{status}', "familyActivateStatus" );
+    $group->post('/{familyId:[0-9]+}/activate/{status}', "familyActivateStatus" );
  /*
  * @! Return the location for the family
  * #! param: id->int :: familyId as id
  */
-    $this->get('/{familyId:[0-9]+}/geolocation', "familyGeolocation" );
+    $group->get('/{familyId:[0-9]+}/geolocation', "familyGeolocation" );
 
  /*
  * @! delete familyField custom field
  * #! param: id->int :: orderID as id
  * #! param: id->int :: field as id
  */
-    $this->post('/deletefield', "deleteFamilyField" );
+    $group->post('/deletefield', "deleteFamilyField" );
  /*
  * @! Move up the family custom field
  * #! param: id->int :: orderID as id
  * #! param: id->int :: field as id
  */
-    $this->post('/upactionfield', "upactionFamilyField" );
+    $group->post('/upactionfield', "upactionFamilyField" );
  /*
  * @! Move down the family custom field
  * #! param: id->int :: orderID as id
  * #! param: id->int :: field as id
  */
-    $this->post('/downactionfield', "downactionFamilyField" );
+    $group->post('/downactionfield', "downactionFamilyField" );
 
 });
 
@@ -184,7 +184,7 @@ function postfamilyproperties (Request $request, Response $response, array $args
                         ->addAscendingOrderByColumn('ProTypeName')
                         ->findByR2pRecordId($args['familyID']);
 
-  return $ormAssignedProperties->toJSON();
+  return $response->write($ormAssignedProperties->toJSON());
 }
 
 function isMailChimpActiveFamily (Request $request, Response $response, array $args) {
@@ -218,7 +218,7 @@ function familyInfo (Request $request, Response $response, array $args) {
     if ( isset ($values->familyId) )
     {
       $family = FamilyQuery::create()->findPk($values->familyId);
-      return $family->toJSON();
+      return $response->write($family->toJSON());
     }
 }
 
@@ -278,7 +278,7 @@ function byCheckNumberScan (Request $request, Response $response, array $args) {
     $scanString = $args['scanString'];
 
     $fService = new FinancialService();
-    echo $fService->getMemberByScanString($scanString);
+    return $response->write($fService->getMemberByScanString($scanString));
 }
 
 function postFamilyPhoto(Request $request, Response $response, array $args) {
@@ -286,12 +286,12 @@ function postFamilyPhoto(Request $request, Response $response, array $args) {
     $family = FamilyQuery::create()->findPk($args['familyId']);
     $family->setImageFromBase64($input->imgBase64);
 
-    $response->withJSON(array("status" => "success"));
+    return $response->withJSON(array("status" => "success"));
 }
 
 function deleteFamilyPhoto (Request $request, Response $response, array $args) {
     $family = FamilyQuery::create()->findPk($args['familyId']);
-    return json_encode(array("status" => $family->deletePhoto()));
+    return $response->withJson(["status" => $family->deletePhoto()]);
 }
 
 function verifyFamily (Request $request, Response $response, array $args) {
