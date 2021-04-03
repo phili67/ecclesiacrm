@@ -17,20 +17,21 @@ use EcclesiaCRM\FamilyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionQuery;
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 
 // Routes people
 
 
-$app->group('/people', function () {
+$app->group('/people', function (RouteCollectorProxy $group) {
 
 /*
  * @! Returns a list of the person who's first name or last name matches the :query parameter
  * #! param: ref->string :: query string ref
  */
-  $this->get('/searchonlyperson/{query}', function($request,$response,$args) {
+  $group->get('/searchonlyperson/{query}', function(Request $request, Response $response, array $args) {
       $query = $args['query'];
       $resultsArray = [];
 
@@ -83,7 +84,7 @@ $app->group('/people', function () {
  * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
  * #! param: ref->string :: query string ref
  */
-  $this->get('/search/{query}', function($request,$response,$args) {
+  $group->get('/search/{query}', function(Request $request, Response $response, array $args) {
       $query = $args['query'];
       $resultsArray = [];
 
@@ -210,13 +211,13 @@ $app->group('/people', function () {
  * @! Returns all classifications
  * #! param: nothing
  */
-  $this->get('/classifications/all', 'getAllClassifications' );
+  $group->get('/classifications/all', 'getAllClassifications' );
 
 /*
  * @! Returns all classifications
  * #! param: nothing
  */
-  $this->post('/person/classification/assign', 'postPersonClassification' );
+  $group->post('/person/classification/assign', 'postPersonClassification' );
 
 });
 
