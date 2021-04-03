@@ -1,10 +1,11 @@
 <?php
 
+
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use Propel\Runtime\Propel;
-
-use Slim\Http\Request;
-use Slim\Http\Response;
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\SessionUser;
 
@@ -23,12 +24,11 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
 
 use EcclesiaCRM\Map\ListOptionTableMap;
-use LogicException;
 
 
-$app->group('/generalrole', function () {
-    
-    $this->get('/all/{mode}', 'getAllGeneralRoles' );// this is to finish !!! All in JS
+$app->group('/generalrole', function (RouteCollectorProxy $group) {
+
+    $group->get('/all/{mode}', 'getAllGeneralRoles' );// this is to finish !!! All in JS
 /*
  * @! set gerneral role for the family, classification, etc ...
  * #! param: ref->str :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'famcustom' 'groupcustom' ('grproles' dead code)
@@ -36,8 +36,8 @@ $app->group('/generalrole', function () {
  * #! param: id->int  :: ID as id
  * #! param: res->str :: Action 'up' 'down'
  */
-    $this->post('/action', 'generalRoleAssign' );
-    
+    $group->post('/action', 'generalRoleAssign' );
+
 });
 
 function getAllGeneralRoles (Request $request, Response $response, array $args) {
@@ -350,13 +350,13 @@ function getAllGeneralRoles (Request $request, Response $response, array $args) 
         $aIDs[$row] = $ormList->getOptionId();
         //addition save off sequence also
         $aSeqs[$row] = $ormList->getOptionSequence();
-        
+
         $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
-        
+
         if (!is_null ($icon) && $icon->getUrl() != '') {
           $aIcon[$row]          = ['isOnlyPersonViewVisible' => true, 'url' => $icon->getUrl()];
         } else {
-        
+
           $aIcon[$row] = null;
         }
         $row++;
