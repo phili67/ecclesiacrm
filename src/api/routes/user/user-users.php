@@ -1,34 +1,30 @@
 <?php
 
 // Users APIs
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\User;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\Emails\ResetPasswordEmail;
 use EcclesiaCRM\Emails\AccountDeletedEmail;
 use EcclesiaCRM\Emails\UnlockedEmail;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\Family;
 use EcclesiaCRM\Note;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\Utils\LoggerUtils;
 
 
-$app->group('/users', function () {
-    $this->post('/{userId:[0-9]+}/password/reset', 'passwordReset' );
-    $this->post('/applyrole' , 'applyRole' );
-    $this->post('/webdavKey' , 'webDavKey' );
-    $this->post('/lockunlock', 'lockUnlock' );
-    $this->post('/showsince', 'showSince' );
-    $this->post('/showto', 'showTo' );
-    $this->post('/{userId:[0-9]+}/login/reset', 'loginReset' );
-    $this->delete('/{userId:[0-9]+}', 'deleteUser' );
+$app->group('/users', function (RouteCollectorProxy $group) {
+    $group->post('/{userId:[0-9]+}/password/reset', 'passwordReset' );
+    $group->post('/applyrole' , 'applyRole' );
+    $group->post('/webdavKey' , 'webDavKey' );
+    $group->post('/lockunlock', 'lockUnlock' );
+    $group->post('/showsince', 'showSince' );
+    $group->post('/showto', 'showTo' );
+    $group->post('/{userId:[0-9]+}/login/reset', 'loginReset' );
+    $group->delete('/{userId:[0-9]+}', 'deleteUser' );
 });
 
 function passwordReset (Request $request, Response $response, array $args ) {
@@ -46,7 +42,7 @@ function passwordReset (Request $request, Response $response, array $args ) {
       } else {
           $logger = LoggerUtils::getAppLogger();
           $logger->error($email->getError());
-          
+
           throw new \Exception($email->getError());
       }
   } else {
@@ -59,22 +55,22 @@ function applyRole (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
-    
+
     $params = (object)$request->getParsedBody();
-      
+
     if (isset ($params->userID) && isset ($params->roleID)) {
       $user = UserQuery::create()->findPk($params->userID);
-       
+
       if (!is_null($user)) {
          $roleName = $user->ApplyRole($params->roleID);
-         
+
          $email = new UpdateAccountEmail($user, _("Your user role has changed"));
          $email->send();
 
          return $response->withJson(['success' => true,'userID' => $params->userID,'roleName' => $roleName]);
       }
     }
-        
+
     return $response->withJson(['success' => false]);
 }
 
@@ -82,17 +78,17 @@ function webDavKey (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
-    
+
     $params = (object)$request->getParsedBody();
-      
+
     if (isset ($params->userID)) {
-    
+
       $user = UserQuery::create()->findPk($params->userID);
       if (!is_null($user)) {
         return $response->withJson(['status' => "success", "token" => $user->getWebdavkey(),"token2" => $user->getWebdavPublickey()]);
       }
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -100,17 +96,17 @@ function lockUnlock (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
-    
+
     $params = (object)$request->getParsedBody();
-      
+
     // note : When a user is deactivated the associated person is deactivated too
     //        but when a person is deactivated the user is deactivated too.
     //        Important : a person re-activated don't reactivate the user
-    
+
     if (isset ($params->userID)) {
-    
+
       $user = UserQuery::create()->findPk($params->userID);
-      
+
       if (!is_null($user) && $user->getPersonId() != 1) {
         $newStatus = (empty($user->getIsDeactivated()) ? true : false);
 
@@ -120,9 +116,9 @@ function lockUnlock (Request $request, Response $response, array $args) {
         } else {
             $user->setIsDeactivated(false);
         }
-        
+
         $user->save();
-        
+
         // a mail is notified
         $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
         $email->send();
@@ -138,7 +134,7 @@ function lockUnlock (Request $request, Response $response, array $args) {
         return $response->withJson(['success' => true]);
       }
     }
-    
+
     return $response->withJson(['success' => false]);
 }
 
@@ -186,34 +182,34 @@ function deleteUser (Request $request, Response $response, array $args) {
 
 function showSince (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
-      
+
     if (isset ($params->date)) {
        $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-       
+
        $user->setShowSince ($params->date);
        $user->save();
-       
+
        $_SESSION['user'] = $user;
 
        return $response->withJson(['success' => true]);
     }
-    
+
     return $response->withJson(['success' => false]);
 }
 
 function showTo (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
-      
+
     if (isset ($params->date)) {
        $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-       
+
        $user->setShowTo ($params->date);
        $user->save();
-       
+
        $_SESSION['user'] = $user;
 
        return $response->withJson(['success' => true]);
     }
-    
+
     return $response->withJson(['success' => false]);
 }
