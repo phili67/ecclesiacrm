@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
@@ -7,44 +8,54 @@ require '../Include/Functions.php';
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use EcclesiaCRM\TokenQuery;
+use Slim\HttpCache\CacheProvider;
+use Slim\HttpCache\Cache;
 use Tuupola\Middleware\JwtAuthentication;
+use DI\Container;
 
-// on doit rajouter le cache
-// gestion jwt
-// gestion middleware
+use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
+use EcclesiaCRM\TokenQuery;
+
+$container = new Container();
+
+$settings = require __DIR__.'/../Include/slim/settings.php';
+$settings($container);
+
+AppFactory::setContainer($container);
 
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-/*$app->add(new \Slim\HttpCache\Cache('public', 86400));
+$app->add( new Cache('ApiCache', 0) );
 
 // Create the cache provider.
-$cacheProvider = new \Slim\HttpCache\CacheProvider();*/
-
+$cacheProvider = new CacheProvider();
 
 $app->setBasePath("/v2");
 
-
+$app->add(new VersionMiddleware());
 
 $tokenJWT = null;
 
 if ( !is_null (TokenQuery::Create()->findOneByType("secret")) ) {
     $tokenJWT = TokenQuery::Create()->findOneByType("secret")->getToken();
 
-    /*$app->add(new JwtAuthentication([
+    $app->add(new JwtAuthentication([
         "secret" => $tokenJWT,
         "path" => "/v2",
+        "ignore" => ["/v2/"],
         "algorithm" => ["HS256"],
         "error" => function ($response, $arguments) {
             $data["status"] = "error";
             $data["message"] = $arguments["message"];
             return $response
                 ->withHeader("Content-Type", "application/json")
-                ->write(json_encode($data, 'JSON_UNESCAPED_SLASHES' | 'JSON_PRETTY_PRINT'));
+                ->write(json_encode($data, 'JSON_UNESCAPED_SLASHES' | 'JSON_PRETTY_PRINT') );
         }
-    ]));*/
+    ]));
 }
+
+require __DIR__.'/../Include/slim/error-handler.php';
 
 // the main dashboard
 require __DIR__ . '/routes/dashboard.php';
@@ -54,17 +65,6 @@ require __DIR__ . '/routes/user/user.php';
 require __DIR__ . '/routes/calendar/calendar.php';
 require __DIR__ . '/routes/gdpr/gdpr.php';
 require __DIR__ . '/routes/map/map.php';
-
-
-
-/*
-
-// Set up
-//require __DIR__.'/../Include/slim/error-handler.php';
-
-
-// the routes
-/*
 
 // the sidebar routes
 require __DIR__ . '/routes/sidebar/menulinklist.php';
@@ -96,16 +96,13 @@ require __DIR__ . '/routes/email/mailchimp/mailchimp.php';
 // sunday school route
 require __DIR__ . '/routes/sundayschool/sundayschool.php';
 
-
-// sunday school route
+// cart route
 require __DIR__ . '/routes/cart/cart.php';
 
 // meeting
 require __DIR__ . '/routes/meeting/meeting.php';
 
 // fundraiser
-require __DIR__ . '/routes/fundraiser/fundraiser.php';*/
-
-
+require __DIR__ . '/routes/fundraiser/fundraiser.php';
 
 $app->run();
