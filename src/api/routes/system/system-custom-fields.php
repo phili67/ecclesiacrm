@@ -1,12 +1,14 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\PersonCustomMasterQuery;
 
-$app->group('/system/custom-fields', function () {
-    $this->get('/person', 'getPersonFieldsByType' );
-    $this->get('/person/', 'getPersonFieldsByType' );
+$app->group('/system/custom-fields', function (RouteCollectorProxy $group) {
+    $group->get('/person', 'getPersonFieldsByType' );
+    $group->get('/person/', 'getPersonFieldsByType' );
 });
 
 
