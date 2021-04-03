@@ -3,16 +3,6 @@
 namespace EcclesiaCRM\Utils;
 use EcclesiaCRM\dto\SystemConfig;
 
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\SessionUser;
 
 
