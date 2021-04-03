@@ -1,9 +1,15 @@
 <?php
 
-$app->group('/timerjobs', function () {
-    $this->post('/run', function () {
-      if (!empty($this->SystemService)) {
-        $this->SystemService->runTimerJobs();
-      }
+use Slim\Routing\RouteCollectorProxy;
+
+
+$app->group('/timerjobs', function (RouteCollectorProxy $group) {
+    $group->post('/run', function ($request, $response, $args) {
+        $SystemService = $this->get('SystemService');
+        if (!is_null($SystemService)) {
+            $SystemService->runTimerJobs();
+        }
+
+        return $response->withJson(['status' => 'success']);
     });
 });
