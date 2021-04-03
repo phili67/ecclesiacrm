@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
@@ -19,28 +20,28 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 
 
-$app->group('/properties', function() {
+$app->group('/properties', function(RouteCollectorProxy $group) {
 
-    $this->post('/persons/assign', 'propertiesPersonsAssign' );
-    $this->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
+    $group->post('/persons/assign', 'propertiesPersonsAssign' );
+    $group->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
 
-    $this->post('/families/assign', 'propertiesFamiliesAssign' );
-    $this->delete('/families/unassign', 'propertiesFamiliesUnAssign' );
+    $group->post('/families/assign', 'propertiesFamiliesAssign' );
+    $group->delete('/families/unassign', 'propertiesFamiliesUnAssign' );
 
-    $this->post('/groups/assign', 'propertiesGroupsAssign' );
-    $this->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
+    $group->post('/groups/assign', 'propertiesGroupsAssign' );
+    $group->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
 
-    $this->post('/propertytypelists', 'getAllPropertyTypes' );
-    $this->post('/propertytypelists/edit', 'editPropertyType' );
-    $this->post('/propertytypelists/set', 'setPropertyType' );
-    $this->post('/propertytypelists/create', 'createPropertyType' );
-    $this->post('/propertytypelists/delete', 'deletePropertyType' );
+    $group->post('/propertytypelists', 'getAllPropertyTypes' );
+    $group->post('/propertytypelists/edit', 'editPropertyType' );
+    $group->post('/propertytypelists/set', 'setPropertyType' );
+    $group->post('/propertytypelists/create', 'createPropertyType' );
+    $group->post('/propertytypelists/delete', 'deletePropertyType' );
 
-    $this->post('/typelists/edit', 'editProperty' );
-    $this->post('/typelists/set', 'setProperty' );
-    $this->post('/typelists/delete', 'deleteProperty' );
-    $this->post('/typelists/create', 'createProperty' );
-    $this->post('/typelists/{type}', 'getAllProperties' );
+    $group->post('/typelists/edit', 'editProperty' );
+    $group->post('/typelists/set', 'setProperty' );
+    $group->post('/typelists/delete', 'deleteProperty' );
+    $group->post('/typelists/create', 'createProperty' );
+    $group->post('/typelists/{type}', 'getAllProperties' );
 
 });
 
@@ -91,7 +92,7 @@ function getAllPropertyTypes (Request $request, Response $response, array $args)
       $res .= $new_elt."\"place\":\"".$position."\",\"realplace\":\"".$place."\"},";
     }
 
-    echo "{\"PropertyTypeLists\":[".substr($res, 0, -1)."]}";
+    $response->withJson( "{\"PropertyTypeLists\":[".substr($res, 0, -1)."]}");
 }
 
 function editPropertyType (Request $request, Response $response, array $args) {
@@ -227,7 +228,7 @@ function getAllProperties (Request $request, Response $response, array $args) {
       $res .= $new_elt."\"place\":\"".$position."\",\"realplace\":\"".$place."\"},";
     }
 
-    echo "{\"PropertyLists\":[".substr($res, 0, -1)."]}";
+    return $response->write("{\"PropertyLists\":[".substr($res, 0, -1)."]}");
 }
 
 function editProperty (Request $request, Response $response, array $args) {
