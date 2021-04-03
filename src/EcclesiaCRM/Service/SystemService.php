@@ -133,8 +133,8 @@ class SystemService
             'SQL Version | ' . $this->getDBServerVersion() . "\r\n" .
             'EcclesiaCRM Version |' . $_SESSION['sSoftwareInstalledVersion'] . "\r\n" .
             'Reporting Browser |' . $_SERVER['HTTP_USER_AGENT'] . "\r\n".
-            'Prerequisite Status |' . ( AppIntegrityService::arePrerequisitesMet() ? "All Prerequisites met" : "Missing Prerequisites: " .json_encode(AppIntegrityService::getUnmetPrerequisites()))."\r\n".
-            'Integrity check status |' . file_get_contents(SystemURLs::getDocumentRoot() . '/integrityCheck.json')."\r\n";
+            'Prerequisite Status |' . ( AppIntegrityService::arePrerequisitesMet() ? "All Prerequisites met" : "Missing Prerequisites: " .json_encode(AppIntegrityService::getUnmetPrerequisites()))."\r\n";
+            //'Integrity check status |' . file_get_contents(SystemURLs::getDocumentRoot() . '/integrityCheck.json')."\r\n";
 
         if (function_exists('apache_get_modules')) {
             $issueDescription .= 'Apache Modules    |' . implode(',', apache_get_modules());
