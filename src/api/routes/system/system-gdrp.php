@@ -1,15 +1,14 @@
 <?php
 // Copyright 2018 Philippe Logel all right reserved
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Map\PersonTableMap;
-use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
@@ -21,22 +20,22 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\SessionUser;
 
 
-$app->group('/gdrp', function () {
+$app->group('/gdrp', function (RouteCollectorProxy $group) {
 
-  $this->post('/', 'getAllGdprNotes' );
-  $this->post('/setComment', 'setGdprComment' );
-  $this->post('/removeperson', 'removePersonGdpr' );
-  $this->post('/removeallpersons', 'removeAllPersonsGdpr' );
-  $this->post('/removefamily', 'removeFamilyGdpr' );
-  $this->post('/removeallfamilies', 'removeAllFamiliesGdpr' );
-  
+    $group->post('/', 'getAllGdprNotes' );
+    $group->post('/setComment', 'setGdprComment' );
+    $group->post('/removeperson', 'removePersonGdpr' );
+    $group->post('/removeallpersons', 'removeAllPersonsGdpr' );
+    $group->post('/removefamily', 'removeFamilyGdpr' );
+    $group->post('/removeallfamilies', 'removeAllFamiliesGdpr' );
+
 });
 
-function getAllGdprNotes(Request $request, Response $response, array $args) {    
+function getAllGdprNotes(Request $request, Response $response, array $args) {
     if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
       return $response->withStatus(401);
     }
-    
+
    $notes = NoteQuery::Create()
           ->filterByPerId(array('min' => 2))
           ->filterByEnteredBy(array('min' => 2))
@@ -47,9 +46,9 @@ function getAllGdprNotes(Request $request, Response $response, array $args) {
           ->addAsColumn('editedByFirstName',PersonTableMap::COL_PER_FIRSTNAME)
           ->addAsColumn('Deactivated',PersonTableMap::COL_PER_DATEDEACTIVATED)
           ->find();
-    
+
     $res = [];
-    
+
     foreach ($notes as $note) {
       $person = PersonQuery::Create()->findOneById($note->getPerId());
 
@@ -64,7 +63,7 @@ function getAllGdprNotes(Request $request, Response $response, array $args) {
          'editedByFullName' => $note->getEditedByLastName()." ".$note->getEditedByFirstName(),
          'Deactivated' => ($person !=null && $person->getDateDeactivated() != null)?'<div style="color:green;text-align:center">'.gettext("Yes").'</div>':'<div style="color:red;text-align:center">'.gettext("No")."</div>"];
     }
-    
+
     return $response->withJson(["Notes" => $res]);
 }
 
@@ -74,75 +73,75 @@ function setGdprComment (Request $request, Response $response, array $args) {
     }
 
     $input = (object)$request->getParsedBody();
-    
+
     if ( isset ($input->custom_id) && isset ($input->comment) && isset ($input->type) )
     {
       if ($input->type == 'person') {
         $person = GdprInfoQuery::Create()->findOneById($input->custom_id);
-       
+
         if ( !is_null ($person) ) {
           $person->setComment($input->comment);
           $person->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'personCustom') {
         $personCM = PersonCustomMasterQuery::Create()->findOneById($input->custom_id);
-       
+
         if ( !is_null ($personCM) ) {
           $personCM->setCustomComment($input->comment);
           $personCM->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'personProperty') {
         $personProp = PropertyQuery::Create()->filterByProClass('p')->findOneByProId($input->custom_id);
-       
+
         if ( !is_null ($personProp) ) {
           $personProp->setProComment($input->comment);
           $personProp->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'family') {
         $family = GdprInfoQuery::Create()->findOneById($input->custom_id);
-       
+
         if ( !is_null ($family) ) {
           $family->setComment($input->comment);
           $family->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'familyCustom') {
         $familyCM = FamilyCustomMasterQuery::Create()->findOneById($input->custom_id);
-       
+
         if ( !is_null ($familyCM) ) {
           $familyCM->setCustomComment($input->comment);
           $familyCM->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'pastoralCare') {
         $pastoralCare = PastoralCareTypeQuery::Create()->findOneById($input->custom_id);
-       
+
         if ( !is_null ($pastoralCare) ) {
           $pastoralCare->setComment($input->comment);
           $pastoralCare->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       } else if ($input->type == 'familyProperty') {
         $personProp = PropertyQuery::Create()->filterByProClass('f')->findOneByProId($input->custom_id);
-       
+
         if ( !is_null ($personProp) ) {
           $personProp->setProComment($input->comment);
           $personProp->save();
         }
-       
+
         return $response->withJson(['status' => "success"]);
       }
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -152,18 +151,18 @@ function removePersonGdpr (Request $request, Response $response, array $args) {
     }
 
     $input = (object)$request->getParsedBody();
-    
+
     if ( isset ($input->personId) )
     {
        $person = PersonQuery::Create()->findOneById($input->personId);
-       
+
        if (!is_null($person)) {
          $person->delete();
        }
-       
+
        return $response->withJson(['status' => "success"]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -182,9 +181,9 @@ function removeAllPersonsGdpr (Request $request, Response $response, array $args
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a Family is completely deactivated
       ->endUse()
       ->find();
-    
+
     $count = 0;
-    
+
     if ($persons->count() > 0) {
        foreach ($persons as $person) {
          $pledges  = PledgeQuery::Create()->findByFamId($person->getFamId());
@@ -195,11 +194,11 @@ function removeAllPersonsGdpr (Request $request, Response $response, array $args
          }
        }
     }
-    
+
     if ($persons->count() == $count) {
       return $response->withJson(['status' => "success"]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -209,7 +208,7 @@ function removeFamilyGdpr (Request $request, Response $response, array $args) {
     }
 
     $input = (object)$request->getParsedBody();
-    
+
     if ( isset ($input->familyId) )
     {
        $family = FamilyQuery::Create()->findOneById($input->familyId);
@@ -217,10 +216,10 @@ function removeFamilyGdpr (Request $request, Response $response, array $args) {
        if ($family != null) {
          $family->delete();
        }
-       
+
        return $response->withJson(['status' => "success"]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
@@ -235,23 +234,23 @@ function removeAllFamiliesGdpr (Request $request, Response $response, array $arg
     $families = FamilyQuery::create()
       ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
       ->find();
-      
+
     $count = 0;
-       
+
     if ($families->count() > 0) {
        foreach ($families as $family) {
          $pledges  = PledgeQuery::Create()->findByFamId($family->getId());
-         
+
          if (is_null($pledges) || !is_null($pledges) && $pledges->count() == 0) {
            $family->delete();
            $count++;
          }
        }
     }
-    
+
     if ($families->count() == $count) {
       return $response->withJson(['status' => "success"]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
