@@ -1,8 +1,9 @@
 <?php
 /* contributor Philippe Logel */
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 
 // Person APIs
@@ -42,18 +43,18 @@ use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
 
 
-$app->group('/persons', function () {
+$app->group('/persons', function (RouteCollectorProxy $group) {
 
 /*
  * @! Returns a list of the persons who's first name or last name matches the :query parameter
  * #! param: ref->string :: query string ref
  */
-    $this->get('/search/{query}', "searchPerson" );
+    $group->get('/search/{query}', "searchPerson" );
 
 /*
  * @! Returns a list of the persons who are in the cart
  */
-    $this->get('/cart/view', "personCartView" );
+    $group->get('/cart/view', "personCartView" );
 
 /**
  *
@@ -65,26 +66,26 @@ $app->group('/persons', function () {
  * @! Returns all the volunteers opportunities
  * #! param: id->int :: personId as id
  */
-    $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId" );
+    $group->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId" );
 /*
  * @! delete a volunteer opportunity for a user
  * #! param: id1->int :: personId as id1
  * #! param: id2->int :: volunteerOpportunityId as id2
  */
-    $this->post('/volunteers/delete', "volunteersDelete" );
+    $group->post('/volunteers/delete', "volunteersDelete" );
 /*
  * @! Add volunteers opportunity
  * #! param: id1->int :: personId as id1
  * #! param: id2->int :: volID as id2
  */
-    $this->post('/volunteers/add', "volunteersAdd" );
+    $group->post('/volunteers/add', "volunteersAdd" );
 
 /*
  * @! Return if MailChimp is activated
  * #! param: id->int :: personId as id
  * #! param: ref->string :: email as ref
  */
-    $this->post('/isMailChimpActive', "isMailChimpActivePerson" );
+    $group->post('/isMailChimpActive', "isMailChimpActivePerson" );
 
 /**
  * Update the person status to activated or deactivated with :familyId and :status true/false.
@@ -96,49 +97,49 @@ $app->group('/persons', function () {
  * #! param: id->int :: personId as id
  * #! param: ref->string :: email as ref
  */
-    $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate" );
+    $group->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate" );
 
     // api for person properties
-    $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId" );
-    $this->get('/numbers', "numbersOfBirthDates" );
+    $group->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId" );
+    $group->get('/numbers', "numbersOfBirthDates" );
 
-    $this->get('/{personId:[0-9]+}/photo', function ($request, $response, $args ) {
-      $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+    $group->get('/{personId:[0-9]+}/photo', function ($request, $response, $args ) {
+      //$res=$cacheProvider->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
       $photo = new Photo("Person",$args['personId']);
-      return $res->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
+      return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     });
 
-    $this->get('/{personId:[0-9]+}/thumbnail', function ($request, $response, $args) {
-      $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+    $group->get('/{personId:[0-9]+}/thumbnail', function ($request, $response, $args) {
+      //$res=$cacheProvider->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
       $photo = new Photo("Person",$args['personId']);
-      return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
+      return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
-    $this->post('/{personId:[0-9]+}/photo', "postPersonPhoto" );
-    $this->delete('/{personId:[0-9]+}/photo', "deletePersonPhoto" );
+    $group->post('/{personId:[0-9]+}/photo', "postPersonPhoto" );
+    $group->delete('/{personId:[0-9]+}/photo', "deletePersonPhoto" );
 
-    $this->post('/{personId:[0-9]+}/addToCart', "addPersonToCart" );
+    $group->post('/{personId:[0-9]+}/addToCart', "addPersonToCart" );
 
     /**
      * @var $response \Psr\Http\Message\ResponseInterface
      */
-    $this->delete('/{personId:[0-9]+}', "deletePerson" );
+    $group->delete('/{personId:[0-9]+}', "deletePerson" );
 
-    $this->post('/deletefield', "deletePersonField" );
-    $this->post('/upactionfield', "upactionPersonfield" );
-    $this->post('/downactionfield', "downactionPersonfield" );
-
-/**
- * A method that review dup emails in the db and returns families and people where that email is used.
- */
-
-    $this->get('/duplicate/emails', "duplicateEmails" );
-    $this->get('/NotInMailChimp/emails/{type}', "notInMailChimpEmails" );
+    $group->post('/deletefield', "deletePersonField" );
+    $group->post('/upactionfield', "upactionPersonfield" );
+    $group->post('/downactionfield', "downactionPersonfield" );
 
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
-    $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' );
+
+    $group->get('/duplicate/emails', "duplicateEmails" );
+    $group->get('/NotInMailChimp/emails/{type}', "notInMailChimpEmails" );
+
+/**
+ * A method that review dup emails in the db and returns families and people where that email is used.
+ */
+    $group->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' );
 });
 
 function searchPerson (Request $request, Response $response, array $args) {
@@ -255,10 +256,10 @@ function personCartView (Request $request, Response $response, array $args)
 }
 
 function volunteersPerPersonId(Request $request, Response $response, array $args) {
-  return VolunteerOpportunityQuery::Create()
+  return $response->write(VolunteerOpportunityQuery::Create()
     ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
     ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$args['personID'])
-    ->find()->toJson();
+    ->find()->toJson());
 }
 
 function volunteersDelete(Request $request, Response $response, array $args) {
@@ -346,7 +347,7 @@ function personpropertiesPerPersonId (Request $request, Response $response, arra
                         ->addAscendingOrderByColumn('ProTypeName')
                         ->findByR2pRecordId($args['personID']);
 
-  return $ormAssignedProperties->toJSON();
+  return $response->write($ormAssignedProperties->toJSON());
 }
 
 function numbersOfBirthDates (Request $request, Response $response, array $args) {
