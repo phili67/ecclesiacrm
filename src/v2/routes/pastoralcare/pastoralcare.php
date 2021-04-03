@@ -10,8 +10,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\Service\PastoralCareService;
 use EcclesiaCRM\SessionUser;
@@ -32,12 +33,12 @@ use EcclesiaCRM\Map\PastoralCareTableMap;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/pastoralcare', function () {
-    $this->get('/person/{personId:[0-9]+}', 'renderPastoralCarePerson' );
-    $this->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily' );
-    $this->get('/dashboard', 'renderPastoralCareDashboard' );
-    $this->get('/membersList', 'renderPastoralCareMembersList' );
-    $this->get('/listforuser/{UserID:[0-9]+}', 'renderPastoralCareListForUser' );
+$app->group('/pastoralcare', function (RouteCollectorProxy $group) {
+    $group->get('/person/{personId:[0-9]+}', 'renderPastoralCarePerson' );
+    $group->get('/family/{familyId:[0-9]+}', 'renderPastoralCareFamily' );
+    $group->get('/dashboard', 'renderPastoralCareDashboard' );
+    $group->get('/membersList', 'renderPastoralCareMembersList' );
+    $group->get('/listforuser/{UserID:[0-9]+}', 'renderPastoralCareListForUser' );
 });
 
 
