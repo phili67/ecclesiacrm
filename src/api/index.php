@@ -31,8 +31,6 @@ $app->add( new Cache('private', 0) );
 // Create the cache provider.
 $cacheProvider = new CacheProvider();
 
-\EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("cache enable : ".is_null($cacheProvider)?'false':'true');
-
 $app->setBasePath("/api");
 
 $app->add( new VersionMiddleware() );
