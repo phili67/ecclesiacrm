@@ -11,6 +11,7 @@ use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Map\PledgeTableMap;
 use EcclesiaCRM\PledgeQuery as ChildPledgeQuery;
 use EcclesiaCRM\Pledge as ChildPledge;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -252,10 +253,16 @@ class Deposit extends BaseDeposit
 
     private function generateDepositSummary($thisReport)
     {
+        $thisReport->depositSummaryParameters = new \stdClass();
+        $thisReport->depositSummaryParameters->title = new \stdClass();
         $thisReport->depositSummaryParameters->title->x = 85;
         $thisReport->depositSummaryParameters->title->y = 7;
+
+        $thisReport->depositSummaryParameters->date = new \stdClass();
         $thisReport->depositSummaryParameters->date->x = 185;
         $thisReport->depositSummaryParameters->date->y = 7;
+
+        $thisReport->depositSummaryParameters->summary = new \stdClass();
         $thisReport->depositSummaryParameters->summary->x = 12;
         $thisReport->depositSummaryParameters->summary->y = 15;
         $thisReport->depositSummaryParameters->summary->intervalY = 4;
@@ -264,6 +271,8 @@ class Deposit extends BaseDeposit
         $thisReport->depositSummaryParameters->summary->FromX = 80;
         $thisReport->depositSummaryParameters->summary->MemoX = 120;
         $thisReport->depositSummaryParameters->summary->AmountX = 185;
+
+        $thisReport->depositSummaryParameters->aggregateX = new \stdClass();
         $thisReport->depositSummaryParameters->aggregateX = 135;
 
         $thisReport->pdf->AddPage();
@@ -414,6 +423,7 @@ class Deposit extends BaseDeposit
         //in 2.2.0, this setting will be part of the database, but to avoid 2.1.7 schema changes, I'm defining it in code.
         $sDepositSlipType = SystemConfig::getValue('sDepositSlipType');
 
+
         if ($sDepositSlipType == 'QBDT') {
             //Generate a QuickBooks Deposit Ticket.
             $this->generateQBDepositSlip($Report);
@@ -423,10 +433,8 @@ class Deposit extends BaseDeposit
             //placeholder for generic deposit ticket.
         }
         //$this->generateBankDepositSlip($Report);
+        $this->generateDepositSummary($Report);
 
-        if ( !is_null($Report) ) {
-            $this->generateDepositSummary($Report);
-        }
 
         // Export file
         $Report->pdf->Output('EcclesiaCRM-DepositReport-'.$this->getId().'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
