@@ -192,15 +192,13 @@ function getRealFile(Request $request, Response $res, array $args)
                 $file = dirname(__FILE__) . "/../../../" . $realNoteDir . "/" . $name;
             }
 
-            $response = $res->withHeader('Content-Description', 'File Transfer')
+            $response = $res
                 ->withHeader('Content-Type', 'application/octet-stream')
                 ->withHeader('Content-Disposition', 'attachment;filename="' . basename($file) . '"')
-                ->withHeader('Expires', '0')
-                ->withHeader('Cache-Control', 'must-revalidate')
-                ->withHeader('Pragma', 'public')
-                ->withHeader('Content-Length', filesize($file));
-
-            readfile($file);
+                ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+                ->withHeader('Cache-Control', 'post-check=0, pre-check=0')
+                ->withHeader('Pragma', 'no-cache')
+                ->withBody((new \Slim\Psr7\Stream(fopen($file, 'rb'))));
 
             return $response;
         }
