@@ -1,14 +1,18 @@
 <?php
 
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use Slim\Views\PhpRenderer;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Person;
 
-$app->group('/verify', function () {
+$app->group('/verify', function (RouteCollectorProxy $group) {
 
-  $this->get('/{token}', function ($request, $response, $args) {
+    $group->get('/{token}', function (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer("templates/verify/");
     $token = TokenQuery::create()->findPk($args['token']);
     $haveFamily = false;
@@ -28,7 +32,7 @@ $app->group('/verify', function () {
     }
   });
 
-  $this->post('/{token}', function ($request, $response, $args) {
+    $group->post('/{token}', function (Request $request, Response $response, array $args) {
     $token = TokenQuery::create()->findPk($args['token']);
     if ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
       $family = FamilyQuery::create()->findPk($token->getReferenceId());
@@ -48,7 +52,7 @@ $app->group('/verify', function () {
     return $response->withStatus(200);
   });
 
-  /*$this->post('/', function ($request, $response, $args) {
+  /*$group->post('/', function (Request $request, Response $response, array $args) {
       $body = $request->getParsedBody();
       $renderer = new PhpRenderer("templates/verify/");
       $family = PersonQuery::create()->findByEmail($body["email"]);
