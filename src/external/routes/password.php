@@ -1,5 +1,9 @@
 <?php
 
+use Slim\Http\Response as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
+
 use EcclesiaCRM\dto\SystemURLs;
 use Slim\Views\PhpRenderer;
 use EcclesiaCRM\UserQuery;
@@ -11,14 +15,14 @@ use EcclesiaCRM\dto\SystemConfig;
 
 if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
 
-    $app->group('/password', function () {
+    $app->group('/password', function (RouteCollectorProxy $group) {
 
-        $this->get('/', function ($request, $response, $args) {
+        $group->get('/', function (Request $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/password/');
             return $renderer->render($response, 'enter-username.php', ['sRootPath' => SystemURLs::getRootPath()]);
         });
 
-        $this->post('/reset/{username}', function ($request, $response, $args) {
+        $group->post('/reset/{username}', function (Request $request, Response $response, array $args) {
             $userName = $args['username'];
             if (!empty($userName)) {
                 $user = UserQuery::create()->findOneByUserName(strtolower(trim($userName)));
@@ -28,19 +32,22 @@ if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
                     $token->save();
                     $email = new ResetPasswordTokenEmail($user, $token->getToken());
                     if (!$email->send()) {
-                        $this->Logger->error($email->getError());
+                        $Logger = $this->get('Logger');
+                        $Logger->error($email->getError());
                     }
                     return $response->withStatus(200)->withJson(['status' => "success"]);
                 } else {
-                    $this->Logger->error("Password reset for user " . $userName . " found no user");
+                    $Logger = $this->get('Logger');
+                    $Logger->error("Password reset for user " . $userName . " found no user");
                 }
             } else {
-                $this->Logger->error("Password reset for user with no username");
+                $Logger = $this->get('Logger');
+                $Logger->error("Password reset for user with no username");
             }
             return $response->withStatus(404);
         });
 
-        $this->get('/set/{token}', function ($request, $response, $args) {
+        $group->get('/set/{token}', function (Request $request, Response $response, array $args) {
             $renderer = new PhpRenderer('templates/password/');
             $token = TokenQuery::create()->findPk($args['token']);
             $haveUser = false;
@@ -56,7 +63,8 @@ if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
                     if ($email->send()) {
                         return $renderer->render($response, 'password-check-email.php', ['sRootPath' => SystemURLs::getRootPath()]);
                     } else {
-                        $this->Logger->error($email->getError());
+                        $Logger = $this->get('Logger');
+                        $Logger->error($email->getError());
                         throw new \Exception($email->getError());
                     }
                 }
