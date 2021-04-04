@@ -1,12 +1,8 @@
 <?php
 
-
-use EcclesiaCRM\Service\CalendarService;
-use EcclesiaCRM\Service\FinancialService;
-use EcclesiaCRM\Service\GroupService;
-use EcclesiaCRM\Service\PersonService;
-use EcclesiaCRM\Service\ReportingService;
-use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
-$container['Logger'] = $logger;
+$container->set('Logger', function () {
+    return LoggerUtils::getAppLogger();
+});
