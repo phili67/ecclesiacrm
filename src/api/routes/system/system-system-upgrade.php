@@ -10,13 +10,16 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/systemupgrade', function (RouteCollectorProxy $group) {
     $group->get('/downloadlatestrelease', function (Request $request, Response $response, array $args) {
-        $upgradeFile = $this->SystemService->downloadLatestRelease();
+        $SystemService = $this->get('SystemService');
+        $upgradeFile = $SystemService->downloadLatestRelease();
         return $response->write(json_encode($upgradeFile));
     });
 
     $group->post('/doupgrade', function (Request $request, Response $response, $args) {
         $input = (object) $request->getParsedBody();
-        $upgradeResult = $this->SystemService->doUpgrade($input->fullPath, $input->sha1);
+
+        $SystemService = $this->get('SystemService');
+        $upgradeResult = $SystemService->doUpgrade($input->fullPath, $input->sha1);
         return $response->write(json_encode($upgradeResult));
     });
 
