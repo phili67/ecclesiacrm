@@ -9,6 +9,8 @@ use EcclesiaCRM\Deposit;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemConfig;
 
+use Propel\Runtime\Parser\CsvParser;
+
 
 $app->group('/deposits', function (RouteCollectorProxy $group) {
 
@@ -77,15 +79,27 @@ function createDepositOFX(Request $request, Response $response, array $args)
 function createDepositPDF(Request $request, Response $response, array $args)
 {
     $id = $args['id'];
-    DepositQuery::create()->findOneById($id)->getPDF();
+    $file = DepositQuery::create()->findOneById($id)->getPDF();
+
+    /*
+     * Unuseful part yet
+     *
+     * $response = $response
+        ->withHeader('Content-Type', 'application/octet-stream')
+        ->withHeader('Content-Disposition', 'attachment;filename="' . basename($file) . '"')
+        ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        ->withHeader('Cache-Control', 'post-check=0, pre-check=0')
+        ->withHeader('Pragma', 'no-cache')
+        ->withBody((new \Slim\Psr7\Stream(fopen($file, 'rb'))));
+
+    return $response;*/
 }
 
 function createDepositCSV(Request $request, Response $response, array $args)
 {
     $id = $args['id'];
     //cho DepositQuery::create()->findOneById($id)->toCSV();
-    header('Content-Disposition: attachment; filename=EcclesiaCRM-Deposit-' . $id . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.csv');
-    echo EcclesiaCRM\PledgeQuery::create()->filterByDepid($id)
+    $res = EcclesiaCRM\PledgeQuery::create()->filterByDepid($id)
         ->joinDonationFund()->useDonationFundQuery()
         ->withColumn('DonationFund.Name', 'DonationFundName')
         ->endUse()
@@ -93,7 +107,24 @@ function createDepositCSV(Request $request, Response $response, array $args)
         ->withColumn('Family.Name', 'FamilyName')
         ->endUse()
         ->find()
-        ->toCSV();
+        ->toCsv();
+
+    /*$parser = new CsvParser();
+
+    $parser->delimiter = ';';
+
+    $res = $parser->toCSV($res);*/
+
+    $response = $response
+        ->withHeader('Content-Type', 'application/octet-stream')
+        ->withHeader('Content-Disposition', 'attachment; filename=filename=EcclesiaCRM-Deposit-' . $id . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.csv')
+        ->withAddedHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        ->withHeader('Cache-Control', 'post-check=0, pre-check=0')
+        ->withHeader('Pragma', 'no-cache')
+        ->write($res);
+
+    return $response;
+
 }
 
 function deleteDeposit(Request $request, Response $response, array $args)
