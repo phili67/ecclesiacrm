@@ -13,8 +13,10 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/payments', function (RouteCollectorProxy $group) {
 
-    $group->get('/', function (Request $request, Response $response, array $args) {
-        $this->FinancialService->getPaymentJSON($this->FinancialService->getPayments());
+    $group->get('/{id:[0-9]+}', function (Request $request, Response $response, array $args) {
+        $id = $args['id'];
+        $FinancialService = $this->get('FinancialService');
+        return $response->write($FinancialService->getPaymentJSON($FinancialService->getPayments($id)));
     });
 
     $group->post('/', function (Request $request, Response $response, array $args) {
@@ -22,10 +24,17 @@ $app->group('/payments', function (RouteCollectorProxy $group) {
         return $response->write(json_encode(['payment' => $this->FinancialService->submitPledgeOrPayment($payment)]));
     });
 
-    $group->delete('/{groupKey}', function (Request $request, Response $response, array $args) {
-        $groupKey = $args['groupKey'];
-        $this->FinancialService->deletePayment($groupKey);
-        return $response->withJson(['status' => 'ok']);
+    $group->delete('/byGroupKey', function (Request $request, Response $response, array $args) {
+        $payments = (object) $request->getParsedBody();
+
+        if ( isset($payments->Groupkey) ) {
+            $groupKey = $payments->Groupkey;
+            $FinancialService = $this->get('FinancialService');
+            $FinancialService->deletePayment($groupKey);
+            return $response->withJson(['status' => 'success']);
+        }
+
+        return $response->withJson(['status' => 'failed']);
     });
 
     $group->post('/family', 'getAllPayementsForFamily' );
