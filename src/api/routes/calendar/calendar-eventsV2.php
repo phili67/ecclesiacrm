@@ -124,7 +124,7 @@ class CalendarEventV2Controller
         $this->container = $container;
     }
 
-    public function getAllEvents(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $Events = EventQuery::create()
             ->find();
