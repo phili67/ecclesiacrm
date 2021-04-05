@@ -1,10 +1,10 @@
 <?php
 
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\Service\SundaySchoolService;
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\Cart;
@@ -18,7 +18,7 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
 /*
  * @! Get all people in Cart
  */
-    $group->get('/', 'getAllPeopleInCart' );
+    $group->get('/', CartController::class . ':getAllPeopleInCart' );
 /*
  * @! Get user info by id
  * #! param: ref->array :: Persons id in array ref
@@ -28,453 +28,465 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
  * #! param: id->int :: studentGroup id
  * #! param: id->int :: teacherGroup id
  */
-    $group->post('/', 'cartOperation' );
-    $group->post('/interectPerson', 'cartIntersectPersons' );
-    $group->post('/emptyToGroup', 'emptyCartToGroup' );
-    $group->post('/emptyToEvent', 'emptyCartToEvent' );
-    $group->post('/emptyToNewGroup', 'emptyCartToNewGroup' );
-    $group->post('/removeGroup', 'removeGroupFromCart' );
-    $group->post('/removeGroups', 'removeGroupsFromCart' );
-    $group->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
-    $group->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
-    $group->post('/addAllStudents', 'addAllStudentsToCart' );
-    $group->post('/addAllTeachers', 'addAllTeachersToCart' );
-    $group->post('/removeAllStudents', 'removeAllStudentsFromCart' );
-    $group->post('/removeAllTeachers', 'removeAllTeachersFromCart' );
-    $group->post('/delete', 'deletePersonCart' );
-    $group->post('/deactivate', 'deactivatePersonCart' );
+    $group->post('/', CartController::class . ':cartOperation' );
+    $group->post('/interectPerson', CartController::class . ':cartIntersectPersons' );
+    $group->post('/emptyToGroup', CartController::class . ':emptyCartToGroup' );
+    $group->post('/emptyToEvent', CartController::class . ':emptyCartToEvent' );
+    $group->post('/emptyToNewGroup', CartController::class . ':emptyCartToNewGroup' );
+    $group->post('/removeGroup', CartController::class . ':removeGroupFromCart' );
+    $group->post('/removeGroups', CartController::class . ':removeGroupsFromCart' );
+    $group->post('/removeStudentGroup', CartController::class . ':removeStudentsGroupFromCart' );
+    $group->post('/removeTeacherGroup', CartController::class . ':removeTeachersGroupFromCart' );
+    $group->post('/addAllStudents', CartController::class . ':addAllStudentsToCart' );
+    $group->post('/addAllTeachers', CartController::class . ':addAllTeachersToCart' );
+    $group->post('/removeAllStudents', CartController::class . ':removeAllStudentsFromCart' );
+    $group->post('/removeAllTeachers', CartController::class . ':removeAllTeachersFromCart' );
+    $group->post('/delete', CartController::class . ':deletePersonCart' );
+    $group->post('/deactivate', CartController::class . ':deactivatePersonCart' );
 
 /*
  * @! Remove all People in the Cart
  */
-    $group->delete('/', 'removePersonCart' );
+    $group->delete('/', CartController::class . ':removePersonCart' );
 
 });
 
-function getAllPeopleInCart (Request $request, Response $response, array $args) {
-  return $response->withJSON(['PeopleCart' =>  Cart::PeopleInCart(), 'FamiliesCart' => Cart::FamiliesInCart(), 'GroupsCart' => Cart::GroupsInCart()]);
-}
+class CartController
+{
+    private $container;
 
-function cartIntersectPersons (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-        return $response->withStatus(401);
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
     }
 
-      $cartPayload = (object)$request->getParsedBody();
+    public function getAllPeopleInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        return $response->withJSON(['PeopleCart' =>  Cart::PeopleInCart(), 'FamiliesCart' => Cart::FamiliesInCart(), 'GroupsCart' => Cart::GroupsInCart()]);
+    }
 
-      if ( isset ($cartPayload->Persons) )
-      {
-        Cart::IntersectArrayWithPeopleCart($cartPayload->Persons);
+    public function cartIntersectPersons (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
 
+        $cartPayload = (object)$request->getParsedBody();
+
+        if ( isset ($cartPayload->Persons) )
+        {
+            Cart::IntersectArrayWithPeopleCart($cartPayload->Persons);
+
+            return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    public function cartOperation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+
+        if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+        {
+            Cart::AddPersonArray($cartPayload->Persons);
+        }
+        elseif ( isset ($cartPayload->Family) )
+        {
+            Cart::AddFamily($cartPayload->Family);
+        }
+        elseif ( isset ($cartPayload->Families) )
+        {
+            foreach ($cartPayload->Families as $familyID) {
+                Cart::AddFamily($familyID);
+            }
+        }
+        elseif ( isset ($cartPayload->Group) )
+        {
+            Cart::AddGroup($cartPayload->Group);
+        }
+        elseif ( isset ($cartPayload->Groups) )
+        {
+            foreach ($cartPayload->Groups as $groupID) {
+                Cart::AddGroup($groupID);
+            }
+        }
+        elseif ( isset ($cartPayload->removeFamily) )
+        {
+            Cart::RemoveFamily($cartPayload->removeFamily);
+        }
+        elseif ( isset ($cartPayload->removeFamilies) )
+        {
+            foreach ($cartPayload->removeFamilies as $famID) {
+                Cart::RemoveFamily($famID);
+            }
+        }
+        elseif ( isset ($cartPayload->studentGroup) )
+        {
+            Cart::AddStudents($cartPayload->studentGroup);
+        }
+        elseif ( isset ($cartPayload->teacherGroup) )
+        {
+            Cart::AddTeachers($cartPayload->teacherGroup);
+        }
+        else
+        {
+            throw new \Exception(_("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
+        }
         return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
-      }
-
-      return $response->withJson(['status' => "failed"]);
-}
-
-function cartOperation (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-        return $response->withStatus(401);
     }
 
-      $cartPayload = (object)$request->getParsedBody();
+    public function emptyCartToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-      if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
-      {
-        Cart::AddPersonArray($cartPayload->Persons);
-      }
-      elseif ( isset ($cartPayload->Family) )
-      {
-        Cart::AddFamily($cartPayload->Family);
-      }
-      elseif ( isset ($cartPayload->Families) )
-      {
-          foreach ($cartPayload->Families as $familyID) {
-              Cart::AddFamily($familyID);
-          }
-      }
-      elseif ( isset ($cartPayload->Group) )
-      {
-        Cart::AddGroup($cartPayload->Group);
-      }
-      elseif ( isset ($cartPayload->Groups) )
-      {
-          foreach ($cartPayload->Groups as $groupID) {
-              Cart::AddGroup($groupID);
-          }
-      }
-      elseif ( isset ($cartPayload->removeFamily) )
-      {
-        Cart::RemoveFamily($cartPayload->removeFamily);
-      }
-      elseif ( isset ($cartPayload->removeFamilies) )
-      {
-          foreach ($cartPayload->removeFamilies as $famID) {
-              Cart::RemoveFamily($famID);
-          }
-      }
-      elseif ( isset ($cartPayload->studentGroup) )
-      {
-        Cart::AddStudents($cartPayload->studentGroup);
-      }
-      elseif ( isset ($cartPayload->teacherGroup) )
-      {
-        Cart::AddTeachers($cartPayload->teacherGroup);
-      }
-      else
-      {
-        throw new \Exception(_("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
-      }
-      return $response->withJson(['status' => "success", "cart" => $_SESSION['aPeopleCart']]);
-  }
+        $iCount = Cart::CountPeople();
 
-function emptyCartToGroup (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-        return $response->withStatus(401);
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully added to selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function emptyCartToEvent (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-    $cartPayload = (object)$request->getParsedBody();
-    Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully added to selected Group.')
-    ]);
-}
+        $iCount = Cart::CountPeople();
 
-function emptyCartToEvent (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
-        return $response->withStatus(401);
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::EmptyToEvent($cartPayload->eventID);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully added to selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function emptyCartToNewGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isAdmin() && !SessionUser::getUser()->isManageGroupsEnabled()) {
+            return $response->withStatus(401);
+        }
 
-    $cartPayload = (object)$request->getParsedBody();
-    Cart::EmptyToEvent($cartPayload->eventID);
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully added to selected Group.')
-    ]);
-}
+        $cartPayload = (object)$request->getParsedBody();
+        $group = new Group();
+        $group->setName($cartPayload->groupName);
+        $group->save();
 
-function emptyCartToNewGroup (Request $request, Response $response, array $args) {
-    if (!SessionUser::getUser()->isAdmin() && !SessionUser::getUser()->isManageGroupsEnabled()) {
-        return $response->withStatus(401);
+        Cart::EmptyToNewGroup($group->getId());
+
+        return $response->write($group->toJSON());
     }
 
-    $cartPayload = (object)$request->getParsedBody();
-    $group = new Group();
-    $group->setName($cartPayload->groupName);
-    $group->save();
+    public function removeGroupFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-    Cart::EmptyToNewGroup($group->getId());
+        $iCount = Cart::CountPeople();
 
-    return $response->write($group->toJSON());
-}
-
-function removeGroupFromCart(Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveGroup($cartPayload->Group);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function removeGroupsFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-    $cartPayload = (object)$request->getParsedBody();
-    Cart::RemoveGroup($cartPayload->Group);
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+        $iCount = Cart::CountPeople();
 
-function removeGroupsFromCart(Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        $cartPayload = (object)$request->getParsedBody();
+        foreach ($cartPayload->Groups as $groupID) {
+            Cart::RemoveGroup($groupID);
+        }
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function addAllStudentsToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-    $cartPayload = (object)$request->getParsedBody();
-    foreach ($cartPayload->Groups as $groupID) {
-        Cart::RemoveGroup($groupID);
-    }
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+        $iCount = Cart::CountPeople();
 
-function addAllStudentsToCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
-    }
+        $sundaySchoolService = $this->container->get('SundaySchoolService');
 
-    $iCount = Cart::CountPeople();
+        $classes = $sundaySchoolService->getClassStats();
 
-    $sundaySchoolService = new SundaySchoolService();
+        foreach ($classes as $class) {
+            Cart::AddStudents($class['id']);
+        }
 
-    $classes = $sundaySchoolService->getClassStats();
-
-    foreach ($classes as $class) {
-        Cart::AddStudents($class['id']);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+    public function removeAllStudentsFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-function removeAllStudentsFromCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        $iCount = Cart::CountPeople();
+
+        $sundaySchoolService = $this->container->get('SundaySchoolService');
+
+        $classes = $sundaySchoolService->getClassStats();
+
+        foreach ($classes as $class) {
+            Cart::RemoveStudents($class['id']);
+        }
+
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
 
-    $sundaySchoolService = new SundaySchoolService();
 
-    $classes = $sundaySchoolService->getClassStats();
 
-    foreach ($classes as $class) {
-        Cart::RemoveStudents($class['id']);
+    public function removeStudentsGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $iCount = Cart::CountPeople();
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveStudents($cartPayload->Group);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+    public function addAllTeachersToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
+        $iCount = Cart::CountPeople();
 
+        $sundaySchoolService = $this->container->get('SundaySchoolService');
+        $classes = $sundaySchoolService->getClassStats();
 
+        foreach ($classes as $class) {
+            Cart::AddTeachers($class['id']);
+        }
 
-function removeStudentsGroupFromCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function removeAllTeachersFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
 
-    $cartPayload = (object)$request->getParsedBody();
-    Cart::RemoveStudents($cartPayload->Group);
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+        $iCount = Cart::CountPeople();
 
-function addAllTeachersToCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        $sundaySchoolService = $this->container->get('SundaySchoolService');
+
+        $classes = $sundaySchoolService->getClassStats();
+
+        foreach ($classes as $class) {
+            Cart::RemoveTeachers($class['id']);
+        }
+
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
 
-    $sundaySchoolService = new SundaySchoolService();
-    $classes = $sundaySchoolService->getClassStats();
 
-    foreach ($classes as $class) {
-        Cart::AddTeachers($class['id']);
+    public function removeTeachersGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $iCount = Cart::CountPeople();
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveTeachers($cartPayload->Group);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
+        ]);
     }
 
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+    public function deletePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(401);
+        }
 
-function removeAllTeachersFromCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
+        $cartPayload = (object)$request->getParsedBody();
+        if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+        {
+            Cart::DeletePersonArray($cartPayload->Persons);
+        }
+        else
+        {
+            $sMessage = _('Your cart is empty');
+            if(sizeof($_SESSION['aPeopleCart'])>0) {
+                Cart::DeletePersonArray ($_SESSION['aPeopleCart']);
+                //$_SESSION['aPeopleCart'] = [];
+            }
+        }
+
+        if (!empty($_SESSION['aPeopleCart'])) {
+            $sMessage = _("You can't delete admin through the cart");
+            $status = "failure";
+        } else {
+            $sMessage = _('Your cart and CRM has been successfully deleted');
+            $status = "success";
+        }
+
+        return $response->withJson([
+            'status' => $status,
+            'message' => $sMessage
+        ]);
     }
 
-    $iCount = Cart::CountPeople();
+    public function deactivatePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isAdmin()) {
+            return $response->withStatus(401);
+        }
 
-    $sundaySchoolService = new SundaySchoolService();
+        $cartPayload = (object)$request->getParsedBody();
+        if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+        {
+            Cart::DeactivatePersonArray($cartPayload->Persons);
+        }
+        else
+        {
+            $sMessage = _('Your cart is empty');
+            if(sizeof($_SESSION['aPeopleCart'])>0) {
+                Cart::DeactivatePersonArray ($_SESSION['aPeopleCart']);
+                //$_SESSION['aPeopleCart'] = [];
+            }
+        }
 
-    $classes = $sundaySchoolService->getClassStats();
+        if (!empty($_SESSION['aPeopleCart'])) {
+            $sMessage = _("You can't deactivate admin through the cart");
+            $status = "failure";
+        } else {
+            $sMessage = _('Your cart and CRM has been successfully deactivated');
+            $status = "success";
+        }
 
-    foreach ($classes as $class) {
-        Cart::RemoveTeachers($class['id']);
+        return $response->withJson([
+            'status' => $status,
+            'message' => $sMessage
+        ]);
     }
 
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
 
+    public function removePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
 
+        $cartPayload = (object)$request->getParsedBody();
 
-function removeTeachersGroupFromCart (Request $request, Response $response, array $args) {
-    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
-        return $response->withStatus(401);
-    }
+        $sEmailLink = [];
+        $sPhoneLink = '';
+        $sPhoneLinkSMS = '';
 
-    $iCount = Cart::CountPeople();
+        $count = $cartPayload->Persons;
 
-    $cartPayload = (object)$request->getParsedBody();
-    Cart::RemoveTeachers($cartPayload->Group);
-    return $response->withJson([
-        'status' => "success",
-        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
-    ]);
-}
+        if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+        {
+            Cart::RemovePersonArray($cartPayload->Persons);
 
-function deletePersonCart (Request $request, Response $response, array $args) {
-    if (!SessionUser::getUser()->isAdmin()) {
-        return $response->withStatus(401);
-    }
+            if (Cart::CountPeople() > 0) {
+                $connection = Propel::getConnection();
 
-    $cartPayload = (object)$request->getParsedBody();
-    if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
-    {
-      Cart::DeletePersonArray($cartPayload->Persons);
-    }
-    else
-    {
-      $sMessage = _('Your cart is empty');
-      if(sizeof($_SESSION['aPeopleCart'])>0) {
-          Cart::DeletePersonArray ($_SESSION['aPeopleCart']);
-          //$_SESSION['aPeopleCart'] = [];
-      }
-    }
-
-    if (!empty($_SESSION['aPeopleCart'])) {
-      $sMessage = _("You can't delete admin through the cart");
-      $status = "failure";
-    } else {
-      $sMessage = _('Your cart and CRM has been successfully deleted');
-      $status = "success";
-    }
-
-    return $response->withJson([
-        'status' => $status,
-        'message' => $sMessage
-    ]);
-}
-
-function deactivatePersonCart (Request $request, Response $response, array $args) {
-    if (!SessionUser::getUser()->isAdmin()) {
-        return $response->withStatus(401);
-    }
-
-    $cartPayload = (object)$request->getParsedBody();
-    if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
-    {
-      Cart::DeactivatePersonArray($cartPayload->Persons);
-    }
-    else
-    {
-      $sMessage = _('Your cart is empty');
-      if(sizeof($_SESSION['aPeopleCart'])>0) {
-          Cart::DeactivatePersonArray ($_SESSION['aPeopleCart']);
-          //$_SESSION['aPeopleCart'] = [];
-      }
-    }
-
-    if (!empty($_SESSION['aPeopleCart'])) {
-      $sMessage = _("You can't deactivate admin through the cart");
-      $status = "failure";
-    } else {
-      $sMessage = _('Your cart and CRM has been successfully deactivated');
-      $status = "success";
-    }
-
-    return $response->withJson([
-        'status' => $status,
-        'message' => $sMessage
-    ]);
-}
-
-
-function removePersonCart (Request $request, Response $response, array $args) {
-
-    $cartPayload = (object)$request->getParsedBody();
-
-    $sEmailLink = [];
-    $sPhoneLink = '';
-    $sPhoneLinkSMS = '';
-
-    $count = $cartPayload->Persons;
-
-    if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
-    {
-        Cart::RemovePersonArray($cartPayload->Persons);
-
-        if (Cart::CountPeople() > 0) {
-            $connection = Propel::getConnection();
-
-            // we get the emails for the /v2/cart/view
-            $sSQL = "SELECT per_Email, fam_Email
+                // we get the emails for the /v2/cart/view
+                $sSQL = "SELECT per_Email, fam_Email
                         FROM person_per
                         LEFT JOIN person2group2role_p2g2r ON per_ID = p2g2r_per_ID
                         LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
                         LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
                     WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
 
-            $statementEmails = $connection->prepare($sSQL);
-            $statementEmails->execute();
+                $statementEmails = $connection->prepare($sSQL);
+                $statementEmails->execute();
 
-            $sEmailLink = '';
-            while ($row = $statementEmails->fetch( \PDO::FETCH_BOTH )) {
-                $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $row['fam_Email'], false);
-                if ($sEmail) {
-                    /* if ($sEmailLink) // Don't put delimiter before first email
-                        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
-                    // Add email only if email address is not already in string
-                    if (!stristr($sEmailLink, $sEmail)) {
-                        $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                $sEmailLink = '';
+                while ($row = $statementEmails->fetch( \PDO::FETCH_BOTH )) {
+                    $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $row['fam_Email'], false);
+                    if ($sEmail) {
+                        /* if ($sEmailLink) // Don't put delimiter before first email
+                            $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
+                        // Add email only if email address is not already in string
+                        if (!stristr($sEmailLink, $sEmail)) {
+                            $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+                        }
                     }
                 }
-            }
 
-            $sEmailLink = mb_substr($sEmailLink, 0, -1);
+                $sEmailLink = mb_substr($sEmailLink, 0, -1);
 
-            //Text Cart Link
-            $sSQL = "SELECT per_CellPhone, fam_CellPhone
+                //Text Cart Link
+                $sSQL = "SELECT per_CellPhone, fam_CellPhone
                             FROM person_per LEFT
                             JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID
                         WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
 
-            $statement = $connection->prepare($sSQL);
-            $statement->execute();
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
 
-            $sCommaDelimiter = ', ';
+                $sCommaDelimiter = ', ';
 
-            while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
-                $sPhone = MiscUtils::SelectWhichInfo($row['per_CellPhone'], $row['fam_CellPhone'], false);
-                if ($sPhone) {
-                    /* if ($sPhoneLink) // Don't put delimiter before first phone
-                        $sPhoneLink .= $sCommaDelimiter;  */
-                    // Add phone only if phone is not already in string
-                    if (!stristr($sPhoneLink, $sPhone)) {
-                        $sPhoneLink .= $sPhone.$sCommaDelimiter;
-                        $sPhoneLinkSMS .= $sPhone.$sCommaDelimiter;
+                while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+                    $sPhone = MiscUtils::SelectWhichInfo($row['per_CellPhone'], $row['fam_CellPhone'], false);
+                    if ($sPhone) {
+                        /* if ($sPhoneLink) // Don't put delimiter before first phone
+                            $sPhoneLink .= $sCommaDelimiter;  */
+                        // Add phone only if phone is not already in string
+                        if (!stristr($sPhoneLink, $sPhone)) {
+                            $sPhoneLink .= $sPhone.$sCommaDelimiter;
+                            $sPhoneLinkSMS .= $sPhone.$sCommaDelimiter;
+                        }
                     }
                 }
+
+                $sPhoneLink = mb_substr($sPhoneLink, 0, -2);
             }
-
-            $sPhoneLink = mb_substr($sPhoneLink, 0, -2);
         }
-    }
-    else
-    {
-      $sMessage = _('Your cart is empty');
-      if(sizeof($_SESSION['aPeopleCart'])>0) {
-          $_SESSION['aPeopleCart'] = [];
-          $sMessage = _('Your cart has been successfully emptied');
-      }
-    }
+        else
+        {
+            $sMessage = _('Your cart is empty');
+            if(sizeof($_SESSION['aPeopleCart'])>0) {
+                $_SESSION['aPeopleCart'] = [];
+                $sMessage = _('Your cart has been successfully emptied');
+            }
+        }
 
-    return $response->withJson([
-        'status' => "success",
-        'message' =>$sMessage,
-        'sEmailLink' => $sEmailLink,
-        'sPhoneLink' => $sPhoneLink,
-        'sPhoneLinkSMS' =>$sPhoneLinkSMS
-    ]);
+        return $response->withJson([
+            'status' => "success",
+            'message' =>$sMessage,
+            'sEmailLink' => $sEmailLink,
+            'sPhoneLink' => $sPhoneLink,
+            'sPhoneLinkSMS' =>$sPhoneLinkSMS
+        ]);
 
+    }
 }
+
+
