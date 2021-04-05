@@ -1,8 +1,6 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 
 use Psr\Container\ContainerInterface;
