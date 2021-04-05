@@ -8,6 +8,8 @@ use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\SundaySchoolService;
+
 use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
@@ -44,3 +46,9 @@ $container->set('Logger', function () {
 $container->set('CalendarService', function () {
     return new CalendarService();
 });
+
+$container->set('SundaySchoolService', function () {
+    return new SundaySchoolService();
+});
+
+
