@@ -407,8 +407,6 @@ class CartController
         $sPhoneLink = '';
         $sPhoneLinkSMS = '';
 
-        $count = $cartPayload->Persons;
-
         if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
         {
             Cart::RemovePersonArray($cartPayload->Persons);
