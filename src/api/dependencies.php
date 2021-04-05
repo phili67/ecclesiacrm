@@ -7,9 +7,14 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
+
+$container->set('MailChimpService', function () {
+    return new MailChimpService();
+});
 
 $container->set('PersonService', function () {
     return new PersonService();
