@@ -144,6 +144,11 @@ class PeoplePersonController
         $this->container = $container;
     }
 
+    private function generateRandomString($length = 15)
+    {
+        return substr(sha1(rand()), 0, $length);
+    }
+
     public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $res=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Person",$args['personId']);
@@ -627,12 +632,7 @@ class PeoplePersonController
         return $response->withJson(['success' => true]);
     }
 
-    public function generateRandomString($length = 15)
-    {
-        return substr(sha1(rand()), 0, $length);
-    }
-
-    public function saveNoteAsWordFile ($request, $res, $args) {
+    public function saveNoteAsWordFile (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $input = (object)$request->getParsedBody();
 
         if ( isset ($input->personId) && isset ($input->noteId) ) {
@@ -652,7 +652,7 @@ class PeoplePersonController
                 $section = $pw->addSection();
                 \PhpOffice\PhpWord\Shared\Html::addHtml($section, $actualNote->getText(), false, false);
 
-                $title = "note_".generateRandomString(5);
+                $title = "note_".$this->generateRandomString(5);
 
                 // we set a random title
 
