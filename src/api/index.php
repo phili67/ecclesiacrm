@@ -7,7 +7,6 @@ require '../Include/Config.php';
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use Slim\HttpCache\CacheProvider;
 use Slim\HttpCache\Cache;
 use Tuupola\Middleware\JwtAuthentication;
 use DI\Container;
@@ -27,9 +26,6 @@ $app = AppFactory::create();
 
 // Register the http cache middleware.
 $app->add( new Cache('private', 0) );
-
-// Create the cache provider.
-$cacheProvider = new CacheProvider();
 
 $app->setBasePath("/api");
 
