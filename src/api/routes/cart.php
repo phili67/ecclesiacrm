@@ -256,9 +256,6 @@ class CartController
         ]);
     }
 
-
-
-
     public function removeStudentsGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
@@ -314,8 +311,6 @@ class CartController
             'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
         ]);
     }
-
-
 
     public function removeTeachersGroupFromCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
@@ -397,7 +392,6 @@ class CartController
             'message' => $sMessage
         ]);
     }
-
 
     public function removePersonCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
 

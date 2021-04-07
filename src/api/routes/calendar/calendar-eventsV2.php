@@ -202,7 +202,6 @@ class CalendarEventV2Controller
         return $response->withJson($return);
     }
 
-
     public function deleteeventtype(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $input = (object)$request->getParsedBody();
@@ -343,7 +342,6 @@ class CalendarEventV2Controller
         return $response->withJson(['status' => "success"]);
     }
 
-
     public function eventCount(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $params = (object)$request->getParsedBody();
@@ -394,7 +392,6 @@ class CalendarEventV2Controller
 
         return $response->withJson($return);
     }
-
 
     public function manageEvent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
