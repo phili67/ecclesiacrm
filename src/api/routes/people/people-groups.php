@@ -1,8 +1,11 @@
 <?php
 // Routes
-use Slim\Http\Response as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Slim\Routing\RouteCollectorProxy;
+
+use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 
 use EcclesiaCRM\Group;
@@ -38,102 +41,57 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
  /*
  * @! Get all the Groups
  */
-    $group->get('/', "getAllGroups" );
+    $group->get('/', PeopleGroupController::class . ":getAllGroups" );
 
  /*
  * @! Get the first Group of the list
  */
-    $group->get('/defaultGroup' , "defaultGroup");
+    $group->get('/defaultGroup' , PeopleGroupController::class . ":defaultGroup");
 
  /*
  * @! Get all the properties of a group
  */
-    $group->post('/groupproperties/{groupID:[0-9]+}', "groupproperties" );
+    $group->post('/groupproperties/{groupID:[0-9]+}', PeopleGroupController::class . ":groupproperties" );
 
  /*
  * @! get addressbook from a groupID through the url
  */
-    $group->get('/addressbook/extract/{groupId:[0-9]+}', function (Request $request, Response $response, array $args) {
-      // we get the group
-      $group = GroupQuery::create()->findOneById ($args['groupId']);
+    $group->get('/addressbook/extract/{groupId:[0-9]+}', PeopleGroupController::class . ":addressBook" );
 
-      // We set the BackEnd for sabre Backends
-      $carddavBackend = new CardDavPDO();
+    $group->get('/search/{query}', PeopleGroupController::class . ":searchGroup" );
 
-      $addressbook = $carddavBackend->getAddressBookForGroup ($args['groupId']);
+    $group->post('/deleteAllManagers', PeopleGroupController::class . ":deleteAllManagers" );
+    $group->post('/deleteManager', PeopleGroupController::class . ":deleteManager" );
+    $group->post('/getmanagers', PeopleGroupController::class . ":getManagers" );
+    $group->post('/addManager', PeopleGroupController::class . ":addManager" );
 
-      $filename = $group->getName().".vcf";
+    $group->get('/groupsInCart', PeopleGroupController::class . ":groupsInCart" );
 
-      $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
-      $size = strlen($output);
+    $group->post('/', PeopleGroupController::class . ":newGroup" );
+    $group->post('/{groupID:[0-9]+}', PeopleGroupController::class . ":updateGroup" );
+    $group->get('/{groupID:[0-9]+}', PeopleGroupController::class . ":groupInfo" );
+    $group->get('/{groupID:[0-9]+}/cartStatus', PeopleGroupController::class . ":groupCartStatus" );
+    $group->delete('/{groupID:[0-9]+}', PeopleGroupController::class . ":deleteGroup" );
+    $group->get('/{groupID:[0-9]+}/members', PeopleGroupController::class . ":groupMembers" );
 
-      $response = $response
-                ->withHeader('Content-Type', 'application/octet-stream')
-                ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
-                ->withHeader('Pragma', 'no-cache')
-                ->withHeader('Content-Length',$size)
-                ->withHeader('Content-Transfer-Encoding', 'binary')
-                ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
-                ->withHeader('Expires', '0');
+    $group->get('/{groupID:[0-9]+}/events', PeopleGroupController::class . ":groupEvents" );
 
+    $group->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', PeopleGroupController::class . ":removePersonFromGroup" );
+    $group->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', PeopleGroupController::class . ":addPersonToGroup" );
+    $group->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', PeopleGroupController::class . ":addTeacherToGroup" );
 
-      $response->getBody()->write($output);
-
-      return $response;
-    });
-
-    $group->get('/search/{query}', "searchGroup" );
-
-    $group->post('/deleteAllManagers', "deleteAllManagers" );
-    $group->post('/deleteManager', "deleteManager" );
-    $group->post('/getmanagers', "getManagers" );
-    $group->post('/addManager', "addManager" );
-
-    $group->get('/groupsInCart', "groupsInCart" );
-
-    $group->post('/', "newGroup" );
-    $group->post('/{groupID:[0-9]+}', "updateGroup" );
-    $group->get('/{groupID:[0-9]+}', "groupInfo" );
-    $group->get('/{groupID:[0-9]+}/cartStatus', "groupCartStatus" );
-    $group->delete('/{groupID:[0-9]+}', "deleteGroup" );
-    $group->get('/{groupID:[0-9]+}/members', "groupMembers" );
-
-    $group->get('/{groupID:[0-9]+}/events', "groupEvents" );
-
-    $group->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', "removePersonFromGroup" );
-    $group->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', "addPersonToGroup" );
-    $group->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', "addTeacherToGroup" );
-
-    $group->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', "userRoleByUserId" );
-    $group->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', "rolesByRoleId" );
-    $group->get('/{groupID:[0-9]+}/roles', "allRoles" );
+    $group->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', PeopleGroupController::class . ":userRoleByUserId" );
+    $group->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', PeopleGroupController::class . ":rolesByRoleId" );
+    $group->get('/{groupID:[0-9]+}/roles', PeopleGroupController::class . ":allRoles" );
 
 
-    $group->post('/{groupID:[0-9]+}/defaultRole', "defaultRoleForGroup" );
+    $group->post('/{groupID:[0-9]+}/defaultRole', PeopleGroupController::class . ":defaultRoleForGroup" );
 
-    $group->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function (Request $request, Response $response, array $args) {
-        $groupID = $args['groupID'];
-        $roleID = $args['roleID'];
-        return $response->write(json_encode($this->GroupService->deleteGroupRole($groupID, $roleID)));
-    });
-    $group->post('/{groupID:[0-9]+}/roles', function (Request $request, Response $response, array $args) {
-        $groupID = $args['groupID'];
-        $roleName = $request->getParsedBody()['roleName'];
-        return $response->write(json_encode($this->GroupService->addGroupRole($groupID, $roleName)));
-    });
-    $group->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', function (Request $request, Response $response, array $args) {
-        $groupID = $args['groupID'];
-        $input = $request->getParsedBody();
-        if ($input['GroupSpecificPropertyStatus']) {
-            $this->GroupService->enableGroupSpecificProperties($groupID);
-            return $response->withJson(['status' => 'group specific properties enabled']);
-        } else {
-            $this->GroupService->disableGroupSpecificProperties($groupID);
-            return $response->withJson(['status' => 'group specific properties disabled']);
-        }
-    });
-    $group->post('/{groupID:[0-9]+}/settings/active/{value}', "settingsActiveValue" );
-    $group->post('/{groupID:[0-9]+}/settings/email/export/{value}', "settingsEmailExportVvalue" );
+    $group->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', PeopleGroupController::class . ":deleteRole" );
+    $group->post('/{groupID:[0-9]+}/roles', PeopleGroupController::class . ":roles" );
+    $group->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', PeopleGroupController::class . ":setGroupSepecificPropertyStatus" );
+    $group->post('/{groupID:[0-9]+}/settings/active/{value}', PeopleGroupController::class . ":settingsActiveValue" );
+    $group->post('/{groupID:[0-9]+}/settings/email/export/{value}', PeopleGroupController::class . ":settingsEmailExportVvalue" );
 
  /*
  * @! delete Group Specific property custom field
@@ -141,662 +99,727 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $group->post('/deletefield', "deleteGroupField" );
+    $group->post('/deletefield', PeopleGroupController::class . ":deleteGroupField" );
  /*
  * @! delete Group Specific property custom field
  * #! param: id->int :: PropID as id
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $group->post('/upactionfield', "upactionGroupField" );
+    $group->post('/upactionfield', PeopleGroupController::class . ":upactionGroupField" );
  /*
  * @! delete Group Specific property custom field
  * #! param: id->int :: PropID as id
  * #! param: id->int :: Field as id
  * #! param: id->int :: GroupId as id
  */
-    $group->post('/downactionfield', "downactionGroupField" );
+    $group->post('/downactionfield', PeopleGroupController::class . ":downactionGroupField" );
 
     /*
      * @! get all sundayschool teachers
      * #! param: id->int :: groupID as id
      */
 
-    $group->get('/{groupID:[0-9]+}/sundayschool', "groupSundaySchool" );
+    $group->get('/{groupID:[0-9]+}/sundayschool', PeopleGroupController::class . ":groupSundaySchool" );
 });
 
+class PeopleGroupController
+{
+    private $container;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+    public function setGroupSepecificPropertyStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $input = $request->getParsedBody();
+        $groupService = $this->container->get("GroupService");
+        if ($input['GroupSpecificPropertyStatus']) {
+            $groupService->enableGroupSpecificProperties($groupID);
+            return $response->withJson(['status' => 'group specific properties enabled']);
+        } else {
+            $groupService->disableGroupSpecificProperties($groupID);
+            return $response->withJson(['status' => 'group specific properties disabled']);
+        }
+    }
+
+    public function roles (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $roleName = $request->getParsedBody()['roleName'];
+        $groupService = $this->container->get("GroupService");
+        return $response->write(json_encode($groupService->addGroupRole($groupID, $roleName)));
+    }
+
+    public function deleteRole (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $roleID = $args['roleID'];
+        LoggerUtils::getAppLogger()->info("GID : ".$groupID." roleID : ".$roleID);
+
+        $groupService = $this->container->get("GroupService");
+        return $response->write(json_encode($groupService->deleteGroupRole($groupID, $roleID)));
+    }
+
+    public function getAllGroups (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
+    }
+
+    public function defaultGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $res = GroupQuery::create()->orderByName()->findOne()->getId();
+
+        return $response->withJson($res);
+    }
+
+    public function groupproperties (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $ormAssignedProperties = Record2propertyR2pQuery::Create()
+            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+            ->where(PropertyTableMap::COL_PRO_CLASS."='g'")
+            ->addAscendingOrderByColumn('ProName')
+            ->addAscendingOrderByColumn('ProTypeName')
+            ->findByR2pRecordId($args['groupID']);
+
+        return $response->write($ormAssignedProperties->toJSON());
+    }
+
+    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        // we get the group
+        $group = GroupQuery::create()->findOneById ($args['groupId']);
+
+        // We set the BackEnd for sabre Backends
+        $carddavBackend = new CardDavPDO();
+
+        $addressbook = $carddavBackend->getAddressBookForGroup ($args['groupId']);
+
+        $filename = $group->getName().".vcf";
+
+        $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
+        $size = strlen($output);
+
+        $response = $response
+            ->withHeader('Content-Type', 'application/octet-stream')
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->withHeader('Pragma', 'no-cache')
+            ->withHeader('Content-Length',$size)
+            ->withHeader('Content-Transfer-Encoding', 'binary')
+            ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+            ->withHeader('Expires', '0');
 
 
-function getAllGroups (Request $request, Response $response, array $args) {
-    return $response->write(GroupQuery::create()->groupByName()->find()->toJSON());
-}
+        $response->getBody()->write($output);
 
-function defaultGroup (Request $request, Response $response, array $args) {
-  $res = GroupQuery::create()->orderByName()->findOne()->getId();
+        return $response;
+    }
 
-  return $response->withJson($res);
-}
+    public function searchGroup(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $query = $args['query'];
 
-function groupproperties (Request $request, Response $response, array $args) {
-  $ormAssignedProperties = Record2propertyR2pQuery::Create()
-                        ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
-                        ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                        ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
-                        ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
-                        ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
-                        ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
-                        ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
-                        ->where(PropertyTableMap::COL_PRO_CLASS."='g'")
-                        ->addAscendingOrderByColumn('ProName')
-                        ->addAscendingOrderByColumn('ProTypeName')
-                        ->findByR2pRecordId($args['groupID']);
-
-  return $response->write($ormAssignedProperties->toJSON());
-}
-
-function searchGroup(Request $request, Response $response, array $args) {
-  $query = $args['query'];
-
-  $searchLikeString = '%'.$query.'%';
+        $searchLikeString = '%'.$query.'%';
 
 
-  $groups = GroupQuery::create()
+        $groups = GroupQuery::create()
             ->filterByName($searchLikeString, Criteria::LIKE)
             //->orderByName()
             ->find();
 
 
-  $return = [];
-
-  if (!empty($groups))
-  {
-    $data = [];
-    $id=0;
-
-    foreach ($groups as $group) {
-      $values['id'] = $id++;
-      $values['objid'] = $group->getId();
-      $values['text'] = $group->getName();
-      $values['uri'] = SystemURLs::getRootPath()."/v2/group/".$group->getId()."/view";
-
-      array_push($return, $values);
-    }
-  }
-  return $response->withJson($return);
-}
-
-function deleteAllManagers (Request $request, Response $response, array $args) {
-    $options = (object) $request->getParsedBody();
-
-    if ( isset ($options->groupID) ) {
-      $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
-
-      if ($managers != null) {
-        $managers->delete();
-      }
-      return $response->withJson(['status' => "success"]);
-    }
-
-    return $response->withJson(['status' => "failed"]);
-}
-
-function deleteManager (Request $request, Response $response, array $args) {
-    $options = (object) $request->getParsedBody();
-
-    if ( isset ($options->groupID) && isset ($options->personID) ) {
-      $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
-
-      if ($manager != null) {
-        $manager->delete();
-      }
-
-      $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
-
-      if ($managers->count()) {
-        $data = [];
-
-        foreach ($managers as $manager) {
-
-         $elt = ['name'=> $manager->getPerson()->getFullName(),
-              'personID'=>$manager->getPerson()->getId()];
-
-         array_push($data, $elt);
-
-        }
-
-        return $response->withJson($data);
-      } else {
-        return $response->withJson(['status' => "empty"]);
-      }
-    }
-
-    return $response->withJson(['status' => "failed"]);
-}
-
-function getManagers (Request $request, Response $response, array $args) {
-    $option = (object) $request->getParsedBody();
-
-    if (isset ($option->groupID)) {
-      $managers = GroupManagerPersonQuery::Create()->findByGroupId($option->groupID);
-
-      if ($managers->count()) {
-        $data = [];
-
-        foreach ($managers as $manager) {
-          if (!$manager->getPerson()->isDeactivated()) {
-             $elt = ['name'=> $manager->getPerson()->getFullName(),
-                  'personID'=>$manager->getPerson()->getId()];
-
-             array_push($data, $elt);
-          }
-        }
-
-        return $response->withJson($data);
-      } else {
-        return $response->withJson(['status' => "empty"]);
-      }
-    }
-
-    return $response->withJson(['status' => "failed"]);
-}
-
-function addManager (Request $request, Response $response, array $args) {
-    $options = (object)$request->getParsedBody();
-
-    if (isset ($options->personID) && isset($options->groupID)) {
-      $groupManager = new GroupManagerPerson();
-
-      $groupManager->setPersonId($options->personID);
-      $groupManager->setGroupId($options->groupID);
-
-      $groupManager->save();
-
-      return $response->withJson(['status' => "success".$options->groupID." ".$options->personID]);
-    }
-
-    return $response->withJson(['status' => "failed"]);
-}
-
-function groupsInCart (Request $request, Response $response, array $args) {
-    $groupsInCart = [];
-    $groups = GroupQuery::create()->find();
-    foreach ($groups as $group) {
-        if ($group->checkAgainstCart()) {
-            array_push($groupsInCart, $group->getId());
-        }
-    }
-    return $response->withJson(['groupsInCart' => $groupsInCart]);
-}
-
-function newGroup (Request $request, Response $response, array $args) {
-    $groupSettings = (object) $request->getParsedBody();
-    $group = new Group();
-    if ($groupSettings->isSundaySchool) {
-        $group->setType(4);// now each sunday school group has a type of 4
-    } else {
-        $group->setType(3);// now each normal group has a type of 3
-    }
-
-    $group->setName($groupSettings->groupName);
-    $group->save();
-
-
-    $groupType = new GroupType();
-
-    if (!is_null($groupType)) {
-      $groupType->setGroupId ($group->getId());
-      $groupType->setListOptionId (0);
-      $groupType->save();
-    }
-
-    return $response->write( $group->toJSON() );
-}
-
-function updateGroup (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $input = (object) $request->getParsedBody();
-    $group = GroupQuery::create()->findOneById($groupID);
-    $group->setName($input->groupName);
-
-    $groupType = GroupTypeQuery::Create()->findOneByGroupId ($groupID);
-
-    if (!is_null($groupType)) {
-      $groupType->setListOptionId ($input->groupType);
-      $groupType->save();
-    } else {
-      $groupType = new GroupType();
-
-      $groupType->setGroupId ($groupID);
-      $groupType->setListOptionId ($input->groupType);
-
-      $groupType->save();
-    }
-
-    $group->setDescription($input->description);
-
-    $group->save();
-
-    return $response->write( $group->toJSON() );
-}
-
-function groupInfo (Request $request, Response $response, array $args) {
-    return $response->write( GroupQuery::create()->findOneById($args['groupID'])->toJSON());
-}
-
-function groupCartStatus (Request $request, Response $response, array $args) {
-    return $response->write( GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart());
-}
-
-function deleteGroup (Request $request, Response $response, array $args) {
-  $groupID = $args['groupID'];
-  GroupQuery::create()->findOneById($groupID)->delete();
-  return $response->withJson(['status'=>'success']);
-}
-
-function groupMembers (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
-        ->joinWithPerson()
-        ->usePersonQuery()
-          ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
-        ->endUse()
-        ->findByGroupId($groupID);
-
-
-    // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically
-    foreach ($members as $member)
-    {
-      $p = $member->getPerson();
-      $fam = $p->getFamily();
-
-      // Philippe Logel : this is usefull when a person don't have a family : ie not an address
-      if (!is_null($fam)
-        && !is_null($fam->getAddress1())
-        && !is_null($fam->getAddress2())
-        && !is_null($fam->getCity())
-        && !is_null($fam->getState())
-        && !is_null($fam->getZip())
-        )
-      {
-        $p->setAddress1 ($fam->getAddress1());
-        $p->setAddress2 ($fam->getAddress2());
-
-        $p->setCity($fam->getCity());
-        $p->setState($fam->getState());
-        $p->setZip($fam->getZip());
-      }
-    }
-
-    return $response->write($members->toJSON());
-}
-
-function groupEvents (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
-        ->joinWithPerson()
-        ->findByGroupId($groupID);
-    return $response->write($members->toJSON());
-}
-
-function removePersonFromGroup (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $userID = $args['userID'];
-    $person = PersonQuery::create()->findPk($userID);
-    $group = GroupQuery::create()->findPk($groupID);
-    $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
-
-    $groupService = new GroupService();
-
-    foreach ($groupRoleMemberships as $groupRoleMembership) {
-        if ($groupRoleMembership->getPersonId() == $person->getId()) {
-            $groupService->removeUserFromGroup($groupID, $person->getId());
-            //$groupRoleMembership->delete();
-            $note = new Note();
-            $note->setText(_("Deleted from group"). ": " . $group->getName());
-            $note->setType("group");
-            $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->setPerId($person->getId());
-            $note->save();
-        }
-    }
-    return $response->withJson(['success' => 'true']);
-}
-
-function addPersonToGroup (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $userID = $args['userID'];
-    $person = PersonQuery::create()->findPk($userID);
-    $input = (object) $request->getParsedBody();
-    $group = GroupQuery::create()->findPk($groupID);
-    $p2g2r = Person2group2roleP2g2rQuery::create()
-      ->filterByGroupId($groupID)
-      ->filterByPersonId($userID)
-      ->findOneOrCreate();
-    if($input->RoleID)
-    {
-      $p2g2r->setRoleId($input->RoleID);
-    }
-    else
-    {
-      $p2g2r->setRoleId($group->getDefaultRole());
-    }
-
-    $group->addPerson2group2roleP2g2r($p2g2r);
-    $group->save();
-    $note = new Note();
-    $note->setText(_("Added to group"). ": " . $group->getName());
-    $note->setType("group");
-    $note->setEntered(SessionUser::getUser()->getPersonId());
-    $note->setPerId($person->getId());
-    $note->save();
-    $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
-        ->joinWithPerson()
-        ->filterByPersonId($input->PersonID)
-        ->findByGroupId($groupID);
-
-    return  $response->write($members->toJSON());
-}
-
-function addTeacherToGroup (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $userID = $args['userID'];
-    $person = PersonQuery::create()->findPk($userID);
-    $input = (object) $request->getParsedBody();
-    $group = GroupQuery::create()->findPk($groupID);
-    $p2g2r = Person2group2roleP2g2rQuery::create()
-        ->filterByGroupId($groupID)
-        ->filterByPersonId($userID)
-        ->findOneOrCreate();
-    if($input->RoleID)
-    {
-        $p2g2r->setRoleId($input->RoleID);
-    }
-    else
-    {
-        $p2g2r->setRoleId($group->getDefaultRole());
-    }
-
-    $group->addPerson2group2roleP2g2r($p2g2r);
-    $group->save();
-    $note = new Note();
-    $note->setText(_("Added to group"). ": " . $group->getName());
-    $note->setType("group");
-    $note->setEntered(SessionUser::getUser()->getPersonId());
-    $note->setPerId($person->getId());
-    $note->save();
-    $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
-        ->joinWithPerson()
-        ->filterByPersonId($input->PersonID)
-        ->findByGroupId($groupID);
-
-    return  $response->write($members->toJSON());
-}
-
-function userRoleByUserId (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $userID = $args['userID'];
-    $roleID = $request->getParsedBody()['roleID'];
-    $membership = EcclesiaCRM\Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
-    $membership->setRoleId($roleID);
-    $membership->save();
-
-    return  $response->write($membership->toJSON());
-}
-
-function rolesByRoleId (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $roleID = $args['roleID'];
-    $input = (object) $request->getParsedBody();
-    $group = GroupQuery::create()->findOneById($groupID);
-    if (isset($input->groupRoleName)) {
-        $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
-        $groupRole->setOptionName($input->groupRoleName);
-        $groupRole->save();
-        return $response->write(['success' => true]);
-    } elseif (isset($input->groupRoleOrder)) {
-        $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
-        $groupRole->setOptionSequence($input->groupRoleOrder);
-        $groupRole->save();
-        return $response->write(['success' => true]);
-    }
-    return  $response->write(['success' => false]);
-}
-
-function allRoles (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $group = GroupQuery::create()->findOneById($groupID);
-    $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
-    return $response->write($roles->toJSON());
-}
-
-function defaultRoleForGroup (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $roleID = $request->getParsedBody()['roleID'];
-    $group = GroupQuery::create()->findPk($groupID);
-    $group->setDefaultRole($roleID);
-    $group->save();
-    return $response->withJson(['success' => true]);
-}
-
-
-function settingsActiveValue (Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $flag = $args['value'];
-    if ($flag == "true" || $flag == "false") {
-        $group = GroupQuery::create()->findOneById($groupID);
-        if ($group != null) {
-            $group->setActive($flag);
-            $group->save();
-        } else {
-            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
-        }
-        return $response->withJson(['status' => "success"]);
-    } else {
-        return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid status value']);
-    }
-}
-
-function settingsEmailExportVvalue(Request $request, Response $response, array $args) {
-    $groupID = $args['groupID'];
-    $flag = $args['value'];
-    if ($flag == "true" || $flag == "false") {
-        $group = GroupQuery::create()->findOneById($groupID);
-        if ($group != null) {
-            $group->setIncludeInEmailExport($flag);
-            $group->save();
-        } else {
-            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
-        }
-        return $response->withJson(['status' => "success"]);
-    } else {
-        return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid export value']);
-    }
-}
-
-function deleteGroupField(Request $request, Response $response, array $args) {
-  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-      return $response->withStatus(404);
-  }
-
-  $values = (object)$request->getParsedBody();
-
-  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
-  {
-    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-    $groupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
-
-    if ( !is_null ($groupPropMstr) && $groupPropMstr->getTypeId() == 12 ) {
-       $list = ListOptionQuery::Create()->findById($groupPropMstr->getSpecial());
-       if( !is_null($list) ) {
-         $list->delete();
-       }
-    }
-
-    // this can't be propeled
-    $connection = Propel::getConnection();
-    $sSQL = 'ALTER TABLE `groupprop_'.$values->GroupID.'` DROP `'.$values->Field.'` ;';
-    $connection->exec($sSQL);
-
-    // now we can delete the GroupPropMasterQuery
-    $groupPropMstr->delete();
-
-
-    $allGroupPropMstr = GroupPropMasterQuery::Create()->findByGroupId ($values->GroupID);
-    $numRows = $allGroupPropMstr->count();
-
-    // Shift the remaining rows up by one, unless we've just deleted the only row
-    if ($numRows != 0) {
-        for ($reorderRow = $values->PropID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
-            $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($reorderRow);
-
-            if ( !is_null ($fisrtGroupPropMstr) ){
-              $fisrtGroupPropMstr->setPropId($reorderRow - 1)->save();
+        $return = [];
+
+        if (!empty($groups))
+        {
+            $data = [];
+            $id=0;
+
+            foreach ($groups as $group) {
+                $values['id'] = $id++;
+                $values['objid'] = $group->getId();
+                $values['text'] = $group->getName();
+                $values['uri'] = SystemURLs::getRootPath()."/v2/group/".$group->getId()."/view";
+
+                array_push($return, $values);
             }
         }
+        return $response->withJson($return);
     }
 
-    return $response->withJson(['success' => true]);
-  }
+    public function deleteAllManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $options = (object) $request->getParsedBody();
 
-  return $response->withJson(['success' => false]);
-}
+        if ( isset ($options->groupID) ) {
+            $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
 
-function upactionGroupField (Request $request, Response $response, array $args) {
-  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-      return $response->withStatus(404);
-  }
+            if ($managers != null) {
+                $managers->delete();
+            }
+            return $response->withJson(['status' => "success"]);
+        }
 
-  $values = (object)$request->getParsedBody();
-
-  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
-  {
-    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-    $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID - 1);
-    $fisrtGroupPropMstr->setPropId($values->PropID)->save();
-
-    $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
-    $secondGroupPropMstr->setPropId($values->PropID - 1)->save();
-
-    return $response->withJson(['success' => true]);
-  }
-
-  return $response->withJson(['success' => false]);
-}
-
-function downactionGroupField (Request $request, Response $response, array $args) {
-  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-      return $response->withStatus(404);
-  }
-
-  $values = (object)$request->getParsedBody();
-
-  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
-  {
-    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-    $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID + 1);
-    $fisrtGroupPropMstr->setPropId($values->PropID)->save();
-
-    $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
-    $secondGroupPropMstr->setPropId($values->PropID+1)->save();
-
-    return $response->withJson(['success' => true]);
-  }
-
-  return $response->withJson(['success' => false]);
-}
-
-function groupSundaySchool (Request $request, Response $response, array $args) {
-
-    $iGroupId = $args['groupID'];
-
-    if ( !(SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
-        || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) ) {
-        return $response->withStatus(404);
+        return $response->withJson(['status' => "failed"]);
     }
 
-    $sundaySchoolService = new SundaySchoolService();
+    public function deleteManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $options = (object) $request->getParsedBody();
 
-    $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
+        if ( isset ($options->groupID) && isset ($options->personID) ) {
+            $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
 
-    $TeachersEmails = [];
-    $KidsEmails = [];
-    $ParentsEmails = [];
+            if ($manager != null) {
+                $manager->delete();
+            }
 
-    $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
+            $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
 
-    foreach ($thisClassChildren as $child) {
-        if ($child['dadEmail'] != '') {
-            array_push($ParentsEmails, $child['dadEmail']);
+            if ($managers->count()) {
+                $data = [];
+
+                foreach ($managers as $manager) {
+
+                    $elt = ['name'=> $manager->getPerson()->getFullName(),
+                        'personID'=>$manager->getPerson()->getId()];
+
+                    array_push($data, $elt);
+
+                }
+
+                return $response->withJson($data);
+            } else {
+                return $response->withJson(['status' => "empty"]);
+            }
         }
-        if ($child['momEmail'] != '') {
-            array_push($ParentsEmails, $child['momEmail']);
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    public function getManagers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $option = (object) $request->getParsedBody();
+
+        if (isset ($option->groupID)) {
+            $managers = GroupManagerPersonQuery::Create()->findByGroupId($option->groupID);
+
+            if ($managers->count()) {
+                $data = [];
+
+                foreach ($managers as $manager) {
+                    if (!$manager->getPerson()->isDeactivated()) {
+                        $elt = ['name'=> $manager->getPerson()->getFullName(),
+                            'personID'=>$manager->getPerson()->getId()];
+
+                        array_push($data, $elt);
+                    }
+                }
+
+                return $response->withJson($data);
+            } else {
+                return $response->withJson(['status' => "empty"]);
+            }
         }
-        if ($child['kidEmail'] != '') {
-            array_push($KidsEmails, $child['kidEmail']);
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    public function addManager (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $options = (object)$request->getParsedBody();
+
+        if (isset ($options->personID) && isset($options->groupID)) {
+            $groupManager = new GroupManagerPerson();
+
+            $groupManager->setPersonId($options->personID);
+            $groupManager->setGroupId($options->groupID);
+
+            $groupManager->save();
+
+            return $response->withJson(['status' => "success".$options->groupID." ".$options->personID]);
+        }
+
+        return $response->withJson(['status' => "failed"]);
+    }
+
+    public function groupsInCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupsInCart = [];
+        $groups = GroupQuery::create()->find();
+        foreach ($groups as $group) {
+            if ($group->checkAgainstCart()) {
+                array_push($groupsInCart, $group->getId());
+            }
+        }
+        return $response->withJson(['groupsInCart' => $groupsInCart]);
+    }
+
+    public function newGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupSettings = (object) $request->getParsedBody();
+        $group = new Group();
+        if ($groupSettings->isSundaySchool) {
+            $group->setType(4);// now each sunday school group has a type of 4
+        } else {
+            $group->setType(3);// now each normal group has a type of 3
+        }
+
+        $group->setName($groupSettings->groupName);
+        $group->save();
+
+
+        $groupType = new GroupType();
+
+        if (!is_null($groupType)) {
+            $groupType->setGroupId ($group->getId());
+            $groupType->setListOptionId (0);
+            $groupType->save();
+        }
+
+        return $response->write( $group->toJSON() );
+    }
+
+    public function updateGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $input = (object) $request->getParsedBody();
+        $group = GroupQuery::create()->findOneById($groupID);
+        $group->setName($input->groupName);
+
+        $groupType = GroupTypeQuery::Create()->findOneByGroupId ($groupID);
+
+        if (!is_null($groupType)) {
+            $groupType->setListOptionId ($input->groupType);
+            $groupType->save();
+        } else {
+            $groupType = new GroupType();
+
+            $groupType->setGroupId ($groupID);
+            $groupType->setListOptionId ($input->groupType);
+
+            $groupType->save();
+        }
+
+        $group->setDescription($input->description);
+
+        $group->save();
+
+        return $response->write( $group->toJSON() );
+    }
+
+    public function groupInfo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        return $response->write( GroupQuery::create()->findOneById($args['groupID'])->toJSON());
+    }
+
+    public function groupCartStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        return $response->write( GroupQuery::create()->findOneById($args['groupID'])->checkAgainstCart());
+    }
+
+    public function deleteGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        GroupQuery::create()->findOneById($groupID)->delete();
+        return $response->withJson(['status'=>'success']);
+    }
+
+    public function groupMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+            ->joinWithPerson()
+            ->usePersonQuery()
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
+            ->endUse()
+            ->findByGroupId($groupID);
+
+
+        // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically
+        foreach ($members as $member)
+        {
+            $p = $member->getPerson();
+            $fam = $p->getFamily();
+
+            // Philippe Logel : this is usefull when a person don't have a family : ie not an address
+            if (!is_null($fam)
+                && !is_null($fam->getAddress1())
+                && !is_null($fam->getAddress2())
+                && !is_null($fam->getCity())
+                && !is_null($fam->getState())
+                && !is_null($fam->getZip())
+            )
+            {
+                $p->setAddress1 ($fam->getAddress1());
+                $p->setAddress2 ($fam->getAddress2());
+
+                $p->setCity($fam->getCity());
+                $p->setState($fam->getState());
+                $p->setZip($fam->getZip());
+            }
+        }
+
+        return $response->write($members->toJSON());
+    }
+
+    public function groupEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+            ->joinWithPerson()
+            ->findByGroupId($groupID);
+        return $response->write($members->toJSON());
+    }
+
+    public function removePersonFromGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $userID = $args['userID'];
+        $person = PersonQuery::create()->findPk($userID);
+        $group = GroupQuery::create()->findPk($groupID);
+        $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
+
+        $groupService = new GroupService();
+
+        foreach ($groupRoleMemberships as $groupRoleMembership) {
+            if ($groupRoleMembership->getPersonId() == $person->getId()) {
+                $groupService->removeUserFromGroup($groupID, $person->getId());
+                //$groupRoleMembership->delete();
+                $note = new Note();
+                $note->setText(_("Deleted from group"). ": " . $group->getName());
+                $note->setType("group");
+                $note->setEntered(SessionUser::getUser()->getPersonId());
+                $note->setPerId($person->getId());
+                $note->save();
+            }
+        }
+        return $response->withJson(['success' => 'true']);
+    }
+
+    public function addPersonToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $userID = $args['userID'];
+        $person = PersonQuery::create()->findPk($userID);
+        $input = (object) $request->getParsedBody();
+        $group = GroupQuery::create()->findPk($groupID);
+        $p2g2r = Person2group2roleP2g2rQuery::create()
+            ->filterByGroupId($groupID)
+            ->filterByPersonId($userID)
+            ->findOneOrCreate();
+        if($input->RoleID)
+        {
+            $p2g2r->setRoleId($input->RoleID);
+        }
+        else
+        {
+            $p2g2r->setRoleId($group->getDefaultRole());
+        }
+
+        $group->addPerson2group2roleP2g2r($p2g2r);
+        $group->save();
+        $note = new Note();
+        $note->setText(_("Added to group"). ": " . $group->getName());
+        $note->setType("group");
+        $note->setEntered(SessionUser::getUser()->getPersonId());
+        $note->setPerId($person->getId());
+        $note->save();
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+            ->joinWithPerson()
+            ->filterByPersonId($input->PersonID)
+            ->findByGroupId($groupID);
+
+        return  $response->write($members->toJSON());
+    }
+
+    public function addTeacherToGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $userID = $args['userID'];
+        $person = PersonQuery::create()->findPk($userID);
+        $input = (object) $request->getParsedBody();
+        $group = GroupQuery::create()->findPk($groupID);
+        $p2g2r = Person2group2roleP2g2rQuery::create()
+            ->filterByGroupId($groupID)
+            ->filterByPersonId($userID)
+            ->findOneOrCreate();
+        if($input->RoleID)
+        {
+            $p2g2r->setRoleId($input->RoleID);
+        }
+        else
+        {
+            $p2g2r->setRoleId($group->getDefaultRole());
+        }
+
+        $group->addPerson2group2roleP2g2r($p2g2r);
+        $group->save();
+        $note = new Note();
+        $note->setText(_("Added to group"). ": " . $group->getName());
+        $note->setType("group");
+        $note->setEntered(SessionUser::getUser()->getPersonId());
+        $note->setPerId($person->getId());
+        $note->save();
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+            ->joinWithPerson()
+            ->filterByPersonId($input->PersonID)
+            ->findByGroupId($groupID);
+
+        return  $response->write($members->toJSON());
+    }
+
+    public function userRoleByUserId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $userID = $args['userID'];
+        $roleID = $request->getParsedBody()['roleID'];
+        $membership = EcclesiaCRM\Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
+        $membership->setRoleId($roleID);
+        $membership->save();
+
+        return  $response->write($membership->toJSON());
+    }
+
+    public function rolesByRoleId (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $roleID = $args['roleID'];
+        $input = (object) $request->getParsedBody();
+        $group = GroupQuery::create()->findOneById($groupID);
+        if (isset($input->groupRoleName)) {
+            $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
+            $groupRole->setOptionName($input->groupRoleName);
+            $groupRole->save();
+            return $response->withJson(['success' => true]);
+        } elseif (isset($input->groupRoleOrder)) {
+            $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
+            $groupRole->setOptionSequence($input->groupRoleOrder);
+            $groupRole->save();
+            return $response->withJson(['success' => true]);
+        }
+        return  $response->withJson(['success' => false]);
+    }
+
+    public function allRoles (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $group = GroupQuery::create()->findOneById($groupID);
+        $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
+        return $response->write($roles->toJSON());
+    }
+
+    public function defaultRoleForGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $roleID = $request->getParsedBody()['roleID'];
+        $group = GroupQuery::create()->findPk($groupID);
+        $group->setDefaultRole($roleID);
+        $group->save();
+        return $response->withJson(['success' => true]);
+    }
+
+    public function settingsActiveValue (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $group = GroupQuery::create()->findOneById($groupID);
+            if ($group != null) {
+                $group->setActive($flag);
+                $group->save();
+            } else {
+                return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
+            }
+            return $response->withJson(['status' => "success"]);
+        } else {
+            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid status value']);
         }
     }
 
-    $teachersProps = [];
-    foreach ($rsTeachers as $teacher) {
-        array_push($TeachersEmails, $teacher['per_Email']);
+    public function settingsEmailExportVvalue(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $groupID = $args['groupID'];
+        $flag = $args['value'];
+        if ($flag == "true" || $flag == "false") {
+            $group = GroupQuery::create()->findOneById($groupID);
+            if ($group != null) {
+                $group->setIncludeInEmailExport($flag);
+                $group->save();
+            } else {
+                return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid group id']);
+            }
+            return $response->withJson(['status' => "success"]);
+        } else {
+            return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid export value']);
+        }
+    }
 
-        $ormPropLists = GroupPropMasterQuery::Create()
-            ->filterByPersonDisplay('true')
-            ->orderByPropId()
-            ->findByGroupId($iGroupId);
+    public function deleteGroupField(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(404);
+        }
 
-        $props = '';
-        if ( $ormPropLists->count() > 0 ) {
-            $person = PersonQuery::create()->findOneById($teacher['per_ID']);
-            $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily()))?$person->getFamily()->getCountry():null, false);
+        $values = (object)$request->getParsedBody();
 
-            $sSQL = 'SELECT * FROM groupprop_' . $iGroupId . ' WHERE per_ID = ' . $teacher['per_ID'];
+        if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+        {
+            // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+            $groupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
 
+            if ( !is_null ($groupPropMstr) && $groupPropMstr->getTypeId() == 12 ) {
+                $list = ListOptionQuery::Create()->findById($groupPropMstr->getSpecial());
+                if( !is_null($list) ) {
+                    $list->delete();
+                }
+            }
+
+            // this can't be propeled
             $connection = Propel::getConnection();
-            $statement = $connection->prepare($sSQL);
-            $statement->execute();
-            $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+            $sSQL = 'ALTER TABLE `groupprop_'.$values->GroupID.'` DROP `'.$values->Field.'` ;';
+            $connection->exec($sSQL);
+
+            // now we can delete the GroupPropMasterQuery
+            $groupPropMstr->delete();
 
 
-            if ($ormPropLists->count() > 0) {
-                foreach ($ormPropLists as $ormPropList) {
-                    $currentData = trim($aPersonProps[$ormPropList->getField()]);
-                    if (strlen($currentData) > 0) {
-                        $prop_Special = $ormPropList->getSpecial();
+            $allGroupPropMstr = GroupPropMasterQuery::Create()->findByGroupId ($values->GroupID);
+            $numRows = $allGroupPropMstr->count();
 
-                        if ($ormPropList->getTypeId() == 11) {
-                            $prop_Special = $sPhoneCountry;
-                        }
+            // Shift the remaining rows up by one, unless we've just deleted the only row
+            if ($numRows != 0) {
+                for ($reorderRow = $values->PropID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
+                    $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($reorderRow);
 
-                        $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
+                    if ( !is_null ($fisrtGroupPropMstr) ){
+                        $fisrtGroupPropMstr->setPropId($reorderRow - 1)->save();
                     }
                 }
             }
+
+            return $response->withJson(['success' => true]);
         }
 
-        array_push($teachersProps, [$teacher['per_ID'] => substr($props, 0, -2)]);
+        return $response->withJson(['success' => false]);
     }
 
-    $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
-    $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
+    public function upactionGroupField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(404);
+        }
 
-    $roleEmails = new stdClass();
+        $values = (object)$request->getParsedBody();
 
-    $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
-    $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
-    $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
+        if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+        {
+            // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+            $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID - 1);
+            $fisrtGroupPropMstr->setPropId($values->PropID)->save();
 
-    // Add default email if default email has been set and is not already in string
-    if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
-        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
+            $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
+            $secondGroupPropMstr->setPropId($values->PropID - 1)->save();
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
     }
-    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-    $emailLink = mb_substr($sEmailLink, 0, -3);
+    public function downactionGroupField (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            return $response->withStatus(404);
+        }
 
-    $dropDown = new stdClass();
-    $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
-    $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
+        $values = (object)$request->getParsedBody();
 
-    return $response->withJson(['success' => true, "teachers" => $rsTeachers, "teachersProps" => $teachersProps,  "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
+        if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+        {
+            // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+            $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID + 1);
+            $fisrtGroupPropMstr->setPropId($values->PropID)->save();
+
+            $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
+            $secondGroupPropMstr->setPropId($values->PropID+1)->save();
+
+            return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function groupSundaySchool (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+
+        $iGroupId = $args['groupID'];
+
+        if ( !(SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
+            || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) ) {
+            return $response->withStatus(404);
+        }
+
+        $sundaySchoolService = new SundaySchoolService();
+
+        $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
+
+        $TeachersEmails = [];
+        $KidsEmails = [];
+        $ParentsEmails = [];
+
+        $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
+
+        foreach ($thisClassChildren as $child) {
+            if ($child['dadEmail'] != '') {
+                array_push($ParentsEmails, $child['dadEmail']);
+            }
+            if ($child['momEmail'] != '') {
+                array_push($ParentsEmails, $child['momEmail']);
+            }
+            if ($child['kidEmail'] != '') {
+                array_push($KidsEmails, $child['kidEmail']);
+            }
+        }
+
+        $teachersProps = [];
+        foreach ($rsTeachers as $teacher) {
+            array_push($TeachersEmails, $teacher['per_Email']);
+
+            $ormPropLists = GroupPropMasterQuery::Create()
+                ->filterByPersonDisplay('true')
+                ->orderByPropId()
+                ->findByGroupId($iGroupId);
+
+            $props = '';
+            if ( $ormPropLists->count() > 0 ) {
+                $person = PersonQuery::create()->findOneById($teacher['per_ID']);
+                $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily()))?$person->getFamily()->getCountry():null, false);
+
+                $sSQL = 'SELECT * FROM groupprop_' . $iGroupId . ' WHERE per_ID = ' . $teacher['per_ID'];
+
+                $connection = Propel::getConnection();
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+                $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+
+                if ($ormPropLists->count() > 0) {
+                    foreach ($ormPropLists as $ormPropList) {
+                        $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                        if (strlen($currentData) > 0) {
+                            $prop_Special = $ormPropList->getSpecial();
+
+                            if ($ormPropList->getTypeId() == 11) {
+                                $prop_Special = $sPhoneCountry;
+                            }
+
+                            $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
+                        }
+                    }
+                }
+            }
+
+            array_push($teachersProps, [$teacher['per_ID'] => substr($props, 0, -2)]);
+        }
+
+        $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
+        $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
+
+        $roleEmails = new stdClass();
+
+        $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
+        $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
+        $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
+
+        // Add default email if default email has been set and is not already in string
+        if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
+            $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
+        }
+        $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+
+        $emailLink = mb_substr($sEmailLink, 0, -3);
+
+        $dropDown = new stdClass();
+        $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
+        $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
+
+        return $response->withJson(['success' => true, "teachers" => $rsTeachers, "teachersProps" => $teachersProps,  "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
+    }
 }
