@@ -9,6 +9,7 @@ use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\SundaySchoolService;
+use Slim\HttpCache\CacheProvider;
 
 use EcclesiaCRM\Utils\LoggerUtils;
 
@@ -25,7 +26,6 @@ $container->set('PersonService', function () {
 $container->set('GroupService', function () {
     return new GroupService();
 });
-
 
 $container->set('FinancialService', function () {
     return new FinancialService();
@@ -49,6 +49,10 @@ $container->set('CalendarService', function () {
 
 $container->set('SundaySchoolService', function () {
     return new SundaySchoolService();
+});
+
+$container->set('CacheProvider', function (){
+   return  new CacheProvider();
 });
 
 
