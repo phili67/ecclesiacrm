@@ -97,7 +97,7 @@ class SidebarPropertiesController
             $res .= $new_elt . "\"place\":\"" . $position . "\",\"realplace\":\"" . $place . "\"},";
         }
 
-        $response->withJson("{\"PropertyTypeLists\":[" . substr($res, 0, -1) . "]}");
+        return $response->write("{\"PropertyTypeLists\":[" . substr($res, 0, -1) . "]}");
     }
 
     public function editPropertyType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
