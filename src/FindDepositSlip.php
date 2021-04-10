@@ -134,27 +134,23 @@ $donationFunds = DonationFundQuery::Create()->find();
             callback: function (result) {
                 if (result) {
                     $.each(deletedRows, function (index, value) {
-                        $.ajax({
-                            type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-                            url: window.CRM.root + '/api/deposits/' + value.Id, // the url where we want to POST
-                            dataType: 'json', // what type of data do we expect back from the server
-                            encode: true,
-                            data: {"_METHOD": "DELETE"}
-                        })
-                            .done(function (data) {
-                                dataT.rows('.selected').remove().draw(false);
-                                $(".count-deposit").html(dataT.column(0).data().length);
-                                if (dataT.column(0).data().length == 0) {
-                                    $(".current-deposit").html('');
-                                    $(".deposit-current-deposit-item").hide();
-                                }
+                        window.CRM.APIRequest({
+                            method: 'DELETE',
+                            path: 'deposits/' + value.Id, // the url where we want to POST
+                        }).done(function (data) {
+                            dataT.rows('.selected').remove().draw(false);
+                            $(".count-deposit").html(dataT.column(0).data().length);
+                            if (dataT.column(0).data().length == 0) {
+                                $(".current-deposit").html('');
+                                $(".deposit-current-deposit-item").hide();
+                            }
 
-                                if (value.Id == $(".current-deposit").data("id")) {
-                                    $(".current-deposit").html('');
-                                    $(".current-deposit-item").html('');
-                                    $(".deposit-current-deposit-item").hide();
-                                }
-                            });
+                            if (value.Id == $(".current-deposit").data("id")) {
+                                $(".current-deposit").html('');
+                                $(".current-deposit-item").html('');
+                                $(".deposit-current-deposit-item").hide();
+                            }
+                        });
                     });
                 }
             }
