@@ -704,11 +704,11 @@ $(document).ready(function () {
     });
 
     // newMessage event subscribers : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", updateButtons);
+    $(document).on("updateCartMessage", updateButtons);
 
     // newMessage event handler
     function updateButtons(e) {
-      if (e.cartPeople.length == 0) {
+      if (e.people.length == 0) {
         $("#AddPersonToCart").addClass("AddOneToPeopleCart");
         $("#AddPersonToCart").removeClass("RemoveOneFromPeopleCart");
         $('i',"#AddPersonToCart").removeClass("fa-remove");
