@@ -87,7 +87,7 @@ class PastoralCareController
                 ->filterByDate(array("min" => $startPeriod, "max" => $endPeriod))
                 ->findByPastorId($args['UserID']);
 
-            $response->withJson(['ListOfMembers' => $ormPastors->toArray()]);
+            return $response->withJson(['ListOfMembers' => $ormPastors->toArray()]);
         }
 
 
@@ -100,7 +100,7 @@ class PastoralCareController
             return $response->withStatus(401);
         }
 
-        return PastoralCareTypeQuery::Create()->find()->toJSON();
+        return $response->write(PastoralCareTypeQuery::Create()->find()->toJSON());
     }
 
     public function deletePastoralCareType(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
