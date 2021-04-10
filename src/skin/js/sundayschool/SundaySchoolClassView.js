@@ -914,80 +914,70 @@ $("document").ready(function(){
       });
     });
 
-
-
-
     // newMessage event subscribers  : Listener CRJSOM.js
     $(document).on("updateCartMessage", updateButtons);
 
     // newMessage event handler
     function updateButtons(e) {
-      var cartPeople = e.people;
+        var cartPeople = e.people;
 
-      if (cartPeople != null) {
-        personButtons = $("a[data-cartpersonid]");
-        $(personButtons).each(function(index,personButton){
-          personID = $(personButton).data("cartpersonid");
-          if (cartPeople.includes(personID) || cartPeople.includes(personID.toString())) {
-            personPresent = true;
-            $(personButton).addClass("RemoveOneStudentFromCart");
-            $(personButton).removeClass("AddOneStudentToCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
-            $(fa).addClass("fa-remove");
-            $(fa).removeClass("fa-cart-plus");
-            text = $(personButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Remove from Cart"));
-            }
-          } else {
-            $(personButton).addClass("AddOneStudentToCart");
-            $(personButton).removeClass("RemoveOneStudentFromCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
+        if (cartPeople != null) {
+            personButtons = $("a[data-cartpersonid]");
+            $(personButtons).each(function (index, personButton) {
+                personID = $(personButton).data("cartpersonid");
+                if (cartPeople.includes(personID) || cartPeople.includes(personID.toString())) {
+                    personPresent = true;
+                    $(personButton).addClass("RemoveOneStudentFromCart");
+                    $(personButton).removeClass("AddOneStudentToCart");
+                    fa = $(personButton).find("i.fa.fa-inverse");
+                    $(fa).addClass("fa-remove");
+                    $(fa).removeClass("fa-cart-plus");
+                    text = $(personButton).find("span.cartActionDescription")
+                    if (text) {
+                        $(text).text(i18next.t("Remove from Cart"));
+                    }
+                } else {
+                    $(personButton).addClass("AddOneStudentToCart");
+                    $(personButton).removeClass("RemoveOneStudentFromCart");
+                    fa = $(personButton).find("i.fa.fa-inverse");
 
-            $(fa).removeClass("fa-remove");
-            $(fa).addClass("fa-cart-plus");
-            text = $(personButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Add to Cart"));
-            }
-          }
-        });
-      }
-    }
-
-    // newMessage event subscribers  : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", emptyButtons);
-
-    // newMessage event handler
-    function emptyButtons(e) {
-      if (e.cartPeople.length == 0) {
-        $("#AddToTeacherGroupCart").addClass("AddToTeacherGroupCart");
-        $("#AddToTeacherGroupCart").removeClass("RemoveFromTeacherGroupCart");
-        $('i',"#AddToTeacherGroupCart").removeClass("fa-remove");
-        $('i',"#AddToTeacherGroupCart").addClass("fa-cart-plus");
-        text = $("#AddToTeacherGroupCart").find("span.cartActionDescription")
-        if(text){
-          $(text).text(i18next.t("Add Teachers to Cart"));
+                    $(fa).removeClass("fa-remove");
+                    $(fa).addClass("fa-cart-plus");
+                    text = $(personButton).find("span.cartActionDescription")
+                    if (text) {
+                        $(text).text(i18next.t("Add to Cart"));
+                    }
+                }
+            });
         }
 
-        $("#AddStudentsToGroupCart").addClass("AddStudentsToGroupCart");
-        $("#AddStudentsToGroupCart").removeClass("RemoveStudentsFromGroupCart");
-        $('i',"#AddStudentsToGroupCart").removeClass("fa-remove");
-        $('i',"#AddStudentsToGroupCart").addClass("fa-cart-plus");
-        text = $("#AddStudentsToGroupCart").find("span.cartActionDescription")
-        if(text){
-          $(text).text(i18next.t("Add Students to Cart"));
+        if (cartPeople.length == 0) {
+            $("#AddToTeacherGroupCart").addClass("AddToTeacherGroupCart");
+            $("#AddToTeacherGroupCart").removeClass("RemoveFromTeacherGroupCart");
+            $('i', "#AddToTeacherGroupCart").removeClass("fa-remove");
+            $('i', "#AddToTeacherGroupCart").addClass("fa-cart-plus");
+            text = $("#AddToTeacherGroupCart").find("span.cartActionDescription")
+            if (text) {
+                $(text).text(i18next.t("Add Teachers to Cart"));
+            }
+
+            $("#AddStudentsToGroupCart").addClass("AddStudentsToGroupCart");
+            $("#AddStudentsToGroupCart").removeClass("RemoveStudentsFromGroupCart");
+            $('i', "#AddStudentsToGroupCart").removeClass("fa-remove");
+            $('i', "#AddStudentsToGroupCart").addClass("fa-cart-plus");
+            text = $("#AddStudentsToGroupCart").find("span.cartActionDescription")
+            if (text) {
+                $(text).text(i18next.t("Add Students to Cart"));
+            }
+
+            var clickedButton = $('.RemoveOneStudentFromCart');
+
+            $(clickedButton).addClass("AddOneStudentToCart");
+            $(clickedButton).removeClass("RemoveOneStudentFromCart");
+            $('span i:nth-child(2)', clickedButton).removeClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).addClass("fa-cart-plus");
         }
-
-        var clickedButton = $('.RemoveOneStudentFromCart');
-
-        $(clickedButton).addClass("AddOneStudentToCart");
-        $(clickedButton).removeClass("RemoveOneStudentFromCart");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-remove");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-cart-plus");
-      }
     }
-
     // end of cart management
 
 
