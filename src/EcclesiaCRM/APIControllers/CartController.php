@@ -445,7 +445,11 @@ class CartController
             'message' =>$sMessage,
             'sEmailLink' => $sEmailLink,
             'sPhoneLink' => $sPhoneLink,
-            'sPhoneLinkSMS' =>$sPhoneLinkSMS
+            'sPhoneLinkSMS' =>$sPhoneLinkSMS,
+            'cartPeople' => $_SESSION['aPeopleCart'],
+            'PeopleCart' => Cart::PeopleInCart(),
+            'FamiliesCart' => Cart::FamiliesInCart(),
+            'GroupsCart' => Cart::GroupsInCart()
         ]);
 
     }

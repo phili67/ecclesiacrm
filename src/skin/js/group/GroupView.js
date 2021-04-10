@@ -524,11 +524,11 @@ function initDataTable() {
 
 
     // newMessage event subscribers : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", updateButtons);
+    $(document).on("updateCartMessage", updateButtons);
 
     // newMessage event handler
     function updateButtons(e) {
-      if (e.cartPeople.length == 0) {
+      if (e.people.length == 0) {
         $("#AddToGroupCart").addClass("AddToGroupCart");
         $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
         $('i',"#AddToGroupCart").removeClass("fa-remove");

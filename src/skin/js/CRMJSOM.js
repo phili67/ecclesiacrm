@@ -161,12 +161,11 @@
           if (callback)
           {
             callback(data);
-            window.CRM.cart.refresh();
           }
-          else
-          {
-            window.CRM.cart.refresh();
-          }
+          window.CRM.cart.refresh();
+          // we update the cart button
+          if (data.PeopleCart !== undefined && data.FamiliesCart != undefined && data.GroupsCart != undefined)
+            window.CRM.cart.updatePage(data.PeopleCart,data.FamiliesCart, data.GroupsCart);
         });
       },
       'emptyCart': function () {
@@ -602,9 +601,9 @@
       'removePerson' : function (Persons, callback)
       {
          window.CRM.APIRequest({
-          method: 'POST',
+          method: 'DELETE',
           path:'cart/',
-          data: JSON.stringify({"_METHOD":"DELETE","Persons":Persons})
+          data: JSON.stringify({"Persons":Persons})
         }).done(function(data) {
           window.CRM.cart.refresh();
           if(callback)

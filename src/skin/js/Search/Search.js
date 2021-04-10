@@ -543,10 +543,6 @@ $(document).ready(function () {
         return true;
     });
 
-    // listener emptyCart
-    // newMessage event subscribers : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", updateButtons);
-
     // listener updateCartMessage
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("updateCartMessage", updateButtons);

@@ -411,54 +411,6 @@ $(document).ready(function () {
     });
 
     // newMessage event subscribers : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", updateButtons);
-
-    // newMessage event handler
-    function updateButtons(e) {
-      var cartPeople = e.cartPeople;
-
-      if (cartPeople.length == 0) {
-        $("#AddToFamilyCart").addClass("AddToFamilyCart");
-        $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-        $('i',"#AddToFamilyCart").removeClass("fa-remove");
-        $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
-        text = $("#AddToFamilyCart").find("span.cartActionDescription")
-        if(text){
-          $(text).text(i18next.t("Add to Cart"));
-        }
-      } else {
-        var peopleInCart = false;
-        var personButtons = $("a[data-cartpersonid]");
-        $(personButtons).each(function(index,personButton){
-          personID = $(personButton).data("cartpersonid")
-          if (cartPeople.includes(personID)) {
-            peopleInCart = true;
-          }
-        });
-
-        if (peopleInCart) {
-          $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
-          $("#AddToFamilyCart").removeClass("AddToFamilyCart");
-          $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
-          $('i',"#AddToFamilyCart").addClass("fa-remove");
-          text = $("#AddToFamilyCart").find("span.cartActionDescription")
-          if(text){
-            $(text).text(i18next.t("Remove from Cart"));
-          }
-        } else {
-          $("#AddToFamilyCart").addClass("AddToFamilyCart");
-          $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-          $('i',"#AddToFamilyCart").removeClass("fa-remove");
-          $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
-          text = $("#AddToFamilyCart").find("span.cartActionDescription")
-          if(text){
-            $(text).text(i18next.t("Add to Cart"));
-          }
-        }
-      }
-    }
-
-    // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("updateCartMessage", updateLittleButtons);
 
     function updateLittleButtons(e) {
@@ -491,6 +443,46 @@ $(document).ready(function () {
             }
           }
         });
+
+        if (cartPeople.length == 0) {
+            $("#AddToFamilyCart").addClass("AddToFamilyCart");
+            $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
+            $('i',"#AddToFamilyCart").removeClass("fa-remove");
+            $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
+            text = $("#AddToFamilyCart").find("span.cartActionDescription")
+            if(text){
+                $(text).text(i18next.t("Add to Cart"));
+            }
+        } else {
+            var peopleInCart = false;
+            var personButtons = $("a[data-cartpersonid]");
+            $(personButtons).each(function(index,personButton){
+                personID = $(personButton).data("cartpersonid")
+                if (cartPeople.includes(personID)) {
+                    peopleInCart = true;
+                }
+            });
+
+            if (peopleInCart) {
+                $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
+                $("#AddToFamilyCart").removeClass("AddToFamilyCart");
+                $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
+                $('i',"#AddToFamilyCart").addClass("fa-remove");
+                text = $("#AddToFamilyCart").find("span.cartActionDescription")
+                if(text){
+                    $(text).text(i18next.t("Remove from Cart"));
+                }
+            } else {
+                $("#AddToFamilyCart").addClass("AddToFamilyCart");
+                $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
+                $('i',"#AddToFamilyCart").removeClass("fa-remove");
+                $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
+                text = $("#AddToFamilyCart").find("span.cartActionDescription")
+                if(text){
+                    $(text).text(i18next.t("Add to Cart"));
+                }
+            }
+        }
     }
 
   automaticPaymentsTable = $("#automaticPaymentsTable").DataTable({
