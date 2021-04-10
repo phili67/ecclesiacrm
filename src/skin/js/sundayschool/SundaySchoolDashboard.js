@@ -61,11 +61,11 @@ $("document").ready(function() {
     });
 
     // newMessage event subscribers  : Listener CRJSOM.js
-    $(document).on("emptyCartMessage", emptyButtons);
+    $(document).on("updateCartMessage", emptyButtons);
 
     // newMessage event handler
     function emptyButtons(e) {
-        if (e.cartPeople.length == 0) {
+        if (e.people.length == 0) {
             $("#AddAllTeachersToCart").addClass("AddAllTeachersToCart");
             $("#AddAllTeachersToCart").removeClass("RemoveAllTeachersFromCart");
             $('i',"#AddAllTeachersToCart").removeClass("fa-remove");
