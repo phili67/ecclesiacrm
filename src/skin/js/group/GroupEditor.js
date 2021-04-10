@@ -1,5 +1,5 @@
 $("document").ready(function()
-{  
+{
   $(".groupSpecificProperties").click(function(e)
   {
     var groupPropertyAction = e.currentTarget.id;
@@ -23,17 +23,15 @@ $("document").ready(function()
 
   $("#setgroupSpecificProperties").click(function(e)
   {
-    var action = $("#setgroupSpecificProperties").data("action");
-    $.ajax({
-      method: "POST",
-      url: window.CRM.root + "/api/groups/" + window.CRM.groupID + "/setGroupSpecificPropertyStatus",
-       data: '{"GroupSpecificPropertyStatus":"' + action + '"}',
-       contentType: "application/json; charset=utf-8",
-       dataType: "json"
-    }).done(function(data)
-    {
-      location.reload(); // this shouldn't be necessary
-    });
+      var action = $("#setgroupSpecificProperties").data("action");
+
+      window.CRM.APIRequest({
+          method: 'POST',
+          path: 'groups/' + window.CRM.groupID + "/setGroupSpecificPropertyStatus",
+          data: JSON.stringify({"GroupSpecificPropertyStatus":action})
+      }).done(function(data) {
+          location.reload(); // this shouldn't be necessary
+      });
   });
 
 
@@ -59,7 +57,7 @@ $("document").ready(function()
       "description": $("textarea[name='Description']").val(),
       "groupType": $("select[name='GroupType'] option:selected").val()
     };
-    
+
     $.ajax({
       method: "POST",
       url: window.CRM.root + "/api/groups/" + window.CRM.groupID,
@@ -114,18 +112,15 @@ $("document").ready(function()
             "</p>",
         callback: function (result) {
           if (result) {
-            $.ajax({
-              method: "POST",
-              url: window.CRM.root + "/api/groups/" + window.CRM.groupID + "/roles/" + roleID,
-              encode: true,
-              data: {"_METHOD": "DELETE"},
-              dataType: "json"
-            }).done(function (data) {
-              window.CRM.dataT.ajax.reload();
-              window.CRM.roleCount--;
-              if (roleID == defaultRoleID)        // if we delete the default group role, set the default group role to 1 before we tell the table to re-render so that the buttons work correctly
-                defaultRoleID = 1;
-            });
+              window.CRM.APIRequest({
+                  method: "DELETE",
+                  path: "groups/" + window.CRM.groupID + "/roles/" + roleID,
+              }).done(function (data) {
+                  window.CRM.dataT.ajax.reload();
+                  window.CRM.roleCount--;
+                  if (roleID == defaultRoleID)        // if we delete the default group role, set the default group role to 1 before we tell the table to re-render so that the buttons work correctly
+                      defaultRoleID = 1;
+              });
           }
         }
       });
@@ -156,7 +151,7 @@ $("document").ready(function()
     {
       newRoleSequence = Number(currentRoleSequence) + 1; // increase the role's sequenc number
     }
-   
+
     replaceRow = window.CRM.dataT.row(function(idx, data, node)
     {
       if(data.OptionSequence == newRoleSequence)
@@ -168,7 +163,7 @@ $("document").ready(function()
     d.OptionSequence = currentRoleSequence;
     setGroupRoleOrder(window.CRM.groupID, d.OptionId, d.OptionSequence);
     replaceRow.data(d);
-   
+
     window.CRM.dataT.cell(function(idx, data, node)
     {
       if(data.OptionId == roleID)
@@ -215,7 +210,7 @@ $("document").ready(function()
       // re-register the JQuery handlers since we changed the DOM, and new buttons will not have an action bound.
     });
   });
-  
+
   window.CRM.dataT = $("#groupRoleTable").DataTable({
    "language": {
       "url": window.CRM.plugin.dataTable.language.url
