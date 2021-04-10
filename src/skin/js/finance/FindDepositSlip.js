@@ -2,7 +2,7 @@ var dataT = 0;
 
 $(document).ready(function () {
   $("#depositDate").datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang}).datepicker("setDate", new Date());
-  
+
   $("#addNewDeposit").click(function (e) {
     var newDeposit = {
       'depositType': $("#depositType option:selected").val(),
@@ -20,15 +20,15 @@ $(document).ready(function () {
       data.totalAmount = '';
       dataT.row.add(data);
       dataT.rows().invalidate().draw(true);
-      
+
       $(".count-deposit").html(dataT.column( 0 ).data().length);
-      
+
       $(".deposit-current-deposit-item").show();
-      
+
       dataT.ajax.reload();
     });
   });
-  
+
   dataTableConfig = {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
@@ -63,7 +63,7 @@ $(document).ready(function () {
             return i18next.t('None');
           }
         }
-      },*/      
+      },*/
       {
         title:i18next.t('Deposit Date'),
         data: 'Date',
@@ -109,7 +109,7 @@ $(document).ready(function () {
     ],
     order: [0, 'desc']
   }
-  
+
   $.extend(dataTableConfig, window.CRM.plugin.dataTable);
 
   dataT = $("#depositsTable").DataTable(dataTableConfig);
