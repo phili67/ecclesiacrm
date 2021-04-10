@@ -722,7 +722,7 @@ class PeopleGroupController
         $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
         $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
 
-        $roleEmails = new stdClass();
+        $roleEmails = new \stdClass();
 
         $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
         $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
@@ -736,7 +736,7 @@ class PeopleGroupController
 
         $emailLink = mb_substr($sEmailLink, 0, -3);
 
-        $dropDown = new stdClass();
+        $dropDown = new \stdClass();
         $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
         $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
 
