@@ -14,8 +14,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -28,8 +29,8 @@ use Slim\Views\PhpRenderer;
 
 use Propel\Runtime\Propel;
 
-$app->group('/cart', function () {
-    $this->get('/view', 'renderCarView');
+$app->group('/cart', function (RouteCollectorProxy $group) {
+    $group->get('/view', 'renderCarView');
 });
 
 function renderCarView (Request $request, Response $response, array $args) {

@@ -14,8 +14,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
@@ -32,11 +33,12 @@ use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Service\PastoralCareService;
 
 
+
 use Slim\Views\PhpRenderer;
 
-$app->group('/dashboard', function () {
-    $this->get('', 'renderDashboard');
-    $this->get('/', 'renderDashboard');
+$app->group('/dashboard', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderDashboard');
+    $group->get('/', 'renderDashboard');
 });
 
 function renderDashboard (Request $request, Response $response, array $args) {

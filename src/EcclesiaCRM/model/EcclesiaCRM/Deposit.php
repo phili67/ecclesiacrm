@@ -11,6 +11,7 @@ use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Map\PledgeTableMap;
 use EcclesiaCRM\PledgeQuery as ChildPledgeQuery;
 use EcclesiaCRM\Pledge as ChildPledge;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -34,15 +35,15 @@ class Deposit extends BaseDeposit
 
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
     {
-        if (parent::preDelete($con)) {                
+        if (parent::preDelete($con)) {
           $this->getPledges()->delete();
 
           return true;
         }
-        
+
         return false;
     }
-    
+
     public function getOFX()
     {
         $OFXReturn = new \stdClass();
@@ -189,7 +190,7 @@ class Deposit extends BaseDeposit
             ->joinFamily(null, Criteria::LEFT_JOIN)
             ->withColumn('Family.Name')
             ->find();
-            
+
         /*foreach ($pledges as $pledge) {
             // then all of the checks in key-value pairs, in 3 separate columns.  Left to right, then top to bottom.
             if ($pledge->getMethod() == 'CHECK') {
@@ -209,11 +210,11 @@ class Deposit extends BaseDeposit
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->topTotal->x, $thisReport->QBDepositTicketParameters->topTotal->y, $grandTotalStr);
         $numItemsString = sprintf('%d', ($this->getCountCash() > 0 ? 1 : 0) + $this->getCountChecks());
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->numberOfItems->x, $thisReport->QBDepositTicketParameters->numberOfItems->y, $numItemsString);*/
-        
+
         $siteURL='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'];
         $filename = $siteURL.SystemURLs::getRootPath()."/Images/church_letterhead.jpg";//SystemURLs::getRootPath().str_replace("..","",SystemConfig::getValue('bDirLetterHead'));
-        
-        
+
+
         if (MiscUtils::urlExist($filename)) {
             $thisReport->pdf->Image($filename, 10, 5, 190);
         }
@@ -252,10 +253,16 @@ class Deposit extends BaseDeposit
 
     private function generateDepositSummary($thisReport)
     {
+        $thisReport->depositSummaryParameters = new \stdClass();
+        $thisReport->depositSummaryParameters->title = new \stdClass();
         $thisReport->depositSummaryParameters->title->x = 85;
         $thisReport->depositSummaryParameters->title->y = 7;
+
+        $thisReport->depositSummaryParameters->date = new \stdClass();
         $thisReport->depositSummaryParameters->date->x = 185;
         $thisReport->depositSummaryParameters->date->y = 7;
+
+        $thisReport->depositSummaryParameters->summary = new \stdClass();
         $thisReport->depositSummaryParameters->summary->x = 12;
         $thisReport->depositSummaryParameters->summary->y = 15;
         $thisReport->depositSummaryParameters->summary->intervalY = 4;
@@ -264,6 +271,8 @@ class Deposit extends BaseDeposit
         $thisReport->depositSummaryParameters->summary->FromX = 80;
         $thisReport->depositSummaryParameters->summary->MemoX = 120;
         $thisReport->depositSummaryParameters->summary->AmountX = 185;
+
+        $thisReport->depositSummaryParameters->aggregateX = new \stdClass();
         $thisReport->depositSummaryParameters->aggregateX = 135;
 
         $thisReport->pdf->AddPage();
@@ -414,6 +423,7 @@ class Deposit extends BaseDeposit
         //in 2.2.0, this setting will be part of the database, but to avoid 2.1.7 schema changes, I'm defining it in code.
         $sDepositSlipType = SystemConfig::getValue('sDepositSlipType');
 
+
         if ($sDepositSlipType == 'QBDT') {
             //Generate a QuickBooks Deposit Ticket.
             $this->generateQBDepositSlip($Report);
@@ -423,8 +433,8 @@ class Deposit extends BaseDeposit
             //placeholder for generic deposit ticket.
         }
         //$this->generateBankDepositSlip($Report);
-
         $this->generateDepositSummary($Report);
+
 
         // Export file
         $Report->pdf->Output('EcclesiaCRM-DepositReport-'.$this->getId().'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
@@ -507,7 +517,7 @@ class Deposit extends BaseDeposit
 
         return $this->getPledges($query, $con);
     }
-    
+
     public function loadAuthorized($type)
     {
       if ($type == "CreditCard") {
@@ -515,22 +525,22 @@ class Deposit extends BaseDeposit
       } else if ($type == "BankDraft") {
         $autoPayements = AutoPaymentQuery::Create()->filterByEnableBankDraft(true)->filterByInterval(1)->find();
       }
-      
+
       $fund = DonationFundQuery::Create()->findOne();// there is only one
       $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-      
+
       foreach ($autoPayements as $autoPayement) {
         if (!empty($autoPayement->getAmount())) {
-          
+
           $search_pledges = ChildPledgeQuery::Create()
                              ->filterByDepid($this->getId())
                              ->_and()->filterByAutId($autoPayement->getId())
                              ->_and()->filterByFamId($autoPayement->getFamilyid())
                              ->find();
-                    
+
           if ($search_pledges->count() == 0) {
             $pledge = new ChildPledge();
-        
+
             $pledge->setDepid ($this->getId());
             $pledge->setFamId ($autoPayement->getFamilyid());
             $pledge->setAutId ($autoPayement->getId());
@@ -546,15 +556,15 @@ class Deposit extends BaseDeposit
             $pledge->setFundid($fund->getId());
 
             $sGroupKey = $autoPayement->getId()."|0|".$autoPayement->getFamilyid()."|".$fund->getId()."|".$date->format('Y-m-d');
-          
+
             $pledge->setGroupkey ($sGroupKey);
 
             $pledge->save();
           }
-        }       
+        }
       }
     }
-    
+
     public function runTransactions()
     {
     }

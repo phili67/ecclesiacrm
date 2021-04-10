@@ -10,25 +10,23 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\PledgeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/personlist', function () {
-    $this->get('', 'renderPersonList' );
-    $this->get('/', 'renderPersonList' );
-    $this->get('/{mode}', 'renderPersonList' );
+$app->group('/personlist', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderPersonList' );
+    $group->get('/', 'renderPersonList' );
+    $group->get('/{mode}', 'renderPersonList' );
 });
 
 

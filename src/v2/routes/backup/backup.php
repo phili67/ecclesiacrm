@@ -14,8 +14,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -23,9 +24,9 @@ use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/backup', function () {
-    $this->get('', 'renderBackup');
-    $this->get('/', 'renderBackup');
+$app->group('/backup', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderBackup');
+    $group->get('/', 'renderBackup');
 });
 
 function renderBackup (Request $request, Response $response, array $args) {

@@ -10,9 +10,9 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\Utils\MiscUtils;
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
@@ -28,13 +28,13 @@ use EcclesiaCRM\SessionUser;
 use Slim\Views\PhpRenderer;
 
 
-$app->group('/sundayschool', function () {
-    $this->get('', 'sundayschoolDashboard' );
-    $this->get('/', 'sundayschoolDashboard' );
-    $this->get('/dashboard', 'sundayschoolDashboard' );
-    $this->get('/{groupId:[0-9]+}/view', 'sundayschoolView' );
-    $this->get('/reports', 'sundayschoolReports' );
-    $this->post('/reports', 'sundayschoolReports' );
+$app->group('/sundayschool', function (RouteCollectorProxy $group) {
+    $group->get('', 'sundayschoolDashboard' );
+    $group->get('/', 'sundayschoolDashboard' );
+    $group->get('/dashboard', 'sundayschoolDashboard' );
+    $group->get('/{groupId:[0-9]+}/view', 'sundayschoolView' );
+    $group->get('/reports', 'sundayschoolReports' );
+    $group->post('/reports', 'sundayschoolReports' );
 });
 
 function sundayschoolDashboard (Request $request, Response $response, array $args) {

@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Propel;
 use PDO;
 
@@ -458,7 +459,7 @@ END:VCARD';
             //on teste si les propriétés sont bonnes
             if (array_key_exists('p2g2r_per_ID',$row) && array_key_exists('lst_OptionName',$row))
             {
-                $dbPerson = PersonQuery::create()->findPk($row['p2g2r_per_ID']);
+                $dbPerson = PersonQuery::create()->findPk($row['p2g2r_per_ID'])->toArray();
 
                 if (array_key_exists('displayName',$dbPerson))
                 {

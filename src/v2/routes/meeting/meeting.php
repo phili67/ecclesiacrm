@@ -10,8 +10,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\PersonMeetingQuery;
 use EcclesiaCRM\PersonLastMeetingQuery;
@@ -21,8 +22,8 @@ use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/meeting', function () {
-    $this->get('/dashboard', 'renderMeetingDashboard');
+$app->group('/meeting', function (RouteCollectorProxy $group) {
+    $group->get('/dashboard', 'renderMeetingDashboard');
 });
 
 function renderMeetingDashboard (Request $request, Response $response, array $args) {

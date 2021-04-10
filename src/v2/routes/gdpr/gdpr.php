@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -16,10 +17,10 @@ use EcclesiaCRM\PropertyQuery;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/gdpr', function () {
-    $this->get('', 'renderGdprDashboard');
-    $this->get('/', 'renderGdprDashboard');
-    $this->get('/gdprdatastructure', 'renderGdprDataStructure');
+$app->group('/gdpr', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderGdprDashboard');
+    $group->get('/', 'renderGdprDashboard');
+    $group->get('/gdprdatastructure', 'renderGdprDataStructure');
 });
 
 function renderGdprDashboard (Request $request, Response $response, array $args) {

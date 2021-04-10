@@ -1,8 +1,9 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -12,15 +13,15 @@ use EcclesiaCRM\Service\MailChimpService;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/mailchimp', function () {
-    $this->get('', 'renderMailChimpDashboard');
-    $this->get('/dashboard', 'renderMailChimpDashboard');
-    $this->get('/debug', 'renderMailChimpDebug');
-    $this->get('/campaign/{campaignId}', 'renderMailChimpCampaign');
-    $this->get('/managelist/{listId}', 'renderMailChimpManageList');
-    $this->get('/duplicateemails', 'renderMailChimpDuplicateEmails');
-    $this->get('/notinmailchimpemailspersons', 'renderMailChimpNotInMailchimpEmailsPersons');
-    $this->get('/notinmailchimpemailsfamilies', 'renderMailChimpNotInMailchimpEmailsFamilies');
+$app->group('/mailchimp', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderMailChimpDashboard');
+    $group->get('/dashboard', 'renderMailChimpDashboard');
+    $group->get('/debug', 'renderMailChimpDebug');
+    $group->get('/campaign/{campaignId}', 'renderMailChimpCampaign');
+    $group->get('/managelist/{listId}', 'renderMailChimpManageList');
+    $group->get('/duplicateemails', 'renderMailChimpDuplicateEmails');
+    $group->get('/notinmailchimpemailspersons', 'renderMailChimpNotInMailchimpEmailsPersons');
+    $group->get('/notinmailchimpemailsfamilies', 'renderMailChimpNotInMailchimpEmailsFamilies');
 });
 
 function renderMailChimpDashboard (Request $request, Response $response, array $args) {

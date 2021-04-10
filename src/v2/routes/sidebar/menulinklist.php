@@ -1,18 +1,17 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/menulinklist', function () {
-    $this->get('', 'renderMenuLinkList');
-    $this->get('/{personId:[0-9]+}', 'renderMenuLinkListForPerson');
+$app->group('/menulinklist', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderMenuLinkList');
+    $group->get('/{personId:[0-9]+}', 'renderMenuLinkListForPerson');
 });
 
 function renderMenuLinkList (Request $request, Response $response, array $args) {

@@ -1,21 +1,20 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\UserConfigQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/users', function () {
-    $this->get('', 'renderUserList');
-    $this->get('/', 'renderUserList');
+$app->group('/users', function (RouteCollectorProxy $group) {
+    $group->get('', 'renderUserList');
+    $group->get('/', 'renderUserList');
 });
 
 function renderUserList (Request $request, Response $response, array $args) {

@@ -45,7 +45,7 @@ class KioskAssignment extends BaseKioskAssignment
     public function getActiveGroupMembers()
     {
         if ($this->getAssignmentType() == KioskAssignmentTypes::EVENTATTENDANCEKIOSK) {
-            if (is_null($this->getActiveEvent())) {
+            if ( is_null($this->getActiveEvent()) || is_null($this->getActiveEvent()->getGroup()) ) {
                 return NULL;
             }
 

@@ -7,17 +7,58 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\ReportingService;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\Service\PastoralCareService;
+
+use Slim\HttpCache\CacheProvider;
+
 use EcclesiaCRM\Utils\LoggerUtils;
 
 // DIC configuration
 
-$container['PersonService'] = new PersonService();
-$container['GroupService'] = new GroupService();
+$container->set('MailChimpService', function () {
+    return new MailChimpService();
+});
 
-$container['FinancialService'] = new FinancialService();
-$container['ReportingService'] = new ReportingService();
+$container->set('PersonService', function () {
+    return new PersonService();
+});
 
-$container['SystemService'] = new SystemService();
+$container->set('GroupService', function () {
+    return new GroupService();
+});
 
-$container['CalendarService'] = new CalendarService();
-$container['Logger'] = LoggerUtils::getAppLogger();;
+$container->set('FinancialService', function () {
+    return new FinancialService();
+});
+
+$container->set('ReportingService', function () {
+    return new ReportingService();
+});
+
+$container->set('SystemService', function () {
+    return new SystemService();
+});
+
+$container->set('Logger', function () {
+    return LoggerUtils::getAppLogger();
+});
+
+$container->set('CalendarService', function () {
+    return new CalendarService();
+});
+
+$container->set('SundaySchoolService', function () {
+    return new SundaySchoolService();
+});
+
+$container->set('CacheProvider', function (){
+   return  new CacheProvider();
+});
+
+$container->set('PastoralCareService', function (){
+   return new PastoralCareService();
+});
+
+

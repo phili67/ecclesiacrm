@@ -10,8 +10,9 @@
  *
  ******************************************************************************/
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
@@ -27,10 +28,10 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/people', function () {
-    $this->get('/dashboard', 'peopleDashboard' );
-    $this->get('/list/{mode}', 'peopleList' );
-    $this->get('/list/{mode}/{gender}/{familyRole}/{classification}', 'peopleList' );
+$app->group('/people', function (RouteCollectorProxy $group) {
+    $group->get('/dashboard', 'peopleDashboard' );
+    $group->get('/list/{mode}', 'peopleList' );
+    $group->get('/list/{mode}/{gender}/{familyRole}/{classification}', 'peopleList' );
 });
 
 

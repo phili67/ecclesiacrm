@@ -1,9 +1,9 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -11,8 +11,8 @@ use EcclesiaCRM\PropertyTypeQuery;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/propertylist', function () {
-    $this->get('/{type}', 'renderPropertyList');
+$app->group('/propertylist', function (RouteCollectorProxy $group) {
+    $group->get('/{type}', 'renderPropertyList');
 });
 
 

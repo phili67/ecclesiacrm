@@ -1,25 +1,12 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-use EcclesiaCRM\Service\CalendarService;
-use EcclesiaCRM\data\Countries;
-use EcclesiaCRM\data\States;
+use Slim\Routing\RouteCollectorProxy;
 
+use EcclesiaCRM\APIControllers\PublicDataController;
 
-$app->group('/public/data', function () {
-    $this->get('/countries', 'getCountries' );
-    $this->get('/countries/', 'getCountries' );
-    $this->get('/countries/{countryCode}/states', 'getStates' );
-    $this->get('/countries/{countryCode}/states/', 'getStates' );
+$app->group('/public/data', function (RouteCollectorProxy $group) {
+    $group->get('/countries', PublicDataController::class . ':getCountries' );
+    $group->get('/countries/', PublicDataController::class . ':getCountries' );
+    $group->get('/countries/{countryCode}/states', PublicDataController::class . ':getStates' );
+    $group->get('/countries/{countryCode}/states/', PublicDataController::class . ':getStates' );
 });
-
-
-function getCountries(Request $request, Response $response, array $args ) {
-    return $response->withJson(Countries::getAll());
-}
-
-function getStates(Request $request, Response $response, array $args ) {
-    $states = new States($args['countryCode']);
-    return $response->withJson($states->getAll());
-}

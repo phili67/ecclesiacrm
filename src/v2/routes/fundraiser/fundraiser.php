@@ -1,7 +1,8 @@
 <?php
 
-use Slim\Http\Request;
-use Slim\Http\Response;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -19,10 +20,10 @@ use EcclesiaCRM\Map\DonatedItemTableMap;
 use Slim\Views\PhpRenderer;
 use Propel\Runtime\ActiveQuery\Criteria;
 
-$app->group('/fundraiser', function () {
-    $this->get('/donatedItemEditor/{donatedItemID:[0-9]+}/{CurrentFundraiser:[0-9]+}', 'renderDonatedItemEditor');
-    $this->get('/find', 'renderFindFundRaiser');
-    $this->get('/paddlenum/list/{CurrentFundraiser:[0-9]+}', 'renderPaddleNumList');
+$app->group('/fundraiser', function (RouteCollectorProxy $group) {
+    $group->get('/donatedItemEditor/{donatedItemID:[0-9]+}/{CurrentFundraiser:[0-9]+}', 'renderDonatedItemEditor');
+    $group->get('/find', 'renderFindFundRaiser');
+    $group->get('/paddlenum/list/{CurrentFundraiser:[0-9]+}', 'renderPaddleNumList');
 });
 
 

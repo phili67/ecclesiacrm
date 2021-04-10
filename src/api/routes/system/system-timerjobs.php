@@ -1,9 +1,11 @@
 <?php
 
-$app->group('/timerjobs', function () {
-    $this->post('/run', function () {
-      if (!empty($this->SystemService)) {
-        $this->SystemService->runTimerJobs();
-      }
-    });
+use Slim\Routing\RouteCollectorProxy;
+
+use EcclesiaCRM\APIControllers\TimerJobsController;
+
+$app->group('/timerjobs', function (RouteCollectorProxy $group) {
+
+    $group->post('/run', TimerJobsController::class . ':runTimerJobs' );
+
 });
