@@ -16,7 +16,7 @@ A work arround with the 6.0.0 version is to get the **Bootstrapper.php** file fr
 [![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
 [![POEditor](https://img.shields.io/badge/Languages-22-green.svg)](https://poeditor.com/join/project/RABdnDSqAt)-->
 
-[![POEditor](https://www.zenhub.com/img/external/zenhub-badge.png)](https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245)
+[![ZenHub](https://dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png)](https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/board?repos=115276245)
 <!--<a href="https://zenhub.com"><img src="//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png" alt="ZenHub logo"></a>-->
 
 
