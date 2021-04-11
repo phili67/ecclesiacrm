@@ -290,7 +290,7 @@ class PeoplePersonController
         $input = (object)$request->getParsedBody();
         $person = PersonQuery::create()->findPk($args['personId']);
         $person->setImageFromBase64($input->imgBase64);
-        $response->withJSON(array("status" => "success"));
+        return $response->withJSON(array("status" => "success"));
     }
 
     public function deletePersonPhoto (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -300,6 +300,8 @@ class PeoplePersonController
 
     public function addPersonToCart (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         Cart::AddPerson($args['personId']);
+
+        return $response->withJSON(array("status" => "success"));
     }
 
     public function deletePerson(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
