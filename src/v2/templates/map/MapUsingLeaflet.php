@@ -166,7 +166,9 @@ require $sRootDocument . '/Include/Header.php';
 
   function initialize() {
       // init map
-      var map = L.map('mapid').setView([churchloc.lat, churchloc.lng], <?= SystemConfig::getValue("iMapZoom")?>);
+      var map = L.map('mapid',{
+              tap: false
+      }).setView([churchloc.lat, churchloc.lng], <?= SystemConfig::getValue("iMapZoom")?>);
 
       window.CRM.map = map;// the Map is stored in the DOM
 
