@@ -21,6 +21,8 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use EcclesiaCRM\ListOptionQuery;
+
 class PDF_RealAttendance extends PDF_Attendance
 {
     protected $groupIDs;
@@ -93,8 +95,6 @@ class PDF_RealAttendance extends PDF_Attendance
                 $reportHeader = str_pad($group->getName(), 95) . $this->iFYID;
             }
 
-
-
             // Build the teacher string- first teachers, then the liaison
             $teacherString = _('Teachers') . ': ';
             $bFirstTeacher = true;
@@ -110,9 +110,6 @@ class PDF_RealAttendance extends PDF_Attendance
             $aStudents = [];
 
             $maxNbrEvents = 0;
-
-
-
 
             foreach ($groupRoleMemberships as $groupRoleMembership) {
                 $lineArr = [];
@@ -138,7 +135,7 @@ class PDF_RealAttendance extends PDF_Attendance
                     }
                 }
 
-                $groupRole = \EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
+                $groupRole = ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
                 $lst_OptionName = $groupRole->getOptionName();
 
                 if ($lst_OptionName == 'Student') {// we will draw only the students

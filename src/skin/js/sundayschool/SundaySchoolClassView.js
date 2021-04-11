@@ -1088,7 +1088,7 @@ $("document").ready(function(){
 
 
     $(document).on("click",".exportCheckOutCSV", function(){
-       var groupID = $(this).data("callRegistergroupid");
+       var groupID = sundayGroupId;
 
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
@@ -1109,8 +1109,8 @@ $("document").ready(function(){
             label: i18next.t('OK'),
             className: "btn btn-primary",
             callback: function() {
-                  var dateStart = $('form #dateEventStart').val();
-                  var dateEnd = $('form #dateEventEnd').val();
+                  var dateStart = $('#dateEventStart').val();
+                  var dateEnd = $('#dateEventEnd').val();
 
                   var fmt = window.CRM.datePickerformat.toUpperCase();
 
@@ -1189,7 +1189,7 @@ $("document").ready(function(){
     }
 
     $(document).on("click",".exportCheckOutPDF", function(){
-       var groupID = $(this).data("callRegistergroupid");
+       var groupID = sundayGroupId;
 
        var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
        var end=moment().format('YYYY-MM-DD');
@@ -1210,8 +1210,8 @@ $("document").ready(function(){
             label: i18next.t('OK'),
             className: "btn btn-primary",
             callback: function() {
-              var dateStart = $('form #dateEventStart').val();
-              var dateEnd = $('form #dateEventEnd').val();
+              var dateStart = $('#dateEventStart').val();
+              var dateEnd = $('#dateEventEnd').val();
 
               var fmt = window.CRM.datePickerformat.toUpperCase();
 
@@ -1221,7 +1221,7 @@ $("document").ready(function(){
               var withPictures = ($("#withPictures").is(':checked') == true)?1:0;
               var ExtraStudents = $("#ExtraStudents").val();
 
-              window.location = window.CRM.root + "/Reports/ClassRealAttendance.php?groupID="+groupID+"&start="+real_start+"&end="+real_end+"&withPictures="+withPictures+"&ExtraStudents="+ExtraStudents;
+              window.location = window.CRM.root + "/Reports/ClassRealAttendance.php?groupID="+groupID+"&start="+real_start+"&end="+real_end+"&withPictures="+withPictures+"&ExtraStudents="+ExtraStudents+"&exportTypePDF=1";
             }
           }
          ],
