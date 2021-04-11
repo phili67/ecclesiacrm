@@ -58,7 +58,7 @@ require $sRootDocument . '/Include/Header.php';
         }
         ?>
         <br/>
-        <a href="<?= $sRootPath ?>/v2/familylist" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
+        <a href="<?= $sRootPath ?>/v2/people/list/family" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
         <?php
         if (SessionUser::getUser()->isShowMapEnabled()) {
             ?>
@@ -88,11 +88,11 @@ require $sRootDocument . '/Include/Header.php';
                 <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
             </div>
             <div class="small-box-footer">
-                <a href="<?= $sRootPath ?>/v2/familylist/single" style="color:#ffffff">
+                <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
 
-                <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">
+                <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
