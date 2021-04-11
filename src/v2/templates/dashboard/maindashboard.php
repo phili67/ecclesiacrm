@@ -39,11 +39,11 @@ require $sRootDocument . '/Include/Header.php';
                     class="fa fa-child"></i>
             </div>
             <div class="small-box-footer">
-                <a href="<?= $sRootPath ?>/v2/familylist/single" style="color:#ffffff">
+                <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
                 &nbsp;
-                <a href="<?= $sRootPath ?>/v2/familylist" style="color:#ffffff">
+                <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
