@@ -320,7 +320,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 
         $y = $yTeachers;
 
-        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, _('All Members'), $iExtraStudents+$iExtraTeachers,
+        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, _('All Members'), (int)$iExtraStudents+(int)$iExtraTeachers,
                                           $tFirstSunday, $tLastSunday,
                                           $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
                                           $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $withPictures);
