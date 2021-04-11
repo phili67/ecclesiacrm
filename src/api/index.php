@@ -74,7 +74,7 @@ require __DIR__.'/routes/finance/finance-pledges.php';
 // people families and persons routes
 require __DIR__.'/routes/people/people.php';
 require __DIR__.'/routes/people/people-attendees.php';
-require __DIR__.'/routes/people/people-families.php'; // Ok
+require __DIR__.'/routes/people/people-families.php';
 require __DIR__.'/routes/people/people-groups.php';
 require __DIR__.'/routes/people/people-persons.php';
 
@@ -83,8 +83,8 @@ require __DIR__.'/routes/public/public-data.php';
 require __DIR__.'/routes/public/public-register.php';
 
 // system sidebar routes
-require __DIR__.'/routes/sidebar/sidebar-mapicons.php'; // OK
-require __DIR__.'/routes/sidebar/sidebar-menulinks.php'; // OK
+require __DIR__.'/routes/sidebar/sidebar-mapicons.php';
+require __DIR__.'/routes/sidebar/sidebar-menulinks.php';
 require __DIR__.'/routes/sidebar/sidebar-properties.php';
 require __DIR__.'/routes/sidebar/sidebar-roles.php';
 require __DIR__.'/routes/sidebar/sidebar-general-roles.php';
@@ -94,33 +94,33 @@ require __DIR__.'/routes/sidebar/sidebar-volunteeropportunity.php';
 require __DIR__.'/routes/pastoralcare/pastoralcare.php';
 
 // system routes
-require __DIR__.'/routes/system/system.php'; // OK
+require __DIR__.'/routes/system/system.php';
 require __DIR__.'/routes/system/system-custom-fields.php';
 require __DIR__.'/routes/system/system-synchronize.php';
 require __DIR__.'/routes/system/system-database.php';
 require __DIR__.'/routes/system/system-gdrp.php';
 require __DIR__.'/routes/system/system-issues.php';
 require __DIR__.'/routes/system/system-system-upgrade.php';
-require __DIR__.'/routes/system/system-timerjobs.php'; // OK
+require __DIR__.'/routes/system/system-timerjobs.php';
 
 // users routes
-require __DIR__.'/routes/user/user-users.php'; // ok
-require __DIR__.'/routes/user/user-role.php'; // ok
+require __DIR__.'/routes/user/user-users.php';
+require __DIR__.'/routes/user/user-role.php';
 
 // the rest
 require __DIR__.'/routes/cart.php';
 require __DIR__.'/routes/geocoder.php';
-require __DIR__.'/routes/kiosks.php'; // OK
-require __DIR__.'/routes/mailchimp.php'; // OK
+require __DIR__.'/routes/kiosks.php';
+require __DIR__.'/routes/mailchimp.php';
 
-require __DIR__.'/routes/search.php'; // OK
-require __DIR__.'/routes/sundayschool.php'; // OK
+require __DIR__.'/routes/search.php';
+require __DIR__.'/routes/sundayschool.php';
 
 // meeting route
-require __DIR__.'/routes/meeting/meeting.php'; // OK
+require __DIR__.'/routes/meeting/meeting.php';
 
 // fundraiser route
-require __DIR__.'/routes/fundraiser/fundraiser.php'; // OK
+require __DIR__.'/routes/fundraiser/fundraiser.php';
 
 // Run app
 $app->run();
