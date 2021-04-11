@@ -24,8 +24,8 @@ AppFactory::setContainer($container);
 
 $app = AppFactory::create();
 
-// Register the http cache middleware.
-$app->add( new Cache('private', 0) );
+// Register the http cache middleware : unusefull
+//$app->add( new Cache('private', 0) );
 
 $app->setBasePath("/api");
 
