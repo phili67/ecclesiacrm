@@ -11,6 +11,16 @@ use EcclesiaCRM\SessionUser;
 
 // Security
 require $sRootDocument . '/Include/Header.php';
+
+$mode = "";
+
+if ($sMode == 'person') {
+    $mode = "*";
+} else if ($sMode == 'family') {
+    $mode = _("Families");
+} else if ($sMode == 'single') {
+    $mode = _("Single Persons");
+}
 ?>
 <div
     class="card">
@@ -25,7 +35,7 @@ require $sRootDocument . '/Include/Header.php';
                        placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>"
                        size="30" maxlength="100"
                        class="form-control input-sm" width="100%" style="width: 100%" required=""
-                       value="<?= ($sMode == 'person') ? "*" : "" ?>">
+                       value="<?= $mode ?>">
             </div>
         </div>
         <br/>
