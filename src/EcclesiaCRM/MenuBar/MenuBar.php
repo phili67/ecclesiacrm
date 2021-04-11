@@ -122,14 +122,14 @@ class MenuBar extends Menu
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
             $menuItem = new Menu (_("Persons"), "fa fa-angle-double-right", "#", true, $menu);
             $menuItemItem = new Menu (_("Add New Person"), "fa fa-circle-o", "PersonEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
-            $menuItemItem = new Menu (_("View Single Persons"), "fa fa-circle-o", "v2/familylist/single", true, $menuItem);
-            $menuItemItem = new Menu (_("View Active Persons"), "fa fa-circle-o", "v2/personlist/", true, $menuItem);
+            $menuItemItem = new Menu (_("View Single Persons"), "fa fa-circle-o", "v2/people/list/single", true, $menuItem);
+            $menuItemItem = new Menu (_("View Active Persons"), "fa fa-circle-o", "v2/people/list/person", true, $menuItem);
             $menuItemItem->addLink("v2/personlist");
             $menuItemItem = new Menu (_("View Inactive Persons"), "fa fa-circle-o", "v2/personlist/inactive", true, $menuItem);
 
             $menuItem = new Menu (_("Families"), "fa fa-angle-double-right", "#", true, $menu);
             $menuItemItem = new Menu (_("Add New Family"), "fa fa-circle-o", "FamilyEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
-            $menuItemItem = new Menu (_("View Active Families"), "fa fa-circle-o", "v2/familylist/", true, $menuItem);
+            $menuItemItem = new Menu (_("View Active Families"), "fa fa-circle-o", "v2/people/list/family", true, $menuItem);
             $menuItemItem->addLink("v2/familylist");
             $menuItemItem = new Menu (_("View Inactive Families"), "fa fa-circle-o", "v2/familylist/inactive", true, $menuItem);
 

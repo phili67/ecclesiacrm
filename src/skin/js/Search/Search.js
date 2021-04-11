@@ -223,6 +223,11 @@ $(document).ready(function () {
             data: function (json) {
                 var search_Term = $("#SearchTerm").val();
 
+                if (search_Term !='') {
+                    $('.in-progress').css("color", "red");
+                    $('.in-progress').html("  "+ i18next.t("In progress...."));
+                }
+
                 return JSON.stringify({
                     "SearchTerm": search_Term,
                     "Elements" : elements,
@@ -342,8 +347,7 @@ $(document).ready(function () {
                     return data;
                 }
             }
-        ],
-        responsive: true
+        ]
     };
 
     $.extend(dataTableSearchConfig,window.CRM.plugin.dataTable);
@@ -353,6 +357,11 @@ $(document).ready(function () {
     $("#DataSearchTable").on( 'search.dt', function () {
         var info = window.CRM.dataSearchTable.page.info();
         $('#numberOfPersons').html(info.recordsDisplay);
+
+        if (info.recordsDisplay > 0) {
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
+        }
     });
 
     $(document).on("click","#search_OK", function() {
