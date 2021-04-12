@@ -34,6 +34,7 @@ $app->group('/cart', function (RouteCollectorProxy $group) {
     $group->post('/removeAllTeachers', CartController::class . ':removeAllTeachersFromCart' );
     $group->post('/delete', CartController::class . ':deletePersonCart' );
     $group->post('/deactivate', CartController::class . ':deactivatePersonCart' );
+    $group->get( '/addressbook/extract', CartController::class . ":addressBook" );
 
 /*
  * @! Remove all People in the Cart
