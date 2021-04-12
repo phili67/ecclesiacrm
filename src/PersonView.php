@@ -783,7 +783,7 @@ if (!empty($person->getDateDeactivated())) {
                     if (SessionUser::getUser()->isPastoralCareEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-purple"
+                        <a class="btn btn-app bg-gradient-purple"
                            href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
                                 class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
@@ -793,7 +793,7 @@ if (!empty($person->getDateDeactivated())) {
                     if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
+                        <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="bottom"
                            title="<?= _("Create a document") ?>"><i
                                 class="fa fa-file-o"></i><?= _("Create a document") ?></a>
@@ -806,6 +806,12 @@ if (!empty($person->getDateDeactivated())) {
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
                                 class="fa fa-users">
                             </i> <?= _("Assign New Group") ?></a>
+
+                        <a class="btn btn-app bg-yellow-gradient"
+                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
+                           href="<?= SystemURLs::getRootPath() ?>/api/persons/addressbook/extract/<?= $iPersonID ?>"><i
+                                class="fa fa fa-address-card-o">
+                            </i> <?= _("vCard") ?></a>
                         <?php
                     }
 
@@ -831,7 +837,7 @@ if (!empty($person->getDateDeactivated())) {
                     if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
                         $buttons++;
                         ?>
-                        <button class="btn btn-app bg-orange" id="activateDeactivate">
+                        <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
                             <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
                         </button>
                         <?php
@@ -842,7 +848,7 @@ if (!empty($person->getDateDeactivated())) {
 
                         if (count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily())) {
                             ?>
-                            <a class="btn btn-app bg-maroon delete-person"
+                            <a class="btn btn-app bg-gradient-maroon delete-person"
                                data-person_name="<?= $person->getFullName() ?>"
                                data-person_id="<?= $iPersonID ?>"><i
                                     class="fa fa-trash-o"></i> <?= _("Delete this Record") ?>
