@@ -6,12 +6,12 @@ require '../Include/Config.php';
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use Slim\HttpCache\CacheProvider;
 use Slim\HttpCache\Cache;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 
+$rootPath = str_replace('/external/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
 $container = new Container();
@@ -24,12 +24,9 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-$app->add( new Cache('private', 0) );
+//$app->add( new Cache('private', 0) );
 
-// Create the cache provider.
-$cacheProvider = new CacheProvider();
-
-$app->setBasePath("/external");
+$app->setBasePath($rootPath . "/external");
 
 // Set up
 require __DIR__.'/dependencies.php';
