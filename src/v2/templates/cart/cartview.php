@@ -54,16 +54,26 @@ if ($iNumPersons > 0) {
                 <?php
             }
             ?>
+            <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
+            ?>
+            <a class="btn btn-app bg-yellow-gradient"
+               data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
+               href="<?= $sRootPath ?>/api/cart/addressbook/extract"><i
+                    class="fa fa fa-address-card-o">
+                </i> <?= _("vCard") ?></a>
+            <?php
+                    }
+                    ?>
             <?php if (SessionUser::getUser()->isCSVExportEnabled()) {
                 ?>
-                <a href="<?= $sRootPath ?>/CSVExport.php?Source=cart" class="btn btn-app bg-green"><i
+                <a href="<?= $sRootPath ?>/CSVExport.php?Source=cart" class="btn btn-app bg-gradient-green"><i
                         class="fa fa-file-excel-o"></i><?= _('CSV Export') ?></a>
                 <?php
             } ?>
             <a href="<?= $sRootPath ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36"
-               class="btn btn-app bg-aqua"><i
+               class="btn btn-app bg-gradient-blue"><i
                     class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>
-            <a class="btn btn-app bg-purple" href="<?= $sRootPath ?>/CartToBadge.php"> <i
+            <a class="btn btn-app bg-gradient-purple" href="<?= $sRootPath ?>/CartToBadge.php"> <i
                     class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
             <?php
 
@@ -104,10 +114,10 @@ if ($iNumPersons > 0) {
 
             <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
                 ?>
-                <a href="#" id="deleteCart" class="btn btn-app bg-red"><i
+                <a href="#" id="deleteCart" class="btn btn-app bg-gradient-red"><i
                         class="fa fa-trash"></i><?= _('Delete Persons From CRM') ?></a>
 
-                <a href="#" id="deactivateCart" class="btn btn-app bg-orange"><i
+                <a href="#" id="deactivateCart" class="btn btn-app bg-gradient-orange"><i
                         class="fa fa-trash"></i><?= _('Deactivate Persons From Cart') ?></a>
                 <?php
             } ?>
