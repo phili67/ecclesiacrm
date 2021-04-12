@@ -134,4 +134,13 @@ $("document").ready(function () {
         document.querySelector('.select2-search__field').focus();
     });
 
+    $(document).on('collapsed.lte.pushmenu', function (){
+        $(".searchField").hide();
+    });
+
+    $(document).on('shown.lte.pushmenu', function (){
+        $(".searchField").show();
+    })
+
+
 });
