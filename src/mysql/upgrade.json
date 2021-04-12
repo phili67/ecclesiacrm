@@ -757,10 +757,11 @@
     },
     "current": {
         "versions": [
-            "7.0.0"
+            "7.0.0",
+            "7.1.0"
         ],
         "scripts": [
         ],
-        "dbVersion": "7.1.0"
+        "dbVersion": "7.5.0"
     }
 }
