@@ -13,6 +13,13 @@ use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\SessionUser;
+
+use EcclesiaCRM\Utils\RedirectUtils;
+
+// security access, if no user exit
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+
 
 // Instantiate the app
 $container = new Container();
