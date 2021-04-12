@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\PersonQuery;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -451,6 +452,33 @@ class CartController
             'FamiliesCart' => Cart::FamiliesInCart(),
             'GroupsCart' => Cart::GroupsInCart()
         ]);
+    }
 
+    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $people = Cart::PeopleInCart();
+
+        $output = '';
+
+        foreach ($people as $personId) {
+            $person = PersonQuery::create()->findOneById($personId);
+
+            $output .= $person->getVCard();
+        }
+
+        $filename = "cart-export.vcf";
+
+        $size = strlen($output);
+
+        $response = $response
+            ->withHeader('Content-Type', 'application/octet-stream')
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->withHeader('Pragma', 'no-cache')
+            ->withHeader('Content-Length',$size)
+            ->withHeader('Content-Transfer-Encoding', 'binary')
+            ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+            ->withHeader('Expires', '0');
+
+        $response->getBody()->write($output);
+        return $response;
     }
 }
