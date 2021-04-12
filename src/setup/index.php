@@ -3,6 +3,9 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 
+use Slim\Factory\AppFactory;
+use DI\Container;
+
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/../logs/external.log');
@@ -16,12 +19,19 @@ if (file_exists('../Include/Config.php')) {
     SystemURLs::init($rootPath, '', dirname(__FILE__)."/../");
     SystemConfig::init();
 
-    $app = new \Slim\App();
-    $container = $app->getContainer();
+    // Instantiate the app
+    $container = new Container();
 
-    require __DIR__ . '/../Include/slim/error-handler.php';
     $settings = require __DIR__ . '/../Include/slim/settings.php';
+    $settings($container);
 
+    AppFactory::setContainer($container);
+
+    $app = AppFactory::create();
+
+    $app->setBasePath($rootPath . "/setup");
+
+    require __DIR__.'/../Include/slim/error-handler.php';
     require __DIR__ . '/routes/setup.php';
 
     $app->run();
