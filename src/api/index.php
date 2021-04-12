@@ -20,6 +20,7 @@ use EcclesiaCRM\Utils\RedirectUtils;
 // security access, if no user exit
 if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
 
+$rootPath = str_replace('/api/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 // Instantiate the app
 $container = new Container();
@@ -34,7 +35,7 @@ $app = AppFactory::create();
 // Register the http cache middleware : unusefull
 //$app->add( new Cache('private', 0) );
 
-$app->setBasePath("/api");
+$app->setBasePath($rootPath . "/api");
 
 $app->add( new VersionMiddleware() );
 
@@ -53,7 +54,7 @@ if ( !is_null (TokenQuery::Create()->findOneByType("secret")) ) {
             $data["message"] = $arguments["message"];
             return $response
                 ->withHeader("Content-Type", "application/json")
-                ->write( json_encode($data, 'JSON_UNESCAPED_SLASHES' | 'JSON_PRETTY_PRINT') );
+                ->write( json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
         }
     ]));
 }
