@@ -66,7 +66,7 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
      * @! Create a new calendar
      * #! param: ref->string  :: title
      */
-    $group->post('/new', 'newCalendar' );
+    $group->post('/new', CalendarV2Controller::class . ':newCalendar' );
     /*
     * @! Create new calendar reservation
     * #! param: ref->string :: title
