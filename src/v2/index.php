@@ -8,13 +8,19 @@ require '../Include/Functions.php';
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
 use Slim\Factory\AppFactory;
-use Slim\HttpCache\CacheProvider;
 use Slim\HttpCache\Cache;
 use Tuupola\Middleware\JwtAuthentication;
 use DI\Container;
 
 use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 use EcclesiaCRM\TokenQuery;
+
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
+if (SessionUser::getId() ==  0) RedirectUtils::Redirect('Login.php');
+
+$rootPath = str_replace('/v2/index.php', '', $_SERVER['SCRIPT_NAME']);
 
 $container = new Container();
 
@@ -26,12 +32,9 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-$app->add( new Cache('ApiCache', 0) );
+//$app->add( new Cache('ApiCache', 0) );
 
-// Create the cache provider.
-$cacheProvider = new CacheProvider();
-
-$app->setBasePath("/v2");
+$app->setBasePath($rootPath . "/v2");
 
 $app->add(new VersionMiddleware());
 
@@ -50,7 +53,7 @@ if ( !is_null (TokenQuery::Create()->findOneByType("secret")) ) {
             $data["message"] = $arguments["message"];
             return $response
                 ->withHeader("Content-Type", "application/json")
-                ->write(json_encode($data, 'JSON_UNESCAPED_SLASHES' | 'JSON_PRETTY_PRINT') );
+                ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) );
         }
     ]));
 }
