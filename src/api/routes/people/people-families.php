@@ -130,4 +130,5 @@ $app->group('/families', function (RouteCollectorProxy $group) {
  */
     $group->post('/downactionfield', PeopleFamilyController::class . ":downactionFamilyField" );
 
+    $group->get( '/addressbook/extract/{famId:[0-9]+}', PeopleFamilyController::class . ":addressBook" );
 });

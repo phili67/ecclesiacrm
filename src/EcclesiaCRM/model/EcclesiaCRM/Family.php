@@ -5,14 +5,12 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Base\Family as BaseFamily;
-use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\Utils\GeoUtils;
 use DateTime;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
-use EcclesiaCRM\PersonQuery;
 
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
@@ -409,5 +407,18 @@ class Family extends BaseFamily implements iPhoto
           "uri" => SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $this->getId()
       ];
       return $searchArray;
+    }
+
+    public function getVCard()
+    {
+        $persons = $this->getPeople();
+
+        $output = '';
+
+        foreach ($persons as $person) {
+            $output .= $person->getVCard();
+        }
+
+        return $output;
     }
 }
