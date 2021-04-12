@@ -11,10 +11,16 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\Utils\GeoUtils;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 
 use EcclesiaCRM\Service\MailChimpService;
 
 use DateTime;
+
+use Sabre\VObject\Component\VCard;
+use Sabre\DAV\UUIDUtil;
+
+use Sabre\VObject;
 
 /**
  * Skeleton subclass for representing a row from the 'person_per' table.
@@ -244,7 +250,8 @@ class Person extends BasePerson implements iPhoto
       {
         $NotificationEmail = new NewPersonOrFamilyEmail($this);
         if (!$NotificationEmail->send()) {
-          $logger->warn($NotificationEmail->getError());
+            $logger = LoggerUtils::getAppLogger();
+            $logger->warn($NotificationEmail->getError());
         }
       }
     }
@@ -642,6 +649,38 @@ class Person extends BasePerson implements iPhoto
     public function getFullNameWithAge()
     {
        return $this->getFullName()." ".$this->getAge();
+    }
+
+    public function getVCard()
+    {
+        // we get the group
+        $vcard = new VCard([
+            'VERSION' => '3.0',// ensure it's compatible with
+            'PRODID'   => '-//EcclesiaCRM.// VObject ' . VObject\Version::VERSION . '//EN',
+            'UID' => UUIDUtil::getUUID(),
+            'FN'  => $this->getFirstName(),
+            //'ADR' => $person->getFamily()->getAddress(),
+            'N'   => [$this->getLastName(), $this->getFirstName(), '', $this->getTitle(), $this->getSuffix()],
+            'item1.X-ABADR' => 'fr',
+            'NOTE' => _("EcclesiaCRM export")
+        ]);
+
+        $vcard->add('EMAIL', $this->getEmail(), ['type' => 'HOME']);
+        $vcard->add('TEL', $this->getHomePhone(), ['type' => 'pref']);
+
+        if (!empty($this->getWorkPhone())) {
+            $vcard->add('TEL', $this->getWorkPhone(), ['type' => 'WORK']);
+        }
+
+        if (!empty($this->getCellPhone())) {
+            $vcard->add('TEL', $this->getCellPhone(), ['type' => 'CELL']);
+        }
+
+        $vcard->add('item1.ADR', ['', '', $this->getFamily()->getAddress1(),$this->getFamily()->getCity(), $this->getFamily()->getZip(),$this->getFamily()->getZip(), $this->getFamily()->getCountry()], ['type' => 'HOME']);
+
+        $filename = $this->getLastName()."_".$this->getFirstName().".vcf";
+
+        return $vcard->serialize();
     }
 
 }

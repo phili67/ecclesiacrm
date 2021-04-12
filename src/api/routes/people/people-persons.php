@@ -94,6 +94,8 @@ $app->group('/persons', function (RouteCollectorProxy $group) {
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
     $group->post('/saveNoteAsWordFile', PeoplePersonController::class . ":saveNoteAsWordFile" );
+
+    $group->get( '/addressbook/extract/{personId:[0-9]+}', PeoplePersonController::class . ":addressBook" );
 });
 
 
