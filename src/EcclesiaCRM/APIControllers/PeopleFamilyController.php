@@ -381,4 +381,25 @@ class PeopleFamilyController
 
         return $response->withJson(['success' => false]);
     }
+
+    public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $fam = FamilyQuery::create()->findOneById($args['famId']);
+
+        $filename = "Fam-".$fam->getName().".vcf";
+
+        $output = $fam->getVCard();
+        $size = strlen($output);
+
+        $response = $response
+            ->withHeader('Content-Type', 'application/octet-stream')
+            ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+            ->withHeader('Pragma', 'no-cache')
+            ->withHeader('Content-Length',$size)
+            ->withHeader('Content-Transfer-Encoding', 'binary')
+            ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+            ->withHeader('Expires', '0');
+
+        $response->getBody()->write($output);
+        return $response;
+    }
 }
