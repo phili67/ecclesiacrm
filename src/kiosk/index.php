@@ -21,15 +21,15 @@ $container = new Container();
 $settings = require __DIR__.'/../Include/slim/settings.php';
 $settings($container);
 
+$rootPath = str_replace('/kiosk/index.php', '', $_SERVER['SCRIPT_NAME']);
+
 AppFactory::setContainer($container);
 
 $app = AppFactory::create();
 
-$app->setBasePath("/kiosk");
+$app->setBasePath($rootPath . "/kiosk");
 
 $app->add( new VersionMiddleware() );
-
-
 
 // Set up
 require __DIR__ . '/../Include/slim/error-handler.php';
