@@ -459,7 +459,7 @@ require 'Include/Header.php';
                     if (SessionUser::getUser()->isPastoralCareEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-purple"
+                        <a class="btn btn-app bg-gradient-purple"
                            href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $iFamilyID ?>"><i
                                 class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
                         <?php
@@ -476,7 +476,7 @@ require 'Include/Header.php';
                     if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-blue"
+                        <a class="btn btn-app bg-gradient-blue"
                            href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
                                 class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
                         <?php
@@ -485,16 +485,27 @@ require 'Include/Header.php';
                     if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip"
+                        <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="top" title="<?= _("Create a document") ?>"><i
                                 class="fa fa-file-o"></i><?= _("Create a document") ?></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isManageGroupsEnabled()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-yellow-gradient"
+                           data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the family") ?>"
+                           href="<?= SystemURLs::getRootPath() ?>/api/families/addressbook/extract/<?= $iFamilyID ?>"><i
+                                class="fa fa fa-address-card-o">
+                            </i> <?= _("vCard") ?></a>
                         <?php
                     }
 
                     if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
                         $buttons++;
                         ?>
-                        <button class="btn btn-app bg-orange" id="activateDeactivate">
+                        <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
                             <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
                         </button>
                         <?php
@@ -503,7 +514,7 @@ require 'Include/Header.php';
                     if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-maroon"
+                        <a class="btn btn-app bg-gradient-maroon"
                            href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
                                 class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
                         <?php
