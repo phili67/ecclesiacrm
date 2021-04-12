@@ -47,8 +47,6 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
-use Sabre\VObject\Component\VCard;
-
 class PeoplePersonController
 {
     private $container;
@@ -601,26 +599,9 @@ class PeoplePersonController
     public function addressBook (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $person = PersonQuery::create()->findOneById($args['personId']);
 
-        // we get the group
-        $vcard = new VCard([
-            'FN'  => $person->getFirstName(),
-            //'ADR' => $person->getFamily()->getAddress(),
-            'N'   => [$person->getLastName(), $person->getFirstName(), '', $person->getTitle(), $person->getSuffix()],
-            'item1.X-ABADR' => 'fr'
-        ]);
-
-        $vcard->add('EMAIL', $person->getEmail(), ['type' => 'HOME']);
-        $vcard->add('TEL', $person->getHomePhone(), ['type' => 'HOME']);
-
-        if (!empty($person->getWorkPhone())) {
-            $vcard->add('TEL', $person->getWorkPhone(), ['type' => 'WORK',"type=VOICE"]);
-        }
-
-        $vcard->add('item1.ADR', ['', '', $person->getAddress1(), '', $person->getZip()], ['type' => 'HOME']);
-
         $filename = $person->getLastName()."_".$person->getFirstName().".vcf";
 
-        $output = $vcard->serialize();
+        $output = $person->getVCard();
         $size = strlen($output);
 
         $response = $response
@@ -632,9 +613,7 @@ class PeoplePersonController
             ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
             ->withHeader('Expires', '0');
 
-
         $response->getBody()->write($output);
-
         return $response;
     }
 }
