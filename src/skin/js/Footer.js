@@ -122,15 +122,6 @@ $("document").ready(function () {
         });
     });
 
-    /*$(document).on('collapsed.lte.pushmenu', function (){
-        $(".searchField").hide();
-    });
-
-    $(document).on('shown.lte.pushmenu', function (){
-        $(".searchField").show();
-    });*/
-
-
     /*
       * Hacky fix for a bug in select2 with jQuery 3.6.0's new nested-focus "protection"
       * see: https://github.com/select2/select2/issues/5993
