@@ -118,27 +118,27 @@ Header_system_notifications();
                     <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
 
                 </a>
-                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>">
+                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:-20px;height:240px;width:293px">
                     <li class="user-header" id="yourElement" style="height:205px">
-                        <table border=0 class="table-dropdown-menu">
+                        <table border=0 class="table-dropdown-menu <?= Theme::isDarkModeEnabled() ?>">
                             <tr style="border-bottom: 1pt solid black;">
-                                <td valign="middle" width=110>
+                                <td valign="middle" width=110 style="width:110px;padding-left:10px">
                                     <img width="80"
                                          src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail"
                                          class="initials-image profile-user-img img-responsive img-circle"
                                          alt="User Image" style="width:85px;height:85px">
                                 </td>
-                                <td valign="middle" align="left" style="padding-top:10px">
+                                <td valign="middle" align="left">
                                     <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
-                                       class="item_link">
+                                       class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
-                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link">
+                                    <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
                                 </td>
                             </tr>

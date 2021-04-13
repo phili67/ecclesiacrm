@@ -186,9 +186,12 @@ $(document).ready(function () {
 
     $(".sDarkMode").change(function () {
         if ($(this).val() == "1") {
-            $('.sidebar-mini').addClass('dark-mode')
+            $('.sidebar-mini').addClass('dark-mode');
+            $('.table-dropdown-menu').addClass('dark-mode');
+
         } else {
-            $('.sidebar-mini').removeClass('dark-mode')
+            $('.sidebar-mini').removeClass('dark-mode');
+            $('.table-dropdown-menu').removeClass('dark-mode');
         }
     });
 

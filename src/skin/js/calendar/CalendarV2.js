@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem("wAgendaName",info.view.type);
         },
         editable: true,
+        selectable: true,
         eventClick: function(calEvent) {
             var event = calEvent.event;
 
