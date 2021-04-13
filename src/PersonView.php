@@ -1088,13 +1088,13 @@ if (!empty($person->getDateDeactivated())) {
                                                     <?php
                                                     if ($item['type'] != 'file') {
                                                         ?>
-                                                        <pre
-                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . $item['text'] ?></pre>
+                                                        <span
+                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . $item['text'] ?></span>
                                                         <?php
                                                     } else {
                                                         ?>
-                                                        <pre
-                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . SystemURLs::getRootPath() . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . 'share-type-2"></i> "' . _("click to download") . '"</a>' ?></pre>
+                                                        <span
+                                                            style="line-height: 1.2;"><?= ((!empty($item['info'])) ? $item['info'] . " : " : "") . '<a href="' . SystemURLs::getRootPath() . '/api/filemanager/getFile/' . $item['perID'] . "/" . $item['text'] . '"><i class="fa ' . $item['style2'] . 'share-type-2"></i> "' . _("click to download") . '"</a>' ?></span>
                                                         <?php
                                                     }
                                                     ?>
