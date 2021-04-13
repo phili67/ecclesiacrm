@@ -180,7 +180,7 @@ class SystemGDRPController
             return $response->withStatus(401);
         }
 
-        $time = new DateTime('now');
+        $time = new \DateTime('now');
         $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
 
         $persons = PersonQuery::create()
@@ -238,7 +238,7 @@ class SystemGDRPController
             return $response->withStatus(401);
         }
 
-        $time = new DateTime('now');
+        $time = new \DateTime('now');
         $newtime = $time->modify('-' . SystemConfig::getValue('iGdprExpirationDate') . ' year')->format('Y-m-d');
 
         $families = FamilyQuery::create()
