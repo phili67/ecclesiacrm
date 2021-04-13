@@ -31,7 +31,7 @@ class CalendarService
         array_push($eventTypes, ['Name' => gettext('Anniversary'), 'backgroundColor' =>'#0000ff']);
         return $eventTypes;
     }
-    public function getEvents($start, $end)
+    public function getEvents($start, $end, $isBirthdayActive, $isAnniversaryActive)
     {
         $origStart = $start;
         $origEnd   = $end;
@@ -49,59 +49,64 @@ class CalendarService
 
 
         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
-          $peopleWithBirthDays = PersonQuery::create()
-            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
-            ->JoinWithFamily();
+            if ($isBirthdayActive) {
+                $peopleWithBirthDays = PersonQuery::create()
+                    ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
+                    ->JoinWithFamily();
 
-          // get the first and the last month
-          $firstMonth = $startDate->format('m');
-          $endMonth = $endDate->format('m');
+                // get the first and the last month
+                $firstMonth = $startDate->format('m');
+                $endMonth = $endDate->format('m');
 
-          $month = $firstMonth;
+                $month = $firstMonth;
 
-          $peopleWithBirthDays->filterByBirthMonth($firstMonth);// the event aren't more than a month
+                $peopleWithBirthDays->filterByBirthMonth($firstMonth);// the event aren't more than a month
 
-          while ($month != $endMonth) {// we loop to have all the months from the first in the start to the end
-            $month += 1;
-            if ($month == 13) {
-                $month = 1;
+                while ($month != $endMonth) {// we loop to have all the months from the first in the start to the end
+                    $month += 1;
+                    if ($month == 13) {
+                        $month = 1;
+                    }
+                    if ($month == 0) {
+                        $month = 1;
+                    }
+                    $peopleWithBirthDays->_or()->filterByBirthMonth($month);// the event aren't more than a month
+                }
+
+
+                $peopleWithBirthDays->find();
+                foreach ($peopleWithBirthDays as $person) {
+                    $year = $firstYear;
+                    if ($person->getBirthMonth() == 1 && $endsNextYear) {
+                        $year = $firstYear + 1;
+                    }
+                    $start = date_create($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
+                    $event = $this->createCalendarItem('birthday', '<i class="fa fa-birthday-cake"></i>',
+                        $person->getFullName() . " " . $person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
+                    array_push($events, $event);
+                }
             }
-            if ($month == 0) {
-              $month = 1;
+
+            if ($isAnniversaryActive) {
+                // we search the Anniversaries
+                $Anniversaries = FamilyQuery::create()
+                    ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
+                    ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
+                    ->find();
+
+                $curYear = date('Y');
+                $curMonth = date('m');
+                foreach ($Anniversaries as $anniversary) {
+                    $year = $curYear;
+                    if ($anniversary->getWeddingMonth() < $curMonth) {
+                        $year = $year + 1;
+                    }
+                    $start = $year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay();
+                    $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                        $anniversary->getName(), $start, '', $anniversary->getViewURI());
+                    array_push($events, $event);
+                }
             }
-            $peopleWithBirthDays->_or()->filterByBirthMonth($month);// the event aren't more than a month
-          }
-
-          $peopleWithBirthDays->find();
-          foreach ($peopleWithBirthDays as $person) {
-              $year = $firstYear;
-              if ($person->getBirthMonth() == 1 && $endsNextYear) {
-                  $year = $firstYear + 1;
-              }
-              $start = date_create($year.'-'.$person->getBirthMonth().'-'.$person->getBirthDay());
-              $event = $this->createCalendarItem('birthday','<i class="fa fa-birthday-cake"></i>',
-              $person->getFullName()." ".$person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
-              array_push($events, $event);
-          }
-
-          // we search the Anniversaries
-          $Anniversaries = FamilyQuery::create()
-            ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
-            ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
-            ->find();
-
-          $curYear = date('Y');
-          $curMonth = date('m');
-          foreach ($Anniversaries as $anniversary) {
-              $year = $curYear;
-              if ($anniversary->getWeddingMonth() < $curMonth) {
-                  $year = $year + 1;
-              }
-              $start = $year.'-'.$anniversary->getWeddingMonth().'-'.$anniversary->getWeddingDay();
-              $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>',
-                  $anniversary->getName(), $start, '', $anniversary->getViewURI());
-              array_push($events, $event);
-          }
         }
 
 
