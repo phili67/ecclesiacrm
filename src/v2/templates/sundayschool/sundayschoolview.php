@@ -163,7 +163,7 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <?= _("Add") ?>
                 </div>
                 <div class="col-md-3">
-                    <select class="form-control personSearchTeachers  select2" name="addGroupMember"
+                    <select class="form-control select2" name="addGroupMember" id="personSearchTeachers"
                             style="width:100%"></select>
                 </div>
             </div>
@@ -253,7 +253,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
         </div>
         <div class="row">
             <div class="col-md-12">
-        <table id="sundayschoolTable" class="table table-striped table-bordered data-table" cellspacing="0"
+                <table id="sundayschoolTable" class="table table-striped table-bordered data-table" cellspacing="0"
                width="100%"></table>
             </div>
         </div>
@@ -270,7 +270,7 @@ if (SessionUser::getUser()->isAddRecords()) {
                     <?= _("Add") ?>
                 </div>
                 <div class="col-md-3">
-                    <select class="form-control personSearch  select2" name="addGroupMember"
+                    <select class="form-control personSearch  select2" name="addGroupMember" id="personSearch"
                             style="width:100%"></select>
                 </div>
             </div>
