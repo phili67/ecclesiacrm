@@ -20,6 +20,7 @@ abstract class ThemeStyles
     const StyleSideBarColor = 17;
     const StyleNavBarColor = 18;
     const StyleBrandLinkColor = 19;
+    const StyleDarkMode = 20;
 }
 
 class Theme
@@ -180,5 +181,20 @@ class Theme
         $styleNavBar = $theme->getValue();
 
         return ($styleNavBar) ? "sidebar-collapse" : "";
+    }
+
+    static function isDarkModeEnabled()
+    {
+        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleDarkMode)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+        if (is_null($theme)) {
+            Theme::first_load();
+        }
+
+        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleDarkMode)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+        $styleNavBar = $theme->getValue();
+
+        return ($styleNavBar) ? "dark-mode" : "";
     }
 }
