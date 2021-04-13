@@ -78,7 +78,7 @@ class MeetingController
             $pm->setCode(basename($input->roomName));
             $pm->setPersonId($personId);
 
-            $date = new DateTime('now');
+            $date = new \DateTime('now');
             $pm->setCreationDate($date->format('Y-m-d h:m'));
             $pm->save();
 
