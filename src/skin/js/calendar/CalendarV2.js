@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay actualizeButton',//timeGridDayButton listButton listWeekButton listMonthButton '*/
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonthButton actualizeButton',//timeGridDayButton listButton listWeekButton listMonthButton '*/
         },
         views: {
             timeGrid: {
@@ -267,17 +267,17 @@ document.addEventListener('DOMContentLoaded', function () {
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'calendar/getallevents',
-                data: JSON.stringify({"start":real_start,"end":real_end})
+                data: JSON.stringify({"start":real_start,"end":real_end, 'isBirthdayActive': birthday, 'isAnniversaryActive':anniversary})
             }).done(function(events) {
                 successCallback(events);
             });
         },
         eventContent: function(calEvent) {
-            let elt = document.createElement('p')
+            let elt = document.createElement('span')
 
             elt.style.background = calEvent.backgroundColor;
             elt.style.width = '100%';
-            elt.style.height = '100%';
+            elt.style.height = '20px';
 
             elt.innerHTML =  '<div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">'
                 + calEvent.event.extendedProps.icon + " " + calEvent.event.title
@@ -642,6 +642,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
     });
+
+    //window.CRM.calendar.change('dayMaxEventRows', false);
 
     window.CRM.calendar.render();
 });
