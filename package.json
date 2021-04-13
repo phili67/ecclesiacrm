@@ -33,13 +33,6 @@
         "node-sha1": "^1.0.1"
     },
     "dependencies": {
-        "@fullcalendar/bootstrap": "^4.4.2",
-        "@fullcalendar/core": "^4.4.2",
-        "@fullcalendar/daygrid": "^4.4.2",
-        "@fullcalendar/interaction": "^4.4.2",
-        "@fullcalendar/list": "^4.4.2",
-        "@fullcalendar/moment": "^4.4.2",
-        "@fullcalendar/timegrid": "^4.4.2",
         "admin-lte": "^3.1.0",
         "bootbox": "^5.5.2",
         "bootstrap": "^4.6.0",
@@ -69,6 +62,7 @@
         "eonasdan-bootstrap-datetimepicker": "^4.17.49",
         "flot": "^4.2.2",
         "font-awesome": "^4.7.0",
+        "fullcalendar": "^5.6.0",
         "grunt-git": "^1.0.14",
         "grunt-http": "^2.3.3",
         "grunt-sass": "^3.1.0",
