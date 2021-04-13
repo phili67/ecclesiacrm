@@ -284,6 +284,25 @@ $numberRow = 0;
                                                         </span>
                                         </div>
                                     </a>
+                                <?php } else if ($config->getName() == 'sDarkMode') { ?>
+                                    <a href="javascript:void(0)" data-skin="skin-black"
+                                       style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+                                       class="clearfix full-opacity-hover">
+                                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                            <span
+                                                style="display:block; width: 20%; float: left; height: 7px; background: #d19b34"></span>
+                                            <span
+                                                style="display:block; width: 80%; float: left; height: 7px; background: #d19b34"></span>
+                                        </div>
+                                        <div>
+                                            <span
+                                                style="display:block; width: 20%; float: left; height: 20px; background: #524e4e"></span>
+                                            <span
+                                                style="display:block; width: 80%; float: left; height: 20px; background: #6f6f6f;color:white">
+                                                            <big>A</big>A<small>A</small>
+                                                        </span>
+                                        </div>
+                                    </a>
                                 <?php } else if ($config->getName() == 'sMapExternalProvider') { ?>
                                     <span class="align-text-bottom"><i class="fa fa-map-o fa-lg"></i></span>
                                 <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') { ?>
@@ -370,7 +389,7 @@ $numberRow = 0;
                 </div>
                 <br/>
                 <?php
-                    if ($config->getName() == 'sStyleBrandLinkColor') {
+                    if ($config->getName() == 'sDarkMode') {
                         $r=20;
                     } else {
                         $r++;
