@@ -184,6 +184,14 @@ $(document).ready(function () {
         sidebar.addClass(sidebar_class)
     });
 
+    $(".sDarkMode").change(function () {
+        if ($(this).val() == "1") {
+            $('.sidebar-mini').addClass('dark-mode')
+        } else {
+            $('.sidebar-mini').removeClass('dark-mode')
+        }
+    });
+
     $(".sStyleNavBarColor").change(function () {
         var color = $(this).val();
         var sidebar_class = 'navbar-' + color
