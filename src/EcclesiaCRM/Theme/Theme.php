@@ -27,10 +27,11 @@ class Theme
 {
     static function first_load()
     {
-        for ($i = 13; $i <= 19; $i++) {
+        for ($i = 13; $i <= 20; $i++) {
             $userDefault = UserConfigQuery::create()->filterById($i)->findOneByPersonId(0);
+            $userCFG = UserConfigQuery::Create()->filterById($i)->findOneByPersonId(SessionUser::getUser()->getPersonId());
 
-            if (!is_null($userDefault)) {
+            if ( !is_null($userDefault) && is_null($userCFG) ) {
                 $userConf = new UserConfig();
 
                 $userConf->setPersonId(SessionUser::getUser()->getPersonId());
