@@ -74,57 +74,15 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/@fullcalendar/core/*'],
-                        dest: 'src/skin/external/fullcalendar/core/'
+                        src: ['node_modules/fullcalendar/*'],
+                        dest: 'src/skin/external/fullcalendar/'
                     },
                     {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/@fullcalendar/bootstrap/*'],
-                        dest: 'src/skin/external/fullcalendar/bootstrap/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/timegrid/*'],
-                        dest: 'src/skin/external/fullcalendar/timegrid/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/daygrid/*'],
-                        dest: 'src/skin/external/fullcalendar/daygrid/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/timegrid/*'],
-                        dest: 'src/skin/external/fullcalendar/timegrid/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/list/*'],
-                        dest: 'src/skin/external/fullcalendar/list/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/interaction/*'],
-                        dest: 'src/skin/external/fullcalendar/interaction/'
-                    },
-                    {
-                        expand: true,
-                        filter: 'isFile',
-                        flatten: true,
-                        src: ['node_modules/@fullcalendar/moment/*'],
-                        dest: 'src/skin/external/fullcalendar/moment/'
+                        src: ['node_modules/fullcalendar/locales/*'],
+                        dest: 'src/skin/external/fullcalendar/locales/'
                     },
                     {
                         expand: true,
@@ -696,7 +654,7 @@ module.exports = function (grunt) {
             var jsFileContent = '// Source: ' + tempFile;
             jsFileContent = jsFileContent + "\ntry {window.CRM.i18keys = " + poTerms + ";} catch(e) {};\n";
 
-            if (enableFullCalendar) {
+            /*if (enableFullCalendar) {
                 var tempLangCode = languageCode.toLowerCase();
                 if (localeConfig.hasOwnProperty("fullCalendarLocale")) {
                     tempLangCode = localeConfig["fullCalendarLocale"];
@@ -707,7 +665,8 @@ module.exports = function (grunt) {
                     jsFileContent = jsFileContent + '\n// Source: ' + tempFile;
                     jsFileContent = jsFileContent + '\n' + "try {" + fullCalendar + "} catch(e) {};\n";
                 }
-            }
+            }*/
+
             if (enableDatePicker) {
                 tempFile = 'node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'+languageCode+'.min.js';
                 var datePicker = grunt.file.read(tempFile);
@@ -790,3 +749,4 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-curl');
     grunt.loadNpmTasks('grunt-poeditor-ab');
 }
+
