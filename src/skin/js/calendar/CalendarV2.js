@@ -12,29 +12,60 @@ document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
 
     window.CRM.calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['moment', 'interaction', 'dayGrid', 'timeGrid', 'list'],
-        height: parent,
-        defaultView: wAgendaName,
-        selectable: window.CRM.isModifiable,
-        editable:window.CRM.isModifiable,
-        locale: window.CRM.lang,
-        eventLimit: withlimit, // allow "more" link when too many events
+        initialView: wAgendaName,
+        dayMaxEventRows: withlimit, // for all non-TimeGrid views
         customButtons: {
             actualizeButton: {
                 text: i18next.t('Actualize'),
                 click: function() {
                     window.CRM.calendar.refetchEvents();
                 }
-            }
+            },
+            todayButton: {
+                text: i18next.t('Today'),
+                click: function() {
+                    window.CRM.calendar.changeView('today');
+                    window.CRM.calendar.refetchEvents();
+                }
+            },
+            listButton: {
+                text: i18next.t('List'),
+                click: function() {
+                    window.CRM.calendar.changeView('list');
+                    window.CRM.calendar.refetchEvents();
+                }
+            },
+            listWeekButton: {
+                text: i18next.t('List Week'),
+                click: function() {
+                    window.CRM.calendar.changeView('listWeek');
+                    window.CRM.calendar.refetchEvents();
+                }
+            },
+            listMonthButton: {
+                text: i18next.t('List Month'),
+                click: function() {
+                    window.CRM.calendar.changeView('listMonth');
+                    window.CRM.calendar.refetchEvents();
+                }
+            },
+
         },
-        header: {
+        locale: window.CRM.lang,
+        headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth,actualizeButton'
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonthButton actualizeButton',//timeGridDayButton listButton listWeekButton listMonthButton '*/
         },
-        viewSkeletonRender: function(info){
+        views: {
+            timeGrid: {
+                dayMaxEventRows: 6 // adjust to 7 only for timeGridWeek/timeGridDay
+            }
+        },
+        viewDidMount: function(info){
             localStorage.setItem("wAgendaName",info.view.type);
         },
+        editable: true,
         eventClick: function(calEvent) {
             var event = calEvent.event;
 
@@ -236,57 +267,73 @@ document.addEventListener('DOMContentLoaded', function () {
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'calendar/getallevents',
-                data: JSON.stringify({"start":real_start,"end":real_end})
+                data: JSON.stringify({"start":real_start,"end":real_end, 'isBirthdayActive': birthday, 'isAnniversaryActive':anniversary})
             }).done(function(events) {
                 successCallback(events);
             });
         },
-        eventRender: function(calEvent) {
+        eventContent: function(calEvent) {
+            let elt = document.createElement('span')
+
+            elt.style.background = calEvent.backgroundColor;
+            elt.style.width = '100%';
+            elt.style.height = '20px';
+
+            elt.innerHTML =  '<div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">'
+                + calEvent.event.extendedProps.icon + " " + calEvent.event.title
+                + '</div></div></div></div><div class="fc-event-resizer fc-event-resizer-end"></div>';
+
+            let arrayOfDomNodes = [ elt ]
+            return { domNodes: arrayOfDomNodes }
+        },
+        eventDidMount: function(calEvent) {
             var calendarFilterID = window.calendarFilterID;
             var EventTypeFilterID = window.CRM.EventTypeFilterID;
 
-            if (calEvent.view.type != "listMonth") {
-                calEvent.el.querySelector('.fc-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
-            } else {
-                calEvent.el.querySelector('.fc-list-item-title').innerHTML = " " + calEvent.event.extendedProps.icon + " " + calEvent.event.title;
+            type = calEvent.event.extendedProps.realType;
+
+            if (calEvent.backgroundColor) {
+                calEvent.el.style.background = calEvent.backgroundColor;
             }
 
-            type = calEvent.event.extendedProps.realType;
+            /*var str = '<div class="fc-event-main"><div class="fc-event-main-frame"><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">'
+                + calEvent.event.extendedProps.icon + " " + calEvent.event.title
+                + '</div></div></div></div><div class="fc-event-resizer fc-event-resizer-end"></div>';
+
+            calEvent.el.innerHTML = str;*/
 
             if (type !== null){
                 if (type == 'event' && EventTypeFilterID == -1 && calEvent.event.extendedProps.groupID == 0 && calEvent.event.extendedProps.calType < 2) {// the personal
-                    return true;
+                    return calEvent;
                 } else if (type == 'event' && EventTypeFilterID == -2 && calEvent.event.extendedProps.groupID != 0) {// the groups
-                    return true;
+                    return calEvent;
                 } else if (type == 'event' && EventTypeFilterID == -3 && calEvent.event.extendedProps.calType == 2) {// Room
-                    return true;
+                    return calEvent;
                 } else if (type == 'event' && EventTypeFilterID == -4 && calEvent.event.extendedProps.calType == 3) {// Computer
-                    return true;
+                    return calEvent;
                 } else if (type == 'event' && EventTypeFilterID == -5 && calEvent.event.extendedProps.calType == 4) {// Video
-                    return true;
+                    return calEvent;
                 } else if (type == 'event' && EventTypeFilterID == -6 && calEvent.event.extendedProps.calType == 5) {// shared
-                    return true;
+                    return calEvent;
                 } else if (type == 'event'
                     && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == calEvent.event.extendedProps.eventTypeID) ) ) {
-                    return true;
+                    return calEvent;
                 } else if(type == 'event'
                     && (EventTypeFilterID>0 && EventTypeFilterID != calEvent.event.extendedProps.eventTypeID) ) {
-                    return false;
+                    calEvent.event.setProp('display', 'none');
+                    return calEvent;
                 } else if ((calEvent.event.extendedProps.allDay || type != 'event') && EventTypeFilterID <= 0){// we are in a allDay event
                     if (type == 'anniversary' && anniversary == true || type == 'birthday' && birthday == true){
-                        /*var evStart = moment(calEvent.view.intervalStart).subtract(1, 'days');
-                        var evEnd = moment(calEvent.view.intervalEnd).subtract(1, 'days');
-                        if (!moment(calEvent.start).isAfter(evStart) || moment(calEvent.start).isAfter(evEnd)) {
-                            return false;
-                        }*/
-                        return true;
+                        return calEvent;
                     } else {
-                        return false;
+                        calEvent.event.setProp('display', 'none');
+                        return calEvent;
                     }
                 }
             }
 
-            return false;
+            calEvent.event.setProp('display', 'none');
+            return calEvent;
         },
         eventResize: function(info) {
             var event = info.event;
@@ -595,6 +642,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
     });
+
+    //window.CRM.calendar.change('dayMaxEventRows', false);
 
     window.CRM.calendar.render();
 });

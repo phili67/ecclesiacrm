@@ -291,20 +291,10 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"
         type="text/javascript"></script>
 
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/core/main.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/daygrid/main.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/timegrid/main.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/list/main.min.css" rel="stylesheet">
-<link href="<?= $sRootPath ?>/skin/external/fullcalendar/bootstrap/main.min.css" rel="stylesheet">
+<link href="<?= $sRootPath ?>/skin/external/fullcalendar/main.min.css" rel="stylesheet">
 
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/core/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/core/locales-all.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/daygrid/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/timegrid/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/list/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/interaction/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/moment/main.min.js"></script>
-<script src="<?= $sRootPath ?>/skin/external/fullcalendar/bootstrap/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/main.min.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/fullcalendar/locales-all.min.js "></script>
 
 <script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
 

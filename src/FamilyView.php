@@ -758,7 +758,7 @@ require 'Include/Header.php';
                                                         </h3>
 
                                                         <div class="timeline-body">
-                                                            <pre><?= $item['text'] ?></pre>
+                                                            <span><?= $item['text'] ?></span>
                                                         </div>
 
                                                         <?php

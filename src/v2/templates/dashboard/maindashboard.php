@@ -500,9 +500,9 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             </li>
         </ul>
         <p class="text-center">
-            <a class="btn btn-default align-center" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard"
+            <a class="btn btn-light align-center" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard"
                data-toggle="tooltip"  data-placement="top" title="<?= _("Visit/Call your church members") ?>"
-               style="color:black;text-decoration: none"><?= _("Manage Pastoral Care") ?></a>
+               style="color:black;text-decoration: none" role="button"><?= _("Manage Pastoral Care") ?></a>
         </p>
     </div>
 </div>
