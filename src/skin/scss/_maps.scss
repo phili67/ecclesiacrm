@@ -14,9 +14,41 @@
     }
 }
 
+#maplegend-dark {
+    font-family: Arial, sans-serif;
+    background: #524545;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #000;
+    opacity: 0.7;
+    z-index: 800;
+    h4 {
+        margin-top: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+}
+
 #maplegend-bing{
     font-family: Arial, sans-serif;
     background: #fff;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #000;
+    opacity: 0.7;
+    z-index: 800;
+    h4 {
+        margin-top: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+}
+
+#maplegend-bing-dark {
+    font-family: Arial, sans-serif;
+    background: #524545;
     padding: 5px;
     margin: 5px;
     border: 1px solid #000;
@@ -62,7 +94,24 @@ img.legendicon {
     font-size: 12px;
     width: 250px;
 }
+
+#maplegend-dark {
+    position: absolute;
+    bottom: 127px !important;
+    right: 50px !important;
+    font-size: 12px;
+    width: 250px;
+}
+
 #maplegend-bing {
+    position: absolute;
+    bottom: 127px;
+    left: 0px;
+    font-size: 12px;
+    width: 250px;
+}
+
+#maplegend-bing-dark {
     position: absolute;
     bottom: 127px;
     left: 0px;
