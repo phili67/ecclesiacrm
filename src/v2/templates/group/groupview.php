@@ -393,7 +393,6 @@ if ( $_SESSION['bManageGroups'] ) {
 
                             <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                                 <tr class="TableHeader">
-                                    <!--<td><b><?= _('Type') ?></b></td>-->
                                     <td><b><?= _('Name') ?></b></td>
                                     <td><b><?= _('Description') ?></b></td>
                                 </tr>
@@ -405,7 +404,6 @@ if ( $_SESSION['bManageGroups'] ) {
                                     if ( SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                                         ?>
                                         <tr class="<?= $sRowClass ?>">
-                                            <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
                                             <td><?= $prop->getName() ?></td>
                                             <td><?= OutputUtils::displayCustomField($prop->getTypeId(), $prop->getDescription(), $prop->getSpecial()) ?></td>
                                         </tr>
@@ -443,6 +441,11 @@ if ( $_SESSION['bManageGroups'] ) {
 <div class="card">
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Group Members:') ?></h3>
+        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+        <div style="float:right">
+            <button class="btn btn-danger" id="remove_all_members"><i class="fa fa-trash"></i> <?= _("Remove members") ?></button>
+        </div>
+        <?php } ?>
     </div>
     <div class="card-body">
         <!-- START GROUP MEMBERS LISTING  -->
@@ -547,6 +550,8 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
 
 <script src="<?= $sRootPath ?>/skin/js/group/GroupView.js" ></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/groupcommon/group_sundaygroup.js"></script>
+
 
 <?php
 if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
