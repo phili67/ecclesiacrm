@@ -1847,36 +1847,38 @@ if (!empty($person->getDateDeactivated())) {
                                                     }
                                                     ?>
 
-                                                <a class="new-folder" data-personid="<?= $iPersonID ?>"
-                                                   data-toggle="tooltip" data-placement="top"
-                                                   title="<?= _("Create a Folder") ?>">
-                                                      <span class="fa-stack fa-special-icon drag-elements">
+                                                <a class="new-folder" data-personid="<?= $iPersonID ?>">
+                                                      <span class="fa-stack fa-special-icon drag-elements"
+                                                            data-toggle="tooltip" data-placement="top"
+                                                            title="<?= _("Create a Folder") ?>">
                                                         <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                                                         <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                                                       </span>
                                                 </a>
 
-                                                <a class="trash-drop" data-personid="<?= $iPersonID ?>"
-                                                   data-toggle="tooltip" data-placement="top"
-                                                   title="<?= _("Delete") ?>">
-                                                  <span class="fa-stack fa-special-icon drag-elements">
+                                                <a class="trash-drop" data-personid="<?= $iPersonID ?>">
+                                                  <span class="fa-stack fa-special-icon drag-elements"
+                                                    data-toggle="tooltip" data-placement="top"
+                                                    title="<?= _("Delete") ?>">
                                                     <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                                                     <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                                                   </span>
                                                 </a>
 
                                                 <a class="folder-back-drop" data-personid="<?= $iPersonID ?>"
-                                                   data-toggle="tooltip" data-placement="top"
-                                                   title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                                                    <span class="fa-stack fa-special-icon drag-elements">
+                                                   <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                                                    <span class="fa-stack fa-special-icon drag-elements"
+                                                          data-toggle="tooltip" data-placement="top"
+                                                          title="<?= _("Up One Level") ?>">
                                                       <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
                                                       <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 </a>
                                                 <a class="filemanager-refresh" data-toggle="tooltip"
-                                                   data-placement="top"
-                                                   title="<?= _("Actualize files") ?>">
-                                                    <span class="fa-stack fa-special-icon drag-elements">
+                                                   >
+                                                    <span class="fa-stack fa-special-icon drag-elements"
+                                                          data-toggle="tooltip" data-placement="top"
+                                                          title="<?= _("Actualize files") ?>">
                                                       <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
                                                       <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
                                                     </span>
@@ -1922,7 +1924,7 @@ if (!empty($person->getDateDeactivated())) {
         }
         ?>
     </div>
-</div>
+</div>vi
 
 <!-- Modal -->
 <div id="photoUploader"></div>
