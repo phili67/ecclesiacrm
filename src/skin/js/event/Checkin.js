@@ -334,6 +334,11 @@ $(document).ready(function () {
 
         window.CRM.dataT = $("#checkedinTable").DataTable(dataTableConfig);
 
+        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        if (window.CRM.bDarkMode) {
+            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+        }
+
         if (window.CRM.bEDrive) {
             var editor = CKEDITOR.replace('NoteText', {
                 customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
@@ -342,12 +347,14 @@ $(document).ready(function () {
                 uploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
                 imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicImages',
                 filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
-                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=publicDocuments'
+                filebrowserBrowseUrl: window.CRM.root + '/browser/browse.php?type=publicDocuments',
+                skin:theme
             });
         } else {
             var editor = CKEDITOR.replace('NoteText', {
                 customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
-                language: window.CRM.lang
+                language: window.CRM.lang,
+                skin:theme
             });
         }
 
