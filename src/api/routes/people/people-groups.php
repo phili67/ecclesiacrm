@@ -88,4 +88,6 @@ $app->group('/groups', function (RouteCollectorProxy $group) {
      */
 
     $group->get('/{groupID:[0-9]+}/sundayschool', PeopleGroupController::class . ":groupSundaySchool" );
+
+    $group->post( '/emptygroup',PeopleGroupController::class . ":emptygroup" );
 });

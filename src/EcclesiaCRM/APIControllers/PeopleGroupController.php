@@ -742,4 +742,43 @@ class PeopleGroupController
 
         return $response->withJson(['success' => true, "teachers" => $rsTeachers, "teachersProps" => $teachersProps,  "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
     }
+
+    public function emptygroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $values = (object)$request->getParsedBody();
+
+        $groupID = $values->groupID;
+
+        $members = Person2group2roleP2g2rQuery::create()
+            ->joinWithPerson()
+            ->usePersonQuery()
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
+            ->endUse()
+            ->findByGroupId($groupID);
+
+
+        // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically
+        foreach ($members as $member) {
+            $personId = $member->getPersonId();
+
+            $group = GroupQuery::create()->findPk($groupID);
+            $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
+
+            $groupService = $this->container->get("GroupService");
+
+            foreach ($groupRoleMemberships as $groupRoleMembership) {
+                if ($groupRoleMembership->getPersonId() == $personId) {
+                    $groupService->removeUserFromGroup($groupID, $personId);
+                    //$groupRoleMembership->delete();
+                    $note = new Note();
+                    $note->setText(_("Deleted from group") . ": " . $group->getName());
+                    $note->setType("group");
+                    $note->setEntered(SessionUser::getUser()->getPersonId());
+                    $note->setPerId($personId);
+                    $note->save();
+                }
+            }
+        }
+        return $response->withJson(['success' => 'true']);
+    }
 }
