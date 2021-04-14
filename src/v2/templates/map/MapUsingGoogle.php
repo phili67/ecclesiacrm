@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
         <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-        <div id="maplegend"><h4><?= _('Legend') ?></h4>
+        <div id="maplegend<?= !empty(\EcclesiaCRM\Theme::isDarkModeEnabled())?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
