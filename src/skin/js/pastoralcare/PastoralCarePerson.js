@@ -51,6 +51,11 @@ $(document).ready(function () {
 
         $('form #NoteText').val(text);
 
+        var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+        if (window.CRM.bDarkMode) {
+            theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+        }
+
         if (window.CRM.editor == null) {
           if (window.CRM.bEDrive) {
              window.CRM.editor = CKEDITOR.replace('NoteText',{
@@ -61,13 +66,15 @@ $(document).ready(function () {
                uploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
                imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateImages',
                filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
-               filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=privateDocuments'
+               filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=privateDocuments',
+               skin:theme
              });
           } else {
              window.CRM.editor = CKEDITOR.replace('NoteText',{
                customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
                language : window.CRM.lang,
-               width : '100%'
+               width : '100%',
+               skin:theme
              });
           }
 
@@ -121,6 +128,20 @@ $(document).ready(function () {
     // this will create the toolbar for the textarea
     modal = createPastoralCareWindow (typeid,typeDesc,visible);
 
+    var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
+    if (window.CRM.bDarkMode) {
+          /*
+               skin: 'kama',
+               skin: 'n1theme,/skin/js/ckeditor/themes/n1theme/',
+               skin: 'prestige,/skin/js/ckeditor/themes/prestige/',
+               skin: 'moono-dark,/skin/js/ckeditor/themes/moono-dark/',
+               skin: 'moono-lisa',
+               skin:'kama',
+               skin: 'moono',
+           */
+          theme = 'moono-dark,/skin/js/ckeditor/themes/moono-dark/';
+    }
+
     if (window.CRM.editor == null) {
       if (window.CRM.bEDrive) {
          window.CRM.editor = CKEDITOR.replace('NoteText',{
@@ -131,13 +152,15 @@ $(document).ready(function () {
             uploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
             imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateImages',
             filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
-            filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=privateDocuments'
+            filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=privateDocuments',
+            skin:theme
          });
       } else {
          window.CRM.editor = CKEDITOR.replace('NoteText',{
             customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
             language : window.CRM.lang,
-            width : '100%'
+            width : '100%',
+            skin:theme
          });
       }
 
