@@ -13,6 +13,8 @@
 require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
+use EcclesiaCRM\Theme;
+
 // Turn ON output buffering
 ob_start();
 
@@ -29,7 +31,7 @@ ob_start();
   ?>
 </head>
 
-<body>
+<body class=" <?= Theme::isDarkModeEnabled() ?>">
 
 <table height="100%" width="100%" border="0" cellpadding="5" cellspacing="0" align="center">
   <tr>
