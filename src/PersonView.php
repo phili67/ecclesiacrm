@@ -49,6 +49,8 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\ListOptionIconTableMap;
 
+use EcclesiaCRM\Theme;
+
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\SessionUser;
@@ -437,7 +439,7 @@ if (!empty($person->getDateDeactivated())) {
                                 &nbsp;
                                 <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
                                    data-family_role="<?= $person->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs">
+                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </p>
@@ -460,7 +462,7 @@ if (!empty($person->getDateDeactivated())) {
                                         </b>
 
                                         <div class="float-right">
-                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs"
+                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>"
                                                data-person_id="<?= $person->getId() ?>"
                                                data-classification_id="<?= $person->getClassID() ?>"
                                                data-classification_role="<?= $person->getClassName() ?>">
@@ -490,7 +492,7 @@ if (!empty($person->getDateDeactivated())) {
                                 <div class="float-right">
                                     <?= _($groupAssigment->getRoleName()) ?>
 
-                                    <a class="changeRole btn btn-box-tool btn-xs"
+                                    <a class="changeRole btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>"
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
                                             <i class="fa fa-edit"></i>
                                     </a>
@@ -1217,8 +1219,10 @@ if (!empty($person->getDateDeactivated())) {
                                         <?php
                                         // Loop through the rows
                                         $i = 1;
+
                                         foreach ($ormAssignedGroups as $ormAssignedGroup) {
                                             if ($i % 4 == 0 || $i == 1) {
+                                                $i=1;
                                                 ?>
                                                 <div class="row">
                                                 <?php
@@ -1375,16 +1379,17 @@ if (!empty($person->getDateDeactivated())) {
                                             <?php
                                             // NOTE: this method is crude.  Need to replace this with use of an array.
                                             $sAssignedGroups .= $ormAssignedGroup->getGroupID() . ',';
+                                            $i++;
                                             if ($i % 4 == 0) {
+                                                $i=1;
                                                 ?>
                                                 </div>
                                                 <?php
                                             }
-                                            $i++;
                                         }
                                     }
 
-                                    if ($i > 0) {
+                                    if ($i > 1) {
                                     ?>
                                 </div>
                                 <?php
