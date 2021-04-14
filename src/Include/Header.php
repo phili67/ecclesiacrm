@@ -53,7 +53,7 @@ $MenuFirst = 1;
 </head>
 
 <body
-    class="sidebar-mini <?= Theme::isSidebarCollapseEnabled() ?> <?= Theme::getFontSize() ?> <?= Theme::isDarkModeEnabled() ?>"
+    class="sidebar-mini layout-navbar-fixed layout-fixed <?= Theme::isSidebarCollapseEnabled() ?> <?= Theme::getFontSize() ?> <?= Theme::isDarkModeEnabled() ?>"
     id="sidebar-mini" >
 <?php
 Header_system_notifications();
