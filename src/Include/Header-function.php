@@ -20,6 +20,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 
+use EcclesiaCRM\Theme;
+
 
 function Header_system_notifications()
 {
@@ -170,6 +172,7 @@ function Header_body_scripts()
             bEDrive:<?= (SessionUser::getUser()->isEDrive())?"true":"false" ?>,
             bThumbnailIconPresence:<?= (SystemConfig::getBooleanValue("bThumbnailIconPresence"))?"true":"false" ?>,
             bPastoralcareStats:<?= (SystemConfig::getBooleanValue("bPastoralcareStats"))?"true":"false" ?>,
+            bDarkMode:<?= !empty(Theme::isDarkModeEnabled())?'true':'false' ?>,
             plugin: {
                 dataTable : {
                    "language": {
