@@ -232,11 +232,17 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 <div class="card">
     <div class="card-header with-border">
         <h4 class="card-title"><?= _('Students') ?></h4>
+        <div style="float:right;margin-left: 20px">
+        <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
+            <button class="btn btn-danger" id="remove_all_members"><i class="fa fa-trash"></i> <?= _("Remove members") ?></button>
+        <?php } ?>
+        </div>
         <div style="float:right">
             <label><?= _("Edition Mode") ?> <input data-width="100"
                                                    data-size="mini" id="editionMode" type="checkbox"
                                                    data-toggle="toggle" data-on="<?= _("On") ?>"
                                                    data-off="<?= _("Off") ?>">
+            </label>
         </div>
     </div>
     <!-- /.box-header -->
@@ -298,9 +304,12 @@ if (SessionUser::getUser()->isAddRecords()) {
     var canSeePrivacyData = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) ? 1 : 0 ?>;
     var canDeleteMembers = <?= SessionUser::getUser()->isDeleteRecordsEnabled() ? 1 : 0 ?>;
     var sundayGroupName = "<?= $iGroupName ?>";
+
+    window.CRM.currentGroup = <?= $iGroupId ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/sundayschool/SundaySchoolClassView.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/groupcommon/group_sundaygroup.js"></script>
 
 <?php
 require $sRootDocument . '/Include/Footer.php';
