@@ -215,7 +215,7 @@ class CalendarV2Controller
             $calendar    = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneByAccess(1); // we search the owner of this calendar
             $calendarCU  = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);   // current user calendar
 
-            $principal   = PrincipalsQuery::create()->findOneByDisplayname (str_replace("principals/","",$calendar->getPrincipaluri()));
+            //$principal   = PrincipalsQuery::create()->findOneByDisplayname (str_replace("principals/","",$calendar->getPrincipaluri()));
 
             $user = UserQuery::Create()->findOneByUserName (str_replace("principals/","",$calendar->getPrincipaluri()));
 
