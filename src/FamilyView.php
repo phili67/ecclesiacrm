@@ -494,7 +494,7 @@ require 'Include/Header.php';
                     if (SessionUser::getUser()->isManageGroupsEnabled()) {
                         $buttons++;
                         ?>
-                        <a class="btn btn-app bg-yellow-gradient"
+                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($family->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the family") ?>"
                            href="<?= SystemURLs::getRootPath() ?>/api/families/addressbook/extract/<?= $iFamilyID ?>"><i
                                 class="fa fa fa-address-card-o">
