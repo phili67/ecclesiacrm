@@ -179,8 +179,18 @@ class DocumentFileManagerController
                     || $per->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                 $file = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . MiscUtils::convertUTF8AccentuedString2Unicode($name);
 
-                if (!file_exists($file)) {// in the case the file name isn't in unicode format
+                if ( !file_exists($file) ) {// in the case the file name isn't in unicode format
                     $file = dirname(__FILE__) . "/../../" . $realNoteDir . "/" . $name;
+                }
+
+                if ( !file_exists($file) ) {
+                    // in this case the note is no more usefull
+                    if ( !is_null($note) ) {
+                        $note->delete();
+                    }
+                    return $response->withStatus(404)
+                        ->withHeader('Content-Type', 'text/html')
+                        ->write( gettext('Document not found') );
                 }
 
                 $response = $response
