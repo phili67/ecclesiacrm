@@ -118,17 +118,17 @@ Header_system_notifications();
                     <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
 
                 </a>
-                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:-20px;height:240px;width:293px">
+                <ul class="hidden-xxs dropdown-menu <?= Theme::getCurrentNavBarColor()?>" style="margin-top:8px;margin-left:0px;height:240px;width:293px">
                     <li class="user-header" id="yourElement" style="height:205px">
-                        <table border=0 class="table-dropdown-menu <?= Theme::isDarkModeEnabled() ?>">
+                        <table border=0 class="table-dropdown-menu <?= Theme::isDarkModeEnabled() ?>" style="width:293px">
                             <tr style="border-bottom: 1pt solid black;">
-                                <td valign="middle" width=110 style="width:110px;padding-left:10px">
+                                <td valign="middle" style="width:110px;padding-left:10px">
                                     <img width="80"
                                          src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail"
                                          class="initials-image profile-user-img img-responsive img-circle"
                                          alt="User Image" style="width:85px;height:85px">
                                 </td>
-                                <td valign="middle" align="left">
+                                <td valign="middle" align="left" style="width:183px">
                                     <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
                                        class="dropdown-item main-help-menu">
                                         <p><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
