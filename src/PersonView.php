@@ -809,7 +809,7 @@ if (!empty($person->getDateDeactivated())) {
                                 class="fa fa-users">
                             </i> <?= _("Assign New Group") ?></a>
 
-                        <a class="btn btn-app bg-yellow-gradient"
+                        <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($person->getAddress1()) == 0 || !is_null($person->getFamily()) && mb_strlen($person->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                            href="<?= SystemURLs::getRootPath() ?>/api/persons/addressbook/extract/<?= $iPersonID ?>"><i
                                 class="fa fa fa-address-card-o">
