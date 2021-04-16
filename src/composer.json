@@ -50,7 +50,6 @@
         "ext-gettext": "*",
         "laminas/laminas-escaper": "2.*",
         "php-http/curl-client": "^2.2",
-        "nyholm/psr7": "^1.4",
         "knplabs/github-api": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
