@@ -1929,7 +1929,7 @@ if (!empty($person->getDateDeactivated())) {
         }
         ?>
     </div>
-</div>vi
+</div>
 
 <!-- Modal -->
 <div id="photoUploader"></div>
