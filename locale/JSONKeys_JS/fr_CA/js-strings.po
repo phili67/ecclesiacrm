@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-16T19:37:10.366Z\n"
+"POT-Creation-Date: 2021-04-17T15:33:27.102Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -553,6 +553,19 @@ msgstr ""
 msgid "Actualize"
 msgstr "Actualiser"
 
+msgid "Today"
+msgstr "Ajourd'hui"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "List Week"
+msgstr "Liste par semaine"
+
+#, fuzzy
+msgid "List Month"
+msgstr "Création de liste"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Cet événement ne peut être modifié !!!"
 
@@ -861,9 +874,6 @@ msgstr "Nom"
 msgid "Phone"
 msgstr "Téléphone"
 
-msgid "List"
-msgstr "Liste"
-
 msgid "Company"
 msgstr "Compagnie"
 
@@ -974,6 +984,63 @@ msgstr "Effacer un événement supprimera tous les décomptes de présence."
 msgid "Are you sure you want to DELETE the event ?"
 msgstr "Etes vous sûr de vouloir SUPPRIMER cet événement ?"
 
+msgid "Confirm Delete"
+msgstr "Confirmer la suppression"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Etes-vous sur ? Vous êtes sur le point de supprimer la sélection"
+
+msgid "payments(s)?"
+msgstr "Paiement(s)?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr "Cette action est irréversible et pas avoir des implications légales!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Verifiez bien que c'est bien ce que vous voulez faire."
+
+msgid "Pledge"
+msgstr "Engagé"
+
+msgid "Selected Rows"
+msgstr "lignes sélectionnées"
+
+msgid "Payment"
+msgstr "Paiement"
+
+msgid "Depid"
+msgstr "Dép id"
+
+msgid "Address1"
+msgstr "Adresse 1"
+
+msgid "Bank Name"
+msgstr "Nom de la banque"
+
+msgid "Non deductible"
+msgstr "Non déductible"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "Dépôt"
+
+msgid "Schedule"
+msgstr "Programmer"
+
+msgid "Amount"
+msgstr "Montant"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Electronic Transaction Details"
+msgstr "Transaction de Paiement"
+
+msgid "TOTAL"
+msgstr "Total"
+
 msgid "Family"
 msgstr "Famille"
 
@@ -989,9 +1056,6 @@ msgstr "Fond"
 msgid "Pledge or payment"
 msgstr "Engagement ou paiement"
 
-msgid "Amount"
-msgstr "Montant"
-
 msgid "Method"
 msgstr "Méthode"
 
@@ -1000,9 +1064,6 @@ msgstr "Numéro de chèque"
 
 msgid "Details"
 msgstr "Détails"
-
-msgid "Selected Rows"
-msgstr "lignes sélectionnées"
 
 msgid "Deposit ID"
 msgstr "ID du dépôt"
@@ -1314,26 +1375,11 @@ msgstr "Année Fiscale"
 msgid "NonDeductible"
 msgstr "Non déductible"
 
-msgid "Schedule"
-msgstr "Programmer"
-
 msgid "CHECK"
 msgstr "CHÈQUE"
 
-msgid "Comment"
-msgstr "Commentaire"
-
 msgid "Date Updated"
 msgstr "Mise à jour de la date"
-
-msgid "Confirm Delete"
-msgstr "Confirmer la suppression"
-
-msgid "Pledge"
-msgstr "Engagé"
-
-msgid "Payment"
-msgstr "Paiement"
 
 msgid "Delete this person?"
 msgstr "Supprimer cette personne ?"
@@ -2050,7 +2096,7 @@ msgid "Deleting all tags for the selected members in the list..."
 msgstr "Suppression de toutes les étiquettes pour les membres sélectionnés..."
 
 msgid "Add your tag name"
-msgstr "Ajouter nom de Groupe"
+msgstr "Ajouter nom d'étiquette"
 
 msgid "Adding tag..."
 msgstr "Ajout étiquette"
@@ -2250,6 +2296,9 @@ msgstr "Editeur Numéro Acheteur"
 
 msgid "Select"
 msgstr "Sélectionner"
+
+#~ msgid "Liste par mois"
+#~ msgstr "Création de liste"
 
 #~ msgid "Never"
 #~ msgstr "Jamais"
