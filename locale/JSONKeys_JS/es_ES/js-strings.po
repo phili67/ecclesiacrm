@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-11-16T19:37:10.366Z\n"
+"POT-Creation-Date: 2021-04-17T15:19:24.957Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -553,6 +553,21 @@ msgstr ""
 msgid "Actualize"
 msgstr "Actualizar"
 
+msgid "Today"
+msgstr ""
+
+#, fuzzy
+msgid "List"
+msgstr "Nombre"
+
+#, fuzzy
+msgid "List Week"
+msgstr "Nombre"
+
+#, fuzzy
+msgid "List Month"
+msgstr "Creación del Evento"
+
 msgid "This event isn't modifiable !!!"
 msgstr "Este evento es inmodificable !!!"
 
@@ -860,10 +875,6 @@ msgstr "Papá-Nombre"
 msgid "Phone"
 msgstr "Teléfono Celular"
 
-#, fuzzy
-msgid "List"
-msgstr "Nombre"
-
 msgid "Company"
 msgstr ""
 
@@ -979,6 +990,70 @@ msgstr ""
 msgid "Are you sure you want to DELETE the event ?"
 msgstr "¿Está seguro de que desea BORRAR esto Evento"
 
+msgid "Confirm Delete"
+msgstr "Confirmar Eliminación"
+
+#, fuzzy
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "¿Estás seguro de querer borrar esto rol."
+
+#, fuzzy
+msgid "payments(s)?"
+msgstr "Pago"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+
+msgid "Please ensure this what you want to do."
+msgstr ""
+
+msgid "Pledge"
+msgstr "Promesa"
+
+msgid "Selected Rows"
+msgstr "Filas seleccionadas"
+
+msgid "Payment"
+msgstr "Pago"
+
+msgid "Depid"
+msgstr ""
+
+#, fuzzy
+msgid "Address1"
+msgstr "Dirección"
+
+#, fuzzy
+msgid "Bank Name"
+msgstr "Papá-Nombre"
+
+#, fuzzy
+msgid "Non deductible"
+msgstr "no deducible"
+
+#, fuzzy
+msgid "Statut"
+msgstr "Estado"
+
+#, fuzzy
+msgid "Deposit"
+msgstr "Depósito ID"
+
+msgid "Schedule"
+msgstr "Agendar"
+
+msgid "Amount"
+msgstr "Cantidad"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Electronic Transaction Details"
+msgstr ""
+
+msgid "TOTAL"
+msgstr ""
+
 msgid "Family"
 msgstr "Familia"
 
@@ -994,9 +1069,6 @@ msgstr "Fondo"
 msgid "Pledge or payment"
 msgstr "Promesa o Pago"
 
-msgid "Amount"
-msgstr "Cantidad"
-
 msgid "Method"
 msgstr "Método"
 
@@ -1005,9 +1077,6 @@ msgstr "Número de cheque"
 
 msgid "Details"
 msgstr "Detalles"
-
-msgid "Selected Rows"
-msgstr "Filas seleccionadas"
 
 msgid "Deposit ID"
 msgstr "Depósito ID"
@@ -1319,26 +1388,11 @@ msgstr "Año fiscal"
 msgid "NonDeductible"
 msgstr "no deducible"
 
-msgid "Schedule"
-msgstr "Agendar"
-
 msgid "CHECK"
 msgstr "CHEQUE"
 
-msgid "Comment"
-msgstr "Comentario"
-
 msgid "Date Updated"
 msgstr "Fecha de actualización"
-
-msgid "Confirm Delete"
-msgstr "Confirmar Eliminación"
-
-msgid "Pledge"
-msgstr "Promesa"
-
-msgid "Payment"
-msgstr "Pago"
 
 msgid "Delete this person?"
 msgstr "clasificación esta persona?"
