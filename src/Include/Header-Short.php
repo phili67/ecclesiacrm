@@ -14,6 +14,7 @@ require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
 use EcclesiaCRM\Theme;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Turn ON output buffering
 ob_start();
@@ -31,7 +32,17 @@ ob_start();
   ?>
 </head>
 
-<body class=" <?= Theme::isDarkModeEnabled() ?>">
+<body class="sidebar-mini <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if(matched) {// we're on dark mode
+            $('.sidebar-mini').addClass('dark-mode');
+        } else {// we're in light mode
+            $('.sidebar-mini').removeClass('dark-mode');
+        }
+</script>
 
 <table height="100%" width="100%" border="0" cellpadding="5" cellspacing="0" align="center">
   <tr>
