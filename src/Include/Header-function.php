@@ -172,7 +172,8 @@ function Header_body_scripts()
             bEDrive:<?= (SessionUser::getUser()->isEDrive())?"true":"false" ?>,
             bThumbnailIconPresence:<?= (SystemConfig::getBooleanValue("bThumbnailIconPresence"))?"true":"false" ?>,
             bPastoralcareStats:<?= (SystemConfig::getBooleanValue("bPastoralcareStats"))?"true":"false" ?>,
-            bDarkMode:<?= !empty(Theme::isDarkModeEnabled())?'true':'false' ?>,
+            sLightDarkMode: "<?= Theme::LightDarkMode() ?>",
+            bDarkMode: <?= Theme::isDarkModeEnabled()?'true':'false' ?>,
             plugin: {
                 dataTable : {
                    "language": {
