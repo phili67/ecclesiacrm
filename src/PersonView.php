@@ -439,7 +439,7 @@ if (!empty($person->getDateDeactivated())) {
                                 &nbsp;
                                 <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
                                    data-family_role="<?= $person->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>">
+                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
                                     <i class="fa fa-edit"></i>
                                 </a>
                             </p>
@@ -462,7 +462,7 @@ if (!empty($person->getDateDeactivated())) {
                                         </b>
 
                                         <div class="float-right">
-                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>"
+                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
                                                data-person_id="<?= $person->getId() ?>"
                                                data-classification_id="<?= $person->getClassID() ?>"
                                                data-classification_role="<?= $person->getClassName() ?>">
@@ -492,7 +492,7 @@ if (!empty($person->getDateDeactivated())) {
                                 <div class="float-right">
                                     <?= _($groupAssigment->getRoleName()) ?>
 
-                                    <a class="changeRole btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled() ?>"
+                                    <a class="changeRole btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
                                             <i class="fa fa-edit"></i>
                                     </a>
