@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
                 <h3 class="card-title"><i class="fa fa-list"></i> <?= _('Manage Email List') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
-                            src="<?= $sRootPath ?>/Images/<?= !empty(\EcclesiaCRM\Theme::isDarkModeEnabled())?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
+                            src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
                 </div>
             </div>
             <div class="card-body">

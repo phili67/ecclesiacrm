@@ -11,11 +11,11 @@
 require $sRootDocument . '/Include/Header.php';
 ?>
 
-<section class="content">
+<div class="card card-body">
 
-<pre id="mailTest"><?= _("Testing connection .....") ?></pre>
+<p id="mailTest"><?= _("Testing connection .....") ?></p>
 
-</section>
+</div>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
