@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
                 <h3 class="card-title"><i class="fa fa-newspaper-o"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
-                            src="<?= $sRootPath ?>/Images/<?= !empty(\EcclesiaCRM\Theme::isDarkModeEnabled())?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
+                            class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
                 </div>
             </div>
             <div class="card-body">
@@ -161,6 +161,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
+<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script src="<?= $sRootPath ?>/skin/external/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>

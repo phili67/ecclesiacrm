@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
         <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-        <div id="maplegend<?= !empty(\EcclesiaCRM\Theme::isDarkModeEnabled())?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
+        <div class="map-legend-view maplegend<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'-dark':'' ?>"><h4><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
@@ -96,7 +96,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
 
         <!-- map Mobile legend-->
-        <div id="maplegend-mobile" class="box visible-xs-block">
+        <div class="maplegend-mobile box visible-xs-block">
             <div class="row legendbox">
                 <div class="btn bg-primary col-xs-12"><?= _('Legend') ?></div>
             </div>
@@ -384,5 +384,29 @@ require $sRootDocument . '/Include/Header.php';
   });
 
   initialize();
+
+  window.CRM.AutomaticDarkModeFunction = function (darkMode)
+  {
+      if (darkMode) {
+          $('.map-legend-view').removeClass('maplegend');
+          $('.map-legend-view').addClass('maplegend-dark');
+      } else {
+          $('.map-legend-view').removeClass('maplegend-dark');
+          $('.map-legend-view').addClass('maplegend');
+      }
+  }
+
+  <!-- for the theme before jquery load is finished -->
+  if (window.CRM.sLightDarkMode == "automatic") {
+      let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if(matched) {// we're on dark mode
+          $('.map-legend-view').removeClass('maplegend');
+          $('.map-legend-view').addClass('maplegend-dark');
+      } else {// we're in light mode
+          $('.map-legend-view').removeClass('maplegend-dark');
+          $('.map-legend-view').addClass('maplegend');
+      }
+  }
 
 </script>

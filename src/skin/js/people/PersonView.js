@@ -1187,6 +1187,26 @@ $(document).ready(function () {
     }
 
     applyFilter();
+
+    window.CRM.AutomaticDarkModeFunction = function (darkMode)
+    {
+        if (darkMode) {
+            $('.btn-box-tool').addClass('dark-mode');
+        } else {
+            $('.btn-box-tool').removeClass('dark-mode');
+        }
+    }
+
+    <!-- for the theme before jquery load is finished -->
+    if (window.CRM.sLightDarkMode == "automatic") {
+        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if(matched) {// we're on dark mode
+            $('.btn-box-tool').addClass('dark-mode');
+        } else {// we're in light mode
+            $('.btn-box-tool').removeClass('dark-mode');
+        }
+    }
 });
 
 

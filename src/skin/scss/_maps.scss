@@ -1,4 +1,4 @@
-#maplegend{
+.maplegend{
     font-family: Arial, sans-serif;
     background: #fff;
     padding: 5px;
@@ -14,7 +14,7 @@
     }
 }
 
-#maplegend-dark {
+.maplegend-dark {
     font-family: Arial, sans-serif;
     background: #524545;
     padding: 5px;
@@ -30,7 +30,7 @@
     }
 }
 
-#maplegend-bing{
+.maplegend-bing{
     font-family: Arial, sans-serif;
     background: #fff;
     padding: 5px;
@@ -46,7 +46,7 @@
     }
 }
 
-#maplegend-bing-dark {
+.maplegend-bing-dark {
     font-family: Arial, sans-serif;
     background: #524545;
     padding: 5px;
@@ -87,7 +87,7 @@ img.legendicon {
     float: left;
 }
 
-#maplegend {
+.maplegend {
     position: absolute;
     bottom: 127px !important;
     right: 50px !important;
@@ -95,7 +95,7 @@ img.legendicon {
     width: 250px;
 }
 
-#maplegend-dark {
+.maplegend-dark {
     position: absolute;
     bottom: 127px !important;
     right: 50px !important;
@@ -103,7 +103,7 @@ img.legendicon {
     width: 250px;
 }
 
-#maplegend-bing {
+.maplegend-bing {
     position: absolute;
     bottom: 127px;
     left: 0px;
@@ -111,7 +111,7 @@ img.legendicon {
     width: 250px;
 }
 
-#maplegend-bing-dark {
+.maplegend-bing-dark {
     position: absolute;
     bottom: 127px;
     left: 0px;
@@ -119,7 +119,7 @@ img.legendicon {
     width: 250px;
 }
 
-#maplegend-mobile {
+.maplegend-mobile {
      width:100%;
 }
 
@@ -129,17 +129,17 @@ img.legendicon {
 
 
 @media only screen and (max-width: 600px) {
-    #maplegend {
+    .maplegend {
         display: none;
     }
 
-    #maplegend-bing {
+    .maplegend-bing {
         display: none;
     }
 }
 
 @media only screen and (min-width: 600px) {
-    #maplegend-mobile {
+    .maplegend-mobile {
         display: none;
     }
     .map-div {

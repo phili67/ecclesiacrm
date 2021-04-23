@@ -1220,7 +1220,8 @@ INSERT INTO `userconfig_choices_ucfg_ch` (`ucfg_ch_id`,`ucfg_name`,`ucfg_choices
 (2,'StyleSideBarType', 'dark,light'),
 (3,'StyleSideBarColor','blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' ),
 (4,'StyleNavBarColor', 'blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' ),
-(5,'StyleBrandLinkColor', 'blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' );
+(5,'StyleBrandLinkColor', 'blue,secondary,green,cyan,yellow,red,fuchsia,blue,yellow,indigo,navy,purple,pink,maroon,orange,lime,teal,olive,black,gray-dark,gray,light' ),
+(6,'DarkMode', 'light,dark,automatic' );
 
 
 -- --------------------------------------------------------
@@ -1283,8 +1284,8 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (1, 18, 'sStyleNavBarColor', 'gray', 'choice', '4','AdminLTE 3.0 navbar color style', 'TRUE', ''),
   (0, 19, 'sStyleBrandLinkColor', 'gray', 'choice', '5', 'AdminLTE 3.0 brand link color style', 'TRUE', ''),
   (1, 19, 'sStyleBrandLinkColor', 'gray', 'choice', '5','AdminLTE 3.0 brand link color style', 'TRUE', ''),
-  (0, 20, 'sDarkMode', '0', 'boolean', NULL, 'AdminLTE 3.1 Dark Mode', 'TRUE', ''),
-  (1, 20, 'sDarkMode', '0', 'boolean', NULL,'AdminLTE 3.1 Dark Mode color style', 'TRUE', '');
+  (0, 20, 'sDarkMode', 'automatic', 'choice', '6', 'AdminLTE 3.1 Dark Mode', 'TRUE', ''),
+  (1, 20, 'sDarkMode', 'automatic', 'choice', '6','AdminLTE 3.1 Dark Mode color style', 'TRUE', '');
 
 
 

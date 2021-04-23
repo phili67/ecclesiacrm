@@ -196,6 +196,21 @@ class Theme
 
         $styleNavBar = $theme->getValue();
 
-        return ($styleNavBar) ? "dark-mode" : "";
+        return ($styleNavBar == 'dark') ? true : false;
+    }
+
+    static function LightDarkMode()
+    {
+        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleDarkMode)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+        if (is_null($theme)) {
+            Theme::first_load();
+        }
+
+        $theme = UserConfigQuery::Create()->filterById(ThemeStyles::StyleDarkMode)->findOneByPersonId(SessionUser::getUser()->getPersonId());
+
+        $styleNavBar = $theme->getValue();
+
+        return $styleNavBar;
     }
 }

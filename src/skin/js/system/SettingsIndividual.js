@@ -185,13 +185,23 @@ $(document).ready(function () {
     });
 
     $(".sDarkMode").change(function () {
-        if ($(this).val() == "1") {
+        if ($(this).val() == "dark") {
             $('.sidebar-mini').addClass('dark-mode');
             $('.table-dropdown-menu').addClass('dark-mode');
 
-        } else {
+        } else if ($(this).val() == "light") {
             $('.sidebar-mini').removeClass('dark-mode');
             $('.table-dropdown-menu').removeClass('dark-mode');
+        } else {
+            let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if(matched) {
+                $('.sidebar-mini').addClass('dark-mode');
+                $('.table-dropdown-menu').addClass('dark-mode');
+            } else {
+                $('.sidebar-mini').removeClass('dark-mode');
+                $('.table-dropdown-menu').removeClass('dark-mode');
+            }
         }
     });
 
