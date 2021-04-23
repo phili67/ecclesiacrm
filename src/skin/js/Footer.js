@@ -129,22 +129,14 @@ $("document").ready(function () {
                 $('.table-dropdown-menu').addClass('dark-mode');
 
                 window.CRM.bDarkMode = true;
-
-                $('.map-legend-view').removeClass('maplegend');
-                $('.map-legend-view').addClass('maplegend-dark');
-
-                $('.map-legend-view').removeClass('maplegend-bing');
-                $('.map-legend-view').addClass('maplegend-bing-dark');
             } else {// we're in light mode
                 $('.sidebar-mini').removeClass('dark-mode');
                 $('.table-dropdown-menu').removeClass('dark-mode');
                 window.CRM.bDarkMode = false;
+            }
 
-                $('.map-legend-view').removeClass('maplegend-dark');
-                $('.map-legend-view').addClass('maplegend');
-
-                $('.map-legend-view').removeClass('maplegend-bing-dark');
-                $('.map-legend-view').addClass('maplegend-bing');
+            if (typeof window.CRM.AutomaticDarkModeFunction === 'function') {
+                window.CRM.AutomaticDarkModeFunction(e.matches);
             }
         }
     });
