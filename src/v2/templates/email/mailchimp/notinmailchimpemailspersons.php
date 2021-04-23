@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="card-title"><?= _("Person List") ?></h3>
         <div style="float:right">
             <a href="https://mailchimp.com/<?= $lang ?>/"><img
-                    src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
+                    class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
         </div>
     </div>
     <div class="card-body">
@@ -25,6 +25,10 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/NotInMailChimpPersons.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/AutomaticDarkMode.js"></script>
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
+
+<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/NotInMailChimpPersons.js"></script>
+
+

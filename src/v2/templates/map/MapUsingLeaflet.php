@@ -385,6 +385,17 @@ require $sRootDocument . '/Include/Header.php';
 
   initialize();
 
+  window.CRM.AutomaticDarkModeFunction = function (darkMode)
+  {
+      if (darkMode) {
+          $('.map-legend-view').removeClass('maplegend');
+          $('.map-legend-view').addClass('maplegend-dark');
+      } else {
+          $('.map-legend-view').removeClass('maplegend-dark');
+          $('.map-legend-view').addClass('maplegend');
+      }
+  }
+
   <!-- for the theme before jquery load is finished -->
   if (window.CRM.sLightDarkMode == "automatic") {
       let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
