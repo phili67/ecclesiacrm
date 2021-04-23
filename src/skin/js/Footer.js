@@ -122,6 +122,46 @@ $("document").ready(function () {
         });
     });
 
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (window.CRM.sLightDarkMode == "automatic") {
+            if (e.matches) {// we're on dark mode
+                $('.sidebar-mini').addClass('dark-mode');
+                $('.table-dropdown-menu').addClass('dark-mode');
+
+                window.CRM.bDarkMode = true;
+
+                $('.map-legend-view').removeClass('maplegend');
+                $('.map-legend-view').addClass('maplegend-dark');
+
+                $('.map-legend-view').removeClass('maplegend-bing');
+                $('.map-legend-view').addClass('maplegend-bing-dark');
+            } else {// we're in light mode
+                $('.sidebar-mini').removeClass('dark-mode');
+                $('.table-dropdown-menu').removeClass('dark-mode');
+                window.CRM.bDarkMode = false;
+
+                $('.map-legend-view').removeClass('maplegend-dark');
+                $('.map-legend-view').addClass('maplegend');
+
+                $('.map-legend-view').removeClass('maplegend-bing-dark');
+                $('.map-legend-view').addClass('maplegend-bing');
+            }
+        }
+    });
+
+    // for the profile menu
+    if (window.CRM.sLightDarkMode == "automatic") {
+        let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if(matched) {// we're on dark mode
+            $('.table-dropdown-menu').addClass('dark-mode');
+            window.CRM.bDarkMode = true;
+        } else {// we're in light mode
+            $('.table-dropdown-menu').removeClass('dark-mode');
+            window.CRM.bDarkMode = false;
+        }
+    }
+
     /*
       * Hacky fix for a bug in select2 with jQuery 3.6.0's new nested-focus "protection"
       * see: https://github.com/select2/select2/issues/5993
