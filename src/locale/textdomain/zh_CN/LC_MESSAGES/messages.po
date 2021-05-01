@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 12:10+0200\n"
+"POT-Creation-Date: 2021-05-01 03:35+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "的"
 #: AutoPaymentEditor.php:808 AutoPaymentEditor.php:817 CanvassEditor.php:52
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
-#: Include/Footer.php:82 PledgeEditor.php:588
+#: Include/Footer.php:81 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:55
 #: v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
@@ -47,7 +47,7 @@ msgstr "人"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
+#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:64
 #: members/404.php:16 PersonView.php:906 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -91,8 +91,8 @@ msgstr ""
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
-#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
-#: v2/templates/map/MapUsingGoogle.php:112
+#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:71
+#: v2/templates/map/MapUsingGoogle.php:118
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
 msgid "Unassigned"
@@ -877,7 +877,7 @@ msgstr "添加新事件"
 msgid "QR Code Call"
 msgstr ""
 
-#: Checkin.php:137 Include/Footer.php:263 v2/routes/sidebar/kioskmanager.php:31
+#: Checkin.php:137 Include/Footer.php:262 v2/routes/sidebar/kioskmanager.php:31
 #, fuzzy
 msgid "Kiosk Manager"
 msgstr "信封经理"
@@ -1234,7 +1234,7 @@ msgstr "跳过记录不完整的邮件地址"
 msgid "Create File"
 msgstr "创建文件"
 
-#: CSVImport.php:121 Include/Footer.php:254
+#: CSVImport.php:121 Include/Footer.php:253
 #, fuzzy
 msgid "CSV Import"
 msgstr "CSV出口"
@@ -1393,7 +1393,7 @@ msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
 msgstr ""
 
 #: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 #, fuzzy
 msgid "here"
@@ -2109,7 +2109,7 @@ msgid "Role"
 msgstr "角色"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:68 OptionManager.php:103
+#: Include/Footer.php:67 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:254
 #, fuzzy
 msgid "Family Roles"
@@ -2158,7 +2158,7 @@ msgid "Sunday School Group Type"
 msgstr "主日学报告"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:125 OptionManager.php:119
+#: Include/Footer.php:124 OptionManager.php:119
 #, fuzzy
 msgid "Sunday School Group Types"
 msgstr "主日学报告"
@@ -2170,7 +2170,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "组编辑器"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:115 OptionManager.php:127
+#: Include/Footer.php:114 OptionManager.php:127
 #, fuzzy
 msgid "Group Types"
 msgstr "所有组类型"
@@ -2184,7 +2184,7 @@ msgstr "组编辑器"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:146
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138 Include/Footer.php:99
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138 Include/Footer.php:98
 #: OptionManager.php:133 v2/routes/group/groups.php:100
 #: v2/routes/sidebar/propertylist.php:40 v2/templates/calendar/calendar.php:49
 msgid "Group"
@@ -4406,7 +4406,7 @@ msgstr ""
 msgid "Enabled Features"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:197
 #, fuzzy
 msgid "System Settings"
 msgstr "保存设置"
@@ -4634,8 +4634,8 @@ msgstr "国"
 msgid "Please verify your family's information"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:91
-#: Include/Header.php:147
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
 #, fuzzy
 msgid "Private Space"
 msgstr "私人"
@@ -4645,12 +4645,12 @@ msgstr "私人"
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:149 PersonView.php:775
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:775
 #, fuzzy
 msgid "Change Password"
 msgstr "新密码"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:151 PersonView.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:773
 #, fuzzy
 msgid "Change Settings"
 msgstr "保存设置"
@@ -4692,8 +4692,8 @@ msgstr "事件描述"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:72
-#: v2/templates/map/MapUsingGoogle.php:118
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
 #: v2/templates/map/MapUsingLeaflet.php:66
 #: v2/templates/map/MapUsingLeaflet.php:114
 #, fuzzy
@@ -4779,7 +4779,7 @@ msgid "Sunday School"
 msgstr "无主日学​​"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:174
+#: Include/Footer.php:173
 msgid "Global Custom Menus"
 msgstr ""
 
@@ -5399,7 +5399,7 @@ msgstr "额外的学生"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:182
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:183
 msgid "Print"
 msgstr ""
 
@@ -5445,7 +5445,7 @@ msgid "Person Properties"
 msgstr "人"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:144 PersonView.php:943
+#: Include/Footer.php:143 PersonView.php:943
 #, fuzzy
 msgid "Volunteer Opportunities"
 msgstr "义工机会编辑器"
@@ -5543,7 +5543,7 @@ msgstr ""
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:132 PledgeEditor.php:646
+#: Include/Footer.php:131 PledgeEditor.php:646
 msgid "Other"
 msgstr "其他"
 
@@ -5655,7 +5655,7 @@ msgstr ""
 msgid "Unmet Application Prerequisites"
 msgstr ""
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:309
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
 msgid "Register Software"
 msgstr ""
 
@@ -6935,10 +6935,8 @@ msgstr "分配一个新的属性"
 msgid "Select"
 msgstr "选择"
 
-#: FamilyView.php:822 PersonView.php:1433
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:333
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:350
-#: QueryView.php:458 QueryView.php:475 v2/templates/group/groupview.php:341
+#: FamilyView.php:822 PersonView.php:1433 QueryView.php:458 QueryView.php:475
+#: v2/templates/group/groupview.php:341
 #, fuzzy
 msgid "select an option"
 msgstr "特殊选项"
@@ -7670,86 +7668,86 @@ msgstr ""
 msgid "Version"
 msgstr "允许"
 
-#: Include/Footer.php:73
+#: Include/Footer.php:72
 #, fuzzy
 msgid "Family Properties"
 msgstr "属性"
 
-#: Include/Footer.php:78
+#: Include/Footer.php:77
 #, fuzzy
 msgid "Edit Custom Family Fields"
 msgstr "自定义家庭领域"
 
-#: Include/Footer.php:85
+#: Include/Footer.php:84
 #, fuzzy
 msgid "Classifications Manager"
 msgstr "分类"
 
-#: Include/Footer.php:90
+#: Include/Footer.php:89
 #, fuzzy
 msgid "People Properties"
 msgstr "属性"
 
-#: Include/Footer.php:95
+#: Include/Footer.php:94
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "自定义联系人字段"
 
-#: Include/Footer.php:105 v2/templates/group/groupview.php:317
+#: Include/Footer.php:104 v2/templates/group/groupview.php:317
 #, fuzzy
 msgid "Group Properties"
 msgstr "组特定的属性"
 
-#: Include/Footer.php:135
+#: Include/Footer.php:134
 #, fuzzy
 msgid "Property Types"
 msgstr "物业类型列表"
 
-#: Include/Footer.php:154
+#: Include/Footer.php:153
 #, fuzzy
 msgid "Edit Donation Funds"
 msgstr "捐赠基金的编辑"
 
-#: Include/Footer.php:164
+#: Include/Footer.php:163
 #, fuzzy
 msgid "Pastoral Care Type"
 msgstr "物业类型编辑器"
 
-#: Include/Footer.php:189 Include/Footer.php:273
+#: Include/Footer.php:188 Include/Footer.php:272
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 
-#: Include/Footer.php:207 v2/templates/email/mailchimp/managelist.php:165
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:165
 #, fuzzy
 msgid "Edit General Settings"
 msgstr "其他设置"
 
-#: Include/Footer.php:221
+#: Include/Footer.php:220
 msgid "System Users"
 msgstr ""
 
-#: Include/Footer.php:237 v2/routes/backup/restore.php:46
+#: Include/Footer.php:236 v2/routes/backup/restore.php:46
 msgid "Restore Database"
 msgstr ""
 
-#: Include/Footer.php:245 v2/routes/backup/backup.php:46
+#: Include/Footer.php:244 v2/routes/backup/backup.php:46
 msgid "Backup Database"
 msgstr "备份数据库"
 
-#: Include/Footer.php:284
+#: Include/Footer.php:283
 #, fuzzy
 msgid "CSV Export Records"
 msgstr "CSV出口"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:296
 msgid "Open Tasks"
 msgstr ""
 
-#: Include/Footer.php:298
+#: Include/Footer.php:297
 msgid "You have"
 msgstr ""
 
-#: Include/Footer.php:299
+#: Include/Footer.php:298
 msgid "task(s)"
 msgstr ""
 
@@ -7873,55 +7871,55 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: Include/Header-function.php:181
+#: Include/Header-function.php:182
 #, fuzzy
 msgid "Change columns"
 msgstr "新角色"
 
-#: Include/Header.php:115
+#: Include/Header.php:116
 #, fuzzy
 msgid "Your Cart"
 msgstr "查看你的购物车"
 
-#: Include/Header.php:127
+#: Include/Header.php:128
 msgid "Your settings and more"
 msgstr ""
 
-#: Include/Header.php:153
+#: Include/Header.php:154
 msgid "Lock"
 msgstr ""
 
-#: Include/Header.php:155
+#: Include/Header.php:156
 msgid "Sign out"
 msgstr ""
 
-#: Include/Header.php:166
+#: Include/Header.php:167
 msgid "Help & Support"
 msgstr ""
 
-#: Include/Header.php:170
+#: Include/Header.php:171
 #, fuzzy
 msgid "Help Center"
 msgstr "冬季"
 
-#: Include/Header.php:172 Include/Header.php:174
+#: Include/Header.php:173 Include/Header.php:175
 msgid "Help & Manual"
 msgstr ""
 
-#: Include/Header.php:177 Include/Header.php:179
+#: Include/Header.php:178 Include/Header.php:180
 #, fuzzy
 msgid "Report an issue"
 msgstr "报告菜单"
 
-#: Include/Header.php:182 Include/Header.php:184
+#: Include/Header.php:183 Include/Header.php:185
 msgid "Developer Chat"
 msgstr ""
 
-#: Include/Header.php:188 Include/Header.php:189
+#: Include/Header.php:189 Include/Header.php:190
 msgid "Contributing"
 msgstr ""
 
-#: Include/Header.php:201
+#: Include/Header.php:202
 msgid "Your tasks"
 msgstr ""
 
@@ -8803,77 +8801,6 @@ msgstr "输入："
 msgid "Last Edited"
 msgstr "姓氏"
 
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:30
-#: QueryView.php:32
-msgid "Query View"
-msgstr "查询视图"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:100
-#: QueryView.php:102
-msgid "This value is required."
-msgstr "此值是必需的。"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:113
-#: QueryView.php:113
-msgid "This value must be numeric."
-msgstr "此值必须是数字。"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:118
-#: QueryView.php:118
-msgid "This value must be at least "
-msgstr "这个值必须是至少"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:123
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: QueryView.php:122 QueryView.php:135
-msgid "This value cannot be more than "
-msgstr "这个值不能超过"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:135 QueryView.php:139
-msgid " characters long"
-msgstr "个字符长"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:139
-msgid "This value cannot be less than "
-msgstr "这个值不能小于"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:187
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:258
-#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
-msgid " record(s) returned"
-msgstr "返回记录（S）"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:268
-#: QueryView.php:293
-#, fuzzy
-msgid "Add To Cart"
-msgstr "添加到购物车"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:269
-#: QueryView.php:295
-#, fuzzy
-msgid "Intersect With Cart"
-msgstr "相交的购物车"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:270
-#: QueryView.php:297
-#, fuzzy
-msgid "Remove From Cart"
-msgstr "从购物车中删除"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:277
-#: QueryView.php:302
-msgid "Run Query Again"
-msgstr "再次运行查询"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:395
-#: QueryView.php:520
-msgid "Execute Query"
-msgstr "执行查询"
-
 #: QueryList.php:27
 msgid "Query Listing"
 msgstr "查询上市"
@@ -8902,6 +8829,10 @@ msgstr "执行SQL"
 msgid "An error occured: "
 msgstr "发生错误："
 
+#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
+msgid " record(s) returned"
+msgstr "返回记录（S）"
+
 #: QuerySQL.php:186
 msgid "Add Results To Cart"
 msgstr "将结果添加到购物车"
@@ -8917,6 +8848,57 @@ msgstr "从购物车中删除结果"
 #: QuerySQL.php:193
 msgid "Return to Query Menu"
 msgstr "返回查询菜单"
+
+#: QueryView.php:32
+msgid "Query View"
+msgstr "查询视图"
+
+#: QueryView.php:102
+msgid "This value is required."
+msgstr "此值是必需的。"
+
+#: QueryView.php:113
+msgid "This value must be numeric."
+msgstr "此值必须是数字。"
+
+#: QueryView.php:118
+msgid "This value must be at least "
+msgstr "这个值必须是至少"
+
+#: QueryView.php:122 QueryView.php:135
+msgid "This value cannot be more than "
+msgstr "这个值不能超过"
+
+#: QueryView.php:135 QueryView.php:139
+msgid " characters long"
+msgstr "个字符长"
+
+#: QueryView.php:139
+msgid "This value cannot be less than "
+msgstr "这个值不能小于"
+
+#: QueryView.php:293
+#, fuzzy
+msgid "Add To Cart"
+msgstr "添加到购物车"
+
+#: QueryView.php:295
+#, fuzzy
+msgid "Intersect With Cart"
+msgstr "相交的购物车"
+
+#: QueryView.php:297
+#, fuzzy
+msgid "Remove From Cart"
+msgstr "从购物车中删除"
+
+#: QueryView.php:302
+msgid "Run Query Again"
+msgstr "再次运行查询"
+
+#: QueryView.php:520
+msgid "Execute Query"
+msgstr "执行查询"
 
 #: ReminderReport.php:28 v2/templates/people/peopledashboard.php:198
 msgid "Pledge Reminder Report"
@@ -10640,7 +10622,7 @@ msgstr ""
 
 #: v2/templates/dashboard/maindashboard.php:144
 #: v2/templates/dashboard/maindashboard.php:169
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr ""
@@ -11337,44 +11319,44 @@ msgstr "添加联系人到组“"
 msgid "Move Selected Members to Group"
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
+#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:16
 #: v2/templates/map/MapUsingLeaflet.php:21
 #, fuzzy
 msgid "Missing Families?"
 msgstr "邻居的家庭"
 
-#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
+#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:16
 #: v2/templates/map/MapUsingLeaflet.php:21
 msgid "Update Family Latitude or Longitude now."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:29 v2/templates/map/MapUsingGoogle.php:21
+#: v2/templates/map/MapUsingBing.php:29 v2/templates/map/MapUsingGoogle.php:22
 #: v2/templates/map/MapUsingLeaflet.php:27
 msgid ""
 "Unable to display map due to missing Church Latitude or Longitude. Please "
 "update the church Address in the settings menu."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:36 v2/templates/map/MapUsingGoogle.php:28
+#: v2/templates/map/MapUsingBing.php:36 v2/templates/map/MapUsingGoogle.php:29
 msgid ""
 "Google Map API key is not set. The Map will work for smaller set of "
 "locations. Please create a Key in the maps sections of the setting menu."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 #, fuzzy
 msgid "Missing Person Map classification icon for"
 msgstr "管理属性和分类"
 
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr ""
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
-#: v2/templates/map/MapUsingGoogle.php:62
-#: v2/templates/map/MapUsingGoogle.php:105
+#: v2/templates/map/MapUsingGoogle.php:65
+#: v2/templates/map/MapUsingGoogle.php:111
 #: v2/templates/map/MapUsingLeaflet.php:56
 #: v2/templates/map/MapUsingLeaflet.php:101
 msgid "Legend"
@@ -12869,6 +12851,16 @@ msgstr "清空购物车"
 #, fuzzy
 msgid "pending"
 msgstr "婚礼"
+
+msgid "dark"
+msgstr ""
+
+#, fuzzy
+msgid "light"
+msgstr "权"
+
+msgid "automatic"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Are you sure ? You're about to delete the selected"
