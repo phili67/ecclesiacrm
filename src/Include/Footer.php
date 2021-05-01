@@ -29,12 +29,11 @@ use EcclesiaCRM\Theme;
     <strong><?= _('Copyright') ?> &copy; 2017-<?= SystemService::getCopyrightDate() ?> <a
             href="https://www.ecclesiacrm.com"
             target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?>
-        </a>.</strong> <?= _('All rights reserved') ?>
-    .
+        </a>.</strong> <?= _('All rights reserved') ?>.
 </footer>
 
 <!-- The Right Sidebar -->
-<aside class="control-sidebar <?= Theme::getCurrentRightSideBarTypeColor() ?>">
+<aside class="control-sidebar <?= Theme::getCurrentRightSideBarTypeColor() ?>" id="right-sidebar">
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true" class="nav-link active"
