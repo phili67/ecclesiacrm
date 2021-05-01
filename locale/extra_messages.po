@@ -90,3 +90,15 @@ msgstr ""
 
 msgid "pending"
 msgstr ""
+
+msgid "dark"
+msgstr ""
+
+msgid "light"
+msgstr ""
+
+msgid "automatic"
+msgstr ""
+
+
+

@@ -562,9 +562,8 @@ msgstr "Liste"
 msgid "List Week"
 msgstr "Liste par semaine"
 
-#, fuzzy
 msgid "List Month"
-msgstr "Création de liste"
+msgstr "Liste par mois"
 
 msgid "This event isn't modifiable !!!"
 msgstr "Cet événement ne peut être modifié !!!"

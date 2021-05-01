@@ -549,7 +549,7 @@ msgid "Actualize"
 msgstr "Aktualisieren."
 
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 msgid "List"
 msgstr "Mailingliste"
@@ -557,9 +557,8 @@ msgstr "Mailingliste"
 msgid "List Week"
 msgstr "Mailingliste Name"
 
-#, fuzzy
 msgid "List Month"
-msgstr "Listenerstellung"
+msgstr "Monat Liste"
 
 msgid "This event isn't modifiable !!!"
 msgstr "Dieses Ereignis kann nicht geändert werden !!!"
@@ -971,19 +970,17 @@ msgstr "Wollen Sie wirklich dieser Veranstaltung löschen ?"
 msgid "Confirm Delete"
 msgstr "Löschen bestätigen"
 
-#, fuzzy
 msgid "Are you sure ? You're about to delete the selected"
-msgstr "Wollen Sie die aktuelle Rolle tatsächlich löschen?"
+msgstr "Sind Sie sicher? Sie sind dabei, die ausgewählte zu löschen"
 
-#, fuzzy
 msgid "payments(s)?"
-msgstr "Zahlungen"
+msgstr "Zahlung(en)?"
 
 msgid "This action CANNOT be undone, and may have legal implications!"
-msgstr ""
+msgstr "Diese Aktion kann NICHT rückgängig gemacht werden und kann rechtliche Folgen haben!"
 
 msgid "Please ensure this what you want to do."
-msgstr ""
+msgstr "Bitte vergewissern Sie sich, dass Sie dies auch tun wollen."
 
 msgid "Pledge"
 msgstr "Zusagen"
@@ -995,27 +992,22 @@ msgid "Payment"
 msgstr "Zahlungen"
 
 msgid "Depid"
-msgstr ""
+msgstr "Zah. ID"
 
-#, fuzzy
 msgid "Address1"
-msgstr "Adresse"
+msgstr "Adresse 1"
 
-#, fuzzy
 msgid "Bank Name"
-msgstr "Dad Name"
+msgstr "Bank Name"
 
-#, fuzzy
 msgid "Non deductible"
-msgstr "Nichtabzugsfähig"
+msgstr "Nicht abzugsfähig"
 
-#, fuzzy
 msgid "Statut"
-msgstr "Status"
+msgstr "Statut"
 
-#, fuzzy
 msgid "Deposit"
-msgstr "Zahlungen ID"
+msgstr "Einzahlung"
 
 msgid "Schedule"
 msgstr "Termin"
@@ -1027,10 +1019,10 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Electronic Transaction Details"
-msgstr ""
+msgstr "Elektronische Transaktionsdetails"
 
 msgid "TOTAL"
-msgstr ""
+msgstr "GESAMT"
 
 msgid "Family"
 msgstr "Familie"

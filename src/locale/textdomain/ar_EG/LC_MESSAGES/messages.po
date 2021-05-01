@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-18 12:10+0200\n"
+"POT-Creation-Date: 2021-05-01 03:35+0000\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr " لأن"
 #: AutoPaymentEditor.php:808 AutoPaymentEditor.php:817 CanvassEditor.php:52
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
-#: Include/Footer.php:82 PledgeEditor.php:588
+#: Include/Footer.php:81 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:55
 #: v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
@@ -48,7 +48,7 @@ msgstr "البريد الإلكتروني الشخصي"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:65
+#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:64
 #: members/404.php:16 PersonView.php:906 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -91,8 +91,8 @@ msgstr ""
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
-#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
-#: v2/templates/map/MapUsingGoogle.php:112
+#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:71
+#: v2/templates/map/MapUsingGoogle.php:118
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
 msgid "Unassigned"
@@ -865,7 +865,7 @@ msgstr "إضافة حدث جديد"
 msgid "QR Code Call"
 msgstr ""
 
-#: Checkin.php:137 Include/Footer.php:263 v2/routes/sidebar/kioskmanager.php:31
+#: Checkin.php:137 Include/Footer.php:262 v2/routes/sidebar/kioskmanager.php:31
 msgid "Kiosk Manager"
 msgstr ""
 
@@ -1201,7 +1201,7 @@ msgstr "تخطي السجلات غير مكتملة عنوان البريد ال
 msgid "Create File"
 msgstr "إنشاء ملف"
 
-#: CSVImport.php:121 Include/Footer.php:254
+#: CSVImport.php:121 Include/Footer.php:253
 #, fuzzy
 msgid "CSV Import"
 msgstr "تصدير بصيغة CSV"
@@ -1356,7 +1356,7 @@ msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
 msgstr ""
 
 #: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 #, fuzzy
 msgid "here"
@@ -2054,7 +2054,7 @@ msgid "Role"
 msgstr ""
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:68 OptionManager.php:103
+#: Include/Footer.php:67 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:254
 #, fuzzy
 msgid "Family Roles"
@@ -2103,7 +2103,7 @@ msgid "Sunday School Group Type"
 msgstr "الأحد"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:125 OptionManager.php:119
+#: Include/Footer.php:124 OptionManager.php:119
 #, fuzzy
 msgid "Sunday School Group Types"
 msgstr "الأحد"
@@ -2115,7 +2115,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "تقرير ملخص"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:115 OptionManager.php:127
+#: Include/Footer.php:114 OptionManager.php:127
 msgid "Group Types"
 msgstr ""
 
@@ -2127,7 +2127,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:146
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138 Include/Footer.php:99
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138 Include/Footer.php:98
 #: OptionManager.php:133 v2/routes/group/groups.php:100
 #: v2/routes/sidebar/propertylist.php:40 v2/templates/calendar/calendar.php:49
 msgid "Group"
@@ -4310,7 +4310,7 @@ msgstr ""
 msgid "Enabled Features"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:197
 msgid "System Settings"
 msgstr ""
 
@@ -4532,8 +4532,8 @@ msgstr "الحي"
 msgid "Please verify your family's information"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:91
-#: Include/Header.php:147
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
 msgid "Private Space"
 msgstr ""
 
@@ -4542,12 +4542,12 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:149 PersonView.php:775
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:775
 #, fuzzy
 msgid "Change Password"
 msgstr "أعد إدخال كلمة السر"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:151 PersonView.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:773
 msgid "Change Settings"
 msgstr ""
 
@@ -4588,8 +4588,8 @@ msgstr "وصف الحدث"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:72
-#: v2/templates/map/MapUsingGoogle.php:118
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
 #: v2/templates/map/MapUsingLeaflet.php:66
 #: v2/templates/map/MapUsingLeaflet.php:114
 msgid "Calendar"
@@ -4674,7 +4674,7 @@ msgid "Sunday School"
 msgstr "الأحد"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:174
+#: Include/Footer.php:173
 msgid "Global Custom Menus"
 msgstr ""
 
@@ -5282,7 +5282,7 @@ msgstr "إضافة الدفع"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:182
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:183
 msgid "Print"
 msgstr ""
 
@@ -5328,7 +5328,7 @@ msgid "Person Properties"
 msgstr "البريد الإلكتروني الشخصي"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:144 PersonView.php:943
+#: Include/Footer.php:143 PersonView.php:943
 msgid "Volunteer Opportunities"
 msgstr ""
 
@@ -5423,7 +5423,7 @@ msgstr ""
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:132 PledgeEditor.php:646
+#: Include/Footer.php:131 PledgeEditor.php:646
 msgid "Other"
 msgstr ""
 
@@ -5530,7 +5530,7 @@ msgstr ""
 msgid "Unmet Application Prerequisites"
 msgstr ""
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:309
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
 msgid "Register Software"
 msgstr ""
 
@@ -6826,10 +6826,8 @@ msgstr ""
 msgid "Select"
 msgstr "حدد مجموعة"
 
-#: FamilyView.php:822 PersonView.php:1433
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:333
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:350
-#: QueryView.php:458 QueryView.php:475 v2/templates/group/groupview.php:341
+#: FamilyView.php:822 PersonView.php:1433 QueryView.php:458 QueryView.php:475
+#: v2/templates/group/groupview.php:341
 msgid "select an option"
 msgstr ""
 
@@ -7565,81 +7563,81 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: Include/Footer.php:73
+#: Include/Footer.php:72
 #, fuzzy
 msgid "Family Properties"
 msgstr "القرابة في الأسرة"
 
-#: Include/Footer.php:78
+#: Include/Footer.php:77
 #, fuzzy
 msgid "Edit Custom Family Fields"
 msgstr "حقول العائلة المخصصة"
 
-#: Include/Footer.php:85
+#: Include/Footer.php:84
 #, fuzzy
 msgid "Classifications Manager"
 msgstr "تصنيف"
 
-#: Include/Footer.php:90
+#: Include/Footer.php:89
 msgid "People Properties"
 msgstr ""
 
-#: Include/Footer.php:95
+#: Include/Footer.php:94
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "حقول الشخص المخصصة"
 
-#: Include/Footer.php:105 v2/templates/group/groupview.php:317
+#: Include/Footer.php:104 v2/templates/group/groupview.php:317
 msgid "Group Properties"
 msgstr ""
 
-#: Include/Footer.php:135
+#: Include/Footer.php:134
 msgid "Property Types"
 msgstr ""
 
-#: Include/Footer.php:154
+#: Include/Footer.php:153
 #, fuzzy
 msgid "Edit Donation Funds"
 msgstr "تحرير صندوق التبرعات"
 
-#: Include/Footer.php:164
+#: Include/Footer.php:163
 msgid "Pastoral Care Type"
 msgstr ""
 
-#: Include/Footer.php:189 Include/Footer.php:273
+#: Include/Footer.php:188 Include/Footer.php:272
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 
-#: Include/Footer.php:207 v2/templates/email/mailchimp/managelist.php:165
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:165
 msgid "Edit General Settings"
 msgstr ""
 
-#: Include/Footer.php:221
+#: Include/Footer.php:220
 msgid "System Users"
 msgstr ""
 
-#: Include/Footer.php:237 v2/routes/backup/restore.php:46
+#: Include/Footer.php:236 v2/routes/backup/restore.php:46
 msgid "Restore Database"
 msgstr ""
 
-#: Include/Footer.php:245 v2/routes/backup/backup.php:46
+#: Include/Footer.php:244 v2/routes/backup/backup.php:46
 msgid "Backup Database"
 msgstr "النسخ الاحتياطي لقاعدة البيانات"
 
-#: Include/Footer.php:284
+#: Include/Footer.php:283
 #, fuzzy
 msgid "CSV Export Records"
 msgstr "تصدير بصيغة CSV"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:296
 msgid "Open Tasks"
 msgstr ""
 
-#: Include/Footer.php:298
+#: Include/Footer.php:297
 msgid "You have"
 msgstr ""
 
-#: Include/Footer.php:299
+#: Include/Footer.php:298
 msgid "task(s)"
 msgstr ""
 
@@ -7763,53 +7761,53 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: Include/Header-function.php:181
+#: Include/Header-function.php:182
 msgid "Change columns"
 msgstr ""
 
-#: Include/Header.php:115
+#: Include/Header.php:116
 #, fuzzy
 msgid "Your Cart"
 msgstr "عرض سلة التسوق الخاصة بك"
 
-#: Include/Header.php:127
+#: Include/Header.php:128
 msgid "Your settings and more"
 msgstr ""
 
-#: Include/Header.php:153
+#: Include/Header.php:154
 msgid "Lock"
 msgstr ""
 
-#: Include/Header.php:155
+#: Include/Header.php:156
 msgid "Sign out"
 msgstr ""
 
-#: Include/Header.php:166
+#: Include/Header.php:167
 msgid "Help & Support"
 msgstr ""
 
-#: Include/Header.php:170
+#: Include/Header.php:171
 msgid "Help Center"
 msgstr ""
 
-#: Include/Header.php:172 Include/Header.php:174
+#: Include/Header.php:173 Include/Header.php:175
 msgid "Help & Manual"
 msgstr ""
 
-#: Include/Header.php:177 Include/Header.php:179
+#: Include/Header.php:178 Include/Header.php:180
 msgid "Report an issue"
 msgstr ""
 
-#: Include/Header.php:182 Include/Header.php:184
+#: Include/Header.php:183 Include/Header.php:185
 msgid "Developer Chat"
 msgstr "مطور الدردشة"
 
-#: Include/Header.php:188 Include/Header.php:189
+#: Include/Header.php:189 Include/Header.php:190
 #, fuzzy
 msgid "Contributing"
 msgstr "التوجيه"
 
-#: Include/Header.php:201
+#: Include/Header.php:202
 msgid "Your tasks"
 msgstr ""
 
@@ -8679,78 +8677,6 @@ msgstr ""
 msgid "Last Edited"
 msgstr "اسم العائلة"
 
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:30
-#: QueryView.php:32
-msgid "Query View"
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:100
-#: QueryView.php:102
-#, fuzzy
-msgid "This value is required."
-msgstr " مطلوبة"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:113
-#: QueryView.php:113
-msgid "This value must be numeric."
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:118
-#: QueryView.php:118
-msgid "This value must be at least "
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:123
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: QueryView.php:122 QueryView.php:135
-msgid "This value cannot be more than "
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:135 QueryView.php:139
-msgid " characters long"
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:139
-msgid "This value cannot be less than "
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:187
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:258
-#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
-msgid " record(s) returned"
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:268
-#: QueryView.php:293
-#, fuzzy
-msgid "Add To Cart"
-msgstr "إضافة إلى مجموعة"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:269
-#: QueryView.php:295
-#, fuzzy
-msgid "Intersect With Cart"
-msgstr "البنود مع "
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:270
-#: QueryView.php:297
-msgid "Remove From Cart"
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:277
-#: QueryView.php:302
-msgid "Run Query Again"
-msgstr ""
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:395
-#: QueryView.php:520
-#, fuzzy
-msgid "Execute Query"
-msgstr "لا يمكن تنفيذ طلب البحث."
-
 #: QueryList.php:27
 msgid "Query Listing"
 msgstr ""
@@ -8779,6 +8705,10 @@ msgstr ""
 msgid "An error occured: "
 msgstr ""
 
+#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
+msgid " record(s) returned"
+msgstr ""
+
 #: QuerySQL.php:186
 #, fuzzy
 msgid "Add Results To Cart"
@@ -8797,6 +8727,58 @@ msgstr "إنشاء دليل من عربة التسوق"
 #, fuzzy
 msgid "Return to Query Menu"
 msgstr "العودة إلى أحداث"
+
+#: QueryView.php:32
+msgid "Query View"
+msgstr ""
+
+#: QueryView.php:102
+#, fuzzy
+msgid "This value is required."
+msgstr " مطلوبة"
+
+#: QueryView.php:113
+msgid "This value must be numeric."
+msgstr ""
+
+#: QueryView.php:118
+msgid "This value must be at least "
+msgstr ""
+
+#: QueryView.php:122 QueryView.php:135
+msgid "This value cannot be more than "
+msgstr ""
+
+#: QueryView.php:135 QueryView.php:139
+msgid " characters long"
+msgstr ""
+
+#: QueryView.php:139
+msgid "This value cannot be less than "
+msgstr ""
+
+#: QueryView.php:293
+#, fuzzy
+msgid "Add To Cart"
+msgstr "إضافة إلى مجموعة"
+
+#: QueryView.php:295
+#, fuzzy
+msgid "Intersect With Cart"
+msgstr "البنود مع "
+
+#: QueryView.php:297
+msgid "Remove From Cart"
+msgstr ""
+
+#: QueryView.php:302
+msgid "Run Query Again"
+msgstr ""
+
+#: QueryView.php:520
+#, fuzzy
+msgid "Execute Query"
+msgstr "لا يمكن تنفيذ طلب البحث."
 
 #: ReminderReport.php:28 v2/templates/people/peopledashboard.php:198
 msgid "Pledge Reminder Report"
@@ -10481,7 +10463,7 @@ msgstr ""
 
 #: v2/templates/dashboard/maindashboard.php:144
 #: v2/templates/dashboard/maindashboard.php:169
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr ""
@@ -11165,42 +11147,42 @@ msgstr "إضافة عربة للمجموعة"
 msgid "Move Selected Members to Group"
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
+#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:16
 #: v2/templates/map/MapUsingLeaflet.php:21
 msgid "Missing Families?"
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:15
+#: v2/templates/map/MapUsingBing.php:23 v2/templates/map/MapUsingGoogle.php:16
 #: v2/templates/map/MapUsingLeaflet.php:21
 msgid "Update Family Latitude or Longitude now."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:29 v2/templates/map/MapUsingGoogle.php:21
+#: v2/templates/map/MapUsingBing.php:29 v2/templates/map/MapUsingGoogle.php:22
 #: v2/templates/map/MapUsingLeaflet.php:27
 msgid ""
 "Unable to display map due to missing Church Latitude or Longitude. Please "
 "update the church Address in the settings menu."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:36 v2/templates/map/MapUsingGoogle.php:28
+#: v2/templates/map/MapUsingBing.php:36 v2/templates/map/MapUsingGoogle.php:29
 msgid ""
 "Google Map API key is not set. The Map will work for smaller set of "
 "locations. Please create a Key in the maps sections of the setting menu."
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Missing Person Map classification icon for"
 msgstr ""
 
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:39
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr ""
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
-#: v2/templates/map/MapUsingGoogle.php:62
-#: v2/templates/map/MapUsingGoogle.php:105
+#: v2/templates/map/MapUsingGoogle.php:65
+#: v2/templates/map/MapUsingGoogle.php:111
 #: v2/templates/map/MapUsingLeaflet.php:56
 #: v2/templates/map/MapUsingLeaflet.php:101
 msgid "Legend"
@@ -12657,6 +12639,15 @@ msgstr "العربة فارغة"
 #, fuzzy
 msgid "pending"
 msgstr "تاريخ الزواج"
+
+msgid "dark"
+msgstr ""
+
+msgid "light"
+msgstr ""
+
+msgid "automatic"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Are you sure ? You're about to delete the selected"
