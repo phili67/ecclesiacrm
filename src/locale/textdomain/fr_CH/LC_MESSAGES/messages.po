@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-01 03:35+0000\n"
+"POT-Creation-Date: 2021-05-01 05:12+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12165,34 +12165,38 @@ msgid "The sidebar is collapse by default"
 msgstr "La barre latérale est refermée par défaut"
 
 #: userconfig_ucfg.php:11
-msgid "AdminLTE 3.0 sideBar style"
-msgstr "Style barre latérale AdminLTE 3.0"
+msgid "AdminLTE 3.0 font style"
+msgstr "Police AdminLTE 3.0"
 
 #: userconfig_ucfg.php:12
+msgid "AdminLTE 3.0 Theme sideBar style"
+msgstr "Thème barre latérale AdminLTE 3.0"
+
+#: userconfig_ucfg.php:13
 msgid "AdminLTE 3.0 sideBar color style"
 msgstr "Couleur barre latérale AdminLTE 3.0"
 
-#: userconfig_ucfg.php:13
+#: userconfig_ucfg.php:14
 msgid "AdminLTE 3.0 navbar color style"
 msgstr "Couleur barre navigation AdminLTE 3.0"
 
-#: userconfig_ucfg.php:14
+#: userconfig_ucfg.php:15
 msgid "AdminLTE 3.0 brand link color style"
 msgstr "Couleur Lien barre de navigation AdminLTE 3.0"
 
-#: userconfig_ucfg.php:15
+#: userconfig_ucfg.php:16
 msgid "AdminLTE 3.1 Dark Mode"
 msgstr "AdminLTE 3.1 mode sombre"
 
-#: userconfig_ucfg.php:16
+#: userconfig_ucfg.php:17
 msgid "AdminLTE 3.1 Dark Mode color style"
 msgstr "style AdminLTE 3.1 mode sombre"
 
-#: userconfig_ucfg.php:17
+#: userconfig_ucfg.php:18
 msgid "choice"
 msgstr "Choix"
 
-#: userconfig_ucfg.php:18
+#: userconfig_ucfg.php:19
 msgid "boolean"
 msgstr "booléen"
 
@@ -12294,6 +12298,69 @@ msgstr "clair"
 
 msgid "automatic"
 msgstr "automatique"
+
+msgid "blue"
+msgstr "bleue"
+
+msgid "secondary"
+msgstr "secondaire"
+
+msgid "green"
+msgstr "vert"
+
+msgid "cyan"
+msgstr "cyan"
+
+msgid "yellow"
+msgstr "jeaune"
+
+msgid "red"
+msgstr "rouge"
+
+msgid "fuchsia"
+msgstr "fuchsia"
+
+msgid "indigo"
+msgstr "indigo"
+
+msgid "navy"
+msgstr "marine"
+
+msgid "purple"
+msgstr "pourpre"
+
+msgid "pink"
+msgstr "rose"
+
+msgid "maroon"
+msgstr "marron"
+
+msgid "orange"
+msgstr "orange"
+
+msgid "lime"
+msgstr "citron vert"
+
+msgid "teal"
+msgstr "sarcelle"
+
+msgid "olive"
+msgstr "olive"
+
+msgid "black"
+msgstr "noir"
+
+msgid "gray-dark"
+msgstr "gris-foncé"
+
+msgid "gray"
+msgstr "gris"
+
+msgid "small"
+msgstr "petite"
+
+msgid "large"
+msgstr "grande"
 
 #~ msgid "Are you sure ? You're about to delete the selected"
 #~ msgstr "Êtes vous sûr de vouloir supprimer la sélection"
