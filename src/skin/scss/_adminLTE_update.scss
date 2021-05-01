@@ -299,3 +299,8 @@ scrollable bootbox body
 .main-header {
     border-bottom: 0px solid #dee2e6 !important;
 }
+
+/* bug correction right sidebar */
+#right-sidebar {
+    bottom: 0px !important;
+}
