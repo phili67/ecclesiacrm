@@ -157,8 +157,8 @@ msgstr ""
 msgid "gray"
 msgstr ""
 
-msgid "small"
+msgid "Small"
 msgstr ""
 
-msgid "large"
+msgid "Large"
 msgstr ""
