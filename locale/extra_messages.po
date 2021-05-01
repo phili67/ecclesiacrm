@@ -100,5 +100,65 @@ msgstr ""
 msgid "automatic"
 msgstr ""
 
+msgid "blue"
+msgstr ""
 
+msgid "secondary"
+msgstr ""
 
+msgid "green"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+msgid "red"
+msgstr ""
+
+msgid "fuchsia"
+msgstr ""
+
+msgid "indigo"
+msgstr ""
+
+msgid "navy"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "pink"
+msgstr ""
+
+msgid "maroon"
+msgstr ""
+
+msgid "orange"
+msgstr ""
+
+msgid "lime"
+msgstr ""
+
+msgid "teal"
+msgstr ""
+
+msgid "olive"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "gray-dark"
+msgstr ""
+
+msgid "gray"
+msgstr ""
+
+msgid "small"
+msgstr ""
+
+msgid "large"
+msgstr ""

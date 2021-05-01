@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-01 03:35+0000\n"
+"POT-Creation-Date: 2021-05-01 05:12+0000\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12766,34 +12766,38 @@ msgid "The sidebar is collapse by default"
 msgstr ""
 
 #: userconfig_ucfg.php:11
-msgid "AdminLTE 3.0 sideBar style"
+msgid "AdminLTE 3.0 font style"
 msgstr ""
 
 #: userconfig_ucfg.php:12
-msgid "AdminLTE 3.0 sideBar color style"
+msgid "AdminLTE 3.0 Theme sideBar style"
 msgstr ""
 
 #: userconfig_ucfg.php:13
-msgid "AdminLTE 3.0 navbar color style"
+msgid "AdminLTE 3.0 sideBar color style"
 msgstr ""
 
 #: userconfig_ucfg.php:14
-msgid "AdminLTE 3.0 brand link color style"
+msgid "AdminLTE 3.0 navbar color style"
 msgstr ""
 
 #: userconfig_ucfg.php:15
-msgid "AdminLTE 3.1 Dark Mode"
+msgid "AdminLTE 3.0 brand link color style"
 msgstr ""
 
 #: userconfig_ucfg.php:16
-msgid "AdminLTE 3.1 Dark Mode color style"
+msgid "AdminLTE 3.1 Dark Mode"
 msgstr ""
 
 #: userconfig_ucfg.php:17
-msgid "choice"
+msgid "AdminLTE 3.1 Dark Mode color style"
 msgstr ""
 
 #: userconfig_ucfg.php:18
+msgid "choice"
+msgstr ""
+
+#: userconfig_ucfg.php:19
 msgid "boolean"
 msgstr ""
 
@@ -12910,6 +12914,72 @@ msgid "light"
 msgstr "Jobbra"
 
 msgid "automatic"
+msgstr ""
+
+msgid "blue"
+msgstr ""
+
+#, fuzzy
+msgid "secondary"
+msgstr "Hétfőnként"
+
+msgid "green"
+msgstr ""
+
+msgid "cyan"
+msgstr ""
+
+msgid "yellow"
+msgstr ""
+
+#, fuzzy
+msgid "red"
+msgstr "Új fájl"
+
+msgid "fuchsia"
+msgstr ""
+
+msgid "indigo"
+msgstr ""
+
+msgid "navy"
+msgstr ""
+
+msgid "purple"
+msgstr ""
+
+msgid "pink"
+msgstr ""
+
+msgid "maroon"
+msgstr ""
+
+#, fuzzy
+msgid "orange"
+msgstr "Változtatások mentése"
+
+msgid "lime"
+msgstr ""
+
+msgid "teal"
+msgstr ""
+
+msgid "olive"
+msgstr ""
+
+msgid "black"
+msgstr ""
+
+msgid "gray-dark"
+msgstr ""
+
+msgid "gray"
+msgstr ""
+
+msgid "small"
+msgstr ""
+
+msgid "large"
 msgstr ""
 
 #, fuzzy
