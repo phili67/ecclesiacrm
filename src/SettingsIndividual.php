@@ -371,7 +371,7 @@ $numberRow = 0;
                                 as $choice) {
                                 ?>
                                 <option
-                                    value="<?= $choice ?>"<?= (($config->getValue() == $choice) ? ' selected' : '') ?>><?= $choice ?>
+                                    value="<?= $choice ?>"<?= (($config->getValue() == $choice) ? ' selected' : '') ?>><?= _($choice) ?>
                                     <?php
                                     }
                                     ?>
