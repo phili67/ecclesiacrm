@@ -653,9 +653,9 @@ if (SessionUser::getUser()->isNotesEnabled()) {
 <?php
         }
 
-        if (strlen($note->getDateLastEdited())) {
+        if (!is_null($note->getDateLastEdited())) {
 ?>
-      <span class="SmallText"><?= _('Last Edited').(OutputUtils::FormatDate($note->getDateLastEdited(), true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName ?></span><br>
+      <span class="SmallText"><?= _('Last Edited').(OutputUtils::FormatDate($note->getDateLastEdited()->format('Y-m-d'), true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName ?></span><br>
 
 <?php
         }
