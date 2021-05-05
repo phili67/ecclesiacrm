@@ -108,4 +108,7 @@ require __DIR__ . '/routes/meeting/meeting.php';
 // fundraiser
 require __DIR__ . '/routes/fundraiser/fundraiser.php';
 
+// errors
+require __DIR__ . '/routes/error/error.php';
+
 $app->run();

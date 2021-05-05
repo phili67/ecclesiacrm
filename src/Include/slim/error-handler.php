@@ -34,7 +34,11 @@ $customNotFoundErrorHandler = function (
     bool $logErrorDetails
 ) use ($app) {
     $response = $app->getResponseFactory()->createResponse();
-    $response->getBody()->write("Can't find route for " . $request->getMethod() . ' on ' . $request->getUri() );
+    if ( strstr( $request->getUri(), '/api/' ) ) {
+        $response->getBody()->write("Can't find route for " . $request->getMethod() . ' on ' . $request->getUri());
+    } else {
+        $response = $response->withRedirect('/v2/error/404/' . $request->getMethod() . '/' . str_replace('/', ' ', $request->getUri()));
+    }
     return $response->withStatus(404);
 };
 
