@@ -140,7 +140,7 @@ if (isset($_POST['Action'])) {
             <div class="col-sm-6">
                 <form action="#" method="get" class="sidebar-form">
                     <label for="addPersonMember"><?= _('Add Event Member') ?> :</label>
-                    <select class="form-control personGroupSearch" name="addPersonGroupSearch" style="width:100%">
+                    <select class="form-control personGroupSearch" id="personGroupSearch" name="addPersonGroupSearch" style="width:100%">
                     </select>
                 </form>
             </div>
