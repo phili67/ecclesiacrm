@@ -709,19 +709,21 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if ($iFamily > 0) {
             $fam = FamilyQuery::Create()->findOneById($iFamily);
 
-            $bFamilyAddress1 = strlen($fam->getAddress1());
-            $bFamilyAddress2 = strlen($fam->getAddress2());
-            $bFamilyCity = strlen($fam->getCity());
-            $bFamilyState = strlen($fam->getState());
-            $bFamilyZip = strlen($fam->getZip());
-            $bFamilyCountry = strlen($fam->getCountry());
-            $bFamilyHomePhone = strlen($fam->getHomePhone());
-            $bFamilyWorkPhone = strlen($fam->getWorkPhone());
-            $bFamilyCellPhone = strlen($fam->getCellPhone());
-            $bFamilyEmail = strlen($fam->getEmail());
+            if ( !is_null($fam) ) {
+                $bFamilyAddress1 = strlen($fam->getAddress1());
+                $bFamilyAddress2 = strlen($fam->getAddress2());
+                $bFamilyCity = strlen($fam->getCity());
+                $bFamilyState = strlen($fam->getState());
+                $bFamilyZip = strlen($fam->getZip());
+                $bFamilyCountry = strlen($fam->getCountry());
+                $bFamilyHomePhone = strlen($fam->getHomePhone());
+                $bFamilyWorkPhone = strlen($fam->getWorkPhone());
+                $bFamilyCellPhone = strlen($fam->getCellPhone());
+                $bFamilyEmail = strlen($fam->getEmail());
 
-            $bOkToCanvass = ($fam->getOkToCanvass() == 'TRUE');
-            $iCanvasser = $fam->getCanvasser();
+                $bOkToCanvass = ($fam->getOkToCanvass() == 'TRUE');
+                $iCanvasser = $fam->getCanvasser();
+            }
         }
 
         $bFacebookID = $iFacebookID != 0;
