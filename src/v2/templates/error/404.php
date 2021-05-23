@@ -18,6 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <p>
                 <?= gettext("for")?> : <?= str_replace(' ', '/',$uri) ?>
+                <?= gettext("Meanwhile, you may")?> <a href="<?= SystemURLs::getRootPath() ?>/v2/dashboard"> <?= gettext("return to member dashboard") ?></a>
             </p>
         </div>
     </div>
