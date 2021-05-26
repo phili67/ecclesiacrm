@@ -452,8 +452,8 @@ foreach ($allMonths as $mVal) {
                               }
                             ?>
                                             <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                                            <button type="submit" name="Action" title="<?=_('Make Check-out') ?>" data-tooltip value="<?=_('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
-                                              <i class='fa fa-check-circle'></i> <?= _("Make Check-out") ?>
+                                            <button type="submit"  title="<?=_('Make Check-out') ?>" data-tooltip value="<?=_('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"danger":"success" ?> btn-sm" <?= ($attNumRows[$row]-$realAttCheckOut[$row] == 0)?"disabled":"" ?>>
+                                              <i class='fa fa-check-circle'></i> <?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?_("Make Check-out"):_("Check-out done") ?>
                                             </button>
                             <?php
                               if ($aEventRights[$row]) {
