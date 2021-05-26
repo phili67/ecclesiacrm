@@ -81,8 +81,8 @@ class PDF_Badge extends PDF_Label
 
 // Create generic label
         $label = Label::create('EcclesiaCRM')
-            ->setTextColor(new Color(255, 0, 0))
-            ->setBackgroundColor(new Color(0, 0, 0));
+            ->setTextColor(new Color(0, 0, 0));
+            //->setBackgroundColor(new Color(0, 0, 0));
 
         $result = $writer->write($qrCode, null, $label);
 
