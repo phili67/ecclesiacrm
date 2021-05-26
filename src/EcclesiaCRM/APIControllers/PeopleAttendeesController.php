@@ -31,6 +31,8 @@ use EcclesiaCRM\EventCounts;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
+use EcclesiaCRM\MyVCalendar\VCalendarExtension;
+
 use EcclesiaCRM\MyPDO\CalDavPDO;
 
 class PeopleAttendeesController
@@ -376,7 +378,7 @@ class PeopleAttendeesController
 
             $dateTime_End = new \DateTime($requestValues->dateTime);
 
-            $interval = new DateInterval("PT" . $requestValues->rangeInHours . "H");
+            $interval = new \DateInterval("PT" . $requestValues->rangeInHours . "H");
 
             $dateTime_End->add($interval);
 
@@ -409,7 +411,7 @@ class PeopleAttendeesController
 
                 $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
-                $vcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+                $vcalendar = new VCalendarExtension();
 
                 $vcalendar->add(
                     'VEVENT', [
@@ -612,7 +614,7 @@ class PeopleAttendeesController
 
             $dateTime_End = new \DateTime($requestValues->dateTime);
 
-            $interval = new DateInterval("PT" . $requestValues->rangeInHours . "H");
+            $interval = new \DateInterval("PT" . $requestValues->rangeInHours . "H");
 
             $dateTime_End->add($interval);
 
@@ -653,7 +655,7 @@ class PeopleAttendeesController
 
                         $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
 
-                        $vcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+                        $vcalendar = new VCalendarExtension();
 
                         $vcalendar->add(
                             'VEVENT', [
