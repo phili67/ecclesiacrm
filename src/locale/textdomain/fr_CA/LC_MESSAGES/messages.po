@@ -4456,15 +4456,15 @@ msgstr "Notification"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
 msgid "Guardian(s) of"
-msgstr "Gardien(s) de"
+msgstr "responsable(s) de"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "A notification was triggered by the classroom teacher at"
-msgstr "Une notification a été déclenchée par le moniteur de classe à"
+msgstr "Une notification a été émise par le moniteur de groupe école du dimanche à"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "Please go to this location"
-msgstr "Allez à l'emplacement"
+msgstr "Vous pourrez vous rendre sur les lieux"
 
 #: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
 msgid "Your Account was Deleted"
