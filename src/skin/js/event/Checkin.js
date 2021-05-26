@@ -558,4 +558,7 @@ $(document).ready(function () {
         }, 8000
     );
 
+    $(document).on("click", "#addVisitor", function () {
+        window.location = window.CRM.root + '/PersonEditor.php';
+    });
 });
