@@ -147,7 +147,7 @@ window.CRM.kiosk = {
                     title = Assignment.Event.Title;
                 } else {
                     $("#noEvent").show();
-                    $("#noEvent").html('No assignments for kiosk : ' + data.Name);
+                    $("#noEvent").html(i18next.t('No assignments for kiosk') + ' : ' + data.Name);
                     $("#event").hide();
                 }
             } else {
