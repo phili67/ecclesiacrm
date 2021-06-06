@@ -76,9 +76,10 @@ if (SessionUser::getUser()->isAddRecords()) {
             || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
             <a class="btn btn-app bg-orange callRegister disabled" id="callRegister"
-               data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"> <i
+               data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"
+               data-toggle="tooltip"  data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate an event of this Sunday school class to call the register.") ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Call the register') ?></span></a>
+                    class="cartActionDescription"><?= _('Create Event & Call the register') ?></span></a>
             <?php
         }
         ?>

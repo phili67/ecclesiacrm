@@ -134,9 +134,10 @@ require $sRootDocument . '/Include/Header.php';
             || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
             <a class="btn btn-app bg-orange callRegister" id="callRegister"
-               data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"> <i
+               data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"
+               data-toggle="tooltip"  data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.") ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Call the register') ?></span></a>
+                    class="cartActionDescription"><?= _('Create Events & Call the register') ?></span></a>
             <?php
         }
 

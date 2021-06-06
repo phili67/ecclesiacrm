@@ -1029,7 +1029,15 @@ $("document").ready(function () {
                 }
             };
 
-            boxOptions.message += '<center>' + i18next.t("You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.") + '</center><br>';
+            boxOptions.message += '<center>' +
+                '<p style="color:red">'+
+                i18next.t('Be careful! You are about to create or recreate an event of this Sunday school class to call the register.')+
+                "<br/>" +
+                i18next.t('If the event are already created, go to the "Events" menu and then "Call the register".')+
+                '</p>' +
+                '<br/>' +
+                i18next.t("You can create the event automatically with the students<br> " +
+                "- OR - <br>Add the students to the cart and create an event to add them after.") + '</center><br>';
             boxOptions.message += '<select class="bootbox-input bootbox-input-select form-control" id="chosenType">';
             for (i = 0; i < lenType; i++) {
                 boxOptions.message += '<option value="' + typeNames[i].eventTypeID + '">' + typeNames[i].name + '</option>';

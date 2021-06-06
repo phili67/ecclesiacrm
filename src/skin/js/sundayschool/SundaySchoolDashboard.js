@@ -93,7 +93,14 @@ $("document").ready(function() {
         var dateAttendees = moment(start).format(fmt);
 
 
-        var frm_str = '<b><p>' + i18next.t("First, set your date and time.") + '</p></b><hr/><form id="some-form">'
+        var frm_str = '<b>' +
+            '<p style="color:red">'+
+            i18next.t('Be careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.')+
+            "<br/>" +
+            i18next.t('If the events are already created, go to the "Events" menu and then "Call the register".')+
+            '</p>' +
+            '<p>' + i18next.t("First, set your date and time.") + '</p>' +
+            '</b><hr/><form id="some-form">'
             + '<div class="row">'
             + '     <div class="col-md-12">'
             + '         <div class="row">'
