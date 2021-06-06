@@ -95,7 +95,7 @@ $("document").ready(function() {
 
         var frm_str = '<b>' +
             '<p style="color:red">'+
-            i18next.t('Be careful! You are about to create or recreate all the events of all the Sunday school classes to make the call.')+
+            i18next.t('Be careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.')+
             "<br/>" +
             i18next.t('If the events are already created, go to the "Events" menu and then "Call the register".')+
             '</p>' +
