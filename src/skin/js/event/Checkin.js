@@ -229,6 +229,7 @@ $(document).ready(function () {
             "language": {
                 "url": window.CRM.plugin.dataTable.language.url
             },
+            //pageLength: 50,
             responsive: true,
             ajax: {
                 url: window.CRM.root + "/api/attendees/event/" + window.CRM.EventID,
@@ -333,6 +334,12 @@ $(document).ready(function () {
         $.extend(dataTableConfig, window.CRM.plugin.dataTable);
 
         window.CRM.dataT = $("#checkedinTable").DataTable(dataTableConfig);
+
+        $('#checkedinTable').DataTable().page.len(50).draw();
+
+        $("#page-length-select").change(function(){
+            $('#checkedinTable').DataTable().page.len($(this).val()).draw();
+        });
 
         var theme = 'n1theme,/skin/js/ckeditor/themes/n1theme/';
         if (window.CRM.bDarkMode) {
@@ -554,7 +561,7 @@ $(document).ready(function () {
 
 
     setInterval(function(){
-        window.CRM.dataT.ajax.reload(null, false);
+            window.CRM.dataT.ajax.reload(null, false);
         }, 8000
     );
 
