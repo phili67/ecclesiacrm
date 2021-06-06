@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 08:27+0200\n"
+"POT-Creation-Date: 2021-06-06 18:42+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -174,7 +174,7 @@ msgstr "Không hoạt động"
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:257
+#: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/user/userlist.php:49
 #, fuzzy
 msgid "First Name"
@@ -185,7 +185,7 @@ msgstr "Tên"
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:926 Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
-#: v2/templates/sundayschool/sundayschooldashboard.php:258
+#: v2/templates/sundayschool/sundayschooldashboard.php:259
 #, fuzzy
 msgid "Last Name"
 msgstr "Họ"
@@ -326,7 +326,7 @@ msgid "Save"
 msgstr "Lưu lại"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:373 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
@@ -334,7 +334,7 @@ msgstr "Lưu lại"
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
 #: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:869
 #: UserEditor.php:1016 v2/templates/fundraiser/donatedItemEditor.php:178
-#: v2/templates/sundayschool/sundayschooldashboard.php:330
+#: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
 msgstr "Hủy bỏ"
@@ -863,11 +863,11 @@ msgstr "Giỏ hàng của bạn đang trống!"
 msgid "Call the Register"
 msgstr ""
 
-#: Checkin.php:133 ListEvents.php:115
+#: Checkin.php:132 ListEvents.php:115
 msgid "Add New Event"
 msgstr "Thêm sự kiện mới"
 
-#: Checkin.php:136
+#: Checkin.php:135
 msgid "QR Code Call"
 msgstr ""
 
@@ -875,124 +875,129 @@ msgstr ""
 msgid "Kiosk Manager"
 msgstr ""
 
-#: Checkin.php:142
+#: Checkin.php:143
 #, fuzzy
 msgid "Edit Attendees"
 msgstr "Người tham dự sự kiện"
 
-#: Checkin.php:161
+#: Checkin.php:162
 #, fuzzy
 msgid "Select the event to which you would like to check people in for"
 msgstr "Chọn sự kiện mà bạn muốn thêm vào giỏ hàng của bạn"
 
-#: Checkin.php:166
+#: Checkin.php:167
 msgid "Select Event"
 msgstr "Lựa chọn sự kiện"
 
-#: Checkin.php:180
+#: Checkin.php:181
 #, fuzzy
 msgid "Select event"
 msgstr "Lựa chọn sự kiện"
 
-#: Checkin.php:207 FamilyView.php:887 PersonView.php:1577
+#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
 #, fuzzy
 msgid "From"
 msgstr "Gửi từ:"
 
-#: Checkin.php:207 FamilyView.php:896 PersonView.php:1586
+#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
 #, fuzzy
 msgid "To"
 msgstr "Gửi đến:"
 
-#: Checkin.php:232
+#: Checkin.php:233
 #, fuzzy
 msgid "Set your free attendees"
 msgstr "Người không tham dự sự kiện"
 
-#: Checkin.php:245
+#: Checkin.php:246
 msgid "You can set here the attendees for some group of persons."
 msgstr ""
 
-#: Checkin.php:250
+#: Checkin.php:251
 #, fuzzy
 msgid "Set your attendees Event"
 msgstr "Người không tham dự sự kiện"
 
-#: Checkin.php:281
+#: Checkin.php:283
 #, fuzzy
 msgid "Your description"
 msgstr "Mô tả"
 
-#: Checkin.php:292
+#: Checkin.php:294
 msgid "Add Free Attendees Count"
 msgstr ""
 
-#: Checkin.php:319
+#: Checkin.php:321
 msgid "Add single child/parents Attendees"
 msgstr ""
 
-#: Checkin.php:331
+#: Checkin.php:333
 #, fuzzy
 msgid "Add Attendees for Event"
 msgstr "Thêm vào giỏ hàng rồi gửi đến Sự kiện"
 
-#: Checkin.php:336 Checkin.php:343
+#: Checkin.php:338 Checkin.php:345
 #, fuzzy
 msgid "Person's Name"
 msgstr "Tên thành viên"
 
-#: Checkin.php:353
+#: Checkin.php:355
 msgid "Adult Name(Optional)"
 msgstr ""
 
-#: Checkin.php:360
+#: Checkin.php:362
 msgid "Checked in By(Optional)"
 msgstr ""
 
-#: Checkin.php:369
+#: Checkin.php:371
 #, fuzzy
 msgid "Add and Checkin"
 msgstr "Ngày sự kiện"
 
-#: Checkin.php:378
+#: Checkin.php:381
 #, fuzzy
 msgid "Add Visitor"
 msgstr "Thêm vào giỏ"
 
-#: Checkin.php:400
+#: Checkin.php:403
 msgid "Listing"
 msgstr "Danh sách"
 
-#: Checkin.php:407
+#: Checkin.php:409
+#, fuzzy
+msgid "Number of rows"
+msgstr "Thành viên tham dự"
+
+#: Checkin.php:430
 #, fuzzy
 msgid "Checkin"
 msgstr "Ngày sự kiện"
 
-#: Checkin.php:411 Checkin.php:422
+#: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:90
 #: v2/templates/user/userlist.php:171
 #, fuzzy
 msgid "Check all"
 msgstr "Lựa chọn tất cả"
 
-#: Checkin.php:415 Checkin.php:426
+#: Checkin.php:438 Checkin.php:449
 msgid "Uncheck all"
 msgstr ""
 
-#: Checkin.php:418
+#: Checkin.php:441
 msgid "Checkout"
 msgstr ""
 
-#: Checkin.php:433
+#: Checkin.php:456
 #, fuzzy
 msgid "Add some notes"
 msgstr "Thêm ghi chú"
 
-#: Checkin.php:440
+#: Checkin.php:463
 msgid "Validate Attendance"
 msgstr ""
 
-#: Checkin.php:454 EditEventAttendees.php:178
+#: Checkin.php:477 EditEventAttendees.php:178
 msgid "Return to Events"
 msgstr "Quay về sự kiện"
 
@@ -1136,8 +1141,8 @@ msgstr "Sử dụng Ctrl Key để chọn nhiều"
 #: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:210
-#: v2/templates/sundayschool/sundayschoolview.php:302 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Giới tính"
 
@@ -1261,8 +1266,8 @@ msgstr "Email làm việc/khác"
 
 #: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:259
-#: v2/templates/sundayschool/sundayschoolview.php:301
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
 msgid "Birth Date"
 msgstr "Năm sinh"
 
@@ -5061,7 +5066,7 @@ msgstr "Năm sinh"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: PrintPastoralCarePerson.php:450 PrintView.php:461
 #: Reports/CanvassReports.php:277
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Age"
 msgstr "Tuổi"
 
@@ -5080,8 +5085,8 @@ msgstr "Trạng thái"
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:207
-#: v2/templates/sundayschool/sundayschoolview.php:142
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
 msgid "Teachers"
 msgstr "Giáo viên"
 
@@ -5138,8 +5143,8 @@ msgstr ""
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:234
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
 msgid "Students"
 msgstr "Học sinh"
 
@@ -5228,9 +5233,9 @@ msgstr "Địa chỉ"
 #: v2/templates/people/personlist.php:101
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:295
 #: v2/templates/sundayschool/sundayschooldashboard.php:296
 #: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
 #, fuzzy
 msgid "Private Data"
 msgstr "Giữ điều này riêng tư"
@@ -6422,7 +6427,7 @@ msgstr "Xác nhận"
 
 #: external/templates/verify/verify-family-info.php:34
 #: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
 #, fuzzy
 msgid "Home Address"
 msgstr "Địa chỉ"
@@ -10554,7 +10559,7 @@ msgid "See All People"
 msgstr "Xem tất cả thành viên"
 
 #: v2/templates/dashboard/maindashboard.php:82
-#: v2/templates/sundayschool/sundayschooldashboard.php:193
+#: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Lớp học Trường Chúa Nhật"
 
@@ -11128,7 +11133,7 @@ msgid "Delete this Group"
 msgstr "Xóa bỏ"
 
 #: v2/templates/group/groupview.php:109
-#: v2/templates/sundayschool/sundayschoolview.php:100
+#: v2/templates/sundayschool/sundayschoolview.php:101
 msgid "Create here your badges or QR-Code to call the register with them"
 msgstr ""
 
@@ -11238,7 +11243,7 @@ msgid "Group Members:"
 msgstr "Thành viên Ban/Mục vụ:"
 
 #: v2/templates/group/groupview.php:446
-#: v2/templates/sundayschool/sundayschoolview.php:237
+#: v2/templates/sundayschool/sundayschoolview.php:238
 #, fuzzy
 msgid "Remove members"
 msgstr "Thành viên tham dự"
@@ -11249,9 +11254,9 @@ msgid "Manage Group Members"
 msgstr "Thành viên Ban/Mục vụ:"
 
 #: v2/templates/group/groupview.php:467
-#: v2/templates/sundayschool/sundayschooldashboard.php:332
-#: v2/templates/sundayschool/sundayschoolview.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:276
+#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschoolview.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:277
 #, fuzzy
 msgid "Add"
 msgstr "Địa chỉ"
@@ -11518,7 +11523,7 @@ msgstr "Trường Chúa Nhật thiếu nhi"
 #: v2/templates/people/peopledashboard.php:173
 #: v2/templates/people/peopledashboard.php:227
 #: v2/templates/people/peopledashboard.php:234
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Báo cáo"
 
@@ -11820,68 +11825,73 @@ msgstr ""
 msgid "Add New Class"
 msgstr "Thêm lớp mới"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:139
-#: v2/templates/sundayschool/sundayschoolview.php:81
-msgid "Call the register"
+#: v2/templates/sundayschool/sundayschooldashboard.php:138
+msgid ""
+"Be Careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:140
+msgid "Create Events & Call the register"
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "Generate class lists and attendance sheets"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:154
+#: v2/templates/sundayschool/sundayschooldashboard.php:155
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:155
+#: v2/templates/sundayschool/sundayschooldashboard.php:156
 msgid "Export to CSV"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:111
+#: v2/templates/sundayschool/sundayschooldashboard.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:112
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:168
-#: v2/templates/sundayschool/sundayschoolview.php:117
+#: v2/templates/sundayschool/sundayschooldashboard.php:169
+#: v2/templates/sundayschool/sundayschoolview.php:118
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:176
-#: v2/templates/sundayschool/sundayschoolview.php:126
+#: v2/templates/sundayschool/sundayschooldashboard.php:177
+#: v2/templates/sundayschool/sundayschoolview.php:127
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:181
-#: v2/templates/sundayschool/sundayschoolview.php:132
+#: v2/templates/sundayschool/sundayschooldashboard.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:133
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:206
+#: v2/templates/sundayschool/sundayschooldashboard.php:207
 #: queryparameters_qrp.php:12
 #, fuzzy
 msgid "Class"
 msgstr "Lớp học"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:243
+#: v2/templates/sundayschool/sundayschooldashboard.php:244
 #, fuzzy
 msgid "Students not in a Sunday School Class"
 msgstr "Lớp học Trường Chúa Nhật"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:318
+#: v2/templates/sundayschool/sundayschooldashboard.php:319
 #, fuzzy
 msgid "Add Sunday School Class"
 msgstr "Lớp học Trường Chúa Nhật"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:324
+#: v2/templates/sundayschool/sundayschooldashboard.php:325
 #, fuzzy
 msgid "Enter Name"
 msgstr "Tên ngân hàng"
@@ -11983,57 +11993,67 @@ msgstr "Chỉnh sửa"
 msgid "Delete this Class"
 msgstr "Chỉnh sửa"
 
-#: v2/templates/sundayschool/sundayschoolview.php:90
-#: v2/templates/sundayschool/sundayschoolview.php:97
+#: v2/templates/sundayschool/sundayschoolview.php:80
+msgid ""
+"Be Careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschoolview.php:82
+msgid "Create Event & Call the register"
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschoolview.php:91
+#: v2/templates/sundayschool/sundayschoolview.php:98
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Người tham dự sự kiện"
 
-#: v2/templates/sundayschool/sundayschoolview.php:102
+#: v2/templates/sundayschool/sundayschoolview.php:103
 #, fuzzy
 msgid "Student Badges"
 msgstr "Học sinh"
 
-#: v2/templates/sundayschool/sundayschoolview.php:158
+#: v2/templates/sundayschool/sundayschoolview.php:159
 #, fuzzy
 msgid "Add Teachers to the Team"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:183
 #, fuzzy
 msgid "Quick Status"
 msgstr "Cài đặt nhanh"
 
-#: v2/templates/sundayschool/sundayschoolview.php:196
+#: v2/templates/sundayschool/sundayschoolview.php:197
 msgid "Birthdays by Month"
 msgstr "Ngày sinh theo tháng"
 
-#: v2/templates/sundayschool/sundayschoolview.php:223
+#: v2/templates/sundayschool/sundayschoolview.php:224
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:241
+#: v2/templates/sundayschool/sundayschoolview.php:242
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Tháng hết hạn"
 
-#: v2/templates/sundayschool/sundayschoolview.php:243
+#: v2/templates/sundayschool/sundayschoolview.php:244
 msgid "On"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:244
+#: v2/templates/sundayschool/sundayschoolview.php:245
 msgid "Off"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:252
+#: v2/templates/sundayschool/sundayschoolview.php:253
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:256
+#: v2/templates/sundayschool/sundayschoolview.php:257
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:273
+#: v2/templates/sundayschool/sundayschoolview.php:274
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Thêm thành viên đã lựa chọn đến Ban/Mục vụ"

@@ -215,7 +215,7 @@ Header_system_notifications();
             <img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" alt="EcclesiaCRM Logo"
                  class="brand-image img-circle elevation-3" style="opacity: .8">
             <span
-                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> B9</span>
+                class="brand-text font-weight-light">Ecclesia<b>CRM</b> <?= SystemService::getDBMainVersion() ?> RC1n</span>
         </a>
 
         <section class="sidebar">

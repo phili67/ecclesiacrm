@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 08:27+0200\n"
+"POT-Creation-Date: 2021-06-06 18:42+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,7 +173,7 @@ msgstr "tétlen"
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:257
+#: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/user/userlist.php:49
 #, fuzzy
 msgid "First Name"
@@ -184,7 +184,7 @@ msgstr "Vezetéknév"
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:926 Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
-#: v2/templates/sundayschool/sundayschooldashboard.php:258
+#: v2/templates/sundayschool/sundayschooldashboard.php:259
 #, fuzzy
 msgid "Last Name"
 msgstr "Vezetéknév"
@@ -326,7 +326,7 @@ msgid "Save"
 msgstr "Kivéve"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:373 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
@@ -334,7 +334,7 @@ msgstr "Kivéve"
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
 #: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:869
 #: UserEditor.php:1016 v2/templates/fundraiser/donatedItemEditor.php:178
-#: v2/templates/sundayschool/sundayschooldashboard.php:330
+#: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
 msgstr "Töröl"
@@ -873,11 +873,11 @@ msgstr "Az Ön kosara üres!"
 msgid "Call the Register"
 msgstr ""
 
-#: Checkin.php:133 ListEvents.php:115
+#: Checkin.php:132 ListEvents.php:115
 msgid "Add New Event"
 msgstr "Új esemény hozzáadása"
 
-#: Checkin.php:136
+#: Checkin.php:135
 msgid "QR Code Call"
 msgstr ""
 
@@ -886,130 +886,135 @@ msgstr ""
 msgid "Kiosk Manager"
 msgstr "Boríték menedzser"
 
-#: Checkin.php:142
+#: Checkin.php:143
 #, fuzzy
 msgid "Edit Attendees"
 msgstr "Event Résztvevők"
 
-#: Checkin.php:161
+#: Checkin.php:162
 #, fuzzy
 msgid "Select the event to which you would like to check people in for"
 msgstr ""
 "Válassza ki az eseményt, amelyre szeretné, hogy ellenőrizze az emberek "
 "számára"
 
-#: Checkin.php:166
+#: Checkin.php:167
 msgid "Select Event"
 msgstr "Válassza Event"
 
-#: Checkin.php:180
+#: Checkin.php:181
 #, fuzzy
 msgid "Select event"
 msgstr "Válassza Event"
 
-#: Checkin.php:207 FamilyView.php:887 PersonView.php:1577
+#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
 #, fuzzy
 msgid "From"
 msgstr "Feladó:"
 
-#: Checkin.php:207 FamilyView.php:896 PersonView.php:1586
+#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
 #, fuzzy
 msgid "To"
 msgstr "Címzett:"
 
-#: Checkin.php:232
+#: Checkin.php:233
 #, fuzzy
 msgid "Set your free attendees"
 msgstr "Event Nonattendees"
 
-#: Checkin.php:245
+#: Checkin.php:246
 msgid "You can set here the attendees for some group of persons."
 msgstr ""
 
-#: Checkin.php:250
+#: Checkin.php:251
 #, fuzzy
 msgid "Set your attendees Event"
 msgstr "Event Nonattendees"
 
-#: Checkin.php:281
+#: Checkin.php:283
 #, fuzzy
 msgid "Your description"
 msgstr "Leírás"
 
-#: Checkin.php:292
+#: Checkin.php:294
 #, fuzzy
 msgid "Add Free Attendees Count"
 msgstr "Részvétel számít"
 
-#: Checkin.php:319
+#: Checkin.php:321
 msgid "Add single child/parents Attendees"
 msgstr ""
 
-#: Checkin.php:331
+#: Checkin.php:333
 #, fuzzy
 msgid "Add Attendees for Event"
 msgstr "Nem Résztvevők Hozzárendelve Event"
 
-#: Checkin.php:336 Checkin.php:343
+#: Checkin.php:338 Checkin.php:345
 #, fuzzy
 msgid "Person's Name"
 msgstr "Képviselő neve"
 
-#: Checkin.php:353
+#: Checkin.php:355
 msgid "Adult Name(Optional)"
 msgstr ""
 
-#: Checkin.php:360
+#: Checkin.php:362
 #, fuzzy
 msgid "Checked in By(Optional)"
 msgstr "Kockás által"
 
-#: Checkin.php:369
+#: Checkin.php:371
 #, fuzzy
 msgid "Add and Checkin"
 msgstr "Event Checkin"
 
-#: Checkin.php:378
+#: Checkin.php:381
 msgid "Add Visitor"
 msgstr "Add Visitor"
 
-#: Checkin.php:400
+#: Checkin.php:403
 #, fuzzy
 msgid "Listing"
 msgstr "Felhasználó Listing"
 
-#: Checkin.php:407
+#: Checkin.php:409
+#, fuzzy
+msgid "Number of rows"
+msgstr "Oszlopok száma"
+
+#: Checkin.php:430
 #, fuzzy
 msgid "Checkin"
 msgstr "Bejelentkezés-"
 
-#: Checkin.php:411 Checkin.php:422
+#: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:90
 #: v2/templates/user/userlist.php:171
 #, fuzzy
 msgid "Check all"
 msgstr "Ellenőrzés"
 
-#: Checkin.php:415 Checkin.php:426
+#: Checkin.php:438 Checkin.php:449
 msgid "Uncheck all"
 msgstr ""
 
-#: Checkin.php:418
+#: Checkin.php:441
 #, fuzzy
 msgid "Checkout"
 msgstr "CheckOut"
 
-#: Checkin.php:433
+#: Checkin.php:456
 #, fuzzy
 msgid "Add some notes"
 msgstr "Add Fizetés"
 
-#: Checkin.php:440
+#: Checkin.php:463
 #, fuzzy
 msgid "Validate Attendance"
 msgstr "Létrehozása jelenléti ív"
 
-#: Checkin.php:454 EditEventAttendees.php:178
+#: Checkin.php:477 EditEventAttendees.php:178
 #, fuzzy
 msgid "Return to Events"
 msgstr "Vissza a Lekérdezés menü"
@@ -1157,8 +1162,8 @@ msgstr "Használja a Ctrl gombot több"
 #: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:210
-#: v2/templates/sundayschool/sundayschoolview.php:302 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Nemek"
 
@@ -1280,8 +1285,8 @@ msgstr "Munka / Egyéb Email"
 
 #: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:259
-#: v2/templates/sundayschool/sundayschoolview.php:301
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
 msgid "Birth Date"
 msgstr "Születési dátum"
 
@@ -5128,7 +5133,7 @@ msgstr "Születési dátum"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: PrintPastoralCarePerson.php:450 PrintView.php:461
 #: Reports/CanvassReports.php:277
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Age"
 msgstr "Életkor"
 
@@ -5147,8 +5152,8 @@ msgstr "Állami"
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:207
-#: v2/templates/sundayschool/sundayschoolview.php:142
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
 #, fuzzy
 msgid "Teachers"
 msgstr "Extra Tanárok"
@@ -5205,8 +5210,8 @@ msgstr "Telefonkönyv"
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:234
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
 #, fuzzy
 msgid "Students"
 msgstr "Extra Hallgatók"
@@ -5296,9 +5301,9 @@ msgstr "Cím"
 #: v2/templates/people/personlist.php:101
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:295
 #: v2/templates/sundayschool/sundayschooldashboard.php:296
 #: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
 #, fuzzy
 msgid "Private Data"
 msgstr "Magán"
@@ -6491,7 +6496,7 @@ msgstr "Még"
 
 #: external/templates/verify/verify-family-info.php:34
 #: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
 #, fuzzy
 msgid "Home Address"
 msgstr "Cím"
@@ -10656,7 +10661,7 @@ msgid "See All People"
 msgstr "Minden szerep"
 
 #: v2/templates/dashboard/maindashboard.php:82
-#: v2/templates/sundayschool/sundayschooldashboard.php:193
+#: v2/templates/sundayschool/sundayschooldashboard.php:194
 #, fuzzy
 msgid "Sunday School Classes"
 msgstr "Vasárnapi Iskola jelentések"
@@ -11243,7 +11248,7 @@ msgid "Delete this Group"
 msgstr "Törlése Group"
 
 #: v2/templates/group/groupview.php:109
-#: v2/templates/sundayschool/sundayschoolview.php:100
+#: v2/templates/sundayschool/sundayschoolview.php:101
 msgid "Create here your badges or QR-Code to call the register with them"
 msgstr ""
 
@@ -11357,7 +11362,7 @@ msgid "Group Members:"
 msgstr "Csoport tagjai:"
 
 #: v2/templates/group/groupview.php:446
-#: v2/templates/sundayschool/sundayschoolview.php:237
+#: v2/templates/sundayschool/sundayschoolview.php:238
 #, fuzzy
 msgid "Remove members"
 msgstr "A szavazás tag"
@@ -11368,9 +11373,9 @@ msgid "Manage Group Members"
 msgstr "Csoport tagjai:"
 
 #: v2/templates/group/groupview.php:467
-#: v2/templates/sundayschool/sundayschooldashboard.php:332
-#: v2/templates/sundayschool/sundayschoolview.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:276
+#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschoolview.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:277
 #, fuzzy
 msgid "Add"
 msgstr "Cím"
@@ -11651,7 +11656,7 @@ msgstr "Vasárnapi Iskola jelentések"
 #: v2/templates/people/peopledashboard.php:173
 #: v2/templates/people/peopledashboard.php:227
 #: v2/templates/people/peopledashboard.php:234
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:148
 #, fuzzy
 msgid "Reports"
 msgstr "Adóbeszámoló"
@@ -11963,67 +11968,72 @@ msgstr ""
 msgid "Add New Class"
 msgstr "Új"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:139
-#: v2/templates/sundayschool/sundayschoolview.php:81
-msgid "Call the register"
+#: v2/templates/sundayschool/sundayschooldashboard.php:138
+msgid ""
+"Be Careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:140
+msgid "Create Events & Call the register"
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "Generate class lists and attendance sheets"
 msgstr "Létrehoz osztály listák és jelenléti ív"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:154
+#: v2/templates/sundayschool/sundayschooldashboard.php:155
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:155
+#: v2/templates/sundayschool/sundayschooldashboard.php:156
 #, fuzzy
 msgid "Export to CSV"
 msgstr "Eredmények exportálása CSV fájlba"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:111
+#: v2/templates/sundayschool/sundayschooldashboard.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:112
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Eltávolítás a kosárba"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:168
-#: v2/templates/sundayschool/sundayschoolview.php:117
+#: v2/templates/sundayschool/sundayschooldashboard.php:169
+#: v2/templates/sundayschool/sundayschoolview.php:118
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Add Eredmények Kosárba"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:176
-#: v2/templates/sundayschool/sundayschoolview.php:126
+#: v2/templates/sundayschool/sundayschooldashboard.php:177
+#: v2/templates/sundayschool/sundayschoolview.php:127
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Eltávolítás a kosárba"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:181
-#: v2/templates/sundayschool/sundayschoolview.php:132
+#: v2/templates/sundayschool/sundayschooldashboard.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:133
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Add Csoport tagjai a kosárba"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:206
+#: v2/templates/sundayschool/sundayschooldashboard.php:207
 #: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Osztály"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:243
+#: v2/templates/sundayschool/sundayschooldashboard.php:244
 msgid "Students not in a Sunday School Class"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:318
+#: v2/templates/sundayschool/sundayschooldashboard.php:319
 #, fuzzy
 msgid "Add Sunday School Class"
 msgstr "No Vasárnapi Iskola"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:324
+#: v2/templates/sundayschool/sundayschooldashboard.php:325
 #, fuzzy
 msgid "Enter Name"
 msgstr "Felhasználói név"
@@ -12129,58 +12139,68 @@ msgstr "Szerkesztése Group"
 msgid "Delete this Class"
 msgstr "Szerkesztése Group"
 
-#: v2/templates/sundayschool/sundayschoolview.php:90
-#: v2/templates/sundayschool/sundayschoolview.php:97
+#: v2/templates/sundayschool/sundayschoolview.php:80
+msgid ""
+"Be Careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschoolview.php:82
+msgid "Create Event & Call the register"
+msgstr ""
+
+#: v2/templates/sundayschool/sundayschoolview.php:91
+#: v2/templates/sundayschool/sundayschoolview.php:98
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Létrehozása jelenléti ív"
 
-#: v2/templates/sundayschool/sundayschoolview.php:102
+#: v2/templates/sundayschool/sundayschoolview.php:103
 #, fuzzy
 msgid "Student Badges"
 msgstr "Extra Hallgatók"
 
-#: v2/templates/sundayschool/sundayschoolview.php:158
+#: v2/templates/sundayschool/sundayschoolview.php:159
 #, fuzzy
 msgid "Add Teachers to the Team"
 msgstr "Add Csoport tagjai a kosárba"
 
-#: v2/templates/sundayschool/sundayschoolview.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:183
 msgid "Quick Status"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:196
+#: v2/templates/sundayschool/sundayschoolview.php:197
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "Születési dátuma"
 
-#: v2/templates/sundayschool/sundayschoolview.php:223
+#: v2/templates/sundayschool/sundayschoolview.php:224
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:241
+#: v2/templates/sundayschool/sundayschoolview.php:242
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Lejárati hónap"
 
-#: v2/templates/sundayschool/sundayschoolview.php:243
+#: v2/templates/sundayschool/sundayschoolview.php:244
 #, fuzzy
 msgid "On"
 msgstr "Egyszer"
 
-#: v2/templates/sundayschool/sundayschoolview.php:244
+#: v2/templates/sundayschool/sundayschoolview.php:245
 msgid "Off"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:252
+#: v2/templates/sundayschool/sundayschoolview.php:253
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:256
+#: v2/templates/sundayschool/sundayschoolview.php:257
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:273
+#: v2/templates/sundayschool/sundayschoolview.php:274
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Add személy, csoport"
@@ -13714,10 +13734,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "No."
 #~ msgstr "Nincs"
-
-#, fuzzy
-#~ msgid "Number of groups:"
-#~ msgstr "Oszlopok száma"
 
 #, fuzzy
 #~ msgid "Activated the Person"
