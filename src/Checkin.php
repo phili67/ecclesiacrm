@@ -89,7 +89,6 @@ if (isset($_SESSION['CartToEventEventID'])) {
 }
 
 
-
 //
 // process the action inputs
 //
@@ -131,15 +130,17 @@ if ($searchEventInActivEvent != null) {
 <div class="card">
     <div class="card-body">
         <a class="btn btn-app" id="add-event"><i class="fa fa-ticket"></i><?= _('Add New Event') ?></a>
-        <?php if ( !is_null($searchEventInActivEvent) ) {
+        <?php if (!is_null($searchEventInActivEvent)) {
             ?>
-        <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
-        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
-        <?php
+            <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
+            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i
+                    class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
+            <?php
         }
-        if ($bSundaySchool){
+        if ($bSundaySchool) {
             ?>
-            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
+            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i
+                    class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
             <?php
         }
         ?>
@@ -151,7 +152,7 @@ if ($searchEventInActivEvent != null) {
 <div id="errorcallout" class="alert alert-danger" hidden></div>
 
 <?php
-if ( !is_null($searchEventInActivEvent) ) {
+if (!is_null($searchEventInActivEvent)) {
     ?>
 
     <!--Select Event Form -->
@@ -183,7 +184,7 @@ if ( !is_null($searchEventInActivEvent) ) {
                                             ?>
                                             <option
                                                 value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                                <?= $dateStart." : ".$event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
+                                                <?= $dateStart . " : " . $event->getTitle() . " (" . $event->getDesc() . ")"; ?></option>
                                             <?php
                                         }
                                         ?>
@@ -245,54 +246,55 @@ if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
                                 <h3 class="card-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
                             </div>
                             <div class="card-body">
-                                    <div class="form-group row">
-                                        <label
-                                            class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
-                                        <?php
-                                        $desc = "";
-                                        foreach ($eventCountNames as $eventCountName) {
-                                            ?>
-                                            <div class="col-md-2">
-                                                <?= $eventCountName->getName(); ?>
-
-                                                <?php
-                                                $eventCount = EventCountsQuery::Create()
-                                                    ->filterByEvtcntEventid($EventID)
-                                                    ->findOneByEvtcntCountid($eventCountName->getId());
-
-                                                $count = 0;
-                                                if (!empty($eventCount)) {
-                                                    $count = $eventCount->getEvtcntCountcount();
-                                                    $desc = $eventCount->getEvtcntNotes();
-                                                }
-                                                ?>
-                                                <input type="text" id="field<?= $eventCountName->getId() ?>"
-                                                       name="<?= $eventCountName->getId() ?>"
-                                                       data-countid="<?= $eventCountName->getId() ?>"
-                                                       value="<?= $count ?>"
-                                                       size="8" class="form-control input-sm freeAttendeesCount" width="100%"
-                                                       style="width: 100%">
-                                            </div>
-                                            <?php
-                                        }
+                                <div class="form-group row">
+                                    <label
+                                        class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
+                                    <?php
+                                    $desc = "";
+                                    foreach ($eventCountNames as $eventCountName) {
                                         ?>
-                                    </div>
-                                    <div class="row">
-                                        <label class="col-md-2 control-label"><?= _('Your description'); ?></label>
-                                        <div class="col-md-6">
-                                            <input type="text" id="fieldText" name="desc"
-                                                   data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>"
-                                                   size="8" class="form-control input-sm " width="100%"
+                                        <div class="col-md-2">
+                                            <?= $eventCountName->getName(); ?>
+
+                                            <?php
+                                            $eventCount = EventCountsQuery::Create()
+                                                ->filterByEvtcntEventid($EventID)
+                                                ->findOneByEvtcntCountid($eventCountName->getId());
+
+                                            $count = 0;
+                                            if (!empty($eventCount)) {
+                                                $count = $eventCount->getEvtcntCountcount();
+                                                $desc = $eventCount->getEvtcntNotes();
+                                            }
+                                            ?>
+                                            <input type="text" id="field<?= $eventCountName->getId() ?>"
+                                                   name="<?= $eventCountName->getId() ?>"
+                                                   data-countid="<?= $eventCountName->getId() ?>"
+                                                   value="<?= $count ?>"
+                                                   size="8" class="form-control input-sm freeAttendeesCount"
+                                                   width="100%"
                                                    style="width: 100%">
                                         </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="row">
+                                    <label class="col-md-2 control-label"><?= _('Your description'); ?></label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="fieldText" name="desc"
+                                               data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>"
+                                               size="8" class="form-control input-sm " width="100%"
+                                               style="width: 100%">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12 text-right">
-                                            <input id="addFreeAttendees" class="btn btn-primary"
-                                                   value="<?= _('Add Free Attendees Count'); ?>"
-                                                   name="Add" tabindex=4>
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 text-right">
+                                        <input id="addFreeAttendees" class="btn btn-primary"
+                                               value="<?= _('Add Free Attendees Count'); ?>"
+                                               name="Add" tabindex=4>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -370,7 +372,8 @@ if ($EventID > 0) {
                                            name="CheckIn" tabindex=3 data-childid="-1" data-adultid="-1">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="reset" id="resetDetails" class="btn btn-default" value="<?= _('Cancel'); ?>"
+                                    <input type="reset" id="resetDetails" class="btn btn-default"
+                                           value="<?= _('Cancel'); ?>"
                                            name="Cancel" tabindex=4
                                            onClick="">
                                 </div>
@@ -400,6 +403,26 @@ if ($EventID > 0) {
                 <?= _('Listing') ?> :</h3>
         </div>
         <div class="card-body table-responsive">
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="page-length-select"><?= _("Number of rows") ?></label>
+                </div>
+                <div class="col-md-3">
+                    <select name="pets" id="page-length-select" class="form-control">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50" selected>50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                    </select>
+                </div>
+            </div>
+
+            <br/>
+
+
             <table id="checkedinTable" class="table table-striped table-bordered data-table" width="100%"></table>
 
             <div class="row" style="margin:5px">
@@ -435,9 +458,9 @@ if ($EventID > 0) {
                 <div class="col-sm-8">
                         <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;"
                                   rows="40"><?= $sNoteText ?></textarea>
-                        <br>
-                        <input id="validateAttendees" class="btn btn-primary" name="Validate"
-                               value="<?= _("Validate Attendance") ?>">
+                    <br>
+                    <input id="validateAttendees" class="btn btn-primary" name="Validate"
+                           value="<?= _("Validate Attendance") ?>">
                 </div>
                 <br>
             </div>
