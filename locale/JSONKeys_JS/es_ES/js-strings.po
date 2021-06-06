@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-26T08:29:14.905Z\n"
+"POT-Creation-Date: 2021-06-06T16:42:51.297Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1708,12 +1708,14 @@ msgid "Create Event With Students"
 msgstr "Crear Evento con estudiantes"
 
 msgid ""
-"You can create the event automatically with the students<br> - OR - <br>Add "
-"the students to the cart and create an event to add them after."
+"Be careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
 msgstr ""
-"Tú puedes crear uno Evento automáticamente con estudiantes<br> - O - "
-"<br>Agregar Estudiantes al Carrito e crear uno Evento para Agregar ellos "
-"después"
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
 
 msgid "First, set your time range correctly to make the extraction."
 msgstr ""
@@ -1732,6 +1734,16 @@ msgstr "Estudiantes Adicionales"
 
 msgid "export with photos"
 msgstr "Exportación con fotografías"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr ""
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
 
 #, fuzzy
 msgid "First, set your date and time."
@@ -2349,6 +2361,14 @@ msgstr ""
 #, fuzzy
 msgid "Select"
 msgstr "Seleccione Rol"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "Tú puedes crear uno Evento automáticamente con estudiantes<br> - O - "
+#~ "<br>Agregar Estudiantes al Carrito e crear uno Evento para Agregar ellos "
+#~ "después"
 
 #~ msgid "Attendances"
 #~ msgstr "Participantes"

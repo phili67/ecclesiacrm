@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-26 08:27+0200\n"
+"POT-Creation-Date: 2021-06-06 18:42+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,7 +170,7 @@ msgstr "inaktiv"
 #: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:257
+#: v2/templates/sundayschool/sundayschooldashboard.php:258
 #: v2/templates/user/userlist.php:49
 msgid "First Name"
 msgstr "Vorname"
@@ -180,7 +180,7 @@ msgstr "Vorname"
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
 #: PersonEditor.php:926 Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
-#: v2/templates/sundayschool/sundayschooldashboard.php:258
+#: v2/templates/sundayschool/sundayschooldashboard.php:259
 msgid "Last Name"
 msgstr "Nachnahme/Familienname"
 
@@ -318,7 +318,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:373 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
@@ -326,7 +326,7 @@ msgstr "Speichern"
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
 #: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:869
 #: UserEditor.php:1016 v2/templates/fundraiser/donatedItemEditor.php:178
-#: v2/templates/sundayschool/sundayschooldashboard.php:330
+#: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -851,11 +851,11 @@ msgstr "Der Korb ist leer!"
 msgid "Call the Register"
 msgstr "Namen aufrufen."
 
-#: Checkin.php:133 ListEvents.php:115
+#: Checkin.php:132 ListEvents.php:115
 msgid "Add New Event"
 msgstr "Neues Ereignis hinzufügen"
 
-#: Checkin.php:136
+#: Checkin.php:135
 msgid "QR Code Call"
 msgstr "QR Code Namen aufrufen"
 
@@ -863,110 +863,114 @@ msgstr "QR Code Namen aufrufen"
 msgid "Kiosk Manager"
 msgstr "Kiosk Manager"
 
-#: Checkin.php:142
+#: Checkin.php:143
 msgid "Edit Attendees"
 msgstr "Teilnehmer bearbeitet"
 
-#: Checkin.php:161
+#: Checkin.php:162
 msgid "Select the event to which you would like to check people in for"
 msgstr "Ereignis auswählen zu der Teilnehmer angemeldet werden sollen"
 
-#: Checkin.php:166
+#: Checkin.php:167
 msgid "Select Event"
 msgstr "Ereignis auswählen"
 
-#: Checkin.php:180
+#: Checkin.php:181
 msgid "Select event"
 msgstr "Ereignis auswählen"
 
-#: Checkin.php:207 FamilyView.php:887 PersonView.php:1577
+#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
 msgid "From"
 msgstr "Von:"
 
-#: Checkin.php:207 FamilyView.php:896 PersonView.php:1586
+#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
 msgid "To"
 msgstr "An:"
 
-#: Checkin.php:232
+#: Checkin.php:233
 msgid "Set your free attendees"
 msgstr "Wählen ihrer freier Teilnehmer"
 
-#: Checkin.php:245
+#: Checkin.php:246
 msgid "You can set here the attendees for some group of persons."
 msgstr ""
 "Hier können Sie den Teilnehmer für einige gruppe oder personen festlegen."
 
-#: Checkin.php:250
+#: Checkin.php:251
 msgid "Set your attendees Event"
 msgstr "Besucher zum Ereignis hinzufügen"
 
-#: Checkin.php:281
+#: Checkin.php:283
 msgid "Your description"
 msgstr "Beschreibung"
 
-#: Checkin.php:292
+#: Checkin.php:294
 msgid "Add Free Attendees Count"
 msgstr "Besucher zum Ereignis hinzufügen"
 
-#: Checkin.php:319
+#: Checkin.php:321
 msgid "Add single child/parents Attendees"
 msgstr "Einzelne Kind/Eltern Teilnehmer hinzufügen"
 
-#: Checkin.php:331
+#: Checkin.php:333
 msgid "Add Attendees for Event"
 msgstr "Besucher zum Ereignis hinzufügen"
 
-#: Checkin.php:336 Checkin.php:343
+#: Checkin.php:338 Checkin.php:345
 msgid "Person's Name"
 msgstr "Personennamen"
 
-#: Checkin.php:353
+#: Checkin.php:355
 msgid "Adult Name(Optional)"
 msgstr "Ausgewachsene Name (Optional)"
 
-#: Checkin.php:360
+#: Checkin.php:362
 msgid "Checked in By(Optional)"
 msgstr "Angemeldet durch (Optional)"
 
-#: Checkin.php:369
+#: Checkin.php:371
 msgid "Add and Checkin"
 msgstr "Fügen Einchecken"
 
-#: Checkin.php:378
+#: Checkin.php:381
 msgid "Add Visitor"
 msgstr "Besucher hinzufügen"
 
-#: Checkin.php:400
+#: Checkin.php:403
 msgid "Listing"
 msgstr "Liste"
 
-#: Checkin.php:407
+#: Checkin.php:409
+msgid "Number of rows"
+msgstr "Anzahl der Zeilen"
+
+#: Checkin.php:430
 msgid "Checkin"
 msgstr "Einchecken"
 
-#: Checkin.php:411 Checkin.php:422
+#: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:90
 #: v2/templates/user/userlist.php:171
 msgid "Check all"
 msgstr "Aktivieren Sie alle"
 
-#: Checkin.php:415 Checkin.php:426
+#: Checkin.php:438 Checkin.php:449
 msgid "Uncheck all"
 msgstr "Deaktivieren Sie alle"
 
-#: Checkin.php:418
+#: Checkin.php:441
 msgid "Checkout"
 msgstr "Auschecken"
 
-#: Checkin.php:433
+#: Checkin.php:456
 msgid "Add some notes"
 msgstr "Einige Hinweis hinzufügen"
 
-#: Checkin.php:440
+#: Checkin.php:463
 msgid "Validate Attendance"
 msgstr "Validieren Teilnahme"
 
-#: Checkin.php:454 EditEventAttendees.php:178
+#: Checkin.php:477 EditEventAttendees.php:178
 msgid "Return to Events"
 msgstr "Zurück zu den Ereignissen"
 
@@ -1101,8 +1105,8 @@ msgstr "Benutze Ctrl/Strg um mehrere auzuwählen"
 #: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:210
-#: v2/templates/sundayschool/sundayschoolview.php:302 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Geschlecht"
 
@@ -1217,8 +1221,8 @@ msgstr "Email geschäftlich/weitere"
 
 #: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:259
-#: v2/templates/sundayschool/sundayschoolview.php:301
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
 msgid "Birth Date"
 msgstr "Geburtstag"
 
@@ -4963,7 +4967,7 @@ msgstr "Geburtsdatum"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: PrintPastoralCarePerson.php:450 PrintView.php:461
 #: Reports/CanvassReports.php:277
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Age"
 msgstr "Alter"
 
@@ -4980,8 +4984,8 @@ msgstr "Stats"
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:207
-#: v2/templates/sundayschool/sundayschoolview.php:142
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
 msgid "Teachers"
 msgstr "Lehrer"
 
@@ -5036,8 +5040,8 @@ msgstr "Verzeichnis"
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:234
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
 msgid "Students"
 msgstr "Studenten"
 
@@ -5124,9 +5128,9 @@ msgstr "Adressen"
 #: v2/templates/people/personlist.php:101
 #: v2/templates/people/personlist.php:102
 #: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:295
 #: v2/templates/sundayschool/sundayschooldashboard.php:296
 #: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
 msgid "Private Data"
 msgstr "Private Daten"
 
@@ -6230,7 +6234,7 @@ msgstr "Bestätigen"
 
 #: external/templates/verify/verify-family-info.php:34
 #: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
 msgid "Home Address"
 msgstr "Privatadresse"
 
@@ -10110,7 +10114,7 @@ msgid "See All People"
 msgstr "Alle Menschen anzeigen"
 
 #: v2/templates/dashboard/maindashboard.php:82
-#: v2/templates/sundayschool/sundayschooldashboard.php:193
+#: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Sonntagsschule Klassen"
 
@@ -10450,7 +10454,7 @@ msgstr "Dokumentation support."
 
 #: v2/templates/error/404.php:17
 msgid "Oops! Can't find route for "
-msgstr ""
+msgstr "Ups! Kann die Route nicht finden für "
 
 #: v2/templates/fundraiser/donatedItemEditor.php:22
 msgid "Infos"
@@ -10661,7 +10665,7 @@ msgid "Delete this Group"
 msgstr "Gruppe löschen"
 
 #: v2/templates/group/groupview.php:109
-#: v2/templates/sundayschool/sundayschoolview.php:100
+#: v2/templates/sundayschool/sundayschoolview.php:101
 msgid "Create here your badges or QR-Code to call the register with them"
 msgstr ""
 "Erstellen Sie hier Ihrem Etiketten oder QR-Code, um damit das Register "
@@ -10774,7 +10778,7 @@ msgid "Group Members:"
 msgstr "Gruppe Mitglieder:"
 
 #: v2/templates/group/groupview.php:446
-#: v2/templates/sundayschool/sundayschoolview.php:237
+#: v2/templates/sundayschool/sundayschoolview.php:238
 msgid "Remove members"
 msgstr "Mitglieder entfernen"
 
@@ -10783,9 +10787,9 @@ msgid "Manage Group Members"
 msgstr "Gruppe Mitglieder Verwalten"
 
 #: v2/templates/group/groupview.php:467
-#: v2/templates/sundayschool/sundayschooldashboard.php:332
-#: v2/templates/sundayschool/sundayschoolview.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:276
+#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschoolview.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:277
 msgid "Add"
 msgstr "Hinzuzufügen"
 
@@ -11042,7 +11046,7 @@ msgstr "Sonntagsschule Kindern"
 #: v2/templates/people/peopledashboard.php:173
 #: v2/templates/people/peopledashboard.php:227
 #: v2/templates/people/peopledashboard.php:234
-#: v2/templates/sundayschool/sundayschooldashboard.php:147
+#: v2/templates/sundayschool/sundayschooldashboard.php:148
 msgid "Reports"
 msgstr "Berichte"
 
@@ -11335,63 +11339,68 @@ msgstr "Toggle Dropdown"
 msgid "Add New Class"
 msgstr "Neue Klasse Hinzufügen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:139
-#: v2/templates/sundayschool/sundayschoolview.php:81
-msgid "Call the register"
-msgstr "Namen aufrufen"
+#: v2/templates/sundayschool/sundayschooldashboard.php:138
+msgid ""
+"Be Careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr "Seien Sie vorsichtig! Sie sind dabei, alle Ereignisse aller Sonntagsschulklassen zu erstellen oder neu zu erstellen, um das Register aufzurufen."
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:140
+msgid "Create Events & Call the register"
+msgstr "Ereignisse erstellen & Namen aufrufen"
+
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "Generate class lists and attendance sheets"
 msgstr "Klasse listung - und Teilnahme Erstellen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:146
+#: v2/templates/sundayschool/sundayschooldashboard.php:147
 msgid "To export your attendance, Photobooks, Attendance sheet, and Class list"
 msgstr ""
 "So exportieren Sie Ihre Anwesenheit, Fotobücher, Anwesenheitsliste und "
 "Klassenliste"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:154
+#: v2/templates/sundayschool/sundayschooldashboard.php:155
 msgid "Export All Classes, Kids, and Parent to CSV file"
 msgstr "Alle Klassen, Kinder und Eltern als CSV exportieren"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:155
+#: v2/templates/sundayschool/sundayschooldashboard.php:156
 msgid "Export to CSV"
 msgstr "CSV exportieren"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:163
-#: v2/templates/sundayschool/sundayschoolview.php:111
+#: v2/templates/sundayschool/sundayschooldashboard.php:164
+#: v2/templates/sundayschool/sundayschoolview.php:112
 msgid "Remove Students from Cart"
 msgstr "Studenten in Korb Entfernen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:168
-#: v2/templates/sundayschool/sundayschoolview.php:117
+#: v2/templates/sundayschool/sundayschooldashboard.php:169
+#: v2/templates/sundayschool/sundayschoolview.php:118
 msgid "Add Students to Cart"
 msgstr "Studenten in Korb hinzuzufügen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:176
-#: v2/templates/sundayschool/sundayschoolview.php:126
+#: v2/templates/sundayschool/sundayschooldashboard.php:177
+#: v2/templates/sundayschool/sundayschoolview.php:127
 msgid "Remove Teachers from Cart"
 msgstr "Lehrer in Korb Entfernen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:181
-#: v2/templates/sundayschool/sundayschoolview.php:132
+#: v2/templates/sundayschool/sundayschooldashboard.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:133
 msgid "Add Teachers to Cart"
 msgstr "Lehrer in Korb hinzuzufügen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:206
+#: v2/templates/sundayschool/sundayschooldashboard.php:207
 #: queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Klasse"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:243
+#: v2/templates/sundayschool/sundayschooldashboard.php:244
 msgid "Students not in a Sunday School Class"
 msgstr "Schüler, die in keiner Sontagsschulklasse sind"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:318
+#: v2/templates/sundayschool/sundayschooldashboard.php:319
 msgid "Add Sunday School Class"
 msgstr "Sonntagsschule Klassen"
 
-#: v2/templates/sundayschool/sundayschooldashboard.php:324
+#: v2/templates/sundayschool/sundayschooldashboard.php:325
 msgid "Enter Name"
 msgstr "Name des Mitglieds"
 
@@ -11485,54 +11494,64 @@ msgstr "Edit diese Klasse"
 msgid "Delete this Class"
 msgstr "Klasse löschen"
 
-#: v2/templates/sundayschool/sundayschoolview.php:90
-#: v2/templates/sundayschool/sundayschoolview.php:97
+#: v2/templates/sundayschool/sundayschoolview.php:80
+msgid ""
+"Be Careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr "Seien Sie vorsichtig! Sie sind dabei, ein Ereignis dieser Sonntagsschulklasse zu erstellen oder neu zu erstellen, um das Register aufzurufen."
+
+#: v2/templates/sundayschool/sundayschoolview.php:82
+msgid "Create Event & Call the register"
+msgstr "Ereignis erstellen & Namen aufrufen"
+
+#: v2/templates/sundayschool/sundayschoolview.php:91
+#: v2/templates/sundayschool/sundayschoolview.php:98
 msgid "Export Attendance"
 msgstr "Teilnahme exportieren"
 
-#: v2/templates/sundayschool/sundayschoolview.php:102
+#: v2/templates/sundayschool/sundayschoolview.php:103
 msgid "Student Badges"
 msgstr "Studenten Ausweis"
 
-#: v2/templates/sundayschool/sundayschoolview.php:158
+#: v2/templates/sundayschool/sundayschoolview.php:159
 msgid "Add Teachers to the Team"
 msgstr "Lehrer in Team hinzuzufügen"
 
-#: v2/templates/sundayschool/sundayschoolview.php:182
+#: v2/templates/sundayschool/sundayschoolview.php:183
 msgid "Quick Status"
 msgstr "Schnellstatus"
 
-#: v2/templates/sundayschool/sundayschoolview.php:196
+#: v2/templates/sundayschool/sundayschoolview.php:197
 msgid "Birthdays by Month"
 msgstr "Geburtstag bei Monat"
 
-#: v2/templates/sundayschool/sundayschoolview.php:223
+#: v2/templates/sundayschool/sundayschoolview.php:224
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Klicken Sie auf die Diagramm- oder Donut-Teile, um mit der Tabelle unten zu "
 "interagieren."
 
-#: v2/templates/sundayschool/sundayschoolview.php:241
+#: v2/templates/sundayschool/sundayschoolview.php:242
 msgid "Edition Mode"
 msgstr "Edition Modus"
 
-#: v2/templates/sundayschool/sundayschoolview.php:243
+#: v2/templates/sundayschool/sundayschoolview.php:244
 msgid "On"
 msgstr "EIN"
 
-#: v2/templates/sundayschool/sundayschoolview.php:244
+#: v2/templates/sundayschool/sundayschoolview.php:245
 msgid "Off"
 msgstr "AUS"
 
-#: v2/templates/sundayschool/sundayschoolview.php:252
+#: v2/templates/sundayschool/sundayschoolview.php:253
 msgid "Showing students with birthdays in"
 msgstr "Studenten angezeigt mit Geburstage in"
 
-#: v2/templates/sundayschool/sundayschoolview.php:256
+#: v2/templates/sundayschool/sundayschoolview.php:257
 msgid "Showing students with gender"
 msgstr "Studenten angezeigt mit Geschlecht"
 
-#: v2/templates/sundayschool/sundayschoolview.php:273
+#: v2/templates/sundayschool/sundayschoolview.php:274
 msgid "Add Members to Sunday Group"
 msgstr "Mitglieder im Sonntagsschule hinzufügen"
 
