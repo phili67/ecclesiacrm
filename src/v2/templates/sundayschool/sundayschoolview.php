@@ -78,7 +78,7 @@ if (SessionUser::getUser()->isAddRecords()) {
             <a class="btn btn-app bg-orange callRegister disabled" id="callRegister"
                data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"> <i
                     class="fa fa-calendar-check-o"></i> <span
-                    class="cartActionDescription"><?= _('Call the register') ?></span></a>
+                    class="cartActionDescription"><?= _('Create Event & Call the register') ?></span></a>
             <?php
         }
         ?>
