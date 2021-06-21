@@ -1,10 +1,7 @@
 <?php
-
-// be carefull to include this array in the Boostrapper : getDBArrayMaps function
-
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
 $serviceContainer->initDatabaseMaps(array (
-  'default' =>
+  'default' => 
   array (
     0 => '\\EcclesiaCRM\\Map\\AddressbookchangesTableMap',
     1 => '\\EcclesiaCRM\\Map\\AddressbooksTableMap',
