@@ -177,8 +177,9 @@ namespace EcclesiaCRM
           }
       }
 
-      private static function getDBArrayMap ()
+      private static function getDBArrayMaps ()
       {
+          // the array is in loadDataBase.php
           return array (
               'default' =>
                   array (
@@ -261,7 +262,7 @@ namespace EcclesiaCRM
           self::$serviceContainer = Propel::getServiceContainer();
           self::$serviceContainer->checkVersion(2);
           self::$serviceContainer->setAdapterClass('default', 'mysql');
-          self::$serviceContainer->initDatabaseMaps(self::getDBArrayMap());
+          self::$serviceContainer->initDatabaseMaps(self::getDBArrayMaps());
           self::$manager = new ConnectionManagerSingle();
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager->setName('default');
