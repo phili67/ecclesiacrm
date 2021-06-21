@@ -966,7 +966,7 @@
         <column name="ucfg_id" phpName="Id" type="INTEGER" primaryKey="true" required="true" defaultValue="0"/>
         <column name="ucfg_name" phpName="Name" type="VARCHAR" size="50" required="true" defaultValue=""/>
         <column name="ucfg_value" phpName="Value" type="LONGVARCHAR"/>
-        <column name="ucfg_type" phpName="Type" type="CHAR" sqlType="enum('text','number','date','boolean','textarea','choice')" required="true" defaultValue="text"/>
+        <column name="ucfg_type" phpName="Type" type="CHAR" sqlType="enum('text','number','date','boolean','textarea','choice')" required="true" />
         <column name="ucfg_choices_id" phpName="ChoicesId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="ucfg_tooltip" phpName="Tooltip" type="LONGVARCHAR" required="true"/>
         <column name="ucfg_permission" phpName="Permission" type="CHAR" sqlType="enum('FALSE','TRUE')" required="true" defaultValue="FALSE"/>
