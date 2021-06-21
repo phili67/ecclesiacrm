@@ -175,8 +175,8 @@ class UserUsersController
         }
         $user = UserQuery::create()->findPk($args['userId']);
         if (!is_null($user)) {
-            $userConfig = UserConfigQuery::create()->findPk($user->getId());
-            if (!is_null($userConfig)) {
+            $userConfigs = UserConfigQuery::create()->findByPersonId($user->getId());
+            foreach ($userConfigs as $userConfig) {
                 $userConfig->delete();
             }
             $email = new AccountDeletedEmail($user);
