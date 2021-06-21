@@ -176,20 +176,32 @@ namespace EcclesiaCRM
               Bootstrapper::system_failure('Could not connect to MySQL on <strong>'.self::$databaseServerName.'</strong> on port <strong>'.self::$databasePort.'</strong> as <strong>'.$sUSER.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.$sMYSQLERROR, 'Database Connection Failure');
           }
       }
+
+      private static function getDBArrayMaps ()
+      {
+          require_once(__DIR__ . '/loadDatabase.php');
+      }
+
       private static function initPropel()
       {
           self::$bootStrapLogger->debug("Initializing Propel ORM");
           // ==== ORM
           self::$dbClassName = "\\Propel\\Runtime\\Connection\\ConnectionWrapper";
           self::$serviceContainer = Propel::getServiceContainer();
-          self::$serviceContainer->checkVersion('2.0.0-dev');
+          self::$serviceContainer->checkVersion(2);
           self::$serviceContainer->setAdapterClass('default', 'mysql');
+
+          // load DB array map according to the new propel upgrade
+          self::getDBArrayMaps();
+
           self::$manager = new ConnectionManagerSingle();
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager->setName('default');
           self::$serviceContainer->setConnectionManager('default', self::$manager);
           self::$serviceContainer->setDefaultDatasource('default');
           self::$bootStrapLogger->debug("Initialized Propel ORM");
+
+          LoggerUtils::getAppLogger()->info(json_encode(self::buildConnectionManagerConfig()));
       }
       private static function isDatabaseEmpty()
       {
