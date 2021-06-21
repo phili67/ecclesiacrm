@@ -51,8 +51,8 @@ if (array_key_exists('EventID', $_POST)) {
     $EventID = InputUtils::FilterInt($_SESSION['EventID']);
 } else {
     $Event = EventQuery::create()
-        ->filterByStart('now', Criteria::LESS_EQUAL)
-        ->filterByEnd('now', Criteria::GREATER_EQUAL)
+        ->filterByStart(date("Y-m-d 00:00:00"), Criteria::GREATER_EQUAL)
+        ->filterByEnd(date("Y-m-d 23:59:59"), Criteria::LESS_EQUAL)
         ->findOne();
 
     if (!is_null($Event)) {
