@@ -156,7 +156,7 @@ require 'Include/Header.php';
                                                 if ($setting->getType() == 'choice') {
                                                     ?>
                                                     <select name='new_value[<?= $setting->getId() ?>]'
-                                                            class="choiceSelectBox" style="width: 100%">
+                                                            class="choiceSelectBox form-control" style="width: 100%">
                                                         <?php
                                                         foreach (json_decode($setting->getData())->Choices as $choice) {
                                                             if (strpos($choice, ":") === false) {
@@ -206,7 +206,7 @@ require 'Include/Header.php';
                                                         $sel2 = '';
                                                     } ?>
                                                     <select name='new_value[<?= $setting->getId() ?>]'
-                                                            class="choiceSelectBox" style="width: 100%">
+                                                            class="choiceSelectBox form-control" style="width: 100%">
                                                         <option value='' <?= $sel1 ?>><?= gettext('False') ?>
                                                         <option value='1' <?= $sel2 ?>><?= gettext('True') ?>
                                                     </select>
@@ -226,7 +226,7 @@ require 'Include/Header.php';
                                                             name='new_value[<?= $setting->getId() ?>]'
                                                             data-url="<?= $setting->getData() ?>"
                                                             data-value="<?= $setting->getValue() ?>"
-                                                            class="choiceSelectBox" style="width: 100%">
+                                                            class="choiceSelectBox form-control" style="width: 100%">
                                                         <option value=''><?= gettext('Unassigned') ?>
                                                     </select>
                                                     <?php
