@@ -34,14 +34,13 @@ $app->group('/', function (RouteCollectorProxy $group) {
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->serverName) && isset ($input->dbName) && isset ($input->dbPort)  && isset ($input->user) && isset ($input->password) ){
-            try {
-                if ($input->dbPort == 3306) {
-                    $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName, $input->dbPort);
-                } else {
-                    $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName);
-                }
-            } catch (mysqli_sql_exception $e) {
-                throw $e;
+            if ($input->dbPort == 3306) {
+                $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName, $input->dbPort);
+            } else {
+                $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName);
+            }
+            if ($connection->connect_errno) {
+                return $response->withStatus(401);
             }
 
             return $response->withJson(['status' => "success"]);
@@ -67,16 +66,27 @@ $app->group('/', function (RouteCollectorProxy $group) {
         file_put_contents(SystemURLs::getDocumentRoot().'/Include/Config.php', $template);
 
         // now we can install the CRM
-        if ($setupDate['DB_SERVER_PORT'] == 3306) {
-            $connection = new mysqli($setupDate['DB_SERVER_NAME'], $setupDate['DB_USER'], $setupDate['DB_PASSWORD'], $setupDate['DB_NAME']/*, $setupDate['DB_SERVER_PORT']*/);
-        } else {
-            $connection = new mysqli($setupDate['DB_SERVER_NAME'], $setupDate['DB_USER'], $setupDate['DB_PASSWORD'], $setupDate['DB_NAME']/*, $setupDate['DB_SERVER_PORT']*/);
+        $host = $setupDate['DB_SERVER_NAME'];
+        $db   = $setupDate['DB_NAME'];
+        $user = $setupDate['DB_USER'];
+        $pass = $setupDate['DB_PASSWORD'];
+        $port = $setupDate['DB_SERVER_PORT'];
+        $charset = 'utf8';
+
+        $options = [
+            \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+            \PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+        try {
+            $pdo = new \PDO($dsn, $user, $pass, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
-        $connection->set_charset("utf8");
 
         $logger->info("Step1 : SystemService\n");
 
-        $systemService = new SystemService();
         $version = SystemService::getInstalledVersion();
 
         $date = (new DateTime())->format('Y-m-d H:i:s');
@@ -88,7 +98,7 @@ $app->group('/', function (RouteCollectorProxy $group) {
         $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/mysql/install/Install.sql';
         $logger->info("filename sql : \n".  $filename);
 
-        SQLUtils::sqlImport($filename, $connection);
+        SQLUtils::sqlImport($filename, $pdo);
 
         $logger->info("Step3 : Version\n");
 
@@ -97,39 +107,40 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         $logger->info("Step4 : configuration\n". $sql);
 
-        $connection->query($sql);
+        $pdo->query($sql);
 
         // and the info for the church Administration
         $sql = "INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
-(39,'sLanguage', '".$connection->real_escape_string($setupDate['sLanguage'])."'),
-(2057, 'bGDPR', '".$connection->real_escape_string($setupDate['bGDPR'])."'),
-(1003, 'sChurchName', '".$connection->real_escape_string($setupDate['sChurchName'])."'),
-(1004, 'sChurchAddress', '".$connection->real_escape_string($setupDate['sChurchAddress'])."'),
-(1005, 'sChurchCity', '".$connection->real_escape_string($setupDate['sChurchCity'])."'),
-(1007, 'sChurchZip', '".$connection->real_escape_string($setupDate['sChurchZip'])."'),
-(1008, 'sChurchPhone', '".$connection->real_escape_string($setupDate['sChurchPhone'])."'),
-(1009, 'sChurchEmail', '".$connection->real_escape_string($setupDate['sChurchEmail'])."'),"
-//(1006, 'sChurchState', '".$connection->real_escape_string($setupDate['sChurchState'])."'),
-            ."(1047, 'sChurchCountry', '".$connection->real_escape_string($setupDate['sChurchCountry'])."'),
-(1025, 'sConfirmSigner', '".$connection->real_escape_string($setupDate['sConfirmSigner'])."'),
-(2013, 'sChurchWebSite', '".$connection->real_escape_string($setupDate['sChurchWebSite'])."'),
-(1016, 'sReminderSigner', '".$connection->real_escape_string($setupDate['sReminderSigner'])."'),
-(1014, 'sTaxSigner', '".$connection->real_escape_string($setupDate['sTaxSigner'])."'),
-(2014, 'sChurchFB', '".$connection->real_escape_string($setupDate['sChurchFB'])."'),
-(2015, 'sChurchTwitter', '".$connection->real_escape_string($setupDate['sChurchTwitter'])."'),
-(2056, 'sGdprDpoSigner', '".$connection->real_escape_string($setupDate['sGdprDpoSigner'])."'),
-(2058, 'sGdprDpoSignerEmail', '".$connection->real_escape_string($setupDate['sGdprDpoSignerEmail'])."'),
-(27, 'sSMTPHost', '".$connection->real_escape_string($setupDate['sSMTPHost'])."'),
-(28, 'bSMTPAuth', '".$connection->real_escape_string($setupDate['bSMTPAuth'])."'),
-(29, 'sSMTPUser', '".$connection->real_escape_string($setupDate['sSMTPUser'])."'),
-(30, 'sSMTPPass', '".$connection->real_escape_string($setupDate['sSMTPPass'])."'),
-(24, 'iSMTPTimeout', '".$connection->real_escape_string($setupDate['iSMTPTimeout'])."'),
-(26, 'sToEmailAddress', '".$connection->real_escape_string($setupDate['sToEmailAddress'])."'),
-(2045, 'bPHPMailerAutoTLS', '".$connection->real_escape_string($setupDate['bPHPMailerAutoTLS'])."'),
-(2055, 'sTimeZone', '".$connection->real_escape_string($setupDate['sTimeZone'])."'),
-(2046, 'sPHPMailerSMTPSecure', '".$connection->real_escape_string($setupDate['sPHPMailerSMTPSecure'])."') ON DUPLICATE KEY UPDATE cfg_id=VALUES(cfg_id)";
+(23, 'sDefaultCountry', '".addslashes($setupDate['sChurchCountry'])."'),
+(39,'sLanguage', '".addslashes($setupDate['sLanguage'])."'),
+(2057, 'bGDPR', '".addslashes($setupDate['bGDPR'])."'),
+(1003, 'sChurchName', '".addslashes($setupDate['sChurchName'])."'),
+(1004, 'sChurchAddress', '".addslashes($setupDate['sChurchAddress'])."'),
+(1005, 'sChurchCity', '".addslashes($setupDate['sChurchCity'])."'),
+(1007, 'sChurchZip', '".addslashes($setupDate['sChurchZip'])."'),
+(1008, 'sChurchPhone', '".addslashes($setupDate['sChurchPhone'])."'),
+(1009, 'sChurchEmail', '".addslashes($setupDate['sChurchEmail'])."'),"
+//(1006, 'sChurchState', '".$connection->quote($setupDate['sChurchState'])."'),
+            ."(1047, 'sChurchCountry', '".addslashes($setupDate['sChurchCountry'])."'),
+(1025, 'sConfirmSigner', '".addslashes($setupDate['sConfirmSigner'])."'),
+(2013, 'sChurchWebSite', '".addslashes($setupDate['sChurchWebSite'])."'),
+(1016, 'sReminderSigner', '".addslashes($setupDate['sReminderSigner'])."'),
+(1014, 'sTaxSigner', '".addslashes($setupDate['sTaxSigner'])."'),
+(2014, 'sChurchFB', '".addslashes($setupDate['sChurchFB'])."'),
+(2015, 'sChurchTwitter', '".addslashes($setupDate['sChurchTwitter'])."'),
+(2056, 'sGdprDpoSigner', '".addslashes($setupDate['sGdprDpoSigner'])."'),
+(2058, 'sGdprDpoSignerEmail', '".addslashes($setupDate['sGdprDpoSignerEmail'])."'),
+(27, 'sSMTPHost', '".addslashes($setupDate['sSMTPHost'])."'),
+(28, 'bSMTPAuth', '".addslashes($setupDate['bSMTPAuth'])."'),
+(29, 'sSMTPUser', '".addslashes($setupDate['sSMTPUser'])."'),
+(30, 'sSMTPPass', '".addslashes($setupDate['sSMTPPass'])."'),
+(24, 'iSMTPTimeout', '".addslashes($setupDate['iSMTPTimeout'])."'),
+(26, 'sToEmailAddress', '".addslashes($setupDate['sToEmailAddress'])."'),
+(2045, 'bPHPMailerAutoTLS', '".addslashes($setupDate['bPHPMailerAutoTLS'])."'),
+(2055, 'sTimeZone', '".addslashes($setupDate['sTimeZone'])."'),
+(2046, 'sPHPMailerSMTPSecure', '".addslashes($setupDate['sPHPMailerSMTPSecure'])."') ON DUPLICATE KEY UPDATE cfg_id=VALUES(cfg_id)";
 
-        $connection->query($sql);
+        $pdo->query($sql);
 
 
         // we install the language
@@ -139,13 +150,12 @@ $app->group('/', function (RouteCollectorProxy $group) {
         $logger->info("filename language : \n".  $filename );
 
         //if (file_exists($filename)) {
-        SQLUtils::sqlImport($filename, $connection);
+        SQLUtils::sqlImport($filename, $pdo);
         //}
 
         $logger->info("Setup : End");
 
-
-        $connection->close();
+        $pdo = null;
 
         return $response->withStatus(200);
     });
