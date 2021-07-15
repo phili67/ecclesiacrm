@@ -3,7 +3,7 @@
 
 # Important
 Some php packages should create a **bug** in the 6.0.0 version, the **6.0.1** and above solve the problem.
-A work arround with the 6.0.0 version is to get the **Bootstrapper.php** file from the 6.0.1 archive and in the **EcclesiaCRM** folder and to put it the **your EcclesiaCRM folder** on your web server. 
+A work arround with the 6.0.0 version is to get the **Bootstrapper.php** file from the 6.0.1 archive and on your web server to put it in the **EcclesiaCRM** folder inside. 
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/church-web-crm/badge/?version=latest)](https://www.docs.ecclesiacrm.com)
