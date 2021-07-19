@@ -5,15 +5,14 @@ function skipCheck() {
     window.CRM.prerequisitesStatus = true;
 }
 
-function dataBaseCheck ()
-{
-    var serverName   = $('#DB_SERVER_NAME').val();
-    var dbName       = $('#DB_NAME').val();
-    var dbPort       = $('#DB_SERVER_PORT').val();
-    var user         = $('#DB_USER').val();
-    var password     = $('#DB_PASSWORD').val();
+function dataBaseCheck() {
+    var serverName = $('#DB_SERVER_NAME').val();
+    var dbName = $('#DB_NAME').val();
+    var dbPort = $('#DB_SERVER_PORT').val();
+    var user = $('#DB_USER').val();
+    var password = $('#DB_PASSWORD').val();
 
-    var infos = {'serverName': serverName,'dbName': dbName, 'dbPort' : dbPort, 'user' : user, 'password':password};
+    var infos = {'serverName': serverName, 'dbName': dbName, 'dbPort': dbPort, 'user': user, 'password': password};
 
     $.ajax({
         url: window.CRM.root + "/setup/checkDatabaseConnection",
@@ -21,17 +20,24 @@ function dataBaseCheck ()
         data: JSON.stringify(infos), // stringify the object we created earlier, and add it to the data payload
         contentType: "application/json",
         error: function (request, status, error) {
-          window.CRM.dataBaseCheck = false;
-          $('#databaseconnection-war').html ('Connection to your database failed. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to re-check your connection.');
-          $('.alert-db').removeClass('alert-warning');
-          $('.alert-db').addClass('alert-danger');
+            window.CRM.dataBaseCheck = false;
+            $('#databaseconnection-war').html('Connection to your database failed. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to re-check your connection.');
+            $('.alert-db').removeClass('alert-warning');
+            $('.alert-db').addClass('alert-danger');
         }
     }).done(function (data) {
-      $('#databaseconnection-war').html ('Connection to your database successfully done. Click the "Next" button finish your installation.');
-      $('.alert-db').removeClass('alert-warning');
-      $('.alert-db').removeClass('alert-danger');
-      $('.alert-db').addClass('alert-success');
-      window.CRM.dataBaseCheck = true;
+        if (data.status !== undefined && data.status == "success") {
+            $('#databaseconnection-war').html('Connection to your database successfully done. Click the "Next" button finish your installation.');
+            $('.alert-db').removeClass('alert-warning');
+            $('.alert-db').removeClass('alert-danger');
+            $('.alert-db').addClass('alert-success');
+            window.CRM.dataBaseCheck = true;
+        } else {
+            window.CRM.dataBaseCheck = false;
+            $('#databaseconnection-war').html('Connection to your database failed. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to re-check your connection.');
+            $('.alert-db').removeClass('alert-warning');
+            $('.alert-db').addClass('alert-danger');
+        }
     });
 }
 
@@ -45,8 +51,7 @@ window.CRM.checkIntegrity = function () {
             window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "pass");
             $("#prerequisites-war").hide();
             window.CRM.prerequisitesStatus = true;
-        }
-        else {
+        } else {
             window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "fail");
         }
 
@@ -64,8 +69,7 @@ window.CRM.checkPrerequisites = function () {
         $.each(data, function (key, value) {
             if (value) {
                 status = "pass";
-            }
-            else {
+            } else {
                 status = "fail";
             }
             window.CRM.renderPrerequisite(key, status);
@@ -80,14 +84,12 @@ window.CRM.renderPrerequisite = function (name, status) {
             class: 'text-blue',
             html: '&check;'
         };
-    }
-    else if (status == "pending") {
+    } else if (status == "pending") {
         td = {
             class: 'text-orange',
             html: '<i class="fa fa-spinner fa-spin"></i>'
         };
-    }
-    else if (status == "fail") {
+    } else if (status == "fail") {
         td = {
             class: 'text-red',
             html: '&#x2717;'
@@ -102,8 +104,7 @@ window.CRM.renderPrerequisite = function (name, status) {
 
     if ($(domElement).length != 0) {
         $(domElement).replaceWith(prerequisite);
-    }
-    else {
+    } else {
         $("#prerequisites").append(prerequisite);
     }
 
@@ -128,10 +129,10 @@ $("document").ready(function () {
         stepsOrientation: "vertical",
         onStepChanging: function (event, currentIndex, newIndex) {
             if (currentIndex == 3) {
-              if (window.CRM.dataBaseCheck == false) {
-                dataBaseCheck();
-                $("#setup-form").steps("previous",{});
-              }
+                if (window.CRM.dataBaseCheck == false) {
+                    dataBaseCheck();
+                    $("#setup-form").steps("previous", {});
+                }
             }
 
             if (currentIndex > newIndex) {
@@ -145,13 +146,11 @@ $("document").ready(function () {
             setupWizard.validate().settings.ignore = ":disabled,:hidden";
             return setupWizard.valid();
         },
-        onFinishing: function (event, currentIndex)
-        {
+        onFinishing: function (event, currentIndex) {
             setupWizard.validate().settings.ignore = ":disabled";
             return setupWizard.valid();
         },
-        onFinished: function (event, currentIndex)
-        {
+        onFinished: function (event, currentIndex) {
             submitSetupData(setupWizard);
         }
     });
@@ -164,8 +163,8 @@ function submitSetupData(form) {
     var formArray = form.serializeArray();
     var json = {};
 
-    jQuery.each(formArray, function() {
-       json[this.name] = this.value || '';
+    jQuery.each(formArray, function () {
+        json[this.name] = this.value || '';
     });
 
     $.ajax({
@@ -174,16 +173,16 @@ function submitSetupData(form) {
         data: JSON.stringify(json),
         contentType: "application/json",
         success: function (data, status, xmlHttpReq) {
-            location.replace( window.CRM.root + "/");
+            location.replace(window.CRM.root + "/");
         }
     });
 
 }
 
-$(document).ready(function() {
-  $("#sLanguage").select2();
-  $("#schurchcountry-input").select2();
-  //$("#schurchstate-input").select2();
-  $("#sTimeZone").select2();
-  $("#schurchcountry-input").select2();
+$(document).ready(function () {
+    $("#sLanguage").select2();
+    $("#schurchcountry-input").select2();
+    //$("#schurchstate-input").select2();
+    $("#sTimeZone").select2();
+    $("#schurchcountry-input").select2();
 });
