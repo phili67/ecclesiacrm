@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt_pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "verdadeiro"
+
+msgid "false"
+msgstr "falso"
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "sou"
+
+msgid "Teachers"
+msgstr "Professores"
+
+msgid "Students"
+msgstr "Estudantes"
+
+msgid "Teacher"
+msgstr "Professor"
+
+msgid "Student"
+msgstr "Estudante"
+
+msgid "Parents"
+msgstr "Pais"
+
+msgid "Kids"
+msgstr "Crianças"
+
+msgid "create"
+msgstr "criar"
+
+msgid "edit"
+msgstr "editar"
+
+msgid "photo"
+msgstr "foto"
+
+msgid "group"
+msgstr "grupo"
+
+msgid "Group"
+msgstr "Grupo"
+
+msgid "note"
+msgstr "nota"
+
+msgid "You have to set a Title for your event"
+msgstr "Você tem que definir um título para o seu evento"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Este evento não é modificável!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Para adicionar um evento, você tem que criar um calendário ou ativar um "
+"primeiro."
+
+msgid "Event added"
+msgstr "Evento adicionado"
+
+msgid "Event was added successfully."
+msgstr "O evento foi adicionado com sucesso."
+
+msgid "Electronic Transaction Details"
+msgstr "Detalhes da Transação Eletrônica"
+
+msgid "Daily"
+msgstr "Diário"
+
+msgid "Weekly"
+msgstr "Semanalmente"
+
+msgid "Monthly"
+msgstr "Mensal"
+
+msgid "Quarterly"
+msgstr "Trimestralmente"
+
+msgid "Once"
+msgstr "Uma vez"
+
+msgid "Other"
+msgstr "Outros"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "DINHEIRO"
+
+msgid "Bank"
+msgstr "Banco"
+
+msgid "CreditCard"
+msgstr "Cartão de Crédito"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Algumas famílias não têm nenhum nome de \"chefe de família\" definido ou não "
+"há nenhum membro ativado nessas famílias:"
+
+msgid "send"
+msgstr "enviar"
+
+msgid "save"
+msgstr "salvar"
+
+msgid "subscribed"
+msgstr "inscrito"
+
+msgid "unsubscribed"
+msgstr "cancelar a inscrição"
+
+msgid "sent"
+msgstr "enviado para"
+
+msgid "schedule"
+msgstr "agenda"
+
+msgid "paused"
+msgstr "pausado"
+
+msgid "cleaned"
+msgstr "limpo"
+
+msgid "pending"
+msgstr "pendente"
+
+msgid "Invalid date"
+msgstr "Data inválida"
