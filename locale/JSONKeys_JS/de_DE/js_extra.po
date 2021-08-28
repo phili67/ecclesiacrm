@@ -1,8 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -17,19 +12,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "true"
-msgstr "richtig"
+msgstr "wahr"
 
 msgid "false"
 msgstr "falsch"
 
 msgid "pm"
-msgstr " "
+msgstr ""
 
 msgid "am"
-msgstr " "
+msgstr ""
 
 msgid "Teachers"
-msgstr "Lehrer"
+msgstr "Lehrerinnen und Lehrer"
 
 msgid "Students"
 msgstr "Studenten"
@@ -38,7 +33,7 @@ msgid "Teacher"
 msgstr "Lehrer"
 
 msgid "Student"
-msgstr "Student"
+msgstr "Studenten"
 
 msgid "Parents"
 msgstr "Eltern"
@@ -47,16 +42,16 @@ msgid "Kids"
 msgstr "Kinder"
 
 msgid "create"
-msgstr "erstellen"
+msgstr "erstellen."
 
 msgid "edit"
-msgstr "Edit"
+msgstr "bearbeiten"
 
 msgid "photo"
-msgstr "photo"
+msgstr "Foto"
 
 msgid "group"
-msgstr "gruppe"
+msgstr "Gruppe"
 
 msgid "Group"
 msgstr "Gruppe"
@@ -65,24 +60,24 @@ msgid "note"
 msgstr "Hinweis"
 
 msgid "You have to set a Title for your event"
-msgstr "Sie sollten ein Titel für Ihr Ereignis Wählen"
+msgstr "Sie müssen einen Titel für Ihr Ereignis festlegen"
 
 msgid "This event isn't modifiable !!!"
-msgstr "Diese Ereignis kann nicht veränderts !!!"
+msgstr "Dieses Ereignis ist nicht änderbar !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
 msgstr ""
-"Für eine Ereignis hinzufügen, Sie müssen einen Kalender erstellen, oder "
-"zuerst einer aktivieren. "
+"Um ein Ereignis hinzuzufügen, müssen Sie zunächst einen Kalender erstellen "
+"oder einen aktivieren."
 
 msgid "Event added"
 msgstr "Ereignis hinzugefügt"
 
 msgid "Event was added successfully."
-msgstr "Ereignis erfolgreich hinzugefügt"
+msgstr "Das Ereignis wurde erfolgreich hinzugefügt."
 
 msgid "Electronic Transaction Details"
-msgstr "Elektronische Transaktions-Details"
+msgstr "Details zur elektronischen Transaktion"
 
 msgid "Daily"
 msgstr "Täglich"
@@ -91,19 +86,19 @@ msgid "Weekly"
 msgstr "Wöchentlich"
 
 msgid "Monthly"
-msgstr "monatlich"
+msgstr "Monatlich"
 
 msgid "Quarterly"
 msgstr "Vierteljährlich"
 
 msgid "Once"
-msgstr "Einmal"
+msgstr "Sobald"
 
 msgid "Other"
 msgstr "Andere"
 
 msgid "CREDITCARD"
-msgstr "Kreditkarte"
+msgstr "KREDITKARTE"
 
 msgid "CASH"
 msgstr "CASH"
@@ -115,39 +110,41 @@ msgid "CreditCard"
 msgstr "Kreditkarte"
 
 msgid "BankDraft"
-msgstr "Banküberweisung"
+msgstr "BankDraft"
 
 msgid ""
-"Some families haven't any \"head of household\" role name defined or there's "
-"any activated members in this families:"
-msgstr "Einige familien haben keine Rolle für der Leiter des Haushalts:"
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"In einigen Familien ist die Rolle des \"Haushaltsvorstands\" nicht definiert oder "
+"es gibt keine aktivierten Mitglieder in diesen Familien:"
 
 msgid "send"
-msgstr "senden"
+msgstr "senden."
 
 msgid "save"
 msgstr "speichern"
 
 msgid "subscribed"
-msgstr "abonnierte"
+msgstr "abonniert"
 
 msgid "unsubscribed"
-msgstr "abgemeldet"
+msgstr "abbestellt"
 
 msgid "sent"
 msgstr "gesendet"
 
 msgid "schedule"
-msgstr "zeitplan"
+msgstr "Zeitplan"
 
 msgid "paused"
 msgstr "pausiert"
 
 msgid "cleaned"
-msgstr "geleert"
+msgstr "gereinigt"
 
 msgid "pending"
-msgstr "steht aus"
+msgstr "anhängig"
 
 msgid "Invalid date"
 msgstr "Ungültiges Datum"

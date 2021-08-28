@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-06 18:42+0200\n"
+"POT-Creation-Date: 2021-08-18 16:35+0000\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,18 +40,18 @@ msgstr "Person"
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
-#: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
-#: external/templates/registration/family-register-done.php:27
+#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/dto/ReportUtilities.php:71 ElectronicPaymentList.php:217
 #: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:64
-#: members/404.php:16 PersonView.php:906 PledgeEditor.php:588
-#: PrintPastoralCarePerson.php:325 PrintView.php:336
-#: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/routes/sidebar/propertylist.php:36
+#: PersonView.php:906 PledgeEditor.php:588 PrintPastoralCarePerson.php:325
+#: PrintView.php:336 Reports/GDPR/GDPRDataStructureExport.php:123
+#: Reports/PDFLabel.php:174
+#: external/templates/registration/family-register-done.php:27
+#: members/404.php:16 v2/routes/sidebar/propertylist.php:36
 #: v2/templates/dashboard/maindashboard.php:440
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
@@ -80,14 +80,14 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:152
 #: EcclesiaCRM/APIControllers/SearchController.php:160
 #: EcclesiaCRM/APIControllers/SearchController.php:165
-#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
+#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:401 EcclesiaCRM/utils/OutputUtils.php:462
-#: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
-#: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
-#: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:230 v2/routes/group/groups.php:68
+#: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
+#: PersonEditor.php:1027 PersonEditor.php:1047 PersonEditor.php:1637
+#: PrintPastoralCarePerson.php:332 PrintPastoralCarePerson.php:345
+#: PrintView.php:343 PrintView.php:356 SelectDelete.php:243
+#: SystemSettings.php:232 eGive.php:345 v2/routes/group/groups.php:68
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -167,10 +167,10 @@ msgid "inactive"
 msgstr "overksam"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:235
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:76
-#: external/templates/verify/enter-info.php:21 PersonEditor.php:904
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 PersonEditor.php:904
 #: Reports/MemberEmailExport.php:20
+#: external/templates/registration/family-register-members.php:76
+#: external/templates/verify/enter-info.php:21
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -180,24 +180,26 @@ msgid "First Name"
 msgstr "Tilltalsnamn"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:237
+#: ManageEnvelopes.php:171 PersonEditor.php:926
+#: Reports/MemberEmailExport.php:21
 #: external/templates/registration/family-register-members.php:81
-#: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
-#: PersonEditor.php:926 Reports/MemberEmailExport.php:21
+#: external/templates/verify/enter-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 #, fuzzy
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
-#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
-#: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CSVExport.php:92
+#: CSVExport.php:98 CSVImport.php:241 CSVImport.php:242 CartToFamily.php:346
+#: CartToFamily.php:356 DirectoryReports.php:196 DirectoryReports.php:289
+#: FamilyEditor.php:734 FamilyEditor.php:740 FamilyView.php:294 GeoPage.php:374
+#: GroupReports.php:148 PersonEditor.php:1087 PersonEditor.php:1093
+#: PersonEditor.php:1227 PersonEditor.php:1251 PersonView.php:566
+#: Reports/ConfirmReportEmail.php:144 Reports/ConfirmReportEmail.php:149
+#: Reports/PDFLabel.php:859
 #: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:49 FamilyEditor.php:734
-#: FamilyEditor.php:740 FamilyView.php:294 GeoPage.php:374 GroupReports.php:148
-#: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
-#: PersonEditor.php:1251 PersonView.php:566 Reports/ConfirmReportEmail.php:144
-#: Reports/ConfirmReportEmail.php:149 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:49
 #: v2/templates/dashboard/maindashboard.php:581
 #: v2/templates/dashboard/maindashboard.php:595
 #: v2/templates/dashboard/maindashboard.php:610
@@ -206,33 +208,33 @@ msgstr "Efternamn"
 msgid "Address"
 msgstr "Adress"
 
-#: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
-#: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:60 FamilyEditor.php:746
+#: AutoPaymentEditor.php:940 CSVExport.php:103 CSVImport.php:243
+#: CartToFamily.php:366 DirectoryReports.php:294 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:60
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Stad"
 
-#: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
-#: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:64 FamilyEditor.php:755
+#: AutoPaymentEditor.php:948 CSVExport.php:108 CSVImport.php:244
+#: CartToFamily.php:375 DirectoryReports.php:300 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:64
 #: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Län"
 
-#: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
-#: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:75
-#: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
+#: AutoPaymentEditor.php:956 CSVExport.php:115 CSVImport.php:245
+#: CartToFamily.php:393 DirectoryReports.php:306 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:75
+#: external/templates/verify/enter-info.php:29
 #, fuzzy
 msgid "Zip"
 msgstr "Postkod"
 
-#: AutoPaymentEditor.php:964 CartToFamily.php:402 CSVExport.php:125
-#: CSVImport.php:246 FamilyEditor.php:779 PersonEditor.php:1133
+#: AutoPaymentEditor.php:964 CSVExport.php:125 CSVImport.php:246
+#: CartToFamily.php:402 FamilyEditor.php:779 PersonEditor.php:1133
 #: PersonEditor.php:1367
 msgid "Country"
 msgstr "Land"
@@ -241,31 +243,31 @@ msgstr "Land"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
-#: EcclesiaCRM/Reports/PDF_Directory.php:456
+#: EcclesiaCRM/Reports/PDF_Directory.php:456 Reports/DirectoryReport.php:315
+#: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
+#: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:114
-#: Reports/DirectoryReport.php:315 Reports/FundRaiserStatement.php:127
-#: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Telefon"
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: AutoPaymentEditor.php:980 CSVExport.php:148 CSVImport.php:250
+#: CartToFamily.php:453 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
-#: EventAttendance.php:185
+#: EventAttendance.php:185 FamilyEditor.php:861 FamilyView.php:375
+#: FamilyView.php:454 FamilyView.php:552 GroupReports.php:152
+#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:637
+#: PersonView.php:760 PersonView.php:1126 PrintPastoralCarePerson.php:385
+#: PrintView.php:396 Reports/CanvassReports.php:280
+#: Reports/ConfirmReport.php:224 Reports/ConfirmReport.php:244
+#: Reports/ConfirmReportEmail.php:224 Reports/ConfirmReportEmail.php:242
+#: Reports/DirectoryReport.php:326 Reports/FundRaiserStatement.php:128
+#: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
+#: Reports/MemberEmailExport.php:22
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:375 FamilyView.php:454 FamilyView.php:552
-#: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
-#: PersonView.php:637 PersonView.php:760 PersonView.php:1126
-#: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:280 Reports/ConfirmReportEmail.php:224
-#: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
-#: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:326
-#: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
-#: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
+#: external/templates/verify/verify-family-info.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
 #: v2/templates/pastoralcare/pastoralcareperson.php:117
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
@@ -320,20 +322,21 @@ msgstr ""
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:879 PersonEditor.php:1020 PersonEditor.php:1207
 #: PersonEditor.php:1629 PersonEditor.php:1709 PersonEditor.php:1797
-#: PledgeEditor.php:793 UserEditor.php:868 UserPasswordChange.php:225
-#: v2/templates/fundraiser/donatedItemEditor.php:167
+#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:907
+#: UserPasswordChange.php:225 v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Spara"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1954
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:869
-#: UserEditor.php:1016 v2/templates/fundraiser/donatedItemEditor.php:178
+#: FamilyEditor.php:1297 FamilyView.php:1081 FinancialReports.php:92
+#: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
+#: LettersAndLabels.php:83 ManageEnvelopes.php:144 PersonEditor.php:1805
+#: PersonView.php:1954 PledgeEditor.php:800 ReminderReport.php:55
+#: SettingsIndividual.php:139 SettingsIndividual.php:405 TaxReport.php:53
+#: UserEditor.php:908 UserEditor.php:1062
+#: external/templates/verify/verify-family-info.php:188
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -368,675 +371,7 @@ msgstr "Län:"
 msgid "Enter Winners"
 msgstr "Ange Vinnare"
 
-#: browser/browse.php:31
-#, fuzzy
-msgid "File Manager"
-msgstr "Kuvert skötare"
-
-#: browser/browse.php:43 PersonView.php:1846
-#, fuzzy
-msgid "Upload a file in EDrive"
-msgstr "Ladda upp CSV Fil"
-
-#: browser/browse.php:50
-msgid "Download"
-msgstr ""
-
-#: browser/browse.php:58 PersonView.php:1858
-#, fuzzy
-msgid "Create a Folder"
-msgstr "Skapa fil"
-
-#: browser/browse.php:66 EditEventAttendees.php:120
-#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1082
-#: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1867
-#: PersonView.php:1955 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:44
-#: v2/templates/email/mailchimp/managelist.php:102
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcarefamily.php:219
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
-msgid "Delete"
-msgstr "Radera"
-
-#: browser/browse.php:75 PersonView.php:1877
-msgid "Up One Level"
-msgstr ""
-
-#: browser/browse.php:82 PersonView.php:1886
-msgid "Actualize files"
-msgstr ""
-
-#: browser/browse.php:99 PersonView.php:1904
-#, fuzzy
-msgid "Preview"
-msgstr "Föregående sida"
-
-#: CanvassAutomation.php:22 ReportList.php:56
-msgid "Canvass Automation"
-msgstr "Insamlingskampanj automation"
-
-#: CanvassAutomation.php:48 CanvassAutomation.php:55 CanvassAutomation.php:63
-#: CanvassAutomation.php:71 CanvassAutomation.php:79
-msgid "Not confirmed."
-msgstr "Icke bekräftade"
-
-#: CanvassAutomation.php:69
-msgid "Cleared all canvasser assignments."
-msgstr "Renasade alla insamlingskampanj arbetsuppgifter"
-
-#: CanvassAutomation.php:77
-msgid "Set Ok To Canvass for all families."
-msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:85
-msgid "Disabled Ok To Canvass for all families."
-msgstr "Ställa in icke godkände för insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:87
-msgid "ClearAllOkToCanvass button not confimed."
-msgstr "RensaAllaGodkändeFörInsamlingskampanj knappen ej bekräftade"
-
-#: CanvassAutomation.php:120
-#: v2/templates/sundayschool/sundayschoolreports.php:29
-#, fuzzy
-msgid "Report Details"
-msgstr "Rapport model"
-
-#: CanvassAutomation.php:127 FinancialReports.php:278
-#, fuzzy
-msgid "Fiscal Year:"
-msgstr "Bokföringsår"
-
-#: CanvassAutomation.php:137 CanvassAutomation.php:149
-#: CanvassAutomation.php:162 CanvassAutomation.php:177
-#: CanvassAutomation.php:190 CanvassAutomation.php:203
-msgid "Check to confirm"
-msgstr "Bocka av för att bekräfta"
-
-#: CanvassAutomation.php:141
-msgid "Set default fiscal year"
-msgstr "Förinställde bokföringsår"
-
-#: CanvassAutomation.php:148
-msgid ""
-"Randomly assign canvassers to all Families.  The Canvassers are taken from "
-"the &quot;Canvassers&quot; Group."
-msgstr ""
-
-#: CanvassAutomation.php:154
-msgid "Assign Canvassers"
-msgstr "Ange insamlingskampanj arbetare"
-
-#: CanvassAutomation.php:161
-msgid ""
-"Randomly assign canvassers to non-pledging Families.  The Canvassers are "
-"taken from the &quot;BraveCanvassers&quot; Group."
-msgstr ""
-
-#: CanvassAutomation.php:167
-msgid "Assign To Non Pledging"
-msgstr "Ange som icke donator"
-
-#: CanvassAutomation.php:174
-#, fuzzy
-msgid "Clear all the canvasser assignments for all families."
-msgstr "Renasade alla insamlingskampanj arbetsuppgifter"
-
-#: CanvassAutomation.php:175
-msgid ""
-"Important note: this will lose any canvasser assignments that have been made "
-"by hand."
-msgstr ""
-
-#: CanvassAutomation.php:181
-msgid "Clear Canvasser Assignments"
-msgstr "Rensa insamlingskampanj arbetsuppgifter"
-
-#: CanvassAutomation.php:188
-#, fuzzy
-msgid "Turn on the &quot;Ok To Canvass&quot; field for all Families."
-msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:189 CanvassAutomation.php:202
-msgid ""
-"Important note: this will lose any &quot;Ok To Canvass&quot; fields that "
-"have been set by hand."
-msgstr ""
-
-#: CanvassAutomation.php:194
-msgid "Enable Canvass for All Families"
-msgstr "Tillåt insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:201
-#, fuzzy
-msgid "Turn off the &quot;Ok To Canvass&quot; field for all Families"
-msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:207
-msgid "Disable Canvass for All Families"
-msgstr "Tillåt inte insamlingskampanj för alla familjer"
-
-#: CanvassAutomation.php:214
-msgid ""
-"Generate a PDF containing briefing sheets for all Families, sorted by "
-"canvasser."
-msgstr ""
-"Skapa en PDF fil som innehåller genomgångsblad för alla familjer, sorterat "
-"efter insamlingskampanj arbetare"
-
-#: CanvassAutomation.php:217
-msgid "Briefing Sheets"
-msgstr "Genomgångsblad"
-
-#: CanvassAutomation.php:224
-msgid ""
-"Generate a PDF containing a progress report.  The progress report includes "
-"information on the overall progress of the canvass, and the progress of "
-"individual canvassers."
-msgstr ""
-
-#: CanvassAutomation.php:227
-msgid "Progress Report"
-msgstr "Framstegsrapport"
-
-#: CanvassAutomation.php:234
-msgid ""
-"Generate a PDF containing a summary report.  The summary report includes "
-"comments extracted from the canvass data."
-msgstr ""
-
-#: CanvassAutomation.php:237
-msgid "Summary Report"
-msgstr "Sammandragsrapport"
-
-#: CanvassAutomation.php:244
-#, fuzzy
-msgid ""
-"Generate a PDF containing a report of the families marked &quot;Not "
-"Interested&quot; by the canvasser."
-msgstr ""
-"Skapa en PDF fil som innehåller genomgångsblad för alla familjer, sorterat "
-"efter insamlingskampanj arbetare"
-
-#: CanvassAutomation.php:248
-msgid "Not Interested Report"
-msgstr "Ej intresserad rapport"
-
-#: CanvassEditor.php:52 CanvassEditor.php:54
-#, fuzzy
-msgid "Canvass Input for the"
-msgstr " Insamlingskampanj inmatning för "
-
-#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
-#: EcclesiaCRM/Service/PersonService.php:46
-#, fuzzy
-msgid "family"
-msgstr "Familj"
-
-#: CanvassEditor.php:174 Reports/CanvassReports.php:196 UserEditor.php:760
-#, fuzzy
-msgid "Canvasser"
-msgstr "Insamlingskampanj arbetare"
-
-#: CanvassEditor.php:177 FamilyEditor.php:930 FamilyEditor.php:952
-#: PersonEditor.php:1159 PersonEditor.php:1181
-#, fuzzy
-msgid "None selected"
-msgstr "Inga grupp utvald"
-
-#: CanvassEditor.php:217 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:399
-msgid "Positive"
-msgstr "Positiv"
-
-#: CanvassEditor.php:225 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:402
-msgid "Critical"
-msgstr "Kritiskt"
-
-#: CanvassEditor.php:233 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:405
-msgid "Insightful"
-msgstr "Insiktsrikt"
-
-#: CanvassEditor.php:241 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:408
-msgid "Financial"
-msgstr "Finansiell"
-
-#: CanvassEditor.php:249
-msgid "Suggestions"
-msgstr "Förslag"
-
-#: CanvassEditor.php:257
-msgid "Not Interested"
-msgstr "Ej intresserad"
-
-#: CanvassEditor.php:265
-msgid "Why Not Interested?"
-msgstr "Varför ej intresserad"
-
-#: CartToBadge.php:32
-#, fuzzy
-msgid "Cart to Badges"
-msgstr "Skapa etikett"
-
-#: CartToBadge.php:44
-msgid "Only PNG and JPEG are managed actually !!"
-msgstr ""
-
-#: CartToBadge.php:53 CartToBadge.php:175 v2/templates/group/groupbadge.php:55
-#: v2/templates/group/groupbadge.php:182
-#, fuzzy
-msgid "Generate Badges"
-msgstr "Skapa etikett"
-
-#: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
-#: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:21
-#: v2/templates/fundraiser/donatedItemEditor.php:60
-msgid "Title"
-msgstr "Titel"
-
-#: CartToBadge.php:67 CartToBadge.php:70
-#, fuzzy
-msgid "Second Title"
-msgstr "Evenemangsnamn"
-
-#: CartToBadge.php:75 CartToBadge.php:78
-#, fuzzy
-msgid "Third Title"
-msgstr "Titel"
-
-#: CartToBadge.php:83 v2/templates/group/groupbadge.php:73
-#, fuzzy
-msgid "Title color"
-msgstr "Titel"
-
-#: CartToBadge.php:88 CartToBadge.php:102 v2/templates/group/groupbadge.php:78
-#: v2/templates/group/groupbadge.php:92
-msgid "Chose your color"
-msgstr ""
-
-#: CartToBadge.php:97 v2/templates/group/groupbadge.php:87
-msgid "BackGround color"
-msgstr ""
-
-#: CartToBadge.php:111 v2/templates/group/groupbadge.php:102
-msgid "Image"
-msgstr ""
-
-#: CartToBadge.php:117 v2/templates/group/groupbadge.php:64
-#: v2/templates/group/groupbadge.php:67 v2/templates/group/groupbadge.php:108
-#, fuzzy
-msgid "Sunday School Name"
-msgstr "Inga söndagskola"
-
-#: CartToBadge.php:126 v2/templates/group/groupbadge.php:118
-msgid "Pictures in the Image folder: "
-msgstr ""
-
-#: CartToBadge.php:144 CartToBadge.php:150
-#: v2/templates/group/groupbadge.php:136 v2/templates/group/groupbadge.php:142
-#, fuzzy
-msgid "Upload"
-msgstr "Ladda in foto"
-
-#: CartToBadge.php:150 EcclesiaCRM/Reports/PDF_Directory.php:366
-#: v2/templates/group/groupbadge.php:142
-msgid "and"
-msgstr "och"
-
-#: CartToBadge.php:156 v2/templates/group/groupbadge.php:161
-msgid "Image Position"
-msgstr ""
-
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
-#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
-#: PersonCustomFieldsEditor.php:514 v2/templates/group/groupbadge.php:165
-msgid "Left"
-msgstr "Vänster"
-
-#: CartToBadge.php:161 v2/templates/group/groupbadge.php:166
-#, fuzzy
-msgid "Center"
-msgstr "Vinter"
-
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
-#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
-#: PersonCustomFieldsEditor.php:515 v2/templates/group/groupbadge.php:167
-msgid "Right"
-msgstr "Höger"
-
-#: CartToBadge.php:167 v2/templates/group/groupbadge.php:172
-#, fuzzy
-msgid "Badge Type"
-msgstr "Beteckningstyp"
-
-#: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
-#: Reports/PDFBadgeGroup.php:207 Reports/PDFBadge.php:130
-#: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
-#, fuzzy
-msgid "default"
-msgstr "Standard"
-
-#: CartToFamily.php:120
-msgid "No family name entered!"
-msgstr "Ingen familjnamn inmatad!"
-
-#: CartToFamily.php:189
-msgid "Add Cart to Family"
-msgstr "Lägg korgen till familj"
-
-#: CartToFamily.php:197 EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:548
-#: v2/templates/dashboard/maindashboard.php:476
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:63
-#: v2/templates/pastoralcare/pastoralcarefamily.php:111
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
-#: v2/templates/pastoralcare/pastoralcareperson.php:113
-#, fuzzy
-msgid "Members"
-msgstr "Medlem"
-
-#: CartToFamily.php:229
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 EditEventAttendees.php:54
-#: EditEventAttendees.php:75 EventAttendance.php:184 EventNames.php:293
-#: FamilyCustomFieldsEditor.php:345 FamilyCustomFieldsEditor.php:467
-#: GeoPage.php:373 GroupEditor.php:86 GroupPropsEditor.php:236
-#: GroupPropsFormEditor.php:349 GroupPropsFormEditor.php:476 ListEvents.php:286
-#: ListEvents.php:288 PersonCustomFieldsEditor.php:341
-#: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
-#: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:90 Reports/CanvassReports.php:274
-#: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
-#: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:609
-#: v2/templates/dashboard/maindashboard.php:624
-#: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
-#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
-#: queryparameteroptions_qpo.php:4
-msgid "Name"
-msgstr "Namn"
-
-#: CartToFamily.php:230
-msgid "Assign Role"
-msgstr "Ange roll"
-
-#: CartToFamily.php:254
-msgid "Already in a family"
-msgstr "Redan i en familj"
-
-#: CartToFamily.php:268
-#, fuzzy
-msgid "Choose or create a family"
-msgstr "Skapa ny familj"
-
-#: CartToFamily.php:273 CartToFamily.php:464
-msgid "Add to Family"
-msgstr "Lägg till familj"
-
-#: CartToFamily.php:277
-msgid "Create new family"
-msgstr "Skapa ny familj"
-
-#: CartToFamily.php:296
-msgid "If adding a new family, enter data below."
-msgstr "Om du läggar till in en ny familj, ange informationen nedan."
-
-#: CartToFamily.php:302
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: external/templates/registration/family-register.php:38 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1076
-#: Reports/ConfirmReportEmail.php:139 Reports/ConfirmReport.php:142
-#: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:580
-#: v2/templates/dashboard/maindashboard.php:594
-msgid "Family Name"
-msgstr "Familj namn"
-
-#: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
-#: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:337
-msgid "Wedding Date"
-msgstr "Bröllopsdatum"
-
-#: CartToFamily.php:324
-#, fuzzy
-msgid "Use address/contact data from"
-msgstr "Använd adress/kontakt information från"
-
-#: CartToFamily.php:328
-msgid "Only the new data below"
-msgstr "Endast ny information nedan"
-
-#: CartToFamily.php:382
-msgid "OR"
-msgstr "ELLER"
-
-#: CartToFamily.php:387
-msgid "(Use the textbox for countries other than US and Canada)"
-msgstr "(Använd textrutan för alla ländar förutom USA och Kanada)"
-
-#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
-#: EditEventAttendees.php:79 EventAttendance.php:186
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:87
-#: external/templates/verify/verify-family-info.php:36
-#: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:351 GroupReports.php:149 PersonEditor.php:1409
-#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReportEmail.php:159
-#: Reports/ConfirmReport.php:162
-#: sundayschool/SundaySchoolClassListExport.php:54
-#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
-#: queryparameteroptions_qpo.php:8
-msgid "Home Phone"
-msgstr "Hemtelefon"
-
-#: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
-#: EcclesiaCRM/utils/OutputUtils.php:449 FamilyEditor.php:829
-#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
-#: PersonEditor.php:1460 PersonEditor.php:1489
-msgid "Do not auto-format"
-msgstr "Autoformatera inte"
-
-#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:357 GroupReports.php:150 PersonEditor.php:1438
-#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReportEmail.php:271
-#: Reports/ConfirmReport.php:282
-msgid "Work Phone"
-msgstr "Arbetstelefon"
-
-#: CartToFamily.php:439 CSVExport.php:142
-#: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:364 PersonEditor.php:1469
-#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
-#: PrintView.php:278
-msgid "Mobile Phone"
-msgstr "Mobiltelefon"
-
-#: CartToFamily.php:468
-msgid "Your cart is empty!"
-msgstr "Korgen är tom!"
-
-#: Checkin.php:26 EcclesiaCRM/MenuBar/MenuBar.php:90
-msgid "Call the Register"
-msgstr ""
-
-#: Checkin.php:132 ListEvents.php:115
-msgid "Add New Event"
-msgstr "Lägg till ny evenemang"
-
-#: Checkin.php:135
-msgid "QR Code Call"
-msgstr ""
-
-#: Checkin.php:137 Include/Footer.php:262 v2/routes/sidebar/kioskmanager.php:31
-#, fuzzy
-msgid "Kiosk Manager"
-msgstr "Kuvert skötare"
-
-#: Checkin.php:143
-#, fuzzy
-msgid "Edit Attendees"
-msgstr "Evenemangdeltagare"
-
-#: Checkin.php:162
-#, fuzzy
-msgid "Select the event to which you would like to check people in for"
-msgstr "Välj evenemang som du vill checka in personer till"
-
-#: Checkin.php:167
-msgid "Select Event"
-msgstr "Välj evenemang"
-
-#: Checkin.php:181
-#, fuzzy
-msgid "Select event"
-msgstr "Välj evenemang"
-
-#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
-#, fuzzy
-msgid "From"
-msgstr "Från:"
-
-#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
-#, fuzzy
-msgid "To"
-msgstr "Till:"
-
-#: Checkin.php:233
-#, fuzzy
-msgid "Set your free attendees"
-msgstr "Evenemang icke deltagare"
-
-#: Checkin.php:246
-msgid "You can set here the attendees for some group of persons."
-msgstr ""
-
-#: Checkin.php:251
-#, fuzzy
-msgid "Set your attendees Event"
-msgstr "Evenemang icke deltagare"
-
-#: Checkin.php:283
-#, fuzzy
-msgid "Your description"
-msgstr "Beskrivning"
-
-#: Checkin.php:294
-#, fuzzy
-msgid "Add Free Attendees Count"
-msgstr "Deltagande summor"
-
-#: Checkin.php:321
-msgid "Add single child/parents Attendees"
-msgstr ""
-
-#: Checkin.php:333
-#, fuzzy
-msgid "Add Attendees for Event"
-msgstr "Inga deltagare angiven till evenemang"
-
-#: Checkin.php:338 Checkin.php:345
-#, fuzzy
-msgid "Person's Name"
-msgstr "Medlemmarsnamn"
-
-#: Checkin.php:355
-msgid "Adult Name(Optional)"
-msgstr ""
-
-#: Checkin.php:362
-#, fuzzy
-msgid "Checked in By(Optional)"
-msgstr "Incheckade av:"
-
-#: Checkin.php:371
-#, fuzzy
-msgid "Add and Checkin"
-msgstr "Evenemang inchekning"
-
-#: Checkin.php:381
-msgid "Add Visitor"
-msgstr "Lägg till besökare"
-
-#: Checkin.php:403
-#, fuzzy
-msgid "Listing"
-msgstr "Användare lista"
-
-#: Checkin.php:409
-#, fuzzy
-msgid "Number of rows"
-msgstr "Antal kolumnar"
-
-#: Checkin.php:430
-#, fuzzy
-msgid "Checkin"
-msgstr "Checkar in"
-
-#: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:90
-#: v2/templates/user/userlist.php:171
-#, fuzzy
-msgid "Check all"
-msgstr "Krysa"
-
-#: Checkin.php:438 Checkin.php:449
-msgid "Uncheck all"
-msgstr ""
-
-#: Checkin.php:441
-#, fuzzy
-msgid "Checkout"
-msgstr "Checkar ut"
-
-#: Checkin.php:456
-#, fuzzy
-msgid "Add some notes"
-msgstr "Lägg till betalning"
-
-#: Checkin.php:463
-#, fuzzy
-msgid "Validate Attendance"
-msgstr "Skapa deltagande formulär"
-
-#: Checkin.php:477 EditEventAttendees.php:178
-#, fuzzy
-msgid "Return to Events"
-msgstr "Återgå till förfrågan meny"
-
-#: ConvertIndividualToAddress.php:45
-#, fuzzy
-msgid "Convert Individuals to Addresses"
-msgstr "Konvertera enskilda personer till familjer"
-
-#: ConvertIndividualToAddress.php:128
-msgid "is now part of the"
-msgstr ""
-
-#: ConvertIndividualToAddress.php:142
-msgid "Convert Next"
-msgstr "Konvertera nästa"
-
-#: ConvertIndividualToAddress.php:145
-msgid "Convert All"
-msgstr "Konvertera alla"
-
-#: CSVExport.php:55 UserEditor.php:791 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV Export"
 
@@ -1048,6 +383,14 @@ msgstr "Välj roll"
 #: CSVExport.php:67
 msgid "Required"
 msgstr "Obligatorisk "
+
+#: CSVExport.php:71 CSVImport.php:234 CartToBadge.php:59 CartToBadge.php:62
+#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
+#: Reports/GDPR/GDPRListExport.php:66
+#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/fundraiser/donatedItemEditor.php:60
+msgid "Title"
+msgstr "Titel"
 
 #: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
 #, fuzzy
@@ -1063,6 +406,38 @@ msgstr "Ändelse"
 #, fuzzy
 msgid "Envelope"
 msgstr "Kuvert"
+
+#: CSVExport.php:132 CSVImport.php:247 CartToFamily.php:411
+#: EditEventAttendees.php:79 EventAttendance.php:186 FamilyEditor.php:819
+#: FamilyView.php:351 GroupReports.php:149 PersonEditor.php:1409
+#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
+#: PrintView.php:268 Reports/ConfirmReport.php:162
+#: Reports/ConfirmReportEmail.php:159
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:87
+#: external/templates/verify/verify-family-info.php:36
+#: external/templates/verify/verify-family-info.php:85
+#: sundayschool/SundaySchoolClassListExport.php:54
+#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
+#: queryparameteroptions_qpo.php:8
+msgid "Home Phone"
+msgstr "Hemtelefon"
+
+#: CSVExport.php:137 CSVImport.php:248 CartToFamily.php:425
+#: FamilyEditor.php:832 FamilyView.php:357 GroupReports.php:150
+#: PersonEditor.php:1438 PersonEditor.php:1442 PersonView.php:651
+#: PrintPastoralCarePerson.php:262 PrintView.php:273
+#: Reports/ConfirmReport.php:282 Reports/ConfirmReportEmail.php:271
+#: external/templates/verify/verify-family-info.php:90
+msgid "Work Phone"
+msgstr "Arbetstelefon"
+
+#: CSVExport.php:142 CartToFamily.php:439 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:364 PersonEditor.php:1469
+#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
+#: PrintView.php:278 external/templates/verify/verify-family-info.php:95
+msgid "Mobile Phone"
+msgstr "Mobiltelefon"
 
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
@@ -1092,8 +467,8 @@ msgstr "Ålder / År gifte"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:550 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: v2/templates/pastoralcare/pastoralcarefamily.php:113
 #: v2/templates/pastoralcare/pastoralcareperson.php:115
 #: v2/templates/people/peopledashboard.php:301 queryparameters_qrp.php:19
 msgid "Classification"
@@ -1175,9 +550,9 @@ msgstr "Filtrera inte"
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:66
 #: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:66
 #: queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Man"
@@ -1186,9 +561,9 @@ msgstr "Man"
 #: EcclesiaCRM/Search/PersonSearchRes.php:319
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:67
 #: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
 #: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:67
 #: queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Kvinna"
@@ -1289,6 +664,12 @@ msgstr "Arbets- / Övriga epost"
 #: v2/templates/sundayschool/sundayschoolview.php:302
 msgid "Birth Date"
 msgstr "Födelsedatum"
+
+#: CSVImport.php:254 CartToFamily.php:312 DirectoryReports.php:197
+#: FamilyEditor.php:898 FamilyView.php:337
+#: external/templates/verify/verify-family-info.php:45
+msgid "Wedding Date"
+msgstr "Bröllopsdatum"
 
 #: CSVImport.php:266
 msgid ""
@@ -1464,6 +845,581 @@ msgstr "Importering lyckades."
 msgid "persons were imported"
 msgstr "personer importerade"
 
+#: CanvassAutomation.php:22 ReportList.php:56
+msgid "Canvass Automation"
+msgstr "Insamlingskampanj automation"
+
+#: CanvassAutomation.php:48 CanvassAutomation.php:55 CanvassAutomation.php:63
+#: CanvassAutomation.php:71 CanvassAutomation.php:79
+msgid "Not confirmed."
+msgstr "Icke bekräftade"
+
+#: CanvassAutomation.php:69
+msgid "Cleared all canvasser assignments."
+msgstr "Renasade alla insamlingskampanj arbetsuppgifter"
+
+#: CanvassAutomation.php:77
+msgid "Set Ok To Canvass for all families."
+msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:85
+msgid "Disabled Ok To Canvass for all families."
+msgstr "Ställa in icke godkände för insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:87
+msgid "ClearAllOkToCanvass button not confimed."
+msgstr "RensaAllaGodkändeFörInsamlingskampanj knappen ej bekräftade"
+
+#: CanvassAutomation.php:120
+#: v2/templates/sundayschool/sundayschoolreports.php:29
+#, fuzzy
+msgid "Report Details"
+msgstr "Rapport model"
+
+#: CanvassAutomation.php:127 FinancialReports.php:278
+#, fuzzy
+msgid "Fiscal Year:"
+msgstr "Bokföringsår"
+
+#: CanvassAutomation.php:137 CanvassAutomation.php:149
+#: CanvassAutomation.php:162 CanvassAutomation.php:177
+#: CanvassAutomation.php:190 CanvassAutomation.php:203
+msgid "Check to confirm"
+msgstr "Bocka av för att bekräfta"
+
+#: CanvassAutomation.php:141
+msgid "Set default fiscal year"
+msgstr "Förinställde bokföringsår"
+
+#: CanvassAutomation.php:148
+msgid ""
+"Randomly assign canvassers to all Families.  The Canvassers are taken from "
+"the &quot;Canvassers&quot; Group."
+msgstr ""
+
+#: CanvassAutomation.php:154
+msgid "Assign Canvassers"
+msgstr "Ange insamlingskampanj arbetare"
+
+#: CanvassAutomation.php:161
+msgid ""
+"Randomly assign canvassers to non-pledging Families.  The Canvassers are "
+"taken from the &quot;BraveCanvassers&quot; Group."
+msgstr ""
+
+#: CanvassAutomation.php:167
+msgid "Assign To Non Pledging"
+msgstr "Ange som icke donator"
+
+#: CanvassAutomation.php:174
+#, fuzzy
+msgid "Clear all the canvasser assignments for all families."
+msgstr "Renasade alla insamlingskampanj arbetsuppgifter"
+
+#: CanvassAutomation.php:175
+msgid ""
+"Important note: this will lose any canvasser assignments that have been made "
+"by hand."
+msgstr ""
+
+#: CanvassAutomation.php:181
+msgid "Clear Canvasser Assignments"
+msgstr "Rensa insamlingskampanj arbetsuppgifter"
+
+#: CanvassAutomation.php:188
+#, fuzzy
+msgid "Turn on the &quot;Ok To Canvass&quot; field for all Families."
+msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:189 CanvassAutomation.php:202
+msgid ""
+"Important note: this will lose any &quot;Ok To Canvass&quot; fields that "
+"have been set by hand."
+msgstr ""
+
+#: CanvassAutomation.php:194
+msgid "Enable Canvass for All Families"
+msgstr "Tillåt insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:201
+#, fuzzy
+msgid "Turn off the &quot;Ok To Canvass&quot; field for all Families"
+msgstr "Ställa in godkände för insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:207
+msgid "Disable Canvass for All Families"
+msgstr "Tillåt inte insamlingskampanj för alla familjer"
+
+#: CanvassAutomation.php:214
+msgid ""
+"Generate a PDF containing briefing sheets for all Families, sorted by "
+"canvasser."
+msgstr ""
+"Skapa en PDF fil som innehåller genomgångsblad för alla familjer, sorterat "
+"efter insamlingskampanj arbetare"
+
+#: CanvassAutomation.php:217
+msgid "Briefing Sheets"
+msgstr "Genomgångsblad"
+
+#: CanvassAutomation.php:224
+msgid ""
+"Generate a PDF containing a progress report.  The progress report includes "
+"information on the overall progress of the canvass, and the progress of "
+"individual canvassers."
+msgstr ""
+
+#: CanvassAutomation.php:227
+msgid "Progress Report"
+msgstr "Framstegsrapport"
+
+#: CanvassAutomation.php:234
+msgid ""
+"Generate a PDF containing a summary report.  The summary report includes "
+"comments extracted from the canvass data."
+msgstr ""
+
+#: CanvassAutomation.php:237
+msgid "Summary Report"
+msgstr "Sammandragsrapport"
+
+#: CanvassAutomation.php:244
+#, fuzzy
+msgid ""
+"Generate a PDF containing a report of the families marked &quot;Not "
+"Interested&quot; by the canvasser."
+msgstr ""
+"Skapa en PDF fil som innehåller genomgångsblad för alla familjer, sorterat "
+"efter insamlingskampanj arbetare"
+
+#: CanvassAutomation.php:248
+msgid "Not Interested Report"
+msgstr "Ej intresserad rapport"
+
+#: CanvassEditor.php:52 CanvassEditor.php:54
+#, fuzzy
+msgid "Canvass Input for the"
+msgstr " Insamlingskampanj inmatning för "
+
+#: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
+#: EcclesiaCRM/Service/PersonService.php:46
+#, fuzzy
+msgid "family"
+msgstr "Familj"
+
+#: CanvassEditor.php:174 Reports/CanvassReports.php:196 UserEditor.php:781
+#, fuzzy
+msgid "Canvasser"
+msgstr "Insamlingskampanj arbetare"
+
+#: CanvassEditor.php:177 FamilyEditor.php:930 FamilyEditor.php:952
+#: PersonEditor.php:1159 PersonEditor.php:1181
+#, fuzzy
+msgid "None selected"
+msgstr "Inga grupp utvald"
+
+#: CanvassEditor.php:217 Reports/CanvassReports.php:390
+#: Reports/CanvassReports.php:399
+msgid "Positive"
+msgstr "Positiv"
+
+#: CanvassEditor.php:225 Reports/CanvassReports.php:390
+#: Reports/CanvassReports.php:402
+msgid "Critical"
+msgstr "Kritiskt"
+
+#: CanvassEditor.php:233 Reports/CanvassReports.php:390
+#: Reports/CanvassReports.php:405
+msgid "Insightful"
+msgstr "Insiktsrikt"
+
+#: CanvassEditor.php:241 Reports/CanvassReports.php:390
+#: Reports/CanvassReports.php:408
+msgid "Financial"
+msgstr "Finansiell"
+
+#: CanvassEditor.php:249
+msgid "Suggestions"
+msgstr "Förslag"
+
+#: CanvassEditor.php:257
+msgid "Not Interested"
+msgstr "Ej intresserad"
+
+#: CanvassEditor.php:265
+msgid "Why Not Interested?"
+msgstr "Varför ej intresserad"
+
+#: CartToBadge.php:32
+#, fuzzy
+msgid "Cart to Badges"
+msgstr "Skapa etikett"
+
+#: CartToBadge.php:44
+msgid "Only PNG and JPEG are managed actually !!"
+msgstr ""
+
+#: CartToBadge.php:53 CartToBadge.php:175 v2/templates/group/groupbadge.php:55
+#: v2/templates/group/groupbadge.php:182
+#, fuzzy
+msgid "Generate Badges"
+msgstr "Skapa etikett"
+
+#: CartToBadge.php:67 CartToBadge.php:70
+#, fuzzy
+msgid "Second Title"
+msgstr "Evenemangsnamn"
+
+#: CartToBadge.php:75 CartToBadge.php:78
+#, fuzzy
+msgid "Third Title"
+msgstr "Titel"
+
+#: CartToBadge.php:83 v2/templates/group/groupbadge.php:73
+#, fuzzy
+msgid "Title color"
+msgstr "Titel"
+
+#: CartToBadge.php:88 CartToBadge.php:102 v2/templates/group/groupbadge.php:78
+#: v2/templates/group/groupbadge.php:92
+msgid "Chose your color"
+msgstr ""
+
+#: CartToBadge.php:97 v2/templates/group/groupbadge.php:87
+msgid "BackGround color"
+msgstr ""
+
+#: CartToBadge.php:111 v2/templates/group/groupbadge.php:102
+msgid "Image"
+msgstr ""
+
+#: CartToBadge.php:117 v2/templates/group/groupbadge.php:64
+#: v2/templates/group/groupbadge.php:67 v2/templates/group/groupbadge.php:108
+#, fuzzy
+msgid "Sunday School Name"
+msgstr "Inga söndagskola"
+
+#: CartToBadge.php:126 v2/templates/group/groupbadge.php:118
+msgid "Pictures in the Image folder: "
+msgstr ""
+
+#: CartToBadge.php:144 CartToBadge.php:150
+#: v2/templates/group/groupbadge.php:136 v2/templates/group/groupbadge.php:142
+#, fuzzy
+msgid "Upload"
+msgstr "Ladda in foto"
+
+#: CartToBadge.php:150 EcclesiaCRM/Reports/PDF_Directory.php:366
+#: v2/templates/group/groupbadge.php:142
+msgid "and"
+msgstr "och"
+
+#: CartToBadge.php:156 v2/templates/group/groupbadge.php:161
+msgid "Image Position"
+msgstr ""
+
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
+#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
+#: PersonCustomFieldsEditor.php:514 v2/templates/group/groupbadge.php:165
+msgid "Left"
+msgstr "Vänster"
+
+#: CartToBadge.php:161 v2/templates/group/groupbadge.php:166
+#, fuzzy
+msgid "Center"
+msgstr "Vinter"
+
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
+#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
+#: PersonCustomFieldsEditor.php:515 v2/templates/group/groupbadge.php:167
+msgid "Right"
+msgstr "Höger"
+
+#: CartToBadge.php:167 v2/templates/group/groupbadge.php:172
+#, fuzzy
+msgid "Badge Type"
+msgstr "Beteckningstyp"
+
+#: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
+#: Reports/PDFBadge.php:130 Reports/PDFBadgeGroup.php:207
+#: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
+#, fuzzy
+msgid "default"
+msgstr "Standard"
+
+#: CartToFamily.php:120
+msgid "No family name entered!"
+msgstr "Ingen familjnamn inmatad!"
+
+#: CartToFamily.php:189
+msgid "Add Cart to Family"
+msgstr "Lägg korgen till familj"
+
+#: CartToFamily.php:197 EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:548
+#: v2/templates/dashboard/maindashboard.php:476
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:63
+#: v2/templates/pastoralcare/pastoralcarefamily.php:111
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
+#: v2/templates/pastoralcare/pastoralcareperson.php:113
+#, fuzzy
+msgid "Members"
+msgstr "Medlem"
+
+#: CartToFamily.php:229
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 EditEventAttendees.php:54
+#: EditEventAttendees.php:75 EventAttendance.php:184 EventNames.php:293
+#: FamilyCustomFieldsEditor.php:345 FamilyCustomFieldsEditor.php:467
+#: GeoPage.php:373 GroupEditor.php:86 GroupPropsEditor.php:236
+#: GroupPropsFormEditor.php:349 GroupPropsFormEditor.php:476 ListEvents.php:286
+#: ListEvents.php:288 PersonCustomFieldsEditor.php:341
+#: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
+#: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
+#: Reports/CanvassReports.php:90 Reports/CanvassReports.php:274
+#: Reports/FRBidSheets.php:102 Reports/FamilyPledgeSummary.php:230
+#: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
+#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:609
+#: v2/templates/dashboard/maindashboard.php:624
+#: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
+#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
+#: queryparameteroptions_qpo.php:4
+msgid "Name"
+msgstr "Namn"
+
+#: CartToFamily.php:230
+msgid "Assign Role"
+msgstr "Ange roll"
+
+#: CartToFamily.php:254
+msgid "Already in a family"
+msgstr "Redan i en familj"
+
+#: CartToFamily.php:268
+#, fuzzy
+msgid "Choose or create a family"
+msgstr "Skapa ny familj"
+
+#: CartToFamily.php:273 CartToFamily.php:464
+msgid "Add to Family"
+msgstr "Lägg till familj"
+
+#: CartToFamily.php:277
+msgid "Create new family"
+msgstr "Skapa ny familj"
+
+#: CartToFamily.php:296
+msgid "If adding a new family, enter data below."
+msgstr "Om du läggar till in en ny familj, ange informationen nedan."
+
+#: CartToFamily.php:302
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: FamilyEditor.php:722 LettersAndLabels.php:71 PersonEditor.php:1076
+#: Reports/ConfirmReport.php:142 Reports/ConfirmReportEmail.php:139
+#: SelectDelete.php:234 SelectDelete.php:366
+#: external/templates/registration/family-register.php:38
+#: v2/templates/dashboard/maindashboard.php:580
+#: v2/templates/dashboard/maindashboard.php:594
+msgid "Family Name"
+msgstr "Familj namn"
+
+#: CartToFamily.php:324
+#, fuzzy
+msgid "Use address/contact data from"
+msgstr "Använd adress/kontakt information från"
+
+#: CartToFamily.php:328
+msgid "Only the new data below"
+msgstr "Endast ny information nedan"
+
+#: CartToFamily.php:382
+msgid "OR"
+msgstr "ELLER"
+
+#: CartToFamily.php:387
+msgid "(Use the textbox for countries other than US and Canada)"
+msgstr "(Använd textrutan för alla ländar förutom USA och Kanada)"
+
+#: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
+#: EcclesiaCRM/utils/OutputUtils.php:449 FamilyEditor.php:829
+#: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
+#: PersonEditor.php:1460 PersonEditor.php:1489
+msgid "Do not auto-format"
+msgstr "Autoformatera inte"
+
+#: CartToFamily.php:468
+msgid "Your cart is empty!"
+msgstr "Korgen är tom!"
+
+#: Checkin.php:26 EcclesiaCRM/MenuBar/MenuBar.php:90
+msgid "Call the Register"
+msgstr ""
+
+#: Checkin.php:132 ListEvents.php:115
+msgid "Add New Event"
+msgstr "Lägg till ny evenemang"
+
+#: Checkin.php:135
+msgid "QR Code Call"
+msgstr ""
+
+#: Checkin.php:137 Include/Footer.php:262 v2/routes/sidebar/kioskmanager.php:31
+#, fuzzy
+msgid "Kiosk Manager"
+msgstr "Kuvert skötare"
+
+#: Checkin.php:143
+#, fuzzy
+msgid "Edit Attendees"
+msgstr "Evenemangdeltagare"
+
+#: Checkin.php:162
+#, fuzzy
+msgid "Select the event to which you would like to check people in for"
+msgstr "Välj evenemang som du vill checka in personer till"
+
+#: Checkin.php:167
+msgid "Select Event"
+msgstr "Välj evenemang"
+
+#: Checkin.php:181
+#, fuzzy
+msgid "Select event"
+msgstr "Välj evenemang"
+
+#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
+#, fuzzy
+msgid "From"
+msgstr "Från:"
+
+#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
+#, fuzzy
+msgid "To"
+msgstr "Till:"
+
+#: Checkin.php:233
+#, fuzzy
+msgid "Set your free attendees"
+msgstr "Evenemang icke deltagare"
+
+#: Checkin.php:246
+msgid "You can set here the attendees for some group of persons."
+msgstr ""
+
+#: Checkin.php:251
+#, fuzzy
+msgid "Set your attendees Event"
+msgstr "Evenemang icke deltagare"
+
+#: Checkin.php:283
+#, fuzzy
+msgid "Your description"
+msgstr "Beskrivning"
+
+#: Checkin.php:294
+#, fuzzy
+msgid "Add Free Attendees Count"
+msgstr "Deltagande summor"
+
+#: Checkin.php:321
+msgid "Add single child/parents Attendees"
+msgstr ""
+
+#: Checkin.php:333
+#, fuzzy
+msgid "Add Attendees for Event"
+msgstr "Inga deltagare angiven till evenemang"
+
+#: Checkin.php:338 Checkin.php:345
+#, fuzzy
+msgid "Person's Name"
+msgstr "Medlemmarsnamn"
+
+#: Checkin.php:355
+msgid "Adult Name(Optional)"
+msgstr ""
+
+#: Checkin.php:362
+#, fuzzy
+msgid "Checked in By(Optional)"
+msgstr "Incheckade av:"
+
+#: Checkin.php:371
+#, fuzzy
+msgid "Add and Checkin"
+msgstr "Evenemang inchekning"
+
+#: Checkin.php:381
+msgid "Add Visitor"
+msgstr "Lägg till besökare"
+
+#: Checkin.php:403
+#, fuzzy
+msgid "Listing"
+msgstr "Användare lista"
+
+#: Checkin.php:409
+#, fuzzy
+msgid "Number of rows"
+msgstr "Antal kolumnar"
+
+#: Checkin.php:430
+#, fuzzy
+msgid "Checkin"
+msgstr "Checkar in"
+
+#: Checkin.php:434 Checkin.php:445
+#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/user/userlist.php:171
+#, fuzzy
+msgid "Check all"
+msgstr "Krysa"
+
+#: Checkin.php:438 Checkin.php:449
+msgid "Uncheck all"
+msgstr ""
+
+#: Checkin.php:441
+#, fuzzy
+msgid "Checkout"
+msgstr "Checkar ut"
+
+#: Checkin.php:456
+#, fuzzy
+msgid "Add some notes"
+msgstr "Lägg till betalning"
+
+#: Checkin.php:463
+#, fuzzy
+msgid "Validate Attendance"
+msgstr "Skapa deltagande formulär"
+
+#: Checkin.php:477 EditEventAttendees.php:178
+#, fuzzy
+msgid "Return to Events"
+msgstr "Återgå till förfrågan meny"
+
+#: ConvertIndividualToAddress.php:45
+#, fuzzy
+msgid "Convert Individuals to Addresses"
+msgstr "Konvertera enskilda personer till familjer"
+
+#: ConvertIndividualToAddress.php:128
+msgid "is now part of the"
+msgstr ""
+
+#: ConvertIndividualToAddress.php:142
+msgid "Convert Next"
+msgstr "Konvertera nästa"
+
+#: ConvertIndividualToAddress.php:145
+msgid "Convert All"
+msgstr "Konvertera alla"
+
 #: DepositSlipEditor.php:65
 msgid "Deposit Slip Number: "
 msgstr "Insättningsblankett nummer:"
@@ -1594,10 +1550,10 @@ msgid "Information to Include"
 msgstr "Informationen att inkludera"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:551
-#: PersonView.php:1125 Reports/ConfirmReportEmail.php:225
-#: Reports/ConfirmReportEmail.php:243 Reports/ConfirmReport.php:225
-#: Reports/ConfirmReport.php:245
+#: FamilyView.php:551 PersonView.php:1125 Reports/ConfirmReport.php:225
+#: Reports/ConfirmReport.php:245 Reports/ConfirmReportEmail.php:225
+#: Reports/ConfirmReportEmail.php:243
+#: external/templates/verify/verify-family-info.php:107
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1615,8 +1571,9 @@ msgstr "Familjens arbetstelefon"
 msgid "Family Cell Phone"
 msgstr "Familjens mobiltelefon"
 
-#: DirectoryReports.php:203 external/templates/verify/verify-family-info.php:39
-#: Reports/ConfirmReportEmail.php:180 Reports/ConfirmReport.php:183
+#: DirectoryReports.php:203 Reports/ConfirmReport.php:183
+#: Reports/ConfirmReportEmail.php:180
+#: external/templates/verify/verify-family-info.php:39
 msgid "Family Email"
 msgstr "Familjens epost"
 
@@ -1684,7 +1641,7 @@ msgstr "Kyrkans namn"
 msgid "Disclaimer"
 msgstr "Juridisk ansvar"
 
-#: DirectoryReports.php:338 UserEditor.php:799
+#: DirectoryReports.php:338 UserEditor.php:826
 msgid "Create Directory"
 msgstr "Skapa katalog"
 
@@ -1965,7 +1922,7 @@ msgstr "Familjer"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:200
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:137 PersonView.php:480
+#: PersonView.php:480 external/templates/verify/verify-family-info.php:137
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:104
 #: v2/templates/group/grouplist.php:53
@@ -2415,6 +2372,891 @@ msgid ""
 "continue automatic backups, you must manuall re-enable the "
 "bEnableExternalBackupTarget setting."
 msgstr ""
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+msgid "New Person Added"
+msgstr ""
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+#, fuzzy
+msgid "New Family Added"
+msgstr "Nästa familj"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+#, fuzzy
+msgid "Church Greeter"
+msgstr "Kyrkans adress"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+#, fuzzy
+msgid "Notification"
+msgstr "Klassificering "
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
+msgid "Guardian(s) of"
+msgstr ""
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "A notification was triggered by the classroom teacher at"
+msgstr ""
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+#, fuzzy
+msgid "Please go to this location"
+msgstr "Var snäll och bekräfta radera anteckningen"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
+msgid "Your Account was Deleted"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:264
+msgid "Email/Username"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
+msgid "A Calendar is shared with you"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
+msgid "I've shared a calendar with you in"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
+msgid "A document is shared with you"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
+msgid "I've shared a document with you in"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
+msgid "Account Locked"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
+msgid "Your New Account"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
+msgid "A EcclesiaCRM account was created for you"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: UserPasswordChange.php:214
+#, fuzzy
+msgid "New Password"
+msgstr "Det nya lösenordet"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
+#, fuzzy
+msgid "Password Changed"
+msgstr "Ändra användarens-lösenord"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
+#, fuzzy
+msgid "Password Reset"
+msgstr "Lösenord"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
+msgid "Password Reset Link"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
+#, fuzzy
+msgid "Reset Password"
+msgstr "Bekräfta lösenordet"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
+msgid "Account Unlocked"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+#, fuzzy
+msgid "Your Account"
+msgstr "Summa"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#, fuzzy
+msgid "Status"
+msgstr "Län"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
+msgid "Please verify your family's information"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
+#, fuzzy
+msgid "Private Space"
+msgstr "Privat"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:390
+#: external/templates/registration/family-register-members.php:104
+msgid "Home"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:775
+#, fuzzy
+msgid "Change Password"
+msgstr "Det nya lösenordet"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:773
+#, fuzzy
+msgid "Change Settings"
+msgstr "Spara inställningar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:675 PersonView.php:988
+#, fuzzy
+msgid "Documents"
+msgstr "Kommentar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1002 UserEditor.php:743
+msgid "EDrive"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:285
+#: v2/routes/email/mailchimp/mailchimp.php:143
+#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/templates/dashboard/maindashboard.php:125
+msgid "GDPR"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
+msgid "Dashboard"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:66
+msgid "Data Structure"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
+#, fuzzy
+msgid "View Inactive Persons"
+msgstr "CSV kombinera familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
+#, fuzzy
+msgid "View Inactive Families"
+msgstr "CSV kombinera familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:76
+#, fuzzy
+msgid "Events"
+msgstr "Evenemangsbeskr."
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
+#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
+#: v2/templates/map/MapUsingLeaflet.php:66
+#: v2/templates/map/MapUsingLeaflet.php:114
+#, fuzzy
+msgid "Calendar"
+msgstr "Kalender år"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
+#: v2/routes/map/map.php:51
+#, fuzzy
+msgid "View on Map"
+msgstr "Visa korgen"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:88
+#, fuzzy
+msgid "List Church Events"
+msgstr "Lista över alla evenamang"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:89
+#, fuzzy
+msgid "List Event Types"
+msgstr "Redigera evenemangtyper"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:99
+#: v2/templates/dashboard/maindashboard.php:60
+#: v2/templates/people/familylist.php:46
+#: v2/templates/people/peopledashboard.php:111
+msgid "People"
+msgstr "Personer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:115
+#, fuzzy
+msgid "Meta Search Engine"
+msgstr "Person lista"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
+#, fuzzy
+msgid "Add New Person"
+msgstr "Lägg till ny evenemang"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
+#, fuzzy
+msgid "View Single Persons"
+msgstr "Se alla"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:126
+#, fuzzy
+msgid "View Active Persons"
+msgstr "Se alla"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:131
+#, fuzzy
+msgid "Add New Family"
+msgstr "Lägg till ny fält"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:132
+#, fuzzy
+msgid "View Active Families"
+msgstr "CSV kombinera familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:136
+#, fuzzy
+msgid "Empty Addresses"
+msgstr "Kyrkans adress"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+#, fuzzy
+msgid "Convert Individual to Address"
+msgstr "Konvertera enskilda personer till familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
+#, fuzzy
+msgid "List Groups"
+msgstr "Alla grupper"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
+msgid "Group Assignment Helper"
+msgstr "Grupp tilldelnings-verktyg"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
+#: v2/routes/sundayschool/sundayschool.php:110
+#, fuzzy
+msgid "Sunday School"
+msgstr "Inga söndagskola"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
+#: Include/Footer.php:173
+msgid "Global Custom Menus"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
+#, fuzzy
+msgid "Custom Menus"
+msgstr "Fritt anpassade fält"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:282
+#: FamilyView.php:464 PersonView.php:791 PrintPastoralCarePerson.php:639
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
+msgid "Pastoral Care"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
+#, fuzzy
+msgid "By Classifications"
+msgstr "Klassificering "
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
+#, fuzzy
+msgid "Meetings"
+msgstr "Grupp lista"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:875
+msgid "MailChimp"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
+#, fuzzy
+msgid "Email Lists"
+msgstr "Familj redigeringsverktyg"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/Search/PledgeSearchRes.php:62
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
+#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
+#: Reports/AdvancedDeposit.php:523
+msgid "Deposit"
+msgstr "Insättning"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
+#, fuzzy
+msgid "Current"
+msgstr "För närvarande roll"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
+msgid "Envelope Manager"
+msgstr "Kuvert skötare"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
+#, fuzzy
+msgid "View All Deposits"
+msgstr "Se alla"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
+#, fuzzy
+msgid "Electronic Payment Listing"
+msgstr "Elektronisk överföring detaljer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
+#, fuzzy
+msgid "Deposit Reports"
+msgstr "Insättningsrapport"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
+#, fuzzy
+msgid "Edit Deposit Slip"
+msgstr "Insättningsblankett"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
+#, fuzzy
+msgid "Fundraiser"
+msgstr "Användare lista"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
+#, fuzzy
+msgid "Create New Fundraiser"
+msgstr "Skapa ny familj"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
+#, fuzzy
+msgid "View All Fundraisers"
+msgstr "Alla fonder"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+#, fuzzy
+msgid "Edit Last Fundraiser"
+msgstr "Redigera användare"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
+#, fuzzy
+msgid "Data/Reports"
+msgstr "Skapa rapport"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
+#, fuzzy
+msgid "Reports Menu"
+msgstr "Rapport meny"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+#, fuzzy
+msgid "Query Menu"
+msgstr "Förfrågan vy"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: v2/templates/calendar/calendar.php:79
+#, fuzzy
+msgid "Birthdate"
+msgstr "Födelsedatum"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: PrintPastoralCarePerson.php:450 PrintView.php:461
+#: Reports/CanvassReports.php:277
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
+msgid "Age"
+msgstr "Ålder"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#, fuzzy
+msgid "Props"
+msgstr "Egenskapar"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#, fuzzy
+msgid "Stats"
+msgstr "Län"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99
+#: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
+#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
+#: v2/templates/sundayschool/sundayschooldashboard.php:38
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
+#, fuzzy
+msgid "Teachers"
+msgstr "Ytterligare lärare"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
+msgid "of"
+msgstr ""
+
+#: EcclesiaCRM/Reports/PDF_Attendance.php:224
+#: EcclesiaCRM/Reports/PDF_Attendance.php:629
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:106
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:122
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Antal"
+
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:32
+msgid "Certificate of Ownership"
+msgstr "Intyg om ägande"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:78
+msgid "Directory"
+msgstr "Katalog"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:61 Reports/AdvancedDeposit.php:345
+msgid "Page"
+msgstr "Sida"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:328
+#: EcclesiaCRM/Reports/PDF_Directory.php:403
+#: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:319
+#: Reports/GroupReport.php:129
+#: external/templates/registration/family-register-members.php:105
+msgid "Work"
+msgstr "Arbeta"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:331
+#: EcclesiaCRM/Reports/PDF_Directory.php:407
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:323
+#: Reports/GroupReport.php:134
+msgid "Cell"
+msgstr "Tilldelning"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:337
+#: v2/templates/calendar/calendar.php:97
+msgid "Wedding"
+msgstr "Bröllop"
+
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:52
+msgid "Group Directory"
+msgstr "Grupp katalog"
+
+#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
+#: Reports/PDFBadge.php:114 Reports/PDFBadgeGroup.php:191
+#: Reports/PDFLabel.php:779
+#, fuzzy
+msgid "Tractor"
+msgstr "Katalog"
+
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:192
+#: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
+#: v2/templates/sundayschool/sundayschooldashboard.php:49
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
+#, fuzzy
+msgid "Students"
+msgstr "Ytterligare studenter"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
+#: v2/routes/people/familylist.php:160
+#, fuzzy
+msgid "Addresses"
+msgstr "Adress"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:70
+#: EcclesiaCRM/Search/AddressSearchRes.php:109
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
+#: EcclesiaCRM/Search/PaymentSearchRes.php:47
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
+#: EcclesiaCRM/Search/PersonSearchRes.php:263
+#: EcclesiaCRM/Search/PersonSearchRes.php:314
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
+#: EcclesiaCRM/Search/PledgeSearchRes.php:69
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
+#: ListEvents.php:365 PersonView.php:509
+msgid "Edit"
+msgstr "Redigera"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+#, fuzzy
+msgid "Addresse"
+msgstr "Adress"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
+#: EcclesiaCRM/Search/PersonSearchRes.php:316
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Search/PersonSearchRes.php:321
+#: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:525
+#: PersonView.php:870 PrintPastoralCarePerson.php:654
+#: v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/sundayschool/sundayschooldashboard.php:296
+#: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
+#, fuzzy
+msgid "Private Data"
+msgstr "Privat"
+
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
+#, fuzzy
+msgid "Deposits"
+msgstr "Insättning"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
+#, fuzzy
+msgid "Family Custom Field"
+msgstr "Fritt anpassade fält"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+#, fuzzy
+msgid "Family Pastoral Cares"
+msgstr "Personer"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: v2/templates/dashboard/maindashboard.php:420
+#, fuzzy
+msgid "Family Pastoral Care"
+msgstr "Personer"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+#, fuzzy
+msgid "Families Properties"
+msgstr "Egenskapar"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "single"
+msgstr "Lägg till ny evenemang"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#, fuzzy
+msgid "singles"
+msgstr "Lägg till ny evenemang"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#: v2/templates/dashboard/maindashboard.php:43
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
+#: v2/templates/people/peopledashboard.php:92
+#: v2/templates/people/peoplelist.php:45
+#, fuzzy
+msgid "Singles"
+msgstr "Lägg till ny evenemang"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+#, fuzzy
+msgid "Groups Properties"
+msgstr "Grupp specifik egenskapar"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+#, fuzzy
+msgid "group"
+msgstr "Grupp"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+#, fuzzy
+msgid "groups"
+msgstr "Grupp"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr ""
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#, fuzzy
+msgid "sunday groups"
+msgstr "Tilldelad grupper"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:45
+#, fuzzy
+msgid "Sunday Groups"
+msgstr "Välj grupp"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
+#, fuzzy
+msgid "Payments"
+msgstr "Alla betalningar"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
+#, fuzzy
+msgid "Person Group role assignments"
+msgstr "Inga grupp tilldelningar"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
+#, fuzzy
+msgid "Teacher"
+msgstr "Ytterligare lärare"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+#, fuzzy
+msgid "Student"
+msgstr "Ytterligare studenter"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:183
+msgid "Print"
+msgstr ""
+
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
+#, fuzzy
+msgid "Person Custom Field"
+msgstr "Fritt anpassade fält"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+#, fuzzy
+msgid "Group Manager"
+msgstr "Grupp medlemmar"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:45
+#, fuzzy
+msgid "groupmasters"
+msgstr "Grupp"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#, fuzzy
+msgid "groupmaster"
+msgstr "Grupp"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanagers"
+msgstr "Grupp medlemmar"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+#, fuzzy
+msgid "groupmanager"
+msgstr "Grupp medlemmar"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+#, fuzzy
+msgid "Individual Pastoral Cares"
+msgstr "Lägg personer till korgen"
+
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
+#, fuzzy
+msgid "Person Properties"
+msgstr "Person"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: Include/Footer.php:143 PersonView.php:943
+#, fuzzy
+msgid "Volunteer Opportunities"
+msgstr "Frivilliga möjligheter redigeringsverktyg"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+#, fuzzy
+msgid "volunteers"
+msgstr "Frivilliga möjligheter redigeringsverktyg"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+#, fuzzy
+msgid "volunteer"
+msgstr "Frivilliga möjligheter redigeringsverktyg"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+#, fuzzy
+msgid "Pledges"
+msgstr "Gav bidragslöfte"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
+msgid "Signature definition file signature failed validation"
+msgstr ""
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
+msgid "Signature definition File Missing"
+msgstr ""
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
+msgid "One or more files failed signature validation"
+msgstr ""
+
+#: EcclesiaCRM/Service/CalendarService.php:29
+#, fuzzy
+msgid "Event"
+msgstr "Evenemangstyp"
+
+#: EcclesiaCRM/Service/CalendarService.php:31
+#, fuzzy
+msgid "Anniversary"
+msgstr "Bröllopsdatum"
+
+#: EcclesiaCRM/Service/FinancialService.php:484 PledgeEditor.php:324
+msgid "NonDeductible amount can't be greater than total amount."
+msgstr "Ej avdragsgiltig summa kan inte vara störer än slutsumman"
+
+#: EcclesiaCRM/Service/FinancialService.php:489 PledgeEditor.php:331
+msgid "At least one fund must have a non-zero amount."
+msgstr "Minst en fond måste ha en icke-noll värde."
+
+#: EcclesiaCRM/Service/FinancialService.php:514 PledgeEditor.php:348
+msgid "Must specify non-zero check number"
+msgstr "Du måste ange noll kontroll nummer"
+
+#: EcclesiaCRM/Service/FinancialService.php:519 PledgeEditor.php:355
+msgid "Check number not valid for 'CASH' payment"
+msgstr "Kontrollera numret inte giltigt för \"kontant\" betalning"
+
+#: EcclesiaCRM/Service/PersonService.php:44
+msgid "Part"
+msgstr ""
+
+#: EcclesiaCRM/Service/PersonService.php:46
+msgid " of the"
+msgstr " av "
+
+#: EcclesiaCRM/Service/PersonService.php:48 PersonView.php:553
+msgid "(No assigned family)"
+msgstr "(Ingen angiven familj)"
+
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/utils/OutputUtils.php:314 EcclesiaCRM/utils/OutputUtils.php:557
+#: EcclesiaCRM/utils/OutputUtils.php:575 FamilyEditor.php:1177
+msgid "Unknown"
+msgstr "Okänd"
+
+#: EcclesiaCRM/Service/TimelineService.php:218
+msgid "Self Registration"
+msgstr ""
+
+#: EcclesiaCRM/Service/TimelineService.php:220
+#, fuzzy
+msgid "Self Verification"
+msgstr "Bekräfta USA adress"
+
+#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+msgid "by"
+msgstr "av"
+
+#: EcclesiaCRM/Service/TimelineService.php:352
+#, fuzzy
+msgid "Shared by"
+msgstr "Donerats av"
+
+#: EcclesiaCRM/Service/UpgradeService.php:64
+msgid "Databse upgrade failed"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:131 PledgeEditor.php:646
+msgid "Other"
+msgstr "Annat"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
+msgid "Head of Household"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: v2/templates/pastoralcare/pastoralcareperson.php:141
+msgid "Spouse"
+msgstr ""
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: v2/templates/pastoralcare/pastoralcareperson.php:143
+#, fuzzy
+msgid "Child"
+msgstr "Vuxen/barn"
 
 #: EcclesiaCRM/data/Countries.php:15
 msgid "Afghanistan (‫افغانستان‬‎)"
@@ -4451,27 +5293,12 @@ msgstr "Epost grupp"
 msgid "Map Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:464 PersonView.php:791 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:855
-#: v2/templates/gdpr/gdprdatastructure.php:141
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
-msgid "Pastoral Care"
-msgstr ""
-
 #: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Sundayschool Attendance"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Integration"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:64
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
-#: v2/templates/dashboard/maindashboard.php:125
-msgid "GDPR"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:286
@@ -4506,397 +5333,6 @@ msgstr ""
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-msgid "New Person Added"
-msgstr ""
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
-#, fuzzy
-msgid "New Family Added"
-msgstr "Nästa familj"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
-#, fuzzy
-msgid "Church Greeter"
-msgstr "Kyrkans adress"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-#, fuzzy
-msgid "Notification"
-msgstr "Klassificering "
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
-msgid "Guardian(s) of"
-msgstr ""
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "A notification was triggered by the classroom teacher at"
-msgstr ""
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-#, fuzzy
-msgid "Please go to this location"
-msgstr "Var snäll och bekräfta radera anteckningen"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
-msgid "Your Account was Deleted"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM Account was Deleted."
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:264
-msgid "Email/Username"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
-msgid "A Calendar is shared with you"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
-msgid "I've shared a calendar with you in"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
-msgid "A document is shared with you"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
-msgid "I've shared a document with you in"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:11
-msgid "Account Locked"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM account was locked."
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
-msgid "Your New Account"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
-msgid "A EcclesiaCRM account was created for you"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: UserPasswordChange.php:214
-#, fuzzy
-msgid "New Password"
-msgstr "Det nya lösenordet"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
-#, fuzzy
-msgid "Password Changed"
-msgstr "Ändra användarens-lösenord"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM password was changed"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
-#, fuzzy
-msgid "Password Reset"
-msgstr "Lösenord"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
-msgid "Password Reset Link"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
-#, fuzzy
-msgid "Reset Password"
-msgstr "Bekräfta lösenordet"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
-msgid "Account Unlocked"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM account was unlocked."
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
-#, fuzzy
-msgid "Your Account"
-msgstr "Summa"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
-msgid "Your EcclesiaCRM account was updated"
-msgstr ""
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
-#, fuzzy
-msgid "Status"
-msgstr "Län"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
-msgid "Please verify your family's information"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
-#: Include/Header.php:148
-#, fuzzy
-msgid "Private Space"
-msgstr "Privat"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:390
-#: external/templates/registration/family-register-members.php:104
-msgid "Home"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:775
-#, fuzzy
-msgid "Change Password"
-msgstr "Det nya lösenordet"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:773
-#, fuzzy
-msgid "Change Settings"
-msgstr "Spara inställningar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:675 PersonView.php:988
-#, fuzzy
-msgid "Documents"
-msgstr "Kommentar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1002 UserEditor.php:728
-msgid "EDrive"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:436
-msgid "Dashboard"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:66
-msgid "Data Structure"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
-#, fuzzy
-msgid "View Inactive Persons"
-msgstr "CSV kombinera familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
-#, fuzzy
-msgid "View Inactive Families"
-msgstr "CSV kombinera familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:76
-#, fuzzy
-msgid "Events"
-msgstr "Evenemangsbeskr."
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
-#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:77
-#: v2/templates/map/MapUsingGoogle.php:124
-#: v2/templates/map/MapUsingLeaflet.php:66
-#: v2/templates/map/MapUsingLeaflet.php:114
-#, fuzzy
-msgid "Calendar"
-msgstr "Kalender år"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
-#: v2/routes/map/map.php:51
-#, fuzzy
-msgid "View on Map"
-msgstr "Visa korgen"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:88
-#, fuzzy
-msgid "List Church Events"
-msgstr "Lista över alla evenamang"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:89
-#, fuzzy
-msgid "List Event Types"
-msgstr "Redigera evenemangtyper"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:99
-#: v2/templates/dashboard/maindashboard.php:60
-#: v2/templates/people/familylist.php:46
-#: v2/templates/people/peopledashboard.php:111
-msgid "People"
-msgstr "Personer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
-#, fuzzy
-msgid "Meta Search Engine"
-msgstr "Person lista"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
-#, fuzzy
-msgid "Add New Person"
-msgstr "Lägg till ny evenemang"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:125
-#, fuzzy
-msgid "View Single Persons"
-msgstr "Se alla"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:126
-#, fuzzy
-msgid "View Active Persons"
-msgstr "Se alla"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:131
-#, fuzzy
-msgid "Add New Family"
-msgstr "Lägg till ny fält"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:132
-#, fuzzy
-msgid "View Active Families"
-msgstr "CSV kombinera familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:136
-#, fuzzy
-msgid "Empty Addresses"
-msgstr "Kyrkans adress"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
-#, fuzzy
-msgid "Convert Individual to Address"
-msgstr "Konvertera enskilda personer till familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:151
-#, fuzzy
-msgid "List Groups"
-msgstr "Alla grupper"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
-msgid "Group Assignment Helper"
-msgstr "Grupp tilldelnings-verktyg"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:220
-#: v2/routes/sundayschool/sundayschool.php:110
-#, fuzzy
-msgid "Sunday School"
-msgstr "Inga söndagskola"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:173
-msgid "Global Custom Menus"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:316
-#, fuzzy
-msgid "Custom Menus"
-msgstr "Fritt anpassade fält"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:328
-#, fuzzy
-msgid "By Classifications"
-msgstr "Klassificering "
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:335
-#, fuzzy
-msgid "Meetings"
-msgstr "Grupp lista"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:839
-msgid "MailChimp"
-msgstr ""
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:356
-#, fuzzy
-msgid "Email Lists"
-msgstr "Familj redigeringsverktyg"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
-#: EcclesiaCRM/Search/PledgeSearchRes.php:62
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
-#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
-#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
-#: Reports/AdvancedDeposit.php:523
-msgid "Deposit"
-msgstr "Insättning"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:394
-#, fuzzy
-msgid "Current"
-msgstr "För närvarande roll"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
-msgid "Envelope Manager"
-msgstr "Kuvert skötare"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:400
-#, fuzzy
-msgid "View All Deposits"
-msgstr "Se alla"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
-#, fuzzy
-msgid "Electronic Payment Listing"
-msgstr "Elektronisk överföring detaljer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:402
-#, fuzzy
-msgid "Deposit Reports"
-msgstr "Insättningsrapport"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
-#, fuzzy
-msgid "Edit Deposit Slip"
-msgstr "Insättningsblankett"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
-#, fuzzy
-msgid "Fundraiser"
-msgstr "Användare lista"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:416
-#, fuzzy
-msgid "Create New Fundraiser"
-msgstr "Skapa ny familj"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
-#, fuzzy
-msgid "View All Fundraisers"
-msgstr "Alla fonder"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:419
-#: v2/templates/fundraiser/donatedItemEditor.php:87
-#, fuzzy
-msgid "Edit Last Fundraiser"
-msgstr "Redigera användare"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
-#, fuzzy
-msgid "Data/Reports"
-msgstr "Skapa rapport"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
-#, fuzzy
-msgid "Reports Menu"
-msgstr "Rapport meny"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:775
-#, fuzzy
-msgid "Query Menu"
-msgstr "Förfrågan vy"
-
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
 msgid "Coin"
 msgstr ""
@@ -4906,14 +5342,6 @@ msgstr ""
 #, fuzzy
 msgid "Counts"
 msgstr "Land"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:106
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:122
-#: EcclesiaCRM/Reports/PDF_Attendance.php:224
-#: EcclesiaCRM/Reports/PDF_Attendance.php:629
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Antal"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:114
 #, fuzzy
@@ -5038,17 +5466,6 @@ msgstr ""
 msgid "Member"
 msgstr "Medlem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:314 EcclesiaCRM/utils/OutputUtils.php:557
-#: EcclesiaCRM/utils/OutputUtils.php:575 FamilyEditor.php:1177
-msgid "Unknown"
-msgstr "Okänd"
-
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
 #: EcclesiaCRM/utils/OutputUtils.php:582
 msgid "mos old"
@@ -5124,466 +5541,6 @@ msgstr ""
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:714
 msgid "Dav delete file"
 msgstr ""
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: v2/templates/calendar/calendar.php:79
-#, fuzzy
-msgid "Birthdate"
-msgstr "Födelsedatum"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:277
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
-msgid "Age"
-msgstr "Ålder"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#, fuzzy
-msgid "Props"
-msgstr "Egenskapar"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#, fuzzy
-msgid "Stats"
-msgstr "Län"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99
-#: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
-#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:143
-#, fuzzy
-msgid "Teachers"
-msgstr "Ytterligare lärare"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
-msgid "of"
-msgstr ""
-
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:32
-msgid "Certificate of Ownership"
-msgstr "Intyg om ägande"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:42
-#: EcclesiaCRM/Reports/PDF_Directory.php:78
-msgid "Directory"
-msgstr "Katalog"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:61 Reports/AdvancedDeposit.php:345
-msgid "Page"
-msgstr "Sida"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:328
-#: EcclesiaCRM/Reports/PDF_Directory.php:403
-#: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:319 Reports/GroupReport.php:129
-msgid "Work"
-msgstr "Arbeta"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:331
-#: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:323
-#: Reports/GroupReport.php:134
-msgid "Cell"
-msgstr "Tilldelning"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:337
-#: v2/templates/calendar/calendar.php:97
-msgid "Wedding"
-msgstr "Bröllop"
-
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:52
-msgid "Group Directory"
-msgstr "Grupp katalog"
-
-#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
-#: Reports/PDFBadgeGroup.php:191 Reports/PDFBadge.php:114
-#: Reports/PDFLabel.php:779
-#, fuzzy
-msgid "Tractor"
-msgstr "Katalog"
-
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:192
-#: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:235
-#, fuzzy
-msgid "Students"
-msgstr "Ytterligare studenter"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:19
-#: v2/routes/people/familylist.php:160
-#, fuzzy
-msgid "Addresses"
-msgstr "Adress"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:70
-#: EcclesiaCRM/Search/AddressSearchRes.php:109
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:74
-#: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:93
-#: EcclesiaCRM/Search/FamilySearchRes.php:128
-#: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:78
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
-#: EcclesiaCRM/Search/GroupSearchRes.php:126
-#: EcclesiaCRM/Search/PaymentSearchRes.php:47
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:263
-#: EcclesiaCRM/Search/PersonSearchRes.php:314
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
-#: ListEvents.php:365 PersonView.php:509
-msgid "Edit"
-msgstr "Redigera"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#, fuzzy
-msgid "Addresse"
-msgstr "Adress"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:142
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:316
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Search/PersonSearchRes.php:321
-#: EcclesiaCRM/Search/PersonSearchRes.php:322
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:525
-#: PersonView.php:870 PrintPastoralCarePerson.php:654
-#: v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
-#, fuzzy
-msgid "Private Data"
-msgstr "Privat"
-
-#: EcclesiaCRM/Search/DepositSearchRes.php:23
-#, fuzzy
-msgid "Deposits"
-msgstr "Insättning"
-
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-#, fuzzy
-msgid "Family Custom Field"
-msgstr "Fritt anpassade fält"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
-#, fuzzy
-msgid "Family Pastoral Cares"
-msgstr "Personer"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: v2/templates/dashboard/maindashboard.php:420
-#, fuzzy
-msgid "Family Pastoral Care"
-msgstr "Personer"
-
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
-#, fuzzy
-msgid "Families Properties"
-msgstr "Egenskapar"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#, fuzzy
-msgid "single"
-msgstr "Lägg till ny evenemang"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#, fuzzy
-msgid "singles"
-msgstr "Lägg till ny evenemang"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#: v2/templates/dashboard/maindashboard.php:43
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
-#: v2/templates/people/peopledashboard.php:92
-#: v2/templates/people/peoplelist.php:45
-#, fuzzy
-msgid "Singles"
-msgstr "Lägg till ny evenemang"
-
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
-#, fuzzy
-msgid "Groups Properties"
-msgstr "Grupp specifik egenskapar"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-#, fuzzy
-msgid "group"
-msgstr "Grupp"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-#, fuzzy
-msgid "groups"
-msgstr "Grupp"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday group"
-msgstr ""
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-#, fuzzy
-msgid "sunday groups"
-msgstr "Tilldelad grupper"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:45
-#, fuzzy
-msgid "Sunday Groups"
-msgstr "Välj grupp"
-
-#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
-#, fuzzy
-msgid "Payments"
-msgstr "Alla betalningar"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-#, fuzzy
-msgid "Person Group role assignments"
-msgstr "Inga grupp tilldelningar"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
-#, fuzzy
-msgid "Teacher"
-msgstr "Ytterligare lärare"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
-#, fuzzy
-msgid "Student"
-msgstr "Ytterligare studenter"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:302 Include/Header-function.php:183
-msgid "Print"
-msgstr ""
-
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-#, fuzzy
-msgid "Person Custom Field"
-msgstr "Fritt anpassade fält"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
-#, fuzzy
-msgid "Group Manager"
-msgstr "Grupp medlemmar"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:45
-#, fuzzy
-msgid "groupmasters"
-msgstr "Grupp"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#, fuzzy
-msgid "groupmaster"
-msgstr "Grupp"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-#, fuzzy
-msgid "groupmanagers"
-msgstr "Grupp medlemmar"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-#, fuzzy
-msgid "groupmanager"
-msgstr "Grupp medlemmar"
-
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
-#, fuzzy
-msgid "Individual Pastoral Cares"
-msgstr "Lägg personer till korgen"
-
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-#, fuzzy
-msgid "Person Properties"
-msgstr "Person"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:943
-#, fuzzy
-msgid "Volunteer Opportunities"
-msgstr "Frivilliga möjligheter redigeringsverktyg"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-#, fuzzy
-msgid "volunteers"
-msgstr "Frivilliga möjligheter redigeringsverktyg"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-#, fuzzy
-msgid "volunteer"
-msgstr "Frivilliga möjligheter redigeringsverktyg"
-
-#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
-#: Reports/PledgeSummary.php:253
-#, fuzzy
-msgid "Pledges"
-msgstr "Gav bidragslöfte"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-msgid "Signature definition file signature failed validation"
-msgstr ""
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-msgid "Signature definition File Missing"
-msgstr ""
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
-msgid "One or more files failed signature validation"
-msgstr ""
-
-#: EcclesiaCRM/Service/CalendarService.php:29
-#, fuzzy
-msgid "Event"
-msgstr "Evenemangstyp"
-
-#: EcclesiaCRM/Service/CalendarService.php:31
-#, fuzzy
-msgid "Anniversary"
-msgstr "Bröllopsdatum"
-
-#: EcclesiaCRM/Service/FinancialService.php:484 PledgeEditor.php:324
-msgid "NonDeductible amount can't be greater than total amount."
-msgstr "Ej avdragsgiltig summa kan inte vara störer än slutsumman"
-
-#: EcclesiaCRM/Service/FinancialService.php:489 PledgeEditor.php:331
-msgid "At least one fund must have a non-zero amount."
-msgstr "Minst en fond måste ha en icke-noll värde."
-
-#: EcclesiaCRM/Service/FinancialService.php:514 PledgeEditor.php:348
-msgid "Must specify non-zero check number"
-msgstr "Du måste ange noll kontroll nummer"
-
-#: EcclesiaCRM/Service/FinancialService.php:519 PledgeEditor.php:355
-msgid "Check number not valid for 'CASH' payment"
-msgstr "Kontrollera numret inte giltigt för \"kontant\" betalning"
-
-#: EcclesiaCRM/Service/PersonService.php:44
-msgid "Part"
-msgstr ""
-
-#: EcclesiaCRM/Service/PersonService.php:46
-msgid " of the"
-msgstr " av "
-
-#: EcclesiaCRM/Service/PersonService.php:48 PersonView.php:553
-msgid "(No assigned family)"
-msgstr "(Ingen angiven familj)"
-
-#: EcclesiaCRM/Service/TimelineService.php:218
-msgid "Self Registration"
-msgstr ""
-
-#: EcclesiaCRM/Service/TimelineService.php:220
-#, fuzzy
-msgid "Self Verification"
-msgstr "Bekräfta USA adress"
-
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
-msgid "by"
-msgstr "av"
-
-#: EcclesiaCRM/Service/TimelineService.php:352
-#, fuzzy
-msgid "Shared by"
-msgstr "Donerats av"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-msgid "Databse upgrade failed"
-msgstr ""
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
-msgid "Other"
-msgstr "Annat"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
-msgid "Head of Household"
-msgstr ""
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
-msgid "Spouse"
-msgstr ""
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
-#, fuzzy
-msgid "Child"
-msgstr "Vuxen/barn"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5953,6 +5910,20 @@ msgstr "Deltagare("
 msgid "Not Available"
 msgstr "Ogiltig datum"
 
+#: EditEventAttendees.php:120 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:327 FamilyView.php:1082 FindDepositSlip.php:131
+#: ListEvents.php:379 PersonView.php:1867 PersonView.php:1955
+#: browser/browse.php:66 v2/templates/email/mailchimp/campaign.php:35
+#: v2/templates/email/mailchimp/managelist.php:44
+#: v2/templates/email/mailchimp/managelist.php:102
+#: v2/templates/pastoralcare/pastoralcarefamily.php:209
+#: v2/templates/pastoralcare/pastoralcarefamily.php:219
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:225
+msgid "Delete"
+msgstr "Radera"
+
 #: EditEventAttendees.php:128
 msgid "No Attendees Assigned to Event"
 msgstr "Inga deltagare angiven till evenemang"
@@ -6037,52 +6008,6 @@ msgstr "Lägg till ny"
 #, fuzzy
 msgid "Return to Event Types"
 msgstr "Redigera evenemangtyper"
-
-#: eGive.php:79
-#, fuzzy
-msgid "eGive Import"
-msgstr "Gör importeringen"
-
-#: eGive.php:267
-#, fuzzy
-msgid "Start Date: "
-msgstr "Start datum/tid"
-
-#: eGive.php:269
-#, fuzzy
-msgid "End Date: "
-msgstr "Evenemangdatum"
-
-#: eGive.php:356
-msgid "Re-import to selected family"
-msgstr "Återimport till utvalda familjen"
-
-#: eGive.php:360
-#, fuzzy
-msgid "Data import results: "
-msgstr "Importering lyckades."
-
-#: eGive.php:360
-#, fuzzy
-msgid " gifts were imported, "
-msgstr "personer importerade"
-
-#: eGive.php:360
-msgid " gifts unchanged, and "
-msgstr "gåvor oförändrade, och"
-
-#: eGive.php:360
-msgid " gifts not imported due to problems"
-msgstr "gåvor inte importerats på grund av problem"
-
-#: eGive.php:361 eGive.php:390
-#, fuzzy
-msgid "Back to Deposit Slip"
-msgstr "Redigera insättningblankett"
-
-#: eGive.php:389
-msgid "Fatal error in eGive API datastream: '"
-msgstr "Allvarligt fel i eGive API dataström: \""
 
 #: ElectronicPaymentList.php:63
 #, fuzzy
@@ -6349,204 +6274,6 @@ msgstr "Skapa rapport"
 msgid "Add Event Type"
 msgstr "Lägg till evenemang typ"
 
-#: external/routes/password.php:73
-#, fuzzy
-msgid "Unable to reset password"
-msgstr "Ogiltig användernamn eller lösenord"
-
-#: external/routes/verify.php:31
-msgid "Unable to load verification info"
-msgstr ""
-
-#: external/routes/verify.php:45
-#, fuzzy
-msgid "No Changes"
-msgstr "Spara ändringar"
-
-#: external/templates/404.php:4 kiosk/templates/404.php:4
-msgid "Page not fond"
-msgstr ""
-
-#: external/templates/404.php:14 kiosk/templates/404.php:14
-msgid "Oops! Page not found."
-msgstr ""
-
-#: external/templates/password/enter-username.php:7
-#: external/templates/password/password-check-email.php:7
-#: external/templates/registration/family-register-done.php:6
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:10
-#, fuzzy
-msgid "Family Registration"
-msgstr "Bekräfta radera familj"
-
-#: external/templates/password/enter-username.php:28
-#, fuzzy
-msgid "Reset your password"
-msgstr "Bekräfta lösenordet"
-
-#: external/templates/password/enter-username.php:32 UserEditor.php:643
-#: UserEditor.php:696
-#, fuzzy
-msgid "Login Name"
-msgstr "Inloggningsnamn"
-
-#: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:124
-msgid "Go"
-msgstr "Gå"
-
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:275
-msgid "Login"
-msgstr "logga in"
-
-#: external/templates/password/enter-username.php:60
-msgid "Check your email for a password reset link"
-msgstr ""
-
-#: external/templates/password/enter-username.php:66
-msgid "Sorry, we are unable to process your request at this point in time."
-msgstr ""
-
-#: external/templates/password/enter-username.php:69
-#, fuzzy
-msgid "Login Name is Required"
-msgstr "Denna inmatning krävs."
-
-#: external/templates/password/password-check-email.php:27
-msgid "A new password was sent to you. Please check your email"
-msgstr ""
-
-#: external/templates/registration/family-register-done.php:18
-msgid "Registration Complete"
-msgstr ""
-
-#: external/templates/registration/family-register-done.php:24
-msgid "Thank you for registering your family."
-msgstr ""
-
-#: external/templates/registration/family-register-done.php:30
-#, fuzzy
-msgid "Member(s)"
-msgstr "Medlem"
-
-#: external/templates/registration/family-register-done.php:45
-#: Reports/CanvassReports.php:91
-msgid "Done"
-msgstr ""
-
-#: external/templates/registration/family-register-members.php:20
-msgid "Register"
-msgstr ""
-
-#: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:538 PersonView.php:1123
-#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
-msgid "Family Members"
-msgstr "Familj medlemmar"
-
-#: external/templates/registration/family-register-members.php:35
-#, fuzzy
-msgid "Family Member"
-msgstr "Familj medlemmar"
-
-#: external/templates/registration/family-register-members.php:103
-#: sundayschool/SundaySchoolClassListExport.php:53
-#, fuzzy
-msgid "Mobile"
-msgstr "Mobiltelefon"
-
-#: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:226
-#: Reports/ConfirmReport.php:246
-msgid "Hide Age"
-msgstr "Gömma åldern"
-
-#: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:122
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:94
-#: GroupReports.php:103
-msgid "Next"
-msgstr "Nästa"
-
-#: external/templates/registration/family-register.php:32
-#, fuzzy
-msgid "Register your family"
-msgstr "Filtrera enligt familj"
-
-#: external/templates/registration/family-register.php:97
-msgid "How many people are in your family"
-msgstr ""
-
-#: external/templates/registration/family-register.php:116
-msgid "This will be my primary church."
-msgstr ""
-
-#: external/templates/verify/enter-info.php:17
-msgid "Please enter the following to start your family's verification"
-msgstr ""
-
-#: external/templates/verify/verify-family-info.php:10
-#, fuzzy
-msgid "Family Verification"
-msgstr "Bekräfta radera familj"
-
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:167 ManageEnvelopes.php:143
-#, fuzzy
-msgid "Confirm"
-msgstr "Bekräfta radera"
-
-#: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-#, fuzzy
-msgid "Home Address"
-msgstr "Adress"
-
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:328 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReportEmail.php:164 Reports/ConfirmReport.php:167
-msgid "Send Newsletter"
-msgstr "Skicka nyhetsbrev"
-
-#: external/templates/verify/verify-family-info.php:64
-#, fuzzy
-msgid "Family Member(s)"
-msgstr "Familj medlemmar"
-
-#: external/templates/verify/verify-family-info.php:104
-#, fuzzy
-msgid "Work Email"
-msgstr "Arbete/Övriga Epost"
-
-#: external/templates/verify/verify-family-info.php:114
-msgid "Age Hidden"
-msgstr ""
-
-#: external/templates/verify/verify-family-info.php:174
-msgid "Please let us know what information to update if any"
-msgstr ""
-
-#: external/templates/verify/verify-family-info.php:179
-msgid "Your verification request is complete"
-msgstr ""
-
-#: external/templates/verify/verify-family-info.php:183
-msgid "We encountered an error submitting with your verification data"
-msgstr ""
-
-#: external/templates/verify/verify-family-info.php:189
-msgid "Verify"
-msgstr "Bekräfta"
-
-#: external/templates/verify/verify-family-info.php:191
-msgid "Visit our Site"
-msgstr ""
-
 #: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "Fritt anpassade familj fält redigeringsverktyg"
@@ -6692,6 +6419,13 @@ msgstr "Longitud"
 msgid "Contact Info"
 msgstr ""
 
+#: FamilyEditor.php:874 FamilyView.php:328 PersonEditor.php:1495
+#: PersonView.php:630 Reports/ConfirmReport.php:167
+#: Reports/ConfirmReportEmail.php:164
+#: external/templates/verify/verify-family-info.php:52
+msgid "Send Newsletter"
+msgstr "Skicka nyhetsbrev"
+
 #: FamilyEditor.php:886
 #, fuzzy
 msgid "Other Info"
@@ -6725,6 +6459,14 @@ msgstr "Kuvertnummer"
 #: FamilyEditor.php:996 PersonEditor.php:1707
 msgid "Custom Fields"
 msgstr "Fritt anpassade fält"
+
+#: FamilyEditor.php:1070 FamilyView.php:538 PersonView.php:1123
+#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
+#: external/templates/registration/family-register-members.php:20
+#: v2/templates/pastoralcare/pastoralcarefamily.php:101
+#: v2/templates/pastoralcare/pastoralcareperson.php:103
+msgid "Family Members"
+msgstr "Familj medlemmar"
 
 #: FamilyEditor.php:1084
 msgid ""
@@ -6959,10 +6701,8 @@ msgstr "Ange en ny egenskap"
 msgid "Select"
 msgstr "Välj roll"
 
-#: FamilyView.php:822 PersonView.php:1433
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:333
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:350
-#: QueryView.php:458 QueryView.php:475 v2/templates/group/groupview.php:341
+#: FamilyView.php:822 PersonView.php:1433 QueryView.php:458 QueryView.php:475
+#: v2/templates/group/groupview.php:341
 #, fuzzy
 msgid "select an option"
 msgstr "Speciellval"
@@ -7089,6 +6829,13 @@ msgstr "Enskilda insättningsrapport"
 #: FinancialReports.php:82
 msgid "Advanced Deposit Report"
 msgstr "Avancerad insättningsrapport"
+
+#: FinancialReports.php:94 GroupReports.php:103
+#: external/templates/registration/family-register-members.php:156
+#: external/templates/registration/family-register.php:122
+#: external/templates/verify/enter-info.php:38
+msgid "Next"
+msgstr "Nästa"
 
 #: FinancialReports.php:171
 msgid "Add All Classes"
@@ -7336,7 +7083,7 @@ msgstr "VARNING:  Denna får inte bli ogjort och kan ha juridiska följder!"
 msgid "Please ensure this what you want to do."
 msgstr ""
 
-#: FindDepositSlip.php:128 GroupEditor.php:67
+#: FindDepositSlip.php:128 GroupEditor.php:67 SystemSettings.php:106
 msgid "Close"
 msgstr ""
 
@@ -7686,18 +7433,18 @@ msgstr "GruppRoll"
 msgid "Group-Specific Property Fields"
 msgstr "Grupp specifik egenskapar fält"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
-msgid "Copyright"
-msgstr ""
-
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
-msgid "All rights reserved"
-msgstr ""
-
 #: Include/Footer.php:27
 #, fuzzy
 msgid "Version"
 msgstr "Person"
+
+#: Include/Footer.php:29 Include/FooterNotLoggedIn.php:7
+msgid "Copyright"
+msgstr ""
+
+#: Include/Footer.php:32 Include/FooterNotLoggedIn.php:7
+msgid "All rights reserved"
+msgstr ""
 
 #: Include/Footer.php:72
 #, fuzzy
@@ -8024,11 +7771,6 @@ msgid ""
 "expected values."
 msgstr ""
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-#, fuzzy
-msgid "End Time"
-msgstr "Start datum/tid"
-
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:204
 msgid "Letters and Mailing Labels"
 msgstr "Brev och post etikett"
@@ -8126,7 +7868,7 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
-#: UserEditor.php:888
+#: UserEditor.php:928
 #, fuzzy
 msgid "Notes"
 msgstr "Anteckningar:"
@@ -8201,6 +7943,11 @@ msgstr ""
 "För många felaktiga inloggningar:  ditt konto är låst.  Kontaka "
 "administratören."
 
+#: Login.php:229 Login.php:275
+#: external/templates/password/enter-username.php:46
+msgid "Login"
+msgstr "logga in"
+
 #: Login.php:244 Login.php:313
 msgid "Please Login"
 msgstr "Var snäll och logga in"
@@ -8249,6 +7996,12 @@ msgid ""
 "selected on this page.  Continue?"
 msgstr ""
 
+#: ManageEnvelopes.php:143 external/templates/verify/verify-family-info.php:24
+#: external/templates/verify/verify-family-info.php:167
+#, fuzzy
+msgid "Confirm"
+msgstr "Bekräfta radera"
+
 #: ManageEnvelopes.php:152
 #, fuzzy
 msgid "Family Select"
@@ -8272,43 +8025,6 @@ msgstr "Person"
 #, fuzzy
 msgid "Assign starting at #"
 msgstr "Tilldelning:"
-
-#: members/404.php:22 members/404.php:31
-#, fuzzy
-msgid "Not Found"
-msgstr "Icke bekräftade"
-
-#: members/404.php:31
-msgid "Oops!"
-msgstr ""
-
-#: members/404.php:34
-msgid "We could not find the member(s) you were looking for."
-msgstr ""
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "Meanwhile, you may"
-msgstr ""
-
-#: members/404.php:35 v2/templates/error/404.php:21
-#, fuzzy
-msgid "return to member dashboard"
-msgstr "Återgå till person post"
-
-#: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:244
-msgid "Pending Self Verify"
-msgstr ""
-
-#: members/self-register.php:13
-#, fuzzy
-msgid "Families Self Registration"
-msgstr "Bekräfta radera familj"
-
-#: members/self-verify-updates.php:13
-#, fuzzy
-msgid "Self Verify"
-msgstr "Bekräfta"
 
 #: OptionManager.php:358
 msgid ""
@@ -8473,6 +8189,12 @@ msgstr "Välj roll"
 #, fuzzy
 msgid "Birth Year"
 msgstr "Födelseår"
+
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:226
+#: Reports/ConfirmReport.php:246
+#: external/templates/registration/family-register-members.php:132
+msgid "Hide Age"
+msgstr "Gömma åldern"
 
 #: PersonEditor.php:1018
 #, fuzzy
@@ -8731,6 +8453,29 @@ msgstr "Bekräfta radera familj"
 msgid "All Files"
 msgstr "Alla familjer"
 
+#: PersonView.php:1846 browser/browse.php:43
+#, fuzzy
+msgid "Upload a file in EDrive"
+msgstr "Ladda upp CSV Fil"
+
+#: PersonView.php:1858 browser/browse.php:58
+#, fuzzy
+msgid "Create a Folder"
+msgstr "Skapa fil"
+
+#: PersonView.php:1877 browser/browse.php:75
+msgid "Up One Level"
+msgstr ""
+
+#: PersonView.php:1886 browser/browse.php:82
+msgid "Actualize files"
+msgstr ""
+
+#: PersonView.php:1904 browser/browse.php:99
+#, fuzzy
+msgid "Preview"
+msgstr "Föregående sida"
+
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
 msgstr "Bidrag löfte redigeringsverktyg"
@@ -8847,7 +8592,7 @@ msgid "Property"
 msgstr "Egenskap"
 
 #: PrintPastoralCarePerson.php:557 PrintPastoralCarePerson.php:613
-#: PrintView.php:566 PrintView.php:622 SystemSettings.php:142
+#: PrintView.php:566 PrintView.php:622 SystemSettings.php:144
 msgid "Value"
 msgstr "Värd"
 
@@ -8859,77 +8604,6 @@ msgstr "Angiven:"
 #, fuzzy
 msgid "Last Edited"
 msgstr "Efternamn"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:30
-#: QueryView.php:32
-msgid "Query View"
-msgstr "Förfrågan vy"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:100
-#: QueryView.php:102
-msgid "This value is required."
-msgstr "Denna inmatning krävs."
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:113
-#: QueryView.php:113
-msgid "This value must be numeric."
-msgstr "Denna inmatning måste vara numerisk."
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:118
-#: QueryView.php:118
-msgid "This value must be at least "
-msgstr "Denna inmatning måste vara minst "
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:123
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: QueryView.php:122 QueryView.php:135
-msgid "This value cannot be more than "
-msgstr "Denna inmatning får inte vara mer än "
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:136
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:135 QueryView.php:139
-msgid " characters long"
-msgstr " tecken lång"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:141
-#: QueryView.php:139
-msgid "This value cannot be less than "
-msgstr "Denna inmatning får inte vara mindra än "
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:187
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:258
-#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
-msgid " record(s) returned"
-msgstr " post(er) hittade"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:268
-#: QueryView.php:293
-#, fuzzy
-msgid "Add To Cart"
-msgstr "Lägg till korgen"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:269
-#: QueryView.php:295
-#, fuzzy
-msgid "Intersect With Cart"
-msgstr "Bearbeta med korgen"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:270
-#: QueryView.php:297
-#, fuzzy
-msgid "Remove From Cart"
-msgstr "Radera från korgen"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:277
-#: QueryView.php:302
-msgid "Run Query Again"
-msgstr "Kör förfrågan igen"
-
-#: private/userdir/A99CBDE9-E121-4713-B8D2-D14C50561310/admin/QueryView-old.php:395
-#: QueryView.php:520
-msgid "Execute Query"
-msgstr "Gör förfrågan"
 
 #: QueryList.php:27
 msgid "Query Listing"
@@ -8959,6 +8633,10 @@ msgstr "Gör SQL förfrågan"
 msgid "An error occured: "
 msgstr "Ett fel inträffade"
 
+#: QuerySQL.php:121 QueryView.php:185 QueryView.php:283
+msgid " record(s) returned"
+msgstr " post(er) hittade"
+
 #: QuerySQL.php:186
 msgid "Add Results To Cart"
 msgstr "Lägg till resultat till korgen"
@@ -8974,6 +8652,61 @@ msgstr "Ta bort resultat från korgen"
 #: QuerySQL.php:193
 msgid "Return to Query Menu"
 msgstr "Återgå till förfrågan meny"
+
+#: QueryView.php:32
+msgid "Query View"
+msgstr "Förfrågan vy"
+
+#: QueryView.php:102
+msgid "This value is required."
+msgstr "Denna inmatning krävs."
+
+#: QueryView.php:113
+msgid "This value must be numeric."
+msgstr "Denna inmatning måste vara numerisk."
+
+#: QueryView.php:118
+msgid "This value must be at least "
+msgstr "Denna inmatning måste vara minst "
+
+#: QueryView.php:122 QueryView.php:135
+msgid "This value cannot be more than "
+msgstr "Denna inmatning får inte vara mer än "
+
+#: QueryView.php:135 QueryView.php:139
+msgid " characters long"
+msgstr " tecken lång"
+
+#: QueryView.php:139
+msgid "This value cannot be less than "
+msgstr "Denna inmatning får inte vara mindra än "
+
+#: QueryView.php:293
+#, fuzzy
+msgid "Add To Cart"
+msgstr "Lägg till korgen"
+
+#: QueryView.php:295
+#, fuzzy
+msgid "Intersect With Cart"
+msgstr "Bearbeta med korgen"
+
+#: QueryView.php:297
+#, fuzzy
+msgid "Remove From Cart"
+msgstr "Radera från korgen"
+
+#: QueryView.php:302
+msgid "Run Query Again"
+msgstr "Kör förfrågan igen"
+
+#: QueryView.php:520
+msgid "Execute Query"
+msgstr "Gör förfrågan"
+
+#: RPCdummy.php:62
+msgid "Address Info:"
+msgstr "Adress info:"
 
 #: ReminderReport.php:28 v2/templates/people/peopledashboard.php:198
 msgid "Pledge Reminder Report"
@@ -9081,6 +8814,11 @@ msgstr "Rapport model"
 msgid "Canvass Progress Report"
 msgstr "Framstegsrapport"
 
+#: Reports/CanvassReports.php:91
+#: external/templates/registration/family-register-done.php:45
+msgid "Done"
+msgstr ""
+
 #: Reports/CanvassReports.php:92
 #, fuzzy
 msgid "Assigned"
@@ -9107,9 +8845,9 @@ msgstr "Gav bidragslöfte"
 msgid "Pledge status"
 msgstr "Bidrag löfte redigeringsverktyg"
 
-#: Reports/CanvassReports.php:275 Reports/ConfirmReportEmail.php:222
-#: Reports/ConfirmReportEmail.php:240 Reports/ConfirmReport.php:222
-#: Reports/ConfirmReport.php:242
+#: Reports/CanvassReports.php:275 Reports/ConfirmReport.php:222
+#: Reports/ConfirmReport.php:242 Reports/ConfirmReportEmail.php:222
+#: Reports/ConfirmReportEmail.php:240
 msgid "M/F"
 msgstr "M/K"
 
@@ -9153,35 +8891,6 @@ msgstr "Förknippat med"
 msgid "All Members"
 msgstr "Antal medlemmar"
 
-#: Reports/ConfirmReportEmail.php:154 Reports/ConfirmReport.php:157
-msgid "City, State, Zip"
-msgstr "Stad, län, postkod"
-
-#: Reports/ConfirmReportEmail.php:174 Reports/ConfirmReport.php:177
-#, fuzzy
-msgid "Anniversary Date"
-msgstr "Bröllopsdatum"
-
-#: Reports/ConfirmReportEmail.php:221 Reports/ConfirmReportEmail.php:239
-#: Reports/ConfirmReport.php:221 Reports/ConfirmReport.php:241
-msgid "Member Name"
-msgstr "Medelmmar namn"
-
-#: Reports/ConfirmReportEmail.php:223 Reports/ConfirmReportEmail.php:241
-#: Reports/ConfirmReport.php:223 Reports/ConfirmReport.php:243
-msgid "Adult/Child"
-msgstr "Vuxen/barn"
-
-#: Reports/ConfirmReportEmail.php:227 Reports/ConfirmReportEmail.php:245
-#: Reports/ConfirmReport.php:228 Reports/ConfirmReport.php:248
-msgid "Member/Friend"
-msgstr "Medlemmar/vän"
-
-#: Reports/ConfirmReportEmail.php:356 Reports/ConfirmReport.php:369
-#, fuzzy
-msgid "Assigned groups for"
-msgstr "Tilldelad grupper"
-
 #: Reports/ConfirmReport.php:147
 #, fuzzy
 msgid "Address 1"
@@ -9192,10 +8901,39 @@ msgstr "Adress"
 msgid "Address 2"
 msgstr "Adress"
 
+#: Reports/ConfirmReport.php:157 Reports/ConfirmReportEmail.php:154
+msgid "City, State, Zip"
+msgstr "Stad, län, postkod"
+
+#: Reports/ConfirmReport.php:177 Reports/ConfirmReportEmail.php:174
+#, fuzzy
+msgid "Anniversary Date"
+msgstr "Bröllopsdatum"
+
+#: Reports/ConfirmReport.php:221 Reports/ConfirmReport.php:241
+#: Reports/ConfirmReportEmail.php:221 Reports/ConfirmReportEmail.php:239
+msgid "Member Name"
+msgstr "Medelmmar namn"
+
+#: Reports/ConfirmReport.php:223 Reports/ConfirmReport.php:243
+#: Reports/ConfirmReportEmail.php:223 Reports/ConfirmReportEmail.php:241
+msgid "Adult/Child"
+msgstr "Vuxen/barn"
+
 #: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
 #, fuzzy
 msgid "Cell phone"
 msgstr "Mobiltelefon"
+
+#: Reports/ConfirmReport.php:228 Reports/ConfirmReport.php:248
+#: Reports/ConfirmReportEmail.php:227 Reports/ConfirmReportEmail.php:245
+msgid "Member/Friend"
+msgstr "Medlemmar/vän"
+
+#: Reports/ConfirmReport.php:369 Reports/ConfirmReportEmail.php:356
+#, fuzzy
+msgid "Assigned groups for"
+msgstr "Tilldelad grupper"
 
 #: Reports/DirectoryReport.php:202
 msgid ""
@@ -9209,6 +8947,30 @@ msgstr ""
 #, fuzzy
 msgid "Envelope Numbers for all Families"
 msgstr "Tilldelad kuvertnummer till alla familjer."
+
+#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
+#: Reports/FRCertificates.php:54
+#, fuzzy
+msgid "Estimated value "
+msgstr "Redigera värd"
+
+#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
+#: Reports/FRCertificates.php:57
+msgid "Donated by "
+msgstr "Donerats av"
+
+#: Reports/FRBidSheets.php:103
+#, fuzzy
+msgid "Paddle"
+msgstr "Andra förnamn"
+
+#: Reports/FRBidSheets.php:104
+msgid "Bid"
+msgstr "Bud"
+
+#: Reports/FRCatalog.php:108
+msgid "Minimum bid "
+msgstr "Minsta bud"
 
 #: Reports/FamilyPledgeSummary.php:157 Reports/ReminderReport.php:169
 msgid "All Funds"
@@ -9237,30 +8999,6 @@ msgstr ""
 #: Reports/FamilyPledgeSummary.php:235
 msgid "Owe"
 msgstr ""
-
-#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:54
-#, fuzzy
-msgid "Estimated value "
-msgstr "Redigera värd"
-
-#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:57
-msgid "Donated by "
-msgstr "Donerats av"
-
-#: Reports/FRBidSheets.php:103
-#, fuzzy
-msgid "Paddle"
-msgstr "Andra förnamn"
-
-#: Reports/FRBidSheets.php:104
-msgid "Bid"
-msgstr "Bud"
-
-#: Reports/FRCatalog.php:108
-msgid "Minimum bid "
-msgstr "Minsta bud"
 
 #: Reports/FundRaiserStatement.php:96
 msgid "Donated Items:"
@@ -9521,10 +9259,6 @@ msgstr "Röstberetigad medlemmar"
 msgid "Number of Voting Members"
 msgstr "Röstberetigad medlemmar"
 
-#: RPCdummy.php:62
-msgid "Address Info:"
-msgstr "Adress info:"
-
 #: SelectDelete.php:106
 msgid "All donations from this family have been moved to another family."
 msgstr "Alla bidrag från denna familj flytades till en annan familj"
@@ -9685,18 +9419,18 @@ msgstr "Mina användare inställningar"
 msgid "Classic User Profile Settings"
 msgstr "Mina användare inställningar"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:887
+#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
 #, fuzzy
 msgid "Current Value"
 msgstr "För närvarande roll:"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:141
-#: UserEditor.php:886
+#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: UserEditor.php:926
 msgid "Variable name"
 msgstr "Variabel namn"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:281
-#: UserEditor.php:1015
+#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "Spara inställningar"
 
@@ -9704,49 +9438,15 @@ msgstr "Spara inställningar"
 msgid "Skin"
 msgstr ""
 
-#: SettingsIndividual.php:357 SystemSettings.php:210 UserEditor.php:922
-#: UserEditor.php:971
+#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: UserEditor.php:1013
 msgid "False"
 msgstr ""
 
-#: SettingsIndividual.php:358 SystemSettings.php:211 UserEditor.php:923
-#: UserEditor.php:972
+#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: UserEditor.php:1014
 msgid "True"
 msgstr ""
-
-#: sundayschool/SundaySchoolClassListExport.php:56
-#, fuzzy
-msgid "Dad Name"
-msgstr "Banknamn"
-
-#: sundayschool/SundaySchoolClassListExport.php:57
-#, fuzzy
-msgid "Dad Mobile"
-msgstr "Mobiltelefon"
-
-#: sundayschool/SundaySchoolClassListExport.php:58
-#, fuzzy
-msgid "Dad Email"
-msgstr "Epost"
-
-#: sundayschool/SundaySchoolClassListExport.php:59
-#, fuzzy
-msgid "Mom Name"
-msgstr "Medelmmar namn"
-
-#: sundayschool/SundaySchoolClassListExport.php:60
-#, fuzzy
-msgid "Mom Mobile"
-msgstr "Mobiltelefon"
-
-#: sundayschool/SundaySchoolClassListExport.php:61
-#, fuzzy
-msgid "Mom Email"
-msgstr "Epost"
-
-#: sundayschool/SundaySchoolClassListExport.php:62
-msgid "Properties"
-msgstr "Egenskapar"
 
 #: SystemDBUpdate.php:31
 msgid "System Upgrade"
@@ -9780,22 +9480,22 @@ msgstr "Övriga inställningar"
 msgid "Setting saved"
 msgstr "Spara inställningar"
 
-#: SystemSettings.php:99
+#: SystemSettings.php:98
 #, fuzzy
 msgid "Edit JSON Settings"
 msgstr "Spara inställningar"
 
-#: SystemSettings.php:143
+#: SystemSettings.php:145
 #, fuzzy
 msgid "Default Value"
 msgstr "Standard roll"
 
-#: SystemSettings.php:220
+#: SystemSettings.php:222
 #, fuzzy
 msgid "Edit Settings"
 msgstr "Övriga inställningar"
 
-#: SystemSettings.php:234
+#: SystemSettings.php:236
 #, fuzzy
 msgid "Unknown Type"
 msgstr "Okänd"
@@ -9808,6 +9508,15 @@ msgstr "Skattrapport"
 #, fuzzy
 msgid "Calendar Year"
 msgstr "Kalender år"
+
+#: USISTAddressVerification.php:51
+msgid "US Address Verification"
+msgstr "Bekräfta USA adress"
+
+#: USISTAddressVerification.php:104
+msgid ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
+msgstr ""
 
 #: UpdateAllLatLon.php:15
 #, fuzzy
@@ -9920,182 +9629,188 @@ msgstr ""
 msgid "The same as before"
 msgstr ""
 
-#: UserEditor.php:568
+#: UserEditor.php:569
 msgid "User Editor"
 msgstr "Användare redigeringsverktyg"
 
-#: UserEditor.php:585
+#: UserEditor.php:586
 #, fuzzy
 msgid "Role management"
 msgstr " Egenskap tilldelning bortagning"
 
-#: UserEditor.php:588
+#: UserEditor.php:589
 #, fuzzy
 msgid "Add Role"
 msgstr "Ny roll"
 
-#: UserEditor.php:589
+#: UserEditor.php:590
 #, fuzzy
 msgid "Manage Roles"
 msgstr "Hantera grupper och roller"
 
-#: UserEditor.php:591
+#: UserEditor.php:593
 #, fuzzy
 msgid "Add Role to Current User"
 msgstr "Lägg till korgen"
 
-#: UserEditor.php:626
+#: UserEditor.php:629
 #, fuzzy
 msgid "Person to Make User"
 msgstr "Person att bli användare"
 
-#: UserEditor.php:658
+#: UserEditor.php:648 UserEditor.php:704
+#: external/templates/password/enter-username.php:32
+#, fuzzy
+msgid "Login Name"
+msgstr "Inloggningsnamn"
+
+#: UserEditor.php:665
 msgid "Note: Changes will not take effect until next logon."
 msgstr "OBS: Ändringar syns efter din nästa inloggning."
 
-#: UserEditor.php:672
+#: UserEditor.php:680
 #, fuzzy
 msgid "User"
 msgstr "Användare"
 
-#: UserEditor.php:703
+#: UserEditor.php:713
 #, fuzzy
 msgid "Add Records"
 msgstr "Lägg till poster"
 
-#: UserEditor.php:708
+#: UserEditor.php:719
 #, fuzzy
 msgid "Edit Records"
 msgstr "Redigera poster"
 
-#: UserEditor.php:713
+#: UserEditor.php:725
 #, fuzzy
 msgid "Delete Records"
 msgstr "Radera poster"
 
-#: UserEditor.php:718
+#: UserEditor.php:731
 #, fuzzy
 msgid "Show Cart"
 msgstr "Visa betalningar"
 
-#: UserEditor.php:723
+#: UserEditor.php:737
 #, fuzzy
 msgid "Show Map"
 msgstr "Visa in"
 
-#: UserEditor.php:733
+#: UserEditor.php:749
 #, fuzzy
 msgid "Manage Properties and Classifications"
 msgstr "Underhålla egenskaper och klassificeringer"
 
-#: UserEditor.php:738
+#: UserEditor.php:755
 #, fuzzy
 msgid "Manage Groups and Roles"
 msgstr "Hantera grupper och roller"
 
-#: UserEditor.php:743
+#: UserEditor.php:761
 #, fuzzy
 msgid "Manage Donations and Finance"
 msgstr "Underhålla bidragsgivare och financer"
 
-#: UserEditor.php:748
+#: UserEditor.php:767
 #, fuzzy
 msgid "View, Add and Edit Notes"
 msgstr "Se, lätt till och redigera anteckningar"
 
-#: UserEditor.php:753
+#: UserEditor.php:773
 #, fuzzy
 msgid "Edit Self"
 msgstr "Redigera dig själv"
 
-#: UserEditor.php:756
+#: UserEditor.php:777
 #, fuzzy
 msgid "Edit own family only."
 msgstr "(Redigera din egen familj endast.)"
 
-#: UserEditor.php:763
+#: UserEditor.php:785
 #, fuzzy
 msgid "Canvass volunteer."
 msgstr "(Insamlingskampanj frivilliga)"
 
-#: UserEditor.php:767
+#: UserEditor.php:789
 msgid "Admin"
 msgstr ""
 
-#: UserEditor.php:770
+#: UserEditor.php:793
 #, fuzzy
 msgid "Grants all privileges."
 msgstr "(Tilldela alla privilegier.)"
 
-#: UserEditor.php:778
-msgid "Allow to manage the query menu"
-msgstr ""
-
-#: UserEditor.php:783
-#, fuzzy
-msgid "Can Send Email"
-msgstr "Epost"
-
-#: UserEditor.php:786
-msgid "Allow to use the mail function and button in the CRM"
-msgstr ""
-
-#: UserEditor.php:794
-msgid "User permission to export CSV files"
-msgstr ""
-
 #: UserEditor.php:802
-msgid "User permission to create directories"
+msgid "Allow to manage the query menu"
 msgstr ""
 
 #: UserEditor.php:807
 #, fuzzy
+msgid "Can Send Email"
+msgstr "Epost"
+
+#: UserEditor.php:812
+msgid "Allow to use the mail function and button in the CRM"
+msgstr ""
+
+#: UserEditor.php:821
+msgid "User permission to export CSV files"
+msgstr ""
+
+#: UserEditor.php:830
+msgid "User permission to create directories"
+msgstr ""
+
+#: UserEditor.php:835
+#, fuzzy
 msgid "Sunday school PDF"
 msgstr "Inga söndagskola"
 
-#: UserEditor.php:810
+#: UserEditor.php:840
 msgid "User permission to export PDF files for the sunday school"
 msgstr ""
 
-#: UserEditor.php:815
+#: UserEditor.php:845
 #, fuzzy
 msgid "Sunday school CSV"
 msgstr "Inga söndagskola"
 
-#: UserEditor.php:818
+#: UserEditor.php:850
 msgid "User permission to export CSV files for the sunday school"
 msgstr ""
 
-#: UserEditor.php:823
+#: UserEditor.php:855
 msgid "Main Dashboard"
 msgstr ""
 
-#: UserEditor.php:826
+#: UserEditor.php:860
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr ""
 
-#: UserEditor.php:831
+#: UserEditor.php:865
 #, fuzzy
 msgid "See Privacy Data"
 msgstr "Privat"
 
-#: UserEditor.php:834
+#: UserEditor.php:870
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
-#: UserEditor.php:842
+#: UserEditor.php:879
 msgid "Allow a user to use MailChimp tool"
 msgstr ""
 
-#: UserEditor.php:847
+#: UserEditor.php:884
 msgid "GRPD Data Protection Officer"
 msgstr ""
 
-#: UserEditor.php:850
+#: UserEditor.php:888
 msgid "General Data Protection Regulation in UE"
 msgstr ""
 
-#: UserEditor.php:880
+#: UserEditor.php:920
 #, fuzzy
 msgid ""
 "Set Permission True to give this user the ability to change their current "
@@ -10104,7 +9819,7 @@ msgstr ""
 "Ställ Tillstånd Trogen ge nya användare möjlighet att ändra sin nuvarande "
 "värde. <BR>"
 
-#: UserEditor.php:885
+#: UserEditor.php:925
 #, fuzzy
 msgid "Permission"
 msgstr "Person"
@@ -10186,14 +9901,285 @@ msgstr "Det gamla lösenordet"
 msgid "Confirm New Password"
 msgstr "Bekräfta det nya lösenordet"
 
-#: USISTAddressVerification.php:51
-msgid "US Address Verification"
-msgstr "Bekräfta USA adress"
+#: browser/browse.php:31
+#, fuzzy
+msgid "File Manager"
+msgstr "Kuvert skötare"
 
-#: USISTAddressVerification.php:104
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+#: browser/browse.php:50
+msgid "Download"
 msgstr ""
+
+#: eGive.php:79
+#, fuzzy
+msgid "eGive Import"
+msgstr "Gör importeringen"
+
+#: eGive.php:267
+#, fuzzy
+msgid "Start Date: "
+msgstr "Start datum/tid"
+
+#: eGive.php:269
+#, fuzzy
+msgid "End Date: "
+msgstr "Evenemangdatum"
+
+#: eGive.php:356
+msgid "Re-import to selected family"
+msgstr "Återimport till utvalda familjen"
+
+#: eGive.php:360
+#, fuzzy
+msgid "Data import results: "
+msgstr "Importering lyckades."
+
+#: eGive.php:360
+#, fuzzy
+msgid " gifts were imported, "
+msgstr "personer importerade"
+
+#: eGive.php:360
+msgid " gifts unchanged, and "
+msgstr "gåvor oförändrade, och"
+
+#: eGive.php:360
+msgid " gifts not imported due to problems"
+msgstr "gåvor inte importerats på grund av problem"
+
+#: eGive.php:361 eGive.php:390
+#, fuzzy
+msgid "Back to Deposit Slip"
+msgstr "Redigera insättningblankett"
+
+#: eGive.php:389
+msgid "Fatal error in eGive API datastream: '"
+msgstr "Allvarligt fel i eGive API dataström: \""
+
+#: external/routes/password.php:73
+#, fuzzy
+msgid "Unable to reset password"
+msgstr "Ogiltig användernamn eller lösenord"
+
+#: external/routes/verify.php:31
+msgid "Unable to load verification info"
+msgstr ""
+
+#: external/routes/verify.php:45
+#, fuzzy
+msgid "No Changes"
+msgstr "Spara ändringar"
+
+#: external/templates/404.php:4 kiosk/templates/404.php:4
+msgid "Page not fond"
+msgstr ""
+
+#: external/templates/404.php:14 kiosk/templates/404.php:14
+msgid "Oops! Page not found."
+msgstr ""
+
+#: external/templates/password/enter-username.php:7
+#: external/templates/password/password-check-email.php:7
+#: external/templates/registration/family-register-done.php:6
+#: external/templates/registration/family-register-members.php:8
+#: external/templates/registration/family-register.php:10
+#, fuzzy
+msgid "Family Registration"
+msgstr "Bekräfta radera familj"
+
+#: external/templates/password/enter-username.php:28
+#, fuzzy
+msgid "Reset your password"
+msgstr "Bekräfta lösenordet"
+
+#: external/templates/password/enter-username.php:41
+#: v2/templates/fundraiser/donatedItemEditor.php:124
+msgid "Go"
+msgstr "Gå"
+
+#: external/templates/password/enter-username.php:60
+msgid "Check your email for a password reset link"
+msgstr ""
+
+#: external/templates/password/enter-username.php:66
+msgid "Sorry, we are unable to process your request at this point in time."
+msgstr ""
+
+#: external/templates/password/enter-username.php:69
+#, fuzzy
+msgid "Login Name is Required"
+msgstr "Denna inmatning krävs."
+
+#: external/templates/password/password-check-email.php:27
+msgid "A new password was sent to you. Please check your email"
+msgstr ""
+
+#: external/templates/registration/family-register-done.php:18
+msgid "Registration Complete"
+msgstr ""
+
+#: external/templates/registration/family-register-done.php:24
+msgid "Thank you for registering your family."
+msgstr ""
+
+#: external/templates/registration/family-register-done.php:30
+#, fuzzy
+msgid "Member(s)"
+msgstr "Medlem"
+
+#: external/templates/registration/family-register-members.php:20
+msgid "Register"
+msgstr ""
+
+#: external/templates/registration/family-register-members.php:35
+#, fuzzy
+msgid "Family Member"
+msgstr "Familj medlemmar"
+
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
+#, fuzzy
+msgid "Mobile"
+msgstr "Mobiltelefon"
+
+#: external/templates/registration/family-register.php:32
+#, fuzzy
+msgid "Register your family"
+msgstr "Filtrera enligt familj"
+
+#: external/templates/registration/family-register.php:97
+msgid "How many people are in your family"
+msgstr ""
+
+#: external/templates/registration/family-register.php:116
+msgid "This will be my primary church."
+msgstr ""
+
+#: external/templates/verify/enter-info.php:17
+msgid "Please enter the following to start your family's verification"
+msgstr ""
+
+#: external/templates/verify/verify-family-info.php:10
+#, fuzzy
+msgid "Family Verification"
+msgstr "Bekräfta radera familj"
+
+#: external/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+#, fuzzy
+msgid "Home Address"
+msgstr "Adress"
+
+#: external/templates/verify/verify-family-info.php:64
+#, fuzzy
+msgid "Family Member(s)"
+msgstr "Familj medlemmar"
+
+#: external/templates/verify/verify-family-info.php:104
+#, fuzzy
+msgid "Work Email"
+msgstr "Arbete/Övriga Epost"
+
+#: external/templates/verify/verify-family-info.php:114
+msgid "Age Hidden"
+msgstr ""
+
+#: external/templates/verify/verify-family-info.php:174
+msgid "Please let us know what information to update if any"
+msgstr ""
+
+#: external/templates/verify/verify-family-info.php:179
+msgid "Your verification request is complete"
+msgstr ""
+
+#: external/templates/verify/verify-family-info.php:183
+msgid "We encountered an error submitting with your verification data"
+msgstr ""
+
+#: external/templates/verify/verify-family-info.php:189
+msgid "Verify"
+msgstr "Bekräfta"
+
+#: external/templates/verify/verify-family-info.php:191
+msgid "Visit our Site"
+msgstr ""
+
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+#, fuzzy
+msgid "End Time"
+msgstr "Start datum/tid"
+
+#: members/404.php:22 members/404.php:31
+#, fuzzy
+msgid "Not Found"
+msgstr "Icke bekräftade"
+
+#: members/404.php:31
+msgid "Oops!"
+msgstr ""
+
+#: members/404.php:34
+msgid "We could not find the member(s) you were looking for."
+msgstr ""
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "Meanwhile, you may"
+msgstr ""
+
+#: members/404.php:35 v2/templates/error/404.php:21
+#, fuzzy
+msgid "return to member dashboard"
+msgstr "Återgå till person post"
+
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:244
+msgid "Pending Self Verify"
+msgstr ""
+
+#: members/self-register.php:13
+#, fuzzy
+msgid "Families Self Registration"
+msgstr "Bekräfta radera familj"
+
+#: members/self-verify-updates.php:13
+#, fuzzy
+msgid "Self Verify"
+msgstr "Bekräfta"
+
+#: sundayschool/SundaySchoolClassListExport.php:56
+#, fuzzy
+msgid "Dad Name"
+msgstr "Banknamn"
+
+#: sundayschool/SundaySchoolClassListExport.php:57
+#, fuzzy
+msgid "Dad Mobile"
+msgstr "Mobiltelefon"
+
+#: sundayschool/SundaySchoolClassListExport.php:58
+#, fuzzy
+msgid "Dad Email"
+msgstr "Epost"
+
+#: sundayschool/SundaySchoolClassListExport.php:59
+#, fuzzy
+msgid "Mom Name"
+msgstr "Medelmmar namn"
+
+#: sundayschool/SundaySchoolClassListExport.php:60
+#, fuzzy
+msgid "Mom Mobile"
+msgstr "Mobiltelefon"
+
+#: sundayschool/SundaySchoolClassListExport.php:61
+#, fuzzy
+msgid "Mom Email"
+msgstr "Epost"
+
+#: sundayschool/SundaySchoolClassListExport.php:62
+msgid "Properties"
+msgstr "Egenskapar"
 
 #: v2/routes/calendar/calendar.php:43
 #, fuzzy
@@ -11286,9 +11272,9 @@ msgstr "Grupp medlemmar"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:66
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 #, fuzzy
 msgid "Appointment"
@@ -11499,6 +11485,21 @@ msgstr "Medelmmar namn"
 msgid "First create a Jitsi room with the button above !"
 msgstr ""
 
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
+#, fuzzy
+msgid "Filter by member types"
+msgstr "Filtrera enligt betalningstyp:"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
+#, fuzzy
+msgid "All persons"
+msgstr "Se alla"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
+#, fuzzy
+msgid "Only the visited/called persons"
+msgstr "Endast korg personer?"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
 msgstr ""
@@ -11591,21 +11592,6 @@ msgstr "Återgå till person post"
 #, fuzzy
 msgid "Return To PastoralCare Members List"
 msgstr "Lägg till korgen"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
-#, fuzzy
-msgid "Filter by member types"
-msgstr "Filtrera enligt betalningstyp:"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
-#, fuzzy
-msgid "All persons"
-msgstr "Se alla"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
-#, fuzzy
-msgid "Only the visited/called persons"
-msgstr "Endast korg personer?"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:246
 #, fuzzy
@@ -12274,6 +12260,204 @@ msgstr "Misslyckade inloggningar"
 msgid "Not modifiable"
 msgstr ""
 
+#: query_qry.php:2 query_qry.php:47
+#, fuzzy
+msgid "Family With Work Phone"
+msgstr "Familjens arbetstelefon"
+
+#: query_qry.php:3 query_qry.php:48
+#, fuzzy
+msgid "Family Member Count"
+msgstr "Familj medlemmar"
+
+#: query_qry.php:4 query_qry.php:49
+#, fuzzy
+msgid "Person by Age"
+msgstr "Person"
+
+#: query_qry.php:5 query_qry.php:50
+#, fuzzy
+msgid "Total By Gender"
+msgstr "Välj kön"
+
+#: query_qry.php:6 query_qry.php:51
+#, fuzzy
+msgid "Person by Role and Gender"
+msgstr "Välj kön"
+
+#: query_qry.php:7 query_qry.php:52
+#, fuzzy
+msgid "Person by Property"
+msgstr "Person"
+
+#: query_qry.php:9 query_qry.php:54
+#, fuzzy
+msgid "Birthdays"
+msgstr "Födelsedatum"
+
+#: query_qry.php:10 query_qry.php:55 queryparameters_qrp.php:13
+#, fuzzy
+msgid "Registered students"
+msgstr "Ytterligare studenter"
+
+#: query_qry.php:11 query_qry.php:56
+#, fuzzy
+msgid "Membership anniversaries"
+msgstr "Medemsdatumet"
+
+#: query_qry.php:12 query_qry.php:57
+#, fuzzy
+msgid "Select database users"
+msgstr "Skapa informationsfil"
+
+#: query_qry.php:13 query_qry.php:58
+#, fuzzy
+msgid "Select all members"
+msgstr "Välj roll"
+
+#: query_qry.php:15 query_qry.php:60
+#, fuzzy
+msgid "Recent friends"
+msgstr "Enligt senaste ändrade"
+
+#: query_qry.php:16 query_qry.php:61
+#, fuzzy
+msgid "Families to Canvass"
+msgstr "godkände för insamlingskampanjor"
+
+#: query_qry.php:17 query_qry.php:62
+#, fuzzy
+msgid "Pledge comparison"
+msgstr "Löfte sammanfattning"
+
+#: query_qry.php:18 query_qry.php:63
+#, fuzzy
+msgid "Missing pledges"
+msgstr "Granfamiljer"
+
+#: query_qry.php:19 query_qry.php:64
+#, fuzzy
+msgid "Credit Card People"
+msgstr "Kreditkort"
+
+#: query_qry.php:20 query_qry.php:65
+#, fuzzy
+msgid "Family Pledge by Fiscal Year"
+msgstr "Välj bokföringsår"
+
+#: query_qry.php:21 query_qry.php:66
+#, fuzzy
+msgid "Person not assigned to a group"
+msgstr "Inte tilldelad"
+
+#: query_qry.php:22 query_qry.php:67
+#, fuzzy
+msgid "Person assigned to a group"
+msgstr "Inte tilldelad"
+
+#: query_qry.php:23 query_qry.php:68
+msgid "CustomSearch"
+msgstr ""
+
+#: query_qry.php:24 query_qry.php:69
+msgid "Returns each family with a work phone"
+msgstr ""
+
+#: query_qry.php:25 query_qry.php:70
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+#: query_qry.php:26 query_qry.php:71
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+#: query_qry.php:27 query_qry.php:72
+msgid "Total of records matching a given gender."
+msgstr ""
+
+#: query_qry.php:28 query_qry.php:73
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+#: query_qry.php:29 query_qry.php:74
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+#: query_qry.php:30 query_qry.php:75
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+
+#: query_qry.php:31 query_qry.php:76
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+#: query_qry.php:32 query_qry.php:77
+msgid "Find Registered students"
+msgstr ""
+
+#: query_qry.php:33 query_qry.php:78
+msgid "Members who joined in a particular month"
+msgstr ""
+
+#: query_qry.php:34 query_qry.php:79
+#, fuzzy
+msgid "People who are registered as database users"
+msgstr "Välj roll"
+
+#: query_qry.php:35 query_qry.php:80
+#, fuzzy
+msgid "People who are members"
+msgstr "Välj roll"
+
+#: query_qry.php:36 query_qry.php:81
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+#: query_qry.php:37 query_qry.php:82
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+#: query_qry.php:38 query_qry.php:83
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+#: query_qry.php:39 query_qry.php:84
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+#: query_qry.php:40 query_qry.php:85
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+#: query_qry.php:41 query_qry.php:86
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+#: query_qry.php:42 query_qry.php:87
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+#: query_qry.php:43 query_qry.php:88
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "Inte tilldelad"
+
+#: query_qry.php:44 query_qry.php:89
+#, fuzzy
+msgid "Returns all persons assigned to a group."
+msgstr "Inte tilldelad"
+
+#: query_qry.php:45 query_qry.php:90
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+#: query_qry.php:46 query_qry.php:91
+msgid "Find people with a custom field value"
+msgstr ""
+
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
 msgstr ""
@@ -12342,11 +12526,6 @@ msgstr "Bröllopsdatum"
 #, fuzzy
 msgid "Field"
 msgstr "Redigera värd"
-
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
-#, fuzzy
-msgid "Registered students"
-msgstr "Ytterligare studenter"
 
 #: queryparameters_qrp.php:14
 #, fuzzy
@@ -12507,199 +12686,6 @@ msgstr "Fritt anpassade person fält"
 msgid "Match custom field to this value"
 msgstr ""
 
-#: query_qry.php:2 query_qry.php:47
-#, fuzzy
-msgid "Family With Work Phone"
-msgstr "Familjens arbetstelefon"
-
-#: query_qry.php:3 query_qry.php:48
-#, fuzzy
-msgid "Family Member Count"
-msgstr "Familj medlemmar"
-
-#: query_qry.php:4 query_qry.php:49
-#, fuzzy
-msgid "Person by Age"
-msgstr "Person"
-
-#: query_qry.php:5 query_qry.php:50
-#, fuzzy
-msgid "Total By Gender"
-msgstr "Välj kön"
-
-#: query_qry.php:6 query_qry.php:51
-#, fuzzy
-msgid "Person by Role and Gender"
-msgstr "Välj kön"
-
-#: query_qry.php:7 query_qry.php:52
-#, fuzzy
-msgid "Person by Property"
-msgstr "Person"
-
-#: query_qry.php:9 query_qry.php:54
-#, fuzzy
-msgid "Birthdays"
-msgstr "Födelsedatum"
-
-#: query_qry.php:11 query_qry.php:56
-#, fuzzy
-msgid "Membership anniversaries"
-msgstr "Medemsdatumet"
-
-#: query_qry.php:12 query_qry.php:57
-#, fuzzy
-msgid "Select database users"
-msgstr "Skapa informationsfil"
-
-#: query_qry.php:13 query_qry.php:58
-#, fuzzy
-msgid "Select all members"
-msgstr "Välj roll"
-
-#: query_qry.php:15 query_qry.php:60
-#, fuzzy
-msgid "Recent friends"
-msgstr "Enligt senaste ändrade"
-
-#: query_qry.php:16 query_qry.php:61
-#, fuzzy
-msgid "Families to Canvass"
-msgstr "godkände för insamlingskampanjor"
-
-#: query_qry.php:17 query_qry.php:62
-#, fuzzy
-msgid "Pledge comparison"
-msgstr "Löfte sammanfattning"
-
-#: query_qry.php:18 query_qry.php:63
-#, fuzzy
-msgid "Missing pledges"
-msgstr "Granfamiljer"
-
-#: query_qry.php:19 query_qry.php:64
-#, fuzzy
-msgid "Credit Card People"
-msgstr "Kreditkort"
-
-#: query_qry.php:20 query_qry.php:65
-#, fuzzy
-msgid "Family Pledge by Fiscal Year"
-msgstr "Välj bokföringsår"
-
-#: query_qry.php:21 query_qry.php:66
-#, fuzzy
-msgid "Person not assigned to a group"
-msgstr "Inte tilldelad"
-
-#: query_qry.php:22 query_qry.php:67
-#, fuzzy
-msgid "Person assigned to a group"
-msgstr "Inte tilldelad"
-
-#: query_qry.php:23 query_qry.php:68
-msgid "CustomSearch"
-msgstr ""
-
-#: query_qry.php:24 query_qry.php:69
-msgid "Returns each family with a work phone"
-msgstr ""
-
-#: query_qry.php:25 query_qry.php:70
-msgid "Returns each family and the total number of people assigned to them."
-msgstr ""
-
-#: query_qry.php:26 query_qry.php:71
-msgid "Returns any person records with ages between two given ages."
-msgstr ""
-
-#: query_qry.php:27 query_qry.php:72
-msgid "Total of records matching a given gender."
-msgstr ""
-
-#: query_qry.php:28 query_qry.php:73
-msgid "Selects person records with the family role and gender specified."
-msgstr ""
-
-#: query_qry.php:29 query_qry.php:74
-msgid "Returns person records which are assigned the given property."
-msgstr ""
-
-#: query_qry.php:30 query_qry.php:75
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-
-#: query_qry.php:31 query_qry.php:76
-msgid "People with birthdays in a particular month"
-msgstr ""
-
-#: query_qry.php:32 query_qry.php:77
-msgid "Find Registered students"
-msgstr ""
-
-#: query_qry.php:33 query_qry.php:78
-msgid "Members who joined in a particular month"
-msgstr ""
-
-#: query_qry.php:34 query_qry.php:79
-#, fuzzy
-msgid "People who are registered as database users"
-msgstr "Välj roll"
-
-#: query_qry.php:35 query_qry.php:80
-#, fuzzy
-msgid "People who are members"
-msgstr "Välj roll"
-
-#: query_qry.php:36 query_qry.php:81
-msgid "Find volunteers for a particular opportunity"
-msgstr ""
-
-#: query_qry.php:37 query_qry.php:82
-msgid "Friends who signed up in previous months"
-msgstr ""
-
-#: query_qry.php:38 query_qry.php:83
-msgid "People in families that are ok to canvass."
-msgstr ""
-
-#: query_qry.php:39 query_qry.php:84
-msgid "Compare pledges between two fiscal years"
-msgstr ""
-
-#: query_qry.php:40 query_qry.php:85
-msgid "Find people who pledged one year but not another"
-msgstr ""
-
-#: query_qry.php:41 query_qry.php:86
-msgid "People who are configured to pay by credit card."
-msgstr ""
-
-#: query_qry.php:42 query_qry.php:87
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr ""
-
-#: query_qry.php:43 query_qry.php:88
-#, fuzzy
-msgid "Returns all the persons not assigned to a group."
-msgstr "Inte tilldelad"
-
-#: query_qry.php:44 query_qry.php:89
-#, fuzzy
-msgid "Returns all persons assigned to a group."
-msgstr "Inte tilldelad"
-
-#: query_qry.php:45 query_qry.php:90
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
-
-#: query_qry.php:46 query_qry.php:91
-msgid "Find people with a custom field value"
-msgstr ""
-
 #: settings-locales.php:2
 msgid "Albanian"
 msgstr ""
@@ -12777,26 +12763,30 @@ msgid "Portuguese - Brazil"
 msgstr ""
 
 #: settings-locales.php:21
-msgid "Romanian - Romania"
+msgid "Portuguese - Portugal"
 msgstr ""
 
 #: settings-locales.php:22
-msgid "Russian"
+msgid "Romanian - Romania"
 msgstr ""
 
 #: settings-locales.php:23
-msgid "Spanish - Spain"
+msgid "Russian"
 msgstr ""
 
 #: settings-locales.php:24
-msgid "Sami (Northern) (Sweden)"
+msgid "Spanish - Spain"
 msgstr ""
 
 #: settings-locales.php:25
-msgid "Thai"
+msgid "Sami (Northern) (Sweden)"
 msgstr ""
 
 #: settings-locales.php:26
+msgid "Thai"
+msgstr ""
+
+#: settings-locales.php:27
 #, fuzzy
 msgid "Vietnamese"
 msgstr "Variabel namn"

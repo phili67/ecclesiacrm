@@ -1,9 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -18,16 +12,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "true"
-msgstr "verdadera"
+msgstr "verdadero"
 
 msgid "false"
-msgstr "falsa"
+msgstr "falso"
 
 msgid "pm"
-msgstr " "
+msgstr ""
 
 msgid "am"
-msgstr " "
+msgstr ""
 
 msgid "Teachers"
 msgstr "Profesores"
@@ -48,13 +42,13 @@ msgid "Kids"
 msgstr "Niños"
 
 msgid "create"
-msgstr "Crear"
+msgstr "crear"
 
 msgid "edit"
-msgstr "Editar"
+msgstr "editar"
 
 msgid "photo"
-msgstr "Fotografía"
+msgstr "foto"
 
 msgid "group"
 msgstr "grupo"
@@ -66,20 +60,19 @@ msgid "note"
 msgstr "nota"
 
 msgid "You have to set a Title for your event"
-msgstr "Usted tiene que fijar uno Título para su evento"
+msgstr "Tiene que establecer un título para su evento"
 
 msgid "This event isn't modifiable !!!"
-msgstr "Este evento no se puede cambiar !!!"
+msgstr "¡¡¡Este evento no es modificable !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
-msgstr ""
-"Para agregar evento, Tienes que crear uno calendario o activar uno primero."
+msgstr "Para añadir un evento, tienes que crear un calendario o activar uno primero."
 
 msgid "Event added"
 msgstr "Evento añadido"
 
 msgid "Event was added successfully."
-msgstr "Evento añadido correctamente"
+msgstr "El evento se ha añadido con éxito."
 
 msgid "Electronic Transaction Details"
 msgstr "Detalles de la transacción electrónica"
@@ -91,22 +84,22 @@ msgid "Weekly"
 msgstr "Semanal"
 
 msgid "Monthly"
-msgstr "Mensual"
+msgstr "Mensualmente"
 
 msgid "Quarterly"
-msgstr "Trimestral"
+msgstr "Trimestralmente"
 
 msgid "Once"
-msgstr "Una Vez"
+msgstr "Una vez"
 
 msgid "Other"
-msgstr "Otro"
+msgstr "Otros"
 
 msgid "CREDITCARD"
-msgstr "TARJETACRÉDITO"
+msgstr "TARJETA DE CRÉDITO"
 
 msgid "CASH"
-msgstr "Efectivo"
+msgstr "CAJA"
 
 msgid "Bank"
 msgstr "Banco"
@@ -115,41 +108,41 @@ msgid "CreditCard"
 msgstr "Tarjeta de crédito"
 
 msgid "BankDraft"
-msgstr "Giro Bancario"
+msgstr "Giro bancario"
 
 msgid ""
-"Some families haven't any \"head of household\" role name defined or there's "
-"any activated members in this families:"
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
 msgstr ""
-"Some families haven't any \"head of household\" role name defined or there's "
-"any activated members in this families:"
+"Algunas familias no tienen definido ningún nombre de rol de \"cabeza de familia\" "
+"o hay algún miembro activado en estas familias:"
 
 msgid "send"
-msgstr ""
+msgstr "enviar"
 
 msgid "save"
-msgstr ""
+msgstr "guardar"
 
 msgid "subscribed"
-msgstr ""
+msgstr "suscrito"
 
 msgid "unsubscribed"
-msgstr ""
+msgstr "desabonado"
 
 msgid "sent"
-msgstr ""
+msgstr "enviado"
 
 msgid "schedule"
-msgstr ""
+msgstr "programar"
 
 msgid "paused"
-msgstr ""
+msgstr "pausa"
 
 msgid "cleaned"
-msgstr ""
+msgstr "limpiado"
 
 msgid "pending"
-msgstr ""
+msgstr "pendiente"
 
 msgid "Invalid date"
-msgstr ""
+msgstr "Fecha no válida"
