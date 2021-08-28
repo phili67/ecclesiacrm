@@ -6,7 +6,7 @@
  *  Udpdated    : 2018-05-09
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without authorizaion
+ *                This code can't be included in another software without authorization
  ******************************************************************************/
 
 namespace EcclesiaCRM\Reports;
@@ -71,9 +71,9 @@ class PDF_RealAttendance extends PDF_Attendance
                 ->orderByStart()
                 ->find();
 
-
-
             $date_count = 0;
+
+            $labelArr = [];
 
             foreach ($activeEvents as $activeEvent) {// we loop in the events of the year
                 $labelArr['date' . $date_count++] = OutputUtils::change_date_for_place_holder($activeEvent->getStart()->format("Y-m-d"));
@@ -116,7 +116,6 @@ class PDF_RealAttendance extends PDF_Attendance
                 $lineRealPresence = 0;
                 $lineNbrEvents = 0;
                 $lineDates = [];
-
 
                 $person = $groupRoleMembership->getPerson();
 
