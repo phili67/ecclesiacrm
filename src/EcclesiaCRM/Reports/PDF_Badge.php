@@ -126,7 +126,7 @@ class PDF_Badge extends PDF_Label
             $has_QR_Code = True;
             $qr_code = $this->create_QR_Code($groupID, $personId);
 
-            $this->Image($qr_code, $_PosX, $_PosY, $this->_Height, $this->_Height);
+            $this->Image($qr_code, $_PosX+9, $_PosY + $this->_Height*0.15, $this->_Height*0.60, $this->_Height*0.60);
 
             unlink ($qr_code);
         }
@@ -151,17 +151,17 @@ class PDF_Badge extends PDF_Label
 
             $this->MultiCell($this->_Width - 14, 2, iconv('UTF-8', 'ISO-8859-1', $props), 0, ($sImagePosition == 'Left') ? 'L' : 'R');
         } else {
-            $this->SetFontSize(10);
+            $this->SetFontSize(13);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX+19, $_PosY);
             $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', $title), 0, 0, 'C');
 
-            $this->SetFontSize(10);
+            $this->SetFontSize($sFirstNameFontSize*0.75);
             $this->SetTextColor(0, 0, 0);
             $this->SetXY($_PosX+19, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
             $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($firstName)), 0, 0, 'C');
 
-            $this->SetFontSize(7);
+            $this->SetFontSize(10);
             $this->SetXY($_PosX+19, $_PosY + $this->_Height / 5 * 3 - $this->_Get_Height_Chars(10));
             $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($LastName)), 0, 0, 'C');
 
@@ -170,6 +170,13 @@ class PDF_Badge extends PDF_Label
 
             $this->MultiCell($this->_Width - 14, 2, iconv('UTF-8', 'ISO-8859-1', $props), 0, ($sImagePosition == 'Left') ? 'L' : 'R');
         }
+
+        // draw the border
+
+        $this->Line($_PosX, $_PosY, $_PosX, $_PosY + $this->_Height);
+        $this->Line($_PosX, $_PosY, $_PosX + $this->_Width, $_PosY);
+        $this->Line($_PosX + $this->_Width-2, $_PosY, $_PosX + $this->_Width-2, $_PosY);
+        $this->Line($_PosX , $_PosY + $this->_Height, $_PosX, $_PosY + $this->_Height);
 
         $this->SetFontSize (8);
         $this->SetXY($_PosX+7, $_PosY + $this->_Height - 10);
