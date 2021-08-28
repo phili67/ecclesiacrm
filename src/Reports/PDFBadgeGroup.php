@@ -29,6 +29,8 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
+use EcclesiaCRM\Utils\RedirectUtils;
+
 function GenerateLabels(&$pdf, $iGroupId, $useCart=0, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition, $useQRCode)
 {
     $group = GroupQuery::create()->findOneById($iGroupId);
@@ -146,6 +148,10 @@ $useQRCode = ($_POST['useQRCode'] == 'Yes')?true:false;
 
 // sunday school name
 $group = GroupQuery::create()->findOneById($iGroupId);
+
+if ( is_null($group) ) {
+    RedirectUtils::Redirect('v2/dashboard');
+}
 
 if ( $group->isSundaySchool() ) {
     $sundaySchoolName = InputUtils::FilterString($_POST['sundaySchoolName']);
