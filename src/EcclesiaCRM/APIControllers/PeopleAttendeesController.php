@@ -80,7 +80,18 @@ class PeopleAttendeesController
 
             if (!is_null($eventAttent)) {
                 $eventAttent->setCheckoutId(SessionUser::getUser()->getPersonId());
-                $eventAttent->getEvent()->checkInPerson($requestValues->personID);
+                if ( is_null($eventAttent->getPersonId()) ) {
+                    $eventAttent->getEvent()->checkInPerson($requestValues->personID);
+                } else {
+                    if ( is_null($eventAttent->getCheckinDate() ) ) {
+                        $eventAttent->setCheckinDate(date('Y-m-d H:i:s'))
+                            ->setCheckoutDate(null)
+                            ->save();
+                    } else {
+                        $eventAttent->setCheckoutDate(date('Y-m-d H:i:s'))
+                            ->save();
+                    }
+                }
                 $returnData = OutputUtils::FormatDate($date->format('Y-m-d H:i:s'), 1);
                 $eventAttent->save();
             }
