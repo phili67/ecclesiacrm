@@ -112,7 +112,6 @@ class MailChimpService
             $lists = array_filter($lists, array(new ListEmailFilter($email),'isEmailInList'));
             $listNames = array_map(function ($list) { return $list['name']; }, $lists);
             $listMemberships = implode(',', $listNames);
-            LoggerUtils::getAppLogger()->info($email. "is a member of ".$listMemberships);
             return $listMemberships;
         } catch (\Mailchimp_Invalid_ApiKey $e) {
             return 'Invalid ApiKey';
@@ -913,12 +912,11 @@ class MailChimpService
             $lists = array_filter($lists, array(new ListEmailFilter($email),'isEmailInList'));
             $listNames = array_map(function ($list) { return $list['name']; }, $lists);
             $listMemberships = implode(',', $listNames);
-            LoggerUtils::getAppLogger()->info($email. "is a member of ".$listMemberships);
 
             $res = [];
 
             foreach ($lists as $list) {
-                $res[] = [$list['name'],$this->getStatusMember($list['id'],$email)['status']];
+                $res[] = [$list['name'],$this->getStatusMember($list['id'],$email)['status'], $list['id']];
             }
             return $res;
         } catch (\Mailchimp_Invalid_ApiKey $e) {
