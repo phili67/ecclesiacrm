@@ -309,7 +309,7 @@ use EcclesiaCRM\Theme;
                         <i class="menu-icon fa fa-fw <?= $taskIcon ?>"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"
-                                title="<?= $task['desc'] ?>"><?= $task['title'] ?></h4>
+                                title="<?= htmlspecialchars($task['desc'], ENT_QUOTES, 'UTF-8') ?>"><?= $task['title'] ?></h4>
                         </div>
                     </a>
 
