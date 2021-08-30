@@ -1,9 +1,13 @@
 <?php
 
 namespace EcclesiaCRM\Utils;
-use EcclesiaCRM\dto\SystemConfig;
 
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
+
+use EcclesiaCRM\PledgeQuery;
+
+use Propel\Runtime\Propel;
 
 
 class MiscUtils {
@@ -18,7 +22,6 @@ class MiscUtils {
       is_dir($file) ? self::removeDirectory($file) : unlink($file);
     }
     rmdir($path);
-    return;
   }
 
   // Generates SQL for custom field update
@@ -280,7 +283,11 @@ class MiscUtils {
         $sSQL = "SELECT fam_ID, fam_Name, fam_Address1, fam_City, fam_State FROM family_fam $whereClause ORDER BY fam_Name";
     }
 
-    $rsFamilies = RunQuery($sSQL);
+    $connection = Propel::getConnection();
+
+    // Get data for the form as it now exists..
+    $pdoFamilies = $connection->prepare($sSQL);
+    $pdoFamilies->execute();
 
     // Build Criteria for Head of Household
     if (!$sDirRoleHead) {
@@ -294,26 +301,29 @@ class MiscUtils {
         $head_criteria .= " OR per_fmr_ID = $sDirRoleSpouse";
     }
     // Build array of Head of Households and Spouses with fam_ID as the key
-    $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND ('.$head_criteria.') ORDER BY per_fam_ID';
-    $rs_head = RunQuery($sSQL);
-    $aHead = [];
-    while (list($head_firstname, $head_famid) = mysqli_fetch_row($rs_head)) {
-        if ($head_firstname && isset($aHead[$head_famid])) {
-            $aHead[$head_famid] .= ' & '.$head_firstname;
-        } elseif ($head_firstname) {
-            $aHead[$head_famid] = $head_firstname;
-        }
-    }
-    $familyArray = [];
-    while ($aRow = mysqli_fetch_array($rsFamilies)) {
-        extract($aRow);
-        $name = $fam_Name;
-        if (isset($aHead[$fam_ID])) {
-            $name .= ', '.$aHead[$fam_ID];
-        }
-        $name .= ' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
+    $sSQL = 'SELECT per_FirstName as head_firstname, per_fam_ID as head_famid FROM person_per WHERE per_fam_ID > 0 AND ('.$head_criteria.') ORDER BY per_fam_ID';
 
-        $familyArray[$fam_ID] = $name;
+    $pdo_head = $connection->prepare($sSQL);
+    $pdo_head->execute();
+
+    $aHead = [];
+    while ($aRow = $pdo_head->fetch( \PDO::FETCH_ASSOC )) {
+          if ($aRow['head_firstname'] && isset($aHead[$aRow['head_famid']])) {
+              $aHead[$aRow['head_famid']] .= ' & '.$aRow['head_firstname'];
+          } elseif ($aRow['head_firstname']) {
+              $aHead[$aRow['head_famid']] = $aRow['head_firstname'];
+          }
+    }
+
+    $familyArray = [];
+    while ($aRow = $pdoFamilies->fetch( \PDO::FETCH_ASSOC )) {
+        $name = $aRow['fam_Name'];
+        if (isset($aHead[$aRow['fam_ID']])) {
+            $name .= ', '.$aHead[$aRow['fam_ID']];
+        }
+        $name .= ' '.MiscUtils::FormatAddressLine($aRow['fam_Address1'], $aRow['fam_City'], $aRow['fam_State']);
+
+        $familyArray[$aRow['fam_ID']] = $name;
     }
 
     return $familyArray;
@@ -1193,10 +1203,14 @@ public static function FileSizeConvert($bytes)
     $uniqueNum = 0;
     while (1) {
         $GroupKey = $methodSpecificID.'|'.$uniqueNum.'|'.$famID.'|'.$fundIDs.'|'.$date;
-        $sSQL = "SELECT COUNT(plg_GroupKey) FROM pledge_plg WHERE plg_PledgeOrPayment='Payment' AND plg_GroupKey='".$GroupKey."'";
-        $rsResults = RunQuery($sSQL);
-        list($numGroupKeys) = mysqli_fetch_row($rsResults);
-        if ($numGroupKeys) {
+
+        $pledgeSearch = PledgeQuery::Create()
+            ->withColumn('COUNT(plg_GroupKey)', 'NumGroupKeys')
+            ->filterByPledgeorpayment("Payment")
+            ->_and()->filterByGroupkey($GroupKey)
+            ->findOne();
+
+        if ( !is_null($pledgeSearch) && $pledgeSearch->getNumGroupKeys() ) {
             ++$uniqueNum;
         } else {
             return $GroupKey;
