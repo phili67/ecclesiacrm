@@ -755,7 +755,7 @@
         ],
         "dbVersion": "7.0.0"
     },
-    "current": {
+    "7.5.0": {
         "versions": [
             "7.0.0",
             "7.1.0"
@@ -764,5 +764,14 @@
             "/mysql/upgrade/7.5.0-upgrade.sql"
         ],
         "dbVersion": "7.5.0"
+    },
+    "current": {
+        "versions": [
+            "7.5.0"
+        ],
+        "scripts": [
+            "/mysql/upgrade/7.6.0-upgrade.php"
+        ],
+        "dbVersion": "7.6.0"
     }
 }
