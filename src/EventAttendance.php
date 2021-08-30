@@ -18,10 +18,14 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
+use Propel\Runtime\Propel;
+
 if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
   RedirectUtils::Redirect('v2/dashboard');
   exit;
 }
+
+$connection = Propel::getConnection();
 
 if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !empty($_POST['Event'])) {
     if ($_POST['Choice'] == 'Attendees') {
@@ -32,11 +36,15 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
         $sPageTitle = _('Event Attendees');
     } elseif ($_POST['Choice'] == 'Nonattendees') {
         $aSQL = 'SELECT DISTINCT(person_id) FROM event_attend WHERE event_id = '.$_POST['Event'];
-        $raOpps = RunQuery($aSQL);
+
+        $raOpps = $connection->prepare($aSQL);
+        $raOpps->execute();
+
         $aArr = [];
-        while ($aRow = mysqli_fetch_row($raOpps)) {
-            $aArr[] = $aRow[0];
+        while ($aRow = $raOpps->fetch( \PDO::FETCH_ASSOC )) {
+            $aArr[] = $aRow['person_id'];
         }
+
         if (count($aArr) > 0) {
             $aArrJoin = implode(',', $aArr);
             $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t2.fam_HomePhone, t2.fam_Country
@@ -72,12 +80,14 @@ require 'Include/Header.php';
 </table>
 <?php
 // Get data for the form as it now exists..
-$rsOpps = RunQuery($sSQL);
-$numRows = mysqli_num_rows($rsOpps);
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+
+$numRows = $statement->rowCount();
 
 // Create arrays of the attendees.
-for ($row = 1; $row <= $numRows; $row++) {
-    $aRow = mysqli_fetch_assoc($rsOpps);
+$row = 1;
+while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
     extract($aRow);
 
     if (array_key_exists('Action', $_GET) & $_GET['Action'] == 'List') {
@@ -94,6 +104,8 @@ for ($row = 1; $row <= $numRows; $row++) {
         $aEmail[$row] = $per_Email;
         $aHomePhone[$row] = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $per_Country, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
     }
+
+    $row++;
 }
 
 // Construct the form
@@ -134,13 +146,20 @@ if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows >
 $cSQL = 'SELECT COUNT(per_ID) AS cCount
          FROM person_per as t1, events_event as t2, event_attend as t3
          WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row]." AND per_cls_ID IN ('1','2','5')";
-        $cOpps = RunQuery($cSQL);
-        $cNumAttend = mysqli_fetch_row($cOpps)[0];
-        $tSQL = "SELECT COUNT(per_ID) AS tCount
+
+$tSQL = "SELECT COUNT(per_ID) AS tCount
          FROM person_per
          WHERE per_cls_ID IN ('1','2','5')";
-        $tOpps = RunQuery($tSQL);
-        $tNumTotal = mysqli_fetch_row($tOpps)[0]; ?>
+
+$cOpps = $connection->prepare($cSQL);
+$cOpps->execute();
+$cNumAttend = $cOpps->fetch( \PDO::FETCH_BOTH )['cCount'];
+
+$tOpps = $connection->prepare($tSQL);
+$tOpps->execute();
+$tNumTotal = $tOpps->fetch( \PDO::FETCH_BOTH )['tCount'];
+
+?>
                <input type="submit" name="Type" value="<?= _('Attending Members').' ['.$cNumAttend.']' ?>" class="btn btn-default">
              </form>
            </td>
@@ -165,8 +184,10 @@ $cSQL = 'SELECT COUNT(per_ID) AS cCount
 $gSQL = 'SELECT COUNT(per_ID) AS gCount
          FROM person_per as t1, events_event as t2, event_attend as t3
          WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row].' AND per_cls_ID = 3';
-        $gOpps = RunQuery($gSQL);
-        $gNumGuestAttend = mysqli_fetch_row($gOpps)[0]; ?>
+
+        $gOpps = $connection->prepare($gSQL);
+        $gOpps->execute();
+        $gNumGuestAttend = $gOpps->fetch( \PDO::FETCH_BOTH )['gCount']; ?>
                <input <?= ($gNumGuestAttend == 0 ? 'type="button"' : 'type="submit"') ?> name="Type" value="<?= _('Guests').' ['.$gNumGuestAttend.']' ?>" class="btn btn-default">
              </form>
            </td>
