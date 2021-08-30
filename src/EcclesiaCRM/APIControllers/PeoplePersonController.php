@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -321,6 +322,17 @@ class PeoplePersonController
             return $response->withStatus(404);
         }
 
+        // if in mailchimp
+        $mailchimp = $this->container->get('MailChimpService');
+
+        if ( $mailchimp->isActive() ) {
+            $memberStatus = $mailchimp->getListNameAndStatus( $person->getEmail() );
+
+            if ( !empty ($memberStatus) ) {
+                $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'unsubscribed');
+            }
+        }
+
         $person->delete();
 
         return $response->withJSON(array("status" => "success"));
@@ -527,6 +539,21 @@ class PeoplePersonController
 
             } elseif ($newStatus == 'true') {
                 $person->setDateDeactivated(Null);
+            }
+
+            $mailchimp = $this->container->get('MailChimpService');
+
+            if ( $mailchimp->isActive() ) {
+                $memberStatus = $mailchimp->getListNameAndStatus( $person->getEmail() );
+
+                if ( !empty ($memberStatus) ) {
+
+                    if ( $newStatus == 'false' ) {
+                        $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'unsubscribed');
+                    } else {
+                        $res = $mailchimp->updateMember($memberStatus[0][2], "", "", $person->getEmail(), 'subscribed');
+                    }
+                }
             }
 
             $person->save();
