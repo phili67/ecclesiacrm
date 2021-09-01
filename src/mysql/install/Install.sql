@@ -516,7 +516,7 @@ CREATE TABLE `family_custom_master` (
   `fam_custom_Special` mediumint(8) unsigned default NULL,
   `fam_custom_Side` enum('left','right') NOT NULL default 'left',
   `fam_custom_FieldSec` tinyint(4) NOT NULL default '1',
-  `fam_custom_comment` text NOT NULL COMMENT 'comment for GDPR',
+  `fam_custom_comment` text NULL default NULL COMMENT 'comment for GDPR',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`family_custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -806,7 +806,7 @@ CREATE TABLE `person_custom_master` (
   `custom_Special` mediumint(8) unsigned default NULL,
   `custom_Side` enum('left','right') NOT NULL default 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
-  `custom_comment` text NOT NULL COMMENT 'comment for GDPR',
+  `custom_comment` text NULL default NULL COMMENT 'comment for GDPR',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
