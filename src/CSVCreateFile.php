@@ -23,6 +23,8 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\ReportUtilities;
 
+use Propel\Runtime\Propel;
+
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();
 
@@ -35,17 +37,24 @@ $sFormat = strtolower($_POST['Format']);
 $bSkipIncompleteAddr = isset($_POST['SkipIncompleteAddr']);
 $bSkipNoEnvelope = isset($_POST['SkipNoEnvelope']);
 
+$connection = Propel::getConnection();
+
 // Get the custom fields
 if ($sFormat == 'default') {
     $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
-    $rsCustomFields = RunQuery($sSQL);
+    $pdoCustomFields = $connection->prepare($sSQL);
+    $pdoCustomFields->execute();
+
 
     $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-    $rsFamCustomFields = RunQuery($sSQL);
+    $pdoFamCustomFields = $connection->prepare($sSQL);
+    $pdoFamCustomFields->execute();
 }
 if ($sFormat == 'rollup') {
     $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-    $rsFamCustomFields = RunQuery($sSQL);
+    $pdoFamCustomFields = $connection->prepare($sSQL);
+    $pdoFamCustomFields->execute();
+
 }
 
 //Get membership classes
@@ -57,11 +66,12 @@ foreach ($rsMembershipClasses as $Member) {
 
 //Get family roles
 $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 2 ORDER BY lst_OptionSequence';
-$rsFamilyRoles = RunQuery($sSQL);
-while ($aRow = mysqli_fetch_array($rsFamilyRoles)) {
-    extract($aRow);
-    $familyRoles[$lst_OptionID] = $lst_OptionName;
-    $roleSequence[$lst_OptionSequence] = $lst_OptionID;
+$pdoFamilyRoles = $connection->prepare($sSQL);
+$pdoFamilyRoles->execute();
+
+while ($aRow = $pdoFamilyRoles->fetch( \PDO::FETCH_ASSOC )) {
+    $familyRoles[$aRow['lst_OptionID']] = $aRow['lst_OptionName'];
+    $roleSequence[$aRow['lst_OptionSequence']] = $aRow['lst_OptionID'];
 }
 
 //
@@ -199,10 +209,12 @@ if ($sFormat == 'addtocart') {
 
     $sSQL = "SELECT per_ID FROM $sPerTable $sJoinFamTable WHERE 1 = 1 $sWhereExt $sGroupBy";
     $sSQL .= ' ORDER BY per_LastName';
-    $rsLabelsToWrite = RunQuery($sSQL);
-    while ($aRow = mysqli_fetch_array($rsLabelsToWrite)) {
-        extract($aRow);
-        Cart::AddPerson($per_ID);
+
+    $pdoLabelsToWrite = $connection->prepare($sSQL);
+    $pdoLabelsToWrite->execute();
+
+    while ($aRow = $pdoLabelsToWrite->fetch( \PDO::FETCH_BOTH )) {
+        Cart::AddPerson($aRow['per_ID']);
     }
     RedirectUtils::Redirect('v2/cart/view');
 } else {
@@ -217,7 +229,8 @@ if ($sFormat == 'addtocart') {
     }
 
     //Execute whatever SQL was entered
-    $rsLabelsToWrite = RunQuery($sSQL);
+    $pdoLabelsToWrite = $connection->prepare($sSQL);
+    $pdoLabelsToWrite->execute();
 
     //Produce Header Based on Selected Fields
     if ($sFormat == 'rollup') {
@@ -303,16 +316,17 @@ if ($sFormat == 'addtocart') {
     // Add any custom field names to the header, unless using family roll-up mode
     $bUsedCustomFields = false;
     if ($sFormat == 'default') {
-        while ($aRow = mysqli_fetch_array($rsCustomFields)) {
+        while ($aRow = $pdoCustomFields->fetch( \PDO::FETCH_ASSOC )) {
             extract($aRow);
             if (isset($_POST["$custom_Field"])) {
                 $bUsedCustomFields = true;
                 $headerString .= "\"".InputUtils::translate_special_charset($custom_Name)."\"".$delimiter;
             }
         }
-        while ($aFamRow = mysqli_fetch_array($rsFamCustomFields)) {
+
+        while ($aFamRow = $pdoFamCustomFields->fetch( \PDO::FETCH_ASSOC )) {
             extract($aFamRow);
-            if (OutputUtils::securityFilter($fam_custom_Field)) {
+            if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
                 if (isset($_POST["$fam_custom_Field"])) {
                     $bUsedCustomFields = true;
                     $headerString .= "\"".InputUtils::translate_special_charset($fam_custom_Name)."\"".$delimiter;
@@ -322,7 +336,7 @@ if ($sFormat == 'addtocart') {
     }
     // Add any family custom fields names to the header
     if ($sFormat == 'rollup') {
-        while ($aFamRow = mysqli_fetch_array($rsFamCustomFields)) {
+        while ($aFamRow = $pdoFamCustomFields->fetch( \PDO::FETCH_ASSOC )) {
             extract($aFamRow);
             if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
                 if (isset($_POST["$fam_custom_Field"])) {
@@ -347,7 +361,8 @@ if ($sFormat == 'addtocart') {
 
     echo $headerString;
 
-    while ($aRow = mysqli_fetch_array($rsLabelsToWrite)) {
+    while ($aRow = $pdoLabelsToWrite->fetch( \PDO::FETCH_BOTH )) {
+
         $per_Title = '';
         $per_FirstName = '';
         $per_MiddleName = '';
@@ -530,13 +545,16 @@ if ($sFormat == 'addtocart') {
 
                 if ($bUsedCustomFields && ($sFormat == 'default')) {
                     $sSQLcustom = 'SELECT * FROM person_custom WHERE per_ID = '.$per_ID;
-                    $rsCustomData = RunQuery($sSQLcustom);
-                    $aCustomData = mysqli_fetch_array($rsCustomData);
 
-                    if (mysqli_num_rows($rsCustomData) > 0) {
+                    $pdoCustomData = $connection->prepare($sSQLcustom);
+                    $pdoCustomData->execute();
+
+                    $aCustomData = $pdoCustomData->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+                    if ($pdoCustomData->rowCount() > 0) {
                         // Write custom field data
-                        mysqli_data_seek($rsCustomFields, 0);
-                        while ($aCustomField = mysqli_fetch_array($rsCustomFields)) {
+                        $pdoCustomFields->execute();// //mysqli_data_seek($res, 0);
+                        while ($aCustomField = $pdoCustomFields->fetch( \PDO::FETCH_ASSOC )) {
                             $custom_Field = '';
                             $custom_Special = '';
                             $type_ID = '';
@@ -547,20 +565,23 @@ if ($sFormat == 'addtocart') {
                                     if ($type_ID == 11) {
                                         $custom_Special = $sCountry;
                                     }
-                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special,false,true),$charset);
+                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aCustomData["$custom_Field"]), $custom_Special,false,true),$charset);
                                 }
                             }
                         }
                     }
 
                     $sSQLFamCustom = 'SELECT * FROM family_custom WHERE fam_ID = '.$per_fam_ID;
-                    $rsFamCustomData = RunQuery($sSQLFamCustom);
-                    $aFamCustomData = mysqli_fetch_array($rsFamCustomData);
 
-                    if (@mysqli_num_rows($rsFamCustomData) > 0) {
+                    $pdoFamCustomData = $connection->prepare($sSQLFamCustom);
+                    $pdoFamCustomData->execute();
+
+                    $aFamCustomData = $pdoFamCustomData->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+                    if ($pdoFamCustomData->rowCount() > 0) {
                         // Write custom field data
-                        mysqli_data_seek($rsFamCustomFields, 0);
-                        while ($aFamCustomField = mysqli_fetch_array($rsFamCustomFields)) {
+                        $pdoFamCustomFields->execute();// //mysqli_data_seek($res, 0);
+                        while ($aFamCustomField = $pdoFamCustomFields->fetch( \PDO::FETCH_ASSOC )) {
                             $fam_custom_Field = '';
                             $fam_custom_Special = '';
                             $type_ID = '';
@@ -578,13 +599,15 @@ if ($sFormat == 'addtocart') {
 
                 if ($bUsedCustomFields && ($sFormat == 'rollup')) {
                     $sSQLFamCustom = 'SELECT * FROM family_custom WHERE fam_ID = '.$per_fam_ID;
-                    $rsFamCustomData = RunQuery($sSQLFamCustom);
-                    $aFamCustomData = mysqli_fetch_array($rsFamCustomData);
+                    $pdoFamCustomData = $connection->prepare($sSQLFamCustom);
+                    $pdoFamCustomData->execute();
 
-                    if (@mysqli_num_rows($rsFamCustomData) > 0) {
+                    $aFamCustomData = $pdoFamCustomData->fetchAll(\PDO::FETCH_ASSOC)[0];
+
+                    if ($pdoFamCustomData->rowCount() > 0) {
                         // Write custom field data
-                        mysqli_data_seek($rsFamCustomFields, 0);
-                        while ($aFamCustomField = mysqli_fetch_array($rsFamCustomFields)) {
+                        $pdoFamCustomFields->execute();// //mysqli_data_seek($res, 0);
+                        while ($aFamCustomField = $pdoFamCustomFields->fetch( \PDO::FETCH_ASSOC )) {
                             $fam_custom_Field = '';
                             $fam_custom_Special = '';
                             $type_ID = '';
