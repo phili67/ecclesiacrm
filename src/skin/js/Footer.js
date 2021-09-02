@@ -163,6 +163,7 @@ $("document").ready(function () {
       */
 
     $(document).on('select2:open', () => {
-        document.querySelector('.select2-search__field').focus();
+        let allFound = document.querySelectorAll('.select2-container--open .select2-search__field');
+        allFound[allFound.length - 1].focus();
     });
 });
