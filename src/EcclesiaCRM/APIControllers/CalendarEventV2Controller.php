@@ -497,7 +497,7 @@ class CalendarEventV2Controller
                     $_SESSION['EID'] = $event->getID();
                     $_SESSION['EName'] = $input->EventTitle;
                     $_SESSION['EDesc'] = $input->EventDesc;
-                    $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+                    $_SESSION['EDate'] = ( !is_null($date) )?$date->format('Y-m-d H:i:s'):'';
 
                     $_SESSION['EventID'] = $event->getID();
                 }
@@ -801,7 +801,7 @@ class CalendarEventV2Controller
             $_SESSION['EID'] = $event->getID();
             $_SESSION['EName'] = $event->getTitle();
             $_SESSION['EDesc'] = $event->getDesc();
-            $_SESSION['EDate'] = $event->getStart()->format('Y-m-d H:i:s');
+            $_SESSION['EDate'] = ( !is_null($event->getStart()) )?$event->getStart()->format('Y-m-d H:i:s'):'';
 
             $_SESSION['EventID'] = $event->getID();
 
@@ -1069,7 +1069,7 @@ class CalendarEventV2Controller
                     $_SESSION['EID'] = $old_event->getID();
                     $_SESSION['EName'] = $input->EventTitle;
                     $_SESSION['EDesc'] = $input->EventDesc;
-                    $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+                    $_SESSION['EDate'] = ( !is_null($date) )?$date->format('Y-m-d H:i:s'):'';
 
                     $_SESSION['EventID'] = $old_event->getID();
                 }
