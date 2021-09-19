@@ -54,9 +54,7 @@ class PersonSearchRes extends BaseSearchRes
                 $people = PersonQuery::create();
                 $people->setDistinct(PersonTableMap::COL_PER_ID);
 
-                if (SystemConfig::getBooleanValue('bGDPR')) {
-                    $people->filterByDateDeactivated(null);// GDPR, when a person is completely deactivated
-                }
+
 
                 $iTenThousand = 10000;
 
@@ -223,6 +221,10 @@ class PersonSearchRes extends BaseSearchRes
                                     ->where(PropertyTableMap::COL_PRO_CLASS . "='p' AND " . Record2propertyR2pTableMap::COL_R2P_PRO_ID . " LIKE '" . $this->query_elements['PersonProperty'] . "'"); //NOT LIKE 'a%';
                             }
                         }
+                    }
+
+                    if (SystemConfig::getBooleanValue('bGDPR')) {
+                        $people->_and()->filterByDateDeactivated(null);// GDPR, when a person is completely deactivated
                     }
 
                     $people->find();
