@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "правда"
+
+msgid "false"
+msgstr "ложный"
+
+msgid "pm"
+msgstr ""
+
+msgid "am"
+msgstr "я"
+
+msgid "Teachers"
+msgstr "Учителя"
+
+msgid "Students"
+msgstr "Студенты"
+
+msgid "Teacher"
+msgstr "Учитель"
+
+msgid "Student"
+msgstr "Студент"
+
+msgid "Parents"
+msgstr "Родители"
+
+msgid "Kids"
+msgstr "Дети"
+
+msgid "create"
+msgstr "создать"
+
+msgid "edit"
+msgstr "редактировать"
+
+msgid "photo"
+msgstr "фото"
+
+msgid "group"
+msgstr "группа"
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "note"
+msgstr "примечание"
+
+msgid "You have to set a Title for your event"
+msgstr ""
+"Вы должны задать название для вашего "
+"события"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Это событие не изменяемо!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Чтобы добавить событие, необходимо сначала "
+"создать календарь или активировать его."
+
+msgid "Event added"
+msgstr "Событие добавлено"
+
+msgid "Event was added successfully."
+msgstr "Событие успешно добавлено."
+
+msgid "Electronic Transaction Details"
+msgstr "Детали электронной транзакции"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Weekly"
+msgstr "Еженедельно"
+
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+msgid "Quarterly"
+msgstr "Ежеквартально"
+
+msgid "Once"
+msgstr "Однажды"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "CREDITCARD"
+msgstr "КРЕДИТНАЯ КАРТА"
+
+msgid "CASH"
+msgstr "НАЛИЧНЫМИ"
+
+msgid "Bank"
+msgstr "Банк"
+
+msgid "CreditCard"
+msgstr "Кредитная карта"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"В некоторых семьях не определена роль "
+"\"главы семьи\" или в них есть активированные "
+"члены:"
+
+msgid "send"
+msgstr "отправить"
+
+msgid "save"
+msgstr "сохранить"
+
+msgid "subscribed"
+msgstr "подписался"
+
+msgid "unsubscribed"
+msgstr "отписался"
+
+msgid "sent"
+msgstr "отправлено"
+
+msgid "schedule"
+msgstr "расписание"
+
+msgid "paused"
+msgstr "приостановлено"
+
+msgid "cleaned"
+msgstr "очистить"
+
+msgid "pending"
+msgstr "в ожидании"
+
+msgid "Invalid date"
+msgstr "Неверная дата"

@@ -1,0 +1,2309 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-09-20T10:03:37.245Z\n"
+"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "Вы уверены, что хотите удалить это изображение?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Нажмите CTRL + C, чтобы скопировать телефонные номера всех членов группы"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Classification"
+msgstr "Классификация"
+
+msgid "Family Role"
+msgstr "Роль семьи"
+
+msgid "You have no more items in your cart."
+msgstr "У вас больше нет товаров в корзине."
+
+msgid "Error making API Call to"
+msgstr "Ошибка при выполнении вызова API для"
+
+msgid "Error text"
+msgstr "Текст ошибки"
+
+msgid "Stack Trace"
+msgstr "Трассировка стека"
+
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr ""
+"Все списки теперь загружены в Ecclesia<b>CRM</b>.<br><b>Если вы хотите "
+"управлять ими, нажмите на это уведомление!"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Возникла проблема с получением запрошенного объекта"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Select the method to add to a group"
+msgstr "Выберите метод для добавления в группу"
+
+msgid "Select an existing Group"
+msgstr "Выберите существующую группу"
+
+msgid "or Create a new Group from the Cart"
+msgstr "или Создать новую группу из Корзины"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Выберите группу, в которую вы хотите добавить свою корзину"
+
+msgid "Select Group"
+msgstr "Выберите группу"
+
+msgid "Select Role"
+msgstr "Выберите роль"
+
+msgid "Group Name"
+msgstr "Название группы"
+
+msgid "Default Name Group"
+msgstr "Имя по умолчанию Группа"
+
+msgid "Add Cart to Group"
+msgstr "Добавить корзину в группу"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Вы должны выбрать одну группу и роль группы, если вы хотите"
+
+msgid "You have to set a Group Name"
+msgstr "Вы должны задать имя группы"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Вы действительно хотите деактивировать людей?"
+
+msgid "This action can be undone !!!!"
+msgstr "Это действие можно отменить !!!!"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes : if you're sure"
+msgstr "Да: если вы уверены."
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Вы действительно хотите удалить людей из CRM?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Это действие нельзя отменить !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Выберите мероприятие, к которому вы хотите добавить корзину"
+
+msgid "Create First A New Event"
+msgstr "Сначала создайте новое событие"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Add to Event"
+msgstr "Добавить к событию"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Вы можете добавить содержимое корзины в выбранное событие ниже<br> - ИЛИ - "
+"<br>Создайте сначала событие и добавьте их после."
+
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "Зарегистрируйте свое программное обеспечение в команде EcclesiaCRM."
+
+msgid "Simply click this"
+msgstr "Просто нажмите здесь"
+
+msgid "to register your software"
+msgstr "для регистрации программного обеспечения"
+
+msgid "New Release"
+msgstr "Новый выпуск"
+
+msgid "Installed version"
+msgstr "Установленная версия"
+
+msgid "New One"
+msgstr "Новый"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Для обновления просто нажмите на это Уведомление"
+
+msgid "View Cart"
+msgstr "Посмотреть корзину"
+
+msgid "Empty Cart"
+msgstr "Пустая корзина"
+
+msgid "Empty Cart to Group"
+msgstr "Пустая корзина в группу"
+
+msgid "Empty Cart to Family"
+msgstr "Пустая корзина для семьи"
+
+msgid "Empty Cart to Event"
+msgstr "Пустая корзина до события"
+
+msgid "Map Cart"
+msgstr "Карта Корзина"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Деактивировать лиц из корзины"
+
+msgid "Delete Persons From the CRM"
+msgstr "Удаление лиц из CRM"
+
+msgid "View all"
+msgstr "Смотреть все"
+
+msgid "Your Cart is Empty"
+msgstr "Ваша корзина пуста"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Если вам необходимо внести изменения в регистрационные данные, перейдите в "
+"раздел"
+
+msgid "Admin->Edit General Settings"
+msgstr "Администратор->Редактировать общие настройки"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+"Пожалуйста, зарегистрируйте свою копию EcclesiaCRM, проверив эту информацию "
+"и нажав кнопку \"Отправить\"."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Эта информация используется только для отслеживания использования данного "
+"программного обеспечения."
+
+msgid "Church Name"
+msgstr "Название церкви"
+
+msgid "Version"
+msgstr "Версия"
+
+msgid "City"
+msgstr "Город"
+
+msgid "State"
+msgstr "Государство"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Church Email"
+msgstr "Церковная почта"
+
+msgid "Base URL"
+msgstr "Базовый URL"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Software Registration"
+msgstr "Регистрация программного обеспечения"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Ваша программа теперь зарегистрирована. Спасибо!"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Please select target group for members"
+msgstr "Пожалуйста, выберите целевую группу для членов"
+
+msgid "Please select target Role for members"
+msgstr "Пожалуйста, выберите целевую роль для членов"
+
+msgid "GroupID required for role selection prompt"
+msgstr "Идентификатор группы, необходимый для запроса выбора роли"
+
+msgid "Select Group and Role"
+msgstr "Выберите группу и роль"
+
+msgid "Add A Group Name"
+msgstr "Добавить имя группы"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Calendar Event"
+msgstr "Календарное событие"
+
+msgid "Attendees Checked In"
+msgstr "Участники зарегистрировались"
+
+msgid "More info"
+msgstr "Дополнительная информация"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Внимание! Не выбирайте эту опцию, если вы планируете добавить в существующую "
+"базу данных.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Используйте только в том случае, если не удовлетворены первоначальным "
+"импортом. Все данные о человеке и участнике будут уничтожены!"
+
+msgid "I Understand"
+msgstr "Я понимаю"
+
+msgid "Clear Persons and Families"
+msgstr "Ясные люди и семьи"
+
+msgid "Data Cleared Successfully!"
+msgstr "Данные очищены успешно!"
+
+msgid "success"
+msgstr "успех"
+
+msgid "Duplicate values"
+msgstr "Дублирование значений"
+
+msgid "You've selected two times the same name"
+msgstr "Вы выбрали два раза одно и то же имя"
+
+msgid "for this field. Chose another one."
+msgstr "для этого поля. Выберите другую."
+
+msgid "Please confirm deletion of this document"
+msgstr "Пожалуйста, подтвердите удаление этого документа"
+
+msgid "Document Delete Confirmation"
+msgstr "Подтверждение удаления документа"
+
+msgid "Document Editor"
+msgstr "Редактор документов"
+
+msgid "Document Title"
+msgstr "Название документа"
+
+msgid "Set your Document title"
+msgstr "Задайте название документа"
+
+msgid "Choose your Document Type"
+msgstr "Выберите тип документа"
+
+msgid "document"
+msgstr "документ"
+
+msgid "video"
+msgstr "видео"
+
+msgid "audio"
+msgstr "аудио"
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "You have to set a Title for your document"
+msgstr "Вы должны задать заголовок для документа"
+
+msgid "Icon"
+msgstr "Икона"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Modification Date"
+msgstr "Дата модификации"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Set a File/Folder name"
+msgstr "Задайте имя файла/папки"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Вы собираетесь удалить папку и ее содержимое"
+
+msgid "This can't be undone !!!!"
+msgstr "Этого не отменить !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Вы должны выбрать хотя бы одну линию!!!"
+
+msgid "You're about to remove a file"
+msgstr "Вы собираетесь удалить файл"
+
+msgid "Set your Folder name"
+msgstr "Задайте имя папки"
+
+msgid "Upload your Files"
+msgstr "Загрузите свои файлы"
+
+msgid "Files input"
+msgstr "Ввод файлов"
+
+msgid "Upload your files"
+msgstr "Загрузите свои файлы"
+
+msgid "Upload"
+msgstr "Загрузить"
+
+msgid "Share your File"
+msgstr "Поделитесь своим файлом"
+
+msgid "With"
+msgstr "С"
+
+msgid "Set Rights"
+msgstr "Установить права"
+
+msgid "Select your rights"
+msgstr "Выберите свои права"
+
+msgid "or"
+msgstr "или"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]."
+
+msgid "Send email notification"
+msgstr "Отправить уведомление по электронной почте"
+
+msgid "Add persons/Family/groups"
+msgstr "Добавить людей/семью/группы"
+
+msgid "Person or Family or Group"
+msgstr "Человек, семья или группа"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Вы уверены? Вы собираетесь удалить этого человека?"
+
+msgid "Stop sharing"
+msgstr "Прекратите делиться"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Вы уверены? Вы собираетесь прекратить обмен документами?"
+
+msgid "Ok"
+msgstr "Хорошо"
+
+msgid "Tracking"
+msgstr "Отслеживание"
+
+msgid "Attention"
+msgstr "Внимание"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Текущая папка images теперь является общей папкой !!!"
+
+msgid "Add People"
+msgstr "Добавить людей"
+
+msgid "This page is still in the cart."
+msgstr "Эта страница все еще находится в корзине."
+
+msgid "Wrong address format."
+msgstr "Неправильный формат адреса."
+
+msgid "Set Calendar Name"
+msgstr "Установить имя календаря"
+
+msgid "Confirm"
+msgstr "Подтвердить"
+
+msgid "Set Resource Name"
+msgstr "Установить имя ресурса"
+
+msgid "Select a resource type"
+msgstr "Выберите тип ресурса"
+
+msgid "Room"
+msgstr "Номер"
+
+msgid "Computer"
+msgstr "Компьютер"
+
+msgid "Video"
+msgstr "Видео"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Включить/исключить календари в боковой панели"
+
+msgid "Calendars"
+msgstr "Календари"
+
+msgid "Set Status"
+msgstr "Установить статус"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Выберите [Исключить] или [Включить]."
+
+msgid "[INCLUDE]"
+msgstr "[ВКЛЮЧЕНО]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUDE]"
+
+msgid "Share your Calendar"
+msgstr "Поделитесь своим календарем"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "Вы уверены, что хотите удалить этот ресурс?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "Вы уверены, что хотите прекратить совместное использование документа?"
+
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Вы потеряете календарь, события и все общие календари. Это невозможно "
+"отменить."
+
+msgid "Manage"
+msgstr "Управляйте"
+
+msgid "Calendar Management for"
+msgstr "Управление календарем для"
+
+msgid "Modify Calendar Name"
+msgstr "Изменить название календаря"
+
+msgid "Modify Group Name"
+msgstr "Изменить имя группы"
+
+msgid "Modify Resource Name"
+msgstr "Изменить имя ресурса"
+
+msgid "Modify Share Name"
+msgstr "Изменить имя доли"
+
+msgid "Resource Info for"
+msgstr "Информация о ресурсах для"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "Только администраторы имеют право изменять описание ресурса"
+
+msgid "Actualize"
+msgstr "Актуализировать"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "List"
+msgstr "Список"
+
+msgid "List Week"
+msgstr "Неделя списков"
+
+msgid "List Month"
+msgstr "Месяц списка"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Это событие не изменяемо!!!"
+
+msgid "Modify Event"
+msgstr "Изменить событие"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Что бы вы хотели сделать? Будьте осторожны с удалением, его невозможно "
+"вернуть !!!"
+
+msgid "Delete Event"
+msgstr "Удалить событие"
+
+msgid "Are you sure to delete this event?"
+msgstr "Вы уверены, что хотите удалить это событие?"
+
+msgid "Delete all repeated Events"
+msgstr "Удалить все повторяющиеся события"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are "
+"you sure? This can't be undone."
+msgstr ""
+"Вы собираетесь удалить все повторные События, связанные с этим событием. Вы "
+"уверены? Это нельзя отменить."
+
+msgid "Only this event"
+msgstr "Только это событие"
+
+msgid "Every Events linked to this Event"
+msgstr "Все события, связанные с этим событием"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Чтобы добавить событие, необходимо сначала создать календарь или "
+"активировать его."
+
+msgid "Add More Attendees"
+msgstr "Добавить больше участников"
+
+msgid "Make Attendance"
+msgstr "Принять участие"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Resize Event"
+msgstr "Событие изменения размера"
+
+msgid "Are you sure about this change?"
+msgstr "Вы уверены в этом изменении?"
+
+msgid "will be resized."
+msgstr "будет изменен размер."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "Вы собираетесь изменить размер всех событий. Хотите ли вы :"
+
+msgid "Only this Event"
+msgstr "Только это событие"
+
+msgid "All Events"
+msgstr "Все события"
+
+msgid "Move Event"
+msgstr "Переместить событие"
+
+msgid "will be dropped."
+msgstr "будет сброшен."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Вы собираетесь переместить все события. Хотите ли вы :"
+
+msgid "Event added"
+msgstr "Событие добавлено"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to "
+"add attendees ?"
+msgstr ""
+"Мероприятие успешно добавлено. Вы хотите внести изменения в список "
+"присутствующих или добавить участников?"
+
+msgid "Event was added successfully."
+msgstr "Событие успешно добавлено."
+
+msgid "No attendees"
+msgstr "Нет посетителей"
+
+msgid "From"
+msgstr "С сайта"
+
+msgid "to"
+msgstr "на"
+
+msgid "Attendance Notes: "
+msgstr "Заметки о посещаемости:"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Calendar Title"
+msgstr "Название календаря"
+
+msgid "Location"
+msgstr "Местонахождение"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "Чтобы подтвердить свой адрес: <b>\"нажмите return\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "Для просмотра карты нажмите на это текстовое поле."
+
+msgid "Map"
+msgstr "Карта"
+
+msgid "Desc"
+msgstr "Desc"
+
+msgid "Event description"
+msgstr "Описание события"
+
+msgid "Event Type"
+msgstr "Тип события"
+
+msgid "Personal"
+msgstr "Личный"
+
+msgid "Attendance Counts"
+msgstr "Подсчет посещаемости"
+
+msgid "Start Date"
+msgstr "Дата начала"
+
+msgid "End Date"
+msgstr "Дата окончания"
+
+msgid "Repeat"
+msgstr "Повторите"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Weekly"
+msgstr "Еженедельно"
+
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+msgid "Quarterly"
+msgstr "Ежеквартально"
+
+msgid "Semesterly"
+msgstr "Семестровый"
+
+msgid "Yearly"
+msgstr "Ежегодно"
+
+msgid "End"
+msgstr "Конец"
+
+msgid "Alarm"
+msgstr "Сигнализация"
+
+msgid "NONE"
+msgstr "НЕТ"
+
+msgid "At time of event"
+msgstr "На момент события"
+
+msgid "5 minutes before"
+msgstr "за 5 минут до"
+
+msgid "10 minutes before"
+msgstr "за 10 минут до"
+
+msgid "15 minutes before"
+msgstr "за 15 минут до"
+
+msgid "30 minutes before"
+msgstr "за 30 минут до"
+
+msgid "1 hour before"
+msgstr "за 1 час до"
+
+msgid "2 hour before"
+msgstr "за 2 часа до"
+
+msgid "1 day before"
+msgstr "за 1 день до"
+
+msgid "2 day before"
+msgstr "за 2 дня до"
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Add as attendees"
+msgstr "Добавить в качестве участников"
+
+msgid "Notes"
+msgstr "Примечания"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "inactive"
+msgstr "неактивный"
+
+msgid "Event Creation"
+msgstr "Создание событий"
+
+msgid "You've to chose a calendar."
+msgstr "Вы должны выбрать календарь."
+
+msgid "You have to set a Title for your event"
+msgstr "Вы должны задать название для вашего события"
+
+msgid "CKEditor Template Creation"
+msgstr "Создание шаблонов в CKEditor"
+
+msgid "Template Name"
+msgstr "Имя шаблона"
+
+msgid "Explanation field cannot be empty."
+msgstr "Поле пояснения не может быть пустым."
+
+msgid "Template Description"
+msgstr "Описание шаблона"
+
+msgid "Save as Word file in EDrive"
+msgstr "Сохранить как файл Word в EDrive"
+
+msgid "Word file name"
+msgstr "Имя файла Word"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr ""
+"Файл будет загружен на ваш EDrive<br><small>Эта часть предназначена только "
+"для тестирования <b>(Beta)</b>.</small>."
+
+msgid "Your note is saved in your EDrive"
+msgstr "Ваша заметка сохраняется в EDrive"
+
+msgid "(No templates defined)"
+msgstr "(Шаблоны не определены)"
+
+msgid "Content Templates"
+msgstr "Шаблоны контента"
+
+msgid "Please select the template to open in the editor"
+msgstr "Выберите шаблон для открытия в редакторе"
+
+msgid "Template Options"
+msgstr "Параметры шаблона"
+
+msgid "Modify"
+msgstr "Изменить"
+
+msgid "Modify the template you select"
+msgstr "Изменение выбранного шаблона"
+
+msgid "Delete the template you select"
+msgstr "Удалить выбранный шаблон"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr ""
+"Вы уверены, что хотите удалить этот шаблон? Это не может быть отменено."
+
+msgid "Replace actual content"
+msgstr "Заменить фактическое содержание"
+
+msgid "Manage templates"
+msgstr "Управление шаблонами"
+
+msgid "Save templates"
+msgstr "Сохранить шаблоны"
+
+msgid "Apply templates"
+msgstr "Применять шаблоны"
+
+msgid "Save As Word File in EDrive"
+msgstr "Сохранить как файл Word в EDrive"
+
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Last Name"
+msgstr "Фамилия"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "Unsub"
+msgstr "Unsub"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Merge Tags"
+msgstr "Теги слияния"
+
+msgid "Free Event Attendees"
+msgstr "Посетители бесплатных мероприятий"
+
+msgid "Successfully Added!"
+msgstr "Успешно добавлен!"
+
+msgid "Photo"
+msgstr "Фото"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Checkin"
+msgstr "Регистрация"
+
+msgid "Checkout"
+msgstr "Касса"
+
+msgid "Gender"
+msgstr "Пол"
+
+msgid "Checkin Date"
+msgstr "Дата регистрации"
+
+msgid "Checked In By"
+msgstr "Зарегистрирован"
+
+msgid "Checkout Date"
+msgstr "Дата выписки"
+
+msgid "Checkout By"
+msgstr "Выезд по"
+
+msgid "QR Code : Call the register"
+msgstr "QR-код : Позвоните в кассу"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Невозможно получить доступ к видеопотоку (убедитесь, что у вас включена веб-"
+"камера)"
+
+msgid "no detected QR Code"
+msgstr "не обнаружен QR-код"
+
+msgid "Loading video..."
+msgstr "Загрузка видео..."
+
+msgid "Failed"
+msgstr "Не удалось"
+
+msgid "No event right now."
+msgstr "Сейчас никаких событий."
+
+msgid "Move one in the right range."
+msgstr "Переместите один в нужный диапазон."
+
+msgid "Create one."
+msgstr "Создайте его."
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "No event now."
+msgstr "Сейчас никаких событий."
+
+msgid "Success"
+msgstr "Успех"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "Вы уверены, что хотите УДАЛИТЬ всех людей из Event ID:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "Вы уверены, что хотите УДАЛИТЬ этого человека из Event ID:"
+
+msgid "Delete Event Type"
+msgstr "Удалить тип события"
+
+msgid "This action can never be undone !!!!"
+msgstr "Это действие никогда не может быть отменено !!!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Удаление мероприятия также приведет к удалению всех подсчетов посещаемости "
+"для этого мероприятия."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Вы уверены, что хотите УДАЛИТЬ событие?"
+
+msgid "Confirm Delete"
+msgstr "Подтверждение Удалить"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Вы уверены? Вы собираетесь удалить выбранный"
+
+msgid "payments(s)?"
+msgstr "платежи?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"Это действие НЕ МОЖЕТ быть отменено и может иметь юридические последствия!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Пожалуйста, убедитесь, что это то, что вы хотите сделать."
+
+msgid "Pledge"
+msgstr "Обещание"
+
+msgid "Selected Rows"
+msgstr "Выбранные строки"
+
+msgid "Payment"
+msgstr "Оплата"
+
+msgid "Depid"
+msgstr "Депид"
+
+msgid "Address1"
+msgstr "Адрес1"
+
+msgid "Bank Name"
+msgstr "Название банка"
+
+msgid "Non deductible"
+msgstr "Не вычитается"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "Депозит"
+
+msgid "Schedule"
+msgstr "Расписание"
+
+msgid "Amount"
+msgstr "Сумма"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Electronic Transaction Details"
+msgstr "Детали электронной транзакции"
+
+msgid "TOTAL"
+msgstr "ВСЕГО"
+
+msgid "Family"
+msgstr "Семья"
+
+msgid "Person"
+msgstr "Человек"
+
+msgid "Anonymous"
+msgstr "Аноним"
+
+msgid "Fund"
+msgstr "Фонд"
+
+msgid "Pledge or payment"
+msgstr "Залог или платеж"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "Check Number"
+msgstr "Контрольный номер"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Deposit ID"
+msgstr "Идентификатор вклада"
+
+msgid "Deposit Date"
+msgstr "Дата внесения депозита"
+
+msgid "Deposit Total"
+msgstr "Депозит Итого"
+
+msgid "Deposit Comment"
+msgstr "Комментарий к депозиту"
+
+msgid "Closed"
+msgstr "Закрытый"
+
+msgid "Deposit Type"
+msgstr "Тип депозита"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Генерировать квитанцию о внесении депозита для выбранного"
+
+msgid "Rows"
+msgstr "Строки"
+
+msgid "Your operation completed successfully."
+msgstr "Ваша операция завершилась успешно."
+
+msgid "Full Name"
+msgstr "Полное имя"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Date Entered"
+msgstr "Дата ввода"
+
+msgid "Date Last Edited"
+msgstr "Дата последнего редактирования"
+
+msgid "Edited By Name"
+msgstr "Отредактировано по имени"
+
+msgid "Deactivated"
+msgstr "Деактивировано"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Внимание: Удалив это поле, вы безвозвратно потеряете все групповые данные, "
+"назначенные для этого поля!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Подтвердить включение специфических свойств группы"
+
+msgid ""
+"This will create a group-specific properties table for this group. You "
+"should then add needed properties with the Group-Specific Properties Form "
+"Editor."
+msgstr ""
+"В результате будет создана таблица свойств, специфичных для данной группы. "
+"Затем следует добавить необходимые свойства с помощью редактора формы "
+"свойств конкретной группы."
+
+msgid "Enable Group Specific Properties"
+msgstr "Включить специфические свойства группы"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Подтверждение отключения специфических свойств группы"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All "
+"group member properties data will be lost!"
+msgstr ""
+"Вы уверены, что хотите удалить свойства человека, относящиеся к конкретной "
+"группе? Все данные о свойствах членов группы будут потеряны!"
+
+msgid "Disable Group Specific Properties"
+msgstr "Отключить специфические свойства группы"
+
+msgid "Confirm Delete Role"
+msgstr "Подтверждение Удалить роль"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr "Это также приведет к удалению всех членов, связанных с этой ролью."
+
+msgid "A group should have at least one role!"
+msgstr "В группе должна быть хотя бы одна роль!"
+
+msgid "Role Name"
+msgstr "Ролевое имя"
+
+msgid "The role name is now modified."
+msgstr "Теперь имя роли изменено."
+
+msgid "Make Default"
+msgstr "Сделать по умолчанию"
+
+msgid "Default"
+msgstr "По умолчанию"
+
+msgid "Sequence"
+msgstr "Последовательность"
+
+msgid "Members"
+msgstr "Члены"
+
+msgid "Group Cart Status"
+msgstr "Состояние групповой корзины"
+
+msgid "All members of this group are in the cart"
+msgstr "Все члены этой группы находятся в корзине"
+
+msgid "Remove all"
+msgstr "Удалить все"
+
+msgid "Not all members of this group are in the cart"
+msgstr "Не все члены этой группы находятся в тележке"
+
+msgid "Add all"
+msgstr "Добавить все"
+
+msgid "Cart isn't showable"
+msgstr "Корзина не отображается"
+
+msgid "Group Type"
+msgstr "Тип группы"
+
+msgid "Unassigned"
+msgstr "Нераспределенный"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Confirm Delete Group"
+msgstr "Подтверждение Удалить группу"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Пожалуйста, подтвердите удаление этой групповой записи"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated "
+"with this Group record."
+msgstr ""
+"Это также приведет к удалению всех ролей и данных о групповых свойствах, "
+"связанных с этой записью группы."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Все члены группы и их свойства будут уничтожены.  Сами члены группы не будут "
+"изменены."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "Вы уверены, что хотите отменить назначение этого свойства?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "Вы уверены, что хотите изменить это свойство?"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "Вы уверены, что хотите удалить выбранных членов группы?"
+
+msgid "Group Role"
+msgstr "Роль группы"
+
+msgid "Private Data"
+msgstr "Частные данные"
+
+msgid "Zip Code"
+msgstr "Почтовый индекс"
+
+msgid "Cell Phone"
+msgstr "Мобильный телефон"
+
+msgid "Members from group"
+msgstr "Члены группы"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "Members to another group"
+msgstr "Члены другой группы"
+
+msgid "Members to cart"
+msgstr "Участники в корзину"
+
+msgid "Move"
+msgstr "Переместить"
+
+msgid "Remove from Cart"
+msgstr "Удалить из корзины"
+
+msgid "Add to Cart"
+msgstr "Добавить в корзину"
+
+msgid "No assigned Manager"
+msgstr "Менеджер не назначен"
+
+msgid "Manage Group Managers"
+msgstr "Управление менеджерами групп"
+
+msgid "Add person"
+msgstr "Добавить человека"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "Вы уверены, что хотите удалить этого менеджера?"
+
+msgid "Delete Managers"
+msgstr "Удалить менеджеров"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "Вы уверены, что хотите удалить всех менеджеров?"
+
+msgid "Appointment"
+msgstr "Назначение"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "Вы уверены, что хотите удалить эту семью из CRM"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "Вы уверены, что хотите удалить все семьи из CRM"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Не все семьи были УДАЛЕНЫ: некоторые из них имеют записи о пожертвованиях и "
+"могут быть НЕ удалены, пока эти пожертвования не будут связаны с другой "
+"семьей."
+
+msgid "Confirm Deactivation"
+msgstr "Подтверждение деактивации"
+
+msgid "Confirm Activation"
+msgstr "Подтвердить активацию"
+
+msgid "Please confirm deactivation of family"
+msgstr "Пожалуйста, подтвердите деактивацию семьи"
+
+msgid "Please confirm activation of family"
+msgstr "Пожалуйста, подтвердите активацию семьи"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Будьте осторожны с GDPR, когда семья деактивируется, вы должны сначала "
+"спросить всех членов семьи, хотите ли вы снова активировать учетную запись !"
+"<br><br> БЕЗ КАКОГО-ЛИБО АВТОРИЗАЦИИ, GDPR ДЕЛАЕТ ВАШЕ ИСПОЛЬЗОВАНИЕ ЭТОЙ "
+"СЕМЬИ НЕЗАКОННЫМ !!!!!."
+
+msgid "Family Photo"
+msgstr "Семейная фотография"
+
+msgid "Verification email sent"
+msgstr "Электронное письмо с подтверждением отправлено"
+
+msgid "Failed to send verification email"
+msgstr "Не удалось отправить письмо с подтверждением"
+
+msgid "Failed to add verification"
+msgstr "Не удалось добавить проверку"
+
+msgid "Verification URL"
+msgstr "URL-адрес проверки"
+
+msgid "Bank Draft"
+msgstr "Банковский перевод"
+
+msgid "Credit Card"
+msgstr "Кредитная карта"
+
+msgid "Disabled"
+msgstr "Инвалид"
+
+msgid "Next payment date"
+msgstr "Дата следующего платежа"
+
+msgid "Interval (months)"
+msgstr "Интервал (месяцы)"
+
+msgid "Updated By"
+msgstr "Обновлено"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Подтвердить Удалить Автоматический платеж"
+
+msgid "Pledge or Payment"
+msgstr "Залог или платеж"
+
+msgid "Dep ID"
+msgstr "Идентификатор депа"
+
+msgid "Fiscal Year"
+msgstr "Финансовый год"
+
+msgid "NonDeductible"
+msgstr "Не подлежащий вычету"
+
+msgid "CHECK"
+msgstr "ПРОВЕРЬТЕ"
+
+msgid "Date Updated"
+msgstr "Дата обновления"
+
+msgid "Delete this person?"
+msgstr "Удалить этого человека?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr "Вы хотите удалить этого человека? Это нельзя отменить."
+
+msgid "Save your note"
+msgstr "Сохраните свою заметку"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr "Вы хотите сохранить заметку как файл Word в EDrive?"
+
+msgid "Family Id"
+msgstr "Семейные иды"
+
+msgid "Valid Until"
+msgstr "Действителен до"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "Вы уверены, что хотите удалить этого человека из CRM?"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "Вы уверены, что хотите удалить всех людей из CRM?"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Не все лица были УДАЛЕНЫ: некоторые из них имеют записи о пожертвованиях и "
+"могут быть НЕ удалены, пока эти пожертвования не будут связаны с другой "
+"семьей."
+
+msgid "Please confirm deactivation of person"
+msgstr "Пожалуйста, подтвердите деактивацию лица"
+
+msgid "Please confirm activation of person"
+msgstr "Пожалуйста, подтвердите активацию человека"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Будьте осторожны с GDPR, когда лицо деактивировано, вы должны сначала "
+"спросить его, хотите ли вы снова активировать аккаунт !<br><br> БЕЗ КАКОГО-"
+"ЛИБО АВТОРИЗАЦИИ, GDPR ДЕЛАЕТ ВАШЕ ИСПОЛЬЗОВАНИЕ ЭТОГО ЛИЦА НЕЗАКОННЫМ !!!!!."
+
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+msgid "Activate"
+msgstr "Активировать"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "Вы уверены, что хотите удалить членство этого человека из"
+
+msgid "Change classification"
+msgstr "Классификация изменений"
+
+msgid "Change role"
+msgstr "Изменить роль"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "Подтвердить Удалить возможность добровольца"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Предупреждение: Удалив это поле, вы безвозвратно потеряете все семейные "
+"данные, назначенные для этого поля!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Если вы удалите фонд, <u><b>вы потеряете все связанные данные.</b></"
+"u><br><b>Вы уверены? Это действие нельзя отменить.</b>"
+
+msgid "Fund Editor"
+msgstr "Редактор фонда"
+
+msgid "Add Fund"
+msgstr "Добавить фонд"
+
+msgid "Validate"
+msgstr "Проверить"
+
+msgid "Place"
+msgstr "Место"
+
+msgid "Uri"
+msgstr "Ури"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr "Эта ссылка должна начинаться со слов: http://.... или https://....."
+
+msgid "Global Custom Menus"
+msgstr "Глобальные пользовательские меню"
+
+msgid "Dashboard"
+msgstr "Приборная панель"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Если вы удалите ссылку меню, <u><b>вы потеряете все связанные данные.</b></"
+"u><br><b>Вы уверены? Это действие нельзя отменить.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "Редактор ссылок пользовательского меню"
+
+msgid "Add Custom Menu Link"
+msgstr "Добавить ссылку на пользовательское меню"
+
+msgid "Delete Classification"
+msgstr "Удалить классификацию"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Пожалуйста, подтвердите удаление этой классификации"
+
+msgid ""
+"This will also delete this Classification for all the associated persons."
+msgstr "Это также удалит данную Классификацию для всех связанных с ней лиц."
+
+msgid "Map Icon GoogleMap"
+msgstr "Значок карты GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Выберите значок классификации"
+
+msgid "Visible"
+msgstr "Видимый"
+
+msgid "Visible for other authorized users"
+msgstr "Видимый для других авторизованных пользователей"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Если вы удалите тип пасторского ухода, <u><b>вы потеряете все связанные "
+"данные.</b></u><br><b>Вы уверены? Это действие не может быть отменено.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Пасторское служение Тип редактора"
+
+msgid "Add Pastoral Care Type"
+msgstr "Добавить тип пасторского ухода"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Предупреждение: Удалив это поле, вы безвозвратно потеряете все данные о "
+"человеке, назначенные для этого поля!"
+
+msgid "with this Property..."
+msgstr "с этой собственностью..."
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Select Property Type"
+msgstr "Выберите тип недвижимости"
+
+msgid "with this property..."
+msgstr "с этой собственностью..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "Вы собираетесь удалить это свойство. Вы хотите продолжить?"
+
+msgid "Property Type Editor"
+msgstr "Редактор типов свойств"
+
+msgid "Add a New Property"
+msgstr "Добавить новую собственность"
+
+msgid "Class"
+msgstr "Класс"
+
+msgid ""
+"You're about to delete this general properties. Would you like to continue ?"
+msgstr "Вы собираетесь удалить это общее свойство. Вы хотите продолжить?"
+
+msgid "This general property type is still being used by"
+msgstr "Этот общий тип собственности все еще используется"
+
+msgid "property"
+msgstr "собственность"
+
+msgid "properties"
+msgstr "свойства"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr "Если вы удалите этот тип, вы также удалите все свойства, использующие"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "и потерять все соответствующие имущественные присвоения."
+
+msgid "Add a New Property Type"
+msgstr "Добавить новый тип недвижимости"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Добавить новую возможность для волонтера"
+
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+msgid "View Profile"
+msgstr "Посмотреть профиль"
+
+msgid "Teachers"
+msgstr "Учителя"
+
+msgid "Delete this Teacher?"
+msgstr "Удалить этого учителя?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr "Вы хотите удалить этого учителя? Это нельзя отменить."
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Birth Date"
+msgstr "Дата рождения"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+msgid "Boy"
+msgstr "Мальчик"
+
+msgid "Girl"
+msgstr "Девушка"
+
+msgid "Age"
+msgstr "Возраст"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Home Phone"
+msgstr "Домашний телефон"
+
+msgid "Home Address"
+msgstr "Домашний адрес"
+
+msgid "Dad Name"
+msgstr "Имя отца"
+
+msgid "Dad Mobile"
+msgstr "Dad Mobile"
+
+msgid "Dad Email"
+msgstr "Электронная почта отца"
+
+msgid "Mom Name"
+msgstr "Имя мамы"
+
+msgid "Mom Mobile"
+msgstr "Мамин мобильник"
+
+msgid "Mom Email"
+msgstr "Электронная почта мамы"
+
+msgid "Remove Students from Cart"
+msgstr "Удалить студентов из корзины"
+
+msgid "Add Students to Cart"
+msgstr "Добавить студентов в корзину"
+
+msgid "Remove Teachers from Cart"
+msgstr "Удалить учителя из корзины"
+
+msgid "Add Teachers to Cart"
+msgstr "Добавить учителя в корзину"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr ""
+"Выберите тип события, который вы хотите использовать для создания "
+"посещаемости"
+
+msgid "Create Event With Students"
+msgstr "Создайте мероприятие с участием студентов"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+"Будьте внимательны! Вы собираетесь создать или воссоздать событие этого "
+"класса воскресной школы, чтобы позвонить в кассу."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Если мероприятие уже создано, перейдите в меню \"Мероприятия\", а затем "
+"\"Вызов кассы\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr ""
+"Во-первых, правильно установите временной диапазон, чтобы сделать извлечение."
+
+msgid "Set year range to export"
+msgstr "Установите диапазон лет для экспорта"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr ""
+"Во-первых, правильно установите диапазон дат для проведения извлечения."
+
+msgid "Extra students"
+msgstr "Дополнительные студенты"
+
+msgid "export with photos"
+msgstr "экспорт с фотографиями"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr ""
+"Будьте внимательны! Вы собираетесь создать или воссоздать все события всех "
+"классов воскресной школы, чтобы вызвать кассу."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Если события уже созданы, перейдите в меню \"События\", а затем \"Вызов кассы"
+"\"."
+
+msgid "First, set your date and time."
+msgstr "Сначала установите дату и время."
+
+msgid "Time"
+msgstr "Время"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Звоните в регистратуру для всех воскресных групп"
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Необходимо выбрать хотя бы одну группу для составления списков класса или "
+"табеля посещаемости."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "Вы должны задать название и описание для своего вопроса."
+
+msgid "Trigger Parent Alert"
+msgstr "Предупреждение родителей"
+
+msgid "Kiosk"
+msgstr "Киоск"
+
+msgid "No assignments for kiosk"
+msgstr "Нет заданий для киоска"
+
+msgid "Event"
+msgstr "Событие"
+
+msgid "Kiosk Name"
+msgstr "Название киоска"
+
+msgid "Assignment"
+msgstr "Задание"
+
+msgid "Last Heartbeat"
+msgstr "Последний удар сердца"
+
+msgid "Accepted"
+msgstr "Принято"
+
+msgid "True"
+msgstr "Правда"
+
+msgid "False"
+msgstr "Ложь"
+
+msgid "Reload"
+msgstr "Перезагрузка"
+
+msgid "Identify"
+msgstr "Определить"
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "The user must have an email address."
+msgstr "Пользователь должен иметь адрес электронной почты."
+
+msgid "Role management"
+msgstr "Управление ролями"
+
+msgid "Select your Role"
+msgstr "Выберите свою роль"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Вы уверены? Вы собираетесь удалить эту Роль."
+
+msgid "Rename"
+msgstr "Переименовать"
+
+msgid "Choose a Role Name"
+msgstr "Выберите имя роли"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
+"already exist !!!</center>"
+msgstr ""
+"<center>Вы должны установить другое имя роли <br>-- или --<br>это имя роли "
+"уже существует !!!</center>"
+
+msgid "You've to check at least one user."
+msgstr "Вы должны проверить хотя бы одного пользователя."
+
+msgid "The WebDav Key is"
+msgstr "Ключ WebDav - это"
+
+msgid "The public WebDav Key is"
+msgstr "Открытым ключом WebDav является"
+
+msgid "WebDav key"
+msgstr "Ключ WebDav"
+
+msgid "is now locked"
+msgstr "теперь заблокирован"
+
+msgid "is now unlocked"
+msgstr "теперь разблокирована"
+
+msgid "User Delete Confirmation"
+msgstr "Подтверждение удаления пользователя"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Пожалуйста, подтвердите снятие статуса пользователя с:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, "
+"the Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Будьте осторожны, вы потеряете домашнюю папку и связанные с ней файлы, "
+"календари, общие календари и все события тоже, для"
+
+msgid "This can't be undone"
+msgstr "Этого не отменить"
+
+msgid "Action Confirmation"
+msgstr "Подтверждение действий"
+
+msgid "Please confirm reset failed login count"
+msgstr "Пожалуйста, подтвердите сброс счетчика неудачного входа"
+
+msgid "Reset failed login count for"
+msgstr "Сбросить счетчик неудачных входов в систему для"
+
+msgid "done."
+msgstr "сделано."
+
+msgid "Please confirm the password reset of this user"
+msgstr "Пожалуйста, подтвердите сброс пароля этого пользователя"
+
+msgid "Password reset for"
+msgstr "Сброс пароля для"
+
+msgid "Saving Campaign ..."
+msgstr "Спасительная кампания ..."
+
+msgid "Campaign"
+msgstr "Кампания"
+
+msgid "saved successfully"
+msgstr "успешно сохранена"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Вы собираетесь отправить свою кампанию! Вы уверены?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Вы собираетесь удалить свою кампанию! Вы уверены?"
+
+msgid "Loading datas ..."
+msgstr "Загрузка данных ..."
+
+msgid "No list are created with this account ...."
+msgstr "С этой учетной записью не создаются списки ...."
+
+msgid "Email List"
+msgstr "Список адресов электронной почты"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Members:"
+msgstr "Члены:"
+
+msgid "Campaigns:"
+msgstr "Кампании:"
+
+msgid "Unsubscribed count:"
+msgstr "Количество отписавшихся:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Количество отписавшихся с момента последней отправки:"
+
+msgid "Cleaned count:"
+msgstr "Очищенный граф:"
+
+msgid "Cleaned count since last send:"
+msgstr "Очищенный счетчик с момента последней отправки:"
+
+msgid "Campaigns"
+msgstr "Кампании"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "is not configured"
+msgstr "не настроен"
+
+msgid "Please update the"
+msgstr "Пожалуйста, обновите"
+
+msgid "API key in Setting->"
+msgstr "Ключ API в разделе Настройка->"
+
+msgid "Edit General Settings"
+msgstr "Редактирование общих настроек"
+
+msgid "then update"
+msgstr "затем обновить"
+
+msgid "For more info see our "
+msgstr "Для получения дополнительной информации см."
+
+msgid "support docs."
+msgstr "вспомогательные документы."
+
+msgid "List Creation"
+msgstr "Создание списка"
+
+msgid "List Title"
+msgstr "Название списка"
+
+msgid "Your List Title"
+msgstr "Название вашего списка"
+
+msgid "Your Subject"
+msgstr "Ваш предмет"
+
+msgid "Permission Reminder"
+msgstr "Напоминание о разрешении"
+
+msgid "Archive Bars"
+msgstr "Архивные бары"
+
+msgid "Public"
+msgstr "Общественность"
+
+msgid "People"
+msgstr "Люди"
+
+msgid "Families"
+msgstr "Семьи"
+
+msgid "Add a new tag"
+msgstr "Добавить новый тег"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Удалить метку у абонента(ов)"
+
+msgid "Delete tag"
+msgstr "Удалить метку"
+
+msgid "Loading resources ..."
+msgstr "Загрузка ресурсов ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Вы собираетесь удалить метку!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Это также приведет к удалению тега для всех членов этого списка. Вы уверены?"
+
+msgid "Deleting tag"
+msgstr "Удаление тега"
+
+msgid "A person name or Family or Group"
+msgstr "Имя человека, семьи или группы"
+
+msgid "Loading subscriber"
+msgstr "Загрузка абонента"
+
+msgid "Loading subscribers from Group"
+msgstr "Загрузка подписчиков из группы"
+
+msgid "Loading subscribers from family"
+msgstr "Загрузка подписчиков из семьи"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Загрузка всех лиц из EcclesiaCRM<br>Это может занять некоторое время!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"На самом деле, вам лучше выйти из CRM, подождать 5 минут и сделать свои "
+"кампании после.<br> Для импорта огромных данных, API MailChimp работает "
+"медленно."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Загрузка всех подписчиков рассылки из EcclesiaCRM<br>Это может занять "
+"некоторое время!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Загрузка всех семейных подписчиков из EcclesiaCRM<br>Это может занять "
+"некоторое время!"
+
+msgid "Email Marketing"
+msgstr "Email-маркетинг"
+
+msgid "Select status for : "
+msgstr "Выберите статус для :"
+
+msgid "Subscribed"
+msgstr "Подписчики"
+
+msgid "Unsubscribed"
+msgstr "Без подписки"
+
+msgid "Changing status ..."
+msgstr "Изменение статуса ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Вы собираетесь удалить абонента! Вы уверены?"
+
+msgid "Deleting Subscriber..."
+msgstr "Удаление абонента..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Вы действительно хотите удалить этот список рассылки?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Вы уверены, что хотите удалить всех подписчиков?"
+
+msgid "Deleting all subscribers..."
+msgstr "Удаление всех абонентов..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Фактически, вам лучше выйти из CRM, а через четверть часа снова открыть ее "
+"для управления списком.<br> Для удаления огромных баз данных, MailChimp API "
+"работает медленно."
+
+msgid "Email Campaign Creation"
+msgstr "Создание кампаний по электронной почте"
+
+msgid "Campaign Title"
+msgstr "Название кампании"
+
+msgid "Your Campaign Title"
+msgstr "Название вашей кампании"
+
+msgid "For Tag"
+msgstr "Для тега"
+
+msgid "Mail Subject"
+msgstr "Тема письма"
+
+msgid "Your Mail Subject"
+msgstr "Тема вашего письма"
+
+msgid "All list members"
+msgstr "Все члены списка"
+
+msgid "Adding Campaign ..."
+msgstr "Добавление кампании ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Хотели бы вы напрямую управлять этой новой кампанией?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+"Вы должны задать заголовок кампании для вашей кампании электронной почты"
+
+msgid "List Name"
+msgstr "Название списка"
+
+msgid "Changing subscribers state..."
+msgstr "Изменение состояния абонентов..."
+
+msgid "All Tags"
+msgstr "Все теги"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Выберите тег, который нужно удалить :"
+
+msgid "Removing tags..."
+msgstr "Удаление меток..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Удаление всех тегов для выбранных членов в списке..."
+
+msgid "Add your tag name"
+msgstr "Добавьте название своей метки"
+
+msgid "Adding tag..."
+msgstr "Добавление тега..."
+
+msgid "Name is empty !!"
+msgstr "Имя пустое!!!"
+
+msgid "Add tag?"
+msgstr "Добавить метку?"
+
+msgid "This will add the tag"
+msgstr "Это добавит тег"
+
+msgid "to all the current selected members in the list."
+msgstr "всем текущим выбранным членам списка."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Вы собираетесь удалить подписчиков! Вы уверены?"
+
+msgid "Deleting Subscribers..."
+msgstr "Удаление подписчиков..."
+
+msgid "Problem"
+msgstr "Проблема"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari пока не поддерживается Jitsi, используйте что-нибудь другое! <br/>- "
+"Ваша веб-камера<br/>- Совместное использование окон<br/> не будет работать "
+"при встрече."
+
+msgid "Set a Jitsi room name"
+msgstr "Установите имя комнаты Jitsi"
+
+msgid "Delete all Rooms?"
+msgstr "Удалить все комнаты?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Вы собираетесь удалить все свои комнаты."
+
+msgid "You must enter a password"
+msgstr "Вы должны ввести пароль"
+
+msgid "Passwords must match"
+msgstr "Пароли должны совпадать"
+
+msgid "Backup Running, Please wait."
+msgstr "Резервное копирование запущено, пожалуйста, подождите."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "Создается резервная копия и копируется на удаленный сервер"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "Резервное копирование завершено, готово к загрузке."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Резервная копия загружена, копия на сервере удалена"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "Выбранный файл превышает максимальный размер загрузки этого сервера"
+
+msgid "Restore Running, Please wait."
+msgstr "Восстановление запущено, пожалуйста, подождите."
+
+msgid "Restore Complete"
+msgstr "Восстановление завершено"
+
+msgid "Login to restored Database"
+msgstr "Вход в восстановленную базу данных"
+
+msgid "Restore Error."
+msgstr "Ошибка восстановления."
+
+msgid "In progress...."
+msgstr "В процессе работы...."
+
+msgid "Done !"
+msgstr "Готово!"
+
+msgid "All Groups"
+msgstr "Все группы"
+
+msgid "All Roles"
+msgstr "Все роли"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Фотографии"
+
+msgid "Search result"
+msgstr "Результат поиска"
+
+msgid "Property Name"
+msgstr "Имя собственности"
+
+msgid "Loading people in cart...."
+msgstr "Загрузка людей в cart...."
+
+msgid "Loading finished...."
+msgstr "Загрузка готовой...."
+
+msgid "Removing people in cart...."
+msgstr "Удаление людей в cart...."
+
+msgid "Removing finished...."
+msgstr "Удаление готовых...."
+
+msgid "Remove People"
+msgstr "Удалить людей"
+
+msgid "Nothing to remove."
+msgstr "Ничего не нужно удалять."
+
+msgid "Visits/calls"
+msgstr "Посещения/звонки"
+
+msgid "Last visit/call"
+msgstr "Последний визит/звонок"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Удалить тип пасторского ухода"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Пасторское попечение Примечание Создание"
+
+msgid "For every administrator"
+msgstr "Для каждого администратора"
+
+msgid "Show"
+msgstr "Показать"
+
+msgid "Hide"
+msgstr "Скрыть"
+
+msgid "Include all the family members"
+msgstr "Включите всех членов семьи"
+
+msgid "Include"
+msgstr "Включить"
+
+msgid "Last Name (Family Name)"
+msgstr "Фамилия (имя семьи)"
+
+msgid "Family Name"
+msgstr "Имя семьи"
+
+msgid "Number"
+msgstr "Номер"
+
+msgid "Item"
+msgstr "Пункт"
+
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+msgid "Multiple"
+msgstr "Множество"
+
+msgid "Donor"
+msgstr "Донор"
+
+msgid "Buyer"
+msgstr "Покупатель"
+
+msgid "Sale Price"
+msgstr "Цена продажи"
+
+msgid "Estimated value"
+msgstr "Оценочная стоимость"
+
+msgid "Material Value"
+msgstr "Материальная ценность"
+
+msgid "Minimum Price"
+msgstr "Минимальная цена"
+
+msgid "Add buyer"
+msgstr "Добавить покупателя"
+
+msgid "Buyer Number"
+msgstr "Номер покупателя"
+
+msgid "Save and Add"
+msgstr "Сохранить и добавить"
+
+msgid "Generate Statement"
+msgstr "Сгенерировать заявление"
+
+msgid "Buyer Number Editor"
+msgstr "Редактор номеров покупателей"
+
+msgid "Select"
+msgstr "Выберите"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "Вы можете создать событие автоматически со студентами<br> - ИЛИ - "
+#~ "<br>Добавьте студентов в корзину и создайте событие, чтобы добавить их "
+#~ "после."
