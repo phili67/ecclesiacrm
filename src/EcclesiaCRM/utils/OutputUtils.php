@@ -622,8 +622,8 @@ class OutputUtils
 
         $fmt = self::FormatDateOutput($bWithTime);
 
-        setlocale(LC_ALL, SystemConfig::getValue("sLanguage"));
-        return utf8_encode(strftime("$fmt", strtotime($dDate)));
+        setlocale(LC_ALL, SystemConfig::getValue("sLanguage").".utf8");
+        return strftime("$fmt", strtotime($dDate));
     }
 
 // Format a BirthDate
