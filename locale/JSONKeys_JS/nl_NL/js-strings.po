@@ -1,0 +1,2320 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-09-20T20:11:07.222Z\n"
+"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "Weet je zeker dat je deze foto wilt verwijderen?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Druk op CTRL + C om de telefoonnummers van alle groepsleden te kopiëren"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Remove"
+msgstr "Verwijder"
+
+msgid "Classification"
+msgstr "Classificatie"
+
+msgid "Family Role"
+msgstr "Rol van de familie"
+
+msgid "You have no more items in your cart."
+msgstr "U heeft geen artikelen meer in uw winkelwagen."
+
+msgid "Error making API Call to"
+msgstr "Fout bij API-oproep naar"
+
+msgid "Error text"
+msgstr "Fout tekst"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "ERROR"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr ""
+"Alle lijsten zijn nu geladen in Ecclesia<b>CRM</b>.<br><b>Als u ze wilt "
+"beheren, klik dan op deze melding !</b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Er was een probleem met het ophalen van het gevraagde object"
+
+msgid "None"
+msgstr "Geen"
+
+msgid "Select the method to add to a group"
+msgstr "Selecteer de methode om aan een groep toe te voegen"
+
+msgid "Select an existing Group"
+msgstr "Selecteer een bestaande groep"
+
+msgid "or Create a new Group from the Cart"
+msgstr "of Maak een nieuwe groep vanuit de Winkelwagen"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Selecteer de groep waaraan u uw winkelwagentje wilt toevoegen"
+
+msgid "Select Group"
+msgstr "Selecteer groep"
+
+msgid "Select Role"
+msgstr "Selecteer rol"
+
+msgid "Group Name"
+msgstr "Naam van de groep"
+
+msgid "Default Name Group"
+msgstr "Standaard Naam Groep"
+
+msgid "Add Cart to Group"
+msgstr "Toevoegen aan groep"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "U moet een groep en een groepsrol selecteren als u"
+
+msgid "You have to set a Group Name"
+msgstr "U moet een groepsnaam instellen"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Wil je echt de personen deactiveren?"
+
+msgid "This action can be undone !!!!"
+msgstr "Deze actie kan ongedaan worden gemaakt !!!!"
+
+msgid "No"
+msgstr "Geen"
+
+msgid "Yes : if you're sure"
+msgstr "Ja : als je zeker bent"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Wilt u de personen echt uit het CRM verwijderen?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Deze actie kan niet ongedaan worden gemaakt !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Selecteer het evenement waaraan u uw winkelwagen wilt toevoegen"
+
+msgid "Create First A New Event"
+msgstr "Maak eerst een nieuw evenement"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Add to Event"
+msgstr "Toevoegen aan evenement"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"U kunt de inhoud van de winkelwagen toevoegen aan de geselecteerde "
+"gebeurtenis hieronder<br> - OF - <br>Maak eerst een gebeurtenis en voeg ze "
+"daarna toe."
+
+msgid "Register"
+msgstr "Registreren"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "Registreer uw software bij het EcclesiaCRM team."
+
+msgid "Simply click this"
+msgstr "Klik gewoon op deze"
+
+msgid "to register your software"
+msgstr "om uw software te registreren"
+
+msgid "New Release"
+msgstr "Nieuwe uitgave"
+
+msgid "Installed version"
+msgstr "Geïnstalleerde versie"
+
+msgid "New One"
+msgstr "Een nieuwe"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Om te upgraden klikt u op deze Melding"
+
+msgid "View Cart"
+msgstr "Toon mandje"
+
+msgid "Empty Cart"
+msgstr "Leeg winkelmandje"
+
+msgid "Empty Cart to Group"
+msgstr "Leeg wagentje naar groep"
+
+msgid "Empty Cart to Family"
+msgstr "Lege kar naar familie"
+
+msgid "Empty Cart to Event"
+msgstr "Leeg wagentje naar evenement"
+
+msgid "Map Cart"
+msgstr "Kaart"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Deactiveer personen uit winkelwagen"
+
+msgid "Delete Persons From the CRM"
+msgstr "Personen uit het CRM verwijderen"
+
+msgid "View all"
+msgstr "Bekijk alle"
+
+msgid "Your Cart is Empty"
+msgstr "Uw mandje is leeg"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Als u wijzigingen in de registratiegegevens wilt aanbrengen, ga dan naar"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin->Algemene instellingen bewerken"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+"Gelieve uw exemplaar van EcclesiaCRM te registreren door deze informatie aan "
+"te vinken en op de knop Verzenden te drukken."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Deze informatie wordt alleen gebruikt om het gebruik van deze software te "
+"volgen."
+
+msgid "Church Name"
+msgstr "Naam van de kerk"
+
+msgid "Version"
+msgstr "Versie"
+
+msgid "City"
+msgstr "Stad"
+
+msgid "State"
+msgstr "Staat"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Church Email"
+msgstr "Kerk Email"
+
+msgid "Base URL"
+msgstr "Basis URL"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Software Registration"
+msgstr "Software Registratie"
+
+msgid "Send"
+msgstr "Stuur"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Uw software is nu geregistreerd. Dank U !"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Please select target group for members"
+msgstr "Selecteer de doelgroep voor leden"
+
+msgid "Please select target Role for members"
+msgstr "Selecteer de doelrol voor leden"
+
+msgid "GroupID required for role selection prompt"
+msgstr "GroepID vereist voor rolselectie prompt"
+
+msgid "Select Group and Role"
+msgstr "Selecteer groep en rol"
+
+msgid "Add A Group Name"
+msgstr "Een groepsnaam toevoegen"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Calendar Event"
+msgstr "Kalender"
+
+msgid "Attendees Checked In"
+msgstr "Deelnemers ingecheckt"
+
+msgid "More info"
+msgstr "Meer info"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Waarschuwing! Selecteer deze optie niet als u van plan bent om iets toe te "
+"voegen aan een bestaande database.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Alleen gebruiken als u niet tevreden bent met de eerste invoer. Alle "
+"persoons- en lidgegevens worden vernietigd!"
+
+msgid "I Understand"
+msgstr "Ik begrijp het."
+
+msgid "Clear Persons and Families"
+msgstr "Duidelijke personen en gezinnen"
+
+msgid "Data Cleared Successfully!"
+msgstr "Gegevens succesvol gewist!"
+
+msgid "success"
+msgstr "succes"
+
+msgid "Duplicate values"
+msgstr "Dubbele waarden"
+
+msgid "You've selected two times the same name"
+msgstr "Je hebt twee keer dezelfde naam gekozen"
+
+msgid "for this field. Chose another one."
+msgstr "voor dit veld. Kies een andere."
+
+msgid "Please confirm deletion of this document"
+msgstr "Bevestig de verwijdering van dit document"
+
+msgid "Document Delete Confirmation"
+msgstr "Bevestiging verwijderen document"
+
+msgid "Document Editor"
+msgstr "Document redacteur"
+
+msgid "Document Title"
+msgstr "Titel van het document"
+
+msgid "Set your Document title"
+msgstr "Stel uw document titel in"
+
+msgid "Choose your Document Type"
+msgstr "Kies uw documenttype"
+
+msgid "document"
+msgstr "document"
+
+msgid "video"
+msgstr "video"
+
+msgid "audio"
+msgstr "audio"
+
+msgid "Private"
+msgstr "Privé"
+
+msgid "You have to set a Title for your document"
+msgstr "U moet een titel instellen voor uw document"
+
+msgid "Icon"
+msgstr "Icoon"
+
+msgid "Actions"
+msgstr "Acties"
+
+msgid "Modification Date"
+msgstr "Wijzigingsdatum"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Size"
+msgstr "Maat"
+
+msgid "Set a File/Folder name"
+msgstr "Een bestands-/mapnaam instellen"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
+
+msgid "This can't be undone !!!!"
+msgstr "Dit kan niet ongedaan worden gemaakt !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Je moet minstens één lijn kiezen!!!"
+
+msgid "You're about to remove a file"
+msgstr "Je staat op het punt een bestand te verwijderen"
+
+msgid "Set your Folder name"
+msgstr "Stel uw mapnaam in"
+
+msgid "Upload your Files"
+msgstr "Upload uw bestanden"
+
+msgid "Files input"
+msgstr "Bestanden invoer"
+
+msgid "Upload your files"
+msgstr "Upload uw bestanden"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Share your File"
+msgstr "Uw bestand delen"
+
+msgid "With"
+msgstr "Met"
+
+msgid "Set Rights"
+msgstr "Rechten instellen"
+
+msgid "Select your rights"
+msgstr "Kies uw rechten"
+
+msgid "or"
+msgstr "of"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "E-mail bericht verzenden"
+
+msgid "Add persons/Family/groups"
+msgstr "Personen/familie/groepen toevoegen"
+
+msgid "Person or Family or Group"
+msgstr "Persoon of gezin of groep"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Ben je zeker? Ga je deze persoon verwijderen?"
+
+msgid "Stop sharing"
+msgstr "Stop met delen"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Ben je zeker ? Ga je stoppen met het delen van je document?"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Tracking"
+msgstr "Volgen"
+
+msgid "Attention"
+msgstr "Attentie"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "De huidige afbeeldingen map is nu de openbare map !!!"
+
+msgid "Add People"
+msgstr "Mensen toevoegen"
+
+msgid "This page is still in the cart."
+msgstr "Deze pagina zit nog in de winkelwagen."
+
+msgid "Wrong address format."
+msgstr "Verkeerd adres formaat."
+
+msgid "Set Calendar Name"
+msgstr "Kalendernaam instellen"
+
+msgid "Confirm"
+msgstr "Bevestig"
+
+msgid "Set Resource Name"
+msgstr "Ingestelde bronnaam"
+
+msgid "Select a resource type"
+msgstr "Selecteer een type bron"
+
+msgid "Room"
+msgstr "Kamer"
+
+msgid "Computer"
+msgstr "Computer"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Uw kalenders in de SideBar opnemen/uitsluiten"
+
+msgid "Calendars"
+msgstr "Kalenders"
+
+msgid "Set Status"
+msgstr "Status instellen"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Selecteer [Uitsluiten] of [Insluiten]."
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUDE]"
+
+msgid "Share your Calendar"
+msgstr "Deel uw agenda"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "Weet je zeker dat je dit aandeel wilt verwijderen?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "Weet u zeker dat u wilt stoppen met het delen van uw document?"
+
+msgid "Are you sure?"
+msgstr "Ben je zeker?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Je verliest de kalender, de gebeurtenissen en ook alle gedeelde kalenders. "
+"Dit kan niet ongedaan worden gemaakt."
+
+msgid "Manage"
+msgstr "Beheer"
+
+msgid "Calendar Management for"
+msgstr "Kalenderbeheer voor"
+
+msgid "Modify Calendar Name"
+msgstr "Kalender naam wijzigen"
+
+msgid "Modify Group Name"
+msgstr "Groepsnaam wijzigen"
+
+msgid "Modify Resource Name"
+msgstr "Wijzigen bronnaam"
+
+msgid "Modify Share Name"
+msgstr "Wijzig naam aandeel"
+
+msgid "Resource Info for"
+msgstr "Hulpbroninfo voor"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr ""
+"Alleen beheerders hebben het recht om de beschrijving van de Hulpbron te "
+"wijzigen"
+
+msgid "Actualize"
+msgstr "Actualiseer"
+
+msgid "Today"
+msgstr "Vandaag"
+
+msgid "List"
+msgstr "Lijst"
+
+msgid "List Week"
+msgstr "Lijst week"
+
+msgid "List Month"
+msgstr "Lijst Maand"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Deze gebeurtenis is niet aanpasbaar !!!"
+
+msgid "Modify Event"
+msgstr "Gebeurtenis wijzigen"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Wat zou je willen doen ? Wees voorzichtig met het verwijderen, het is "
+"onmogelijk terug te draaien !!!"
+
+msgid "Delete Event"
+msgstr "Event verwijderen"
+
+msgid "Are you sure to delete this event?"
+msgstr "Weet u zeker dat u deze gebeurtenis wilt verwijderen?"
+
+msgid "Delete all repeated Events"
+msgstr "Alle herhaalde gebeurtenissen verwijderen"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are "
+"you sure? This can't be undone."
+msgstr ""
+"U staat op het punt om alle herhaalde gebeurtenissen gekoppeld aan deze "
+"gebeurtenis te verwijderen. Weet u dat zeker? Dit kan niet ongedaan worden "
+"gemaakt."
+
+msgid "Only this event"
+msgstr "Alleen deze gebeurtenis"
+
+msgid "Every Events linked to this Event"
+msgstr "Elke gebeurtenis die met deze gebeurtenis verband houdt"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Om een evenement toe te voegen, moet u eerst een kalender aanmaken of er een "
+"activeren."
+
+msgid "Add More Attendees"
+msgstr "Meer genodigden toevoegen"
+
+msgid "Make Attendance"
+msgstr "Aanwezigheid maken"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Resize Event"
+msgstr "Formaat wijzigen"
+
+msgid "Are you sure about this change?"
+msgstr "Ben je zeker van deze verandering?"
+
+msgid "will be resized."
+msgstr "zal worden aangepast."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr ""
+"Je staat op het punt om de grootte van alle gebeurtenissen aan te passen. "
+"Zou je willen :"
+
+msgid "Only this Event"
+msgstr "Alleen deze gebeurtenis"
+
+msgid "All Events"
+msgstr "Alle evenementen"
+
+msgid "Move Event"
+msgstr "Verplaatsing"
+
+msgid "will be dropped."
+msgstr "zal worden gedropt."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr ""
+"Je staat op het punt om alle gebeurtenissen te verplaatsen. Zou je willen :"
+
+msgid "Event added"
+msgstr "Evenement toegevoegd"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to "
+"add attendees ?"
+msgstr ""
+"Het evenement is succesvol toegevoegd. Wenst u de Aanwezigheid te maken of "
+"aanwezigen toe te voegen ?"
+
+msgid "Event was added successfully."
+msgstr "Evenement werd succesvol toegevoegd."
+
+msgid "No attendees"
+msgstr "Geen deelnemers"
+
+msgid "From"
+msgstr "Van"
+
+msgid "to"
+msgstr "naar"
+
+msgid "Attendance Notes: "
+msgstr "Aanwezigheidsnotities:"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Calendar Title"
+msgstr "Kalender Titel"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "Om uw adres te valideren: <b>\"druk return\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "Klik op dit tekstveld om de kaart te zien."
+
+msgid "Map"
+msgstr "Kaart"
+
+msgid "Desc"
+msgstr "Desc"
+
+msgid "Event description"
+msgstr "Beschrijving van het evenement"
+
+msgid "Event Type"
+msgstr "Type gebeurtenis"
+
+msgid "Personal"
+msgstr "Persoonlijk"
+
+msgid "Attendance Counts"
+msgstr "Aanwezigheid Telt"
+
+msgid "Start Date"
+msgstr "Begindatum"
+
+msgid "End Date"
+msgstr "Einddatum"
+
+msgid "Repeat"
+msgstr "Herhaal"
+
+msgid "Daily"
+msgstr "Dagelijks"
+
+msgid "Weekly"
+msgstr "Wekelijks"
+
+msgid "Monthly"
+msgstr "Maandelijks"
+
+msgid "Quarterly"
+msgstr "Driemaandelijks"
+
+msgid "Semesterly"
+msgstr "Halfjaarlijks"
+
+msgid "Yearly"
+msgstr "Jaarlijks"
+
+msgid "End"
+msgstr "Einde"
+
+msgid "Alarm"
+msgstr "Alarm"
+
+msgid "NONE"
+msgstr "GEEN"
+
+msgid "At time of event"
+msgstr "Op het moment van de gebeurtenis"
+
+msgid "5 minutes before"
+msgstr "5 minuten voor"
+
+msgid "10 minutes before"
+msgstr "10 minuten voor"
+
+msgid "15 minutes before"
+msgstr "15 minuten voor"
+
+msgid "30 minutes before"
+msgstr "30 minuten voor"
+
+msgid "1 hour before"
+msgstr "1 uur voor"
+
+msgid "2 hour before"
+msgstr "2 uur voor"
+
+msgid "1 day before"
+msgstr "1 dag voor"
+
+msgid "2 day before"
+msgstr "2 dagen voor"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Add as attendees"
+msgstr "Toevoegen als genodigden"
+
+msgid "Notes"
+msgstr "Opmerkingen"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Active"
+msgstr "Actief"
+
+msgid "inactive"
+msgstr "inactief"
+
+msgid "Event Creation"
+msgstr "Evenement Creatie"
+
+msgid "You've to chose a calendar."
+msgstr "Je moet een kalender kiezen."
+
+msgid "You have to set a Title for your event"
+msgstr "Je moet een titel instellen voor je evenement"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor Sjabloon Creatie"
+
+msgid "Template Name"
+msgstr "Sjabloon Naam"
+
+msgid "Explanation field cannot be empty."
+msgstr "Het veld \"Verklaring\" mag niet leeg zijn."
+
+msgid "Template Description"
+msgstr "Sjabloon Beschrijving"
+
+msgid "Save as Word file in EDrive"
+msgstr "Opslaan als Word bestand in EDrive"
+
+msgid "Word file name"
+msgstr "Word bestandsnaam"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr ""
+"Het bestand wordt geüpload naar uw EDrive<br><small>Dit deel is alleen voor "
+"test <b>(Beta)</b>.</small>"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Uw notitie is opgeslagen in uw EDrive"
+
+msgid "(No templates defined)"
+msgstr "(Geen sjablonen gedefinieerd)"
+
+msgid "Content Templates"
+msgstr "Inhoud sjablonen"
+
+msgid "Please select the template to open in the editor"
+msgstr "Selecteer de sjabloon om te openen in de editor"
+
+msgid "Template Options"
+msgstr "Sjabloon Opties"
+
+msgid "Modify"
+msgstr "Wijzigen"
+
+msgid "Modify the template you select"
+msgstr "Wijzig de gekozen sjabloon"
+
+msgid "Delete the template you select"
+msgstr "Verwijder de geselecteerde sjabloon"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr ""
+"Weet u zeker dat u dit sjabloon wilt verwijderen? Dit kan niet ongedaan "
+"gemaakt worden."
+
+msgid "Replace actual content"
+msgstr "Vervang actuele inhoud"
+
+msgid "Manage templates"
+msgstr "Sjablonen beheren"
+
+msgid "Save templates"
+msgstr "Sla sjablonen op"
+
+msgid "Apply templates"
+msgstr "Sjablonen aanbrengen"
+
+msgid "Save As Word File in EDrive"
+msgstr "Opslaan als Word bestand in EDrive"
+
+msgid "First Name"
+msgstr "Voornaam"
+
+msgid "Last Name"
+msgstr "Achternaam"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Company"
+msgstr "Bedrijf"
+
+msgid "Unsub"
+msgstr "Unsub"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Merge Tags"
+msgstr "Tags samenvoegen"
+
+msgid "Free Event Attendees"
+msgstr "Gratis bezoekers"
+
+msgid "Successfully Added!"
+msgstr "Succesvol toegevoegd!"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Action"
+msgstr "Actie"
+
+msgid "Checkin"
+msgstr "Checkin"
+
+msgid "Checkout"
+msgstr "Kassa"
+
+msgid "Gender"
+msgstr "Geslacht"
+
+msgid "Checkin Date"
+msgstr "Checkin Datum"
+
+msgid "Checked In By"
+msgstr "Ingecheckt door"
+
+msgid "Checkout Date"
+msgstr "Vertrekdatum"
+
+msgid "Checkout By"
+msgstr "Uitchecken door"
+
+msgid "QR Code : Call the register"
+msgstr "QR Code : Bel het register"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Geen toegang tot videostream (zorg ervoor dat u een webcam hebt ingeschakeld)"
+
+msgid "no detected QR Code"
+msgstr "geen gedetecteerde QR Code"
+
+msgid "Loading video..."
+msgstr "Video wordt geladen..."
+
+msgid "Failed"
+msgstr "Mislukt"
+
+msgid "No event right now."
+msgstr "Geen gebeurtenis op dit moment."
+
+msgid "Move one in the right range."
+msgstr "Verplaats er een in het juiste bereik."
+
+msgid "Create one."
+msgstr "Maak er een."
+
+msgid "Group"
+msgstr "Groep"
+
+msgid "User"
+msgstr "Gebruiker"
+
+msgid "No event now."
+msgstr "Geen gebeurtenis nu."
+
+msgid "Success"
+msgstr "Succes"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "Weet je zeker dat je alle personen van Event ID wilt verwijderen:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "Weet je zeker dat je deze persoon wilt verwijderen van Event ID:"
+
+msgid "Delete Event Type"
+msgstr "Type gebeurtenis verwijderen"
+
+msgid "This action can never be undone !!!!"
+msgstr "Deze actie kan nooit ongedaan worden gemaakt !!!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Als u een evenement verwijdert, worden ook alle aanwezigheidslijsten voor "
+"dat evenement verwijderd."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Weet je zeker dat je de gebeurtenis wilt VERWIJDEREN?"
+
+msgid "Confirm Delete"
+msgstr "Bevestigen Verwijderen"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Ben je zeker? Je staat op het punt om de geselecteerde"
+
+msgid "payments(s)?"
+msgstr "betalingen?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"Deze actie kan niet ongedaan worden gemaakt, en kan juridische gevolgen "
+"hebben!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Zorg ervoor dat dit is wat je wilt doen."
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Selected Rows"
+msgstr "Geselecteerde rijen"
+
+msgid "Payment"
+msgstr "Betaling"
+
+msgid "Depid"
+msgstr "Depid"
+
+msgid "Address1"
+msgstr "Adres1"
+
+msgid "Bank Name"
+msgstr "Naam bank"
+
+msgid "Non deductible"
+msgstr "Niet aftrekbaar"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "Storting"
+
+msgid "Schedule"
+msgstr "Schema"
+
+msgid "Amount"
+msgstr "Bedrag"
+
+msgid "Comment"
+msgstr "Commentaar"
+
+msgid "Electronic Transaction Details"
+msgstr "Details elektronische transactie"
+
+msgid "TOTAL"
+msgstr "TOTAAL"
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Person"
+msgstr "Persoon"
+
+msgid "Anonymous"
+msgstr "Anoniem"
+
+msgid "Fund"
+msgstr "Fonds"
+
+msgid "Pledge or payment"
+msgstr "Verpanding of betaling"
+
+msgid "Method"
+msgstr "Methode"
+
+msgid "Check Number"
+msgstr "Check Nummer"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Deposit ID"
+msgstr "Deposit ID"
+
+msgid "Deposit Date"
+msgstr "Storting Datum"
+
+msgid "Deposit Total"
+msgstr "Storting Totaal"
+
+msgid "Deposit Comment"
+msgstr "Deposito-commentaar"
+
+msgid "Closed"
+msgstr "Gesloten"
+
+msgid "Deposit Type"
+msgstr "Stortingstype"
+
+msgid "Export"
+msgstr "Exporteren"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Maak Statiegeldbon voor geselecteerde"
+
+msgid "Rows"
+msgstr "Rijen"
+
+msgid "Your operation completed successfully."
+msgstr "Uw operatie is succesvol afgerond."
+
+msgid "Full Name"
+msgstr "Volledige naam"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "Date Entered"
+msgstr "Datum ingevoerd"
+
+msgid "Date Last Edited"
+msgstr "Datum laatste bewerking"
+
+msgid "Edited By Name"
+msgstr "Bewerkt op naam"
+
+msgid "Deactivated"
+msgstr "Gedeactiveerd"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Waarschuwing: Door dit veld te verwijderen, verliest u onherroepelijk alle "
+"groepsgegevens die voor dit veld zijn toegewezen!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Bevestig Groepsspecifieke eigenschappen inschakelen"
+
+msgid ""
+"This will create a group-specific properties table for this group. You "
+"should then add needed properties with the Group-Specific Properties Form "
+"Editor."
+msgstr ""
+"Dit zal een groep-specifieke eigenschappen tabel aanmaken voor deze groep. U "
+"moet dan de nodige eigenschappen toevoegen met de Formulier Editor "
+"Groepsspecifieke eigenschappen."
+
+msgid "Enable Group Specific Properties"
+msgstr "Groepsspecifieke eigenschappen inschakelen"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Bevestig Groepsspecifieke eigenschappen uitschakelen"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All "
+"group member properties data will be lost!"
+msgstr ""
+"Weet u zeker dat u de groepsspecifieke persoonskenmerken wilt verwijderen? "
+"Alle eigenschappen van de groepsleden zullen verloren gaan!"
+
+msgid "Disable Group Specific Properties"
+msgstr "Groepsspecifieke eigenschappen uitschakelen"
+
+msgid "Confirm Delete Role"
+msgstr "Bevestig verwijderen rol"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr "Dit zal ook alle personen verwijderen die lid zijn van deze rol."
+
+msgid "A group should have at least one role!"
+msgstr "Een groep moet minstens één rol hebben!"
+
+msgid "Role Name"
+msgstr "Rol Naam"
+
+msgid "The role name is now modified."
+msgstr "De naam van de rol is nu gewijzigd."
+
+msgid "Make Default"
+msgstr "Standaard maken"
+
+msgid "Default"
+msgstr "Standaard"
+
+msgid "Sequence"
+msgstr "Volgorde"
+
+msgid "Members"
+msgstr "Leden"
+
+msgid "Group Cart Status"
+msgstr "Groep Cart Status"
+
+msgid "All members of this group are in the cart"
+msgstr "Alle leden van deze groep zitten in de kar"
+
+msgid "Remove all"
+msgstr "Verwijder alle"
+
+msgid "Not all members of this group are in the cart"
+msgstr "Niet alle leden van deze groep zitten in de kar"
+
+msgid "Add all"
+msgstr "Alles toevoegen"
+
+msgid "Cart isn't showable"
+msgstr "Cart is niet toonbaar"
+
+msgid "Group Type"
+msgstr "Groep Type"
+
+msgid "Unassigned"
+msgstr "Niet-toegewezen"
+
+msgid "Value"
+msgstr "Waarde"
+
+msgid "Confirm Delete Group"
+msgstr "Bevestig Groep verwijderen"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Bevestig de verwijdering van dit groepsrecord"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated "
+"with this Group record."
+msgstr ""
+"Dit zal ook alle Rollen en Groepsspecifieke Eigenschapgegevens verwijderen "
+"die met deze Groepsrecord verbonden zijn."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Alle leden en eigenschappen van de groep worden vernietigd.  De groepsleden "
+"zelf zullen niet worden gewijzigd."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "Weet u zeker dat u deze eigenschap wilt verwijderen?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "Weet u zeker dat u deze eigenschap wilt veranderen?"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "Weet u zeker dat u de geselecteerde groepsleden wilt verwijderen?"
+
+msgid "Group Role"
+msgstr "Groep Rol"
+
+msgid "Private Data"
+msgstr "Privégegevens"
+
+msgid "Zip Code"
+msgstr "Postcode"
+
+msgid "Cell Phone"
+msgstr "Mobiele telefoon"
+
+msgid "Members from group"
+msgstr "Leden van de groep"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "Members to another group"
+msgstr "Leden naar een andere groep"
+
+msgid "Members to cart"
+msgstr "Leden naar winkelwagen"
+
+msgid "Move"
+msgstr "Verplaats"
+
+msgid "Remove from Cart"
+msgstr "Verwijderen uit winkelwagen"
+
+msgid "Add to Cart"
+msgstr "In winkelwagen"
+
+msgid "No assigned Manager"
+msgstr "Geen toegewezen Manager"
+
+msgid "Manage Group Managers"
+msgstr "Beheer Groep Managers"
+
+msgid "Add person"
+msgstr "Persoon toevoegen"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "Weet je zeker, dat je deze Manager wilt verwijderen ?"
+
+msgid "Delete Managers"
+msgstr "Verwijder Managers"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "Weet je zeker dat je alle managers wilt verwijderen?"
+
+msgid "Appointment"
+msgstr "Afspraak"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "Weet u zeker dat u deze familie wilt verwijderen uit het CRM"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "Weet u zeker dat u alle families wilt verwijderen uit het CRM"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Niet alle families zijn GEWIST : Sommige families hebben nog schenkingen en "
+"mogen NIET gewist worden totdat deze schenkingen aan een andere familie "
+"gekoppeld zijn."
+
+msgid "Confirm Deactivation"
+msgstr "Bevestig Deactivering"
+
+msgid "Confirm Activation"
+msgstr "Bevestig Activering"
+
+msgid "Please confirm deactivation of family"
+msgstr "Bevestig de deactivering van familie"
+
+msgid "Please confirm activation of family"
+msgstr "Bevestig de activering van familie"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Wees voorzichtig met de GDPR, wanneer een familie wordt gedeactiveerd, moet "
+"u alle personen van de familie eerst vragen of u de account opnieuw wilt "
+"activeren !<br><br>ZONDER ENIGE TOESTEMMING maakt de GDPR UW GEBRUIK VAN "
+"DEZE FAMILIE ILLEGAAL !!!!!"
+
+msgid "Family Photo"
+msgstr "Familie foto"
+
+msgid "Verification email sent"
+msgstr "Verificatie e-mail verzonden"
+
+msgid "Failed to send verification email"
+msgstr "Mislukt om verificatie e-mail te verzenden"
+
+msgid "Failed to add verification"
+msgstr "Kan geen verificatie toevoegen"
+
+msgid "Verification URL"
+msgstr "Verificatie URL"
+
+msgid "Bank Draft"
+msgstr "Bankwissel"
+
+msgid "Credit Card"
+msgstr "Kredietkaart"
+
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+msgid "Next payment date"
+msgstr "Volgende betalingsdatum"
+
+msgid "Interval (months)"
+msgstr "Interval (maanden)"
+
+msgid "Updated By"
+msgstr "Bijgewerkt door"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Bevestigen Verwijderen Automatische betaling"
+
+msgid "Pledge or Payment"
+msgstr "Verpanding of betaling"
+
+msgid "Dep ID"
+msgstr "Dep ID"
+
+msgid "Fiscal Year"
+msgstr "Fiscaal Jaar"
+
+msgid "NonDeductible"
+msgstr "Niet-aftrekbaar"
+
+msgid "CHECK"
+msgstr "CHECK"
+
+msgid "Date Updated"
+msgstr "Datum bijgewerkt"
+
+msgid "Delete this person?"
+msgstr "Deze persoon schrappen?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr "Wilt u deze persoon verwijderen? Dit kan niet ongedaan worden gemaakt."
+
+msgid "Save your note"
+msgstr "Bewaar uw notitie"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr "Wilt u uw notitie opslaan als een Word-bestand in uw EDrive?"
+
+msgid "Family Id"
+msgstr "Familie Id"
+
+msgid "Valid Until"
+msgstr "Geldig tot"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "Weet u zeker dat u deze persoon wilt verwijderen uit het CRM"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "Weet u zeker dat u alle personen uit het CRM wilt verwijderen"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Niet alle personen werden GEWIST : Sommige hebben schenkingsdossiers en "
+"mogen NIET gewist worden zolang deze schenkingen niet aan een andere familie "
+"gekoppeld zijn."
+
+msgid "Please confirm deactivation of person"
+msgstr "Gelieve de deactivering van persoon te bevestigen"
+
+msgid "Please confirm activation of person"
+msgstr "Gelieve de activering van de persoon te bevestigen"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Wees voorzichtig met de GDPR, wanneer een persoon is gedeactiveerd, moet u "
+"de persoon eerst vragen of u de account weer wilt activeren !<br><br>ZONDER "
+"ENIGE AUTORISATIE maakt de GDPR UW GEBRUIK VAN DEZE PERSOON ILLEGAAL !!!!!"
+
+msgid "Deactivate"
+msgstr "Deactiveer"
+
+msgid "Activate"
+msgstr "Activeer"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr ""
+"Weet u zeker dat u het lidmaatschap van deze persoon wilt verwijderen van"
+
+msgid "Change classification"
+msgstr "Wijziging classificatie"
+
+msgid "Change role"
+msgstr "Verander van rol"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "Bevestig Verwijderen Vrijwilligers Opportunity"
+
+msgid "Comments"
+msgstr "Opmerkingen"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Waarschuwing: Door dit veld te verwijderen, verliest u onherroepelijk alle "
+"familiegegevens die voor dit veld zijn toegewezen!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Als u het fonds verwijdert, <u><b>verliest u alle gekoppelde gegevens.</b></"
+"u><br><b>Weet u het zeker? Deze actie kan niet ongedaan worden gemaakt.</b>"
+
+msgid "Fund Editor"
+msgstr "Fondsredacteur"
+
+msgid "Add Fund"
+msgstr "Fonds toevoegen"
+
+msgid "Validate"
+msgstr "Valideren"
+
+msgid "Place"
+msgstr "Plaats"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr "Deze link moet beginnen met : http://.... of https://...."
+
+msgid "Global Custom Menus"
+msgstr "Wereldwijde aangepaste menu's"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Als u de menulink verwijdert, verliest u alle gekoppelde gegevens.</b></"
+"u><br><b>Weet u dat zeker? Deze actie kan niet ongedaan worden gemaakt.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "Aangepaste menu link editor"
+
+msgid "Add Custom Menu Link"
+msgstr "Aangepaste menulink toevoegen"
+
+msgid "Delete Classification"
+msgstr "Classificatie verwijderen"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Gelieve de schrapping van deze classificatie te bevestigen"
+
+msgid ""
+"This will also delete this Classification for all the associated persons."
+msgstr ""
+"Dit zal ook deze Classificatie voor alle geassocieerde personen verwijderen."
+
+msgid "Map Icon GoogleMap"
+msgstr "Kaart Icoon GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Kies uw classificatie icoon"
+
+msgid "Visible"
+msgstr "Zichtbaar"
+
+msgid "Visible for other authorized users"
+msgstr "Zichtbaar voor andere geautoriseerde gebruikers"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Als u het pastorale zorgtype verwijdert, <u><b>verliest u alle gekoppelde "
+"gegevens.</b></u><br><b>Weet u het zeker? Deze actie kan niet ongedaan "
+"worden gemaakt.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Pastorale Zorg Type Redacteur"
+
+msgid "Add Pastoral Care Type"
+msgstr "Pastorale Zorg Type Toevoegen"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Waarschuwing: Door dit veld te verwijderen, verliest u onherroepelijk alle "
+"voor dit veld toegewezen persoonsgegevens!"
+
+msgid "with this Property..."
+msgstr "met dit eigendom..."
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Select Property Type"
+msgstr "Selecteer Type eigendom"
+
+msgid "with this property..."
+msgstr "met dit eigendom..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "U staat op het punt deze woning te verwijderen. Wilt u verder gaan ?"
+
+msgid "Property Type Editor"
+msgstr "Editor voor eigendomstypes"
+
+msgid "Add a New Property"
+msgstr "Een nieuw eigendom toevoegen"
+
+msgid "Class"
+msgstr "Klasse"
+
+msgid ""
+"You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"U staat op het punt om deze algemene eigenschappen te verwijderen. Wilt u "
+"verder gaan ?"
+
+msgid "This general property type is still being used by"
+msgstr "Dit algemene eigendomstype wordt nog steeds gebruikt door"
+
+msgid "property"
+msgstr "eigendom"
+
+msgid "properties"
+msgstr "eigenschappen"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr "Als u dit type verwijdert, verwijdert u ook alle eigenschappen die"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "en verliezen alle corresponderende eigendomstoewijzingen."
+
+msgid "Add a New Property Type"
+msgstr "Een nieuw eigendomstype toevoegen"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Nieuwe Vrijwilligers Mogelijkheid Toevoegen"
+
+msgid "Send Message"
+msgstr "Bericht verzenden"
+
+msgid "View Profile"
+msgstr "Bekijk profiel"
+
+msgid "Teachers"
+msgstr "Leraren"
+
+msgid "Delete this Teacher?"
+msgstr "Deze leraar verwijderen?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr "Wilt u deze leraar verwijderen? Dit kan niet ongedaan gemaakt worden."
+
+msgid "First name"
+msgstr "Voornaam"
+
+msgid "Birth Date"
+msgstr "Geboortedatum"
+
+msgid "Unknown"
+msgstr "Onbekend"
+
+msgid "Boy"
+msgstr "Jongen"
+
+msgid "Girl"
+msgstr "Meisje"
+
+msgid "Age"
+msgstr "Leeftijd"
+
+msgid "Mobile"
+msgstr "Mobiel"
+
+msgid "Home Phone"
+msgstr "Huistelefoon"
+
+msgid "Home Address"
+msgstr "Thuisadres"
+
+msgid "Dad Name"
+msgstr "Naam vader"
+
+msgid "Dad Mobile"
+msgstr "Papa Mobiel"
+
+msgid "Dad Email"
+msgstr "Papa Email"
+
+msgid "Mom Name"
+msgstr "Naam moeder"
+
+msgid "Mom Mobile"
+msgstr "Mamma Mobiel"
+
+msgid "Mom Email"
+msgstr "Mam Email"
+
+msgid "Remove Students from Cart"
+msgstr "Studenten verwijderen uit winkelwagen"
+
+msgid "Add Students to Cart"
+msgstr "Studenten toevoegen aan winkelwagen"
+
+msgid "Remove Teachers from Cart"
+msgstr "Verwijder Leraren uit Winkelwagen"
+
+msgid "Add Teachers to Cart"
+msgstr "Leraren in winkelwagen"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr ""
+"Selecteer het gebeurtenistype dat u wilt gebruiken om de aanwezigheid te "
+"creëren"
+
+msgid "Create Event With Students"
+msgstr "Evenement met studenten creëren"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+"Wees voorzichtig! Je staat op het punt om een gebeurtenis van deze "
+"zondagsschool klas te creëren of te herscheppen om het register te bellen."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Als het evenement al is aangemaakt, ga dan naar het menu \"Evenementen\" en "
+"vervolgens naar \"Het register oproepen\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr "Ten eerste, stel je tijdbereik juist in om de extractie te maken."
+
+msgid "Set year range to export"
+msgstr "Stel jaarbereik in om te exporteren"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr "Stel eerst je datumbereik juist in om de extractie te maken."
+
+msgid "Extra students"
+msgstr "Extra studenten"
+
+msgid "export with photos"
+msgstr "exporteren met foto's"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr ""
+"Wees voorzichtig! Je staat op het punt om alle gebeurtenissen van alle "
+"zondagsschool klassen te maken of opnieuw te maken om het register te bellen."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Indien de gebeurtenissen reeds zijn aangemaakt, ga dan naar het menu "
+"\"Gebeurtenissen\" en vervolgens naar \"Het register oproepen\"."
+
+msgid "First, set your date and time."
+msgstr "Eerst, stel je datum en tijd in."
+
+msgid "Time"
+msgstr "Tijd"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Bel het register voor alle zondag groepen"
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Ten minste één groep moet worden geselecteerd voor het maken van "
+"klassenlijsten of presentielijsten."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "U moet een Titel en een Beschrijving voor uw probleem instellen."
+
+msgid "Trigger Parent Alert"
+msgstr "Trigger Parent Alert"
+
+msgid "Kiosk"
+msgstr "Kiosk"
+
+msgid "No assignments for kiosk"
+msgstr "Geen opdrachten voor kiosk"
+
+msgid "Event"
+msgstr "Evenement"
+
+msgid "Kiosk Name"
+msgstr "Kiosk Naam"
+
+msgid "Assignment"
+msgstr "Opdracht"
+
+msgid "Last Heartbeat"
+msgstr "Laatste hartslag"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "True"
+msgstr "True"
+
+msgid "False"
+msgstr "Vals"
+
+msgid "Reload"
+msgstr "Herladen"
+
+msgid "Identify"
+msgstr "Identificeer"
+
+msgid "Accept"
+msgstr "Accepteren"
+
+msgid "The user must have an email address."
+msgstr "De gebruiker moet een e-mailadres hebben."
+
+msgid "Role management"
+msgstr "Rollenbeheer"
+
+msgid "Select your Role"
+msgstr "Selecteer uw rol"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Ben je zeker? Je staat op het punt om deze rol te verwijderen."
+
+msgid "Rename"
+msgstr "Hernoemen"
+
+msgid "Choose a Role Name"
+msgstr "Kies een rolnaam"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
+"already exist !!!</center>"
+msgstr ""
+"<center>U moet een andere Rolnaam instellen <br>-- of --<br> deze Rolnaam "
+"bestaat al !!!</center>"
+
+msgid "You've to check at least one user."
+msgstr "Je moet op zijn minst één gebruiker controleren."
+
+msgid "The WebDav Key is"
+msgstr "De WebDav-sleutel is"
+
+msgid "The public WebDav Key is"
+msgstr "De openbare WebDav-sleutel is"
+
+msgid "WebDav key"
+msgstr "WebDav sleutel"
+
+msgid "is now locked"
+msgstr "is nu vergrendeld"
+
+msgid "is now unlocked"
+msgstr "is nu ontgrendeld"
+
+msgid "User Delete Confirmation"
+msgstr "Gebruiker verwijderen Bevestiging"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Bevestig de verwijdering van de gebruikersstatus van:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, "
+"the Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Wees voorzichtig, U staat op het punt om de thuismap en de bijbehorende "
+"bestanden, de kalenders, de gedeelde kalenders en alle gebeurtenissen te "
+"verliezen, want"
+
+msgid "This can't be undone"
+msgstr "Dit kan niet ongedaan worden gemaakt."
+
+msgid "Action Confirmation"
+msgstr "Actie Bevestiging"
+
+msgid "Please confirm reset failed login count"
+msgstr "Gelieve te bevestigen reset mislukte login aantal"
+
+msgid "Reset failed login count for"
+msgstr "Reset aantal mislukte aanmeldingen voor"
+
+msgid "done."
+msgstr "gedaan."
+
+msgid "Please confirm the password reset of this user"
+msgstr "Bevestig de reset van het wachtwoord van deze gebruiker"
+
+msgid "Password reset for"
+msgstr "Wachtwoord reset voor"
+
+msgid "Saving Campaign ..."
+msgstr "Het redden van Campagne ..."
+
+msgid "Campaign"
+msgstr "Campagne"
+
+msgid "saved successfully"
+msgstr "succesvol opgeslagen"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "U staat op het punt om uw campagne te versturen! Ben je zeker ?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
+
+msgid "Loading datas ..."
+msgstr "Laden van gegevens ..."
+
+msgid "No list are created with this account ...."
+msgstr "Er worden geen lijsten aangemaakt met deze rekening ...."
+
+msgid "Email List"
+msgstr "E-mail lijst"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Members:"
+msgstr "Leden:"
+
+msgid "Campaigns:"
+msgstr "Campagnes:"
+
+msgid "Unsubscribed count:"
+msgstr "Aantal uitgeschrevenen:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Aantal uitgeschrevenen sinds laatste verzending:"
+
+msgid "Cleaned count:"
+msgstr "Geschoonde telling:"
+
+msgid "Cleaned count since last send:"
+msgstr "Opgeschoonde telling sinds laatste verzending:"
+
+msgid "Campaigns"
+msgstr "Campagnes"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "is not configured"
+msgstr "is niet geconfigureerd"
+
+msgid "Please update the"
+msgstr "Gelieve de"
+
+msgid "API key in Setting->"
+msgstr "API sleutel in Instelling->"
+
+msgid "Edit General Settings"
+msgstr "Algemene instellingen bewerken"
+
+msgid "then update"
+msgstr "update dan"
+
+msgid "For more info see our "
+msgstr "Voor meer info zie onze"
+
+msgid "support docs."
+msgstr "ondersteunende documenten."
+
+msgid "List Creation"
+msgstr "Lijst creatie"
+
+msgid "List Title"
+msgstr "Lijst Titel"
+
+msgid "Your List Title"
+msgstr "Titel van uw lijst"
+
+msgid "Your Subject"
+msgstr "Uw onderwerp"
+
+msgid "Permission Reminder"
+msgstr "Toestemming Herinnering"
+
+msgid "Archive Bars"
+msgstr "Archief Bars"
+
+msgid "Public"
+msgstr "Publiek"
+
+msgid "People"
+msgstr "Mensen"
+
+msgid "Families"
+msgstr "Families"
+
+msgid "Add a new tag"
+msgstr "Een nieuwe tag toevoegen"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Verwijder tag van abonnee(s)"
+
+msgid "Delete tag"
+msgstr "Verwijder tag"
+
+msgid "Loading resources ..."
+msgstr "Hulpbronnen laden ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Je staat op het punt om een tag te verwijderen!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Dit zal ook de tag verwijderen voor alle leden in deze lijst. Ben je zeker ?"
+
+msgid "Deleting tag"
+msgstr "Tag verwijderen"
+
+msgid "A person name or Family or Group"
+msgstr "Een persoonsnaam of Familie of Groep"
+
+msgid "Loading subscriber"
+msgstr "Abonnee laden"
+
+msgid "Loading subscribers from Group"
+msgstr "Abonnees van groep laden"
+
+msgid "Loading subscribers from family"
+msgstr "Laadt abonnees van familie"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Alle personen uit EcclesiaCRM laden<br>Dit kan even duren !"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"In feite kun je beter je CRM afsluiten, 5 minuten wachten en je campagnes "
+"daarna maken.<br> Om grote hoeveelheden data te importeren, is MailChimp API "
+"traag."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Alle nieuwsbriefabonnees laden vanuit EcclesiaCRM<br>Dit kan even duren !"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Het laden van alle families eerste hoofdpersonen abonnees van "
+"EcclesiaCRM<br>Dit kan een tijdje duren !"
+
+msgid "Email Marketing"
+msgstr "E-mail Marketing"
+
+msgid "Select status for : "
+msgstr "Status kiezen voor :"
+
+msgid "Subscribed"
+msgstr "Ingeschreven"
+
+msgid "Unsubscribed"
+msgstr "Uitgeschreven"
+
+msgid "Changing status ..."
+msgstr "Veranderende status ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Je staat op het punt een abonnee te verwijderen! Ben je zeker ?"
+
+msgid "Deleting Subscriber..."
+msgstr "Abonnee verwijderen..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Wilt u deze mailinglijst echt verwijderen ?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Weet u zeker dat u alle abonnees wilt verwijderen"
+
+msgid "Deleting all subscribers..."
+msgstr "Alle abonnees verwijderen..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"In feite kun je beter het CRM verlaten, en het over een kwartier weer openen "
+"om je lijst te beheren.<br>Om grote datas te verwijderen, is MailChimp API "
+"traag."
+
+msgid "Email Campaign Creation"
+msgstr "Creatie van e-mailcampagnes"
+
+msgid "Campaign Title"
+msgstr "Titel van de campagne"
+
+msgid "Your Campaign Title"
+msgstr "De titel van uw campagne"
+
+msgid "For Tag"
+msgstr "Voor Tag"
+
+msgid "Mail Subject"
+msgstr "Post Onderwerp"
+
+msgid "Your Mail Subject"
+msgstr "Onderwerp van uw e-mail"
+
+msgid "All list members"
+msgstr "Alle leden van de lijst"
+
+msgid "Adding Campaign ..."
+msgstr "Campagne toevoegen..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Wil je deze nieuwe campagne direct beheren ?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "U moet een Campagne Titel instellen voor uw eMail Campagne"
+
+msgid "List Name"
+msgstr "Lijst Naam"
+
+msgid "Changing subscribers state..."
+msgstr "De staat van de abonnees veranderen..."
+
+msgid "All Tags"
+msgstr "Alle tags"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Kies de tag die u wilt verwijderen :"
+
+msgid "Removing tags..."
+msgstr "Verwijderen van tags..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+"Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
+
+msgid "Add your tag name"
+msgstr "Voeg uw tag naam toe"
+
+msgid "Adding tag..."
+msgstr "Tag toevoegen..."
+
+msgid "Name is empty !!"
+msgstr "Naam is leeg !!"
+
+msgid "Add tag?"
+msgstr "Tag toevoegen?"
+
+msgid "This will add the tag"
+msgstr "Dit zal de tag toevoegen"
+
+msgid "to all the current selected members in the list."
+msgstr "naar alle huidige geselecteerde leden in de lijst."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Je staat op het punt om abonnees te verwijderen! Ben je zeker ?"
+
+msgid "Deleting Subscribers..."
+msgstr "Abonnees verwijderen..."
+
+msgid "Problem"
+msgstr "Probleem"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari wordt nog niet ondersteund met Jitsi, gebruik iets anders !<br/>- Je "
+"webcam<br/>- Het delen van je ramen<br/> werkt niet met Meeting."
+
+msgid "Set a Jitsi room name"
+msgstr "Een Jitsi kamernaam instellen"
+
+msgid "Delete all Rooms?"
+msgstr "Alle kamers verwijderen?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Je staat op het punt om al je kamers te verwijderen."
+
+msgid "You must enter a password"
+msgstr "U moet een wachtwoord invoeren"
+
+msgid "Passwords must match"
+msgstr "Wachtwoorden moeten overeenkomen"
+
+msgid "Backup Running, Please wait."
+msgstr "Backup loopt, even wachten."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "Back-up gegenereerd en gekopieerd naar externe server"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "Back-up compleet, klaar om te downloaden."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Back-up gedownload, kopie op server verwijderd"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Het geselecteerde bestand overschrijdt de maximale uploadgrootte van deze "
+"server van"
+
+msgid "Restore Running, Please wait."
+msgstr "Herstel loopt, wacht even."
+
+msgid "Restore Complete"
+msgstr "Herstel voltooid"
+
+msgid "Login to restored Database"
+msgstr "Inloggen op herstelde Database"
+
+msgid "Restore Error."
+msgstr "Herstel fout."
+
+msgid "In progress...."
+msgstr "In uitvoering...."
+
+msgid "Done !"
+msgstr "Klaar !"
+
+msgid "All Groups"
+msgstr "Alle groepen"
+
+msgid "All Roles"
+msgstr "Alle rollen"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Foto's"
+
+msgid "Search result"
+msgstr "Zoekresultaat"
+
+msgid "Property Name"
+msgstr "Eigendom Naam"
+
+msgid "Loading people in cart...."
+msgstr "Mensen laden in cart...."
+
+msgid "Loading finished...."
+msgstr "Laden klaar...."
+
+msgid "Removing people in cart...."
+msgstr "Mensen verwijderen in cart...."
+
+msgid "Removing finished...."
+msgstr "Verwijderen van finished...."
+
+msgid "Remove People"
+msgstr "Mensen verwijderen"
+
+msgid "Nothing to remove."
+msgstr "Niets te verwijderen."
+
+msgid "Visits/calls"
+msgstr "Bezoeken/oproepen"
+
+msgid "Last visit/call"
+msgstr "Laatste bezoek/oproep"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Verwijder Pastorale Zorg Type"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pastorale Zorg Notitie Creatie"
+
+msgid "For every administrator"
+msgstr "Voor elke beheerder"
+
+msgid "Show"
+msgstr "Toon"
+
+msgid "Hide"
+msgstr "Verberg"
+
+msgid "Include all the family members"
+msgstr "Betrek alle familieleden"
+
+msgid "Include"
+msgstr "Neem  op."
+
+msgid "Last Name (Family Name)"
+msgstr "Achternaam (familienaam)"
+
+msgid "Family Name"
+msgstr "Familienaam"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Preview"
+msgstr "Voorbeeld"
+
+msgid "Multiple"
+msgstr "Meervoud"
+
+msgid "Donor"
+msgstr "Donor"
+
+msgid "Buyer"
+msgstr "Koper"
+
+msgid "Sale Price"
+msgstr "Verkoopprijs"
+
+msgid "Estimated value"
+msgstr "Geraamde waarde"
+
+msgid "Material Value"
+msgstr "Materiële Waarde"
+
+msgid "Minimum Price"
+msgstr "Minimum Prijs"
+
+msgid "Add buyer"
+msgstr "Koper toevoegen"
+
+msgid "Buyer Number"
+msgstr "Kopersnummer"
+
+msgid "Save and Add"
+msgstr "Opslaan en toevoegen"
+
+msgid "Generate Statement"
+msgstr "Verklaring genereren"
+
+msgid "Buyer Number Editor"
+msgstr "Redacteur kopersnummer"
+
+msgid "Select"
+msgstr "Selecteer"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "U kunt de gebeurtenis automatisch aanmaken met de leerlingen<br> - OF - "
+#~ "<br>Voeg de leerlingen toe aan de winkelwagen en maak een gebeurtenis om "
+#~ "ze daarna toe te voegen."

@@ -172,6 +172,16 @@
         "datePicker": true,
         "select2": true
     },
+    "Japan": {
+        "poEditor": "ja",
+        "locale": "ja_JP",
+        "languageCode": "ja",
+        "countryCode": "JA",
+        "dataTables": "Japan",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
+    },
     "Polish": {
         "poEditor": "pl",
         "locale": "pl_PL",

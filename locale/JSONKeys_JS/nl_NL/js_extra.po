@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "true"
+
+msgid "false"
+msgstr "vals"
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "ben"
+
+msgid "Teachers"
+msgstr "Leraren"
+
+msgid "Students"
+msgstr "Studenten"
+
+msgid "Teacher"
+msgstr "Leraar"
+
+msgid "Student"
+msgstr "Student"
+
+msgid "Parents"
+msgstr "Ouders"
+
+msgid "Kids"
+msgstr "Kinderen"
+
+msgid "create"
+msgstr "maken"
+
+msgid "edit"
+msgstr "edit"
+
+msgid "photo"
+msgstr "foto"
+
+msgid "group"
+msgstr "groep"
+
+msgid "Group"
+msgstr "Groep"
+
+msgid "note"
+msgstr "noot"
+
+msgid "You have to set a Title for your event"
+msgstr "Je moet een titel instellen voor je evenement"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Deze gebeurtenis is niet aanpasbaar !!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Om een evenement toe te voegen, moet u eerst een kalender aanmaken of er een "
+"activeren."
+
+msgid "Event added"
+msgstr "Evenement toegevoegd"
+
+msgid "Event was added successfully."
+msgstr "Evenement werd succesvol toegevoegd."
+
+msgid "Electronic Transaction Details"
+msgstr "Details elektronische transactie"
+
+msgid "Daily"
+msgstr "Dagelijks"
+
+msgid "Weekly"
+msgstr "Wekelijks"
+
+msgid "Monthly"
+msgstr "Maandelijks"
+
+msgid "Quarterly"
+msgstr "Driemaandelijks"
+
+msgid "Once"
+msgstr "Eenmaal"
+
+msgid "Other"
+msgstr "Andere"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "CreditCard"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"In sommige gezinnen is de naam \"gezinshoofd\" niet gedefinieerd of zijn er "
+"geactiveerde leden in het gezin:"
+
+msgid "send"
+msgstr "verzenden"
+
+msgid "save"
+msgstr "save"
+
+msgid "subscribed"
+msgstr "ingeschreven"
+
+msgid "unsubscribed"
+msgstr "uitgeschreven"
+
+msgid "sent"
+msgstr "verzonden"
+
+msgid "schedule"
+msgstr "schema"
+
+msgid "paused"
+msgstr "gepauzeerd"
+
+msgid "cleaned"
+msgstr "gereinigd"
+
+msgid "pending"
+msgstr "in afwachting van"
+
+msgid "Invalid date"
+msgstr "Ongeldige datum"

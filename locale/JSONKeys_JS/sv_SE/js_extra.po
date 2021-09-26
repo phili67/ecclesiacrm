@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "sant"
+
+msgid "false"
+msgstr "falskt"
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "Jag är"
+
+msgid "Teachers"
+msgstr "Lärare"
+
+msgid "Students"
+msgstr "Studenter"
+
+msgid "Teacher"
+msgstr "Lärare"
+
+msgid "Student"
+msgstr "Studerande"
+
+msgid "Parents"
+msgstr "Föräldrar"
+
+msgid "Kids"
+msgstr "Barn"
+
+msgid "create"
+msgstr "skapa"
+
+msgid "edit"
+msgstr "redigera"
+
+msgid "photo"
+msgstr "foto"
+
+msgid "group"
+msgstr "grupp"
+
+msgid "Group"
+msgstr "Grupp"
+
+msgid "note"
+msgstr "anmärkning"
+
+msgid "You have to set a Title for your event"
+msgstr "Du måste ange en titel för evenemanget."
+
+msgid "This event isn't modifiable !!!"
+msgstr "Denna händelse kan inte ändras !!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"För att lägga till ett evenemang måste du först skapa en kalender eller "
+"aktivera en."
+
+msgid "Event added"
+msgstr "Evenemang läggs till"
+
+msgid "Event was added successfully."
+msgstr "Evenemanget har lagts till framgångsrikt."
+
+msgid "Electronic Transaction Details"
+msgstr "Uppgifter om elektroniska transaktioner"
+
+msgid "Daily"
+msgstr "Dagligen"
+
+msgid "Weekly"
+msgstr "Veckovis"
+
+msgid "Monthly"
+msgstr "Månadsvis"
+
+msgid "Quarterly"
+msgstr "Kvartalsvis"
+
+msgid "Once"
+msgstr "När"
+
+msgid "Other"
+msgstr "Övriga"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "KONTANTER"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "Kreditkort"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Vissa familjer har inte definierat något namn för rollen som "
+"\"hushållsansvarig\" eller det finns inga aktiva medlemmar i familjen:"
+
+msgid "send"
+msgstr "skicka"
+
+msgid "save"
+msgstr "rädda"
+
+msgid "subscribed"
+msgstr "prenumererade"
+
+msgid "unsubscribed"
+msgstr "avregistrerad"
+
+msgid "sent"
+msgstr "skickat"
+
+msgid "schedule"
+msgstr "schema"
+
+msgid "paused"
+msgstr "pausade"
+
+msgid "cleaned"
+msgstr "rengjord"
+
+msgid "pending"
+msgstr "pågående"
+
+msgid "Invalid date"
+msgstr "Felaktigt datum"

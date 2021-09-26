@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "真"
+
+msgid "false"
+msgstr "偽"
+
+msgid "pm"
+msgstr "PM"
+
+msgid "am"
+msgstr "am"
+
+msgid "Teachers"
+msgstr "先生方"
+
+msgid "Students"
+msgstr "学生"
+
+msgid "Teacher"
+msgstr "先生"
+
+msgid "Student"
+msgstr "学生"
+
+msgid "Parents"
+msgstr "両親"
+
+msgid "Kids"
+msgstr "キッズ"
+
+msgid "create"
+msgstr "クリエイト"
+
+msgid "edit"
+msgstr "エディット"
+
+msgid "photo"
+msgstr "写真"
+
+msgid "group"
+msgstr "グループ"
+
+msgid "Group"
+msgstr "グループ"
+
+msgid "note"
+msgstr "ノート"
+
+msgid "You have to set a Title for your event"
+msgstr "イベントのタイトルを設定する必要があります。"
+
+msgid "This event isn't modifiable !!!"
+msgstr "このイベントは変更できません！！！。"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr "イベントを追加するには、まずカレンダーを作成するか、アクティブ化する必要があります。"
+
+msgid "Event added"
+msgstr "イベント追加"
+
+msgid "Event was added successfully."
+msgstr "イベントの追加に成功しました。"
+
+msgid "Electronic Transaction Details"
+msgstr "電子取引の詳細"
+
+msgid "Daily"
+msgstr "デイリー"
+
+msgid "Weekly"
+msgstr "ウィークリー"
+
+msgid "Monthly"
+msgstr "月間"
+
+msgid "Quarterly"
+msgstr "四半期"
+
+msgid "Once"
+msgstr "一度"
+
+msgid "Other"
+msgstr "その他"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "銀行"
+
+msgid "CreditCard"
+msgstr "クレジットカード"
+
+msgid "BankDraft"
+msgstr "銀行口座開設"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr "家族の中には、「世帯主」という役割の名前が定義されていないものや、この家族の中に活性化されたメンバーがいないものもあります。"
+
+msgid "send"
+msgstr "センド"
+
+msgid "save"
+msgstr "セーブ"
+
+msgid "subscribed"
+msgstr "購読済み"
+
+msgid "unsubscribed"
+msgstr "購読解除"
+
+msgid "sent"
+msgstr "送る"
+
+msgid "schedule"
+msgstr "スケジュール"
+
+msgid "paused"
+msgstr "一時停止"
+
+msgid "cleaned"
+msgstr "洗浄済み"
+
+msgid "pending"
+msgstr "ペンディング"
+
+msgid "Invalid date"
+msgstr "無効な日付"
