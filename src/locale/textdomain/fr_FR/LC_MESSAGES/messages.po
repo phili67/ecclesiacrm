@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-26 21:30+0000\n"
+"POT-Creation-Date: 2021-10-03 13:25+0000\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:165
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/utils/OutputUtils.php:401 EcclesiaCRM/utils/OutputUtils.php:462
+#: EcclesiaCRM/utils/OutputUtils.php:403 EcclesiaCRM/utils/OutputUtils.php:464
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
 #: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
@@ -149,7 +149,7 @@ msgstr "Fonds"
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:177
-#: EcclesiaCRM/utils/OutputUtils.php:255 EditEventTypes.php:125
+#: EcclesiaCRM/utils/OutputUtils.php:257 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:411
@@ -255,7 +255,7 @@ msgstr "Téléphone"
 #: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
 #: PersonView.php:637 PersonView.php:760 PersonView.php:1126
 #: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:280 Reports/ConfirmReportEmail.php:224
+#: Reports/CanvassReports.php:281 Reports/ConfirmReportEmail.php:224
 #: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
 #: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:326
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
@@ -570,7 +570,7 @@ msgstr "Démarchage pour le/la "
 msgid "family"
 msgstr "famille"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:196 UserEditor.php:781
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:781
 msgid "Canvasser"
 msgstr "Sondeur"
 
@@ -579,23 +579,23 @@ msgstr "Sondeur"
 msgid "None selected"
 msgstr "Rien n'est sélectionné"
 
-#: CanvassEditor.php:217 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:399
+#: CanvassEditor.php:217 Reports/CanvassReports.php:392
+#: Reports/CanvassReports.php:401
 msgid "Positive"
 msgstr "Positif"
 
-#: CanvassEditor.php:225 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:402
+#: CanvassEditor.php:225 Reports/CanvassReports.php:392
+#: Reports/CanvassReports.php:404
 msgid "Critical"
 msgstr "Crucial"
 
-#: CanvassEditor.php:233 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:405
+#: CanvassEditor.php:233 Reports/CanvassReports.php:392
+#: Reports/CanvassReports.php:407
 msgid "Insightful"
 msgstr "Perspicace"
 
-#: CanvassEditor.php:241 Reports/CanvassReports.php:390
-#: Reports/CanvassReports.php:408
+#: CanvassEditor.php:241 Reports/CanvassReports.php:392
+#: Reports/CanvassReports.php:410
 msgid "Financial"
 msgstr "Financier"
 
@@ -738,7 +738,7 @@ msgstr "Membres"
 #: ListEvents.php:288 PersonCustomFieldsEditor.php:341
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:90 Reports/CanvassReports.php:274
+#: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
 #: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:609
@@ -824,7 +824,7 @@ msgid "Home Phone"
 msgstr "Tél. Fixe"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
-#: EcclesiaCRM/utils/OutputUtils.php:449 FamilyEditor.php:829
+#: EcclesiaCRM/utils/OutputUtils.php:451 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
@@ -1109,7 +1109,8 @@ msgid "Use Ctrl Key to select multiple"
 msgstr "Utiliser la touche Ctrl pour une sélection multiple"
 
 #: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
+#: EcclesiaCRM/APIControllers/SearchController.php:185
+#: EcclesiaCRM/Reports/PDF_Attendance.php:563 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:211
@@ -1215,7 +1216,7 @@ msgstr "Ignorer ce champ"
 msgid "Donation Envelope"
 msgstr "Dons"
 
-#: CSVImport.php:249 GroupReports.php:151 Reports/CanvassReports.php:279
+#: CSVImport.php:249 GroupReports.php:151 Reports/CanvassReports.php:280
 #: Reports/ConfirmReportEmail.php:226 Reports/ConfirmReportEmail.php:244
 #: v2/templates/people/familylist.php:58 v2/templates/people/personlist.php:55
 msgid "Cell Phone"
@@ -1982,7 +1983,7 @@ msgstr "Ajouté au groupe"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:145
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:165
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:212 EcclesiaCRM/utils/OutputUtils.php:312
+#: EcclesiaCRM/utils/OutputUtils.php:214 EcclesiaCRM/utils/OutputUtils.php:314
 #: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:270
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
@@ -1991,7 +1992,7 @@ msgstr "Oui"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:214 EcclesiaCRM/utils/OutputUtils.php:313
+#: EcclesiaCRM/utils/OutputUtils.php:216 EcclesiaCRM/utils/OutputUtils.php:315
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:272
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
@@ -2034,7 +2035,7 @@ msgstr "Type de Groupe"
 #: FamilyEditor.php:1097 FamilyView.php:549 OptionManager.php:100
 #: OptionManager.php:141 PersonView.php:1124 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:276 Reports/GroupReport.php:107
+#: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
 #: v2/templates/pastoralcare/pastoralcarefamily.php:112
 #: v2/templates/pastoralcare/pastoralcareperson.php:114
@@ -4799,8 +4800,8 @@ msgstr "Effectifs"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:106
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:122
-#: EcclesiaCRM/Reports/PDF_Attendance.php:224
-#: EcclesiaCRM/Reports/PDF_Attendance.php:629
+#: EcclesiaCRM/Reports/PDF_Attendance.php:220
+#: EcclesiaCRM/Reports/PDF_Attendance.php:623
 #: sundayschool/SundaySchoolAttendeesExport.php:184
 msgid "Totals"
 msgstr "Totaux"
@@ -4911,7 +4912,7 @@ msgstr "Image de Profil Effacée"
 msgid "Profile Image uploaded"
 msgstr "Image de profil téléchargée"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:177 Reports/CanvassReports.php:278
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:177 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 SelectDelete.php:371
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -4923,29 +4924,29 @@ msgstr "Membre"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:314 EcclesiaCRM/utils/OutputUtils.php:557
-#: EcclesiaCRM/utils/OutputUtils.php:575 FamilyEditor.php:1177
+#: EcclesiaCRM/utils/OutputUtils.php:316 EcclesiaCRM/utils/OutputUtils.php:559
+#: EcclesiaCRM/utils/OutputUtils.php:577 FamilyEditor.php:1177
 msgid "Unknown"
 msgstr "Inconnu"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
-#: EcclesiaCRM/utils/OutputUtils.php:582
+#: EcclesiaCRM/utils/OutputUtils.php:584
 msgid "mos old"
 msgstr "âgé de (en mois)"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
-#: EcclesiaCRM/utils/OutputUtils.php:584
+#: EcclesiaCRM/utils/OutputUtils.php:586
 msgid "mo old"
 msgstr "âgé de (en mois)"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
-#: EcclesiaCRM/utils/OutputUtils.php:552 EcclesiaCRM/utils/OutputUtils.php:554
-#: EcclesiaCRM/utils/OutputUtils.php:588
+#: EcclesiaCRM/utils/OutputUtils.php:554 EcclesiaCRM/utils/OutputUtils.php:556
+#: EcclesiaCRM/utils/OutputUtils.php:590
 msgid "yrs old"
 msgstr "ans"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
-#: EcclesiaCRM/utils/OutputUtils.php:590
+#: EcclesiaCRM/utils/OutputUtils.php:592
 msgid "yr old"
 msgstr "ans"
 
@@ -5008,7 +5009,7 @@ msgstr "Date de naissance"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:277
+#: Reports/CanvassReports.php:278
 #: v2/templates/sundayschool/sundayschooldashboard.php:261
 msgid "Age"
 msgstr "Âge"
@@ -5698,47 +5699,47 @@ msgstr "Sélectionner l'année fiscale"
 msgid "Direct me"
 msgstr "Diriger moi"
 
-#: EcclesiaCRM/utils/OutputUtils.php:296
+#: EcclesiaCRM/utils/OutputUtils.php:298
 msgid "Invalid Editor ID!"
 msgstr "Identifiant de Gestionnaire invalide!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:351
+#: EcclesiaCRM/utils/OutputUtils.php:353
 msgid "Select Season"
 msgstr "Choisisser la saison"
 
-#: EcclesiaCRM/utils/OutputUtils.php:356
+#: EcclesiaCRM/utils/OutputUtils.php:358
 msgid "Winter"
 msgstr "Hiver"
 
-#: EcclesiaCRM/utils/OutputUtils.php:361
+#: EcclesiaCRM/utils/OutputUtils.php:363
 msgid "Spring"
 msgstr "Printemps"
 
-#: EcclesiaCRM/utils/OutputUtils.php:366
+#: EcclesiaCRM/utils/OutputUtils.php:368
 msgid "Summer"
 msgstr "Eté"
 
-#: EcclesiaCRM/utils/OutputUtils.php:371
+#: EcclesiaCRM/utils/OutputUtils.php:373
 msgid "Fall"
 msgstr "Automne"
 
-#: EcclesiaCRM/utils/OutputUtils.php:416
+#: EcclesiaCRM/utils/OutputUtils.php:418
 msgid "This custom field isn't configured correctly"
 msgstr "Ce champ personalisable n'est pas configuré correctement"
 
-#: EcclesiaCRM/utils/OutputUtils.php:478
+#: EcclesiaCRM/utils/OutputUtils.php:480
 msgid "Error: Invalid Editor ID!"
 msgstr "Erreur: Identifiant de Gestionnaire invalide!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:535 EcclesiaCRM/utils/OutputUtils.php:547
+#: EcclesiaCRM/utils/OutputUtils.php:537 EcclesiaCRM/utils/OutputUtils.php:549
 msgid "1 m old"
 msgstr "1 mois"
 
-#: EcclesiaCRM/utils/OutputUtils.php:537 EcclesiaCRM/utils/OutputUtils.php:549
+#: EcclesiaCRM/utils/OutputUtils.php:539 EcclesiaCRM/utils/OutputUtils.php:551
 msgid "m old"
 msgstr "mois"
 
-#: EcclesiaCRM/utils/OutputUtils.php:545
+#: EcclesiaCRM/utils/OutputUtils.php:547
 msgid "1 yr old"
 msgstr "1 an"
 
@@ -8669,49 +8670,49 @@ msgstr "Attribué"
 msgid "Percent"
 msgstr "Pourcent"
 
-#: Reports/CanvassReports.php:231
+#: Reports/CanvassReports.php:232
 msgid "Did not pledge"
 msgstr "Ne contribue pas"
 
-#: Reports/CanvassReports.php:235
+#: Reports/CanvassReports.php:236
 msgid "Top pledger"
 msgstr "Meilleur contributeur"
 
-#: Reports/CanvassReports.php:237
+#: Reports/CanvassReports.php:238
 msgid "Pledged"
 msgstr "Contribué"
 
-#: Reports/CanvassReports.php:244
+#: Reports/CanvassReports.php:245
 msgid "Pledge status"
 msgstr "Contribution"
 
-#: Reports/CanvassReports.php:275 Reports/ConfirmReportEmail.php:222
+#: Reports/CanvassReports.php:276 Reports/ConfirmReportEmail.php:222
 #: Reports/ConfirmReportEmail.php:240 Reports/ConfirmReport.php:222
 #: Reports/ConfirmReport.php:242
 msgid "M/F"
 msgstr "H / F"
 
-#: Reports/CanvassReports.php:321
+#: Reports/CanvassReports.php:322
 msgid "Assigned groups for "
 msgstr "Groupes attribués pour"
 
-#: Reports/CanvassReports.php:366
+#: Reports/CanvassReports.php:368
 msgid "Canvass Summary Report"
 msgstr "Rapport de synthèse du sondage"
 
-#: Reports/CanvassReports.php:390 Reports/CanvassReports.php:411
+#: Reports/CanvassReports.php:392 Reports/CanvassReports.php:413
 msgid "Suggestion"
 msgstr "Suggestion"
 
-#: Reports/CanvassReports.php:390 Reports/CanvassReports.php:414
+#: Reports/CanvassReports.php:392 Reports/CanvassReports.php:416
 msgid "WhyNotInterested"
 msgstr "Pourquoi pas intéressé"
 
-#: Reports/CanvassReports.php:393
+#: Reports/CanvassReports.php:395
 msgid "Comments"
 msgstr "Commentaires"
 
-#: Reports/CanvassReports.php:440
+#: Reports/CanvassReports.php:443
 msgid "Canvass Not Interested Report"
 msgstr "Rapport de contribution des non intéressés"
 
@@ -12231,14 +12232,6 @@ msgstr "AdminLTE 3.1 mode sombre"
 msgid "AdminLTE 3.1 Dark Mode color style"
 msgstr "style AdminLTE 3.1 mode sombre"
 
-#: userconfig_ucfg.php:18
-msgid "choice"
-msgstr "Choix"
-
-#: userconfig_ucfg.php:19
-msgid "boolean"
-msgstr "booléen"
-
 msgid "Jan"
 msgstr "Jan"
 
@@ -12400,6 +12393,12 @@ msgstr "petite"
 
 msgid "Large"
 msgstr "grande"
+
+#~ msgid "choice"
+#~ msgstr "Choix"
+
+#~ msgid "boolean"
+#~ msgstr "booléen"
 
 #~ msgid "Address Info:"
 #~ msgstr "Adresse:"
