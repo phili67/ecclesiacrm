@@ -63,15 +63,15 @@ class PeoplePersonController
     }
 
     public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $res=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+        $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Person",$args['personId']);
-        return $res->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
+        return $response->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     }
 
     public function thumbnail (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        $res=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
+        $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Person",$args['personId']);
-        return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
+        return $response->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     }
 
     public function searchPerson (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
