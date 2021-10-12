@@ -3,13 +3,13 @@
 namespace EcclesiaCRM\Reports;
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 
-class PDF_Directory extends ChurchInfoReport
+class PDF_Directory extends ChurchInfoReportTCPDF
 {
     // Private properties
     public $_Margin_Left = 16;        // Left Margin
@@ -39,7 +39,7 @@ class PDF_Directory extends ChurchInfoReport
             //Move to the right
             $this->SetX($this->_Margin_Left);
             //Framed title
-            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName')).' - '.OutputUtils::translate_text_fpdf(_('Directory')), 1, 0, 'C');
+            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sChurchName') . ' - ' . _('Directory'), 0, 0, 'C');
             $this->SetY(25);
         }
     }
@@ -58,7 +58,7 @@ class PDF_Directory extends ChurchInfoReport
             if ($bDirUseTitlePage) {
                 $iPageNumber--;
             }
-            $this->Cell(0, 10, _('Page').' '.$iPageNumber.'    '.date(SystemConfig::getValue("sDateTimeFormat"), time()), 0, 0, 'C');  // in 2.6.0, create a new config for time formatting also
+            $this->Cell(0, 10, _('Page') . ' ' . $iPageNumber . '    ' . date(SystemConfig::getValue("sDateTimeFormat"), time()), 0, 0, 'C');  // in 2.6.0, create a new config for time formatting also
         }
     }
 
@@ -75,18 +75,17 @@ class PDF_Directory extends ChurchInfoReport
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n".OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName'))."\n\n".OutputUtils::translate_text_fpdf(_('Directory'))."\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n" . OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName')) . "\n\n" . OutputUtils::translate_text_fpdf(_('Directory')) . "\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
-        $this->MultiCell(197, 10, $today."\n\n", 0, 'C');
+        $this->MultiCell(197, 10, $today . "\n\n", 0, 'C');
 
-        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchAddress')), 
-          OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchCity')),
-          OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchState')), SystemConfig::getValue('sChurchZip'), 
-         SystemConfig::getValue('sChurchPhone'));
+        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchAddress')),
+            OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchCity')),
+            OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchState')), SystemConfig::getValue('sChurchZip'),
+            SystemConfig::getValue('sChurchPhone'));
         $this->MultiCell(197, 10, $sContact, 0, 'C');
         $this->Cell(10);
-        $sDirectoryDisclaimer = iconv('UTF-8', 'ISO-8859-1', $sDirectoryDisclaimer);
         $this->MultiCell(197, 10, $sDirectoryDisclaimer, 0, 'C');
         $this->AddPage();
     }
@@ -185,13 +184,13 @@ class PDF_Directory extends ChurchInfoReport
         // the page.
 
         $h = 0; // check image height.  id will be zero if not included
-           $famimg = '../Images/Family/'.$fid.'.jpg';
+        $famimg = SystemURLs::getDocumentRoot().'/Images/Family/' . $fid . '.png';
         if (file_exists($famimg)) {
             $s = getimagesize($famimg);
             $h = ($this->_ColWidth / $s[0]) * $s[1];
         }
 
-        $persimg = '../Images/Person/'.$pid.'.jpg';
+        $persimg = SystemURLs::getDocumentRoot().'/Images/Person/' . $pid . '.png';
         if (file_exists($persimg)) {
             $s = getimagesize($persimg);
             $h = ($this->_ColWidth / $s[0]) * $s[1];
@@ -202,8 +201,8 @@ class PDF_Directory extends ChurchInfoReport
             // Next Column or Page
             if ($this->_Column == $this->_NCols - 1) {
                 $this->_Column = 0;
-                $this->SetY(25);
                 $this->AddPage();
+                $this->SetY(25);
             } else {
                 $this->_Column++;
                 $this->SetY(25);
@@ -219,7 +218,7 @@ class PDF_Directory extends ChurchInfoReport
         $this->SetTextColor(255);
         $this->SetFont($this->_Font, 'B', $this->_Char_Size);
 //        $_PosX = $this->_Column == 0 ? $this->_Margin_Left : $this->w - $this->_Margin_Left - $this->_ColWidth;
-         $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
+        $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
         $_PosY = $this->GetY();
         $this->SetXY($_PosX, $_PosY);
 //        $this->Cell($this->_ColWidth, 5, $sLetter, 1, 1, "C", 1) ;
@@ -235,13 +234,13 @@ class PDF_Directory extends ChurchInfoReport
     {
         $this->SetFont($this->_Font, 'BU', $this->_Char_Size);
 //        $_PosX = $this->_Column == 0 ? $this->_Margin_Left : $this->w - $this->_Margin_Left - $this->_ColWidth;
-         $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
+        $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
         $_PosY = $this->GetY();
         $this->SetXY($_PosX, $_PosY);
 //        $this->MultiCell($this->_ColWidth, 5, $sName);
-    $this->MultiCell($this->_ColWidth, $this->_LS, $sName);
+        $this->Cell($this->_ColWidth, $this->_LS, $sName);
 //        $this->SetY($_PosY + $this->NbLines($this->_ColWidth, $sName) * 5);
-    $this->SetY($_PosY + $this->NbLines($this->_ColWidth, $sName) * $this->_LS);
+        $this->SetY($_PosY + $this->NbLines($this->_ColWidth, $sName) * $this->_LS);
         $this->SetFont($this->_Font, '', $this->_Char_Size);
     }
 
@@ -250,25 +249,25 @@ class PDF_Directory extends ChurchInfoReport
         $numCustomFields = $rsCustomFields->count();
         if ($numCustomFields > 0) {
             extract($aRow);
-            
-            $rawQry =  PersonCustomQuery::create();
-            foreach ($rsCustomFields as $customfield ) {
-               $rawQry->withColumn($customfield->getCustomField());
+
+            $rawQry = PersonCustomQuery::create();
+            foreach ($rsCustomFields as $customfield) {
+                $rawQry->withColumn($customfield->getCustomField());
             }
 
             if (!is_null($rawQry->findOneByPerId($per_ID))) {
-              $aCustomData = $rawQry->findOneByPerId($per_ID)->toArray();
+                $aCustomData = $rawQry->findOneByPerId($per_ID)->toArray();
             }
 
             $OutStr = '';
             foreach ($rsCustomFields as $rsCustomField) {
-                $sCustom = 'bCustom'.$rsCustomField->getCustomOrder();
+                $sCustom = 'bCustom' . $rsCustomField->getCustomOrder();
                 if ($this->_Custom[$rsCustomField->getCustomOrder()]) {
-                    $currentFieldData = OutputUtils::displayCustomField($rsCustomField->getTypeId(), $aCustomData[$rsCustomField->getCustomField()], $rsCustomField->getCustomSpecial(),false);
+                    $currentFieldData = OutputUtils::displayCustomField($rsCustomField->getTypeId(), $aCustomData[$rsCustomField->getCustomField()], $rsCustomField->getCustomSpecial(), false);
 
 //                    $currentFieldData = trim($aCustomData[$custom_Field]);
                     if ($currentFieldData != '') {
-                        $OutStr .= '   '.$rsCustomField->getCustomName().': '.$currentFieldData .= "\n";
+                        $OutStr .= '   ' . $rsCustomField->getCustomName() . ': ' . $currentFieldData .= "\n";
                     }
                 }
             }
@@ -278,15 +277,15 @@ class PDF_Directory extends ChurchInfoReport
             return '';
         }
     }
-    
+
     public function getBirthdayString($bDirBirthday, $per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags)
     {
-      if ($bDirBirthday && $per_BirthMonth && $per_BirthDay) {
+        if ($bDirBirthday && $per_BirthMonth && $per_BirthDay) {
             $formatString = SystemConfig::getValue("sDateFormatShort");
             if (!$per_BirthYear || $per_Flags) {  // if the year is not present, or the user does not want year shown
-              $formatString =  preg_replace('/(\W?[C|g|Y|y]\W?)/i', '', $formatString); //remove any Year data from the format string
+                $formatString = preg_replace('/(\W?[C|g|Y|y]\W?)/i', '', $formatString); //remove any Year data from the format string
             }
-            return  date($formatString, mktime(0,0,0,$per_BirthMonth,$per_BirthDay,$per_BirthYear));
+            return date($formatString, mktime(0, 0, 0, $per_BirthMonth, $per_BirthDay, $per_BirthYear));
         } else {
             return '';
         }
@@ -309,32 +308,32 @@ class PDF_Directory extends ChurchInfoReport
         if ($bDirAddress) {
             //            if (strlen($fam_Address1)) { $sFamilyStr .= $fam_Address1 . "\n";  }
 //            if (strlen($fam_Address2)) { $sFamilyStr .= $fam_Address2 . "\n";  }
-          if (strlen($fam_Address1)) {
-              $sFamilyStr .= $fam_Address1;
-          }
+            if (strlen($fam_Address1)) {
+                $sFamilyStr .= $fam_Address1;
+            }
             if (strlen($fam_Address2)) {
-                $sFamilyStr .= '  '.$fam_Address2;
+                $sFamilyStr .= '  ' . $fam_Address2;
             }
             $sFamilyStr .= "\n";
             if (strlen($fam_City)) {
-                $sFamilyStr .= $fam_City.', '.$fam_State.' '.$fam_Zip."\n";
+                $sFamilyStr .= $fam_City . ', ' . $fam_State . ' ' . $fam_Zip . "\n";
             }
         }
 
         if ($bDirFamilyPhone && strlen($fam_HomePhone)) {
-            $sFamilyStr .= '   '._('Phone').': '.MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $bWierd)."\n";
+            $sFamilyStr .= '   ' . _('Phone') . ': ' . MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $bWierd) . "\n";
         }
         if ($bDirFamilyWork && strlen($fam_WorkPhone)) {
-            $sFamilyStr .= '   '._('Work').': '.MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $bWierd)."\n";
+            $sFamilyStr .= '   ' . _('Work') . ': ' . MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $bWierd) . "\n";
         }
         if ($bDirFamilyCell && strlen($fam_CellPhone)) {
-            $sFamilyStr .= '   '._('Cell').': '.MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $bWierd)."\n";
+            $sFamilyStr .= '   ' . _('Cell') . ': ' . MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $bWierd) . "\n";
         }
         if ($bDirFamilyEmail && strlen($fam_Email)) {
-            $sFamilyStr .= '   '._('Email').': '.$fam_Email."\n";
+            $sFamilyStr .= '   ' . _('Email') . ': ' . $fam_Email . "\n";
         }
         if ($bDirWedding && ($fam_WeddingDate > 0)) {
-            $sFamilyStr .= '   '._('Wedding').': '.date(SystemConfig::getValue("sDateFormatShort"), strtotime($fam_WeddingDate))."\n";
+            $sFamilyStr .= '   ' . _('Wedding') . ': ' . date(SystemConfig::getValue("sDateFormatShort"), strtotime($fam_WeddingDate)) . "\n";
         }
 
         return $sFamilyStr;
@@ -350,7 +349,7 @@ class PDF_Directory extends ChurchInfoReport
         global $bDirPersonalCell;
         global $bDirPersonalEmail;
         global $bDirPersonalWorkEmail;
-        
+
         extract($aHead);
 
         $sHeadStr = '';
@@ -363,54 +362,54 @@ class PDF_Directory extends ChurchInfoReport
 
         // First time build with last name, second time append spouse name.
         if (strlen($this->sRecordName)) {
-            $this->sRecordName .= ' '._('and').' '.$per_FirstName;
+            $this->sRecordName .= ' ' . _('and') . ' ' . $per_FirstName;
             if ($bDifferentLastName) {
-                $this->sRecordName .= ' '.$per_LastName;
+                $this->sRecordName .= ' ' . $per_LastName;
             }
             if (strlen($per_Suffix)) {
-                $this->sRecordName .= ' '.$per_Suffix;
+                $this->sRecordName .= ' ' . $per_Suffix;
             }
         } else {
-            $this->sRecordName = $this->sLastName.', '.$per_FirstName;
+            $this->sRecordName = $this->sLastName . ', ' . $per_FirstName;
             if ($bDifferentLastName) {
-                $this->sRecordName .= ' '.$per_LastName;
+                $this->sRecordName .= ' ' . $per_LastName;
             }
             if (strlen($per_Suffix)) {
-                $this->sRecordName .= ' '.$per_Suffix;
+                $this->sRecordName .= ' ' . $per_Suffix;
             }
         }
 
         $sHeadStr .= $per_FirstName;
         if ($bDifferentLastName) {
-            $sHeadStr .= ' '.$per_LastName;
+            $sHeadStr .= ' ' . $per_LastName;
         }
         if (strlen($per_Suffix)) {
-            $sHeadStr .= ' '.$per_Suffix;
+            $sHeadStr .= ' ' . $per_Suffix;
         }
 
         $iTempLen = strlen($sHeadStr);
-        
+
         $sHeadStr .= " " . $this->getBirthdayString($bDirBirthday, $per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags) . "\n";
 
         $sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
 
         if ($bDirPersonalPhone && strlen($per_HomePhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $bWierd);
-            $sHeadStr .= '   '._('Phone').': '.$TempStr .= "\n";
+            $sHeadStr .= '   ' . _('Phone') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalWork && strlen($per_WorkPhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sCountry, $bWierd);
-            $sHeadStr .= '   '._('Work').': '.$TempStr .= "\n";
+            $sHeadStr .= '   ' . _('Work') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalCell && strlen($per_CellPhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_CellPhone, $sCountry, $bWierd);
-            $sHeadStr .= '   '._('Cell').': '.$TempStr .= "\n";
+            $sHeadStr .= '   ' . _('Cell') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalEmail && strlen($per_Email)) {
-            $sHeadStr .= '   '._('Email').': '.$per_Email .= "\n";
+            $sHeadStr .= '   ' . _('Email') . ': ' . $per_Email .= "\n";
         }
         if ($bDirPersonalWorkEmail && strlen($per_WorkEmail)) {
-            $sHeadStr .= '   '._('Work/Other Email').': '.$per_WorkEmail .= "\n";
+            $sHeadStr .= '   ' . _('Work/Other Email') . ': ' . $per_WorkEmail .= "\n";
         }
 
         $sHeadStr .= $this->sGetCustomString($rsCustomFields, $aHead);
@@ -441,10 +440,10 @@ class PDF_Directory extends ChurchInfoReport
 
         // Check to see if family member has different last name
         if (strlen($per_LastName) && ($per_LastName != $this->sLastName)) {
-            $sMemberStr .= ' '.$per_LastName;
+            $sMemberStr .= ' ' . $per_LastName;
         }
         if (strlen($per_Suffix)) {
-            $sMemberStr .= ' '.$per_Suffix;
+            $sMemberStr .= ' ' . $per_Suffix;
         }
 
         $sMemberStr .= " " . $this->getBirthdayString($bDirBirthday, $per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags) . "\n";
@@ -453,21 +452,21 @@ class PDF_Directory extends ChurchInfoReport
 
         if ($bDirPersonalPhone && strlen($per_HomePhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $bWierd);
-            $sMemberStr .= '   '._('Phone').': '.$TempStr .= "\n";
+            $sMemberStr .= '   ' . _('Phone') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalWork && strlen($per_WorkPhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sCountry, $bWierd);
-            $sMemberStr .= '   '._('Work').': '.$TempStr .= "\n";
+            $sMemberStr .= '   ' . _('Work') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalCell && strlen($per_CellPhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_CellPhone, $sCountry, $bWierd);
-            $sMemberStr .= '   '._('Cell').': '.$TempStr .= "\n";
+            $sMemberStr .= '   ' . _('Cell') . ': ' . $TempStr .= "\n";
         }
         if ($bDirPersonalEmail && strlen($per_Email)) {
-            $sMemberStr .= '   '._('Email').': '.$per_Email .= "\n";
+            $sMemberStr .= '   ' . _('Email') . ': ' . $per_Email .= "\n";
         }
         if ($bDirPersonalWorkEmail && strlen($per_WorkEmail)) {
-            $sMemberStr .= '   '._('Work/Other Email').': '.$per_WorkEmail .= "\n";
+            $sMemberStr .= '   ' . _('Work/Other Email') . ': ' . $per_WorkEmail .= "\n";
         }
 
         return $sMemberStr;
@@ -478,21 +477,20 @@ class PDF_Directory extends ChurchInfoReport
     {
         $this->Check_Lines($numlines, $fid, $pid);
 
-        $this->Print_Name(iconv('UTF-8', 'ISO-8859-1', $sName));
+        $this->Print_Name( $sName);
 
-//        $_PosX = $this->_Column == 0 ? $this->_Margin_Left : $this->w - $this->_Margin_Left - $this->_ColWidth;
-         $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
+        $_PosX = ($this->_Column * ($this->_ColWidth + $this->_Gutter)) + $this->_Margin_Left;
         $_PosY = $this->GetY();
 
         $this->SetXY($_PosX, $_PosY);
 
         $dirimg = '';
-        $famimg = '../Images/Family/'.$fid.'.jpg';
+        $famimg = SystemURLs::getDocumentRoot().'/Images/Family/' . $fid . '.png';
         if (file_exists($famimg)) {
             $dirimg = $famimg;
         }
 
-        $perimg = '../Images/Person/'.$pid.'.jpg';
+        $perimg = SystemURLs::getDocumentRoot().'/Images/Person/' . $pid . '.png';
         if (file_exists($perimg)) {
             $dirimg = $perimg;
         }
@@ -505,10 +503,8 @@ class PDF_Directory extends ChurchInfoReport
             $this->SetXY($_PosX, $_PosY + $h + 2);
         }
 
-//        $this->MultiCell($this->_ColWidth, 5, $text, 0, 'L');
-
-        $this->MultiCell($this->_ColWidth, $this->_LS, iconv('UTF-8', 'ISO-8859-1', $text), 0, 'L');
-//        $this->SetY($this->GetY() + 5);
+        $this->setCellHeightRatio(0.92);
+        $this->MultiCell($this->_ColWidth, $this->_LS, $text, 0, 'L');
         $this->SetY($this->GetY() + $this->_LS);
     }
 }
