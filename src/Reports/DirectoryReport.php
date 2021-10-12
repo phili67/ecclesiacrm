@@ -103,6 +103,8 @@ $connection = Propel::getConnection();
 //echo "font sz = {$bFontSz} and line sp={$bLineSp}";
 $pdf = new PDF_Directory($bNumberofColumns, $bPageSize, $bFontSz, $bLineSp);
 
+$pdf->setPrintHeader(true);
+
 // Get the list of custom person fields
 $rsCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
@@ -208,6 +210,8 @@ $sLastLetter = '0';
 
 $statement = $connection->prepare($sSQL);
 $statement->execute();
+
+$first_time = true;
 
 while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
     $OutStr = '';
@@ -344,6 +348,10 @@ while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
         if (strtoupper($sLastLetter) != strtoupper(mb_substr($pdf->sSortBy, 0, 1))) {
             $pdf->Check_Lines($numlines + 2, 0, 0);
             $sLastLetter = strtoupper(mb_substr($pdf->sSortBy, 0, 1));
+            if ($first_time) {
+                $pdf->SetY(25);
+                $first_time = false;
+            }
             $pdf->Add_Header($sLastLetter);
         }
 
@@ -367,7 +375,7 @@ if ($mysqlversion == 3 && $mysqlsubversion >= 22) {
     $rsRecords->execute();
 }
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('Directory-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
