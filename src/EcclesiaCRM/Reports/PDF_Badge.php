@@ -30,7 +30,7 @@
  * PDF_Label - PDF label editing.
  *
  * @author Laurent PASSEBECQ <lpasseb@numericable.fr>
- * @copyright 2003 Laurent PASSEBECQ
+ * @copyright 2021 Laurent PASSEBECQ & Philippe Logel
  **/
 
 /*
@@ -50,7 +50,6 @@ use Endroid\QrCode\Label\Label;
 use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
 use Endroid\QrCode\Writer\PngWriter;
-
 
 
 class PDF_Badge extends PDF_Label
@@ -135,40 +134,40 @@ class PDF_Badge extends PDF_Label
             $this->SetFontSize(15);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX, $_PosY);
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', $title), 0, 0, 'C');
+            $this->Cell($this->_Width, 10,  $title, 0, 0, 'C');
 
             $this->SetFontSize($sFirstNameFontSize);
             $this->SetTextColor(0, 0, 0);
             $this->SetXY($_PosX, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($firstName)), 0, 0, 'C');
+            $this->Cell($this->_Width, 10,  mb_strtoupper($firstName), 0, 0, 'C');
 
             $this->SetFontSize(12);
             $this->SetXY($_PosX, $_PosY + $this->_Height / 4 * 3 - $this->_Get_Height_Chars(12));
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($LastName)), 0, 0, 'C');
+            $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
             $this->SetXY($_PosX + 7, $_PosY + $this->_Height - 7);
 
-            $this->MultiCell($this->_Width - 14, 2, iconv('UTF-8', 'ISO-8859-1', $props), 0, ($sImagePosition == 'Left') ? 'L' : 'R');
+            $this->MultiCell($this->_Width - 14, 2, $props, 0, ($sImagePosition == 'Left') ? 'L' : 'R');
         } else {
             $this->SetFontSize(13);
             $this->SetTextColor($title_red, $title_gren, $title_blue);
             $this->SetXY($_PosX+19, $_PosY);
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', $title), 0, 0, 'C');
+            $this->Cell($this->_Width, 10, $title, 0, 0, 'C');
 
             $this->SetFontSize($sFirstNameFontSize*0.75);
             $this->SetTextColor(0, 0, 0);
             $this->SetXY($_PosX+19, $_PosY + $this->_Height / 2 - $this->_Get_Height_Chars($sFirstNameFontSize));
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($firstName)), 0, 0, 'C');
+            $this->Cell($this->_Width, 10, mb_strtoupper($firstName), 0, 0, 'C');
 
             $this->SetFontSize(10);
             $this->SetXY($_PosX+19, $_PosY + $this->_Height / 5 * 3 - $this->_Get_Height_Chars(10));
-            $this->Cell($this->_Width, 10, iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($LastName)), 0, 0, 'C');
+            $this->Cell($this->_Width, 10, mb_strtoupper($LastName), 0, 0, 'C');
 
             $this->SetFontSize(4);
             $this->SetXY($_PosX + 7, $_PosY + $this->_Height - 7);
 
-            $this->MultiCell($this->_Width - 14, 2, iconv('UTF-8', 'ISO-8859-1', $props), 0, ($sImagePosition == 'Left') ? 'L' : 'R');
+            $this->MultiCell($this->_Width - 14, 2,  $props, 0, ($sImagePosition == 'Left') ? 'L' : 'R');
         }
 
         // draw the border
@@ -180,7 +179,7 @@ class PDF_Badge extends PDF_Label
 
         $this->SetFontSize (8);
         $this->SetXY($_PosX+7, $_PosY + $this->_Height - 10);
-        $this->Cell($this->_Width-14,10,iconv('UTF-8', 'ISO-8859-1', $group),0,0,($sImagePosition == 'Left')?'R':'L');
+        $this->Cell($this->_Width-14,10, $group,0,0,($sImagePosition == 'Left')?'R':'L');
 
         $this->_COUNTY++;
 
