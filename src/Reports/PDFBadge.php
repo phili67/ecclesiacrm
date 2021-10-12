@@ -22,15 +22,13 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Badge;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutpuUtils;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
 function GenerateLabels(&$pdf, $mainTitle, $secondTitle, $thirdTitle,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
 {
     $persons = PersonQuery::Create()->leftJoinFamily()->orderByZip()->orderByLastName()->orderByFirstName()->Where('Person.Id IN ?',$_SESSION['aPeopleCart'])->find();
-    
+
     foreach ($persons as $person) {
         $pdf->Add_PDF_Badge($mainTitle, $person->getLastName(), $person->getFirstName(),$secondTitle,$thirdTitle,$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
    }
@@ -40,27 +38,27 @@ function GenerateLabels(&$pdf, $mainTitle, $secondTitle, $thirdTitle,$sFirstName
 
 if ( !empty($_FILES["stickerBadgeInputFile"]["name"]) ) {
   $sImage = basename($_FILES["stickerBadgeInputFile"]["name"]);
-  
+
   $target_file = '../Images/background/' . basename($_FILES["stickerBadgeInputFile"]["name"]);
-  
+
   $file_type = $_FILES['stickerBadgeInputFile']['type']; //returns the mimetype
-  
+
   $allowed = array("image/jpeg", "image/png");
   if(in_array($file_type, $allowed)) {
     if (move_uploaded_file($_FILES['stickerBadgeInputFile']['tmp_name'], $target_file)) {
     }
-    
+
     setcookie('imageSC', $sImage , time() + 60 * 60 * 24 * 90, '/');
-  
+
     $page = str_replace("?typeProblem=1","",$_SERVER['HTTP_REFERER']);
 
     header('Location: ' . $page);
-  
+
     exit;
   }
-  
+
   header('Location: ' . $_SERVER['HTTP_REFERER'] . "?typeProblem=1");
-  
+
   exit;
 }
 
@@ -146,7 +144,7 @@ if ($sImage != '') {
 $aLabelList = unserialize(GenerateLabels($pdf, $mainTitle, $secondTitle, $thirdTitle,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('Labels-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
