@@ -3,7 +3,7 @@
  *
  *  filename    : Reports/PDF_RealAttendance.php
  *  description : Creates a PDF for a Sunday School Class Attendance List
- *  Udpdated    : 2018-05-09
+ *  Udpdated    : 2021-10-12
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *                This code can't be included in another software without authorization
@@ -49,15 +49,15 @@ class PDF_RealAttendance extends PDF_Attendance
     {
         // we will construct the labels
         $labelArr = [];
-        $labelArr['firstName'] = OutputUtils::translate_text_fpdf("First Name");
-        $labelArr['lastName'] = OutputUtils::translate_text_fpdf("Last Name");
-        $labelArr['birthDate'] = OutputUtils::translate_text_fpdf("Birth Date");
-        $labelArr['gender'] = OutputUtils::translate_text_fpdf("Gender");
-        $labelArr['age'] = OutputUtils::translate_text_fpdf("Age");
-        $labelArr['homePhone'] = OutputUtils::translate_text_fpdf("Phone");
-        $labelArr['groupName'] = OutputUtils::translate_text_fpdf("Group");
-        $labelArr['props'] = OutputUtils::translate_text_fpdf("Notes");
-        $labelArr['stats'] = OutputUtils::translate_text_fpdf("Stats");
+        $labelArr['firstName'] = "First Name";
+        $labelArr['lastName'] = "Last Name";
+        $labelArr['birthDate'] = "Birth Date";
+        $labelArr['gender'] = "Gender";
+        $labelArr['age'] = "Age";
+        $labelArr['homePhone'] = "Phone";
+        $labelArr['groupName'] = "Group";
+        $labelArr['props'] = "Notes";
+        $labelArr['stats'] = "Stats";
 
         $nbrGroup = count($this->groupIDs);
 
@@ -199,6 +199,7 @@ class PDF_RealAttendance extends PDF_Attendance
         }
 
         header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+        ob_end_clean();
         if (SystemConfig::getValue('iPDFOutputType') == 1) {
             $this->Output('ClassAttendance' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf', 'D');
         } else {
