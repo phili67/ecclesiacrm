@@ -103,8 +103,6 @@ $connection = Propel::getConnection();
 //echo "font sz = {$bFontSz} and line sp={$bLineSp}";
 $pdf = new PDF_Directory($bNumberofColumns, $bPageSize, $bFontSz, $bLineSp);
 
-$pdf->setPrintHeader(true);
-
 // Get the list of custom person fields
 $rsCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()

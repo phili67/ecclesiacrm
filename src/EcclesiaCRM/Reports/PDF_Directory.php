@@ -7,7 +7,6 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PersonCustomQuery;
-use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 
 class PDF_Directory extends ChurchInfoReportTCPDF
 {
@@ -26,6 +25,29 @@ class PDF_Directory extends ChurchInfoReportTCPDF
     public $_NCols = 3;
     public $_PS = 'Letter';
     public $sSortBy = '';
+
+    // Constructor
+    public function __construct($nc = 1, $paper = 'letter', $fs = 10, $ls = 4)
+    {
+        parent::__construct('P', 'mm', $paper);
+        parent::setPrintHeader(true);
+
+        $this->_Char_Size = $fs;
+        $this->_LS = $ls;
+
+        $this->_Column = 0;
+        $this->_Font = 'Times';
+        $this->SetMargins(0, 0);
+
+        $this->Set_Char_Size($this->_Char_Size);
+        $this->SetAutoPageBreak(false);
+
+        $this->_Margin_Left = 13;
+        $this->_Margin_Top = 13;
+        $this->_Custom = [];
+        $this->_NCols = $nc;
+        $this->_ColWidth = 190 / $nc - $this->_Gutter;
+    }
 
     public function Header()
     {
@@ -98,27 +120,6 @@ class PDF_Directory extends ChurchInfoReportTCPDF
             $this->_Char_Size = $pt;
             $this->SetFont($this->_Font, '', $this->_Char_Size);
         }
-    }
-
-    // Constructor
-    public function __construct($nc = 1, $paper = 'letter', $fs = 10, $ls = 4)
-    {
-        parent::__construct('P', 'mm', $paper);
-        $this->_Char_Size = $fs;
-        $this->_LS = $ls;
-
-        $this->_Column = 0;
-        $this->_Font = 'Times';
-        $this->SetMargins(0, 0);
-
-        $this->Set_Char_Size($this->_Char_Size);
-        $this->SetAutoPageBreak(false);
-
-        $this->_Margin_Left = 13;
-        $this->_Margin_Top = 13;
-        $this->_Custom = [];
-        $this->_NCols = $nc;
-        $this->_ColWidth = 190 / $nc - $this->_Gutter;
     }
 
     public function AddCustomField($order, $use)
