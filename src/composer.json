@@ -55,7 +55,8 @@
         "http-interop/http-factory-guzzle": "^1.0",
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.1",
-        "slim/http": "^1.2"
+        "slim/http": "^1.2",
+        "tecnickcom/tcpdf": "^6.4"
     },
     "autoload": {
         "classmap": [
