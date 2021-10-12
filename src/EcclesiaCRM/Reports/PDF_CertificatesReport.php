@@ -2,9 +2,7 @@
 
 namespace EcclesiaCRM\Reports;
 
-use EcclesiaCRM\Utils\OutputUtils;
-
-class PDF_CertificatesReport extends ChurchInfoReport
+class PDF_CertificatesReport extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -24,12 +22,12 @@ class PDF_CertificatesReport extends ChurchInfoReport
         parent::AddPage($orientation, $format);
 
         $this->SetFont('Times', 'B', 16);
-        $this->Write(8, OutputUtils::translate_text_fpdf($fr_title)."\n");
+        $this->Write(8, $fr_title."\n");
         $curY += 8;
-        $this->Write(8, OutputUtils::translate_text_fpdf($fr_description)."\n\n");
+        $this->Write(8, $fr_description."\n\n");
         $curY += 8;
         $this->SetFont('Times', 'B', 36);
-        $this->Write(8, OutputUtils::translate_text_fpdf(_('Certificate of Ownership'))."\n\n");
+        $this->Write(8, _('Certificate of Ownership')."\n\n");
         $curY += 8;
         $this->SetFont('Times', '', 10);
     }
