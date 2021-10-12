@@ -41,7 +41,7 @@
 
 namespace EcclesiaCRM\Reports;
 
-class PDF_Label extends ChurchInfoReport
+class PDF_Label extends ChurchInfoReportTCPDF
 {
     // Private properties
     public $_Avery_Name = '';        // Name of format
@@ -124,7 +124,7 @@ class PDF_Label extends ChurchInfoReport
         if ($format == gettext('Tractor')) {
           $format = 'Tractor';
         }
-        
+
         if (is_array($format)) {
             // Custom format
             $Tformat = $format;
@@ -176,7 +176,7 @@ class PDF_Label extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_COUNTX * ($this->_Width + $this->_X_Space));
         $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
         $this->SetXY($_PosX + 3, $_PosY + 3);
-        $this->MultiCell($this->_Width, $this->_Line_Height, iconv('UTF-8', 'ISO-8859-1', $texte));
+        $this->MultiCell($this->_Width, $this->_Line_Height,  $texte);
         $this->_COUNTY++;
 
         if ($this->_COUNTY == $this->_Y_Number) {
