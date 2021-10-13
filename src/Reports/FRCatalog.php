@@ -59,7 +59,7 @@ class PDF_FRCatalogReport extends ChurchInfoReportTCPDF
 // Get the information about this fundraiser
 $thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
 
-$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+$currency = SystemConfig::getValue("sCurrency");
 
 // Get all the donated items
 $ormItems = DonatedItemQuery::create()
