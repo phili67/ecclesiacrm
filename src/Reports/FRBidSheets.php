@@ -89,7 +89,7 @@ foreach ($ormItems as $item) {
         $pdf->Write(8, _('Estimated value ').$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
     }
     if ($item->getLastName() != '') {
-        $pdf->Write(8, translate_text_fpdf_('Donated by ').$item->getFirstName().' '.$item->getLastName().".\n");
+        $pdf->Write(8, _('Donated by ').$item->getFirstName().' '.$item->getLastName().".\n");
     }
     $pdf->Write(8, "\n");
 
