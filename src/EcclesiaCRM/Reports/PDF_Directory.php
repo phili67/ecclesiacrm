@@ -97,14 +97,14 @@ class PDF_Directory extends ChurchInfoReportTCPDF
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n" . OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName')) . "\n\n" . OutputUtils::translate_text_fpdf(_('Directory')) . "\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n" . SystemConfig::getValue('sChurchName') . "\n\n" . _('Directory') . "\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
         $this->MultiCell(197, 10, $today . "\n\n", 0, 'C');
 
-        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchAddress')),
-            OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchCity')),
-            OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchState')), SystemConfig::getValue('sChurchZip'),
+        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", SystemConfig::getValue('sChurchAddress'),
+            SystemConfig::getValue('sChurchCity'),
+            SystemConfig::getValue('sChurchState'), SystemConfig::getValue('sChurchZip'),
             SystemConfig::getValue('sChurchPhone'));
         $this->MultiCell(197, 10, $sContact, 0, 'C');
         $this->Cell(10);
