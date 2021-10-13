@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -25,7 +25,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 
-class PDF_FRBidSheetsReport extends ChurchInfoReport
+class PDF_FRBidSheetsReport extends ChurchInfoReportTCPDF
 {
     private $fundraiser = null;
 
@@ -54,7 +54,7 @@ class PDF_FRBidSheetsReport extends ChurchInfoReport
     }
 }
 
-$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+$currency = SystemConfig::getValue("sCurrency");
 
 // Get the information about this fundraiser
 $thisFRORM = FundRaiserQuery::create()->findOneById($iCurrentFundraiser);
@@ -73,7 +73,7 @@ $ormItems = DonatedItemQuery::create()
     ->findByFrId($iCurrentFundraiser);
 
 $pdf = new PDF_FRBidSheetsReport($thisFRORM);
-$pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
+$pdf->SetTitle($thisFRORM->getTitle());
 
 // Loop through items
 
@@ -81,15 +81,15 @@ foreach ($ormItems as $item) {
     $pdf->AddPage();
 
     $pdf->SetFont('Times', 'B', 24);
-    $pdf->Write(5, OutputUtils::translate_text_fpdf($item->getItem()).":\t");
-    $pdf->Write(5, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n\n");
+    $pdf->Write(5, $item->getItem().":\t");
+    $pdf->Write(5, stripslashes($item->getTitle())."\n\n");
     $pdf->SetFont('Times', '', 16);
-    $pdf->Write(8, OutputUtils::translate_text_fpdf(stripslashes($item->getDescription()))."\n");
+    $pdf->Write(8, stripslashes($item->getDescription())."\n");
     if ($item->getEstprice() > 0) {
-        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Estimated value ')).$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
+        $pdf->Write(8, _('Estimated value ').$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
     }
     if ($item->getLastName() != '') {
-        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Donated by ').$item->getFirstName().' '.$item->getLastName()).".\n");
+        $pdf->Write(8, translate_text_fpdf_('Donated by ').$item->getFirstName().' '.$item->getLastName().".\n");
     }
     $pdf->Write(8, "\n");
 
@@ -116,6 +116,7 @@ foreach ($ormItems as $item) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('FRBidSheets'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
