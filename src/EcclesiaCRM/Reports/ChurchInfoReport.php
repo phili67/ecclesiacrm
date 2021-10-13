@@ -30,7 +30,7 @@ class ChurchInfoReport extends FPDF
   // are read from the database.
 
   public $paperFormat = 'Letter';
-  
+
   public function TextWithDirection($x, $y, $txt, $direction='R')
 {
     if ($direction=='R')
