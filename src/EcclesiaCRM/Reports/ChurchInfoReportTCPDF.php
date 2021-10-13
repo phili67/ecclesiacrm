@@ -42,13 +42,13 @@ class ChurchInfoReportTCPDF extends TCPDF
     {
 
         parent::StartTransform();
-// Rotate 20 degrees counter-clockwise centered by (70,110) which is the lower left corner of the rectangle
+// Rotate 90 degrees counter-clockwise centered by ($x,$y) which is the lower left corner of the rectangle
         parent::Rotate(90, $x, $y);
         parent::Text($x, $y, $txt);
 // Stop Transformation
         parent::StopTransform();
 
-        return;
+        /*return;
 
         if ($direction=='R')
             $s=sprintf('BT %.2F %.2F %.2F %.2F %.2F %.2F Tm (%s) Tj ET',1,0,0,1,$x*$this->k,($this->h-$y)*$this->k,$this->_escape($txt));
@@ -64,7 +64,7 @@ class ChurchInfoReportTCPDF extends TCPDF
         if ($this->ColorFlag)
             $s='q '.$this->TextColor.' '.$s.' Q';
 
-        $this->_out($s);
+        $this->_out($s);*/
     }
 
     public function _escape($txt)
