@@ -21,8 +21,6 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Utils\OutputUtils;
 
-
-
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 $curY = 0;
 
@@ -38,27 +36,28 @@ $ormItems = DonatedItemQuery::create()
         ->findByFrId($iCurrentFundraiser);
 
 $pdf = new PDF_CertificatesReport();
-$pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
+$pdf->SetTitle($thisFRORM->getTitle());
 
-$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+$currency = SystemConfig::getValue("sCurrency");
 
 foreach ($ormItems as $item) {
     $pdf->AddPage();
 
     $pdf->SetFont('Times', 'B', 24);
-    $pdf->Write(8, OutputUtils::translate_text_fpdf($item->getItem()).":\t");
-    $pdf->Write(8, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n\n");
+    $pdf->Write(8, $item->getItem().":\t");
+    $pdf->Write(8, stripslashes($item->getTitle())."\n\n");
     $pdf->SetFont('Times', '', 16);
-    $pdf->Write(8, OutputUtils::translate_text_fpdf(stripslashes($item->getDescription()))."\n");
+    $pdf->Write(8, stripslashes($item->getDescription())."\n");
     if ($item->getEstprice() > 0) {
-        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Estimated value ')).$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
+        $pdf->Write(8, _('Estimated value ').$currency.OutputUtils::money_localized($item->getEstprice()).'.  ');
     }
     if ($item->getLastName() != '') {
-        $pdf->Write(8, OutputUtils::translate_text_fpdf(_('Donated by ').$item->getFirstName().' '.$item->getLastName()).".\n\n");
+        $pdf->Write(8, _('Donated by ').$item->getFirstName().' '.$item->getLastName().".\n\n");
     }
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('FRCertificates'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
