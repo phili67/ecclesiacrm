@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
@@ -37,7 +37,7 @@ $sDateStart = InputUtils::FilterDate($_POST['DateStart'], 'date');
 $sDateEnd = InputUtils::FilterDate($_POST['DateEnd'], 'date');
 $iDepID = InputUtils::LegacyFilterInput($_POST['deposit'], 'int');
 
-$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+$currency = SystemConfig::getValue("sCurrency");
 
 $connection = Propel::getConnection();
 
@@ -226,7 +226,7 @@ if ($output == 'pdf') {
     $summaryIntervalY = 4;
     $page = 1;
 
-    class PDF_TaxReport extends ChurchInfoReport
+    class PDF_TaxReport extends ChurchInfoReportTCPDF
     {
         // Constructor
         public function __construct()
@@ -260,7 +260,7 @@ if ($output == 'pdf') {
             $this->WriteAt($curX, $curY, _('Data sorted by').' '.ucwords($sort));
             $curY += SystemConfig::getValue('incrementY');
             if (!$iDepID) {
-                $this->WriteAt($curX, $curY, "$datetype Dates: $sDateStart through $sDateEnd");
+                $this->WriteAt($curX, $curY, _($datetype)." "._("Dates")." : ".$sDateStart." "._("through")." ". $sDateEnd);
                 $curY += SystemConfig::getValue('incrementY');
             }
             if ($iDepID || $_POST['family'][0] || $_POST['funds'][0] || $_POST['method'][0]) {
@@ -892,6 +892,8 @@ if ($output == 'pdf') {
     }
 
     $pdf->FinishPage($page);
+
+    ob_end_clean();
     $pdf->Output('DepositReport-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 
     // Output a text file
