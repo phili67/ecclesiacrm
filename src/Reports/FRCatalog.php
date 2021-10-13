@@ -12,7 +12,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\OutputUtils;
 
 use EcclesiaCRM\FundRaiserQuery;
@@ -27,7 +27,7 @@ $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 
 $curY = 0;
 
-class PDF_FRCatalogReport extends ChurchInfoReport
+class PDF_FRCatalogReport extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -75,13 +75,13 @@ $ormItems = DonatedItemQuery::create()
     ->findByFrId($iCurrentFundraiser);
 
 $pdf = new PDF_FRCatalogReport();
-$pdf->SetTitle(OutputUtils::translate_text_fpdf($thisFRORM->getTitle()));
+$pdf->SetTitle($thisFRORM->getTitle());
 
 // Loop through items
 $idFirstChar = '';
 
 foreach ($ormItems as $item) {
-    $newIdFirstChar = OutputUtils::translate_text_fpdf(mb_substr($item->getItem(), 0, 1));
+    $newIdFirstChar = mb_substr($item->getItem(), 0, 1);
     $maxYNewPage = 220;
     if ($item->getPicture() != '') {
         $maxYNewPage = 120;
@@ -92,8 +92,8 @@ foreach ($ormItems as $item) {
     $idFirstChar = $newIdFirstChar;
 
     $pdf->SetFont('Times', 'B', 12);
-    $pdf->Write(6, OutputUtils::translate_text_fpdf($item->getItem()).': ');
-    $pdf->Write(6, OutputUtils::translate_text_fpdf(stripslashes($item->getTitle()))."\n");
+    $pdf->Write(6, $item->getItem().': ');
+    $pdf->Write(6, stripslashes($item->getTitle())."\n");
 
     if ($item->getPicture() != '' && strlen($item->getPicture()) > 5) {
         $s = getimagesize($item->getPicture());
@@ -103,20 +103,21 @@ foreach ($ormItems as $item) {
     }
 
     $pdf->SetFont('Times', '', 12);
-    $pdf->Write(6, OutputUtils::translate_text_fpdf(stripslashes($item->getDescription()))."\n");
+    $pdf->Write(6, stripslashes($item->getDescription())."\n");
     if ($item->getMinimum() > 0) {
-        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Minimum bid ')).$currency.OutputUtils::money_localized($item->getMinimum()).'.  ');
+        $pdf->Write(6, _('Minimum bid ').$currency.OutputUtils::money_localized($item->getMinimum()).'.  ');
     }
     if ($item->getEstPrice() > 0) {
-        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Estimated value ')).$currency.OutputUtils::money_localized($item->getEstPrice()).'.  ');
+        $pdf->Write(6, _('Estimated value ').$currency.OutputUtils::money_localized($item->getEstPrice()).'.  ');
     }
     if ($item->getLastName() != '') {
-        $pdf->Write(6, OutputUtils::translate_text_fpdf(_('Donated by ')).OutputUtils::translate_text_fpdf($item->getFirstName().' '.$item->getLastName()).".\n");
+        $pdf->Write(6, _('Donated by ').$item->getFirstName().' '.$item->getLastName().".\n");
     }
     $pdf->Write(6, "\n");
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('FRCatalog'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
