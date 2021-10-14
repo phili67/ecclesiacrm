@@ -49,6 +49,9 @@ class SearchController
         $req = (object)$request->getParsedBody();
 
         $query = $req->SearchTerm;
+
+        $query = Propel::getConnection()->quote($query);
+
         $query_elements = $req->Elements;
         $group_elements = $req->GroupElements;
         $group_role_elements = $req->GroupRoleElements;
