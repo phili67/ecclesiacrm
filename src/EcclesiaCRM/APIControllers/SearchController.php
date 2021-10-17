@@ -49,6 +49,9 @@ class SearchController
         $req = (object)$request->getParsedBody();
 
         $query = $req->SearchTerm;
+
+        $query = filter_var($query, FILTER_SANITIZE_STRING);
+
         $query_elements = $req->Elements;
         $group_elements = $req->GroupElements;
         $group_role_elements = $req->GroupRoleElements;

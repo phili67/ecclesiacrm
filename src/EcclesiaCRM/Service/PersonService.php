@@ -14,14 +14,17 @@ use Propel\Runtime\Propel;
 
 class PersonService
 {
-    public function search($searchTerm, $includeFamilyRole=true)
+    public function search($searchTerm, $includeFamilyRole = true)
     {
-        $searchLikeString = '%'.$searchTerm.'%';
+        $searchTerm = filter_var($searchTerm, FILTER_SANITIZE_STRING);
+
+        $searchLikeString = '%' . $searchTerm . '%';
+
         $people = PersonQuery::create()->
-    filterByFirstName($searchLikeString, Criteria::LIKE)->
-    _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-    _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
-      limit(15)->find();
+        filterByFirstName($searchLikeString, Criteria::LIKE)->
+        _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+        _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
+        limit(15)->find();
         $return = [];
         foreach ($people as $person) {
             $values['id'] = $person->getId();
@@ -58,43 +61,43 @@ class PersonService
     public function getPeopleEmailsAndGroups()
     {
         $persons = PersonQuery::Create()
-              ->addJoin(PersonTableMap::COL_PER_ID,Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID,Criteria::LEFT_JOIN)
-              ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
-              ->addMultipleJoin(array(array(GroupTableMap::COL_GRP_ROLELISTID,ListOptionTableMap::COL_LST_ID),
-                              array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID,ListOptionTableMap::COL_LST_OPTIONID)),
-                              Criteria::LEFT_JOIN)
-              ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
-              ->addAsColumn("OptionName",ListOptionTableMap::COL_LST_OPTIONNAME)
-              ->filterByEmail('',Criteria::NOT_EQUAL)
-              ->_and()->filterByDateDeactivated (null)
-              ->orderById()
-              ->find();
+            ->addJoin(PersonTableMap::COL_PER_ID, Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID, Criteria::LEFT_JOIN)
+            ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+            ->addMultipleJoin(array(array(GroupTableMap::COL_GRP_ROLELISTID, ListOptionTableMap::COL_LST_ID),
+                array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID, ListOptionTableMap::COL_LST_OPTIONID)),
+                Criteria::LEFT_JOIN)
+            ->addAsColumn("GroupName", GroupTableMap::COL_GRP_NAME)
+            ->addAsColumn("OptionName", ListOptionTableMap::COL_LST_OPTIONNAME)
+            ->filterByEmail('', Criteria::NOT_EQUAL)
+            ->_and()->filterByDateDeactivated(null)
+            ->orderById()
+            ->find();
 
-        $people       = [];
+        $people = [];
         $lastPersonId = 0;
-        $per          = [];
+        $per = [];
         foreach ($persons as $person) {
-          if ($lastPersonId != $person->getId()) {
-            if ($lastPersonId != 0) {
-                $people[] = $per;
+            if ($lastPersonId != $person->getId()) {
+                if ($lastPersonId != 0) {
+                    $people[] = $per;
+                }
+                $per = [];
+                $per['id'] = $person->getId();
+                $per['email'] = $person->getEmail();
+                $per['firstName'] = $person->getFirstName();
+                $per['lastName'] = $person->getLastName();
             }
-            $per              = [];
-            $per['id']        = $person->getId();
-            $per['email']     = $person->getEmail();
-            $per['firstName'] = $person->getFirstName();
-            $per['lastName']  = $person->getLastName();
-          }
 
-          if (!is_null($person->getGroupName()) && !is_null($person->getOptionName()) ) {
-             $per[$person->getGroupName()] = _($person->getOptionName());
-          }
-            
-          if ($lastPersonId != $person->getId()) {
-             $lastPersonId = $person->getId();
-          }
+            if (!is_null($person->getGroupName()) && !is_null($person->getOptionName())) {
+                $per[$person->getGroupName()] = _($person->getOptionName());
+            }
+
+            if ($lastPersonId != $person->getId()) {
+                $lastPersonId = $person->getId();
+            }
         }
 
-        $people[] =  $per;
+        $people[] = $per;
 
         return $people;
     }
