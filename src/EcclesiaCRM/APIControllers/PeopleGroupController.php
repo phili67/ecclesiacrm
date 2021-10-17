@@ -140,8 +140,9 @@ class PeopleGroupController
     public function searchGroup(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $query = $args['query'];
 
-        $searchLikeString = '%'.$query.'%';
+        $query = filter_var($query, FILTER_SANITIZE_STRING);
 
+        $searchLikeString = '%'.$query.'%';
 
         $groups = GroupQuery::create()
             ->filterByName($searchLikeString, Criteria::LIKE)
