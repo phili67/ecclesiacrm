@@ -50,7 +50,7 @@ class SearchController
 
         $query = $req->SearchTerm;
 
-        $query = Propel::getConnection()->quote($query);
+        $query = filter_var($query, FILTER_SANITIZE_STRING);
 
         $query_elements = $req->Elements;
         $group_elements = $req->GroupElements;
