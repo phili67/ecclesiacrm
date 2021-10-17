@@ -392,6 +392,8 @@ class FinancialService
 
     public function searchDeposits($searchTerm)
     {
+        $searchTerm = filter_var($searchTerm, FILTER_SANITIZE_STRING);
+
         MiscUtils::requireUserGroupMembership('bFinance');
         $fetch = 'SELECT dep_ID, dep_Comment, dep_Date, dep_EnteredBy, dep_Type
             FROM deposit_dep
@@ -421,6 +423,8 @@ class FinancialService
 
     public function searchPayments($searchTerm)
     {
+        $searchTerm = filter_var($searchTerm, FILTER_SANITIZE_STRING);
+
         MiscUtils::requireUserGroupMembership('bFinance');
         $fetch = 'SELECT dep_ID, dep_Comment, dep_Date, dep_EnteredBy, dep_Type, plg_FamID, plg_amount, plg_CheckNo, plg_plgID, plg_GroupKey
             FROM deposit_dep
