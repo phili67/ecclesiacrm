@@ -53,24 +53,6 @@ class OutputUtils
         }
     }
 
-    public static function translate_currency_fpdf($string)
-    {
-        if ($string == "€")
-            return chr(128) . " ";
-        if ($string == "£")
-            return chr(163) . " ";
-
-        return $string;
-    }
-
-    public static function translate_text_fpdf($string)
-    {
-        if (!empty($string))
-            return utf8_decode($string);//iconv('UTF-8', 'windows-1252', _($string));
-
-        return "";
-    }
-
 
     // Wrapper for number_format that uses the locale information
     // There are three modes: money, integer, and intmoney (whole number money)
