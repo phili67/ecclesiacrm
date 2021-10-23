@@ -1,0 +1,2579 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-06-06T16:42:51.297Z\n"
+"PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr ""
+"Είστε σίγουρος ότι θέλετε να διαγράψετε "
+"αυτή την εικόνα;"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Πατήστε CTRL + C για να αντιγράψετε τους "
+"αριθμούς τηλεφώνου όλων των μελών της "
+"ομάδας."
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "Address"
+msgstr "Διεύθυνση"
+
+msgid "Email"
+msgstr "Ηλεκτρονικό ταχυδρομείο"
+
+msgid "Remove"
+msgstr "Αφαιρέστε το"
+
+msgid "Classification"
+msgstr "Ταξινόμηση"
+
+msgid "Family Role"
+msgstr "Οικογενειακός ρόλος"
+
+msgid "You have no more items in your cart."
+msgstr "Δεν έχετε άλλα αντικείμενα στο καλάθι σας."
+
+msgid "Error making API Call to"
+msgstr "Σφάλμα κατά την κλήση API σε"
+
+msgid "Error text"
+msgstr "Κείμενο σφάλματος"
+
+msgid "Stack Trace"
+msgstr "Παρακολούθηση στοίβας"
+
+msgid "ERROR"
+msgstr "ΣΦΑΛΜΑ"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage "
+"them, click this notification !</b>"
+msgstr ""
+"Όλες οι λίστες έχουν πλέον φορτωθεί στο "
+"Ecclesia<b>CRM</b>.<br><b>Αν θέλετε να τις "
+"διαχειριστείτε, κάντε κλικ σε αυτή την "
+"ειδοποίηση !</b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr ""
+"Υπήρξε πρόβλημα στην ανάκτηση του "
+"ζητούμενου αντικειμένου"
+
+msgid "None"
+msgstr "Κανένα"
+
+msgid "Select the method to add to a group"
+msgstr ""
+"Επιλέξτε τη μέθοδο που θέλετε να προσθέσετε "
+"σε μια ομάδα"
+
+msgid "Select an existing Group"
+msgstr "Επιλέξτε μια υπάρχουσα ομάδα"
+
+msgid "or Create a new Group from the Cart"
+msgstr "ή Δημιουργία νέας ομάδας από το καλάθι"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr ""
+"Επιλέξτε την ομάδα στην οποία θέλετε να "
+"προσθέσετε το καλάθι σας"
+
+msgid "Select Group"
+msgstr "Επιλέξτε ομάδα"
+
+msgid "Select Role"
+msgstr "Επιλέξτε ρόλο"
+
+msgid "Group Name"
+msgstr "Όνομα ομάδας"
+
+msgid "Default Name Group"
+msgstr "Προεπιλεγμένο όνομα Ομάδα"
+
+msgid "Add Cart to Group"
+msgstr "Προσθήκη καλαθιού σε ομάδα"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Error"
+msgstr "Σφάλμα"
+
+msgid "You have to select one group and a group role if you want"
+msgstr ""
+"Πρέπει να επιλέξετε μια ομάδα και έναν ρόλο "
+"ομάδας, αν θέλετε να"
+
+msgid "You have to set a Group Name"
+msgstr "Πρέπει να ορίσετε ένα όνομα ομάδας"
+
+msgid "Close"
+msgstr "Κλείστε το"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr ""
+"Θέλετε πραγματικά να απενεργοποιήσετε τα "
+"πρόσωπα;"
+
+msgid "This action can be undone !!!!"
+msgstr "Αυτή η ενέργεια μπορεί να αναιρεθεί !!!!"
+
+msgid "No"
+msgstr "Όχι"
+
+msgid "Yes : if you're sure"
+msgstr "Ναι: αν είστε σίγουροι"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr ""
+"Θέλετε πραγματικά να διαγράψετε τα άτομα "
+"από το CRM;"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr ""
+"Επιλέξτε την εκδήλωση στην οποία θέλετε να "
+"προσθέσετε το καλάθι σας"
+
+msgid "Create First A New Event"
+msgstr "Δημιουργήστε πρώτα ένα νέο συμβάν"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Add to Event"
+msgstr "Προσθήκη σε εκδήλωση"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Μπορείτε να προσθέσετε το περιεχόμενο του "
+"καλαθιού στο επιλεγμένο συμβάν παρακάτω<br> - "
+"Ή - <br>Δημιουργήστε πρώτα ένα συμβάν και "
+"προσθέστε τα μετά."
+
+msgid "Register"
+msgstr "Εγγραφή"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr ""
+"Καταχωρήστε το λογισμικό σας στην ομάδα "
+"EcclesiaCRM."
+
+msgid "Simply click this"
+msgstr "Απλά κάντε κλικ εδώ"
+
+msgid "to register your software"
+msgstr "για να καταχωρήσετε το λογισμικό σας"
+
+msgid "New Release"
+msgstr "Νέα έκδοση"
+
+msgid "Installed version"
+msgstr "Εγκατεστημένη έκδοση"
+
+msgid "New One"
+msgstr "Νέα"
+
+msgid "To upgrade simply click this Notification"
+msgstr ""
+"Για να αναβαθμίσετε απλά κάντε κλικ σε αυτή "
+"την Ειδοποίηση"
+
+msgid "View Cart"
+msgstr "Προβολή καλαθιού"
+
+msgid "Empty Cart"
+msgstr "Άδειο καλάθι"
+
+msgid "Empty Cart to Group"
+msgstr "Άδειο καλάθι σε ομάδα"
+
+msgid "Empty Cart to Family"
+msgstr "Άδειο καλάθι προς Οικογένεια"
+
+msgid "Empty Cart to Event"
+msgstr "Άδειο καλάθι σε εκδήλωση"
+
+msgid "Map Cart"
+msgstr "Καλάθι χάρτη"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Απενεργοποίηση προσώπων από το καλάθι"
+
+msgid "Delete Persons From the CRM"
+msgstr "Διαγραφή ατόμων από το CRM"
+
+msgid "View all"
+msgstr "Προβολή όλων"
+
+msgid "Your Cart is Empty"
+msgstr "Το καλάθι σας είναι άδειο"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Αν χρειαστεί να κάνετε αλλαγές στα δεδομένα "
+"εγγραφής, μεταβείτε στη διεύθυνση"
+
+msgid "Admin->Edit General Settings"
+msgstr ""
+"Διαχειριστής->Επεξεργασία γενικών "
+"ρυθμίσεων"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Παρακαλούμε καταχωρήστε το αντίγραφό σας "
+"του EcclesiaCRM ελέγχοντας αυτές τις πληροφορίες "
+"και πατώντας το κουμπί Αποστολή."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Αυτές οι πληροφορίες χρησιμοποιούνται μόνο "
+"για την παρακολούθηση της χρήσης αυτού του "
+"λογισμικού."
+
+msgid "Church Name"
+msgstr "Όνομα Εκκλησίας"
+
+msgid "Version"
+msgstr "Έκδοση"
+
+msgid "City"
+msgstr "Πόλη"
+
+msgid "State"
+msgstr "Κράτος"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Χώρα"
+
+msgid "Church Email"
+msgstr "Εκκλησία Email"
+
+msgid "Base URL"
+msgstr "Βασική διεύθυνση URL"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Software Registration"
+msgstr "Εγγραφή λογισμικού"
+
+msgid "Send"
+msgstr "Στείλτε"
+
+msgid "Your software is now registered. Thank you !"
+msgstr ""
+"Το λογισμικό σας έχει πλέον καταχωρηθεί. "
+"Σας ευχαριστούμε !"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Please select target group for members"
+msgstr ""
+"Παρακαλώ επιλέξτε την ομάδα-στόχο για τα "
+"μέλη"
+
+msgid "Please select target Role for members"
+msgstr ""
+"Παρακαλούμε επιλέξτε το ρόλο-στόχο για τα "
+"μέλη"
+
+msgid "GroupID required for role selection prompt"
+msgstr ""
+"GroupID που απαιτείται για την προτροπή "
+"επιλογής ρόλου"
+
+msgid "Select Group and Role"
+msgstr "Επιλέξτε Ομάδα και Ρόλο"
+
+msgid "Add A Group Name"
+msgstr "Προσθήκη ονόματος ομάδας"
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "Calendar Event"
+msgstr "Εκδήλωση ημερολογίου"
+
+msgid "Attendees Checked In"
+msgstr "Συμμετέχοντες που έκαναν check in"
+
+msgid "More info"
+msgstr "Περισσότερες πληροφορίες"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Προειδοποίηση! Μην επιλέξετε αυτή την "
+"επιλογή εάν σκοπεύετε να προσθέσετε σε μια "
+"υπάρχουσα βάση δεδομένων.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will be "
+"destroyed!"
+msgstr ""
+"Χρησιμοποιήστε το μόνο αν δεν είστε "
+"ικανοποιημένοι με την αρχική εισαγωγή. Όλα "
+"τα δεδομένα προσώπων και μελών θα "
+"καταστραφούν!"
+
+msgid "I Understand"
+msgstr "Καταλαβαίνω"
+
+msgid "Clear Persons and Families"
+msgstr "Καθαρά άτομα και οικογένειες"
+
+msgid "Data Cleared Successfully!"
+msgstr "Τα δεδομένα εκκαθαρίστηκαν επιτυχώς!"
+
+msgid "success"
+msgstr "επιτυχία"
+
+msgid "Duplicate values"
+msgstr "Διπλές τιμές"
+
+msgid "You've selected two times the same name"
+msgstr "Έχετε επιλέξει δύο φορές το ίδιο όνομα"
+
+msgid "for this field. Chose another one."
+msgstr "για αυτό το πεδίο. Επιλέξτε ένα άλλο."
+
+msgid "Please confirm deletion of this document"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε τη διαγραφή αυτού "
+"του εγγράφου"
+
+msgid "Document Delete Confirmation"
+msgstr "Επιβεβαίωση διαγραφής εγγράφου"
+
+msgid "Document Editor"
+msgstr "Επεξεργαστής εγγράφων"
+
+msgid "Document Title"
+msgstr "Τίτλος εγγράφου"
+
+msgid "Set your Document title"
+msgstr "Ορίστε τον τίτλο του εγγράφου σας"
+
+msgid "Choose your Document Type"
+msgstr "Επιλέξτε τον τύπο εγγράφου σας"
+
+msgid "document"
+msgstr "έγγραφο"
+
+msgid "video"
+msgstr "βίντεο"
+
+msgid "audio"
+msgstr "ήχος"
+
+msgid "Private"
+msgstr "Ιδιωτικό"
+
+msgid "You have to set a Title for your document"
+msgstr ""
+"Πρέπει να ορίσετε έναν τίτλο για το έγγραφό "
+"σας"
+
+msgid "Icon"
+msgstr "Εικονίδιο"
+
+msgid "Actions"
+msgstr "Δράσεις"
+
+msgid "Modification Date"
+msgstr "Ημερομηνία τροποποίησης"
+
+msgid "Type"
+msgstr "Τύπος"
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Set a File/Folder name"
+msgstr "Ορισμός ονόματος αρχείου/φακέλου"
+
+msgid "You're about to remove a folder and it's content"
+msgstr ""
+"Πρόκειται να αφαιρέσετε έναν φάκελο και το "
+"περιεχόμενό του"
+
+msgid "This can't be undone !!!!"
+msgstr "Αυτό δεν μπορεί να αναιρεθεί !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr ""
+"Πρέπει να επιλέξετε τουλάχιστον μία γραμμή "
+"!!!"
+
+msgid "You're about to remove a file"
+msgstr "Πρόκειται να αφαιρέσετε ένα αρχείο"
+
+msgid "Set your Folder name"
+msgstr "Ορίστε το όνομα του φακέλου σας"
+
+msgid "Upload your Files"
+msgstr "Ανεβάστε τα αρχεία σας"
+
+msgid "Files input"
+msgstr "Εισαγωγή αρχείων"
+
+msgid "Upload your files"
+msgstr "Ανεβάστε τα αρχεία σας"
+
+msgid "Upload"
+msgstr "Ανέβασμα"
+
+msgid "Share your File"
+msgstr "Μοιραστείτε το αρχείο σας"
+
+msgid "With"
+msgstr "Με"
+
+msgid "Set Rights"
+msgstr "Ορισμός δικαιωμάτων"
+
+msgid "Select your rights"
+msgstr "Επιλέξτε τα δικαιώματά σας"
+
+msgid "or"
+msgstr "ή"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Αποστολή ειδοποίησης μέσω email"
+
+msgid "Add persons/Family/groups"
+msgstr "Προσθέστε πρόσωπα/οικογένεια/ομάδες"
+
+msgid "Person or Family or Group"
+msgstr "Άτομο ή οικογένεια ή ομάδα"
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr ""
+"Είσαι σίγουρος; Είσαι έτοιμος να διαγράψεις "
+"αυτό το άτομο;"
+
+msgid "Stop sharing"
+msgstr "Σταματήστε να μοιράζεστε"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr ""
+"Είσαι σίγουρος; Θα σταματήσετε να "
+"μοιράζεστε το έγγραφό σας;"
+
+msgid "Ok"
+msgstr "Εντάξει"
+
+msgid "Tracking"
+msgstr "Παρακολούθηση"
+
+msgid "Attention"
+msgstr "Προσοχή"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr ""
+"Ο τρέχων φάκελος images είναι τώρα ο δημόσιος "
+"φάκελος !!!"
+
+msgid "Add People"
+msgstr "Προσθήκη ατόμων"
+
+msgid "This page is still in the cart."
+msgstr "Αυτή η σελίδα είναι ακόμα στο καλάθι."
+
+msgid "Wrong address format."
+msgstr "Λάθος μορφή διεύθυνσης."
+
+msgid "Set Calendar Name"
+msgstr "Ορισμός ονόματος ημερολογίου"
+
+msgid "Confirm"
+msgstr "Επιβεβαίωση"
+
+msgid "Set Resource Name"
+msgstr "Ορισμός ονόματος πόρου"
+
+msgid "Select a resource type"
+msgstr "Επιλέξτε έναν τύπο πόρου"
+
+msgid "Room"
+msgstr "Δωμάτιο"
+
+msgid "Computer"
+msgstr "Υπολογιστής"
+
+msgid "Video"
+msgstr "Βίντεο"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr ""
+"Συμπεριλάβετε/αποκλείστε τα ημερολόγιά σας "
+"στο SideBar"
+
+msgid "Calendars"
+msgstr "Ημερολόγια"
+
+msgid "Set Status"
+msgstr "Ορισμός κατάστασης"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Επιλέξτε [Exclude] ή [Include]"
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[ΑΠΟΚΛΕΙΣΜΟΣ]"
+
+msgid "Share your Calendar"
+msgstr "Μοιραστείτε το Ημερολόγιό σας"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε "
+"αυτό το Share?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να σταματήσετε να "
+"κοινοποιείτε το έγγραφό σας;"
+
+msgid "Are you sure?"
+msgstr "Είσαι σίγουρος;"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Θα χάσετε το ημερολόγιο, τα συμβάντα και όλα "
+"τα ημερολόγια κοινής χρήσης. Αυτό δεν "
+"μπορεί να αναιρεθεί."
+
+msgid "Manage"
+msgstr "Διαχείριση"
+
+msgid "Calendar Management for"
+msgstr "Διαχείριση ημερολογίου για"
+
+msgid "Modify Calendar Name"
+msgstr "Τροποποίηση ονόματος ημερολογίου"
+
+msgid "Modify Group Name"
+msgstr "Τροποποίηση ονόματος ομάδας"
+
+msgid "Modify Resource Name"
+msgstr "Τροποποίηση ονόματος πόρου"
+
+msgid "Modify Share Name"
+msgstr "Τροποποίηση ονόματος μεριδίου"
+
+msgid "Resource Info for"
+msgstr "Πληροφορίες πόρων για"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr ""
+"Μόνο οι διαχειριστές έχουν το δικαίωμα να "
+"αλλάξουν την περιγραφή των πόρων."
+
+msgid "Actualize"
+msgstr "Actualize"
+
+msgid "Today"
+msgstr "Σήμερα"
+
+msgid "List"
+msgstr "Λίστα"
+
+msgid "List Week"
+msgstr "Εβδομάδα λίστας"
+
+msgid "List Month"
+msgstr "Μήνας λίστας"
+
+msgid "This event isn't modifiable !!!"
+msgstr ""
+"Αυτό το γεγονός δεν μπορεί να τροποποιηθεί "
+"!!!"
+
+msgid "Modify Event"
+msgstr "Τροποποίηση συμβάντος"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Τι θα θέλατε να κάνετε; Να είστε προσεκτικοί "
+"με τη διαγραφή, είναι αδύνατο να την "
+"επαναφέρετε !!!"
+
+msgid "Delete Event"
+msgstr "Διαγραφή συμβάντος"
+
+msgid "Are you sure to delete this event?"
+msgstr ""
+"Σίγουρα θέλετε να διαγράψετε αυτό το "
+"συμβάν;"
+
+msgid "Delete all repeated Events"
+msgstr ""
+"Διαγραφή όλων των επαναλαμβανόμενων "
+"συμβάντων"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are you "
+"sure? This can't be undone."
+msgstr ""
+"Πρόκειται να διαγράψετε όλα τα "
+"επαναλαμβανόμενα συμβάντα που συνδέονται "
+"με αυτό το συμβάν. Είστε σίγουροι; Αυτό δεν "
+"μπορεί να αναιρεθεί."
+
+msgid "Only this event"
+msgstr "Μόνο αυτό το γεγονός"
+
+msgid "Every Events linked to this Event"
+msgstr ""
+"Κάθε Γεγονός που συνδέεται με αυτό το "
+"Γεγονός"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Για να προσθέσετε ένα συμβάν, πρέπει πρώτα "
+"να δημιουργήσετε ένα ημερολόγιο ή να "
+"ενεργοποιήσετε ένα ημερολόγιο."
+
+msgid "Add More Attendees"
+msgstr "Προσθέστε περισσότερους συμμετέχοντες"
+
+msgid "Make Attendance"
+msgstr "Κάντε Παρουσία"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Resize Event"
+msgstr "Γεγονός αλλαγής μεγέθους"
+
+msgid "Are you sure about this change?"
+msgstr "Είστε σίγουροι για αυτή την αλλαγή;"
+
+msgid "will be resized."
+msgstr "θα αλλάξει το μέγεθος."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr ""
+"Πρόκειται να αλλάξετε το μέγεθος όλων των "
+"συμβάντων. Θα θέλατε να :"
+
+msgid "Only this Event"
+msgstr "Μόνο αυτό το γεγονός"
+
+msgid "All Events"
+msgstr "Όλες οι εκδηλώσεις"
+
+msgid "Move Event"
+msgstr "Εκδήλωση μετακίνησης"
+
+msgid "will be dropped."
+msgstr "θα αποσυρθεί."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr ""
+"Πρόκειται να μετακινήσετε όλα τα γεγονότα. "
+"Θα θέλατε να :"
+
+msgid "Event added"
+msgstr "Προστέθηκε εκδήλωση"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to add "
+"attendees ?"
+msgstr ""
+"Το συμβάν προστέθηκε με επιτυχία. Θα θέλατε "
+"να πραγματοποιήσετε τη Συμμετοχή ή να "
+"προσθέσετε συμμετέχοντες;"
+
+msgid "Event was added successfully."
+msgstr "Το συμβάν προστέθηκε με επιτυχία."
+
+msgid "No attendees"
+msgstr "Δεν υπάρχουν συμμετέχοντες"
+
+msgid "From"
+msgstr "Από το"
+
+msgid "to"
+msgstr "στο"
+
+msgid "Attendance Notes: "
+msgstr "Σημειώσεις συμμετοχής:"
+
+msgid "Title"
+msgstr "Τίτλος"
+
+msgid "Calendar Title"
+msgstr "Τίτλος ημερολογίου"
+
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr ""
+"Για να επικυρώσετε τη διεύθυνσή σας : "
+"<b>\"πατήστε return\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr ""
+"Για να δείτε το χάρτη κάντε κλικ σε αυτό το "
+"πεδίο κειμένου."
+
+msgid "Map"
+msgstr "Χάρτης"
+
+msgid "Desc"
+msgstr "Περιγραφή"
+
+msgid "Event description"
+msgstr "Περιγραφή της εκδήλωσης"
+
+msgid "Event Type"
+msgstr "Τύπος εκδήλωσης"
+
+msgid "Personal"
+msgstr "Προσωπικό"
+
+msgid "Attendance Counts"
+msgstr "Μετρήσεις παρουσίας"
+
+msgid "Start Date"
+msgstr "Ημερομηνία έναρξης"
+
+msgid "End Date"
+msgstr "Ημερομηνία λήξης"
+
+msgid "Repeat"
+msgstr "Επανάληψη"
+
+msgid "Daily"
+msgstr "Καθημερινά"
+
+msgid "Weekly"
+msgstr "Εβδομαδιαία"
+
+msgid "Monthly"
+msgstr "Μηνιαία"
+
+msgid "Quarterly"
+msgstr "Τριμηνιαία"
+
+msgid "Semesterly"
+msgstr "Εξαμηνιαία"
+
+msgid "Yearly"
+msgstr "Ετήσια"
+
+msgid "End"
+msgstr "Τέλος"
+
+msgid "Alarm"
+msgstr "Συναγερμός"
+
+msgid "NONE"
+msgstr "ΚΑΝΕΝΑΣ"
+
+msgid "At time of event"
+msgstr "Τη στιγμή του συμβάντος"
+
+msgid "5 minutes before"
+msgstr "5 λεπτά πριν"
+
+msgid "10 minutes before"
+msgstr "10 λεπτά πριν"
+
+msgid "15 minutes before"
+msgstr "15 λεπτά πριν"
+
+msgid "30 minutes before"
+msgstr "30 λεπτά πριν"
+
+msgid "1 hour before"
+msgstr "1 ώρα πριν"
+
+msgid "2 hour before"
+msgstr "2 ώρες πριν"
+
+msgid "1 day before"
+msgstr "1 ημέρα πριν"
+
+msgid "2 day before"
+msgstr "2 ημέρες πριν"
+
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+msgid "Add as attendees"
+msgstr "Προσθέστε ως συμμετέχοντες"
+
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgid "Status"
+msgstr "Κατάσταση"
+
+msgid "Active"
+msgstr "Ενεργό"
+
+msgid "inactive"
+msgstr "ανενεργό"
+
+msgid "Event Creation"
+msgstr "Δημιουργία συμβάντος"
+
+msgid "You've to chose a calendar."
+msgstr "Πρέπει να επιλέξετε ένα ημερολόγιο."
+
+msgid "You have to set a Title for your event"
+msgstr ""
+"Πρέπει να ορίσετε έναν τίτλο για την "
+"εκδήλωσή σας"
+
+msgid "CKEditor Template Creation"
+msgstr "Δημιουργία προτύπου CKEditor"
+
+msgid "Template Name"
+msgstr "Όνομα προτύπου"
+
+msgid "Explanation field cannot be empty."
+msgstr ""
+"Το πεδίο \"Επεξήγηση\" δεν μπορεί να είναι "
+"κενό."
+
+msgid "Template Description"
+msgstr "Περιγραφή προτύπου"
+
+msgid "Save as Word file in EDrive"
+msgstr "Αποθήκευση ως αρχείο Word στο EDrive"
+
+msgid "Word file name"
+msgstr "Όνομα αρχείου Word"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test only "
+"<b>(Beta)</b>.</small>"
+msgstr ""
+"Το αρχείο θα μεταφορτωθεί στο EDrive "
+"σας<br><small>Αυτό το μέρος είναι μόνο για "
+"δοκιμή <b>(Beta)</b>.</small>."
+
+msgid "Your note is saved in your EDrive"
+msgstr "Η σημείωσή σας αποθηκεύεται στο EDrive σας"
+
+msgid "(No templates defined)"
+msgstr "(Δεν έχουν οριστεί πρότυπα)"
+
+msgid "Content Templates"
+msgstr "Πρότυπα περιεχομένου"
+
+msgid "Please select the template to open in the editor"
+msgstr ""
+"Παρακαλούμε επιλέξτε το πρότυπο για να το "
+"ανοίξετε στον επεξεργαστή"
+
+msgid "Template Options"
+msgstr "Επιλογές προτύπου"
+
+msgid "Modify"
+msgstr "Τροποποίηση"
+
+msgid "Modify the template you select"
+msgstr "Τροποποιήστε το πρότυπο που επιλέξατε"
+
+msgid "Delete the template you select"
+msgstr "Διαγραφή του προτύπου που επιλέξατε"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε "
+"αυτό το πρότυπο; Αυτό δεν μπορεί να "
+"αναιρεθεί."
+
+msgid "Replace actual content"
+msgstr "Αντικαταστήστε το πραγματικό περιεχόμενο"
+
+msgid "Manage templates"
+msgstr "Διαχείριση προτύπων"
+
+msgid "Save templates"
+msgstr "Αποθήκευση προτύπων"
+
+msgid "Apply templates"
+msgstr "Εφαρμογή προτύπων"
+
+msgid "Save As Word File in EDrive"
+msgstr "Αποθήκευση ως αρχείο Word στο EDrive"
+
+msgid "First Name"
+msgstr "Όνομα"
+
+msgid "Last Name"
+msgstr "Επώνυμο"
+
+msgid "Phone"
+msgstr "Τηλέφωνο"
+
+msgid "Company"
+msgstr "Εταιρεία"
+
+msgid "Unsub"
+msgstr "Αντικατάσταση"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgid "Language"
+msgstr "Γλώσσα"
+
+msgid "Merge Tags"
+msgstr "Συγχώνευση ετικετών"
+
+msgid "Free Event Attendees"
+msgstr "Δωρεάν Συμμετέχοντες στην εκδήλωση"
+
+msgid "Successfully Added!"
+msgstr "Προστέθηκε επιτυχώς!"
+
+msgid "Photo"
+msgstr "Φωτογραφία"
+
+msgid "Action"
+msgstr "Δράση"
+
+msgid "Checkin"
+msgstr "Checkin"
+
+msgid "Checkout"
+msgstr "Ταμείο"
+
+msgid "Gender"
+msgstr "Φύλο"
+
+msgid "Checkin Date"
+msgstr "Ημερομηνία checkin"
+
+msgid "Checked In By"
+msgstr "Ελέγχθηκε από"
+
+msgid "Checkout Date"
+msgstr "Ημερομηνία checkout"
+
+msgid "Checkout By"
+msgstr "Checkout Με"
+
+msgid "QR Code : Call the register"
+msgstr "Κωδικός QR : Καλέστε το μητρώο"
+
+msgid "Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Δεν είναι δυνατή η πρόσβαση στη ροή βίντεο "
+"(βεβαιωθείτε ότι έχετε ενεργοποιημένη την "
+"κάμερα web)"
+
+msgid "no detected QR Code"
+msgstr "δεν εντοπίστηκε κωδικός QR"
+
+msgid "Loading video..."
+msgstr "Φόρτωση βίντεο..."
+
+msgid "Failed"
+msgstr "Αποτυχημένο"
+
+msgid "No event right now."
+msgstr "Δεν υπάρχει εκδήλωση αυτή τη στιγμή."
+
+msgid "Move one in the right range."
+msgstr "Μετακινήστε ένα στο σωστό εύρος."
+
+msgid "Create one."
+msgstr "Δημιουργήστε ένα."
+
+msgid "Group"
+msgstr "Ομάδα"
+
+msgid "User"
+msgstr "Χρήστης"
+
+msgid "No event now."
+msgstr "Δεν υπάρχει εκδήλωση τώρα."
+
+msgid "Success"
+msgstr "Επιτυχία"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε όλα "
+"τα άτομα από το Event ID:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να ΔΙΑΓΡΑΦΕΤΕ "
+"αυτό το άτομο από το Event ID:"
+
+msgid "Delete Event Type"
+msgstr "Διαγραφή τύπου συμβάντος"
+
+msgid "This action can never be undone !!!!"
+msgstr ""
+"Αυτή η ενέργεια δεν μπορεί να αναιρεθεί "
+"ποτέ !!!!"
+
+msgid "Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Η διαγραφή μιας εκδήλωσης θα διαγράψει "
+"επίσης όλες τις μετρήσεις συμμετοχών για τη "
+"συγκεκριμένη εκδήλωση."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να ΔΙΑΓΡΑΨΕΤΕ το "
+"συμβάν;"
+
+msgid "Confirm Delete"
+msgstr "Επιβεβαίωση Διαγραφή"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr ""
+"Είσαι σίγουρος; Είστε έτοιμοι να διαγράψετε "
+"το επιλεγμένο"
+
+msgid "payments(s)?"
+msgstr "πληρωμές;"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"Αυτή η ενέργεια ΔΕΝ μπορεί να αναιρεθεί και "
+"μπορεί να έχει νομικές συνέπειες!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Βεβαιωθείτε ότι αυτό θέλετε να κάνετε."
+
+msgid "Pledge"
+msgstr "Υπόσχεση"
+
+msgid "Selected Rows"
+msgstr "Επιλεγμένες σειρές"
+
+msgid "Payment"
+msgstr "Πληρωμή"
+
+msgid "Depid"
+msgstr "Depid"
+
+msgid "Address1"
+msgstr "Διεύθυνση1"
+
+msgid "Bank Name"
+msgstr "Όνομα τράπεζας"
+
+msgid "Non deductible"
+msgstr "Μη εκπιπτόμενο"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "Κατάθεση"
+
+msgid "Schedule"
+msgstr "Πρόγραμμα"
+
+msgid "Amount"
+msgstr "Ποσό"
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "Electronic Transaction Details"
+msgstr "Λεπτομέρειες ηλεκτρονικής συναλλαγής"
+
+msgid "TOTAL"
+msgstr "ΣΥΝΟΛΟ"
+
+msgid "Family"
+msgstr "Οικογένεια"
+
+msgid "Person"
+msgstr "Πρόσωπο"
+
+msgid "Anonymous"
+msgstr "Ανώνυμο"
+
+msgid "Fund"
+msgstr "Ταμείο"
+
+msgid "Pledge or payment"
+msgstr "Ενέχυρο ή πληρωμή"
+
+msgid "Method"
+msgstr "Μέθοδος"
+
+msgid "Check Number"
+msgstr "Αριθμός ελέγχου"
+
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgid "Deposit ID"
+msgstr "Αναγνωριστικό κατάθεσης"
+
+msgid "Deposit Date"
+msgstr "Ημερομηνία κατάθεσης"
+
+msgid "Deposit Total"
+msgstr "Κατάθεση Σύνολο"
+
+msgid "Deposit Comment"
+msgstr "Σχόλιο κατάθεσης"
+
+msgid "Closed"
+msgstr "Κλειστό"
+
+msgid "Deposit Type"
+msgstr "Τύπος κατάθεσης"
+
+msgid "Export"
+msgstr "Εξαγωγή"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr ""
+"Δημιουργία αποδεικτικού κατάθεσης για "
+"επιλεγμένο"
+
+msgid "Rows"
+msgstr "Σειρές"
+
+msgid "Your operation completed successfully."
+msgstr "Η λειτουργία σας ολοκληρώθηκε με επιτυχία."
+
+msgid "Full Name"
+msgstr "Ονοματεπώνυμο"
+
+msgid "Text"
+msgstr "Κείμενο"
+
+msgid "Date Entered"
+msgstr "Ημερομηνία καταχώρησης"
+
+msgid "Date Last Edited"
+msgstr "Ημερομηνία τελευταίας επεξεργασίας"
+
+msgid "Edited By Name"
+msgstr "Επεξεργασία με όνομα"
+
+msgid "Deactivated"
+msgstr "Απενεργοποιημένο"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Προειδοποίηση: Διαγράφοντας αυτό το πεδίο, "
+"θα χάσετε αμετάκλητα όλα τα δεδομένα ομάδας "
+"που έχουν εκχωρηθεί για αυτό το πεδίο!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr ""
+"Επιβεβαίωση Ενεργοποίηση ειδικών "
+"ιδιοτήτων ομάδας"
+
+msgid ""
+"This will create a group-specific properties table for this group. You should "
+"then add needed properties with the Group-Specific Properties Form Editor."
+msgstr ""
+"Με αυτόν τον τρόπο θα δημιουργηθεί ένας "
+"ειδικός πίνακας ιδιοτήτων ομάδας για αυτήν "
+"την ομάδα. Στη συνέχεια, θα πρέπει να "
+"προσθέσετε τις απαραίτητες ιδιότητες με "
+"τον Επεξεργαστή Φόρμας Ιδιοτήτων Ειδικής "
+"Ομάδας."
+
+msgid "Enable Group Specific Properties"
+msgstr ""
+"Ενεργοποίηση συγκεκριμένων ιδιοτήτων "
+"ομάδας"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr ""
+"Επιβεβαίωση απενεργοποίησης συγκεκριμένων "
+"ιδιοτήτων ομάδας"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All group "
+"member properties data will be lost!"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να καταργήσετε "
+"τις ιδιότητες των ατόμων που ανήκουν σε "
+"συγκεκριμένες ομάδες; Όλα τα δεδομένα των "
+"ιδιοτήτων των μελών της ομάδας θα χαθούν!"
+
+msgid "Disable Group Specific Properties"
+msgstr ""
+"Απενεργοποίηση συγκεκριμένων ιδιοτήτων "
+"ομάδας"
+
+msgid "Confirm Delete Role"
+msgstr "Επιβεβαίωση Διαγραφή ρόλου"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr ""
+"Αυτό θα διαγράψει επίσης όλα τα μέλη που "
+"σχετίζονται με αυτόν το ρόλο."
+
+msgid "A group should have at least one role!"
+msgstr ""
+"Μια ομάδα πρέπει να έχει τουλάχιστον έναν "
+"ρόλο!"
+
+msgid "Role Name"
+msgstr "Όνομα ρόλου"
+
+msgid "The role name is now modified."
+msgstr "Το όνομα του ρόλου έχει πλέον τροποποιηθεί."
+
+msgid "Make Default"
+msgstr "Κάντε προεπιλογή"
+
+msgid "Default"
+msgstr "Προεπιλογή"
+
+msgid "Sequence"
+msgstr "Ακολουθία"
+
+msgid "Members"
+msgstr "Μέλη"
+
+msgid "Group Cart Status"
+msgstr "Κατάσταση καλαθιού ομάδας"
+
+msgid "All members of this group are in the cart"
+msgstr ""
+"Όλα τα μέλη αυτής της ομάδας βρίσκονται στο "
+"καλάθι"
+
+msgid "Remove all"
+msgstr "Αφαιρέστε όλα"
+
+msgid "Not all members of this group are in the cart"
+msgstr ""
+"Δεν είναι όλα τα μέλη αυτής της ομάδας στο "
+"καλάθι"
+
+msgid "Add all"
+msgstr "Προσθέστε όλα"
+
+msgid "Cart isn't showable"
+msgstr "Το καλάθι δεν μπορεί να εμφανιστεί"
+
+msgid "Group Type"
+msgstr "Τύπος ομάδας"
+
+msgid "Unassigned"
+msgstr "Μη ανατεθείσα"
+
+msgid "Value"
+msgstr "Αξία"
+
+msgid "Confirm Delete Group"
+msgstr "Επιβεβαίωση Διαγραφή ομάδας"
+
+msgid "Please confirm deletion of this group record"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε τη διαγραφή αυτής "
+"της εγγραφής ομάδας"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated with "
+"this Group record."
+msgstr ""
+"Αυτό θα διαγράψει επίσης όλους τους ρόλους "
+"και τα δεδομένα ιδιοτήτων που σχετίζονται "
+"με αυτή την εγγραφή ομάδας."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Όλα τα μέλη και οι ιδιότητες της ομάδας θα "
+"καταστραφούν.  Τα ίδια τα μέλη της ομάδας "
+"δεν θα τροποποιηθούν."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να καταργήσετε "
+"την ανάθεση αυτής της ιδιότητας;"
+
+msgid "Are you sure you want to change this property?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αλλάξετε αυτή "
+"την ιδιότητα;"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να καταργήσετε τα "
+"επιλεγμένα μέλη της ομάδας;"
+
+msgid "Group Role"
+msgstr "Ρόλος ομάδας"
+
+msgid "Private Data"
+msgstr "Ιδιωτικά δεδομένα"
+
+msgid "Zip Code"
+msgstr "Ταχυδρομικός κώδικας"
+
+msgid "Cell Phone"
+msgstr "Κινητό τηλέφωνο"
+
+msgid "Members from group"
+msgstr "Μέλη από την ομάδα"
+
+msgid "Add"
+msgstr "Προσθέστε"
+
+msgid "Members to another group"
+msgstr "Μέλη σε άλλη ομάδα"
+
+msgid "Members to cart"
+msgstr "Μέλη στο καλάθι"
+
+msgid "Move"
+msgstr "Μετακίνηση"
+
+msgid "Remove from Cart"
+msgstr "Αφαίρεση από το καλάθι"
+
+msgid "Add to Cart"
+msgstr "Προσθήκη στο καλάθι"
+
+msgid "No assigned Manager"
+msgstr "Δεν έχει οριστεί διαχειριστής"
+
+msgid "Manage Group Managers"
+msgstr "Διαχείριση διαχειριστών ομάδων"
+
+msgid "Add person"
+msgstr "Προσθήκη ατόμου"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε "
+"αυτόν τον Διαχειριστή;"
+
+msgid "Delete Managers"
+msgstr "Διαγραφή διαχειριστών"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr ""
+"Είστε σίγουρος ότι θέλετε να διαγράψετε "
+"όλους τους διαχειριστές;"
+
+msgid "Appointment"
+msgstr "Ραντεβού"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε "
+"αυτή την οικογένεια από το CRM"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε "
+"όλες τις οικογένειες από το CRM"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"Δεν διαγράφηκαν όλες οι οικογένειες : "
+"Ορισμένες από αυτές έχουν αρχεία δωρεών και "
+"δεν μπορούν να διαγραφούν μέχρις ότου οι "
+"δωρεές αυτές συσχετιστούν με άλλη "
+"οικογένεια."
+
+msgid "Confirm Deactivation"
+msgstr "Επιβεβαίωση απενεργοποίησης"
+
+msgid "Confirm Activation"
+msgstr "Επιβεβαίωση ενεργοποίησης"
+
+msgid "Please confirm deactivation of family"
+msgstr ""
+"Παρακαλούμε επιβεβαιώστε την "
+"απενεργοποίηση της οικογένειας"
+
+msgid "Please confirm activation of family"
+msgstr ""
+"Επιβεβαιώστε την ενεργοποίηση της "
+"οικογένειας"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask all "
+"the persons of the family first, if you want to re-activate the account "
+"!<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Να είστε προσεκτικοί με το GDPR, όταν μια "
+"οικογένεια απενεργοποιείται, θα πρέπει να "
+"ρωτήσετε πρώτα όλα τα άτομα της "
+"οικογένειας, αν θέλετε να ενεργοποιήσετε "
+"ξανά το λογαριασμό !<br><br>ΧΩΡΙΣ ΚΑΜΙΑ "
+"ΑΔΕΙΟΔΟΤΗΣΗ, το GDPR ΚΑΝΕΙ ΠΑΡΑΝΟΜΗ ΤΗ ΧΡΗΣΗ "
+"ΑΥΤΗΣ ΤΗΣ ΟΙΚΟΓΕΝΕΙΑΣ !!!!!"
+
+msgid "Family Photo"
+msgstr "Οικογενειακή φωτογραφία"
+
+msgid "Verification email sent"
+msgstr "Αποστολή email επαλήθευσης"
+
+msgid "Failed to send verification email"
+msgstr "Απέτυχε να στείλει email επαλήθευσης"
+
+msgid "Failed to add verification"
+msgstr "Αποτυχία προσθήκης επαλήθευσης"
+
+msgid "Verification URL"
+msgstr "URL επαλήθευσης"
+
+msgid "Bank Draft"
+msgstr "Τραπεζική επιταγή"
+
+msgid "Credit Card"
+msgstr "Πιστωτική κάρτα"
+
+msgid "Disabled"
+msgstr "Άτομα με ειδικές ανάγκες"
+
+msgid "Next payment date"
+msgstr "Επόμενη ημερομηνία πληρωμής"
+
+msgid "Interval (months)"
+msgstr "Διάστημα (μήνες)"
+
+msgid "Updated By"
+msgstr "Ενημερώθηκε από"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Επιβεβαίωση Διαγραφή Αυτόματη πληρωμή"
+
+msgid "Pledge or Payment"
+msgstr "Ενέχυρο ή πληρωμή"
+
+msgid "Dep ID"
+msgstr "Dep ID"
+
+msgid "Fiscal Year"
+msgstr "Οικονομικό έτος"
+
+msgid "NonDeductible"
+msgstr "Μη εκπεστέα"
+
+msgid "CHECK"
+msgstr "ΕΛΕΓΧΟΣ"
+
+msgid "Date Updated"
+msgstr "Ημερομηνία ενημέρωσης"
+
+msgid "Delete this person?"
+msgstr "Να διαγράψω αυτό το άτομο;"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr ""
+"Θέλετε να διαγράψετε αυτό το άτομο; Αυτό δεν "
+"μπορεί να αναιρεθεί."
+
+msgid "Save your note"
+msgstr "Αποθηκεύστε τη σημείωσή σας"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr ""
+"Θέλετε να αποθηκεύσετε τη σημείωσή σας ως "
+"αρχείο Word στο EDrive σας;"
+
+msgid "Family Id"
+msgstr "Οικογενειακή ταυτότητα"
+
+msgid "Valid Until"
+msgstr "Ισχύει μέχρι"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε "
+"αυτό το άτομο από το CRM"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε όλα "
+"τα άτομα από το CRM"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"Δεν διαγράφηκαν όλα τα πρόσωπα : Ορισμένα "
+"από αυτά έχουν αρχεία δωρεών και δεν "
+"μπορούν να διαγραφούν μέχρις ότου οι δωρεές "
+"αυτές συσχετιστούν με άλλη οικογένεια."
+
+msgid "Please confirm deactivation of person"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε την απενεργοποίηση "
+"του ατόμου"
+
+msgid "Please confirm activation of person"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε την ενεργοποίηση του "
+"ατόμου"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask the "
+"person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Να είστε προσεκτικοί με το GDPR, όταν ένα "
+"άτομο απενεργοποιείται, πρέπει να ρωτήσετε "
+"πρώτα το άτομο, αν θέλετε να ενεργοποιήσετε "
+"ξανά το λογαριασμό !<br><br>ΧΩΡΙΣ ΚΑΜΙΑ "
+"ΑΔΕΙΟΔΟΤΗΣΗ, ΤΟ GDPR ΚΑΘΙΣΤΕΙ ΤΗ ΧΡΗΣΗ ΑΥΤΟΥ "
+"ΤΟΥ ΠΡΟΣΩΠΟΥ ΠΑΡΑΝΟΜΗ !!!!!"
+
+msgid "Deactivate"
+msgstr "Απενεργοποίηση"
+
+msgid "Activate"
+msgstr "Ενεργοποίηση"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να αφαιρέσετε την "
+"ιδιότητα μέλους αυτού του ατόμου από το"
+
+msgid "Change classification"
+msgstr "Αλλαγή ταξινόμησης"
+
+msgid "Change role"
+msgstr "Αλλαγή ρόλου"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr ""
+"Επιβεβαίωση Διαγραφή εθελοντικής "
+"ευκαιρίας"
+
+msgid "Comments"
+msgstr "Σχόλια"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Προειδοποίηση: Διαγράφοντας αυτό το πεδίο, "
+"θα χάσετε αμετάκλητα όλα τα οικογενειακά "
+"δεδομένα που έχουν οριστεί για αυτό το "
+"πεδίο!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Αν διαγράψετε το ταμείο, <u><b>θα χάσετε όλα τα "
+"συνδεδεμένα δεδομένα.</b></u><br><b>Είστε "
+"σίγουρος; Αυτή η ενέργεια δεν μπορεί να "
+"αναιρεθεί.</b>"
+
+msgid "Fund Editor"
+msgstr "Συντάκτης Ταμείου"
+
+msgid "Add Fund"
+msgstr "Προσθήκη Ταμείου"
+
+msgid "Validate"
+msgstr "Επικύρωση"
+
+msgid "Place"
+msgstr "Τόπος"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr ""
+"Αυτός ο σύνδεσμος πρέπει να αρχίζει με : "
+"http://.... ή https://...."
+
+msgid "Global Custom Menus"
+msgstr "Παγκόσμια προσαρμοσμένα μενού"
+
+msgid "Dashboard"
+msgstr "Ταμπλό"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Αν διαγράψετε το σύνδεσμο μενού, <u><b>θα "
+"χάσετε όλα τα συνδεδεμένα "
+"δεδομένα.</b></u><br><b>Είστε σίγουρος; Αυτή η "
+"ενέργεια δεν μπορεί να αναιρεθεί.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr ""
+"Επεξεργαστής συνδέσμων προσαρμοσμένου "
+"μενού"
+
+msgid "Add Custom Menu Link"
+msgstr "Προσθήκη συνδέσμου προσαρμοσμένου μενού"
+
+msgid "Delete Classification"
+msgstr "Διαγραφή ταξινόμησης"
+
+msgid "Please confirm deletion of this classification"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε τη διαγραφή αυτής "
+"της ταξινόμησης"
+
+msgid "This will also delete this Classification for all the associated persons."
+msgstr ""
+"Αυτό θα διαγράψει επίσης την εν λόγω "
+"Ταξινόμηση για όλα τα συνδεδεμένα πρόσωπα."
+
+msgid "Map Icon GoogleMap"
+msgstr "Εικονίδιο χάρτη GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Επιλέξτε το εικονίδιο ταξινόμησής σας"
+
+msgid "Visible"
+msgstr "Ορατό"
+
+msgid "Visible for other authorized users"
+msgstr "Ορατό για άλλους εξουσιοδοτημένους χρήστες"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Αν διαγράψετε τον τύπο ποιμαντικής "
+"φροντίδας, <u><b>θα χάσετε όλα τα συνδεδεμένα "
+"δεδομένα.</b></u><br><b>Είστε σίγουρος; Αυτή η "
+"ενέργεια δεν μπορεί να αναιρεθεί.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Εκδότης τύπου ποιμαντικής φροντίδας"
+
+msgid "Add Pastoral Care Type"
+msgstr "Προσθήκη τύπου ποιμαντικής φροντίδας"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Προειδοποίηση: Διαγράφοντας αυτό το πεδίο, "
+"θα χάσετε αμετάκλητα όλα τα δεδομένα "
+"προσώπου που έχουν οριστεί για αυτό το "
+"πεδίο!"
+
+msgid "with this Property..."
+msgstr "με αυτό το ακίνητο..."
+
+msgid "Prompt"
+msgstr "Προτροπή"
+
+msgid "Select Property Type"
+msgstr "Επιλέξτε Τύπος ακινήτου"
+
+msgid "with this property..."
+msgstr "με αυτό το ακίνητο..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr ""
+"Πρόκειται να διαγράψετε αυτή την ιδιότητα. "
+"Θέλετε να συνεχίσετε;"
+
+msgid "Property Type Editor"
+msgstr "Επεξεργαστής Τύπου Ιδιοκτησίας"
+
+msgid "Add a New Property"
+msgstr "Προσθήκη νέας ιδιοκτησίας"
+
+msgid "Class"
+msgstr "Τάξη"
+
+msgid "You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"Πρόκειται να διαγράψετε αυτές τις γενικές "
+"ιδιότητες. Θέλετε να συνεχίσετε;"
+
+msgid "This general property type is still being used by"
+msgstr ""
+"Αυτός ο γενικός τύπος ιδιοκτησίας "
+"εξακολουθεί να χρησιμοποιείται από"
+
+msgid "property"
+msgstr "ιδιοκτησία"
+
+msgid "properties"
+msgstr "ιδιότητες"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"Εάν διαγράψετε αυτόν τον τύπο, θα "
+"αφαιρέσετε επίσης όλες τις ιδιότητες που "
+"χρησιμοποιούν"
+
+msgid "it and lose any corresponding property assignments."
+msgstr ""
+"και να χάσει τυχόν αντίστοιχες αναθέσεις "
+"ιδιοκτησίας."
+
+msgid "Add a New Property Type"
+msgstr "Προσθήκη νέου τύπου ιδιοκτησίας"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Προσθήκη νέας ευκαιρίας εθελοντισμού"
+
+msgid "Send Message"
+msgstr "Αποστολή μηνύματος"
+
+msgid "View Profile"
+msgstr "Προφίλ"
+
+msgid "Teachers"
+msgstr "Εκπαιδευτικοί"
+
+msgid "Delete this Teacher?"
+msgstr "Να διαγράψω αυτόν τον δάσκαλο;"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr ""
+"Θέλετε να διαγράψετε αυτόν τον δάσκαλο; "
+"Αυτό δεν μπορεί να αναιρεθεί."
+
+msgid "First name"
+msgstr "Όνομα"
+
+msgid "Birth Date"
+msgstr "Ημερομηνία γέννησης"
+
+msgid "Unknown"
+msgstr "Άγνωστος"
+
+msgid "Boy"
+msgstr "Αγόρι"
+
+msgid "Girl"
+msgstr "Κορίτσι"
+
+msgid "Age"
+msgstr "Ηλικία"
+
+msgid "Mobile"
+msgstr "Κινητό"
+
+msgid "Home Phone"
+msgstr "Οικιακό τηλέφωνο"
+
+msgid "Home Address"
+msgstr "Διεύθυνση κατοικίας"
+
+msgid "Dad Name"
+msgstr "Όνομα μπαμπά"
+
+msgid "Dad Mobile"
+msgstr "Κινητό μπαμπά"
+
+msgid "Dad Email"
+msgstr "Μπαμπάς Email"
+
+msgid "Mom Name"
+msgstr "Όνομα μαμάς"
+
+msgid "Mom Mobile"
+msgstr "Κινητό μαμά"
+
+msgid "Mom Email"
+msgstr "Μαμά Email"
+
+msgid "Remove Students from Cart"
+msgstr "Αφαίρεση μαθητών από το καλάθι"
+
+msgid "Add Students to Cart"
+msgstr "Προσθήκη μαθητών στο καλάθι"
+
+msgid "Remove Teachers from Cart"
+msgstr "Αφαιρέστε τους δασκάλους από το καλάθι"
+
+msgid "Add Teachers to Cart"
+msgstr "Προσθήκη δασκάλων στο καλάθι"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr ""
+"Επιλέξτε τον Τύπο συμβάντος που θέλετε να "
+"χρησιμοποιήσετε για να δημιουργήσετε το "
+"Attendance."
+
+msgid "Create Event With Students"
+msgstr "Δημιουργία εκδήλωσης με μαθητές"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday school "
+"class to call the register."
+msgstr ""
+"Προσοχή! Πρόκειται να δημιουργήσετε ή να "
+"αναδημιουργήσετε ένα γεγονός αυτής της "
+"τάξης του κατηχητικού σχολείου για να "
+"καλέσετε το μητρώο."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"Εάν η εκδήλωση έχει ήδη δημιουργηθεί, "
+"μεταβείτε στο μενού \"Εκδηλώσεις\" και, στη "
+"συνέχεια, \"Κλήση στο μητρώο\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr ""
+"Πρώτον, ρυθμίστε σωστά το χρονικό εύρος για "
+"να κάνετε την εξαγωγή."
+
+msgid "Set year range to export"
+msgstr "Ορισμός εύρους ετών για εξαγωγή"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr ""
+"Κατ' αρχάς, ορίστε σωστά το εύρος "
+"ημερομηνιών σας για να κάνετε την εξαγωγή."
+
+msgid "Extra students"
+msgstr "Επιπλέον φοιτητές"
+
+msgid "export with photos"
+msgstr "εξαγωγή με φωτογραφίες"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the Sunday "
+"school classes to call the register."
+msgstr ""
+"Προσοχή! Πρόκειται να δημιουργήσετε ή να "
+"αναδημιουργήσετε όλα τα γεγονότα όλων των "
+"τάξεων του κυριακάτικου σχολείου για να "
+"καλέσετε το μητρώο."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"Εάν οι εκδηλώσεις έχουν ήδη δημιουργηθεί, "
+"μεταβείτε στο μενού \"Εκδηλώσεις\" και, στη "
+"συνέχεια, \"Κλήση του μητρώου\"."
+
+msgid "First, set your date and time."
+msgstr "Πρώτον, ορίστε την ημερομηνία και την ώρα."
+
+msgid "Time"
+msgstr "Χρόνος"
+
+msgid "Call the Register for all sunday groups"
+msgstr ""
+"Καλέστε το Μητρώο για όλες τις κυριακάτικες "
+"ομάδες"
+
+msgid "At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Τουλάχιστον μία ομάδα πρέπει να επιλεγεί "
+"για να φτιάξει λίστες τάξης ή "
+"παρουσιολόγια."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr ""
+"Πρέπει να ορίσετε έναν Τίτλο και μια "
+"Περιγραφή για το θέμα σας."
+
+msgid "Trigger Parent Alert"
+msgstr "Συναγερμός γονέων"
+
+msgid "Kiosk"
+msgstr "Περίπτερο"
+
+msgid "No assignments for kiosk"
+msgstr "Δεν υπάρχουν αναθέσεις για το περίπτερο"
+
+msgid "Event"
+msgstr "Εκδήλωση"
+
+msgid "Kiosk Name"
+msgstr "Όνομα περιπτέρου"
+
+msgid "Assignment"
+msgstr "Ανάθεση"
+
+msgid "Last Heartbeat"
+msgstr "Τελευταίος καρδιακός παλμός"
+
+msgid "Accepted"
+msgstr "Αποδεκτή"
+
+msgid "True"
+msgstr "Αλήθεια"
+
+msgid "False"
+msgstr "Ψευδές"
+
+msgid "Reload"
+msgstr "Επαναφόρτωση"
+
+msgid "Identify"
+msgstr "Προσδιορίστε το"
+
+msgid "Accept"
+msgstr "Αποδοχή"
+
+msgid "The user must have an email address."
+msgstr ""
+"Ο χρήστης πρέπει να διαθέτει διεύθυνση "
+"ηλεκτρονικού ταχυδρομείου."
+
+msgid "Role management"
+msgstr "Διαχείριση ρόλων"
+
+msgid "Select your Role"
+msgstr "Επιλέξτε το ρόλο σας"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr ""
+"Είσαι σίγουρος; Είστε έτοιμοι να διαγράψετε "
+"αυτόν τον Ρόλο."
+
+msgid "Rename"
+msgstr "Μετονομασία"
+
+msgid "Choose a Role Name"
+msgstr "Επιλέξτε ένα όνομα ρόλου"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name already "
+"exist !!!</center>"
+msgstr ""
+"<center>Πρέπει να ορίσετε ένα άλλο όνομα ρόλου "
+"<br>-- ή --<br> αυτό το όνομα ρόλου υπάρχει ήδη "
+"!!!</center>"
+
+msgid "You've to check at least one user."
+msgstr "Πρέπει να ελέγξετε τουλάχιστον έναν χρήστη."
+
+msgid "The WebDav Key is"
+msgstr "Το κλειδί WebDav είναι"
+
+msgid "The public WebDav Key is"
+msgstr "Το δημόσιο κλειδί WebDav είναι"
+
+msgid "WebDav key"
+msgstr "Κλειδί WebDav"
+
+msgid "is now locked"
+msgstr "είναι τώρα κλειδωμένο"
+
+msgid "is now unlocked"
+msgstr "είναι τώρα ξεκλείδωτη"
+
+msgid "User Delete Confirmation"
+msgstr "Επιβεβαίωση διαγραφής χρήστη"
+
+msgid "Please confirm removal of user status from:"
+msgstr ""
+"Παρακαλούμε επιβεβαιώστε την αφαίρεση της "
+"κατάστασης χρήστη από:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, the "
+"Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Να είστε προσεκτικοί, Πρόκειται να χάσετε "
+"το φάκελο home και τα σχετικά αρχεία, τα "
+"ημερολόγια, τα ημερολόγια κοινής χρήσης και "
+"όλα τα συμβάντα επίσης, για"
+
+msgid "This can't be undone"
+msgstr "Αυτό δεν μπορεί να αναιρεθεί"
+
+msgid "Action Confirmation"
+msgstr "Επιβεβαίωση δράσης"
+
+msgid "Please confirm reset failed login count"
+msgstr ""
+"Παρακαλούμε επιβεβαιώστε την επαναφορά του "
+"αριθμού αποτυχημένων συνδέσεων"
+
+msgid "Reset failed login count for"
+msgstr ""
+"Επαναφορά του αριθμού αποτυχημένων "
+"συνδέσεων για"
+
+msgid "done."
+msgstr "έγινε."
+
+msgid "Please confirm the password reset of this user"
+msgstr ""
+"Παρακαλώ επιβεβαιώστε την επαναφορά του "
+"κωδικού πρόσβασης αυτού του χρήστη"
+
+msgid "Password reset for"
+msgstr "Επαναφορά κωδικού πρόσβασης για"
+
+msgid "Saving Campaign ..."
+msgstr "Εξοικονόμηση εκστρατείας ..."
+
+msgid "Campaign"
+msgstr "Εκστρατεία"
+
+msgid "saved successfully"
+msgstr "αποθηκεύτηκε με επιτυχία"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr ""
+"Είστε έτοιμοι να στείλετε την καμπάνια σας! "
+"Είστε σίγουροι;"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr ""
+"Πρόκειται να διαγράψετε την καμπάνια σας! "
+"Είσαι σίγουρος;"
+
+msgid "Loading datas ..."
+msgstr "Φόρτωση δεδομένων ..."
+
+msgid "No list are created with this account ...."
+msgstr ""
+"Δεν δημιουργούνται λίστες με αυτόν τον "
+"λογαριασμό ...."
+
+msgid "Email List"
+msgstr "Λίστα ηλεκτρονικού ταχυδρομείου"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Θέμα"
+
+msgid "Members:"
+msgstr "Μέλη:"
+
+msgid "Campaigns:"
+msgstr "Εκστρατείες:"
+
+msgid "Unsubscribed count:"
+msgstr "Αριθμός μη εγγεγραμμένων:"
+
+msgid "Unsubscribed count since last send:"
+msgstr ""
+"Αριθμός μη εγγεγραμμένων από την τελευταία "
+"αποστολή:"
+
+msgid "Cleaned count:"
+msgstr "Καθαρισμένο μέτρημα:"
+
+msgid "Cleaned count since last send:"
+msgstr ""
+"Καθαρισμένη μέτρηση από την τελευταία "
+"αποστολή:"
+
+msgid "Campaigns"
+msgstr "Εκστρατείες"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "is not configured"
+msgstr "δεν έχει ρυθμιστεί"
+
+msgid "Please update the"
+msgstr "Ενημερώστε το"
+
+msgid "API key in Setting->"
+msgstr "Κλειδί API στο Setting->"
+
+msgid "Edit General Settings"
+msgstr "Επεξεργασία γενικών ρυθμίσεων"
+
+msgid "then update"
+msgstr "στη συνέχεια, ενημερώστε"
+
+msgid "For more info see our "
+msgstr "Για περισσότερες πληροφορίες δείτε το"
+
+msgid "support docs."
+msgstr "έγγραφα υποστήριξης."
+
+msgid "List Creation"
+msgstr "Δημιουργία λίστας"
+
+msgid "List Title"
+msgstr "Τίτλος λίστας"
+
+msgid "Your List Title"
+msgstr "Ο τίτλος της λίστας σας"
+
+msgid "Your Subject"
+msgstr "Το θέμα σας"
+
+msgid "Permission Reminder"
+msgstr "Υπενθύμιση άδειας"
+
+msgid "Archive Bars"
+msgstr "Μπαρ αρχείου"
+
+msgid "Public"
+msgstr "Δημόσιο"
+
+msgid "People"
+msgstr "Άνθρωποι"
+
+msgid "Families"
+msgstr "Οικογένειες"
+
+msgid "Add a new tag"
+msgstr "Προσθήκη νέας ετικέτας"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Διαγραφή ετικέτας από συνδρομητές"
+
+msgid "Delete tag"
+msgstr "Διαγραφή ετικέτας"
+
+msgid "Loading resources ..."
+msgstr "Φόρτωση πόρων ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Πρόκειται να διαγράψετε μια ετικέτα!"
+
+msgid "This will also delete the tag for all the members in this list. Are you sure ?"
+msgstr ""
+"Αυτό θα διαγράψει επίσης την ετικέτα για "
+"όλα τα μέλη αυτής της λίστας. Είστε "
+"σίγουροι;"
+
+msgid "Deleting tag"
+msgstr "Διαγραφή ετικέτας"
+
+msgid "A person name or Family or Group"
+msgstr "Όνομα προσώπου ή οικογένειας ή ομάδας"
+
+msgid "Loading subscriber"
+msgstr "Φόρτωση συνδρομητή"
+
+msgid "Loading subscribers from Group"
+msgstr "Φόρτωση συνδρομητών από Ομάδα"
+
+msgid "Loading subscribers from family"
+msgstr "Φόρτωση συνδρομητών από την οικογένεια"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Φόρτωση όλων των ατόμων από το EcclesiaCRM<br>Αυτό "
+"μπορεί να πάρει λίγο χρόνο!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns "
+"after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Στην πραγματικότητα, καλύτερα να κλείσετε "
+"το CRM, να περιμένετε 5 λεπτά και να κάνετε τις "
+"καμπάνιες σας μετά.<br>Για την εισαγωγή "
+"τεράστιων δεδομένων, το API του MailChimp είναι "
+"αργό."
+
+msgid "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Φόρτωση όλων των συνδρομητών του "
+"ενημερωτικού δελτίου από το EcclesiaCRM<br>Αυτό "
+"μπορεί να πάρει λίγο χρόνο!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This could "
+"take a while !"
+msgstr ""
+"Φόρτωση όλων των οικογενειών των πρώτων "
+"headpeople συνδρομητών από το EcclesiaCRM<br>Αυτό "
+"μπορεί να πάρει λίγο χρόνο!"
+
+msgid "Email Marketing"
+msgstr "Μάρκετινγκ ηλεκτρονικού ταχυδρομείου"
+
+msgid "Select status for : "
+msgstr "Επιλέξτε κατάσταση για :"
+
+msgid "Subscribed"
+msgstr "Συνδρομημένος"
+
+msgid "Unsubscribed"
+msgstr "Μη εγγεγραμμένοι"
+
+msgid "Changing status ..."
+msgstr "Αλλαγή κατάστασης ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr ""
+"Πρόκειται να διαγράψετε έναν συνδρομητή! "
+"Είσαι σίγουρος;"
+
+msgid "Deleting Subscriber..."
+msgstr "Διαγραφή συνδρομητή..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr ""
+"Θέλετε πραγματικά να διαγράψετε αυτή τη "
+"λίστα αλληλογραφίας;"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να διαγράψετε "
+"όλους τους συνδρομητές"
+
+msgid "Deleting all subscribers..."
+msgstr "Διαγραφή όλων των συνδρομητών..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open it "
+"to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Στην πραγματικότητα, είναι προτιμότερο να "
+"αφήσετε το CRM και σε ένα τέταρτο της ώρας να "
+"το ανοίξετε ξανά για να διαχειριστείτε τη "
+"λίστα σας.<br>Για να διαγράψετε τεράστια "
+"δεδομένα, το API του MailChimp είναι αργό."
+
+msgid "Email Campaign Creation"
+msgstr "Δημιουργία καμπάνιας email"
+
+msgid "Campaign Title"
+msgstr "Τίτλος καμπάνιας"
+
+msgid "Your Campaign Title"
+msgstr "Ο τίτλος της καμπάνιας σας"
+
+msgid "For Tag"
+msgstr "Για ετικέτα"
+
+msgid "Mail Subject"
+msgstr "Θέμα αλληλογραφίας"
+
+msgid "Your Mail Subject"
+msgstr "Το θέμα της αλληλογραφίας σας"
+
+msgid "All list members"
+msgstr "Όλα τα μέλη του καταλόγου"
+
+msgid "Adding Campaign ..."
+msgstr "Προσθήκη εκστρατείας ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr ""
+"Θα θέλατε να διαχειριστείτε άμεσα αυτή τη "
+"νέα καμπάνια ?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+"Πρέπει να ορίσετε έναν τίτλο καμπάνιας για "
+"την καμπάνια eMail σας"
+
+msgid "List Name"
+msgstr "Όνομα λίστας"
+
+msgid "Changing subscribers state..."
+msgstr "Αλλαγή κατάστασης συνδρομητών..."
+
+msgid "All Tags"
+msgstr "Όλες οι ετικέτες"
+
+msgid "Choose the tag you want to delete :"
+msgstr ""
+"Επιλέξτε την ετικέτα που θέλετε να "
+"διαγράψετε :"
+
+msgid "Removing tags..."
+msgstr "Αφαίρεση ετικετών..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+"Διαγραφή όλων των ετικετών για τα "
+"επιλεγμένα μέλη στη λίστα..."
+
+msgid "Add your tag name"
+msgstr "Προσθέστε το όνομα της ετικέτας σας"
+
+msgid "Adding tag..."
+msgstr "Προσθήκη ετικέτας..."
+
+msgid "Name is empty !!"
+msgstr "Το όνομα είναι άδειο !!"
+
+msgid "Add tag?"
+msgstr "Προσθήκη ετικέτας;"
+
+msgid "This will add the tag"
+msgstr "Αυτό θα προσθέσει την ετικέτα"
+
+msgid "to all the current selected members in the list."
+msgstr ""
+"σε όλα τα τρέχοντα επιλεγμένα μέλη της "
+"λίστας."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr ""
+"Πρόκειται να διαγράψετε συνδρομητές! Είσαι "
+"σίγουρος;"
+
+msgid "Deleting Subscribers..."
+msgstr "Διαγραφή συνδρομητών..."
+
+msgid "Problem"
+msgstr "Πρόβλημα"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Το Safari δεν υποστηρίζεται ακόμη από το Jitsi, "
+"χρησιμοποιήστε κάτι άλλο !<br/>- Η κάμερα web<br/>- "
+"Η κοινή χρήση των παραθύρων σας<br/> δεν θα "
+"λειτουργήσει με τη συνάντηση."
+
+msgid "Set a Jitsi room name"
+msgstr "Ορισμός ονόματος δωματίου Jitsi"
+
+msgid "Delete all Rooms?"
+msgstr "Διαγραφή όλων των δωματίων;"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Πρόκειται να διαγράψετε όλα τα δωμάτιά σας."
+
+msgid "You must enter a password"
+msgstr "Πρέπει να εισαγάγετε έναν κωδικό πρόσβασης"
+
+msgid "Passwords must match"
+msgstr "Οι κωδικοί πρόσβασης πρέπει να ταιριάζουν"
+
+msgid "Backup Running, Please wait."
+msgstr ""
+"Δημιουργία αντιγράφων ασφαλείας σε "
+"εξέλιξη, παρακαλώ περιμένετε."
+
+msgid "Backup Generated and copied to remote server"
+msgstr ""
+"Δημιουργία αντιγράφων ασφαλείας και "
+"αντιγραφή σε απομακρυσμένο διακομιστή"
+
+msgid "Backup Complete, Ready for Download."
+msgstr ""
+"Η δημιουργία αντιγράφων ασφαλείας "
+"ολοκληρώθηκε, έτοιμη για λήψη."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr ""
+"Λήψη αντιγράφου ασφαλείας, αντίγραφο στον "
+"διακομιστή αφαιρεθεί"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Το επιλεγμένο αρχείο υπερβαίνει το μέγιστο "
+"μέγεθος μεταφόρτωσης αυτού του διακομιστή"
+
+msgid "Restore Running, Please wait."
+msgstr ""
+"Η επαναφορά εκτελείται, παρακαλώ "
+"περιμένετε."
+
+msgid "Restore Complete"
+msgstr "Ολοκλήρωση της επαναφοράς"
+
+msgid "Login to restored Database"
+msgstr "Σύνδεση στην αποκατεστημένη βάση δεδομένων"
+
+msgid "Restore Error."
+msgstr "Σφάλμα επαναφοράς."
+
+msgid "In progress...."
+msgstr "Σε εξέλιξη...."
+
+msgid "Done !"
+msgstr "Έγινε!"
+
+msgid "All Groups"
+msgstr "Όλες οι ομάδες"
+
+msgid "All Roles"
+msgstr "Όλοι οι ρόλοι"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Φωτογραφίες"
+
+msgid "Search result"
+msgstr "Αποτελέσματα αναζήτησης"
+
+msgid "Property Name"
+msgstr "Όνομα ακινήτου"
+
+msgid "Loading people in cart...."
+msgstr "Φόρτωση ανθρώπων σε cart...."
+
+msgid "Loading finished...."
+msgstr "Φόρτωση τελικού...."
+
+msgid "Removing people in cart...."
+msgstr "Απομάκρυνση ατόμων στο cart...."
+
+msgid "Removing finished...."
+msgstr "Αφαίρεση τελικού...."
+
+msgid "Remove People"
+msgstr "Αφαίρεση ατόμων"
+
+msgid "Nothing to remove."
+msgstr "Δεν υπάρχει τίποτα να αφαιρεθεί."
+
+msgid "Visits/calls"
+msgstr "Επισκέψεις/κλήσεις"
+
+msgid "Last visit/call"
+msgstr "Τελευταία επίσκεψη/κλήση"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Διαγραφή τύπου ποιμαντικής φροντίδας"
+
+msgid "Pastoral Care Note Creation"
+msgstr ""
+"Ποιμαντική Φροντίδα Δημιουργία "
+"σημειώματος"
+
+msgid "For every administrator"
+msgstr "Για κάθε διαχειριστή"
+
+msgid "Show"
+msgstr "Εμφάνιση"
+
+msgid "Hide"
+msgstr "Απόκρυψη"
+
+msgid "Include all the family members"
+msgstr "Συμπεριλάβετε όλα τα μέλη της οικογένειας"
+
+msgid "Include"
+msgstr "Συμπεριλάβετε το"
+
+msgid "Last Name (Family Name)"
+msgstr "Επώνυμο (οικογενειακό όνομα)"
+
+msgid "Family Name"
+msgstr "Όνομα οικογένειας"
+
+msgid "Number"
+msgstr "Αριθμός"
+
+msgid "Item"
+msgstr "Στοιχείο"
+
+msgid "Preview"
+msgstr "Προεπισκόπηση"
+
+msgid "Multiple"
+msgstr "Πολλαπλές"
+
+msgid "Donor"
+msgstr "Δωρητής"
+
+msgid "Buyer"
+msgstr "Αγοραστής"
+
+msgid "Sale Price"
+msgstr "Τιμή πώλησης"
+
+msgid "Estimated value"
+msgstr "Εκτιμώμενη αξία"
+
+msgid "Material Value"
+msgstr "Υλική αξία"
+
+msgid "Minimum Price"
+msgstr "Ελάχιστη τιμή"
+
+msgid "Add buyer"
+msgstr "Προσθήκη αγοραστή"
+
+msgid "Buyer Number"
+msgstr "Αριθμός αγοραστή"
+
+msgid "Save and Add"
+msgstr "Αποθήκευση και προσθήκη"
+
+msgid "Generate Statement"
+msgstr "Δημιουργία δήλωσης"
+
+msgid "Buyer Number Editor"
+msgstr "Αριθμός αγοραστή Εκδότης"
+
+msgid "Select"
+msgstr "Επιλέξτε"

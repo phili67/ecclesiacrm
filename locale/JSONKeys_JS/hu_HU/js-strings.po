@@ -1,0 +1,2310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-06-06T16:42:51.297Z\n"
+"PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "Biztos vagy benne, hogy törölni akarod ezt a képet ?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Nyomja meg a CTRL + C billentyűkombinációt a csoport összes tagjának "
+"telefonszámának másolásához."
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Address"
+msgstr "Cím:"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Remove"
+msgstr "Távolítsa el a"
+
+msgid "Classification"
+msgstr "Osztályozás"
+
+msgid "Family Role"
+msgstr "Családi szerep"
+
+msgid "You have no more items in your cart."
+msgstr "Nincs több termék a kosarában."
+
+msgid "Error making API Call to"
+msgstr "Hiba az API-hívás végrehajtása a"
+
+msgid "Error text"
+msgstr "Hiba szövege"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "HIBA"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage "
+"them, click this notification !</b>"
+msgstr ""
+"Az összes lista betöltődött az Ecclesia<b>CRM</b> rendszerbe.<br><b>Ha "
+"kezelni szeretné őket, kattintson erre az értesítésre !</b>."
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Probléma merült fel a kért objektum lekérdezésében"
+
+msgid "None"
+msgstr "Nincs"
+
+msgid "Select the method to add to a group"
+msgstr "Válassza ki a csoporthoz hozzáadni kívánt módszert"
+
+msgid "Select an existing Group"
+msgstr "Meglévő csoport kiválasztása"
+
+msgid "or Create a new Group from the Cart"
+msgstr "vagy Új csoport létrehozása a Kosárból"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Válassza ki a csoportot, amelyhez hozzá szeretné adni a kosarát."
+
+msgid "Select Group"
+msgstr "Csoport kiválasztása"
+
+msgid "Select Role"
+msgstr "Szerep kiválasztása"
+
+msgid "Group Name"
+msgstr "Csoport neve"
+
+msgid "Default Name Group"
+msgstr "Alapértelmezett név Csoport"
+
+msgid "Add Cart to Group"
+msgstr "Kosár hozzáadása a csoporthoz"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "You have to select one group and a group role if you want"
+msgstr ""
+"Ki kell választania egy csoportot és egy csoport-szerepet, ha azt szeretné, "
+"hogy"
+
+msgid "You have to set a Group Name"
+msgstr "Be kell állítania egy csoportnevet"
+
+msgid "Close"
+msgstr "Zárja be a"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Tényleg ki akarja kapcsolni a személyeket?"
+
+msgid "This action can be undone !!!!"
+msgstr "Ez a művelet visszavonható !!!!"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "Yes : if you're sure"
+msgstr "Igen : ha biztos vagy benne"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Tényleg törölni szeretné a személyeket a CRM-ből?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Ezt a műveletet nem lehet visszacsinálni !!!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Válassza ki az eseményt, amelyhez hozzá szeretné adni a kosarát."
+
+msgid "Create First A New Event"
+msgstr "Új esemény létrehozása"
+
+msgid "Cancel"
+msgstr "Törölje"
+
+msgid "Add to Event"
+msgstr "Hozzáadás az eseményhez"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"A kosár tartalmát hozzáadhatja az alább kiválasztott eseményhez<br> - VAGY "
+"- <br>Létrehozhat először egy eseményt, és utána adhatja hozzá őket."
+
+msgid "Register"
+msgstr "Regisztráció"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "Regisztrálja szoftverét az EcclesiaCRM csapatánál."
+
+msgid "Simply click this"
+msgstr "Egyszerűen kattintson erre"
+
+msgid "to register your software"
+msgstr "a szoftver regisztrálásához"
+
+msgid "New Release"
+msgstr "Új kiadás"
+
+msgid "Installed version"
+msgstr "Telepített verzió"
+
+msgid "New One"
+msgstr "Új"
+
+msgid "To upgrade simply click this Notification"
+msgstr "A frissítéshez egyszerűen kattintson erre az értesítésre"
+
+msgid "View Cart"
+msgstr "Kosár megtekintése"
+
+msgid "Empty Cart"
+msgstr "Üres kosár"
+
+msgid "Empty Cart to Group"
+msgstr "Üres kosár a csoportba"
+
+msgid "Empty Cart to Family"
+msgstr "Üres kosár a családnak"
+
+msgid "Empty Cart to Event"
+msgstr "Üres kosár az eseményhez"
+
+msgid "Map Cart"
+msgstr "Térkép kosár"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Személyek deaktiválása a kosárból"
+
+msgid "Delete Persons From the CRM"
+msgstr "Személyek törlése a CRM-ből"
+
+msgid "View all"
+msgstr "Minden megtekintése"
+
+msgid "Your Cart is Empty"
+msgstr "A kosár üres"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"Ha módosítani szeretné a regisztrációs adatokat, lépjen a következő "
+"oldalra"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin->Általános beállítások szerkesztése"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"Kérjük, regisztrálja az EcclesiaCRM-et az alábbi információk "
+"ellenőrzésével és a Küldés gomb megnyomásával."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Ezeket az információkat kizárólag a szoftver használatának nyomon "
+"követésére használjuk."
+
+msgid "Church Name"
+msgstr "Egyház neve"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "City"
+msgstr "Város"
+
+msgid "State"
+msgstr "Állam"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Ország"
+
+msgid "Church Email"
+msgstr "Egyházi e-mail"
+
+msgid "Base URL"
+msgstr "Bázis URL"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Software Registration"
+msgstr "Szoftver regisztráció"
+
+msgid "Send"
+msgstr "Küldje el a"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "A szoftver mostantól regisztrálva van. Köszönjük !"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Please select target group for members"
+msgstr "Kérjük, válassza ki a tagok célcsoportját"
+
+msgid "Please select target Role for members"
+msgstr "Kérjük, válassza ki a tagok célszerepét"
+
+msgid "GroupID required for role selection prompt"
+msgstr "GroupID szükséges a szerepkör kiválasztásához"
+
+msgid "Select Group and Role"
+msgstr "Csoport és szerepkör kiválasztása"
+
+msgid "Add A Group Name"
+msgstr "Csoportnév hozzáadása"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "Calendar Event"
+msgstr "Naptár esemény"
+
+msgid "Attendees Checked In"
+msgstr "Bejelentkezett résztvevők"
+
+msgid "More info"
+msgstr "További információ"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Figyelem! Ne válassza ezt az opciót, ha meglévő adatbázishoz kíván "
+"hozzáadni.<br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will be "
+"destroyed!"
+msgstr ""
+"Csak akkor használja, ha nem elégedett az eredeti importtal. Minden személy- "
+"és tagadat megsemmisül!"
+
+msgid "I Understand"
+msgstr "Megértem"
+
+msgid "Clear Persons and Families"
+msgstr "Tiszta személyek és családok"
+
+msgid "Data Cleared Successfully!"
+msgstr "Sikeresen töröltük az adatokat!"
+
+msgid "success"
+msgstr "siker"
+
+msgid "Duplicate values"
+msgstr "Duplikált értékek"
+
+msgid "You've selected two times the same name"
+msgstr "Kétszer választotta ki ugyanazt a nevet"
+
+msgid "for this field. Chose another one."
+msgstr "erre a mezőre. Válasszon egy másikat."
+
+msgid "Please confirm deletion of this document"
+msgstr "Kérjük, erősítse meg a dokumentum törlését"
+
+msgid "Document Delete Confirmation"
+msgstr "Dokumentum törlésének megerősítése"
+
+msgid "Document Editor"
+msgstr "Dokumentumszerkesztő"
+
+msgid "Document Title"
+msgstr "Dokumentum címe"
+
+msgid "Set your Document title"
+msgstr "Állítsa be a dokumentum címét"
+
+msgid "Choose your Document Type"
+msgstr "Válassza ki a dokumentum típusát"
+
+msgid "document"
+msgstr "dokumentum"
+
+msgid "video"
+msgstr "videó"
+
+msgid "audio"
+msgstr "audio"
+
+msgid "Private"
+msgstr "Privát"
+
+msgid "You have to set a Title for your document"
+msgstr "Meg kell adnia a dokumentum címét"
+
+msgid "Icon"
+msgstr "Ikon"
+
+msgid "Actions"
+msgstr "Tevékenységek"
+
+msgid "Modification Date"
+msgstr "Módosítás dátuma"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Set a File/Folder name"
+msgstr "Fájl/mappa nevének beállítása"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Egy mappát és annak tartalmát készül eltávolítani"
+
+msgid "This can't be undone !!!!"
+msgstr "Ezt nem lehet visszacsinálni !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Legalább egy sort ki kell választanod !!!"
+
+msgid "You're about to remove a file"
+msgstr "Egy fájl eltávolítása előtt áll"
+
+msgid "Set your Folder name"
+msgstr "Állítsa be a mappa nevét"
+
+msgid "Upload your Files"
+msgstr "Fájlok feltöltése"
+
+msgid "Files input"
+msgstr "Fájlok bemenet"
+
+msgid "Upload your files"
+msgstr "Fájlok feltöltése"
+
+msgid "Upload"
+msgstr "Feltöltés"
+
+msgid "Share your File"
+msgstr "Fájl megosztása"
+
+msgid "With"
+msgstr "A  címen"
+
+msgid "Set Rights"
+msgstr "Jogok beállítása"
+
+msgid "Select your rights"
+msgstr "Válassza ki a jogait"
+
+msgid "or"
+msgstr "vagy"
+
+msgid "[👀  ]"
+msgstr "[👀 ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "E-mail értesítés küldése"
+
+msgid "Add persons/Family/groups"
+msgstr "Személyek/család/csoportok hozzáadása"
+
+msgid "Person or Family or Group"
+msgstr "Személy vagy család vagy csoport"
+
+msgid "Delete"
+msgstr "Törölje a  címet."
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Biztos vagy benne? Törölni akarod ezt a személyt?"
+
+msgid "Stop sharing"
+msgstr "Ne ossza meg többet"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Biztos vagy benne? Nem akarja tovább megosztani a dokumentumát ?"
+
+msgid "Ok"
+msgstr "Oké"
+
+msgid "Tracking"
+msgstr "Nyomon követés"
+
+msgid "Attention"
+msgstr "Figyelem"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Az aktuális képek mappa mostantól a nyilvános mappa !!!"
+
+msgid "Add People"
+msgstr "Emberek hozzáadása"
+
+msgid "This page is still in the cart."
+msgstr "Ez az oldal még mindig a kosárban van."
+
+msgid "Wrong address format."
+msgstr "Rossz címformátum."
+
+msgid "Set Calendar Name"
+msgstr "Naptárnév beállítása"
+
+msgid "Confirm"
+msgstr "Megerősítés"
+
+msgid "Set Resource Name"
+msgstr "Erőforrás nevének beállítása"
+
+msgid "Select a resource type"
+msgstr "Válassza ki az erőforrás típusát"
+
+msgid "Room"
+msgstr "Szoba"
+
+msgid "Computer"
+msgstr "Számítógép"
+
+msgid "Video"
+msgstr "Videó"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "A naptárak felvétele/kizárása az oldalsávban"
+
+msgid "Calendars"
+msgstr "Naptárak"
+
+msgid "Set Status"
+msgstr "Állapot beállítása"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Válassza ki a [kizárás] vagy a [bevonás] lehetőséget."
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUDE]"
+
+msgid "Share your Calendar"
+msgstr "Naptár megosztása"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "Biztos vagy benne, hogy törölni akarod ezt a megosztást?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "Biztos vagy benne, hogy nem akarod megosztani a dokumentumodat ?"
+
+msgid "Are you sure?"
+msgstr "Biztos vagy benne?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Elveszíti a naptárat, az eseményeket és az összes megosztási naptárat is. "
+"Ezt nem lehet visszacsinálni."
+
+msgid "Manage"
+msgstr "Kezelje a  címet."
+
+msgid "Calendar Management for"
+msgstr "Naptárkezelés a"
+
+msgid "Modify Calendar Name"
+msgstr "Naptárnév módosítása"
+
+msgid "Modify Group Name"
+msgstr "Csoportnév módosítása"
+
+msgid "Modify Resource Name"
+msgstr "Erőforrásnév módosítása"
+
+msgid "Modify Share Name"
+msgstr "Megosztás nevének módosítása"
+
+msgid "Resource Info for"
+msgstr "Erőforrás-információ a"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "Csak a rendszergazdáknak van joga megváltoztatni az erőforrás leírását."
+
+msgid "Actualize"
+msgstr "Aktualizálja"
+
+msgid "Today"
+msgstr "Ma"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "List Week"
+msgstr "Listahét"
+
+msgid "List Month"
+msgstr "Lista hónap"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Ez az esemény nem módosítható !!!"
+
+msgid "Modify Event"
+msgstr "Esemény módosítása"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Mit szeretnél csinálni ? Vigyázz a törléssel, nem lehet visszaállítani "
+"!!!"
+
+msgid "Delete Event"
+msgstr "Esemény törlése"
+
+msgid "Are you sure to delete this event?"
+msgstr "Biztos, hogy törölni szeretné ezt az eseményt?"
+
+msgid "Delete all repeated Events"
+msgstr "Minden ismétlődő esemény törlése"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are you "
+"sure? This can't be undone."
+msgstr ""
+"Az eseményhez kapcsolódó összes ismétlődő eseményt törölni fogja. "
+"Biztos benne? Ezt nem lehet visszacsinálni."
+
+msgid "Only this event"
+msgstr "Csak ez az esemény"
+
+msgid "Every Events linked to this Event"
+msgstr "Minden ehhez az eseményhez kapcsolódó esemény"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Esemény hozzáadásához először létre kell hoznia vagy aktiválnia kell egy "
+"naptárat."
+
+msgid "Add More Attendees"
+msgstr "További résztvevők hozzáadása"
+
+msgid "Make Attendance"
+msgstr "Tegye a jelenlétet"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Resize Event"
+msgstr "Méretváltoztatás esemény"
+
+msgid "Are you sure about this change?"
+msgstr "Biztos vagy ebben a változásban?"
+
+msgid "will be resized."
+msgstr "át lesz méretezve."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "Az összes eseményt átméretezi. Szeretne :"
+
+msgid "Only this Event"
+msgstr "Csak ez az esemény"
+
+msgid "All Events"
+msgstr "Minden esemény"
+
+msgid "Move Event"
+msgstr "Mozgás esemény"
+
+msgid "will be dropped."
+msgstr "el fog esni."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Mindjárt átmozgatja az összes eseményt. Szeretne :"
+
+msgid "Event added"
+msgstr "Esemény hozzáadva"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to add "
+"attendees ?"
+msgstr ""
+"Az eseményt sikeresen hozzáadtuk. Szeretné a részvételt vagy a résztvevők "
+"hozzáadását ?"
+
+msgid "Event was added successfully."
+msgstr "Az eseményt sikeresen hozzáadtuk."
+
+msgid "No attendees"
+msgstr "Nincsenek résztvevők"
+
+msgid "From"
+msgstr "A  címről"
+
+msgid "to"
+msgstr "a  címre."
+
+msgid "Attendance Notes: "
+msgstr "Részvételi jegyzetek:"
+
+msgid "Title"
+msgstr "Cím"
+
+msgid "Calendar Title"
+msgstr "Naptár cím"
+
+msgid "Location"
+msgstr "Helyszín"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "A cím érvényesítéséhez : <b>\"nyomja meg a return gombot\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "A térkép megtekintéséhez kattintson erre a szövegmezőre."
+
+msgid "Map"
+msgstr "Térkép"
+
+msgid "Desc"
+msgstr "Desc"
+
+msgid "Event description"
+msgstr "Esemény leírása"
+
+msgid "Event Type"
+msgstr "Esemény típusa"
+
+msgid "Personal"
+msgstr "Személyes"
+
+msgid "Attendance Counts"
+msgstr "Részvételi számok"
+
+msgid "Start Date"
+msgstr "Kezdeti dátum"
+
+msgid "End Date"
+msgstr "Végdátum"
+
+msgid "Repeat"
+msgstr "Ismétlés"
+
+msgid "Daily"
+msgstr "Napi"
+
+msgid "Weekly"
+msgstr "Heti"
+
+msgid "Monthly"
+msgstr "Havi"
+
+msgid "Quarterly"
+msgstr "Negyedévente"
+
+msgid "Semesterly"
+msgstr "Félévente"
+
+msgid "Yearly"
+msgstr "Éves"
+
+msgid "End"
+msgstr "Vége"
+
+msgid "Alarm"
+msgstr "Riasztás"
+
+msgid "NONE"
+msgstr "NINCS"
+
+msgid "At time of event"
+msgstr "Az esemény időpontjában"
+
+msgid "5 minutes before"
+msgstr "5 perccel korábban"
+
+msgid "10 minutes before"
+msgstr "10 perccel korábban"
+
+msgid "15 minutes before"
+msgstr "15 perccel korábban"
+
+msgid "30 minutes before"
+msgstr "30 perccel korábban"
+
+msgid "1 hour before"
+msgstr "1 órával korábban"
+
+msgid "2 hour before"
+msgstr "2 órával korábban"
+
+msgid "1 day before"
+msgstr "1 nappal korábban"
+
+msgid "2 day before"
+msgstr "2 nappal korábban"
+
+msgid "Calendar"
+msgstr "Naptár"
+
+msgid "Add as attendees"
+msgstr "Hozzáadás résztvevőként"
+
+msgid "Notes"
+msgstr "Megjegyzések"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Active"
+msgstr "Aktív"
+
+msgid "inactive"
+msgstr "inaktív"
+
+msgid "Event Creation"
+msgstr "Esemény létrehozása"
+
+msgid "You've to chose a calendar."
+msgstr "Ki kell választania egy naptárat."
+
+msgid "You have to set a Title for your event"
+msgstr "Meg kell adnia az esemény címét"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor sablon létrehozása"
+
+msgid "Template Name"
+msgstr "Sablon neve"
+
+msgid "Explanation field cannot be empty."
+msgstr "A magyarázat mező nem lehet üres."
+
+msgid "Template Description"
+msgstr "Sablon Leírás"
+
+msgid "Save as Word file in EDrive"
+msgstr "Mentés Word fájlként az EDrive-ban"
+
+msgid "Word file name"
+msgstr "Word fájl neve"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test only "
+"<b>(Beta)</b>.</small>"
+msgstr ""
+"A fájl feltöltődik az EDrive-ra<br><small>Ez a rész csak tesztelésre "
+"szolgál <b>(Béta)</b>.</small>."
+
+msgid "Your note is saved in your EDrive"
+msgstr "A jegyzet az EDrive-odon kerül elmentésre"
+
+msgid "(No templates defined)"
+msgstr "(Nincsenek sablonok definiálva)"
+
+msgid "Content Templates"
+msgstr "Tartalom sablonok"
+
+msgid "Please select the template to open in the editor"
+msgstr "Kérjük, válassza ki a sablont a szerkesztőben való megnyitáshoz"
+
+msgid "Template Options"
+msgstr "Sablon beállítások"
+
+msgid "Modify"
+msgstr "Módosítsa a  címet."
+
+msgid "Modify the template you select"
+msgstr "A kiválasztott sablon módosítása"
+
+msgid "Delete the template you select"
+msgstr "A kiválasztott sablon törlése"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Biztos, hogy törölni szeretné ezt a sablont? Ezt nem lehet visszacsinálni."
+
+msgid "Replace actual content"
+msgstr "A tényleges tartalom cseréje"
+
+msgid "Manage templates"
+msgstr "Sablonok kezelése"
+
+msgid "Save templates"
+msgstr "Sablonok mentése"
+
+msgid "Apply templates"
+msgstr "Sablonok alkalmazása"
+
+msgid "Save As Word File in EDrive"
+msgstr "Mentés Word fájlként az EDrive-ban"
+
+msgid "First Name"
+msgstr "Keresztnév"
+
+msgid "Last Name"
+msgstr "Vezetéknév"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Company"
+msgstr "Cég"
+
+msgid "Unsub"
+msgstr "Unsub"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Merge Tags"
+msgstr "Címkék egyesítése"
+
+msgid "Free Event Attendees"
+msgstr "Ingyenes esemény résztvevői"
+
+msgid "Successfully Added!"
+msgstr "Sikeresen hozzáadva!"
+
+msgid "Photo"
+msgstr "Fotó"
+
+msgid "Action"
+msgstr "Akció"
+
+msgid "Checkin"
+msgstr "Bejelentkezés"
+
+msgid "Checkout"
+msgstr "Pénztár"
+
+msgid "Gender"
+msgstr "Gender"
+
+msgid "Checkin Date"
+msgstr "Bejelentkezés dátuma"
+
+msgid "Checked In By"
+msgstr "Bejelentkezett"
+
+msgid "Checkout Date"
+msgstr "Kijelentkezés dátuma"
+
+msgid "Checkout By"
+msgstr "Pénztár"
+
+msgid "QR Code : Call the register"
+msgstr "QR-kód : Hívja a nyilvántartást"
+
+msgid "Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Nem tud hozzáférni a videó streamhez (kérjük, győződjön meg róla, hogy "
+"engedélyezve van a webkamera)"
+
+msgid "no detected QR Code"
+msgstr "nincs észlelt QR-kód"
+
+msgid "Loading video..."
+msgstr "Videó betöltése..."
+
+msgid "Failed"
+msgstr "Sikertelen"
+
+msgid "No event right now."
+msgstr "Jelenleg nincs esemény."
+
+msgid "Move one in the right range."
+msgstr "Mozgassa az egyiket a megfelelő tartományban."
+
+msgid "Create one."
+msgstr "Hozzon létre egyet."
+
+msgid "Group"
+msgstr "Csoport"
+
+msgid "User"
+msgstr "Felhasználó"
+
+msgid "No event now."
+msgstr "Most nincs esemény."
+
+msgid "Success"
+msgstr "Siker"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "Biztos, hogy az összes személyt törölni akarja az Eseményazonosítóból:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "Biztos, hogy törölni szeretné ezt a személyt az Eseményazonosítóból:"
+
+msgid "Delete Event Type"
+msgstr "Eseménytípus törlése"
+
+msgid "This action can never be undone !!!!"
+msgstr "Ezt a műveletet soha nem lehet visszacsinálni !!!!"
+
+msgid "Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Egy esemény törlése egyben törli az adott eseményre vonatkozó összes "
+"részvételi számot is."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Biztos, hogy törölni akarja az eseményt ?"
+
+msgid "Confirm Delete"
+msgstr "Törlés megerősítése"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Biztos vagy benne? Törölni fogja a kiválasztott"
+
+msgid "payments(s)?"
+msgstr "kifizetések?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr "Ezt a műveletet NEM lehet visszacsinálni, és jogi következményei lehetnek!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Kérjük, győződjön meg róla, hogy ezt szeretné tenni."
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Selected Rows"
+msgstr "Kijelölt sorok"
+
+msgid "Payment"
+msgstr "Fizetés"
+
+msgid "Depid"
+msgstr "Depid"
+
+msgid "Address1"
+msgstr "Cím1"
+
+msgid "Bank Name"
+msgstr "Bank neve"
+
+msgid "Non deductible"
+msgstr "Nem levonható"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "Letét"
+
+msgid "Schedule"
+msgstr "Ütemterv"
+
+msgid "Amount"
+msgstr "Összeg"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Electronic Transaction Details"
+msgstr "Elektronikus tranzakció részletei"
+
+msgid "TOTAL"
+msgstr "ÖSSZESEN"
+
+msgid "Family"
+msgstr "Család"
+
+msgid "Person"
+msgstr "Személy"
+
+msgid "Anonymous"
+msgstr "Névtelen"
+
+msgid "Fund"
+msgstr "Alap"
+
+msgid "Pledge or payment"
+msgstr "Zálogjog vagy fizetés"
+
+msgid "Method"
+msgstr "Módszer"
+
+msgid "Check Number"
+msgstr "Ellenőrizze a számot"
+
+msgid "Details"
+msgstr "Részletek"
+
+msgid "Deposit ID"
+msgstr "Letéti azonosító"
+
+msgid "Deposit Date"
+msgstr "Befizetés dátuma"
+
+msgid "Deposit Total"
+msgstr "Befizetés Összesen"
+
+msgid "Deposit Comment"
+msgstr "Befizetés Megjegyzés"
+
+msgid "Closed"
+msgstr "Zárt"
+
+msgid "Deposit Type"
+msgstr "Betét típusa"
+
+msgid "Export"
+msgstr "Exportálás"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Befizetési bizonylat generálása a kiválasztott"
+
+msgid "Rows"
+msgstr "Sorok"
+
+msgid "Your operation completed successfully."
+msgstr "A művelet sikeresen befejeződött."
+
+msgid "Full Name"
+msgstr "Teljes név"
+
+msgid "Text"
+msgstr "Szöveg"
+
+msgid "Date Entered"
+msgstr "Beadás dátuma"
+
+msgid "Date Last Edited"
+msgstr "Utolsó szerkesztés dátuma"
+
+msgid "Edited By Name"
+msgstr "Név szerint szerkesztve"
+
+msgid "Deactivated"
+msgstr "Hatástalanítva"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Figyelmeztetés: A mező törlésével visszavonhatatlanul elveszíti a "
+"mezőhöz rendelt összes csoportadatot!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Csoport-specifikus tulajdonságok engedélyezésének megerősítése"
+
+msgid ""
+"This will create a group-specific properties table for this group. You should "
+"then add needed properties with the Group-Specific Properties Form Editor."
+msgstr ""
+"Ez létrehoz egy csoport-specifikus tulajdonságtáblát a csoporthoz. Ezután a "
+"szükséges tulajdonságokat a Csoport-specifikus tulajdonságok "
+"űrlapszerkesztővel kell hozzáadni."
+
+msgid "Enable Group Specific Properties"
+msgstr "Csoport-specifikus tulajdonságok engedélyezése"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Csoport-specifikus tulajdonságok letiltásának megerősítése"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All group "
+"member properties data will be lost!"
+msgstr ""
+"Biztos, hogy el akarja távolítani a csoportspecifikus "
+"személytulajdonságokat? A csoporttagok összes tulajdonságadata elveszik!"
+
+msgid "Disable Group Specific Properties"
+msgstr "Csoport-specifikus tulajdonságok letiltása"
+
+msgid "Confirm Delete Role"
+msgstr "Szerepkör törlése megerősítése"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr "Ez egyben törli a szerepkörhöz tartozó összes személy tagságát is."
+
+msgid "A group should have at least one role!"
+msgstr "Egy csoportnak legalább egy szerepkörrel kell rendelkeznie!"
+
+msgid "Role Name"
+msgstr "Szerep neve"
+
+msgid "The role name is now modified."
+msgstr "A szerepkör neve mostantól módosul."
+
+msgid "Make Default"
+msgstr "Make Default"
+
+msgid "Default"
+msgstr "Alapértelmezett"
+
+msgid "Sequence"
+msgstr "Sorozat"
+
+msgid "Members"
+msgstr "Tagok"
+
+msgid "Group Cart Status"
+msgstr "Csoportos kosár állapota"
+
+msgid "All members of this group are in the cart"
+msgstr "Ennek a csoportnak minden tagja a kosárban van"
+
+msgid "Remove all"
+msgstr "Távolítson el mindent"
+
+msgid "Not all members of this group are in the cart"
+msgstr "Nem minden tagja ennek a csoportnak van a kosárban."
+
+msgid "Add all"
+msgstr "Adja hozzá az összes"
+
+msgid "Cart isn't showable"
+msgstr "A kosár nem jeleníthető meg"
+
+msgid "Group Type"
+msgstr "Csoport típusa"
+
+msgid "Unassigned"
+msgstr "Nem kijelölt"
+
+msgid "Value"
+msgstr "Érték"
+
+msgid "Confirm Delete Group"
+msgstr "Csoport törlése megerősítése"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Kérjük, erősítse meg a csoportrekord törlését"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated with "
+"this Group record."
+msgstr ""
+"Ez egyben törli a csoportrekordhoz kapcsolódó összes szerepkört és "
+"csoportspecifikus tulajdonságadatot is."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Minden csoporttagság és tulajdonság megsemmisül.  Maguk a csoporttagok nem "
+"változnak."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "Biztos, hogy fel akarja oldani ezt a tulajdonságot?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "Biztos, hogy meg akarja változtatni ezt a tulajdonságot?"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "Biztos, hogy el akarja távolítani a kiválasztott csoporttagokat?"
+
+msgid "Group Role"
+msgstr "Csoport szerepe"
+
+msgid "Private Data"
+msgstr "Magánadatok"
+
+msgid "Zip Code"
+msgstr "Irányítószám"
+
+msgid "Cell Phone"
+msgstr "Mobiltelefon"
+
+msgid "Members from group"
+msgstr "A csoport tagjai"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Members to another group"
+msgstr "Tagok egy másik csoporthoz"
+
+msgid "Members to cart"
+msgstr "Tagok a kosárba"
+
+msgid "Move"
+msgstr "Mozgás"
+
+msgid "Remove from Cart"
+msgstr "Eltávolítás a kosárból"
+
+msgid "Add to Cart"
+msgstr "Hozzáadás a kosárhoz"
+
+msgid "No assigned Manager"
+msgstr "Nincs kijelölt menedzser"
+
+msgid "Manage Group Managers"
+msgstr "Csoportvezetők kezelése"
+
+msgid "Add person"
+msgstr "Személy hozzáadása"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "Biztos, hogy törölni szeretné ezt a menedzsert?"
+
+msgid "Delete Managers"
+msgstr "Menedzserek törlése"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "Biztos, hogy az összes menedzsert törölni akarja?"
+
+msgid "Appointment"
+msgstr "Időpontkérés"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "Biztos, hogy el akarja távolítani ezt a családot a CRM-ből?"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "Biztos, hogy az összes családot el akarja távolítani a CRM-ből?"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"Nem minden családot töröltek : Néhányuknak vannak adományokat tartalmazó "
+"feljegyzései, és ezeket NEM lehet törölni, amíg ezek az adományok nem "
+"kapcsolódnak egy másik családhoz."
+
+msgid "Confirm Deactivation"
+msgstr "Hatályon kívül helyezés megerősítése"
+
+msgid "Confirm Activation"
+msgstr "Aktiválás megerősítése"
+
+msgid "Please confirm deactivation of family"
+msgstr "Kérjük, erősítse meg a család deaktiválását"
+
+msgid "Please confirm activation of family"
+msgstr "Kérjük, erősítse meg a család aktiválását"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask all "
+"the persons of the family first, if you want to re-activate the account "
+"!<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Legyen óvatos a GDPR miatt, ha egy családot deaktiválnak, először meg kell "
+"kérdeznie a család összes tagját, ha újra aktiválni akarja a fiókot "
+"!<br><br>MINDENÉLKÜL A GDPR MÉGIS ILLEGÁLISÁ TESZI AZ ÖN FELHASZNÁLÁSÁT "
+"A CSALÁDI FELHASZNÁLÁSÁT !!!!!"
+
+msgid "Family Photo"
+msgstr "Családi fotó"
+
+msgid "Verification email sent"
+msgstr "Elküldött ellenőrző e-mail"
+
+msgid "Failed to send verification email"
+msgstr "Nem sikerült ellenőrző e-mailt küldeni"
+
+msgid "Failed to add verification"
+msgstr "Nem sikerült hozzáadni az ellenőrzést"
+
+msgid "Verification URL"
+msgstr "Ellenőrző URL"
+
+msgid "Bank Draft"
+msgstr "Banki csekk"
+
+msgid "Credit Card"
+msgstr "Hitelkártya"
+
+msgid "Disabled"
+msgstr "Mozgáskorlátozottak"
+
+msgid "Next payment date"
+msgstr "Következő fizetési határidő"
+
+msgid "Interval (months)"
+msgstr "Intervallum (hónapok)"
+
+msgid "Updated By"
+msgstr "Frissítette"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Megerősítés Törlés Automatikus fizetés"
+
+msgid "Pledge or Payment"
+msgstr "Zálog vagy fizetés"
+
+msgid "Dep ID"
+msgstr "Dep ID"
+
+msgid "Fiscal Year"
+msgstr "Költségvetési év"
+
+msgid "NonDeductible"
+msgstr "Nem levonható"
+
+msgid "CHECK"
+msgstr "CHECK"
+
+msgid "Date Updated"
+msgstr "Frissítés dátuma"
+
+msgid "Delete this person?"
+msgstr "Törölje ezt a személyt?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr "Szeretné törölni ezt a személyt? Ezt nem lehet visszacsinálni."
+
+msgid "Save your note"
+msgstr "Mentse a jegyzetet"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr "Szeretné a jegyzetét Word fájlként elmenteni az EDrive-on?"
+
+msgid "Family Id"
+msgstr "Családi azonosító"
+
+msgid "Valid Until"
+msgstr "Érvényes amíg"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "Biztos, hogy el akarja távolítani ezt a személyt a CRM-ből?"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "Biztos, hogy minden személyt el akar távolítani a CRM-ből?"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"Nem minden személyt töröltek : Néhányuknak vannak adományokat tartalmazó "
+"feljegyzései, és NEM törölhetők, amíg ezek az adományok nem kapcsolódnak "
+"egy másik családhoz."
+
+msgid "Please confirm deactivation of person"
+msgstr "Kérjük, erősítse meg a személy deaktiválását"
+
+msgid "Please confirm activation of person"
+msgstr "Kérjük, erősítse meg a személy aktiválását"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask the "
+"person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Legyen óvatos a GDPR miatt, ha egy személyt deaktiválnak, először meg kell "
+"kérdeznie az illetőt, hogy újra aktiválni akarja-e a fiókot "
+"!<br><br>MINDENÉLKÜL, A GDPR MÉG TILOSÁ TESZI AZ ÖN FELHASZNÁLÁSÁT "
+"EZEKNEK A SZEMÉLYEKNEK !!!!!"
+
+msgid "Deactivate"
+msgstr "A  deaktiválása"
+
+msgid "Activate"
+msgstr "Aktiválja a  címet."
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr ""
+"Biztos vagy benne, hogy el akarod távolítani ennek a személynek a tagságát "
+"a"
+
+msgid "Change classification"
+msgstr "Változás az osztályozásban"
+
+msgid "Change role"
+msgstr "Szerepváltás"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "Önkéntes lehetőség törlése"
+
+msgid "Comments"
+msgstr "Megjegyzések"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Figyelmeztetés: A mező törlésével visszavonhatatlanul elveszíti a "
+"mezőhöz rendelt összes családi adatot!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Ha törli az alapot, <u><b>az összes csatlakoztatott adatot "
+"elveszíti.</b></u><br><b>Szüksége van erre? Ezt a műveletet nem lehet "
+"visszacsinálni.</b>"
+
+msgid "Fund Editor"
+msgstr "Alap szerkesztő"
+
+msgid "Add Fund"
+msgstr "Alap hozzáadása"
+
+msgid "Validate"
+msgstr "Érvényesítse a  címet."
+
+msgid "Place"
+msgstr "Helyszín"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr ""
+"Ennek a hivatkozásnak a következővel kell kezdődnie: http://.... vagy "
+"https://....."
+
+msgid "Global Custom Menus"
+msgstr "Globális egyéni menük"
+
+msgid "Dashboard"
+msgstr "Műszerfal"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Ha törli a menükapcsolatot, <u><b>minden csatlakoztatott adatot "
+"elveszít.</b></u><br><b>Szüksége van erre? Ezt a műveletet nem lehet "
+"visszacsinálni.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "Egyéni menü link szerkesztő"
+
+msgid "Add Custom Menu Link"
+msgstr "Egyéni menü link hozzáadása"
+
+msgid "Delete Classification"
+msgstr "Osztályozás törlése"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Kérjük, erősítse meg a besorolás törlését"
+
+msgid "This will also delete this Classification for all the associated persons."
+msgstr "Ezzel a besorolás is törlődik az összes társított személy esetében."
+
+msgid "Map Icon GoogleMap"
+msgstr "Térkép ikon GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Válassza ki a besorolási ikonját"
+
+msgid "Visible"
+msgstr "Látható"
+
+msgid "Visible for other authorized users"
+msgstr "Látható más jogosult felhasználók számára"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Ha törli a lelkipásztor típusát, <u><b>az összes kapcsolódó adatot "
+"elveszíti.</b></u><br><b>Szüksége van erre? Ezt a műveletet nem lehet "
+"visszacsinálni.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Lelkipásztori gondozás típusszerkesztő"
+
+msgid "Add Pastoral Care Type"
+msgstr "Lelkipásztori gondozás típus hozzáadása"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Figyelmeztetés: A mező törlésével visszavonhatatlanul elveszíti a "
+"mezőhöz rendelt összes személyi adatot!"
+
+msgid "with this Property..."
+msgstr "ezzel az ingatlannal..."
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Select Property Type"
+msgstr "Ingatlantípus kiválasztása"
+
+msgid "with this property..."
+msgstr "ezzel az ingatlannal..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "Ezt a tulajdonságot törölni fogja. Szeretné folytatni ?"
+
+msgid "Property Type Editor"
+msgstr "Tulajdonságtípus-szerkesztő"
+
+msgid "Add a New Property"
+msgstr "Új ingatlan hozzáadása"
+
+msgid "Class"
+msgstr "Osztály"
+
+msgid "You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"Ezt az általános tulajdonságot hamarosan törölni fogja. Szeretné folytatni "
+"?"
+
+msgid "This general property type is still being used by"
+msgstr "Ezt az általános ingatlantípust még mindig használják a"
+
+msgid "property"
+msgstr "ingatlan"
+
+msgid "properties"
+msgstr "ingatlanok"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"Ha ezt a típust törli, akkor az összes olyan tulajdonságot is eltávolítja, "
+"amely a"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "azt, és elveszíti a megfelelő tulajdonság hozzárendeléseket."
+
+msgid "Add a New Property Type"
+msgstr "Új ingatlantípus hozzáadása"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Új önkéntes lehetőség hozzáadása"
+
+msgid "Send Message"
+msgstr "Üzenet küldése"
+
+msgid "View Profile"
+msgstr "Profil megtekintése"
+
+msgid "Teachers"
+msgstr "Tanárok"
+
+msgid "Delete this Teacher?"
+msgstr "Törölje ezt a tanárt?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr "Szeretné törölni ezt a tanárt? Ezt nem lehet visszacsinálni."
+
+msgid "First name"
+msgstr "Keresztnév"
+
+msgid "Birth Date"
+msgstr "Születési dátum"
+
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+msgid "Boy"
+msgstr "Fiú"
+
+msgid "Girl"
+msgstr "Lány"
+
+msgid "Age"
+msgstr "Kor"
+
+msgid "Mobile"
+msgstr "Mobil"
+
+msgid "Home Phone"
+msgstr "Otthoni telefon"
+
+msgid "Home Address"
+msgstr "Lakcím"
+
+msgid "Dad Name"
+msgstr "Apa neve"
+
+msgid "Dad Mobile"
+msgstr "Apa mobil"
+
+msgid "Dad Email"
+msgstr "Apa e-mail"
+
+msgid "Mom Name"
+msgstr "Anya neve"
+
+msgid "Mom Mobile"
+msgstr "Anya mobil"
+
+msgid "Mom Email"
+msgstr "Anya e-mail"
+
+msgid "Remove Students from Cart"
+msgstr "Diákok eltávolítása a kosárból"
+
+msgid "Add Students to Cart"
+msgstr "Diákok hozzáadása a kosárhoz"
+
+msgid "Remove Teachers from Cart"
+msgstr "Tanárok eltávolítása a kosárból"
+
+msgid "Add Teachers to Cart"
+msgstr "Tanárok hozzáadása a kosárhoz"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr ""
+"Válassza ki az eseménytípust, amelyet a jelenléti ív létrehozásához "
+"használni szeretne."
+
+msgid "Create Event With Students"
+msgstr "Esemény létrehozása diákokkal"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday school "
+"class to call the register."
+msgstr ""
+"Légy óvatos! Most készülsz létrehozni vagy újrateremteni ennek a "
+"vasárnapi iskolai osztálynak egy eseményét, hogy felhívd a "
+"nyilvántartást."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"Ha az esemény már létre van hozva, lépjen az \"Események\" menübe, majd a "
+"\"Hívja fel a nyilvántartást\" menüpontra."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr ""
+"Először is, állítsa be helyesen az időtartományt a kivonás "
+"elvégzéséhez."
+
+msgid "Set year range to export"
+msgstr "Exportálandó évszámok beállítása"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr "Először is, állítsa be helyesen a dátumtartományt a kivonatoláshoz."
+
+msgid "Extra students"
+msgstr "Extra diákok"
+
+msgid "export with photos"
+msgstr "exportálás fotókkal"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the Sunday "
+"school classes to call the register."
+msgstr ""
+"Légy óvatos! Azon vagy, hogy létrehozd vagy újra létrehozd az összes "
+"vasárnapi iskolai osztály összes eseményét, hogy felhívd a "
+"nyilvántartást."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"Ha az eseményeket már létrehozta, lépjen az \"Események\" menübe, majd a "
+"\"Nyilvántartás hívása\" menüpontba."
+
+msgid "First, set your date and time."
+msgstr "Először is, állítsa be a dátumot és az időpontot."
+
+msgid "Time"
+msgstr "Idő"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Hívja a nyilvántartást minden vasárnapi csoport számára"
+
+msgid "At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Legalább egy csoportot ki kell választani az osztálylisták vagy jelenléti "
+"ívek elkészítéséhez."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "Meg kell adnia egy címet és egy leírást a kérdéséhez."
+
+msgid "Trigger Parent Alert"
+msgstr "Szülői riasztás kiváltása"
+
+msgid "Kiosk"
+msgstr "Kioszk"
+
+msgid "No assignments for kiosk"
+msgstr "Nincs hozzárendelés a kioszkhoz"
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Kiosk Name"
+msgstr "Kioszk neve"
+
+msgid "Assignment"
+msgstr "Megbízás"
+
+msgid "Last Heartbeat"
+msgstr "Utolsó szívdobbanás"
+
+msgid "Accepted"
+msgstr "Elfogadva"
+
+msgid "True"
+msgstr "Igaz"
+
+msgid "False"
+msgstr "Hamis"
+
+msgid "Reload"
+msgstr "Újratöltés"
+
+msgid "Identify"
+msgstr "Azonosítsa a  címet."
+
+msgid "Accept"
+msgstr "Elfogadom"
+
+msgid "The user must have an email address."
+msgstr "A felhasználónak rendelkeznie kell e-mail címmel."
+
+msgid "Role management"
+msgstr "Szerepkör-menedzsment"
+
+msgid "Select your Role"
+msgstr "Válassza ki szerepét"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Biztos vagy benne? Ezt a szerepet törölni fogja."
+
+msgid "Rename"
+msgstr "Átnevezés"
+
+msgid "Choose a Role Name"
+msgstr "Válasszon egy szerepkör nevet"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name already "
+"exist !!!</center>"
+msgstr ""
+"<center>Egy másik Role Name <br>-- vagy --<br> ez a Role Name már létezik "
+"!!!</center>"
+
+msgid "You've to check at least one user."
+msgstr "Legalább egy felhasználót ellenőrizni kell."
+
+msgid "The WebDav Key is"
+msgstr "A WebDav kulcs"
+
+msgid "The public WebDav Key is"
+msgstr "A nyilvános WebDav kulcs"
+
+msgid "WebDav key"
+msgstr "WebDav kulcs"
+
+msgid "is now locked"
+msgstr "mostantól zárolt"
+
+msgid "is now unlocked"
+msgstr "most már feloldottuk"
+
+msgid "User Delete Confirmation"
+msgstr "Felhasználó törlésének megerősítése"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Kérjük, erősítse meg a felhasználói státusz eltávolítását:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, the "
+"Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Légy óvatos, Elveszíted az otthoni mappát és a hozzá tartozó fájlokat, a "
+"naptárakat, a megosztott naptárakat és az összes eseményt is, mert a"
+
+msgid "This can't be undone"
+msgstr "Ezt nem lehet visszacsinálni"
+
+msgid "Action Confirmation"
+msgstr "Művelet megerősítése"
+
+msgid "Please confirm reset failed login count"
+msgstr ""
+"Kérjük, erősítse meg a sikertelen bejelentkezések számának "
+"visszaállítását"
+
+msgid "Reset failed login count for"
+msgstr "Sikertelen bejelentkezések számának visszaállítása"
+
+msgid "done."
+msgstr "megtörtént."
+
+msgid "Please confirm the password reset of this user"
+msgstr "Kérjük, erősítse meg a felhasználó jelszavának visszaállítását"
+
+msgid "Password reset for"
+msgstr "Jelszó visszaállítása a"
+
+msgid "Saving Campaign ..."
+msgstr "Megtakarítási kampány ..."
+
+msgid "Campaign"
+msgstr "Kampány"
+
+msgid "saved successfully"
+msgstr "sikeresen mentve"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Mindjárt elküldi a kampányát! Biztos vagy benne?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Hamarosan törölni fogod a kampányodat! Biztos vagy benne?"
+
+msgid "Loading datas ..."
+msgstr "Adatok betöltése ..."
+
+msgid "No list are created with this account ...."
+msgstr "Ezzel a fiókkal nem hozunk létre listát ...."
+
+msgid "Email List"
+msgstr "Email lista"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Tárgy:"
+
+msgid "Members:"
+msgstr "Tagok:"
+
+msgid "Campaigns:"
+msgstr "Kampányok:"
+
+msgid "Unsubscribed count:"
+msgstr "Leiratkozottak száma:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Leiratkozottak száma az utolsó küldés óta:"
+
+msgid "Cleaned count:"
+msgstr "Tisztított szám:"
+
+msgid "Cleaned count since last send:"
+msgstr "Tisztított számolás az utolsó küldés óta:"
+
+msgid "Campaigns"
+msgstr "Kampányok"
+
+msgid "Tags"
+msgstr "Címkék"
+
+msgid "is not configured"
+msgstr "nincs konfigurálva"
+
+msgid "Please update the"
+msgstr "Kérjük, frissítse a"
+
+msgid "API key in Setting->"
+msgstr "API-kulcs a Beállítás->-ban"
+
+msgid "Edit General Settings"
+msgstr "Általános beállítások szerkesztése"
+
+msgid "then update"
+msgstr "majd frissítse"
+
+msgid "For more info see our "
+msgstr "További információért lásd a"
+
+msgid "support docs."
+msgstr "támogatási dokumentumok."
+
+msgid "List Creation"
+msgstr "Lista létrehozása"
+
+msgid "List Title"
+msgstr "Lista cím"
+
+msgid "Your List Title"
+msgstr "A lista címe"
+
+msgid "Your Subject"
+msgstr "Az Ön tárgya"
+
+msgid "Permission Reminder"
+msgstr "Engedély emlékeztető"
+
+msgid "Archive Bars"
+msgstr "Archívum rudak"
+
+msgid "Public"
+msgstr "Nyilvános"
+
+msgid "People"
+msgstr "Emberek"
+
+msgid "Families"
+msgstr "Családok"
+
+msgid "Add a new tag"
+msgstr "Új címke hozzáadása"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Címke törlése az előfizető(k)ről"
+
+msgid "Delete tag"
+msgstr "Címke törlése"
+
+msgid "Loading resources ..."
+msgstr "Források betöltése ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Éppen törölni készülsz egy címkét!"
+
+msgid "This will also delete the tag for all the members in this list. Are you sure ?"
+msgstr ""
+"Ezzel a listában szereplő összes tag címkéje is törlődik. Biztos vagy "
+"benne?"
+
+msgid "Deleting tag"
+msgstr "Címke törlése"
+
+msgid "A person name or Family or Group"
+msgstr "Egy személy neve vagy Család vagy csoport"
+
+msgid "Loading subscriber"
+msgstr "Előfizető betöltése"
+
+msgid "Loading subscribers from Group"
+msgstr "Előfizetők betöltése a csoportból"
+
+msgid "Loading subscribers from family"
+msgstr "Előfizetők betöltése a családtól"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Az összes személy betöltése az EcclesiaCRM-ből<br>Ez eltarthat egy darabig "
+"!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns "
+"after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Valójában jobb, ha kilépsz a CRM-ből, vársz 5 percet, és utána készíted "
+"el a kampányaidat.<br>A MailChimp API lassú a hatalmas adatok "
+"importálásához."
+
+msgid "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Az összes hírlevél feliratkozó betöltése az EcclesiaCRM-ből<br>Ez "
+"eltarthat egy darabig !"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This could "
+"take a while !"
+msgstr ""
+"Az összes család első headpeople előfizetőjének betöltése az "
+"EcclesiaCRM-ből<br>Ez eltarthat egy darabig !"
+
+msgid "Email Marketing"
+msgstr "Email marketing"
+
+msgid "Select status for : "
+msgstr "Válassza ki az állapotot a :"
+
+msgid "Subscribed"
+msgstr "Előfizetett"
+
+msgid "Unsubscribed"
+msgstr "Leiratkozott"
+
+msgid "Changing status ..."
+msgstr "Változó státusz ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Egy előfizető törlésére készülsz! Biztos vagy benne?"
+
+msgid "Deleting Subscriber..."
+msgstr "Előfizető törlése..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Tényleg törölni akarja ezt a levelezőlistát ?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Biztos, hogy törölni akarja az összes előfizetőt?"
+
+msgid "Deleting all subscribers..."
+msgstr "Minden előfizető törlése..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open it "
+"to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Valójában jobb, ha elhagyja a CRM-et, és egy negyed óra múlva újra "
+"megnyitja, hogy kezelje a listáját.<br>A MailChimp API lassú a hatalmas "
+"adatok törléséhez."
+
+msgid "Email Campaign Creation"
+msgstr "Email kampány létrehozása"
+
+msgid "Campaign Title"
+msgstr "Kampány címe"
+
+msgid "Your Campaign Title"
+msgstr "A kampány címe"
+
+msgid "For Tag"
+msgstr "Címkéhez"
+
+msgid "Mail Subject"
+msgstr "Mail Tárgy"
+
+msgid "Your Mail Subject"
+msgstr "A levél tárgya"
+
+msgid "All list members"
+msgstr "Minden listatag"
+
+msgid "Adding Campaign ..."
+msgstr "Kampány hozzáadása ..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Szeretné közvetlenül kezelni ezt az új kampányt ?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Be kell állítania egy Kampánycímet az eMail kampányához."
+
+msgid "List Name"
+msgstr "Lista neve"
+
+msgid "Changing subscribers state..."
+msgstr "Az előfizetők állapotának megváltoztatása..."
+
+msgid "All Tags"
+msgstr "Minden Címke"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Válassza ki a törölni kívánt címkét :"
+
+msgid "Removing tags..."
+msgstr "Címkék eltávolítása..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "A listában kiválasztott tagok összes címkéjének törlése..."
+
+msgid "Add your tag name"
+msgstr "Adja hozzá a címke nevét"
+
+msgid "Adding tag..."
+msgstr "Címke hozzáadása..."
+
+msgid "Name is empty !!"
+msgstr "A név üres !!"
+
+msgid "Add tag?"
+msgstr "Címke hozzáadása?"
+
+msgid "This will add the tag"
+msgstr "Ez hozzáadja a címkét"
+
+msgid "to all the current selected members in the list."
+msgstr "a lista összes aktuálisan kiválasztott tagjára."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Hamarosan törölni fogod az előfizetőket! Biztos vagy benne?"
+
+msgid "Deleting Subscribers..."
+msgstr "Előfizetők törlése..."
+
+msgid "Problem"
+msgstr "Probléma"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"A Safari még nem támogatott Jitsivel, használj valami mást !<br/>- A "
+"webkamerád<br/>- Az ablakok megosztása<br/> nem fog működni a "
+"találkozóval."
+
+msgid "Set a Jitsi room name"
+msgstr "Jitsi szoba nevének beállítása"
+
+msgid "Delete all Rooms?"
+msgstr "Töröljem az összes szobát?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Az összes szobádat törölni fogod."
+
+msgid "You must enter a password"
+msgstr "Meg kell adnia egy jelszót"
+
+msgid "Passwords must match"
+msgstr "A jelszavaknak meg kell egyezniük"
+
+msgid "Backup Running, Please wait."
+msgstr "Biztonsági mentés folyamatban, kérjük várjon."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "Biztonsági mentés generálva és másolva a távoli kiszolgálóra"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "Biztonsági mentés kész, letöltésre kész."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Biztonsági mentés letöltve, másolat a kiszolgálón eltávolítva"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"A kiválasztott fájl meghaladja a szerver maximális feltöltési méretét, "
+"amely"
+
+msgid "Restore Running, Please wait."
+msgstr "Visszaállítás folyamatban, kérjük, várjon."
+
+msgid "Restore Complete"
+msgstr "Visszaállítás teljes"
+
+msgid "Login to restored Database"
+msgstr "Bejelentkezés a helyreállított adatbázisba"
+
+msgid "Restore Error."
+msgstr "Visszaállítási hiba."
+
+msgid "In progress...."
+msgstr "Előrehaladásban...."
+
+msgid "Done !"
+msgstr "Kész!"
+
+msgid "All Groups"
+msgstr "Minden csoport"
+
+msgid "All Roles"
+msgstr "Minden szerepkör"
+
+msgid "id"
+msgstr "id"
+
+msgid "Photos"
+msgstr "Fotók"
+
+msgid "Search result"
+msgstr "Keresés eredménye"
+
+msgid "Property Name"
+msgstr "Ingatlan neve"
+
+msgid "Loading people in cart...."
+msgstr "Emberek rakodása a kocsiban...."
+
+msgid "Loading finished...."
+msgstr "Betöltés kész...."
+
+msgid "Removing people in cart...."
+msgstr "Emberek eltávolítása a cart...."
+
+msgid "Removing finished...."
+msgstr "Kész.... eltávolítása"
+
+msgid "Remove People"
+msgstr "Emberek eltávolítása"
+
+msgid "Nothing to remove."
+msgstr "Nincs mit eltávolítani."
+
+msgid "Visits/calls"
+msgstr "Látogatások/hívások"
+
+msgid "Last visit/call"
+msgstr "Utolsó látogatás/hívás"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Lelkipásztori ellátás típusának törlése"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Lelkipásztori gondozás Megjegyzés létrehozása"
+
+msgid "For every administrator"
+msgstr "Minden rendszergazda számára"
+
+msgid "Show"
+msgstr "Mutasd meg a"
+
+msgid "Hide"
+msgstr "Rejtsd el"
+
+msgid "Include all the family members"
+msgstr "A család összes tagjának bevonása"
+
+msgid "Include"
+msgstr "Tartalmazza a  címet."
+
+msgid "Last Name (Family Name)"
+msgstr "Vezetéknév (családnév)"
+
+msgid "Family Name"
+msgstr "Családnév"
+
+msgid "Number"
+msgstr "Szám"
+
+msgid "Item"
+msgstr "Tétel"
+
+msgid "Preview"
+msgstr "Előnézet"
+
+msgid "Multiple"
+msgstr "Többszörös"
+
+msgid "Donor"
+msgstr "Adományozó"
+
+msgid "Buyer"
+msgstr "Vevő"
+
+msgid "Sale Price"
+msgstr "Eladási ár"
+
+msgid "Estimated value"
+msgstr "Becsült érték"
+
+msgid "Material Value"
+msgstr "Anyagi érték"
+
+msgid "Minimum Price"
+msgstr "Minimális ár"
+
+msgid "Add buyer"
+msgstr "Vevő hozzáadása"
+
+msgid "Buyer Number"
+msgstr "Vevő száma"
+
+msgid "Save and Add"
+msgstr "Mentés és hozzáadás"
+
+msgid "Generate Statement"
+msgstr "Nyilatkozat létrehozása"
+
+msgid "Buyer Number Editor"
+msgstr "Vevőszám szerkesztő"
+
+msgid "Select"
+msgstr "Válassza ki a  címet."
