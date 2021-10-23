@@ -132,6 +132,16 @@
         "datePicker": true,
         "select2": true
     },
+    "Greek": {
+        "poEditor": "el",
+        "locale": "el_GR",
+        "languageCode": "el",
+        "countryCode": "GR",
+        "dataTables": "Greek",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
+    },
     "German - Germany": {
         "poEditor": "de",
         "locale": "de_DE",

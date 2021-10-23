@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "true"
+
+msgid "false"
+msgstr "false"
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "Είμαι"
+
+msgid "Teachers"
+msgstr "Εκπαιδευτικοί"
+
+msgid "Students"
+msgstr "Φοιτητές"
+
+msgid "Teacher"
+msgstr "Δάσκαλος"
+
+msgid "Student"
+msgstr "Φοιτητής"
+
+msgid "Parents"
+msgstr "Γονείς"
+
+msgid "Kids"
+msgstr "Παιδιά"
+
+msgid "create"
+msgstr "δημιουργήστε το"
+
+msgid "edit"
+msgstr "επεξεργασία"
+
+msgid "photo"
+msgstr "φωτογραφία"
+
+msgid "group"
+msgstr "ομάδα"
+
+msgid "Group"
+msgstr "Ομάδα"
+
+msgid "note"
+msgstr "σημείωση"
+
+msgid "You have to set a Title for your event"
+msgstr ""
+"Πρέπει να ορίσετε έναν τίτλο για την "
+"εκδήλωσή σας"
+
+msgid "This event isn't modifiable !!!"
+msgstr ""
+"Αυτό το γεγονός δεν μπορεί να τροποποιηθεί "
+"!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Για να προσθέσετε ένα συμβάν, πρέπει πρώτα "
+"να δημιουργήσετε ένα ημερολόγιο ή να "
+"ενεργοποιήσετε ένα ημερολόγιο."
+
+msgid "Event added"
+msgstr "Προστέθηκε εκδήλωση"
+
+msgid "Event was added successfully."
+msgstr "Το συμβάν προστέθηκε με επιτυχία."
+
+msgid "Electronic Transaction Details"
+msgstr "Λεπτομέρειες ηλεκτρονικής συναλλαγής"
+
+msgid "Daily"
+msgstr "Καθημερινά"
+
+msgid "Weekly"
+msgstr "Εβδομαδιαία"
+
+msgid "Monthly"
+msgstr "Μηνιαία"
+
+msgid "Quarterly"
+msgstr "Τριμηνιαία"
+
+msgid "Once"
+msgstr "Μόλις"
+
+msgid "Other"
+msgstr "Άλλα"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Τράπεζα"
+
+msgid "CreditCard"
+msgstr "Πιστωτική κάρτα"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Σε ορισμένες οικογένειες δεν έχει οριστεί "
+"το όνομα του \"αρχηγού του νοικοκυριού\" ή δεν "
+"υπάρχουν ενεργοποιημένα μέλη σε αυτές τις "
+"οικογένειες:"
+
+msgid "send"
+msgstr "αποστολή"
+
+msgid "save"
+msgstr "save"
+
+msgid "subscribed"
+msgstr "εγγεγραμμένος"
+
+msgid "unsubscribed"
+msgstr "διαγραφή"
+
+msgid "sent"
+msgstr "αποστέλλεται"
+
+msgid "schedule"
+msgstr "πρόγραμμα"
+
+msgid "paused"
+msgstr "παύση"
+
+msgid "cleaned"
+msgstr "καθαρισμένο"
+
+msgid "pending"
+msgstr "σε εκκρεμότητα"
+
+msgid "Invalid date"
+msgstr "Μη έγκυρη ημερομηνία"

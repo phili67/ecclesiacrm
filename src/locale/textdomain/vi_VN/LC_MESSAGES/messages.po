@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-03 13:25+0000\n"
+"POT-Creation-Date: 2021-10-22 20:19+0000\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +82,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:165
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/utils/OutputUtils.php:403 EcclesiaCRM/utils/OutputUtils.php:464
+#: EcclesiaCRM/utils/OutputUtils.php:383 EcclesiaCRM/utils/OutputUtils.php:444
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
 #: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
@@ -141,7 +141,7 @@ msgstr "Số tiền thanh toán"
 msgid "Payment interval (months)"
 msgstr "Khoảng thời gian thanh toán (tháng)"
 
-#: AutoPaymentEditor.php:890 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:295
+#: AutoPaymentEditor.php:890 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
 #: ElectronicPaymentList.php:223 FinancialReports.php:438
 #: FindDepositSlip.php:57 Reports/AdvancedDeposit.php:315
 #: Reports/AdvancedDeposit.php:334 Reports/FamilyPledgeSummary.php:232
@@ -153,7 +153,7 @@ msgstr ""
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:177
-#: EcclesiaCRM/utils/OutputUtils.php:257 EditEventTypes.php:125
+#: EcclesiaCRM/utils/OutputUtils.php:237 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:411
@@ -243,7 +243,7 @@ msgstr "Quốc gia "
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
 #: external/templates/registration/family-register-members.php:114
-#: Reports/DirectoryReport.php:315 Reports/FundRaiserStatement.php:127
+#: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
 #: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Điện thoại"
@@ -263,7 +263,7 @@ msgstr "Điện thoại"
 #: PrintPastoralCarePerson.php:385 PrintView.php:396
 #: Reports/CanvassReports.php:281 Reports/ConfirmReportEmail.php:224
 #: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
-#: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:326
+#: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
@@ -706,7 +706,7 @@ msgid "Badge Type"
 msgstr "Thể loại"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
-#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:130
+#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:128
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 #, fuzzy
 msgid "default"
@@ -832,7 +832,7 @@ msgid "Home Phone"
 msgstr "Điện thoại nhà"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
-#: EcclesiaCRM/utils/OutputUtils.php:451 FamilyEditor.php:829
+#: EcclesiaCRM/utils/OutputUtils.php:431 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
@@ -1047,7 +1047,7 @@ msgstr "Địa chỉ nhận thư:"
 
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
-#: Reports/DirectoryReport.php:329
+#: Reports/DirectoryReport.php:331
 #, fuzzy
 msgid "Work/Other Email"
 msgstr "Email công việc/khác"
@@ -1138,8 +1138,7 @@ msgid "Use Ctrl Key to select multiple"
 msgstr "Sử dụng Ctrl Key để chọn nhiều"
 
 #: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:185
-#: EcclesiaCRM/Reports/PDF_Attendance.php:563 FamilyEditor.php:1096
+#: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:211
@@ -1871,14 +1870,14 @@ msgstr "Số tài khoản ngân hàng"
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:242
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:146 FinancialReports.php:362
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:142 FinancialReports.php:362
 #: PledgeEditor.php:673
 msgid "Cash"
 msgstr ""
 
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:250
 #: EcclesiaCRM/APIControllers/FinancePaymentController.php:267
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:141
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
 msgid "Checks"
 msgstr ""
 
@@ -1961,7 +1960,7 @@ msgstr ""
 
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:247
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:171
-#: Reports/ClassAttendance.php:218 Reports/ClassAttendance.php:306
+#: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 #, fuzzy
 msgid "Boy"
@@ -1969,7 +1968,7 @@ msgstr "Nam"
 
 #: EcclesiaCRM/APIControllers/PeopleAttendeesController.php:248
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:171
-#: Reports/ClassAttendance.php:218 Reports/ClassAttendance.php:306
+#: Reports/ClassAttendance.php:213 Reports/ClassAttendance.php:301
 #: sundayschool/SundaySchoolAttendeesExport.php:171
 #, fuzzy
 msgid "Girl"
@@ -2039,7 +2038,7 @@ msgstr "Thêm vào Ban/Mục vụ"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:145
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:165
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:214 EcclesiaCRM/utils/OutputUtils.php:314
+#: EcclesiaCRM/utils/OutputUtils.php:194 EcclesiaCRM/utils/OutputUtils.php:294
 #: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:270
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
@@ -2048,7 +2047,7 @@ msgstr "Có"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:216 EcclesiaCRM/utils/OutputUtils.php:315
+#: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:295
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:272
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
@@ -4829,87 +4828,87 @@ msgstr "Báo cáo"
 msgid "Query Menu"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
 msgid "Coin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:105
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:121
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:101
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
 #, fuzzy
 msgid "Counts"
 msgstr "Số lượng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:106
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:122
-#: EcclesiaCRM/Reports/PDF_Attendance.php:220
-#: EcclesiaCRM/Reports/PDF_Attendance.php:623
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: EcclesiaCRM/Reports/PDF_Attendance.php:218
+#: EcclesiaCRM/Reports/PDF_Attendance.php:621
 #: sundayschool/SundaySchoolAttendeesExport.php:184
 #, fuzzy
 msgid "Totals"
 msgstr "Tổng số lần đăng nhập"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:114
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
 #, fuzzy
 msgid "Total Coin"
 msgstr "Tổng số lần đăng nhập"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:116
 msgid "Bill"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:130
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:126
 #, fuzzy
 msgid "Total Cash"
 msgstr "Tổng số lần đăng nhập"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:137
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:133
 msgid "Deposit totals by Currency Type"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:154
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:150
 #: Reports/AdvancedDeposit.php:875
 #, fuzzy
 msgid "Deposit totals by fund"
 msgstr "Tiền dâng hiến: "
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:226
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:284
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:222
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:280
 #, fuzzy
 msgid "Deposit Summary"
 msgstr "Tiền dâng hiến: "
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:248
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:369
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:244
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:365
 #, fuzzy
 msgid "Deposit total"
 msgstr "Tiền dâng hiến: "
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:292
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
 #: Reports/AdvancedDeposit.php:314 Reports/AdvancedDeposit.php:323
 #: Reports/AdvancedDeposit.php:332 Reports/ReminderReport.php:405
 #: Reports/TaxReport.php:380
 msgid "Chk No."
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:298 Reports/ReminderReport.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:406
 #: Reports/TaxReport.php:381
 #, fuzzy
 msgid "PmtMethod"
 msgstr "Tất cả các vai trò"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:301
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297
 #, fuzzy
 msgid "Rcd From"
 msgstr "Gửi từ:"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:304
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:300
 #: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
 #: Reports/AdvancedDeposit.php:335 Reports/ReminderReport.php:408
 #: Reports/TaxReport.php:383
 msgid "Memo"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:307 ElectronicPaymentList.php:221
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:303 ElectronicPaymentList.php:221
 #: PledgeEditor.php:822 Reports/AdvancedDeposit.php:318
 #: Reports/AdvancedDeposit.php:327 Reports/AdvancedDeposit.php:336
 #: Reports/FundRaiserStatement.php:129 Reports/FundRaiserStatement.php:173
@@ -4919,13 +4918,13 @@ msgstr ""
 msgid "Amount"
 msgstr "Số lượng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:325
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:321
 msgid "Anonymous"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:398
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:403
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:408
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:394
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:399
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:404
 msgid "Witness"
 msgstr ""
 
@@ -4975,29 +4974,29 @@ msgstr "Thành viên"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:316 EcclesiaCRM/utils/OutputUtils.php:559
-#: EcclesiaCRM/utils/OutputUtils.php:577 FamilyEditor.php:1177
+#: EcclesiaCRM/utils/OutputUtils.php:296 EcclesiaCRM/utils/OutputUtils.php:539
+#: EcclesiaCRM/utils/OutputUtils.php:557 FamilyEditor.php:1177
 msgid "Unknown"
 msgstr "Không rõ"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
-#: EcclesiaCRM/utils/OutputUtils.php:584
+#: EcclesiaCRM/utils/OutputUtils.php:564
 msgid "mos old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
-#: EcclesiaCRM/utils/OutputUtils.php:586
+#: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mo old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
-#: EcclesiaCRM/utils/OutputUtils.php:554 EcclesiaCRM/utils/OutputUtils.php:556
-#: EcclesiaCRM/utils/OutputUtils.php:590
+#: EcclesiaCRM/utils/OutputUtils.php:534 EcclesiaCRM/utils/OutputUtils.php:536
+#: EcclesiaCRM/utils/OutputUtils.php:570
 msgid "yrs old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
-#: EcclesiaCRM/utils/OutputUtils.php:592
+#: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yr old"
 msgstr ""
 
@@ -5082,9 +5081,9 @@ msgid "Stats"
 msgstr "Trạng thái"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99
-#: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
-#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
+#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:38
 #: v2/templates/sundayschool/sundayschooldashboard.php:208
 #: v2/templates/sundayschool/sundayschoolview.php:143
@@ -5095,16 +5094,16 @@ msgstr "Giáo viên"
 msgid "of"
 msgstr ""
 
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:32
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
 msgstr ""
 
-#: EcclesiaCRM/Reports/PDF_Directory.php:42
-#: EcclesiaCRM/Reports/PDF_Directory.php:78
+#: EcclesiaCRM/Reports/PDF_Directory.php:64
+#: EcclesiaCRM/Reports/PDF_Directory.php:100
 msgid "Directory"
 msgstr ""
 
-#: EcclesiaCRM/Reports/PDF_Directory.php:61 Reports/AdvancedDeposit.php:345
+#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
 msgid "Page"
 msgstr ""
 
@@ -5112,13 +5111,13 @@ msgstr ""
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:319 Reports/GroupReport.php:129
+#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Công việc"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:331
 #: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:323
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
 #: Reports/GroupReport.php:134
 msgid "Cell"
 msgstr ""
@@ -5129,19 +5128,19 @@ msgstr ""
 msgid "Wedding"
 msgstr "Ngày cưới"
 
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:52
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
 #, fuzzy
 msgid "Group Directory"
 msgstr "Chỉnh sửa Ban/Mục vụ"
 
 #: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
-#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:114
+#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:112
 #: Reports/PDFLabel.php:779
 msgid "Tractor"
 msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
-#: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
+#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
 #: v2/templates/sundayschool/sundayschooldashboard.php:209
@@ -5808,49 +5807,49 @@ msgstr "thiết lập năm tài chính mặc định"
 msgid "Direct me"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:298
+#: EcclesiaCRM/utils/OutputUtils.php:278
 msgid "Invalid Editor ID!"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:353
+#: EcclesiaCRM/utils/OutputUtils.php:333
 #, fuzzy
 msgid "Select Season"
 msgstr "Không lựa chọn"
 
-#: EcclesiaCRM/utils/OutputUtils.php:358
+#: EcclesiaCRM/utils/OutputUtils.php:338
 msgid "Winter"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:363
+#: EcclesiaCRM/utils/OutputUtils.php:343
 msgid "Spring"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:368
+#: EcclesiaCRM/utils/OutputUtils.php:348
 #, fuzzy
 msgid "Summer"
 msgstr "Báo cáo hồ sơ tổng hợp"
 
-#: EcclesiaCRM/utils/OutputUtils.php:373
+#: EcclesiaCRM/utils/OutputUtils.php:353
 msgid "Fall"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:418
+#: EcclesiaCRM/utils/OutputUtils.php:398
 msgid "This custom field isn't configured correctly"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:480
+#: EcclesiaCRM/utils/OutputUtils.php:460
 msgid "Error: Invalid Editor ID!"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:537 EcclesiaCRM/utils/OutputUtils.php:549
+#: EcclesiaCRM/utils/OutputUtils.php:517 EcclesiaCRM/utils/OutputUtils.php:529
 msgid "1 m old"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:539 EcclesiaCRM/utils/OutputUtils.php:551
+#: EcclesiaCRM/utils/OutputUtils.php:519 EcclesiaCRM/utils/OutputUtils.php:531
 msgid "m old"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:547
+#: EcclesiaCRM/utils/OutputUtils.php:527
 msgid "1 yr old"
 msgstr ""
 
@@ -8875,6 +8874,15 @@ msgstr "Tạo báo cáo"
 msgid "Data sorted by"
 msgstr ""
 
+#: Reports/AdvancedDeposit.php:263
+#, fuzzy
+msgid "Dates"
+msgstr "Ngày"
+
+#: Reports/AdvancedDeposit.php:263
+msgid "through"
+msgstr ""
+
 #: Reports/AdvancedDeposit.php:267
 #, fuzzy
 msgid "Filtered by"
@@ -9013,12 +9021,12 @@ msgstr "Bình luận"
 msgid "Canvass Not Interested Report"
 msgstr "Không quan tâm"
 
-#: Reports/ClassAttendance.php:228 Reports/ClassAttendance.php:229
+#: Reports/ClassAttendance.php:223 Reports/ClassAttendance.php:224
 #: Reports/ClassList.php:187 Reports/ClassList.php:188
 msgid "Liaison"
 msgstr ""
 
-#: Reports/ClassAttendance.php:323
+#: Reports/ClassAttendance.php:318
 #, fuzzy
 msgid "All Members"
 msgstr "Thành viên"
@@ -9074,7 +9082,7 @@ msgid ""
 "button to return to EcclesiaCRM."
 msgstr ""
 
-#: Reports/EnvelopeReport.php:71
+#: Reports/EnvelopeReport.php:70
 #, fuzzy
 msgid "Envelope Numbers for all Families"
 msgstr "Xem tất cả gia đình"
@@ -9109,13 +9117,13 @@ msgid "Owe"
 msgstr ""
 
 #: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:54
+#: Reports/FRCertificates.php:52
 #, fuzzy
 msgid "Estimated value "
 msgstr "Chỉnh sửa giá trị"
 
 #: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:57
+#: Reports/FRCertificates.php:55
 msgid "Donated by "
 msgstr ""
 
@@ -12550,58 +12558,63 @@ msgid "French - Swiss"
 msgstr ""
 
 #: settings-locales.php:15
+#, fuzzy
+msgid "Greek"
+msgstr "Cài đặt Ban/Mục vụ"
+
+#: settings-locales.php:16
 msgid "German - Germany"
 msgstr ""
 
-#: settings-locales.php:16
+#: settings-locales.php:17
 msgid "Hungarian"
 msgstr ""
 
-#: settings-locales.php:17
+#: settings-locales.php:18
 msgid "Indonesian - Indonesia"
 msgstr ""
 
-#: settings-locales.php:18
+#: settings-locales.php:19
 msgid "Italian - Italy"
 msgstr ""
 
-#: settings-locales.php:19
+#: settings-locales.php:20
 msgid "Japan"
 msgstr ""
 
-#: settings-locales.php:20
+#: settings-locales.php:21
 msgid "Polish"
 msgstr ""
 
-#: settings-locales.php:21
+#: settings-locales.php:22
 msgid "Portuguese - Brazil"
 msgstr ""
 
-#: settings-locales.php:22
+#: settings-locales.php:23
 msgid "Portuguese - Portugal"
 msgstr ""
 
-#: settings-locales.php:23
+#: settings-locales.php:24
 msgid "Romanian - Romania"
 msgstr ""
 
-#: settings-locales.php:24
+#: settings-locales.php:25
 msgid "Russian"
 msgstr ""
 
-#: settings-locales.php:25
+#: settings-locales.php:26
 msgid "Spanish - Spain"
 msgstr ""
 
-#: settings-locales.php:26
+#: settings-locales.php:27
 msgid "Sami (Northern) (Sweden)"
 msgstr ""
 
-#: settings-locales.php:27
+#: settings-locales.php:28
 msgid "Thai"
 msgstr ""
 
-#: settings-locales.php:28
+#: settings-locales.php:29
 #, fuzzy
 msgid "Vietnamese"
 msgstr "In trang này"
