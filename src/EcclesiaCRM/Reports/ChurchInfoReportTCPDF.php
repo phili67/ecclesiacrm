@@ -77,11 +77,12 @@ class ChurchInfoReportTCPDF extends TCPDF
         $lang = SystemConfig::getValue('sLanguage');
         if ($lang == 'ja_JP') {
             $family = 'cid0jp';
-        } else if ($lang == 'ru_RU') {
+        } else if ($lang == 'ru_RU' || $lang == 'el_GR') {
             $family = 'cid0kr';
         } else if ($lang == 'zh_CN') {
             $family = 'cid0ct';
         }
+
         parent::setFont($family, $style, $size, $fontfile, $subset, $out);
     }
 
