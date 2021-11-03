@@ -135,7 +135,7 @@ class ChurchInfoReportTCPDF extends TCPDF
     public function WriteAtCell($x, $y, $wid, $str)
     {
         $this->SetXY($x, $y);
-        $this->MultiCell($wid, 4, $str, 1);
+        $this->MultiCell($wid, 4, $str, 1, "L");
     }
 
     public function StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead = '')
