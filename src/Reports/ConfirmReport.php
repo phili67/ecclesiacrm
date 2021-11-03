@@ -12,7 +12,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -29,13 +29,16 @@ use EcclesiaCRM\Map\GroupTableMap;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
-class PDF_ConfirmReport extends ChurchInfoReport
+class PDF_ConfirmReport extends ChurchInfoReportTCPDF
 {
+    private $incrY;
+
     // Constructor
     public function __construct()
     {
         parent::__construct('P', 'mm', $this->paperFormat);
         $this->leftX = 10;
+        $this->incrY = SystemConfig::getValue('incrementY') + 0.5;
         $this->SetFont('Times', '', 10);
         $this->SetMargins(10, 20);
 
@@ -45,38 +48,38 @@ class PDF_ConfirmReport extends ChurchInfoReport
     public function StartNewPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country)
     {
         $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, 'graphic');
-        $curY += 2 * SystemConfig::getValue('incrementY');
+        $curY += 2 * $this->incrY;
         $blurb = SystemConfig::getValue('sConfirm1');
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
-        $curY += 2 * SystemConfig::getValue('incrementY');
+        $curY += 2 * $this->incrY;
 
         return $curY;
     }
 
     public function FinishPage($curY)
     {
-        $curY += 2 * SystemConfig::getValue('incrementY');
+        $curY += 2 * $this->incrY;
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm2'));
 
-        $curY += 3 * SystemConfig::getValue('incrementY');
+        $curY += 3 * $this->incrY;
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm3'));
-        $curY += 2 * SystemConfig::getValue('incrementY');
+        $curY += 2 * $this->incrY;
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm4'));
 
         if (SystemConfig::getValue('sConfirm5') != '') {
-            $curY += 2 * SystemConfig::getValue('incrementY');
+            $curY += 2 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm5'));
-            $curY += 2 * SystemConfig::getValue('incrementY');
+            $curY += 2 * $this->incrY;
         }
         if (SystemConfig::getValue('sConfirm6') != '') {
-            $curY += 2 * SystemConfig::getValue('incrementY');
+            $curY += 2 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirm6'));
         }
         //If the Reports Settings Menu's SystemConfig::getValue("sConfirmSigner") is set, then display the closing statement.  Hide it otherwise.
         if (SystemConfig::getValue('sConfirmSigner')) {
-            $curY += 4 * SystemConfig::getValue('incrementY');
+            $curY += 4 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirmSincerely').',');
-            $curY += 4 * SystemConfig::getValue('incrementY');
+            $curY += 4 * $this->incrY;
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirmSigner'));
         }
     }
@@ -128,6 +131,9 @@ $dataCol = 55;
 $dataWid = 65;
 
 // Loop through families
+
+$incrY = SystemConfig::getValue('incrementY') + 0.5;
+
 foreach ($ormFamilies as $family) {
     //If this is a report for a single family, name the file accordingly.
     if ($_GET['familyId']) {
@@ -136,38 +142,38 @@ foreach ($ormFamilies as $family) {
 
     $curY = $pdf->StartNewPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(),
         $family->getState(), $family->getZip(), $family->getCountry());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
 
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Name'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getName());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 1'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress1());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Address 2'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getAddress2());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('City, State, Zip'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, ($family->getCity().', '.$family->getState().'  '.$family->getZip()));
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Home Phone'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getHomePhone());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Send Newsletter'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getSendNewsletter());
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
 
     // Missing the following information from the Family record:
     // Wedding date (if present) - need to figure how to do this with sensitivity
@@ -177,14 +183,14 @@ foreach ($ormFamilies as $family) {
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Anniversary Date'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate((!is_null($family->getWeddingdate())?$family->getWeddingdate()->format('Y-m-d'):'')));
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
 
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), _('Family Email'));
     $pdf->SetFont('Times', '', 10);
     $pdf->WriteAtCell($dataCol, $curY, $dataWid, $family->getEmail());
-    $curY += SystemConfig::getValue('incrementY');
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
+    $curY += $incrY;
 
     //Get the family members for this family
     $ormFamilyMembers = PersonQuery::create()
@@ -217,7 +223,7 @@ foreach ($ormFamilies as $family) {
     $XWorkPhone = 155;
     $XRight = 208;
 
-    $pdf->SetFont('Times', 'B', 8);
+    $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell($XName, $curY, $XGender - $XName, _('Member Name'));
     $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, _('M/F'));
     $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Adult/Child'));
@@ -227,7 +233,7 @@ foreach ($ormFamilies as $family) {
     $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(_('Cell phone'),0,13).".");
     $pdf->WriteAtCell($XClassification, $curY, $XRight - $XClassification, _('Member/Friend'));
     $pdf->SetFont('Times', '', 10);
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
 
     $numFamilyMembers = 0;
     //while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
@@ -235,9 +241,9 @@ foreach ($ormFamilies as $family) {
         $numFamilyMembers++;    // add one to the people count
 
         // Make sure the person data will display with adequate room for the trailer and group information
-        if (($curY + $numCustomFields * SystemConfig::getValue('incrementY')) > 260) {
+        if (($curY + $numCustomFields * $incrY) > 260) {
             $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry());
-            $pdf->SetFont('Times', 'B', 8);
+            $pdf->SetFont('Times', 'B', 10);
             $pdf->WriteAtCell($XName, $curY, $XGender - $XName, _('Member Name'));
             $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, _('M/F'));
             $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, _('Adult/Child'));
@@ -247,12 +253,12 @@ foreach ($ormFamilies as $family) {
             $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(_('Cell phone'),0,15).".");
             $pdf->WriteAtCell($XClassification, $curY, $XRight - $XClassification, _('Member/Friend'));
             $pdf->SetFont('Times', '', 10);
-            $curY += SystemConfig::getValue('incrementY');
+            $curY += $incrY;
         }
         $iPersonID = $fMember->getId();
-        $pdf->SetFont('Times', 'B', 8);
+        $pdf->SetFont('Times', 'B', 10);
         $pdf->WriteAtCell($XName, $curY, $XGender - $XName, $fMember->getFirstName().' '.$fMember->getMiddleName().' '.$fMember->getLastName());
-        $pdf->SetFont('Times', '', 8);
+        $pdf->SetFont('Times', '', 10);
         $genderStr = ($fMember->getGender() == 1 ? 'M' : 'F');
         $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, $genderStr);
         $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, $fMember->getFamRole());
@@ -276,12 +282,12 @@ foreach ($ormFamilies as $family) {
         $pdf->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, $hideAgeStr);
         $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, $fMember->getCellPhone());
         $pdf->WriteAtCell($XClassification, $curY, $XRight - $XClassification, $fMember->getClassName());
-        $curY += SystemConfig::getValue('incrementY');
+        $curY += $incrY;
         // Missing the following information for the personal record: ??? Is this the place to put this data ???
         // Work Phone
         $pdf->WriteAtCell($XWorkPhone, $curY, $XRight - $XWorkPhone, _('Work Phone').':'.$fMember->getWorkPhone());
-        $curY += SystemConfig::getValue('incrementY');
-        $curY += SystemConfig::getValue('incrementY');
+        $curY += $incrY;
+        $curY += $incrY;
 
         // *** All custom fields ***
         // Get the list of custom person fields
@@ -316,7 +322,7 @@ foreach ($ormFamilies as $family) {
                     $OutStr = $sCustomFieldName[$custField->getCustomOrder() - 1].' : '.$currentFieldData.'    ';
                     $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custField->getCustomOrder() - 1]);
                     if ($currentFieldData == '') {
-                        $pdf->SetFont('Times', 'B', 6);
+                        $pdf->SetFont('Times', 'B', 10);
                         $pdf->WriteAtCell($xInc + $xSize, $curY, $xSize, '');
                         $pdf->SetFont('Times', '', 10);
                     } else {
@@ -326,20 +332,20 @@ foreach ($ormFamilies as $family) {
                     $xInc += (2 * $xSize);    // Increment the X position by about 1/2 page width
                     if (($numWide % 2) == 0) { // 2 columns
                         $xInc = $XName;    // Reset margin
-                        $curY += SystemConfig::getValue('incrementY');
+                        $curY += $incrY;
                     }
                 }
             }
             //$pdf->WriteAt($XName,$curY,$OutStr);
             //$curY += (2 * SystemConfig::getValue("incrementY"));
         }
-        $curY += 2 * SystemConfig::getValue('incrementY');
+        $curY += 2 * $incrY;
     }
     //
 
-    $curY += SystemConfig::getValue('incrementY');
+    $curY += $incrY;
 
-    if (($curY + 2 * $numFamilyMembers * SystemConfig::getValue('incrementY')) >= 260) {
+    if (($curY + 2 * $numFamilyMembers * $incrY) >= 260) {
         $curY = $pdf->StartLetterPage($family->getId(), $family->getName(), $family->getAddress1(), $family->getAddress2(), $family->getCity(), $family->getState(), $family->getZip(), $family->getCountry());
     }
 
@@ -372,7 +378,7 @@ foreach ($ormFamilies as $family) {
                 $groupStr .= $group->getName().' ('._($group->getRoleName()).') ';
             }
             $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
-            $curY += 2 * SystemConfig::getValue('incrementY');
+            $curY += 2 * $incrY;
         }
 
     }
@@ -384,6 +390,7 @@ foreach ($ormFamilies as $family) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output($filename, 'D');
 } else {
