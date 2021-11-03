@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
@@ -192,7 +192,7 @@ if ($output == 'pdf') {
         $bottom_border2 = 250;
     }
 
-    class PDF_TaxReport extends ChurchInfoReport
+    class PDF_TaxReport extends ChurchInfoReportTCPDF
     {
         // Constructor
         public function __construct()
@@ -300,7 +300,7 @@ if ($output == 'pdf') {
         }
     }
 
-    $currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+    $currency = SystemConfig::getValue("sCurrency");
 
     // Instantiate the directory class and build the report.
     $pdf = new PDF_TaxReport();
@@ -329,19 +329,19 @@ if ($output == 'pdf') {
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Total Payments:')));
+            $pdf->Cell(50, $summaryIntervalY, _('Total Payments:'));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Goods and Services Rendered:')));
+            $pdf->Cell(50, $summaryIntervalY, _('Goods and Services Rendered:'));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Tax-Deductible Contribution:')));
+            $pdf->Cell(50, $summaryIntervalY, _('Tax-Deductible Contribution:'));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
@@ -376,12 +376,12 @@ if ($output == 'pdf') {
             $curY += 2 * $summaryIntervalY;
             $pdf->SetFont('Times', 'B', 10);
             $pdf->SetXY($summaryDateX, $curY);
-            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Date')));
-            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Chk No.')), 0, 0, 'C');
-            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('PmtMethod')));
-            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Fund')));
-            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Memo')));
-            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Amount')), 0, 1, 'R');
+            $pdf->Cell(20, $summaryIntervalY, _('Date'));
+            $pdf->Cell(20, $summaryIntervalY, _('Chk No.'), 0, 0, 'C');
+            $pdf->Cell(25, $summaryIntervalY, _('PmtMethod'));
+            $pdf->Cell(40, $summaryIntervalY, _('Fund'));
+            $pdf->Cell(40, $summaryIntervalY, _('Memo'));
+            $pdf->Cell(25, $summaryIntervalY, _('Amount'), 0, 1, 'R');
             //$curY = $pdf->GetY();
             $totalAmount = 0;
             $totalNonDeductible = 0;
@@ -404,7 +404,7 @@ if ($output == 'pdf') {
         $pdf->SetFont('Times', '', 10);
         $pdf->Cell(20, $summaryIntervalY, date(SystemConfig::getValue('sDateFormatLong'), strtotime($plg_date)));
         $pdf->Cell(20, $summaryIntervalY, $plg_CheckNo, 0, 0, 'R');
-        $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_($plg_method)));
+        $pdf->Cell(25, $summaryIntervalY, _($plg_method));
         $pdf->Cell(40, $summaryIntervalY, $fun_Name);
         $pdf->Cell(40, $summaryIntervalY, $plg_comment);
         $pdf->SetFont('Courier', '', 9);
@@ -439,19 +439,19 @@ if ($output == 'pdf') {
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Total Payments:')));
+    $pdf->Cell(50, $summaryIntervalY, _('Total Payments:'));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Goods and Services Rendered:')));
+    $pdf->Cell(50, $summaryIntervalY, _('Goods and Services Rendered:'));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Tax-Deductible Contribution:')));
+    $pdf->Cell(50, $summaryIntervalY, _('Tax-Deductible Contribution:'));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
@@ -474,6 +474,7 @@ if ($output == 'pdf') {
     }
 
     header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+    ob_end_clean();
     if (SystemConfig::getValue('iPDFOutputType') == 1) {
         $pdf->Output('TaxReport'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
     } else {
