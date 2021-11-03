@@ -14,7 +14,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonQuery;
 
 
@@ -67,7 +66,7 @@ foreach ($persons as $person) {
         }
 
         $pdf->SetXY($PosX + $pdf->_Width / 2, $PosY + 3);
-        $pdf->MultiCell($pdf->_Width / 2, $pdf->_Line_Height, iconv('UTF-8', 'ISO-8859-1', $labelStr));
+        $pdf->MultiCell($pdf->_Width / 2, $pdf->_Line_Height, $labelStr);
         $pdf->Set_Char_Size($sFontSize);
         $pdf->Add_PDF_Label('');
     } else {
@@ -84,6 +83,7 @@ foreach ($persons as $person) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('NameTags'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
