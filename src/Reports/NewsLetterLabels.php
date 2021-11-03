@@ -14,7 +14,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_NewsletterLabels;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
@@ -48,10 +47,10 @@ $families = FamilyQuery::create()
         ->filterBySendNewsletter("TRUE")
         ->orderByZip()
         ->find();
-        
+
 foreach ($onlyPersons as $person) {
     if ( is_null ($person->getFamily()) ) continue;
-    
+
     $labelText = $person->getFamily()->getName(). " " . $person->getFirstName() . ' (' . _('Person') . ')';
 
     if ($person->getFamily()->getAddress1() != '') {
@@ -92,6 +91,7 @@ foreach ($families as $family) {
 
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('NewsLetterLabels'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
