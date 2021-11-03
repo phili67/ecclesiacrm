@@ -15,7 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PledgeQuery;
@@ -33,7 +33,7 @@ $_SESSION['idefaultFY'] = $iFYID; // Remember the chosen FYID
 $iRequireDonationYears = InputUtils::LegacyFilterInput($_POST['RequireDonationYears'], 'int');
 $output = InputUtils::LegacyFilterInput($_POST['output']);
 
-class PDF_VotingMembers extends ChurchInfoReport
+class PDF_VotingMembers extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -126,6 +126,7 @@ $curY += 5;
 $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _("Number of Voting Members").":".$votingMemberCount);
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('VotingMembers'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
