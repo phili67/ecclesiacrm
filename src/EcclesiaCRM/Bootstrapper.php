@@ -120,6 +120,9 @@ namespace EcclesiaCRM
           $localeInfo = Bootstrapper::GetCurrentLocale();
           self::$bootStrapLogger->debug("Setting locale to: " . $localeInfo->getLocale());
 
+          // this will set the $realLocalInfo unuseffull after
+          $realLocaleInfo = Bootstrapper::getRealLocalInfo();
+
           $domain = 'messages';
           $sLocaleDir = SystemURLs::getDocumentRoot() . '/locale/textdomain';
           self::$bootStrapLogger->debug("Setting local text domain bind to: " . $sLocaleDir);
