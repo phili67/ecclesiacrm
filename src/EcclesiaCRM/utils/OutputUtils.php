@@ -4,6 +4,7 @@
 
 namespace EcclesiaCRM\Utils;
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
@@ -58,34 +59,35 @@ class OutputUtils
     // There are three modes: money, integer, and intmoney (whole number money)
     public static function formatNumber($iNumber, $sMode = 'integer', $currency_vis = false)
     {
-        //$aLocaleInfo = localeconv();
-        global $aLocaleInfo;
+        $aLocaleInfo = Bootstrapper::getRealLocalInfo();
 
-        $currency = $aLocaleInfo['currency_symbol'];
+        $currency = $aLocaleInfo['currency_symbol'];;
 
         if ($currency == '') {
             $currency = '$';
         }
 
+        $res = "";
         switch ($sMode) {
             case 'money':
-                return ($currency_vis ? $currency : '') . ' ' . number_format((float)$iNumber, 2, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+                $res =  ($currency_vis ? $currency : '') . ' ' . number_format((float)$iNumber, 2, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
                 break;
-
             case 'intmoney':
-                return ($currency_vis ? $currency : '') . ' ' . number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+                $res =  ($currency_vis ? $currency : '') . ' ' . number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
                 break;
 
             case 'float':
                 $iDecimals = 2; // need to calculate # decimals in original number
-                return number_format((float)$iNumber, $iDecimals, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+                $res = number_format((float)$iNumber, $iDecimals, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
                 break;
 
             case 'integer':
             default:
-                return number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+                $res = number_format((float)$iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
                 break;
         }
+
+        return $res;
     }
 
 
