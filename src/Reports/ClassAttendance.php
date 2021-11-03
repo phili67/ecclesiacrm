@@ -16,13 +16,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Map\PersonTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 
@@ -328,6 +323,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('ClassAttendance'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
