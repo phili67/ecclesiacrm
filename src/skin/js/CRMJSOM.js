@@ -79,16 +79,15 @@
         });
     }
 
-    window.CRM.showGlobalMessage = function (message, callOutClass) {
+    window.CRM.showGlobalMessage = function (message, alertClass) {
         $("#globalMessageText").text(message);
-        $("#globalMessageCallOut").removeClass("callout-danger");
-        $("#globalMessageCallOut").removeClass("callout-warning");
-        $("#globalMessageCallOut").removeClass("callout-info");
-        $("#globalMessageCallOut").removeClass("callout-success");
-        $("#globalMessageCallOut").addClass("callout-"+callOutClass);
+        $("#globalMessageAlert").removeClass("alert-danger");
+        $("#globalMessageAlert").removeClass("alert-warning");
+        $("#globalMessageAlert").removeClass("alert-info");
+        $("#globalMessageAlert").removeClass("alert-success");
+        $("#globalMessageAlert").addClass("alert-"+alertClass);
         $("#globalMessage").show("slow");
     }
-
 
     window.CRM.dialogLoadingFunction =  function (message) {
       window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
