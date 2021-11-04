@@ -39,6 +39,8 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\Reports\EmailUsers;
+
 class PeopleFamilyController
 {
     private $container;
@@ -201,6 +203,21 @@ class PeopleFamilyController
                 $logger->error($email->getError());
                 throw new \Exception($email->getError());
             }
+        } else {
+            $response = $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
+        }
+        return $response;
+    }
+
+    public function verifyFamilyPDF (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $familyId = $args["familyId"];
+        $family = FamilyQuery::create()->findPk($familyId);
+        if ($family != null) {
+            $fams_to_contact = new EmailUsers([$familyId]);
+
+            $familyEmailSent = $fams_to_contact->renderAndSend();
+
+            return $response->withJson(["status" => $familyEmailSent]);
         } else {
             $response = $response->withStatus(404)->getBody()->write("familyId: " . $familyId . " not found");
         }
