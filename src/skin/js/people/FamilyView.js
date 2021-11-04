@@ -321,6 +321,21 @@ $(document).ready(function () {
       });
   });
 
+    $("#onlineVerifyPDF").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verifyPDF'
+        })
+            .done(function(data, textStatus, xhr) {
+                $('#confirm-verify').modal('hide');
+                if (xhr.status == 200) {
+                    window.CRM.showGlobalMessage(i18next.t("Verification email sent") + ' (PDF)', "success")
+                } else {
+                    window.CRM.showGlobalMessage(i18next.t("Failed to send verification email") + ' (PDF)', "danger")
+                }
+            });
+    });
+
   $("#verifyNow").click(function () {
     $.ajax({
       type: 'POST',
