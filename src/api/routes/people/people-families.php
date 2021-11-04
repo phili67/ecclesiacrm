@@ -87,6 +87,12 @@ $app->group('/families', function (RouteCollectorProxy $group) {
  */
     $group->post('/{familyId:[0-9]+}/verify', PeopleFamilyController::class . ":verifyFamily" );
 
+/*
+* @! Verify the family for the familyId
+* #! param: id->int :: familyId as id
+*/
+    $group->post('/{familyId:[0-9]+}/verifyPDF', PeopleFamilyController::class . ":verifyFamilyPDF" );
+
  /*
  * @! Verify the family for the familyId now
  * #! param: id->int :: familyId as id
