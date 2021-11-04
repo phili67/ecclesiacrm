@@ -242,6 +242,7 @@ require 'Include/Header.php';
     </div>
     <?php
 } ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
@@ -1122,6 +1123,10 @@ require 'Include/Header.php';
                     ?>
                     <button type="button" id="onlineVerify" class="btn btn-warning warning">
                         <i class="fa fa-envelope"></i>
+                        <?= _("Online Verification") ?>
+                    </button>
+                    <button type="button" id="onlineVerifyPDF" class="btn btn-danger danger">
+                        <i class="fa fa-envelope"></i> <i class="fa fa-file-pdf-o"></i>
                         <?= _("Online Verification") ?>
                     </button>
                     <?php
