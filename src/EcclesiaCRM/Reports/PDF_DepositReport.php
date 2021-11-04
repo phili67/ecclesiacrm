@@ -2,7 +2,7 @@
 
 namespace EcclesiaCRM\Reports;
 
-class PDF_DepositReport extends ChurchInfoReport
+class PDF_DepositReport extends ChurchInfoReportTCPDF
 {
     // Private properties
   public $_Char_Size = 10;        // Character size

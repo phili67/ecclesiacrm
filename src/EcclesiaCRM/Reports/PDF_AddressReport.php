@@ -2,7 +2,9 @@
 
 namespace EcclesiaCRM\Reports;
 
-class PDF_AddressReport extends ChurchInfoReport
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
+
+class PDF_AddressReport extends ChurchInfoReportTCPDF
 {
     // Private properties
     private $_Margin_Left = 0;         // Left Margin
@@ -14,7 +16,7 @@ class PDF_AddressReport extends ChurchInfoReport
     private $sFamily;
     private $sLastName;
 
-    public function num_lines_in_fpdf_cell($w, $txt)
+    public function num_lines_in_tcfpdf_cell($w, $txt)
     {
         //Computes the number of lines a MultiCell of width w will take
         $cw = &$this->CurrentFont['cw'];
@@ -119,8 +121,8 @@ class PDF_AddressReport extends ChurchInfoReport
     {
         $sLuStr .= "\n".$sErrStr;
 
-        $numlines1 = $this->num_lines_in_fpdf_cell(90, $fam_Str);
-        $numlines2 = $this->num_lines_in_fpdf_cell(90, $sLuStr);
+        $numlines1 = $this->num_lines_in_tcfpdf_cell(90, $fam_Str);
+        $numlines2 = $this->num_lines_in_tcfpdf_cell(90, $sLuStr);
 
         if ($numlines1 > $numlines2) {
             $numlines = $numlines1;

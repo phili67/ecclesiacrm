@@ -38,10 +38,10 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
         RedirectUtils::Redirect('Reports/NewsLetterLabels.php?labeltype='.$sLabelFormat.$sLabelInfo);
     } elseif (isset($_POST['SubmitConfirmReport'])) {
         RedirectUtils::Redirect('Reports/ConfirmReport.php');
-    } elseif (isset($_POST['SubmitConfirmReportEmail'])) {
-        RedirectUtils::Redirect('Reports/ConfirmReportEmail.php');
     } elseif (isset($_POST['SubmitConfirmLabels'])) {
         RedirectUtils::Redirect('Reports/ConfirmLabels.php?labeltype='.$sLabelFormat.$sLabelInfo);
+    } elseif (isset($_POST['SubmitConfirmReportEmail'])) {
+        RedirectUtils::Redirect('Reports/ConfirmReportEmail.php');
     }
 } else {
     $sLabelFormat = 'Tractor';
@@ -76,11 +76,20 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
           </table>
             </div>
             <div>
-              <input type="submit" class="btn btn-success" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
-              <input type="submit" class="btn btn-primary" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
-              <input type="submit" class="btn btn-primary" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
-              <input type="submit" class="btn btn-primary" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
-              <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'v2/dashboard';">
+                <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="delete">
+                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Newsletter labels') ?>
+                </button>
+                <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="delete">
+                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Confirm data letter') ?>
+                </button>
+                <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="delete">
+                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Confirm data labels') ?>
+                </button>
+                <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="delete">
+                    <i class="fa fa-send"></i> <?= gettext('Confirm data Email') ?>
+                </button>
+
+                <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'v2/dashboard';">
             </div>
         </form>
       </div>

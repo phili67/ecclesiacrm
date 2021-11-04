@@ -12,7 +12,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -186,7 +186,7 @@ foreach ($ormFunds as $fund) {
 
 // Create PDF Report
 // *****************
-class PDF_FamilyPledgeSummaryReport extends ChurchInfoReport
+class PDF_FamilyPledgeSummaryReport extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -222,7 +222,7 @@ $famOweWid = $famPayWid;
 
 $pageTop = 10;
 $y = $pageTop;
-$lineInc = 4;
+$lineInc = 4.5;
 
 $pdf->WriteAt($leftX, $y, _('Pledge Family Summary'));
 $y += $lineInc;
@@ -363,6 +363,7 @@ while ($family = $pdoFamilies->fetch( \PDO::FETCH_BOTH )) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('FamilyPledgeSummary'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

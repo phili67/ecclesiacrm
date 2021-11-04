@@ -31,7 +31,6 @@
         "slim/php-view": "2.2.0",
         "monolog/monolog": "^1.17",
         "authorizenet/authorizenet": "1.9.4",
-        "setasign/fpdf": "1.8.*",
         "phpmailer/phpmailer":  "v6.5.0",
         "verot/class.upload.php": "dev-master",
         "ifsnop/mysqldump-php": "2.*",
@@ -55,7 +54,8 @@
         "http-interop/http-factory-guzzle": "^1.0",
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.1",
-        "slim/http": "^1.2"
+        "slim/http": "^1.2",
+        "tecnickcom/tcpdf": "^6.4"
     },
     "autoload": {
         "classmap": [

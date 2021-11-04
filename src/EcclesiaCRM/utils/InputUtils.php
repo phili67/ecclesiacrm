@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Utils;
 
+use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\SystemConfig;
 use \DateTime;
 
@@ -15,7 +16,8 @@ class InputUtils {
   //
   public static function validateCustomField($type, &$data, $col_Name, &$aErrors)
   {
-      global $aLocaleInfo;
+      $aLocaleInfo = Bootstrapper::getRealLocalInfo();
+
       $bErrorFlag = false;
       $aErrors[$col_Name] = '';
 
@@ -53,7 +55,7 @@ class InputUtils {
       // Handler for integer numbers
       case 8:
         if (strlen($data) != 0) {
-            if ($aLocalInfo['thousands_sep']) {
+            if ($aLocaleInfo['thousands_sep']) {
                 $data = preg_replace('/'.$aLocaleInfo['thousands_sep'].'/i', '', $data);  // remove any thousands separators
             }
             if (!is_numeric($data)) {

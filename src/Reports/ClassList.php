@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -32,7 +32,7 @@ $dFirstSunday = InputUtils::LegacyFilterInput($_GET['FirstSunday']);
 $dLastSunday  = InputUtils::LegacyFilterInput($_GET['LastSunday']);
 $withPictures = InputUtils::LegacyFilterInput($_GET['pictures']);
 
-class PDF_ClassList extends ChurchInfoReport
+class PDF_ClassList extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -73,10 +73,10 @@ for ($i = 0; $i < $nGrps; $i++) {
 
 
 
-    $pdf->WriteAt($nameX, $yTitle, ($group->getName().' - '));
+    $pdf->WriteAt($nameX, $yTitle-2, ($group->getName().' - '));
 
     $FYString = MiscUtils::MakeFYString($iFYID);
-    $pdf->WriteAt($phoneX, $yTitle, $FYString);
+    $pdf->WriteAt($phoneX, $yTitle-2, $FYString);
 
     $pdf->SetLineWidth(0.5);
     $pdf->Line($nameX, $yTeachers - 0.75, 195, $yTeachers - 0.75);
@@ -334,6 +334,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('ClassList'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

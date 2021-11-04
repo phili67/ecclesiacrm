@@ -36,20 +36,20 @@ if ($iMode == 1) {
 }
 
     $connection = Propel::getConnection();
-    
-    
+
+
     // Get the group name
     $group = GroupQuery::Create()->findOneById ($iGroupID);
     $sGroupName  = $group->getName();
     $iRoleListID = $group->getRoleListId();
-    
+
     // Get the selected role name
     if ($iRoleID > 0) {
         $list      = ListOptionQuery::Create()->filterById ($iRoleListID)->findOneByOptionId($iRoleID);
         $sRoleName = $list->getOptionName();
     } elseif (isset($_POST['GroupRoleEnable'])) {
         $lists = ListOptionQuery::Create()->findById ($iRoleListID);
-        
+
         foreach ($lists as $list) {
           $aRoleNames[$list->getOptionId()] = $list->getOptionName();
         }
@@ -60,7 +60,7 @@ if ($iMode == 1) {
     // See if this group has special properties.
     $props = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId ($iGroupID);
     $bHasProps = ($props->count() > 0);
-    
+
     $sSQL = 'SELECT * FROM person_per
       LEFT JOIN family_fam ON per_fam_ID = fam_ID ';
 
@@ -174,6 +174,7 @@ if ($iMode == 1) {
     }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('GroupDirectory-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

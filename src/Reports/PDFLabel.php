@@ -46,7 +46,7 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
     // such as "All Souls Church"
     // Similar logic is applied if mailing to Sunday School children.
     $fam = FamilyQuery::Create()->findOneById ($famID);
-    
+
     if (is_null ($fam)) {
         return 'Invalid Family'.$famID;
     }
@@ -646,7 +646,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
                 ->orderByLastName()
                 ->orderByFirstName()
                 ->find();
-    
+
     $sRowClass = 'RowColorA';
     $didFam = [];
 
@@ -840,7 +840,7 @@ $aLabelList = unserialize(
 
 if ($sFileType == 'PDF') {
     header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-
+    ob_end_clean();
     if (SystemConfig::getValue('iPDFOutputType') == 1) {
         $pdf->Output('Labels-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
     } else {
@@ -854,7 +854,7 @@ if ($sFileType == 'PDF') {
     if ($iBulkCode) {
         $sCSVOutput .= '"ZipBundle"'.$delimiter;
     }
-    
+
 
     $sCSVOutput .= '"'.InputUtils::translate_special_charset(_("Greeting"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Name"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Address"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("City"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("State"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Zip"),$charset).'"'."\n";
 
@@ -890,13 +890,13 @@ if ($sFileType == 'PDF') {
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
-    
-    
+
+
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
     if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";
     }
-    
+
     echo $sCSVOutput;
 }
 

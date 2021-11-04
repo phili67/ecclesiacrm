@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -190,7 +190,7 @@ $ormFunds = DonationFundQuery::create()->find();
 
 // Create PDF Report
 // *****************
-class PDF_ReminderReport extends ChurchInfoReport
+class PDF_ReminderReport extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -284,7 +284,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
     }
 
     // Add a page for this reminder report
-    $curY = $pdf->StartNewPage($family['fam_ID'], $family['fam_Name'], $family['fam_Address1'], $family['fam_Address2'], $family['fam_City'], $family['fam_State'], $family['fam_Zip'], $family['fam_Country'], fundOnlyString, $iFYID);
+    $curY = $pdf->StartNewPage($family['fam_ID'], $family['fam_Name'], $family['fam_Address1'], $family['fam_Address2'], $family['fam_City'], $family['fam_State'], $family['fam_Zip'], $family['fam_Country'], $fundOnlyString, $iFYID);
 
     // Get pledges only
     $sSQL = 'SELECT *, b.fun_Name AS fundName FROM pledge_plg
@@ -305,7 +305,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
     $summaryFundWid = $summaryAmountX - $summaryFundX;
     $summaryAmountWid = 15;
 
-    $summaryIntervalY = 4;
+    $summaryIntervalY = 4.5;
 
     if ($pdoPledges->rowCount() == 0) {
         $curY += $summaryIntervalY;
@@ -339,7 +339,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
             $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, date(SystemConfig::getValue('sDateFormatLong'), strtotime($aRow['plg_date'])));
             $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, $aRow['fundName']);
 
-            $pdf->SetFont('Courier', '', 8);
+            //$pdf->SetFont('Courier', '', 8);
 
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, OutputUtils::money_localized($aRow['plg_amount']));
 
@@ -356,7 +356,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
         $pdf->SetFont('Times', '', 10);
         if ($cnt > 1) {
             $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, _("Total pledges"));
-            $pdf->SetFont('Courier', '', 8);
+            //$pdf->SetFont('Courier', '', 8);
             $totalAmountStr = OutputUtils::money_localized($totalAmount);
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, $totalAmountStr);
             $curY += $summaryIntervalY;
@@ -385,7 +385,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
         $summaryFundX = 85;
         $summaryMemoX = 120;
         $summaryAmountX = 170;
-        $summaryIntervalY = 4;
+        $summaryIntervalY = 4.5;
 
         $summaryDateWid = $summaryCheckNoX - $summaryDateX;
         $summaryCheckNoWid = $summaryMethodX - $summaryCheckNoX;
@@ -432,7 +432,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
             $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, $aRow['fundName']);
             $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, $aRow['plg_comment']);
 
-            $pdf->SetFont('Courier', '', 8);
+            //$pdf->SetFont('Courier', '', 8);
 
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, OutputUtils::money_localized($aRow['plg_amount']));
 
@@ -454,7 +454,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
         $pdf->SetFont('Times', '', 10);
         if ($cnt > 1) {
             $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, _("Total payments"));
-            $pdf->SetFont('Courier', '', 8);
+            //$pdf->SetFont('Courier', '', 8);
             $totalAmountString = OutputUtils::money_localized($totalAmount);
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, $totalAmountString);
             $curY += $summaryIntervalY;
@@ -486,6 +486,7 @@ while ( $family = $pdoFamilies->fetch( \PDO::FETCH_BOTH ) ) {
     $pdf->FinishPage($curY);
 }
 
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('ReminderReport'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

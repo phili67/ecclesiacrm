@@ -148,6 +148,7 @@ function CanvassProgressReport()
     $percentStr = sprintf('%.0f%%', ($totalDone / $totalToDo) * 100);
     $pdf->WriteAt($percentX, $curY, $percentStr);
 
+    ob_end_clean();
     $pdf->Output('CanvassProgress'.date(SystemConfig::getValue("sDateFormatLong")).'.pdf', 'D');
 }
 
@@ -349,6 +350,7 @@ function CanvassBriefingSheets($iFYID)
         $pdf->AddPage();
     }
 
+    ob_end_clean();
     $pdf->Output('CanvassBriefing'.date(SystemConfig::getValue("sDateFormatLong")).'.pdf', 'D');
 }
 
@@ -390,7 +392,7 @@ function CanvassSummaryReport($iFYID)
     foreach ([_('Positive'), _('Critical'), _('Insightful'), _('Financial'), _('Suggestion'), _('WhyNotInterested')] as $colName) {
         $pdf->SetFont('Times', 'B', 14);
 
-        $pdf->Write(5, OutputUtils::translate_text_fpdf($colName).' '._('Comments')."\n");
+        $pdf->Write(5, $colName.' '._('Comments')."\n");
         //		$pdf->WriteAt (SystemConfig::getValue("leftX"), $curY, $colName . " Comments");
         $pdf->SetFont('Times', '', 12);
         foreach ($ormCanvassDatas as $aDatum) {
@@ -417,13 +419,14 @@ function CanvassSummaryReport($iFYID)
             }
 
             if ($str != '') {
-                $pdf->Write(4, OutputUtils::translate_text_fpdf($str)."\n\n");
+                $pdf->Write(4, $str."\n\n");
                 //				$pdf->WriteAt (SystemConfig::getValue("leftX"), $curY, $str);
 //				$curY += SystemConfig::getValue("incrementY");
             }
         }
     }
 
+    ob_end_clean();
     $pdf->Output('CanvassSummary'.date(SystemConfig::getValue("sDateFormatLong")).'.pdf', 'D');
 }
 
@@ -467,10 +470,11 @@ function CanvassNotInterestedReport($iFYID)
     $pdf->SetFont('Times', '', 12);
     foreach ($ormCanvasDatas as $aDatum) {
         $str = sprintf("%s : %s\n", $aDatum->getFamName(), $aDatum->getWhyNotInterested());
-        $pdf->Write(4, OutputUtils::translate_text_fpdf($str)."\n\n");
+        $pdf->Write(4, $str."\n\n");
     }
 
     header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+    ob_end_clean();
     $pdf->Output('CanvassNotInterested'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 }
 

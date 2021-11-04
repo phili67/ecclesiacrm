@@ -229,7 +229,7 @@ if ($sImage != '') {
 $aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $useCart, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition,$useQRCode));
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('Labels-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

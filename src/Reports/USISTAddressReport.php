@@ -129,7 +129,7 @@ while ($aRow = mysqli_fetch_array($rsFamilies)) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
-
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('Addresses-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

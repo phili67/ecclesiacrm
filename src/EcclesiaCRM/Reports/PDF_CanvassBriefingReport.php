@@ -2,7 +2,7 @@
 
 namespace EcclesiaCRM\Reports;
 
-class PDF_CanvassBriefingReport extends ChurchInfoReport
+class PDF_CanvassBriefingReport extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()

@@ -2,9 +2,9 @@
 /*******************************************************************************
 *
 *  filename    : Reports/FundRaiserStatement.php
-*  last change : 2009-04-17
+*  last change : 2021-10-17
 *  description : Creates a PDF with one or more fund raiser statements
-*  copyright   : Copyright 2009 Michael Wilt
+*  copyright   : Copyright 2009 Michael Wilt & Philippe Logel
 
 ******************************************************************************/
 
@@ -12,7 +12,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 
@@ -42,7 +42,7 @@ $connection = Propel::getConnection();
 $ormPaddleNums = $connection->prepare($sSQL);
 $ormPaddleNums->execute();
 
-class PDF_FundRaiserStatement extends ChurchInfoReport
+class PDF_FundRaiserStatement extends ChurchInfoReportTCPDF
 {
     // Constructor
     public function __construct()
@@ -86,7 +86,7 @@ class PDF_FundRaiserStatement extends ChurchInfoReport
 // Instantiate the directory class and build the report.
 $pdf = new PDF_FundRaiserStatement();
 
-$currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
+$currency = SystemConfig::getValue("sCurrency");
 
 // Loop through result array
 while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
@@ -121,21 +121,21 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
         $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
         $pdf->SetFont('Times', 'B', 10);
 
-        $pdf->Cell($ItemWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Item')));
-        $pdf->Cell($TitleWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Name')));
-        $pdf->Cell($DonorWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Buyer')));
-        $pdf->Cell($PhoneWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Phone')));
-        $pdf->Cell($EmailWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Email')));
-        $pdf->Cell($PriceWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Amount')), 0, 1, 'R');
+        $pdf->Cell($ItemWid, $tableCellY, _('Item'));
+        $pdf->Cell($TitleWid, $tableCellY, _('Name'));
+        $pdf->Cell($DonorWid, $tableCellY, _('Buyer'));
+        $pdf->Cell($PhoneWid, $tableCellY, _('Phone'));
+        $pdf->Cell($EmailWid, $tableCellY, _('Email'));
+        $pdf->Cell($PriceWid, $tableCellY, _('Amount'), 0, 1, 'R');
         $curY = $pdf->GetY();
         $pdf->SetFont('Times', '', 10);
 
         while ($itemRow = $ormDonatedItems->fetch( \PDO::FETCH_ASSOC )) {
             $nextY = $curY;
             $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['di_item']), 0, 'L');
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $TitleWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['di_title']), 0, 'L');
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['buyerFirstName'].' '.$itemRow['buyerLastName']), 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, $itemRow['di_item'], 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $TitleWid, $tableCellY, $itemRow['di_title'], 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, $itemRow['buyerFirstName'].' '.$itemRow['buyerLastName'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PhoneWid, $tableCellY, $itemRow['buyerPhone'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $EmailWid, $tableCellY, $itemRow['buyerEmail'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PriceWid, $tableCellY, $currency.OutputUtils::money_localized($itemRow['di_sellprice']), 0, 'R');
@@ -164,23 +164,23 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
 
         $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
         $pdf->SetFont('Times', 'B', 10);
-        $pdf->Cell($ItemWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Item')));
-        $pdf->Cell($QtyWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Qty')));
-        $pdf->Cell($TitleWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Name')));
-        $pdf->Cell($DonorWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Donor')));
-        $pdf->Cell($PhoneWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Phone')));
-        $pdf->Cell($EmailWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Email')));
-        $pdf->Cell($PriceWid, $tableCellY, OutputUtils::translate_text_fpdf(_('Amount')), 0, 1, 'R');
+        $pdf->Cell($ItemWid, $tableCellY, _('Item'));
+        $pdf->Cell($QtyWid, $tableCellY, _('Qty'));
+        $pdf->Cell($TitleWid, $tableCellY, _('Name'));
+        $pdf->Cell($DonorWid, $tableCellY, _('Donor'));
+        $pdf->Cell($PhoneWid, $tableCellY, _('Phone'));
+        $pdf->Cell($EmailWid, $tableCellY, _('Email'));
+        $pdf->Cell($PriceWid, $tableCellY, _('Amount'), 0, 1, 'R');
         $pdf->SetFont('Times', '', 10);
         $curY += SystemConfig::getValue('incrementY');
 
         while ($itemRow = $ormPurchasedItems->fetch( \PDO::FETCH_ASSOC )) {
             $nextY = $curY;
             $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['di_item']), 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, $itemRow['di_item'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $QtyWid, $tableCellY, '1', 0, 'L'); // quantity 1 for all individual items
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $TitleWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['di_title']), 0, 'L');
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, OutputUtils::translate_text_fpdf($itemRow['donorFirstName'].' '.$itemRow['donorLastName']), 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $TitleWid, $tableCellY, $itemRow['di_title'], 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, $itemRow['donorFirstName'].' '.$itemRow['donorLastName'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PhoneWid, $tableCellY, $itemRow['donorPhone'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $EmailWid, $tableCellY, $itemRow['donorEmail'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PriceWid, $tableCellY, $currency.OutputUtils::money_localized($itemRow['di_sellprice']), 0, 'R');
@@ -206,10 +206,10 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
         while ($mbRow = $ormMultiBuy->fetch( \PDO::FETCH_ASSOC )) {
             $nextY = $curY;
             $pdf->SetXY(SystemConfig::getValue('leftX'), $curY);
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, OutputUtils::translate_text_fpdf($mbRow['di_item']), 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $ItemWid, $tableCellY, $mbRow['di_item'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $QtyWid, $tableCellY, $mbRow['mb_count'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $TitleWid, $tableCellY, stripslashes($mbRow['di_title']), 0, 'L');
-            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, OutputUtils::translate_text_fpdf($mbRow['donorFirstName'].' '.$mbRow['donorLastName']), 0, 'L');
+            $nextY = $pdf->CellWithWrap($curY, $nextY, $DonorWid, $tableCellY, $mbRow['donorFirstName'].' '.$mbRow['donorLastName'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PhoneWid, $tableCellY, $mbRow['donorPhone'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $EmailWid, $tableCellY, $mbRow['donorEmail'], 0, 'L');
             $nextY = $pdf->CellWithWrap($curY, $nextY, $PriceWid, $tableCellY, $currency.OutputUtils::money_localized($mbRow['mb_count'] * $mbRow['di_sellprice']), 0, 'R');
@@ -236,4 +236,5 @@ while ($row = $ormPaddleNums->fetch( \PDO::FETCH_ASSOC )) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 $pdf->Output('FundRaiserStatement'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');

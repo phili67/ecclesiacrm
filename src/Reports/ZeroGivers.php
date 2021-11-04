@@ -2,9 +2,9 @@
 /*******************************************************************************
 *
 *  filename    : Reports/ZeroGivers.php
-*  last change : 2005-03-26
+*  last change : 2021-11-02
 *  description : Creates a PDF with all the tax letters for a particular calendar year.
-*  Copyright 2012 Michael Wilt
+*  Copyright 2012-2021 Michael Wilt & Philippe Logel
 
 ******************************************************************************/
 
@@ -12,11 +12,10 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Reports\PDF_ZeroGivers;
 
 use Propel\Runtime\Propel;
 
@@ -94,55 +93,8 @@ if ($output == 'pdf') {
         $bottom_border2 = 250;
     }
 
-    class PDF_ZeroGivers extends ChurchInfoReport
-    {
-        // Constructor
-        public function __construct()
-        {
-            parent::__construct('P', 'mm', $this->paperFormat);
-            $this->SetFont('Times', '', 10);
-            $this->SetMargins(20, 20);
-
-            $this->SetAutoPageBreak(false);
-        }
-
-        public function StartNewPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country)
-        {
-            global $letterhead, $sDateStart, $sDateEnd;
-            $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead);
-            $curY += 2 * SystemConfig::getValue('incrementY');
-            if ($sDateStart == $sDateEnd) {
-            OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
-                $DateString = OutputUtils::FormatDate($sDateStart);
-            } else {
-                $DateString = OutputUtils::FormatDate($sDateStart).' - '.OutputUtils::FormatDate($sDateEnd);
-            }
-
-            $blurb = SystemConfig::getValue('sZeroGivers').' '.$DateString;//.' '.SystemConfig::getValue('sZeroGivers');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
-            $curY += 30 * SystemConfig::getValue('incrementY');
-
-            return $curY;
-        }
-
-        public function FinishPage($curY, $fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country)
-        {
-            global $remittance;
-            $curY += 2 * SystemConfig::getValue('incrementY');
-            $blurb = SystemConfig::getValue('sZeroGivers2');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
-            $curY += 3 * SystemConfig::getValue('incrementY');
-            $blurb = SystemConfig::getValue('sZeroGivers3');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
-            $curY += 3 * SystemConfig::getValue('incrementY');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sConfirmSincerely').',');
-            $curY += 4 * SystemConfig::getValue('incrementY');
-            $this->WriteAt(SystemConfig::getValue('leftX'), $curY, SystemConfig::getValue('sTaxSigner'));
-        }
-    }
-
     // Instantiate the directory class and build the report.
-    $pdf = new PDF_ZeroGivers();
+    $pdf = new PDF_ZeroGivers($letterhead, $sDateStart, $sDateEnd, $remittance);
 
     // Loop through result array
     while ($row = $rsReport->fetch( \PDO::FETCH_ASSOC )) {
@@ -152,6 +104,7 @@ if ($output == 'pdf') {
         $pdf->FinishPage($curY, $fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country);
     }
 
+    ob_end_clean();
     if (SystemConfig::getValue('iPDFOutputType') == 1) {
         $pdf->Output('ZeroGivers'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
     } else {

@@ -70,13 +70,27 @@ class LocaleInfo
         return $localArray;
     }
 
+    public function getCurrency ()
+    {
+        return SystemConfig::getValue("sCurrency");
+    }
     public function getLocaleInfo()
     {
+        setlocale(LC_ALL, $this->getLocale());
         $localeInfo = localeconv();
+
+        $localeInfo['decimal_point'] = '.';
+        $localeInfo['mon_thousands_sep'] = ',';
+        $localeInfo['currency_symbol'] = $this->getCurrency();// we set the correct currency
+
         // patch some missing data for Italian.  This shouldn't be necessary!
-        if ($this->language == 'it_IT') {
+        if ($this->locale == 'it_IT') {
             $localeInfo['thousands_sep'] = '.';
             $localeInfo['frac_digits'] = '2';
+            $localeInfo['decimal_point'] = ',';
+        } elseif ($localeInfo['currency_symbol'] == "€") {
+            $localeInfo['decimal_point'] = ',';
+            $localeInfo['mon_thousands_sep'] = ' ';
         }
 
         return $localeInfo;

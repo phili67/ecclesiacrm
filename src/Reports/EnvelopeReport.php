@@ -9,8 +9,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
-use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -25,7 +24,7 @@ if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVa
     exit;
 }
 
-class PDF_EnvelopeReport extends ChurchInfoReport
+class PDF_EnvelopeReport extends ChurchInfoReportTCPDF
 {
     // Private properties
     public $_Margin_Left = 0;         // Left Margin
@@ -103,12 +102,12 @@ class PDF_EnvelopeReport extends ChurchInfoReport
     public function Add_Record($text, $numlines)
     {
         $numlines++; // add an extra blank line after record
+
         $this->Check_Lines($numlines);
 
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
-        $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(0, 5, _($text)); // set width to 0 prints to right margin
+        $this->WriteAt($_PosX, $_PosY+5, $text);
         $this->_CurLine += $numlines;
     }
 }
@@ -121,7 +120,7 @@ $families = FamilyQuery::Create()->orderByEnvelope()->filterByEnvelope(0,Criteri
 foreach ($families as $family) {
     $OutStr = '';
 
-    $OutStr = OutputUtils::translate_text_fpdf($pdf->sGetFamilyString($family));
+    $OutStr = $pdf->sGetFamilyString($family);
 
     // Count the number of lines in the output string
     if (strlen($OutStr)) {
@@ -134,6 +133,7 @@ foreach ($families as $family) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('EnvelopeAssingments-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {

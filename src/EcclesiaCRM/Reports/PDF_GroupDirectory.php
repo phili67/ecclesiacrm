@@ -2,10 +2,7 @@
 
 namespace EcclesiaCRM\Reports;
 
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-
-class PDF_GroupDirectory extends ChurchInfoReport
+class PDF_GroupDirectory extends ChurchInfoReportTCPDF
 {
     // Private properties
     public $_Margin_Left = 0;         // Left Margin
@@ -16,7 +13,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
     public $_Font = 'Times';
     public $sFamily;
     public $sLastName;
-    
+
     protected $sGroupName = "";
     protected $sRoleName  = "";
 
@@ -24,6 +21,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
     public function __construct($GroupName, $RoleName)
     {
         parent::__construct('P', 'mm', $this->paperFormat);
+        parent::setPrintHeader(true);
 
         $this->sGroupName = $GroupName;
         $this->sRoleName  = $RoleName;
@@ -49,11 +47,11 @@ class PDF_GroupDirectory extends ChurchInfoReport
             //Move to the right
             $this->Cell(10);
             //Framed title
-            $sTitle = OutputUtils::translate_text_fpdf($this->sGroupName).' - '. OutputUtils::translate_text_fpdf(_('Group Directory'));
-            if (strlen($this->sRoleName)) {
-                $sTitle .= ' ('.OutputUtils::translate_text_fpdf(_($this->sRoleName)).')';
+            $sTitle = $this->sGroupName.' - '. _('Group Directory');
+            if (mb_strlen($this->sRoleName)) {
+                $sTitle .= ' ('._($this->sRoleName).')';
             }
-            $this->Cell(197, 10, $sTitle, 1, 0, 'C');
+            $this->Cell(197, 10, $sTitle, 0, 0, 'C');
         }
     }
 
@@ -122,7 +120,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->Write(5, OutputUtils::translate_text_fpdf($sName));
+        $this->Write(5, $sName);
         $this->SetFont($this->_Font, '', $this->_Char_Size);
         $this->_CurLine++;
     }
@@ -137,7 +135,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(108, 5, OutputUtils::translate_text_fpdf($text));
+        $this->MultiCell(108, 5, $text);
         $this->_CurLine += $numlines;
     }
 }

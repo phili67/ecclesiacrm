@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : ISTAddressVerification.php
+ *  filename    : USISTAddressVerification.php
  *  website     : http://www.ecclesiacrm.com
  *  description : USPS address verification
  *

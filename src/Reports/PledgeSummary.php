@@ -13,7 +13,7 @@ require '../Include/Functions.php';
 
 use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -102,7 +102,7 @@ $pledges->useDonationFundQuery()
 // Create PDF Report
 // *****************
 if ($output == 'pdf') {
-    class PDF_PledgeSummaryReport extends ChurchInfoReport
+    class PDF_PledgeSummaryReport extends ChurchInfoReportTCPDF
     {
         // Constructor
         public function __construct()
@@ -266,16 +266,16 @@ if ($output == 'pdf') {
                 $short_fun_name = $fun_name;
             }
             $pdf->WriteAt($nameX, $curY, _($short_fun_name));
-            $amountStr = sprintf('%.2f', $pledgeFundTotal[$fun_name]);
+            $amountStr = OutputUtils::money_localized($pledgeFundTotal[$fun_name]);
             $pdf->PrintRightJustified($pledgeX, $curY, $amountStr);
-            $amountStr = sprintf('%.2f', $paymentFundTotal[$fun_name]);
+            $amountStr = OutputUtils::money_localized($paymentFundTotal[$fun_name]);
             $pdf->PrintRightJustified($paymentX, $curY, $amountStr);
             $pdf->PrintRightJustified($pledgeCountX, $curY, $pledgeCnt[$fun_name]);
             $pdf->PrintRightJustified($paymentCountX, $curY, $paymentCnt[$fun_name]);
 
-            $amountStr = sprintf('%.2f', $overpaid[$fun_name]);
+            $amountStr = OutputUtils::money_localized($overpaid[$fun_name]);
             $pdf->PrintRightJustified($underpaidX, $curY, $amountStr);
-            $amountStr = sprintf('%.2f', $underpaid[$fun_name]);
+            $amountStr = OutputUtils::money_localized($underpaid[$fun_name]);
             $pdf->PrintRightJustified($overpaidX, $curY, $amountStr);
             $curY += SystemConfig::getValue('incrementY');
         }
@@ -283,9 +283,9 @@ if ($output == 'pdf') {
 
     if ($pledgeFundTotal['Unassigned'] > 0 || $paymentFundTotal['Unassigned'] > 0) {
         $pdf->WriteAt($nameX, $curY, 'Unassigned');
-        $amountStr = sprintf('%.2f', $pledgeFundTotal['Unassigned']);
+        $amountStr = OutputUtils::money_localized($pledgeFundTotal['Unassigned']);
         $pdf->PrintRightJustified($pledgeX, $curY, $amountStr);
-        $amountStr = sprintf('%.2f', $paymentFundTotal['Unassigned']);
+        $amountStr = OutputUtils::money_localized($paymentFundTotal['Unassigned']);
         $pdf->PrintRightJustified($paymentX, $curY, $amountStr);
         $pdf->PrintRightJustified($pledgeCountX, $curY, $pledgeCnt['Unassigned']);
         $pdf->PrintRightJustified($paymentCountX, $curY, $paymentCnt['Unassigned']);
@@ -293,6 +293,7 @@ if ($output == 'pdf') {
     }
 
     header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+    ob_end_clean();
     if (SystemConfig::getValue('iPDFOutputType') == 1) {
         $pdf->Output('PledgeSummaryReport'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
     } else {

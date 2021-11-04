@@ -11,7 +11,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -26,7 +26,7 @@ $aGrp = explode(',', $iGroupID);
 
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
 
-class PDF_PhotoBook extends ChurchInfoReport
+class PDF_PhotoBook extends ChurchInfoReportTCPDF
 {
     private $group;
     private $FYIDString;
@@ -92,7 +92,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->currentX = 170;
         $this->WriteAt($this->currentX, $this->currentY, $this->FYIDString);
         $this->SetLineWidth(0.5);
-        $this->Line($this->pageMarginL, 25.25, $this->GetPageWidth() - $this->pageMarginR, 25.25);
+        $this->Line($this->pageMarginL, 27.25, $this->GetPageWidth() - $this->pageMarginR, 27.25);
     }
 
     private function drawPersonBlock($lastname,$firstname, $thumbnailURI)
@@ -224,6 +224,7 @@ foreach ($aGrp as $groupID) {
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
+ob_end_clean();
 if (SystemConfig::getValue('iPDFOutputType') == 1) {
     $pdf->Output('ClassList'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
 } else {
