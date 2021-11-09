@@ -13,6 +13,7 @@ $logger->info("Start to delete : all unusefull files");
 
 unlink(SystemURLs::getDocumentRoot()."/Include/GetGroupArray.php");
 unlink(SystemURLs::getDocumentRoot()."/RPCdummy.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Reports/ChurchInfoReport.php");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
