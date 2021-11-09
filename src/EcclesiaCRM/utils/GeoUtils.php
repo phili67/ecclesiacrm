@@ -85,6 +85,51 @@ class GeoUtils
     // distance in miles.
     public static function LatLonDistance($lat1, $lon1, $lat2, $lon2)
     {
+        // Formula for calculating radians between
+        // latitude and longitude pairs.
+
+        // Uses the Spherical Law of Cosines to find great circle distance.
+        // Length of arc on surface of sphere
+
+        // convert to radians to work with trig functions
+
+        // earth radius
+        // http://www.movable-type.co.uk/scripts/latlong.html
+        $R = 6371.0; //kilometers
+
+        $phi1 = deg2rad($lat1); // φ, λ in radians
+        $phi2 = deg2rad($lat2);
+        $var_phi = deg2rad($lat2-$lat1);
+        $var_lambda = deg2rad($lon2-$lon1);
+
+        $a = pow(sin($var_phi/2.0) ,2) +
+            cos($phi1) * cos($phi2) *
+            pow(sin($var_lambda/2.0) ,2);
+
+        $c = 2.0 * atan2(sqrt($a), sqrt(1-$a));
+
+        $distance = $R * $c; // in kilometers
+
+        $unit = strtoupper(SystemConfig::getValue('sDistanceUnit'));
+
+        if ($unit == "MILES") {
+            $distance = $distance * 0.621371;
+        } elseif ($unit == 'LI') { //China
+            $distance = $distance*2;
+        } elseif ($unit == 'SHAKU') {// Japan
+            $distance = $distance*3300;
+        }
+
+        // Return distance to three figures
+        if ($distance < 10.0) {
+            $distance_f = round($distance,2);
+        } elseif ($distance < 100.0) {
+            $distance_f = round($distance,1);
+        } else {
+            $distance_f = round($distance);
+        }
+
+        return $distance_f;
 
         // Formula for calculating radians between
         // latitude and longitude pairs.
@@ -94,7 +139,7 @@ class GeoUtils
 
         // convert to radians to work with trig functions
 
-        $lat1 = deg2rad($lat1);
+        /*$lat1 = deg2rad($lat1);
         $lon1 = deg2rad($lon1);
         $lat2 = deg2rad($lat2);
         $lon2 = deg2rad($lon2);
@@ -108,21 +153,27 @@ class GeoUtils
         // distance in kilometers is $radians times $radius
         $distance = $radians * $radius;
 
+        $unit = strtoupper(SystemConfig::getValue('sDistanceUnit'));
+
         // convert to miles
-        if (strtoupper(SystemConfig::getValue('sDistanceUnit')) == 'MILES') {
-            $distance = 0.6213712 * $distance;
+        if ($unit == "MILES") {
+            $distance = $distance * 0.621371;
+        } elseif ($unit == 'LI') { //China
+            $distance = $distance*2;
+        } elseif ($unit == 'SHAKU') {// Japan
+            $distance = $distance*3300;
         }
 
         // Return distance to three figures
         if ($distance < 10.0) {
-            $distance_f = sprintf('%0.2f', $distance);
+            $distance_f = round($distance,2);
         } elseif ($distance < 100.0) {
-            $distance_f = sprintf('%0.1f', $distance);
+            $distance_f = round($distance,1);
         } else {
-            $distance_f = sprintf('%0.0f', $distance);
+            $distance_f = round($distance);
         }
 
-        return $distance_f;
+        return $distance_f;*/
     }
 
     public static function LatLonBearing($lat1, $lon1, $lat2, $lon2)
