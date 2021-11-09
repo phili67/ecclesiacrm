@@ -67,7 +67,7 @@ function FamilyInfoByDistance($iFamily)
     foreach ($families as $family) {
         $familyID = $family->getId();
         if ($iFamily) {
-            $results[$familyID]['Distance'] = floatval(GeoUtils::LatLonDistance($selectedFamily->getLatitude(), $selectedFamily->getLongitude(), $family->getLatitude(), $family->getLongitude()));
+            $results[$familyID]['Distance'] = GeoUtils::LatLonDistance($selectedFamily->getLatitude(), $selectedFamily->getLongitude(), $family->getLatitude(), $family->getLongitude());
             $results[$familyID]['Bearing'] = GeoUtils::LatLonBearing($selectedFamily->getLatitude(), $selectedFamily->getLongitude(), $family->getLatitude(), $family->getLongitude());
         }
         $results[$familyID]['fam_Name'] = $family->getName();
@@ -396,7 +396,7 @@ $families = FamilyQuery::create()
                                 <td><?= OutputUtils::number_localized($oneResult['Distance']) ?> </td>
                                 <td><?= $oneResult['Bearing'] ?> <?= OutputUtils::GetRouteFromCoordinates($oneResult['fam_Latitude'], $oneResult['fam_Longitude']) ?>
                                 </td>
-                                <td><b><?= $oneResult['fam_Name'] ?> </b></td>
+                                <td><b><a href="<?= SystemURLs::getRootPath()?>/FamilyView.php?FamilyID=<?= $oneResult['fam_ID'] ?>"><?= $oneResult['fam_Name'] ?> </a> </b></td>
                                 <td>
                                     <?= OutputUtils::GetLinkMapFromCoordinates($oneResult['fam_Latitude'], $oneResult['fam_Longitude'], $oneResult['fam_Address']) ?>
                                 </td>
