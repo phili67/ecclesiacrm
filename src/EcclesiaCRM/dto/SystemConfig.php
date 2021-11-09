@@ -118,7 +118,7 @@ class SystemConfig
             "sMapProvider" => new ConfigItem(56, "sMapProvider", "choice", "OpenStreetMap", _("Select GeoCoder Provider"), "https://github.com/geocoder-php/Geocoder/blob/3.x/README.md#address-based-providers", '{"Choices":["OpenStreetMap", "GoogleMaps", "BingMaps"]}'),
             "iChecksPerDepositForm" => new ConfigItem(57, "iChecksPerDepositForm", "number", "14", _("Number of checks for Deposit Slip Report")),
             "bUseScannedChecks" => new ConfigItem(58, "bUseScannedChecks", "boolean", "0", _("Set true to enable use of scanned checks")),
-            "sDistanceUnit" => new ConfigItem(64, "sDistanceUnit", "choice", "miles", _("Unit used to measure distance, miles or km."), "", '{"Choices":["' . _("miles") . '","' . _("kilometers") . '"]}'),
+            "sDistanceUnit" => new ConfigItem(64, "sDistanceUnit", "choice", "miles", _("Unit used to measure distance, miles or kilometers or li."), "", '{"Choices":["miles","kilometers", "li", "shaku"]}'),
             "sTimeZone" => new ConfigItem(65, "sTimeZone", "choice", "America/New_York", _("Time zone") . " : " . _("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"), "http://php.net/manual/en/timezones.php", json_encode(["Choices" => timezone_identifiers_list()])),
             "bForceUppercaseZip" => new ConfigItem(67, "bForceUppercaseZip", "boolean", "0", _("Make user-entered zip/postcodes UPPERCASE when saving to the database.")),
             "bEnableNonDeductible" => new ConfigItem(72, "bEnableNonDeductible", "boolean", "0", _("Enable non-deductible payments")),
