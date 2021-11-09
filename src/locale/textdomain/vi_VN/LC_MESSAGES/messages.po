@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:19+0000\n"
+"POT-Creation-Date: 2021-11-08 19:28+0000\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: Include/Footer.php:81 PledgeEditor.php:588
-#: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:55
+#: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Chỉnh sửa thành viên"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
 #: members/404.php:16 PersonView.php:906 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -74,15 +74,15 @@ msgstr ""
 #: CSVImport.php:386 DirectoryReports.php:98
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:115
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:126
-#: EcclesiaCRM/APIControllers/SearchController.php:134
-#: EcclesiaCRM/APIControllers/SearchController.php:139
-#: EcclesiaCRM/APIControllers/SearchController.php:147
-#: EcclesiaCRM/APIControllers/SearchController.php:152
-#: EcclesiaCRM/APIControllers/SearchController.php:160
-#: EcclesiaCRM/APIControllers/SearchController.php:165
+#: EcclesiaCRM/APIControllers/SearchController.php:137
+#: EcclesiaCRM/APIControllers/SearchController.php:142
+#: EcclesiaCRM/APIControllers/SearchController.php:150
+#: EcclesiaCRM/APIControllers/SearchController.php:155
+#: EcclesiaCRM/APIControllers/SearchController.php:163
+#: EcclesiaCRM/APIControllers/SearchController.php:168
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/utils/OutputUtils.php:383 EcclesiaCRM/utils/OutputUtils.php:444
+#: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
 #: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
@@ -153,7 +153,7 @@ msgstr ""
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:177
-#: EcclesiaCRM/utils/OutputUtils.php:237 EditEventTypes.php:125
+#: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:411
@@ -193,12 +193,13 @@ msgstr "Họ"
 #: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
 #: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
 #: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:49 FamilyEditor.php:734
-#: FamilyEditor.php:740 FamilyView.php:294 GeoPage.php:374 GroupReports.php:148
+#: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
-#: PersonEditor.php:1251 PersonView.php:566 Reports/ConfirmReportEmail.php:144
-#: Reports/ConfirmReportEmail.php:149 Reports/PDFLabel.php:859
+#: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
 #: v2/templates/dashboard/maindashboard.php:581
 #: v2/templates/dashboard/maindashboard.php:595
 #: v2/templates/dashboard/maindashboard.php:610
@@ -250,6 +251,8 @@ msgstr "Điện thoại"
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
@@ -257,13 +260,12 @@ msgstr "Điện thoại"
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
 #: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:375 FamilyView.php:454 FamilyView.php:552
+#: FamilyView.php:376 FamilyView.php:455 FamilyView.php:553
 #: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
 #: PersonView.php:637 PersonView.php:760 PersonView.php:1126
 #: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:281 Reports/ConfirmReportEmail.php:224
-#: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
-#: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:328
+#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
+#: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
@@ -328,8 +330,8 @@ msgstr "Lưu lại"
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
+#: FamilyView.php:1082 FinancialReports.php:92 FundRaiserEditor.php:210
+#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1954
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
 #: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
@@ -386,11 +388,11 @@ msgstr "Tạo tập tin"
 
 #: browser/browse.php:66 EditEventAttendees.php:120
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1082
+#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1083
 #: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1867
 #: PersonView.php:1955 v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
-#: v2/templates/email/mailchimp/managelist.php:102
+#: v2/templates/email/mailchimp/managelist.php:99
 #: v2/templates/pastoralcare/pastoralcarefamily.php:209
 #: v2/templates/pastoralcare/pastoralcarefamily.php:219
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -560,7 +562,7 @@ msgid "Canvass Input for the"
 msgstr "Báo cáo hồ sơ tổng hợp"
 
 #: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
-#: EcclesiaCRM/Service/PersonService.php:46
+#: EcclesiaCRM/Service/PersonService.php:49
 #, fuzzy
 msgid "family"
 msgstr "Gia đình"
@@ -724,7 +726,7 @@ msgstr "Thêm vào giỏ hàng rồi gửi đến Gia đình"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:548
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:549
 #: v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
@@ -783,9 +785,9 @@ msgstr "Nếu thêm một gia đình mới, nhập dữ liệu dưới đây."
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
 #: external/templates/registration/family-register.php:38 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1076
-#: Reports/ConfirmReportEmail.php:139 Reports/ConfirmReport.php:142
+#: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 #: v2/templates/dashboard/maindashboard.php:580
 #: v2/templates/dashboard/maindashboard.php:594
@@ -794,7 +796,7 @@ msgstr "Tên gia đình"
 
 #: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
 #: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:337
+#: FamilyView.php:338
 msgid "Wedding Date"
 msgstr "Ngày cưới"
 
@@ -816,15 +818,15 @@ msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Sử dụng hộp văn bản cho các quốc gia khác ngoài Mỹ và Canada)"
 
 #: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
 #: EditEventAttendees.php:79 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:87
 #: external/templates/verify/verify-family-info.php:36
 #: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:351 GroupReports.php:149 PersonEditor.php:1409
+#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
 #: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReportEmail.php:159
-#: Reports/ConfirmReport.php:162
+#: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
@@ -832,24 +834,24 @@ msgid "Home Phone"
 msgstr "Điện thoại nhà"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
-#: EcclesiaCRM/utils/OutputUtils.php:431 FamilyEditor.php:829
+#: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
 msgstr "Không theo định dạng này"
 
 #: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283
 #: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:357 GroupReports.php:150 PersonEditor.php:1438
+#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
 #: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReportEmail.php:271
-#: Reports/ConfirmReport.php:282
+#: PrintView.php:273 Reports/ConfirmReport.php:288
 msgid "Work Phone"
 msgstr "Điện thoại công việc"
 
 #: CartToFamily.php:439 CSVExport.php:142
 #: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:364 PersonEditor.php:1469
+#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
 #: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
 #: PrintView.php:278
 msgid "Mobile Phone"
@@ -894,12 +896,12 @@ msgstr "Lựa chọn sự kiện"
 msgid "Select event"
 msgstr "Lựa chọn sự kiện"
 
-#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
+#: Checkin.php:208 FamilyView.php:888 PersonView.php:1577
 #, fuzzy
 msgid "From"
 msgstr "Gửi từ:"
 
-#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
+#: Checkin.php:208 FamilyView.php:897 PersonView.php:1586
 #, fuzzy
 msgid "To"
 msgstr "Gửi đến:"
@@ -974,7 +976,7 @@ msgid "Checkin"
 msgstr "Ngày sự kiện"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/email/mailchimp/managelist.php:87
 #: v2/templates/user/userlist.php:171
 #, fuzzy
 msgid "Check all"
@@ -1069,9 +1071,9 @@ msgid "Age / Years Married"
 msgstr "Tuổi / năm kết hôn"
 
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:186
+#: EcclesiaCRM/APIControllers/SearchController.php:189
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
-#: FamilyEditor.php:1101 FamilyView.php:550 FinancialReports.php:153
+#: FamilyEditor.php:1101 FamilyView.php:551 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
 #: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
@@ -1081,7 +1083,7 @@ msgid "Classification"
 msgstr "Phân loại:"
 
 #: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:187
+#: EcclesiaCRM/APIControllers/SearchController.php:190
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
 #: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
 #: queryparameters_qrp.php:5
@@ -1138,7 +1140,7 @@ msgid "Use Ctrl Key to select multiple"
 msgstr "Sử dụng Ctrl Key để chọn nhiều"
 
 #: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
+#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:211
@@ -1150,7 +1152,7 @@ msgstr "Giới tính"
 msgid "Don't Filter"
 msgstr "Không lọc"
 
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:129
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -1161,7 +1163,7 @@ msgstr "Không lọc"
 msgid "Male"
 msgstr "Nam"
 
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:129
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -1253,9 +1255,10 @@ msgstr "Bỏ qua trường này"
 msgid "Donation Envelope"
 msgstr "Địa chỉ nhận thư:"
 
-#: CSVImport.php:249 GroupReports.php:151 Reports/CanvassReports.php:280
-#: Reports/ConfirmReportEmail.php:226 Reports/ConfirmReportEmail.php:244
-#: v2/templates/people/familylist.php:58 v2/templates/people/personlist.php:55
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
 msgid "Cell Phone"
 msgstr "Di động"
 
@@ -1577,11 +1580,12 @@ msgstr "Ai giữ vai trò là chủ hộ ?"
 msgid "Information to Include"
 msgstr ""
 
-#: DirectoryReports.php:198 EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:551
-#: PersonView.php:1125 Reports/ConfirmReportEmail.php:225
-#: Reports/ConfirmReportEmail.php:243 Reports/ConfirmReport.php:225
-#: Reports/ConfirmReport.php:245
+#: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
+#: EcclesiaCRM/Service/CalendarService.php:30
+#: external/templates/verify/verify-family-info.php:107 FamilyView.php:552
+#: PersonView.php:1125 Reports/ConfirmReport.php:231
+#: Reports/ConfirmReport.php:251
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1601,8 +1605,9 @@ msgstr "Điện thoại gia đình"
 msgid "Family Cell Phone"
 msgstr "Điện thoại gia đình"
 
-#: DirectoryReports.php:203 external/templates/verify/verify-family-info.php:39
-#: Reports/ConfirmReportEmail.php:180 Reports/ConfirmReport.php:183
+#: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:192
+#: external/templates/verify/verify-family-info.php:39
+#: Reports/ConfirmReport.php:189
 msgid "Family Email"
 msgstr "Email gia đình"
 
@@ -1918,7 +1923,7 @@ msgstr "Tất cả gia đình"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 #, fuzzy
@@ -1932,7 +1937,7 @@ msgstr "Xem tất cả thành viên"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:33
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -1954,7 +1959,7 @@ msgstr "Gia đình"
 msgid "Groups"
 msgstr "Ban/Mục vụ"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:1116
+#: EcclesiaCRM/APIControllers/MailchimpController.php:1110
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -2013,24 +2018,24 @@ msgstr ""
 msgid "POST to cart requires an EventID"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:268
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:285
 #, fuzzy
 msgid "Family Deactivated"
 msgstr "Không hoạt động"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:270
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:287
 #, fuzzy
 msgid "Family Activated"
 msgstr "Kích hoạt"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:398
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:774
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:775
 #, fuzzy
 msgid "Deleted from group"
 msgstr "Lựa chọn Ban/Mục vụ"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:430
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:465
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:431
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:466
 #, fuzzy
 msgid "Added to group"
 msgstr "Thêm vào Ban/Mục vụ"
@@ -2038,8 +2043,8 @@ msgstr "Thêm vào Ban/Mục vụ"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:145
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:165
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:194 EcclesiaCRM/utils/OutputUtils.php:294
-#: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:270
+#: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
+#: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Có"
@@ -2047,8 +2052,8 @@ msgstr "Có"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:295
-#: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:272
+#: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
+#: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
 msgstr "Không"
@@ -2076,14 +2081,14 @@ msgstr "Kích hoạt"
 msgid "Write a message Here !"
 msgstr ""
 
-#: EcclesiaCRM/APIControllers/SearchController.php:188
+#: EcclesiaCRM/APIControllers/SearchController.php:191
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:85
 #, fuzzy
 msgid "Person Property"
 msgstr "Chỉnh sửa thành viên"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:189
+#: EcclesiaCRM/APIControllers/SearchController.php:192
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:139
 #: OptionManager.php:126
 msgid "Group Type"
@@ -2091,7 +2096,7 @@ msgstr "Thể loại Ban/Mục vụ"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
-#: FamilyEditor.php:1097 FamilyView.php:549 OptionManager.php:100
+#: FamilyEditor.php:1097 FamilyView.php:550 OptionManager.php:100
 #: OptionManager.php:141 PersonView.php:1124 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
@@ -4310,7 +4315,7 @@ msgid "Enable WebDav, CardDav and CalDav support through a Browser."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:257
-msgid "Max count of members in a MailChimp List."
+msgid "MailChimp API request time out in seconds"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:258
@@ -4359,97 +4364,101 @@ msgstr ""
 msgid "Set the export address)"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:268
+msgid "email address of the mailchimp sender."
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Thông tin Hội Thánh"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 #, fuzzy
 msgid "Enabled Features"
 msgstr "Kích hoạt"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:197
 msgid "System Settings"
 msgstr "Cài đặt hệ thống"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:279
 #, fuzzy
 msgid "User setup"
 msgstr "Danh sách thành viên"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 #, fuzzy
 msgid "People Setup"
 msgstr "Thành viên"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:281
 #, fuzzy
 msgid "Email Setup"
 msgstr "Email Ban/Mục vụ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:282
 #, fuzzy
 msgid "Map Settings"
 msgstr "Lưu thay đổi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:464 PersonView.php:791 PrintPastoralCarePerson.php:639
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:326
+#: FamilyView.php:465 PersonView.php:791 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:284
 #, fuzzy
 msgid "Sundayschool Attendance"
 msgstr "Lớp học Trường Chúa Nhật"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:64
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:64
 #: v2/routes/email/mailchimp/mailchimp.php:143
 #: v2/routes/email/mailchimp/mailchimp.php:144
 #: v2/templates/dashboard/maindashboard.php:125
 msgid "GDPR"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:287
 #, fuzzy
 msgid "Quick Search"
 msgstr "Tìm kiếm"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:288
 #, fuzzy
 msgid "Report Settings"
 msgstr "Cài đặt thành viên"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:289
 #, fuzzy
 msgid "Financial Settings"
 msgstr "Báo cáo tài chính"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:290
 #, fuzzy
 msgid "Backup"
 msgstr "Quay lại"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:349
-#: EcclesiaCRM/dto/SystemConfig.php:359
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:374
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
@@ -4615,7 +4624,7 @@ msgstr "Thay đổi mật khẩu"
 msgid "Change Settings"
 msgstr "Lưu thay đổi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:675 PersonView.php:988
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:676 PersonView.php:988
 #, fuzzy
 msgid "Documents"
 msgstr "Bình luận"
@@ -4749,7 +4758,7 @@ msgstr "Phân loại:"
 msgid "Meetings"
 msgstr "Cài đặt Ban/Mục vụ"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:875
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
 msgid "MailChimp"
 msgstr ""
 
@@ -4974,29 +4983,29 @@ msgstr "Thành viên"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:296 EcclesiaCRM/utils/OutputUtils.php:539
-#: EcclesiaCRM/utils/OutputUtils.php:557 FamilyEditor.php:1177
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
 msgid "Unknown"
 msgstr "Không rõ"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
-#: EcclesiaCRM/utils/OutputUtils.php:564
+#: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
-#: EcclesiaCRM/utils/OutputUtils.php:566
+#: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
-#: EcclesiaCRM/utils/OutputUtils.php:534 EcclesiaCRM/utils/OutputUtils.php:536
-#: EcclesiaCRM/utils/OutputUtils.php:570
+#: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
+#: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
-#: EcclesiaCRM/utils/OutputUtils.php:572
+#: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr ""
 
@@ -5098,6 +5107,57 @@ msgstr ""
 msgid "Certificate of Ownership"
 msgstr ""
 
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr ""
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
+#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
+#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
+#: Reports/ConfirmReport.php:173
+msgid "Send Newsletter"
+msgstr ""
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
+#: Reports/ConfirmReport.php:183
+#, fuzzy
+msgid "Anniversary Date"
+msgstr "Ngày kỷ niệm"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+#, fuzzy
+msgid "Member Name"
+msgstr "Tên thành viên"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr ""
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr ""
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+#, fuzzy
+msgid "Member/Friend"
+msgstr "Thành viên"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
+#: Reports/ConfirmReport.php:375
+#, fuzzy
+msgid "Assigned groups for"
+msgstr "Thêm vào Ban/Mục vụ"
+
 #: EcclesiaCRM/Reports/PDF_Directory.php:64
 #: EcclesiaCRM/Reports/PDF_Directory.php:100
 msgid "Directory"
@@ -5195,7 +5255,7 @@ msgstr "Địa chỉ"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
 #: ListEvents.php:365 PersonView.php:509
 msgid "Edit"
 msgstr "Chỉnh sửa"
@@ -5221,7 +5281,7 @@ msgstr "Địa chỉ"
 #: EcclesiaCRM/Search/PersonSearchRes.php:323
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:525
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:526
 #: PersonView.php:870 PrintPastoralCarePerson.php:654
 #: v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
@@ -5431,31 +5491,31 @@ msgstr "Sự kiện"
 msgid "Anniversary"
 msgstr "Kỷ niệm"
 
-#: EcclesiaCRM/Service/FinancialService.php:484 PledgeEditor.php:324
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
 msgid "NonDeductible amount can't be greater than total amount."
 msgstr ""
 
-#: EcclesiaCRM/Service/FinancialService.php:489 PledgeEditor.php:331
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
 msgid "At least one fund must have a non-zero amount."
 msgstr ""
 
-#: EcclesiaCRM/Service/FinancialService.php:514 PledgeEditor.php:348
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
 msgid "Must specify non-zero check number"
 msgstr ""
 
-#: EcclesiaCRM/Service/FinancialService.php:519 PledgeEditor.php:355
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
 msgid "Check number not valid for 'CASH' payment"
 msgstr ""
 
-#: EcclesiaCRM/Service/PersonService.php:44
+#: EcclesiaCRM/Service/PersonService.php:47
 msgid "Part"
 msgstr ""
 
-#: EcclesiaCRM/Service/PersonService.php:46
+#: EcclesiaCRM/Service/PersonService.php:49
 msgid " of the"
 msgstr ""
 
-#: EcclesiaCRM/Service/PersonService.php:48 PersonView.php:553
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
 #, fuzzy
 msgid "(No assigned family)"
 msgstr "Tìm gia đình ->"
@@ -5493,21 +5553,21 @@ msgstr "Email khác"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:135
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 msgid "Head of Household"
 msgstr ""
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:136
 #: v2/templates/pastoralcare/pastoralcareperson.php:141
 msgid "Spouse"
 msgstr ""
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: FamilyView.php:577 v2/templates/pastoralcare/pastoralcarefamily.php:138
 #: v2/templates/pastoralcare/pastoralcareperson.php:143
 msgid "Child"
 msgstr ""
@@ -5680,29 +5740,29 @@ msgstr ""
 msgid "SSE"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:59
+#: EcclesiaCRM/utils/InputUtils.php:34 FundRaiserEditor.php:59
 #: PledgeEditor.php:371
 msgid "Not a valid date"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:44
+#: EcclesiaCRM/utils/InputUtils.php:46
 #, fuzzy
 msgid "Invalid Year"
 msgstr "Lịch năm"
 
-#: EcclesiaCRM/utils/InputUtils.php:47
+#: EcclesiaCRM/utils/InputUtils.php:49
 msgid "Out of range: Allowable values are 1901 to 2155"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:60 EcclesiaCRM/utils/InputUtils.php:76
+#: EcclesiaCRM/utils/InputUtils.php:62 EcclesiaCRM/utils/InputUtils.php:78
 msgid "Invalid Number"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:63
+#: EcclesiaCRM/utils/InputUtils.php:65
 msgid "Number too large. Must be between -2147483648 and 2147483647"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:79
+#: EcclesiaCRM/utils/InputUtils.php:81
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr ""
 
@@ -5802,54 +5862,54 @@ msgstr "Phân loại:"
 msgid "Select Fiscal Year"
 msgstr "thiết lập năm tài chính mặc định"
 
-#: EcclesiaCRM/utils/OutputUtils.php:42 EcclesiaCRM/utils/OutputUtils.php:44
-#: EcclesiaCRM/utils/OutputUtils.php:52
+#: EcclesiaCRM/utils/OutputUtils.php:43 EcclesiaCRM/utils/OutputUtils.php:45
+#: EcclesiaCRM/utils/OutputUtils.php:53
 msgid "Direct me"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:278
+#: EcclesiaCRM/utils/OutputUtils.php:280
 msgid "Invalid Editor ID!"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:333
+#: EcclesiaCRM/utils/OutputUtils.php:335
 #, fuzzy
 msgid "Select Season"
 msgstr "Không lựa chọn"
 
-#: EcclesiaCRM/utils/OutputUtils.php:338
+#: EcclesiaCRM/utils/OutputUtils.php:340
 msgid "Winter"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:343
+#: EcclesiaCRM/utils/OutputUtils.php:345
 msgid "Spring"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:348
+#: EcclesiaCRM/utils/OutputUtils.php:350
 #, fuzzy
 msgid "Summer"
 msgstr "Báo cáo hồ sơ tổng hợp"
 
-#: EcclesiaCRM/utils/OutputUtils.php:353
+#: EcclesiaCRM/utils/OutputUtils.php:355
 msgid "Fall"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:398
+#: EcclesiaCRM/utils/OutputUtils.php:400
 msgid "This custom field isn't configured correctly"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:460
+#: EcclesiaCRM/utils/OutputUtils.php:462
 msgid "Error: Invalid Editor ID!"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:517 EcclesiaCRM/utils/OutputUtils.php:529
+#: EcclesiaCRM/utils/OutputUtils.php:519 EcclesiaCRM/utils/OutputUtils.php:531
 msgid "1 m old"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:519 EcclesiaCRM/utils/OutputUtils.php:531
+#: EcclesiaCRM/utils/OutputUtils.php:521 EcclesiaCRM/utils/OutputUtils.php:533
 msgid "m old"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:527
+#: EcclesiaCRM/utils/OutputUtils.php:529
 msgid "1 yr old"
 msgstr ""
 
@@ -6368,7 +6428,7 @@ msgid "Register"
 msgstr ""
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:538 PersonView.php:1123
+#: FamilyEditor.php:1070 FamilyView.php:539 PersonView.php:1123
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:101
 #: v2/templates/pastoralcare/pastoralcareperson.php:103
@@ -6386,8 +6446,8 @@ msgid "Mobile"
 msgstr "Di động"
 
 #: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:226
-#: Reports/ConfirmReport.php:246
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
 msgid "Hide Age"
 msgstr "Ẩn hiển thị tuổi"
 
@@ -6431,12 +6491,6 @@ msgstr "Xác nhận"
 #, fuzzy
 msgid "Home Address"
 msgstr "Địa chỉ"
-
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:328 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReportEmail.php:164 Reports/ConfirmReport.php:167
-msgid "Send Newsletter"
-msgstr ""
 
 #: external/templates/verify/verify-family-info.php:64
 #, fuzzy
@@ -6642,7 +6696,7 @@ msgstr ""
 msgid "Envelope Info"
 msgstr "Địa chỉ nhận thư:"
 
-#: FamilyEditor.php:982 FamilyView.php:344 ManageEnvelopes.php:175
+#: FamilyEditor.php:982 FamilyView.php:345 ManageEnvelopes.php:175
 #: PledgeEditor.php:609
 #, fuzzy
 msgid "Envelope Number"
@@ -6764,46 +6818,46 @@ msgstr "Thêm gia đình mới"
 msgid " This Family is Deactivated"
 msgstr ""
 
-#: FamilyView.php:260 PersonView.php:402
+#: FamilyView.php:261 PersonView.php:402
 msgid "View Photo"
 msgstr ""
 
-#: FamilyView.php:264 PersonView.php:406
+#: FamilyView.php:265 PersonView.php:406
 msgid "Upload Photo"
 msgstr ""
 
-#: FamilyView.php:268 PersonView.php:410
+#: FamilyView.php:269 PersonView.php:410
 #, fuzzy
 msgid "Delete Photo"
 msgstr "Xóa bỏ"
 
-#: FamilyView.php:308
+#: FamilyView.php:309
 msgid " of church<br>"
 msgstr ""
 
-#: FamilyView.php:316
+#: FamilyView.php:317
 msgid "Latitude/Longitude"
 msgstr ""
 
-#: FamilyView.php:366 PersonView.php:614
+#: FamilyView.php:367 PersonView.php:614
 #, fuzzy
 msgid "Text Message"
 msgstr "Tin nhắn"
 
-#: FamilyView.php:368 PersonView.php:616
+#: FamilyView.php:369 PersonView.php:616
 msgid "EcclesiaCRM text message"
 msgstr ""
 
-#: FamilyView.php:433 PersonView.php:743 v2/templates/group/groupview.php:82
+#: FamilyView.php:434 PersonView.php:743 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: FamilyView.php:440 PersonView.php:751 QueryView.php:219
+#: FamilyView.php:441 PersonView.php:751 QueryView.php:219
 #: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "Thêm vào giỏ"
 
-#: FamilyView.php:456 PersonView.php:763 v2/templates/cart/cartview.php:86
+#: FamilyView.php:457 PersonView.php:763 v2/templates/cart/cartview.php:86
 #: v2/templates/group/groupview.php:184
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
@@ -6811,158 +6865,158 @@ msgstr "Thêm vào giỏ"
 msgid "Email (BCC)"
 msgstr "Email cho tất cả (BCC)"
 
-#: FamilyView.php:472
+#: FamilyView.php:473
 #, fuzzy
 msgid "Verify Info"
 msgstr "Thông tin gia đình"
 
-#: FamilyView.php:481
+#: FamilyView.php:482
 msgid "Add New Member"
 msgstr "Thêm thành viên mới"
 
-#: FamilyView.php:489 FamilyView.php:490 PersonView.php:800 PersonView.php:801
+#: FamilyView.php:490 FamilyView.php:491 PersonView.php:800 PersonView.php:801
 #, fuzzy
 msgid "Create a document"
 msgstr "Tạo báo cáo"
 
-#: FamilyView.php:498
+#: FamilyView.php:499
 #, fuzzy
 msgid "Get the vCard of the family"
 msgstr "Đã tạo gia đình"
 
-#: FamilyView.php:501 PersonView.php:816 v2/templates/cart/cartview.php:63
+#: FamilyView.php:502 PersonView.php:816 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr ""
 
-#: FamilyView.php:509 PersonView.php:843
+#: FamilyView.php:510 PersonView.php:843
 #, fuzzy
 msgid "Deactivate"
 msgstr "Không hoạt động"
 
-#: FamilyView.php:509 PersonView.php:843
+#: FamilyView.php:510 PersonView.php:843
 #, fuzzy
 msgid "Activate"
 msgstr "Kích hoạt"
 
-#: FamilyView.php:509
+#: FamilyView.php:510
 #, fuzzy
 msgid " this Family"
 msgstr "Thêm vào gia đình"
 
-#: FamilyView.php:519
+#: FamilyView.php:520
 #, fuzzy
 msgid "Delete this Family"
 msgstr "Xóa bỏ"
 
-#: FamilyView.php:656 PersonView.php:894
+#: FamilyView.php:657 PersonView.php:894
 msgid "Timeline"
 msgstr "Dòng thời gian"
 
-#: FamilyView.php:659 PersonView.php:938 PrintPastoralCarePerson.php:594
+#: FamilyView.php:660 PersonView.php:938 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:323
 #: v2/templates/group/groupview.php:381
 msgid "Assigned Properties"
 msgstr "Thuộc tính được chỉ định"
 
-#: FamilyView.php:666 PersonView.php:961
+#: FamilyView.php:667 PersonView.php:961
 #, fuzzy
 msgid "Automatic Payments"
 msgstr "Loại hình thanh toán tự động"
 
-#: FamilyView.php:669 PersonView.php:968
+#: FamilyView.php:670 PersonView.php:968
 msgid "Pledges and Payments"
 msgstr ""
 
-#: FamilyView.php:812 PersonView.php:1425 v2/templates/group/groupview.php:336
+#: FamilyView.php:813 PersonView.php:1425 v2/templates/group/groupview.php:336
 msgid "Assign a New Property"
 msgstr "Gán thuộc tính mới"
 
-#: FamilyView.php:819 PersonView.php:1431 PersonView.php:1502
+#: FamilyView.php:820 PersonView.php:1431 PersonView.php:1502
 #: PersonView.php:1641
 msgid "Select"
 msgstr "Lựa chọn"
 
-#: FamilyView.php:822 PersonView.php:1433 QueryView.php:458 QueryView.php:475
+#: FamilyView.php:823 PersonView.php:1433 QueryView.php:458 QueryView.php:475
 #: v2/templates/group/groupview.php:341
 msgid "select an option"
 msgstr "lựa chọn giá trị này"
 
-#: FamilyView.php:843 PersonView.php:1454 PersonView.php:1517
+#: FamilyView.php:844 PersonView.php:1454 PersonView.php:1517
 #: v2/templates/group/groupview.php:357
 #, fuzzy
 msgid "Assign"
 msgstr "Gán vai trò"
 
-#: FamilyView.php:871 PersonView.php:1549
+#: FamilyView.php:872 PersonView.php:1549
 #, fuzzy
 msgid "Add a new automatic payment"
 msgstr "Loại hình thanh toán tự động"
 
-#: FamilyView.php:880 PersonView.php:1570
+#: FamilyView.php:881 PersonView.php:1570
 msgid "Show Pledges"
 msgstr ""
 
-#: FamilyView.php:884 PersonView.php:1574
+#: FamilyView.php:885 PersonView.php:1574
 msgid "Show Payments"
 msgstr ""
 
-#: FamilyView.php:919 PersonView.php:1599
+#: FamilyView.php:920 PersonView.php:1599
 #, fuzzy
 msgid "Add a new pledge"
 msgstr "Thêm vai trò mới"
 
-#: FamilyView.php:921 PersonView.php:1601
+#: FamilyView.php:922 PersonView.php:1601
 #, fuzzy
 msgid "Add a new payment"
 msgstr "Thêm sự kiện mới"
 
-#: FamilyView.php:929 PersonView.php:1617
+#: FamilyView.php:930 PersonView.php:1617
 msgid " Canvass Entry"
 msgstr ""
 
-#: FamilyView.php:1074 FindDepositSlip.php:121 PersonView.php:1942
+#: FamilyView.php:1075 FindDepositSlip.php:121 PersonView.php:1942
 #, fuzzy
 msgid "Confirm Delete"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
 
-#: FamilyView.php:1077 PersonView.php:1948
+#: FamilyView.php:1078 PersonView.php:1948
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:1078 PersonView.php:1950
+#: FamilyView.php:1079 PersonView.php:1950
 msgid "Do you want to proceed?"
 msgstr ""
 
-#: FamilyView.php:1093
+#: FamilyView.php:1094
 msgid "Request Family Info Verification"
 msgstr ""
 
-#: FamilyView.php:1098
+#: FamilyView.php:1099
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 
-#: FamilyView.php:1103
+#: FamilyView.php:1104
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
 msgstr ""
 
-#: FamilyView.php:1125
+#: FamilyView.php:1126 FamilyView.php:1130
 #, fuzzy
 msgid "Online Verification"
 msgstr "Phân loại:"
 
-#: FamilyView.php:1131
+#: FamilyView.php:1136
 msgid "URL"
 msgstr ""
 
-#: FamilyView.php:1134
+#: FamilyView.php:1139
 #, fuzzy
 msgid "PDF Report"
 msgstr "Báo cáo"
 
-#: FamilyView.php:1138
+#: FamilyView.php:1143
 #, fuzzy
 msgid "Verified In Person"
 msgstr "Xem tất cả thành viên"
@@ -7673,7 +7727,7 @@ msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
 msgid "Please contact your admin to change the system settings."
 msgstr "Vui lòng liên hệ với Quản trị viên để thay đổi cài đặt hệ thống"
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:165
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:162
 #, fuzzy
 msgid "Edit General Settings"
 msgstr "Cài đặt thành viên"
@@ -7970,20 +8024,20 @@ msgstr ""
 msgid "Salutation Utility"
 msgstr ""
 
-#: LettersAndLabels.php:79
+#: LettersAndLabels.php:80
 msgid "Newsletter labels"
 msgstr ""
 
-#: LettersAndLabels.php:80
+#: LettersAndLabels.php:83
 #, fuzzy
 msgid "Confirm data letter"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
 
-#: LettersAndLabels.php:81
+#: LettersAndLabels.php:86
 msgid "Confirm data labels"
 msgstr ""
 
-#: LettersAndLabels.php:82
+#: LettersAndLabels.php:89
 msgid "Confirm data Email"
 msgstr ""
 
@@ -8985,12 +9039,6 @@ msgstr ""
 msgid "Pledge status"
 msgstr ""
 
-#: Reports/CanvassReports.php:276 Reports/ConfirmReportEmail.php:222
-#: Reports/ConfirmReportEmail.php:240 Reports/ConfirmReport.php:222
-#: Reports/ConfirmReport.php:242
-msgid "M/F"
-msgstr ""
-
 #: Reports/CanvassReports.php:322
 #, fuzzy
 msgid "Assigned groups for "
@@ -9031,48 +9079,17 @@ msgstr ""
 msgid "All Members"
 msgstr "Thành viên"
 
-#: Reports/ConfirmReportEmail.php:154 Reports/ConfirmReport.php:157
-msgid "City, State, Zip"
-msgstr ""
-
-#: Reports/ConfirmReportEmail.php:174 Reports/ConfirmReport.php:177
-#, fuzzy
-msgid "Anniversary Date"
-msgstr "Ngày kỷ niệm"
-
-#: Reports/ConfirmReportEmail.php:221 Reports/ConfirmReportEmail.php:239
-#: Reports/ConfirmReport.php:221 Reports/ConfirmReport.php:241
-#, fuzzy
-msgid "Member Name"
-msgstr "Tên thành viên"
-
-#: Reports/ConfirmReportEmail.php:223 Reports/ConfirmReportEmail.php:241
-#: Reports/ConfirmReport.php:223 Reports/ConfirmReport.php:243
-msgid "Adult/Child"
-msgstr ""
-
-#: Reports/ConfirmReportEmail.php:227 Reports/ConfirmReportEmail.php:245
-#: Reports/ConfirmReport.php:228 Reports/ConfirmReport.php:248
-#, fuzzy
-msgid "Member/Friend"
-msgstr "Thành viên"
-
-#: Reports/ConfirmReportEmail.php:356 Reports/ConfirmReport.php:369
-#, fuzzy
-msgid "Assigned groups for"
-msgstr "Thêm vào Ban/Mục vụ"
-
-#: Reports/ConfirmReport.php:147
+#: Reports/ConfirmReport.php:153
 #, fuzzy
 msgid "Address 1"
 msgstr "Địa chỉ"
 
-#: Reports/ConfirmReport.php:152
+#: Reports/ConfirmReport.php:158
 #, fuzzy
 msgid "Address 2"
 msgstr "Địa chỉ"
 
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+#: Reports/ConfirmReport.php:233 Reports/ConfirmReport.php:253
 msgid "Cell phone"
 msgstr "Di động"
 
@@ -10851,59 +10868,53 @@ msgid ""
 msgstr ""
 
 #: v2/templates/email/mailchimp/managelist.php:79
-msgid ""
-"The max numbers of members can be modified in the \"System Settings\" -> "
-"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
-msgstr ""
-
-#: v2/templates/email/mailchimp/managelist.php:82
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:107
+#: v2/templates/email/mailchimp/managelist.php:104
 msgid "Sub/Unsubscribe"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:115
+#: v2/templates/email/mailchimp/managelist.php:112
 msgid "Subscribed"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:118
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "Unsubscribed"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:126
+#: v2/templates/email/mailchimp/managelist.php:123
 #, fuzzy
 msgid "Add/Remove Tag"
 msgstr "Xóa bỏ"
 
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 msgid "Keywords"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:160
 #, fuzzy
 msgid "is not configured"
 msgstr "Không được xác nhận."
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "Please update the"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "API key in Setting->"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:166
+#: v2/templates/email/mailchimp/managelist.php:163
 #, fuzzy
 msgid "then update"
 msgstr "Ngày cập nhật"
 
-#: v2/templates/email/mailchimp/managelist.php:166
+#: v2/templates/email/mailchimp/managelist.php:163
 msgid "For more info see our "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:167
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "support docs."
 msgstr ""
 

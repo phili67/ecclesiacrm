@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-22 20:19+0000\n"
+"POT-Creation-Date: 2021-11-08 19:28+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "A"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: Include/Footer.php:81 PledgeEditor.php:588
-#: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:55
+#: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/routes/sidebar/propertylist.php:32
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -45,7 +45,7 @@ msgstr "Személy"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:277 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
 #: members/404.php:16 PersonView.php:906 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -73,15 +73,15 @@ msgstr ""
 #: CSVImport.php:386 DirectoryReports.php:98
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:115
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:126
-#: EcclesiaCRM/APIControllers/SearchController.php:134
-#: EcclesiaCRM/APIControllers/SearchController.php:139
-#: EcclesiaCRM/APIControllers/SearchController.php:147
-#: EcclesiaCRM/APIControllers/SearchController.php:152
-#: EcclesiaCRM/APIControllers/SearchController.php:160
-#: EcclesiaCRM/APIControllers/SearchController.php:165
+#: EcclesiaCRM/APIControllers/SearchController.php:137
+#: EcclesiaCRM/APIControllers/SearchController.php:142
+#: EcclesiaCRM/APIControllers/SearchController.php:150
+#: EcclesiaCRM/APIControllers/SearchController.php:155
+#: EcclesiaCRM/APIControllers/SearchController.php:163
+#: EcclesiaCRM/APIControllers/SearchController.php:168
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/utils/OutputUtils.php:383 EcclesiaCRM/utils/OutputUtils.php:444
+#: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
 #: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
@@ -149,7 +149,7 @@ msgstr "Alap"
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
 #: EcclesiaCRM/APIControllers/CalendarV2Controller.php:177
-#: EcclesiaCRM/utils/OutputUtils.php:237 EditEventTypes.php:125
+#: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
 #: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:411
@@ -187,12 +187,13 @@ msgstr "Vezetéknév"
 #: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
 #: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
 #: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:49 FamilyEditor.php:734
-#: FamilyEditor.php:740 FamilyView.php:294 GeoPage.php:374 GroupReports.php:148
+#: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
-#: PersonEditor.php:1251 PersonView.php:566 Reports/ConfirmReportEmail.php:144
-#: Reports/ConfirmReportEmail.php:149 Reports/PDFLabel.php:859
+#: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
 #: v2/templates/dashboard/maindashboard.php:581
 #: v2/templates/dashboard/maindashboard.php:595
 #: v2/templates/dashboard/maindashboard.php:610
@@ -244,6 +245,8 @@ msgstr "Telefon"
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
@@ -251,13 +254,12 @@ msgstr "Telefon"
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
 #: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:375 FamilyView.php:454 FamilyView.php:552
+#: FamilyView.php:376 FamilyView.php:455 FamilyView.php:553
 #: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
 #: PersonView.php:637 PersonView.php:760 PersonView.php:1126
 #: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:281 Reports/ConfirmReportEmail.php:224
-#: Reports/ConfirmReportEmail.php:242 Reports/ConfirmReport.php:224
-#: Reports/ConfirmReport.php:244 Reports/DirectoryReport.php:328
+#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
+#: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
@@ -320,8 +322,8 @@ msgstr "Mentés"
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1081 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
+#: FamilyView.php:1082 FinancialReports.php:92 FundRaiserEditor.php:210
+#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1954
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
 #: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
@@ -375,11 +377,11 @@ msgstr "Mappa létrehozása"
 
 #: browser/browse.php:66 EditEventAttendees.php:120
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1082
+#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1083
 #: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1867
 #: PersonView.php:1955 v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:44
-#: v2/templates/email/mailchimp/managelist.php:102
+#: v2/templates/email/mailchimp/managelist.php:99
 #: v2/templates/pastoralcare/pastoralcarefamily.php:209
 #: v2/templates/pastoralcare/pastoralcarefamily.php:219
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -562,7 +564,7 @@ msgid "Canvass Input for the"
 msgstr "Input gyűjtése a"
 
 #: CanvassEditor.php:54 EcclesiaCRM/Search/FamilySearchRes.php:44
-#: EcclesiaCRM/Service/PersonService.php:46
+#: EcclesiaCRM/Service/PersonService.php:49
 msgid "family"
 msgstr "család"
 
@@ -714,7 +716,7 @@ msgstr "Kosár hozzáadása a családhoz"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:548
+#: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:549
 #: v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
@@ -771,9 +773,9 @@ msgstr "Új család hozzáadása esetén adja meg az alábbi adatokat."
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
 #: external/templates/registration/family-register.php:38 FamilyEditor.php:722
-#: LettersAndLabels.php:71 PersonEditor.php:1076
-#: Reports/ConfirmReportEmail.php:139 Reports/ConfirmReport.php:142
+#: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 #: v2/templates/dashboard/maindashboard.php:580
 #: v2/templates/dashboard/maindashboard.php:594
@@ -782,7 +784,7 @@ msgstr "Családnév"
 
 #: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
 #: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:337
+#: FamilyView.php:338
 msgid "Wedding Date"
 msgstr "Esküvői dátum"
 
@@ -804,15 +806,15 @@ msgstr ""
 "(Az USA-n és Kanadán kívüli országok esetében használja a szövegdobozt)"
 
 #: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
 #: EditEventAttendees.php:79 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:87
 #: external/templates/verify/verify-family-info.php:36
 #: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:351 GroupReports.php:149 PersonEditor.php:1409
+#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
 #: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReportEmail.php:159
-#: Reports/ConfirmReport.php:162
+#: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
@@ -820,24 +822,24 @@ msgid "Home Phone"
 msgstr "Otthoni telefon"
 
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
-#: EcclesiaCRM/utils/OutputUtils.php:431 FamilyEditor.php:829
+#: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
 msgstr "Ne automatikus formázás"
 
 #: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283
 #: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:357 GroupReports.php:150 PersonEditor.php:1438
+#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
 #: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReportEmail.php:271
-#: Reports/ConfirmReport.php:282
+#: PrintView.php:273 Reports/ConfirmReport.php:288
 msgid "Work Phone"
 msgstr "Munkahelyi telefon"
 
 #: CartToFamily.php:439 CSVExport.php:142
 #: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:364 PersonEditor.php:1469
+#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
 #: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
 #: PrintView.php:278
 msgid "Mobile Phone"
@@ -879,11 +881,11 @@ msgstr "Esemény kiválasztása"
 msgid "Select event"
 msgstr "Esemény kiválasztása"
 
-#: Checkin.php:208 FamilyView.php:887 PersonView.php:1577
+#: Checkin.php:208 FamilyView.php:888 PersonView.php:1577
 msgid "From"
 msgstr "A  címről"
 
-#: Checkin.php:208 FamilyView.php:896 PersonView.php:1586
+#: Checkin.php:208 FamilyView.php:897 PersonView.php:1586
 msgid "To"
 msgstr "A  címre."
 
@@ -948,7 +950,7 @@ msgid "Checkin"
 msgstr "Bejelentkezés"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/email/mailchimp/managelist.php:87
 #: v2/templates/user/userlist.php:171
 msgid "Check all"
 msgstr "Ellenőrizze az összeset"
@@ -1034,9 +1036,9 @@ msgid "Age / Years Married"
 msgstr "Életkor / Házasévek"
 
 #: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:186
+#: EcclesiaCRM/APIControllers/SearchController.php:189
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
-#: FamilyEditor.php:1101 FamilyView.php:550 FinancialReports.php:153
+#: FamilyEditor.php:1101 FamilyView.php:551 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
 #: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
@@ -1046,7 +1048,7 @@ msgid "Classification"
 msgstr "Osztályozás"
 
 #: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:187
+#: EcclesiaCRM/APIControllers/SearchController.php:190
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
 #: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
 #: queryparameters_qrp.php:5
@@ -1102,7 +1104,7 @@ msgid "Use Ctrl Key to select multiple"
 msgstr "Ctrl billentyűvel többszörös kijelölés"
 
 #: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:185 FamilyEditor.php:1096
+#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
 #: PersonEditor.php:886 PrintPastoralCarePerson.php:311
 #: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
 #: v2/templates/sundayschool/sundayschoolview.php:211
@@ -1114,7 +1116,7 @@ msgstr "Gender"
 msgid "Don't Filter"
 msgstr "Ne szűrj"
 
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:129
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
@@ -1125,7 +1127,7 @@ msgstr "Ne szűrj"
 msgid "Male"
 msgstr "Férfi"
 
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:129
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
 #: EcclesiaCRM/Search/PersonSearchRes.php:320
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
@@ -1208,9 +1210,10 @@ msgstr "Ne vegye figyelembe ezt a mezőt"
 msgid "Donation Envelope"
 msgstr "Adomány boríték"
 
-#: CSVImport.php:249 GroupReports.php:151 Reports/CanvassReports.php:280
-#: Reports/ConfirmReportEmail.php:226 Reports/ConfirmReportEmail.php:244
-#: v2/templates/people/familylist.php:58 v2/templates/people/personlist.php:55
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
@@ -1542,11 +1545,12 @@ msgstr "Melyik szerep a gyermek?"
 msgid "Information to Include"
 msgstr "Tartalmazandó információk"
 
-#: DirectoryReports.php:198 EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:551
-#: PersonView.php:1125 Reports/ConfirmReportEmail.php:225
-#: Reports/ConfirmReportEmail.php:243 Reports/ConfirmReport.php:225
-#: Reports/ConfirmReport.php:245
+#: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
+#: EcclesiaCRM/Service/CalendarService.php:30
+#: external/templates/verify/verify-family-info.php:107 FamilyView.php:552
+#: PersonView.php:1125 Reports/ConfirmReport.php:231
+#: Reports/ConfirmReport.php:251
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1564,8 +1568,9 @@ msgstr "Családi munka Telefon"
 msgid "Family Cell Phone"
 msgstr "Családi mobiltelefon"
 
-#: DirectoryReports.php:203 external/templates/verify/verify-family-info.php:39
-#: Reports/ConfirmReportEmail.php:180 Reports/ConfirmReport.php:183
+#: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:192
+#: external/templates/verify/verify-family-info.php:39
+#: Reports/ConfirmReport.php:189
 msgid "Family Email"
 msgstr "Családi e-mail"
 
@@ -1862,7 +1867,7 @@ msgstr "Minden család"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1875,7 +1880,7 @@ msgstr "Személyek"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:33
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -1897,7 +1902,7 @@ msgstr "Családok"
 msgid "Groups"
 msgstr "Csoportok"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:1116
+#: EcclesiaCRM/APIControllers/MailchimpController.php:1110
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 "Az SMTP Host nincs beállítva, kérjük, látogasson el a beállítások oldalra."
@@ -1953,29 +1958,29 @@ msgstr "POST a kosárhoz EventID-t igényel"
 msgid "POST to cart requires an EventID"
 msgstr "POST a kosárhoz EventID-t igényel"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:268
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:285
 msgid "Family Deactivated"
 msgstr "Család kikapcsolva"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:270
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:287
 msgid "Family Activated"
 msgstr "Család Aktiválva"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:398
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:774
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:399
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:775
 msgid "Deleted from group"
 msgstr "Törölve a csoportból"
 
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:430
-#: EcclesiaCRM/APIControllers/PeopleGroupController.php:465
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:431
+#: EcclesiaCRM/APIControllers/PeopleGroupController.php:466
 msgid "Added to group"
 msgstr "Hozzáadva a csoporthoz"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:145
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:165
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:194 EcclesiaCRM/utils/OutputUtils.php:294
-#: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:270
+#: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
+#: FinancialReports.php:425 ListEvents.php:530 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Igen"
@@ -1983,8 +1988,8 @@ msgstr "Igen"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:158
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:167
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:295
-#: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:272
+#: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
+#: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
 msgstr "Nem"
@@ -2009,13 +2014,13 @@ msgstr "Aktivált személy"
 msgid "Write a message Here !"
 msgstr "Írjon üzenetet itt !"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:188
+#: EcclesiaCRM/APIControllers/SearchController.php:191
 #: Reports/GDPR/GDPRDataStructureExport.php:110
 #: v2/templates/gdpr/gdprdatastructure.php:85
 msgid "Person Property"
 msgstr "Személy tulajdon"
 
-#: EcclesiaCRM/APIControllers/SearchController.php:189
+#: EcclesiaCRM/APIControllers/SearchController.php:192
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:139
 #: OptionManager.php:126
 msgid "Group Type"
@@ -2023,7 +2028,7 @@ msgstr "Csoport típusa"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:113
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:154
-#: FamilyEditor.php:1097 FamilyView.php:549 OptionManager.php:100
+#: FamilyEditor.php:1097 FamilyView.php:550 OptionManager.php:100
 #: OptionManager.php:141 PersonView.php:1124 PrintPastoralCarePerson.php:449
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
@@ -4295,8 +4300,8 @@ msgstr ""
 "A WebDav, CardDav és CalDav támogatás engedélyezése böngészőn keresztül."
 
 #: EcclesiaCRM/dto/SystemConfig.php:257
-msgid "Max count of members in a MailChimp List."
-msgstr "A MailChimp listában lévő tagok maximális száma."
+msgid "MailChimp API request time out in seconds"
+msgstr "MailChimp API kérés ideje másodpercben"
 
 #: EcclesiaCRM/dto/SystemConfig.php:258
 msgid "Add Address, Phone."
@@ -4351,87 +4356,91 @@ msgstr ""
 msgid "Set the export address)"
 msgstr "Exportcím beállítása)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:268
+msgid "email address of the mailchimp sender."
+msgstr "a mailchimp feladójának e-mail címe."
+
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Egyházi információk"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "Engedélyezett funkciók"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:197
 msgid "System Settings"
 msgstr "Rendszerbeállítások"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Lokalizáció"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Felhasználói beállítások"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Emberek beállítása"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "E-mail beállítása"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Térkép beállítások"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:464 PersonView.php:791 PrintPastoralCarePerson.php:639
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:326
+#: FamilyView.php:465 PersonView.php:791 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
 msgstr "Lelkipásztori gondozás"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Vasárnapi iskola látogatottság"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integráció"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:64
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:64
 #: v2/routes/email/mailchimp/mailchimp.php:143
 #: v2/routes/email/mailchimp/mailchimp.php:144
 #: v2/templates/dashboard/maindashboard.php:125
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Gyors keresés"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Jelentés beállítások"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Pénzügyi beállítások"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Biztonsági mentés"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Felhasználó-specifikus ütemezési feladatok"
 
-#: EcclesiaCRM/dto/SystemConfig.php:340 EcclesiaCRM/dto/SystemConfig.php:349
-#: EcclesiaCRM/dto/SystemConfig.php:359
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Érvénytelen konfigurációs nevet kértek"
 
-#: EcclesiaCRM/dto/SystemConfig.php:374
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "Érvénytelen konfigurációs azonosítót kértek"
 
@@ -4587,7 +4596,7 @@ msgstr "Jelszó módosítása"
 msgid "Change Settings"
 msgstr "Beállítások módosítása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:675 PersonView.php:988
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:676 PersonView.php:988
 msgid "Documents"
 msgstr "Dokumentumok"
 
@@ -4709,7 +4718,7 @@ msgstr "Osztályozások szerint"
 msgid "Meetings"
 msgstr "Találkozók"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:381 UserEditor.php:875
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
 msgid "MailChimp"
 msgstr "MailChimp"
 
@@ -4914,29 +4923,29 @@ msgstr "Tag"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:296 EcclesiaCRM/utils/OutputUtils.php:539
-#: EcclesiaCRM/utils/OutputUtils.php:557 FamilyEditor.php:1177
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
 msgid "Unknown"
 msgstr "Ismeretlen"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
-#: EcclesiaCRM/utils/OutputUtils.php:564
+#: EcclesiaCRM/utils/OutputUtils.php:566
 msgid "mos old"
 msgstr "mos idős"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:631
-#: EcclesiaCRM/utils/OutputUtils.php:566
+#: EcclesiaCRM/utils/OutputUtils.php:568
 msgid "mo old"
 msgstr "Mo régi"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:635
-#: EcclesiaCRM/utils/OutputUtils.php:534 EcclesiaCRM/utils/OutputUtils.php:536
-#: EcclesiaCRM/utils/OutputUtils.php:570
+#: EcclesiaCRM/utils/OutputUtils.php:536 EcclesiaCRM/utils/OutputUtils.php:538
+#: EcclesiaCRM/utils/OutputUtils.php:572
 msgid "yrs old"
 msgstr "éves"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:637
-#: EcclesiaCRM/utils/OutputUtils.php:572
+#: EcclesiaCRM/utils/OutputUtils.php:574
 msgid "yr old"
 msgstr "éves"
 
@@ -5024,11 +5033,58 @@ msgstr "Tanárok"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
 msgid "of"
-msgstr ""
+msgstr " "
 
 #: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
 msgstr "Tulajdonosi igazolás"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr "Város, állam, irányítószám"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
+#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
+#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
+#: Reports/ConfirmReport.php:173
+msgid "Send Newsletter"
+msgstr "Hírlevél küldése"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
+#: Reports/ConfirmReport.php:183
+msgid "Anniversary Date"
+msgstr "Évforduló dátuma"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+msgid "Member Name"
+msgstr "Tag neve"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr "F/F"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr "Felnőtt/gyermek"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+msgid "Member/Friend"
+msgstr "Tag/barát"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
+#: Reports/ConfirmReport.php:375
+msgid "Assigned groups for"
+msgstr "Hozzárendelt csoportok"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:64
 #: EcclesiaCRM/Reports/PDF_Directory.php:100
@@ -5124,7 +5180,7 @@ msgstr "Címek"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:282
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
 #: ListEvents.php:365 PersonView.php:509
 msgid "Edit"
 msgstr "Szerkesztés"
@@ -5149,7 +5205,7 @@ msgstr "Cím:"
 #: EcclesiaCRM/Search/PersonSearchRes.php:323
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:525
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:526
 #: PersonView.php:870 PrintPastoralCarePerson.php:654
 #: v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
@@ -5331,31 +5387,31 @@ msgstr "Esemény"
 msgid "Anniversary"
 msgstr "Évforduló"
 
-#: EcclesiaCRM/Service/FinancialService.php:484 PledgeEditor.php:324
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
 msgid "NonDeductible amount can't be greater than total amount."
 msgstr "A le nem vonható összeg nem lehet nagyobb, mint a teljes összeg."
 
-#: EcclesiaCRM/Service/FinancialService.php:489 PledgeEditor.php:331
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
 msgid "At least one fund must have a non-zero amount."
 msgstr "Legalább egy alapnak nem nulla összeggel kell rendelkeznie."
 
-#: EcclesiaCRM/Service/FinancialService.php:514 PledgeEditor.php:348
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
 msgid "Must specify non-zero check number"
 msgstr "Meg kell adni a nem nulla csekkszámot"
 
-#: EcclesiaCRM/Service/FinancialService.php:519 PledgeEditor.php:355
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
 msgid "Check number not valid for 'CASH' payment"
 msgstr "A csekk száma nem érvényes \"KÉSZPÉNZ\" kifizetés esetén"
 
-#: EcclesiaCRM/Service/PersonService.php:44
+#: EcclesiaCRM/Service/PersonService.php:47
 msgid "Part"
 msgstr "Rész"
 
-#: EcclesiaCRM/Service/PersonService.php:46
+#: EcclesiaCRM/Service/PersonService.php:49
 msgid " of the"
 msgstr " a"
 
-#: EcclesiaCRM/Service/PersonService.php:48 PersonView.php:553
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
 msgid "(No assigned family)"
 msgstr "(Nincs hozzárendelt család)"
 
@@ -5370,7 +5426,7 @@ msgstr "Önellenőrzés"
 #: EcclesiaCRM/Service/TimelineService.php:257
 #: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
 msgid "by"
-msgstr ""
+msgstr " "
 
 #: EcclesiaCRM/Service/TimelineService.php:352
 msgid "Shared by"
@@ -5390,21 +5446,21 @@ msgstr "Egyéb"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:135
 #: v2/templates/pastoralcare/pastoralcareperson.php:140
 msgid "Head of Household"
 msgstr "Háztartásfő"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:574 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:136
 #: v2/templates/pastoralcare/pastoralcareperson.php:141
 msgid "Spouse"
 msgstr "Házastárs"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:576 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: FamilyView.php:577 v2/templates/pastoralcare/pastoralcarefamily.php:138
 #: v2/templates/pastoralcare/pastoralcareperson.php:143
 msgid "Child"
 msgstr "Gyermek"
@@ -5572,28 +5628,28 @@ msgstr "SE"
 msgid "SSE"
 msgstr "SSE"
 
-#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:59
+#: EcclesiaCRM/utils/InputUtils.php:34 FundRaiserEditor.php:59
 #: PledgeEditor.php:371
 msgid "Not a valid date"
 msgstr "Nem érvényes dátum"
 
-#: EcclesiaCRM/utils/InputUtils.php:44
+#: EcclesiaCRM/utils/InputUtils.php:46
 msgid "Invalid Year"
 msgstr "Érvénytelen év"
 
-#: EcclesiaCRM/utils/InputUtils.php:47
+#: EcclesiaCRM/utils/InputUtils.php:49
 msgid "Out of range: Allowable values are 1901 to 2155"
 msgstr "Hatótávon kívül: A megengedett értékek 1901 és 2155 között vannak."
 
-#: EcclesiaCRM/utils/InputUtils.php:60 EcclesiaCRM/utils/InputUtils.php:76
+#: EcclesiaCRM/utils/InputUtils.php:62 EcclesiaCRM/utils/InputUtils.php:78
 msgid "Invalid Number"
 msgstr "Érvénytelen szám"
 
-#: EcclesiaCRM/utils/InputUtils.php:63
+#: EcclesiaCRM/utils/InputUtils.php:65
 msgid "Number too large. Must be between -2147483648 and 2147483647"
 msgstr "Túl nagy szám. -2147483648 és 2147483647 között kell lennie."
 
-#: EcclesiaCRM/utils/InputUtils.php:79
+#: EcclesiaCRM/utils/InputUtils.php:81
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr "Túl nagy pénzösszeg. A maximális összeg $99999999999.99"
 
@@ -5683,52 +5739,52 @@ msgstr "Klasszikus hang"
 msgid "Select Fiscal Year"
 msgstr "Válassza ki az adóévet"
 
-#: EcclesiaCRM/utils/OutputUtils.php:42 EcclesiaCRM/utils/OutputUtils.php:44
-#: EcclesiaCRM/utils/OutputUtils.php:52
+#: EcclesiaCRM/utils/OutputUtils.php:43 EcclesiaCRM/utils/OutputUtils.php:45
+#: EcclesiaCRM/utils/OutputUtils.php:53
 msgid "Direct me"
 msgstr "Irányítson engem"
 
-#: EcclesiaCRM/utils/OutputUtils.php:278
+#: EcclesiaCRM/utils/OutputUtils.php:280
 msgid "Invalid Editor ID!"
 msgstr "Érvénytelen szerkesztő azonosító!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:333
+#: EcclesiaCRM/utils/OutputUtils.php:335
 msgid "Select Season"
 msgstr "Válassza ki a szezont"
 
-#: EcclesiaCRM/utils/OutputUtils.php:338
+#: EcclesiaCRM/utils/OutputUtils.php:340
 msgid "Winter"
 msgstr "Téli"
 
-#: EcclesiaCRM/utils/OutputUtils.php:343
+#: EcclesiaCRM/utils/OutputUtils.php:345
 msgid "Spring"
 msgstr "Tavaszi"
 
-#: EcclesiaCRM/utils/OutputUtils.php:348
+#: EcclesiaCRM/utils/OutputUtils.php:350
 msgid "Summer"
 msgstr "Nyár"
 
-#: EcclesiaCRM/utils/OutputUtils.php:353
+#: EcclesiaCRM/utils/OutputUtils.php:355
 msgid "Fall"
 msgstr "Ősz"
 
-#: EcclesiaCRM/utils/OutputUtils.php:398
+#: EcclesiaCRM/utils/OutputUtils.php:400
 msgid "This custom field isn't configured correctly"
 msgstr "Ez az egyéni mező nincs helyesen konfigurálva"
 
-#: EcclesiaCRM/utils/OutputUtils.php:460
+#: EcclesiaCRM/utils/OutputUtils.php:462
 msgid "Error: Invalid Editor ID!"
 msgstr "Hiba: Érvénytelen szerkesztő azonosító!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:517 EcclesiaCRM/utils/OutputUtils.php:529
+#: EcclesiaCRM/utils/OutputUtils.php:519 EcclesiaCRM/utils/OutputUtils.php:531
 msgid "1 m old"
 msgstr "1 m régi"
 
-#: EcclesiaCRM/utils/OutputUtils.php:519 EcclesiaCRM/utils/OutputUtils.php:531
+#: EcclesiaCRM/utils/OutputUtils.php:521 EcclesiaCRM/utils/OutputUtils.php:533
 msgid "m old"
 msgstr "m régi"
 
-#: EcclesiaCRM/utils/OutputUtils.php:527
+#: EcclesiaCRM/utils/OutputUtils.php:529
 msgid "1 yr old"
 msgstr "1 éves"
 
@@ -6206,7 +6262,7 @@ msgid "Register"
 msgstr "Regisztráció"
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:538 PersonView.php:1123
+#: FamilyEditor.php:1070 FamilyView.php:539 PersonView.php:1123
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:101
 #: v2/templates/pastoralcare/pastoralcareperson.php:103
@@ -6223,8 +6279,8 @@ msgid "Mobile"
 msgstr "Mobil"
 
 #: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:226
-#: Reports/ConfirmReport.php:246
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
 msgid "Hide Age"
 msgstr "Kor elrejtése"
 
@@ -6266,12 +6322,6 @@ msgstr "Megerősítés"
 #: v2/templates/sundayschool/sundayschooldashboard.php:262
 msgid "Home Address"
 msgstr "Lakcím"
-
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:328 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReportEmail.php:164 Reports/ConfirmReport.php:167
-msgid "Send Newsletter"
-msgstr "Hírlevél küldése"
 
 #: external/templates/verify/verify-family-info.php:64
 msgid "Family Member(s)"
@@ -6468,7 +6518,7 @@ msgstr "Jelöljön ki egy bátor kérdezősködőt"
 msgid "Envelope Info"
 msgstr "Boríték információ"
 
-#: FamilyEditor.php:982 FamilyView.php:344 ManageEnvelopes.php:175
+#: FamilyEditor.php:982 FamilyView.php:345 ManageEnvelopes.php:175
 #: PledgeEditor.php:609
 msgid "Envelope Number"
 msgstr "Boríték száma"
@@ -6587,169 +6637,169 @@ msgstr "Következő család"
 msgid " This Family is Deactivated"
 msgstr " Ez a család deaktiválva van"
 
-#: FamilyView.php:260 PersonView.php:402
+#: FamilyView.php:261 PersonView.php:402
 msgid "View Photo"
 msgstr "Fénykép megtekintése"
 
-#: FamilyView.php:264 PersonView.php:406
+#: FamilyView.php:265 PersonView.php:406
 msgid "Upload Photo"
 msgstr "Fénykép feltöltése"
 
-#: FamilyView.php:268 PersonView.php:410
+#: FamilyView.php:269 PersonView.php:410
 msgid "Delete Photo"
 msgstr "Fénykép törlése"
 
-#: FamilyView.php:308
+#: FamilyView.php:309
 msgid " of church<br>"
 msgstr " a templomban<br>"
 
-#: FamilyView.php:316
+#: FamilyView.php:317
 msgid "Latitude/Longitude"
 msgstr "Szélesség/hosszúság"
 
-#: FamilyView.php:366 PersonView.php:614
+#: FamilyView.php:367 PersonView.php:614
 msgid "Text Message"
 msgstr "Szöveges üzenet"
 
-#: FamilyView.php:368 PersonView.php:616
+#: FamilyView.php:369 PersonView.php:616
 msgid "EcclesiaCRM text message"
 msgstr "EcclesiaCRM szöveges üzenet"
 
-#: FamilyView.php:433 PersonView.php:743 v2/templates/group/groupview.php:82
+#: FamilyView.php:434 PersonView.php:743 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
 msgstr "Eltávolítás a kosárból"
 
-#: FamilyView.php:440 PersonView.php:751 QueryView.php:219
+#: FamilyView.php:441 PersonView.php:751 QueryView.php:219
 #: v2/templates/group/groupview.php:86
 msgid "Add to Cart"
 msgstr "Hozzáadás a kosárhoz"
 
-#: FamilyView.php:456 PersonView.php:763 v2/templates/cart/cartview.php:86
+#: FamilyView.php:457 PersonView.php:763 v2/templates/cart/cartview.php:86
 #: v2/templates/group/groupview.php:184
 #: v2/templates/sundayschool/sundayschooldashboard.php:116
 #: v2/templates/sundayschool/sundayschoolview.php:51
 msgid "Email (BCC)"
 msgstr "E-mail (BCC)"
 
-#: FamilyView.php:472
+#: FamilyView.php:473
 msgid "Verify Info"
 msgstr "Ellenőrizze az adatokat"
 
-#: FamilyView.php:481
+#: FamilyView.php:482
 msgid "Add New Member"
 msgstr "Új tag hozzáadása"
 
-#: FamilyView.php:489 FamilyView.php:490 PersonView.php:800 PersonView.php:801
+#: FamilyView.php:490 FamilyView.php:491 PersonView.php:800 PersonView.php:801
 msgid "Create a document"
 msgstr "Dokumentum létrehozása"
 
-#: FamilyView.php:498
+#: FamilyView.php:499
 msgid "Get the vCard of the family"
 msgstr "Szerezze be a család vCardját"
 
-#: FamilyView.php:501 PersonView.php:816 v2/templates/cart/cartview.php:63
+#: FamilyView.php:502 PersonView.php:816 v2/templates/cart/cartview.php:63
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:509 PersonView.php:843
+#: FamilyView.php:510 PersonView.php:843
 msgid "Deactivate"
 msgstr "A  deaktiválása"
 
-#: FamilyView.php:509 PersonView.php:843
+#: FamilyView.php:510 PersonView.php:843
 msgid "Activate"
 msgstr "Aktiválja a  címet."
 
-#: FamilyView.php:509
+#: FamilyView.php:510
 msgid " this Family"
 msgstr " ez a család"
 
-#: FamilyView.php:519
+#: FamilyView.php:520
 msgid "Delete this Family"
 msgstr "A család törlése"
 
-#: FamilyView.php:656 PersonView.php:894
+#: FamilyView.php:657 PersonView.php:894
 msgid "Timeline"
 msgstr "Idővonal"
 
-#: FamilyView.php:659 PersonView.php:938 PrintPastoralCarePerson.php:594
+#: FamilyView.php:660 PersonView.php:938 PrintPastoralCarePerson.php:594
 #: PrintView.php:603 v2/templates/group/groupview.php:323
 #: v2/templates/group/groupview.php:381
 msgid "Assigned Properties"
 msgstr "Hozzárendelt tulajdonságok"
 
-#: FamilyView.php:666 PersonView.php:961
+#: FamilyView.php:667 PersonView.php:961
 msgid "Automatic Payments"
 msgstr "Automatikus kifizetések"
 
-#: FamilyView.php:669 PersonView.php:968
+#: FamilyView.php:670 PersonView.php:968
 msgid "Pledges and Payments"
 msgstr "Zálogjogok és kifizetések"
 
-#: FamilyView.php:812 PersonView.php:1425 v2/templates/group/groupview.php:336
+#: FamilyView.php:813 PersonView.php:1425 v2/templates/group/groupview.php:336
 msgid "Assign a New Property"
 msgstr "Új tulajdonság hozzárendelése"
 
-#: FamilyView.php:819 PersonView.php:1431 PersonView.php:1502
+#: FamilyView.php:820 PersonView.php:1431 PersonView.php:1502
 #: PersonView.php:1641
 msgid "Select"
 msgstr "Válassza ki a  címet."
 
-#: FamilyView.php:822 PersonView.php:1433 QueryView.php:458 QueryView.php:475
+#: FamilyView.php:823 PersonView.php:1433 QueryView.php:458 QueryView.php:475
 #: v2/templates/group/groupview.php:341
 msgid "select an option"
 msgstr "válasszon ki egy opciót"
 
-#: FamilyView.php:843 PersonView.php:1454 PersonView.php:1517
+#: FamilyView.php:844 PersonView.php:1454 PersonView.php:1517
 #: v2/templates/group/groupview.php:357
 msgid "Assign"
 msgstr "Hozzárendelés"
 
-#: FamilyView.php:871 PersonView.php:1549
+#: FamilyView.php:872 PersonView.php:1549
 msgid "Add a new automatic payment"
 msgstr "Új automatikus fizetés hozzáadása"
 
-#: FamilyView.php:880 PersonView.php:1570
+#: FamilyView.php:881 PersonView.php:1570
 msgid "Show Pledges"
 msgstr "Mutasd meg a zálogokat"
 
-#: FamilyView.php:884 PersonView.php:1574
+#: FamilyView.php:885 PersonView.php:1574
 msgid "Show Payments"
 msgstr "Fizetések megjelenítése"
 
-#: FamilyView.php:919 PersonView.php:1599
+#: FamilyView.php:920 PersonView.php:1599
 msgid "Add a new pledge"
 msgstr "Új ígéret hozzáadása"
 
-#: FamilyView.php:921 PersonView.php:1601
+#: FamilyView.php:922 PersonView.php:1601
 msgid "Add a new payment"
 msgstr "Új fizetés hozzáadása"
 
-#: FamilyView.php:929 PersonView.php:1617
+#: FamilyView.php:930 PersonView.php:1617
 msgid " Canvass Entry"
 msgstr " Canvass bejegyzés"
 
-#: FamilyView.php:1074 FindDepositSlip.php:121 PersonView.php:1942
+#: FamilyView.php:1075 FindDepositSlip.php:121 PersonView.php:1942
 msgid "Confirm Delete"
 msgstr "Törlés megerősítése"
 
-#: FamilyView.php:1077 PersonView.php:1948
+#: FamilyView.php:1078 PersonView.php:1948
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "A profilkép törlése előtt áll, ez az eljárás visszafordíthatatlan."
 
-#: FamilyView.php:1078 PersonView.php:1950
+#: FamilyView.php:1079 PersonView.php:1950
 msgid "Do you want to proceed?"
 msgstr "Akarod folytatni?"
 
-#: FamilyView.php:1093
+#: FamilyView.php:1094
 msgid "Request Family Info Verification"
 msgstr "Családi információk ellenőrzésének kérése"
 
-#: FamilyView.php:1098
+#: FamilyView.php:1099
 msgid "Select how do you want to request the family information to be verified"
 msgstr "Válassza ki, hogyan szeretné kérni a családi információk ellenőrzését."
 
-#: FamilyView.php:1103
+#: FamilyView.php:1104
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
@@ -6757,19 +6807,19 @@ msgstr ""
 "A családi információk másolatát pdf formátumban a következő e-mail címekre "
 "kell elküldenie"
 
-#: FamilyView.php:1125
+#: FamilyView.php:1126 FamilyView.php:1130
 msgid "Online Verification"
 msgstr "Online ellenőrzés"
 
-#: FamilyView.php:1131
+#: FamilyView.php:1136
 msgid "URL"
 msgstr "URL"
 
-#: FamilyView.php:1134
+#: FamilyView.php:1139
 msgid "PDF Report"
 msgstr "PDF jelentés"
 
-#: FamilyView.php:1138
+#: FamilyView.php:1143
 msgid "Verified In Person"
 msgstr "Személyesen ellenőrizve"
 
@@ -7425,7 +7475,7 @@ msgstr "Lelkipásztori ellátás típusa"
 msgid "Please contact your admin to change the system settings."
 msgstr "A rendszerbeállítások módosításához forduljon az adminisztrátorhoz."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:165
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:162
 msgid "Edit General Settings"
 msgstr "Általános beállítások szerkesztése"
 
@@ -7720,19 +7770,19 @@ msgstr "Címzett elnevezési módszer"
 msgid "Salutation Utility"
 msgstr "Üdvözlés segédprogram"
 
-#: LettersAndLabels.php:79
+#: LettersAndLabels.php:80
 msgid "Newsletter labels"
 msgstr "Hírlevél címkék"
 
-#: LettersAndLabels.php:80
+#: LettersAndLabels.php:83
 msgid "Confirm data letter"
 msgstr "Adatok megerősítése levél"
 
-#: LettersAndLabels.php:81
+#: LettersAndLabels.php:86
 msgid "Confirm data labels"
 msgstr "Az adatcímkék megerősítése"
 
-#: LettersAndLabels.php:82
+#: LettersAndLabels.php:89
 msgid "Confirm data Email"
 msgstr "Adatok megerősítése E-mail"
 
@@ -8572,13 +8622,12 @@ msgid "Data sorted by"
 msgstr "Az adatok rendezése"
 
 #: Reports/AdvancedDeposit.php:263
-#, fuzzy
 msgid "Dates"
 msgstr "Dátum"
 
 #: Reports/AdvancedDeposit.php:263
 msgid "through"
-msgstr ""
+msgstr " "
 
 #: Reports/AdvancedDeposit.php:267
 msgid "Filtered by"
@@ -8672,12 +8721,6 @@ msgstr "Felajánlott"
 msgid "Pledge status"
 msgstr "Zálogjog státusza"
 
-#: Reports/CanvassReports.php:276 Reports/ConfirmReportEmail.php:222
-#: Reports/ConfirmReportEmail.php:240 Reports/ConfirmReport.php:222
-#: Reports/ConfirmReport.php:242
-msgid "M/F"
-msgstr "F/F"
-
 #: Reports/CanvassReports.php:322
 msgid "Assigned groups for "
 msgstr "Hozzárendelt csoportok"
@@ -8711,42 +8754,15 @@ msgstr "Kapcsolattartó"
 msgid "All Members"
 msgstr "Minden tag"
 
-#: Reports/ConfirmReportEmail.php:154 Reports/ConfirmReport.php:157
-msgid "City, State, Zip"
-msgstr "Város, állam, irányítószám"
-
-#: Reports/ConfirmReportEmail.php:174 Reports/ConfirmReport.php:177
-msgid "Anniversary Date"
-msgstr "Évforduló dátuma"
-
-#: Reports/ConfirmReportEmail.php:221 Reports/ConfirmReportEmail.php:239
-#: Reports/ConfirmReport.php:221 Reports/ConfirmReport.php:241
-msgid "Member Name"
-msgstr "Tag neve"
-
-#: Reports/ConfirmReportEmail.php:223 Reports/ConfirmReportEmail.php:241
-#: Reports/ConfirmReport.php:223 Reports/ConfirmReport.php:243
-msgid "Adult/Child"
-msgstr "Felnőtt/gyermek"
-
-#: Reports/ConfirmReportEmail.php:227 Reports/ConfirmReportEmail.php:245
-#: Reports/ConfirmReport.php:228 Reports/ConfirmReport.php:248
-msgid "Member/Friend"
-msgstr "Tag/barát"
-
-#: Reports/ConfirmReportEmail.php:356 Reports/ConfirmReport.php:369
-msgid "Assigned groups for"
-msgstr "Hozzárendelt csoportok"
-
-#: Reports/ConfirmReport.php:147
+#: Reports/ConfirmReport.php:153
 msgid "Address 1"
 msgstr "Cím 1"
 
-#: Reports/ConfirmReport.php:152
+#: Reports/ConfirmReport.php:158
 msgid "Address 2"
 msgstr "Cím 2"
 
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+#: Reports/ConfirmReport.php:233 Reports/ConfirmReport.php:253
 msgid "Cell phone"
 msgstr "Mobiltelefon"
 
@@ -10412,58 +10428,50 @@ msgstr ""
 "b> szót."
 
 #: v2/templates/email/mailchimp/managelist.php:79
-msgid ""
-"The max numbers of members can be modified in the \"System Settings\" -> "
-"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
-msgstr ""
-"A tagok maximális száma módosítható a \"Rendszerbeállítások\" -> \"Integráció"
-"\" -> \"mező\" : iMailChimpApiMaxMembersCount"
-
-#: v2/templates/email/mailchimp/managelist.php:82
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Ennek az értéknek a növelése a MailChimp API-val instabil."
 
-#: v2/templates/email/mailchimp/managelist.php:107
+#: v2/templates/email/mailchimp/managelist.php:104
 msgid "Sub/Unsubscribe"
 msgstr "Feliratkozás/leiratkozás"
 
-#: v2/templates/email/mailchimp/managelist.php:115
+#: v2/templates/email/mailchimp/managelist.php:112
 msgid "Subscribed"
 msgstr "Előfizetett"
 
-#: v2/templates/email/mailchimp/managelist.php:118
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "Unsubscribed"
 msgstr "Leiratkozott"
 
-#: v2/templates/email/mailchimp/managelist.php:126
+#: v2/templates/email/mailchimp/managelist.php:123
 msgid "Add/Remove Tag"
 msgstr "Címke hozzáadása/eltávolítása"
 
-#: v2/templates/email/mailchimp/managelist.php:143
+#: v2/templates/email/mailchimp/managelist.php:140
 msgid "Keywords"
 msgstr "Kulcsszavak"
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:160
 msgid "is not configured"
 msgstr "nincs konfigurálva"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "Please update the"
 msgstr "Kérjük, frissítse a"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "API key in Setting->"
 msgstr "API-kulcs a Beállítás->-ban"
 
-#: v2/templates/email/mailchimp/managelist.php:166
+#: v2/templates/email/mailchimp/managelist.php:163
 msgid "then update"
 msgstr "majd frissítse"
 
-#: v2/templates/email/mailchimp/managelist.php:166
+#: v2/templates/email/mailchimp/managelist.php:163
 msgid "For more info see our "
 msgstr "További információért lásd a"
 
-#: v2/templates/email/mailchimp/managelist.php:167
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "support docs."
 msgstr "támogatási dokumentumok."
 
@@ -11019,7 +11027,7 @@ msgstr ""
 
 #: v2/templates/people/familylist.php:59 v2/templates/people/personlist.php:56
 msgid "email"
-msgstr ""
+msgstr "e-mail"
 
 #: v2/templates/people/familylist.php:61 v2/templates/people/personlist.php:58
 msgid "Edited"
@@ -12076,9 +12084,8 @@ msgid "French - Swiss"
 msgstr "Francia - svájci"
 
 #: settings-locales.php:15
-#, fuzzy
 msgid "Greek"
-msgstr "Üdvözlés"
+msgstr "Görög"
 
 #: settings-locales.php:16
 msgid "German - Germany"
@@ -12366,6 +12373,16 @@ msgstr "Kis"
 
 msgid "Large"
 msgstr "Nagy"
+
+#~ msgid "Max count of members in a MailChimp List."
+#~ msgstr "A MailChimp listában lévő tagok maximális száma."
+
+#~ msgid ""
+#~ "The max numbers of members can be modified in the \"System Settings\" -> "
+#~ "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
+#~ msgstr ""
+#~ "A tagok maximális száma módosítható a \"Rendszerbeállítások\" -> "
+#~ "\"Integráció\" -> \"mező\" : iMailChimpApiMaxMembersCount"
 
 #~ msgid "choice"
 #~ msgstr "választás"
