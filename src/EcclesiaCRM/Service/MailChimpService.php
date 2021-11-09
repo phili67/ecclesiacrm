@@ -52,7 +52,7 @@ class MailChimpService
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
-          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpRequestTimeOut'));
           $list['members'] = $listmembers['members'];
           $list['tags']    = $this->getAllSegments ($list['id'])[1];
         }
@@ -68,7 +68,7 @@ class MailChimpService
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
-          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpRequestTimeOut'));
           $list['members'] = $listmembers['members'];
           $list['tags']    = $this->getAllSegments ($list['id'])[1];
         }
@@ -164,7 +164,7 @@ class MailChimpService
         if ($list['id'] == $list_id) {
           if (is_null ($list['members'])) {
             // in the case the list is no more in the cache
-            $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
+            $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpRequestTimeOut'));
 
             if (is_null($listmembers) == null || (!is_null($listmembers) != null && gettype($listmembers) == 'array' && count($listmembers[0]) == 0) ) {
               return [];
@@ -199,9 +199,14 @@ class MailChimpService
 
       // contact
       $from_name             = SessionUser::getUser()->getPerson()->getFullName();
-      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
-      if (empty ($from_email)) {
-        $from_email          = SystemConfig::getValue('sChurchEmail');
+
+      $from_email            = SystemConfig::getValue("sMailChimpEmailSender");
+
+      if ( empty($from_email) ) {
+          $from_email = (!empty (SessionUser::getUser()->getPerson()->getEmail())) ? SessionUser::getUser()->getPerson()->getEmail() : SessionUser::getUser()->getPerson()->getWorkEmail();
+          if (empty ($from_email)) {
+              $from_email = SystemConfig::getValue('sChurchEmail');
+          }
       }
       $subject               = $subject;
       $language              = substr (SystemConfig::getValue('sLanguage'),0,2);
@@ -569,9 +574,13 @@ class MailChimpService
     }
     public function createCampaign ($list_id, $tag_Id, $subject, $title, $htmlBody) {
       $from_name             = SessionUser::getUser()->getPerson()->getFullName();
-      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
-      if (empty ($from_email)) {
-        $from_email          = SystemConfig::getValue('sChurchEmail');
+      $from_email            = SystemConfig::getValue("sMailChimpEmailSender");
+
+      if ( empty($from_email) ) {
+          $from_email = (!empty (SessionUser::getUser()->getPerson()->getEmail())) ? SessionUser::getUser()->getPerson()->getEmail() : SessionUser::getUser()->getPerson()->getWorkEmail();
+          if (empty ($from_email)) {
+              $from_email = SystemConfig::getValue('sChurchEmail');
+          }
       }
 
       if ($tag_Id != -1) {
@@ -823,8 +832,9 @@ class MailChimpService
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
     }
 
-    public function getMembersFromList ($list_id,$count=500) {
-      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]);
+    public function getMembersFromList ($list_id,$time_out=500) {
+        $count = 1000;// it's the maximal value (Mailchimp doc)
+      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count], $time_out);
     }
 
     public function deleteMember($list_id,$email){
