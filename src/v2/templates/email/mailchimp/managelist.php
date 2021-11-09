@@ -76,9 +76,6 @@ if ($isMailchimpActiv) {
                         <br>
                         <ul>
                             <li>
-                                <?= _("The max numbers of members can be modified in the \"System Settings\" -> \"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount ") ?>
-                            </li>
-                            <li>
                                 <?= _("Increase this value is unstable with MailChimp API.") ?>
                             </li>
                         </ul>

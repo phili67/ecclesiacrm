@@ -254,7 +254,7 @@ class SystemConfig
             "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", _("Enable Email menu.")),
             "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", _("Enable WebDav, CardDav and CalDav support.")),
             "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", _("Enable WebDav, CardDav and CalDav support through a Browser.")),
-            "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", _("Max count of members in a MailChimp List.")),
+            "iMailChimpRequestTimeOut" => new ConfigItem(2079, "iMailChimpRequestTimeOut", "number", "3600", _("MailChimp API request time out in seconds")),
             "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", _("Add Address, Phone.")),
             "bThumbnailIconPresence" => new ConfigItem(2081, "bThumbnailIconPresence", "boolean", "0", _("Add a thumbnail icon for the people in the datatables.")),
             "bSearchIncludePledges" => new ConfigItem(2082, "bSearchIncludePledges", "boolean", "0", _("Search Pledges")),
@@ -264,7 +264,8 @@ class SystemConfig
             "sJitsiDomain" => new ConfigItem(2086, "sJitsiDomain", "text", "meet.jit.si", _("The jitsi domain name, by default : meet.jit.si")),
             "sJitsiDomainScriptPath" => new ConfigItem(2087, "sJitsiDomainScriptPath", "text", "https://meet.jit.si/external_api.js", _("The jitsi domain name script path, by default : https://meet.jit.si/external_api.js")),
             "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)")),
-            "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices()))
+            "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices())),
+            "sMailChimpEmailSender" => new ConfigItem(2090, "sMailChimpEmailSender", "text", "", _("email address of the mailchimp sender.")),
         );
     }
 
@@ -281,7 +282,7 @@ class SystemConfig
             _('Map Settings') => ["sMapProvider", "sNominatimLink", "sGoogleMapKey", "sBingMapKey", "iMapZoom", "iLittleMapZoom", "sISTusername", "sISTpassword"],
             _('Pastoral Care') => ["sPastoralcarePeriod", "bPastoralcareStats"],
             _('Sundayschool Attendance') => ["bCheckedAttendees", "bCheckedAttendeesCurrentUser"],
-            _('Integration') => ["sMailChimpApiKey", "iMailChimpApiMaxMembersCount", "bMailChimpWithAddressPhone", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID", "bEnableGravatarPhotos", "bEnableGooglePhotos", "iRemotePhotoCacheDuration", "sNexmoAPIKey", "sNexmoAPISecret", "sNexmoFromNumber", "sOLPURL", "sOLPUserName", "sOLPPassword", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
+            _('Integration') => ["sMailChimpApiKey", "iMailChimpRequestTimeOut", "bMailChimpWithAddressPhone", "sMailChimpEmailSender", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID", "bEnableGravatarPhotos", "bEnableGooglePhotos", "iRemotePhotoCacheDuration", "sNexmoAPIKey", "sNexmoAPISecret", "sNexmoFromNumber", "sOLPURL", "sOLPUserName", "sOLPPassword", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
             _('GDPR') => ["bGDPR", "sGdprDpoSigner", "sGdprDpoSignerEmail", "iGdprExpirationDate", "bSearchFinancesGDPR"],
             _('Quick Search') => ["bSearchIncludePersons", "iSearchIncludePersonsMax", "bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies", "iSearchIncludeFamiliesMax", "bSearchIncludeFamilyHOH", "iSearchIncludeFamilyHOHMax", "bSearchIncludeGroups", "iSearchIncludeGroupsMax", "bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePledges", "iSearchIncludePledgesMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax", "bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
             _('Report Settings') => ["sQBDTSettings", "sTaxSigner", "sReminderSigner", "leftX", "incrementY", "sTaxReport1", "sTaxReport2", "sTaxReport3", "sReminder1", "sReminderNoPledge", "sReminderNoPayments", "sConfirm1", "sConfirm2", "sConfirm3", "sConfirm4", "sConfirm5", "sConfirm6", "sDear", "sConfirmSincerely", "sConfirmSigner", "sUnsubscribeStart", "sUnsubscribeEnd", "sPledgeSummary1", "sPledgeSummary2", "sDirectoryDisclaimer1", "sDirectoryDisclaimer2", "bDirLetterHead", "sZeroGivers", "sZeroGivers2", "sZeroGivers3", "iPDFOutputType"],
