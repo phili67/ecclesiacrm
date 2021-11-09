@@ -738,12 +738,10 @@ class MailchimpController
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
-                            $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                            $listID   = $new_List['id'];
+                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+                        $listID   = $new_List['id'];
 
-                            $numberOfPerson = 0;
-                        }
+                        $numberOfPerson = 0;
 
                         $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
 
@@ -836,11 +834,9 @@ class MailchimpController
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
-                            $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                            $listID   = $new_List['id'];
-                            $numberOfPerson = 0;
-                        }
+                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+                        $listID   = $new_List['id'];
+                        $numberOfPerson = 0;
 
                         $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
 
@@ -993,11 +989,9 @@ class MailchimpController
                     if (!is_null ($person) && strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
-                            $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                            $listID   = $new_List['id'];
-                            $numberOfPerson = 0;
-                        }
+                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+                        $listID   = $new_List['id'];
+                        $numberOfPerson = 0;
 
                         $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
 
