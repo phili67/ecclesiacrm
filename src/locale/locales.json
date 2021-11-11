@@ -39,6 +39,16 @@
         "datePicker": true,
         "select2": true
     },
+    "Danish - Denmark": {
+        "poEditor": "da",
+        "locale": "da_DK",
+        "languageCode": "da",
+        "countryCode": "DA",
+        "dataTables": "Danish",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
+    },
     "Dutch - Netherlands": {
         "poEditor": "nl",
         "locale": "nl_NL",
@@ -91,6 +101,16 @@
         "fullCalendar": false,
         "datePicker": false,
         "select2": false
+    },
+    "Finnish - Finland": {
+        "poEditor": "fi",
+        "locale": "fi_FI",
+        "languageCode": "fi",
+        "countryCode": "FI",
+        "dataTables": "Finnish",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
     },
     "French - Belgium": {
         "poEditor": "fr",

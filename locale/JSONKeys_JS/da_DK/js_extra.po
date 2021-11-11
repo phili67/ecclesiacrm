@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "sand"
+
+msgid "false"
+msgstr "falsk"
+
+msgid "pm"
+msgstr ""
+
+msgid "am"
+msgstr ""
+
+msgid "Teachers"
+msgstr "Lærere"
+
+msgid "Students"
+msgstr "Studerende"
+
+msgid "Teacher"
+msgstr "Lærer"
+
+msgid "Student"
+msgstr "Studerende"
+
+msgid "Parents"
+msgstr "Forældre"
+
+msgid "Kids"
+msgstr "Børn"
+
+msgid "create"
+msgstr "oprette"
+
+msgid "edit"
+msgstr "redigere"
+
+msgid "photo"
+msgstr "foto"
+
+msgid "group"
+msgstr "gruppe"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "note"
+msgstr "note"
+
+msgid "You have to set a Title for your event"
+msgstr "Du skal angive en titel for din begivenhed"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Denne begivenhed kan ikke ændres !!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Hvis du vil tilføje en begivenhed, skal du først oprette en kalender eller "
+"aktivere en kalender."
+
+msgid "Event added"
+msgstr "Tilføjet begivenhed"
+
+msgid "Event was added successfully."
+msgstr "Begivenheden blev tilføjet med succes."
+
+msgid "Electronic Transaction Details"
+msgstr "Oplysninger om elektroniske transaktioner"
+
+msgid "Daily"
+msgstr "Dagligt"
+
+msgid "Weekly"
+msgstr "Ugentlig"
+
+msgid "Monthly"
+msgstr "Månedlig"
+
+msgid "Quarterly"
+msgstr "Kvartalsvis"
+
+msgid "Once"
+msgstr "Når"
+
+msgid "Other"
+msgstr "Andre"
+
+msgid "CREDITCARD"
+msgstr "CREDITKORT"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "Kreditkort"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Nogle familier har ikke defineret et navn for rollen som \"husstandsoverhoved\", "
+"eller der er ikke nogen aktiverede medlemmer i disse familier:"
+
+msgid "send"
+msgstr "send"
+
+msgid "save"
+msgstr "redde"
+
+msgid "subscribed"
+msgstr "tilmeldt"
+
+msgid "unsubscribed"
+msgstr "afmeldt"
+
+msgid "sent"
+msgstr "sendt"
+
+msgid "schedule"
+msgstr "tidsplan"
+
+msgid "paused"
+msgstr "holdt pause"
+
+msgid "cleaned"
+msgstr "renset"
+
+msgid "pending"
+msgstr "i vente"
+
+msgid "Invalid date"
+msgstr "Ugyldig dato"

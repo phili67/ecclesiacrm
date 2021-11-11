@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 19:28+0000\n"
-"Language: zh-CN\n"
+"POT-Creation-Date: 2021-11-10 21:59+0000\n"
+"Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -599,7 +599,7 @@ msgstr "购物车到徽章"
 
 #: CartToBadge.php:44
 msgid "Only PNG and JPEG are managed actually !!"
-msgstr ""
+msgstr "实际上只有PNG和JPEG文件可以管理!"
 
 #: CartToBadge.php:53 CartToBadge.php:175 v2/templates/group/groupbadge.php:55
 #: v2/templates/group/groupbadge.php:182
@@ -3652,16 +3652,8 @@ msgid "Set true to enable use of scanned checks"
 msgstr "设置为 \"true \"以启用扫描检查的使用"
 
 #: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "Unit used to measure distance, miles or km."
-msgstr "用来测量距离的单位，英里或公里。"
-
-#: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "miles"
-msgstr "英里"
-
-#: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "kilometers"
-msgstr "千米"
+msgid "Unit used to measure distance, miles or kilometers or li."
+msgstr "用来测量距离的单位，英里或公里或里。"
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Time zone"
@@ -4177,7 +4169,7 @@ msgstr "通过浏览器启用WebDav、CardDav和CalDav支持。"
 
 #: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "MailChimp API request time out in seconds"
-msgstr ""
+msgstr "MailChimp的API请求超时（秒）。"
 
 #: EcclesiaCRM/dto/SystemConfig.php:258
 msgid "Add Address, Phone."
@@ -4228,7 +4220,7 @@ msgstr "设置出口地址)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "email address of the mailchimp sender."
-msgstr ""
+msgstr "mailchimp发件人的电子邮件地址。"
 
 #: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
@@ -5431,67 +5423,67 @@ msgstr "缺少的坐标"
 msgid "Family Coordinates Data for Some Families"
 msgstr "一些家庭的家庭坐标数据"
 
-#: EcclesiaCRM/utils/GeoUtils.php:161 EcclesiaCRM/utils/GeoUtils.php:193
+#: EcclesiaCRM/utils/GeoUtils.php:212 EcclesiaCRM/utils/GeoUtils.php:244
 msgid "S"
 msgstr "S"
 
-#: EcclesiaCRM/utils/GeoUtils.php:163
+#: EcclesiaCRM/utils/GeoUtils.php:214
 msgid "SSW"
 msgstr "ǞǞǞ"
 
-#: EcclesiaCRM/utils/GeoUtils.php:165
+#: EcclesiaCRM/utils/GeoUtils.php:216
 msgid "SW"
 msgstr "紫外线"
 
-#: EcclesiaCRM/utils/GeoUtils.php:167
+#: EcclesiaCRM/utils/GeoUtils.php:218
 msgid "WSW"
 msgstr "WSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:169
+#: EcclesiaCRM/utils/GeoUtils.php:220
 msgid "W"
 msgstr "W"
 
-#: EcclesiaCRM/utils/GeoUtils.php:171
+#: EcclesiaCRM/utils/GeoUtils.php:222
 msgid "WNW"
 msgstr "WNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:173
+#: EcclesiaCRM/utils/GeoUtils.php:224
 msgid "NW"
 msgstr "西北"
 
-#: EcclesiaCRM/utils/GeoUtils.php:175
+#: EcclesiaCRM/utils/GeoUtils.php:226
 msgid "NNW"
 msgstr "北西"
 
-#: EcclesiaCRM/utils/GeoUtils.php:177
+#: EcclesiaCRM/utils/GeoUtils.php:228
 msgid "N"
 msgstr "N"
 
-#: EcclesiaCRM/utils/GeoUtils.php:179
+#: EcclesiaCRM/utils/GeoUtils.php:230
 msgid "NNE"
 msgstr "NNE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:181
+#: EcclesiaCRM/utils/GeoUtils.php:232
 msgid "NE"
 msgstr "NE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:183
+#: EcclesiaCRM/utils/GeoUtils.php:234
 msgid "ENE"
 msgstr "ENE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:185
+#: EcclesiaCRM/utils/GeoUtils.php:236
 msgid "E"
 msgstr "E"
 
-#: EcclesiaCRM/utils/GeoUtils.php:187
+#: EcclesiaCRM/utils/GeoUtils.php:238
 msgid "ESE"
 msgstr "ESE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:189
+#: EcclesiaCRM/utils/GeoUtils.php:240
 msgid "SE"
 msgstr "ǞǞǞ"
 
-#: EcclesiaCRM/utils/GeoUtils.php:191
+#: EcclesiaCRM/utils/GeoUtils.php:242
 msgid "SSE"
 msgstr "上交所"
 
@@ -8257,7 +8249,7 @@ msgstr "付款方式"
 
 #: PledgeEditor.php:703
 msgid " #"
-msgstr ""
+msgstr " "
 
 #: PledgeEditor.php:723
 msgid "Choose online payment method"
@@ -8443,13 +8435,12 @@ msgid "Data sorted by"
 msgstr "数据按以下方式排序"
 
 #: Reports/AdvancedDeposit.php:263
-#, fuzzy
 msgid "Dates"
 msgstr "日期"
 
 #: Reports/AdvancedDeposit.php:263
 msgid "through"
-msgstr ""
+msgstr "到"
 
 #: Reports/AdvancedDeposit.php:267
 msgid "Filtered by"
@@ -11743,100 +11734,106 @@ msgid "Chinese - Taiwan"
 msgstr "中文 - 台湾"
 
 #: settings-locales.php:6
+msgid "Danish - Denmark"
+msgstr "丹麦语 - 丹麦"
+
+#: settings-locales.php:7
 msgid "Dutch - Netherlands"
 msgstr "荷兰语--荷兰"
 
-#: settings-locales.php:7
+#: settings-locales.php:8
 msgid "English - Australia"
 msgstr "英语 - 澳大利亚"
 
-#: settings-locales.php:8
+#: settings-locales.php:9
 msgid "English - Canada"
 msgstr "英语 - 加拿大"
 
-#: settings-locales.php:9
+#: settings-locales.php:10
 msgid "English - Great Britain"
 msgstr "英语 - 大不列颠"
 
-#: settings-locales.php:10
+#: settings-locales.php:11
 msgid "English - United States"
 msgstr "英语 - 美国"
 
-#: settings-locales.php:11
+#: settings-locales.php:12
+msgid "Finnish - Finland"
+msgstr "芬兰语 - 芬兰"
+
+#: settings-locales.php:13
 msgid "French - Belgium"
 msgstr "法语 - 比利时"
 
-#: settings-locales.php:12
+#: settings-locales.php:14
 msgid "French - Canada"
 msgstr "法语 - 加拿大"
 
-#: settings-locales.php:13
+#: settings-locales.php:15
 msgid "French - France"
 msgstr "法语 - 法国"
 
-#: settings-locales.php:14
+#: settings-locales.php:16
 msgid "French - Swiss"
 msgstr "法文 - 瑞士"
 
-#: settings-locales.php:15
-#, fuzzy
+#: settings-locales.php:17
 msgid "Greek"
-msgstr "问候语"
+msgstr "希腊语"
 
-#: settings-locales.php:16
+#: settings-locales.php:18
 msgid "German - Germany"
 msgstr "德语 - 德国"
 
-#: settings-locales.php:17
+#: settings-locales.php:19
 msgid "Hungarian"
 msgstr "匈牙利语"
 
-#: settings-locales.php:18
+#: settings-locales.php:20
 msgid "Indonesian - Indonesia"
 msgstr "印度尼西亚语 - 印度尼西亚"
 
-#: settings-locales.php:19
+#: settings-locales.php:21
 msgid "Italian - Italy"
 msgstr "意大利语 - 意大利"
 
-#: settings-locales.php:20
+#: settings-locales.php:22
 msgid "Japan"
-msgstr ""
+msgstr "日本"
 
-#: settings-locales.php:21
+#: settings-locales.php:23
 msgid "Polish"
 msgstr "波兰语"
 
-#: settings-locales.php:22
+#: settings-locales.php:24
 msgid "Portuguese - Brazil"
 msgstr "葡萄牙语 - 巴西"
 
-#: settings-locales.php:23
-#, fuzzy
+#: settings-locales.php:25
 msgid "Portuguese - Portugal"
-msgstr "葡萄牙语 - 巴西"
+msgstr "葡萄牙语 - 葡萄牙"
 
-#: settings-locales.php:24
+#: settings-locales.php:26
 msgid "Romanian - Romania"
 msgstr "罗马尼亚语--罗马尼亚"
 
-#: settings-locales.php:25
+#: settings-locales.php:27
 msgid "Russian"
 msgstr "俄罗斯"
 
-#: settings-locales.php:26
+#: settings-locales.php:28
 msgid "Spanish - Spain"
 msgstr "西班牙语 - 西班牙"
 
-#: settings-locales.php:27
+#: settings-locales.php:29
 msgid "Sami (Northern) (Sweden)"
 msgstr "萨米人（北方）（瑞典"
 
-#: settings-locales.php:28
+#: settings-locales.php:30
 msgid "Thai"
 msgstr "泰国"
 
-#: settings-locales.php:29
+#: settings-locales.php:31
 msgid "Vietnamese"
 msgstr "越南语"
 
@@ -11937,10 +11934,10 @@ msgid "There were "
 msgstr "有"
 
 msgid "pm"
-msgstr "下午"
+msgstr "上午"
 
 msgid "am"
-msgstr "是"
+msgstr "下午"
 
 msgid "Assign a New Property:"
 msgstr "指定一个新的属性。"
@@ -12067,6 +12064,12 @@ msgstr "小型"
 
 msgid "Large"
 msgstr "大型"
+
+#~ msgid "miles"
+#~ msgstr "英里"
+
+#~ msgid "kilometers"
+#~ msgstr "千米"
 
 #~ msgid "Max count of members in a MailChimp List."
 #~ msgstr "MailChimp列表中成员的最大数量。"
