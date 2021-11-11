@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "true"
+
+msgid "false"
+msgstr "väärä"
+
+msgid "pm"
+msgstr ""
+
+msgid "am"
+msgstr ""
+
+msgid "Teachers"
+msgstr "Opettajat"
+
+msgid "Students"
+msgstr "Opiskelijat"
+
+msgid "Teacher"
+msgstr "Opettaja"
+
+msgid "Student"
+msgstr "Opiskelija"
+
+msgid "Parents"
+msgstr "Vanhemmat"
+
+msgid "Kids"
+msgstr "Lapset"
+
+msgid "create"
+msgstr "luo"
+
+msgid "edit"
+msgstr "muokkaa"
+
+msgid "photo"
+msgstr "kuva"
+
+msgid "group"
+msgstr "ryhmä"
+
+msgid "Group"
+msgstr "Ryhmä"
+
+msgid "note"
+msgstr "Huomautus"
+
+msgid "You have to set a Title for your event"
+msgstr "Sinun on määritettävä tapahtumalle otsikko"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Tämä tapahtuma ei ole muokattavissa !!!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Jos haluat lisätä tapahtuman, sinun on ensin luotava kalenteri tai aktivoitava "
+"sellainen."
+
+msgid "Event added"
+msgstr "Tapahtuma lisätty"
+
+msgid "Event was added successfully."
+msgstr "Tapahtuma lisättiin onnistuneesti."
+
+msgid "Electronic Transaction Details"
+msgstr "Sähköisen tapahtuman tiedot"
+
+msgid "Daily"
+msgstr "Päivittäin"
+
+msgid "Weekly"
+msgstr "Viikoittain"
+
+msgid "Monthly"
+msgstr "Kuukausittain"
+
+msgid "Quarterly"
+msgstr "Neljännesvuosittain"
+
+msgid "Once"
+msgstr "Kun"
+
+msgid "Other"
+msgstr "Muut"
+
+msgid "CREDITCARD"
+msgstr "LUOTTOKORTTI"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Pankki"
+
+msgid "CreditCard"
+msgstr "Luottokortti"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Joissakin perheissä ei ole määritetty \"kotitalouden johtajan\" roolin nimeä "
+"tai perheissä ei ole aktivoituja jäseniä:"
+
+msgid "send"
+msgstr "lähetä"
+
+msgid "save"
+msgstr "save"
+
+msgid "subscribed"
+msgstr "tilattu"
+
+msgid "unsubscribed"
+msgstr "poistettu"
+
+msgid "sent"
+msgstr "lähetetty"
+
+msgid "schedule"
+msgstr "aikataulu"
+
+msgid "paused"
+msgstr "keskeytetty"
+
+msgid "cleaned"
+msgstr "puhdistettu"
+
+msgid "pending"
+msgstr "vireillä"
+
+msgid "Invalid date"
+msgstr "Virheellinen päivämäärä"

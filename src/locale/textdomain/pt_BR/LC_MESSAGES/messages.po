@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-08 19:28+0000\n"
+"POT-Creation-Date: 2021-11-10 21:59+0000\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3719,16 +3719,8 @@ msgid "Set true to enable use of scanned checks"
 msgstr "Defina true para permitir o uso de cheques digitalizados"
 
 #: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "Unit used to measure distance, miles or km."
-msgstr "Unidade utilizada para medir a distância, milhas ou km."
-
-#: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "miles"
-msgstr "milhas"
-
-#: EcclesiaCRM/dto/SystemConfig.php:121
-msgid "kilometers"
-msgstr "Quilómetros"
+msgid "Unit used to measure distance, miles or kilometers or li."
+msgstr "Unidade usada para medir a distância, milhas ou quilômetros ou li."
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Time zone"
@@ -5539,67 +5531,67 @@ msgstr "Coordenadas em falta"
 msgid "Family Coordinates Data for Some Families"
 msgstr "Dados de Coordenadas Familiares para Algumas Famílias"
 
-#: EcclesiaCRM/utils/GeoUtils.php:161 EcclesiaCRM/utils/GeoUtils.php:193
+#: EcclesiaCRM/utils/GeoUtils.php:212 EcclesiaCRM/utils/GeoUtils.php:244
 msgid "S"
 msgstr "S"
 
-#: EcclesiaCRM/utils/GeoUtils.php:163
+#: EcclesiaCRM/utils/GeoUtils.php:214
 msgid "SSW"
 msgstr "SSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:165
+#: EcclesiaCRM/utils/GeoUtils.php:216
 msgid "SW"
 msgstr "SW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:167
+#: EcclesiaCRM/utils/GeoUtils.php:218
 msgid "WSW"
 msgstr "WSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:169
+#: EcclesiaCRM/utils/GeoUtils.php:220
 msgid "W"
 msgstr "W"
 
-#: EcclesiaCRM/utils/GeoUtils.php:171
+#: EcclesiaCRM/utils/GeoUtils.php:222
 msgid "WNW"
 msgstr "WNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:173
+#: EcclesiaCRM/utils/GeoUtils.php:224
 msgid "NW"
 msgstr "NW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:175
+#: EcclesiaCRM/utils/GeoUtils.php:226
 msgid "NNW"
 msgstr "NNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:177
+#: EcclesiaCRM/utils/GeoUtils.php:228
 msgid "N"
 msgstr "N"
 
-#: EcclesiaCRM/utils/GeoUtils.php:179
+#: EcclesiaCRM/utils/GeoUtils.php:230
 msgid "NNE"
 msgstr "NNE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:181
+#: EcclesiaCRM/utils/GeoUtils.php:232
 msgid "NE"
 msgstr "NE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:183
+#: EcclesiaCRM/utils/GeoUtils.php:234
 msgid "ENE"
 msgstr "ENE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:185
+#: EcclesiaCRM/utils/GeoUtils.php:236
 msgid "E"
 msgstr "E"
 
-#: EcclesiaCRM/utils/GeoUtils.php:187
+#: EcclesiaCRM/utils/GeoUtils.php:238
 msgid "ESE"
 msgstr "ESE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:189
+#: EcclesiaCRM/utils/GeoUtils.php:240
 msgid "SE"
 msgstr "SE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:191
+#: EcclesiaCRM/utils/GeoUtils.php:242
 msgid "SSE"
 msgstr "SSE"
 
@@ -12021,98 +12013,106 @@ msgid "Chinese - Taiwan"
 msgstr "Chinês - Taiwan"
 
 #: settings-locales.php:6
+msgid "Danish - Denmark"
+msgstr "Dinamarquês - Dinamarca"
+
+#: settings-locales.php:7
 msgid "Dutch - Netherlands"
 msgstr "Holandês - Holanda"
 
-#: settings-locales.php:7
+#: settings-locales.php:8
 msgid "English - Australia"
 msgstr "Inglês - Austrália"
 
-#: settings-locales.php:8
+#: settings-locales.php:9
 msgid "English - Canada"
 msgstr "Inglês - Canadá"
 
-#: settings-locales.php:9
+#: settings-locales.php:10
 msgid "English - Great Britain"
 msgstr "Inglês - Grã-Bretanha"
 
-#: settings-locales.php:10
+#: settings-locales.php:11
 msgid "English - United States"
 msgstr "Inglês - Estados Unidos"
 
-#: settings-locales.php:11
+#: settings-locales.php:12
+msgid "Finnish - Finland"
+msgstr "Finlandês - Finlândia"
+
+#: settings-locales.php:13
 msgid "French - Belgium"
 msgstr "Francês - Bélgica"
 
-#: settings-locales.php:12
+#: settings-locales.php:14
 msgid "French - Canada"
 msgstr "Francês - Canadá"
 
-#: settings-locales.php:13
+#: settings-locales.php:15
 msgid "French - France"
 msgstr "Francês - França"
 
-#: settings-locales.php:14
+#: settings-locales.php:16
 msgid "French - Swiss"
 msgstr "Francês - Suíço"
 
-#: settings-locales.php:15
+#: settings-locales.php:17
 msgid "Greek"
 msgstr "Grego"
 
-#: settings-locales.php:16
+#: settings-locales.php:18
 msgid "German - Germany"
 msgstr "Alemão - Alemanha"
 
-#: settings-locales.php:17
+#: settings-locales.php:19
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: settings-locales.php:18
+#: settings-locales.php:20
 msgid "Indonesian - Indonesia"
 msgstr "Indonésio - Indonésia"
 
-#: settings-locales.php:19
+#: settings-locales.php:21
 msgid "Italian - Italy"
 msgstr "Italiano - Itália"
 
-#: settings-locales.php:20
+#: settings-locales.php:22
 msgid "Japan"
 msgstr "Japão"
 
-#: settings-locales.php:21
+#: settings-locales.php:23
 msgid "Polish"
 msgstr "Polonês"
 
-#: settings-locales.php:22
+#: settings-locales.php:24
 msgid "Portuguese - Brazil"
 msgstr "Português - Brasil"
 
-#: settings-locales.php:23
+#: settings-locales.php:25
 msgid "Portuguese - Portugal"
 msgstr "Português - Portugal"
 
-#: settings-locales.php:24
+#: settings-locales.php:26
 msgid "Romanian - Romania"
 msgstr "Romeno - Roménia"
 
-#: settings-locales.php:25
+#: settings-locales.php:27
 msgid "Russian"
 msgstr "Russo"
 
-#: settings-locales.php:26
+#: settings-locales.php:28
 msgid "Spanish - Spain"
 msgstr "Espanhol - Espanha"
 
-#: settings-locales.php:27
+#: settings-locales.php:29
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Norte) (Suécia)"
 
-#: settings-locales.php:28
+#: settings-locales.php:30
 msgid "Thai"
 msgstr "Tailandês"
 
-#: settings-locales.php:29
+#: settings-locales.php:31
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
@@ -12347,6 +12347,12 @@ msgstr "Pequeno"
 
 msgid "Large"
 msgstr "Grande"
+
+#~ msgid "miles"
+#~ msgstr "milhas"
+
+#~ msgid "kilometers"
+#~ msgstr "Quilómetros"
 
 #~ msgid "Max count of members in a MailChimp List."
 #~ msgstr "Contagem máxima de membros em uma lista MailChimp."
