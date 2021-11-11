@@ -65,7 +65,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
   (1, 6, 6, 'normal', 'nicht teilnehmenden (staff)'),
   (1, 7, 7, 'normal', 'Verstorben'),
   (2, 1, 1, 'normal', 'Familienoberhaupt'),
-  (2, 2, 2, 'normal', 'Gemeinsam'),
+  (2, 2, 2, 'normal', 'Ehepartner'),
   (2, 3, 3, 'normal', 'Kinder'),
   (2, 4, 4, 'normal', 'Weitere Familienangehörige '),
   (2, 5, 5, 'normal', 'Nicht zur Familie gehört.'),
