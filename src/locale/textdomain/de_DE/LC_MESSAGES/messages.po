@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-12 06:31+0000\n"
+"POT-Creation-Date: 2021-11-13 16:48+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3753,9 +3753,8 @@ msgstr ""
 "Setzen Sie true, um die Verwendung von gescannten Prüfungen zu aktivieren."
 
 #: EcclesiaCRM/dto/SystemConfig.php:121
-#, fuzzy
 msgid "Unit used to measure distance, miles or kilometers or li."
-msgstr "Einheit zur Messung der Entfernung, Meilen oder km."
+msgstr "Einheit zur Messung von Entfernungen, Meilen oder Kilometern oder li."
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Time zone"
@@ -12109,98 +12108,107 @@ msgid "Chinese - Taiwan"
 msgstr "Chinesisch - Taiwan"
 
 #: settings-locales.php:6
+msgid "Danish - Denmark"
+msgstr ""
+
+#: settings-locales.php:7
 msgid "Dutch - Netherlands"
 msgstr "Niederländisch - Niederlande"
 
-#: settings-locales.php:7
+#: settings-locales.php:8
 msgid "English - Australia"
 msgstr "Englisch - Australien"
 
-#: settings-locales.php:8
+#: settings-locales.php:9
 msgid "English - Canada"
 msgstr "Englisch - Kanada"
 
-#: settings-locales.php:9
+#: settings-locales.php:10
 msgid "English - Great Britain"
 msgstr "Englisch - Großbritannien"
 
-#: settings-locales.php:10
+#: settings-locales.php:11
 msgid "English - United States"
 msgstr "Englisch - Vereinigte Staaten"
 
-#: settings-locales.php:11
+#: settings-locales.php:12
+#, fuzzy
+msgid "Finnish - Finland"
+msgstr "Englisch - Kanada"
+
+#: settings-locales.php:13
 msgid "French - Belgium"
 msgstr "Französisch - Belgien"
 
-#: settings-locales.php:12
+#: settings-locales.php:14
 msgid "French - Canada"
 msgstr "Französisch - Kanada"
 
-#: settings-locales.php:13
+#: settings-locales.php:15
 msgid "French - France"
 msgstr "Französisch - Frankreich"
 
-#: settings-locales.php:14
+#: settings-locales.php:16
 msgid "French - Swiss"
 msgstr "Französisch - Schweizerisch"
 
-#: settings-locales.php:15
+#: settings-locales.php:17
 msgid "Greek"
 msgstr "Griechisch"
 
-#: settings-locales.php:16
+#: settings-locales.php:18
 msgid "German - Germany"
 msgstr "Deutsch - Deutschland"
 
-#: settings-locales.php:17
+#: settings-locales.php:19
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: settings-locales.php:18
+#: settings-locales.php:20
 msgid "Indonesian - Indonesia"
 msgstr "Indonesisch - Indonesien"
 
-#: settings-locales.php:19
+#: settings-locales.php:21
 msgid "Italian - Italy"
 msgstr "Italienisch - Italien"
 
-#: settings-locales.php:20
+#: settings-locales.php:22
 msgid "Japan"
 msgstr "Japan"
 
-#: settings-locales.php:21
+#: settings-locales.php:23
 msgid "Polish"
 msgstr "Polnisch"
 
-#: settings-locales.php:22
+#: settings-locales.php:24
 msgid "Portuguese - Brazil"
 msgstr "Portugiesisch - Brasilien"
 
-#: settings-locales.php:23
+#: settings-locales.php:25
 msgid "Portuguese - Portugal"
 msgstr "Portugiesisch - Portugal"
 
-#: settings-locales.php:24
+#: settings-locales.php:26
 msgid "Romanian - Romania"
 msgstr "Rumänisch - Rumänien"
 
-#: settings-locales.php:25
+#: settings-locales.php:27
 msgid "Russian"
 msgstr "Russisch"
 
-#: settings-locales.php:26
+#: settings-locales.php:28
 msgid "Spanish - Spain"
 msgstr "Spanisch - Spanien"
 
-#: settings-locales.php:27
+#: settings-locales.php:29
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Nord) (Schweden)"
 
-#: settings-locales.php:28
+#: settings-locales.php:30
 msgid "Thai"
 msgstr "Thailändisch"
 
-#: settings-locales.php:29
+#: settings-locales.php:31
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
