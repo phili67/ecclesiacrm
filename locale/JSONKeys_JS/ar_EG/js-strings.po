@@ -1218,10 +1218,10 @@ msgid "Group Type"
 msgstr "نوع المجموعة"
 
 msgid "Unassigned"
-msgstr ""
+msgstr "غير مسؤول"
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "Confirm Delete Group"
 msgstr "تأكيد مجموعة الحذف"
