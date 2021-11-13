@@ -382,7 +382,7 @@ class Family extends BaseFamily implements iPhoto
      * @return array of Lat/Lng
      */
     public function updateLanLng() {
-        if (!empty($this->getAddress()) && (!$this->hasLatitudeAndLongitude())) {
+        if ( !empty($this->getAddress()) /*&& (!$this->hasLatitudeAndLongitude())*/ ) {
             $latLng = GeoUtils::getLatLong($this->getAddress());
             if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
                 $this->setLatitude($latLng['Latitude']);
