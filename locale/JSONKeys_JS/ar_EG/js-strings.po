@@ -1,0 +1,2357 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-06-06T16:42:51.297Z\n"
+"PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "هل أنت متأكد، تريد حذف هذه الصورة؟"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"اضغط على CTRL + C لنسخ جميع أرقام هواتف أعضاء "
+"المجموعة"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Remove"
+msgstr "إزالة"
+
+msgid "Classification"
+msgstr "التصنيف"
+
+msgid "Family Role"
+msgstr "دور العائلة"
+
+msgid "You have no more items in your cart."
+msgstr "ليس لديك المزيد من المواد في عربتك"
+
+msgid "Error making API Call to"
+msgstr "خطأ في جعل API نداء ل"
+
+msgid "Error text"
+msgstr "رسالة خاطئة"
+
+msgid "Stack Trace"
+msgstr "(ستاك تريس)"
+
+msgid "ERROR"
+msgstr "RROR"
+
+msgid "Mailchimp"
+msgstr "تشيمب البريد"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage "
+"them, click this notification !</b>"
+msgstr ""
+"وترد جميع القوائم الآن في Ecclesia<b>CRM</b>. <br>b>إذا "
+"كنت تريد إدارة هذه الإخطار، اضغط هذا "
+"الإخطار! </b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "كانت هناك مشكلة في استرجاع الجسم المطلوب"
+
+msgid "None"
+msgstr "لا أحد"
+
+msgid "Select the method to add to a group"
+msgstr "اختر طريقة إضافة إلى مجموعة"
+
+msgid "Select an existing Group"
+msgstr "اختر مجموعة قائمة"
+
+msgid "or Create a new Group from the Cart"
+msgstr "أو إنشاء مجموعة جديدة من العربة"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "اختر المجموعة التي تود إضافة عربتك إليها"
+
+msgid "Select Group"
+msgstr "مجموعة مختارة"
+
+msgid "Select Role"
+msgstr "اختر دور"
+
+msgid "Group Name"
+msgstr "اسم المجموعة"
+
+msgid "Default Name Group"
+msgstr "مجموعة أسماء المخلوقات"
+
+msgid "Add Cart to Group"
+msgstr "أضف عربة إلى المجموعة"
+
+msgid "Save"
+msgstr "أنقذ"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "You have to select one group and a group role if you want"
+msgstr ""
+"عليك أن تختار مجموعة واحدة ودور جماعي إذا "
+"أردت"
+
+msgid "You have to set a Group Name"
+msgstr "عليك أن تضع اسم جماعي"
+
+msgid "Close"
+msgstr "قريب"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "هل تريد حقاً تعطيل الأشخاص؟"
+
+msgid "This action can be undone !!!!"
+msgstr "هذا العمل يمكن أن يُلغى !\""
+
+msgid "No"
+msgstr "لا"
+
+msgid "Yes : if you're sure"
+msgstr "نعم، إذا كنت متأكداً"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "هل تريد حقاً حذف الأشخاص من مركز الرصد؟"
+
+msgid "This action cannot be undone !!!!"
+msgstr "هذا العمل لا يمكن أن يُلغى !\""
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "اختر الحدث الذي تود إضافة عربتك إليه"
+
+msgid "Create First A New Event"
+msgstr "إبتكر أول حدث جديد"
+
+msgid "Cancel"
+msgstr "ألغي"
+
+msgid "Add to Event"
+msgstr "أضف إلى الحدث"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"ويمكنكم إضافة محتوى العربة إلى الحدث "
+"المختار أدناه <br> - أو >br>create أولاً وإضافتها "
+"بعد ذلك."
+
+msgid "Register"
+msgstr "السجل"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "سجل برنامجك لفريق \"إيكليسياك\""
+
+msgid "Simply click this"
+msgstr "ببساطة انقر هذا"
+
+msgid "to register your software"
+msgstr "لتسجيل برنامجك"
+
+msgid "New Release"
+msgstr "إطلاق جديد"
+
+msgid "Installed version"
+msgstr "نسخة مصممة"
+
+msgid "New One"
+msgstr "واحد جديد"
+
+msgid "To upgrade simply click this Notification"
+msgstr "لترقية هذا الإخطار ببساطة"
+
+msgid "View Cart"
+msgstr "عربة المشاهدة"
+
+msgid "Empty Cart"
+msgstr "عربة فارغة"
+
+msgid "Empty Cart to Group"
+msgstr "عربة فارغة إلى المجموعة"
+
+msgid "Empty Cart to Family"
+msgstr "عربة فارغة إلى العائلة"
+
+msgid "Empty Cart to Event"
+msgstr "عربة فارغة إلى الحدث"
+
+msgid "Map Cart"
+msgstr "عربة الخرائط"
+
+msgid "Deactivate Persons From Cart"
+msgstr "أبطل الأشخاص عن العربة"
+
+msgid "Delete Persons From the CRM"
+msgstr "يحذف الأشخاص من مركز الرصد"
+
+msgid "View all"
+msgstr "مشاهدة الجميع"
+
+msgid "Your Cart is Empty"
+msgstr "عربتك فارغة"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr ""
+"إذا كنت بحاجة إلى إجراء تغييرات لبيانات "
+"التسجيل، الذهاب إلى"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin->Edit General Settings"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information and "
+"pressing the Send button."
+msgstr ""
+"يرجى تسجيل نسختك من EcclesiacCRM عن طريق التحقق من "
+"هذه المعلومات والضغط على زر الإرسال."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"ولا تستخدم هذه المعلومات إلا لتتبع استخدام "
+"هذا البرنامج."
+
+msgid "Church Name"
+msgstr "اسم الكنيسة"
+
+msgid "Version"
+msgstr "صيغة"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "State"
+msgstr "الدولة"
+
+msgid "Zip"
+msgstr "صفر"
+
+msgid "Country"
+msgstr "البلد"
+
+msgid "Church Email"
+msgstr "بريد الكنيسة الإلكتروني"
+
+msgid "Base URL"
+msgstr "قاعدة URL"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Software Registration"
+msgstr "تسجيل البرمجيات"
+
+msgid "Send"
+msgstr "أرسل"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "برنامجك مسجل الآن شكراً لك"
+
+msgid "OK"
+msgstr "حسناً"
+
+msgid "Please select target group for members"
+msgstr "يرجى اختيار مجموعة الهدف للأعضاء"
+
+msgid "Please select target Role for members"
+msgstr "يرجى اختيار الهدف دور للأعضاء"
+
+msgid "GroupID required for role selection prompt"
+msgstr "ويتطلب الفريق اختيار الأدوار بسرعة"
+
+msgid "Select Group and Role"
+msgstr "مجموعة مختارة ودور"
+
+msgid "Add A Group Name"
+msgstr "أضف اسم جماعي"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "Calendar Event"
+msgstr "حدث الجدول الزمني"
+
+msgid "Attendees Checked In"
+msgstr "الحضور تحقق من الدخول"
+
+msgid "More info"
+msgstr "المزيد من المعلومات"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"تحذير! لا تختار هذا الخيار إذا كنت تنوي "
+"إضافة إلى قاعدة بيانات قائمة. <Br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will be "
+"destroyed!"
+msgstr ""
+"استخدم فقط إذا لم يكن راضياً عن الاستيراد "
+"الأولي كل البيانات الشخصية والعضوية سوف "
+"تدمر!"
+
+msgid "I Understand"
+msgstr "أنا أفهم"
+
+msgid "Clear Persons and Families"
+msgstr "الأشخاص والأسر الواضحين"
+
+msgid "Data Cleared Successfully!"
+msgstr "تم إخلاء البيانات بشكل ناجح!"
+
+msgid "success"
+msgstr "النجاح"
+
+msgid "Duplicate values"
+msgstr "قيم متكررة"
+
+msgid "You've selected two times the same name"
+msgstr "لقد اخترت مرتين نفس الاسم"
+
+msgid "for this field. Chose another one."
+msgstr "لهذا المجال اختر واحداً آخر"
+
+msgid "Please confirm deletion of this document"
+msgstr "يرجى تأكيد حذف هذه الوثيقة"
+
+msgid "Document Delete Confirmation"
+msgstr "وثيقة حذف التأكيد"
+
+msgid "Document Editor"
+msgstr "محرر الوثائق"
+
+msgid "Document Title"
+msgstr "عنوان الوثائق"
+
+msgid "Set your Document title"
+msgstr "ضع لقب وثيقتك"
+
+msgid "Choose your Document Type"
+msgstr "اختر نموذج وثيقتك"
+
+msgid "document"
+msgstr "الوثيقة"
+
+msgid "video"
+msgstr "فيديو"
+
+msgid "audio"
+msgstr "الصوت"
+
+msgid "Private"
+msgstr "خادم"
+
+msgid "You have to set a Title for your document"
+msgstr "عليك أن تضع عنوان لوثيقك"
+
+msgid "Icon"
+msgstr "Icon"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "Modification Date"
+msgstr "موعد التعديل"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Set a File/Folder name"
+msgstr "ضع اسم ملف/فولدر"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "أنت على وشك إزالة ملف وهو محتوى"
+
+msgid "This can't be undone !!!!"
+msgstr "لا يمكن إلغاء هذا !\""
+
+msgid "You've to select at least one line !!!"
+msgstr "يجب أن تختار على الأقل سطراً واحداً !"
+
+msgid "You're about to remove a file"
+msgstr "أنت على وشك إزالة ملف"
+
+msgid "Set your Folder name"
+msgstr "ضع اسمك"
+
+msgid "Upload your Files"
+msgstr "قم بتحميل ملفاتك"
+
+msgid "Files input"
+msgstr "ملفات المدخلات"
+
+msgid "Upload your files"
+msgstr "قم بتحميل ملفاتك"
+
+msgid "Upload"
+msgstr "\"تو بلود\""
+
+msgid "Share your File"
+msgstr "شارك ملفك"
+
+msgid "With"
+msgstr "مع"
+
+msgid "Set Rights"
+msgstr "\"مجموعة الحقوق\""
+
+msgid "Select your rights"
+msgstr "اختر حقوقك"
+
+msgid "or"
+msgstr "أو"
+
+msgid "[👀  ]"
+msgstr "[👀]"
+
+msgid "[R ]"
+msgstr "[ر]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 Ϩ]"
+
+msgid "[RW]"
+msgstr "[دبليو]"
+
+msgid "Send email notification"
+msgstr "أرسل إشعار بالبريد الإلكتروني"
+
+msgid "Add persons/Family/groups"
+msgstr "يضاف أشخاص/أسرة/جماعات"
+
+msgid "Person or Family or Group"
+msgstr "1 - الأشخاص أو الأسرة أو المجموعة"
+
+msgid "Delete"
+msgstr "تحذف"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "هل أنت متأكد؟ هل أنت على وشك حذف هذا الشخص؟"
+
+msgid "Stop sharing"
+msgstr "توقف عن المشاركة"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr ""
+"هل أنت متأكد؟ هل أنت على وشك التوقف عن "
+"مشاركة وثيقتك؟"
+
+msgid "Ok"
+msgstr "حسناً"
+
+msgid "Tracking"
+msgstr "التعقب"
+
+msgid "Attention"
+msgstr "انتباه"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "ملف الصور الحالي هو الآن الملف العام! !"
+
+msgid "Add People"
+msgstr "أضف الناس"
+
+msgid "This page is still in the cart."
+msgstr "هذه الصفحة لا تزال في العربة"
+
+msgid "Wrong address format."
+msgstr "شكل العنوان الخاطئ"
+
+msgid "Set Calendar Name"
+msgstr "ضع اسم الجدول"
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Set Resource Name"
+msgstr "جهز اسم الموارد"
+
+msgid "Select a resource type"
+msgstr "اختر نوع الموارد"
+
+msgid "Room"
+msgstr "الغرفة"
+
+msgid "Computer"
+msgstr "حاسوب"
+
+msgid "Video"
+msgstr "فيديو"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "إدراج / إستثناء جدول أعمالك في الحانة"
+
+msgid "Calendars"
+msgstr "الجدول الزمني"
+
+msgid "Set Status"
+msgstr "وضع الوضع"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "اختيار [استثناء] أو [إدماج]"
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[صرخات]"
+
+msgid "Share your Calendar"
+msgstr "شارك جدول مواعيدك"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "هل أنت متأكد، تريد حذف هذا الحصة؟"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr ""
+"هل أنت متأكد، هل تريد التوقف عن مشاركة "
+"وثيقتك؟"
+
+msgid "Are you sure?"
+msgstr "هل أنت متأكد؟"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"سوف تفقد التقويم والأحداث وجميع التقويمات "
+"أيضاً لا يمكن أن يتم إلغاء هذا"
+
+msgid "Manage"
+msgstr "الإدارة"
+
+msgid "Calendar Management for"
+msgstr "إدارة الجدول الزمني"
+
+msgid "Modify Calendar Name"
+msgstr "تعديل اسم الجدول"
+
+msgid "Modify Group Name"
+msgstr "تعديل اسم المجموعة"
+
+msgid "Modify Resource Name"
+msgstr "تعديل اسم الموارد"
+
+msgid "Modify Share Name"
+msgstr "تعديل اسم المشاركة"
+
+msgid "Resource Info for"
+msgstr "معلومات عن الموارد"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "ولا يحق للمديرين سوى تغيير وصف الموارد"
+
+msgid "Actualize"
+msgstr "1 - الاستنتاج"
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "List"
+msgstr "القائمة"
+
+msgid "List Week"
+msgstr "أسبوع القائمة"
+
+msgid "List Month"
+msgstr "قائمة الشهر"
+
+msgid "This event isn't modifiable !!!"
+msgstr "هذا الحدث لا يمكن تعديله !"
+
+msgid "Modify Event"
+msgstr "تعديل الحدث"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"ماذا تريد أن تفعل؟ كن حذرا مع حذف، فمن "
+"المستحيل العودة! !"
+
+msgid "Delete Event"
+msgstr "حذف الحدث"
+
+msgid "Are you sure to delete this event?"
+msgstr "هل أنت متأكد من حذف هذا الحدث؟"
+
+msgid "Delete all repeated Events"
+msgstr "احذف كل الأحداث المتكررة"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are you "
+"sure? This can't be undone."
+msgstr ""
+"أنت على وشك حذف كل الأحداث المتكررة "
+"المرتبطة بهذا الحدث هل أنت متأكد؟ لا يمكن "
+"إلغاء هذا"
+
+msgid "Only this event"
+msgstr "فقط هذا الحدث"
+
+msgid "Every Events linked to this Event"
+msgstr "كل مناسبة مرتبطة بهذا الحدث"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"لإضافة حدث، يجب أن تخلق تقويم أو تنشيط واحد "
+"أولاً"
+
+msgid "Add More Attendees"
+msgstr "أضف المزيد من الحضور"
+
+msgid "Make Attendance"
+msgstr "احضروا"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Resize Event"
+msgstr "استولوا على الحدث"
+
+msgid "Are you sure about this change?"
+msgstr "هل أنت متأكد من هذا التغيير؟"
+
+msgid "will be resized."
+msgstr "سيتم مقاومته"
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr ""
+"أنت على وشك أن تقاوم كل الأحداث « أتود أن » "
+"أي أن « تقوم » بما قبله « بما كنتم تريدون » من "
+"العذاب ."
+
+msgid "Only this Event"
+msgstr "فقط هذا الحدث"
+
+msgid "All Events"
+msgstr "كل الأحداث"
+
+msgid "Move Event"
+msgstr "حرك الحدث"
+
+msgid "will be dropped."
+msgstr "سيتم إسقاطه"
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr ""
+"أنت على وشك تحريك كل الأحداث « أتود أن » أي "
+"أن « تقوم » بما قبله « بما كنتم تريدون » من "
+"العذاب ."
+
+msgid "Event added"
+msgstr "تم إضافة الحدث"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to add "
+"attendees ?"
+msgstr ""
+"وقد أضيف الحدث بنجاح. « أتود أن تجعل الحضور » "
+"الحضور « أم تضيف » تضيف « إلى الحضور » أي إلى "
+"الناس ."
+
+msgid "Event was added successfully."
+msgstr "وقد أضيف الحدث بنجاح."
+
+msgid "No attendees"
+msgstr "لا حضور"
+
+msgid "From"
+msgstr "من"
+
+msgid "to"
+msgstr "إلى"
+
+msgid "Attendance Notes: "
+msgstr "ملاحظات الحضور:"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Calendar Title"
+msgstr "عنوان الجدول"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "للتصديق على عنوانك <b> \"عودة ضربة\">/b>."
+
+msgid "To see the Map click this text field."
+msgstr "لرؤية الخريطة تضغط على هذا الحقل النصي"
+
+msgid "Map"
+msgstr "الخريطة"
+
+msgid "Desc"
+msgstr "الوصف"
+
+msgid "Event description"
+msgstr "وصف الأحداث"
+
+msgid "Event Type"
+msgstr "نوع الحدث"
+
+msgid "Personal"
+msgstr "شخصي"
+
+msgid "Attendance Counts"
+msgstr "عدد الحضور"
+
+msgid "Start Date"
+msgstr "ابدأ بالموعد"
+
+msgid "End Date"
+msgstr "نهاية الموعد"
+
+msgid "Repeat"
+msgstr "أكرر"
+
+msgid "Daily"
+msgstr "يوميا"
+
+msgid "Weekly"
+msgstr "أسبوعياً"
+
+msgid "Monthly"
+msgstr "شهريا"
+
+msgid "Quarterly"
+msgstr "ربع ساعات"
+
+msgid "Semesterly"
+msgstr "في بعض الأحيان"
+
+msgid "Yearly"
+msgstr "سنة"
+
+msgid "End"
+msgstr "نهاية"
+
+msgid "Alarm"
+msgstr "إنذار"
+
+msgid "NONE"
+msgstr "لا أحد"
+
+msgid "At time of event"
+msgstr "في وقت الحدث"
+
+msgid "5 minutes before"
+msgstr "قبل 5 دقائق"
+
+msgid "10 minutes before"
+msgstr "قبل 10 دقائق"
+
+msgid "15 minutes before"
+msgstr "قبل 15 دقيقة"
+
+msgid "30 minutes before"
+msgstr "قبل 30 دقيقة"
+
+msgid "1 hour before"
+msgstr "قبل ساعة"
+
+msgid "2 hour before"
+msgstr "قبل ساعتين"
+
+msgid "1 day before"
+msgstr "قبل يوم واحد"
+
+msgid "2 day before"
+msgstr "قبل يومين"
+
+msgid "Calendar"
+msgstr "الجدول الزمني"
+
+msgid "Add as attendees"
+msgstr "أضف كمحضرين"
+
+msgid "Notes"
+msgstr "الحواشي"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "inactive"
+msgstr "غير فعال"
+
+msgid "Event Creation"
+msgstr "خلق الأحداث"
+
+msgid "You've to chose a calendar."
+msgstr "عليك أن تختار تقويم"
+
+msgid "You have to set a Title for your event"
+msgstr "عليك أن تضع عنوان لحدثِك"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEDITor Templeate Creation"
+
+msgid "Template Name"
+msgstr "اسم معبد"
+
+msgid "Explanation field cannot be empty."
+msgstr "حقل التفسير لا يمكن أن يكون فارغاً"
+
+msgid "Template Description"
+msgstr "وصف معبد"
+
+msgid "Save as Word file in EDrive"
+msgstr "(وفر ملف الكلمات في (إيدرايف"
+
+msgid "Word file name"
+msgstr "اسم ملف الكلمة"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test only "
+"<b>(Beta)</b>.</small>"
+msgstr ""
+"سيرفع الملف إلى محرك EDRIV<Br><small>this part is for test only "
+"<b> (Beta)</b>. </small>"
+
+msgid "Your note is saved in your EDrive"
+msgstr "ملاحظتك محفوظة في محرك الكهربائي"
+
+msgid "(No templates defined)"
+msgstr "(لا نماذج محددة)"
+
+msgid "Content Templates"
+msgstr "معبد محتوى"
+
+msgid "Please select the template to open in the editor"
+msgstr "رجاءً إختار النموذج لفتح في المحرر"
+
+msgid "Template Options"
+msgstr "خيارات معبدة"
+
+msgid "Modify"
+msgstr "تعديل"
+
+msgid "Modify the template you select"
+msgstr "تعديل النموذج الذي تختاره"
+
+msgid "Delete the template you select"
+msgstr "حذف النموذج الذي تختاره"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr ""
+"هل أنت متأكد من حذف هذا النموذج؟ لا يمكن "
+"إلغاء هذا"
+
+msgid "Replace actual content"
+msgstr "يستعاض عن المحتوى الفعلي"
+
+msgid "Manage templates"
+msgstr "تدبّر النماذج"
+
+msgid "Save templates"
+msgstr "وفر النماذج"
+
+msgid "Apply templates"
+msgstr "تطبيق نماذج"
+
+msgid "Save As Word File in EDrive"
+msgstr "وفر كملفف الكلمات في \"إيدريف\""
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "الاسم الأخير"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Company"
+msgstr "Company"
+
+msgid "Unsub"
+msgstr "الجاني"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Merge Tags"
+msgstr "علامات دمج"
+
+msgid "Free Event Attendees"
+msgstr "حضور مناسبة مجانية"
+
+msgid "Successfully Added!"
+msgstr "! نجح بالإضافة"
+
+msgid "Photo"
+msgstr "صورة"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Checkin"
+msgstr "تحقق"
+
+msgid "Checkout"
+msgstr "تفقد"
+
+msgid "Gender"
+msgstr "الشؤون الجنسانية"
+
+msgid "Checkin Date"
+msgstr "تحقق من التاريخ"
+
+msgid "Checked In By"
+msgstr "تم التحقق من قبل"
+
+msgid "Checkout Date"
+msgstr "تاريخ التحقق"
+
+msgid "Checkout By"
+msgstr "تفقد المكان"
+
+msgid "QR Code : Call the register"
+msgstr "اتصل بالسجل"
+
+msgid "Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"غير قادر على الوصول إلى تيار الفيديو (يرجى "
+"التأكد من أن لديك كاميرا شبكية ممكنة)"
+
+msgid "no detected QR Code"
+msgstr "لا يوجد شفرة في كود"
+
+msgid "Loading video..."
+msgstr "تحميل الفيديو..."
+
+msgid "Failed"
+msgstr "فشلت"
+
+msgid "No event right now."
+msgstr "لا حدث الآن"
+
+msgid "Move one in the right range."
+msgstr "تحرك واحد في المدى الصحيح"
+
+msgid "Create one."
+msgstr "خلق واحدة."
+
+msgid "Group"
+msgstr "المجموعة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "No event now."
+msgstr "لا حدث الآن"
+
+msgid "Success"
+msgstr "النجاح"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تقوم بتسجيل كل "
+"الأشخاص من هوية (إينت)"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تقوم بتدوين هذا "
+"الشخص من هوية (إيفنت)"
+
+msgid "Delete Event Type"
+msgstr "حذف نوع الحدث"
+
+msgid "This action can never be undone !!!!"
+msgstr "هذا العمل لا يمكن أن يُلغى !\""
+
+msgid "Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"كما أن حذف الحدث سيحذف جميع حسابات الحضور في "
+"هذا الحدث."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "هل أنت متأكد أنك تريد أن تعلن الحدث؟"
+
+msgid "Confirm Delete"
+msgstr "تأكيد حذف"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "هل أنت متأكد؟ أنت على وشك حذف المختار"
+
+msgid "payments(s)?"
+msgstr "المدفوعات (المدفوعات)؟"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"هذا العمل لا يمكن إلغاؤه، وقد يكون له آثار "
+"قانونية!"
+
+msgid "Please ensure this what you want to do."
+msgstr "رجاءً تأكد من هذا ما تريد فعله"
+
+msgid "Pledge"
+msgstr "تعهد"
+
+msgid "Selected Rows"
+msgstr "صفوف مختارة"
+
+msgid "Payment"
+msgstr "المدفوعات"
+
+msgid "Depid"
+msgstr "ديبي"
+
+msgid "Address1"
+msgstr "العنوان 1"
+
+msgid "Bank Name"
+msgstr "اسم البنك"
+
+msgid "Non deductible"
+msgstr "غير قابل للخصم"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Deposit"
+msgstr "الإيداع"
+
+msgid "Schedule"
+msgstr "الجدول الزمني"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Comment"
+msgstr "التعليق"
+
+msgid "Electronic Transaction Details"
+msgstr "تفاصيل المعاملات الإلكترونية"
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+msgid "Family"
+msgstr "الأسرة"
+
+msgid "Person"
+msgstr "الشخص"
+
+msgid "Anonymous"
+msgstr "مجهول"
+
+msgid "Fund"
+msgstr "الصندوق"
+
+msgid "Pledge or payment"
+msgstr "تعهد أو دفع"
+
+msgid "Method"
+msgstr "الطريقة"
+
+msgid "Check Number"
+msgstr "تحقق رقم"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Deposit ID"
+msgstr "بطاقة الوديع"
+
+msgid "Deposit Date"
+msgstr "موعد الإيداع"
+
+msgid "Deposit Total"
+msgstr "إيداع المجموع"
+
+msgid "Deposit Comment"
+msgstr "تعليق الإيداع"
+
+msgid "Closed"
+msgstr "مغلق"
+
+msgid "Deposit Type"
+msgstr "إيداع من نوع"
+
+msgid "Export"
+msgstr "التصدير"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "تولّد الوديع للاختيار"
+
+msgid "Rows"
+msgstr "الصفوف"
+
+msgid "Your operation completed successfully."
+msgstr "لقد انتهت عمليتك بنجاح"
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Text"
+msgstr "النص"
+
+msgid "Date Entered"
+msgstr "تاريخ دخول"
+
+msgid "Date Last Edited"
+msgstr "موعد آخر محرر"
+
+msgid "Edited By Name"
+msgstr "تم ترميها بالاسم"
+
+msgid "Deactivated"
+msgstr "تم تعطيل"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"بحذف هذا الحقل، سوف تفقد بشكل لا رجعة كل "
+"بيانات المجموعة المخصصة لهذا المجال!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "تأكيد الممتلكات الخاصة لمجموعة ممكنة"
+
+msgid ""
+"This will create a group-specific properties table for this group. You should "
+"then add needed properties with the Group-Specific Properties Form Editor."
+msgstr ""
+"وسينشئ هذا جدول خصائص خاصة بمجموعة محددة "
+"لهذه المجموعة. ثم يجب أن تضيف الممتلكات "
+"المطلوبة مع محرر استمارة الممتلكات الخاصة "
+"للمجموعة."
+
+msgid "Enable Group Specific Properties"
+msgstr "(ب) الممتلكات المحددة لمجموعة ممكنة"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "تأكيد الممتلكات المحددة لمجموعة المعوقين"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All group "
+"member properties data will be lost!"
+msgstr ""
+"هل أنت متأكد أنك تريد إزالة خصائص الأشخاص "
+"الخاصة بالمجموعة؟ كل بيانات الممتلكات "
+"الأعضاء في المجموعة ستضيع"
+
+msgid "Disable Group Specific Properties"
+msgstr "الممتلكات المعوقة الخاصة"
+
+msgid "Confirm Delete Role"
+msgstr "تأكيد من حذف دور"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr ""
+"وسيحذف ذلك أيضا جميع الأشخاص المرتبطين بهذا "
+"الدور."
+
+msgid "A group should have at least one role!"
+msgstr "يجب أن يكون لمجموعة دور واحد على الأقل"
+
+msgid "Role Name"
+msgstr "اسم الدور"
+
+msgid "The role name is now modified."
+msgstr "اسم الدور الآن عُدّل."
+
+msgid "Make Default"
+msgstr "اصنع \"ديغلوب\""
+
+msgid "Default"
+msgstr "سقوط"
+
+msgid "Sequence"
+msgstr "التسلسل"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+msgid "Group Cart Status"
+msgstr "مجموعة عربة العربة"
+
+msgid "All members of this group are in the cart"
+msgstr "جميع أعضاء هذه المجموعة في العربة"
+
+msgid "Remove all"
+msgstr "أزيلوا كل شيء"
+
+msgid "Not all members of this group are in the cart"
+msgstr ""
+"ليس جميع أعضاء هذه المجموعة موجودين في "
+"العربة"
+
+msgid "Add all"
+msgstr "أضف كل شيء"
+
+msgid "Cart isn't showable"
+msgstr "العربة غير قابلة للعرض"
+
+msgid "Group Type"
+msgstr "نوع المجموعة"
+
+msgid "Unassigned"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Confirm Delete Group"
+msgstr "تأكيد مجموعة الحذف"
+
+msgid "Please confirm deletion of this group record"
+msgstr "يرجى تأكيد حذف هذا السجل الجماعي"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated with "
+"this Group record."
+msgstr ""
+"وسيحذف هذا أيضا جميع البيانات المتعلقة "
+"بالملكية الخاصة بالأدوار والمجموعة "
+"المرتبطة بهذا السجل."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"وسيتم تدمير جميع أعضاء المجموعة والممتلكات. "
+"ولن يتم تغيير أعضاء المجموعة أنفسهم."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "هل أنت متأكد أنك تريد أن تفقد هذه الملكية؟"
+
+msgid "Are you sure you want to change this property?"
+msgstr "هل أنت متأكد أنك تريد تغيير هذه الملكية؟"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr ""
+"هل أنت متأكد أنك تريد إزالة أعضاء المجموعة "
+"المختارين؟"
+
+msgid "Group Role"
+msgstr "دور المجموعة"
+
+msgid "Private Data"
+msgstr "بيانات خاصة"
+
+msgid "Zip Code"
+msgstr "رمز الصمت"
+
+msgid "Cell Phone"
+msgstr "هاتف خليوي"
+
+msgid "Members from group"
+msgstr "أعضاء من المجموعة"
+
+msgid "Add"
+msgstr "يضاف"
+
+msgid "Members to another group"
+msgstr "أعضاء لمجموعة أخرى"
+
+msgid "Members to cart"
+msgstr "الأعضاء إلى عربة"
+
+msgid "Move"
+msgstr "تحرك"
+
+msgid "Remove from Cart"
+msgstr "إبتعد عن العربة"
+
+msgid "Add to Cart"
+msgstr "أضف إلى العربة"
+
+msgid "No assigned Manager"
+msgstr "لا مدير مخصص"
+
+msgid "Manage Group Managers"
+msgstr "إدارة مديري المجموعة"
+
+msgid "Add person"
+msgstr "أضف شخصًا"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "هل أنت متأكد، تريد حذف هذا المدير؟"
+
+msgid "Delete Managers"
+msgstr "حذف المديرين"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "هل أنت متأكد، تريد حذف جميع المديرين؟"
+
+msgid "Appointment"
+msgstr "التعيين"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تنزع هذه العائلة من "
+"مركز الرصد؟"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تنزع جميع العائلات "
+"من مركز الرصد؟"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"ولم يتم رفع جميع الأسر: فالبعض منهم لديهم "
+"سجلات تبرعات ولا يجوز حذفها حتى ترتبط هذه "
+"التبرعات بأسرة أخرى."
+
+msgid "Confirm Deactivation"
+msgstr "تأكيد العطل"
+
+msgid "Confirm Activation"
+msgstr "تأكيد التشغيل"
+
+msgid "Please confirm deactivation of family"
+msgstr "يرجى تأكيد تعطيل العائلة"
+
+msgid "Please confirm activation of family"
+msgstr "يرجى تأكيد تنشيط العائلة"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask all "
+"the persons of the family first, if you want to re-activate the account "
+"!<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"كن حذراً مع \"GDPR\" عندما يتم إبطال الأسرة يجب "
+"أن تسأل جميع أفراد العائلة أولاً إذا كنت "
+"تريد إعادة تفعيل الحساب <br>br>without any Authorization, "
+"the GDPR make your use of this family Illegal! !\""
+
+msgid "Family Photo"
+msgstr "صورة عائلية"
+
+msgid "Verification email sent"
+msgstr "أرسلت رسالة التحقق"
+
+msgid "Failed to send verification email"
+msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
+
+msgid "Failed to add verification"
+msgstr "ولم يضيف التحقق"
+
+msgid "Verification URL"
+msgstr "التحقق من URL"
+
+msgid "Bank Draft"
+msgstr "بنك درافت"
+
+msgid "Credit Card"
+msgstr "بطاقة الائتمان"
+
+msgid "Disabled"
+msgstr "المعوقون"
+
+msgid "Next payment date"
+msgstr "التاريخ القادم للدفع"
+
+msgid "Interval (months)"
+msgstr "4 - التدخل (الأشهر)"
+
+msgid "Updated By"
+msgstr "تم تحديثه"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "تأكيد حذف الدفع الآلي"
+
+msgid "Pledge or Payment"
+msgstr "تعهد أو دفع"
+
+msgid "Dep ID"
+msgstr "بطاقة هوية"
+
+msgid "Fiscal Year"
+msgstr "السنة المالية"
+
+msgid "NonDeductible"
+msgstr "غير قابل للخصم"
+
+msgid "CHECK"
+msgstr "تحقق"
+
+msgid "Date Updated"
+msgstr "موعد مستكمل"
+
+msgid "Delete this person?"
+msgstr "حذف هذا الشخص؟"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr ""
+"هل تريد حذف هذا الشخص؟ لا يمكن أن يتم إلغاء "
+"هذا"
+
+msgid "Save your note"
+msgstr "وفر ملاحظتك"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr ""
+"هل تريد أن تحتفظ بملاحظتك كملفف كلمات في "
+"محرك الأقراص؟"
+
+msgid "Family Id"
+msgstr "Id family Id"
+
+msgid "Valid Until"
+msgstr "خالي حتى"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تنزع هذا الشخص من "
+"مركز الرصد؟"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr ""
+"هل أنت متأكد أنك تريد أن تزيل جميع الأشخاص "
+"من مركز الرصد؟"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations and "
+"may NOT be deleted until these donations are associated with another family."
+msgstr ""
+"ولم يتم إخلاء جميع الأشخاص: فالبعض منهم "
+"لديهم سجلات تبرعات ولا يجوز حذفها حتى ترتبط "
+"هذه التبرعات بأسرة أخرى."
+
+msgid "Please confirm deactivation of person"
+msgstr "الرجاء تأكيد تعطيل الشخص"
+
+msgid "Please confirm activation of person"
+msgstr "يرجى تأكيد تفعيل الشخص"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask the "
+"person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"كن حذراً مع GDPR، عندما يتم قطع الشخص، عليك أن "
+"تسأل الشخص أولاً، إذا كنت تريد إعادة تنشيط "
+"الحساب! <br>br>without any Authhorization, the GDPR make your use of this "
+"person Illegal! !\""
+
+msgid "Deactivate"
+msgstr "توقف"
+
+msgid "Activate"
+msgstr "نشط"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "هل أنت متأكد أنك تريد إزالة عضوية هذا الشخص"
+
+msgid "Change classification"
+msgstr "تصنيف التغيير"
+
+msgid "Change role"
+msgstr "تغيير الدور"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "تأكيد حذف فرصة التطوع"
+
+msgid "Comments"
+msgstr "التعليقات"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"بحذف هذا الحقل، سوف تفقد بشكل لا رجعة فيه "
+"جميع البيانات العائلية المخصصة لهذا المجال!"
+
+msgid "ID"
+msgstr "الهوية"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"إذا حذفت الصندوق، <b>سوف تخسر كل التواريخ "
+"المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا العمل لا "
+"يمكن أن يُلغى </b>"
+
+msgid "Fund Editor"
+msgstr "محرر الصندوق"
+
+msgid "Add Fund"
+msgstr "إضافة الصندوق"
+
+msgid "Validate"
+msgstr "المصادقة"
+
+msgid "Place"
+msgstr "المكان"
+
+msgid "Uri"
+msgstr "أوري"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr ""
+"وينبغي أن تبدأ هذه الصلة مع الموقع التالي: "
+"http://... أو https://..."
+
+msgid "Global Custom Menus"
+msgstr "(ج) وسائل الجمارك العالمية"
+
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"إذا حذفت حلقة المينو، <u>سوف تخسر كل التواريخ "
+"المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا العمل لا "
+"يمكن أن يُلغى </b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "محرر صلات الجمارك"
+
+msgid "Add Custom Menu Link"
+msgstr "أضف علاقات الجمارك"
+
+msgid "Delete Classification"
+msgstr "تحذف التصنيف"
+
+msgid "Please confirm deletion of this classification"
+msgstr "يرجى التأكيد على حذف هذا التصنيف"
+
+msgid "This will also delete this Classification for all the associated persons."
+msgstr ""
+"وسيحذف هذا التصنيف أيضاً لجميع الأشخاص "
+"المرتبطين بهم."
+
+msgid "Map Icon GoogleMap"
+msgstr "خريطة جوجل خريطة جوجل"
+
+msgid "Select your classification icon"
+msgstr "اختر رمز تصنيفك"
+
+msgid "Visible"
+msgstr "مرئي"
+
+msgid "Visible for other authorized users"
+msgstr "مرئية لمستخدمين آخرين مصرح لهم"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"إذا حذفت نوع الرعاية الرعوية، <u>b>سوف تخسر كل "
+"التواريخ المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا "
+"العمل لا يمكن أن يُلغى </b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "محرر رعاية رعاية رعاية"
+
+msgid "Add Pastoral Care Type"
+msgstr "أضف نوع الرعاية الرعوية"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"بحذف هذا الحقل، سوف تفقد بشكل لا رجعة فيه كل "
+"بيانات الأشخاص المخصصة لهذا المجال!"
+
+msgid "with this Property..."
+msgstr "بهذه الملكية..."
+
+msgid "Prompt"
+msgstr "سريع"
+
+msgid "Select Property Type"
+msgstr "اختيار نوع الملكية"
+
+msgid "with this property..."
+msgstr "بهذه الملكية"
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "أنت على وشك حذف هذه الملكية هل تود أن تستمر؟"
+
+msgid "Property Type Editor"
+msgstr "محرر الملكية"
+
+msgid "Add a New Property"
+msgstr "أضف ملكية جديدة"
+
+msgid "Class"
+msgstr "الفئة"
+
+msgid "You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"أنت على وشك حذف هذه الممتلكات العامة هل تود "
+"أن تستمر؟"
+
+msgid "This general property type is still being used by"
+msgstr ""
+"ولا يزال هذا النوع من الممتلكات العامة "
+"يستخدم من قبل"
+
+msgid "property"
+msgstr "الممتلكات"
+
+msgid "properties"
+msgstr "الممتلكات"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"إذا حذفت هذا النوع، سوف تزيل أيضا كل "
+"الممتلكات باستخدام"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "ويخسر أيّ مهام مماثلة للممتلكات."
+
+msgid "Add a New Property Type"
+msgstr "أضف نموذج جديد للملكية"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "أضف فرصة متطوعين جديدين"
+
+msgid "Send Message"
+msgstr "أرسل رسالة"
+
+msgid "View Profile"
+msgstr "ملف رؤية"
+
+msgid "Teachers"
+msgstr "المعلمون"
+
+msgid "Delete this Teacher?"
+msgstr "حذف هذا المعلم؟"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr ""
+"هل تريد حذف هذا المعلم؟ لا يمكن أن يتم إلغاء "
+"هذا"
+
+msgid "First name"
+msgstr "الاسم الأول"
+
+msgid "Birth Date"
+msgstr "تاريخ الولادة"
+
+msgid "Unknown"
+msgstr "مجهول"
+
+msgid "Boy"
+msgstr "يا فتى"
+
+msgid "Girl"
+msgstr "فتاة"
+
+msgid "Age"
+msgstr "العمر"
+
+msgid "Mobile"
+msgstr "النقل"
+
+msgid "Home Phone"
+msgstr "هاتف منزلي"
+
+msgid "Home Address"
+msgstr "العنوان المنزلي"
+
+msgid "Dad Name"
+msgstr "اسم أبي"
+
+msgid "Dad Mobile"
+msgstr "أبي المتنقل"
+
+msgid "Dad Email"
+msgstr "بريد أبي الإلكتروني"
+
+msgid "Mom Name"
+msgstr "اسم أمي"
+
+msgid "Mom Mobile"
+msgstr "أمي المتنقلة"
+
+msgid "Mom Email"
+msgstr "بريد أمي الإلكتروني"
+
+msgid "Remove Students from Cart"
+msgstr "أزل الطلاب من العربة"
+
+msgid "Add Students to Cart"
+msgstr "أضف الطلاب إلى العربة"
+
+msgid "Remove Teachers from Cart"
+msgstr "أزل المعلمين من العربة"
+
+msgid "Add Teachers to Cart"
+msgstr "أضف معلمين إلى العربة"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr "اختر الحدث الذي تود استخدامه لإنشاء الحضور"
+
+msgid "Create Event With Students"
+msgstr "خلق مناسبة مع الطلاب"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday school "
+"class to call the register."
+msgstr ""
+"كن حذرا! أنت على وشك أن تنشئ أو تعيد تنظيم "
+"حدث من صف مدرسة الأحد هذا للإتصال بالسجل"
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"إذا تم إنشاء الحدث بالفعل، اذهب إلى قائمة "
+"\"الأحداث\" ثم \"اتصل بالسجل\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr ""
+"أولاً، ضع مدى زمنك بشكل صحيح لإجراء عملية "
+"الاستخراج"
+
+msgid "Set year range to export"
+msgstr "تحديد السنة للتصدير"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr ""
+"أولاً، حدد نطاق تاريخك بشكل صحيح لإجراء "
+"عملية الاستخراج"
+
+msgid "Extra students"
+msgstr "طلاب إضافيون"
+
+msgid "export with photos"
+msgstr "تصدير مع الصور"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the Sunday "
+"school classes to call the register."
+msgstr ""
+"كن حذرا! أنت على وشك أن تصنع أو تعيد تصميم كل "
+"الأحداث في دروس الأحد لتتصل بالسجل"
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call the "
+"register\"."
+msgstr ""
+"إذا تم إنشاء الأحداث بالفعل، اذهب إلى قائمة "
+"\"الأحداث\" ثم \"اتصل بالسجل\"."
+
+msgid "First, set your date and time."
+msgstr "أولاً، حدد موعدك ووقتك"
+
+msgid "Time"
+msgstr "الوقت"
+
+msgid "Call the Register for all sunday groups"
+msgstr "اتصل بالسجل لجميع مجموعات الأحد"
+
+msgid "At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"ويجب اختيار مجموعة واحدة على الأقل لإعداد "
+"قوائم فئات أو صحائف حضور."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "عليك أن تضع عنواناً ووصف لمشكلتك"
+
+msgid "Trigger Parent Alert"
+msgstr "إنذار الوالدين الزناد"
+
+msgid "Kiosk"
+msgstr "كشك"
+
+msgid "No assignments for kiosk"
+msgstr "لا مهام للكشك"
+
+msgid "Event"
+msgstr "مناسبة"
+
+msgid "Kiosk Name"
+msgstr "اسم كشك"
+
+msgid "Assignment"
+msgstr "الإحالة"
+
+msgid "Last Heartbeat"
+msgstr "نبضات القلب الأخيرة"
+
+msgid "Accepted"
+msgstr "مقبول"
+
+msgid "True"
+msgstr "صحيح"
+
+msgid "False"
+msgstr "خطأ"
+
+msgid "Reload"
+msgstr "إعادة تحميل"
+
+msgid "Identify"
+msgstr "تحديد هوية"
+
+msgid "Accept"
+msgstr "قبول"
+
+msgid "The user must have an email address."
+msgstr "لابد أن المستخدم لديه عنوان بريد إلكتروني"
+
+msgid "Role management"
+msgstr "إدارة الأدوار"
+
+msgid "Select your Role"
+msgstr "اختر دورك"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "هل أنت متأكد؟ أنت على وشك حذف هذا الدور"
+
+msgid "Rename"
+msgstr "إعادة الاسم"
+
+msgid "Choose a Role Name"
+msgstr "اختر اسم الدور"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name already "
+"exist !!!</center>"
+msgstr ""
+"<المركز يجب أن تضع اسم آخر >أو <br> هذا الاسم "
+"الدوري موجود بالفعل! !"
+
+msgid "You've to check at least one user."
+msgstr "يجب أن تتأكد من مستخدم واحد على الأقل"
+
+msgid "The WebDav Key is"
+msgstr "مفتاح ويب داف هو"
+
+msgid "The public WebDav Key is"
+msgstr "مفتاح ويب داف العام هو"
+
+msgid "WebDav key"
+msgstr "مفتاح ويب داف"
+
+msgid "is now locked"
+msgstr "الآن مغلق"
+
+msgid "is now unlocked"
+msgstr "الآن مفتوح"
+
+msgid "User Delete Confirmation"
+msgstr "تأكيد المستخدم"
+
+msgid "Please confirm removal of user status from:"
+msgstr "يرجى التأكيد على نقل مركز المستخدم من:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, the "
+"Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"كن حذرا، أنت على وشك أن تفقد ملف المنزل "
+"والملفات المرتبطة به، وتقويمات الأسهم، "
+"وجميع الأحداث أيضا، بالنسبة لها"
+
+msgid "This can't be undone"
+msgstr "لا يمكن إلغاء هذا"
+
+msgid "Action Confirmation"
+msgstr "تأكيد العمل"
+
+msgid "Please confirm reset failed login count"
+msgstr "الرجاء تأكيد إعادة ضبط حساب الدعاية الفاشلة"
+
+msgid "Reset failed login count for"
+msgstr "إعادة ضبط الإختبار الفشل للوصول"
+
+msgid "done."
+msgstr "تم"
+
+msgid "Please confirm the password reset of this user"
+msgstr "الرجاء تأكيد كلمة السر من هذا المستخدم"
+
+msgid "Password reset for"
+msgstr "إعادة ضبط كلمة السر"
+
+msgid "Saving Campaign ..."
+msgstr "إنقاذ الحملة"
+
+msgid "Campaign"
+msgstr "الحملة"
+
+msgid "saved successfully"
+msgstr "أنقذت بنجاح"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "أنت على وشك إرسال حملتك هل أنت متأكد؟"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "أنت على وشك حذف حملتك هل أنت متأكد؟"
+
+msgid "Loading datas ..."
+msgstr "تحميل مواعيد..."
+
+msgid "No list are created with this account ...."
+msgstr "لا توجد قائمة بهذا الحساب"
+
+msgid "Email List"
+msgstr "قائمة البريد الإلكتروني"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "الساعة"
+
+msgid "Members:"
+msgstr "الأعضاء:"
+
+msgid "Campaigns:"
+msgstr "الحملات:"
+
+msgid "Unsubscribed count:"
+msgstr "العد غير المشمول به:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "العد غير المشمول به منذ آخر مرة"
+
+msgid "Cleaned count:"
+msgstr "العد النظيف:"
+
+msgid "Cleaned count since last send:"
+msgstr "العد النظيف منذ آخر إرسال:"
+
+msgid "Campaigns"
+msgstr "الحملات"
+
+msgid "Tags"
+msgstr "العلامات"
+
+msgid "is not configured"
+msgstr "ليس مصمم"
+
+msgid "Please update the"
+msgstr "رجاءً حدثي المعلومات"
+
+msgid "API key in Setting->"
+msgstr "مفتاح API في Seting--"
+
+msgid "Edit General Settings"
+msgstr "إديت سيتينغز العامة"
+
+msgid "then update"
+msgstr "ثمّ تحديث"
+
+msgid "For more info see our "
+msgstr "لمزيد من المعلومات نرى لدينا"
+
+msgid "support docs."
+msgstr "أطباء دعم"
+
+msgid "List Creation"
+msgstr "(أ) وضع القائمة"
+
+msgid "List Title"
+msgstr "العنوان المدرج في القائمة"
+
+msgid "Your List Title"
+msgstr "لقب قائمتك"
+
+msgid "Your Subject"
+msgstr "موضوعك"
+
+msgid "Permission Reminder"
+msgstr "تذكير الإذن"
+
+msgid "Archive Bars"
+msgstr "قضبان الأرشيف"
+
+msgid "Public"
+msgstr "1 - العلن"
+
+msgid "People"
+msgstr "الناس"
+
+msgid "Families"
+msgstr "الأسر"
+
+msgid "Add a new tag"
+msgstr "أضف علامة جديدة"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "تحذف بطاقة من المشتركين (المشتركين)"
+
+msgid "Delete tag"
+msgstr "حذف البطاقة"
+
+msgid "Loading resources ..."
+msgstr "تحميل الموارد..."
+
+msgid "You're about to delete a tag!"
+msgstr "أنت على وشك حذف بطاقة!"
+
+msgid "This will also delete the tag for all the members in this list. Are you sure ?"
+msgstr ""
+"وسيحذف هذا أيضا بطاقة جميع الأعضاء في هذه "
+"القائمة. هل أنت متأكد؟"
+
+msgid "Deleting tag"
+msgstr "حذف بطاقة"
+
+msgid "A person name or Family or Group"
+msgstr "1 - اسم شخص أو أسرة أو مجموعة"
+
+msgid "Loading subscriber"
+msgstr "تحميل المشترك"
+
+msgid "Loading subscribers from Group"
+msgstr "تحميل المشتركين من المجموعة"
+
+msgid "Loading subscribers from family"
+msgstr "تحميل المشتركين من العائلة"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"تحميل جميع الأشخاص من EcclesiacCRM <br>هذا قد "
+"يستغرق بعض الوقت!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns "
+"after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"في الواقع، من الأفضل أن تترك مركز الرصد، "
+"إنتظر 5 دقائق وتقوم بحملاتك بعد ذلك "
+"<br>لاستيراد مواعيد ضخمة، Mailchimp API بطيئة."
+
+msgid "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"تحميل جميع المشتركين في الرسالة الإخبارية "
+"من EcclesiaCRM <br>هذا قد يستغرق بعض الوقت!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This could "
+"take a while !"
+msgstr ""
+"تحميل جميع العائلات أول من يشاركون من "
+"(إيكليزيا) هذا قد يستغرق بعض الوقت"
+
+msgid "Email Marketing"
+msgstr "تسويق البريد الإلكتروني"
+
+msgid "Select status for : "
+msgstr "• اختيار الوضع:"
+
+msgid "Subscribed"
+msgstr "Substribed"
+
+msgid "Unsubscribed"
+msgstr "غير مشمول"
+
+msgid "Changing status ..."
+msgstr "تغيير الوضع..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "أنت على وشك حذف المشترك هل أنت متأكد؟"
+
+msgid "Deleting Subscriber..."
+msgstr "حذف المشتبه"
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "هل تريد حقا حذف هذه القائمة البريدية؟"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "هل أنت متأكد أنك تريد حذف كل المشتركين"
+
+msgid "Deleting all subscribers..."
+msgstr "حذف جميع المشتركين..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open it "
+"to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"في الواقع، من الأفضل أن تترك وحدة الرصد، وفي "
+"ربع ساعة إعادة فتحه لإدارة قائمتك. <br>to detelecte "
+"huge datas, Mailchimp API is solution."
+
+msgid "Email Campaign Creation"
+msgstr "خلق حملة البريد الإلكتروني"
+
+msgid "Campaign Title"
+msgstr "عنوان الحملة"
+
+msgid "Your Campaign Title"
+msgstr "عنوان حملتك"
+
+msgid "For Tag"
+msgstr "من أجل (تاغ)"
+
+msgid "Mail Subject"
+msgstr "موضوع البريد"
+
+msgid "Your Mail Subject"
+msgstr "موضوع البريد الخاص بك"
+
+msgid "All list members"
+msgstr "جميع أعضاء القائمة"
+
+msgid "Adding Campaign ..."
+msgstr "حملة اضافية"
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "هل تود أن تدير هذه الحملة الجديدة مباشرة؟"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "عليك أن تضع عنوان حملة لحملتك البريدية"
+
+msgid "List Name"
+msgstr "الاسم المدرج"
+
+msgid "Changing subscribers state..."
+msgstr "تغيير حالة المشتركين..."
+
+msgid "All Tags"
+msgstr "جميع العلامات"
+
+msgid "Choose the tag you want to delete :"
+msgstr "اختر العلامة التي تريد حذفها"
+
+msgid "Removing tags..."
+msgstr "إزالة العلامات..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+"حذف جميع العلامات للأعضاء المختارين في "
+"القائمة"
+
+msgid "Add your tag name"
+msgstr "أضف اسمك"
+
+msgid "Adding tag..."
+msgstr "علامة إضافيّة..."
+
+msgid "Name is empty !!"
+msgstr "الاسم فارغ"
+
+msgid "Add tag?"
+msgstr "علامة اضافية؟"
+
+msgid "This will add the tag"
+msgstr "هذا سيضيف البطاقة"
+
+msgid "to all the current selected members in the list."
+msgstr ""
+"إلى جميع الأعضاء المنتخبين الحاليين في "
+"القائمة."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "أنت على وشك حذف المشتركين هل أنت متأكد؟"
+
+msgid "Deleting Subscribers..."
+msgstr "حذف المشتركين..."
+
+msgid "Problem"
+msgstr "المشكلة"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"السفاري لم يدعم بعد مع جيتسي، استخدام شيء "
+"آخر! <br/> كاميرتك الإلكترونية < التي تشاطرها "
+"نوافذك >لن تعمل مع الاجتماع."
+
+msgid "Set a Jitsi room name"
+msgstr "ضع اسم غرفة جيتسي"
+
+msgid "Delete all Rooms?"
+msgstr "تحذف كل الغرف؟"
+
+msgid "You're about to delete all of your rooms."
+msgstr "أنت على وشك حذف كل غرفتك"
+
+msgid "You must enter a password"
+msgstr "يجب أن تدخل كلمة السر"
+
+msgid "Passwords must match"
+msgstr "كلمات السر يجب أن تتطابق"
+
+msgid "Backup Running, Please wait."
+msgstr "الركض الاحتياطي، رجاءً إنتظر."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "تم توليد الدعم ونسخ إلى الخادم عن بعد"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "الدعم الكامل، جاهز للتحميل."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "تم نقل النسخ الاحتياطية، تم إزالة الخادم"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "الملف المختار يتجاوز حجم الخوادم بأقصى حجم"
+
+msgid "Restore Running, Please wait."
+msgstr "استعادة الركض، رجاءً إنتظر"
+
+msgid "Restore Complete"
+msgstr "استعادة كامل"
+
+msgid "Login to restored Database"
+msgstr "نبقى على قاعدة البيانات"
+
+msgid "Restore Error."
+msgstr "استعادة الخطأ"
+
+msgid "In progress...."
+msgstr "جاري..."
+
+msgid "Done !"
+msgstr "تم"
+
+msgid "All Groups"
+msgstr "جميع المجموعات"
+
+msgid "All Roles"
+msgstr "كل الأدوار"
+
+msgid "id"
+msgstr "المرجع نفسه"
+
+msgid "Photos"
+msgstr "الصور"
+
+msgid "Search result"
+msgstr "نتيجة بحث"
+
+msgid "Property Name"
+msgstr "اسم الملكية"
+
+msgid "Loading people in cart...."
+msgstr "تحميل الناس في عربة..."
+
+msgid "Loading finished...."
+msgstr "تم تحميل..."
+
+msgid "Removing people in cart...."
+msgstr "إزالة الناس في عربة..."
+
+msgid "Removing finished...."
+msgstr "إزالة الانتقال"
+
+msgid "Remove People"
+msgstr "أزل الناس"
+
+msgid "Nothing to remove."
+msgstr "لا شيء لإزالته"
+
+msgid "Visits/calls"
+msgstr "زيارات/مكالمات"
+
+msgid "Last visit/call"
+msgstr "آخر زيارة أو مكالمة"
+
+msgid "Delete Pastoral Care Type"
+msgstr "حذف نوع الرعاية الرعوية"
+
+msgid "Pastoral Care Note Creation"
+msgstr "خلق ملاحظات رعاية رعاية"
+
+msgid "For every administrator"
+msgstr "لكل مدير"
+
+msgid "Show"
+msgstr "أرني"
+
+msgid "Hide"
+msgstr "إختبئ"
+
+msgid "Include all the family members"
+msgstr "ضم كل أفراد العائلة"
+
+msgid "Include"
+msgstr "إدراج"
+
+msgid "Last Name (Family Name)"
+msgstr "الاسم الأخير (اسم الأسرة)"
+
+msgid "Family Name"
+msgstr "اسم العائلة"
+
+msgid "Number"
+msgstr "رقم"
+
+msgid "Item"
+msgstr "البند"
+
+msgid "Preview"
+msgstr "سابق"
+
+msgid "Multiple"
+msgstr "متعددة"
+
+msgid "Donor"
+msgstr "المانح"
+
+msgid "Buyer"
+msgstr "المشتري"
+
+msgid "Sale Price"
+msgstr "سعر البيع"
+
+msgid "Estimated value"
+msgstr "قيمة مقدرة"
+
+msgid "Material Value"
+msgstr "قيمة مادية"
+
+msgid "Minimum Price"
+msgstr "الحد الأدنى من السعر"
+
+msgid "Add buyer"
+msgstr "أضف المشتري"
+
+msgid "Buyer Number"
+msgstr "رقم المشتري"
+
+msgid "Save and Add"
+msgstr "Save and Add"
+
+msgid "Generate Statement"
+msgstr "بيان مولد"
+
+msgid "Buyer Number Editor"
+msgstr "المشتري محرر التحرير"
+
+msgid "Select"
+msgstr "اختيار"
