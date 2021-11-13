@@ -114,8 +114,8 @@ ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Des
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
   (1, 'p', 1, '关闭', '一种残疾。', '它的性质是什么？',''),
-  (2, 'f', 2, '单亲家庭', '是其家庭中的单亲。.', '',''),
-  (3, 'g', 3, '年轻人', '是面向青年的。', '','')
+  (2, 'f', 2, '单亲家庭', '是一个单亲家庭。', '',''),
+  (3, 'g', 3, '年轻人', '是从事青年工作的动力。', '','')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES

@@ -114,8 +114,8 @@ ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Des
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
 (1, 'p', 1, 'Fora', 'Uma deficiência.', 'Qual é a sua natureza?',''),
-(2, 'f', 2, 'Pai solitário', 'é um pai ou uma mãe solteira em sua família.', '',''),
-(3, 'g', 3, 'Jovem', 'é orientada para a juventude.', '','')
+(2, 'f', 2, 'Pai solitário', 'é um agregado familiar monoparental.', '',''),
+(3, 'g', 3, 'Jovem', 'é motivado para trabalhar no trabalho dos jovens.', '','')
 ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES

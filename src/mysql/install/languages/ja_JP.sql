@@ -114,8 +114,8 @@ ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Des
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
   (1, 'p', 1, 'オフ', '障がいがあること。', 'その本質は何か？',''),
-  (2, 'f', 2, '一人親方', 'は、家族の中で片親であること。', '',''),
-  (3, 'g', 3, 'ヤング', 'は若者向けです。', '','')
+  (2, 'f', 2, '一人親方', 'は一人親世帯です。', '',''),
+  (3, 'g', 3, 'ヤング', 'は、ユースワークで働くことに意欲を感じています。', '','')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
