@@ -12,7 +12,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (112, 'sTimeFormat', '%H:%M'),
 (1011, 'sTaxReport1', 'Cette lettre est un rappel de tous les dons pour'),
 (1012, 'sTaxReport2', 'Merci de nous avoir soutenu cette année. Nous avons grandement apprécié votre dévouement !'),
-(1013, 'sTaxReport3', 'Si vous avez des questions ou des modifications à faire concernant le rapport, contactez votre église au numéro ci-dessus pendant les heures de travail, entre 9h00 et 17h00.'),
+(1013, 'sTaxReport3', 'Si vous avez des questions ou des modifications à apporter concernant le rapport, contactez votre église au numéro ci-dessus pendant les heures de travail, entre 9h00 et 17h00.'),
 (1015, 'sReminder1', 'Cette lettre est un récapitulatif des informations envoyés pour l\'année fiscale en cours'),
 (1019, 'sConfirm1', 'Cette lettre résume les informations qui sont enregistrées dans notre base de données. Relisez  soigneusement, corrigez les et retournez-nous ce formulaire ci nécessaire à notre église.'),
 (1020, 'sConfirm2', 'Merci pour nous avoir aidé à compléter ces informations. Si vous voulez des renseignements concernant la base de données.'),
@@ -22,8 +22,8 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1027, 'sPledgeSummary2', 'pour le'),
 (1028, 'sDirectoryDisclaimer1', 'Nous avons travaillé à rendre ces données aussi exactes que possible. Si vous constatez des erreurs ou des omissions, contactez nous. Cet annuaire est utilisé pour les personnes de'),
 (1029, 'sDirectoryDisclaimer2', ', et les informations contenus ne seront pas utilisées à des fins commerciales.'),
-(1031, 'sZeroGivers', 'Cette lettre résume les paiements pour'),
-(1032, 'sZeroGivers2', 'Merci pour de nous aider à faire la différence. Nous apprécions grandement  votre participation !'),
+(1031, 'sZeroGivers', 'Cette lettre résume les paiements de'),
+(1032, 'sZeroGivers2', 'Merci de nous aider à faire la différence. Nous apprécions grandement  votre participation !'),
 (1033, 'sZeroGivers3', 'Si vous avez des questions ou à apporter des corrections à ce rapport, contactez notre église au numéro ci-dessus pendant les heures de 9h00 à 12h00 du lundi au vendredi.'),
 (1048, 'sConfirmSincerely', 'A très bientôt'),
 (1049, 'sDear', 'Cher (Chère)'),
@@ -114,8 +114,8 @@ ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Des
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
   (1, 'p', 1, 'Désactivé', 'A une invalidité.', 'Quelle en est sa nature ?', ''),
-  (2, 'f', 2, 'Parent isolé', 'est un parent isolé dans sa famille.', '', ''),
-  (3, 'g', 3, 'Jeune', 'est orienté jeune.', '', '')
+  (2, 'f', 2, 'Parent isolé', 'est un ménage monoparental.', '', ''),
+  (3, 'g', 3, 'Jeune', 'est motivé pour travailler dans la jeunesse.', '', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES

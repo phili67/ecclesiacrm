@@ -83,6 +83,8 @@ class ChurchInfoReportTCPDF extends TCPDF
             $family = 'cid0ct';
         } else if ($lang == 'el_GR') {
             $family = 'courier';
+        } else if ($lang == 'ar_EG') {
+            $family = 'aealarabiya';
         }
         parent::setFont($family, $style, $size, $fontfile, $subset, $out);
     }

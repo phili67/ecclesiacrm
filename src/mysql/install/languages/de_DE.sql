@@ -65,7 +65,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
   (1, 6, 6, 'normal', 'nicht teilnehmenden (staff)'),
   (1, 7, 7, 'normal', 'Verstorben'),
   (2, 1, 1, 'normal', 'Familienoberhaupt'),
-  (2, 2, 2, 'normal', 'Gemeinsam'),
+  (2, 2, 2, 'normal', 'Ehepartner'),
   (2, 3, 3, 'normal', 'Kinder'),
   (2, 4, 4, 'normal', 'Weitere Familienangehörige '),
   (2, 5, 5, 'normal', 'Nicht zur Familie gehört.'),
@@ -113,8 +113,8 @@ ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Des
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
   (1, 'p', 1, 'Deaktiviert', 'Hat ein Invalidität.', 'Welcher ?', ''),
-  (2, 'f', 2, 'Alleinerziehende', 'Kommentar', '', ''),
-  (3, 'g', 3, 'Jung', 'est orienté jeune.', '', '')
+  (2, 'f', 2, 'Alleinerziehende', 'ist ein Haushalt mit nur einem Elternteil.', '', ''),
+  (3, 'g', 3, 'Jung', 'motiviert ist, in der Jugendarbeit zu arbeiten.', '', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
