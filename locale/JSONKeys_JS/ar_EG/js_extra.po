@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "صحيح"
+
+msgid "false"
+msgstr "خطأ"
+
+msgid "pm"
+msgstr "مساء الخير"
+
+msgid "am"
+msgstr "أنا"
+
+msgid "Teachers"
+msgstr "المعلمون"
+
+msgid "Students"
+msgstr "الطلاب"
+
+msgid "Teacher"
+msgstr "معلمة"
+
+msgid "Student"
+msgstr "الطلاب"
+
+msgid "Parents"
+msgstr "الوالدين"
+
+msgid "Kids"
+msgstr "الأطفال"
+
+msgid "create"
+msgstr "إنشاء"
+
+msgid "edit"
+msgstr "تحرير"
+
+msgid "photo"
+msgstr "صورة"
+
+msgid "group"
+msgstr "المجموعة"
+
+msgid "Group"
+msgstr "المجموعة"
+
+msgid "note"
+msgstr "ملاحظة"
+
+msgid "You have to set a Title for your event"
+msgstr "عليك أن تضع عنوان لحدثِك"
+
+msgid "This event isn't modifiable !!!"
+msgstr "هذا الحدث لا يمكن تعديله !"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"لإضافة حدث، يجب أن تخلق تقويم أو تنشيط واحد "
+"أولاً"
+
+msgid "Event added"
+msgstr "تم إضافة الحدث"
+
+msgid "Event was added successfully."
+msgstr "وقد أضيف الحدث بنجاح."
+
+msgid "Electronic Transaction Details"
+msgstr "تفاصيل المعاملات الإلكترونية"
+
+msgid "Daily"
+msgstr "يوميا"
+
+msgid "Weekly"
+msgstr "أسبوعياً"
+
+msgid "Monthly"
+msgstr "شهريا"
+
+msgid "Quarterly"
+msgstr "ربع ساعات"
+
+msgid "Once"
+msgstr "مرة"
+
+msgid "Other"
+msgstr "مسائل أخرى"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "البنك"
+
+msgid "CreditCard"
+msgstr "CreditCard"
+
+msgid "BankDraft"
+msgstr "Bankdraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"بعض العائلات ليس لديها اسم \"رب الأسرة\" محدد "
+"أو هناك أي أفراد منشطين في هذه العائلات"
+
+msgid "send"
+msgstr "أرسل"
+
+msgid "save"
+msgstr "أنقذ"
+
+msgid "subscribed"
+msgstr "1 - اشتراك"
+
+msgid "unsubscribed"
+msgstr "غير مشمول"
+
+msgid "sent"
+msgstr "أرسلت"
+
+msgid "schedule"
+msgstr "الجدول الزمني"
+
+msgid "paused"
+msgstr "توقف"
+
+msgid "cleaned"
+msgstr "نظيفة"
+
+msgid "pending"
+msgstr "لم يبت فيها بعد"
+
+msgid "Invalid date"
+msgstr "موعد غير صالح"
