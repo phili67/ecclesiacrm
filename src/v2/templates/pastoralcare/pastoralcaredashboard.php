@@ -70,7 +70,7 @@ require $sRootDocument . '/Include/Header.php';
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['personColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentNotViewPersons'] ?>%;" aria-valuenow="<?= $Stats['PercentNotViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentNotViewPersons'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['personColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentNotViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentNotViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentNotViewPersons'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -83,7 +83,7 @@ require $sRootDocument . '/Include/Header.php';
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentViewFamilies'] ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewFamilies'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['familyColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentViewFamilies']) ?>%;" aria-valuenow="<?= $Stats['PercentViewFamilies'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewFamilies'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -96,7 +96,7 @@ require $sRootDocument . '/Include/Header.php';
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['singleColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentPersonSingle'] ?>%;" aria-valuenow="<?= $Stats['PercentPersonSingle'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonSingle'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['singleColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentPersonSingle']) ?>%;" aria-valuenow="<?= $Stats['PercentPersonSingle'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentPersonSingle'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -109,7 +109,7 @@ require $sRootDocument . '/Include/Header.php';
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentRetiredViewPersons'] ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentRetiredViewPersons'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['retiredColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentRetiredViewPersons']) ?>%;" aria-valuenow="<?= $Stats['PercentRetiredViewPersons'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentRetiredViewPersons'] ?>%</div>
                             </div>
                         </td>
                         <td><span
@@ -122,7 +122,7 @@ require $sRootDocument . '/Include/Header.php';
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width: <?= $Stats['PercentViewYoung'] ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewYoung'] ?>%</div>
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?= $Stats['youngColor'] ?>" role="progressbar" style="width: <?= round($Stats['PercentViewYoung']) ?>%;" aria-valuenow="<?= $Stats['PercentViewYoung'] ?>" aria-valuemin="0" aria-valuemax="100"><?= $Stats['PercentViewYoung'] ?>%</div>
                             </div>
                         </td>
                         <td><span class="badge bg-<?= $Stats['youngColor'] ?>"><?= $Stats['CountNotViewYoung'] ?></span>
