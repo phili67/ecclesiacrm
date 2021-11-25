@@ -231,12 +231,11 @@ require 'Include/HeaderNotLoggedIn.php';
 
 ?>
 <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
-    <div class="login-logo">
-        Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
-    </div>
-
     <!-- /.login-logo -->
-    <div class="card login-box-body">
+    <div class="card login-box-body card card-outline card-primary">
+        <div class="card-header login-logo">
+            Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
+        </div>
         <div class="card-body login-card-body">
 
             <p class="login-box-msg">
