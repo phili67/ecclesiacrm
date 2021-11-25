@@ -9,22 +9,22 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 
     <div class="login-box">
-        <div class="login-logo">
-            <?php
-            $headerHTML = 'Ecclesia<b>CRM</b>';
-            $sHeader = SystemConfig::getValue("sHeader");
-            $sChurchName = SystemConfig::getValue("sChurchName");
-            if (!empty($sHeader)) {
-                $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
-            } else if (!empty($sChurchName)) {
-                $headerHTML = $sChurchName;
-            }
-            ?>
-            <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
-        </div>
+        <div class="card card-outline card-primary">
+            <div class="card-header login-logo">
+                <?php
+                $headerHTML = 'Ecclesia<b>CRM</b>';
+                $sHeader = SystemConfig::getValue("sHeader");
+                $sChurchName = SystemConfig::getValue("sChurchName");
+                if (!empty($sHeader)) {
+                    $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
+                } else if (!empty($sChurchName)) {
+                    $headerHTML = $sChurchName;
+                }
+                ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
+            </div>
 
-        <div class="card">
-        <div class="card-body login-card-body">
+            <div class="card-body login-card-body">
             <p class="login-box-msg"><?= gettext('Reset your password') ?></p>
 
             <div class="form-group has-feedback">

@@ -12,22 +12,20 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 ?>
 
     <div class="login-box register-box register-box-custom">
-        <div class="register-logo">
-            <?php
-            $headerHTML = '<b>Ecclesia</b>CRM';
-            $sHeader = SystemConfig::getValue("sHeader");
-            $sChurchName = SystemConfig::getValue("sChurchName");
-            if (!empty($sHeader)) {
-                $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
-            } else if (!empty($sChurchName)) {
-                $headerHTML = $sChurchName;
-            }
-            ?>
-            <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
-        </div>
-
-
-        <div class="card register-box-body">
+        <div class="card card-outline card-success register-box-body">
+            <div class="card-header register-logo">
+                <?php
+                $headerHTML = '<b>Ecclesia</b>CRM';
+                $sHeader = SystemConfig::getValue("sHeader");
+                $sChurchName = SystemConfig::getValue("sChurchName");
+                if (!empty($sHeader)) {
+                    $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
+                } else if (!empty($sChurchName)) {
+                    $headerHTML = $sChurchName;
+                }
+                ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/"><?= $headerHTML ?></a>
+            </div>
             <div class="card-body">
                 <p class="login-box-msg"><?= _('Register your family') ?></p>
 
