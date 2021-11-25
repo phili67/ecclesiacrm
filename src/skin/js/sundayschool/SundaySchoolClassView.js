@@ -685,6 +685,12 @@ $("document").ready(function () {
             color: "#3c8dbc"
         };
 
+        var ticks = [];
+
+        for (i = 0;i < 12;i++) {
+            ticks[i] = [i+12,window.CRM.bar_data.data[i][0]];
+        }
+
         window.CRM.plot = $.plot("#bar-chart", [window.CRM.bar_data], {
             grid: {
                 borderWidth: 1,
@@ -702,7 +708,8 @@ $("document").ready(function () {
             },
             xaxis: {
                 mode: "categories",
-                tickLength: 0
+                tickLength: 0,
+                ticks: ticks
             },
             yaxis: {
                 tickSize: 1
