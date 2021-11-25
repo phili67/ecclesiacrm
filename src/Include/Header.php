@@ -204,6 +204,12 @@ Header_system_notifications();
                     <span class="badge badge-danger navbar-badge"><?= $taskSize ?></span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fa fa-expand"></i>
+                </a>
+            </li>
         </ul>
     </nav>
 
