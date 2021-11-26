@@ -205,7 +205,7 @@ Header_system_notifications();
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                     <i class="fa fa-expand"></i>
                 </a>
