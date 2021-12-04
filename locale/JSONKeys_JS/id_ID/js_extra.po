@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "Benar"
+
+msgid "false"
+msgstr "Salah"
+
+msgid "pm"
+msgstr "PM"
+
+msgid "am"
+msgstr "AM"
+
+msgid "Teachers"
+msgstr "Guru"
+
+msgid "Students"
+msgstr "Siswa"
+
+msgid "Teacher"
+msgstr "Guru"
+
+msgid "Student"
+msgstr "Siswa"
+
+msgid "Parents"
+msgstr "Orang tua"
+
+msgid "Kids"
+msgstr "Anak-anak"
+
+msgid "create"
+msgstr "Buat"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "photo"
+msgstr "Foto"
+
+msgid "group"
+msgstr "Kelompok"
+
+msgid "Group"
+msgstr "Kelompok"
+
+msgid "note"
+msgstr "Catatan"
+
+msgid "You have to set a Title for your event"
+msgstr "Kau harus mengatur gelar untuk acara Anda"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Acara ini tidak dapat dimodifikasi! !"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Untuk menambahkan peristiwa, kau harus membuat kalender atau mengaktifkan satu "
+"pertama."
+
+msgid "Event added"
+msgstr "Tambahkan yang ditambahkan"
+
+msgid "Event was added successfully."
+msgstr "Event telah ditambahkan berhasil."
+
+msgid "Electronic Transaction Details"
+msgstr "Detail Transaksi elektronik"
+
+msgid "Daily"
+msgstr "Sehari."
+
+msgid "Weekly"
+msgstr "Minggu"
+
+msgid "Monthly"
+msgstr "Bulan"
+
+msgid "Quarterly"
+msgstr "Quarterly"
+
+msgid "Once"
+msgstr "Sekali"
+
+msgid "Other"
+msgstr "Lain"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "CreditCard"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Beberapa keluarga tidak memiliki nama \"kepala rumah tangga\" yang didefinisikan "
+"atau ada anggota yang diaktifkan dalam keluarga ini:"
+
+msgid "send"
+msgstr "Kirim"
+
+msgid "save"
+msgstr "Selamatkan"
+
+msgid "subscribed"
+msgstr "Subscribed"
+
+msgid "unsubscribed"
+msgstr "Tak tertulis"
+
+msgid "sent"
+msgstr "Kirim"
+
+msgid "schedule"
+msgstr "Jadwal"
+
+msgid "paused"
+msgstr "Berhenti sejenak."
+
+msgid "cleaned"
+msgstr "Dibersihkan"
+
+msgid "pending"
+msgstr "Menunda"
+
+msgid "Invalid date"
+msgstr "Tanggal yang tidak valid"

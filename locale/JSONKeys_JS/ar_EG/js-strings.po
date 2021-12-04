@@ -56,9 +56,9 @@ msgid ""
 "All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage "
 "them, click this notification !</b>"
 msgstr ""
-"وترد جميع القوائم الآن في Ecclesia<b>CRM</b>. <br>b>إذا "
-"كنت تريد إدارة هذه الإخطار، اضغط هذا "
-"الإخطار! </b>"
+"وتم تحميل جميع القوائم الآن "
+"فيEcclesia<b>CRM</b>.<br><b>إذا كنت تريد أن تديرها، "
+"اضغط هذا الإخطار!</b>"
 
 msgid "There was a problem retrieving the requested object"
 msgstr "كانت هناك مشكلة في استرجاع الجسم المطلوب"
@@ -144,15 +144,14 @@ msgid ""
 "You can add the content of the cart to the selected event below<br> - OR - "
 "<br>Create first an event and add them after."
 msgstr ""
-"ويمكنكم إضافة محتوى العربة إلى الحدث "
-"المختار أدناه <br> - أو >br>create أولاً وإضافتها "
-"بعد ذلك."
+"يمكنك إضافة محتوى العربة إلى الحدث المختار "
+"تحت<br>أو<br>، وإضافة ذلك بعد ذلك."
 
 msgid "Register"
 msgstr "السجل"
 
 msgid "Register your software to EcclesiaCRM team."
-msgstr "سجل برنامجك لفريق \"إيكليسياك\""
+msgstr "سجل برنامجك إلى Ecclesiaفريق CRM."
 
 msgid "Simply click this"
 msgstr "ببساطة انقر هذا"
@@ -214,7 +213,7 @@ msgid ""
 "Please register your copy of EcclesiaCRM by checking over this information and "
 "pressing the Send button."
 msgstr ""
-"يرجى تسجيل نسختك من EcclesiacCRM عن طريق التحقق من "
+"يرجى تسجيل نسختك من EcclesiaCRM عن طريق التحقق من "
 "هذه المعلومات والضغط على زر الإرسال."
 
 msgid "This information is used only to track the usage of this software."
@@ -293,7 +292,7 @@ msgid ""
 "database.<br/>"
 msgstr ""
 "تحذير! لا تختار هذا الخيار إذا كنت تنوي "
-"إضافة إلى قاعدة بيانات قائمة. <Br/>"
+"إضافة إلى قاعدة بيانات قائمة.<br>"
 
 msgid ""
 "Use only if unsatisfied with initial import. All person and member data will be "
@@ -418,16 +417,16 @@ msgid "or"
 msgstr "أو"
 
 msgid "[👀  ]"
-msgstr "[👀]"
+msgstr "[👀  ]"
 
 msgid "[R ]"
-msgstr "[ر]"
+msgstr "[R ]"
 
 msgid "[👀 ✐]"
-msgstr "[👀 Ϩ]"
+msgstr "[👀 ✐]"
 
 msgid "[RW]"
-msgstr "[دبليو]"
+msgstr "[RW]"
 
 msgid "Send email notification"
 msgstr "أرسل إشعار بالبريد الإلكتروني"
@@ -600,10 +599,7 @@ msgstr "احذف كل الأحداث المتكررة"
 msgid ""
 "You are about to delete all the repeated Events linked to this event. Are you "
 "sure? This can't be undone."
-msgstr ""
-"أنت على وشك حذف كل الأحداث المتكررة "
-"المرتبطة بهذا الحدث هل أنت متأكد؟ لا يمكن "
-"إلغاء هذا"
+msgstr "أنت على وشك حذف كل الأحداث المتكررة المرتبطة بهذا الحدث هل أنت متأكد؟ لا يمكن إلغاء هذا"
 
 msgid "Only this event"
 msgstr "فقط هذا الحدث"
@@ -694,7 +690,7 @@ msgid "Location"
 msgstr "الموقع"
 
 msgid "To validate your address : <b>\"hit return\"</b>."
-msgstr "للتصديق على عنوانك <b> \"عودة ضربة\">/b>."
+msgstr "لتثبت عنوانك:<b>\"ضرب العودة\"</b>"
 
 msgid "To see the Map click this text field."
 msgstr "لرؤية الخريطة تضغط على هذا الحقل النصي"
@@ -703,7 +699,7 @@ msgid "Map"
 msgstr "الخريطة"
 
 msgid "Desc"
-msgstr "الوصف"
+msgstr "Desc"
 
 msgid "Event description"
 msgstr "وصف الأحداث"
@@ -829,8 +825,8 @@ msgid ""
 "The file will be uploaded to your EDrive<br><small>This part is for test only "
 "<b>(Beta)</b>.</small>"
 msgstr ""
-"سيرفع الملف إلى محرك EDRIV<Br><small>this part is for test only "
-"<b> (Beta)</b>. </small>"
+"الملف سيرفع إلى محرك EDRIV<br><small>هذا الجزء "
+"لاختبار فقط<b>(بيتا)</b>.</small>"
 
 msgid "Your note is saved in your EDrive"
 msgstr "ملاحظتك محفوظة في محرك الكهربائي"
@@ -1347,8 +1343,8 @@ msgid ""
 msgstr ""
 "كن حذراً مع \"GDPR\" عندما يتم إبطال الأسرة يجب "
 "أن تسأل جميع أفراد العائلة أولاً إذا كنت "
-"تريد إعادة تفعيل الحساب <br>br>without any Authorization, "
-"the GDPR make your use of this family Illegal! !\""
+"تريد إعادة تفعيل الحساب<br><br>بدون أيّ أيّ "
+"علاج، يُجعلُ إستخدامكَ لهذه العائلةِ lllegal! !\""
 
 msgid "Family Photo"
 msgstr "صورة عائلية"
@@ -1457,8 +1453,8 @@ msgid ""
 msgstr ""
 "كن حذراً مع GDPR، عندما يتم قطع الشخص، عليك أن "
 "تسأل الشخص أولاً، إذا كنت تريد إعادة تنشيط "
-"الحساب! <br>br>without any Authhorization, the GDPR make your use of this "
-"person Illegal! !\""
+"الحساب!<br><br>بدون أيّ تأثير، يُجعل هذا الشخص "
+"يستخدم هذا الشخص! !\""
 
 msgid "Deactivate"
 msgstr "توقف"
@@ -1495,9 +1491,9 @@ msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected "
 "datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
-"إذا حذفت الصندوق، <b>سوف تخسر كل التواريخ "
-"المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا العمل لا "
-"يمكن أن يُلغى </b>"
+"إذا حذفت الصندوق،<u><b>ستخسر كل المواعيد "
+"المترابطة</b>6781<br><b>هل أنت متأكد؟ هذا العمل لا "
+"يمكن أن يُلغى</b>"
 
 msgid "Fund Editor"
 msgstr "محرر الصندوق"
@@ -1532,9 +1528,9 @@ msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected "
 "datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
-"إذا حذفت حلقة المينو، <u>سوف تخسر كل التواريخ "
-"المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا العمل لا "
-"يمكن أن يُلغى </b>"
+"إذا حذفت حلقة المينو،<u><b>ستخسر كل المواعيد "
+"المترابطة</b>6781<br><b>هل أنت متأكد؟ هذا العمل لا "
+"يمكن أن يُلغى</b>"
 
 msgid "Custom Menu Link Editor"
 msgstr "محرر صلات الجمارك"
@@ -1569,9 +1565,9 @@ msgid ""
 "If you delete the pastoral care type, <u><b>you'll lose all the connected "
 "datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
-"إذا حذفت نوع الرعاية الرعوية، <u>b>سوف تخسر كل "
-"التواريخ المرتبطة. </b>/u<<b>هل أنت متأكد؟ هذا "
-"العمل لا يمكن أن يُلغى </b>"
+"إذا حذفت نوع الرعاية الرعوية،<u><b>سوف تفقد كل "
+"التواريخ المترابطة.</b>6781<br><b>هل أنت متأكد؟ "
+"هذا العمل لا يمكن أن يُلغى</b>"
 
 msgid "Pastoral Care Type Editor"
 msgstr "محرر رعاية رعاية رعاية"
@@ -1848,8 +1844,8 @@ msgid ""
 "<center>You must set another Role Name <br>-- or --<br> this Role Name already "
 "exist !!!</center>"
 msgstr ""
-"<المركز يجب أن تضع اسم آخر >أو <br> هذا الاسم "
-"الدوري موجود بالفعل! !"
+"<center>يجب أن تضع اسم آخر لـ<br>-- أو<br>هذا الاسم "
+"الدوري موجود بالفعل! !</center>"
 
 msgid "You've to check at least one user."
 msgstr "يجب أن تتأكد من مستخدم واحد على الأقل"
@@ -2043,28 +2039,28 @@ msgstr "تحميل المشتركين من العائلة"
 
 msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
 msgstr ""
-"تحميل جميع الأشخاص من EcclesiacCRM <br>هذا قد "
-"يستغرق بعض الوقت!"
+"تحميل جميع الأشخاص من EcclesiaCRM<br>هذا قد يستغرق "
+"وقتاً"
 
 msgid ""
 "In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns "
 "after.<br>To import huge datas, MailChimp API is slow."
 msgstr ""
 "في الواقع، من الأفضل أن تترك مركز الرصد، "
-"إنتظر 5 دقائق وتقوم بحملاتك بعد ذلك "
-"<br>لاستيراد مواعيد ضخمة، Mailchimp API بطيئة."
+"إنتظر 5 دقائق وتقوم بحملاتك بعد "
+"ذلك<br>لاستيراد مواعيد ضخمة، Mailchimp API بطيئة."
 
 msgid "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !"
 msgstr ""
 "تحميل جميع المشتركين في الرسالة الإخبارية "
-"من EcclesiaCRM <br>هذا قد يستغرق بعض الوقت!"
+"من EcclesiaCRM<br>هذا قد يستغرق وقتاً"
 
 msgid ""
 "Loading all families first headpeople subscribers from EcclesiaCRM<br>This could "
 "take a while !"
 msgstr ""
-"تحميل جميع العائلات أول من يشاركون من "
-"(إيكليزيا) هذا قد يستغرق بعض الوقت"
+"تحميل جميع العائلات أول من يشارك من "
+"EcclesiaCRM<br>هذا قد يستغرق وقتاً"
 
 msgid "Email Marketing"
 msgstr "تسويق البريد الإلكتروني"
@@ -2101,8 +2097,8 @@ msgid ""
 "to manage your list.<br>To delete huge datas, MailChimp API is slow."
 msgstr ""
 "في الواقع، من الأفضل أن تترك وحدة الرصد، وفي "
-"ربع ساعة إعادة فتحه لإدارة قائمتك. <br>to detelecte "
-"huge datas, Mailchimp API is solution."
+"ربع ساعة إعادة فتحه لإدارة قائمتك.<br>لمسح "
+"مواعيد ضخمة، شركة بريد أب آي بطيئة."
 
 msgid "Email Campaign Creation"
 msgstr "خلق حملة البريد الإلكتروني"
@@ -2188,8 +2184,8 @@ msgid ""
 "webcam<br/>• Sharing your windows<br/> won't work with meeting."
 msgstr ""
 "السفاري لم يدعم بعد مع جيتسي، استخدام شيء "
-"آخر! <br/> كاميرتك الإلكترونية < التي تشاطرها "
-"نوافذك >لن تعمل مع الاجتماع."
+"آخر!<br>• كاميرا الإنترنت<br>خاصتك<br>• لن تعمل "
+"مع مقابلة النافذة"
 
 msgid "Set a Jitsi room name"
 msgstr "ضع اسم غرفة جيتسي"

@@ -1,0 +1,2303 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-11-14T00:43:08.504Z\n"
+"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "Apakah Anda yakin, Anda ingin menghapus gambar ini?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr "Tekan CTRL + C untuk menyalin semua nomor telepon anggota grup"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Address"
+msgstr "Alamat"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Remove"
+msgstr "Lepaskan"
+
+msgid "Classification"
+msgstr "Klasifikasi"
+
+msgid "Family Role"
+msgstr "Keluarga Role"
+
+msgid "You have no more items in your cart."
+msgstr "Kau tak punya barang lagi di gerobakmu."
+
+msgid "Error making API Call to"
+msgstr "Kesalahan membuat API Call ke"
+
+msgid "Error text"
+msgstr "Pesan kesalahan"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "ERROR"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr ""
+"Semua daftar yang terisi di Ecclesia, CRM di luar negeri. Ini adalah B. Jika "
+"kau ingin mengelola mereka, klik pemberitahuan ini! ABS-B-"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Ada masalah mengambil objek yang diminta"
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Select the method to add to a group"
+msgstr "Memilih metode untuk menambahkan ke sebuah kelompok"
+
+msgid "Select an existing Group"
+msgstr "Memilih sebuah grup yang ada"
+
+msgid "or Create a new Group from the Cart"
+msgstr "atau membuat kelompok baru dari Cart"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Pilih kelompok yang ingin kau tambahkan gerobak"
+
+msgid "Select Group"
+msgstr "Pilih Grup"
+
+msgid "Select Role"
+msgstr "Pilih Role"
+
+msgid "Group Name"
+msgstr "Grup Name"
+
+msgid "Default Name Group"
+msgstr "Defaulkan Name Group"
+
+msgid "Add Cart to Group"
+msgstr "Tambahkan Cart ke Grup"
+
+msgid "Save"
+msgstr "Selamatkan"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Kau harus memilih satu kelompok dan peran kelompok jika kau mau"
+
+msgid "You have to set a Group Name"
+msgstr "Kau harus mengatur nama Grup"
+
+msgid "Close"
+msgstr "Dekat"
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Apa kau benar-benar ingin menonaktifkan orang-orang?"
+
+msgid "This action can be undone !!!!"
+msgstr "Aksi ini bisa dibatalkan! !\" Ugh!"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "Yes : if you're sure"
+msgstr "Ya, jika kau yakin"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Apa kau benar-benar ingin menghapus orang-orang dari CRM?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Tindakan ini tidak bisa dibatalkan! !\" Ugh!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Pilih peristiwa yang ingin kau tambahkan kereta"
+
+msgid "Create First A New Event"
+msgstr "Buat Pertama A New Event"
+
+msgid "Cancel"
+msgstr "Batalkan"
+
+msgid "Add to Event"
+msgstr "Tambahkan ke Event"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Kau bisa menambahkan isi kereta ke acara terpilih di bawah, atau - dan "
+"menciptakan sebuah acara pertama dan menambahkan mereka setelah itu."
+
+msgid "Register"
+msgstr "Daftar"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "Catat perangkat lunakmu untuk tim Ecclesiaccrm."
+
+msgid "Simply click this"
+msgstr "Cukup klik ini"
+
+msgid "to register your software"
+msgstr "untuk mendaftarkan perangkat lunak Anda"
+
+msgid "New Release"
+msgstr "New Release"
+
+msgid "Installed version"
+msgstr "Versi yang diasingkan"
+
+msgid "New One"
+msgstr "Yang baru"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Untuk meng-upgrade hanya klik notifikasi ini"
+
+msgid "View Cart"
+msgstr "Lihat Cart"
+
+msgid "Empty Cart"
+msgstr "Kart kosong"
+
+msgid "Empty Cart to Group"
+msgstr "Kartu kosong ke Grup"
+
+msgid "Empty Cart to Family"
+msgstr "Kartu kosong untuk keluarga"
+
+msgid "Empty Cart to Event"
+msgstr "Kartu kosong ke Event"
+
+msgid "Map Cart"
+msgstr "Peta Cart"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Menonaktifkan orang dari Cart"
+
+msgid "Delete Persons From the CRM"
+msgstr "Hapus orang dari CRM"
+
+msgid "View all"
+msgstr "Lihat semua"
+
+msgid "Your Cart is Empty"
+msgstr "Mobilmu kosong"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr "Jika kau perlu membuat perubahan data pendaftaran, pergilah"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin-- - Edit Umum Setting"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+"Tolong mendaftarkan salinan EcclesiaccrM dengan memeriksa informasi ini dan "
+"menekan tombol pengiriman."
+
+msgid "This information is used only to track the usage of this software."
+msgstr ""
+"Informasi ini digunakan hanya untuk melacak penggunaan perangkat lunak ini."
+
+msgid "Church Name"
+msgstr "Nama Gereja"
+
+msgid "Version"
+msgstr "Versi"
+
+msgid "City"
+msgstr "Kota"
+
+msgid "State"
+msgstr "Negara"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Negara"
+
+msgid "Church Email"
+msgstr "Gereja Email"
+
+msgid "Base URL"
+msgstr "Basis URL"
+
+msgid "Message"
+msgstr "Pesan"
+
+msgid "Software Registration"
+msgstr "Software Registration"
+
+msgid "Send"
+msgstr "Kirim"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Perangkat lunakmu sekarang terdaftar. Terima kasih!"
+
+msgid "OK"
+msgstr "Oke."
+
+msgid "Please select target group for members"
+msgstr "Silakan pilih kelompok target untuk anggota"
+
+msgid "Please select target Role for members"
+msgstr "Silakan pilih target Role untuk anggota"
+
+msgid "GroupID required for role selection prompt"
+msgstr "GroupID membutuhkan untuk prompt pilihan peran"
+
+msgid "Select Group and Role"
+msgstr "Pilih Grup dan Role"
+
+msgid "Add A Group Name"
+msgstr "Tambahkan A Grup Name"
+
+msgid "Yes"
+msgstr "Ya"
+
+msgid "Calendar Event"
+msgstr "Peristiwa kalender"
+
+msgid "Attendees Checked In"
+msgstr "Pengawasan sudah diperiksa"
+
+msgid "More info"
+msgstr "Info lagi"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Peringatan! Jangan pilih pilihan ini jika kau berencana menambahkan ke "
+"database yang ada. PERNAH AH AH"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Gunakan hanya jika tidak puas dengan impor awal. Semua orang dan data "
+"anggota akan dihancurkan!"
+
+msgid "I Understand"
+msgstr "Aku mengerti"
+
+msgid "Clear Persons and Families"
+msgstr "Orang yang bersih dan keluarga"
+
+msgid "Data Cleared Successfully!"
+msgstr "Data berhasil!"
+
+msgid "success"
+msgstr "Sukses"
+
+msgid "Duplicate values"
+msgstr "Duplikat nilai"
+
+msgid "You've selected two times the same name"
+msgstr "Kau telah memilih dua kali nama yang sama"
+
+msgid "for this field. Chose another one."
+msgstr "untuk bidang ini. Pilih yang lain."
+
+msgid "Please confirm deletion of this document"
+msgstr "Tolong konfirmasi hapus dokumen ini"
+
+msgid "Document Delete Confirmation"
+msgstr "Dokumen Delete Confirmation"
+
+msgid "Document Editor"
+msgstr "Dokumen Editor"
+
+msgid "Document Title"
+msgstr "Dokumen Gelar"
+
+msgid "Set your Document title"
+msgstr "Atur gelar dokumenmu"
+
+msgid "Choose your Document Type"
+msgstr "Pilih dokumenmu"
+
+msgid "document"
+msgstr "Dokumen"
+
+msgid "video"
+msgstr "Video"
+
+msgid "audio"
+msgstr "Audio"
+
+msgid "Private"
+msgstr "Prajurit"
+
+msgid "You have to set a Title for your document"
+msgstr "Kau harus membuat gelar untuk dokumenmu"
+
+msgid "Icon"
+msgstr "Icon"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Modification Date"
+msgstr "Modifikasi Date"
+
+msgid "Type"
+msgstr "Ketik"
+
+msgid "Size"
+msgstr "Ukuran"
+
+msgid "Set a File/Folder name"
+msgstr "Atur nama File/Folder"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Kau akan menghapus folder dan itu isinya"
+
+msgid "This can't be undone !!!!"
+msgstr "Ini tidak bisa dibatalkan! !\" Ugh!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Kau harus memilih setidaknya satu baris! !"
+
+msgid "You're about to remove a file"
+msgstr "Kau akan menghapus file"
+
+msgid "Set your Folder name"
+msgstr "Atur nama Folder-mu"
+
+msgid "Upload your Files"
+msgstr "Upload file Anda"
+
+msgid "Files input"
+msgstr "File masukan"
+
+msgid "Upload your files"
+msgstr "Upload file Anda"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Share your File"
+msgstr "Berbagi file Anda"
+
+msgid "With"
+msgstr "Dengan"
+
+msgid "Set Rights"
+msgstr "Atur Rights"
+
+msgid "Select your rights"
+msgstr "Pilih hak Anda"
+
+msgid "or"
+msgstr "Atau"
+
+msgid "[👀  ]"
+msgstr "[👀]"
+
+msgid "[R ]"
+msgstr "[R]"
+
+msgid "[👀 ✐]"
+msgstr "[👀]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Kirim pesan email"
+
+msgid "Add persons/Family/groups"
+msgstr "Tambahkan orang-orang/Keluarga/kelompok"
+
+msgid "Person or Family or Group"
+msgstr "Orang atau keluarga atau Grup"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
+
+msgid "Stop sharing"
+msgstr "Berhenti berbagi"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Apakah Anda yakin? Kau akan berhenti berbagi dokumen?"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Tracking"
+msgstr "Melacak"
+
+msgid "Attention"
+msgstr "Perhatian"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Folder saat ini sekarang adalah folder publik! !"
+
+msgid "Add People"
+msgstr "Tambahkan orang"
+
+msgid "This page is still in the cart."
+msgstr "Halaman ini masih di dalam kereta."
+
+msgid "Wrong address format."
+msgstr "Salah alamat format."
+
+msgid "Set Calendar Name"
+msgstr "Atur nama kalender"
+
+msgid "Confirm"
+msgstr "Konfirmasi"
+
+msgid "Set Resource Name"
+msgstr "Atur nama sumber daya"
+
+msgid "Select a resource type"
+msgstr "Memilih tipe sumber daya"
+
+msgid "Room"
+msgstr "Kamar"
+
+msgid "Computer"
+msgstr "Komputer"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Description"
+msgstr "Deskripsi"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Include/Exclude kalender Anda di SideBar"
+
+msgid "Calendars"
+msgstr "Kalender"
+
+msgid "Set Status"
+msgstr "Atur Status"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Select [Exclude] or [Include]"
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUDE]"
+
+msgid "Share your Calendar"
+msgstr "Berbagi kalender Anda"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "Apakah Anda yakin, Anda ingin menghapus Share ini?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "Apakah Anda yakin, Anda ingin berhenti berbagi dokumen Anda?"
+
+msgid "Are you sure?"
+msgstr "Kau yakin?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Kau akan kehilangan kalender, peristiwa dan semua kalender saham juga. Ini "
+"tidak bisa dibatalkan."
+
+msgid "Manage"
+msgstr "Manage"
+
+msgid "Calendar Management for"
+msgstr "Manajemen kalender untuk"
+
+msgid "Modify Calendar Name"
+msgstr "Nama kalender modifikasi"
+
+msgid "Modify Group Name"
+msgstr "Nama Grup Modify"
+
+msgid "Modify Resource Name"
+msgstr "Nama sumber daya modify"
+
+msgid "Modify Share Name"
+msgstr "Modifikasi nama Share"
+
+msgid "Resource Info for"
+msgstr "Info Sumber daya untuk"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "Hanya administrator yang berhak mengubah deskripsi Sumber"
+
+msgid "Actualize"
+msgstr "Actualisize"
+
+msgid "Today"
+msgstr "Hari ini"
+
+msgid "List"
+msgstr "Daftar"
+
+msgid "List Week"
+msgstr "Minggu List"
+
+msgid "List Month"
+msgstr "Daftar Bulan"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Acara ini tidak dapat dimodifikasi! !"
+
+msgid "Modify Event"
+msgstr "Even yang Modify"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"Apa yang ingin kau lakukan? Hati-hati dengan hapus, mustahil untuk "
+"kembali!! !"
+
+msgid "Delete Event"
+msgstr "Hapus Event"
+
+msgid "Are you sure to delete this event?"
+msgstr "Apa kau yakin untuk menghapus acara ini?"
+
+msgid "Delete all repeated Events"
+msgstr "Hapus semua kejadian yang berulang"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are "
+"you sure? This can't be undone."
+msgstr ""
+"Kau akan menghapus semua kejadian yang berulang terkait dengan acara ini. "
+"Kau yakin? Ini tidak bisa dibatalkan."
+
+msgid "Only this event"
+msgstr "Hanya acara ini"
+
+msgid "Every Events linked to this Event"
+msgstr "Setiap kejadian terkait dengan kejadian ini"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Untuk menambahkan peristiwa, kau harus membuat kalender atau mengaktifkan "
+"satu pertama."
+
+msgid "Add More Attendees"
+msgstr "Tambahkan lebih banyak Attendees"
+
+msgid "Make Attendance"
+msgstr "Buat perhatian"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Resize Event"
+msgstr "Menangani Event"
+
+msgid "Are you sure about this change?"
+msgstr "Kau yakin dengan perubahan ini?"
+
+msgid "will be resized."
+msgstr "akan menjadi resized."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "Kau akan mengulang semua peristiwa. Apakah Anda ingin :"
+
+msgid "Only this Event"
+msgstr "Hanya kejadian ini"
+
+msgid "All Events"
+msgstr "Semua Events"
+
+msgid "Move Event"
+msgstr "Pindah Event"
+
+msgid "will be dropped."
+msgstr "akan dijatuhkan."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Kau akan memindahkan semua peristiwa. Apakah Anda ingin :"
+
+msgid "Event added"
+msgstr "Tambahkan yang ditambahkan"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to "
+"add attendees ?"
+msgstr ""
+"Event telah ditambahkan berhasil. Apakah Anda ingin membuat Attendance atau "
+"menambahkan kehadiran?"
+
+msgid "Event was added successfully."
+msgstr "Event telah ditambahkan berhasil."
+
+msgid "No attendees"
+msgstr "Tidak ada pengasuh"
+
+msgid "From"
+msgstr "Dari"
+
+msgid "to"
+msgstr "To"
+
+msgid "Attendance Notes: "
+msgstr "Perhatian:"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "Calendar Title"
+msgstr "Judul kalender"
+
+msgid "Location"
+msgstr "Lokasi"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "Untuk memvalidasi alamatmu: <b>\"balas balas\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "Untuk melihat Peta mengklik medan teks ini."
+
+msgid "Map"
+msgstr "Peta"
+
+msgid "Desc"
+msgstr "Deskripsi"
+
+msgid "Event description"
+msgstr "Deskripsi Event"
+
+msgid "Event Type"
+msgstr "Event tipe"
+
+msgid "Personal"
+msgstr "Pribadi"
+
+msgid "Attendance Counts"
+msgstr "Perhatian Counts"
+
+msgid "Start Date"
+msgstr "Mulai Tanggal"
+
+msgid "End Date"
+msgstr "Akhiri Date"
+
+msgid "Repeat"
+msgstr "Ulangi"
+
+msgid "Daily"
+msgstr "Sehari."
+
+msgid "Weekly"
+msgstr "Minggu"
+
+msgid "Monthly"
+msgstr "Bulan"
+
+msgid "Quarterly"
+msgstr "Quarterly"
+
+msgid "Semesterly"
+msgstr "Semesterly"
+
+msgid "Yearly"
+msgstr "Tahun"
+
+msgid "End"
+msgstr "Berakhir"
+
+msgid "Alarm"
+msgstr "Alarm"
+
+msgid "NONE"
+msgstr "NONE"
+
+msgid "At time of event"
+msgstr "Pada waktu acara"
+
+msgid "5 minutes before"
+msgstr "5 menit sebelumnya"
+
+msgid "10 minutes before"
+msgstr "10 menit sebelumnya"
+
+msgid "15 minutes before"
+msgstr "15 menit sebelumnya"
+
+msgid "30 minutes before"
+msgstr "30 menit sebelumnya"
+
+msgid "1 hour before"
+msgstr "1 jam sebelumnya"
+
+msgid "2 hour before"
+msgstr "2 jam sebelumnya"
+
+msgid "1 day before"
+msgstr "1 hari sebelumnya"
+
+msgid "2 day before"
+msgstr "2 hari sebelumnya"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Add as attendees"
+msgstr "Tambahkan sebagai perawatan"
+
+msgid "Notes"
+msgstr "Catatan"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "inactive"
+msgstr "Tidak aktif"
+
+msgid "Event Creation"
+msgstr "Penciptaan Event"
+
+msgid "You've to chose a calendar."
+msgstr "Kau harus memilih kalender."
+
+msgid "You have to set a Title for your event"
+msgstr "Kau harus mengatur gelar untuk acara Anda"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor Template Creation"
+
+msgid "Template Name"
+msgstr "Nama kuil"
+
+msgid "Explanation field cannot be empty."
+msgstr "Medan Eksplanasi tidak bisa kosong."
+
+msgid "Template Description"
+msgstr "Deskripsi kuil"
+
+msgid "Save as Word file in EDrive"
+msgstr "Simpan berkas kata di EDrive"
+
+msgid "Word file name"
+msgstr "Nama file"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr "File akan diunggah ke bagian EDrive <br><small>mu bagian ini hanya untuk tes <b> (Beta) </b>. </small>"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Catatanmu disimpan di EDrive-mu"
+
+msgid "(No templates defined)"
+msgstr "(Tidak ada template mendefinisikan)"
+
+msgid "Content Templates"
+msgstr "Konten Templates"
+
+msgid "Please select the template to open in the editor"
+msgstr "Silakan pilih template untuk terbuka di editor"
+
+msgid "Template Options"
+msgstr "Pilihan kuil"
+
+msgid "Modify"
+msgstr "Modify"
+
+msgid "Modify the template you select"
+msgstr "Modifikasi template yang kau pilih"
+
+msgid "Delete the template you select"
+msgstr "Hapus template yang kau pilih"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Kau yakin menghapus template ini? Ini tidak bisa dibatalkan."
+
+msgid "Replace actual content"
+msgstr "Ganti isi sebenarnya"
+
+msgid "Manage templates"
+msgstr "Manage templates"
+
+msgid "Save templates"
+msgstr "Simpan template"
+
+msgid "Apply templates"
+msgstr "Terapan templay"
+
+msgid "Save As Word File in EDrive"
+msgstr "Selamatkan File File di EDrive"
+
+msgid "First Name"
+msgstr "Nama pertama"
+
+msgid "Last Name"
+msgstr "Nama terakhir"
+
+msgid "Phone"
+msgstr "Telepon"
+
+msgid "Company"
+msgstr "Perusahaan"
+
+msgid "Unsub"
+msgstr "Unsub"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Date"
+msgstr "Tanggal"
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "Merge Tags"
+msgstr "Merge Tags"
+
+msgid "Free Event Attendees"
+msgstr "Peringatan gratis"
+
+msgid "Successfully Added!"
+msgstr "Ditambah dengan sukses!"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Checkin"
+msgstr "Periksa"
+
+msgid "Checkout"
+msgstr "Checkout"
+
+msgid "Gender"
+msgstr "Gender"
+
+msgid "Checkin Date"
+msgstr "Periksa Date"
+
+msgid "Checked In By"
+msgstr "Sudah diperiksa"
+
+msgid "Checkout Date"
+msgstr "Checkout Date"
+
+msgid "Checkout By"
+msgstr "Checkout By"
+
+msgid "QR Code : Call the register"
+msgstr "Panggil daftar"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Tak bisa mengakses video stream (tolong pastikan kau memiliki webcam "
+"diaktifkan)"
+
+msgid "no detected QR Code"
+msgstr "tidak terdeteksi kode QR"
+
+msgid "Loading video..."
+msgstr "Memuat video..."
+
+msgid "Failed"
+msgstr "Gagal."
+
+msgid "No event right now."
+msgstr "Tidak ada acara sekarang."
+
+msgid "Move one in the right range."
+msgstr "Pindahkan satu di jarak yang tepat."
+
+msgid "Create one."
+msgstr "Buat satu."
+
+msgid "Group"
+msgstr "Kelompok"
+
+msgid "User"
+msgstr "Pengguna"
+
+msgid "No event now."
+msgstr "Tidak ada acara sekarang."
+
+msgid "Success"
+msgstr "Sukses"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "Apakah Anda yakin Anda ingin DELETE semua orang dari KTP:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "Apakah Anda yakin Anda ingin DELETE orang ini dari KTP:"
+
+msgid "Delete Event Type"
+msgstr "Hapus Event Tipe"
+
+msgid "This action can never be undone !!!!"
+msgstr "Tindakan ini tidak akan pernah bisa dibatalkan! !\" Ugh!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Menghapus peristiwa juga akan menghapus semua kehadiran yang dihitung untuk "
+"acara itu."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Apakah Anda yakin Anda ingin DELETE acara?"
+
+msgid "Confirm Delete"
+msgstr "Konfirmasi Hapus"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Apakah Anda yakin? Kau akan menghapus yang terpilih"
+
+msgid "payments(s)?"
+msgstr "pembayaran?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr ""
+"Tindakan ini tidak bisa dibatalkan, dan mungkin memiliki implikasi hukum!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Tolong pastikan ini apa yang ingin kau lakukan."
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Selected Rows"
+msgstr "Terpilih Rows"
+
+msgid "Payment"
+msgstr "Pembayaran"
+
+msgid "Depid"
+msgstr "Depid"
+
+msgid "Address1"
+msgstr "Addres1"
+
+msgid "Bank Name"
+msgstr "Nama Bank"
+
+msgid "Non deductible"
+msgstr "Tak bisa dikurangi"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Deposit"
+msgstr "Deposit"
+
+msgid "Schedule"
+msgstr "Jadwal"
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Comment"
+msgstr "Kommen"
+
+msgid "Electronic Transaction Details"
+msgstr "Detail Transaksi elektronik"
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+msgid "Family"
+msgstr "Keluarga"
+
+msgid "Person"
+msgstr "PERSON"
+
+msgid "Anonymous"
+msgstr "Anonymous"
+
+msgid "Fund"
+msgstr "Dana"
+
+msgid "Pledge or payment"
+msgstr "Pledge atau pembayaran"
+
+msgid "Method"
+msgstr "Metode"
+
+msgid "Check Number"
+msgstr "Periksa nomor"
+
+msgid "Details"
+msgstr "Detail"
+
+msgid "Deposit ID"
+msgstr "Tanda pengenal"
+
+msgid "Deposit Date"
+msgstr "Tanggal Deposit"
+
+msgid "Deposit Total"
+msgstr "Total Deposit"
+
+msgid "Deposit Comment"
+msgstr "Deposit Comment"
+
+msgid "Closed"
+msgstr "Ditutup"
+
+msgid "Deposit Type"
+msgstr "Deposit tipe"
+
+msgid "Export"
+msgstr "Export"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Generate Deposit Slip untuk terpilih"
+
+msgid "Rows"
+msgstr "Dayung"
+
+msgid "Your operation completed successfully."
+msgstr "Operasimu berhasil."
+
+msgid "Full Name"
+msgstr "Nama lengkap"
+
+msgid "Text"
+msgstr "SMS"
+
+msgid "Date Entered"
+msgstr "Tanggal dimasukkan"
+
+msgid "Date Last Edited"
+msgstr "Kencan Edited lalu"
+
+msgid "Edited By Name"
+msgstr "Diedit oleh nama"
+
+msgid "Deactivated"
+msgstr "Ditolak"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Peringatan: dengan menghapus lapangan ini, kau akan kehilangan semua data "
+"kelompok yang ditugaskan untuk bidang ini!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Konfirmasi Aktifkan Grup Spesifik Properties"
+
+msgid ""
+"This will create a group-specific properties table for this group. You "
+"should then add needed properties with the Group-Specific Properties Form "
+"Editor."
+msgstr ""
+"Ini akan membuat meja properti khusus untuk kelompok ini. Kau harus "
+"menambahkan properti dengan Grup-Spesifik Form Editor."
+
+msgid "Enable Group Specific Properties"
+msgstr "Aktifkan Grup Spesifik Properties"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Konfirmasi Grup Spesifik Group"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All "
+"group member properties data will be lost!"
+msgstr ""
+"Kau yakin ingin menghapus properti orang tertentu? Semua data properti "
+"anggota grup akan hilang!"
+
+msgid "Disable Group Specific Properties"
+msgstr "Matikan Grup Spesifik Properties"
+
+msgid "Confirm Delete Role"
+msgstr "Konfirmasi Delete Role"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr "Ini juga akan menghapus semua anggota yang terkait dengan peran ini."
+
+msgid "A group should have at least one role!"
+msgstr "Sebuah kelompok harus memiliki setidaknya satu peran!"
+
+msgid "Role Name"
+msgstr "Nama yang sama"
+
+msgid "The role name is now modified."
+msgstr "Nama peran sekarang dimodifikasi."
+
+msgid "Make Default"
+msgstr "Buat Default"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Sequence"
+msgstr "Urutan"
+
+msgid "Members"
+msgstr "Anggota"
+
+msgid "Group Cart Status"
+msgstr "Status Grup Cart"
+
+msgid "All members of this group are in the cart"
+msgstr "Semua anggota kelompok ini berada di kereta"
+
+msgid "Remove all"
+msgstr "Hapus semua"
+
+msgid "Not all members of this group are in the cart"
+msgstr "Tidak semua anggota kelompok ini berada di kereta"
+
+msgid "Add all"
+msgstr "Tambahkan semua"
+
+msgid "Cart isn't showable"
+msgstr "Mobil tidak bisa dipamerkan"
+
+msgid "Group Type"
+msgstr "Kelompok tipe"
+
+msgid "Unassigned"
+msgstr "Tidak ditugaskan"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Confirm Delete Group"
+msgstr "Konfirmasi Grup Hapus"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Tolong konfirmasi menghapus catatan kelompok ini"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated "
+"with this Group record."
+msgstr ""
+"Ini juga akan menghapus semua Roles dan data Properti Grup-Spesifik yang "
+"terkait dengan catatan Grup ini."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Semua keanggotaan kelompok dan properti akan hancur. Anggota kelompok "
+"sendiri tidak akan diubah."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "Kau yakin ingin tidak menyetujui properti ini?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "Kau yakin ingin mengubah properti ini?"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "Kau yakin ingin menghapus anggota kelompok yang terpilih?"
+
+msgid "Group Role"
+msgstr "Grup Role"
+
+msgid "Private Data"
+msgstr "Private Data"
+
+msgid "Zip Code"
+msgstr "Kode Zip"
+
+msgid "Cell Phone"
+msgstr "Ponsel"
+
+msgid "Members from group"
+msgstr "Anggota dari kelompok"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Members to another group"
+msgstr "Anggota ke kelompok lain"
+
+msgid "Members to cart"
+msgstr "Anggota ke gerobak"
+
+msgid "Move"
+msgstr "Bergerak"
+
+msgid "Remove from Cart"
+msgstr "Lepaskan dari Cart"
+
+msgid "Add to Cart"
+msgstr "Tambahkan ke Cart"
+
+msgid "No assigned Manager"
+msgstr "Tidak ada Manager yang ditugaskan"
+
+msgid "Manage Group Managers"
+msgstr "Manajer Grup Manajer"
+
+msgid "Add person"
+msgstr "Tambahkan orang"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "Apakah Anda yakin, Anda ingin menghapus Manager ini?"
+
+msgid "Delete Managers"
+msgstr "Hapus Manager"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "Apakah Anda yakin, Anda ingin menghapus semua manajer?"
+
+msgid "Appointment"
+msgstr "Penampilan"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "Kau yakin ingin menghapus keluarga ini dari CRM"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "Kau yakin ingin menghapus semua keluarga dari CRM"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Tidak semua keluarga yang didedikasikan: beberapa dari mereka memiliki "
+"catatan sumbangan dan mungkin tidak dihapus sampai sumbangan ini terkait "
+"dengan keluarga lain."
+
+msgid "Confirm Deactivation"
+msgstr "Konfirmasi menonaktifkan"
+
+msgid "Confirm Activation"
+msgstr "Konfirmasi Aktivasi"
+
+msgid "Please confirm deactivation of family"
+msgstr "Tolong konfirmasi menonaktifkan keluarga"
+
+msgid "Please confirm activation of family"
+msgstr "Tolong konfirmasi aktivasi keluarga"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Hati-hati dengan GDPR, ketika keluarga sedang tidak diaktifkan, kau harus "
+"meminta semua orang di keluarga pertama, jika kau ingin mengaktifkan kembali "
+"account! Ini adalah yang terbaik yang ada di tangan orang-orang yang tidak "
+"tahu apa-apa. !\" !!!"
+
+msgid "Family Photo"
+msgstr "Foto keluarga"
+
+msgid "Verification email sent"
+msgstr "Email verifikasi dikirim"
+
+msgid "Failed to send verification email"
+msgstr "Gagal untuk mengirim email verifikasi"
+
+msgid "Failed to add verification"
+msgstr "Gagal untuk menambahkan verifikasi"
+
+msgid "Verification URL"
+msgstr "Verifikasi URL"
+
+msgid "Bank Draft"
+msgstr "Bank Draft"
+
+msgid "Credit Card"
+msgstr "Kartu kredit"
+
+msgid "Disabled"
+msgstr "Mati"
+
+msgid "Next payment date"
+msgstr "Tanggal pembayaran berikutnya"
+
+msgid "Interval (months)"
+msgstr "Interval (bulan)"
+
+msgid "Updated By"
+msgstr "Diperbarui oleh"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Konfirmasi pembayaran otomatis Hapus"
+
+msgid "Pledge or Payment"
+msgstr "Pledge atau Payment"
+
+msgid "Dep ID"
+msgstr "ID yang mendalam"
+
+msgid "Fiscal Year"
+msgstr "Fiscal Year"
+
+msgid "NonDeductible"
+msgstr "Tak bisa dicuri."
+
+msgid "CHECK"
+msgstr "Check"
+
+msgid "Date Updated"
+msgstr "Tanggal terbaru"
+
+msgid "Delete this person?"
+msgstr "Hapus orang ini?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr "Kau ingin menghapus orang ini? Ini tidak bisa dibatalkan."
+
+msgid "Save your note"
+msgstr "Simpan catatanmu"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr ""
+"Apakah Anda ingin menyimpan catatan Anda sebagai File kata dalam EDrive Anda?"
+
+msgid "Family Id"
+msgstr "Identitas keluarga"
+
+msgid "Valid Until"
+msgstr "Sampai"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "Kau yakin ingin menghapus orang ini dari CRM"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "Kau yakin ingin menghapus semua orang dari CRM"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Tidak semua orang yang didediakan: beberapa dari mereka memiliki catatan "
+"sumbangan dan mungkin tidak dihapus sampai sumbangan ini terkait dengan "
+"keluarga lain."
+
+msgid "Please confirm deactivation of person"
+msgstr "Tolong konfirmasi menonaktifkan seseorang"
+
+msgid "Please confirm activation of person"
+msgstr "Tolong konfirmasi aktivasi orang"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Hati-hati dengan GDPR, ketika seseorang tidak diaktifkan, kau harus bertanya "
+"pada orang pertama, jika kau ingin mengaktifkan kembali account! Ini adalah "
+"yang terbaik yang ada di tangan orang yang tidak tahu apa-apa. !\" !!!"
+
+msgid "Deactivate"
+msgstr "Menonaktifkan"
+
+msgid "Activate"
+msgstr "Aktifkan"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "Kau yakin ingin menghapus keanggotaan orang ini"
+
+msgid "Change classification"
+msgstr "Mengubah klasifikasi"
+
+msgid "Change role"
+msgstr "Ganti peran"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "Konfirmasi peluang sukarelawan"
+
+msgid "Comments"
+msgstr "Komentar"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Peringatan: dengan menghapus lapangan ini, kau akan kehilangan semua data "
+"keluarga yang ditugaskan untuk bidang ini!"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Jika kau menghapus dananya, kau akan kehilangan semua data yang terhubung. "
+"Bajingan, apa kau yakin? Tindakan ini tidak bisa dibatalkan. ABS-B-"
+
+msgid "Fund Editor"
+msgstr "Fund Editor"
+
+msgid "Add Fund"
+msgstr "Tambahkan Fund"
+
+msgid "Validate"
+msgstr "Validate"
+
+msgid "Place"
+msgstr "Tempatkan"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr ""
+"Link ini harus dimulai dengan : http:/ //////////////////////. atau "
+"https://////."
+
+msgid "Global Custom Menus"
+msgstr "Global Custom Menus"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Jika kau menghapus Link Menu, kau akan kehilangan semua data yang terhubung. "
+"Bajingan, apa kau yakin? Tindakan ini tidak bisa dibatalkan. ABS-B-"
+
+msgid "Custom Menu Link Editor"
+msgstr "Custom Menu Link Editor"
+
+msgid "Add Custom Menu Link"
+msgstr "Tambahkan Custom Menu Link"
+
+msgid "Delete Classification"
+msgstr "Hapus Klasifikasi"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Tolong konfirmasi hapus klasifikasi ini"
+
+msgid ""
+"This will also delete this Classification for all the associated persons."
+msgstr ""
+"Ini juga akan menghapus klasifikasi ini untuk semua orang yang terkait."
+
+msgid "Map Icon GoogleMap"
+msgstr "Peta Icon GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Pilih ikon klasifikasimu"
+
+msgid "Visible"
+msgstr "Terlihat"
+
+msgid "Visible for other authorized users"
+msgstr "Terlihat untuk pengguna berwenang lainnya"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Jika kau menghapus tipe perawatan pendeta, U. U. S. S. Kau akan kehilangan "
+"semua data yang terhubung. Bajingan, apa kau yakin? Tindakan ini tidak bisa "
+"dibatalkan. ABS-B-"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Pendeta Perawatan Pengecut"
+
+msgid "Add Pastoral Care Type"
+msgstr "Tambahkan Pastor Care Tipe"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Peringatan: dengan menghapus lapangan ini, kau akan kehilangan semua data "
+"orang yang ditugaskan untuk bidang ini!"
+
+msgid "with this Property..."
+msgstr "dengan Properti ini..."
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Select Property Type"
+msgstr "Pilih Ketik Properti"
+
+msgid "with this property..."
+msgstr "dengan properti ini..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "Kau akan menghapus properti ini. Apakah Anda ingin melanjutkan?"
+
+msgid "Property Type Editor"
+msgstr "Properti tipe Editor"
+
+msgid "Add a New Property"
+msgstr "Tambahkan properti baru"
+
+msgid "Class"
+msgstr "Kelas"
+
+msgid ""
+"You're about to delete this general properties. Would you like to continue ?"
+msgstr "Kau akan menghapus properti umum ini. Apakah Anda ingin melanjutkan?"
+
+msgid "This general property type is still being used by"
+msgstr "Jenis properti umum ini masih digunakan oleh"
+
+msgid "property"
+msgstr "Properti"
+
+msgid "properties"
+msgstr "Properti"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"Jika kau menghapus jenis ini, kau juga akan menghapus semua properti yang "
+"digunakan"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "ini dan kehilangan setiap sesuai tugas properti."
+
+msgid "Add a New Property Type"
+msgstr "Tambahkan tipe Properti baru"
+
+msgid "Activ"
+msgstr "Activ"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Tambahkan peluang Volunteer baru"
+
+msgid "Send Message"
+msgstr "Kirim pesan"
+
+msgid "View Profile"
+msgstr "Lihat Profil"
+
+msgid "Teachers"
+msgstr "Guru"
+
+msgid "Delete this Teacher?"
+msgstr "Hapus Guru ini?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr "Kau ingin menghapus guru ini? Ini tidak bisa dibatalkan."
+
+msgid "First name"
+msgstr "Nama depan"
+
+msgid "Birth Date"
+msgstr "Tanggal lahir"
+
+msgid "Unknown"
+msgstr "Tidak diketahui"
+
+msgid "Boy"
+msgstr "Nak"
+
+msgid "Girl"
+msgstr "Girl"
+
+msgid "Age"
+msgstr "Umur"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Home Phone"
+msgstr "Telepon rumah"
+
+msgid "Home Address"
+msgstr "Alamat rumah"
+
+msgid "Dad Name"
+msgstr "Ayah bernama"
+
+msgid "Dad Mobile"
+msgstr "Ayah Mobile"
+
+msgid "Dad Email"
+msgstr "Ayah Email"
+
+msgid "Mom Name"
+msgstr "Ibu bernama"
+
+msgid "Mom Mobile"
+msgstr "Mobile Mobile"
+
+msgid "Mom Email"
+msgstr "Ibu Email"
+
+msgid "Remove Students from Cart"
+msgstr "Lepaskan siswa dari Cart"
+
+msgid "Add Students to Cart"
+msgstr "Tambahkan mahasiswa ke Cart"
+
+msgid "Remove Teachers from Cart"
+msgstr "Lepaskan Guru dari Cart"
+
+msgid "Add Teachers to Cart"
+msgstr "Tambahkan Guru ke Cart"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr "Memilih peristiwa yang ingin kau gunakan untuk menciptakan Attendance"
+
+msgid "Create Event With Students"
+msgstr "Buat Event With Students"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+"Hati-hati! Kau akan menciptakan atau menciptakan ulang peristiwa di kelas "
+"sekolah Minggu ini untuk memanggil kasir."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Jika acara ini sudah dibuat, pergi ke menu \"Events\" dan kemudian \"Call "
+"the register\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr "Pertama, atur jangkauan waktumu dengan benar untuk membuat ekstraksi."
+
+msgid "Set year range to export"
+msgstr "Mengatur jarak set untuk ekspor"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr "Pertama, atur range tanggal Anda dengan benar untuk membuat ekstraksi."
+
+msgid "Extra students"
+msgstr "Siswa ekstra"
+
+msgid "export with photos"
+msgstr "laporan dengan foto"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr ""
+"Hati-hati! Kau akan menciptakan atau menciptakan ulang semua peristiwa di "
+"sekolah Minggu untuk memanggil kasir."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Jika kejadian sudah dibuat, pergi ke menu \"Events\" dan kemudian \"Call the "
+"register\"."
+
+msgid "First, set your date and time."
+msgstr "Pertama, atur tanggal dan waktu."
+
+msgid "Time"
+msgstr "Waktu"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Panggil Register untuk semua kelompok Minggu"
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr ""
+"Setidaknya satu kelompok harus dipilih untuk membuat daftar kelas atau "
+"lembar kehadiran."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "Kau harus mengatur sebuah gelar dan Description untuk masalahmu."
+
+msgid "Trigger Parent Alert"
+msgstr "Pengintai orang tua"
+
+msgid "Kiosk"
+msgstr "Kiosk"
+
+msgid "No assignments for kiosk"
+msgstr "Tidak ada tugas untuk kios"
+
+msgid "Event"
+msgstr "Event"
+
+msgid "Kiosk Name"
+msgstr "Kiosk Name"
+
+msgid "Assignment"
+msgstr "Tugas"
+
+msgid "Last Heartbeat"
+msgstr "Detak jantung terakhir"
+
+msgid "Accepted"
+msgstr "Diterima."
+
+msgid "True"
+msgstr "Benar"
+
+msgid "False"
+msgstr "Salah"
+
+msgid "Reload"
+msgstr "Isi ulang."
+
+msgid "Identify"
+msgstr "Identifikasi"
+
+msgid "Accept"
+msgstr "Terima"
+
+msgid "The user must have an email address."
+msgstr "Pengguna pasti punya alamat email."
+
+msgid "Role management"
+msgstr "Manajemen Role"
+
+msgid "Select your Role"
+msgstr "Pilih Role-mu"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Kau yakin? Kau akan menghapus Role ini."
+
+msgid "Rename"
+msgstr "Panggil nama"
+
+msgid "Choose a Role Name"
+msgstr "Pilih nama Role"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
+"already exist !!!</center>"
+msgstr ""
+"Ini adalah \"Role Name\" yang lain \"atau \"br\" atau \"br\" ini sudah ada!"
+"\" (Center/Center)"
+
+msgid "You've to check at least one user."
+msgstr "Kau harus memeriksa setidaknya satu pengguna."
+
+msgid "The WebDav Key is"
+msgstr "Kunci Webdav"
+
+msgid "The public WebDav Key is"
+msgstr "Kunci Webdav umum"
+
+msgid "WebDav key"
+msgstr "Kunci Webdav"
+
+msgid "is now locked"
+msgstr "sekarang terkunci"
+
+msgid "is now unlocked"
+msgstr "sekarang tidak terkunci"
+
+msgid "User Delete Confirmation"
+msgstr "Pengguna Konfirmasi Penghilang"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Tolong konfirmasi pemindahan status pengguna dari:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, "
+"the Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Hati-hati, kau akan kehilangan folder rumah dan file yang terkait, kalender, "
+"kalender berbagi dan semua peristiwa juga, untuk"
+
+msgid "This can't be undone"
+msgstr "Ini tidak bisa dibatalkan"
+
+msgid "Action Confirmation"
+msgstr "Konfirmasi Aksi"
+
+msgid "Please confirm reset failed login count"
+msgstr "Tolong konfirmasi ulang reset masuk hitungan login"
+
+msgid "Reset failed login count for"
+msgstr "Reset gagal masuk hitungan"
+
+msgid "done."
+msgstr "selesai."
+
+msgid "Please confirm the password reset of this user"
+msgstr "Tolong konfirmasi ulang password pengguna ini"
+
+msgid "Password reset for"
+msgstr "Password reset untuk"
+
+msgid "Saving Campaign ..."
+msgstr "Menyelamatkan Kampanye..."
+
+msgid "Campaign"
+msgstr "Kampanye"
+
+msgid "saved successfully"
+msgstr "diselamatkan dengan sukses"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Kau akan mengirim kampanyemu! Apakah Anda yakin?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Kau akan menghapus kampanyemu! Apakah Anda yakin?"
+
+msgid "Loading datas ..."
+msgstr "Memiliki data ..."
+
+msgid "No list are created with this account ...."
+msgstr "Tidak ada daftar yang dibuat dengan akun ini ..."
+
+msgid "Email List"
+msgstr "Email List"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Subjek"
+
+msgid "Members:"
+msgstr "Anggota:"
+
+msgid "Campaigns:"
+msgstr "Kampanye:"
+
+msgid "Unsubscribed count:"
+msgstr "Hitungan yang tak bisa dilanggar:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Hitungan tak terbalas sejak terakhir:"
+
+msgid "Cleaned count:"
+msgstr "Hitungan yang bersih:"
+
+msgid "Cleaned count since last send:"
+msgstr "Hitungan yang sudah dibersihkan sejak terakhir kali:"
+
+msgid "Campaigns"
+msgstr "Kampanye"
+
+msgid "Tags"
+msgstr "Tanda"
+
+msgid "is not configured"
+msgstr "tidak dikonfigurasi"
+
+msgid "Please update the"
+msgstr "Tolong perbarui"
+
+msgid "API key in Setting->"
+msgstr "Kunci API di Setting---"
+
+msgid "Edit General Settings"
+msgstr "Edit Umum Setting"
+
+msgid "then update"
+msgstr "kemudian update"
+
+msgid "For more info see our "
+msgstr "Untuk lebih banyak info melihat kita"
+
+msgid "support docs."
+msgstr "dukungan docs."
+
+msgid "List Creation"
+msgstr "Penciptaan daftar"
+
+msgid "List Title"
+msgstr "Daftar gelar"
+
+msgid "Your List Title"
+msgstr "Judul daftarmu"
+
+msgid "Your Subject"
+msgstr "Subjekmu"
+
+msgid "Permission Reminder"
+msgstr "Izin pengingat"
+
+msgid "Archive Bars"
+msgstr "Arsip Bars"
+
+msgid "Public"
+msgstr "Publik"
+
+msgid "People"
+msgstr "Orang-orang"
+
+msgid "Families"
+msgstr "Keluarga"
+
+msgid "Add a new tag"
+msgstr "Tambahkan tag baru"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Hapus label dari pelanggan (S)"
+
+msgid "Delete tag"
+msgstr "Hapus tag"
+
+msgid "Loading resources ..."
+msgstr "Memiliki sumber daya ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Kau akan menghapus tanda!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ini juga akan menghapus tanda untuk semua anggota dalam daftar ini. Apakah "
+"Anda yakin?"
+
+msgid "Deleting tag"
+msgstr "Menghapus tag"
+
+msgid "A person name or Family or Group"
+msgstr "Nama orang atau Keluarga atau Grup"
+
+msgid "Loading subscriber"
+msgstr "Pengisian pelanggaran"
+
+msgid "Loading subscribers from Group"
+msgstr "Mengambil pelanggan dari Grup"
+
+msgid "Loading subscribers from family"
+msgstr "Mengambil pelanggaran dari keluarga"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+"Memimpin semua orang dari Ecclesiaccrm, ini bisa memakan waktu cukup lama!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Bahkan, Anda lebih baik untuk berhenti CRM, tunggu 5 menit dan membuat "
+"kampanye Anda setelah. Untuk mengimpor data besar, MailChimp API lambat."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Memiliki semua pelanggaran surat kabar dari Ecclesiaccrom Ecclesiacrm dari "
+"Ecclesiaccrm, BR. Ini bisa memakan waktu!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Memimpin semua keluarga pelanggan pertama pelanggan Ecclesiaccrme dari "
+"Ecclesiaccrm, BR. Ini bisa memakan waktu!"
+
+msgid "Email Marketing"
+msgstr "Pemasaran Email"
+
+msgid "Select status for : "
+msgstr "Bagi status untuk:"
+
+msgid "Subscribed"
+msgstr "Dikurangi"
+
+msgid "Unsubscribed"
+msgstr "Tak bisa di-subtitle"
+
+msgid "Changing status ..."
+msgstr "Mengubah status ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Kau akan menghapus pelanggan! Apakah Anda yakin?"
+
+msgid "Deleting Subscriber..."
+msgstr "Menghapus Subscriber..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Apakah Anda benar-benar ingin menghapus daftar surat ini?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Kau yakin ingin menghapus semua pelanggan"
+
+msgid "Deleting all subscribers..."
+msgstr "Menghapus semua pelanggan..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Bahkan, kau lebih baik meninggalkan CRM, dan dalam satu kuater satu jam "
+"kembali membukanya untuk mengatur daftar. Untuk menghapus data besar, "
+"MailChimp API lambat."
+
+msgid "Email Campaign Creation"
+msgstr "Kejadian Kampanye Email"
+
+msgid "Campaign Title"
+msgstr "Judul Kampanye"
+
+msgid "Your Campaign Title"
+msgstr "Judul Kampanye-mu"
+
+msgid "For Tag"
+msgstr "Untuk Tanda"
+
+msgid "Mail Subject"
+msgstr "Subjek Surat"
+
+msgid "Your Mail Subject"
+msgstr "Subjek Mail-mu"
+
+msgid "All list members"
+msgstr "Semua anggota daftar"
+
+msgid "Adding Campaign ..."
+msgstr "Menambahkan Kampanye..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Apakah ingin mengatur secara langsung kampanye baru ini?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Kau harus membuat Jurus Kampanye untuk Kampanye-mu"
+
+msgid "List Name"
+msgstr "Daftar nama"
+
+msgid "Changing subscribers state..."
+msgstr "Mengubah keadaan pelanggan..."
+
+msgid "All Tags"
+msgstr "Semua tanda"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Pilih tag yang ingin kau hapus:"
+
+msgid "Removing tags..."
+msgstr "Menghapus tanda..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Menghapus semua tanda untuk anggota yang terpilih dalam daftar..."
+
+msgid "Add your tag name"
+msgstr "Tambahkan nama labelmu"
+
+msgid "Adding tag..."
+msgstr "Menambahkan label..."
+
+msgid "Name is empty !!"
+msgstr "Nama kosong!"
+
+msgid "Add tag?"
+msgstr "Tambahkan label?"
+
+msgid "This will add the tag"
+msgstr "Ini akan menambahkan labelnya"
+
+msgid "to all the current selected members in the list."
+msgstr "untuk semua anggota yang dipilih saat ini dalam daftar."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Kau akan menghapus pelanggan! Apakah Anda yakin?"
+
+msgid "Deleting Subscribers..."
+msgstr "Menghapus Subscribers..."
+
+msgid "Problem"
+msgstr "Masalah"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari belum didukung dengan Jitsi, gunakan sesuatu yang lain! 2226;  webkam "
+"Anda adalah di br / br / br / br / br / br / br / br / br / iyakan meeting"
+
+msgid "Set a Jitsi room name"
+msgstr "Atur nama kamar Jitsi"
+
+msgid "Delete all Rooms?"
+msgstr "Menghapus semua kamar?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Kau akan menghapus semua kamar kalian."
+
+msgid "You must enter a password"
+msgstr "Kau harus masukkan kata sandinya"
+
+msgid "Passwords must match"
+msgstr "Password harus cocok"
+
+msgid "Backup Running, Please wait."
+msgstr "Backup Running, tolong tunggu."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "Bantuan Generated dan disalin ke server remote"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "Backup Complete, Ready for Download."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Backup Download, Copy on server dihapus"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr "File yang terpilih melebihi ukuran upload server ini maksimum"
+
+msgid "Restore Running, Please wait."
+msgstr "Kembalikan Running, tolong tunggu."
+
+msgid "Restore Complete"
+msgstr "Kembalikan semuanya"
+
+msgid "Login to restored Database"
+msgstr "Login untuk mengembalikan Database"
+
+msgid "Restore Error."
+msgstr "Kembalikan kesalahan."
+
+msgid "In progress...."
+msgstr "Sedang dalam proses..."
+
+msgid "Done !"
+msgstr "Selesai!"
+
+msgid "All Groups"
+msgstr "Semua kelompok"
+
+msgid "All Roles"
+msgstr "Semua Roles"
+
+msgid "id"
+msgstr "ID"
+
+msgid "Photos"
+msgstr "Foto"
+
+msgid "Search result"
+msgstr "Hasil pencarian"
+
+msgid "Property Name"
+msgstr "Nama properti"
+
+msgid "Loading people in cart...."
+msgstr "Memiliki orang di kereta ..."
+
+msgid "Loading finished...."
+msgstr "Pengisian selesai...."
+
+msgid "Removing people in cart...."
+msgstr "Menghapus orang-orang di kereta ...."
+
+msgid "Removing finished...."
+msgstr "Menghapus selesai ...."
+
+msgid "Remove People"
+msgstr "Lepaskan orang"
+
+msgid "Nothing to remove."
+msgstr "Tidak ada yang perlu dihapus."
+
+msgid "Visits/calls"
+msgstr "Pengunjung/panggilan"
+
+msgid "Last visit/call"
+msgstr "Kunjungan terakhir/panggilan"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Hapus Pastor Care Tipe"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Pendeta Perawatan Pastor"
+
+msgid "For every administrator"
+msgstr "Untuk setiap administrator"
+
+msgid "Show"
+msgstr "Tunjukkan"
+
+msgid "Hide"
+msgstr "Sembunyi."
+
+msgid "Include all the family members"
+msgstr "Termasuk semua anggota keluarga"
+
+msgid "Include"
+msgstr "Termasuk"
+
+msgid "Last Name (Family Name)"
+msgstr "Nama terakhir (nama keluarga)"
+
+msgid "Family Name"
+msgstr "Nama keluarga"
+
+msgid "Number"
+msgstr "Nomor"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Multiple"
+msgstr "Beberapa kali"
+
+msgid "Donor"
+msgstr "Donor"
+
+msgid "Buyer"
+msgstr "Pembeli"
+
+msgid "Sale Price"
+msgstr "Sale Price"
+
+msgid "Estimated value"
+msgstr "Diperkirakan nilai"
+
+msgid "Material Value"
+msgstr "Karya Value"
+
+msgid "Minimum Price"
+msgstr "Minimum Price"
+
+msgid "Add buyer"
+msgstr "Tambahkan pembeli"
+
+msgid "Buyer Number"
+msgstr "Pembeli Nomor"
+
+msgid "Save and Add"
+msgstr "Selamatkan dan Add"
+
+msgid "Generate Statement"
+msgstr "Statemen Generate"
+
+msgid "Buyer Number Editor"
+msgstr "Pembeli Editor"
+
+msgid "Select"
+msgstr "Pilih"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "Kau bisa membuat acara secara otomatis dengan siswa di BR, atau dengan "
+#~ "br, dan menambahkan siswa ke gerobak dan menciptakan peristiwa untuk "
+#~ "menambahkan mereka setelah itu."

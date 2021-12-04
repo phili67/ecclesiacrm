@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 16:48+0000\n"
+"POT-Creation-Date: 2021-11-25 21:56+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,7 +190,7 @@ msgstr "Achternaam"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:49 FamilyEditor.php:734
+#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
 #: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
@@ -204,7 +204,7 @@ msgstr "Adres"
 
 #: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:60 FamilyEditor.php:746
+#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
 #: queryparameteroptions_qpo.php:7
 msgid "City"
@@ -212,7 +212,7 @@ msgstr "Stad"
 
 #: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:64 FamilyEditor.php:755
+#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
 #: queryparameteroptions_qpo.php:6
 msgid "State"
@@ -220,7 +220,7 @@ msgstr "Staat"
 
 #: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:75
+#: external/templates/registration/family-register.php:73
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
 msgid "Zip"
@@ -774,7 +774,7 @@ msgstr "Als u een nieuw gezin toevoegt, vul dan hieronder uw gegevens in."
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
-#: external/templates/registration/family-register.php:38 FamilyEditor.php:722
+#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 #: v2/templates/dashboard/maindashboard.php:580
@@ -808,7 +808,7 @@ msgstr "(Gebruik het tekstvak voor andere landen dan VS en Canada)"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
 #: EditEventAttendees.php:79 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:87
+#: external/templates/registration/family-register.php:85
 #: external/templates/verify/verify-family-info.php:36
 #: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
 #: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
@@ -4462,7 +4462,7 @@ msgstr "Uw account is verwijderd"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Uw EcclesiaCRM account is verwijderd."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:264
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
 msgid "Email/Username"
 msgstr "Email/Gebruikersnaam"
 
@@ -6202,7 +6202,7 @@ msgid "Go"
 msgstr "Ga"
 
 #: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:275
+#: Login.php:274
 msgid "Login"
 msgstr "Inloggen"
 
@@ -6268,21 +6268,21 @@ msgid "Hide Age"
 msgstr "Leeftijd verbergen"
 
 #: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:122
+#: external/templates/registration/family-register.php:120
 #: external/templates/verify/enter-info.php:38 FinancialReports.php:94
 #: GroupReports.php:103
 msgid "Next"
 msgstr "Volgende"
 
-#: external/templates/registration/family-register.php:32
+#: external/templates/registration/family-register.php:30
 msgid "Register your family"
 msgstr "Registreer uw familie"
 
-#: external/templates/registration/family-register.php:97
+#: external/templates/registration/family-register.php:95
 msgid "How many people are in your family"
 msgstr "Hoeveel mensen zijn er in je familie"
 
-#: external/templates/registration/family-register.php:116
+#: external/templates/registration/family-register.php:114
 msgid "This will be my primary church."
 msgstr "Dit wordt mijn hoofdkerk."
 
@@ -7892,32 +7892,32 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Deze account is gedeactiveerd door een beheerder."
 
-#: Login.php:244 Login.php:313
+#: Login.php:243 Login.php:312
 msgid "Please Login"
 msgstr "Gelieve in te loggen"
 
-#: Login.php:249 Login.php:320
+#: Login.php:248 Login.php:319
 msgid "Your previous session timed out.  Please login again."
 msgstr "Uw vorige sessie is verlopen.  Gelieve opnieuw in te loggen."
 
-#: Login.php:268 Login.php:354 v2/templates/backup/backup.php:67
+#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: Login.php:282
+#: Login.php:281
 msgid "I forgot my password"
 msgstr "Ik ben mijn wachtwoord vergeten."
 
-#: Login.php:294
+#: Login.php:293
 msgid "Register a new Family"
 msgstr "Registreer een nieuwe familie"
 
-#: Login.php:363
+#: Login.php:362
 msgid "Enter your password to retrieve your session"
 msgstr "Voer uw wachtwoord in om uw sessie op te halen"
 
-#: Login.php:366
+#: Login.php:365
 msgid "Or sign in as a different user"
 msgstr "Of meld je aan als een andere gebruiker"
 
@@ -12089,38 +12089,44 @@ msgid "Japan"
 msgstr "Japan"
 
 #: settings-locales.php:23
-msgid "Polish"
-msgstr "Pools"
+#, fuzzy
+msgid "Norwegian - Norvege"
+msgstr "Noorwegen (Norge)"
 
 #: settings-locales.php:24
+#, fuzzy
+msgid "Polish - Poland"
+msgstr "Engels - Canada"
+
+#: settings-locales.php:25
 msgid "Portuguese - Brazil"
 msgstr "Portugees - Brazilië"
 
-#: settings-locales.php:25
+#: settings-locales.php:26
 msgid "Portuguese - Portugal"
 msgstr "Portugees - Portugal"
 
-#: settings-locales.php:26
+#: settings-locales.php:27
 msgid "Romanian - Romania"
 msgstr "Roemeen - Roemenië"
 
-#: settings-locales.php:27
+#: settings-locales.php:28
 msgid "Russian"
 msgstr "Russisch"
 
-#: settings-locales.php:28
+#: settings-locales.php:29
 msgid "Spanish - Spain"
 msgstr "Spaans - Spanje"
 
-#: settings-locales.php:29
+#: settings-locales.php:30
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Noordelijk) (Zweden)"
 
-#: settings-locales.php:30
+#: settings-locales.php:31
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:31
+#: settings-locales.php:32
 msgid "Vietnamese"
 msgstr "Vietnamees"
 
@@ -12353,6 +12359,9 @@ msgstr "Klein"
 
 msgid "Large"
 msgstr "Groot"
+
+#~ msgid "Polish"
+#~ msgstr "Pools"
 
 #~ msgid "miles"
 #~ msgstr "mijlen"

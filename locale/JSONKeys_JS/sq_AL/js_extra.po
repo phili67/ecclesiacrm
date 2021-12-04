@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "E vërtetë."
+
+msgid "false"
+msgstr "fallso."
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "jam"
+
+msgid "Teachers"
+msgstr "Mësuesit"
+
+msgid "Students"
+msgstr "Studentët"
+
+msgid "Teacher"
+msgstr "Mësues"
+
+msgid "Student"
+msgstr "Studente."
+
+msgid "Parents"
+msgstr "Prindërit e mi."
+
+msgid "Kids"
+msgstr "Fëmijë."
+
+msgid "create"
+msgstr "Të krijoj"
+
+msgid "edit"
+msgstr "Edit."
+
+msgid "photo"
+msgstr "foto"
+
+msgid "group"
+msgstr "grupi"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "note"
+msgstr "shënim."
+
+msgid "You have to set a Title for your event"
+msgstr "Duhet të vendosësh Titullin për ngjarjen tënde"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Kjo ngjarje nuk është e modifikueshme! !"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Për të shtuar një ngjarje, duhet të krijosh një kalendar ose të aktivizosh "
+"një të parën."
+
+msgid "Event added"
+msgstr "eventi i shtuar"
+
+msgid "Event was added successfully."
+msgstr "U shtua me sukses ngjarja."
+
+msgid "Electronic Transaction Details"
+msgstr "Detajet e Transaksionit elektronik"
+
+msgid "Daily"
+msgstr "daily"
+
+msgid "Weekly"
+msgstr "javë"
+
+msgid "Monthly"
+msgstr "Muaj"
+
+msgid "Quarterly"
+msgstr "Çerelly"
+
+msgid "Once"
+msgstr "një herë."
+
+msgid "Other"
+msgstr "Tjetri"
+
+msgid "CREDITCARD"
+msgstr "KURDERA"
+
+msgid "CASH"
+msgstr "cash"
+
+msgid "Bank"
+msgstr "Banka"
+
+msgid "CreditCard"
+msgstr "kreditkarta."
+
+msgid "BankDraft"
+msgstr "bankdraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Disa familje nuk kanë asnjë rol \"kreu i shtëpisë\" i përcaktuar apo ka "
+"ndonjë anëtarë të aktivizuar në këtë familje:"
+
+msgid "send"
+msgstr "dërgo"
+
+msgid "save"
+msgstr "kurseji."
+
+msgid "subscribed"
+msgstr "në një vend të sigurt"
+
+msgid "unsubscribed"
+msgstr "është i shtrënguar (në Xhennet)."
+
+msgid "sent"
+msgstr "dërgo"
+
+msgid "schedule"
+msgstr "orar."
+
+msgid "paused"
+msgstr "ndal"
+
+msgid "cleaned"
+msgstr "pastruar"
+
+msgid "pending"
+msgstr "Pezull."
+
+msgid "Invalid date"
+msgstr "takim i pavlefshëm"

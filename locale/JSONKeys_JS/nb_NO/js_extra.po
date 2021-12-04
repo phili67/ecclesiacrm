@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "Sant"
+
+msgid "false"
+msgstr "Falsk"
+
+msgid "pm"
+msgstr "PMM"
+
+msgid "am"
+msgstr "Jeg er"
+
+msgid "Teachers"
+msgstr "Lærere"
+
+msgid "Students"
+msgstr "Studenter"
+
+msgid "Teacher"
+msgstr "Lærer"
+
+msgid "Student"
+msgstr "Student"
+
+msgid "Parents"
+msgstr "Foreldre"
+
+msgid "Kids"
+msgstr "Unger"
+
+msgid "create"
+msgstr "Skape"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "photo"
+msgstr "Bilde"
+
+msgid "group"
+msgstr "Gruppe"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "note"
+msgstr "Noter"
+
+msgid "You have to set a Title for your event"
+msgstr "Du må sette en Title til begivenheten din"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Denne hendelsen er ikke modifiserbar! !"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr "For å legge til en hendelse, må man lage en kalender eller aktivere en først."
+
+msgid "Event added"
+msgstr "Det er tillatt"
+
+msgid "Event was added successfully."
+msgstr "Event ble tilføyd med suksess."
+
+msgid "Electronic Transaction Details"
+msgstr "Elektroniske transaksjonsdetaler"
+
+msgid "Daily"
+msgstr "Daglig"
+
+msgid "Weekly"
+msgstr "Uke"
+
+msgid "Monthly"
+msgstr "Måneden"
+
+msgid "Quarterly"
+msgstr "Kvarterly"
+
+msgid "Once"
+msgstr "En gang"
+
+msgid "Other"
+msgstr "Andre"
+
+msgid "CREDITCARD"
+msgstr "KREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "KredittCard"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr "Noen familier har ikke noe navn definert eller aktiverte medlemmer i familiene:"
+
+msgid "send"
+msgstr "Send"
+
+msgid "save"
+msgstr "Redd"
+
+msgid "subscribed"
+msgstr "Abonnert"
+
+msgid "unsubscribed"
+msgstr "Ubekreftet"
+
+msgid "sent"
+msgstr "Sendt"
+
+msgid "schedule"
+msgstr "Timeplan"
+
+msgid "paused"
+msgstr "Pauset"
+
+msgid "cleaned"
+msgstr "Renset"
+
+msgid "pending"
+msgstr "I påvente av"
+
+msgid "Invalid date"
+msgstr "Ugyldig date"
