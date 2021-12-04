@@ -304,3 +304,27 @@ scrollable bootbox body
 #right-sidebar {
     bottom: 0px !important;
 }
+
+/*  */
+.text-sm .content-header h1 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.profile-username {
+    font-size: 21px;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+.text-sm .btn {
+    font-size: .75rem!important;
+}
+
+a {
+    font-weight: 400;
+}
