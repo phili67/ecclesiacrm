@@ -328,3 +328,29 @@ scrollable bootbox body
 a {
     font-weight: 400;
 }
+
+
+.special-card {
+    /* create a custom class so you
+       do not run into specificity issues
+       against bootstraps styles
+       which tends to work better than using !important
+       (future you will thank you later)*/
+
+    box-shadow: 0 0 0px rgba(0,0,0,0),0 0px 0px rgba(0,0,0, 0) !important;
+
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 1;
+    margin-bottom: 0rem;
+}
+
+
+.special-card-body {
+    /* create a custom class so you
+       do not run into specificity issues
+       against bootstraps styles
+       which tends to work better than using !important
+       (future you will thank you later)*/
+
+    padding: .25rem !important;
+}
