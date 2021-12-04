@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "prawdziwy"
+
+msgid "false"
+msgstr "fałszywy"
+
+msgid "pm"
+msgstr "pm"
+
+msgid "am"
+msgstr "am"
+
+msgid "Teachers"
+msgstr "Nauczyciele"
+
+msgid "Students"
+msgstr "Studenci"
+
+msgid "Teacher"
+msgstr "Nauczyciel"
+
+msgid "Student"
+msgstr "Student"
+
+msgid "Parents"
+msgstr "Rodzice"
+
+msgid "Kids"
+msgstr "Dzieci"
+
+msgid "create"
+msgstr "utwórz"
+
+msgid "edit"
+msgstr "edit"
+
+msgid "photo"
+msgstr "fot."
+
+msgid "group"
+msgstr "grupa"
+
+msgid "Group"
+msgstr "Grupa"
+
+msgid "note"
+msgstr "notatka"
+
+msgid "You have to set a Title for your event"
+msgstr "Musisz ustawić tytuł dla swojego wydarzenia"
+
+msgid "This event isn't modifiable !!!"
+msgstr "To wydarzenie nie jest modyfikowalne !!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr "Aby dodać wydarzenie, musisz najpierw utworzyć kalendarz lub aktywować go."
+
+msgid "Event added"
+msgstr "Wydarzenie dodane"
+
+msgid "Event was added successfully."
+msgstr "Wydarzenie zostało dodane pomyślnie."
+
+msgid "Electronic Transaction Details"
+msgstr "Szczegóły transakcji elektronicznej"
+
+msgid "Daily"
+msgstr "Codziennie"
+
+msgid "Weekly"
+msgstr "Tygodnik"
+
+msgid "Monthly"
+msgstr "Miesięcznie"
+
+msgid "Quarterly"
+msgstr "Kwartalnik"
+
+msgid "Once"
+msgstr "Raz"
+
+msgid "Other"
+msgstr "Inne"
+
+msgid "CREDITCARD"
+msgstr "KARTA KREDYTOWA"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "CreditCard"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"W niektórych rodzinach nie zdefiniowano nazwy roli \"głowa gospodarstwa "
+"domowego\" lub w rodzinach tych nie ma aktywnych członków:"
+
+msgid "send"
+msgstr "wysłać"
+
+msgid "save"
+msgstr "save"
+
+msgid "subscribed"
+msgstr "subskrybowany"
+
+msgid "unsubscribed"
+msgstr "wypisany"
+
+msgid "sent"
+msgstr "wysłano"
+
+msgid "schedule"
+msgstr "harmonogram"
+
+msgid "paused"
+msgstr "wstrzymał się"
+
+msgid "cleaned"
+msgstr "wyczyszczony"
+
+msgid "pending"
+msgstr "w toku"
+
+msgid "Invalid date"
+msgstr "Nieprawidłowa data"

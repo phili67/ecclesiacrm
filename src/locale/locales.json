@@ -212,7 +212,17 @@
         "datePicker": true,
         "select2": true
     },
-    "Polish": {
+    "Norwegian - Norvege": {
+        "poEditor": "nb",
+        "locale": "nb_NO",
+        "languageCode": "nb",
+        "countryCode": "NB",
+        "dataTables": "Norwegian",
+        "fullCalendar": true,
+        "datePicker": true,
+        "select2": true
+    },
+    "Polish - Poland": {
         "poEditor": "pl",
         "locale": "pl_PL",
         "languageCode": "pl",

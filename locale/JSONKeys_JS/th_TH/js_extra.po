@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "# จริง #"
+
+msgid "false"
+msgstr "ปลอม"
+
+msgid "pm"
+msgstr "อุปกรณ์"
+
+msgid "am"
+msgstr "คุณ"
+
+msgid "Teachers"
+msgstr "ครู"
+
+msgid "Students"
+msgstr "นักเรียน"
+
+msgid "Teacher"
+msgstr "อาจารย์"
+
+msgid "Student"
+msgstr "นักเรียน"
+
+msgid "Parents"
+msgstr "พ่อแม่"
+
+msgid "Kids"
+msgstr "เด็กๆ"
+
+msgid "create"
+msgstr "สร้าง"
+
+msgid "edit"
+msgstr "แก้ไข"
+
+msgid "photo"
+msgstr "รูป"
+
+msgid "group"
+msgstr "กลุ่ม"
+
+msgid "Group"
+msgstr "กลุ่ม"
+
+msgid "note"
+msgstr "จดหมาย"
+
+msgid "You have to set a Title for your event"
+msgstr "คุณต้องทำให้ทิทเทิลสำหรับงานของคุณ"
+
+msgid "This event isn't modifiable !!!"
+msgstr ""
+"เหตุการณ์นี้ไม่สามารถดัดแปลงได้ "
+"!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"เพื่อเพิ่มเหตุการณ์เข้าไป "
+"คุณต้องสร้างปฏิทิน "
+"หรือเปิดใช้งานตัวหนึ่งก่อน"
+
+msgid "Event added"
+msgstr "เสร็จแล้ว"
+
+msgid "Event was added successfully."
+msgstr "แต่ก็เพิ่มขึ้น"
+
+msgid "Electronic Transaction Details"
+msgstr "รายละเอียดอิเล็กทรานซ์แอคโทรนิค"
+
+msgid "Daily"
+msgstr "วัน"
+
+msgid "Weekly"
+msgstr "อาทิตย์"
+
+msgid "Monthly"
+msgstr "เดือน"
+
+msgid "Quarterly"
+msgstr "4"
+
+msgid "Once"
+msgstr "ครั้งเดียว"
+
+msgid "Other"
+msgstr "อีกคน"
+
+msgid "CREDITCARD"
+msgstr "-"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "ธนาคาร"
+
+msgid "CreditCard"
+msgstr "เครดิตการ์ด"
+
+msgid "BankDraft"
+msgstr "BankDraft"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"บางครอบครัว "
+"ไม่มีชื่อบรรดาชื่อ "
+"\"หัวหน้าครอบครัว\" ใด ๆ นิยาม "
+"หรือมีสมาชิกใหม่ในครอบครัวนี้"
+
+msgid "send"
+msgstr "ส่ง"
+
+msgid "save"
+msgstr "ช่วยด้วย"
+
+msgid "subscribed"
+msgstr "เขียนไว้"
+
+msgid "unsubscribed"
+msgstr "ไม่ได้รับการเขียนข้อมูล"
+
+msgid "sent"
+msgstr "ส่งมา"
+
+msgid "schedule"
+msgstr "ตาราง"
+
+msgid "paused"
+msgstr "หยุด"
+
+msgid "cleaned"
+msgstr "ทำความสะอาด"
+
+msgid "pending"
+msgstr "ขึ้นอยู่กับ"
+
+msgid "Invalid date"
+msgstr "วันที่ไม่มีเหตุผล"

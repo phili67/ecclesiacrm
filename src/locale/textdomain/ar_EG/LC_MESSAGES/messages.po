@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-13 16:48+0000\n"
+"POT-Creation-Date: 2021-11-26 21:14+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -188,7 +188,7 @@ msgstr "الاسم الأخير"
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:49 FamilyEditor.php:734
+#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
 #: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
@@ -202,7 +202,7 @@ msgstr "العنوان"
 
 #: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:60 FamilyEditor.php:746
+#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
 #: queryparameteroptions_qpo.php:7
 msgid "City"
@@ -210,7 +210,7 @@ msgstr "المدينة"
 
 #: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:64 FamilyEditor.php:755
+#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
 #: queryparameteroptions_qpo.php:6
 msgid "State"
@@ -218,7 +218,7 @@ msgstr "الدولة"
 
 #: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:75
+#: external/templates/registration/family-register.php:73
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
 msgid "Zip"
@@ -448,8 +448,8 @@ msgid ""
 "Randomly assign canvassers to all Families.  The Canvassers are taken from "
 "the &quot;Canvassers&quot; Group."
 msgstr ""
-"تعيين محفزين عشوائياً لجميع العائلات The Canvassers are taken from the &quot;"
-"Canvassers&quot; Group."
+"تعيين محفزين عشوائياً لجميع العائلات تم أخذ الـ(كانفاسر) من مجموعة&quot;"
+"(كانفاسر)&quot;"
 
 #: CanvassAutomation.php:154
 msgid "Assign Canvassers"
@@ -460,8 +460,8 @@ msgid ""
 "Randomly assign canvassers to non-pledging Families.  The Canvassers are "
 "taken from the &quot;BraveCanvassers&quot; Group."
 msgstr ""
-"تعيين محفزين عشوائياً لعائلات غير متعهدة The Canvassers are taken from the "
-"&quot;Bravecanvassers&quot; Group."
+"تعيين محفزين عشوائياً لعائلات غير متعهدة تم أخذ الـ(كانفاسور) من مجموعة "
+"الـ&quot;(برافاكسرز&quot;)."
 
 #: CanvassAutomation.php:167
 msgid "Assign To Non Pledging"
@@ -483,13 +483,14 @@ msgstr "\"إخلاء \"كانفاسر"
 
 #: CanvassAutomation.php:188
 msgid "Turn on the &quot;Ok To Canvass&quot; field for all Families."
-msgstr "شغل الحقل الخاص بكل الأسر"
+msgstr "شغل حقل&quot;إلى كانفاس&quot;لجميع الأسر"
 
 #: CanvassAutomation.php:189 CanvassAutomation.php:202
 msgid ""
 "Important note: this will lose any &quot;Ok To Canvass&quot; fields that "
 "have been set by hand."
-msgstr "ملاحظة مهمة: هذا سيفقد أي حقول تم وضعها بيده."
+msgstr ""
+"ملاحظة مهمة: هذا سيفقد أي&quot;حقول من أجل كانفاس&quot;التي وضعت يدويا."
 
 #: CanvassAutomation.php:194
 msgid "Enable Canvass for All Families"
@@ -497,7 +498,7 @@ msgstr "تمكين جميع العائلات"
 
 #: CanvassAutomation.php:201
 msgid "Turn off the &quot;Ok To Canvass&quot; field for all Families"
-msgstr "أطفئ هذا المجال من أجل جميع الأسر"
+msgstr "أطفئ الملعب&quot;إلى \"كانفاس&quot;\" لكل العائلات"
 
 #: CanvassAutomation.php:207
 msgid "Disable Canvass for All Families"
@@ -546,8 +547,8 @@ msgid ""
 "Generate a PDF containing a report of the families marked &quot;Not "
 "Interested&quot; by the canvasser."
 msgstr ""
-"(أ) إنشاء قوات الدفاع الشعبي التي تتضمن تقريراً عن الأسر التي تم التعرف عليها "
-"أو لا تهتم بها؛ بواسطة جهاز التحكم."
+"• إنشاء قوات الدفاع الشعبي التي تتضمن تقريرا عن الأسر التي حددت&quot;غير "
+"مهتمة بالمحاسب."
 
 #: CanvassAutomation.php:248
 msgid "Not Interested Report"
@@ -768,7 +769,7 @@ msgstr "إذا أضيفت عائلة جديدة، أدخل البيانات أد
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
-#: external/templates/registration/family-register.php:38 FamilyEditor.php:722
+#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
 #: v2/templates/dashboard/maindashboard.php:580
@@ -802,7 +803,7 @@ msgstr "(استخدام الصندوق المدرسي لبلدان غير الو
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
 #: EditEventAttendees.php:79 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:87
+#: external/templates/registration/family-register.php:85
 #: external/templates/verify/verify-family-info.php:36
 #: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
 #: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
@@ -1234,11 +1235,11 @@ msgstr "انطلق يميناً لرؤية الأعمدة الأخرى"
 
 #: CSVImport.php:276
 msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
-msgstr "انظر إلى اليمين <b> نموذج تاريخ </b> واختياره أدناه! !\""
+msgstr "تحقق من نموذج التاريخ<b>7899 واختاره تحت !\""
 
 #: CSVImport.php:277
 msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
-msgstr "<b>Important! </b> معاون <b> إلى عمود."
+msgstr "<b>Important!</b>Associate the<b>Gender</b>to a column."
 
 #: CSVImport.php:282
 msgid "Important Options"
@@ -1312,27 +1313,28 @@ msgid ""
 "So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
 "the second one."
 msgstr ""
-"وبالتالي فإن تعيين CSV هو <b>؛ </b> في المثال الأول و </b>، <b> في الثاني."
+"اذاً جهاز التحكم في سي إس في هو<b>؛ '7899 في المثال الأول و4568'، '7899 في "
+"الثانية."
 
 #: CSVImport.php:964
 msgid "Don't forget the <b>gender</b> and the <b>title</b>"
-msgstr "لا تنس <b> gender<b> and the <b>"
+msgstr "لا تنسى رقم<b>جنس</b>و العنوان رقم<b>7899"
 
 #: CSVImport.php:965
 msgid ""
 "You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
 "Title column and rename the label header to gender</b>"
 msgstr ""
-"يمكنك تشكيل عمودك في شركة إكسل ليبر للمكتب و <ب>ازدواجية عنوان العنوان إلى >/"
-"ب<b>"
+"يمكنك تشكيل عمودك في شركة إكسل ليبر للمكتب و<b>نسخة عنوان \"العنوان\" إلى "
+"نوع الجنس</b>"
 
 #: CSVImport.php:966
 msgid ""
 "The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
 "a women, girl, female</b> ..."
 msgstr ""
-"ويجب أن يُحدد العمود الجنساني إلى <b> 1 بالنسبة للرجل، والفتى، والرجل <b> و "
-"<b> 2 بالنسبة للنساء والفتاة، والإناث >b>"
+"يجب أن يتم تحديد العمود الجنساني إلى<b>1 للرجل، ولد، ذكر</b>و<b>2 للنساء، "
+"بنت، أنثى</b>..."
 
 #: CSVImport.php:969
 msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
@@ -1369,23 +1371,20 @@ msgid ""
 "              <br>• and a <b>gender</b> header name column (with 1 for a "
 "men, 2 for a women)"
 msgstr ""
-"<b>لا تتجاوز >/b<\n"
-"<br> ملفك الخاص بالسي SV يجب أن يكون له عمود اسمه <b> من اسم الرأس (مع السيد "
-"م. Mlle. إلخ.)،\n"
-"<Br> و <B>B> باسم العنوان (مع 1 للرجال، 2 للنساء)"
+"<b>لا تنسى</b>\n"
+"<br>• يجب أن يكون ملفك الخاص بالسي إس في عمود إسم العنوان</b><b>(مع السيد M. "
+"Mlle. إلخ)،\n"
+"<br>- وعامود للأسماء الرئيسية</b>7899 (يتألف من 1 من الرجال، واثنين للنساء)"
 
 #: CSVImport.php:996
 msgid "Select <b>NOW</b> your <b>CSV separator</b>"
-msgstr "اختيار <b> NOW< B> خاصتك <b>"
+msgstr "اختر<b>الآن</b>خادم سي إس في 4568"
 
 #: CSVImport.php:1007
 msgid ""
 "• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
 "b> ......... "
-msgstr ""
-"• آخر مجموعة صحيحة كل التواريخ مثل: <b>YYYYYY-MM/"
-"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY-MM/"
-"YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY<"
+msgstr "• آخر مجموعة صحيحة لكل المواعيد مثل:<b>YYYY-MM-DD or DD/MM/YYYY</b>..."
 
 #: CSVImport.php:1010
 msgid "This is proposed in the next step, read carefully your table."
@@ -1778,11 +1777,11 @@ msgstr "فولدر الجديد"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:50
 msgid "[👀  ]"
-msgstr "[👀]"
+msgstr "[👀  ]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:50
 msgid "[👀 ✐]"
-msgstr "[👀 Ϩ]"
+msgstr "[👀 ✐]"
 
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:77
 #: EcclesiaCRM/APIControllers/DocumentShareController.php:111
@@ -3329,14 +3328,14 @@ msgid "No families need canvassers assigned"
 msgstr "لا عائلات تحتاج إلى محاسب"
 
 #: EcclesiaCRM/dto/CanvassUtilities.php:126
-#, fuzzy, php-format
+#, php-format
 msgid "Canvassers assigned at random to %d families."
-msgstr "\"كانفاسور\" تم تعيينه عشوائياً إلى عائلات \"دي"
+msgstr "تم تعيين \"كانفاسور\" عشوائياً إلى %d أسرة"
 
 #: EcclesiaCRM/dto/CanvassUtilities.php:171
 #, php-format
 msgid "Canvassers assigned at random to %d non-pledging families."
-msgstr "Canvassers systems at random to %d non-peeding famils."
+msgstr "Canvassers تم تعيينه عشوائياً إلى %d أسرة غير متعهدة."
 
 #: EcclesiaCRM/dto/Cart.php:170 EcclesiaCRM/dto/Cart.php:227
 msgid "PersonID for Cart must be numeric"
@@ -3596,7 +3595,7 @@ msgstr "الشهر الأول من السنة المالية"
 
 #: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "Link of the nominatim server : https://nominatim.openstreetmap.org"
-msgstr "رابعا - خادم المرشح https://nominatim.openstreetmap.org"
+msgstr "رابعا - ربط خادم المرشح https://nominatim.openstreetmap.org"
 
 #: EcclesiaCRM/dto/SystemConfig.php:103
 msgid "Google map API requires a unique key"
@@ -3777,9 +3776,10 @@ msgid ""
 "released or sold.  If this field is true the registration option in the "
 "admin menu changes to update registration."
 msgstr ""
-"تم تسجيل (إيكليزيا) ويستخدم فريق \"إيكليزيا\" معلومات التسجيل لتتبع "
-"الاستخدام. هذه المعلومات تبقى سرية ولم يتم إطلاقها أو بيعها. وإذا كان هذا "
-"المجال صحيحا، فإن خيار التسجيل في قائمة المشتركين يتغير في استكمال التسجيل."
+"EcclesiaCRM تم تسجيلها. ويستخدم فريق إدارة الموارد البشرية Ecclesiaمعلومات "
+"التسجيل لتتبع الاستخدام. هذه المعلومات تبقى سرية ولم يتم إطلاقها أو بيعها. "
+"وإذا كان هذا المجال صحيحا، فإن خيار التسجيل في قائمة المشتركين يتغير في "
+"استكمال التسجيل."
 
 #: EcclesiaCRM/dto/SystemConfig.php:140
 msgid "Left Margin (1 = 1/100th inch)"
@@ -3961,7 +3961,7 @@ msgstr "مشروع قانون التشريد يعتمد على زلة الإيد
 
 #: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "EcclesiaCRM Cloud Access URL"
-msgstr "EcclesiacCRM Cloud Access URL"
+msgstr "EcclesiaCRM Cloud Cloud Access URL"
 
 #: EcclesiaCRM/dto/SystemConfig.php:196
 msgid "Nexmo SMS API Key"
@@ -4111,7 +4111,9 @@ msgstr "وقت خدمة الصُور عن بعد"
 
 #: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
-msgstr "(ب) أن يتم الوصول إلى قاعدة بيانات (EcclesiacRM) هذه على شبكة HTTPS"
+msgstr ""
+"(ب) أن يتم الوصول إلى قاعدة بيانات إدارة الموارد البشرية Ecclesiaعلى نظام "
+"HTTPS"
 
 #: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Show Birthdates Anniversaries on start up of the CRM"
@@ -4261,7 +4263,7 @@ msgid ""
 "The jitsi domain name script path, by default : https://meet.jit.si/"
 "external_api.js"
 msgstr ""
-"The Jitsi doman name scipt script path, by fault :https://meet.jit.si/"
+"طريق السيناريو الذي كان يمثل في جيتسي، بإفتراض https://meet.jit.si/"
 "external_api.js"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
@@ -4396,11 +4398,11 @@ msgstr "حسابك تم حذفه"
 
 #: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
 msgid "Your EcclesiaCRM Account was Deleted."
-msgstr "حسابك الخاص بالإكليسيا تم حذفه"
+msgstr "حسابك Ecclesiaسي آر إم تم حذفه"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:264
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
 msgid "Email/Username"
-msgstr "البريد الإلكتروني/الإسم المستخدم"
+msgstr "Email/Username"
 
 #: EcclesiaCRM/Emails/users/CalendarEmail.php:23
 msgid "A Calendar is shared with you"
@@ -4424,7 +4426,7 @@ msgstr "الحساب مغلق"
 
 #: EcclesiaCRM/Emails/users/LockedEmail.php:16
 msgid "Your EcclesiaCRM account was locked."
-msgstr "حسابك الخاص بـ(إيكليزيا) كان مغلقاً"
+msgstr "حسابك Ecclesiaسي آر إم كان مغلقاً"
 
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
 msgid "Your New Account"
@@ -4447,7 +4449,7 @@ msgstr "تغيرت كلمة السر"
 
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
 msgid "Your EcclesiaCRM password was changed"
-msgstr "كلمة السر الخاصة بك (إيكليسياك) قد تغيرت"
+msgstr "كلمة السر الخاصة بك EcclesiaCRM قد تغيرت"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
 msgid "Password Reset"
@@ -4463,7 +4465,7 @@ msgstr "كلمة السر (لينك)"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
 msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr "يمكنك إعادة ضبط كلمة سر (إيكلاسياك) عن طريق نقر هذا الرابط"
+msgstr "يمكنك إعادة ضبط كلمة السر الخاصة بك EcclesiaCRM عن طريق نقر هذا الرابط"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
 msgid "Reset Password"
@@ -4475,7 +4477,7 @@ msgstr "الحساب مفتوح"
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
 msgid "Your EcclesiaCRM account was unlocked."
-msgstr "حسابك الخاص بـ(إيكليزيا) كان مفتوحاً"
+msgstr "حسابك Ecclesiaسي آر إم كان مفتوحاً"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
 msgid "Your Account"
@@ -4483,7 +4485,7 @@ msgstr "حسابك"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
 msgid "Your EcclesiaCRM account was updated"
-msgstr "تم تحديث حسابك في \"إيكليزيا سي إم\""
+msgstr "تم تحديث حسابكEcclesia"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
@@ -4518,7 +4520,7 @@ msgstr "الوثائق"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1002 UserEditor.php:743
 msgid "EDrive"
-msgstr "EDrive"
+msgstr "EDRIV"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
@@ -4694,7 +4696,7 @@ msgstr "\"إيد\" جمع التبرعات الأخير"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:478
 msgid "Data/Reports"
-msgstr "البيانات/التقارير"
+msgstr "Data/Reports"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:480
 msgid "Reports Menu"
@@ -4867,7 +4869,7 @@ msgstr "عجوز"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:665
 msgid "EcclesiaCRM export"
-msgstr "تصدير EcclesiaCRM"
+msgstr "EcclesiaCRM تصدير"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:658
 msgid "system user created"
@@ -4931,7 +4933,7 @@ msgstr "العمر"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 msgid "Props"
-msgstr "الممتلكات"
+msgstr "Props"
 
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 msgid "Stats"
@@ -5564,9 +5566,7 @@ msgstr "رقم كبير جدا. لابد أن يكون بين -2147483648 و 214
 
 #: EcclesiaCRM/utils/InputUtils.php:81
 msgid "Money amount too large. Maximum is $999999999.99"
-msgstr ""
-"مبلغ المال كبير جداً أقصى ما هو "
-"999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999"
+msgstr "مبلغ المال كبير جداً أقصى ما هو $999999999.99"
 
 #: EcclesiaCRM/utils/LabelUtils.php:42
 msgid "Font"
@@ -5602,7 +5602,7 @@ msgstr "ابدأ العمود"
 
 #: EcclesiaCRM/utils/LabelUtils.php:171
 msgid "Ignore Incomplete<br>Addresses"
-msgstr "تجاهل العناوين"
+msgstr "تجاهل الخطابات رقم<br>"
 
 #: EcclesiaCRM/utils/LabelUtils.php:184
 msgid "File Type"
@@ -6131,7 +6131,7 @@ msgid "Go"
 msgstr "إذهب"
 
 #: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:275
+#: Login.php:274
 msgid "Login"
 msgstr "\"لوجين\""
 
@@ -6196,21 +6196,21 @@ msgid "Hide Age"
 msgstr "اختبئ العمر"
 
 #: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:122
+#: external/templates/registration/family-register.php:120
 #: external/templates/verify/enter-info.php:38 FinancialReports.php:94
 #: GroupReports.php:103
 msgid "Next"
 msgstr "التالي"
 
-#: external/templates/registration/family-register.php:32
+#: external/templates/registration/family-register.php:30
 msgid "Register your family"
 msgstr "سجل عائلتك"
 
-#: external/templates/registration/family-register.php:97
+#: external/templates/registration/family-register.php:95
 msgid "How many people are in your family"
 msgstr "كم عدد الأشخاص في عائلتك"
 
-#: external/templates/registration/family-register.php:116
+#: external/templates/registration/family-register.php:114
 msgid "This will be my primary church."
 msgstr "هذه ستكون كنيستي الرئيسية"
 
@@ -6519,7 +6519,7 @@ msgstr "Unk"
 #: FamilyEditor.php:1294 PersonEditor.php:1801 PledgeEditor.php:795
 #: v2/templates/fundraiser/donatedItemEditor.php:173
 msgid "Save and Add"
-msgstr "احفظ وأضف"
+msgstr "Save and Add"
 
 #: FamilyView.php:209
 msgid "Family View"
@@ -6556,7 +6556,7 @@ msgstr "حذف الصورة"
 
 #: FamilyView.php:309
 msgid " of church<br>"
-msgstr "من الكنيسة <Br>"
+msgstr "من الكنيسة<br>"
 
 #: FamilyView.php:317
 msgid "Latitude/Longitude"
@@ -6568,7 +6568,7 @@ msgstr "رسالة نصية"
 
 #: FamilyView.php:369 PersonView.php:616
 msgid "EcclesiaCRM text message"
-msgstr "رسالة نصية (إيكليسيا)"
+msgstr "رسالة نصية من مركز البحوث المركزيEcclesia"
 
 #: FamilyView.php:434 PersonView.php:743 v2/templates/group/groupview.php:82
 msgid "Remove from Cart"
@@ -6846,7 +6846,7 @@ msgstr "أخلوا كل الصناديق"
 
 #: FinancialReports.php:354
 msgid "Filter by Payment Type:"
-msgstr "ملأ بنوع الدفع"
+msgstr "Filter by payment Type:"
 
 #: FinancialReports.php:360
 msgid "All Methods"
@@ -6866,7 +6866,7 @@ msgstr "إي إي"
 
 #: FinancialReports.php:375
 msgid "Minimun Total Amount:"
-msgstr "(مينيمون تام)"
+msgstr "Minimun Total Amount:"
 
 #: FinancialReports.php:378
 msgid "0 - No Minimum"
@@ -6933,8 +6933,8 @@ msgid ""
 "Voting members must have made<br> a donation within this many years<br> (0 "
 "to not require a donation):"
 msgstr ""
-"ويجب أن يكون الأعضاء الذين صوتوا على وشك تقديم تبرع في غضون هذه السنوات "
-"العديدة <Br> (0 لا يحتاجون إلى تبرع):"
+"ويجب أن يكون الأعضاء الذين أجروا التصويت<br>تبرعا في غضون هذه السنوات "
+"العديدة<br>(صفر لا يحتاجون إلى تبرع):"
 
 #: FinancialReports.php:488
 msgid "Back"
@@ -7447,7 +7447,7 @@ msgstr "قائمة الجمارك"
 
 #: Include/Functions.php:104
 msgid "Thank you for registering your EcclesiaCRM installation."
-msgstr "شكراً لتسجيل منشأة \"إيكليزيا\""
+msgstr "شكراً لتسجيلكِ EcclesiaCRM"
 
 #: Include/Functions.php:108
 msgid "PDFs successfully emailed "
@@ -7482,8 +7482,8 @@ msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
 msgstr ""
-"عندما تضغط على \"الخضوع\"، سيتم نشر تقرير خطأ على جهاز تعقب قضية \"إيكليسياك"
-"\""
+"عندما تضغط على \"الخضوع\"، سيتم نشر تقرير خطأ في Ecclesiaمتعقب قضية \"جيت هوب"
+"\"."
 
 #: Include/Header-function.php:110
 msgid "Please do not include any confidential information."
@@ -7553,7 +7553,7 @@ msgstr "مركز المساعدة"
 
 #: Include/Header.php:173 Include/Header.php:175
 msgid "Help & Manual"
-msgstr "مساعدة ودليل"
+msgstr "Help & Manual"
 
 #: Include/Header.php:178 Include/Header.php:180
 msgid "Report an issue"
@@ -7584,7 +7584,8 @@ msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
 msgstr ""
-"وجميع العناصر التي تعتمد عليها شركة EcclesiaCRM موجودة ومشكلة على هذا الخادم"
+"وجميع العناصر التي تعتمد عليها EcclesiaCRM موجودة ومشكلة على هذا الخادم بشكل "
+"صحيح"
 
 #: IntegrityCheck.php:39
 msgid ""
@@ -7592,7 +7593,7 @@ msgid ""
 "configured on this server.  The application may continue to function, but "
 "may produce unexpected behavior."
 msgstr ""
-"وهناك مكونات معينة تعتمد عليها شركة EcclesiaCRM مفقودة أو غير سليمة على هذا "
+"وهناك مكونات معينة تعتمد عليها EcclesiaCRM مفقودة أو غير سليمة على هذا "
 "الخادم. وقد يستمر الطلب في العمل، ولكنه قد يؤدي إلى سلوك غير متوقع."
 
 #: IntegrityCheck.php:43
@@ -7796,32 +7797,32 @@ msgstr "الكثير من الدلائل الفاشلة حسابك تم إغلا
 msgid "This account has been deactiveted by an administrator."
 msgstr "هذا الحساب تم تعطيله من قبل مدير"
 
-#: Login.php:244 Login.php:313
+#: Login.php:243 Login.php:312
 msgid "Please Login"
 msgstr "أرجوك (لوجين)"
 
-#: Login.php:249 Login.php:320
+#: Login.php:248 Login.php:319
 msgid "Your previous session timed out.  Please login again."
 msgstr "دورتك السابقة قد انتهت رجاءً سجل ثانيةً."
 
-#: Login.php:268 Login.php:354 v2/templates/backup/backup.php:67
+#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "كلمة السر"
 
-#: Login.php:282
+#: Login.php:281
 msgid "I forgot my password"
 msgstr "لقد نسيت كلمة السر"
 
-#: Login.php:294
+#: Login.php:293
 msgid "Register a new Family"
 msgstr "سجل عائلة جديدة"
 
-#: Login.php:363
+#: Login.php:362
 msgid "Enter your password to retrieve your session"
 msgstr "أدخل كلمة السر الخاصة بك لاستعادة جلستك"
 
-#: Login.php:366
+#: Login.php:365
 msgid "Or sign in as a different user"
 msgstr "أو توقع كمستخدم مختلف"
 
@@ -8069,8 +8070,8 @@ msgid ""
 "the Family Name in this field.<br>• In the other case, leave this field "
 "blank."
 msgstr ""
-"يمكن للشخص أن يكون له اسم مختلف كعائلته <br> في هذه الحالة وضع اسم الأسرة في "
-"هذا المجال. <br> في الحالة الأخرى، أترك هذا المجال فارغا."
+"يمكن للشخص أن يكون له اسم مختلف كعائلته • في هذه الحالة وضع اسم الأسرة في "
+"هذا المجال. • في الحالة الأخرى، اترك هذا المجال فارغا."
 
 #: PersonEditor.php:1561 PersonEditor.php:1565 PersonView.php:673
 #: PersonView.php:675
@@ -8651,8 +8652,8 @@ msgid ""
 "This option requires at least version 3.22 of MySQL!  Hit browser back "
 "button to return to EcclesiaCRM."
 msgstr ""
-"هذا الخيار يتطلب على الأقل نسخة 3.22 من ميزك! اضغط زر المتصفح مرة أخرى "
-"للعودة إلى EcclesiacrM."
+"هذا الخيار يتطلب على الأقل نسخة 3.22 من ميزك! اضغط زر المتصفح للعودة إلى "
+"EcclesiaCRM."
 
 #: Reports/EnvelopeReport.php:70
 msgid "Envelope Numbers for all Families"
@@ -8736,14 +8737,7 @@ msgstr "مجموع المشتريات: دولارات الولايات المت�
 
 #: Reports/FundRaiserStatement.php:226
 msgid "-----------------------------------------------------------------------------------------------------------------------------------------------"
-msgstr ""
-"- - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - و - "
-"و - و - و - و - و - و - و - و -"
+msgstr "-----------------------------------------------------------------------------------------------------------------------------------------------"
 
 #: Reports/FundRaiserStatement.php:228
 msgid "Buyer # "
@@ -9221,7 +9215,7 @@ msgstr "لا يوجد إحداثيات"
 
 #: UpgradeCRM.php:15 UpgradeCRM.php:31
 msgid "Upgrade EcclesiaCRM"
-msgstr "ترقية (إيكليزيا)"
+msgstr "ترقية EcclesiaCRM"
 
 #: UpgradeCRM.php:37
 msgid "Step 1: Backup Database"
@@ -9241,7 +9235,7 @@ msgstr "الخطوة الثانية: أحضر أغطية (سيرفر)"
 
 #: UpgradeCRM.php:52
 msgid "Fetch the latest files from the EcclesiaCRM GitHub release page"
-msgstr "أحضر آخر الملفات من صفحة الإفراج عن (إيكليسياك)"
+msgstr "أحضر آخر الملفات من صفحة الإفراج عن (سي آر إم غيت هوب)Ecclesia"
 
 #: UpgradeCRM.php:53
 msgid "Fetch Update Files"
@@ -9727,7 +9721,7 @@ msgstr "قائمة مستخدمي النظام"
 #: v2/templates/backup/backup.php:22
 msgid ""
 "This tool will assist you in manually backing up the EcclesiaCRM database."
-msgstr "هذه الأداة ستساعدك في دعم قاعدة بيانات (إيكليزيا) للـ(إيكليزيا)"
+msgstr "هذه الأداة ستساعدك في دعم قاعدة بيانات (سي آر إم)Ecclesia"
 
 #: v2/templates/backup/backup.php:26
 msgid ""
@@ -9751,8 +9745,8 @@ msgid ""
 "database, you should encrypt the backup data if it will be stored somewhere "
 "potentially accessible to others"
 msgstr ""
-"إذا كنت قلقاً بشأن سرية البيانات المخزنة في قاعدة بيانات (إيكليسيا) يجب أن "
-"تشفر البيانات الإحتياطية إذا كانت ستخزن في مكان ما يمكن الوصول إليه للآخرين"
+"إذا كنت قلقاً بشأن سرية البيانات المخزنة في قاعدة بيانات CRMEcclesia، فيجب أن "
+"تشفير البيانات الاحتياطية إذا كانت ستخزن في مكان ما يمكن الوصول إليه للآخرين"
 
 #: v2/templates/backup/backup.php:29
 msgid ""
@@ -9822,8 +9816,8 @@ msgid ""
 "If you upload a backup from ChurchInfo, or a previous version of "
 "EcclesiaCRM, it will be automatically upgraded to the current database schema"
 msgstr ""
-"إذا قمت بتحميل الدعم من شركة تشيرش إنفو أو نسخة سابقة من EcclesiaCRM، فإنه "
-"سوف يتم تحديثها تلقائيا إلى مخطط قاعدة البيانات الحالية"
+"إذا قمت بتحميل دعم من شركة تشيرش إنفو أو نسخة سابقة من EcclesiaCRM، سيتم "
+"تحديثها تلقائياً إلى مخطط قاعدة البيانات الحالية"
 
 #: v2/templates/backup/restore.php:27
 msgid "Maximum upload size"
@@ -10172,7 +10166,7 @@ msgstr "أنت أولاً من صنع محتوى تحت لتحديد موعد ح
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
-msgstr "للتصديق، حفظ حملتك مع <b> زر أكثر."
+msgstr "للتأكد من صحة حملتك الانتخابية مع زر إنقاذ</b>"
 
 #: v2/templates/email/mailchimp/campaign.php:146
 msgid "Content"
@@ -10275,8 +10269,8 @@ msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
-"لإضافة جميع مستخدمي الرسائل الإخبارية، النوع <b> في ميدان البحث، لإضافة جميع "
-"أعضاء لجنة حقوق الطفل، واستخدام <b><b>"
+"ولإضافة جميع مستخدمي الرسائل الإخبارية، النوع<b>من الرسالة الإخبارية</b>في "
+"مجال البحث، لإضافة جميع أعضاء لجنة حقوق الطفل، استخدموا 4568*</b>"
 
 #: v2/templates/email/mailchimp/managelist.php:79
 msgid "Increase this value is unstable with MailChimp API."
@@ -10436,11 +10430,11 @@ msgstr "موقع إدارة شؤون الإعلام"
 
 #: v2/templates/gdpr/dashboard.php:34
 msgid "GDPR DPO Signer Email"
-msgstr "بريد إلكتروني GDPR"
+msgstr "GDPR Signer Email"
 
 #: v2/templates/gdpr/dashboard.php:46
 msgid "GDPR Person status"
-msgstr "GDPR حالة الشخص"
+msgstr "GDPR Person status"
 
 #: v2/templates/gdpr/gdprdatastructure.php:26
 msgid "To validate each text fields, use the tab or enter key !!!"
@@ -10946,7 +10940,7 @@ msgid ""
 "Service Standard Address Format.<br>"
 msgstr ""
 "تقرير يولد يقارن جميع عناوين الأسرة الأمريكية مع نموذج العنوان الموحد لخدمة "
-"البريد في الولايات المتحدة. <br>"
+"البريد في الولايات المتحدة.<br>"
 
 #: v2/templates/people/peopledashboard.php:227
 msgid "Self Update"
@@ -11267,7 +11261,7 @@ msgstr "اختر مجموعة أو أكثر"
 
 #: v2/templates/sundayschool/sundayschoolreports.php:51
 msgid "Multiple groups will have a Page Break between Groups<br>"
-msgstr "سيكون لدى مجموعات متعددة عطلة صفحة بين المجموعات <br>"
+msgstr "مجموعات متعددة ستكون لديها انفصال صفحة بين المجموعات<br>"
 
 #: v2/templates/sundayschool/sundayschoolreports.php:53
 msgid "List all Roles (unchecked will list Teacher/Student roles only)"
@@ -11841,7 +11835,7 @@ msgstr "صينية تايوان"
 
 #: settings-locales.php:6
 msgid "Danish - Denmark"
-msgstr ""
+msgstr "الدنمارك"
 
 #: settings-locales.php:7
 msgid "Dutch - Netherlands"
@@ -11864,9 +11858,8 @@ msgid "English - United States"
 msgstr "الإنجليزية - الولايات المتحدة"
 
 #: settings-locales.php:12
-#, fuzzy
 msgid "Finnish - Finland"
-msgstr "-إنجليزي"
+msgstr "فنلندا"
 
 #: settings-locales.php:13
 msgid "French - Belgium"
@@ -11909,38 +11902,42 @@ msgid "Japan"
 msgstr "اليابان"
 
 #: settings-locales.php:23
-msgid "Polish"
-msgstr "البولندية"
+msgid "Norwegian - Norvege"
+msgstr "النرويجي نورفيج"
 
 #: settings-locales.php:24
+msgid "Polish - Poland"
+msgstr "بولندي بولندا"
+
+#: settings-locales.php:25
 msgid "Portuguese - Brazil"
 msgstr "البرتغالية البرازيل"
 
-#: settings-locales.php:25
+#: settings-locales.php:26
 msgid "Portuguese - Portugal"
 msgstr "البرتغال"
 
-#: settings-locales.php:26
+#: settings-locales.php:27
 msgid "Romanian - Romania"
 msgstr "رومانيا"
 
-#: settings-locales.php:27
+#: settings-locales.php:28
 msgid "Russian"
 msgstr "روسيا"
 
-#: settings-locales.php:28
+#: settings-locales.php:29
 msgid "Spanish - Spain"
 msgstr "إسبانية - إسبانية -"
 
-#: settings-locales.php:29
+#: settings-locales.php:30
 msgid "Sami (Northern) (Sweden)"
 msgstr "سامي (الشمال) (السويد)"
 
-#: settings-locales.php:30
+#: settings-locales.php:31
 msgid "Thai"
 msgstr "تايلند"
 
-#: settings-locales.php:31
+#: settings-locales.php:32
 msgid "Vietnamese"
 msgstr "فييتنامية"
 
@@ -12173,6 +12170,9 @@ msgstr "صغير"
 
 msgid "Large"
 msgstr "كبير"
+
+#~ msgid "Polish"
+#~ msgstr "البولندية"
 
 #~ msgid "miles"
 #~ msgstr "مايلز"
