@@ -108,11 +108,9 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                         <hr/>
                     </div>
                     <div class="form-group has-feedback">
-                        <div class="icheck-primary d-inline">
-                            <input type="checkbox" name="familyPrimaryChurch" checked>&nbsp;
-                            <label>
-                                <?= _('This will be my primary church.') ?>
-                            </label>
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input custom-control-input-danger" type="checkbox" name="familyPrimaryChurch" id="familyPrimaryChurch" checked>&nbsp;
+                            <label for="familyPrimaryChurch" class="custom-control-label"><?= _('This will be my primary church.') ?></label>
                         </div>
                     </div>
                     <div class="row">
