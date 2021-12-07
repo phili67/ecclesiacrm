@@ -349,7 +349,7 @@ use EcclesiaCRM\Theme;
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/dataTables.responsive.min.js"></script>
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/rowGroup.bootstrap4.min.js"></script>
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.bootstrap4.min.js"></script>
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/dataTables.buttons.min.js"></script>
 <script
