@@ -132,9 +132,11 @@ $user = SessionUser::getUser();
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/jszip.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/dataTables.bootstrap4.min.js"></script>
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/dataTables.responsive.min.js"></script>
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/dataTables.responsive.min.js"></script>
 <script
-    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/rowGroup.bootstrap4.min.js"></script>
+    src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/RowGroup/rowGroup.bootstrap4.min.js"></script>
+
+sftp://root:@192.168.151.205/%2Fvar/www/CRM/src/
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/dataTables.buttons.min.js"></script>
 <script
