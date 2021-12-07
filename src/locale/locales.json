@@ -4,7 +4,7 @@
         "locale": "sq_AL",
         "languageCode": "sq",
         "countryCode": "AL",
-        "dataTables": "Albanian",
+        "dataTables": "sq",
         "fullCalendar": false,
         "datePicker": true,
         "select2": false
@@ -14,7 +14,7 @@
         "locale": "ar_EG",
         "languageCode": "ar",
         "countryCode": "EG",
-        "dataTables": "Arabic",
+        "dataTables": "ar",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -24,7 +24,7 @@
         "locale": "zh_CN",
         "languageCode": "zh-CN",
         "countryCode": "",
-        "dataTables": "Chinese",
+        "dataTables": "zh",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -34,7 +34,7 @@
         "locale": "zh_TW",
         "languageCode": "zh-TW",
         "countryCode": "TW",
-        "dataTables": "Chinese-traditional",
+        "dataTables": "zh_Hant",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -44,7 +44,7 @@
         "locale": "da_DK",
         "languageCode": "da",
         "countryCode": "DA",
-        "dataTables": "Danish",
+        "dataTables": "da",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -54,7 +54,7 @@
         "locale": "nl_NL",
         "languageCode": "nl",
         "countryCode": "NL",
-        "dataTables": "Dutch",
+        "dataTables": "nl_nl",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -66,7 +66,7 @@
         "countryCode": "AU",
         "dataTables": "English",
         "fullCalendar": true,
-        "fullCalendarLocale": "en-au",
+        "fullCalendarLocale": "en",
         "datePicker": false,
         "select2": false
     },
@@ -77,7 +77,7 @@
         "countryCode": "CA",
         "dataTables": "English",
         "fullCalendar": true,
-        "fullCalendarLocale": "en-ca",
+        "fullCalendarLocale": "en",
         "datePicker": false,
         "select2": false
     },
@@ -88,7 +88,7 @@
         "countryCode": "GB",
         "dataTables": "English",
         "fullCalendar": true,
-        "fullCalendarLocale": "en-gb",
+        "fullCalendarLocale": "uk",
         "datePicker": false,
         "select2": false
     },
@@ -97,7 +97,7 @@
         "locale": "en_US",
         "languageCode": "en",
         "countryCode": "US",
-        "dataTables": "English",
+        "dataTables": "en",
         "fullCalendar": false,
         "datePicker": false,
         "select2": false
@@ -107,7 +107,7 @@
         "locale": "fi_FI",
         "languageCode": "fi",
         "countryCode": "FI",
-        "dataTables": "Finnish",
+        "dataTables": "fi",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -117,7 +117,7 @@
         "locale": "fr_BE",
         "languageCode": "fr",
         "countryCode": "BE",
-        "dataTables": "French",
+        "dataTables": "fr_fr",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -127,7 +127,7 @@
         "locale": "fr_CA",
         "languageCode": "fr",
         "countryCode": "CA",
-        "dataTables": "French",
+        "dataTables": "fr_fr",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -137,7 +137,7 @@
         "locale": "fr_FR",
         "languageCode": "fr",
         "countryCode": "FR",
-        "dataTables": "French",
+        "dataTables": "fr_fr",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -147,7 +147,7 @@
         "locale": "fr_CH",
         "languageCode": "fr",
         "countryCode": "CH",
-        "dataTables": "French",
+        "dataTables": "fr_fr",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -157,7 +157,7 @@
         "locale": "el_GR",
         "languageCode": "el",
         "countryCode": "GR",
-        "dataTables": "Greek",
+        "dataTables": "el",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -167,7 +167,7 @@
         "locale": "de_DE",
         "languageCode": "de",
         "countryCode": "DE",
-        "dataTables": "German",
+        "dataTables": "de_de",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -177,7 +177,7 @@
         "locale": "hu_HU",
         "languageCode": "hu",
         "countryCode": "HU",
-        "dataTables": "Hungarian",
+        "dataTables": "hu",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -187,7 +187,7 @@
         "locale": "id_ID",
         "languageCode": "id",
         "countryCode": "ID",
-        "dataTables": "Indonesian",
+        "dataTables": "id",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -197,7 +197,7 @@
         "locale": "it_IT",
         "languageCode": "it",
         "countryCode": "IT",
-        "dataTables": "Italian",
+        "dataTables": "it_it",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -207,7 +207,7 @@
         "locale": "ja_JP",
         "languageCode": "ja",
         "countryCode": "JA",
-        "dataTables": "Japan",
+        "dataTables": "ja",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -217,7 +217,7 @@
         "locale": "nb_NO",
         "languageCode": "nb",
         "countryCode": "NB",
-        "dataTables": "Norwegian",
+        "dataTables": "no_nb",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -227,7 +227,7 @@
         "locale": "pl_PL",
         "languageCode": "pl",
         "countryCode": "PL",
-        "dataTables": "Polish",
+        "dataTables": "pl",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -237,7 +237,7 @@
         "locale": "pt_BR",
         "languageCode": "pt-BR",
         "countryCode": "BR",
-        "dataTables": "Portuguese",
+        "dataTables": "pt_br",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -247,7 +247,7 @@
         "locale": "pt_PT",
         "languageCode": "pt-PT",
         "countryCode": "PT",
-        "dataTables": "Portuguese",
+        "dataTables": "pt_pt",
         "fullCalendar": true,
         "fullCalendarLocale": "pt",
         "datePicker": false,
@@ -258,7 +258,7 @@
         "locale": "ro_RO",
         "languageCode": "ro",
         "countryCode": "RO",
-        "dataTables": "Romanian",
+        "dataTables": "ro",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -268,7 +268,7 @@
         "locale": "ru_RU",
         "languageCode": "ru",
         "countryCode": "RU",
-        "dataTables": "Russian",
+        "dataTables": "ru",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -278,7 +278,7 @@
         "locale": "es_ES",
         "languageCode": "es",
         "countryCode": "ES",
-        "dataTables": "Spanish",
+        "dataTables": "es_es",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -288,7 +288,7 @@
         "locale": "sv_SE",
         "languageCode": "sv",
         "countryCode": "SE",
-        "dataTables": "Swedish",
+        "dataTables": "sv_se",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -298,7 +298,7 @@
         "locale": "th_TH",
         "languageCode": "th",
         "countryCode": "TH",
-        "dataTables": "Thai",
+        "dataTables": "th",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
@@ -308,7 +308,7 @@
         "locale": "vi_VN",
         "languageCode": "vi",
         "countryCode": "VN",
-        "dataTables": "Vietnamese",
+        "dataTables": "vi",
         "fullCalendar": true,
         "datePicker": true,
         "select2": true
