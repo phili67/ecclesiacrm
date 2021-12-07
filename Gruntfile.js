@@ -410,7 +410,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd:'node_modules/datatables.net-plugins/i18n/',
-                        src: ['*.lang'],
+                        src: ['*.json'],
                         dest: 'src/locale/datatables/'
                     },
                     {
