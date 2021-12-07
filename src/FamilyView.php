@@ -524,19 +524,6 @@ require 'Include/Header.php';
                                 class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
                         <?php
                     }
-
-                    if (!$buttons) {
-                        ?>
-                        <div class="card  card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title"><?= _("Informations") ?></h3>
-                            </div>
-                            <div class="card-body">
-                                <?=  _("Private Data") ?>
-                            </div>
-                        </div>
-                        <?php
-                    }
                     ?>
                 </div>
             </div>
@@ -1065,6 +1052,17 @@ require 'Include/Header.php';
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="card  card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"><?= _("Informations") ?></h3>
+                    </div>
+                    <div class="card-body">
+                        <?=  _("Private Data") ?>
                     </div>
                 </div>
                 <?php
