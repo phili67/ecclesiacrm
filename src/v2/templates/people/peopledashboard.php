@@ -72,34 +72,50 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-gradient-lime">
             <div class="inner">
-                <h3 id="familyCountDashboard">
+                <h3 id="singleCNT">
                     0
                 </h3>
-
                 <p>
-                    <?= _('Single Persons') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span id="realFamilyCNT">0</span>)
+                    <?= _('Single Persons') ?>
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i class="fa fa-child"></i>
+                <i class="fa fa-male"></i>
             </div>
             <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
-
+            </div>
+        </div>
+    </div><!-- ./col -->
+    <div class="col-lg-2 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-gradient-blue">
+            <div class="inner">
+                <h3 id="realFamilyCNT">
+                    0
+                </h3>
+                <p>
+                    <?= _("Families") ?>
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i
+                    class="fa fa-child"></i>
+            </div>
+            <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    </div><!-- ./col -->
+    <div class="col-lg-2 col-md-6 col-sm-6">
         <!-- small box -->
         <div class="small-box bg-purple">
             <div class="inner">
@@ -121,7 +137,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <!-- ./col -->
     <?php if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) { ?>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-2 col-md-6 col-sm-6">
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
@@ -143,7 +159,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     <?php } ?>
     <!-- ./col -->
-    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="col-lg-2 col-md-6 col-sm-6">
         <!-- small box -->
         <div class="small-box bg-maroon">
             <div class="inner">
