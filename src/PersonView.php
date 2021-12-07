@@ -693,7 +693,12 @@ if (!empty($person->getDateDeactivated())) {
                                 <?php
                             }
 
-                            } // end of $can_see_privatedata
+                            } else {
+                                ?>
+                                <?=  _("Private Data") ?>
+                            <?php
+                            }// end of $can_see_privatedata
+
                             ?>
 
                         </ul>
@@ -867,7 +872,14 @@ if (!empty($person->getDateDeactivated())) {
 
                     if (!$buttons) {
                         ?>
-                        <?= _("Private Data") ?>
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title"><?= _("Informations") ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <?=  _("Private Data") ?>
+                            </div>
+                        </div>
                         <?php
                     }
                     ?>
