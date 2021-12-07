@@ -22,16 +22,36 @@ require $sRootDocument . '/Include/Header.php';
 
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-gradient-lime">
             <div class="inner">
-                <h3 id="familyCountDashboard">
+                <h3 id="singleCNT">
                     0
                 </h3>
                 <p>
-                    <?= _('Single Persons') ?> (<span id="singleCNT">0</span>) <?= _("Families") ?> (<span
-                        id="realFamilyCNT">0</span>)
+                    <?= _('Single Persons') ?>
+                </p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-male"></i>
+            </div>
+            <div class="small-box-footer">
+                <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
+                    <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div><!-- ./col -->
+    <div class="col-lg-2 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-gradient-blue">
+            <div class="inner">
+                <h3 id="realFamilyCNT">
+                    0
+                </h3>
+                <p>
+                    <?= _("Families") ?>
                 </p>
             </div>
             <div class="icon">
@@ -39,17 +59,13 @@ require $sRootDocument . '/Include/Header.php';
                     class="fa fa-child"></i>
             </div>
             <div class="small-box-footer">
-                <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
-                </a>
-                &nbsp;
                 <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
                     <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-purple">
             <div class="inner">
@@ -71,7 +87,7 @@ require $sRootDocument . '/Include/Header.php';
     <?php
     if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
         ?>
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
@@ -93,7 +109,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
     }
     ?>
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-2 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-maroon">
             <div class="inner">
@@ -534,104 +550,122 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 }  //END IF block for Finance permissions to include HTML for Deposit Chart
 ?>
 
-<div class="card card-gray card-tabs">
-    <div class="card-header p-0 pt-1 border-bottom-0">
-        <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="custom-tabs-latest-families-tab" data-toggle="pill"
-                   href="#custom-tabs-latest-families" role="tab" aria-controls="custom-tabs-latest-families"
-                   aria-selected="true">
-                    <i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i
-                        class="fa fa-plus"></i> <?= _('Latest Families') ?>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-updated-families-tab" data-toggle="pill"
-                   href="#custom-tabs-updated-families" role="tab" aria-controls="custom-tabs-updated-families"
-                   aria-selected="false">
-                    <i class="fa fa-female"></i><i class="fa fa-child"></i><i
-                        class="fa fa-check"></i> <?= _('Updated Families') ?>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-latest-members-tab" data-toggle="pill"
-                   href="#custom-tabs-latest-members" role="tab" aria-controls="custom-tabs-latest-members"
-                   aria-selected="false">
-                    <i class="fa fa-user-plus"></i> <?= _('Latest Members') ?>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill"
-                   href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings"
-                   aria-selected="false">
-                    <i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="card-body">
-        <div class="tab-content" id="custom-tabs-two-tabContent">
-            <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
-                 aria-labelledby="custom-tabs-latest-families-tab">
-                <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="latestFamiliesDashboardItem"
-                       style="width:100%">
-                    <thead>
-                    <tr>
-                        <th data-field="name"><?= _('Family Name') ?></th>
-                        <th data-field="address"><?= _('Address') ?></th>
-                        <th data-field="city"><?= _('Created') ?></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-gray card-tabs">
+            <div class="card-header p-0 pt-1 border-bottom-0">
+                <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="custom-tabs-latest-families-tab" data-toggle="pill"
+                           href="#custom-tabs-latest-families" role="tab" aria-controls="custom-tabs-latest-families"
+                           aria-selected="true">
+                            <i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i
+                                class="fa fa-plus"></i> <?= _('Latest Families') ?>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-tabs-updated-families-tab" data-toggle="pill"
+                           href="#custom-tabs-updated-families" role="tab" aria-controls="custom-tabs-updated-families"
+                           aria-selected="false">
+                            <i class="fa fa-female"></i><i class="fa fa-child"></i><i
+                                class="fa fa-check"></i> <?= _('Updated Families') ?>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="tab-pane fade" id="custom-tabs-updated-families" role="tabpanel"
-                 aria-labelledby="custom-tabs-updated-families-tab">
-                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="updatedFamiliesDashboardItem"
-                       style="width:100%"><thead>
-                    <tr>
-                        <th data-field="name"><?= _('Family Name') ?></th>
-                        <th data-field="address"><?= _('Address') ?></th>
-                        <th data-field="city"><?= _('Updated') ?></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-two-tabContent">
+                    <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
+                         aria-labelledby="custom-tabs-latest-families-tab">
+                        <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="latestFamiliesDashboardItem"
+                               style="width:100%">
+                            <thead>
+                            <tr>
+                                <th data-field="name"><?= _('Family Name') ?></th>
+                                <th data-field="address"><?= _('Address') ?></th>
+                                <th data-field="city"><?= _('Created') ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="custom-tabs-updated-families" role="tabpanel"
+                         aria-labelledby="custom-tabs-updated-families-tab">
+                        <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="updatedFamiliesDashboardItem"
+                               style="width:100%"><thead>
+                            <tr>
+                                <th data-field="name"><?= _('Family Name') ?></th>
+                                <th data-field="address"><?= _('Address') ?></th>
+                                <th data-field="city"><?= _('Updated') ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="custom-tabs-latest-members" role="tabpanel"
-                 aria-labelledby="custom-tabs-latest-members-tab">
-                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="latestPersonsDashboardItem"
-                       style="width:100%">
-                    <thead>
-                    <tr>
-                        <th data-field="lastname"><?= _('Name') ?></th>
-                        <th data-field="address"><?= _('Address') ?></th>
-                        <th data-field="city"><?= _('Updated') ?></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel"
-                 aria-labelledby="custom-tabs-two-settings-tab">
-                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="updatedPersonsDashboardItem"
-                       style="width:100%">
-                    <thead>
-                    <tr>
-                        <th data-field="lastname"><?= _('Name') ?></th>
-                        <th data-field="address"><?= _('Address') ?></th>
-                        <th data-field="city"><?= _('Updated') ?></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                </table>
-            </div>
+            <!-- /.card -->
         </div>
     </div>
-    <!-- /.card -->
+
+    <div class="col-md-6">
+        <div class="card card-gray card-tabs">
+            <div class="card-header p-0 pt-1 border-bottom-0">
+                <ul class="nav nav-tabs" id="custom-tabs-two-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="custom-tabs-latest-members-tab" data-toggle="pill"
+                           href="#custom-tabs-latest-members" role="tab" aria-controls="custom-tabs-latest-members"
+                           aria-selected="false">
+                            <i class="fa fa-user-plus"></i> <?= _('Latest Members') ?>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill"
+                           href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings"
+                           aria-selected="false">
+                            <i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="custom-tabs-two-tabContent">
+                    <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
+                         aria-labelledby="custom-tabs-latest-members-tab">
+                        <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="latestPersonsDashboardItem"
+                               style="width:100%">
+                            <thead>
+                            <tr>
+                                <th data-field="lastname"><?= _('Name') ?></th>
+                                <th data-field="address"><?= _('Address') ?></th>
+                                <th data-field="city"><?= _('Updated') ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel"
+                         aria-labelledby="custom-tabs-two-settings-tab">
+                        <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline" id="updatedPersonsDashboardItem"
+                               style="width:100%">
+                            <thead>
+                            <tr>
+                                <th data-field="lastname"><?= _('Name') ?></th>
+                                <th data-field="address"><?= _('Address') ?></th>
+                                <th data-field="city"><?= _('Updated') ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
 </div>
 
 <!-- this page specific inline scripts -->
