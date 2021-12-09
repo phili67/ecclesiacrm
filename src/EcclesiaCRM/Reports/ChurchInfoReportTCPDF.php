@@ -77,14 +77,31 @@ class ChurchInfoReportTCPDF extends TCPDF
         $lang = SystemConfig::getValue('sLanguage');
         if ($lang == 'ja_JP') {
             $family = 'cid0jp';
+            $size = round($size*0.8);
         } else if ($lang == 'ru_RU') {
             $family = 'cid0kr';
+            $size = round($size*0.6);
         } else if ($lang == 'zh_CN') {
             $family = 'cid0ct';
         } else if ($lang == 'el_GR') {
             $family = 'courier';
         } else if ($lang == 'ar_EG') {
             $family = 'aealarabiya';
+        } else if ($lang == 'pl_PL') {
+            $family = 'dejavusans';
+            $size = round($size*0.8);
+        } else if ($lang == 'ro_RO') {
+            $family = 'dejavusans';
+            $size = round($size*0.6);
+        } else if ($lang == 'vi_VN') {
+            $family = 'dejavusans';
+            $size = round($size*0.7);
+        } else if ($lang == 'th_TH') {
+            $family = 'freeserif';
+            $size = round($size*0.9);
+        } else if ($lang == 'sq_AL') {
+            $family = 'dejavusans';
+            $size = round($size*0.8);
         }
         parent::setFont($family, $style, $size, $fontfile, $subset, $out);
     }
