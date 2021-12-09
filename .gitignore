@@ -87,3 +87,6 @@ upload-71-plateform.sh
 upload-github-release.sh
 upload-imathgeo.com
 
+# ignore the body_archive.txt
+body_archive.txt
+
