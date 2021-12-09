@@ -630,7 +630,7 @@ module.exports = function (grunt) {
     grunt.registerTask('updateFromPOeditor', 'Description of the task', function (target) {
         grunt.config('clean', {pofiles: ["src/locale/*/**/*.po", "src/locale/*/**/*.mo", "locale/JSONKeys/*.json"]});
         grunt.task.run(['clean:pofiles']);
-        grunt.loadNpmTasks('grunt-poeditor-ab');
+        //grunt.loadNpmTasks('grunt-poeditor-ab');// grunt-poeditor-ab
         grunt.task.run(['poeditor']);
     });
 
@@ -747,6 +747,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-curl');
-    grunt.loadNpmTasks('grunt-poeditor-ab');
+    //grunt.loadNpmTasks('grunt-poeditor-ab');
 }
 
