@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "true"
+msgstr "Đúng vậy."
+
+msgid "false"
+msgstr "Sai rồi."
+
+msgid "pm"
+msgstr "PM"
+
+msgid "am"
+msgstr "Phải."
+
+msgid "Teachers"
+msgstr "Phu tử"
+
+msgid "Students"
+msgstr "Các em"
+
+msgid "Teacher"
+msgstr "Phu tử"
+
+msgid "Student"
+msgstr "Học sinh."
+
+msgid "Parents"
+msgstr "Phụ huynh"
+
+msgid "Kids"
+msgstr "Các con"
+
+msgid "create"
+msgstr "Sáng tạo"
+
+msgid "edit"
+msgstr "Edit"
+
+msgid "photo"
+msgstr "Chụp ảnh đi."
+
+msgid "group"
+msgstr "Nhóm"
+
+msgid "Group"
+msgstr "Tập đoàn"
+
+msgid "note"
+msgstr "Chú ý"
+
+msgid "You have to set a Title for your event"
+msgstr "Anh phải đặt một tờ báo cho sự kiện của anh"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Sự kiện này không thể thay đổi được! !"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Để thêm một sự kiện, bạn phải tạo ra một cuốn lịch hoặc "
+"kích hoạt một cái trước."
+
+msgid "Event added"
+msgstr "Sự việc thêm vào"
+
+msgid "Event was added successfully."
+msgstr "Sự việc đã được thêm vào thành công."
+
+msgid "Electronic Transaction Details"
+msgstr "Chi tiết dịch chuyển điện"
+
+msgid "Daily"
+msgstr "Daily"
+
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+msgid "Quarterly"
+msgstr "1/4/3"
+
+msgid "Once"
+msgstr "Một lần."
+
+msgid "Other"
+msgstr "Người kia"
+
+msgid "CREDITCARD"
+msgstr "CREDITCARD"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "Thẻ tín dụng"
+
+msgid "BankDraft"
+msgstr "Pháo sản."
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's any "
+"activated members in this families:"
+msgstr ""
+"Một số gia đình không có bất kỳ vai trò \"người đứng đầu "
+"của gia đình\" được định nghĩa hoặc có bất kỳ thành viên "
+"tích cực trong gia đình này:"
+
+msgid "send"
+msgstr "Gửi"
+
+msgid "save"
+msgstr "Cứu"
+
+msgid "subscribed"
+msgstr "Đăng ký"
+
+msgid "unsubscribed"
+msgstr "Không được phép vào."
+
+msgid "sent"
+msgstr "Gửi"
+
+msgid "schedule"
+msgstr "Lịch trình"
+
+msgid "paused"
+msgstr "Dừng lại"
+
+msgid "cleaned"
+msgstr "Lau sạch"
+
+msgid "pending"
+msgstr "Đang chờ"
+
+msgid "Invalid date"
+msgstr "Ngày tàn"

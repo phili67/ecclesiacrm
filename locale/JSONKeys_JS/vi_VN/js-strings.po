@@ -1,0 +1,2300 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-12-08T20:57:09.828Z\n"
+"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr "Bạn có chắc là bạn muốn xóa hình ảnh này không?"
+
+msgid "Press CTRL + C to copy all group members' phone numbers"
+msgstr ""
+"Nhấn CTRL + C để sao chép tất cả các số điện thoại của các thành viên nhóm"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "Address"
+msgstr "Địa chỉ"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Remove"
+msgstr "Tránh ra"
+
+msgid "Classification"
+msgstr "Tuyệt mật"
+
+msgid "Family Role"
+msgstr "Gia đình Role"
+
+msgid "You have no more items in your cart."
+msgstr "Anh không còn đồ trong xe nữa."
+
+msgid "Error making API Call to"
+msgstr "Lỗi đã kêu API"
+
+msgid "Error text"
+msgstr "Tin nhắn lỗi"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "ERROR"
+
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr ""
+"Tất cả các danh sách đã được nạp vào năm 1998<b>CRM</b>.<br><b>Nếu bạn muốn "
+"quản lý họ, hãy nhấp vào thông báo này!</b>"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Có một vấn đề lấy lại được vật yêu cầu"
+
+msgid "None"
+msgstr "Không có"
+
+msgid "Select the method to add to a group"
+msgstr "Chọn phương pháp để thêm vào một nhóm"
+
+msgid "Select an existing Group"
+msgstr "Chọn một nhóm đang tồn tại"
+
+msgid "or Create a new Group from the Cart"
+msgstr "hoặc tạo ra một nhóm mới từ Cart"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Chọn nhóm mà anh muốn thêm xe đẩy"
+
+msgid "Select Group"
+msgstr "Lựa chọn tập đoàn"
+
+msgid "Select Role"
+msgstr "Chọn Role đi"
+
+msgid "Group Name"
+msgstr "Tên nhóm"
+
+msgid "Default Name Group"
+msgstr "Default name Group"
+
+msgid "Add Cart to Group"
+msgstr "Thêm Cart vào nhóm"
+
+msgid "Save"
+msgstr "Cứu"
+
+msgid "Error"
+msgstr "Lỗi."
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Bạn phải chọn một nhóm và vai trò nhóm nếu bạn muốn"
+
+msgid "You have to set a Group Name"
+msgstr "Anh phải lập ra tên nhóm"
+
+msgid "Close"
+msgstr "Gần đúng."
+
+msgid "Do you really want to deactivate the persons?"
+msgstr "Anh có thực sự muốn vô hiệu hóa những người này không?"
+
+msgid "This action can be undone !!!!"
+msgstr "Hành động này có thể bị hủy bỏ ! !!!"
+
+msgid "No"
+msgstr "Không."
+
+msgid "Yes : if you're sure"
+msgstr "Vâng : Nếu anh chắc chắn"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Anh có thật sự muốn xóa những người từ CRM không?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Hành động này không thể bị phá huỷ ! !!!"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Chọn sự kiện mà anh muốn thêm cái xe đẩy"
+
+msgid "Create First A New Event"
+msgstr "Tạo ra một sự kiện mới"
+
+msgid "Cancel"
+msgstr "Hủy bỏ"
+
+msgid "Add to Event"
+msgstr "Thêm vào Event"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Bạn có thể thêm nội dung của xe đẩy vào sự kiện được chọn dưới<br>- hoặc -"
+"<br>tạo ra đầu tiên một sự kiện và thêm vào sau đó."
+
+msgid "Register"
+msgstr "Đăng ký"
+
+msgid "Register your software to EcclesiaCRM team."
+msgstr "Đăng ký phần mềm của anh cho đội CRMEcclesia."
+
+msgid "Simply click this"
+msgstr "Chỉ cần nhấp vào thôi"
+
+msgid "to register your software"
+msgstr "để đăng ký phần mềm của anh"
+
+msgid "New Release"
+msgstr "Phóng sinh mới"
+
+msgid "Installed version"
+msgstr "Phiên bản cài đặt"
+
+msgid "New One"
+msgstr "Người mới"
+
+msgid "To upgrade simply click this Notification"
+msgstr "Để nâng cấp đơn giản chỉ cần nhấp vào thông báo này"
+
+msgid "View Cart"
+msgstr "View Cart"
+
+msgid "Empty Cart"
+msgstr "Không có xe"
+
+msgid "Empty Cart to Group"
+msgstr "Ma túy rỗng với tập đoàn"
+
+msgid "Empty Cart to Family"
+msgstr "Không có xe với gia đình"
+
+msgid "Empty Cart to Event"
+msgstr "Chiếc xe trống rỗng gọi Event"
+
+msgid "Map Cart"
+msgstr "Map Cart"
+
+msgid "Deactivate Persons From Cart"
+msgstr "Tắt nhân viên ở Cart"
+
+msgid "Delete Persons From the CRM"
+msgstr "Xóa nhân sự khỏi CRM"
+
+msgid "View all"
+msgstr "Nhìn tất cả"
+
+msgid "Your Cart is Empty"
+msgstr "Xe của anh trống rỗng"
+
+msgid "If you need to make changes to registration data, go to "
+msgstr "Nếu bạn cần thay đổi dữ liệu đăng ký, hãy đi tới"
+
+msgid "Admin->Edit General Settings"
+msgstr "Admin-eGeneral Settings"
+
+msgid ""
+"Please register your copy of EcclesiaCRM by checking over this information "
+"and pressing the Send button."
+msgstr ""
+"Xin hãy đăng ký bản copy EcclesiaCRM bằng cách kiểm tra thông tin này và "
+"nhấn nút gửi."
+
+msgid "This information is used only to track the usage of this software."
+msgstr "Thông tin này được sử dụng để theo dõi sự sử dụng của phần mềm này."
+
+msgid "Church Name"
+msgstr "Tên nhà thờ"
+
+msgid "Version"
+msgstr "Phiên tòa"
+
+msgid "City"
+msgstr "♪ City ♪"
+
+msgid "State"
+msgstr "Bang"
+
+msgid "Zip"
+msgstr "Zip"
+
+msgid "Country"
+msgstr "Quốc gia"
+
+msgid "Church Email"
+msgstr "Giáo hội Email"
+
+msgid "Base URL"
+msgstr "Căn cứ URL"
+
+msgid "Message"
+msgstr "Tin nhắn"
+
+msgid "Software Registration"
+msgstr "Đăng ký phần mềm"
+
+msgid "Send"
+msgstr "Gửi"
+
+msgid "Your software is now registered. Thank you !"
+msgstr "Phần mềm của anh đã được đăng ký. Cảm ơn!"
+
+msgid "OK"
+msgstr "Được rồi."
+
+msgid "Please select target group for members"
+msgstr "Hãy chọn nhóm mục tiêu cho các thành viên"
+
+msgid "Please select target Role for members"
+msgstr "Xin hãy chọn Role cho các thành viên"
+
+msgid "GroupID required for role selection prompt"
+msgstr "Tập đoàn yêu cầu đúng giờ chọn lọc vai trò"
+
+msgid "Select Group and Role"
+msgstr "Chọn tập đoàn và Role"
+
+msgid "Add A Group Name"
+msgstr "Thêm một tên tập thể"
+
+msgid "Yes"
+msgstr "Vâng."
+
+msgid "Calendar Event"
+msgstr "Lịch trình"
+
+msgid "Attendees Checked In"
+msgstr "Attendes đã đăng ký"
+
+msgid "More info"
+msgstr "Thêm thông tin"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"Cảnh báo! Đừng chọn lựa chọn này nếu bạn có kế hoạch thêm vào một cơ sở dữ "
+"liệu có sẵn.<br>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Chỉ dùng nếu không thỏa mãn với nhập khẩu ban đầu. Tất cả dữ liệu của cá "
+"nhân và thành viên sẽ bị tiêu diệt!"
+
+msgid "I Understand"
+msgstr "Tôi hiểu"
+
+msgid "Clear Persons and Families"
+msgstr "Người và gia đình trong sạch"
+
+msgid "Data Cleared Successfully!"
+msgstr "Dữ liệu được xóa sạch thành công!"
+
+msgid "success"
+msgstr "Thành công"
+
+msgid "Duplicate values"
+msgstr "Giá trị nhân đôi"
+
+msgid "You've selected two times the same name"
+msgstr "Bạn đã chọn hai lần cùng tên"
+
+msgid "for this field. Chose another one."
+msgstr "cho lĩnh vực này. Chọn cái khác đi."
+
+msgid "Please confirm deletion of this document"
+msgstr "Xin hãy xác nhận đã xóa tài liệu này"
+
+msgid "Document Delete Confirmation"
+msgstr "Tài liệu xóa bỏ xác nhận"
+
+msgid "Document Editor"
+msgstr "Tài liệu biên tập"
+
+msgid "Document Title"
+msgstr "Tài liệu Title"
+
+msgid "Set your Document title"
+msgstr "Đặt tên của anh đi"
+
+msgid "Choose your Document Type"
+msgstr "Chọn lựa kiểu tư liệu của anh đi"
+
+msgid "document"
+msgstr "Giấy tờ đâu?"
+
+msgid "video"
+msgstr "Video"
+
+msgid "audio"
+msgstr "Âm thanh"
+
+msgid "Private"
+msgstr "Binh nhì"
+
+msgid "You have to set a Title for your document"
+msgstr "Anh phải đặt một tờ Title cho tài liệu của mình"
+
+msgid "Icon"
+msgstr "Icon"
+
+msgid "Actions"
+msgstr "Diễn"
+
+msgid "Modification Date"
+msgstr "Ngày cải tiến"
+
+msgid "Type"
+msgstr "Gõ."
+
+msgid "Size"
+msgstr "Kích cỡ."
+
+msgid "Set a File/Folder name"
+msgstr "Hãy đặt tên cho File/Folder"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Bạn sắp lấy một tập tài liệu và nó là nội dung"
+
+msgid "This can't be undone !!!!"
+msgstr "Chuyện này không thể hủy được! !!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Bạn phải chọn ít nhất một dòng !! !"
+
+msgid "You're about to remove a file"
+msgstr "Anh sắp sửa xóa một tập tin"
+
+msgid "Set your Folder name"
+msgstr "Đặt tên thư mục của cậu"
+
+msgid "Upload your Files"
+msgstr "Tải hồ sơ lên"
+
+msgid "Files input"
+msgstr "Hồ sơ nhập vào"
+
+msgid "Upload your files"
+msgstr "Tải hồ sơ của cô lên"
+
+msgid "Upload"
+msgstr "Tải lên"
+
+msgid "Share your File"
+msgstr "Chia sẻ hồ sơ của anh đi"
+
+msgid "With"
+msgstr "Với"
+
+msgid "Set Rights"
+msgstr "Đặt quyền"
+
+msgid "Select your rights"
+msgstr "Hãy chọn quyền của mình"
+
+msgid "or"
+msgstr "Hoặc"
+
+msgid "[👀  ]"
+msgstr "[👀  ]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Gửi email thông báo"
+
+msgid "Add persons/Family/groups"
+msgstr "Cộng thêm người/gia đình"
+
+msgid "Person or Family or Group"
+msgstr "Người hay gia đình hay tập đoàn"
+
+msgid "Delete"
+msgstr "Xóa"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Anh chắc chứ? Anh định xóa tên người này sao?"
+
+msgid "Stop sharing"
+msgstr "Đừng chia sẻ nữa"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Anh chắc chứ? Bạn sắp ngừng chia sẻ tài liệu của mình sao?"
+
+msgid "Ok"
+msgstr "Được rồi."
+
+msgid "Tracking"
+msgstr "Đang truy tìm"
+
+msgid "Attention"
+msgstr "Chú ý"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr "Tập hồ sơ hình ảnh hiện nay là tập tài liệu công cộng !! !"
+
+msgid "Add People"
+msgstr "Cộng người"
+
+msgid "This page is still in the cart."
+msgstr "Trang này vẫn còn trong xe."
+
+msgid "Wrong address format."
+msgstr "Sai địa chỉ rồi."
+
+msgid "Set Calendar Name"
+msgstr "Đặt tên lên lịch"
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+msgid "Set Resource Name"
+msgstr "Thiết lập tên Nội lực"
+
+msgid "Select a resource type"
+msgstr "Chọn một loại tài nguyên"
+
+msgid "Room"
+msgstr "Phòng"
+
+msgid "Computer"
+msgstr "Máy tính"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Description"
+msgstr "Mô tả"
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Bao gồm cả lịch trình của anh ở Sidebar"
+
+msgid "Calendars"
+msgstr "Lịch"
+
+msgid "Set Status"
+msgstr "Đặt vị trí"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Chọn [Exclude] hoặc [bao gồm]"
+
+msgid "[INCLUDE]"
+msgstr "[INCLUDE]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUDE]"
+
+msgid "Share your Calendar"
+msgstr "Chia sẻ lịch đi"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "Anh có chắc là muốn xóa đoạn chia sẻ này không?"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "Anh có chắc là anh muốn ngừng chia sẻ tài liệu không?"
+
+msgid "Are you sure?"
+msgstr "Anh chắc chứ?"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Anh sẽ mất lịch, sự kiện và tất cả lịch trình. Chuyện này không thể hủy được."
+
+msgid "Manage"
+msgstr "Quản lý"
+
+msgid "Calendar Management for"
+msgstr "Quản lý lịch"
+
+msgid "Modify Calendar Name"
+msgstr "Thay đổi tên lịch"
+
+msgid "Modify Group Name"
+msgstr "Tên biến đổi"
+
+msgid "Modify Resource Name"
+msgstr "Thay đổi tên Resource"
+
+msgid "Modify Share Name"
+msgstr "Modify Share name"
+
+msgid "Resource Info for"
+msgstr "Nạp cho Info"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "Chỉ có người quản lý mới có quyền thay đổi mô tả mã nguồn"
+
+msgid "Actualize"
+msgstr "Tản ra"
+
+msgid "Today"
+msgstr "Hôm nay"
+
+msgid "List"
+msgstr "List"
+
+msgid "List Week"
+msgstr "Tuần List"
+
+msgid "List Month"
+msgstr "Tháng List"
+
+msgid "This event isn't modifiable !!!"
+msgstr "Sự kiện này không thể thay đổi được! !"
+
+msgid "Modify Event"
+msgstr "Modify Event"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr "Bạn muốn làm gì ? Cẩn thận với việc xóa bỏ, không thể quay lại được! !"
+
+msgid "Delete Event"
+msgstr "Xóa Event đi"
+
+msgid "Are you sure to delete this event?"
+msgstr "Anh có chắc là xóa bỏ sự kiện này không?"
+
+msgid "Delete all repeated Events"
+msgstr "Xóa hết tất cả những lần lặp lại những giây phút"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are "
+"you sure? This can't be undone."
+msgstr ""
+"Anh sắp xóa hết những giây phút lặp đi lặp lại liên quan đến sự kiện này. "
+"Anh chắc chứ? Chuyện này không thể hủy được."
+
+msgid "Only this event"
+msgstr "Chỉ có sự kiện này"
+
+msgid "Every Events linked to this Event"
+msgstr "Mọi sự kiện liên quan đến Event này"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Để thêm một sự kiện, bạn phải tạo ra một cuốn lịch hoặc kích hoạt một cái "
+"trước."
+
+msgid "Add More Attendees"
+msgstr "Thêm nhiều người Attendees"
+
+msgid "Make Attendance"
+msgstr "Tạo ra sự tham dự"
+
+msgid "Edit"
+msgstr "Chỉnh lại đi"
+
+msgid "Resize Event"
+msgstr "Làm cho Event trở nên nổi tiếng"
+
+msgid "Are you sure about this change?"
+msgstr "Anh có chắc về sự thay đổi này không?"
+
+msgid "will be resized."
+msgstr "sẽ được bế tắc."
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "Anh sắp sửa chống lại tất cả các sự kiện. Bạn có muốn :"
+
+msgid "Only this Event"
+msgstr "Chỉ có Event này"
+
+msgid "All Events"
+msgstr "Tất cả sự kiện"
+
+msgid "Move Event"
+msgstr "Di chuyển Event"
+
+msgid "will be dropped."
+msgstr "sẽ bị loại."
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Anh sắp dời tất cả sự kiện. Bạn có muốn :"
+
+msgid "Event added"
+msgstr "Sự việc thêm vào"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to "
+"add attendees ?"
+msgstr ""
+"Sự việc đã được thêm vào thành công. Bạn có muốn tham dự hay thêm người tham "
+"dự ?"
+
+msgid "Event was added successfully."
+msgstr "Sự việc đã được thêm vào thành công."
+
+msgid "No attendees"
+msgstr "Không có người tham dự"
+
+msgid "From"
+msgstr "Từ"
+
+msgid "to"
+msgstr "To"
+
+msgid "Attendance Notes: "
+msgstr "Ghi chú ý:"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Calendar Title"
+msgstr "Lịch Title"
+
+msgid "Location"
+msgstr "Địa điểm"
+
+msgid "To validate your address : <b>\"hit return\"</b>."
+msgstr "Để xác nhận địa chỉ của bạn :<b>\"Hit Return\"</b>."
+
+msgid "To see the Map click this text field."
+msgstr "Để xem bản đồ nhấp chuột vào lĩnh vực văn bản này."
+
+msgid "Map"
+msgstr "Bản đồ"
+
+msgid "Desc"
+msgstr "Mơ đi"
+
+msgid "Event description"
+msgstr "Mô tả rõ ràng"
+
+msgid "Event Type"
+msgstr "Mẫu Event Type"
+
+msgid "Personal"
+msgstr "Cá nhân"
+
+msgid "Attendance Counts"
+msgstr "Các bá tước tham dự"
+
+msgid "Start Date"
+msgstr "Bắt đầu hẹn hò đi"
+
+msgid "End Date"
+msgstr "Kết thúc ngày"
+
+msgid "Repeat"
+msgstr "Lặp lại"
+
+msgid "Daily"
+msgstr "Daily"
+
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+msgid "Quarterly"
+msgstr "1/4/3"
+
+msgid "Semesterly"
+msgstr "Đúng là như vậy."
+
+msgid "Yearly"
+msgstr "Năm năm"
+
+msgid "End"
+msgstr "Kết thúc"
+
+msgid "Alarm"
+msgstr "Báo động!"
+
+msgid "NONE"
+msgstr "Không."
+
+msgid "At time of event"
+msgstr "Vào thời điểm sự kiện"
+
+msgid "5 minutes before"
+msgstr "5 phút trước"
+
+msgid "10 minutes before"
+msgstr "10 phút trước"
+
+msgid "15 minutes before"
+msgstr "15 phút trước"
+
+msgid "30 minutes before"
+msgstr "30 phút trước"
+
+msgid "1 hour before"
+msgstr "1 giờ trước"
+
+msgid "2 hour before"
+msgstr "2 giờ trước"
+
+msgid "1 day before"
+msgstr "1 ngày trước"
+
+msgid "2 day before"
+msgstr "2 ngày trước"
+
+msgid "Calendar"
+msgstr "Lịch."
+
+msgid "Add as attendees"
+msgstr "Cộng làm người tham dự"
+
+msgid "Notes"
+msgstr "Ghi chú"
+
+msgid "Status"
+msgstr "Tình hình thế nào?"
+
+msgid "Active"
+msgstr "Tiến hành"
+
+msgid "inactive"
+msgstr "Không có hiệu quả."
+
+msgid "Event Creation"
+msgstr "Đấng Sáng Tạo"
+
+msgid "You've to chose a calendar."
+msgstr "Anh phải chọn một cuốn lịch."
+
+msgid "You have to set a Title for your event"
+msgstr "Anh phải đặt một tờ báo cho sự kiện của anh"
+
+msgid "CKEditor Template Creation"
+msgstr "- Đội thiết kế Template Creation"
+
+msgid "Template Name"
+msgstr "Template name"
+
+msgid "Explanation field cannot be empty."
+msgstr "Trường giải thích không thể trống rỗng."
+
+msgid "Template Description"
+msgstr "Mô tả Template"
+
+msgid "Save as Word file in EDrive"
+msgstr "Tiết kiệm như hồ sơ từ ngữ ở Edrive"
+
+msgid "Word file name"
+msgstr "Tên hồ sơ từ ngữ"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr ""
+"Hồ sơ sẽ được tải lên EDVE<br>99 của bạn phần này chỉ để thử "
+"nghiệm<b>(Beta)</b>. 992"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Tin nhắn của anh được lưu trong EDrive của anh"
+
+msgid "(No templates defined)"
+msgstr "(Không có khuôn mẫu xác định)"
+
+msgid "Content Templates"
+msgstr "Nội dung Templates"
+
+msgid "Please select the template to open in the editor"
+msgstr "Xin hãy chọn mẫu để mở ra trong biên tập viên"
+
+msgid "Template Options"
+msgstr "Đền lựa chọn"
+
+msgid "Modify"
+msgstr "Thay đổi"
+
+msgid "Modify the template you select"
+msgstr "Thay đổi mẫu bạn chọn"
+
+msgid "Delete the template you select"
+msgstr "Xóa mẫu bạn chọn"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "Anh có chắc là xóa mẫu này không? Chuyện này không thể hủy được."
+
+msgid "Replace actual content"
+msgstr "Thay đổi nội dung thực sự"
+
+msgid "Manage templates"
+msgstr "Đề nghị quản lý"
+
+msgid "Save templates"
+msgstr "Cứu những mẫu"
+
+msgid "Apply templates"
+msgstr "Bôi mẫu cho bản nhạc"
+
+msgid "Save As Word File in EDrive"
+msgstr "Tiết kiệm như là hồ sơ trong Edrive"
+
+msgid "First Name"
+msgstr "Tên đầu tiên"
+
+msgid "Last Name"
+msgstr "Tên cuối cùng"
+
+msgid "Phone"
+msgstr "Điện thoại"
+
+msgid "Company"
+msgstr "Đại đội"
+
+msgid "Unsub"
+msgstr "Hung thủ"
+
+msgid "VCard"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Language"
+msgstr "Ngôn ngữ."
+
+msgid "Merge Tags"
+msgstr "Merge Tags"
+
+msgid "Free Event Attendees"
+msgstr "Những người Attendees tự do"
+
+msgid "Successfully Added!"
+msgstr "Cộng thành công rồi!"
+
+msgid "Photo"
+msgstr "Chụp ảnh."
+
+msgid "Action"
+msgstr "Diễn"
+
+msgid "Checkin"
+msgstr "Chiếu tướng."
+
+msgid "Checkout"
+msgstr "Kiểm tra"
+
+msgid "Gender"
+msgstr "Giới thiệu"
+
+msgid "Checkin Date"
+msgstr "Checkin Date"
+
+msgid "Checked In By"
+msgstr "Đã đăng ký bởi"
+
+msgid "Checkout Date"
+msgstr "Ngày kiểm tra"
+
+msgid "Checkout By"
+msgstr "Kiểm tra trước"
+
+msgid "QR Code : Call the register"
+msgstr "Mã QR : Gọi cho máy tính tiền"
+
+msgid ""
+"Unable to access video stream (please make sure you have a webcam enabled)"
+msgstr ""
+"Không thể truy cập vào video (Xin hãy chắc chắn bạn có một webcam kết cho "
+"phép)"
+
+msgid "no detected QR Code"
+msgstr "không phát hiện mã QR"
+
+msgid "Loading video..."
+msgstr "Đang tải video..."
+
+msgid "Failed"
+msgstr "Thất bại"
+
+msgid "No event right now."
+msgstr "Không có sự kiện gì lúc này."
+
+msgid "Move one in the right range."
+msgstr "Di chuyển một cái ở khoảng cách phải."
+
+msgid "Create one."
+msgstr "Tạo ra một cái."
+
+msgid "Group"
+msgstr "Tập đoàn"
+
+msgid "User"
+msgstr "Người dùng"
+
+msgid "No event now."
+msgstr "Giờ thì không có sự kiện gì cả."
+
+msgid "Success"
+msgstr "Thành công rồi."
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "Anh có chắc là anh muốn đưa tất cả mọi người ra khỏi Event ID:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "Anh có chắc là anh muốn đưa người này từ Event ID:"
+
+msgid "Delete Event Type"
+msgstr "Xóa Event Type"
+
+msgid "This action can never be undone !!!!"
+msgstr "Hành động này không thể nào bị phá hủy ! !!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr "Xóa bỏ một sự kiện cũng sẽ xóa tất cả sự tham dự tính vào sự kiện đó."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Anh có chắc là muốn tham gia sự kiện không ?"
+
+msgid "Confirm Delete"
+msgstr ""
+"Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận Xác nhận"
+
+msgid "Are you sure ? You're about to delete the selected"
+msgstr "Anh chắc chứ? Anh sắp xóa bỏ các lựa chọn"
+
+msgid "payments(s)?"
+msgstr "tiền lương?"
+
+msgid "This action CANNOT be undone, and may have legal implications!"
+msgstr "Hành động này không thể bị hủy, và có thể có liên quan đến pháp luật!"
+
+msgid "Please ensure this what you want to do."
+msgstr "Xin hãy đảm bảo điều anh muốn làm."
+
+msgid "Pledge"
+msgstr "Pledge"
+
+msgid "Selected Rows"
+msgstr "Chọn đường"
+
+msgid "Payment"
+msgstr "Tiền công."
+
+msgid "Depid"
+msgstr "Hiểu rồi."
+
+msgid "Address1"
+msgstr "Address1"
+
+msgid "Bank Name"
+msgstr "Tên ngân hàng"
+
+msgid "Non deductible"
+msgstr "Không có khả năng suy luận"
+
+msgid "Statut"
+msgstr "Luật"
+
+msgid "Deposit"
+msgstr "Lấy đồ"
+
+msgid "Schedule"
+msgstr "Lên lịch đi."
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Electronic Transaction Details"
+msgstr "Chi tiết dịch chuyển điện"
+
+msgid "TOTAL"
+msgstr "TAL"
+
+msgid "Family"
+msgstr "Gia đình"
+
+msgid "Person"
+msgstr "Người"
+
+msgid "Anonymous"
+msgstr "Vô danh"
+
+msgid "Fund"
+msgstr "Tiền"
+
+msgid "Pledge or payment"
+msgstr "Tiền hay trả"
+
+msgid "Method"
+msgstr "Phương pháp"
+
+msgid "Check Number"
+msgstr "Kiểm tra số"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "Deposit ID"
+msgstr "Chứng minh thư"
+
+msgid "Deposit Date"
+msgstr "Ngày phát hành"
+
+msgid "Deposit Total"
+msgstr "Gửi toàn bộ"
+
+msgid "Deposit Comment"
+msgstr "Lời khai"
+
+msgid "Closed"
+msgstr "Đóng cửa"
+
+msgid "Deposit Type"
+msgstr "Gài mã"
+
+msgid "Export"
+msgstr "Xuất nhập"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Chọn lựa Generate Deposit Slip cho chọn"
+
+msgid "Rows"
+msgstr "Chèo"
+
+msgid "Your operation completed successfully."
+msgstr "Chiến dịch của anh đã thành công."
+
+msgid "Full Name"
+msgstr "Tên đầy đủ"
+
+msgid "Text"
+msgstr "Tin nhắn"
+
+msgid "Date Entered"
+msgstr "Ngày tháng đã được đăng ký"
+
+msgid "Date Last Edited"
+msgstr "Ngày cuối cùng"
+
+msgid "Edited By Name"
+msgstr "Học bởi tên"
+
+msgid "Deactivated"
+msgstr "Vô hiệu hóa"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Cảnh báo: bằng cách xóa bỏ lĩnh vực này, bạn sẽ không thể thay đổi mất tất "
+"cả dữ liệu nhóm được chỉ định cho lĩnh vực này!"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Xác nhận các tổ chức Phát triển đặc biệt"
+
+msgid ""
+"This will create a group-specific properties table for this group. You "
+"should then add needed properties with the Group-Specific Properties Form "
+"Editor."
+msgstr ""
+"Điều này sẽ tạo ra một bảng đặc biệt cho nhóm các đặc tính riêng biệt cho "
+"nhóm. Sau đó anh nên thêm tài sản cần thiết với nhóm tài sản đặc biệt của "
+"Biên tập viên."
+
+msgid "Enable Group Specific Properties"
+msgstr "Tập đoàn Enable Properties"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Xác nhận các tổ chức Xác nhận các đặc điểm tiêu diệt"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All "
+"group member properties data will be lost!"
+msgstr ""
+"Anh có chắc là muốn bỏ đi đặc tính của nhóm người không? Tất cả dữ liệu của "
+"thành viên nhóm sẽ bị mất!"
+
+msgid "Disable Group Specific Properties"
+msgstr "Tổ chức đặc biệt tài sản"
+
+msgid "Confirm Delete Role"
+msgstr "Xác nhận là Xác nhận Xác nhận Role"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr ""
+"Điều này cũng sẽ xóa bỏ tất cả các thành viên của các nhân viên liên quan "
+"đến vai trò này."
+
+msgid "A group should have at least one role!"
+msgstr "Một nhóm phải có ít nhất một vai!"
+
+msgid "Role Name"
+msgstr "Tên Role"
+
+msgid "The role name is now modified."
+msgstr "Tên vai trò giờ đã được chỉnh sửa."
+
+msgid "Make Default"
+msgstr "Tạo ra một lỗi lầm"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Sequence"
+msgstr "Chuỗi tự động."
+
+msgid "Members"
+msgstr "Các thành viên."
+
+msgid "Group Cart Status"
+msgstr "Tình trạng tập thể"
+
+msgid "All members of this group are in the cart"
+msgstr "Tất cả các thành viên trong nhóm đều ở trong xe"
+
+msgid "Remove all"
+msgstr "Loại bỏ tất cả"
+
+msgid "Not all members of this group are in the cart"
+msgstr "Không phải tất cả thành viên trong nhóm này đều nằm trong xe"
+
+msgid "Add all"
+msgstr "Cộng tất cả"
+
+msgid "Cart isn't showable"
+msgstr "Cái xe không được cho thấy"
+
+msgid "Group Type"
+msgstr "Nhóm Type"
+
+msgid "Unassigned"
+msgstr "Không được phân công"
+
+msgid "Value"
+msgstr "Trị giá"
+
+msgid "Confirm Delete Group"
+msgstr "Xác nhận tập đoàn Xác nhận"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Xin hãy xác nhận xóa dữ liệu của nhóm này"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated "
+"with this Group record."
+msgstr ""
+"Cái này cũng sẽ xóa hết các Roles và dữ liệu tài sản đặc biệt liên quan đến "
+"tập đoàn này."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Tất cả các thành viên và tài sản của nhóm sẽ bị tiêu diệt. Các thành viên "
+"nhóm sẽ không bị thay đổi."
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "Anh có chắc là anh muốn từ bỏ tài sản này không?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "Anh có chắc là muốn thay đổi tài sản này không?"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr "Anh có chắc là muốn loại bỏ các thành viên được chọn không?"
+
+msgid "Group Role"
+msgstr "Tập đoàn Role"
+
+msgid "Private Data"
+msgstr "Data tư nhân"
+
+msgid "Zip Code"
+msgstr "Mã Zip"
+
+msgid "Cell Phone"
+msgstr "Điện thoại di động"
+
+msgid "Members from group"
+msgstr "Các thành viên từ nhóm"
+
+msgid "Add"
+msgstr "Thêm"
+
+msgid "Members to another group"
+msgstr "Thành viên của nhóm khác"
+
+msgid "Members to cart"
+msgstr "Các thành viên lên xe"
+
+msgid "Move"
+msgstr "Đi"
+
+msgid "Remove from Cart"
+msgstr "Rời khỏi Cart"
+
+msgid "Add to Cart"
+msgstr "Thêm vào Cart"
+
+msgid "No assigned Manager"
+msgstr "Không quản lý nào"
+
+msgid "Manage Group Managers"
+msgstr "Quản lý tập đoàn quản lý"
+
+msgid "Add person"
+msgstr "Thêm người"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "Anh có chắc là muốn xóa tên quản lý này không?"
+
+msgid "Delete Managers"
+msgstr "Xóa sổ Quản lý"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "Anh có chắc là anh muốn xóa hết các quản lý không?"
+
+msgid "Appointment"
+msgstr "Đặt biển"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "Anh có chắc là muốn đưa gia đình này ra khỏi CRM không?"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "Anh có chắc là muốn loại bỏ tất cả gia đình khỏi CRM không?"
+
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Không phải tất cả các gia đình đều bị DELETED : Một số trong họ có hồ sơ "
+"quyên góp và không được xóa cho đến khi những khoản quyên góp này liên quan "
+"đến gia đình khác."
+
+msgid "Confirm Deactivation"
+msgstr "Xác nhận là vô hiệu hóa"
+
+msgid "Confirm Activation"
+msgstr "Xác nhận kích hoạt"
+
+msgid "Please confirm deactivation of family"
+msgstr "Xin xác nhận là đã vô hiệu hóa gia đình"
+
+msgid "Please confirm activation of family"
+msgstr "Xin xác nhận hoạt động của gia đình"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Hãy cẩn thận với GDPR, khi một gia đình bị mất hoạt động, bạn phải hỏi tất "
+"cả những người trong gia đình trước, nếu bạn muốn tái kích hoạt tài khoản!"
+"<br><br>với bất kỳ một vụ án nào, GDPR làm cho anh mất hết mọi thứ! !!!"
+
+msgid "Family Photo"
+msgstr "Ảnh gia đình"
+
+msgid "Verification email sent"
+msgstr "Email đã gửi"
+
+msgid "Failed to send verification email"
+msgstr "Không gửi email xác nhận"
+
+msgid "Failed to add verification"
+msgstr "Không có chứng minh gì cả"
+
+msgid "Verification URL"
+msgstr "Xác nhận URL"
+
+msgid "Bank Draft"
+msgstr "Vụ tuyển chọn ngân hàng"
+
+msgid "Credit Card"
+msgstr "Thẻ tín dụng"
+
+msgid "Disabled"
+msgstr "Mất tích"
+
+msgid "Next payment date"
+msgstr "Ngày thanh toán tiếp theo"
+
+msgid "Interval (months)"
+msgstr "Interval (tháng)"
+
+msgid "Updated By"
+msgstr "Cập nhật bởi"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Xác nhận thanh toán tự động"
+
+msgid "Pledge or Payment"
+msgstr "Pledge hay Payment"
+
+msgid "Dep ID"
+msgstr "Chứng minh thư Dep"
+
+msgid "Fiscal Year"
+msgstr "Năm Fiscal"
+
+msgid "NonDeductible"
+msgstr "Không thể loại trừ."
+
+msgid "CHECK"
+msgstr "CHECK"
+
+msgid "Date Updated"
+msgstr "Đã cập nhật ngày tháng"
+
+msgid "Delete this person?"
+msgstr "Xóa người này?"
+
+msgid "Do you want to delete this person? This cannot be undone."
+msgstr "Anh muốn xóa người này không? Chuyện này không thể hủy được."
+
+msgid "Save your note"
+msgstr "Để dành lời nhắn đi"
+
+msgid "Do you want to save your note as a Word File in your EDrive?"
+msgstr "Anh có muốn lưu lại lời nhắn như một tập tin trong EDrive không?"
+
+msgid "Family Id"
+msgstr "Chứng minh thư gia đình"
+
+msgid "Valid Until"
+msgstr "Thừa nhận cho đến khi"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "Anh có chắc là muốn đuổi người này ra khỏi CRM không?"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "Anh có chắc là muốn loại bỏ tất cả người ra khỏi CRM không?"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+"Không phải tất cả những người bị DELETED : Một số trong số họ có hồ sơ quyên "
+"góp và không thể bị xóa cho đến khi những khoản quyên góp này liên quan đến "
+"gia đình khác."
+
+msgid "Please confirm deactivation of person"
+msgstr "Xin xác nhận là vô hiệu hóa người"
+
+msgid "Please confirm activation of person"
+msgstr "Xin xác nhận kích hoạt của người"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Hãy cẩn thận với GDPR, khi một người bị mất hoạt động, bạn phải hỏi người đó "
+"trước, nếu bạn muốn kích hoạt tài khoản!<br><br>với bất kỳ một vụ án AUTHOR, "
+"GDPR làm cho anh sử dụng những kẻ thù như thế này! !!!"
+
+msgid "Deactivate"
+msgstr "Vô hiệu hóa"
+
+msgid "Activate"
+msgstr "Kích hoạt"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "Anh có chắc là muốn loại bỏ thành viên của người này không?"
+
+msgid "Change classification"
+msgstr "Thay đổi phân loại"
+
+msgid "Change role"
+msgstr "Thay đổi vai trò"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr ""
+"Xác nhận cơ hội tình nguyện Xác nhận Xác nhận Xác nhận Xác nhận tình nguyện "
+"viên Xác nhận"
+
+msgid "Comments"
+msgstr "♪ Lời nói"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all family data "
+"assigned for this field!"
+msgstr ""
+"Cảnh báo: bằng cách xóa bỏ lĩnh vực này, bạn sẽ không thể thay đổi tất cả "
+"các dữ liệu gia đình được chỉ định cho lĩnh vực này!"
+
+msgid "ID"
+msgstr "Chứng minh thư"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Nếu anh xóa quỹ,<u><b>anh sẽ mất tất cả các dữ liệu liên kết. 78, 678, "
+"678<br>4568, anh chắc chứ? Hành động này không thể hủy bỏ được.</b>"
+
+msgid "Fund Editor"
+msgstr "Biên tập viên tài chính"
+
+msgid "Add Fund"
+msgstr "Quỹ cộng"
+
+msgid "Validate"
+msgstr "Xử lý"
+
+msgid "Place"
+msgstr "Vào vị trí"
+
+msgid "Uri"
+msgstr "Uri"
+
+msgid "URI"
+msgstr "URI"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr "Kết nối này sẽ bắt đầu với : Http:// hoặc là Https://"
+
+msgid "Global Custom Menus"
+msgstr "Truyền thông Hải quan toàn cầu"
+
+msgid "Dashboard"
+msgstr "Dashboard."
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Nếu bạn xóa bỏ Menu Link,<u><b>bạn sẽ mất tất cả các dữ liệu kết nối. 78, "
+"678, 678<br>4568, anh chắc chứ? Hành động này không thể hủy bỏ được.</b>"
+
+msgid "Custom Menu Link Editor"
+msgstr "Biên tập viên Menu Link"
+
+msgid "Add Custom Menu Link"
+msgstr "Thêm cả mạng lưới Menu Link"
+
+msgid "Delete Classification"
+msgstr "Xóa bỏ lớp học"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Xin hãy xác nhận đã bị xóa bỏ"
+
+msgid ""
+"This will also delete this Classification for all the associated persons."
+msgstr ""
+"Điều này cũng sẽ xóa bỏ những điều khoản chi tiết này cho tất cả những người "
+"có liên quan."
+
+msgid "Map Icon GoogleMap"
+msgstr "Bản đồ Icon GoogleMap"
+
+msgid "Select your classification icon"
+msgstr "Chọn biểu tượng phân loại của anh đi"
+
+msgid "Visible"
+msgstr "Có thể nhìn thấy"
+
+msgid "Visible for other authorized users"
+msgstr "Có thể nhìn thấy những người dùng có quyền hạn khác"
+
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Nếu bạn xóa loại chăm sóc mục sư,<u><b>bạn sẽ mất tất cả các dữ liệu kết "
+"nối. 78, 678, 678<br>4568, anh chắc chứ? Hành động này không thể hủy bỏ được."
+"</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Giám sát viên Chăm sóc kiểu Pastoral"
+
+msgid "Add Pastoral Care Type"
+msgstr "Thêm mục sư Care Type"
+
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all person data "
+"assigned for this field!"
+msgstr ""
+"Cảnh báo: bằng cách xóa bỏ lĩnh vực này, bạn sẽ không thể thay đổi mất tất "
+"cả dữ liệu của người được giao cho lĩnh vực này!"
+
+msgid "with this Property..."
+msgstr "với tài sản này..."
+
+msgid "Prompt"
+msgstr "Prompt"
+
+msgid "Select Property Type"
+msgstr "Chọn loại bất động sản đi"
+
+msgid "with this property..."
+msgstr "với tài sản này..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr "Anh sắp xóa tài sản này rồi. Bạn có muốn tiếp tục không ?"
+
+msgid "Property Type Editor"
+msgstr "Biên tập điểm bất động"
+
+msgid "Add a New Property"
+msgstr "Thêm một tài sản mới"
+
+msgid "Class"
+msgstr "Lớp học"
+
+msgid ""
+"You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"Anh sắp xóa hết các tính chất chung này rồi. Bạn có muốn tiếp tục không ?"
+
+msgid "This general property type is still being used by"
+msgstr "Loại tài sản này vẫn được sử dụng bởi"
+
+msgid "property"
+msgstr "Tài sản"
+
+msgid "properties"
+msgstr "Tài sản"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr ""
+"Nếu bạn xóa loại này, bạn cũng sẽ loại bỏ tất cả các bất động sản sử dụng"
+
+msgid "it and lose any corresponding property assignments."
+msgstr "nó và mất bất cứ bài tập nào liên quan đến tài sản."
+
+msgid "Add a New Property Type"
+msgstr "Thêm một loại \"Bất động sản\" mới"
+
+msgid "Activ"
+msgstr "Tiến hành!"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Thêm vào cơ hội tình nguyện mới"
+
+msgid "Send Message"
+msgstr "Gửi tin nhắn"
+
+msgid "View Profile"
+msgstr "View Profile"
+
+msgid "Teachers"
+msgstr "Phu tử"
+
+msgid "Delete this Teacher?"
+msgstr "Xóa cô giáo này?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr "Cô có muốn xóa tên giáo viên này không? Chuyện này không thể hủy được."
+
+msgid "First name"
+msgstr "Tên"
+
+msgid "Birth Date"
+msgstr "Ngày sinh"
+
+msgid "Unknown"
+msgstr "Không biết"
+
+msgid "Boy"
+msgstr "Cậu bé"
+
+msgid "Girl"
+msgstr "Cô gái"
+
+msgid "Age"
+msgstr "Tuổi tác."
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Home Phone"
+msgstr "Điện thoại nhà"
+
+msgid "Home Address"
+msgstr "Địa chỉ nhà"
+
+msgid "Dad Name"
+msgstr "Tên bố"
+
+msgid "Dad Mobile"
+msgstr "Bố Mobile"
+
+msgid "Dad Email"
+msgstr "Cha Email"
+
+msgid "Mom Name"
+msgstr "Tên mẹ"
+
+msgid "Mom Mobile"
+msgstr "Mẹ Mobile"
+
+msgid "Mom Email"
+msgstr "Mẹ Email"
+
+msgid "Remove Students from Cart"
+msgstr "Hãy loại bỏ học sinh khỏi Cart"
+
+msgid "Add Students to Cart"
+msgstr "Thêm sinh viên vào Cart"
+
+msgid "Remove Teachers from Cart"
+msgstr "Đưa giáo viên ra khỏi Cart"
+
+msgid "Add Teachers to Cart"
+msgstr "Thêm giáo viên vào Cart"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr "Chọn sự kiện mà bạn muốn dùng để tạo ra sự tham dự"
+
+msgid "Create Event With Students"
+msgstr "Tạo dựng Event với các sinh viên"
+
+msgid ""
+"Be careful! You are about to create or recreate an event of this Sunday "
+"school class to call the register."
+msgstr ""
+"Cẩn thận! Bạn sắp tạo ra hoặc tái tạo một sự kiện của lớp học ngày Chủ nhật "
+"này để gọi cho máy đăng ký."
+
+msgid ""
+"If the event are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Nếu sự kiện đã được tạo ra, hãy đến thực đơn \"Events\" và sau đó \"gọi cho "
+"máy thu ngân\"."
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr "Đầu tiên, thiết lập phạm vi thời gian đúng để thực hiện việc rút."
+
+msgid "Set year range to export"
+msgstr "Thiết lập phạm vi xuất khẩu"
+
+msgid "First, set your date range correctly to make the extraction."
+msgstr "Đầu tiên, định phạm vi thời gian đúng để giải cứu."
+
+msgid "Extra students"
+msgstr "Học sinh khác"
+
+msgid "export with photos"
+msgstr "đưa ảnh ra ngoài"
+
+msgid ""
+"Be careful! You are about to create or recreate all the events of all the "
+"Sunday school classes to call the register."
+msgstr ""
+"Cẩn thận! Bạn sắp tạo ra hoặc tái tạo tất cả các sự kiện của tất cả các lớp "
+"học ngày Chủ nhật để gọi cho máy đăng ký."
+
+msgid ""
+"If the events are already created, go to the \"Events\" menu and then \"Call "
+"the register\"."
+msgstr ""
+"Nếu các sự kiện đã được tạo ra, hãy đến thực đơn \"Events\" và sau đó \"gọi "
+"cho máy thu ngân\"."
+
+msgid "First, set your date and time."
+msgstr "Đầu tiên, hãy hẹn hò và thời gian."
+
+msgid "Time"
+msgstr "Thời gian"
+
+msgid "Call the Register for all sunday groups"
+msgstr "Gọi cho Register cho tất cả các nhóm chủ nhật"
+
+msgid ""
+"At least one group must be selected to make class lists or attendance sheets."
+msgstr "Ít nhất một nhóm phải được chọn để làm danh sách lớp hoặc tham dự."
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "Bạn phải đặt một trang bìa và một mô tả cho vấn đề của bạn."
+
+msgid "Trigger Parent Alert"
+msgstr "Báo động phụ huynh"
+
+msgid "Kiosk"
+msgstr "Kiosk"
+
+msgid "No assignments for kiosk"
+msgstr "Không có nhiệm vụ cho Kiosk"
+
+msgid "Event"
+msgstr "Chào"
+
+msgid "Kiosk Name"
+msgstr "Kiosk tên"
+
+msgid "Assignment"
+msgstr "Phân công"
+
+msgid "Last Heartbeat"
+msgstr "Nhịp tim cuối cùng"
+
+msgid "Accepted"
+msgstr "Chấp nhận."
+
+msgid "True"
+msgstr "Đúng"
+
+msgid "False"
+msgstr "Sai"
+
+msgid "Reload"
+msgstr "Nạp đạn"
+
+msgid "Identify"
+msgstr "Xác định"
+
+msgid "Accept"
+msgstr "Chấp nhận"
+
+msgid "The user must have an email address."
+msgstr "Người dùng phải có địa chỉ email."
+
+msgid "Role management"
+msgstr "Quản lý Role"
+
+msgid "Select your Role"
+msgstr "Chọn Role đi"
+
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Anh chắc chứ? Anh sắp xóa đoạn này rồi."
+
+msgid "Rename"
+msgstr "Xin chào."
+
+msgid "Choose a Role Name"
+msgstr "Chọn một người Role tên"
+
+msgid ""
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
+"already exist !!!</center>"
+msgstr ""
+"<center>Bạn phải thiết lập một Role Name<br>-- hoặc --<br>cái tên Role Name "
+"này đã tồn tại rồi!! !</center>"
+
+msgid "You've to check at least one user."
+msgstr "Anh phải kiểm tra ít nhất một người dùng."
+
+msgid "The WebDav Key is"
+msgstr "Chìa khóa Webdav"
+
+msgid "The public WebDav Key is"
+msgstr "Công chúng WebDav Key"
+
+msgid "WebDav key"
+msgstr "Chìa khóa WebDav"
+
+msgid "is now locked"
+msgstr "giờ thì khóa rồi"
+
+msgid "is now unlocked"
+msgstr "giờ thì không khóa"
+
+msgid "User Delete Confirmation"
+msgstr "Xác nhận Xóa Xóa"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Xin xác nhận việc loại bỏ tình trạng người dùng từ:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, "
+"the Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Cẩn thận, anh sắp mất tập tài liệu và các tập tin liên quan, lịch, lịch, và "
+"tất cả các sự kiện, vì vậy, vì vậy, vì vậy, vì vậy, chúng tôi sẽ không thể "
+"làm gì được"
+
+msgid "This can't be undone"
+msgstr "Chuyện này không thể hủy được"
+
+msgid "Action Confirmation"
+msgstr "Xác nhận hành động"
+
+msgid "Please confirm reset failed login count"
+msgstr "Xin xác nhận lại lượng login đã hỏng"
+
+msgid "Reset failed login count for"
+msgstr "Đã chỉnh lại số lượng login không hoạt động"
+
+msgid "done."
+msgstr "xong."
+
+msgid "Please confirm the password reset of this user"
+msgstr "Xin xác nhận lại mật khẩu của người dùng này"
+
+msgid "Password reset for"
+msgstr "Đặt lại mật khẩu"
+
+msgid "Saving Campaign ..."
+msgstr "Cứu chiến dịch..."
+
+msgid "Campaign"
+msgstr "Chiến dịch"
+
+msgid "saved successfully"
+msgstr "cứu được một cách thành công"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Anh sắp gửi chiến dịch của mình đấy! Anh chắc chứ?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Anh sắp xóa chiến dịch của mình rồi! Anh chắc chứ?"
+
+msgid "Loading datas ..."
+msgstr "Đang tải dữ liệu ..."
+
+msgid "No list are created with this account ...."
+msgstr "Không có danh sách nào được tạo ra với tài khoản này..."
+
+msgid "Email List"
+msgstr "Email List"
+
+msgid "GDPR"
+msgstr "GDPR"
+
+msgid "Subject"
+msgstr "Đối tượng"
+
+msgid "Members:"
+msgstr ""
+
+msgid "Campaigns:"
+msgstr ""
+
+msgid "Unsubscribed count:"
+msgstr "Bá tước không đăng ký:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Không đăng ký đếm từ lần cuối gửi:"
+
+msgid "Cleaned count:"
+msgstr "Đếm ngược:"
+
+msgid "Cleaned count since last send:"
+msgstr "Đã đếm từ lần cuối gửi:"
+
+msgid "Campaigns"
+msgstr "Chiến dịch tranh cử"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "is not configured"
+msgstr "không được cấu hình"
+
+msgid "Please update the"
+msgstr "Xin hãy cập nhật tình hình"
+
+msgid "API key in Setting->"
+msgstr "API key in setting-"
+
+msgid "Edit General Settings"
+msgstr "Chỉnh lại vị trí Đại tướng"
+
+msgid "then update"
+msgstr "vậy cập nhật đi"
+
+msgid "For more info see our "
+msgstr "Để có thêm thông tin xem"
+
+msgid "support docs."
+msgstr "hỗ trợ bác sĩ."
+
+msgid "List Creation"
+msgstr "Tạo hóa List"
+
+msgid "List Title"
+msgstr "List Title"
+
+msgid "Your List Title"
+msgstr "Vé List của anh"
+
+msgid "Your Subject"
+msgstr "Đối tượng của anh"
+
+msgid "Permission Reminder"
+msgstr "Cho phép Reminder"
+
+msgid "Archive Bars"
+msgstr "Quán Archive Bars"
+
+msgid "Public"
+msgstr "Công chúng"
+
+msgid "People"
+msgstr "Mọi người"
+
+msgid "Families"
+msgstr "Gia đình"
+
+msgid "Add a new tag"
+msgstr "Thêm một cái thẻ mới"
+
+msgid "Delete tag from subscriber(s)"
+msgstr "Xóa thẻ từ đăng ký viên."
+
+msgid "Delete tag"
+msgstr "Xóa thẻ"
+
+msgid "Loading resources ..."
+msgstr "Nạp nguồn lực..."
+
+msgid "You're about to delete a tag!"
+msgstr "Anh sắp xóa một cái thẻ!"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Cái này cũng sẽ xóa thẻ cho tất cả các thành viên trong danh sách này. Anh "
+"chắc chứ?"
+
+msgid "Deleting tag"
+msgstr "Xóa thẻ"
+
+msgid "A person name or Family or Group"
+msgstr "Một người tên hay gia đình hoặc nhóm người"
+
+msgid "Loading subscriber"
+msgstr "Đang chuyển phòng"
+
+msgid "Loading subscribers from Group"
+msgstr "Nạp đăng ký của tập đoàn"
+
+msgid "Loading subscribers from family"
+msgstr "Nạp người đăng ký từ gia đình"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Nạp tất cả mọi người từ EcclesiaCRM<br>thì phải mất một thời gian!"
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+"Thực tế, tốt hơn hết là anh nên bỏ CRM, đợi 5 phút và thực hiện chiến dịch "
+"của anh sau đó.<br>nhập dữ liệu khổng lồ, máy tính API của Mailchimp là chậm."
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+"Nạp tất cả các bản tin đăng ký từ EcclesiaCRM<br>, sẽ mất một thời gian!"
+
+msgid ""
+"Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
+"could take a while !"
+msgstr ""
+"Nạp tất cả các gia đình đầu tiên đăng ký những người đầu tiên từ "
+"EcclesiaCRM<br>điều này có thể mất một thời gian !"
+
+msgid "Email Marketing"
+msgstr "Email Marketing"
+
+msgid "Select status for : "
+msgstr "Chọn vị trí cho:"
+
+msgid "Subscribed"
+msgstr "Gửi tín hiệu"
+
+msgid "Unsubscribed"
+msgstr "Không đăng ký"
+
+msgid "Changing status ..."
+msgstr "Thay đổi tình trạng..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Anh sắp xóa một cuốn sách rồi! Anh chắc chứ?"
+
+msgid "Deleting Subscriber..."
+msgstr "Xóa bỏ bộ phim..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Bạn có thực sự muốn xóa danh sách thư này không ?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Anh có chắc là muốn xóa hết tất cả các đăng ký không?"
+
+msgid "Deleting all subscribers..."
+msgstr "Xóa hết tất cả các đăng ký..."
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+"Thực tế, bạn nên rời khỏi CRM, và trong một kỳ nghỉ của một giờ tái mở nó để "
+"kiểm soát danh sách của bạn.<br>để xóa dữ liệu khổng lồ, Mailchimp API là "
+"chậm."
+
+msgid "Email Campaign Creation"
+msgstr "Tạo ra chiến dịch Email"
+
+msgid "Campaign Title"
+msgstr "Chiến dịch Title"
+
+msgid "Your Campaign Title"
+msgstr "Cuốn chiến dịch của anh"
+
+msgid "For Tag"
+msgstr "Cho Tag"
+
+msgid "Mail Subject"
+msgstr "Vật thể gửi thư"
+
+msgid "Your Mail Subject"
+msgstr "Vật thể bức thư của anh"
+
+msgid "All list members"
+msgstr "Tất cả các thành viên"
+
+msgid "Adding Campaign ..."
+msgstr "Cộng tác chiến tranh..."
+
+msgid "Would like to manage directly this new campaign ?"
+msgstr "Liệu có muốn trực tiếp quản lý chiến dịch mới này không ?"
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr "Anh phải đặt một chiếc Title cho cuộc vận động điện tử của anh"
+
+msgid "List Name"
+msgstr "Danh sách tên"
+
+msgid "Changing subscribers state..."
+msgstr "Thay đổi bang đăng ký..."
+
+msgid "All Tags"
+msgstr "Tất cả các thẻ"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Chọn cái thẻ mà bạn muốn xóa:"
+
+msgid "Removing tags..."
+msgstr "Thẻ tháo..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
+
+msgid "Add your tag name"
+msgstr "Thêm tên vào"
+
+msgid "Adding tag..."
+msgstr "Thêm thẻ..."
+
+msgid "Name is empty !!"
+msgstr "Tên không có ai!"
+
+msgid "Add tag?"
+msgstr "Thêm thẻ?"
+
+msgid "This will add the tag"
+msgstr "Cái này sẽ thêm cái thẻ"
+
+msgid "to all the current selected members in the list."
+msgstr "tất cả các thành viên hiện tại đã chọn ra trong danh sách."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Anh sắp xóa đăng ký rồi! Anh chắc chứ?"
+
+msgid "Deleting Subscribers..."
+msgstr "Xóa các bản vẽ..."
+
+msgid "Problem"
+msgstr "Vấn đề"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari vẫn chưa được ủng hộ bởi Jitsi, dùng thứ khác đi!<br>̺ Trang web<br>"
+"\\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ "
+"\\8"
+
+msgid "Set a Jitsi room name"
+msgstr "Đặt tên phòng Jitsi đi"
+
+msgid "Delete all Rooms?"
+msgstr "Xóa hết phòng?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
+msgid "You must enter a password"
+msgstr "Anh phải nhập mật khẩu"
+
+msgid "Passwords must match"
+msgstr "Mật khẩu phải khớp"
+
+msgid "Backup Running, Please wait."
+msgstr "Hỗ trợ Running, xin chờ đã."
+
+msgid "Backup Generated and copied to remote server"
+msgstr "Hỗ trợ được tạo ra và sao chép để máy chủ từ xa"
+
+msgid "Backup Complete, Ready for Download."
+msgstr "Hỗ trợ hoàn toàn, sẵn sàng tải xuống."
+
+msgid "Backup Downloaded, Copy on server removed"
+msgstr "Đã tải xong, đã được xóa"
+
+msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+"Các tập tin được chọn vượt quá mức máy chủ đã tải lên tối đa kích thước"
+
+msgid "Restore Running, Please wait."
+msgstr "Làm ơn, hãy chờ đã."
+
+msgid "Restore Complete"
+msgstr "Khôi phục hoàn toàn"
+
+msgid "Login to restored Database"
+msgstr "Đã xác định được căn cứ"
+
+msgid "Restore Error."
+msgstr "Phục hồi lỗi sai."
+
+msgid "In progress...."
+msgstr "Đang tiến hành..."
+
+msgid "Done !"
+msgstr "Xong!"
+
+msgid "All Groups"
+msgstr "Tất cả các nhóm"
+
+msgid "All Roles"
+msgstr "Tất cả Roles"
+
+msgid "id"
+msgstr "ID"
+
+msgid "Photos"
+msgstr "Hình ảnh"
+
+msgid "Search result"
+msgstr "Kết quả tìm kiếm"
+
+msgid "Property Name"
+msgstr "Tên tài sản"
+
+msgid "Loading people in cart...."
+msgstr "Giao người trên xe đẩy..."
+
+msgid "Loading finished...."
+msgstr "Chất hàng xong rồi..."
+
+msgid "Removing people in cart...."
+msgstr "Loại bỏ những người trong xe đẩy..."
+
+msgid "Removing finished...."
+msgstr "Giải tán xong rồi..."
+
+msgid "Remove People"
+msgstr "Giải tán mọi người"
+
+msgid "Nothing to remove."
+msgstr "Không có gì để gỡ bỏ."
+
+msgid "Visits/calls"
+msgstr "Đến thăm"
+
+msgid "Last visit/call"
+msgstr "Chuyến viếng thăm cuối cùng"
+
+msgid "Delete Pastoral Care Type"
+msgstr "Xóa mục sư Care Type"
+
+msgid "Pastoral Care Note Creation"
+msgstr "Tạo vật mục sư Care Note"
+
+msgid "For every administrator"
+msgstr "Cho tất cả các nhà quản lý"
+
+msgid "Show"
+msgstr "Hiển thị đi"
+
+msgid "Hide"
+msgstr "Trốn đi."
+
+msgid "Include all the family members"
+msgstr "Bao gồm tất cả những thành viên trong gia đình"
+
+msgid "Include"
+msgstr "Bao gồm cả"
+
+msgid "Last Name (Family Name)"
+msgstr "Tên cuối cùng (Tên gia đình)"
+
+msgid "Family Name"
+msgstr "Tên gia đình"
+
+msgid "Number"
+msgstr "Số"
+
+msgid "Item"
+msgstr "TRUNG"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Multiple"
+msgstr "Nhiều"
+
+msgid "Donor"
+msgstr "Người hiến tặng"
+
+msgid "Buyer"
+msgstr "Người mua"
+
+msgid "Sale Price"
+msgstr "Sale Price"
+
+msgid "Estimated value"
+msgstr "Giá trị ước tính"
+
+msgid "Material Value"
+msgstr "Giá trị của Matterial"
+
+msgid "Minimum Price"
+msgstr "Giá tối thiểu"
+
+msgid "Add buyer"
+msgstr "Người mua thêm"
+
+msgid "Buyer Number"
+msgstr "Số người mua"
+
+msgid "Save and Add"
+msgstr "Cứu và Add"
+
+msgid "Generate Statement"
+msgstr "Lời khai Generate"
+
+msgid "Buyer Number Editor"
+msgstr "Biên tập viên số khách hàng"
+
+msgid "Select"
+msgstr "Chọn đi"
+
+#~ msgid ""
+#~ "You can create the event automatically with the students<br> - OR - "
+#~ "<br>Add the students to the cart and create an event to add them after."
+#~ msgstr ""
+#~ "Bạn có thể tạo ra sự kiện tự động với sinh viên<br>- hoặc -<br>thêm học "
+#~ "sinh vào xe đẩy và tạo ra một sự kiện để thêm chúng vào sau đó."

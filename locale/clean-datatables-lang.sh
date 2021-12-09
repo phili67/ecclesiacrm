@@ -2,7 +2,7 @@
 
 # you've to install strip-json-comment-cli : npm install --global strip-json-comments-cli
 
-rm src/locale/datatables/*.lang1*
+#rm src/locale/datatables/*.lang1*
 cd locale
 
 for d in ../src/locale/datatables/* ; do
