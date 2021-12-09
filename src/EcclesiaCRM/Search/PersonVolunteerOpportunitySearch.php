@@ -37,7 +37,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                     $pers->filterByDateDeactivated(null);
                 }
 
-                if ( !( mb_strtolower($qry) == _('volunteers') || mb_strtolower($qry) == _('volunteer') ) ) {
+                if ( !( mb_strtolower($qry) == mb_strtolower(_('volunteers')) || mb_strtolower($qry) == mb_strtolower(_('volunteer')) ) ) {
                     $pers->usePersonVolunteerOpportunityQuery()
                             ->useVolunteerOpportunityQuery()
                                 ->filterByName($searchLikeString, Criteria::LIKE)

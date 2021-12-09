@@ -41,8 +41,8 @@ class FamilySearchRes extends BaseSearchRes
                 $families = FamilyQuery::create()
                     ->addSelectQuery($subQuery, 'res'); // only real family with more than one member will be showed here
 
-                if ( !( mb_strtolower($qry) == _('families') || mb_strtolower($qry) == _('family')
-                        || mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles') ) ) {
+                if ( !( mb_strtolower($qry) == mb_strtolower(_('families')) || mb_strtolower($qry) == mb_strtolower(_('family'))
+                        || mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')) ) ) {
                     $families->filterByName("%$qry%", Criteria::LIKE)
                         ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
@@ -50,7 +50,7 @@ class FamilySearchRes extends BaseSearchRes
                 }
 
                 $compareOp = ">";
-                if ( mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles') ) {
+                if ( mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')) ) {
                     $compareOp = "=";
                 }
 
@@ -140,7 +140,7 @@ class FamilySearchRes extends BaseSearchRes
                                 "img" => '<img src="/api/families/'.$family->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
                                 "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$family->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$family->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
                                 "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                                "type" => (mb_strtolower($qry) == _('single') || mb_strtolower($qry) == _('singles'))?_("Singles"):_($this->getGlobalSearchType()),
+                                "type" => (mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')))?_("Singles"):_($this->getGlobalSearchType()),
                                 "realType" => $this->getGlobalSearchType(),
                                 "Gender" => "",
                                 "Classification" => "",
