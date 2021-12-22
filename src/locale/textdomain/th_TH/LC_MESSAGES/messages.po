@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-08 19:15+0000\n"
+"POT-Creation-Date: 2021-12-22 16:27+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -378,8 +378,8 @@ msgstr "สร้างคนโฟเดอร์"
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
 #: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1866
 #: PersonView.php:1965 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:44
-#: v2/templates/email/mailchimp/managelist.php:99
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/email/mailchimp/managelist.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:209
 #: v2/templates/pastoralcare/pastoralcarefamily.php:219
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -936,7 +936,7 @@ msgid "Checkin"
 msgstr "เช็คซิ"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:87
+#: v2/templates/email/mailchimp/managelist.php:88
 #: v2/templates/user/userlist.php:171
 msgid "Check all"
 msgstr "ดูทั้งหมด"
@@ -1825,7 +1825,7 @@ msgstr "ครอบครัวทั้งหมด"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1838,7 +1838,7 @@ msgstr "สุขภาพ"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:54
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -5427,67 +5427,67 @@ msgstr "พิกัดหายไป"
 msgid "Family Coordinates Data for Some Families"
 msgstr "พิกัดของครอบครัว สำหรับครอบครัวบางครอบครัว"
 
-#: EcclesiaCRM/utils/GeoUtils.php:212 EcclesiaCRM/utils/GeoUtils.php:244
+#: EcclesiaCRM/utils/GeoUtils.php:214 EcclesiaCRM/utils/GeoUtils.php:246
 msgid "S"
 msgstr "S"
 
-#: EcclesiaCRM/utils/GeoUtils.php:214
+#: EcclesiaCRM/utils/GeoUtils.php:216
 msgid "SSW"
 msgstr "เจ้าหน้าที่"
 
-#: EcclesiaCRM/utils/GeoUtils.php:216
+#: EcclesiaCRM/utils/GeoUtils.php:218
 msgid "SW"
 msgstr "สว"
 
-#: EcclesiaCRM/utils/GeoUtils.php:218
+#: EcclesiaCRM/utils/GeoUtils.php:220
 msgid "WSW"
 msgstr "WSW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:220
+#: EcclesiaCRM/utils/GeoUtils.php:222
 msgid "W"
 msgstr "W"
 
-#: EcclesiaCRM/utils/GeoUtils.php:222
+#: EcclesiaCRM/utils/GeoUtils.php:224
 msgid "WNW"
 msgstr "WNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:224
+#: EcclesiaCRM/utils/GeoUtils.php:226
 msgid "NW"
 msgstr "เอ็น W"
 
-#: EcclesiaCRM/utils/GeoUtils.php:226
+#: EcclesiaCRM/utils/GeoUtils.php:228
 msgid "NNW"
 msgstr "NNW"
 
-#: EcclesiaCRM/utils/GeoUtils.php:228
+#: EcclesiaCRM/utils/GeoUtils.php:230
 msgid "N"
 msgstr "เอ็น"
 
-#: EcclesiaCRM/utils/GeoUtils.php:230
+#: EcclesiaCRM/utils/GeoUtils.php:232
 msgid "NNE"
 msgstr "นิน"
 
-#: EcclesiaCRM/utils/GeoUtils.php:232
+#: EcclesiaCRM/utils/GeoUtils.php:234
 msgid "NE"
 msgstr "NE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:234
+#: EcclesiaCRM/utils/GeoUtils.php:236
 msgid "ENE"
 msgstr "ดี"
 
-#: EcclesiaCRM/utils/GeoUtils.php:236
+#: EcclesiaCRM/utils/GeoUtils.php:238
 msgid "E"
 msgstr "E"
 
-#: EcclesiaCRM/utils/GeoUtils.php:238
+#: EcclesiaCRM/utils/GeoUtils.php:240
 msgid "ESE"
 msgstr "ESE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:240
+#: EcclesiaCRM/utils/GeoUtils.php:242
 msgid "SE"
 msgstr "ก็ได้"
 
-#: EcclesiaCRM/utils/GeoUtils.php:242
+#: EcclesiaCRM/utils/GeoUtils.php:244
 msgid "SSE"
 msgstr "เจ้านาย"
 
@@ -7319,7 +7319,7 @@ msgstr "พิมพ์ดูแลบาทหลวงพ่อ"
 msgid "Please contact your admin to change the system settings."
 msgstr "กรุณาติดต่อกับ แอร์เนน เพื่อเปลี่ยนระบบ"
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:162
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:163
 msgid "Edit General Settings"
 msgstr "แก้ไข นายพลตั้งค่า"
 
@@ -10170,27 +10170,27 @@ msgstr "ทดสอบความเชื่อมโยง ."
 msgid "Duplicate Emails"
 msgstr "อีเมลล์ซ้ำ"
 
-#: v2/templates/email/mailchimp/managelist.php:21
+#: v2/templates/email/mailchimp/managelist.php:22
 msgid "Manage Email List"
 msgstr "จัดการ อีเมลลิสท์"
 
-#: v2/templates/email/mailchimp/managelist.php:31
+#: v2/templates/email/mailchimp/managelist.php:32
 msgid "Create a Campaign"
 msgstr "สร้างความเสียหายให้กับโคมเปญ"
 
-#: v2/templates/email/mailchimp/managelist.php:41
+#: v2/templates/email/mailchimp/managelist.php:42
 msgid "Delete All Subscribers"
 msgstr "ลบผู้เขียนทั้งหมด"
 
-#: v2/templates/email/mailchimp/managelist.php:50
+#: v2/templates/email/mailchimp/managelist.php:51
 msgid "Modify Properties"
 msgstr "ปรับปรุงใหม่"
 
-#: v2/templates/email/mailchimp/managelist.php:71
+#: v2/templates/email/mailchimp/managelist.php:72
 msgid "Subscribers"
 msgstr "ผู้เขียนข้อมูล"
 
-#: v2/templates/email/mailchimp/managelist.php:75
+#: v2/templates/email/mailchimp/managelist.php:76
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
@@ -10198,51 +10198,51 @@ msgstr ""
 "เพื่อเพิ่มผู้ใช้ข่าวสารทั้งหมด, กรุ๊ป<b>นิวเลตเตอร์</b>ในสนามค้นหา, เพื่อเพิ่มสมาชิกของ CRM "
 "ทั้งหมดเข้าไป, ใช้<b>*</b>"
 
-#: v2/templates/email/mailchimp/managelist.php:79
+#: v2/templates/email/mailchimp/managelist.php:80
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "เพิ่มค่านี้ไม่แน่นอนกับ MailChimp API"
 
-#: v2/templates/email/mailchimp/managelist.php:104
+#: v2/templates/email/mailchimp/managelist.php:105
 msgid "Sub/Unsubscribe"
 msgstr "Sub/Unsubscribe"
 
-#: v2/templates/email/mailchimp/managelist.php:112
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "Subscribed"
 msgstr "เขียนไว้"
 
-#: v2/templates/email/mailchimp/managelist.php:115
+#: v2/templates/email/mailchimp/managelist.php:116
 msgid "Unsubscribed"
 msgstr "ไม่ได้รับการยอมรับ"
 
-#: v2/templates/email/mailchimp/managelist.php:123
+#: v2/templates/email/mailchimp/managelist.php:124
 msgid "Add/Remove Tag"
 msgstr "Add/Remove Tag"
 
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 msgid "Keywords"
 msgstr "คำเดียว"
 
-#: v2/templates/email/mailchimp/managelist.php:160
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "is not configured"
 msgstr "ไม่มีการจัดเรียงใด"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "Please update the"
 msgstr "กรุณาอัพเดทด้วยครับ"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "API key in Setting->"
 msgstr "API กุญแจในการตั้งค่า"
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "then update"
 msgstr "งั้นก็อัพเดทซะ"
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "For more info see our "
 msgstr "เพื่อให้ข้อมูลเพิ่มเติม"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:165
 msgid "support docs."
 msgstr "สนับสนุน"
 
