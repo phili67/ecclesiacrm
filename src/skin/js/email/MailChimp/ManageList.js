@@ -378,6 +378,9 @@ $(document).ready(function () {
             title: i18next.t('Email'),
             data: 'email_address',
             render: function (data, type, full, meta) {
+                if (!window.CRM.canSeePrivacyData) {
+                    return i18next.t('Private Data');
+                }
                 return data;
             }
         },

@@ -10,6 +10,7 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 require $sRootDocument . '/Include/Header.php';
 ?>
@@ -180,6 +181,7 @@ if ($isMailchimpActiv) {
     window.CRM.mailchimpIsActive = <?= ($isMailchimpActiv) ? 1 : 0 ?>;
     window.CRM.bWithAddressPhone = <?= ($bWithAddressPhone) ? 'true' : 'false' ?>;
     window.CRM.sDateFormatLong = "<?= $sDateFormatLong ?>";
+    window.CRM.canSeePrivacyData = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled())?1:0 ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/ManageList.js"></script>
