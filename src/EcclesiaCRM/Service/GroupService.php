@@ -59,7 +59,7 @@ class GroupService
             ->find();
 
         foreach ($grpms as $grpm) {
-            $sSQL = 'UPDATE groupprop_'.$grpm->getId().' SET '.$grpm->getField().' = NULL WHERE '.$grpm->getField().' = '.$personID;
+            $sSQL = 'UPDATE groupprop_'.$grpm->getGroupId().' SET '.$grpm->getField().' = NULL WHERE '.$grpm->getField().' = '.$personID;
             $statement = $connection->prepare($sSQL);
             $statement->execute();
         }
