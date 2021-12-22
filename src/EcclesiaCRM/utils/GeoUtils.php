@@ -118,6 +118,8 @@ class GeoUtils
             $distance = $distance*2;
         } elseif ($unit == 'SHAKU') {// Japan
             $distance = $distance*3300;
+        } elseif ($unit == 'WAH') {
+            $distance = $distance*500;
         }
 
         // Return distance to three figures
