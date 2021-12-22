@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-08 19:15+0000\n"
+"POT-Creation-Date: 2021-12-22 16:27+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -380,8 +380,8 @@ msgstr "Créer un dossier"
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
 #: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1866
 #: PersonView.php:1965 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:44
-#: v2/templates/email/mailchimp/managelist.php:99
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/email/mailchimp/managelist.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:209
 #: v2/templates/pastoralcare/pastoralcarefamily.php:219
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -957,7 +957,7 @@ msgid "Checkin"
 msgstr "Est venu"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:87
+#: v2/templates/email/mailchimp/managelist.php:88
 #: v2/templates/user/userlist.php:171
 msgid "Check all"
 msgstr "Tout cocher"
@@ -1874,7 +1874,7 @@ msgstr "Toutes les familles"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1887,7 +1887,7 @@ msgstr "Personnes"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:54
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -4423,7 +4423,7 @@ msgstr "Réglages Rapport"
 
 #: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
-msgstr "Réglages financier"
+msgstr "Réglages financiers"
 
 #: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
@@ -5565,67 +5565,67 @@ msgstr "Cordonnées manquantes"
 msgid "Family Coordinates Data for Some Families"
 msgstr "Coordonnées de la famille pour certaines familles"
 
-#: EcclesiaCRM/utils/GeoUtils.php:212 EcclesiaCRM/utils/GeoUtils.php:244
+#: EcclesiaCRM/utils/GeoUtils.php:214 EcclesiaCRM/utils/GeoUtils.php:246
 msgid "S"
 msgstr "S"
 
-#: EcclesiaCRM/utils/GeoUtils.php:214
+#: EcclesiaCRM/utils/GeoUtils.php:216
 msgid "SSW"
 msgstr "SSO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:216
+#: EcclesiaCRM/utils/GeoUtils.php:218
 msgid "SW"
 msgstr "SO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:218
+#: EcclesiaCRM/utils/GeoUtils.php:220
 msgid "WSW"
 msgstr "OSO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:220
+#: EcclesiaCRM/utils/GeoUtils.php:222
 msgid "W"
 msgstr "O"
 
-#: EcclesiaCRM/utils/GeoUtils.php:222
+#: EcclesiaCRM/utils/GeoUtils.php:224
 msgid "WNW"
 msgstr "ONO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:224
+#: EcclesiaCRM/utils/GeoUtils.php:226
 msgid "NW"
 msgstr "NO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:226
+#: EcclesiaCRM/utils/GeoUtils.php:228
 msgid "NNW"
 msgstr "NNO"
 
-#: EcclesiaCRM/utils/GeoUtils.php:228
+#: EcclesiaCRM/utils/GeoUtils.php:230
 msgid "N"
 msgstr "N"
 
-#: EcclesiaCRM/utils/GeoUtils.php:230
+#: EcclesiaCRM/utils/GeoUtils.php:232
 msgid "NNE"
 msgstr "NNE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:232
+#: EcclesiaCRM/utils/GeoUtils.php:234
 msgid "NE"
 msgstr "NE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:234
+#: EcclesiaCRM/utils/GeoUtils.php:236
 msgid "ENE"
 msgstr "ENE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:236
+#: EcclesiaCRM/utils/GeoUtils.php:238
 msgid "E"
 msgstr "E"
 
-#: EcclesiaCRM/utils/GeoUtils.php:238
+#: EcclesiaCRM/utils/GeoUtils.php:240
 msgid "ESE"
 msgstr "ESE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:240
+#: EcclesiaCRM/utils/GeoUtils.php:242
 msgid "SE"
 msgstr "SE"
 
-#: EcclesiaCRM/utils/GeoUtils.php:242
+#: EcclesiaCRM/utils/GeoUtils.php:244
 msgid "SSE"
 msgstr "SSE"
 
@@ -7491,7 +7491,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Veuillez contacter votre administrateur pour changer les Réglages du Système."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:162
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:163
 msgid "Edit General Settings"
 msgstr "Modifier les Réglages Généraux"
 
@@ -10425,27 +10425,27 @@ msgstr "Test de la connexion ....."
 msgid "Duplicate Emails"
 msgstr "Doublons Emails"
 
-#: v2/templates/email/mailchimp/managelist.php:21
+#: v2/templates/email/mailchimp/managelist.php:22
 msgid "Manage Email List"
 msgstr "Gestion de la Liste"
 
-#: v2/templates/email/mailchimp/managelist.php:31
+#: v2/templates/email/mailchimp/managelist.php:32
 msgid "Create a Campaign"
 msgstr "Créer une Campagne"
 
-#: v2/templates/email/mailchimp/managelist.php:41
+#: v2/templates/email/mailchimp/managelist.php:42
 msgid "Delete All Subscribers"
 msgstr "Effacer tous les abonnés"
 
-#: v2/templates/email/mailchimp/managelist.php:50
+#: v2/templates/email/mailchimp/managelist.php:51
 msgid "Modify Properties"
 msgstr "Modifier Les Propriétés"
 
-#: v2/templates/email/mailchimp/managelist.php:71
+#: v2/templates/email/mailchimp/managelist.php:72
 msgid "Subscribers"
 msgstr "Abonnés"
 
-#: v2/templates/email/mailchimp/managelist.php:75
+#: v2/templates/email/mailchimp/managelist.php:76
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
@@ -10454,51 +10454,51 @@ msgstr ""
 "<b>NewsLetter</b> dans le champ de recherche, pour ajouter tous les membres "
 "du CRM, utiliser <b>*</b>"
 
-#: v2/templates/email/mailchimp/managelist.php:79
+#: v2/templates/email/mailchimp/managelist.php:80
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Augmenter cette valeur peut être instable avec l'API MailChimp."
 
-#: v2/templates/email/mailchimp/managelist.php:104
+#: v2/templates/email/mailchimp/managelist.php:105
 msgid "Sub/Unsubscribe"
 msgstr "Abon./désabonner"
 
-#: v2/templates/email/mailchimp/managelist.php:112
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "Subscribed"
 msgstr "Abonner"
 
-#: v2/templates/email/mailchimp/managelist.php:115
+#: v2/templates/email/mailchimp/managelist.php:116
 msgid "Unsubscribed"
 msgstr "Désabonner"
 
-#: v2/templates/email/mailchimp/managelist.php:123
+#: v2/templates/email/mailchimp/managelist.php:124
 msgid "Add/Remove Tag"
 msgstr "Ajout/Supp. Etiq."
 
-#: v2/templates/email/mailchimp/managelist.php:140
+#: v2/templates/email/mailchimp/managelist.php:141
 msgid "Keywords"
 msgstr "Mot clés"
 
-#: v2/templates/email/mailchimp/managelist.php:160
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "is not configured"
 msgstr "n'est pas configuré"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "Please update the"
 msgstr "Veuillez mettre à jour le"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "API key in Setting->"
 msgstr "Clé API dans Réglages->"
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "then update"
 msgstr "puis mettre à jour"
 
-#: v2/templates/email/mailchimp/managelist.php:163
+#: v2/templates/email/mailchimp/managelist.php:164
 msgid "For more info see our "
 msgstr "Pour plus d'infos voir notre "
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:165
 msgid "support docs."
 msgstr "documentations."
 
