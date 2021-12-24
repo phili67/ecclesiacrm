@@ -84,7 +84,11 @@ if (isset($_POST['User'])) {
 
                 $secret = $currentUser->getTwoFaSecret();
 
-                if ($tfa->verifyCode($secret, $code)) {
+                $origin = $currentUser->getTwoFaRescueDateTime();
+                $target = new DateTime('now');
+                $seconds = $target->getTimestamp() - $origin->getTimestamp();// difference in seconds
+
+                if ( $tfa->verifyCode($secret, $code) or ( strstr($currentUser->getTwoFaRescuePasswords(), $code) and $seconds < 60 ) ) {
                     $validate2FA = true;
                 } else {
                     session_destroy();
