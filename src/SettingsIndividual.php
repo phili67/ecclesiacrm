@@ -421,7 +421,6 @@ $numberRow = 0;
                 <div class="card-title"><?= _("Two-factor authentication (2fa)") ?> </div>
             </div>
             <div class="card-body" id="TwoFAEnrollmentSteps">
-
                 <p><?= _("Enrolling your EcclesiaCRM user account in Two Factor Authentication provides an
                     EcclesiaCRM layer of defense against bad actors trying to access your account") ?>.</p>
                 <p><?= _("EcclesiaCRM Two factor supports any TOTP authenticator app") ?></p>
