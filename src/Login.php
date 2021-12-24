@@ -243,6 +243,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 </p>
             </form>
 
+
             <?php if (SystemConfig::getBooleanValue('bEnableSelfRegistration')) {
                 ?>
                 <div class="row  mb-3">
