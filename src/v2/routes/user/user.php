@@ -55,7 +55,7 @@ function argumentsrenderUserListArray ()
                        'userRoles'         => $userRoles,
                        'usr_role_id'       => $usr_role_id,
                        'sessionUserId'     => SessionUser::getUser()->getId(),
-                       'dateFormatLong'    => SystemConfig::getValue('sDateFormatLong')
+                       'dateFormatLong'    => SystemConfig::getValue('sDateFormatLong')." ".((SystemConfig::getBooleanValue('bTimeEnglish'))?"h:m A":"H:m")
                       ];
 
    return $paramsArguments;

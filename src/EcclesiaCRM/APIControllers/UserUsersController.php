@@ -23,6 +23,10 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
 
+use RobThree\Auth\TwoFactorAuth;
+
+use DateTime;
+
 class UserUsersController
 {
     private $container;
@@ -222,6 +226,55 @@ class UserUsersController
             $_SESSION['user'] = $user;
 
             return $response->withJson(['success' => true]);
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function userstwofaremove(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = (object)$request->getParsedBody();
+
+        if ( isset ($params->userID) ) {
+
+            $user = UserQuery::create()->findOneByPersonId($params->userID);
+
+            $secret = $user->getTwoFaSecret();
+
+            if (!is_null($secret)) {
+
+                $user->setTwoFaSecret(NULL);
+                $user->setTwoFaSecretConfirm(false);
+                $user->setTwoFaRescuePasswords(NULL);
+                $user->setTwoFaRescueDateTime('2000-01-01 00:00:00');
+                $user->save();
+
+                return $response->withJson(['status' => 'yes']);
+            }
+        }
+
+        return $response->withJson(['status' => 'no']);
+    }
+
+    public function userstwofapending(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $params = (object)$request->getParsedBody();
+
+        if ( isset ($params->userID) ) {
+
+            $user = UserQuery::create()->findOneByPersonId($params->userID);
+
+            $secret = $user->getTwoFaSecret();
+
+            if ( !is_null($secret) ) {
+
+                // we set the date time to be now
+                // after we've 60 seconds to use the recovery codes
+                $user->setTwoFaRescueDateTime(new DateTime('now'));
+                $user->save();
+
+                return $response->withJson(['status' => 'yes']);
+            }
         }
 
         return $response->withJson(['success' => false]);

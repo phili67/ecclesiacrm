@@ -12,6 +12,14 @@ use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 
+use EcclesiaCRM\Service\NotificationService;
+use EcclesiaCRM\Service\SystemService;
+
+use DateTime;
+use DateTimeZone;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Token;
+
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -886,5 +894,105 @@ class User extends BaseUser
       }
 
       return $userConf->getValue();
+    }
+
+    public function LoginPhaseActivations()
+    {
+        $token = TokenQuery::Create()->findOneByType("secret");
+
+        if (is_null($token)) {
+            $token = new Token ();
+            $token->buildSecret();
+            $token->save();
+        }
+
+        $dateNow = new DateTime("now");
+
+        if ($dateNow > $token->getValidUntilDate()) {// the token expire
+            // we delete the old token
+            $token->delete();
+            // we create a new one
+            $token = new Token ();
+            $token->buildSecret();
+            $token->save();
+        }
+
+        // Set the LastLogin and Increment the LoginCount
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+        $this->setLastLogin($date->format('Y-m-d H:i:s'));
+        $this->setLoginCount($this->getLoginCount() + 1);
+        $this->setFailedLogins(0);
+        $this->save();
+
+        $_SESSION['user'] = $this;
+
+        // Set the UserID
+        $_SESSION['iUserID'] = $this->getPersonId();
+
+        // Set the User's family id in case EditSelf is enabled
+        $_SESSION['iFamID'] = $this->getPerson()->getFamId();
+
+        // for webDav we've to create the Home directory
+        $this->createHomeDir();
+
+        // If user has administrator privilege, override other settings and enable all permissions.
+        // this is usefull for : MiscUtils::requireUserGroupMembership in Include/Functions.php
+
+        $_SESSION['bAdmin'] = $this->isAdmin();                       //ok
+        $_SESSION['bPastoralCare'] = $this->isPastoralCareEnabled();         //ok
+        $_SESSION['bMailChimp'] = $this->isMailChimpEnabled();            //ok
+        $_SESSION['bGdrpDpo'] = $this->isGdrpDpoEnabled();              //ok
+        $_SESSION['bMainDashboard'] = $this->isMainDashboardEnabled();        //ok
+        $_SESSION['bSeePrivacyData'] = $this->isSeePrivacyDataEnabled();       //ok
+        $_SESSION['bAddRecords'] = $this->isAddRecordsEnabled();           //ok
+        $_SESSION['bEditRecords'] = $this->isEditRecordsEnabled();          //ok
+        $_SESSION['bDeleteRecords'] = $this->isDeleteRecordsEnabled();        //ok
+        $_SESSION['bMenuOptions'] = $this->isMenuOptionsEnabled();          //ok
+        $_SESSION['bManageGroups'] = $this->isManageGroupsEnabled();         //usefull in GroupView and in Properties
+        $_SESSION['bFinance'] = $this->isFinanceEnabled();              //ok
+        $_SESSION['bNotes'] = $this->isNotesEnabled();                //ok
+        $_SESSION['bCanvasser'] = $this->isCanvasserEnabled();            //ok
+        $_SESSION['bEditSelf'] = $this->isEditSelfEnabled();             //ok
+        $_SESSION['bShowCart'] = $this->isShowCartEnabled();             //ok
+        $_SESSION['bShowMap'] = $this->isShowMapEnabled();              //ok
+        $_SESSION['bEDrive'] = $this->isEDriveEnabled();               //ok
+        $_SESSION['bShowMenuQuery'] = $this->isShowMenuQueryEnabled();        //ok
+
+
+        // Create the Cart
+        $_SESSION['aPeopleCart'] = [];
+
+        // Create the variable for the Global Message
+        $_SESSION['sGlobalMessage'] = '';
+
+        // Initialize the last operation time
+        $_SESSION['tLastOperation'] = time();
+
+        $_SESSION['bHasMagicQuotes'] = 0;
+
+        // Pledge and payment preferences
+        $_SESSION['sshowPledges'] = $this->getShowPledges();
+        $_SESSION['sshowPayments'] = $this->getShowPayments();
+
+        if (is_null($_SESSION['user']->getShowSince())) {
+            $_SESSION['user']->setShowSince(date("Y-m-d", strtotime('-1 year')));
+            $this->save();
+        }
+
+        if (is_null($_SESSION['user']->getShowTo())) {
+            $_SESSION['user']->setShowTo(date('Y-m-d'));
+            $this->save();
+        }
+
+        $_SESSION['idefaultFY'] = MiscUtils::CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
+        $_SESSION['iCurrentDeposit'] = $this->getCurrentDeposit();
+
+        $systemService = new SystemService();
+        $_SESSION['latestVersion'] = $systemService->getLatestRelese();
+        NotificationService::updateNotifications();
+
+        $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
+
+        $_SESSION['isSoftwareUpdateTestPassed'] = false;
     }
 }

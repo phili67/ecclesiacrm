@@ -226,4 +226,94 @@ $(document).ready(function () {
 
         sidebar.addClass(sidebar_class)
     });
+
+
+    $(".Twofa-activation").on("click",function(event) {
+        $("#TwoFAEnrollmentSteps").html("");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/get2FA'
+        }).done(function (data) {
+            var res = '<div class="row">' +
+                '           <div class="col-md-12">';
+            res += '            <label>' + i18next.t("2 Factor Authentication Secret") + "</label>";
+            res += '        </div>';
+            res += '    </div>';
+            res += '    <div class="row text-center">';
+            res += '        <div class="col-md-6">';
+            res += '            <img src="' + data.img + '"><br>';
+            res += '        </div>';
+            res += '        <div class="col-md-3">';
+            //res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
+            res += '            <br/><br/><button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
+            res += '        </div>';
+            res += '    </div>' +
+                '<br/>' +
+                '<br/>';
+
+            res += '<div class="row">' +
+            '   <div class="col-md-6">' +
+            '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>' +
+            '   </div>' +
+            '</div>'
+
+            res += '<br/><div class="row">' +
+                '   <div class="col-md-12">' +
+                '       <label id="rescuepasswords"></label>'
+            '   </div>' +
+            '</div>';
+
+            $("#TwoFAEnrollmentSteps").html(res);
+        });
+    });
+
+    $(document).on("input","#inputCode",function(){
+        var code = $(this).val();
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/verify2FA',
+            data: JSON.stringify({"code": code})
+        }).done(function (data) {
+            if (data.status == 'yes') {
+                $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
+
+                message = '<div  class="row">';
+                message += '<div class="col-md-12">';
+                message += '<div class="card card-success">';
+                message += '<div class="card-header">';
+                message += '<h1 class="card-title">' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h1>';
+                message += '</div>';
+                message += '<div class="card-body">';
+                message += '<p>' + data.rescue_passwords + '</p>';
+                message += '</div>';
+                message += '</div>';
+                message += '</div>';
+                message += '</div>';
+
+                $("#two-factor-results").html(message);
+            } else {
+                $("#verifyCode").html('<i class="fa fa-ban" style="font-size: 20px;color: red"></i>');
+                $("#two-factor-results").html("");
+            }
+
+        });
+    });
+
+    $(document).on("click",".remove-2fa",function(){
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/remove2FA',
+        }).done(function (data) {
+            if (data.status == 'yes') {
+                location.reload();
+            }
+        });
+    });
+
+    if (window.CRM.twofa) {
+        $("#TwoFaBox").focus();
+    }
+
 });
