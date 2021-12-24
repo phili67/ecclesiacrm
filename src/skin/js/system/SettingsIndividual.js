@@ -226,4 +226,67 @@ $(document).ready(function () {
 
         sidebar.addClass(sidebar_class)
     });
+
+
+    $(".Twofa-activation").on("click",function(event) {
+        $("#TwoFAEnrollmentSteps").html("");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/get2FA'
+        }).done(function (data) {
+            var res = '<div class="row">' +
+                '           <div class="col-md-12">';
+            res += '            <h2>' + i18next.t("2 Factor Authentication Secret") + "</h2>";
+            res += '        </div>';
+            res += '    </div>';
+            res += '    <div class="row text-center">';
+            res += '        <div class="col-md-6">';
+            res += '            <img src="' + data.img + '"><br>';
+            res += '        </div>';
+            res += '        <div class="col-md-3">';
+            res += '            <br/><button class="btn btn-warning">Regenerate 2 Factor Authentication Secret</button><br/><br/>';
+            res += '            <button class="btn btn-danger remove-2fa">Remove 2 Factor Authentication Secret</button>';
+            res += '        </div>';
+            res += '    </div>' +
+                '<br/>' +
+                '<br/>';
+
+            res += '<div class="row">' +
+            '   <div class="col-md-6">' +
+            '       <label>Enter TOTP code to confirm enrollment : <input value="" id="inputCode"></label>' +
+            '   </div>' +
+            '</div>';
+
+            $("#TwoFAEnrollmentSteps").html(res);
+        });
+    });
+
+    $(document).on("input","#inputCode",function(){
+        var code = $(this).val();
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/verify2FA',
+            data: JSON.stringify({"code": code})
+        }).done(function (data) {
+            if (data.status == 'yes') {
+                alert("code bon");
+            }
+
+        });
+    });
+
+    $(document).on("click",".remove-2fa",function(){
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'settingsindividual/remove2FA',
+        }).done(function (data) {
+            if (data.status == 'yes') {
+                location.reload();
+            }
+
+        });
+    });
+
 });
