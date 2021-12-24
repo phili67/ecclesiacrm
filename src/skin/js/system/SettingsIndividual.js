@@ -245,8 +245,8 @@ $(document).ready(function () {
             res += '            <img src="' + data.img + '"><br>';
             res += '        </div>';
             res += '        <div class="col-md-3">';
-            res += '            <br/><button class="btn btn-warning">Regenerate 2 Factor Authentication Secret</button><br/><br/>';
-            res += '            <button class="btn btn-danger remove-2fa">Remove 2 Factor Authentication Secret</button>';
+            res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
+            res += '            <button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
             res += '        </div>';
             res += '    </div>' +
                 '<br/>' +
@@ -254,7 +254,7 @@ $(document).ready(function () {
 
             res += '<div class="row">' +
             '   <div class="col-md-6">' +
-            '       <label>Enter TOTP code to confirm enrollment : <input value="" id="inputCode"></label>' +
+            '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>'
             '   </div>' +
             '</div>';
 
@@ -271,7 +271,9 @@ $(document).ready(function () {
             data: JSON.stringify({"code": code})
         }).done(function (data) {
             if (data.status == 'yes') {
-                alert("code bon");
+                $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
+            } else {
+                $("#verifyCode").html('<i class="fa fa-ban" style="font-size: 20px;color: red"></i>');
             }
 
         });
@@ -285,8 +287,11 @@ $(document).ready(function () {
             if (data.status == 'yes') {
                 location.reload();
             }
-
         });
     });
+
+    if (window.CRM.twofa) {
+        $("#TwoFaBox").focus();
+    }
 
 });
