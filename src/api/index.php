@@ -110,6 +110,7 @@ require __DIR__.'/routes/system/system-gdrp.php';
 require __DIR__.'/routes/system/system-issues.php';
 require __DIR__.'/routes/system/system-system-upgrade.php';
 require __DIR__.'/routes/system/system-timerjobs.php';
+require __DIR__.'/routes/system/system-setting-individual.php';
 
 // users routes
 require __DIR__.'/routes/user/user-users.php';
