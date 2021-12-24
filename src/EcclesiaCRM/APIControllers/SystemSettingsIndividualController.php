@@ -81,18 +81,24 @@ class SystemSettingsIndividualController
             $secret = $user->getTwoFaSecret();
 
             if ( !is_null($secret) ) {
-                if ($tfa->verifyCode($secret, $code)) {
+                if ( $tfa->verifyCode($secret, $code) ) {
                     $user->setTwoFaSecretConfirm(true);
 
-                    $passwords = "";
-                    for ($i = 0;$i< 10;$i++){
-                        $passwords .= $this->random_password(10);
-                        if ($i < 9) {
-                            $passwords .= "<br>";
+                    if ( is_null($user->getTwoFaRescuePasswords()) ) {
+
+                        $passwords = "";
+                        for ($i = 0; $i < 10; $i++) {
+                            $passwords .= $this->random_password(10);
+                            if ($i < 9) {
+                                $passwords .= "<br>";
+                            }
                         }
+
+                        $user->setTwoFaRescuePasswords($passwords);
+                    } else {
+                        $passwords = $user->getTwoFaRescuePasswords();
                     }
 
-                    $user->setTwoFaRescuePasswords($passwords);
                     $user->save();
 
                     return $response->withJson(['status' => 'yes', "rescue_passwords" => $passwords]);
