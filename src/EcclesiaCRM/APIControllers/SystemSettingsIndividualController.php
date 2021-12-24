@@ -13,7 +13,6 @@ namespace EcclesiaCRM\APIControllers;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use EcclesiaCRM\UserQuery;
 
 use EcclesiaCRM\SessionUser;
 
@@ -85,7 +84,4 @@ class SystemSettingsIndividualController
 
         return $response->withJson(['status' => 'no']);
     }
-
-
-
 }
