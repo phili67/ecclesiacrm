@@ -52,6 +52,7 @@ require $sRootDocument . '/Include/Header.php';
                 <th align="center"><?= _('Total Logins') ?></th>
                 <th align="center"><?= _('Failed Logins') ?></th>
                 <th align="center"><?= _('Password') ?></th>
+                <th align="center"><?= _('2FA authentication') ?></th>
                 <th align="center"><?= _('Status') ?></th>
             </tr>
             </thead>
@@ -148,6 +149,15 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           }
                         ?>
+                    </td>
+                    <td>
+                        <?php if ($user->getTwoFaSecretConfirm()) { ?>
+                            <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>">
+                                <i class="fa fa-key" aria-hidden="true"></i> <?= _("Management") ?>
+                            </a>
+                        <?php } else { ?>
+                            <?= _("No") ?>
+                        <?php } ?>
                     </td>
                     <td  align="center">
                       <?php
