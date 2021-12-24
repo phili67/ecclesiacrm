@@ -237,7 +237,7 @@ $(document).ready(function () {
         }).done(function (data) {
             var res = '<div class="row">' +
                 '           <div class="col-md-12">';
-            res += '            <h2>' + i18next.t("2 Factor Authentication Secret") + "</h2>";
+            res += '            <label>' + i18next.t("2 Factor Authentication Secret") + "</label>";
             res += '        </div>';
             res += '    </div>';
             res += '    <div class="row text-center">';
@@ -246,7 +246,7 @@ $(document).ready(function () {
             res += '        </div>';
             res += '        <div class="col-md-3">';
             res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
-            res += '            <button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
+            res += '            <br/><br/><button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
             res += '        </div>';
             res += '    </div>' +
                 '<br/>' +
@@ -256,7 +256,7 @@ $(document).ready(function () {
             '   <div class="col-md-6">' +
             '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>' +
             '   </div>' +
-            '</div>';
+            '</div>'
 
             res += '<br/><div class="row">' +
                 '   <div class="col-md-12">' +
@@ -279,7 +279,7 @@ $(document).ready(function () {
             if (data.status == 'yes') {
                 $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
                 message = '<br/>'
-                message += '<h2>' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h2>';
+                message += '<label>' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</label>';
                 message += '<br/>'
                 message += '<p>' + data.rescue_passwords + '</p>'
                 $("#rescuepasswords").html(message);
