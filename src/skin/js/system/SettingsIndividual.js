@@ -278,13 +278,24 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data.status == 'yes') {
                 $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
-                message = '<br/>'
-                message += '<label>' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</label>';
-                message += '<br/>'
-                message += '<p>' + data.rescue_passwords + '</p>'
-                $("#rescuepasswords").html(message);
+
+                message = '<div  class="row">';
+                message += '<div class="col-md-12">';
+                message += '<div class="card card-success">';
+                message += '<div class="card-header">';
+                message += '<h1 class="card-title">' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h1>';
+                message += '</div>';
+                message += '<div class="card-body">';
+                message += '<p>' + data.rescue_passwords + '</p>';
+                message += '</div>';
+                message += '</div>';
+                message += '</div>';
+                message += '</div>';
+
+                $("#two-factor-results").html(message);
             } else {
                 $("#verifyCode").html('<i class="fa fa-ban" style="font-size: 20px;color: red"></i>');
+                $("#two-factor-results").html("");
             }
 
         });
