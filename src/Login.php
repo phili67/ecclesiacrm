@@ -88,7 +88,7 @@ if (isset($_POST['User'])) {
                 $target = new DateTime('now');
                 $seconds = $target->getTimestamp() - $origin->getTimestamp();// difference in seconds
 
-                if ( $tfa->verifyCode($secret, $code) or ( strstr($currentUser->getTwoFaRescuePasswords(), $code) and $seconds < 60 ) ) {
+                if ( $tfa->verifyCode($secret, $code) or ( strlen($code) == 10 and strstr($currentUser->getTwoFaRescuePasswords(), $code) and $seconds < 60 ) ) {
                     $validate2FA = true;
                 } else {
                     session_destroy();
@@ -222,7 +222,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
                     <input type="text" id="TwoFaBox" name="twofafield" class="form-control" data-toggle="TwoFaBox"
-                           placeholder="<?= _('Two factors authentication') ?>" required autofocus style="border: 2px solid red /* red */">
+                           placeholder="<?= _("Two factors authentication") ?>" required autofocus style="border: 2px solid red /* red */">
                     <br/>
                 </div>
                 <?php endif ?>
