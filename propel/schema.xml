@@ -924,6 +924,8 @@
         <column name="usr_CalNoSchool7" phpName="CalNoSchool7" type="DATE"/>
         <column name="usr_CalNoSchool8" phpName="CalNoSchool8" type="DATE"/>
         <column name="usr_SearchFamily" phpName="Searchfamily" type="TINYINT" size="3"/>
+        <column name="usr_TwoFaSecret" phpName="TwoFaSecret" type="VARCHAR" size="255"/>
+        <column name="usr_TwoFaSecretConfirm" phpName="TwoFaSecretConfirm" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_Canvasser" phpName="Canvasser" type="BOOLEAN" size="1" required="true" defaultValue="0"/>
         <column name="usr_ShowCart" phpName="ShowCart" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ShowMap" phpName="ShowMap" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
