@@ -254,7 +254,13 @@ $(document).ready(function () {
 
             res += '<div class="row">' +
             '   <div class="col-md-6">' +
-            '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>'
+            '       <label>' + i18next.t("Enter TOTP code to confirm enrollment") + ' : <input value="" id="inputCode"> <span id="verifyCode"></span> </label>' +
+            '   </div>' +
+            '</div>';
+
+            res += '<br/><div class="row">' +
+                '   <div class="col-md-12">' +
+                '       <label id="rescuepasswords"></label>'
             '   </div>' +
             '</div>';
 
@@ -272,6 +278,11 @@ $(document).ready(function () {
         }).done(function (data) {
             if (data.status == 'yes') {
                 $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
+                message = '<br/>'
+                message += '<h2>' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h2>';
+                message += '<br/>'
+                message += '<p>' + data.rescue_passwords + '</p>'
+                $("#rescuepasswords").html(message);
             } else {
                 $("#verifyCode").html('<i class="fa fa-ban" style="font-size: 20px;color: red"></i>');
             }
