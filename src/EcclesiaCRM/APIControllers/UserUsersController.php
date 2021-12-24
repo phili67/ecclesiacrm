@@ -246,6 +246,7 @@ class UserUsersController
                 $user->setTwoFaSecret(NULL);
                 $user->setTwoFaSecretConfirm(false);
                 $user->setTwoFaRescuePasswords(NULL);
+                $user->setTwoFaRescueDateTime('2000-01-01 00:00:00');
                 $user->save();
 
                 return $response->withJson(['status' => 'yes']);
