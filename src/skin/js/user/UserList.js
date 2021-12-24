@@ -200,5 +200,61 @@ $(document).ready(function () {
         });
     });
 
+    $("#user-listing-table").on('click', '.two-fa-manage', function () {
+        var userID = $(this).data('userid');
+
+        var modal = bootbox.dialog({
+            title: i18next.t("Two factors authentications"),
+            message: '<p><ul>' +
+                '<li>' +
+                    i18next.t("Delete") + " : " + i18next.t("to remove two-factor authentication") +
+                '</li>' +
+                '<li>' +
+                    i18next.t("Pending") + " : " + i18next.t("Gives the user 60 seconds to log in with their recovery codes. The user will then have to delete or simply rescan the QR-code in the OTP Management application.") +
+                '</li>' +
+                '</ul>' +
+                '</p>',
+            buttons: [
+                {
+                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                    className: "btn btn-secondary",
+                    callback: function() {
+                    }
+                },
+                {
+                    label: '<i class="fa fa-trash"></i> ' + i18next.t("Delete"),
+                    className: "btn btn-danger",
+                    callback: function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'users/2fa/remove',
+                            data: JSON.stringify({"userID": userID})
+                        }).done(function (data) {
+                            location.reload();
+                        });
+                    }
+                },
+                {
+                    label: '<i class="fa fa-clock-o"></i> ' + i18next.t("Pending"),
+                    className: "btn btn-primary",
+                    callback: function() {
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'users/2fa/pending',
+                            data: JSON.stringify({"userID": userID})
+                        }).done(function (data) {
+                            i18next.t("The user has 60 seconds to use his recovery codes.");
+                        });
+                    }
+                }
+            ],
+            show: false,
+            onEscape: function() {
+                modal.modal("hide");
+            }
+        });
+
+        modal.modal("show");
+    });
 });
 
