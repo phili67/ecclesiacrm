@@ -19,22 +19,22 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Emails\LockedEmail;
-use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\TokenQuery;
-use EcclesiaCRM\Token;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\Bootstrapper;
+
+use RobThree\Auth\TwoFactorAuth;
 
 
 if (!Bootstrapper::isDBCurrent()) {
     RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }
+
+$twofa = false;
 
 // Get the UserID out of user name submitted in form results
 if (isset($_POST['User'])) {
@@ -64,109 +64,52 @@ if (isset($_POST['User'])) {
         $sErrorText = _('Invalid login or password');
     } else {
         // manage the token for the secret JWT UUID
-        $token = TokenQuery::Create()->findOneByType("secret");
+        if ( !is_null($currentUser->getTwoFaSecret()) and $currentUser->getTwoFaSecretConfirm() and !isset($_POST['twofafield']) ) {
+            // we're in case of a two factors authentication
+            session_destroy();
 
-        if (is_null($token)) {
-            $token = new Token ();
-            $token->buildSecret();
-            $token->save();
+            session_start();
+            $_SESSION['username'] = $UserName;
+            $_SESSION['password'] = $_POST['Password'];
+
+            $twofa = true;
+        } else {
+            $validate2FA = false;
+
+            if ( isset($_POST['twofafield']) ){
+                $currentUser = UserQuery::create()->findOneByUserName($UserName);
+                $code = $_POST['twofafield'];
+
+                $tfa = new TwoFactorAuth('EcclesiaCRM');
+
+                $secret = $currentUser->getTwoFaSecret();
+
+                if ($tfa->verifyCode($secret, $code)) {
+                    $validate2FA = true;
+                } else {
+                    session_destroy();
+
+                    session_start();
+                    $_SESSION['username'] = $UserName;
+                    $_SESSION['password'] = $_POST['Password'];
+
+                    $twofa = true;
+                }
+            } else {
+                $validate2FA = true;
+            }
+
+            if ($validate2FA) {
+                $currentUser->LoginPhaseActivations();
+
+                if (isset($_SESSION['lastPage'])) {
+                    RedirectUtils::Redirect($_SESSION['lastPage']);
+                    exit;
+                }
+                RedirectUtils::Redirect('v2/dashboard');
+                exit;
+            }
         }
-
-        $dateNow = new DateTime("now");
-
-        if ($dateNow > $token->getValidUntilDate()) {// the token expire
-            // we delete the old token
-            $token->delete();
-            // we create a new one
-            $token = new Token ();
-            $token->buildSecret();
-            $token->save();
-        }
-
-        // Set the LastLogin and Increment the LoginCount
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $currentUser->setLastLogin($date->format('Y-m-d H:i:s'));
-        $currentUser->setLoginCount($currentUser->getLoginCount() + 1);
-        $currentUser->setFailedLogins(0);
-        $currentUser->save();
-
-        $_SESSION['user'] = $currentUser;
-
-        // Set the UserID
-        $_SESSION['iUserID'] = $currentUser->getPersonId();
-
-        // Set the User's family id in case EditSelf is enabled
-        $_SESSION['iFamID'] = $currentUser->getPerson()->getFamId();
-
-        // for webDav we've to create the Home directory
-        $currentUser->createHomeDir();
-
-        // If user has administrator privilege, override other settings and enable all permissions.
-        // this is usefull for : MiscUtils::requireUserGroupMembership in Include/Functions.php
-
-        $_SESSION['bAdmin'] = $currentUser->isAdmin();                       //ok
-        $_SESSION['bPastoralCare'] = $currentUser->isPastoralCareEnabled();         //ok
-        $_SESSION['bMailChimp'] = $currentUser->isMailChimpEnabled();            //ok
-        $_SESSION['bGdrpDpo'] = $currentUser->isGdrpDpoEnabled();              //ok
-        $_SESSION['bMainDashboard'] = $currentUser->isMainDashboardEnabled();        //ok
-        $_SESSION['bSeePrivacyData'] = $currentUser->isSeePrivacyDataEnabled();       //ok
-        $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();           //ok
-        $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();          //ok
-        $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();        //ok
-        $_SESSION['bMenuOptions'] = $currentUser->isMenuOptionsEnabled();          //ok
-        $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();         //usefull in GroupView and in Properties
-        $_SESSION['bFinance'] = $currentUser->isFinanceEnabled();              //ok
-        $_SESSION['bNotes'] = $currentUser->isNotesEnabled();                //ok
-        $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();            //ok
-        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();             //ok
-        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();             //ok
-        $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();              //ok
-        $_SESSION['bEDrive'] = $currentUser->isEDriveEnabled();               //ok
-        $_SESSION['bShowMenuQuery'] = $currentUser->isShowMenuQueryEnabled();        //ok
-
-
-        // Create the Cart
-        $_SESSION['aPeopleCart'] = [];
-
-        // Create the variable for the Global Message
-        $_SESSION['sGlobalMessage'] = '';
-
-        // Initialize the last operation time
-        $_SESSION['tLastOperation'] = time();
-
-        $_SESSION['bHasMagicQuotes'] = 0;
-
-        // Pledge and payment preferences
-        $_SESSION['sshowPledges'] = $currentUser->getShowPledges();
-        $_SESSION['sshowPayments'] = $currentUser->getShowPayments();
-
-        if (is_null($_SESSION['user']->getShowSince())) {
-            $_SESSION['user']->setShowSince(date("Y-m-d", strtotime('-1 year')));
-            $currentUser->save();
-        }
-
-        if (is_null($_SESSION['user']->getShowTo())) {
-            $_SESSION['user']->setShowTo(date('Y-m-d'));
-            $currentUser->save();
-        }
-
-        $_SESSION['idefaultFY'] = MiscUtils::CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
-        $_SESSION['iCurrentDeposit'] = $currentUser->getCurrentDeposit();
-
-        $systemService = new SystemService();
-        $_SESSION['latestVersion'] = $systemService->getLatestRelese();
-        NotificationService::updateNotifications();
-
-        $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
-
-        $_SESSION['isSoftwareUpdateTestPassed'] = false;
-
-        if ( isset($_SESSION['lastPage']) ) {
-            RedirectUtils::Redirect( $_SESSION['lastPage'] );
-            exit;
-        }
-        RedirectUtils::Redirect('v2/dashboard');
-        exit;
     }
 } elseif (isset($_GET['username'])) {
     $urlUserName = $_GET['username'];
@@ -202,6 +145,12 @@ if (empty($urlUserName)) {
         $urlUserName = $user->getUserName();
     } elseif (isset($_SESSION['username'])) {
         $urlUserName = $_SESSION['username'];
+    }
+}
+
+if (empty($urlPassword)) {
+    if (isset($_SESSION['password'])) {
+        $urlPassword = $_SESSION['password'];
     }
 }
 
@@ -260,13 +209,19 @@ require 'Include/HeaderNotLoggedIn.php';
             <form class="form-signin" role="form" method="post" name="LoginForm" action="Login.php">
                 <div class="form-group has-feedback">
                     <input type="text" id="UserBox" name="User" class="form-control" value="<?= $urlUserName ?>"
-                           placeholder="<?= _('Email/Username') ?>" required autofocus>
+                           placeholder="<?= _('Email/Username') ?>" required>
                 </div>
                 <div class="form-group has-feedback">
                     <input type="password" id="PasswordBox" name="Password" class="form-control" data-toggle="password"
-                           placeholder="<?= _('Password') ?>" required autofocus>
+                           placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
+                </div>
+                <?php if ($twofa): ?>
+                <div class="form-group has-feedback">
+                    <input type="text" id="TwoFaBox" name="twofafield" class="form-control" data-toggle="TwoFaBox"
+                           placeholder="<?= _('Two factors authentication') ?>" required autofocus style="border: 2px solid red /* red */">
                     <br/>
                 </div>
+                <?php endif ?>
                 <div class="row  mb-3">
                     <!-- /.col -->
                     <div class="col-12">
@@ -370,6 +325,8 @@ require 'Include/HeaderNotLoggedIn.php';
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    var window.CRM.twofa = <?= ($twofa)?'true':'false' ?>;
+
     <?php
     if ($_SESSION['iLoginType'] == "Lock") {
     ?>
