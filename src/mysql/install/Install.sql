@@ -1378,6 +1378,8 @@ CREATE TABLE `user_usr` (
   `usr_EDrive` tinyint(1) NOT NULL default '0',
   `usr_TwoFaSecret` VARCHAR(255) NULL,
   `usr_TwoFaSecretConfirm` BOOLEAN NOT NULL default 0,
+  `usr_TwoFaRescuePasswords` VARCHAR(255) NULL,
+  `usr_TwoFaRescueDateTime` datetime NOT NULL default '2000-01-01 00:00:00' COMMENT 'Only 60 seconds to validate the rescue password',
   PRIMARY KEY  (`usr_per_ID`),
   UNIQUE KEY `usr_UserName` (`usr_UserName`),
   UNIQUE KEY `usr_apiKey` (`usr_webDavKey`),
