@@ -15,5 +15,7 @@ $app->group('/users', function (RouteCollectorProxy $group) {
     $group->post('/showto', UserUsersController::class . ':showTo' );
     $group->post('/{userId:[0-9]+}/login/reset', UserUsersController::class . ':loginReset' );
     $group->delete('/{userId:[0-9]+}', UserUsersController::class . ':deleteUser' );
+    $group->post('/2fa/remove', UserUsersController::class . ':userstwofaremove' );
+    $group->post('/2fa/pending', UserUsersController::class . ':userstwofapending' );
 
 });
