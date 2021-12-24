@@ -106,6 +106,7 @@ require $sRootDocument . '/Include/Header.php';
                     <td>
                         <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
+
                     <td class="role<?=$user->getPersonId()?>">
                         <?php
                           if (!is_null($user->getUserRole())) {
