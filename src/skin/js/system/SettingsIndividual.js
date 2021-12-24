@@ -245,7 +245,7 @@ $(document).ready(function () {
             res += '            <img src="' + data.img + '"><br>';
             res += '        </div>';
             res += '        <div class="col-md-3">';
-            res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
+            //res += '            <br/><button class="btn btn-warning">' + i18next.t("Regenerate 2 Factor Authentication Secret") + '</button><br/><br/>';
             res += '            <br/><br/><button class="btn btn-danger remove-2fa">' + i18next.t("Remove 2 Factor Authentication Secret") + '</button>';
             res += '        </div>';
             res += '    </div>' +
