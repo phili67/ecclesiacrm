@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,8 +325,8 @@ msgstr "Cứu"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -950,7 +950,7 @@ msgstr "Chiếu tướng."
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Kiểm tra tất cả"
 
@@ -1979,14 +1979,14 @@ msgstr "Vâng."
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "Không."
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "Tài khoản đã vô hiệu hóa"
@@ -2249,12 +2249,12 @@ msgstr "Nhân dân và gia đình đã được xóa sạch khỏi cơ sở dữ
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr "POST với tên Userrol, biến số toàn cầu, người dùng và giá trị lợi dụng"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "Vai trò người dùng của anh đã thay đổi"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "Tài khoản đã khởi động"
 
@@ -4420,7 +4420,7 @@ msgstr "Tài khoản của anh đã bị xóa"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Accoun CRM 998 của anh đã bị xóa."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "Tên Email/Usename"
 
@@ -4508,7 +4508,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Tài khoản CRM Ecclesiacủa anh đã được cập nhật"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "Tình hình thế nào?"
 
@@ -4891,51 +4891,51 @@ msgstr "- Già rồi"
 msgid "EcclesiaCRM export"
 msgstr "Xuất khẩu CRMEcclesia"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "người dùng hệ thống tạo ra"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "cập nhật hệ thống cho người dùng"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "người dùng hệ thống đã xóa"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "tái thiết lập mật khẩu hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "người dùng hệ thống đổi mật khẩu"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "mật khẩu người dùng hệ thống thay đổi bởi admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "login người dùng hệ thống"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "Dav tạo hồ sơ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "Dav tạo thư mục"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "Hồ sơ cập nhật Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "Hồ sơ di chuyển Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Dav xóa hồ sơ"
 
@@ -6157,8 +6157,8 @@ msgstr "Tên gốc"
 msgid "Go"
 msgstr "Đi đi."
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "CÁI HÀNH"
 
@@ -6703,7 +6703,7 @@ msgstr "Cho thấy tiền lương"
 
 #: FamilyView.php:918 PersonView.php:1598
 msgid "Add a new pledge"
-msgstr ""
+msgstr "Thêm một lời thề mới"
 
 #: FamilyView.php:920 PersonView.php:1600
 msgid "Add a new payment"
@@ -6907,7 +6907,7 @@ msgstr "Minimun Amount:"
 msgid "0 - No Minimum"
 msgstr "0 - không tối thiểu"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "Các thiết lập khác"
 
@@ -7447,12 +7447,12 @@ msgstr "Đúng - Sai"
 
 #: Include/Functions.php:89
 msgid "Text Field (50 char)"
-msgstr ""
+msgstr "Điện thoại (50 char)"
 
 #: Include/Functions.php:90 Reports/GDPR/GDPRDataStructureExport.php:159
 #: v2/templates/gdpr/gdprdatastructure.php:142
 msgid "Text Field (100 char)"
-msgstr ""
+msgstr "Điện thoại (100 char)"
 
 #: Include/Functions.php:91
 msgid "Text Field (Long)"
@@ -7774,7 +7774,7 @@ msgstr "Kết thúc ngày tháng/Time"
 msgid "Active"
 msgstr "Tiến hành"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "Ghi chú"
@@ -7840,32 +7840,36 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Tài khoản này đã bị một nhà quản lý vô hiệu hóa."
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Làm ơn đi Login"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr "Buổi điều trị trước của anh đã hết. Xin vui lòng đăng nhập lại."
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA : Chìa khóa OTP"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "Tôi quên mật khẩu rồi"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "Đăng ký một gia đình mới"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "Nhập mật khẩu để lấy lại buổi điều trị"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "Hoặc kí vào như một người dùng khác"
 
@@ -8167,7 +8171,7 @@ msgstr "Người tiếp theo"
 msgid "This Person is Deactivated"
 msgstr "Người này bị vô hiệu hóa"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Chưa xác định"
 
@@ -9139,33 +9143,129 @@ msgstr "Thiết lập người sử dụng của tôi"
 msgid "Classic User Profile Settings"
 msgstr "Thiết lập hồ sơ cổ điển sử dụng"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "Thu nhập hiện tại"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "Tên rất hay"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "Giữ nguyên vị trí"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "Da."
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "Sai"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "Đúng"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "2 nhân tố xác thực (2fa)"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"Tiếp cận tài khoản CRM 98 CRM 98 của bạn trong 2 hiệu ứng dụng cụ máy tính "
+"của Factor cung cấp một lớp phòng thủ Ecclesiađể chống lại những diễn viên "
+"xấu đang cố truy cập tài khoản của bạn"
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr "EcclesiaCRM 2 yếu tố hỗ trợ bất kỳ ứng dụng xác thực"
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr ""
+"Khi bạn đăng ký vào EcclesiaCRM, bạn vẫn sẽ nhập tên và mật khẩu như bình "
+"thường"
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr ""
+"Tuy nhiên, bạn cũng cần cung cấp một mã một lần từ thiết bị xác thực của bạn "
+"để hoàn thành các login"
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr ""
+"Sau khi nhập vào thành công của cả hai bằng chứng, và mã số một lần, anh sẽ "
+"được đăng nhập như bình thường"
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"Để ngăn chặn việc bị khóa trong tài khoản CRM 98, xin đảm bảo rằng bạn đã "
+"sẵn sàng để hoàn thành hai lần đăng ký nhân tố trước khi bắt đầu"
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr ""
+"Việc đăng ký sẽ vô hiệu hóa bất kỳ trước đây đã đăng ký 2 thiết bị nhân tố "
+"và mã phục hồi."
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr ""
+"Khi bạn nhấp vào tiếp theo, bạn sẽ được đề nghị quét mã QR để đăng ký ứng "
+"dụng xác thực."
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr "Để xác nhận, anh cần nhập mã được tạo ra bởi ứng dụng xác thực"
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr ""
+"Sau khi xác nhận việc đăng ký ứng dụng, mã phục hồi sử dụng đơn sẽ được tạo "
+"ra và hiển thị."
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr ""
+"Mã phục hồi có thể được sử dụng thay vì mã hóa được tạo ra từ ứng dụng xác "
+"thực của bạn."
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "Giữ chúng ở một nơi an toàn"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "Bắt đầu tiến hành tiến trình khai thác 2"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11508,9 +11608,17 @@ msgstr "Toàn bộ Logins"
 msgid "Failed Logins"
 msgstr "Kẻ thua cuộc"
 
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "Số 2FA"
+
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "Không thay đổi được"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "Quản lý"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12250,6 +12358,12 @@ msgstr "Nhỏ"
 
 msgid "Large"
 msgstr "Lớn"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "Hai nhân tố xác thực : Chìa khóa OTP"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "Hai nhân tố xác thực"
 
 #~ msgid "Norwegian"
 #~ msgstr "Na Uy"

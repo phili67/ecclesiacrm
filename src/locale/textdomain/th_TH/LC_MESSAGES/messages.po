@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,8 +323,8 @@ msgstr "ช่วยด้วย"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -937,7 +937,7 @@ msgstr "เช็คซิ"
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "ดูทั้งหมด"
 
@@ -1947,14 +1947,14 @@ msgstr "ใช่"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "ไม่"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "บัญชีถูกปิด"
@@ -2217,12 +2217,12 @@ msgstr "ประชาชนและครอบครัว ถูกปล�
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr "POST ของชื่อ อูสเซอร์โรล ตัวแปรโลก ผู้ใช้และผู้ใช้และผู้ใช้วาลิส"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "บทบาทผู้ใช้ของคุณเปลี่ยนไปแล้ว"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "บัญชีได้"
 
@@ -2323,9 +2323,8 @@ msgid "Austria (Österreich)"
 msgstr "ออสเตรีย (Österreich)"
 
 #: EcclesiaCRM/data/Countries.php:19
-#, fuzzy
 msgid "Azerbaijan (Azərbaycan)"
-msgstr "อาเซอร์ไบ จัน (Österreich)"
+msgstr "อาเซอร์ไบ จัน (อัซบัย)"
 
 #: EcclesiaCRM/data/Countries.php:20
 msgid "Bahamas"
@@ -3109,15 +3108,15 @@ msgstr "เกาหลีใต้ (เสียงกริ่ง)"
 
 #: EcclesiaCRM/data/Countries.php:60
 msgid "South Sudan (‫جنوب السودان‬‎)"
-msgstr ""
+msgstr "ซูดานใต้"
 
 #: EcclesiaCRM/data/Countries.php:60
 msgid "Spain (España)"
-msgstr ""
+msgstr "สเปน (Espayoa)"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "Sri Lanka (ශ්‍රී ලංකාව)"
-msgstr "ศรีลังกา (ţţ襦 襧〓〓〓ාා;񖓰;񖓰;ţ ව;ţ ţ ව;ţ ව;ţ 諀;ţ ව;\\355"
+msgstr "ศรีลังกา"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "St. Vincent & Grenadines"
@@ -4348,7 +4347,7 @@ msgstr "บัญชีของคุณถูกลบ"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Ecclesiaบัญชีคุณถูกลบ"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "อีเมล/อูสเนียม"
 
@@ -4436,7 +4435,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเดทแล้ว"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "สถานะ"
 
@@ -4819,51 +4818,51 @@ msgstr "แก่"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM ส่งออก"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "ผู้ใช้ระบบสร้าง"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "ผู้ใช้ระบบอัพเดทขึ้น"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "ผู้ใช้ระบบลบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "รหัสผ่านระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "ผู้ใช้ระบบเปลี่ยนรหัสผ่าน"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "รหัสผ่านระบบ เปลี่ยนโดยเอพิษ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "ระบบรีเซ็ตผู้ใช้ระบบ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "เดฟสร้างแฟ้มข้อมูล"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "เดฟสร้างไดเรกทอรี่"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "แฟ้มข้อมูลดาว"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "เดฟย้ายประวัติ"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
 
@@ -6078,8 +6077,8 @@ msgstr "ชื่อล็อกจิ้น"
 msgid "Go"
 msgstr "ไป"
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "ล็อคจิ้น"
 
@@ -6822,7 +6821,7 @@ msgstr "ทั้งหมดมีขนาดเล็ก:"
 msgid "0 - No Minimum"
 msgstr "ไม่มีขั้นต่ำ"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "ตั้งค่าอื่น"
 
@@ -7676,7 +7675,7 @@ msgstr "จบวันที่หรือเวลา"
 msgid "Active"
 msgstr "แอคเทิล"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "โน้ต"
@@ -7740,32 +7739,36 @@ msgstr "ตรรกะที่ล้มเหลวมากมาย บั�
 msgid "This account has been deactiveted by an administrator."
 msgstr "บัญชีนี้ถูกปิดโดยผู้บริหาร"
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "ได้โปรด ล็อกกิ้น"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr "เวลาผ่านมาของคุณเลิกแล้ว ได้โปรด ตระกูลอีกครั้ง"
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "รหัสผ่าน"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA: กุญแจสำคัญ"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "ฉันลืมรหัสผ่าน"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "จดทะเบียนครอบครัวใหม่"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "เข้ามารับพาสเวิร์ด เพื่อรับช่วงต่อ"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "หรือเป็นผู้ใช้อีกคนหนึ่ง"
 
@@ -8057,7 +8060,7 @@ msgstr "คนต่อไป"
 msgid "This Person is Deactivated"
 msgstr "เพอร์สัน ถูกปลดปล่อย"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "ไม่ได้คาดหวัง"
 
@@ -9020,33 +9023,115 @@ msgstr "ตั้งค่าผู้ใช้งาน"
 msgid "Classic User Profile Settings"
 msgstr "การตั้งค่าใช้จ่าย"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "วาวินาทีปัจจุบัน"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "ชื่อแตกต่างกัน"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "ช่วยชีวิต"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "ผิว"
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "ผิดพลาด"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "จริง"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "สองตัวประกอบ (2ฟา)"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"เข้าบัญชีผู้ใช้บริษัท Ecclesiaของคุณ ในฐานข้อมูลของผู้ตรวจสอบแฟคเตอร์ 2 ชั้น ให้กับชั้น "
+"Ecclesiaซีไอเอ็ม"
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr "Ecclesiaตัวประกอบ CRM 2 สนับสนุน แอพแอพตรวจตรวจดู"
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr "เมื่อคุณเซ็นต์ที่ EcclesiaCRM คุณก็ยังคงเข้าสู่ผู้ใช้และพาสเวิร์ดของคุณ เหมือนคนปกติ"
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr ""
+"แต่คุณต้องการส่งรหัสเพียงครั้งเดียว จากอุปกรณ์เชิงตัวแท้ของคุณ เพื่อให้สมบูรณ์ของตระกูลของคุณ"
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr "หลังจากเข้าไปทั้งสองใบเสร็จ และรหัสครั้งเดียว คุณจะถูกล็อกไว้เหมือนคนปกติ"
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"เพื่อป้องกันการป้องกัน บัญชีของ CR098 ของคุณ กรุณามั่นใจว่าคุณพร้อมที่จะสมบูรณ์แบบสองปัจจัย "
+"ก่อนที่จะถึงจะเริ่มต้น"
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr "การเริ่มต้นการลงทะเบียนที่จะบังคับให้เข้าใจก่อนหน้านี้ ทุกอย่างที่เข้าเรียนได้ก่อนหน้านี้"
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr "เมื่อคุณคลิกต่อไป คุณจะได้รับการส่งเสริม ในการสแกนรหัสQR เพื่อเข้าสู่แอพติดตัวแท้"
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr "เพื่อยืนยันการลงทะเบียน คุณต้องเข้ารหัส โดยแอพติดตัวแท้"
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr "หลังจากยืนยันการลงทะเบียนแอพแล้ว รหัสการฟื้นฟูขึ้นเดียว จะถูกสร้างและแสดง"
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr "รหัสคืนสู่สภาพสามารถใช้ได้ แทนที่จะเป็นรหัสจากแอพตรวจ"
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "ร้านขายพวกนี้ไว้ในที่ปลอดภัย"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "เริ่มเข้ารหัสผ่านการพิสูจน์"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -10025,7 +10110,7 @@ msgstr "เกษียณแล้ว ไม่ได้เข้าถึง"
 #: v2/templates/dashboard/maindashboard.php:511
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 msgid "Young People"
-msgstr ""
+msgstr "คนหนุ่ม"
 
 #: v2/templates/dashboard/maindashboard.php:514
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:219
@@ -11337,9 +11422,17 @@ msgstr "ทั้งหมด ล็อกเกอร์"
 msgid "Failed Logins"
 msgstr "ล็อคกิ้นส์ผิด"
 
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "2FA"
+
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "ไม่สามารถดัดแปลงได้"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "การจัดการ"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12071,6 +12164,12 @@ msgstr "เล็ก"
 
 msgid "Large"
 msgstr "ใหญ่"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "สองตัวประกอบการตรวจสอบ:"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "สองตัวประกอบการตรวจสอบ"
 
 #~ msgid "kilometers"
 #~ msgstr "กิโลเมตร"

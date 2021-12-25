@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-20T11:34:15.086Z\n"
+"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1769,6 +1769,25 @@ msgstr "Identifiera"
 msgid "Accept"
 msgstr "Acceptera"
 
+msgid "2 Factor Authentication Secret"
+msgstr "Hemlighet för autentisering med 2 faktorer"
+
+msgid "Regenerate 2 Factor Authentication Secret"
+msgstr "Återskapa 2-faktors autentiseringshemlighet"
+
+msgid "Remove 2 Factor Authentication Secret"
+msgstr "Ta bort 2-faktors autentiseringshemlighet"
+
+msgid "Enter TOTP code to confirm enrollment"
+msgstr "Ange TOTP-kod för att bekräfta registreringen"
+
+msgid ""
+"Keep these backup passwords in a safe place, in case you lose the OTP "
+"credentials."
+msgstr ""
+"Förvara dessa reservlösenord på ett säkert ställe om du skulle förlora OTP-"
+"uppgifter."
+
 msgid "The user must have an email address."
 msgstr "Användaren måste ha en e-postadress."
 
@@ -1845,6 +1864,28 @@ msgstr "Bekräfta återställningen av lösenordet för den här användaren"
 
 msgid "Password reset for"
 msgstr "Återställning av lösenord för"
+
+msgid "Two factors authentications"
+msgstr "Autentisering med två faktorer"
+
+msgid "to remove two-factor authentication"
+msgstr "ta bort tvåfaktorsautentisering"
+
+msgid "Pending"
+msgstr "I väntan på"
+
+msgid ""
+"Gives the user 60 seconds to log in with their recovery codes. The user will "
+"then have to delete or simply rescan the QR-code in the OTP Management "
+"application."
+msgstr ""
+"Ger användaren 60 sekunder på sig att logga in med sina återställningskoder. "
+"Användaren måste sedan radera eller helt enkelt skanna QR-koden på nytt i "
+"OTP-hanteringsprogrammet."
+
+msgid "The user has 60 seconds to use his recovery codes."
+msgstr ""
+"Användaren har 60 sekunder på sig att använda sina återställningskoder."
 
 msgid "Saving Campaign ..."
 msgstr "Spara kampanjen ..."

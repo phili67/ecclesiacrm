@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,8 +323,8 @@ msgstr "保存"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -946,7 +946,7 @@ msgstr "チェックイン"
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "すべてをチェック"
 
@@ -1974,14 +1974,14 @@ msgstr "はい。"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "いいえ"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "アカウントの無効化"
@@ -2244,12 +2244,12 @@ msgstr "人や家族がデータベースから削除されました。"
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr "UserRole名、グローバル変数、userPerms、userValuesへのPOST"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "ユーザーの役割が変わった"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "アカウントの有効化"
 
@@ -4406,7 +4406,7 @@ msgstr "お客様のアカウントが削除された"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "あなたのEcclesiaCRMアカウントが削除されました。"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "Eメール/ユーザー名"
 
@@ -4494,7 +4494,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "あなたのEcclesiaCRMアカウントが更新されました。"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "ステータス"
 
@@ -4877,51 +4877,51 @@ msgstr "年"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRMの輸出"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "システムユーザー作成"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "システムユーザー更新"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "システムユーザー削除"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "システムユーザーパスワードリセット"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "システムユーザー変更後のパスワード"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "システムユーザーのパスワードが管理者によって変更された"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "システムユーザーログインリセット"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "Davのファイル作成"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "Davがディレクトリを作成"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "ダブアップデートファイル"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "Dav move コピーファイル"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Davのファイル削除"
 
@@ -6141,8 +6141,8 @@ msgstr "ログイン名"
 msgid "Go"
 msgstr "Go"
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "ログイン"
 
@@ -6891,7 +6891,7 @@ msgstr "Minimun Total Amount:"
 msgid "0 - No Minimum"
 msgstr "0 - 最小限にしない"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "その他の設定"
 
@@ -7758,7 +7758,7 @@ msgstr "終了日/時間"
 msgid "Active"
 msgstr "アクティブ"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "備考"
@@ -7824,34 +7824,38 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "このアカウントは、管理者によって無効にされました。"
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "ログインしてください"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr ""
 "前回のセッションがタイムアウトしてしまいました。  もう一度ログインしてくださ"
 "い。"
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "パスワード"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA : OTPキー"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "パスワードを忘れてしまった"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "新規ファミリーの登録"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "パスワードを入力してセッションを取得する"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "または、別のユーザーでサインインする"
 
@@ -8151,7 +8155,7 @@ msgstr "次の人"
 msgid "This Person is Deactivated"
 msgstr "この人は無効化されています"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "未定義"
 
@@ -9126,33 +9130,126 @@ msgstr "ユーザー設定"
 msgid "Classic User Profile Settings"
 msgstr "クラシックユーザーのプロフィール設定"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "現在の価値"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "変数名"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "設定の保存"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "スキン"
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "False"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "トゥルー"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "二要素認証（2fa）"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"お客様のEcclesiaCRMユーザーアカウントを二要素認証に登録することで、お客様のア"
+"カウントにアクセスしようとする悪意のある人物からEcclesiaCRMを防御することがで"
+"きます。"
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr "EcclesiaCRM Two factor supports any TOTP authenticator app"
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr ""
+"EcclesiaCRMにサインインする際には、通常通りユーザー名とパスワードを入力しま"
+"す。"
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr ""
+"ただし、ログインを完了するには、認証デバイスからワンタイムコードを入力する必"
+"要があります。"
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr ""
+"認証情報とワンタイムコードの入力に成功すると、通常のログイン状態になります。"
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"EcclesiaCRMアカウントからロックアウトされるのを防ぐために、開始をクリックする"
+"前に2要素登録の準備ができていることを確認してください。"
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr ""
+"登録を開始すると、それまでに登録していた2要素デバイスやリカバリーコードは無効"
+"になります。"
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr ""
+"次へ」をクリックすると、QRコードを読み取って認証アプリを登録するよう促されま"
+"す。"
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr ""
+"登録を確認するには、認証アプリで生成されたコードを入力する必要があります。"
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr ""
+"アプリの登録を確認すると、1回限りのリカバリーコードが生成され、表示されます。"
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr "リカバリーコードは、認証アプリで生成したコードの代わりに使用できます。"
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "これらを安全な場所に保管する"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "二要素認証の登録開始"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11507,9 +11604,17 @@ msgstr "総ログイン数"
 msgid "Failed Logins"
 msgstr "ログインの失敗"
 
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "2FA認証"
+
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "変更不可"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "マネジメント"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -11933,12 +12038,11 @@ msgstr "英語 - グレートブリテン"
 
 #: settings-locales.php:11
 msgid "English - United States"
-msgstr "英語 - 日本"
+msgstr "英語 - 米国"
 
 #: settings-locales.php:12
-#, fuzzy
 msgid "Finnish - Finland"
-msgstr "英語 - カナダ"
+msgstr "フィンランド語 - フィンランド"
 
 #: settings-locales.php:13
 msgid "French - Belgium"
@@ -11981,14 +12085,12 @@ msgid "Japan"
 msgstr "日本"
 
 #: settings-locales.php:23
-#, fuzzy
 msgid "Norwegian - Norvege"
-msgstr "ノルウェー(Norge)"
+msgstr "ノルウェー語 - Norvege"
 
 #: settings-locales.php:24
-#, fuzzy
 msgid "Polish - Poland"
-msgstr "英語 - カナダ"
+msgstr "ポーランド語 - Poland"
 
 #: settings-locales.php:25
 msgid "Portuguese - Brazil"
@@ -12251,6 +12353,12 @@ msgstr "小型"
 
 msgid "Large"
 msgstr "大きい"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "二要素認証。OTPキー"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "二要素認証"
 
 #~ msgid "Norwegian"
 #~ msgstr "ノルウェー語"
