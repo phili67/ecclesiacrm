@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -323,8 +323,8 @@ msgstr "拯救"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -934,7 +934,7 @@ msgstr "办理登机手续"
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "检查所有"
 
@@ -1946,14 +1946,14 @@ msgstr "是"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "没有"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "停用的账户"
@@ -2216,12 +2216,12 @@ msgstr "这些人和家庭已经从数据库中被清除。"
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr "POST到UserRole名称，全局变量，userPerms和userValues"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "你的用户角色已经改变"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "激活的账户"
 
@@ -4344,7 +4344,7 @@ msgstr "你的账户被删除了"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "你的EcclesiaCRM账户被删除了。"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "电子邮件/用户名"
 
@@ -4432,7 +4432,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "您的EcclesiaCRM账户已更新"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "状况"
 
@@ -4815,51 +4815,51 @@ msgstr "岁"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM出口"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "创建的系统用户"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "系统用户更新"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "系统用户删除"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "系统用户密码重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "系统用户改变了密码"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "系统用户密码被管理员修改"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "系统用户登录重置"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "Dav创建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "Dav创建目录"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "Dav更新文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "Dav移动复制文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Dav删除文件"
 
@@ -6074,8 +6074,8 @@ msgstr "登录名称"
 msgid "Go"
 msgstr "进展"
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "登录"
 
@@ -6819,7 +6819,7 @@ msgstr "最低总金额。"
 msgid "0 - No Minimum"
 msgstr "0 - 没有最低限度"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "其他设置"
 
@@ -7673,7 +7673,7 @@ msgstr "结束日期/时间"
 msgid "Active"
 msgstr "活跃"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "笔记"
@@ -7737,32 +7737,36 @@ msgstr "登录失败次数过多：您的账户已被锁定。  请联系管理�
 msgid "This account has been deactiveted by an administrator."
 msgstr "该账户已被管理员停用。"
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "请登录"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr "您的上一次会话已超时。  请重新登录。"
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "密码"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA : OTP密钥"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "注册一个新的家庭"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "输入你的密码以检索你的会话"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "或以不同的用户身份登录"
 
@@ -8053,7 +8057,7 @@ msgstr "下一个人"
 msgid "This Person is Deactivated"
 msgstr "此人已被停用"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "未定义"
 
@@ -9016,33 +9020,114 @@ msgstr "我的用户设置"
 msgid "Classic User Profile Settings"
 msgstr "经典用户资料设置"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "当前价值"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "变量名称"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "保存设置"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "皮肤"
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "假的"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "真"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "双因素认证（2fa）"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"将你的EcclesiaCRM用户账户注册为双因素认证，为EcclesiaCRM提供了一个防御层，防"
+"止坏人试图访问你的账户。"
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr "EcclesiaCRM双因素支持任何TOTP认证器应用程序"
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr "当你登录到EcclesiaCRM时，你仍然会像平常一样输入你的用户名和密码"
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr "然而，你还需要从你的认证器设备上提供一个一次性代码来完成你的登录。"
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr "在成功输入你的凭证和一次性代码后，你将会像往常一样登录。"
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"为了防止被锁定你的EcclesiaCRM账户，请确保你在点击开始之前准备好完成双因素注"
+"册。"
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr "开始注册将使以前注册的任何2因素设备和恢复代码无效。"
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr "当你点击下一步时，你会被提示扫描一个二维码来注册你的认证器应用程序。"
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr "为了确认注册，你需要输入由你的认证器应用程序生成的代码"
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr "在确认应用程序的注册后，将生成并显示一次性恢复代码。"
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr "可以使用恢复代码，而不是从你的认证器应用程序生成的代码。"
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "将这些东西存放在一个安全的地方"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "开始双因素认证的注册工作"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11333,9 +11418,17 @@ msgstr "登录总数"
 msgid "Failed Logins"
 msgstr "失败的登录"
 
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "2FA认证"
+
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "不可修改"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "管理层"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -11759,9 +11852,8 @@ msgid "English - United States"
 msgstr "英语 - 美国"
 
 #: settings-locales.php:12
-#, fuzzy
 msgid "Finnish - Finland"
-msgstr "英语 - 加拿大"
+msgstr "芬兰语 - 芬兰"
 
 #: settings-locales.php:13
 msgid "French - Belgium"
@@ -11804,14 +11896,12 @@ msgid "Japan"
 msgstr "日本"
 
 #: settings-locales.php:23
-#, fuzzy
 msgid "Norwegian - Norvege"
-msgstr "挪威 (Norge)"
+msgstr "挪威语 - Norvege"
 
 #: settings-locales.php:24
-#, fuzzy
 msgid "Polish - Poland"
-msgstr "英语 - 加拿大"
+msgstr "波兰语 - 波兰"
 
 #: settings-locales.php:25
 msgid "Portuguese - Brazil"
@@ -12072,6 +12162,12 @@ msgstr "小型"
 
 msgid "Large"
 msgstr "大型"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "双因素认证。OTP密钥"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "双因素认证"
 
 #~ msgid "Polish"
 #~ msgstr "波兰语"

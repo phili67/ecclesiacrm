@@ -222,7 +222,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
                     <input type="text" id="TwoFaBox" name="twofafield" class="form-control" data-toggle="TwoFaBox"
-                           placeholder="<?= _("Two factors authentication") ?>" required autofocus style="border: 2px solid red /* red */">
+                           placeholder="<?= _("2FA : OTP key") ?>" required autofocus style="border: 2px solid red /* red */">
                     <br/>
                 </div>
                 <?php endif ?>
@@ -242,7 +242,6 @@ require 'Include/HeaderNotLoggedIn.php';
                     } ?>
                 </p>
             </form>
-
 
             <?php if (SystemConfig::getBooleanValue('bEnableSelfRegistration')) {
                 ?>

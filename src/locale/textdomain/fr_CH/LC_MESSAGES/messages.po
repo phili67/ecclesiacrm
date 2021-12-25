@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,8 +325,8 @@ msgstr "Enregistrer"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -958,7 +958,7 @@ msgstr "Est venu"
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Tout cocher"
 
@@ -1998,14 +1998,14 @@ msgstr "Oui"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "Non"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "Compte désactivé"
@@ -2269,12 +2269,12 @@ msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
 "ENVOI au nom du rôle utilisateur, variable globale, userPerms et userValues"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "Votre rôle utilisateur a été modifié"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "Compte activé"
 
@@ -4481,7 +4481,7 @@ msgstr "Votre compte a été supprimé"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Votre compte EcclesiaCRM a été supprimé"
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "Email/Identifiant"
 
@@ -4571,7 +4571,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Votre compte EcclesiaCRM a été modifié"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "Statut"
 
@@ -4954,51 +4954,51 @@ msgstr "ans"
 msgid "EcclesiaCRM export"
 msgstr "Export EcclesiaCRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "un utilisateur système a été créé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "un utilisateur système a été mis à jour"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "un utilisateur système a été effacé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "réinitialisation du mot de passe de l'utilisateur système"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "le mot de passe de l'utilisateur système a été modifié."
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "le mot de passe de l'utilisateur système a été modifié par l'admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "l'identifiant de l'utilisateur système a été réinitialisé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "Création fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "Création dossier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "Mise à jour fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "Déplacement copie fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Suppression fichier DAV"
 
@@ -6223,8 +6223,8 @@ msgstr "Nom d'authentification"
 msgid "Go"
 msgstr "Dupliquer"
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "Connexion"
 
@@ -6983,7 +6983,7 @@ msgstr "Montant total minimum :"
 msgid "0 - No Minimum"
 msgstr "0 - Pas de minimum"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "Autres réglages"
 
@@ -7858,7 +7858,7 @@ msgstr "Date/heure de Fin"
 msgid "Active"
 msgstr "Actif"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "Notes"
@@ -7924,32 +7924,36 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Ce compte a été désactivé par un administrateur."
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Veuillez vous identifier"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr "Votre session a expiré. Veuillez vous reconnecter."
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "Mot de Passe"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA : Clé OTP"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "Mot de passe oublié"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "Inscrire une nouvelle famille"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "Saisir votre mot de passe pour revenir à votre session"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "Ou choisir un autre utilisateur afin de vous connecter"
 
@@ -8254,7 +8258,7 @@ msgstr "Personne suivante"
 msgid "This Person is Deactivated"
 msgstr " Cette Personne est désactivée"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Non défini"
 
@@ -9233,33 +9237,134 @@ msgstr "Réglages personnels"
 msgid "Classic User Profile Settings"
 msgstr "Réglages classique du profile utilisateur"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "Valeur Actuelle"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "Nom de la variable"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "Enregistrer les réglages"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "Apparence"
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "Faux"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "Vrai"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "Authentification à deux facteurs (2fa)"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"L'inscription de votre compte d'utilisateur EcclesiaCRM à l'authentification "
+"à deux facteurs constitue une couche de défense d'EcclesiaCRM contre les "
+"personnes mal intentionnées qui tentent d'accéder à votre compte."
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr ""
+"EcclesiaCRM Two factor prend en charge toute application d'authentification "
+"TOTP."
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr ""
+"Lorsque vous vous connectez à EcclesiaCRM, vous devez toujours entrer votre "
+"nom d'utilisateur et votre mot de passe comme d'habitude."
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr ""
+"Cependant, vous devrez également fournir un code à usage unique à partir de "
+"votre dispositif d'authentification pour terminer votre connexion."
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr ""
+"Après avoir saisi vos informations d'identification et le code à usage "
+"unique, vous serez connecté normalement."
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"Pour éviter d'être bloqué dans votre compte EcclesiaCRM, veuillez vous "
+"assurer que vous êtes prêt à effectuer l'inscription à deux facteurs avant "
+"de cliquer sur \"Commencer\"."
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr ""
+"Le début de l'inscription invalidera tous les dispositifs à 2 facteurs et "
+"les codes de récupération précédemment inscrits."
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr ""
+"Lorsque vous cliquez sur Suivant, vous êtes invité à scanner un code QR pour "
+"enregistrer votre application d'authentification."
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr ""
+"Pour confirmer l'inscription, vous devrez entrer le code généré par votre "
+"application d'authentification."
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr ""
+"Après avoir confirmé l'inscription à l'application, des codes de "
+"récupération à usage unique seront générés et affichés."
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr ""
+"Les codes de récupération peuvent être utilisés à la place d'un code généré "
+"par votre application d'authentification."
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "Stockez-les dans un endroit sûr"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "Commencer l'inscription à l'authentification à deux facteurs"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11654,10 +11759,18 @@ msgstr "Nombre totale de Connexion"
 msgid "Failed Logins"
 msgstr "Échec de Connexion"
 
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "Authentification 2FA"
+
 # UserList
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "Non modifiable"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "Gestion"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12077,7 +12190,7 @@ msgstr "Chinois - Taiwan"
 
 #: settings-locales.php:6
 msgid "Danish - Denmark"
-msgstr ""
+msgstr "Danois - Danemark"
 
 #: settings-locales.php:7
 msgid "Dutch - Netherlands"
@@ -12100,9 +12213,8 @@ msgid "English - United States"
 msgstr "Anglais - USA"
 
 #: settings-locales.php:12
-#, fuzzy
 msgid "Finnish - Finland"
-msgstr "Anglais - Canada"
+msgstr "Finnois - Finlande"
 
 #: settings-locales.php:13
 msgid "French - Belgium"
@@ -12145,14 +12257,12 @@ msgid "Japan"
 msgstr "Japon"
 
 #: settings-locales.php:23
-#, fuzzy
 msgid "Norwegian - Norvege"
-msgstr "Norvège (Norge)"
+msgstr "Norvégien - Norvege"
 
 #: settings-locales.php:24
-#, fuzzy
 msgid "Polish - Poland"
-msgstr "Anglais - Canada"
+msgstr "Polonais - Pologne"
 
 #: settings-locales.php:25
 msgid "Portuguese - Brazil"
@@ -12420,6 +12530,12 @@ msgstr "petite"
 
 msgid "Large"
 msgstr "grande"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "Authentification à deux facteurs : Clé OTP"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "Authentification à deux facteurs"
 
 #~ msgid "Norwegian"
 #~ msgstr "Norvégien"

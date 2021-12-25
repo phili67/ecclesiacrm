@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-10T21:06:11.072Z\n"
+"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1771,6 +1771,25 @@ msgstr "Identificer"
 msgid "Accept"
 msgstr "Accepter"
 
+msgid "2 Factor Authentication Secret"
+msgstr "Hemmelig 2-faktor-autentifikation"
+
+msgid "Regenerate 2 Factor Authentication Secret"
+msgstr "Genoprettelse af hemmeligheden for 2-faktor-autentificering"
+
+msgid "Remove 2 Factor Authentication Secret"
+msgstr "Fjern hemmeligheden for 2-faktor-autentificering"
+
+msgid "Enter TOTP code to confirm enrollment"
+msgstr "Indtast TOTP-kode for at bekræfte tilmeldingen"
+
+msgid ""
+"Keep these backup passwords in a safe place, in case you lose the OTP "
+"credentials."
+msgstr ""
+"Opbevar disse sikkerhedskopierede adgangskoder et sikkert sted, hvis du "
+"skulle miste OTP-oplysningerne."
+
 msgid "The user must have an email address."
 msgstr "Brugeren skal have en e-mailadresse."
 
@@ -1847,6 +1866,27 @@ msgstr "Bekræft venligst nulstillingen af denne brugers adgangskode"
 
 msgid "Password reset for"
 msgstr "Nulstilling af adgangskode for"
+
+msgid "Two factors authentications"
+msgstr "Godkendelse af to faktorer"
+
+msgid "to remove two-factor authentication"
+msgstr "for at fjerne to-faktor-autentifikation"
+
+msgid "Pending"
+msgstr "I vente"
+
+msgid ""
+"Gives the user 60 seconds to log in with their recovery codes. The user will "
+"then have to delete or simply rescan the QR-code in the OTP Management "
+"application."
+msgstr ""
+"Giver brugeren 60 sekunder til at logge ind med sine genoprettelseskoder. "
+"Derefter skal brugeren slette eller blot scanne QR-koden igen i OTP-"
+"håndteringsprogrammet."
+
+msgid "The user has 60 seconds to use his recovery codes."
+msgstr "Brugeren har 60 sekunder til at bruge sine gendannelseskoder."
 
 msgid "Saving Campaign ..."
 msgstr "Sparekampagne ..."

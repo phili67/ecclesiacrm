@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-14T00:43:08.504Z\n"
+"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -806,7 +806,9 @@ msgstr "Nama file"
 msgid ""
 "The file will be uploaded to your EDrive<br><small>This part is for test "
 "only <b>(Beta)</b>.</small>"
-msgstr "File akan diunggah ke bagian EDrive <br><small>mu bagian ini hanya untuk tes <b> (Beta) </b>. </small>"
+msgstr ""
+"File akan diunggah ke bagian EDrive <br><small>mu bagian ini hanya untuk tes "
+"<b> (Beta) </b>. </small>"
 
 msgid "Your note is saved in your EDrive"
 msgstr "Catatanmu disimpan di EDrive-mu"
@@ -1768,6 +1770,25 @@ msgstr "Identifikasi"
 msgid "Accept"
 msgstr "Terima"
 
+msgid "2 Factor Authentication Secret"
+msgstr "2 Factor Authentication Secret"
+
+msgid "Regenerate 2 Factor Authentication Secret"
+msgstr "Regenerasi 2 Factor Rahasia"
+
+msgid "Remove 2 Factor Authentication Secret"
+msgstr "Lepaskan 2 Factor Authentication Secret"
+
+msgid "Enter TOTP code to confirm enrollment"
+msgstr "Masukkan kode TTP untuk mengkonfirmasi pendaftaran"
+
+msgid ""
+"Keep these backup passwords in a safe place, in case you lose the OTP "
+"credentials."
+msgstr ""
+"Jauhkan password cadangan ini di tempat aman, jika kau kehilangan kredensial "
+"OTP."
+
 msgid "The user must have an email address."
 msgstr "Pengguna pasti punya alamat email."
 
@@ -1844,6 +1865,29 @@ msgstr "Tolong konfirmasi ulang password pengguna ini"
 
 msgid "Password reset for"
 msgstr "Password reset untuk"
+
+msgid "Two factors authentications"
+msgstr "Dua faktor otentikasi"
+
+msgid "to remove two-factor authentication"
+msgstr ""
+"untuk menghapus dua faktor "
+"autenticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticaticatica"
+
+msgid "Pending"
+msgstr "Penting"
+
+msgid ""
+"Gives the user 60 seconds to log in with their recovery codes. The user will "
+"then have to delete or simply rescan the QR-code in the OTP Management "
+"application."
+msgstr ""
+"Memberikan pengguna 60 detik untuk log dalam dengan kode pemulihan mereka. "
+"Pengguna itu kemudian harus menghapus atau hanya merescan kode QR di "
+"aplikasi OTP Manajemen."
+
+msgid "The user has 60 seconds to use his recovery codes."
+msgstr "Pengguna memiliki 60 detik untuk menggunakan kode pemulihannya."
 
 msgid "Saving Campaign ..."
 msgstr "Menyelamatkan Kampanye..."

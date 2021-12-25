@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-18T11:50:01.421Z\n"
+"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1778,6 +1778,25 @@ msgstr "Identificare"
 msgid "Accept"
 msgstr "Accettare"
 
+msgid "2 Factor Authentication Secret"
+msgstr "Segreto di autenticazione a 2 fattori"
+
+msgid "Regenerate 2 Factor Authentication Secret"
+msgstr "Rigenerare il segreto di autenticazione a 2 fattori"
+
+msgid "Remove 2 Factor Authentication Secret"
+msgstr "Rimuovere il segreto dell'autenticazione a 2 fattori"
+
+msgid "Enter TOTP code to confirm enrollment"
+msgstr "Inserisci il codice TOTP per confermare l'iscrizione"
+
+msgid ""
+"Keep these backup passwords in a safe place, in case you lose the OTP "
+"credentials."
+msgstr ""
+"Conservate queste password di backup in un luogo sicuro, nel caso in cui "
+"perdiate le credenziali OTP."
+
 msgid "The user must have an email address."
 msgstr "L'utente deve avere un indirizzo e-mail."
 
@@ -1855,6 +1874,27 @@ msgstr ""
 
 msgid "Password reset for"
 msgstr "Reset della password per"
+
+msgid "Two factors authentications"
+msgstr "Autenticazioni a due fattori"
+
+msgid "to remove two-factor authentication"
+msgstr "per rimuovere l'autenticazione a due fattori"
+
+msgid "Pending"
+msgstr "In attesa di"
+
+msgid ""
+"Gives the user 60 seconds to log in with their recovery codes. The user will "
+"then have to delete or simply rescan the QR-code in the OTP Management "
+"application."
+msgstr ""
+"Dà all'utente 60 secondi per accedere con i suoi codici di recupero. "
+"L'utente dovrà poi cancellare o semplicemente scansionare di nuovo il codice "
+"QR nell'applicazione di gestione OTP."
+
+msgid "The user has 60 seconds to use his recovery codes."
+msgstr "L'utente ha 60 secondi per utilizzare i suoi codici di recupero."
 
 msgid "Saving Campaign ..."
 msgstr "Campagna di salvataggio ..."

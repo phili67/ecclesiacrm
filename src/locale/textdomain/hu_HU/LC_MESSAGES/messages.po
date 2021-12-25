@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-22 16:27+0000\n"
+"POT-Creation-Date: 2021-12-25 10:29+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -325,8 +325,8 @@ msgstr "Mentés"
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:139
-#: SettingsIndividual.php:405 TaxReport.php:53 UserEditor.php:908
+#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
 #: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
@@ -951,7 +951,7 @@ msgstr "Bejelentkezés"
 
 #: Checkin.php:434 Checkin.php:445
 #: v2/templates/email/mailchimp/managelist.php:88
-#: v2/templates/user/userlist.php:171
+#: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Ellenőrizze az összeset"
 
@@ -1990,14 +1990,14 @@ msgstr "Igen"
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 ListEvents.php:530 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
 msgid "No"
 msgstr "Nem"
 
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:525
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:532
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
 msgid "Account Deactivated"
 msgstr "Számla deaktiválva"
@@ -2261,12 +2261,12 @@ msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
 "POST a UserRole névre, globális változóra, userPerms és userValues értékekre"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:74
+#: EcclesiaCRM/APIControllers/UserUsersController.php:78
 msgid "Your user role has changed"
 msgstr "Az Ön felhasználói szerepe megváltozott"
 
-#: EcclesiaCRM/APIControllers/UserUsersController.php:132
-#: EcclesiaCRM/APIControllers/UserUsersController.php:138
+#: EcclesiaCRM/APIControllers/UserUsersController.php:136
+#: EcclesiaCRM/APIControllers/UserUsersController.php:142
 msgid "Account Activated"
 msgstr "Aktivált fiók"
 
@@ -4474,7 +4474,7 @@ msgstr "A fiókját törölték"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "EcclesiaCRM fiókját törölték."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:263
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
 msgid "Email/Username"
 msgstr "Email/felhasználónév"
 
@@ -4562,7 +4562,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Az Ön EcclesiaCRM fiókja frissült"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
 msgid "Status"
 msgstr "Állapot"
 
@@ -4945,51 +4945,51 @@ msgstr "éves"
 msgid "EcclesiaCRM export"
 msgstr "EcclesiaCRM export"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:666
 msgid "system user created"
 msgstr "létrehozott rendszerfelhasználó"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user updated"
 msgstr "rendszerfelhasználó frissítve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user deleted"
 msgstr "rendszerfelhasználó törölve"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user password reset"
 msgstr "rendszer felhasználói jelszó visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user changed password"
 msgstr "a rendszerfelhasználó megváltoztatta a jelszavát"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user password changed by admin"
 msgstr "rendszerfelhasználó jelszava admin által megváltoztatva"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:676
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user login reset"
 msgstr "rendszer felhasználói bejelentkezés visszaállítása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:690
 msgid "Dav create file"
 msgstr "Dav fájl létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:688
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:696
 msgid "Dav create directory"
 msgstr "Dav könyvtár létrehozása"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:702
 msgid "Dav update file"
 msgstr "Dav frissítési fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:707
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
 msgid "Dav move copy file"
 msgstr "Dav move másolás fájl"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:714
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Dav fájl törlése"
 
@@ -6211,8 +6211,8 @@ msgstr "Bejelentkezés neve"
 msgid "Go"
 msgstr "Go"
 
-#: external/templates/password/enter-username.php:46 Login.php:229
-#: Login.php:274
+#: external/templates/password/enter-username.php:46 Login.php:182
+#: Login.php:233
 msgid "Login"
 msgstr "Bejelentkezés"
 
@@ -6967,7 +6967,7 @@ msgstr "Minimális teljes összeg:"
 msgid "0 - No Minimum"
 msgstr "0 - Nincs minimum"
 
-#: FinancialReports.php:389 SettingsIndividual.php:158
+#: FinancialReports.php:389 SettingsIndividual.php:160
 msgid "Other Settings"
 msgstr "Egyéb beállítások"
 
@@ -7839,7 +7839,7 @@ msgstr "Befejezés dátuma/időpontja"
 msgid "Active"
 msgstr "Aktív"
 
-#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:162
+#: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
 #: UserEditor.php:928
 msgid "Notes"
 msgstr "Megjegyzések"
@@ -7905,32 +7905,36 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Ezt a fiókot a rendszergazda deaktiválta."
 
-#: Login.php:243 Login.php:312
+#: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Kérjük, jelentkezzen be"
 
-#: Login.php:248 Login.php:319
+#: Login.php:201 Login.php:278
 msgid "Your previous session timed out.  Please login again."
 msgstr "Az előző munkamenet lejárt.  Kérjük, jelentkezzen be újra."
 
-#: Login.php:267 Login.php:353 v2/templates/backup/backup.php:67
+#: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
 #: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "Jelszó"
 
-#: Login.php:281
+#: Login.php:225
+msgid "2FA : OTP key"
+msgstr "2FA : OTP kulcs"
+
+#: Login.php:240
 msgid "I forgot my password"
 msgstr "Elfelejtettem a jelszavam"
 
-#: Login.php:293
+#: Login.php:252
 msgid "Register a new Family"
 msgstr "Új család regisztrálása"
 
-#: Login.php:362
+#: Login.php:321
 msgid "Enter your password to retrieve your session"
 msgstr "Adja meg jelszavát a munkamenet lekérdezéséhez"
 
-#: Login.php:365
+#: Login.php:324
 msgid "Or sign in as a different user"
 msgstr "Vagy jelentkezzen be más felhasználóként"
 
@@ -8232,7 +8236,7 @@ msgstr "Következő személy"
 msgid "This Person is Deactivated"
 msgstr "Ez a személy deaktiválva van"
 
-#: PersonView.php:438 v2/templates/user/userlist.php:116
+#: PersonView.php:438 v2/templates/user/userlist.php:118
 msgid "Undefined"
 msgstr "Meghatározatlan"
 
@@ -9212,33 +9216,133 @@ msgstr "Saját felhasználói beállítások"
 msgid "Classic User Profile Settings"
 msgstr "Klasszikus felhasználói profil beállításai"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:163 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
 msgid "Current Value"
 msgstr "Jelenlegi érték"
 
-#: SettingsIndividual.php:115 SettingsIndividual.php:164 SystemSettings.php:143
+#: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
 #: UserEditor.php:926
 msgid "Variable name"
 msgstr "Változó neve"
 
-#: SettingsIndividual.php:140 SettingsIndividual.php:406 SystemSettings.php:283
+#: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
 #: UserEditor.php:1061
 msgid "Save Settings"
 msgstr "Beállítások mentése"
 
-#: SettingsIndividual.php:158
+#: SettingsIndividual.php:160
 msgid "Skin"
 msgstr "Bőr"
 
-#: SettingsIndividual.php:357 SystemSettings.php:212 UserEditor.php:962
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
 #: UserEditor.php:1013
 msgid "False"
 msgstr "Hamis"
 
-#: SettingsIndividual.php:358 SystemSettings.php:213 UserEditor.php:963
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
 #: UserEditor.php:1014
 msgid "True"
 msgstr "Igaz"
+
+#: SettingsIndividual.php:421
+msgid "Two-factor authentication (2fa)"
+msgstr "Kétfaktoros hitelesítés (2fa)"
+
+#: SettingsIndividual.php:424
+msgid ""
+"Enrolling your EcclesiaCRM user account in Two Factor Authentication "
+"provides an EcclesiaCRM layer of defense against bad actors trying to access "
+"your account"
+msgstr ""
+"Az EcclesiaCRM felhasználói fiókjának a kéttényezős hitelesítésre történő "
+"feliratkozása egy EcclesiaCRM védelmi réteget biztosít a fiókjához "
+"hozzáférni próbáló rossz szereplőkkel szemben."
+
+#: SettingsIndividual.php:425
+msgid "EcclesiaCRM Two factor supports any TOTP authenticator app"
+msgstr ""
+"Az EcclesiaCRM Two factor támogatja bármely TOTP hitelesítőt alkalmazást"
+
+#: SettingsIndividual.php:430
+msgid ""
+"When you sign in to EcclesiaCRM, you'll still enter your username and "
+"password like normal"
+msgstr ""
+"Amikor bejelentkezik az EcclesiaCRM-be, továbbra is a szokásos módon adja "
+"meg a felhasználónevét és jelszavát."
+
+#: SettingsIndividual.php:433
+msgid ""
+"However, you'll also need to supply a one-time code from your authenticator "
+"device to complete your login"
+msgstr ""
+"A bejelentkezés befejezéséhez azonban egy egyszer használatos kódot is meg "
+"kell adnia a hitelesítőkészülékéről."
+
+#: SettingsIndividual.php:436
+msgid ""
+"After successfully entering both your credentials, and the one-time code, "
+"you'll be logged in as normal"
+msgstr ""
+"Miután sikeresen megadta a hitelesítő adatait és az egyszeri kódot, a "
+"szokásos módon bejelentkezik."
+
+#: SettingsIndividual.php:439
+msgid ""
+"To prevent being locked out of your EcclesiaCRM account, please ensure "
+"you're ready to complete two factor enrollment before clicking begin"
+msgstr ""
+"Annak érdekében, hogy elkerülje az EcclesiaCRM-fiókjából való kizárást, "
+"kérjük, győződjön meg róla, hogy készen áll a kétfaktoros regisztráció "
+"elvégzésére, mielőtt a kezdés gombra kattint."
+
+#: SettingsIndividual.php:442
+msgid ""
+"Beginning enrollment will invalidate any previously enrolled 2 factor "
+"devices and recovery codes."
+msgstr ""
+"A regisztráció megkezdése érvényteleníti a korábban regisztrált 2 faktoros "
+"eszközöket és helyreállítási kódokat."
+
+#: SettingsIndividual.php:444
+msgid ""
+"When you click next, you'll be prompted to scan a QR code to enroll your "
+"authenticator app."
+msgstr ""
+"Amikor a következő gombra kattint, egy QR-kód beolvasására lesz szüksége a "
+"hitelesítőt használó alkalmazás regisztrálásához."
+
+#: SettingsIndividual.php:446
+msgid ""
+"To confirm enrollment, you'll need to enter the code generated by your "
+"authenticator app"
+msgstr ""
+"A beiratkozás megerősítéséhez be kell írnia a hitelesítő alkalmazás által "
+"generált kódot."
+
+#: SettingsIndividual.php:448
+msgid ""
+"After confirming app enrollment, single-use recovery codes will be generated "
+"and displayed."
+msgstr ""
+"Az alkalmazás regisztrációjának megerősítése után egyszer használatos "
+"helyreállítási kódok generálódnak és jelennek meg."
+
+#: SettingsIndividual.php:450
+msgid ""
+"Recovery codes can be used instead of a code generated from your "
+"authenticator app."
+msgstr ""
+"A helyreállítási kódok használhatók a hitelesítési alkalmazásból generált "
+"kód helyett."
+
+#: SettingsIndividual.php:452
+msgid "Store these in a secure location"
+msgstr "Tárolja ezeket biztonságos helyen"
+
+#: SettingsIndividual.php:459
+msgid "Begin Two Factor Authentication Enrollment"
+msgstr "Kétfaktoros hitelesítés regisztrációjának megkezdése"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11616,9 +11720,17 @@ msgstr "Összes bejelentkezés"
 msgid "Failed Logins"
 msgstr "Sikertelen bejelentkezések"
 
-#: v2/templates/user/userlist.php:79
+#: v2/templates/user/userlist.php:55
+msgid "2FA authentication"
+msgstr "2FA hitelesítés"
+
+#: v2/templates/user/userlist.php:80
 msgid "Not modifiable"
 msgstr "Nem módosítható"
+
+#: v2/templates/user/userlist.php:157
+msgid "Management"
+msgstr "Menedzsment"
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
@@ -12065,9 +12177,8 @@ msgid "English - United States"
 msgstr "angol - Egyesült Államok"
 
 #: settings-locales.php:12
-#, fuzzy
 msgid "Finnish - Finland"
-msgstr "angol - Kanada"
+msgstr "Finn - Finnország"
 
 #: settings-locales.php:13
 msgid "French - Belgium"
@@ -12110,14 +12221,12 @@ msgid "Japan"
 msgstr "Japán"
 
 #: settings-locales.php:23
-#, fuzzy
 msgid "Norwegian - Norvege"
-msgstr "Norvégia (Norge)"
+msgstr "Norvég - Norvege"
 
 #: settings-locales.php:24
-#, fuzzy
 msgid "Polish - Poland"
-msgstr "angol - Kanada"
+msgstr "Lengyel - Lengyelország"
 
 #: settings-locales.php:25
 msgid "Portuguese - Brazil"
@@ -12381,6 +12490,12 @@ msgstr "Kis"
 
 msgid "Large"
 msgstr "Nagy"
+
+#~ msgid "Two factors authentication : OTP key"
+#~ msgstr "Kétfaktoros hitelesítés : OTP kulcs"
+
+#~ msgid "Two factors authentication"
+#~ msgstr "Kétfaktoros hitelesítés"
 
 #~ msgid "Norwegian"
 #~ msgstr "Norvég"
