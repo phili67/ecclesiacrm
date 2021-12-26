@@ -59,14 +59,7 @@ require $sRootDocument . '/Include/Header.php';
 if ($isMailchimpActiv) {
     ?>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card" id="container">
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-9">
             <div class="card">
                 <div class="card-header with-border">
                     <h3 class="card-title"><i class="fa fa-users"></i> <?= _('Subscribers') ?></h3>
@@ -149,6 +142,10 @@ if ($isMailchimpActiv) {
                 </div>
             </div>
         </div>
+        <div class="col-lg-3">
+            <div class="card" id="container"></div>
+        </div>
+
         <br>
     </div>
     <?php
