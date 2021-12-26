@@ -72,9 +72,9 @@ $(document).ready(function () {
                     + '      </div>'
                     + '    </div>'
                     + '    <div class="card-body">'
-                    + '      <div class="row" style="100%">'
-                    + '        <div class="col-lg-5">'
-                    + '          <table width="300px">'
+                    + '      <div class="row">'
+                    + '        <div class="col-md-12">'
+                    + '          <table width="100%">'
                     + '            <tr><td><b><i class="fa fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
                     + '            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
                     + '            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
@@ -85,12 +85,14 @@ $(document).ready(function () {
                     + '            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
                     + '          </table>'
                     + '        </div>'
-                    + '        <div class="col-lg-3">'
+                    + '      </div><br/>'
+                    + '      <div class="row">'
+                    + '        <div class="col-md-12">'
                     + '           <b><i class="icon fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
                 var lenCampaigns = data.MailChimpCampaign.length;
 
-                listView += '          <table width="200px">';
+                listView += '          <table width="100%">';
 
                 var tags = '';
 
@@ -110,11 +112,13 @@ $(document).ready(function () {
 
                 listView += '        </div>';
 
+                listView += '   </div><br/>';
+
                 var lenTags = data.MailChimpList.tags.length;
 
                 if (lenTags) {
-
-                    listView += '        <div class="col-lg-3">'
+                    listView += '    <div class="row">';
+                    listView += '        <div class="col-12">'
                         + '           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
 
                     var tags = data.MailChimpList.tags;
