@@ -1557,6 +1557,10 @@
 
                 if (data.firstLoaded == true) {
                     window.CRM.notify('fa  fa-info-circle', i18next.t("Mailchimp"),  i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard', 'success', "top",50000);
+                    setTimeout(function(){
+                        console.log("Maillchimp : All the lists are now loaded");
+                        location.reload();
+                    },2000);
                 }
             }
         },
