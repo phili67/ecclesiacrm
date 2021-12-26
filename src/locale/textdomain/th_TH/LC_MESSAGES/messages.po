@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 10:29+0000\n"
+"POT-Creation-Date: 2021-12-26 17:10+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,19 +38,19 @@ msgstr "คนๆนึง"
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
-#: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
-#: external/templates/registration/family-register-done.php:27
+#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/dto/ReportUtilities.php:71 ElectronicPaymentList.php:217
 #: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
-#: members/404.php:16 PersonView.php:905 PledgeEditor.php:588
-#: PrintPastoralCarePerson.php:325 PrintView.php:336
-#: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/routes/sidebar/propertylist.php:36
-#: v2/templates/dashboard/maindashboard.php:456
+#: PersonView.php:905 PledgeEditor.php:588 PrintPastoralCarePerson.php:325
+#: PrintView.php:336 Reports/GDPR/GDPRDataStructureExport.php:123
+#: Reports/PDFLabel.php:174
+#: external/templates/registration/family-register-done.php:27
+#: members/404.php:16 v2/routes/sidebar/propertylist.php:36
+#: v2/templates/dashboard/maindashboard.php:506
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -77,14 +77,14 @@ msgstr "กำลังจะ! คุณต้องเลือกคนหร�
 #: EcclesiaCRM/APIControllers/SearchController.php:155
 #: EcclesiaCRM/APIControllers/SearchController.php:163
 #: EcclesiaCRM/APIControllers/SearchController.php:168
-#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
+#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
-#: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
-#: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
-#: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:232 v2/routes/group/groups.php:68
+#: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
+#: PersonEditor.php:1027 PersonEditor.php:1047 PersonEditor.php:1637
+#: PrintPastoralCarePerson.php:332 PrintPastoralCarePerson.php:345
+#: PrintView.php:343 PrintView.php:356 SelectDelete.php:243
+#: SystemSettings.php:232 eGive.php:345 v2/routes/group/groups.php:68
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -150,8 +150,8 @@ msgstr "สนุก"
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
-#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:427
-#: v2/templates/dashboard/maindashboard.php:482
+#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
+#: v2/templates/dashboard/maindashboard.php:532
 #: v2/templates/group/groupbadge.php:126
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
@@ -162,10 +162,10 @@ msgid "inactive"
 msgstr "ไม่ได้"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:235
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:76
-#: external/templates/verify/enter-info.php:21 PersonEditor.php:904
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 PersonEditor.php:904
 #: Reports/MemberEmailExport.php:20
+#: external/templates/registration/family-register-members.php:76
+#: external/templates/verify/enter-info.php:21
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -174,58 +174,59 @@ msgid "First Name"
 msgstr "ชื่อแรก"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:237
+#: ManageEnvelopes.php:171 PersonEditor.php:926
+#: Reports/MemberEmailExport.php:21
 #: external/templates/registration/family-register-members.php:81
-#: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
-#: PersonEditor.php:926 Reports/MemberEmailExport.php:21
+#: external/templates/verify/enter-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 msgid "Last Name"
 msgstr "นามสกุล"
 
-#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
-#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
-#: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CSVExport.php:92
+#: CSVExport.php:98 CSVImport.php:241 CSVImport.php:242 CartToFamily.php:346
+#: CartToFamily.php:356 DirectoryReports.php:196 DirectoryReports.php:289
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
-#: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
 #: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:585
-#: v2/templates/dashboard/maindashboard.php:599
-#: v2/templates/dashboard/maindashboard.php:642
-#: v2/templates/dashboard/maindashboard.php:657
+#: external/templates/registration/family-register-done.php:28
+#: external/templates/registration/family-register.php:47
+#: v2/templates/dashboard/maindashboard.php:638
+#: v2/templates/dashboard/maindashboard.php:654
+#: v2/templates/dashboard/maindashboard.php:698
+#: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "ที่อยู่"
 
-#: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
-#: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
+#: AutoPaymentEditor.php:940 CSVExport.php:103 CSVImport.php:243
+#: CartToFamily.php:366 DirectoryReports.php:294 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:58
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "เมือง"
 
-#: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
-#: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
+#: AutoPaymentEditor.php:948 CSVExport.php:108 CSVImport.php:244
+#: CartToFamily.php:375 DirectoryReports.php:300 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:62
 #: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "รัฐ"
 
-#: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
-#: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:73
-#: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
+#: AutoPaymentEditor.php:956 CSVExport.php:115 CSVImport.php:245
+#: CartToFamily.php:393 DirectoryReports.php:306 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:73
+#: external/templates/verify/enter-info.php:29
 msgid "Zip"
 msgstr "รูดซิป"
 
-#: AutoPaymentEditor.php:964 CartToFamily.php:402 CSVExport.php:125
-#: CSVImport.php:246 FamilyEditor.php:779 PersonEditor.php:1133
+#: AutoPaymentEditor.php:964 CSVExport.php:125 CSVImport.php:246
+#: CartToFamily.php:402 FamilyEditor.php:779 PersonEditor.php:1133
 #: PersonEditor.php:1367
 msgid "Country"
 msgstr "ประเทศ"
@@ -234,32 +235,32 @@ msgstr "ประเทศ"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
-#: EcclesiaCRM/Reports/PDF_Directory.php:456
+#: EcclesiaCRM/Reports/PDF_Directory.php:456 Reports/DirectoryReport.php:317
+#: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
+#: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:114
-#: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
-#: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "โทรศัพท์"
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: AutoPaymentEditor.php:980 CSVExport.php:148 CSVImport.php:250
+#: CartToFamily.php:453 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
-#: EventAttendance.php:206
+#: EventAttendance.php:206 FamilyEditor.php:861 FamilyView.php:376
+#: FamilyView.php:459 FamilyView.php:551 GroupReports.php:152
+#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:637
+#: PersonView.php:765 PersonView.php:1125 PrintPastoralCarePerson.php:385
+#: PrintView.php:396 Reports/CanvassReports.php:281
+#: Reports/ConfirmReport.php:230 Reports/ConfirmReport.php:250
+#: Reports/DirectoryReport.php:328 Reports/FundRaiserStatement.php:128
+#: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
+#: Reports/MemberEmailExport.php:22
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:376 FamilyView.php:459 FamilyView.php:551
-#: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
-#: PersonView.php:637 PersonView.php:765 PersonView.php:1125
-#: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
-#: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
-#: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
-#: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
+#: external/templates/verify/verify-family-info.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
 #: v2/templates/pastoralcare/pastoralcareperson.php:117
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
@@ -319,13 +320,14 @@ msgstr "ช่วยด้วย"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
-#: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
+#: FamilyEditor.php:1297 FamilyView.php:1091 FinancialReports.php:92
+#: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
+#: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1805
+#: PersonView.php:1964 PledgeEditor.php:800 ReminderReport.php:55
+#: SettingsIndividual.php:141 SettingsIndividual.php:407 TaxReport.php:53
+#: UserEditor.php:908 UserEditor.php:1062
+#: external/templates/verify/verify-family-info.php:188
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -357,47 +359,463 @@ msgstr "ราคา"
 msgid "Enter Winners"
 msgstr "เข้าไปยังวินเนอร์"
 
-#: browser/browse.php:31
-msgid "File Manager"
-msgstr "ผู้จัดการไฟล์"
+#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
+msgid "CSV Export"
+msgstr "CSV"
 
-#: browser/browse.php:43 PersonView.php:1845
-msgid "Upload a file in EDrive"
-msgstr "อัพโหลดไฟล์ในอีไดรฟ์"
+#: CSVExport.php:61
+msgid "Field Selection"
+msgstr "การเลือกตั้ง"
 
-#: browser/browse.php:50
-msgid "Download"
-msgstr "ดาวน์โหลด"
+#: CSVExport.php:67
+msgid "Required"
+msgstr "ขอ"
 
-#: browser/browse.php:58 PersonView.php:1857
-msgid "Create a Folder"
-msgstr "สร้างคนโฟเดอร์"
+#: CSVExport.php:71 CSVImport.php:234 CartToBadge.php:59 CartToBadge.php:62
+#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
+#: Reports/GDPR/GDPRListExport.php:66
+#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/fundraiser/donatedItemEditor.php:60
+msgid "Title"
+msgstr "Title"
 
-#: browser/browse.php:66 EditEventAttendees.php:120
-#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
-#: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1866
-#: PersonView.php:1965 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/email/mailchimp/managelist.php:100
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcarefamily.php:219
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
-msgid "Delete"
-msgstr "ลบ"
+#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
+msgid "Middle Name"
+msgstr "ชื่อกลาง"
 
-#: browser/browse.php:75 PersonView.php:1876
-msgid "Up One Level"
-msgstr "ขึ้นระดับหนึ่ง"
+#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
+#: PersonEditor.php:937
+msgid "Suffix"
+msgstr "Suffix"
 
-#: browser/browse.php:82 PersonView.php:1885
-msgid "Actualize files"
-msgstr "แฟ้มถ่ายทำจริง"
+#: CSVExport.php:120
+msgid "Envelope"
+msgstr "Envelope"
 
-#: browser/browse.php:99 PersonView.php:1903
-msgid "Preview"
-msgstr "ว่าไง"
+#: CSVExport.php:132 CSVImport.php:247 CartToFamily.php:411
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
+#: EditEventAttendees.php:79 EventAttendance.php:207 FamilyEditor.php:819
+#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
+#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
+#: PrintView.php:268 Reports/ConfirmReport.php:168
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:85
+#: external/templates/verify/verify-family-info.php:36
+#: external/templates/verify/verify-family-info.php:85
+#: sundayschool/SundaySchoolClassListExport.php:54
+#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
+#: queryparameteroptions_qpo.php:8
+msgid "Home Phone"
+msgstr "โฮมโทรศัพท์"
+
+#: CSVExport.php:137 CSVImport.php:248 CartToFamily.php:425
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283 FamilyEditor.php:832
+#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
+#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
+#: PrintView.php:273 Reports/ConfirmReport.php:288
+#: external/templates/verify/verify-family-info.php:90
+msgid "Work Phone"
+msgstr "ทำงานโทรศัพท์"
+
+#: CSVExport.php:142 CartToFamily.php:439 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
+#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
+#: PrintView.php:278 external/templates/verify/verify-family-info.php:95
+msgid "Mobile Phone"
+msgstr "โมบีล โทรศัพท์"
+
+#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
+#: Reports/DirectoryReport.php:331
+msgid "Work/Other Email"
+msgstr "ทำงานกับอีเมล์อีเมล"
+
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
+#: PrintPastoralCarePerson.php:395 PrintView.php:406
+msgid "Membership Date"
+msgstr "เดทสมาชิก"
+
+#: CSVExport.php:165
+msgid "Birth / Anniversary Date"
+msgstr "วันเกิด / วันครบรอบ"
+
+#: CSVExport.php:170
+msgid "Age / Years Married"
+msgstr "อายุปี แต่งงานแล้ว"
+
+#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
+#: EcclesiaCRM/APIControllers/SearchController.php:189
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
+#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
+#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "ช่วยให้แน่ใจ"
+
+#: CSVExport.php:180 CSVExport.php:325
+#: EcclesiaCRM/APIControllers/SearchController.php:190
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
+#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
+#: queryparameters_qrp.php:5
+msgid "Family Role"
+msgstr "วงกลมของครอบครัว"
+
+#: CSVExport.php:183
+msgid "Depends whether using person or family output method"
+msgstr "ขึ้นอยู่กับว่า การใช้วิธีการของคนหรือครอบครัว"
+
+#: CSVExport.php:196
+msgid "Custom Field Selection"
+msgstr "การเลือกตั้งของคุณสถานที่"
+
+#: CSVExport.php:204
+msgid "Custom Person Fields"
+msgstr "ลูกค้า เพอร์สัน ฟิลด์"
+
+#: CSVExport.php:229
+msgid "Custom Family Fields"
+msgstr "พื้นที่ครอบครัวลูกค้า"
+
+#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
+#: v2/templates/calendar/calendar.php:28
+#: v2/templates/fundraiser/findFundRaiser.php:18
+#: v2/templates/pastoralcare/pastoralcarefamily.php:91
+#: v2/templates/pastoralcare/pastoralcareperson.php:91
+#: v2/templates/people/peoplelist.php:28
+msgid "Filters"
+msgstr "นักฟิตเตอร์"
+
+#: CSVExport.php:260
+msgid "Ignored if you come from the CartView"
+msgstr "ไม่สนใจถ้าคุณมาจากคาร์ท วิว"
+
+#: CSVExport.php:274
+msgid "Records to export"
+msgstr "บันทึกเพื่อส่งออก"
+
+#: CSVExport.php:286
+msgid "Based on filters below.."
+msgstr "ดูจากกรองด้านล่าง ."
+
+#: CSVExport.php:289
+msgid "People in Cart (filters ignored)"
+msgstr "ผู้คนในรถเข็น (กรองน้ำลาย)"
+
+#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
+#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
+#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
+msgid "Use Ctrl Key to select multiple"
+msgstr "ใช้กุญแจซีรี่เพื่อเลือกหลาย ๆ อย่าง"
+
+#: CSVExport.php:355 CSVImport.php:239
+#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
+#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
+#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
+msgid "Gender"
+msgstr "เพศ"
+
+#: CSVExport.php:367
+msgid "Don't Filter"
+msgstr "อย่าทำ ฟิลเตอร์"
+
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
+#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:66
+#: queryparameteroptions_qpo.php:2
+msgid "Male"
+msgstr "ผู้ชาย"
+
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
+#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:67
+#: queryparameteroptions_qpo.php:3
+msgid "Female"
+msgstr "ผู้หญิง"
+
+#: CSVExport.php:377 DirectoryReports.php:113
+msgid "Group Membership"
+msgstr "กลุ่ม สมาชิก"
+
+#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
+msgid "From:"
+msgstr "จาก:"
+
+#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
+msgid "To:"
+msgstr "ถึง:"
+
+#: CSVExport.php:438
+msgid "Birthday Date"
+msgstr "วันเกิด"
+
+#: CSVExport.php:471
+msgid "Anniversary Date:"
+msgstr "วันครบรอบ:"
+
+#: CSVExport.php:504
+msgid "Date Entered:"
+msgstr "Entered:"
+
+#: CSVExport.php:540 FinancialReports.php:472
+msgid "Output Method:"
+msgstr "นอกวิธีพูด:"
+
+#: CSVExport.php:546
+msgid "CSV Individual Records"
+msgstr "บันทึกของบุคคล CSV"
+
+#: CSVExport.php:547
+msgid "CSV Combine Families"
+msgstr "CSV คอมบิน"
+
+#: CSVExport.php:548
+msgid "Add Individuals to Cart"
+msgstr "รวมตัวคนที่เข้ารหัส"
+
+#: CSVExport.php:552
+msgid "Skip records with incomplete mail address"
+msgstr "ข้ามบันทึก ที่อยู่ไม่สมบูรณ์"
+
+#: CSVExport.php:559
+msgid "Create File"
+msgstr "สร้างไฟล์"
+
+#: CSVImport.php:121 Include/Footer.php:253
+msgid "CSV Import"
+msgstr "CSV"
+
+#: CSVImport.php:126
+msgid "Import Data"
+msgstr "นำดาต้า"
+
+#: CSVImport.php:149
+msgid "No file selected for upload."
+msgstr "ไม่มีไฟล์ที่เลือกสำหรับการอัพโหลด"
+
+#: CSVImport.php:176
+msgid "Total number of rows in the CSV file:"
+msgstr "จำนวนแถวทั้งหมดในไฟล์CSV"
+
+#: CSVImport.php:233
+msgid "Ignore this Field"
+msgstr "อย่าไปสนใจสนามนี้เลย"
+
+#: CSVImport.php:240
+msgid "Donation Envelope"
+msgstr "บริจาค เอนเดลโป"
+
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
+msgid "Cell Phone"
+msgstr "โทรศัพท์มือถือ"
+
+#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
+#: PrintView.php:401
+msgid "Work / Other Email"
+msgstr "ทำงาน อีเมล์อีกคน"
+
+#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
+msgid "Birth Date"
+msgstr "วันเกิด"
+
+#: CSVImport.php:254 CartToFamily.php:312 DirectoryReports.php:197
+#: FamilyEditor.php:898 FamilyView.php:338
+#: external/templates/verify/verify-family-info.php:45
+msgid "Wedding Date"
+msgstr "เดทแต่งงาน"
+
+#: CSVImport.php:266
+msgid ""
+"An error occurs when you import the CSV file. You've to select values above "
+"in the select fields."
+msgstr "ความผิดพลาดเกิดขึ้นเมื่อคุณเข้าไฟล์CSV คุณต้องเลือกค่าที่เหนือ ในสนามเลือก"
+
+#: CSVImport.php:275
+msgid "Scroll right to see the other columns"
+msgstr "เลื่อนขวาเพื่อดูคอลัมน์อื่น ๆ"
+
+#: CSVImport.php:276
+msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
+msgstr "ดูรูปแบบเดท<b>เดต</b>และเลือกข้างล่าง !!!"
+
+#: CSVImport.php:277
+msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
+msgstr "<b>สิ่งสำคัญ</b>สมาคมศูนย์กลาง<b>เพศ</b>ให้กับคอลัมน์"
+
+#: CSVImport.php:282
+msgid "Important Options"
+msgstr "ทางเลือกสำคัญ"
+
+#: CSVImport.php:287
+msgid "Ignore first CSV row (to exclude a header)"
+msgstr "ไม่สนแถว CSV (เพื่อให้มีหัว)"
+
+#: CSVImport.php:299
+msgid "Make Family records based on last name and address"
+msgstr "ทำบันทึกครอบครัว โดยใช้นามสกุลและที่อยู่"
+
+#: CSVImport.php:324
+msgid "Date Format"
+msgstr "เดทโฟร์มาต์"
+
+#: CSVImport.php:324
+msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
+msgstr "“และจะไม่มีการชี้ขาดตัดสิน นอกจากแก่มันทั้งสอง"
+
+#: CSVImport.php:334
+msgid ""
+"Put all the persons in the cart, to import them in a group, sundayschool "
+"group, etc...."
+msgstr "เอาคนขับรถเข้าไปทุกคนในกลุ่ม กลุ่มแดนแดด ฯลฯ"
+
+#: CSVImport.php:341
+msgid "Not usefull options"
+msgstr "ไม่มีทางเลือกที่มีประโยชน์"
+
+#: CSVImport.php:350
+msgid "Patriarch"
+msgstr "ผู้บังคับบัญชา"
+
+#: CSVImport.php:351
+msgid "Matriarch"
+msgstr "คณะกรรมการ"
+
+#: CSVImport.php:355
+msgid "Family Type: used with Make Family records... option above"
+msgstr "พิมพ์ครอบครัว ใช้กับการสร้างบันทึกครอบครัว ทางเลือกด้านบน"
+
+#: CSVImport.php:371
+msgid "Default country if none specified otherwise"
+msgstr "เป็นประเทศที่ไม่มีใครระบุเป็นอย่างอื่น"
+
+#: CSVImport.php:404
+msgid "Perform Import"
+msgstr "แสดงอิมพ์ที"
+
+#: CSVImport.php:772 CSVImport.php:850
+msgid "Imported"
+msgstr "ส่งข่าว"
+
+#: CSVImport.php:945
+msgid "ERROR: the uploaded CSV file no longer exists!"
+msgstr "ไฟล์อัพโหลด CSV ไม่มีอยู่แล้ว"
+
+#: CSVImport.php:955
+msgid "Steps to import users"
+msgstr "ก้าวหน้าไปยังผู้ใช้งาน"
+
+#: CSVImport.php:958
+msgid "Your CSV file should be prepared like"
+msgstr "ไฟล์CSV ของคุณ ควรจะเตรียมพร้อมไว้"
+
+#: CSVImport.php:961
+msgid ""
+"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
+"the second one."
+msgstr "ดังนั้น CSV ส่ง<b>';'</b>ในตัวอย่างแรก และ 4568','7899 ใน อันที่สอง"
+
+#: CSVImport.php:964
+msgid "Don't forget the <b>gender</b> and the <b>title</b>"
+msgstr "อย่าลืม<b>เพศ</b>และ<b>ชื่อ</b>"
+
+#: CSVImport.php:965
+msgid ""
+"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
+"Title column and rename the label header to gender</b>"
+msgstr "คุณสามารถสร้างคอลัมน์ของคุณ ที่สำนักงานเอกเซล ลิเบอร์เคล และ<b>ตั้งแถวทิวเทิลชื่อ"
+
+#: CSVImport.php:966
+msgid ""
+"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
+"a women, girl, female</b> ..."
+msgstr ""
+"คอลัมน์เพศ ต้อง ถูก ตั้ง ให้ เป็น<b>1 สำหรับ ชาย ชาย</b>และ<b>2 สำหรับ ผู้หญิง หญิง หญิง</b>"
+
+#: CSVImport.php:969
+msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
+msgstr "เตรียมร้อง CRM ของคุณ และเพิ่มปริมาณศุลกากร เพอร์สัน ฟิลด์ที่จะทำการคลิก"
+
+#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
+#: v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "here"
+msgstr "นี่ไง"
+
+#: CSVImport.php:972
+msgid ""
+"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
+"7/1/2018"
+msgstr ""
+"วันทั้งหมดควรจะเกิดขึ้นเช่น : 2018-7-1 หรือ 1/7/2018 หรือ 7-1-2018 หรือ 7-1-2018 หรือ "
+"7/1/2018"
+
+#: CSVImport.php:979
+msgid "The next step should be, if not select the other CSV seperator"
+msgstr "ขั้นตอนต่อไปควรคือ ถ้าไม่เลือก เครื่องกำจัด CSV อีกต่อไป"
+
+#: CSVImport.php:985 CSVImport.php:1023
+msgid "Upload CSV File"
+msgstr "อัพโหลด ไฟล์"
+
+#: CSVImport.php:991
+msgid ""
+"<b>DON'T FORGET</b>\n"
+"              <br>• your CSV file must have a <b>Title</b> header name "
+"column (with M. Mr. Mlle. etc ...),\n"
+"              <br>• and a <b>gender</b> header name column (with 1 for a "
+"men, 2 for a women)"
+msgstr ""
+"<b>อย่าลืม</b>\n"
+"<br>แฟ้มซีเอสยูวีของคุณต้องมีคอลัมน์ชื่อ<b>คอลัมน์ชื่อ คอลัมน์ชื่อ (มีเอ็ม Mr. Mlle. ฯลฯ)\n"
+"<br>และ<b>เพศ</b>คอลัมน์หัว (มี1 สำหรับผู้ชาย, 2 สำหรับผู้หญิง)"
+
+#: CSVImport.php:996
+msgid "Select <b>NOW</b> your <b>CSV separator</b>"
+msgstr "เลือก<b>ตอนนี้</b>คุณ<b>CSV แยก</b>"
+
+#: CSVImport.php:1007
+msgid ""
+"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
+"b> ......... "
+msgstr "ชุดสุดท้ายที่ถูกต้อง วันที่เช่น :<b>YYYY-MDD หรือ DD/MMM/YYYYY</b>"
+
+#: CSVImport.php:1010
+msgid "This is proposed in the next step, read carefully your table."
+msgstr "นี่คือข้อเสนอในขั้นต่อไป อ่านความระมัดระวังโต๊ะของคุณ"
+
+#: CSVImport.php:1031
+msgid "Clear Data"
+msgstr "เคลียร์ดาต้า"
+
+#: CSVImport.php:1034
+msgid "Clear Persons and Families"
+msgstr "เคลียร์สุขและครอบครัว"
+
+#: CSVImport.php:1041
+msgid "Data import successful."
+msgstr "ข้อมูลนำเข้า สำเร็จ"
+
+#: CSVImport.php:1041
+msgid "persons were imported"
+msgstr "ส่วนบุคคลนำเข้ามา"
 
 #: CanvassAutomation.php:22 ReportList.php:56
 msgid "Canvass Automation"
@@ -609,14 +1027,6 @@ msgstr "เพียง PNG และ เจพีเอก ที่จัด�
 msgid "Generate Badges"
 msgstr "อุณหภูมิ"
 
-#: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
-#: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:21
-#: v2/templates/fundraiser/donatedItemEditor.php:60
-msgid "Title"
-msgstr "Title"
-
 #: CartToBadge.php:67 CartToBadge.php:70
 msgid "Second Title"
 msgstr "เสียงที่สอง"
@@ -686,7 +1096,7 @@ msgid "Badge Type"
 msgstr "พิมพ์ล่อหลัก"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
-#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:128
+#: Reports/PDFBadge.php:128 Reports/PDFBadgeGroup.php:213
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 msgid "default"
 msgstr "พิเศษ"
@@ -704,7 +1114,7 @@ msgstr "Add Cart to family"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
-#: v2/templates/dashboard/maindashboard.php:492
+#: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -724,10 +1134,10 @@ msgstr "สมาชิก"
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
-#: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
+#: Reports/FRBidSheets.php:102 Reports/FamilyPledgeSummary.php:230
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:641
-#: v2/templates/dashboard/maindashboard.php:656
+#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:697
+#: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -760,20 +1170,14 @@ msgstr "ถ้าเพิ่มครอบครัวใหม่ ก็เ�
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
-#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:584
-#: v2/templates/dashboard/maindashboard.php:598
+#: external/templates/registration/family-register.php:36
+#: v2/templates/dashboard/maindashboard.php:637
+#: v2/templates/dashboard/maindashboard.php:653
 msgid "Family Name"
 msgstr "ชื่อครอบครัว"
-
-#: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
-#: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:338
-msgid "Wedding Date"
-msgstr "เดทแต่งงาน"
 
 #: CartToFamily.php:324
 msgid "Use address/contact data from"
@@ -791,45 +1195,12 @@ msgstr "หรือ"
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(ใช้กล่องจดหมายสำหรับประเทศ นอกเหนือจากสหรัฐและแคนาดา)"
 
-#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
-#: EditEventAttendees.php:79 EventAttendance.php:207
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:85
-#: external/templates/verify/verify-family-info.php:36
-#: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
-#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReport.php:168
-#: sundayschool/SundaySchoolClassListExport.php:54
-#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
-#: queryparameteroptions_qpo.php:8
-msgid "Home Phone"
-msgstr "โฮมโทรศัพท์"
-
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
 msgstr "อย่าทำงานอัตโนมัติ"
-
-#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283
-#: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
-#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReport.php:288
-msgid "Work Phone"
-msgstr "ทำงานโทรศัพท์"
-
-#: CartToFamily.php:439 CSVExport.php:142
-#: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
-#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
-#: PrintView.php:278
-msgid "Mobile Phone"
-msgstr "โมบีล โทรศัพท์"
 
 #: CartToFamily.php:468
 msgid "Your cart is empty!"
@@ -936,7 +1307,7 @@ msgid "Checkin"
 msgstr "เช็คซิ"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:88
+#: v2/templates/email/mailchimp/managelist.php:81
 #: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "ดูทั้งหมด"
@@ -976,418 +1347,6 @@ msgstr "พูดเสียก่อน"
 #: ConvertIndividualToAddress.php:145
 msgid "Convert All"
 msgstr "ยกเลิกทุกคน"
-
-#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
-msgid "CSV Export"
-msgstr "CSV"
-
-#: CSVExport.php:61
-msgid "Field Selection"
-msgstr "การเลือกตั้ง"
-
-#: CSVExport.php:67
-msgid "Required"
-msgstr "ขอ"
-
-#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
-msgid "Middle Name"
-msgstr "ชื่อกลาง"
-
-#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:937
-msgid "Suffix"
-msgstr "Suffix"
-
-#: CSVExport.php:120
-msgid "Envelope"
-msgstr "Envelope"
-
-#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
-#: Reports/DirectoryReport.php:331
-msgid "Work/Other Email"
-msgstr "ทำงานกับอีเมล์อีเมล"
-
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
-#: PrintPastoralCarePerson.php:395 PrintView.php:406
-msgid "Membership Date"
-msgstr "เดทสมาชิก"
-
-#: CSVExport.php:165
-msgid "Birth / Anniversary Date"
-msgstr "วันเกิด / วันครบรอบ"
-
-#: CSVExport.php:170
-msgid "Age / Years Married"
-msgstr "อายุปี แต่งงานแล้ว"
-
-#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:189
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
-#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
-#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
-#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "ช่วยให้แน่ใจ"
-
-#: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:190
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
-#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
-#: queryparameters_qrp.php:5
-msgid "Family Role"
-msgstr "วงกลมของครอบครัว"
-
-#: CSVExport.php:183
-msgid "Depends whether using person or family output method"
-msgstr "ขึ้นอยู่กับว่า การใช้วิธีการของคนหรือครอบครัว"
-
-#: CSVExport.php:196
-msgid "Custom Field Selection"
-msgstr "การเลือกตั้งของคุณสถานที่"
-
-#: CSVExport.php:204
-msgid "Custom Person Fields"
-msgstr "ลูกค้า เพอร์สัน ฟิลด์"
-
-#: CSVExport.php:229
-msgid "Custom Family Fields"
-msgstr "พื้นที่ครอบครัวลูกค้า"
-
-#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
-#: v2/templates/calendar/calendar.php:28
-#: v2/templates/fundraiser/findFundRaiser.php:18
-#: v2/templates/pastoralcare/pastoralcarefamily.php:91
-#: v2/templates/pastoralcare/pastoralcareperson.php:91
-#: v2/templates/people/peoplelist.php:28
-msgid "Filters"
-msgstr "นักฟิตเตอร์"
-
-#: CSVExport.php:260
-msgid "Ignored if you come from the CartView"
-msgstr "ไม่สนใจถ้าคุณมาจากคาร์ท วิว"
-
-#: CSVExport.php:274
-msgid "Records to export"
-msgstr "บันทึกเพื่อส่งออก"
-
-#: CSVExport.php:286
-msgid "Based on filters below.."
-msgstr "ดูจากกรองด้านล่าง ."
-
-#: CSVExport.php:289
-msgid "People in Cart (filters ignored)"
-msgstr "ผู้คนในรถเข็น (กรองน้ำลาย)"
-
-#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
-#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
-#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
-msgid "Use Ctrl Key to select multiple"
-msgstr "ใช้กุญแจซีรี่เพื่อเลือกหลาย ๆ อย่าง"
-
-#: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
-#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
-#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:211
-#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
-msgid "Gender"
-msgstr "เพศ"
-
-#: CSVExport.php:367
-msgid "Don't Filter"
-msgstr "อย่าทำ ฟิลเตอร์"
-
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:2
-msgid "Male"
-msgstr "ผู้ชาย"
-
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:3
-msgid "Female"
-msgstr "ผู้หญิง"
-
-#: CSVExport.php:377 DirectoryReports.php:113
-msgid "Group Membership"
-msgstr "กลุ่ม สมาชิก"
-
-#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
-msgid "From:"
-msgstr "จาก:"
-
-#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
-msgid "To:"
-msgstr "ถึง:"
-
-#: CSVExport.php:438
-msgid "Birthday Date"
-msgstr "วันเกิด"
-
-#: CSVExport.php:471
-msgid "Anniversary Date:"
-msgstr "วันครบรอบ:"
-
-#: CSVExport.php:504
-msgid "Date Entered:"
-msgstr "Entered:"
-
-#: CSVExport.php:540 FinancialReports.php:472
-msgid "Output Method:"
-msgstr "นอกวิธีพูด:"
-
-#: CSVExport.php:546
-msgid "CSV Individual Records"
-msgstr "บันทึกของบุคคล CSV"
-
-#: CSVExport.php:547
-msgid "CSV Combine Families"
-msgstr "CSV คอมบิน"
-
-#: CSVExport.php:548
-msgid "Add Individuals to Cart"
-msgstr "รวมตัวคนที่เข้ารหัส"
-
-#: CSVExport.php:552
-msgid "Skip records with incomplete mail address"
-msgstr "ข้ามบันทึก ที่อยู่ไม่สมบูรณ์"
-
-#: CSVExport.php:559
-msgid "Create File"
-msgstr "สร้างไฟล์"
-
-#: CSVImport.php:121 Include/Footer.php:253
-msgid "CSV Import"
-msgstr "CSV"
-
-#: CSVImport.php:126
-msgid "Import Data"
-msgstr "นำดาต้า"
-
-#: CSVImport.php:149
-msgid "No file selected for upload."
-msgstr "ไม่มีไฟล์ที่เลือกสำหรับการอัพโหลด"
-
-#: CSVImport.php:176
-msgid "Total number of rows in the CSV file:"
-msgstr "จำนวนแถวทั้งหมดในไฟล์CSV"
-
-#: CSVImport.php:233
-msgid "Ignore this Field"
-msgstr "อย่าไปสนใจสนามนี้เลย"
-
-#: CSVImport.php:240
-msgid "Donation Envelope"
-msgstr "บริจาค เอนเดลโป"
-
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
-#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
-#: v2/templates/people/personlist.php:55
-msgid "Cell Phone"
-msgstr "โทรศัพท์มือถือ"
-
-#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
-#: PrintView.php:401
-msgid "Work / Other Email"
-msgstr "ทำงาน อีเมล์อีกคน"
-
-#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
-#: v2/templates/sundayschool/sundayschoolview.php:302
-msgid "Birth Date"
-msgstr "วันเกิด"
-
-#: CSVImport.php:266
-msgid ""
-"An error occurs when you import the CSV file. You've to select values above "
-"in the select fields."
-msgstr "ความผิดพลาดเกิดขึ้นเมื่อคุณเข้าไฟล์CSV คุณต้องเลือกค่าที่เหนือ ในสนามเลือก"
-
-#: CSVImport.php:275
-msgid "Scroll right to see the other columns"
-msgstr "เลื่อนขวาเพื่อดูคอลัมน์อื่น ๆ"
-
-#: CSVImport.php:276
-msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
-msgstr "ดูรูปแบบเดท<b>เดต</b>และเลือกข้างล่าง !!!"
-
-#: CSVImport.php:277
-msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
-msgstr "<b>สิ่งสำคัญ</b>สมาคมศูนย์กลาง<b>เพศ</b>ให้กับคอลัมน์"
-
-#: CSVImport.php:282
-msgid "Important Options"
-msgstr "ทางเลือกสำคัญ"
-
-#: CSVImport.php:287
-msgid "Ignore first CSV row (to exclude a header)"
-msgstr "ไม่สนแถว CSV (เพื่อให้มีหัว)"
-
-#: CSVImport.php:299
-msgid "Make Family records based on last name and address"
-msgstr "ทำบันทึกครอบครัว โดยใช้นามสกุลและที่อยู่"
-
-#: CSVImport.php:324
-msgid "Date Format"
-msgstr "เดทโฟร์มาต์"
-
-#: CSVImport.php:324
-msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
-msgstr "“และจะไม่มีการชี้ขาดตัดสิน นอกจากแก่มันทั้งสอง"
-
-#: CSVImport.php:334
-msgid ""
-"Put all the persons in the cart, to import them in a group, sundayschool "
-"group, etc...."
-msgstr "เอาคนขับรถเข้าไปทุกคนในกลุ่ม กลุ่มแดนแดด ฯลฯ"
-
-#: CSVImport.php:341
-msgid "Not usefull options"
-msgstr "ไม่มีทางเลือกที่มีประโยชน์"
-
-#: CSVImport.php:350
-msgid "Patriarch"
-msgstr "ผู้บังคับบัญชา"
-
-#: CSVImport.php:351
-msgid "Matriarch"
-msgstr "คณะกรรมการ"
-
-#: CSVImport.php:355
-msgid "Family Type: used with Make Family records... option above"
-msgstr "พิมพ์ครอบครัว ใช้กับการสร้างบันทึกครอบครัว ทางเลือกด้านบน"
-
-#: CSVImport.php:371
-msgid "Default country if none specified otherwise"
-msgstr "เป็นประเทศที่ไม่มีใครระบุเป็นอย่างอื่น"
-
-#: CSVImport.php:404
-msgid "Perform Import"
-msgstr "แสดงอิมพ์ที"
-
-#: CSVImport.php:772 CSVImport.php:850
-msgid "Imported"
-msgstr "ส่งข่าว"
-
-#: CSVImport.php:945
-msgid "ERROR: the uploaded CSV file no longer exists!"
-msgstr "ไฟล์อัพโหลด CSV ไม่มีอยู่แล้ว"
-
-#: CSVImport.php:955
-msgid "Steps to import users"
-msgstr "ก้าวหน้าไปยังผู้ใช้งาน"
-
-#: CSVImport.php:958
-msgid "Your CSV file should be prepared like"
-msgstr "ไฟล์CSV ของคุณ ควรจะเตรียมพร้อมไว้"
-
-#: CSVImport.php:961
-msgid ""
-"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
-"the second one."
-msgstr "ดังนั้น CSV ส่ง<b>';'</b>ในตัวอย่างแรก และ 4568','7899 ใน อันที่สอง"
-
-#: CSVImport.php:964
-msgid "Don't forget the <b>gender</b> and the <b>title</b>"
-msgstr "อย่าลืม<b>เพศ</b>และ<b>ชื่อ</b>"
-
-#: CSVImport.php:965
-msgid ""
-"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
-"Title column and rename the label header to gender</b>"
-msgstr "คุณสามารถสร้างคอลัมน์ของคุณ ที่สำนักงานเอกเซล ลิเบอร์เคล และ<b>ตั้งแถวทิวเทิลชื่อ"
-
-#: CSVImport.php:966
-msgid ""
-"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
-"a women, girl, female</b> ..."
-msgstr ""
-"คอลัมน์เพศ ต้อง ถูก ตั้ง ให้ เป็น<b>1 สำหรับ ชาย ชาย</b>และ<b>2 สำหรับ ผู้หญิง หญิง หญิง</b>"
-
-#: CSVImport.php:969
-msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
-msgstr "เตรียมร้อง CRM ของคุณ และเพิ่มปริมาณศุลกากร เพอร์สัน ฟิลด์ที่จะทำการคลิก"
-
-#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "here"
-msgstr "นี่ไง"
-
-#: CSVImport.php:972
-msgid ""
-"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
-"7/1/2018"
-msgstr ""
-"วันทั้งหมดควรจะเกิดขึ้นเช่น : 2018-7-1 หรือ 1/7/2018 หรือ 7-1-2018 หรือ 7-1-2018 หรือ "
-"7/1/2018"
-
-#: CSVImport.php:979
-msgid "The next step should be, if not select the other CSV seperator"
-msgstr "ขั้นตอนต่อไปควรคือ ถ้าไม่เลือก เครื่องกำจัด CSV อีกต่อไป"
-
-#: CSVImport.php:985 CSVImport.php:1023
-msgid "Upload CSV File"
-msgstr "อัพโหลด ไฟล์"
-
-#: CSVImport.php:991
-msgid ""
-"<b>DON'T FORGET</b>\n"
-"              <br>• your CSV file must have a <b>Title</b> header name "
-"column (with M. Mr. Mlle. etc ...),\n"
-"              <br>• and a <b>gender</b> header name column (with 1 for a "
-"men, 2 for a women)"
-msgstr ""
-"<b>อย่าลืม</b>\n"
-"<br>แฟ้มซีเอสยูวีของคุณต้องมีคอลัมน์ชื่อ<b>คอลัมน์ชื่อ คอลัมน์ชื่อ (มีเอ็ม Mr. Mlle. ฯลฯ)\n"
-"<br>และ<b>เพศ</b>คอลัมน์หัว (มี1 สำหรับผู้ชาย, 2 สำหรับผู้หญิง)"
-
-#: CSVImport.php:996
-msgid "Select <b>NOW</b> your <b>CSV separator</b>"
-msgstr "เลือก<b>ตอนนี้</b>คุณ<b>CSV แยก</b>"
-
-#: CSVImport.php:1007
-msgid ""
-"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
-"b> ......... "
-msgstr "ชุดสุดท้ายที่ถูกต้อง วันที่เช่น :<b>YYYY-MDD หรือ DD/MMM/YYYYY</b>"
-
-#: CSVImport.php:1010
-msgid "This is proposed in the next step, read carefully your table."
-msgstr "นี่คือข้อเสนอในขั้นต่อไป อ่านความระมัดระวังโต๊ะของคุณ"
-
-#: CSVImport.php:1031
-msgid "Clear Data"
-msgstr "เคลียร์ดาต้า"
-
-#: CSVImport.php:1034
-msgid "Clear Persons and Families"
-msgstr "เคลียร์สุขและครอบครัว"
-
-#: CSVImport.php:1041
-msgid "Data import successful."
-msgstr "ข้อมูลนำเข้า สำเร็จ"
-
-#: CSVImport.php:1041
-msgid "persons were imported"
-msgstr "ส่วนบุคคลนำเข้ามา"
 
 #: DepositSlipEditor.php:65
 msgid "Deposit Slip Number: "
@@ -1507,10 +1466,10 @@ msgstr "ข้อมูลของบริษัท"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
-#: EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
+#: EcclesiaCRM/Service/CalendarService.php:30 FamilyView.php:550
 #: PersonView.php:1124 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
+#: external/templates/verify/verify-family-info.php:107
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1529,8 +1488,8 @@ msgid "Family Cell Phone"
 msgstr "โทรศัพท์มือถือของครอบครัว"
 
 #: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:192
-#: external/templates/verify/verify-family-info.php:39
 #: Reports/ConfirmReport.php:189
+#: external/templates/verify/verify-family-info.php:39
 msgid "Family Email"
 msgstr "อีเมลครอบครัว"
 
@@ -1825,7 +1784,7 @@ msgstr "ครอบครัวทั้งหมด"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1837,8 +1796,8 @@ msgstr "สุขภาพ"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:54
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/dashboard/maindashboard.php:103
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -1851,9 +1810,9 @@ msgstr "ครอบครัว"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:200
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:137 PersonView.php:480
+#: PersonView.php:480 external/templates/verify/verify-family-info.php:137
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:171
 #: v2/templates/people/peoplelist.php:45
@@ -2257,6 +2216,848 @@ msgid ""
 "bEnableExternalBackupTarget setting."
 msgstr ""
 "เป็นส่วนหนึ่งของการฟื้นฟู สำรองภายนอกได้ถูกปิด ถ้าคุณต้องการสำรองอัตโนมัติต่อไป คุณต้องมีคู่มือ คู่มือ"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+msgid "New Person Added"
+msgstr "คนใหม่เพิ่ม"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+msgid "New Family Added"
+msgstr "เพิ่มครอบครัวใหม่"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+msgid "Church Greeter"
+msgstr "โบสถ์กรีเตอร์"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+msgid "Notification"
+msgstr "แจ้งให้ทราบ"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
+msgid "Guardian(s) of"
+msgstr "ผู้พิทักษ์"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "A notification was triggered by the classroom teacher at"
+msgstr "มีคนแจ้งให้ทราบ โดยครูชั้นเรียนที่นี่"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "Please go to this location"
+msgstr "กรุณาไปที่นั่น"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
+msgid "Your Account was Deleted"
+msgstr "บัญชีของคุณถูกลบ"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "Ecclesiaบัญชีคุณถูกลบ"
+
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
+msgid "Email/Username"
+msgstr "อีเมล/อูสเนียม"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
+msgid "A Calendar is shared with you"
+msgstr "ปฏิทิน ถูกแบ่งปันกับคุณ"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
+msgid "I've shared a calendar with you in"
+msgstr "ฉันได้ร่วมปฏิทินกับคุณ"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
+msgid "A document is shared with you"
+msgstr "เอกสารนี้มีอยู่กับคุณ"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
+msgid "I've shared a document with you in"
+msgstr "ฉันได้แบ่งเอกสารให้คุณฟัง"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
+msgid "Account Locked"
+msgstr "บัญชีล็อคไว้"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr "Ecclesiaซีเอ็มของคุณถูกล็อคไว้"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
+msgid "Your New Account"
+msgstr "บัญชีใหม่ของคุณ"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
+msgid "A EcclesiaCRM account was created for you"
+msgstr "Ecclesiaแอคเค้าท์ซีเอ็ม ถูกสร้างมาให้คุณ"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: UserPasswordChange.php:214
+msgid "New Password"
+msgstr "รหัสผ่านใหม่"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
+msgid "Password Changed"
+msgstr "เปลี่ยนพาสเวิร์ด"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr "รหัสผ่าน Ecclesiaของคุณเปลี่ยนไปแล้ว"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
+msgid "Password Reset"
+msgstr "รหัสผ่าน"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "คุณ Ecclesiaรหัสผ่าน ได้รับการเปลี่ยนแปลงแล้ว"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
+msgid "Password Reset Link"
+msgstr "รหัสผ่านรีเซ็ต ลิงค์"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr "คุณสามารถตั้งรหัสผ่าน Ecclesiaของคุณ ด้วยการคลิกลิงค์นี้"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
+msgid "Reset Password"
+msgstr "รหัสผ่านใหม่"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
+msgid "Account Unlocked"
+msgstr "บัญชีไม่ได้ล็อค"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "Ecclesiaแอคเค้าท์คุณไม่ได้ล็อค"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+msgid "Your Account"
+msgstr "บัญชีของคุณ"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
+msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเดทแล้ว"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
+msgid "Status"
+msgstr "สถานะ"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
+msgid "Please verify your family's information"
+msgstr "กรุณาตรวจสอบข้อมูลของครอบครัวคุณด้วย"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
+msgid "Private Space"
+msgstr "อวกาศส่วนตัว"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
+#: external/templates/registration/family-register-members.php:104
+msgid "Home"
+msgstr "บ้าน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
+msgid "Change Password"
+msgstr "เปลี่ยนพาสเวิร์ด"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
+msgid "Change Settings"
+msgstr "เปลี่ยนตังค์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
+msgid "Documents"
+msgstr "เอกสารนี้"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:286
+#: v2/routes/email/mailchimp/mailchimp.php:143
+#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/templates/dashboard/maindashboard.php:190
+msgid "GDPR"
+msgstr "GDPR"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
+msgid "Dashboard"
+msgstr "กระดาน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:66
+msgid "Data Structure"
+msgstr "ระบบสร้างฐาน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
+msgid "View Inactive Persons"
+msgstr "วิวส์บุคคลติดต่อสู้"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
+msgid "View Inactive Families"
+msgstr "วิว แอร์ฟิวส์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:76
+msgid "Events"
+msgstr "อีกส์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
+#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
+#: v2/templates/map/MapUsingLeaflet.php:66
+#: v2/templates/map/MapUsingLeaflet.php:114
+msgid "Calendar"
+msgstr "ปฏิทิน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
+#: v2/routes/map/map.php:51
+msgid "View on Map"
+msgstr "วิวสำหรับแผนที่"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:88
+msgid "List Church Events"
+msgstr "รายชื่อ เชอร์ช อีนส์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:89
+msgid "List Event Types"
+msgstr "พิมพ์รายชื่อ"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:99
+#: v2/templates/dashboard/maindashboard.php:125
+#: v2/templates/people/familylist.php:46
+#: v2/templates/people/peopledashboard.php:127
+msgid "People"
+msgstr "ผู้คน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:115
+msgid "Meta Search Engine"
+msgstr "เครื่องยนต์ค้นหาเมต้า"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
+msgid "Add New Person"
+msgstr "Add New Person"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
+msgid "View Single Persons"
+msgstr "วิว โสด หน่อย"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:126
+msgid "View Active Persons"
+msgstr "วิว บุคคล"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:131
+msgid "Add New Family"
+msgstr "เพิ่มครอบครัวใหม่"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:132
+msgid "View Active Families"
+msgstr "วิว แอคชิฟ ครอบครัว"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:136
+msgid "Empty Addresses"
+msgstr "ที่อยู่ที่ว่างเปล่า"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+msgid "Convert Individual to Address"
+msgstr "ทำให้บุคคลต่างๆ ที่อยู่อาศัย"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
+msgid "List Groups"
+msgstr "ลิซกลุ่ม"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
+msgid "Group Assignment Helper"
+msgstr "ผู้ช่วยกลุ่ม"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
+#: v2/routes/sundayschool/sundayschool.php:110
+msgid "Sunday School"
+msgstr "โรงเรียนวันอาทิตย์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
+#: Include/Footer.php:173
+msgid "Global Custom Menus"
+msgstr "โกลบอล คุสตาม เมนัส"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
+msgid "Custom Menus"
+msgstr "ลูกค้าเมนัส"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:283
+#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
+msgid "Pastoral Care"
+msgstr "ภูมิใจบาทหลวง"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
+msgid "By Classifications"
+msgstr "ขอสาบานต่อลมที่พิจารณา"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
+msgid "Meetings"
+msgstr "ประชุม"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
+msgid "MailChimp"
+msgstr "MailChimp"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
+msgid "Email Lists"
+msgstr "รายชื่ออีเมล์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/Search/PledgeSearchRes.php:62
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
+#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
+#: Reports/AdvancedDeposit.php:523
+msgid "Deposit"
+msgstr "ข้างนอก"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
+msgid "Current"
+msgstr "ตอนนี้"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
+msgid "Envelope Manager"
+msgstr "ผู้จัดการที่ดี"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
+msgid "View All Deposits"
+msgstr "วิวทั้งหมดดีโพส"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
+msgid "Electronic Payment Listing"
+msgstr "รายชื่อค่าจ้างอิเล็กทรอนิกส์"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
+msgid "Deposit Reports"
+msgstr "รายงานข่าวสาร"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
+msgid "Edit Deposit Slip"
+msgstr "แก้ไข Deposit Slip"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
+msgid "Fundraiser"
+msgstr "ผู้รับเงิน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
+msgid "Create New Fundraiser"
+msgstr "สร้างผู้บริหารเงินใหม่"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
+msgid "View All Fundraisers"
+msgstr "ดูรายการทุน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+msgid "Edit Last Fundraiser"
+msgstr "แก้ไขสุดท้าย"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
+msgid "Data/Reports"
+msgstr "ข้อมูล/รายงาน"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
+msgid "Reports Menu"
+msgstr "รายงาน Menu"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+msgid "Query Menu"
+msgstr "เคอรี่ เมนู"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: v2/templates/calendar/calendar.php:79
+msgid "Birthdate"
+msgstr "วันเกิด"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: PrintPastoralCarePerson.php:450 PrintView.php:461
+#: Reports/CanvassReports.php:278
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
+msgid "Age"
+msgstr "อายุ"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Props"
+msgstr "โพรป"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Stats"
+msgstr "สถิติ"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
+#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:70
+#: v2/templates/sundayschool/sundayschooldashboard.php:38
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
+msgid "Teachers"
+msgstr "ครู"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
+msgid "of"
+msgstr "ของ"
+
+#: EcclesiaCRM/Reports/PDF_Attendance.php:218
+#: EcclesiaCRM/Reports/PDF_Attendance.php:621
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Totals"
+
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
+msgid "Certificate of Ownership"
+msgstr "รับรองว่า เป็นเจ้าของ"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr "เมือง, รัฐ, ซิป"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176 FamilyEditor.php:874
+#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
+#: Reports/ConfirmReport.php:173
+#: external/templates/verify/verify-family-info.php:52
+msgid "Send Newsletter"
+msgstr "ส่งข่าวมาลับ"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
+#: Reports/ConfirmReport.php:183
+msgid "Anniversary Date"
+msgstr "วันครบรอบ"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+msgid "Member Name"
+msgstr "ชื่อผู้สมัครใจ"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr "M/F"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr "ผู้ใหญ่เด็ก"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+msgid "Member/Friend"
+msgstr "สมากรัก/เพื่อน"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
+#: Reports/ConfirmReport.php:375
+msgid "Assigned groups for"
+msgstr "กลุ่มที่ถูกส่งมาเพื่อ"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:64
+#: EcclesiaCRM/Reports/PDF_Directory.php:100
+msgid "Directory"
+msgstr "Directory"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
+msgid "Page"
+msgstr "หน้า"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:328
+#: EcclesiaCRM/Reports/PDF_Directory.php:403
+#: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
+#: Reports/GroupReport.php:129
+#: external/templates/registration/family-register-members.php:105
+msgid "Work"
+msgstr "งาน"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:331
+#: EcclesiaCRM/Reports/PDF_Directory.php:407
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
+#: Reports/GroupReport.php:134
+msgid "Cell"
+msgstr "มือถือ"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:337
+#: v2/templates/calendar/calendar.php:97
+msgid "Wedding"
+msgstr "แต่งงาน"
+
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
+msgid "Group Directory"
+msgstr "กลุ่ม Directory"
+
+#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
+#: Reports/PDFBadge.php:112 Reports/PDFBadgeGroup.php:197
+#: Reports/PDFLabel.php:779
+msgid "Tractor"
+msgstr "แทรกเตอร์"
+
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
+#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
+#: v2/templates/sundayschool/sundayschooldashboard.php:49
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
+msgid "Students"
+msgstr "นักเรียน"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
+#: v2/routes/people/familylist.php:160
+msgid "Addresses"
+msgstr "ที่อยู่"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:70
+#: EcclesiaCRM/Search/AddressSearchRes.php:109
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
+#: EcclesiaCRM/Search/PaymentSearchRes.php:47
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
+#: EcclesiaCRM/Search/PersonSearchRes.php:264
+#: EcclesiaCRM/Search/PersonSearchRes.php:315
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
+#: EcclesiaCRM/Search/PledgeSearchRes.php:69
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
+#: ListEvents.php:365 PersonView.php:509
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+msgid "Addresse"
+msgstr "Addresse"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
+#: EcclesiaCRM/Search/PersonSearchRes.php:317
+#: EcclesiaCRM/Search/PersonSearchRes.php:321
+#: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonSearchRes.php:323
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
+#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
+#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/sundayschool/sundayschooldashboard.php:296
+#: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
+msgid "Private Data"
+msgstr "ข้อมูลพลทหาร"
+
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
+msgid "Deposits"
+msgstr "ข้างนอก"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
+msgid "Family Custom Field"
+msgstr "ครอบครัวคุณสโตม ฟิลด์"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+msgid "Family Pastoral Cares"
+msgstr "ครอบครัวพอสเตอรัล"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: v2/templates/dashboard/maindashboard.php:486
+msgid "Family Pastoral Care"
+msgstr "ครอบครัวพอสเตอรัล"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+msgid "Families Properties"
+msgstr "ครอบครัว สมบัติ"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "single"
+msgstr "โสด"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "singles"
+msgstr "คนโสด"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
+#: v2/templates/people/peopledashboard.php:91
+#: v2/templates/people/peoplelist.php:45
+msgid "Singles"
+msgstr "Singles"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+msgid "Groups Properties"
+msgstr "พรรคพวกกลุ่ม"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "group"
+msgstr "กลุ่ม"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "groups"
+msgstr "กลุ่ม"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr "กลุ่มวันอาทิตย์"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday groups"
+msgstr "กลุ่มวันอาทิตย์"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:45
+msgid "Sunday Groups"
+msgstr "วันอาทิตย์ กลุ่ม"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
+msgid "Payments"
+msgstr "จ่ายเงิน"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
+msgid "Person Group role assignments"
+msgstr "หน้าที่ของกลุ่มเพอร์สัน"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
+msgid "Teacher"
+msgstr "อาจารย์"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+msgid "Student"
+msgstr "นักเรียน"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
+msgid "Print"
+msgstr "ปริ้น"
+
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
+msgid "Person Custom Field"
+msgstr "เพอร์สัน คุณสโตม ฟิลด์"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+msgid "Group Manager"
+msgstr "ผู้จัดการกลุ่ม"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:45
+msgid "groupmasters"
+msgstr "ผู้ปกครอง"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+msgid "groupmaster"
+msgstr "พ่อครัว"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanagers"
+msgstr "ผู้จัดการฝ่าย"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanager"
+msgstr "ผู้จัดการร้าน"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+msgid "Individual Pastoral Cares"
+msgstr "หน่วยงานบาทหลวงบุคคล"
+
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
+msgid "Person Properties"
+msgstr "สมบัติบุคคล"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: Include/Footer.php:143 PersonView.php:942
+msgid "Volunteer Opportunities"
+msgstr "โอกาสที่อาสาสมัครงาน"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteers"
+msgstr "อาสาสมัคร"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteer"
+msgstr "อาสาสมัคร"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+msgid "Pledges"
+msgstr "มียาง"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
+msgid "Signature definition file signature failed validation"
+msgstr "เอกสารเอกสารเอกสารล้มเหลว"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
+msgid "Signature definition File Missing"
+msgstr "นิยามลายเซ็นต์ที่หายไป"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
+msgid "One or more files failed signature validation"
+msgstr "เอกสารล้มเหลวเพียงหนึ่งหรือมากกว่านั้น"
+
+#: EcclesiaCRM/Service/CalendarService.php:29
+msgid "Event"
+msgstr "อีกที"
+
+#: EcclesiaCRM/Service/CalendarService.php:31
+msgid "Anniversary"
+msgstr "วันครบรอบ"
+
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
+msgid "NonDeductible amount can't be greater than total amount."
+msgstr "จำนวนเงินที่ไม่สามารถลดน้อยกว่า จำนวนทั้งหมดได้"
+
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
+msgid "At least one fund must have a non-zero amount."
+msgstr "อย่างน้อยก็หนึ่งกองทุน ต้องมีจำนวนไม่ใช่ศูนย์"
+
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
+msgid "Must specify non-zero check number"
+msgstr "ต้องระบุว่าไม่ใช่หมายเลขศูนย์"
+
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
+msgid "Check number not valid for 'CASH' payment"
+msgstr "ตรวจสอบเบอร์ไม่ได้สำหรับการจ่าย \"CASH\" น่ะ"
+
+#: EcclesiaCRM/Service/PersonService.php:47
+msgid "Part"
+msgstr "ส่วน"
+
+#: EcclesiaCRM/Service/PersonService.php:49
+msgid " of the"
+msgstr "ของนั่น"
+
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
+msgid "(No assigned family)"
+msgstr "(ไม่มีส่วนร่วมในครอบครัว)"
+
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
+msgid "Unknown"
+msgstr "ไม่รู้"
+
+#: EcclesiaCRM/Service/TimelineService.php:218
+msgid "Self Registration"
+msgstr "จดทะเบียนตัวเอง"
+
+#: EcclesiaCRM/Service/TimelineService.php:220
+msgid "Self Verification"
+msgstr "รับรองตัวเอง"
+
+#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+msgid "by"
+msgstr "โดย"
+
+#: EcclesiaCRM/Service/TimelineService.php:352
+msgid "Shared by"
+msgstr "ร่วมกัน"
+
+#: EcclesiaCRM/Service/UpgradeService.php:64
+msgid "Databse upgrade failed"
+msgstr "การอัพเกรดของข้าล้มเหลว"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:131 PledgeEditor.php:646
+msgid "Other"
+msgstr "อีกคน"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
+msgid "Head of Household"
+msgstr "หัวหน้าของบ้าน"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: v2/templates/pastoralcare/pastoralcareperson.php:141
+msgid "Spouse"
+msgstr "คู่ครอง"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: v2/templates/pastoralcare/pastoralcareperson.php:143
+msgid "Child"
+msgstr "เด็ก"
 
 #: EcclesiaCRM/data/Countries.php:15
 msgid "Afghanistan (‫افغانستان‬‎)"
@@ -4257,14 +5058,6 @@ msgstr "ตั้งค่าอีเมล"
 msgid "Map Settings"
 msgstr "การตั้งแผนที่"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
-#: v2/templates/gdpr/gdprdatastructure.php:141
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
-msgid "Pastoral Care"
-msgstr "ภูมิใจบาทหลวง"
-
 #: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "การกระทำอาทิตย์ชั้นสูง"
@@ -4272,13 +5065,6 @@ msgstr "การกระทำอาทิตย์ชั้นสูง"
 #: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "ความอึดอัด"
-
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:64
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
-#: v2/templates/dashboard/maindashboard.php:141
-msgid "GDPR"
-msgstr "GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
@@ -4309,350 +5095,6 @@ msgstr "มีชื่อจัดเรียงที่ไม่ได้ร
 msgid "An invalid configuration id has been requested"
 msgstr "บัตรประชาชนติดตั้งระบบ ได้รับการขอ"
 
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-msgid "New Person Added"
-msgstr "คนใหม่เพิ่ม"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
-msgid "New Family Added"
-msgstr "เพิ่มครอบครัวใหม่"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
-msgid "Church Greeter"
-msgstr "โบสถ์กรีเตอร์"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-msgid "Notification"
-msgstr "แจ้งให้ทราบ"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
-msgid "Guardian(s) of"
-msgstr "ผู้พิทักษ์"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "A notification was triggered by the classroom teacher at"
-msgstr "มีคนแจ้งให้ทราบ โดยครูชั้นเรียนที่นี่"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "Please go to this location"
-msgstr "กรุณาไปที่นั่น"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
-msgid "Your Account was Deleted"
-msgstr "บัญชีของคุณถูกลบ"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM Account was Deleted."
-msgstr "Ecclesiaบัญชีคุณถูกลบ"
-
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
-msgid "Email/Username"
-msgstr "อีเมล/อูสเนียม"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
-msgid "A Calendar is shared with you"
-msgstr "ปฏิทิน ถูกแบ่งปันกับคุณ"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
-msgid "I've shared a calendar with you in"
-msgstr "ฉันได้ร่วมปฏิทินกับคุณ"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
-msgid "A document is shared with you"
-msgstr "เอกสารนี้มีอยู่กับคุณ"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
-msgid "I've shared a document with you in"
-msgstr "ฉันได้แบ่งเอกสารให้คุณฟัง"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:11
-msgid "Account Locked"
-msgstr "บัญชีล็อคไว้"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM account was locked."
-msgstr "Ecclesiaซีเอ็มของคุณถูกล็อคไว้"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
-msgid "Your New Account"
-msgstr "บัญชีใหม่ของคุณ"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
-msgid "A EcclesiaCRM account was created for you"
-msgstr "Ecclesiaแอคเค้าท์ซีเอ็ม ถูกสร้างมาให้คุณ"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: UserPasswordChange.php:214
-msgid "New Password"
-msgstr "รหัสผ่านใหม่"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
-msgid "Password Changed"
-msgstr "เปลี่ยนพาสเวิร์ด"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM password was changed"
-msgstr "รหัสผ่าน Ecclesiaของคุณเปลี่ยนไปแล้ว"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
-msgid "Password Reset"
-msgstr "รหัสผ่าน"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
-msgstr "คุณ Ecclesiaรหัสผ่าน ได้รับการเปลี่ยนแปลงแล้ว"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
-msgid "Password Reset Link"
-msgstr "รหัสผ่านรีเซ็ต ลิงค์"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr "คุณสามารถตั้งรหัสผ่าน Ecclesiaของคุณ ด้วยการคลิกลิงค์นี้"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
-msgid "Reset Password"
-msgstr "รหัสผ่านใหม่"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
-msgid "Account Unlocked"
-msgstr "บัญชีไม่ได้ล็อค"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM account was unlocked."
-msgstr "Ecclesiaแอคเค้าท์คุณไม่ได้ล็อค"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
-msgid "Your Account"
-msgstr "บัญชีของคุณ"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
-msgid "Your EcclesiaCRM account was updated"
-msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเดทแล้ว"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
-msgid "Status"
-msgstr "สถานะ"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
-msgid "Please verify your family's information"
-msgstr "กรุณาตรวจสอบข้อมูลของครอบครัวคุณด้วย"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
-#: Include/Header.php:148
-msgid "Private Space"
-msgstr "อวกาศส่วนตัว"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
-#: external/templates/registration/family-register-members.php:104
-msgid "Home"
-msgstr "บ้าน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
-msgid "Change Password"
-msgstr "เปลี่ยนพาสเวิร์ด"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
-msgid "Change Settings"
-msgstr "เปลี่ยนตังค์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
-msgid "Documents"
-msgstr "เอกสารนี้"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:436
-msgid "Dashboard"
-msgstr "กระดาน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:66
-msgid "Data Structure"
-msgstr "ระบบสร้างฐาน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
-msgid "View Inactive Persons"
-msgstr "วิวส์บุคคลติดต่อสู้"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
-msgid "View Inactive Families"
-msgstr "วิว แอร์ฟิวส์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:76
-msgid "Events"
-msgstr "อีกส์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
-#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:77
-#: v2/templates/map/MapUsingGoogle.php:124
-#: v2/templates/map/MapUsingLeaflet.php:66
-#: v2/templates/map/MapUsingLeaflet.php:114
-msgid "Calendar"
-msgstr "ปฏิทิน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
-#: v2/routes/map/map.php:51
-msgid "View on Map"
-msgstr "วิวสำหรับแผนที่"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:88
-msgid "List Church Events"
-msgstr "รายชื่อ เชอร์ช อีนส์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:89
-msgid "List Event Types"
-msgstr "พิมพ์รายชื่อ"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:99
-#: v2/templates/dashboard/maindashboard.php:76
-#: v2/templates/people/familylist.php:46
-#: v2/templates/people/peopledashboard.php:127
-msgid "People"
-msgstr "ผู้คน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
-msgid "Meta Search Engine"
-msgstr "เครื่องยนต์ค้นหาเมต้า"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
-msgid "Add New Person"
-msgstr "Add New Person"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:125
-msgid "View Single Persons"
-msgstr "วิว โสด หน่อย"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:126
-msgid "View Active Persons"
-msgstr "วิว บุคคล"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:131
-msgid "Add New Family"
-msgstr "เพิ่มครอบครัวใหม่"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:132
-msgid "View Active Families"
-msgstr "วิว แอคชิฟ ครอบครัว"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:136
-msgid "Empty Addresses"
-msgstr "ที่อยู่ที่ว่างเปล่า"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
-msgid "Convert Individual to Address"
-msgstr "ทำให้บุคคลต่างๆ ที่อยู่อาศัย"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:151
-msgid "List Groups"
-msgstr "ลิซกลุ่ม"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
-msgid "Group Assignment Helper"
-msgstr "ผู้ช่วยกลุ่ม"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:220
-#: v2/routes/sundayschool/sundayschool.php:110
-msgid "Sunday School"
-msgstr "โรงเรียนวันอาทิตย์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:173
-msgid "Global Custom Menus"
-msgstr "โกลบอล คุสตาม เมนัส"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:316
-msgid "Custom Menus"
-msgstr "ลูกค้าเมนัส"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:328
-msgid "By Classifications"
-msgstr "ขอสาบานต่อลมที่พิจารณา"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:335
-msgid "Meetings"
-msgstr "ประชุม"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
-msgid "MailChimp"
-msgstr "MailChimp"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:356
-msgid "Email Lists"
-msgstr "รายชื่ออีเมล์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
-#: EcclesiaCRM/Search/PledgeSearchRes.php:62
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
-#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
-#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
-#: Reports/AdvancedDeposit.php:523
-msgid "Deposit"
-msgstr "ข้างนอก"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:394
-msgid "Current"
-msgstr "ตอนนี้"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
-msgid "Envelope Manager"
-msgstr "ผู้จัดการที่ดี"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:400
-msgid "View All Deposits"
-msgstr "วิวทั้งหมดดีโพส"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
-msgid "Electronic Payment Listing"
-msgstr "รายชื่อค่าจ้างอิเล็กทรอนิกส์"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:402
-msgid "Deposit Reports"
-msgstr "รายงานข่าวสาร"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
-msgid "Edit Deposit Slip"
-msgstr "แก้ไข Deposit Slip"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
-msgid "Fundraiser"
-msgstr "ผู้รับเงิน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:416
-msgid "Create New Fundraiser"
-msgstr "สร้างผู้บริหารเงินใหม่"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
-msgid "View All Fundraisers"
-msgstr "ดูรายการทุน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:419
-#: v2/templates/fundraiser/donatedItemEditor.php:87
-msgid "Edit Last Fundraiser"
-msgstr "แก้ไขสุดท้าย"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
-msgid "Data/Reports"
-msgstr "ข้อมูล/รายงาน"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
-msgid "Reports Menu"
-msgstr "รายงาน Menu"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
-msgid "Query Menu"
-msgstr "เคอรี่ เมนู"
-
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
 msgid "Coin"
 msgstr "เงิน"
@@ -4661,14 +5103,6 @@ msgstr "เงิน"
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
 msgid "Counts"
 msgstr "นับ"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
-#: EcclesiaCRM/Reports/PDF_Attendance.php:218
-#: EcclesiaCRM/Reports/PDF_Attendance.php:621
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Totals"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
 msgid "Total Coin"
@@ -4745,16 +5179,16 @@ msgstr "พยาน"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:231
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:282
-#: v2/templates/dashboard/maindashboard.php:586
+#: v2/templates/dashboard/maindashboard.php:639
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "สร้าง"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:287
-#: v2/templates/dashboard/maindashboard.php:600
-#: v2/templates/dashboard/maindashboard.php:643
-#: v2/templates/dashboard/maindashboard.php:658
+#: v2/templates/dashboard/maindashboard.php:655
+#: v2/templates/dashboard/maindashboard.php:699
+#: v2/templates/dashboard/maindashboard.php:715
 msgid "Updated"
 msgstr "อัพเดทแล้ว"
 
@@ -4781,17 +5215,6 @@ msgstr "โปรไฟล์อัพโหลด"
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "สมาชิก"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
-#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
-msgid "Unknown"
-msgstr "ไม่รู้"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
 #: EcclesiaCRM/utils/OutputUtils.php:566
@@ -4865,470 +5288,6 @@ msgstr "เดฟย้ายประวัติ"
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "เดฟลบไฟล์"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: v2/templates/calendar/calendar.php:79
-msgid "Birthdate"
-msgstr "วันเกิด"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:278
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
-msgid "Age"
-msgstr "อายุ"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Props"
-msgstr "โพรป"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Stats"
-msgstr "สถิติ"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
-#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:143
-msgid "Teachers"
-msgstr "ครู"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
-msgid "of"
-msgstr "ของ"
-
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
-msgid "Certificate of Ownership"
-msgstr "รับรองว่า เป็นเจ้าของ"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
-#: Reports/ConfirmReport.php:163
-msgid "City, State, Zip"
-msgstr "เมือง, รัฐ, ซิป"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReport.php:173
-msgid "Send Newsletter"
-msgstr "ส่งข่าวมาลับ"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
-#: Reports/ConfirmReport.php:183
-msgid "Anniversary Date"
-msgstr "วันครบรอบ"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
-msgid "Member Name"
-msgstr "ชื่อผู้สมัครใจ"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
-#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
-#: Reports/ConfirmReport.php:248
-msgid "M/F"
-msgstr "M/F"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
-#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
-msgid "Adult/Child"
-msgstr "ผู้ใหญ่เด็ก"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
-#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
-msgid "Member/Friend"
-msgstr "สมากรัก/เพื่อน"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
-#: Reports/ConfirmReport.php:375
-msgid "Assigned groups for"
-msgstr "กลุ่มที่ถูกส่งมาเพื่อ"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:64
-#: EcclesiaCRM/Reports/PDF_Directory.php:100
-msgid "Directory"
-msgstr "Directory"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
-msgid "Page"
-msgstr "หน้า"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:328
-#: EcclesiaCRM/Reports/PDF_Directory.php:403
-#: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
-msgid "Work"
-msgstr "งาน"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:331
-#: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
-#: Reports/GroupReport.php:134
-msgid "Cell"
-msgstr "มือถือ"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:337
-#: v2/templates/calendar/calendar.php:97
-msgid "Wedding"
-msgstr "แต่งงาน"
-
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
-msgid "Group Directory"
-msgstr "กลุ่ม Directory"
-
-#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
-#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:112
-#: Reports/PDFLabel.php:779
-msgid "Tractor"
-msgstr "แทรกเตอร์"
-
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
-#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:235
-msgid "Students"
-msgstr "นักเรียน"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:19
-#: v2/routes/people/familylist.php:160
-msgid "Addresses"
-msgstr "ที่อยู่"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:70
-#: EcclesiaCRM/Search/AddressSearchRes.php:109
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:74
-#: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:93
-#: EcclesiaCRM/Search/FamilySearchRes.php:128
-#: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:78
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
-#: EcclesiaCRM/Search/GroupSearchRes.php:126
-#: EcclesiaCRM/Search/PaymentSearchRes.php:47
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:264
-#: EcclesiaCRM/Search/PersonSearchRes.php:315
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
-#: ListEvents.php:365 PersonView.php:509
-msgid "Edit"
-msgstr "แก้ไข"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-msgid "Addresse"
-msgstr "Addresse"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:142
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:317
-#: EcclesiaCRM/Search/PersonSearchRes.php:321
-#: EcclesiaCRM/Search/PersonSearchRes.php:322
-#: EcclesiaCRM/Search/PersonSearchRes.php:323
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
-#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
-#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
-msgid "Private Data"
-msgstr "ข้อมูลพลทหาร"
-
-#: EcclesiaCRM/Search/DepositSearchRes.php:23
-msgid "Deposits"
-msgstr "ข้างนอก"
-
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-msgid "Family Custom Field"
-msgstr "ครอบครัวคุณสโตม ฟิลด์"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
-msgid "Family Pastoral Cares"
-msgstr "ครอบครัวพอสเตอรัล"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: v2/templates/dashboard/maindashboard.php:436
-msgid "Family Pastoral Care"
-msgstr "ครอบครัวพอสเตอรัล"
-
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
-msgid "Families Properties"
-msgstr "ครอบครัว สมบัติ"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "single"
-msgstr "โสด"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "singles"
-msgstr "คนโสด"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
-#: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peoplelist.php:45
-msgid "Singles"
-msgstr "Singles"
-
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
-msgid "Groups Properties"
-msgstr "พรรคพวกกลุ่ม"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "group"
-msgstr "กลุ่ม"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "groups"
-msgstr "กลุ่ม"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday group"
-msgstr "กลุ่มวันอาทิตย์"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday groups"
-msgstr "กลุ่มวันอาทิตย์"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:45
-msgid "Sunday Groups"
-msgstr "วันอาทิตย์ กลุ่ม"
-
-#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
-msgid "Payments"
-msgstr "จ่ายเงิน"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-msgid "Person Group role assignments"
-msgstr "หน้าที่ของกลุ่มเพอร์สัน"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
-msgid "Teacher"
-msgstr "อาจารย์"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
-msgid "Student"
-msgstr "นักเรียน"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
-msgid "Print"
-msgstr "ปริ้น"
-
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-msgid "Person Custom Field"
-msgstr "เพอร์สัน คุณสโตม ฟิลด์"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
-msgid "Group Manager"
-msgstr "ผู้จัดการกลุ่ม"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:45
-msgid "groupmasters"
-msgstr "ผู้ปกครอง"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-msgid "groupmaster"
-msgstr "พ่อครัว"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanagers"
-msgstr "ผู้จัดการฝ่าย"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanager"
-msgstr "ผู้จัดการร้าน"
-
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
-msgid "Individual Pastoral Cares"
-msgstr "หน่วยงานบาทหลวงบุคคล"
-
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-msgid "Person Properties"
-msgstr "สมบัติบุคคล"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:942
-msgid "Volunteer Opportunities"
-msgstr "โอกาสที่อาสาสมัครงาน"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteers"
-msgstr "อาสาสมัคร"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteer"
-msgstr "อาสาสมัคร"
-
-#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
-#: Reports/PledgeSummary.php:253
-msgid "Pledges"
-msgstr "มียาง"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-msgid "Signature definition file signature failed validation"
-msgstr "เอกสารเอกสารเอกสารล้มเหลว"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-msgid "Signature definition File Missing"
-msgstr "นิยามลายเซ็นต์ที่หายไป"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
-msgid "One or more files failed signature validation"
-msgstr "เอกสารล้มเหลวเพียงหนึ่งหรือมากกว่านั้น"
-
-#: EcclesiaCRM/Service/CalendarService.php:29
-msgid "Event"
-msgstr "อีกที"
-
-#: EcclesiaCRM/Service/CalendarService.php:31
-msgid "Anniversary"
-msgstr "วันครบรอบ"
-
-#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
-msgid "NonDeductible amount can't be greater than total amount."
-msgstr "จำนวนเงินที่ไม่สามารถลดน้อยกว่า จำนวนทั้งหมดได้"
-
-#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
-msgid "At least one fund must have a non-zero amount."
-msgstr "อย่างน้อยก็หนึ่งกองทุน ต้องมีจำนวนไม่ใช่ศูนย์"
-
-#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
-msgid "Must specify non-zero check number"
-msgstr "ต้องระบุว่าไม่ใช่หมายเลขศูนย์"
-
-#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
-msgid "Check number not valid for 'CASH' payment"
-msgstr "ตรวจสอบเบอร์ไม่ได้สำหรับการจ่าย \"CASH\" น่ะ"
-
-#: EcclesiaCRM/Service/PersonService.php:47
-msgid "Part"
-msgstr "ส่วน"
-
-#: EcclesiaCRM/Service/PersonService.php:49
-msgid " of the"
-msgstr "ของนั่น"
-
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
-msgid "(No assigned family)"
-msgstr "(ไม่มีส่วนร่วมในครอบครัว)"
-
-#: EcclesiaCRM/Service/TimelineService.php:218
-msgid "Self Registration"
-msgstr "จดทะเบียนตัวเอง"
-
-#: EcclesiaCRM/Service/TimelineService.php:220
-msgid "Self Verification"
-msgstr "รับรองตัวเอง"
-
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
-msgid "by"
-msgstr "โดย"
-
-#: EcclesiaCRM/Service/TimelineService.php:352
-msgid "Shared by"
-msgstr "ร่วมกัน"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-msgid "Databse upgrade failed"
-msgstr "การอัพเกรดของข้าล้มเหลว"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
-msgid "Other"
-msgstr "อีกคน"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
-msgid "Head of Household"
-msgstr "หัวหน้าของบ้าน"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
-msgid "Spouse"
-msgstr "คู่ครอง"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
-msgid "Child"
-msgstr "เด็ก"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5675,6 +5634,20 @@ msgstr "Attendees"
 msgid "Not Available"
 msgstr "ไม่มีทาง"
 
+#: EditEventAttendees.php:120 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
+#: ListEvents.php:379 PersonView.php:1866 PersonView.php:1965
+#: browser/browse.php:66 v2/templates/email/mailchimp/campaign.php:35
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/email/mailchimp/managelist.php:93
+#: v2/templates/pastoralcare/pastoralcarefamily.php:209
+#: v2/templates/pastoralcare/pastoralcarefamily.php:219
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:225
+msgid "Delete"
+msgstr "ลบ"
+
 #: EditEventAttendees.php:128
 msgid "No Attendees Assigned to Event"
 msgstr "ไม่มีผู้ถูกส่งตัวไปยังอีเวนท์"
@@ -5749,46 +5722,6 @@ msgstr "แอดเคาเตอร์"
 #: EditEventTypes.php:234
 msgid "Return to Event Types"
 msgstr "กลับไปยังประเทศอีเวนท์"
-
-#: eGive.php:79
-msgid "eGive Import"
-msgstr "eGive Import"
-
-#: eGive.php:267
-msgid "Start Date: "
-msgstr "เริ่มต้น"
-
-#: eGive.php:269
-msgid "End Date: "
-msgstr "จบวันที่:"
-
-#: eGive.php:356
-msgid "Re-import to selected family"
-msgstr "นำเข้ามาเพื่อเลือกครอบครัว"
-
-#: eGive.php:360
-msgid "Data import results: "
-msgstr "ข้อมูลนำเข้า:"
-
-#: eGive.php:360
-msgid " gifts were imported, "
-msgstr "ของขวัญถูกนำเข้ามา"
-
-#: eGive.php:360
-msgid " gifts unchanged, and "
-msgstr "ของขวัญไม่เปลี่ยนแปลง"
-
-#: eGive.php:360
-msgid " gifts not imported due to problems"
-msgstr "ของขวัญที่ไม่นำเข้ามาเกี่ยวข้อง"
-
-#: eGive.php:361 eGive.php:390
-msgid "Back to Deposit Slip"
-msgstr "กลับไปเดปซิสลิป"
-
-#: eGive.php:389
-msgid "Fatal error in eGive API datastream: '"
-msgstr "ความผิดพลาดที่ร้ายแรงใน eGive API ฐานทัศน์:"
 
 #: ElectronicPaymentList.php:63
 msgid "Delete automatic payment for"
@@ -6035,183 +5968,6 @@ msgstr "สร้าง อีเวนท์"
 msgid "Add Event Type"
 msgstr "บวกด้านวิชาพิมพ์"
 
-#: external/routes/password.php:73
-msgid "Unable to reset password"
-msgstr "ไม่สามารถตั้งรหัสผ่านได้"
-
-#: external/routes/verify.php:31
-msgid "Unable to load verification info"
-msgstr "ไม่สามารถส่งข้อมูลตรวจสอบได้"
-
-#: external/routes/verify.php:45
-msgid "No Changes"
-msgstr "ไม่มีการเปลี่ยนแปลง"
-
-#: external/templates/404.php:4 kiosk/templates/404.php:4
-msgid "Page not fond"
-msgstr "เพจไม่ชอบหน้า"
-
-#: external/templates/404.php:14 kiosk/templates/404.php:14
-msgid "Oops! Page not found."
-msgstr "อุ๊บส์! เพจยังไม่พบเลย"
-
-#: external/templates/password/enter-username.php:7
-#: external/templates/password/password-check-email.php:7
-#: external/templates/registration/family-register-done.php:6
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:10
-msgid "Family Registration"
-msgstr "จดทะเบียนครอบครัว"
-
-#: external/templates/password/enter-username.php:28
-msgid "Reset your password"
-msgstr "รีเซ็ตรหัสผ่าน"
-
-#: external/templates/password/enter-username.php:32 UserEditor.php:648
-#: UserEditor.php:704
-msgid "Login Name"
-msgstr "ชื่อล็อกจิ้น"
-
-#: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:124
-msgid "Go"
-msgstr "ไป"
-
-#: external/templates/password/enter-username.php:46 Login.php:182
-#: Login.php:233
-msgid "Login"
-msgstr "ล็อคจิ้น"
-
-#: external/templates/password/enter-username.php:60
-msgid "Check your email for a password reset link"
-msgstr "เช็คอีเมล์ของคุณ สำหรับการเชื่อมต่อรหัสผ่าน"
-
-#: external/templates/password/enter-username.php:66
-msgid "Sorry, we are unable to process your request at this point in time."
-msgstr "โทษที เราไม่สามารถดำเนินคำขอของคุณ ณ เวลานี้ได้"
-
-#: external/templates/password/enter-username.php:69
-msgid "Login Name is Required"
-msgstr "ชื่อลอกิ้น ถูกขอ"
-
-#: external/templates/password/password-check-email.php:27
-msgid "A new password was sent to you. Please check your email"
-msgstr "รหัสผ่านใหม่ถูกส่งมาให้คุณ กรุณาตรวจสอบอีเมล์ด้วยครับ"
-
-#: external/templates/registration/family-register-done.php:18
-msgid "Registration Complete"
-msgstr "การจดทะเบียนสมบูรณ์"
-
-#: external/templates/registration/family-register-done.php:24
-msgid "Thank you for registering your family."
-msgstr "ขอบคุณที่ลงทะเบียนครอบครัว"
-
-#: external/templates/registration/family-register-done.php:30
-msgid "Member(s)"
-msgstr "สมาชิก(s)"
-
-#: external/templates/registration/family-register-done.php:45
-#: Reports/CanvassReports.php:91
-msgid "Done"
-msgstr "เสร็จแล้ว"
-
-#: external/templates/registration/family-register-members.php:20
-msgid "Register"
-msgstr "ทะเบียน"
-
-#: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
-#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
-msgid "Family Members"
-msgstr "สมาชิกครอบครัว"
-
-#: external/templates/registration/family-register-members.php:35
-msgid "Family Member"
-msgstr "สมาชิกครอบครัว"
-
-#: external/templates/registration/family-register-members.php:103
-#: sundayschool/SundaySchoolClassListExport.php:53
-msgid "Mobile"
-msgstr "โมบิล"
-
-#: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
-#: Reports/ConfirmReport.php:252
-msgid "Hide Age"
-msgstr "ซ่อน ยุค"
-
-#: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:118
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:94
-#: GroupReports.php:103
-msgid "Next"
-msgstr "ต่อไป"
-
-#: external/templates/registration/family-register.php:30
-msgid "Register your family"
-msgstr "จดทะเบียนครอบครัวของคุณ"
-
-#: external/templates/registration/family-register.php:95
-msgid "How many people are in your family"
-msgstr "ครอบครัวคุณมีกี่คน"
-
-#: external/templates/registration/family-register.php:113
-msgid "This will be my primary church."
-msgstr "นี่คือโบสถ์หลักของผม"
-
-#: external/templates/verify/enter-info.php:17
-msgid "Please enter the following to start your family's verification"
-msgstr "กรุณาเข้าไปดูต่อไปนี้ เพื่อเริ่มการตรวจสอบครอบครัวของคุณ"
-
-#: external/templates/verify/verify-family-info.php:10
-msgid "Family Verification"
-msgstr "การตรวจสอบครอบครัว"
-
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:167 ManageEnvelopes.php:143
-msgid "Confirm"
-msgstr "ยืนยัน"
-
-#: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-msgid "Home Address"
-msgstr "ที่อยู่บ้าน"
-
-#: external/templates/verify/verify-family-info.php:64
-msgid "Family Member(s)"
-msgstr "สมาชิกครอบครัว"
-
-#: external/templates/verify/verify-family-info.php:104
-msgid "Work Email"
-msgstr "อีเมล์ทำงานน่ะ"
-
-#: external/templates/verify/verify-family-info.php:114
-msgid "Age Hidden"
-msgstr "อายุยุยุคซ่อน"
-
-#: external/templates/verify/verify-family-info.php:174
-msgid "Please let us know what information to update if any"
-msgstr "กรุณาแจ้งให้เรารู้ว่าข้อมูลใด ๆ ที่จะอัพเดทถ้ามี"
-
-#: external/templates/verify/verify-family-info.php:179
-msgid "Your verification request is complete"
-msgstr "คำขอที่คุณต้องการ เสร็จสมบูรณ์"
-
-#: external/templates/verify/verify-family-info.php:183
-msgid "We encountered an error submitting with your verification data"
-msgstr "เราได้พบข้อผิดพลาด ที่ส่งข้อมูลข้อมูลของคุณ"
-
-#: external/templates/verify/verify-family-info.php:189
-msgid "Verify"
-msgstr "ตรวจสอบ"
-
-#: external/templates/verify/verify-family-info.php:191
-msgid "Visit our Site"
-msgstr "ดูที่ด้านข้างของเรา"
-
 #: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "ผู้บริหารธุรกิจลูกค้า"
@@ -6379,6 +6135,14 @@ msgstr "เอนดิโลปีจำนวน"
 msgid "Custom Fields"
 msgstr "ลูกค้า ฟิลด์"
 
+#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
+#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
+#: external/templates/registration/family-register-members.php:20
+#: v2/templates/pastoralcare/pastoralcarefamily.php:101
+#: v2/templates/pastoralcare/pastoralcareperson.php:103
+msgid "Family Members"
+msgstr "สมาชิกครอบครัว"
+
 #: FamilyEditor.php:1084
 msgid ""
 "You may create family members now or add them later.  All entries will "
@@ -6393,7 +6157,7 @@ msgstr "ก่อน"
 msgid "Middle"
 msgstr "กลาง"
 
-#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:436
+#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:486
 msgid "Last"
 msgstr "สุดท้าย"
 
@@ -6724,6 +6488,13 @@ msgstr "รายงานตัวแต่ละคน"
 #: FinancialReports.php:82
 msgid "Advanced Deposit Report"
 msgstr "รายงานขั้นสูง Deposit"
+
+#: FinancialReports.php:94 GroupReports.php:103
+#: external/templates/registration/family-register-members.php:156
+#: external/templates/registration/family-register.php:118
+#: external/templates/verify/enter-info.php:38
+msgid "Next"
+msgstr "ต่อไป"
 
 #: FinancialReports.php:171
 msgid "Add All Classes"
@@ -7266,17 +7037,17 @@ msgstr "กรอโรล"
 msgid "Group-Specific Property Fields"
 msgstr "กลุ่ม-พิเศษ ฟิลด์"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
-msgid "Copyright"
-msgstr "ลิขสิทธิ์"
-
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
-msgid "All rights reserved"
-msgstr "ทุกสิทธิทั้งหมดจองไว้"
-
 #: Include/Footer.php:27
 msgid "Version"
 msgstr "เวอร์ชั่น"
+
+#: Include/Footer.php:29 Include/FooterNotLoggedIn.php:7
+msgid "Copyright"
+msgstr "ลิขสิทธิ์"
+
+#: Include/Footer.php:32 Include/FooterNotLoggedIn.php:7
+msgid "All rights reserved"
+msgstr "ทุกสิทธิทั้งหมดจองไว้"
 
 #: Include/Footer.php:72
 msgid "Family Properties"
@@ -7318,7 +7089,7 @@ msgstr "พิมพ์ดูแลบาทหลวงพ่อ"
 msgid "Please contact your admin to change the system settings."
 msgstr "กรุณาติดต่อกับ แอร์เนน เพื่อเปลี่ยนระบบ"
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:163
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:160
 msgid "Edit General Settings"
 msgstr "แก้ไข นายพลตั้งค่า"
 
@@ -7584,10 +7355,6 @@ msgid ""
 "expected values."
 msgstr "การตรวจสอบความซื่อสัตย์ก่อนหน้านี้ผ่านไปแล้ว ไฟล์ทั้งหมดมีผลตรงกับค่าคาดหวัง"
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-msgid "End Time"
-msgstr "จบ"
-
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:220
 msgid "Letters and Mailing Labels"
 msgstr "จดหมายและขอจดหมายลาเบล"
@@ -7739,6 +7506,11 @@ msgstr "ตรรกะที่ล้มเหลวมากมาย บั�
 msgid "This account has been deactiveted by an administrator."
 msgstr "บัญชีนี้ถูกปิดโดยผู้บริหาร"
 
+#: Login.php:182 Login.php:233
+#: external/templates/password/enter-username.php:46
+msgid "Login"
+msgstr "ล็อคจิ้น"
+
 #: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "ได้โปรด ล็อกกิ้น"
@@ -7786,6 +7558,11 @@ msgid ""
 "selected on this page.  Continue?"
 msgstr "นี่จะเขียนจดหมายเลขซองจดหมายของครอบครัว ในฐานข้อมูลที่เลือกบนหน้านี้ ต่อไป?"
 
+#: ManageEnvelopes.php:143 external/templates/verify/verify-family-info.php:24
+#: external/templates/verify/verify-family-info.php:167
+msgid "Confirm"
+msgstr "ยืนยัน"
+
 #: ManageEnvelopes.php:152
 msgid "Family Select"
 msgstr "เลือกครอบครัว"
@@ -7805,39 +7582,6 @@ msgstr "ศูนย์"
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
 msgstr "เริ่มต้นที่"
-
-#: members/404.php:22 members/404.php:31
-msgid "Not Found"
-msgstr "ไม่ใช่เจอแล้ว"
-
-#: members/404.php:31
-msgid "Oops!"
-msgstr "อุ๊บส์!"
-
-#: members/404.php:34
-msgid "We could not find the member(s) you were looking for."
-msgstr "เราหาสมาชิก ที่คุณตามหาไม่เจอ"
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "Meanwhile, you may"
-msgstr "ในขณะเดียวกัน คุณอาจจะ"
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "return to member dashboard"
-msgstr "กลับไปยังกระดาน"
-
-#: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:260
-msgid "Pending Self Verify"
-msgstr "จ่ายเงินให้เซลฟ์"
-
-#: members/self-register.php:13
-msgid "Families Self Registration"
-msgstr "ครอบครัวของเซลฟ์ จดทะเบียน"
-
-#: members/self-verify-updates.php:13
-msgid "Self Verify"
-msgstr "ตรวจสอบตัวเอง"
 
 #: OptionManager.php:358
 msgid ""
@@ -7984,6 +7728,12 @@ msgstr "เลือกเวลากลางวัน"
 #: PersonEditor.php:988
 msgid "Birth Year"
 msgstr "ปีที่แล้ว"
+
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
+#: external/templates/registration/family-register-members.php:132
+msgid "Hide Age"
+msgstr "ซ่อน ยุค"
 
 #: PersonEditor.php:1018
 msgid "Person or Family Info"
@@ -8202,6 +7952,26 @@ msgstr "ปรับแต่งสุดท้าย"
 #: PersonView.php:1836
 msgid "All Files"
 msgstr "ทุกไฟล์"
+
+#: PersonView.php:1845 browser/browse.php:43
+msgid "Upload a file in EDrive"
+msgstr "อัพโหลดไฟล์ในอีไดรฟ์"
+
+#: PersonView.php:1857 browser/browse.php:58
+msgid "Create a Folder"
+msgstr "สร้างคนโฟเดอร์"
+
+#: PersonView.php:1876 browser/browse.php:75
+msgid "Up One Level"
+msgstr "ขึ้นระดับหนึ่ง"
+
+#: PersonView.php:1885 browser/browse.php:82
+msgid "Actualize files"
+msgstr "แฟ้มถ่ายทำจริง"
+
+#: PersonView.php:1903 browser/browse.php:99
+msgid "Preview"
+msgstr "ว่าไง"
 
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
@@ -8518,6 +8288,11 @@ msgstr "รายงานทั้งหมด"
 msgid "Canvass Progress Report"
 msgstr "รายงานการตรวจสอบ"
 
+#: Reports/CanvassReports.php:91
+#: external/templates/registration/family-register-done.php:45
+msgid "Done"
+msgstr "เสร็จแล้ว"
+
 #: Reports/CanvassReports.php:92
 msgid "Assigned"
 msgstr "ถูกส่งตัว"
@@ -8597,6 +8372,28 @@ msgstr "ตัวเลือกนี้ต้องมีอย่างน้
 msgid "Envelope Numbers for all Families"
 msgstr "เอนดิโลปีจำนวน สำหรับครอบครัวทุกคน"
 
+#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
+#: Reports/FRCertificates.php:52
+msgid "Estimated value "
+msgstr "มูลค่าที่มีค่า"
+
+#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
+#: Reports/FRCertificates.php:55
+msgid "Donated by "
+msgstr "โดน"
+
+#: Reports/FRBidSheets.php:103
+msgid "Paddle"
+msgstr "พาย"
+
+#: Reports/FRBidSheets.php:104
+msgid "Bid"
+msgstr "Bid"
+
+#: Reports/FRCatalog.php:108
+msgid "Minimum bid "
+msgstr "ราคาต่ำสุด"
+
 #: Reports/FamilyPledgeSummary.php:157 Reports/ReminderReport.php:169
 msgid "All Funds"
 msgstr "ทั้งหมดเลย"
@@ -8624,28 +8421,6 @@ msgstr "จ่าย"
 #: Reports/FamilyPledgeSummary.php:235
 msgid "Owe"
 msgstr "ติดเงิน"
-
-#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:52
-msgid "Estimated value "
-msgstr "มูลค่าที่มีค่า"
-
-#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:55
-msgid "Donated by "
-msgstr "โดน"
-
-#: Reports/FRBidSheets.php:103
-msgid "Paddle"
-msgstr "พาย"
-
-#: Reports/FRBidSheets.php:104
-msgid "Bid"
-msgstr "Bid"
-
-#: Reports/FRCatalog.php:108
-msgid "Minimum bid "
-msgstr "ราคาต่ำสุด"
 
 #: Reports/FundRaiserStatement.php:96
 msgid "Donated Items:"
@@ -9133,34 +8908,6 @@ msgstr "ร้านขายพวกนี้ไว้ในที่ปลอ
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "เริ่มเข้ารหัสผ่านการพิสูจน์"
 
-#: sundayschool/SundaySchoolClassListExport.php:56
-msgid "Dad Name"
-msgstr "พ่อ ชื่อ"
-
-#: sundayschool/SundaySchoolClassListExport.php:57
-msgid "Dad Mobile"
-msgstr "พ่อ โมบีล"
-
-#: sundayschool/SundaySchoolClassListExport.php:58
-msgid "Dad Email"
-msgstr "พ่อ อีเมล"
-
-#: sundayschool/SundaySchoolClassListExport.php:59
-msgid "Mom Name"
-msgstr "แม่ชื่อ"
-
-#: sundayschool/SundaySchoolClassListExport.php:60
-msgid "Mom Mobile"
-msgstr "แม่ โมบีล"
-
-#: sundayschool/SundaySchoolClassListExport.php:61
-msgid "Mom Email"
-msgstr "แม่ อีเมล"
-
-#: sundayschool/SundaySchoolClassListExport.php:62
-msgid "Properties"
-msgstr "สมบัติ"
-
 #: SystemDBUpdate.php:31
 msgid "System Upgrade"
 msgstr "ระบบอัพเกรด"
@@ -9212,6 +8959,16 @@ msgstr "รายงานภาษี"
 #: TaxReport.php:43
 msgid "Calendar Year"
 msgstr "ปีปฏิเสธ"
+
+#: USISTAddressVerification.php:51
+msgid "US Address Verification"
+msgstr "เอกสารที่อยู่อาศัย"
+
+#: USISTAddressVerification.php:104
+msgid ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
+msgstr ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -9340,6 +9097,11 @@ msgstr "บวก Role เข้ากับ Current User"
 #: UserEditor.php:629
 msgid "Person to Make User"
 msgstr "คนทำให้ผู้ใช้ชีวิต"
+
+#: UserEditor.php:648 UserEditor.php:704
+#: external/templates/password/enter-username.php:32
+msgid "Login Name"
+msgstr "ชื่อล็อกจิ้น"
 
 #: UserEditor.php:665
 msgid "Note: Changes will not take effect until next logon."
@@ -9551,15 +9313,254 @@ msgstr "รหัสผ่านเก่า"
 msgid "Confirm New Password"
 msgstr "ยืนยัน รหัสผ่าน"
 
-#: USISTAddressVerification.php:51
-msgid "US Address Verification"
-msgstr "เอกสารที่อยู่อาศัย"
+#: browser/browse.php:31
+msgid "File Manager"
+msgstr "ผู้จัดการไฟล์"
 
-#: USISTAddressVerification.php:104
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
-msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+#: browser/browse.php:50
+msgid "Download"
+msgstr "ดาวน์โหลด"
+
+#: eGive.php:79
+msgid "eGive Import"
+msgstr "eGive Import"
+
+#: eGive.php:267
+msgid "Start Date: "
+msgstr "เริ่มต้น"
+
+#: eGive.php:269
+msgid "End Date: "
+msgstr "จบวันที่:"
+
+#: eGive.php:356
+msgid "Re-import to selected family"
+msgstr "นำเข้ามาเพื่อเลือกครอบครัว"
+
+#: eGive.php:360
+msgid "Data import results: "
+msgstr "ข้อมูลนำเข้า:"
+
+#: eGive.php:360
+msgid " gifts were imported, "
+msgstr "ของขวัญถูกนำเข้ามา"
+
+#: eGive.php:360
+msgid " gifts unchanged, and "
+msgstr "ของขวัญไม่เปลี่ยนแปลง"
+
+#: eGive.php:360
+msgid " gifts not imported due to problems"
+msgstr "ของขวัญที่ไม่นำเข้ามาเกี่ยวข้อง"
+
+#: eGive.php:361 eGive.php:390
+msgid "Back to Deposit Slip"
+msgstr "กลับไปเดปซิสลิป"
+
+#: eGive.php:389
+msgid "Fatal error in eGive API datastream: '"
+msgstr "ความผิดพลาดที่ร้ายแรงใน eGive API ฐานทัศน์:"
+
+#: external/routes/password.php:73
+msgid "Unable to reset password"
+msgstr "ไม่สามารถตั้งรหัสผ่านได้"
+
+#: external/routes/verify.php:31
+msgid "Unable to load verification info"
+msgstr "ไม่สามารถส่งข้อมูลตรวจสอบได้"
+
+#: external/routes/verify.php:45
+msgid "No Changes"
+msgstr "ไม่มีการเปลี่ยนแปลง"
+
+#: external/templates/404.php:4 kiosk/templates/404.php:4
+msgid "Page not fond"
+msgstr "เพจไม่ชอบหน้า"
+
+#: external/templates/404.php:14 kiosk/templates/404.php:14
+msgid "Oops! Page not found."
+msgstr "อุ๊บส์! เพจยังไม่พบเลย"
+
+#: external/templates/password/enter-username.php:7
+#: external/templates/password/password-check-email.php:7
+#: external/templates/registration/family-register-done.php:6
+#: external/templates/registration/family-register-members.php:8
+#: external/templates/registration/family-register.php:10
+msgid "Family Registration"
+msgstr "จดทะเบียนครอบครัว"
+
+#: external/templates/password/enter-username.php:28
+msgid "Reset your password"
+msgstr "รีเซ็ตรหัสผ่าน"
+
+#: external/templates/password/enter-username.php:41
+#: v2/templates/fundraiser/donatedItemEditor.php:124
+msgid "Go"
+msgstr "ไป"
+
+#: external/templates/password/enter-username.php:60
+msgid "Check your email for a password reset link"
+msgstr "เช็คอีเมล์ของคุณ สำหรับการเชื่อมต่อรหัสผ่าน"
+
+#: external/templates/password/enter-username.php:66
+msgid "Sorry, we are unable to process your request at this point in time."
+msgstr "โทษที เราไม่สามารถดำเนินคำขอของคุณ ณ เวลานี้ได้"
+
+#: external/templates/password/enter-username.php:69
+msgid "Login Name is Required"
+msgstr "ชื่อลอกิ้น ถูกขอ"
+
+#: external/templates/password/password-check-email.php:27
+msgid "A new password was sent to you. Please check your email"
+msgstr "รหัสผ่านใหม่ถูกส่งมาให้คุณ กรุณาตรวจสอบอีเมล์ด้วยครับ"
+
+#: external/templates/registration/family-register-done.php:18
+msgid "Registration Complete"
+msgstr "การจดทะเบียนสมบูรณ์"
+
+#: external/templates/registration/family-register-done.php:24
+msgid "Thank you for registering your family."
+msgstr "ขอบคุณที่ลงทะเบียนครอบครัว"
+
+#: external/templates/registration/family-register-done.php:30
+msgid "Member(s)"
+msgstr "สมาชิก(s)"
+
+#: external/templates/registration/family-register-members.php:20
+msgid "Register"
+msgstr "ทะเบียน"
+
+#: external/templates/registration/family-register-members.php:35
+msgid "Family Member"
+msgstr "สมาชิกครอบครัว"
+
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
+msgid "Mobile"
+msgstr "โมบิล"
+
+#: external/templates/registration/family-register.php:30
+msgid "Register your family"
+msgstr "จดทะเบียนครอบครัวของคุณ"
+
+#: external/templates/registration/family-register.php:95
+msgid "How many people are in your family"
+msgstr "ครอบครัวคุณมีกี่คน"
+
+#: external/templates/registration/family-register.php:113
+msgid "This will be my primary church."
+msgstr "นี่คือโบสถ์หลักของผม"
+
+#: external/templates/verify/enter-info.php:17
+msgid "Please enter the following to start your family's verification"
+msgstr "กรุณาเข้าไปดูต่อไปนี้ เพื่อเริ่มการตรวจสอบครอบครัวของคุณ"
+
+#: external/templates/verify/verify-family-info.php:10
+msgid "Family Verification"
+msgstr "การตรวจสอบครอบครัว"
+
+#: external/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+msgid "Home Address"
+msgstr "ที่อยู่บ้าน"
+
+#: external/templates/verify/verify-family-info.php:64
+msgid "Family Member(s)"
+msgstr "สมาชิกครอบครัว"
+
+#: external/templates/verify/verify-family-info.php:104
+msgid "Work Email"
+msgstr "อีเมล์ทำงานน่ะ"
+
+#: external/templates/verify/verify-family-info.php:114
+msgid "Age Hidden"
+msgstr "อายุยุยุคซ่อน"
+
+#: external/templates/verify/verify-family-info.php:174
+msgid "Please let us know what information to update if any"
+msgstr "กรุณาแจ้งให้เรารู้ว่าข้อมูลใด ๆ ที่จะอัพเดทถ้ามี"
+
+#: external/templates/verify/verify-family-info.php:179
+msgid "Your verification request is complete"
+msgstr "คำขอที่คุณต้องการ เสร็จสมบูรณ์"
+
+#: external/templates/verify/verify-family-info.php:183
+msgid "We encountered an error submitting with your verification data"
+msgstr "เราได้พบข้อผิดพลาด ที่ส่งข้อมูลข้อมูลของคุณ"
+
+#: external/templates/verify/verify-family-info.php:189
+msgid "Verify"
+msgstr "ตรวจสอบ"
+
+#: external/templates/verify/verify-family-info.php:191
+msgid "Visit our Site"
+msgstr "ดูที่ด้านข้างของเรา"
+
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+msgid "End Time"
+msgstr "จบ"
+
+#: members/404.php:22 members/404.php:31
+msgid "Not Found"
+msgstr "ไม่ใช่เจอแล้ว"
+
+#: members/404.php:31
+msgid "Oops!"
+msgstr "อุ๊บส์!"
+
+#: members/404.php:34
+msgid "We could not find the member(s) you were looking for."
+msgstr "เราหาสมาชิก ที่คุณตามหาไม่เจอ"
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "Meanwhile, you may"
+msgstr "ในขณะเดียวกัน คุณอาจจะ"
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "return to member dashboard"
+msgstr "กลับไปยังกระดาน"
+
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:260
+msgid "Pending Self Verify"
+msgstr "จ่ายเงินให้เซลฟ์"
+
+#: members/self-register.php:13
+msgid "Families Self Registration"
+msgstr "ครอบครัวของเซลฟ์ จดทะเบียน"
+
+#: members/self-verify-updates.php:13
+msgid "Self Verify"
+msgstr "ตรวจสอบตัวเอง"
+
+#: sundayschool/SundaySchoolClassListExport.php:56
+msgid "Dad Name"
+msgstr "พ่อ ชื่อ"
+
+#: sundayschool/SundaySchoolClassListExport.php:57
+msgid "Dad Mobile"
+msgstr "พ่อ โมบีล"
+
+#: sundayschool/SundaySchoolClassListExport.php:58
+msgid "Dad Email"
+msgstr "พ่อ อีเมล"
+
+#: sundayschool/SundaySchoolClassListExport.php:59
+msgid "Mom Name"
+msgstr "แม่ชื่อ"
+
+#: sundayschool/SundaySchoolClassListExport.php:60
+msgid "Mom Mobile"
+msgstr "แม่ โมบีล"
+
+#: sundayschool/SundaySchoolClassListExport.php:61
+msgid "Mom Email"
+msgstr "แม่ อีเมล"
+
+#: sundayschool/SundaySchoolClassListExport.php:62
+msgid "Properties"
+msgstr "สมบัติ"
 
 #: v2/routes/calendar/calendar.php:43
 msgid "Church Calendar"
@@ -9641,14 +9642,14 @@ msgid "Pastoral care list of members for"
 msgstr "รายชื่อผู้ดูแลบาทหลวงของพระเจ้า"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "จบ"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
@@ -9671,7 +9672,7 @@ msgid "Pastoral care members list by classification"
 msgstr "รายชื่อสมาชิกของบาทหลวงโดยการแบ่งเบาะแส"
 
 #: v2/routes/people/familylist.php:158
-#: v2/templates/dashboard/maindashboard.php:33
+#: v2/templates/dashboard/maindashboard.php:82
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -9990,158 +9991,180 @@ msgstr "รถเข็นของคุณมี"
 msgid "persons from"
 msgstr "จากบุคคล"
 
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:40
+msgid "Loading in progress"
+msgstr "กำลังเติบโต"
+
+#: v2/templates/dashboard/maindashboard.php:45
+msgid "Loading datas for the proper functioning of EcclesiaCRM"
+msgstr "วันที่กำลังดำเนินการ สำหรับการทำงานที่เหมาะสม EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:51
+msgid "Importing data from Mailchimp"
+msgstr "นำข้อมูลจากไมล์ไฟฟ์"
+
+#: v2/templates/dashboard/maindashboard.php:54
+msgid "EcclesiaCRM data integrity check"
+msgstr "Ecclesiaซึ่ง เช็คข้อมูลซึ่งทำให้เกิดEcclesia"
+
+#: v2/templates/dashboard/maindashboard.php:57
+msgid ""
+"Verification of the technical data of the hosting for the proper functioning "
+"of EcclesiaCRM"
+msgstr "ข้อมูลทางเทคนิคของโฮสต์ที่ทำงานที่เหมาะสม EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "วิว"
 
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "ครอบครัว"
 
-#: v2/templates/dashboard/maindashboard.php:83
+#: v2/templates/dashboard/maindashboard.php:132
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "เห็นทุกคนแล้ว"
 
-#: v2/templates/dashboard/maindashboard.php:98
+#: v2/templates/dashboard/maindashboard.php:147
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "โรงเรียนวันอาทิตย์"
 
-#: v2/templates/dashboard/maindashboard.php:105
-#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:176
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "ข้อมูลอีก"
 
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:190
 msgid "message for the DPO"
 msgstr "ข้อความสำหรับดีพีโอ"
 
-#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/dashboard/maindashboard.php:201
 msgid "person must be deleted from the CRM."
 msgstr "ต้องลบทิ้งจาก CRM"
 
-#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:203
 msgid "persons must be deleted from the CRM."
 msgstr "ต้องลบทิ้งจาก CRM"
 
-#: v2/templates/dashboard/maindashboard.php:159
-#: v2/templates/dashboard/maindashboard.php:184
+#: v2/templates/dashboard/maindashboard.php:208
+#: v2/templates/dashboard/maindashboard.php:233
 msgid "Click the"
 msgstr "คลิกที่"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 msgid "link"
 msgstr "เชื่อมต่อ"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "เพื่อแก้ปัญหา"
 
-#: v2/templates/dashboard/maindashboard.php:165
+#: v2/templates/dashboard/maindashboard.php:214
 msgid "No Person to remove in the CRM."
 msgstr "ไม่มีคนใดที่จะเอา CRM ออกไปได้"
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:226
 msgid "family must be deleted from the CRM."
 msgstr "ครอบครัวต้องถูกลบออกจากฝ่าย CRM"
 
-#: v2/templates/dashboard/maindashboard.php:179
+#: v2/templates/dashboard/maindashboard.php:228
 msgid "families must be deleted from the CRM."
 msgstr "ครอบครัวต้องถูกลบออกจากฝ่าย CRM"
 
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:239
 msgid "No Family to remove in the CRM."
 msgstr "ไม่มีครอบครัวที่จะเอา CRM ออกไปได้"
 
-#: v2/templates/dashboard/maindashboard.php:286
+#: v2/templates/dashboard/maindashboard.php:335
 msgid "Birthdates of the day"
 msgstr "วันเกิดของวัน"
 
-#: v2/templates/dashboard/maindashboard.php:300
+#: v2/templates/dashboard/maindashboard.php:349
 msgid "Anniversaries of the day"
 msgstr "วันครบรอบวันนี้"
 
-#: v2/templates/dashboard/maindashboard.php:347
+#: v2/templates/dashboard/maindashboard.php:396
 msgid "Unclassified birthdates"
 msgstr "เกิดลับไม่ได้"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Latest"
 msgstr "ล่าสุด"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Individual Pastoral Care"
 msgstr "บุคคลพระบาทหลวง"
 
-#: v2/templates/dashboard/maindashboard.php:489
+#: v2/templates/dashboard/maindashboard.php:539
 msgid "Statistics"
 msgstr "สถิติ"
 
-#: v2/templates/dashboard/maindashboard.php:495
+#: v2/templates/dashboard/maindashboard.php:545
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 msgid "Persons not reached"
 msgstr "บุคคลไม่ถึง"
 
-#: v2/templates/dashboard/maindashboard.php:499
+#: v2/templates/dashboard/maindashboard.php:549
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Families not reached"
 msgstr "ครอบครัวไม่ถึง"
 
-#: v2/templates/dashboard/maindashboard.php:503
+#: v2/templates/dashboard/maindashboard.php:553
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:190
 msgid "Single Persons not reached"
 msgstr "คนโสดไม่ได้เข้าถึง"
 
-#: v2/templates/dashboard/maindashboard.php:507
+#: v2/templates/dashboard/maindashboard.php:557
 msgid "Retired Persons not reached"
 msgstr "เกษียณแล้ว ไม่ได้เข้าถึง"
 
-#: v2/templates/dashboard/maindashboard.php:511
+#: v2/templates/dashboard/maindashboard.php:561
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 msgid "Young People"
 msgstr "คนหนุ่ม"
 
-#: v2/templates/dashboard/maindashboard.php:514
+#: v2/templates/dashboard/maindashboard.php:564
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:219
 msgid "Young People not reached"
 msgstr "คนหนุ่มสาวไม่ได้ถึง"
 
-#: v2/templates/dashboard/maindashboard.php:520
+#: v2/templates/dashboard/maindashboard.php:570
 msgid "Visit/Call your church members"
 msgstr "ไปเยี่ยมชมรม/โทรหาสมาชิกของโบสถ์"
 
-#: v2/templates/dashboard/maindashboard.php:521
+#: v2/templates/dashboard/maindashboard.php:571
 msgid "Manage Pastoral Care"
 msgstr "จัดการ บาทหลวงพ่อ"
 
-#: v2/templates/dashboard/maindashboard.php:538
+#: v2/templates/dashboard/maindashboard.php:588
 msgid "Deposit Tracking"
 msgstr "ตามรอยตามรอย"
 
-#: v2/templates/dashboard/maindashboard.php:563
+#: v2/templates/dashboard/maindashboard.php:614
 msgid "Latest Families"
 msgstr "ครอบครัวล่าสุด"
 
-#: v2/templates/dashboard/maindashboard.php:571
+#: v2/templates/dashboard/maindashboard.php:623
 msgid "Updated Families"
 msgstr "มีข่าวลือ"
 
-#: v2/templates/dashboard/maindashboard.php:621
+#: v2/templates/dashboard/maindashboard.php:676
 msgid "Latest Members"
 msgstr "สมาชิกใหม่ล่าสุด"
 
-#: v2/templates/dashboard/maindashboard.php:628
+#: v2/templates/dashboard/maindashboard.php:683
 msgid "Updated Members"
 msgstr "สมาชิกที่อัพเดทน่ะ"
 
@@ -10271,11 +10294,11 @@ msgstr "ลบผู้เขียนทั้งหมด"
 msgid "Modify Properties"
 msgstr "ปรับปรุงใหม่"
 
-#: v2/templates/email/mailchimp/managelist.php:72
+#: v2/templates/email/mailchimp/managelist.php:65
 msgid "Subscribers"
 msgstr "ผู้เขียนข้อมูล"
 
-#: v2/templates/email/mailchimp/managelist.php:76
+#: v2/templates/email/mailchimp/managelist.php:69
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
@@ -10283,51 +10306,51 @@ msgstr ""
 "เพื่อเพิ่มผู้ใช้ข่าวสารทั้งหมด, กรุ๊ป<b>นิวเลตเตอร์</b>ในสนามค้นหา, เพื่อเพิ่มสมาชิกของ CRM "
 "ทั้งหมดเข้าไป, ใช้<b>*</b>"
 
-#: v2/templates/email/mailchimp/managelist.php:80
+#: v2/templates/email/mailchimp/managelist.php:73
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "เพิ่มค่านี้ไม่แน่นอนกับ MailChimp API"
 
-#: v2/templates/email/mailchimp/managelist.php:105
+#: v2/templates/email/mailchimp/managelist.php:98
 msgid "Sub/Unsubscribe"
 msgstr "Sub/Unsubscribe"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:106
 msgid "Subscribed"
 msgstr "เขียนไว้"
 
-#: v2/templates/email/mailchimp/managelist.php:116
+#: v2/templates/email/mailchimp/managelist.php:109
 msgid "Unsubscribed"
 msgstr "ไม่ได้รับการยอมรับ"
 
-#: v2/templates/email/mailchimp/managelist.php:124
+#: v2/templates/email/mailchimp/managelist.php:117
 msgid "Add/Remove Tag"
 msgstr "Add/Remove Tag"
 
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 msgid "Keywords"
 msgstr "คำเดียว"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:158
 msgid "is not configured"
 msgstr "ไม่มีการจัดเรียงใด"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "Please update the"
 msgstr "กรุณาอัพเดทด้วยครับ"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "API key in Setting->"
 msgstr "API กุญแจในการตั้งค่า"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "then update"
 msgstr "งั้นก็อัพเดทซะ"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "For more info see our "
 msgstr "เพื่อให้ข้อมูลเพิ่มเติม"
 
-#: v2/templates/email/mailchimp/managelist.php:165
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "support docs."
 msgstr "สนับสนุน"
 
@@ -10544,9 +10567,9 @@ msgstr "กลุ่มเป็น"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:66
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 msgid "Appointment"
 msgstr "แต่งตั้ง"
@@ -10742,6 +10765,18 @@ msgstr "ห้องชื่อ"
 msgid "First create a Jitsi room with the button above !"
 msgstr "ก่อนอื่นสร้างห้อง Jitsi กับกระดุมข้างบน"
 
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
+msgid "Filter by member types"
+msgstr "พวกที่เป็นสมาชิก"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
+msgid "All persons"
+msgstr "ทุกคนแหละ"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
+msgid "Only the visited/called persons"
+msgstr "มีแต่คนที่มาเยี่ยมเท่านั้น"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
 msgstr "ไปเยี่ยม/เรียกสุ่ม"
@@ -10825,18 +10860,6 @@ msgstr "กลับไปยังพาสตาลัลลาร์ ดา�
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Return To PastoralCare Members List"
 msgstr "กลับไปยังรายชื่อ สมาชิก บาทหลวงพ่อ"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
-msgid "Filter by member types"
-msgstr "พวกที่เป็นสมาชิก"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
-msgid "All persons"
-msgstr "ทุกคนแหละ"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
-msgid "Only the visited/called persons"
-msgstr "มีแต่คนที่มาเยี่ยมเท่านั้น"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:246
 msgid "Return To Person View"
@@ -11434,6 +11457,181 @@ msgstr "ไม่สามารถดัดแปลงได้"
 msgid "Management"
 msgstr "การจัดการ"
 
+#: query_qry.php:2 query_qry.php:47
+msgid "Family With Work Phone"
+msgstr "ครอบครัวกับโทรศัพท์ทำงาน"
+
+#: query_qry.php:3 query_qry.php:48
+msgid "Family Member Count"
+msgstr "เคาท์สมาชิกครอบครัว"
+
+#: query_qry.php:4 query_qry.php:49
+msgid "Person by Age"
+msgstr "คนอายุ"
+
+#: query_qry.php:5 query_qry.php:50
+msgid "Total By Gender"
+msgstr "ทั้งหมดโดยเพศ"
+
+#: query_qry.php:6 query_qry.php:51
+msgid "Person by Role and Gender"
+msgstr "คนที่อยู่ที่นี่"
+
+#: query_qry.php:7 query_qry.php:52
+msgid "Person by Property"
+msgstr "บุคคลโดยสมบัติ"
+
+#: query_qry.php:9 query_qry.php:54
+msgid "Birthdays"
+msgstr "วันเกิด"
+
+#: query_qry.php:10 query_qry.php:55 queryparameters_qrp.php:13
+msgid "Registered students"
+msgstr "จดทะเบียนด้วย"
+
+#: query_qry.php:11 query_qry.php:56
+msgid "Membership anniversaries"
+msgstr "วันครบรอบสมาชิก"
+
+#: query_qry.php:12 query_qry.php:57
+msgid "Select database users"
+msgstr "เลือกผู้ใช้ฐานข้อมูล"
+
+#: query_qry.php:13 query_qry.php:58
+msgid "Select all members"
+msgstr "เลือกสมาชิกทั้งหมด"
+
+#: query_qry.php:15 query_qry.php:60
+msgid "Recent friends"
+msgstr "เพื่อนที่ผ่านมา"
+
+#: query_qry.php:16 query_qry.php:61
+msgid "Families to Canvass"
+msgstr "ครอบครัวไปแคนวาส"
+
+#: query_qry.php:17 query_qry.php:62
+msgid "Pledge comparison"
+msgstr "เปรียบเทียบได้ดี"
+
+#: query_qry.php:18 query_qry.php:63
+msgid "Missing pledges"
+msgstr "สัญญาที่หายไป"
+
+#: query_qry.php:19 query_qry.php:64
+msgid "Credit Card People"
+msgstr "คนบัตรเครดิต"
+
+#: query_qry.php:20 query_qry.php:65
+msgid "Family Pledge by Fiscal Year"
+msgstr "ครอบครัวพล็อกปีฟิสคาล"
+
+#: query_qry.php:21 query_qry.php:66
+msgid "Person not assigned to a group"
+msgstr "ไม่ได้รับมอบหมายให้เข้ากลุ่ม"
+
+#: query_qry.php:22 query_qry.php:67
+msgid "Person assigned to a group"
+msgstr "คนที่ได้รับมอบหมายให้เข้ากลุ่ม"
+
+#: query_qry.php:23 query_qry.php:68
+msgid "CustomSearch"
+msgstr "ค้นหาลูกค้า"
+
+#: query_qry.php:24 query_qry.php:69
+msgid "Returns each family with a work phone"
+msgstr "ทำให้ครอบครัวแต่ละครอบครัว ด้วยโทรศัพท์ทำงาน"
+
+#: query_qry.php:25 query_qry.php:70
+msgid "Returns each family and the total number of people assigned to them."
+msgstr "คืนชีพแต่ละครอบครัว และผู้คนที่ถูกส่งมาให้"
+
+#: query_qry.php:26 query_qry.php:71
+msgid "Returns any person records with ages between two given ages."
+msgstr "คืนบันทึกใครก็ได้ที่อายุระหว่าง 2 วัย"
+
+#: query_qry.php:27 query_qry.php:72
+msgid "Total of records matching a given gender."
+msgstr "บันทึกทั้งหมดตรงกับเพศที่ได้รับ"
+
+#: query_qry.php:28 query_qry.php:73
+msgid "Selects person records with the family role and gender specified."
+msgstr "เลือกบันทึกในครอบครัว และบทบาทเพศและการระบุ"
+
+#: query_qry.php:29 query_qry.php:74
+msgid "Returns person records which are assigned the given property."
+msgstr "บันทึกการคืนของบุคคล ซึ่งถูกส่งมอบให้"
+
+#: query_qry.php:30 query_qry.php:75
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr "ค้นหาโดยส่วนใด ๆ ของชื่อ เมือง, รัฐ, ซิป, โฮมโทรศัพท์, อีเมล, หรือ ทำงานอีเมล"
+
+#: query_qry.php:31 query_qry.php:76
+msgid "People with birthdays in a particular month"
+msgstr "คนที่มีวันเกิด ในเดือนโดยเฉพาะ"
+
+#: query_qry.php:32 query_qry.php:77
+msgid "Find Registered students"
+msgstr "หานักเรียนที่จดทะเบียน"
+
+#: query_qry.php:33 query_qry.php:78
+msgid "Members who joined in a particular month"
+msgstr "สมาชิกที่เข้าร่วมในเดือน"
+
+#: query_qry.php:34 query_qry.php:79
+msgid "People who are registered as database users"
+msgstr "คนที่จดทะเบียนว่า ผู้ใช้ฐานข้อมูล"
+
+#: query_qry.php:35 query_qry.php:80
+msgid "People who are members"
+msgstr "คนที่เป็นสมาชิก"
+
+#: query_qry.php:36 query_qry.php:81
+msgid "Find volunteers for a particular opportunity"
+msgstr "หาอาสาสมัครสำหรับโอกาสเฉพาะ"
+
+#: query_qry.php:37 query_qry.php:82
+msgid "Friends who signed up in previous months"
+msgstr "เพื่อนที่สมัครเข้าร่วมเดือนก่อน"
+
+#: query_qry.php:38 query_qry.php:83
+msgid "People in families that are ok to canvass."
+msgstr "ผู้คนในครอบครัวที่ไม่เป็นไร ที่จะตรวจสอบดู"
+
+#: query_qry.php:39 query_qry.php:84
+msgid "Compare pledges between two fiscal years"
+msgstr "ปริมาณคำมั่นสัญญาระหว่าง 2 ปี"
+
+#: query_qry.php:40 query_qry.php:85
+msgid "Find people who pledged one year but not another"
+msgstr "หาคนที่ให้คำมั่นสักปีหนึ่ง แต่ไม่ใช่คนอื่น"
+
+#: query_qry.php:41 query_qry.php:86
+msgid "People who are configured to pay by credit card."
+msgstr "คนที่ถูกจัดฉาก ด้วยบัตรเครดิต"
+
+#: query_qry.php:42 query_qry.php:87
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr "สรุปชื่อเสียงจากชื่อครอบครัว สำหรับแต่ละกองทุน สำหรับปีที่ถูกเลือกเป็นปี"
+
+#: query_qry.php:43 query_qry.php:88
+msgid "Returns all the persons not assigned to a group."
+msgstr "คืนคนกลับมาที่ไม่ได้รับมอบหมายให้กลุ่ม"
+
+#: query_qry.php:44 query_qry.php:89
+msgid "Returns all persons assigned to a group."
+msgstr "กลับมาที่นี่ทุกคนได้รับการมอบหมายให้กลุ่ม"
+
+#: query_qry.php:45 query_qry.php:90
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr "หาอาสาสมัครให้กับ คนที่ตรงกับโอกาสที่มีโอกาส 2 ราย"
+
+#: query_qry.php:46 query_qry.php:91
+msgid "Find people with a custom field value"
+msgstr "หาคนที่มีค่าที่ดี"
+
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
 msgstr "รหัสซิป"
@@ -11493,10 +11691,6 @@ msgstr "จบวันที่"
 #: queryparameters_qrp.php:10
 msgid "Field"
 msgstr "สนาม"
-
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
-msgid "Registered students"
-msgstr "จดทะเบียนด้วย"
 
 #: queryparameters_qrp.php:14
 msgid "Volunteer opportunities"
@@ -11641,177 +11835,6 @@ msgstr "เลือกสนามบุคคลให้ลูกค้า"
 #: queryparameters_qrp.php:49
 msgid "Match custom field to this value"
 msgstr "ตรงกับสนามกำหนดให้กับค่านี้"
-
-#: query_qry.php:2 query_qry.php:47
-msgid "Family With Work Phone"
-msgstr "ครอบครัวกับโทรศัพท์ทำงาน"
-
-#: query_qry.php:3 query_qry.php:48
-msgid "Family Member Count"
-msgstr "เคาท์สมาชิกครอบครัว"
-
-#: query_qry.php:4 query_qry.php:49
-msgid "Person by Age"
-msgstr "คนอายุ"
-
-#: query_qry.php:5 query_qry.php:50
-msgid "Total By Gender"
-msgstr "ทั้งหมดโดยเพศ"
-
-#: query_qry.php:6 query_qry.php:51
-msgid "Person by Role and Gender"
-msgstr "คนที่อยู่ที่นี่"
-
-#: query_qry.php:7 query_qry.php:52
-msgid "Person by Property"
-msgstr "บุคคลโดยสมบัติ"
-
-#: query_qry.php:9 query_qry.php:54
-msgid "Birthdays"
-msgstr "วันเกิด"
-
-#: query_qry.php:11 query_qry.php:56
-msgid "Membership anniversaries"
-msgstr "วันครบรอบสมาชิก"
-
-#: query_qry.php:12 query_qry.php:57
-msgid "Select database users"
-msgstr "เลือกผู้ใช้ฐานข้อมูล"
-
-#: query_qry.php:13 query_qry.php:58
-msgid "Select all members"
-msgstr "เลือกสมาชิกทั้งหมด"
-
-#: query_qry.php:15 query_qry.php:60
-msgid "Recent friends"
-msgstr "เพื่อนที่ผ่านมา"
-
-#: query_qry.php:16 query_qry.php:61
-msgid "Families to Canvass"
-msgstr "ครอบครัวไปแคนวาส"
-
-#: query_qry.php:17 query_qry.php:62
-msgid "Pledge comparison"
-msgstr "เปรียบเทียบได้ดี"
-
-#: query_qry.php:18 query_qry.php:63
-msgid "Missing pledges"
-msgstr "สัญญาที่หายไป"
-
-#: query_qry.php:19 query_qry.php:64
-msgid "Credit Card People"
-msgstr "คนบัตรเครดิต"
-
-#: query_qry.php:20 query_qry.php:65
-msgid "Family Pledge by Fiscal Year"
-msgstr "ครอบครัวพล็อกปีฟิสคาล"
-
-#: query_qry.php:21 query_qry.php:66
-msgid "Person not assigned to a group"
-msgstr "ไม่ได้รับมอบหมายให้เข้ากลุ่ม"
-
-#: query_qry.php:22 query_qry.php:67
-msgid "Person assigned to a group"
-msgstr "คนที่ได้รับมอบหมายให้เข้ากลุ่ม"
-
-#: query_qry.php:23 query_qry.php:68
-msgid "CustomSearch"
-msgstr "ค้นหาลูกค้า"
-
-#: query_qry.php:24 query_qry.php:69
-msgid "Returns each family with a work phone"
-msgstr "ทำให้ครอบครัวแต่ละครอบครัว ด้วยโทรศัพท์ทำงาน"
-
-#: query_qry.php:25 query_qry.php:70
-msgid "Returns each family and the total number of people assigned to them."
-msgstr "คืนชีพแต่ละครอบครัว และผู้คนที่ถูกส่งมาให้"
-
-#: query_qry.php:26 query_qry.php:71
-msgid "Returns any person records with ages between two given ages."
-msgstr "คืนบันทึกใครก็ได้ที่อายุระหว่าง 2 วัย"
-
-#: query_qry.php:27 query_qry.php:72
-msgid "Total of records matching a given gender."
-msgstr "บันทึกทั้งหมดตรงกับเพศที่ได้รับ"
-
-#: query_qry.php:28 query_qry.php:73
-msgid "Selects person records with the family role and gender specified."
-msgstr "เลือกบันทึกในครอบครัว และบทบาทเพศและการระบุ"
-
-#: query_qry.php:29 query_qry.php:74
-msgid "Returns person records which are assigned the given property."
-msgstr "บันทึกการคืนของบุคคล ซึ่งถูกส่งมอบให้"
-
-#: query_qry.php:30 query_qry.php:75
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr "ค้นหาโดยส่วนใด ๆ ของชื่อ เมือง, รัฐ, ซิป, โฮมโทรศัพท์, อีเมล, หรือ ทำงานอีเมล"
-
-#: query_qry.php:31 query_qry.php:76
-msgid "People with birthdays in a particular month"
-msgstr "คนที่มีวันเกิด ในเดือนโดยเฉพาะ"
-
-#: query_qry.php:32 query_qry.php:77
-msgid "Find Registered students"
-msgstr "หานักเรียนที่จดทะเบียน"
-
-#: query_qry.php:33 query_qry.php:78
-msgid "Members who joined in a particular month"
-msgstr "สมาชิกที่เข้าร่วมในเดือน"
-
-#: query_qry.php:34 query_qry.php:79
-msgid "People who are registered as database users"
-msgstr "คนที่จดทะเบียนว่า ผู้ใช้ฐานข้อมูล"
-
-#: query_qry.php:35 query_qry.php:80
-msgid "People who are members"
-msgstr "คนที่เป็นสมาชิก"
-
-#: query_qry.php:36 query_qry.php:81
-msgid "Find volunteers for a particular opportunity"
-msgstr "หาอาสาสมัครสำหรับโอกาสเฉพาะ"
-
-#: query_qry.php:37 query_qry.php:82
-msgid "Friends who signed up in previous months"
-msgstr "เพื่อนที่สมัครเข้าร่วมเดือนก่อน"
-
-#: query_qry.php:38 query_qry.php:83
-msgid "People in families that are ok to canvass."
-msgstr "ผู้คนในครอบครัวที่ไม่เป็นไร ที่จะตรวจสอบดู"
-
-#: query_qry.php:39 query_qry.php:84
-msgid "Compare pledges between two fiscal years"
-msgstr "ปริมาณคำมั่นสัญญาระหว่าง 2 ปี"
-
-#: query_qry.php:40 query_qry.php:85
-msgid "Find people who pledged one year but not another"
-msgstr "หาคนที่ให้คำมั่นสักปีหนึ่ง แต่ไม่ใช่คนอื่น"
-
-#: query_qry.php:41 query_qry.php:86
-msgid "People who are configured to pay by credit card."
-msgstr "คนที่ถูกจัดฉาก ด้วยบัตรเครดิต"
-
-#: query_qry.php:42 query_qry.php:87
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr "สรุปชื่อเสียงจากชื่อครอบครัว สำหรับแต่ละกองทุน สำหรับปีที่ถูกเลือกเป็นปี"
-
-#: query_qry.php:43 query_qry.php:88
-msgid "Returns all the persons not assigned to a group."
-msgstr "คืนคนกลับมาที่ไม่ได้รับมอบหมายให้กลุ่ม"
-
-#: query_qry.php:44 query_qry.php:89
-msgid "Returns all persons assigned to a group."
-msgstr "กลับมาที่นี่ทุกคนได้รับการมอบหมายให้กลุ่ม"
-
-#: query_qry.php:45 query_qry.php:90
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr "หาอาสาสมัครให้กับ คนที่ตรงกับโอกาสที่มีโอกาส 2 ราย"
-
-#: query_qry.php:46 query_qry.php:91
-msgid "Find people with a custom field value"
-msgstr "หาคนที่มีค่าที่ดี"
 
 #: settings-locales.php:2
 msgid "Albanian"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 10:29+0000\n"
+"POT-Creation-Date: 2021-12-26 17:10+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,19 +38,19 @@ msgstr "Persoană"
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
-#: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
-#: external/templates/registration/family-register-done.php:27
+#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/dto/ReportUtilities.php:71 ElectronicPaymentList.php:217
 #: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
-#: members/404.php:16 PersonView.php:905 PledgeEditor.php:588
-#: PrintPastoralCarePerson.php:325 PrintView.php:336
-#: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/routes/sidebar/propertylist.php:36
-#: v2/templates/dashboard/maindashboard.php:456
+#: PersonView.php:905 PledgeEditor.php:588 PrintPastoralCarePerson.php:325
+#: PrintView.php:336 Reports/GDPR/GDPRDataStructureExport.php:123
+#: Reports/PDFLabel.php:174
+#: external/templates/registration/family-register-done.php:27
+#: members/404.php:16 v2/routes/sidebar/propertylist.php:36
+#: v2/templates/dashboard/maindashboard.php:506
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -79,14 +79,14 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:155
 #: EcclesiaCRM/APIControllers/SearchController.php:163
 #: EcclesiaCRM/APIControllers/SearchController.php:168
-#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
+#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
-#: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
-#: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
-#: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:232 v2/routes/group/groups.php:68
+#: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
+#: PersonEditor.php:1027 PersonEditor.php:1047 PersonEditor.php:1637
+#: PrintPastoralCarePerson.php:332 PrintPastoralCarePerson.php:345
+#: PrintView.php:343 PrintView.php:356 SelectDelete.php:243
+#: SystemSettings.php:232 eGive.php:345 v2/routes/group/groups.php:68
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -152,8 +152,8 @@ msgstr "Fond"
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
-#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:427
-#: v2/templates/dashboard/maindashboard.php:482
+#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
+#: v2/templates/dashboard/maindashboard.php:532
 #: v2/templates/group/groupbadge.php:126
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
@@ -164,10 +164,10 @@ msgid "inactive"
 msgstr "inactiv"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:235
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:76
-#: external/templates/verify/enter-info.php:21 PersonEditor.php:904
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 PersonEditor.php:904
 #: Reports/MemberEmailExport.php:20
+#: external/templates/registration/family-register-members.php:76
+#: external/templates/verify/enter-info.php:21
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -176,58 +176,59 @@ msgid "First Name"
 msgstr "Primul nume"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:237
+#: ManageEnvelopes.php:171 PersonEditor.php:926
+#: Reports/MemberEmailExport.php:21
 #: external/templates/registration/family-register-members.php:81
-#: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
-#: PersonEditor.php:926 Reports/MemberEmailExport.php:21
+#: external/templates/verify/enter-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 msgid "Last Name"
 msgstr "Numele de familie"
 
-#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
-#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
-#: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CSVExport.php:92
+#: CSVExport.php:98 CSVImport.php:241 CSVImport.php:242 CartToFamily.php:346
+#: CartToFamily.php:356 DirectoryReports.php:196 DirectoryReports.php:289
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
-#: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
 #: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:585
-#: v2/templates/dashboard/maindashboard.php:599
-#: v2/templates/dashboard/maindashboard.php:642
-#: v2/templates/dashboard/maindashboard.php:657
+#: external/templates/registration/family-register-done.php:28
+#: external/templates/registration/family-register.php:47
+#: v2/templates/dashboard/maindashboard.php:638
+#: v2/templates/dashboard/maindashboard.php:654
+#: v2/templates/dashboard/maindashboard.php:698
+#: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "Adresa"
 
-#: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
-#: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
+#: AutoPaymentEditor.php:940 CSVExport.php:103 CSVImport.php:243
+#: CartToFamily.php:366 DirectoryReports.php:294 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:58
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Orașul"
 
-#: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
-#: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
+#: AutoPaymentEditor.php:948 CSVExport.php:108 CSVImport.php:244
+#: CartToFamily.php:375 DirectoryReports.php:300 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:62
 #: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Stat"
 
-#: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
-#: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:73
-#: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
+#: AutoPaymentEditor.php:956 CSVExport.php:115 CSVImport.php:245
+#: CartToFamily.php:393 DirectoryReports.php:306 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:73
+#: external/templates/verify/enter-info.php:29
 msgid "Zip"
 msgstr "Zip"
 
-#: AutoPaymentEditor.php:964 CartToFamily.php:402 CSVExport.php:125
-#: CSVImport.php:246 FamilyEditor.php:779 PersonEditor.php:1133
+#: AutoPaymentEditor.php:964 CSVExport.php:125 CSVImport.php:246
+#: CartToFamily.php:402 FamilyEditor.php:779 PersonEditor.php:1133
 #: PersonEditor.php:1367
 msgid "Country"
 msgstr "Țara"
@@ -236,32 +237,32 @@ msgstr "Țara"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
-#: EcclesiaCRM/Reports/PDF_Directory.php:456
+#: EcclesiaCRM/Reports/PDF_Directory.php:456 Reports/DirectoryReport.php:317
+#: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
+#: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:114
-#: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
-#: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Telefon"
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: AutoPaymentEditor.php:980 CSVExport.php:148 CSVImport.php:250
+#: CartToFamily.php:453 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
-#: EventAttendance.php:206
+#: EventAttendance.php:206 FamilyEditor.php:861 FamilyView.php:376
+#: FamilyView.php:459 FamilyView.php:551 GroupReports.php:152
+#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:637
+#: PersonView.php:765 PersonView.php:1125 PrintPastoralCarePerson.php:385
+#: PrintView.php:396 Reports/CanvassReports.php:281
+#: Reports/ConfirmReport.php:230 Reports/ConfirmReport.php:250
+#: Reports/DirectoryReport.php:328 Reports/FundRaiserStatement.php:128
+#: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
+#: Reports/MemberEmailExport.php:22
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:376 FamilyView.php:459 FamilyView.php:551
-#: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
-#: PersonView.php:637 PersonView.php:765 PersonView.php:1125
-#: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
-#: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
-#: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
-#: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
+#: external/templates/verify/verify-family-info.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
 #: v2/templates/pastoralcare/pastoralcareperson.php:117
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
@@ -321,13 +322,14 @@ msgstr "Salvați"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
-#: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
+#: FamilyEditor.php:1297 FamilyView.php:1091 FinancialReports.php:92
+#: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
+#: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1805
+#: PersonView.php:1964 PledgeEditor.php:800 ReminderReport.php:55
+#: SettingsIndividual.php:141 SettingsIndividual.php:407 TaxReport.php:53
+#: UserEditor.php:908 UserEditor.php:1062
+#: external/templates/verify/verify-family-info.php:188
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -359,47 +361,486 @@ msgstr "Preț"
 msgid "Enter Winners"
 msgstr "Introduceți câștigătorii"
 
-#: browser/browse.php:31
-msgid "File Manager"
-msgstr "Manager de fișiere"
+#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
+msgid "CSV Export"
+msgstr "Export CSV"
 
-#: browser/browse.php:43 PersonView.php:1845
-msgid "Upload a file in EDrive"
-msgstr "Încărcați un fișier în EDrive"
+#: CSVExport.php:61
+msgid "Field Selection"
+msgstr "Selecția câmpului"
 
-#: browser/browse.php:50
-msgid "Download"
-msgstr "Descărcați"
+#: CSVExport.php:67
+msgid "Required"
+msgstr "Necesar"
 
-#: browser/browse.php:58 PersonView.php:1857
-msgid "Create a Folder"
-msgstr "Creați un dosar"
+#: CSVExport.php:71 CSVImport.php:234 CartToBadge.php:59 CartToBadge.php:62
+#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
+#: Reports/GDPR/GDPRListExport.php:66
+#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/fundraiser/donatedItemEditor.php:60
+msgid "Title"
+msgstr "Titlu"
 
-#: browser/browse.php:66 EditEventAttendees.php:120
-#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
-#: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1866
-#: PersonView.php:1965 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/email/mailchimp/managelist.php:100
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcarefamily.php:219
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
-msgid "Delete"
-msgstr "Ștergeți"
+#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
+msgid "Middle Name"
+msgstr "Nume de mijloc"
 
-#: browser/browse.php:75 PersonView.php:1876
-msgid "Up One Level"
-msgstr "Un nivel mai sus"
+#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
+#: PersonEditor.php:937
+msgid "Suffix"
+msgstr "Sufix"
 
-#: browser/browse.php:82 PersonView.php:1885
-msgid "Actualize files"
-msgstr "Actualizarea fișierelor"
+#: CSVExport.php:120
+msgid "Envelope"
+msgstr "Plicul"
 
-#: browser/browse.php:99 PersonView.php:1903
-msgid "Preview"
-msgstr "Previzualizare"
+#: CSVExport.php:132 CSVImport.php:247 CartToFamily.php:411
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
+#: EditEventAttendees.php:79 EventAttendance.php:207 FamilyEditor.php:819
+#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
+#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
+#: PrintView.php:268 Reports/ConfirmReport.php:168
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:85
+#: external/templates/verify/verify-family-info.php:36
+#: external/templates/verify/verify-family-info.php:85
+#: sundayschool/SundaySchoolClassListExport.php:54
+#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
+#: queryparameteroptions_qpo.php:8
+msgid "Home Phone"
+msgstr "Telefonul de acasă"
+
+#: CSVExport.php:137 CSVImport.php:248 CartToFamily.php:425
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283 FamilyEditor.php:832
+#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
+#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
+#: PrintView.php:273 Reports/ConfirmReport.php:288
+#: external/templates/verify/verify-family-info.php:90
+msgid "Work Phone"
+msgstr "Telefon de serviciu"
+
+#: CSVExport.php:142 CartToFamily.php:439 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
+#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
+#: PrintView.php:278 external/templates/verify/verify-family-info.php:95
+msgid "Mobile Phone"
+msgstr "Telefon mobil"
+
+#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
+#: Reports/DirectoryReport.php:331
+msgid "Work/Other Email"
+msgstr "Muncă/Altceva Email"
+
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
+#: PrintPastoralCarePerson.php:395 PrintView.php:406
+msgid "Membership Date"
+msgstr "Data aderării"
+
+#: CSVExport.php:165
+msgid "Birth / Anniversary Date"
+msgstr "Data nașterii / aniversării"
+
+#: CSVExport.php:170
+msgid "Age / Years Married"
+msgstr "Vârsta / Ani de căsătorie"
+
+#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
+#: EcclesiaCRM/APIControllers/SearchController.php:189
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
+#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
+#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "Clasificare"
+
+#: CSVExport.php:180 CSVExport.php:325
+#: EcclesiaCRM/APIControllers/SearchController.php:190
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
+#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
+#: queryparameters_qrp.php:5
+msgid "Family Role"
+msgstr "Rolul familiei"
+
+#: CSVExport.php:183
+msgid "Depends whether using person or family output method"
+msgstr ""
+"Depinde dacă se utilizează metoda de producție individuală sau familială"
+
+#: CSVExport.php:196
+msgid "Custom Field Selection"
+msgstr "Selectare câmp personalizat"
+
+#: CSVExport.php:204
+msgid "Custom Person Fields"
+msgstr "Câmpuri personalizate pentru persoane"
+
+#: CSVExport.php:229
+msgid "Custom Family Fields"
+msgstr "Câmpuri de familie personalizate"
+
+#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
+#: v2/templates/calendar/calendar.php:28
+#: v2/templates/fundraiser/findFundRaiser.php:18
+#: v2/templates/pastoralcare/pastoralcarefamily.php:91
+#: v2/templates/pastoralcare/pastoralcareperson.php:91
+#: v2/templates/people/peoplelist.php:28
+msgid "Filters"
+msgstr "Filtre"
+
+#: CSVExport.php:260
+msgid "Ignored if you come from the CartView"
+msgstr "Ignorat dacă veniți din CartView"
+
+#: CSVExport.php:274
+msgid "Records to export"
+msgstr "Înregistrări de exportat"
+
+#: CSVExport.php:286
+msgid "Based on filters below.."
+msgstr "Pe baza filtrelor de mai jos.."
+
+#: CSVExport.php:289
+msgid "People in Cart (filters ignored)"
+msgstr "Persoane în coș (filtre ignorate)"
+
+#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
+#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
+#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
+msgid "Use Ctrl Key to select multiple"
+msgstr "Utilizați tasta Ctrl pentru a selecta mai multe"
+
+#: CSVExport.php:355 CSVImport.php:239
+#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
+#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
+#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
+msgid "Gender"
+msgstr "Sex"
+
+#: CSVExport.php:367
+msgid "Don't Filter"
+msgstr "Nu filtrați"
+
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
+#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:66
+#: queryparameteroptions_qpo.php:2
+msgid "Male"
+msgstr "Masculin"
+
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
+#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:67
+#: queryparameteroptions_qpo.php:3
+msgid "Female"
+msgstr "Femeie"
+
+#: CSVExport.php:377 DirectoryReports.php:113
+msgid "Group Membership"
+msgstr "Apartenența la grup"
+
+#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
+msgid "From:"
+msgstr "De la:"
+
+#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
+msgid "To:"
+msgstr "Către:"
+
+#: CSVExport.php:438
+msgid "Birthday Date"
+msgstr "Data de naștere"
+
+#: CSVExport.php:471
+msgid "Anniversary Date:"
+msgstr "Data aniversării:"
+
+#: CSVExport.php:504
+msgid "Date Entered:"
+msgstr "Data introducerii:"
+
+#: CSVExport.php:540 FinancialReports.php:472
+msgid "Output Method:"
+msgstr "Metoda de ieșire:"
+
+#: CSVExport.php:546
+msgid "CSV Individual Records"
+msgstr "CSV Înregistrări individuale"
+
+#: CSVExport.php:547
+msgid "CSV Combine Families"
+msgstr "CSV Combină familii"
+
+#: CSVExport.php:548
+msgid "Add Individuals to Cart"
+msgstr "Adaugă persoane fizice în coș"
+
+#: CSVExport.php:552
+msgid "Skip records with incomplete mail address"
+msgstr "Treceți peste înregistrările cu adresă poștală incompletă"
+
+#: CSVExport.php:559
+msgid "Create File"
+msgstr "Creați fișierul"
+
+#: CSVImport.php:121 Include/Footer.php:253
+msgid "CSV Import"
+msgstr "Import CSV"
+
+#: CSVImport.php:126
+msgid "Import Data"
+msgstr "Import de date"
+
+#: CSVImport.php:149
+msgid "No file selected for upload."
+msgstr "Nu este selectat niciun fișier pentru încărcare."
+
+#: CSVImport.php:176
+msgid "Total number of rows in the CSV file:"
+msgstr "Numărul total de rânduri din fișierul CSV:"
+
+#: CSVImport.php:233
+msgid "Ignore this Field"
+msgstr "Ignorați acest câmp"
+
+#: CSVImport.php:240
+msgid "Donation Envelope"
+msgstr "Plicul de donații"
+
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
+msgid "Cell Phone"
+msgstr "Telefon mobil"
+
+#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
+#: PrintView.php:401
+msgid "Work / Other Email"
+msgstr "Muncă / Alt e-mail"
+
+#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
+msgid "Birth Date"
+msgstr "Data nașterii"
+
+#: CSVImport.php:254 CartToFamily.php:312 DirectoryReports.php:197
+#: FamilyEditor.php:898 FamilyView.php:338
+#: external/templates/verify/verify-family-info.php:45
+msgid "Wedding Date"
+msgstr "Data nunții"
+
+#: CSVImport.php:266
+msgid ""
+"An error occurs when you import the CSV file. You've to select values above "
+"in the select fields."
+msgstr ""
+"Apare o eroare atunci când importați fișierul CSV. Trebuie să selectați "
+"valorile de mai sus în câmpurile de selecție."
+
+#: CSVImport.php:275
+msgid "Scroll right to see the other columns"
+msgstr "Derulați în dreapta pentru a vedea celelalte coloane"
+
+#: CSVImport.php:276
+msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
+msgstr ""
+"Verificați formatul corect <b>Date format</b> și alegeți-l mai jos !!!!!"
+
+#: CSVImport.php:277
+msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
+msgstr "<b>IMPORTANT !</b> Asociați <b>genderul</b> unei coloane."
+
+#: CSVImport.php:282
+msgid "Important Options"
+msgstr "Opțiuni importante"
+
+#: CSVImport.php:287
+msgid "Ignore first CSV row (to exclude a header)"
+msgstr "Ignoră primul rând CSV (pentru a exclude un antet)"
+
+#: CSVImport.php:299
+msgid "Make Family records based on last name and address"
+msgstr ""
+"Efectuați înregistrări de familie pe baza numelui de familie și a adresei"
+
+#: CSVImport.php:324
+msgid "Date Format"
+msgstr "Formatul datei"
+
+#: CSVImport.php:324
+msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
+msgstr "NOTĂ: Separatorii (liniuțe etc.) sau lipsa lor nu contează."
+
+#: CSVImport.php:334
+msgid ""
+"Put all the persons in the cart, to import them in a group, sundayschool "
+"group, etc...."
+msgstr ""
+"Puneți toate persoanele în cărucior, pentru a le importa într-un grup, grup "
+"de duminica, etc...."
+
+#: CSVImport.php:341
+msgid "Not usefull options"
+msgstr "Opțiuni nefolositoare"
+
+#: CSVImport.php:350
+msgid "Patriarch"
+msgstr "Patriarhul"
+
+#: CSVImport.php:351
+msgid "Matriarch"
+msgstr "Matriarhul"
+
+#: CSVImport.php:355
+msgid "Family Type: used with Make Family records... option above"
+msgstr ""
+"Tip de familie: se utilizează cu opțiunea \"Make Family records...\" de mai "
+"sus."
+
+#: CSVImport.php:371
+msgid "Default country if none specified otherwise"
+msgstr "Țara implicită dacă nu este specificată niciuna altfel"
+
+#: CSVImport.php:404
+msgid "Perform Import"
+msgstr "Efectuarea importului"
+
+#: CSVImport.php:772 CSVImport.php:850
+msgid "Imported"
+msgstr "Importat"
+
+#: CSVImport.php:945
+msgid "ERROR: the uploaded CSV file no longer exists!"
+msgstr "ERROR: fișierul CSV încărcat nu mai există!"
+
+#: CSVImport.php:955
+msgid "Steps to import users"
+msgstr "Pași pentru a importa utilizatori"
+
+#: CSVImport.php:958
+msgid "Your CSV file should be prepared like"
+msgstr "Fișierul CSV ar trebui să fie pregătit astfel"
+
+#: CSVImport.php:961
+msgid ""
+"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
+"the second one."
+msgstr ""
+"Astfel, delimitatorii CSV sunt <b>';'</b> în primul exemplu și <b>','</b> în "
+"cel de-al doilea."
+
+#: CSVImport.php:964
+msgid "Don't forget the <b>gender</b> and the <b>title</b>"
+msgstr "Nu uitați de <b>gender</b> și de <b>titlu</b>."
+
+#: CSVImport.php:965
+msgid ""
+"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
+"Title column and rename the label header to gender</b>"
+msgstr ""
+"Puteți formata coloanele în Excel LibreOffice Calc și <b>duplicați coloana "
+"Titlu și redenumiți antetul etichetei în gen</b>."
+
+#: CSVImport.php:966
+msgid ""
+"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
+"a women, girl, female</b> ..."
+msgstr ""
+"Coloana gender trebuie să fie setată la <b>1 pentru un bărbat, băiat, male</"
+"b> și <b>2 pentru o femeie, fată, femeie</b> ..."
+
+#: CSVImport.php:969
+msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
+msgstr ""
+"Pregătiți CRM-ul și adăugați suficiente câmpuri personalizate pentru "
+"persoane, pentru a face acest lucru faceți clic pe"
+
+#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
+#: v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "here"
+msgstr "aici"
+
+#: CSVImport.php:972
+msgid ""
+"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
+"7/1/2018"
+msgstr ""
+"Toate datele ar trebui să fie formate astfel: 2018-7-1 sau 1/7/2018 sau "
+"7-1-2018 sau 7/1/2018."
+
+#: CSVImport.php:979
+msgid "The next step should be, if not select the other CSV seperator"
+msgstr ""
+"Următorul pas ar trebui să fie, dacă nu selectați celălalt separator CSV"
+
+#: CSVImport.php:985 CSVImport.php:1023
+msgid "Upload CSV File"
+msgstr "Încărcați fișierul CSV"
+
+#: CSVImport.php:991
+msgid ""
+"<b>DON'T FORGET</b>\n"
+"              <br>• your CSV file must have a <b>Title</b> header name "
+"column (with M. Mr. Mlle. etc ...),\n"
+"              <br>• and a <b>gender</b> header name column (with 1 for a "
+"men, 2 for a women)"
+msgstr ""
+"<b>NU UITAȚI</b>\n"
+"              <br>- fișierul dvs. CSV trebuie să aibă o coloană de nume de "
+"antet <b>Titlu</b> (cu M. Mr. Mr. Mlle. etc ...),\n"
+"              <br>- și o coloană de nume de antet <b>gender</b> (cu 1 pentru "
+"un bărbat, 2 pentru o femeie)"
+
+#: CSVImport.php:996
+msgid "Select <b>NOW</b> your <b>CSV separator</b>"
+msgstr "Selectați <b>Nu</b> separatorul <b>CSV</b> dvs."
+
+#: CSVImport.php:1007
+msgid ""
+"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
+"b> ......... "
+msgstr ""
+"- Ultima setare corectă a tuturor datelor ca : <b>YYYY-MM-DD sau DD/MM/"
+"YYYYYY</b> ......... ........."
+
+#: CSVImport.php:1010
+msgid "This is proposed in the next step, read carefully your table."
+msgstr ""
+"Acest lucru este propus în etapa următoare, citiți cu atenție tabelul "
+"dumneavoastră."
+
+#: CSVImport.php:1031
+msgid "Clear Data"
+msgstr "Ștergeți datele"
+
+#: CSVImport.php:1034
+msgid "Clear Persons and Families"
+msgstr "Persoane și familii clare"
+
+#: CSVImport.php:1041
+msgid "Data import successful."
+msgstr "Importul de date a fost efectuat cu succes."
+
+#: CSVImport.php:1041
+msgid "persons were imported"
+msgstr "au fost importate persoane"
 
 #: CanvassAutomation.php:22 ReportList.php:56
 msgid "Canvass Automation"
@@ -624,14 +1065,6 @@ msgstr "Doar PNG și JPEG sunt gestionate de fapt!!"
 msgid "Generate Badges"
 msgstr "Generarea de insigne"
 
-#: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
-#: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:21
-#: v2/templates/fundraiser/donatedItemEditor.php:60
-msgid "Title"
-msgstr "Titlu"
-
 #: CartToBadge.php:67 CartToBadge.php:70
 msgid "Second Title"
 msgstr "Al doilea titlu"
@@ -701,7 +1134,7 @@ msgid "Badge Type"
 msgstr "Tip insignă"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
-#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:128
+#: Reports/PDFBadge.php:128 Reports/PDFBadgeGroup.php:213
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 msgid "default"
 msgstr "implicit"
@@ -719,7 +1152,7 @@ msgstr "Adăugați coșul la Familie"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
-#: v2/templates/dashboard/maindashboard.php:492
+#: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -739,10 +1172,10 @@ msgstr "Membri"
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
-#: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
+#: Reports/FRBidSheets.php:102 Reports/FamilyPledgeSummary.php:230
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:641
-#: v2/templates/dashboard/maindashboard.php:656
+#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:697
+#: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -775,20 +1208,14 @@ msgstr "Dacă adăugați o nouă familie, introduceți datele de mai jos."
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
-#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:584
-#: v2/templates/dashboard/maindashboard.php:598
+#: external/templates/registration/family-register.php:36
+#: v2/templates/dashboard/maindashboard.php:637
+#: v2/templates/dashboard/maindashboard.php:653
 msgid "Family Name"
 msgstr "Nume de familie"
-
-#: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
-#: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:338
-msgid "Wedding Date"
-msgstr "Data nunții"
 
 #: CartToFamily.php:324
 msgid "Use address/contact data from"
@@ -806,45 +1233,12 @@ msgstr "OR"
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Utilizați caseta de text pentru alte țări decât SUA și Canada)"
 
-#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
-#: EditEventAttendees.php:79 EventAttendance.php:207
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:85
-#: external/templates/verify/verify-family-info.php:36
-#: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
-#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReport.php:168
-#: sundayschool/SundaySchoolClassListExport.php:54
-#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
-#: queryparameteroptions_qpo.php:8
-msgid "Home Phone"
-msgstr "Telefonul de acasă"
-
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
 msgstr "Nu formatați automat"
-
-#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283
-#: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
-#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReport.php:288
-msgid "Work Phone"
-msgstr "Telefon de serviciu"
-
-#: CartToFamily.php:439 CSVExport.php:142
-#: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
-#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
-#: PrintView.php:278
-msgid "Mobile Phone"
-msgstr "Telefon mobil"
 
 #: CartToFamily.php:468
 msgid "Your cart is empty!"
@@ -953,7 +1347,7 @@ msgid "Checkin"
 msgstr "Checkin"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:88
+#: v2/templates/email/mailchimp/managelist.php:81
 #: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Verificați toate"
@@ -993,441 +1387,6 @@ msgstr "Conversia Următorul"
 #: ConvertIndividualToAddress.php:145
 msgid "Convert All"
 msgstr "Conversia tuturor"
-
-#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
-msgid "CSV Export"
-msgstr "Export CSV"
-
-#: CSVExport.php:61
-msgid "Field Selection"
-msgstr "Selecția câmpului"
-
-#: CSVExport.php:67
-msgid "Required"
-msgstr "Necesar"
-
-#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
-msgid "Middle Name"
-msgstr "Nume de mijloc"
-
-#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:937
-msgid "Suffix"
-msgstr "Sufix"
-
-#: CSVExport.php:120
-msgid "Envelope"
-msgstr "Plicul"
-
-#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
-#: Reports/DirectoryReport.php:331
-msgid "Work/Other Email"
-msgstr "Muncă/Altceva Email"
-
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
-#: PrintPastoralCarePerson.php:395 PrintView.php:406
-msgid "Membership Date"
-msgstr "Data aderării"
-
-#: CSVExport.php:165
-msgid "Birth / Anniversary Date"
-msgstr "Data nașterii / aniversării"
-
-#: CSVExport.php:170
-msgid "Age / Years Married"
-msgstr "Vârsta / Ani de căsătorie"
-
-#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:189
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
-#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
-#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
-#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "Clasificare"
-
-#: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:190
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
-#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
-#: queryparameters_qrp.php:5
-msgid "Family Role"
-msgstr "Rolul familiei"
-
-#: CSVExport.php:183
-msgid "Depends whether using person or family output method"
-msgstr ""
-"Depinde dacă se utilizează metoda de producție individuală sau familială"
-
-#: CSVExport.php:196
-msgid "Custom Field Selection"
-msgstr "Selectare câmp personalizat"
-
-#: CSVExport.php:204
-msgid "Custom Person Fields"
-msgstr "Câmpuri personalizate pentru persoane"
-
-#: CSVExport.php:229
-msgid "Custom Family Fields"
-msgstr "Câmpuri de familie personalizate"
-
-#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
-#: v2/templates/calendar/calendar.php:28
-#: v2/templates/fundraiser/findFundRaiser.php:18
-#: v2/templates/pastoralcare/pastoralcarefamily.php:91
-#: v2/templates/pastoralcare/pastoralcareperson.php:91
-#: v2/templates/people/peoplelist.php:28
-msgid "Filters"
-msgstr "Filtre"
-
-#: CSVExport.php:260
-msgid "Ignored if you come from the CartView"
-msgstr "Ignorat dacă veniți din CartView"
-
-#: CSVExport.php:274
-msgid "Records to export"
-msgstr "Înregistrări de exportat"
-
-#: CSVExport.php:286
-msgid "Based on filters below.."
-msgstr "Pe baza filtrelor de mai jos.."
-
-#: CSVExport.php:289
-msgid "People in Cart (filters ignored)"
-msgstr "Persoane în coș (filtre ignorate)"
-
-#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
-#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
-#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
-msgid "Use Ctrl Key to select multiple"
-msgstr "Utilizați tasta Ctrl pentru a selecta mai multe"
-
-#: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
-#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
-#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:211
-#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
-msgid "Gender"
-msgstr "Sex"
-
-#: CSVExport.php:367
-msgid "Don't Filter"
-msgstr "Nu filtrați"
-
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:2
-msgid "Male"
-msgstr "Masculin"
-
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:3
-msgid "Female"
-msgstr "Femeie"
-
-#: CSVExport.php:377 DirectoryReports.php:113
-msgid "Group Membership"
-msgstr "Apartenența la grup"
-
-#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
-msgid "From:"
-msgstr "De la:"
-
-#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
-msgid "To:"
-msgstr "Către:"
-
-#: CSVExport.php:438
-msgid "Birthday Date"
-msgstr "Data de naștere"
-
-#: CSVExport.php:471
-msgid "Anniversary Date:"
-msgstr "Data aniversării:"
-
-#: CSVExport.php:504
-msgid "Date Entered:"
-msgstr "Data introducerii:"
-
-#: CSVExport.php:540 FinancialReports.php:472
-msgid "Output Method:"
-msgstr "Metoda de ieșire:"
-
-#: CSVExport.php:546
-msgid "CSV Individual Records"
-msgstr "CSV Înregistrări individuale"
-
-#: CSVExport.php:547
-msgid "CSV Combine Families"
-msgstr "CSV Combină familii"
-
-#: CSVExport.php:548
-msgid "Add Individuals to Cart"
-msgstr "Adaugă persoane fizice în coș"
-
-#: CSVExport.php:552
-msgid "Skip records with incomplete mail address"
-msgstr "Treceți peste înregistrările cu adresă poștală incompletă"
-
-#: CSVExport.php:559
-msgid "Create File"
-msgstr "Creați fișierul"
-
-#: CSVImport.php:121 Include/Footer.php:253
-msgid "CSV Import"
-msgstr "Import CSV"
-
-#: CSVImport.php:126
-msgid "Import Data"
-msgstr "Import de date"
-
-#: CSVImport.php:149
-msgid "No file selected for upload."
-msgstr "Nu este selectat niciun fișier pentru încărcare."
-
-#: CSVImport.php:176
-msgid "Total number of rows in the CSV file:"
-msgstr "Numărul total de rânduri din fișierul CSV:"
-
-#: CSVImport.php:233
-msgid "Ignore this Field"
-msgstr "Ignorați acest câmp"
-
-#: CSVImport.php:240
-msgid "Donation Envelope"
-msgstr "Plicul de donații"
-
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
-#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
-#: v2/templates/people/personlist.php:55
-msgid "Cell Phone"
-msgstr "Telefon mobil"
-
-#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
-#: PrintView.php:401
-msgid "Work / Other Email"
-msgstr "Muncă / Alt e-mail"
-
-#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
-#: v2/templates/sundayschool/sundayschoolview.php:302
-msgid "Birth Date"
-msgstr "Data nașterii"
-
-#: CSVImport.php:266
-msgid ""
-"An error occurs when you import the CSV file. You've to select values above "
-"in the select fields."
-msgstr ""
-"Apare o eroare atunci când importați fișierul CSV. Trebuie să selectați "
-"valorile de mai sus în câmpurile de selecție."
-
-#: CSVImport.php:275
-msgid "Scroll right to see the other columns"
-msgstr "Derulați în dreapta pentru a vedea celelalte coloane"
-
-#: CSVImport.php:276
-msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
-msgstr ""
-"Verificați formatul corect <b>Date format</b> și alegeți-l mai jos !!!!!"
-
-#: CSVImport.php:277
-msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
-msgstr "<b>IMPORTANT !</b> Asociați <b>genderul</b> unei coloane."
-
-#: CSVImport.php:282
-msgid "Important Options"
-msgstr "Opțiuni importante"
-
-#: CSVImport.php:287
-msgid "Ignore first CSV row (to exclude a header)"
-msgstr "Ignoră primul rând CSV (pentru a exclude un antet)"
-
-#: CSVImport.php:299
-msgid "Make Family records based on last name and address"
-msgstr ""
-"Efectuați înregistrări de familie pe baza numelui de familie și a adresei"
-
-#: CSVImport.php:324
-msgid "Date Format"
-msgstr "Formatul datei"
-
-#: CSVImport.php:324
-msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
-msgstr "NOTĂ: Separatorii (liniuțe etc.) sau lipsa lor nu contează."
-
-#: CSVImport.php:334
-msgid ""
-"Put all the persons in the cart, to import them in a group, sundayschool "
-"group, etc...."
-msgstr ""
-"Puneți toate persoanele în cărucior, pentru a le importa într-un grup, grup "
-"de duminica, etc...."
-
-#: CSVImport.php:341
-msgid "Not usefull options"
-msgstr "Opțiuni nefolositoare"
-
-#: CSVImport.php:350
-msgid "Patriarch"
-msgstr "Patriarhul"
-
-#: CSVImport.php:351
-msgid "Matriarch"
-msgstr "Matriarhul"
-
-#: CSVImport.php:355
-msgid "Family Type: used with Make Family records... option above"
-msgstr ""
-"Tip de familie: se utilizează cu opțiunea \"Make Family records...\" de mai "
-"sus."
-
-#: CSVImport.php:371
-msgid "Default country if none specified otherwise"
-msgstr "Țara implicită dacă nu este specificată niciuna altfel"
-
-#: CSVImport.php:404
-msgid "Perform Import"
-msgstr "Efectuarea importului"
-
-#: CSVImport.php:772 CSVImport.php:850
-msgid "Imported"
-msgstr "Importat"
-
-#: CSVImport.php:945
-msgid "ERROR: the uploaded CSV file no longer exists!"
-msgstr "ERROR: fișierul CSV încărcat nu mai există!"
-
-#: CSVImport.php:955
-msgid "Steps to import users"
-msgstr "Pași pentru a importa utilizatori"
-
-#: CSVImport.php:958
-msgid "Your CSV file should be prepared like"
-msgstr "Fișierul CSV ar trebui să fie pregătit astfel"
-
-#: CSVImport.php:961
-msgid ""
-"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
-"the second one."
-msgstr ""
-"Astfel, delimitatorii CSV sunt <b>';'</b> în primul exemplu și <b>','</b> în "
-"cel de-al doilea."
-
-#: CSVImport.php:964
-msgid "Don't forget the <b>gender</b> and the <b>title</b>"
-msgstr "Nu uitați de <b>gender</b> și de <b>titlu</b>."
-
-#: CSVImport.php:965
-msgid ""
-"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
-"Title column and rename the label header to gender</b>"
-msgstr ""
-"Puteți formata coloanele în Excel LibreOffice Calc și <b>duplicați coloana "
-"Titlu și redenumiți antetul etichetei în gen</b>."
-
-#: CSVImport.php:966
-msgid ""
-"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
-"a women, girl, female</b> ..."
-msgstr ""
-"Coloana gender trebuie să fie setată la <b>1 pentru un bărbat, băiat, male</"
-"b> și <b>2 pentru o femeie, fată, femeie</b> ..."
-
-#: CSVImport.php:969
-msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
-msgstr ""
-"Pregătiți CRM-ul și adăugați suficiente câmpuri personalizate pentru "
-"persoane, pentru a face acest lucru faceți clic pe"
-
-#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "here"
-msgstr "aici"
-
-#: CSVImport.php:972
-msgid ""
-"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
-"7/1/2018"
-msgstr ""
-"Toate datele ar trebui să fie formate astfel: 2018-7-1 sau 1/7/2018 sau "
-"7-1-2018 sau 7/1/2018."
-
-#: CSVImport.php:979
-msgid "The next step should be, if not select the other CSV seperator"
-msgstr ""
-"Următorul pas ar trebui să fie, dacă nu selectați celălalt separator CSV"
-
-#: CSVImport.php:985 CSVImport.php:1023
-msgid "Upload CSV File"
-msgstr "Încărcați fișierul CSV"
-
-#: CSVImport.php:991
-msgid ""
-"<b>DON'T FORGET</b>\n"
-"              <br>• your CSV file must have a <b>Title</b> header name "
-"column (with M. Mr. Mlle. etc ...),\n"
-"              <br>• and a <b>gender</b> header name column (with 1 for a "
-"men, 2 for a women)"
-msgstr ""
-"<b>NU UITAȚI</b>\n"
-"              <br>- fișierul dvs. CSV trebuie să aibă o coloană de nume de "
-"antet <b>Titlu</b> (cu M. Mr. Mr. Mlle. etc ...),\n"
-"              <br>- și o coloană de nume de antet <b>gender</b> (cu 1 pentru "
-"un bărbat, 2 pentru o femeie)"
-
-#: CSVImport.php:996
-msgid "Select <b>NOW</b> your <b>CSV separator</b>"
-msgstr "Selectați <b>Nu</b> separatorul <b>CSV</b> dvs."
-
-#: CSVImport.php:1007
-msgid ""
-"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
-"b> ......... "
-msgstr ""
-"- Ultima setare corectă a tuturor datelor ca : <b>YYYY-MM-DD sau DD/MM/"
-"YYYYYY</b> ......... ........."
-
-#: CSVImport.php:1010
-msgid "This is proposed in the next step, read carefully your table."
-msgstr ""
-"Acest lucru este propus în etapa următoare, citiți cu atenție tabelul "
-"dumneavoastră."
-
-#: CSVImport.php:1031
-msgid "Clear Data"
-msgstr "Ștergeți datele"
-
-#: CSVImport.php:1034
-msgid "Clear Persons and Families"
-msgstr "Persoane și familii clare"
-
-#: CSVImport.php:1041
-msgid "Data import successful."
-msgstr "Importul de date a fost efectuat cu succes."
-
-#: CSVImport.php:1041
-msgid "persons were imported"
-msgstr "au fost importate persoane"
 
 #: DepositSlipEditor.php:65
 msgid "Deposit Slip Number: "
@@ -1549,10 +1508,10 @@ msgstr "Informații de inclus"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
-#: EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
+#: EcclesiaCRM/Service/CalendarService.php:30 FamilyView.php:550
 #: PersonView.php:1124 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
+#: external/templates/verify/verify-family-info.php:107
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1571,8 +1530,8 @@ msgid "Family Cell Phone"
 msgstr "Telefonul mobil al familiei"
 
 #: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:192
-#: external/templates/verify/verify-family-info.php:39
 #: Reports/ConfirmReport.php:189
+#: external/templates/verify/verify-family-info.php:39
 msgid "Family Email"
 msgstr "Email de familie"
 
@@ -1871,7 +1830,7 @@ msgstr "Toate familiile"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1883,8 +1842,8 @@ msgstr "Persoane"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:54
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/dashboard/maindashboard.php:103
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -1897,9 +1856,9 @@ msgstr "Familii"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:200
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:137 PersonView.php:480
+#: PersonView.php:480 external/templates/verify/verify-family-info.php:137
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:171
 #: v2/templates/people/peoplelist.php:45
@@ -2307,6 +2266,848 @@ msgstr ""
 "Ca parte a restaurării, au fost dezactivate copiile de rezervă externe.  "
 "Dacă doriți să continuați copiile de rezervă automate, trebuie să reactivați "
 "manual setarea bEnableExternalBackupTarget."
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+msgid "New Person Added"
+msgstr "Persoană nouă adăugată"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+msgid "New Family Added"
+msgstr "Familie nouă adăugată"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+msgid "Church Greeter"
+msgstr "Biserica Greeter"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+msgid "Notification"
+msgstr "Notificare"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
+msgid "Guardian(s) of"
+msgstr "Gardianul (tutorii) de"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "A notification was triggered by the classroom teacher at"
+msgstr "O sesizare a fost declanșată de către profesorul de la clasă la"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "Please go to this location"
+msgstr "Vă rugăm să mergeți la această locație"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
+msgid "Your Account was Deleted"
+msgstr "Contul dvs. a fost șters"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "Contul dumneavoastră EcclesiaCRM a fost șters."
+
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
+msgid "Email/Username"
+msgstr "E-mail/nume utilizator"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
+msgid "A Calendar is shared with you"
+msgstr "Un Calendar este partajat cu dumneavoastră"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
+msgid "I've shared a calendar with you in"
+msgstr "Am împărtășit cu voi un calendar în"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
+msgid "A document is shared with you"
+msgstr "Un document este partajat cu dumneavoastră"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
+msgid "I've shared a document with you in"
+msgstr "V-am împărtășit un document în"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
+msgid "Account Locked"
+msgstr "Cont blocat"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr "Contul dumneavoastră EcclesiaCRM a fost blocat."
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
+msgid "Your New Account"
+msgstr "Contul dvs. nou"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
+msgid "A EcclesiaCRM account was created for you"
+msgstr "Un cont EcclesiaCRM a fost creat pentru dvs."
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: UserPasswordChange.php:214
+msgid "New Password"
+msgstr "Parolă nouă"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
+msgid "Password Changed"
+msgstr "Parola a fost schimbată"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr "Parola ta EcclesiaCRM a fost schimbată"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
+msgid "Password Reset"
+msgstr "Resetarea parolei"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "Parola dvs. actualizată EcclesiaCRM a fost schimbată"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
+msgid "Password Reset Link"
+msgstr "Link de resetare a parolei"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr "Vă puteți reseta parola EcclesiaCRM făcând clic pe acest link"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
+msgid "Reset Password"
+msgstr "Resetare parolă"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
+msgid "Account Unlocked"
+msgstr "Cont deblocat"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "Contul dumneavoastră EcclesiaCRM a fost deblocat."
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+msgid "Your Account"
+msgstr "Contul dvs."
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
+msgstr "Contul dumneavoastră EcclesiaCRM a fost actualizat"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
+msgid "Status"
+msgstr "Stare"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
+msgid "Please verify your family's information"
+msgstr "Vă rugăm să verificați informațiile despre familia dvs."
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
+msgid "Private Space"
+msgstr "Spațiu privat"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
+#: external/templates/registration/family-register-members.php:104
+msgid "Home"
+msgstr "Acasă"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
+msgid "Change Password"
+msgstr "Schimbă parola"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
+msgid "Change Settings"
+msgstr "Modificarea setărilor"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
+msgid "Documents"
+msgstr "Documente"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:286
+#: v2/routes/email/mailchimp/mailchimp.php:143
+#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/templates/dashboard/maindashboard.php:190
+msgid "GDPR"
+msgstr "GDPR"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
+msgid "Dashboard"
+msgstr "Tabloul de bord"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:66
+msgid "Data Structure"
+msgstr "Structura datelor"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
+msgid "View Inactive Persons"
+msgstr "Vizualizați persoanele inactive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
+msgid "View Inactive Families"
+msgstr "Vizualizați familiile inactive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:76
+msgid "Events"
+msgstr "Evenimente"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
+#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
+#: v2/templates/map/MapUsingLeaflet.php:66
+#: v2/templates/map/MapUsingLeaflet.php:114
+msgid "Calendar"
+msgstr "Calendar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
+#: v2/routes/map/map.php:51
+msgid "View on Map"
+msgstr "Vezi pe hartă"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:88
+msgid "List Church Events"
+msgstr "Lista evenimentelor bisericești"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:89
+msgid "List Event Types"
+msgstr "Lista tipurilor de evenimente"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:99
+#: v2/templates/dashboard/maindashboard.php:125
+#: v2/templates/people/familylist.php:46
+#: v2/templates/people/peopledashboard.php:127
+msgid "People"
+msgstr "Oameni"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:115
+msgid "Meta Search Engine"
+msgstr "Meta motor de căutare"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
+msgid "Add New Person"
+msgstr "Adăugați o persoană nouă"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
+msgid "View Single Persons"
+msgstr "Vezi Persoane singure"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:126
+msgid "View Active Persons"
+msgstr "Vezi persoanele active"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:131
+msgid "Add New Family"
+msgstr "Adăugați o nouă familie"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:132
+msgid "View Active Families"
+msgstr "Vezi familiile active"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:136
+msgid "Empty Addresses"
+msgstr "Adrese goale"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+msgid "Convert Individual to Address"
+msgstr "Conversia Persoană fizică în Adresă"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
+msgid "List Groups"
+msgstr "Grupuri de liste"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
+msgid "Group Assignment Helper"
+msgstr "Ajutător pentru atribuirea sarcinilor de grup"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
+#: v2/routes/sundayschool/sundayschool.php:110
+msgid "Sunday School"
+msgstr "Școala de duminică"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
+#: Include/Footer.php:173
+msgid "Global Custom Menus"
+msgstr "Meniuri personalizate globale"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
+msgid "Custom Menus"
+msgstr "Meniuri personalizate"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:283
+#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
+msgid "Pastoral Care"
+msgstr "Îngrijire pastorală"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
+msgid "By Classifications"
+msgstr "Pe clasificări"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
+msgid "Meetings"
+msgstr "Întâlniri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
+msgid "MailChimp"
+msgstr "MailChimp"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
+msgid "Email Lists"
+msgstr "Liste de e-mail"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/Search/PledgeSearchRes.php:62
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
+#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
+#: Reports/AdvancedDeposit.php:523
+msgid "Deposit"
+msgstr "Depozit"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
+msgid "Current"
+msgstr "Curent"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
+msgid "Envelope Manager"
+msgstr "Manager de plicuri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
+msgid "View All Deposits"
+msgstr "Vezi toate depozitele"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
+msgid "Electronic Payment Listing"
+msgstr "Lista de plăți electronice"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
+msgid "Deposit Reports"
+msgstr "Rapoarte de depozit"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
+msgid "Edit Deposit Slip"
+msgstr "Editați fișa de depozit"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
+msgid "Fundraiser"
+msgstr "Strângere de fonduri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
+msgid "Create New Fundraiser"
+msgstr "Creați o nouă campanie de strângere de fonduri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
+msgid "View All Fundraisers"
+msgstr "Vezi toate strângerile de fonduri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+msgid "Edit Last Fundraiser"
+msgstr "Editează ultima strângere de fonduri"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
+msgid "Data/Reports"
+msgstr "Date/Rapoarte"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
+msgid "Reports Menu"
+msgstr "Meniul Rapoarte"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+msgid "Query Menu"
+msgstr "Meniul Query"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: v2/templates/calendar/calendar.php:79
+msgid "Birthdate"
+msgstr "Data nașterii"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: PrintPastoralCarePerson.php:450 PrintView.php:461
+#: Reports/CanvassReports.php:278
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
+msgid "Age"
+msgstr "Vârsta"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Props"
+msgstr "Recuzită"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Stats"
+msgstr "Statistici"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
+#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:70
+#: v2/templates/sundayschool/sundayschooldashboard.php:38
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
+msgid "Teachers"
+msgstr "Profesori"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
+msgid "of"
+msgstr "de"
+
+#: EcclesiaCRM/Reports/PDF_Attendance.php:218
+#: EcclesiaCRM/Reports/PDF_Attendance.php:621
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Totaluri"
+
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
+msgid "Certificate of Ownership"
+msgstr "Certificat de proprietate"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr "Oraș, stat, cod poștal"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176 FamilyEditor.php:874
+#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
+#: Reports/ConfirmReport.php:173
+#: external/templates/verify/verify-family-info.php:52
+msgid "Send Newsletter"
+msgstr "Trimiteți buletinul informativ"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
+#: Reports/ConfirmReport.php:183
+msgid "Anniversary Date"
+msgstr "Data aniversării"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+msgid "Member Name"
+msgstr "Numele membrului"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr "M/F"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr "Adult/Copil"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+msgid "Member/Friend"
+msgstr "Membru/prieten"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
+#: Reports/ConfirmReport.php:375
+msgid "Assigned groups for"
+msgstr "Grupuri atribuite pentru"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:64
+#: EcclesiaCRM/Reports/PDF_Directory.php:100
+msgid "Directory"
+msgstr "Director"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
+msgid "Page"
+msgstr "Pagina"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:328
+#: EcclesiaCRM/Reports/PDF_Directory.php:403
+#: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
+#: Reports/GroupReport.php:129
+#: external/templates/registration/family-register-members.php:105
+msgid "Work"
+msgstr "Muncă"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:331
+#: EcclesiaCRM/Reports/PDF_Directory.php:407
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
+#: Reports/GroupReport.php:134
+msgid "Cell"
+msgstr "Celula"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:337
+#: v2/templates/calendar/calendar.php:97
+msgid "Wedding"
+msgstr "Nuntă"
+
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
+msgid "Group Directory"
+msgstr "Director de grup"
+
+#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
+#: Reports/PDFBadge.php:112 Reports/PDFBadgeGroup.php:197
+#: Reports/PDFLabel.php:779
+msgid "Tractor"
+msgstr "Tractor"
+
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
+#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
+#: v2/templates/sundayschool/sundayschooldashboard.php:49
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
+msgid "Students"
+msgstr "Studenți"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
+#: v2/routes/people/familylist.php:160
+msgid "Addresses"
+msgstr "Adrese"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:70
+#: EcclesiaCRM/Search/AddressSearchRes.php:109
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
+#: EcclesiaCRM/Search/PaymentSearchRes.php:47
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
+#: EcclesiaCRM/Search/PersonSearchRes.php:264
+#: EcclesiaCRM/Search/PersonSearchRes.php:315
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
+#: EcclesiaCRM/Search/PledgeSearchRes.php:69
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
+#: ListEvents.php:365 PersonView.php:509
+msgid "Edit"
+msgstr "Editați"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+msgid "Addresse"
+msgstr "Adresă"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
+#: EcclesiaCRM/Search/PersonSearchRes.php:317
+#: EcclesiaCRM/Search/PersonSearchRes.php:321
+#: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonSearchRes.php:323
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
+#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
+#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/sundayschool/sundayschooldashboard.php:296
+#: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
+msgid "Private Data"
+msgstr "Date private"
+
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
+msgid "Deposits"
+msgstr "Depozite"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
+msgid "Family Custom Field"
+msgstr "Câmpul personalizat Familie"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+msgid "Family Pastoral Cares"
+msgstr "Pastorația familială"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: v2/templates/dashboard/maindashboard.php:486
+msgid "Family Pastoral Care"
+msgstr "Pastorația familială"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+msgid "Families Properties"
+msgstr "Familii Proprietăți"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "single"
+msgstr "unic"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "singles"
+msgstr "Persoane singure"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
+#: v2/templates/people/peopledashboard.php:91
+#: v2/templates/people/peoplelist.php:45
+msgid "Singles"
+msgstr "Persoane singure"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+msgid "Groups Properties"
+msgstr "Grupuri Proprietăți"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "group"
+msgstr "grup"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "groups"
+msgstr "grupuri"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr "grupul de duminică"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday groups"
+msgstr "grupuri de duminică"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:45
+msgid "Sunday Groups"
+msgstr "Grupuri de duminică"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
+msgid "Payments"
+msgstr "Plăți"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
+msgid "Person Group role assignments"
+msgstr "Atribuirea de roluri pentru grupuri de persoane"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
+msgid "Teacher"
+msgstr "Profesor"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+msgid "Student"
+msgstr "Student"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
+msgid "Print"
+msgstr "Imprimare"
+
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
+msgid "Person Custom Field"
+msgstr "Câmpul personalizat Persoană"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+msgid "Group Manager"
+msgstr "Manager de grup"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:45
+msgid "groupmasters"
+msgstr "groupmasteri"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+msgid "groupmaster"
+msgstr "groupmaster"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanagers"
+msgstr "groupmanageri"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanager"
+msgstr "groupmanager"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+msgid "Individual Pastoral Cares"
+msgstr "Îngrijiri pastorale individuale"
+
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
+msgid "Person Properties"
+msgstr "Proprietăți de persoană"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: Include/Footer.php:143 PersonView.php:942
+msgid "Volunteer Opportunities"
+msgstr "Oportunități de voluntariat"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteers"
+msgstr "voluntari"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteer"
+msgstr "voluntar"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+msgid "Pledges"
+msgstr "Angajamente"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
+msgid "Signature definition file signature failed validation"
+msgstr "Semnătura fișierului de definire a semnăturii a eșuat validarea"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
+msgid "Signature definition File Missing"
+msgstr "Fișier de definire a semnăturii lipsă"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
+msgid "One or more files failed signature validation"
+msgstr "Unul sau mai multe fișiere nu au reușit să valideze semnătura"
+
+#: EcclesiaCRM/Service/CalendarService.php:29
+msgid "Event"
+msgstr "Eveniment"
+
+#: EcclesiaCRM/Service/CalendarService.php:31
+msgid "Anniversary"
+msgstr "Aniversare"
+
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
+msgid "NonDeductible amount can't be greater than total amount."
+msgstr "Suma nedeductibilă nu poate fi mai mare decât suma totală."
+
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
+msgid "At least one fund must have a non-zero amount."
+msgstr "Cel puțin un fond trebuie să aibă o sumă diferită de zero."
+
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
+msgid "Must specify non-zero check number"
+msgstr "Trebuie să precizeze un număr de control diferit de zero"
+
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
+msgid "Check number not valid for 'CASH' payment"
+msgstr "Numărul cecului nu este valabil pentru plata \"CASH\"."
+
+#: EcclesiaCRM/Service/PersonService.php:47
+msgid "Part"
+msgstr "Partea"
+
+#: EcclesiaCRM/Service/PersonService.php:49
+msgid " of the"
+msgstr " a"
+
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
+msgid "(No assigned family)"
+msgstr "(Fără familie atribuită)"
+
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#: EcclesiaCRM/Service/TimelineService.php:218
+msgid "Self Registration"
+msgstr "Autoînregistrare"
+
+#: EcclesiaCRM/Service/TimelineService.php:220
+msgid "Self Verification"
+msgstr "Autoverificare"
+
+#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+msgid "by"
+msgstr "de"
+
+#: EcclesiaCRM/Service/TimelineService.php:352
+msgid "Shared by"
+msgstr "Împărtășit de"
+
+#: EcclesiaCRM/Service/UpgradeService.php:64
+msgid "Databse upgrade failed"
+msgstr "Databse upgrade eșuat"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:131 PledgeEditor.php:646
+msgid "Other"
+msgstr "Altele"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
+msgid "Head of Household"
+msgstr "Cap de familie"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: v2/templates/pastoralcare/pastoralcareperson.php:141
+msgid "Spouse"
+msgstr "Soț/soție"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: v2/templates/pastoralcare/pastoralcareperson.php:143
+msgid "Child"
+msgstr "Copilul"
 
 #: EcclesiaCRM/data/Countries.php:15
 msgid "Afghanistan (‫افغانستان‬‎)"
@@ -4384,14 +5185,6 @@ msgstr "Configurare e-mail"
 msgid "Map Settings"
 msgstr "Setări hartă"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
-#: v2/templates/gdpr/gdprdatastructure.php:141
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
-msgid "Pastoral Care"
-msgstr "Îngrijire pastorală"
-
 #: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Prezența la școala duminicală"
@@ -4399,13 +5192,6 @@ msgstr "Prezența la școala duminicală"
 #: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integrare"
-
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:64
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
-#: v2/templates/dashboard/maindashboard.php:141
-msgid "GDPR"
-msgstr "GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
@@ -4436,350 +5222,6 @@ msgstr "A fost solicitat un nume de configurare invalid"
 msgid "An invalid configuration id has been requested"
 msgstr "A fost solicitat un id de configurare invalid"
 
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-msgid "New Person Added"
-msgstr "Persoană nouă adăugată"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
-msgid "New Family Added"
-msgstr "Familie nouă adăugată"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
-msgid "Church Greeter"
-msgstr "Biserica Greeter"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-msgid "Notification"
-msgstr "Notificare"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
-msgid "Guardian(s) of"
-msgstr "Gardianul (tutorii) de"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "A notification was triggered by the classroom teacher at"
-msgstr "O sesizare a fost declanșată de către profesorul de la clasă la"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "Please go to this location"
-msgstr "Vă rugăm să mergeți la această locație"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
-msgid "Your Account was Deleted"
-msgstr "Contul dvs. a fost șters"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM Account was Deleted."
-msgstr "Contul dumneavoastră EcclesiaCRM a fost șters."
-
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
-msgid "Email/Username"
-msgstr "E-mail/nume utilizator"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
-msgid "A Calendar is shared with you"
-msgstr "Un Calendar este partajat cu dumneavoastră"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
-msgid "I've shared a calendar with you in"
-msgstr "Am împărtășit cu voi un calendar în"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
-msgid "A document is shared with you"
-msgstr "Un document este partajat cu dumneavoastră"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
-msgid "I've shared a document with you in"
-msgstr "V-am împărtășit un document în"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:11
-msgid "Account Locked"
-msgstr "Cont blocat"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM account was locked."
-msgstr "Contul dumneavoastră EcclesiaCRM a fost blocat."
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
-msgid "Your New Account"
-msgstr "Contul dvs. nou"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
-msgid "A EcclesiaCRM account was created for you"
-msgstr "Un cont EcclesiaCRM a fost creat pentru dvs."
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: UserPasswordChange.php:214
-msgid "New Password"
-msgstr "Parolă nouă"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
-msgid "Password Changed"
-msgstr "Parola a fost schimbată"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM password was changed"
-msgstr "Parola ta EcclesiaCRM a fost schimbată"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
-msgid "Password Reset"
-msgstr "Resetarea parolei"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
-msgstr "Parola dvs. actualizată EcclesiaCRM a fost schimbată"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
-msgid "Password Reset Link"
-msgstr "Link de resetare a parolei"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr "Vă puteți reseta parola EcclesiaCRM făcând clic pe acest link"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
-msgid "Reset Password"
-msgstr "Resetare parolă"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
-msgid "Account Unlocked"
-msgstr "Cont deblocat"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM account was unlocked."
-msgstr "Contul dumneavoastră EcclesiaCRM a fost deblocat."
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
-msgid "Your Account"
-msgstr "Contul dvs."
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
-msgid "Your EcclesiaCRM account was updated"
-msgstr "Contul dumneavoastră EcclesiaCRM a fost actualizat"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
-msgid "Status"
-msgstr "Stare"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
-msgid "Please verify your family's information"
-msgstr "Vă rugăm să verificați informațiile despre familia dvs."
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
-#: Include/Header.php:148
-msgid "Private Space"
-msgstr "Spațiu privat"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
-#: external/templates/registration/family-register-members.php:104
-msgid "Home"
-msgstr "Acasă"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
-msgid "Change Password"
-msgstr "Schimbă parola"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
-msgid "Change Settings"
-msgstr "Modificarea setărilor"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
-msgid "Documents"
-msgstr "Documente"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:436
-msgid "Dashboard"
-msgstr "Tabloul de bord"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:66
-msgid "Data Structure"
-msgstr "Structura datelor"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
-msgid "View Inactive Persons"
-msgstr "Vizualizați persoanele inactive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
-msgid "View Inactive Families"
-msgstr "Vizualizați familiile inactive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:76
-msgid "Events"
-msgstr "Evenimente"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
-#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:77
-#: v2/templates/map/MapUsingGoogle.php:124
-#: v2/templates/map/MapUsingLeaflet.php:66
-#: v2/templates/map/MapUsingLeaflet.php:114
-msgid "Calendar"
-msgstr "Calendar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
-#: v2/routes/map/map.php:51
-msgid "View on Map"
-msgstr "Vezi pe hartă"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:88
-msgid "List Church Events"
-msgstr "Lista evenimentelor bisericești"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:89
-msgid "List Event Types"
-msgstr "Lista tipurilor de evenimente"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:99
-#: v2/templates/dashboard/maindashboard.php:76
-#: v2/templates/people/familylist.php:46
-#: v2/templates/people/peopledashboard.php:127
-msgid "People"
-msgstr "Oameni"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
-msgid "Meta Search Engine"
-msgstr "Meta motor de căutare"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
-msgid "Add New Person"
-msgstr "Adăugați o persoană nouă"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:125
-msgid "View Single Persons"
-msgstr "Vezi Persoane singure"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:126
-msgid "View Active Persons"
-msgstr "Vezi persoanele active"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:131
-msgid "Add New Family"
-msgstr "Adăugați o nouă familie"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:132
-msgid "View Active Families"
-msgstr "Vezi familiile active"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:136
-msgid "Empty Addresses"
-msgstr "Adrese goale"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
-msgid "Convert Individual to Address"
-msgstr "Conversia Persoană fizică în Adresă"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:151
-msgid "List Groups"
-msgstr "Grupuri de liste"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
-msgid "Group Assignment Helper"
-msgstr "Ajutător pentru atribuirea sarcinilor de grup"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:220
-#: v2/routes/sundayschool/sundayschool.php:110
-msgid "Sunday School"
-msgstr "Școala de duminică"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:173
-msgid "Global Custom Menus"
-msgstr "Meniuri personalizate globale"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:316
-msgid "Custom Menus"
-msgstr "Meniuri personalizate"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:328
-msgid "By Classifications"
-msgstr "Pe clasificări"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:335
-msgid "Meetings"
-msgstr "Întâlniri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
-msgid "MailChimp"
-msgstr "MailChimp"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:356
-msgid "Email Lists"
-msgstr "Liste de e-mail"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
-#: EcclesiaCRM/Search/PledgeSearchRes.php:62
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
-#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
-#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
-#: Reports/AdvancedDeposit.php:523
-msgid "Deposit"
-msgstr "Depozit"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:394
-msgid "Current"
-msgstr "Curent"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
-msgid "Envelope Manager"
-msgstr "Manager de plicuri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:400
-msgid "View All Deposits"
-msgstr "Vezi toate depozitele"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
-msgid "Electronic Payment Listing"
-msgstr "Lista de plăți electronice"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:402
-msgid "Deposit Reports"
-msgstr "Rapoarte de depozit"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
-msgid "Edit Deposit Slip"
-msgstr "Editați fișa de depozit"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
-msgid "Fundraiser"
-msgstr "Strângere de fonduri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:416
-msgid "Create New Fundraiser"
-msgstr "Creați o nouă campanie de strângere de fonduri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
-msgid "View All Fundraisers"
-msgstr "Vezi toate strângerile de fonduri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:419
-#: v2/templates/fundraiser/donatedItemEditor.php:87
-msgid "Edit Last Fundraiser"
-msgstr "Editează ultima strângere de fonduri"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
-msgid "Data/Reports"
-msgstr "Date/Rapoarte"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
-msgid "Reports Menu"
-msgstr "Meniul Rapoarte"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
-msgid "Query Menu"
-msgstr "Meniul Query"
-
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
 msgid "Coin"
 msgstr "Monedă"
@@ -4788,14 +5230,6 @@ msgstr "Monedă"
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
 msgid "Counts"
 msgstr "Numărătoare"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
-#: EcclesiaCRM/Reports/PDF_Attendance.php:218
-#: EcclesiaCRM/Reports/PDF_Attendance.php:621
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Totaluri"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
 msgid "Total Coin"
@@ -4872,16 +5306,16 @@ msgstr "Martor"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:231
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:282
-#: v2/templates/dashboard/maindashboard.php:586
+#: v2/templates/dashboard/maindashboard.php:639
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Creat"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:287
-#: v2/templates/dashboard/maindashboard.php:600
-#: v2/templates/dashboard/maindashboard.php:643
-#: v2/templates/dashboard/maindashboard.php:658
+#: v2/templates/dashboard/maindashboard.php:655
+#: v2/templates/dashboard/maindashboard.php:699
+#: v2/templates/dashboard/maindashboard.php:715
 msgid "Updated"
 msgstr "Actualizat"
 
@@ -4908,17 +5342,6 @@ msgstr "Imagine de profil încărcată"
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Membru"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
-#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
-msgid "Unknown"
-msgstr "Necunoscut"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
 #: EcclesiaCRM/utils/OutputUtils.php:566
@@ -4992,470 +5415,6 @@ msgstr "Dav move copy file"
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Dav șterge fișierul"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: v2/templates/calendar/calendar.php:79
-msgid "Birthdate"
-msgstr "Data nașterii"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:278
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
-msgid "Age"
-msgstr "Vârsta"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Props"
-msgstr "Recuzită"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Stats"
-msgstr "Statistici"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
-#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:143
-msgid "Teachers"
-msgstr "Profesori"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
-msgid "of"
-msgstr "de"
-
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
-msgid "Certificate of Ownership"
-msgstr "Certificat de proprietate"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
-#: Reports/ConfirmReport.php:163
-msgid "City, State, Zip"
-msgstr "Oraș, stat, cod poștal"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReport.php:173
-msgid "Send Newsletter"
-msgstr "Trimiteți buletinul informativ"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
-#: Reports/ConfirmReport.php:183
-msgid "Anniversary Date"
-msgstr "Data aniversării"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
-msgid "Member Name"
-msgstr "Numele membrului"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
-#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
-#: Reports/ConfirmReport.php:248
-msgid "M/F"
-msgstr "M/F"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
-#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
-msgid "Adult/Child"
-msgstr "Adult/Copil"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
-#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
-msgid "Member/Friend"
-msgstr "Membru/prieten"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
-#: Reports/ConfirmReport.php:375
-msgid "Assigned groups for"
-msgstr "Grupuri atribuite pentru"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:64
-#: EcclesiaCRM/Reports/PDF_Directory.php:100
-msgid "Directory"
-msgstr "Director"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
-msgid "Page"
-msgstr "Pagina"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:328
-#: EcclesiaCRM/Reports/PDF_Directory.php:403
-#: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
-msgid "Work"
-msgstr "Muncă"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:331
-#: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
-#: Reports/GroupReport.php:134
-msgid "Cell"
-msgstr "Celula"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:337
-#: v2/templates/calendar/calendar.php:97
-msgid "Wedding"
-msgstr "Nuntă"
-
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
-msgid "Group Directory"
-msgstr "Director de grup"
-
-#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
-#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:112
-#: Reports/PDFLabel.php:779
-msgid "Tractor"
-msgstr "Tractor"
-
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
-#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:235
-msgid "Students"
-msgstr "Studenți"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:19
-#: v2/routes/people/familylist.php:160
-msgid "Addresses"
-msgstr "Adrese"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:70
-#: EcclesiaCRM/Search/AddressSearchRes.php:109
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:74
-#: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:93
-#: EcclesiaCRM/Search/FamilySearchRes.php:128
-#: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:78
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
-#: EcclesiaCRM/Search/GroupSearchRes.php:126
-#: EcclesiaCRM/Search/PaymentSearchRes.php:47
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:264
-#: EcclesiaCRM/Search/PersonSearchRes.php:315
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
-#: ListEvents.php:365 PersonView.php:509
-msgid "Edit"
-msgstr "Editați"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-msgid "Addresse"
-msgstr "Adresă"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:142
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:317
-#: EcclesiaCRM/Search/PersonSearchRes.php:321
-#: EcclesiaCRM/Search/PersonSearchRes.php:322
-#: EcclesiaCRM/Search/PersonSearchRes.php:323
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
-#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
-#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
-msgid "Private Data"
-msgstr "Date private"
-
-#: EcclesiaCRM/Search/DepositSearchRes.php:23
-msgid "Deposits"
-msgstr "Depozite"
-
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-msgid "Family Custom Field"
-msgstr "Câmpul personalizat Familie"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
-msgid "Family Pastoral Cares"
-msgstr "Pastorația familială"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: v2/templates/dashboard/maindashboard.php:436
-msgid "Family Pastoral Care"
-msgstr "Pastorația familială"
-
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
-msgid "Families Properties"
-msgstr "Familii Proprietăți"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "single"
-msgstr "unic"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "singles"
-msgstr "Persoane singure"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
-#: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peoplelist.php:45
-msgid "Singles"
-msgstr "Persoane singure"
-
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
-msgid "Groups Properties"
-msgstr "Grupuri Proprietăți"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "group"
-msgstr "grup"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "groups"
-msgstr "grupuri"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday group"
-msgstr "grupul de duminică"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday groups"
-msgstr "grupuri de duminică"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:45
-msgid "Sunday Groups"
-msgstr "Grupuri de duminică"
-
-#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
-msgid "Payments"
-msgstr "Plăți"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-msgid "Person Group role assignments"
-msgstr "Atribuirea de roluri pentru grupuri de persoane"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
-msgid "Teacher"
-msgstr "Profesor"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
-msgid "Student"
-msgstr "Student"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
-msgid "Print"
-msgstr "Imprimare"
-
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-msgid "Person Custom Field"
-msgstr "Câmpul personalizat Persoană"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
-msgid "Group Manager"
-msgstr "Manager de grup"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:45
-msgid "groupmasters"
-msgstr "groupmasteri"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-msgid "groupmaster"
-msgstr "groupmaster"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanagers"
-msgstr "groupmanageri"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanager"
-msgstr "groupmanager"
-
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
-msgid "Individual Pastoral Cares"
-msgstr "Îngrijiri pastorale individuale"
-
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-msgid "Person Properties"
-msgstr "Proprietăți de persoană"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:942
-msgid "Volunteer Opportunities"
-msgstr "Oportunități de voluntariat"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteers"
-msgstr "voluntari"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteer"
-msgstr "voluntar"
-
-#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
-#: Reports/PledgeSummary.php:253
-msgid "Pledges"
-msgstr "Angajamente"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-msgid "Signature definition file signature failed validation"
-msgstr "Semnătura fișierului de definire a semnăturii a eșuat validarea"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-msgid "Signature definition File Missing"
-msgstr "Fișier de definire a semnăturii lipsă"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
-msgid "One or more files failed signature validation"
-msgstr "Unul sau mai multe fișiere nu au reușit să valideze semnătura"
-
-#: EcclesiaCRM/Service/CalendarService.php:29
-msgid "Event"
-msgstr "Eveniment"
-
-#: EcclesiaCRM/Service/CalendarService.php:31
-msgid "Anniversary"
-msgstr "Aniversare"
-
-#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
-msgid "NonDeductible amount can't be greater than total amount."
-msgstr "Suma nedeductibilă nu poate fi mai mare decât suma totală."
-
-#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
-msgid "At least one fund must have a non-zero amount."
-msgstr "Cel puțin un fond trebuie să aibă o sumă diferită de zero."
-
-#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
-msgid "Must specify non-zero check number"
-msgstr "Trebuie să precizeze un număr de control diferit de zero"
-
-#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
-msgid "Check number not valid for 'CASH' payment"
-msgstr "Numărul cecului nu este valabil pentru plata \"CASH\"."
-
-#: EcclesiaCRM/Service/PersonService.php:47
-msgid "Part"
-msgstr "Partea"
-
-#: EcclesiaCRM/Service/PersonService.php:49
-msgid " of the"
-msgstr " a"
-
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
-msgid "(No assigned family)"
-msgstr "(Fără familie atribuită)"
-
-#: EcclesiaCRM/Service/TimelineService.php:218
-msgid "Self Registration"
-msgstr "Autoînregistrare"
-
-#: EcclesiaCRM/Service/TimelineService.php:220
-msgid "Self Verification"
-msgstr "Autoverificare"
-
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
-msgid "by"
-msgstr "de"
-
-#: EcclesiaCRM/Service/TimelineService.php:352
-msgid "Shared by"
-msgstr "Împărtășit de"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-msgid "Databse upgrade failed"
-msgstr "Databse upgrade eșuat"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
-msgid "Other"
-msgstr "Altele"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
-msgid "Head of Household"
-msgstr "Cap de familie"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
-msgid "Spouse"
-msgstr "Soț/soție"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
-msgid "Child"
-msgstr "Copilul"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5807,6 +5766,20 @@ msgstr "Participanți"
 msgid "Not Available"
 msgstr "Nu este disponibil"
 
+#: EditEventAttendees.php:120 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
+#: ListEvents.php:379 PersonView.php:1866 PersonView.php:1965
+#: browser/browse.php:66 v2/templates/email/mailchimp/campaign.php:35
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/email/mailchimp/managelist.php:93
+#: v2/templates/pastoralcare/pastoralcarefamily.php:209
+#: v2/templates/pastoralcare/pastoralcarefamily.php:219
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:225
+msgid "Delete"
+msgstr "Ștergeți"
+
 #: EditEventAttendees.php:128
 msgid "No Attendees Assigned to Event"
 msgstr "Nu există participanți atribuiți la eveniment"
@@ -5881,46 +5854,6 @@ msgstr "Adăugați un contor"
 #: EditEventTypes.php:234
 msgid "Return to Event Types"
 msgstr "Întoarcerea la Tipuri de evenimente"
-
-#: eGive.php:79
-msgid "eGive Import"
-msgstr "eGive Import"
-
-#: eGive.php:267
-msgid "Start Date: "
-msgstr "Data de începere:"
-
-#: eGive.php:269
-msgid "End Date: "
-msgstr "Data limită:"
-
-#: eGive.php:356
-msgid "Re-import to selected family"
-msgstr "Re-import în familia selectată"
-
-#: eGive.php:360
-msgid "Data import results: "
-msgstr "Rezultatele importului de date:"
-
-#: eGive.php:360
-msgid " gifts were imported, "
-msgstr " cadouri au fost importate,"
-
-#: eGive.php:360
-msgid " gifts unchanged, and "
-msgstr " cadouri neschimbate și"
-
-#: eGive.php:360
-msgid " gifts not imported due to problems"
-msgstr " cadouri neimportate din cauza unor probleme"
-
-#: eGive.php:361 eGive.php:390
-msgid "Back to Deposit Slip"
-msgstr "Înapoi la Fișa de depozit"
-
-#: eGive.php:389
-msgid "Fatal error in eGive API datastream: '"
-msgstr "Eroare fatală în fluxul de date API eGive:"
 
 #: ElectronicPaymentList.php:63
 msgid "Delete automatic payment for"
@@ -6173,186 +6106,6 @@ msgstr "Creați evenimentul"
 msgid "Add Event Type"
 msgstr "Adăugați tipul de eveniment"
 
-#: external/routes/password.php:73
-msgid "Unable to reset password"
-msgstr "Nu se poate reseta parola"
-
-#: external/routes/verify.php:31
-msgid "Unable to load verification info"
-msgstr "Nu se pot încărca informațiile de verificare"
-
-#: external/routes/verify.php:45
-msgid "No Changes"
-msgstr "Fără modificări"
-
-#: external/templates/404.php:4 kiosk/templates/404.php:4
-msgid "Page not fond"
-msgstr "Pagina nu este fondată"
-
-#: external/templates/404.php:14 kiosk/templates/404.php:14
-msgid "Oops! Page not found."
-msgstr "Oops! Pagina nu a fost găsită."
-
-#: external/templates/password/enter-username.php:7
-#: external/templates/password/password-check-email.php:7
-#: external/templates/registration/family-register-done.php:6
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:10
-msgid "Family Registration"
-msgstr "Înregistrarea familiei"
-
-#: external/templates/password/enter-username.php:28
-msgid "Reset your password"
-msgstr "Resetați-vă parola"
-
-#: external/templates/password/enter-username.php:32 UserEditor.php:648
-#: UserEditor.php:704
-msgid "Login Name"
-msgstr "Nume de conectare"
-
-#: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:124
-msgid "Go"
-msgstr "Du-te"
-
-#: external/templates/password/enter-username.php:46 Login.php:182
-#: Login.php:233
-msgid "Login"
-msgstr "Autentificare"
-
-#: external/templates/password/enter-username.php:60
-msgid "Check your email for a password reset link"
-msgstr "Verifică-ți e-mailul pentru un link de resetare a parolei"
-
-#: external/templates/password/enter-username.php:66
-msgid "Sorry, we are unable to process your request at this point in time."
-msgstr ""
-"Ne pare rău, dar nu putem procesa cererea dumneavoastră în acest moment."
-
-#: external/templates/password/enter-username.php:69
-msgid "Login Name is Required"
-msgstr "Numele de utilizator este necesar"
-
-#: external/templates/password/password-check-email.php:27
-msgid "A new password was sent to you. Please check your email"
-msgstr "Ați primit o nouă parolă. Vă rugăm să vă verificați e-mailul"
-
-#: external/templates/registration/family-register-done.php:18
-msgid "Registration Complete"
-msgstr "Înregistrare completă"
-
-#: external/templates/registration/family-register-done.php:24
-msgid "Thank you for registering your family."
-msgstr "Vă mulțumim că v-ați înregistrat familia."
-
-#: external/templates/registration/family-register-done.php:30
-msgid "Member(s)"
-msgstr "Membru (membri)"
-
-#: external/templates/registration/family-register-done.php:45
-#: Reports/CanvassReports.php:91
-msgid "Done"
-msgstr "Realizat"
-
-#: external/templates/registration/family-register-members.php:20
-msgid "Register"
-msgstr "Înregistrare"
-
-#: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
-#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
-msgid "Family Members"
-msgstr "Membrii familiei"
-
-#: external/templates/registration/family-register-members.php:35
-msgid "Family Member"
-msgstr "Membru al familiei"
-
-#: external/templates/registration/family-register-members.php:103
-#: sundayschool/SundaySchoolClassListExport.php:53
-msgid "Mobile"
-msgstr "Mobil"
-
-#: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
-#: Reports/ConfirmReport.php:252
-msgid "Hide Age"
-msgstr "Ascundeți vârsta"
-
-#: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:118
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:94
-#: GroupReports.php:103
-msgid "Next"
-msgstr "Următorul"
-
-#: external/templates/registration/family-register.php:30
-msgid "Register your family"
-msgstr "Înregistrează-ți familia"
-
-#: external/templates/registration/family-register.php:95
-msgid "How many people are in your family"
-msgstr "Câte persoane sunt în familia ta"
-
-#: external/templates/registration/family-register.php:113
-msgid "This will be my primary church."
-msgstr "Aceasta va fi biserica mea principală."
-
-#: external/templates/verify/enter-info.php:17
-msgid "Please enter the following to start your family's verification"
-msgstr ""
-"Vă rugăm să introduceți următoarele date pentru a începe verificarea "
-"familiei dvs."
-
-#: external/templates/verify/verify-family-info.php:10
-msgid "Family Verification"
-msgstr "Verificarea familiei"
-
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:167 ManageEnvelopes.php:143
-msgid "Confirm"
-msgstr "Confirmați"
-
-#: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-msgid "Home Address"
-msgstr "Adresa de domiciliu"
-
-#: external/templates/verify/verify-family-info.php:64
-msgid "Family Member(s)"
-msgstr "Membru(i) de familie"
-
-#: external/templates/verify/verify-family-info.php:104
-msgid "Work Email"
-msgstr "Email de lucru"
-
-#: external/templates/verify/verify-family-info.php:114
-msgid "Age Hidden"
-msgstr "Vârsta ascunsă"
-
-#: external/templates/verify/verify-family-info.php:174
-msgid "Please let us know what information to update if any"
-msgstr "Vă rugăm să ne anunțați ce informații să actualizăm, dacă este cazul."
-
-#: external/templates/verify/verify-family-info.php:179
-msgid "Your verification request is complete"
-msgstr "Cererea dumneavoastră de verificare este completă"
-
-#: external/templates/verify/verify-family-info.php:183
-msgid "We encountered an error submitting with your verification data"
-msgstr "Am întâmpinat o eroare la trimiterea datelor de verificare."
-
-#: external/templates/verify/verify-family-info.php:189
-msgid "Verify"
-msgstr "Verifică"
-
-#: external/templates/verify/verify-family-info.php:191
-msgid "Visit our Site"
-msgstr "Vizitați site-ul nostru"
-
 #: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "Editor de câmpuri de familie personalizate"
@@ -6524,6 +6277,14 @@ msgstr "Numărul plicului"
 msgid "Custom Fields"
 msgstr "Câmpuri personalizate"
 
+#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
+#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
+#: external/templates/registration/family-register-members.php:20
+#: v2/templates/pastoralcare/pastoralcarefamily.php:101
+#: v2/templates/pastoralcare/pastoralcareperson.php:103
+msgid "Family Members"
+msgstr "Membrii familiei"
+
 #: FamilyEditor.php:1084
 msgid ""
 "You may create family members now or add them later.  All entries will "
@@ -6540,7 +6301,7 @@ msgstr "Prima"
 msgid "Middle"
 msgstr "Mijlocul"
 
-#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:436
+#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:486
 msgid "Last"
 msgstr "Ultima"
 
@@ -6877,6 +6638,13 @@ msgstr "Raport de depozit individual"
 #: FinancialReports.php:82
 msgid "Advanced Deposit Report"
 msgstr "Raport avansat de depozit"
+
+#: FinancialReports.php:94 GroupReports.php:103
+#: external/templates/registration/family-register-members.php:156
+#: external/templates/registration/family-register.php:118
+#: external/templates/verify/enter-info.php:38
+msgid "Next"
+msgstr "Următorul"
 
 #: FinancialReports.php:171
 msgid "Add All Classes"
@@ -7430,17 +7198,17 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Câmpuri de proprietate specifice grupului"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
-msgid "Copyright"
-msgstr "Drepturi de autor"
-
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
-msgid "All rights reserved"
-msgstr "Toate drepturile rezervate"
-
 #: Include/Footer.php:27
 msgid "Version"
 msgstr "Versiunea"
+
+#: Include/Footer.php:29 Include/FooterNotLoggedIn.php:7
+msgid "Copyright"
+msgstr "Drepturi de autor"
+
+#: Include/Footer.php:32 Include/FooterNotLoggedIn.php:7
+msgid "All rights reserved"
+msgstr "Toate drepturile rezervate"
 
 #: Include/Footer.php:72
 msgid "Family Properties"
@@ -7483,7 +7251,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Vă rugăm să contactați administratorul pentru a modifica setările sistemului."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:163
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:160
 msgid "Edit General Settings"
 msgstr "Editați setările generale"
 
@@ -7758,10 +7526,6 @@ msgstr ""
 "Verificarea anterioară a integrității a trecut.  Toate hașurile fișierelor "
 "de sistem corespund valorilor așteptate."
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-msgid "End Time"
-msgstr "Sfârșitul timpului"
-
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:220
 msgid "Letters and Mailing Labels"
 msgstr "Scrisori și etichete poștale"
@@ -7915,6 +7679,11 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Acest cont a fost dezactivat de către un administrator."
 
+#: Login.php:182 Login.php:233
+#: external/templates/password/enter-username.php:46
+msgid "Login"
+msgstr "Autentificare"
+
 #: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Vă rugăm să vă conectați"
@@ -7964,6 +7733,11 @@ msgstr ""
 "Astfel, numerele de plicuri familiale din baza de date vor fi înlocuite cu "
 "cele selectate pe această pagină.  Continuați?"
 
+#: ManageEnvelopes.php:143 external/templates/verify/verify-family-info.php:24
+#: external/templates/verify/verify-family-info.php:167
+msgid "Confirm"
+msgstr "Confirmați"
+
 #: ManageEnvelopes.php:152
 msgid "Family Select"
 msgstr "Familie Selectați"
@@ -7983,39 +7757,6 @@ msgstr "Zero"
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
 msgstr "Atribuiți începând de la #"
-
-#: members/404.php:22 members/404.php:31
-msgid "Not Found"
-msgstr "Nu a fost găsit"
-
-#: members/404.php:31
-msgid "Oops!"
-msgstr "Oops!"
-
-#: members/404.php:34
-msgid "We could not find the member(s) you were looking for."
-msgstr "Nu am putut găsi membrul (membrii) pe care îl (îi) căutați."
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "Meanwhile, you may"
-msgstr "Între timp, puteți"
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "return to member dashboard"
-msgstr "reveniți la tabloul de bord al membrilor"
-
-#: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:260
-msgid "Pending Self Verify"
-msgstr "În curs de autoverificare"
-
-#: members/self-register.php:13
-msgid "Families Self Registration"
-msgstr "Familii Autoînregistrare"
-
-#: members/self-verify-updates.php:13
-msgid "Self Verify"
-msgstr "Autoverificare"
 
 #: OptionManager.php:358
 msgid ""
@@ -8171,6 +7912,12 @@ msgstr "Selectați ziua"
 #: PersonEditor.php:988
 msgid "Birth Year"
 msgstr "Anul nașterii"
+
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
+#: external/templates/registration/family-register-members.php:132
+msgid "Hide Age"
+msgstr "Ascundeți vârsta"
 
 #: PersonEditor.php:1018
 msgid "Person or Family Info"
@@ -8390,6 +8137,26 @@ msgstr "Ultima modificare de către"
 #: PersonView.php:1836
 msgid "All Files"
 msgstr "Toate fișierele"
+
+#: PersonView.php:1845 browser/browse.php:43
+msgid "Upload a file in EDrive"
+msgstr "Încărcați un fișier în EDrive"
+
+#: PersonView.php:1857 browser/browse.php:58
+msgid "Create a Folder"
+msgstr "Creați un dosar"
+
+#: PersonView.php:1876 browser/browse.php:75
+msgid "Up One Level"
+msgstr "Un nivel mai sus"
+
+#: PersonView.php:1885 browser/browse.php:82
+msgid "Actualize files"
+msgstr "Actualizarea fișierelor"
+
+#: PersonView.php:1903 browser/browse.php:99
+msgid "Preview"
+msgstr "Previzualizare"
 
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
@@ -8708,6 +8475,11 @@ msgstr "Raport Total"
 msgid "Canvass Progress Report"
 msgstr "Raport de progres al sondajelor de opinie"
 
+#: Reports/CanvassReports.php:91
+#: external/templates/registration/family-register-done.php:45
+msgid "Done"
+msgstr "Realizat"
+
 #: Reports/CanvassReports.php:92
 msgid "Assigned"
 msgstr "Atribuit"
@@ -8789,6 +8561,28 @@ msgstr ""
 msgid "Envelope Numbers for all Families"
 msgstr "Numerele plicurilor pentru toate familiile"
 
+#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
+#: Reports/FRCertificates.php:52
+msgid "Estimated value "
+msgstr "Valoarea estimată"
+
+#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
+#: Reports/FRCertificates.php:55
+msgid "Donated by "
+msgstr "Donat de"
+
+#: Reports/FRBidSheets.php:103
+msgid "Paddle"
+msgstr "Vâslă"
+
+#: Reports/FRBidSheets.php:104
+msgid "Bid"
+msgstr "Ofertă"
+
+#: Reports/FRCatalog.php:108
+msgid "Minimum bid "
+msgstr "Ofertă minimă"
+
 #: Reports/FamilyPledgeSummary.php:157 Reports/ReminderReport.php:169
 msgid "All Funds"
 msgstr "Toate fondurile"
@@ -8816,28 +8610,6 @@ msgstr "Plătită"
 #: Reports/FamilyPledgeSummary.php:235
 msgid "Owe"
 msgstr "Datoria"
-
-#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:52
-msgid "Estimated value "
-msgstr "Valoarea estimată"
-
-#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:55
-msgid "Donated by "
-msgstr "Donat de"
-
-#: Reports/FRBidSheets.php:103
-msgid "Paddle"
-msgstr "Vâslă"
-
-#: Reports/FRBidSheets.php:104
-msgid "Bid"
-msgstr "Ofertă"
-
-#: Reports/FRCatalog.php:108
-msgid "Minimum bid "
-msgstr "Ofertă minimă"
 
 #: Reports/FundRaiserStatement.php:96
 msgid "Donated Items:"
@@ -9358,34 +9130,6 @@ msgstr "Păstrați-le într-o locație sigură"
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Începeți înscrierea pentru autentificarea cu doi factori"
 
-#: sundayschool/SundaySchoolClassListExport.php:56
-msgid "Dad Name"
-msgstr "Numele tatălui"
-
-#: sundayschool/SundaySchoolClassListExport.php:57
-msgid "Dad Mobile"
-msgstr "Tata Mobile"
-
-#: sundayschool/SundaySchoolClassListExport.php:58
-msgid "Dad Email"
-msgstr "Tata Email"
-
-#: sundayschool/SundaySchoolClassListExport.php:59
-msgid "Mom Name"
-msgstr "Numele mamei"
-
-#: sundayschool/SundaySchoolClassListExport.php:60
-msgid "Mom Mobile"
-msgstr "Mamă mobilă"
-
-#: sundayschool/SundaySchoolClassListExport.php:61
-msgid "Mom Email"
-msgstr "Mama Email"
-
-#: sundayschool/SundaySchoolClassListExport.php:62
-msgid "Properties"
-msgstr "Proprietăți"
-
 #: SystemDBUpdate.php:31
 msgid "System Upgrade"
 msgstr "Actualizarea sistemului"
@@ -9437,6 +9181,16 @@ msgstr "Raport fiscal"
 #: TaxReport.php:43
 msgid "Calendar Year"
 msgstr "Anul calendaristic"
+
+#: USISTAddressVerification.php:51
+msgid "US Address Verification"
+msgstr "Verificarea adresei din SUA"
+
+#: USISTAddressVerification.php:104
+msgid ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
+msgstr ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -9569,6 +9323,11 @@ msgstr "Adăugarea rolului la utilizatorul curent"
 #: UserEditor.php:629
 msgid "Person to Make User"
 msgstr "Persoană care să facă utilizator"
+
+#: UserEditor.php:648 UserEditor.php:704
+#: external/templates/password/enter-username.php:32
+msgid "Login Name"
+msgstr "Nume de conectare"
 
 #: UserEditor.php:665
 msgid "Note: Changes will not take effect until next logon."
@@ -9793,15 +9552,257 @@ msgstr "Parolă veche"
 msgid "Confirm New Password"
 msgstr "Confirmați noua parolă"
 
-#: USISTAddressVerification.php:51
-msgid "US Address Verification"
-msgstr "Verificarea adresei din SUA"
+#: browser/browse.php:31
+msgid "File Manager"
+msgstr "Manager de fișiere"
 
-#: USISTAddressVerification.php:104
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+#: browser/browse.php:50
+msgid "Download"
+msgstr "Descărcați"
+
+#: eGive.php:79
+msgid "eGive Import"
+msgstr "eGive Import"
+
+#: eGive.php:267
+msgid "Start Date: "
+msgstr "Data de începere:"
+
+#: eGive.php:269
+msgid "End Date: "
+msgstr "Data limită:"
+
+#: eGive.php:356
+msgid "Re-import to selected family"
+msgstr "Re-import în familia selectată"
+
+#: eGive.php:360
+msgid "Data import results: "
+msgstr "Rezultatele importului de date:"
+
+#: eGive.php:360
+msgid " gifts were imported, "
+msgstr " cadouri au fost importate,"
+
+#: eGive.php:360
+msgid " gifts unchanged, and "
+msgstr " cadouri neschimbate și"
+
+#: eGive.php:360
+msgid " gifts not imported due to problems"
+msgstr " cadouri neimportate din cauza unor probleme"
+
+#: eGive.php:361 eGive.php:390
+msgid "Back to Deposit Slip"
+msgstr "Înapoi la Fișa de depozit"
+
+#: eGive.php:389
+msgid "Fatal error in eGive API datastream: '"
+msgstr "Eroare fatală în fluxul de date API eGive:"
+
+#: external/routes/password.php:73
+msgid "Unable to reset password"
+msgstr "Nu se poate reseta parola"
+
+#: external/routes/verify.php:31
+msgid "Unable to load verification info"
+msgstr "Nu se pot încărca informațiile de verificare"
+
+#: external/routes/verify.php:45
+msgid "No Changes"
+msgstr "Fără modificări"
+
+#: external/templates/404.php:4 kiosk/templates/404.php:4
+msgid "Page not fond"
+msgstr "Pagina nu este fondată"
+
+#: external/templates/404.php:14 kiosk/templates/404.php:14
+msgid "Oops! Page not found."
+msgstr "Oops! Pagina nu a fost găsită."
+
+#: external/templates/password/enter-username.php:7
+#: external/templates/password/password-check-email.php:7
+#: external/templates/registration/family-register-done.php:6
+#: external/templates/registration/family-register-members.php:8
+#: external/templates/registration/family-register.php:10
+msgid "Family Registration"
+msgstr "Înregistrarea familiei"
+
+#: external/templates/password/enter-username.php:28
+msgid "Reset your password"
+msgstr "Resetați-vă parola"
+
+#: external/templates/password/enter-username.php:41
+#: v2/templates/fundraiser/donatedItemEditor.php:124
+msgid "Go"
+msgstr "Du-te"
+
+#: external/templates/password/enter-username.php:60
+msgid "Check your email for a password reset link"
+msgstr "Verifică-ți e-mailul pentru un link de resetare a parolei"
+
+#: external/templates/password/enter-username.php:66
+msgid "Sorry, we are unable to process your request at this point in time."
 msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+"Ne pare rău, dar nu putem procesa cererea dumneavoastră în acest moment."
+
+#: external/templates/password/enter-username.php:69
+msgid "Login Name is Required"
+msgstr "Numele de utilizator este necesar"
+
+#: external/templates/password/password-check-email.php:27
+msgid "A new password was sent to you. Please check your email"
+msgstr "Ați primit o nouă parolă. Vă rugăm să vă verificați e-mailul"
+
+#: external/templates/registration/family-register-done.php:18
+msgid "Registration Complete"
+msgstr "Înregistrare completă"
+
+#: external/templates/registration/family-register-done.php:24
+msgid "Thank you for registering your family."
+msgstr "Vă mulțumim că v-ați înregistrat familia."
+
+#: external/templates/registration/family-register-done.php:30
+msgid "Member(s)"
+msgstr "Membru (membri)"
+
+#: external/templates/registration/family-register-members.php:20
+msgid "Register"
+msgstr "Înregistrare"
+
+#: external/templates/registration/family-register-members.php:35
+msgid "Family Member"
+msgstr "Membru al familiei"
+
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
+msgid "Mobile"
+msgstr "Mobil"
+
+#: external/templates/registration/family-register.php:30
+msgid "Register your family"
+msgstr "Înregistrează-ți familia"
+
+#: external/templates/registration/family-register.php:95
+msgid "How many people are in your family"
+msgstr "Câte persoane sunt în familia ta"
+
+#: external/templates/registration/family-register.php:113
+msgid "This will be my primary church."
+msgstr "Aceasta va fi biserica mea principală."
+
+#: external/templates/verify/enter-info.php:17
+msgid "Please enter the following to start your family's verification"
+msgstr ""
+"Vă rugăm să introduceți următoarele date pentru a începe verificarea "
+"familiei dvs."
+
+#: external/templates/verify/verify-family-info.php:10
+msgid "Family Verification"
+msgstr "Verificarea familiei"
+
+#: external/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+msgid "Home Address"
+msgstr "Adresa de domiciliu"
+
+#: external/templates/verify/verify-family-info.php:64
+msgid "Family Member(s)"
+msgstr "Membru(i) de familie"
+
+#: external/templates/verify/verify-family-info.php:104
+msgid "Work Email"
+msgstr "Email de lucru"
+
+#: external/templates/verify/verify-family-info.php:114
+msgid "Age Hidden"
+msgstr "Vârsta ascunsă"
+
+#: external/templates/verify/verify-family-info.php:174
+msgid "Please let us know what information to update if any"
+msgstr "Vă rugăm să ne anunțați ce informații să actualizăm, dacă este cazul."
+
+#: external/templates/verify/verify-family-info.php:179
+msgid "Your verification request is complete"
+msgstr "Cererea dumneavoastră de verificare este completă"
+
+#: external/templates/verify/verify-family-info.php:183
+msgid "We encountered an error submitting with your verification data"
+msgstr "Am întâmpinat o eroare la trimiterea datelor de verificare."
+
+#: external/templates/verify/verify-family-info.php:189
+msgid "Verify"
+msgstr "Verifică"
+
+#: external/templates/verify/verify-family-info.php:191
+msgid "Visit our Site"
+msgstr "Vizitați site-ul nostru"
+
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+msgid "End Time"
+msgstr "Sfârșitul timpului"
+
+#: members/404.php:22 members/404.php:31
+msgid "Not Found"
+msgstr "Nu a fost găsit"
+
+#: members/404.php:31
+msgid "Oops!"
+msgstr "Oops!"
+
+#: members/404.php:34
+msgid "We could not find the member(s) you were looking for."
+msgstr "Nu am putut găsi membrul (membrii) pe care îl (îi) căutați."
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "Meanwhile, you may"
+msgstr "Între timp, puteți"
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "return to member dashboard"
+msgstr "reveniți la tabloul de bord al membrilor"
+
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:260
+msgid "Pending Self Verify"
+msgstr "În curs de autoverificare"
+
+#: members/self-register.php:13
+msgid "Families Self Registration"
+msgstr "Familii Autoînregistrare"
+
+#: members/self-verify-updates.php:13
+msgid "Self Verify"
+msgstr "Autoverificare"
+
+#: sundayschool/SundaySchoolClassListExport.php:56
+msgid "Dad Name"
+msgstr "Numele tatălui"
+
+#: sundayschool/SundaySchoolClassListExport.php:57
+msgid "Dad Mobile"
+msgstr "Tata Mobile"
+
+#: sundayschool/SundaySchoolClassListExport.php:58
+msgid "Dad Email"
+msgstr "Tata Email"
+
+#: sundayschool/SundaySchoolClassListExport.php:59
+msgid "Mom Name"
+msgstr "Numele mamei"
+
+#: sundayschool/SundaySchoolClassListExport.php:60
+msgid "Mom Mobile"
+msgstr "Mamă mobilă"
+
+#: sundayschool/SundaySchoolClassListExport.php:61
+msgid "Mom Email"
+msgstr "Mama Email"
+
+#: sundayschool/SundaySchoolClassListExport.php:62
+msgid "Properties"
+msgstr "Proprietăți"
 
 #: v2/routes/calendar/calendar.php:43
 msgid "Church Calendar"
@@ -9883,14 +9884,14 @@ msgid "Pastoral care list of members for"
 msgstr "Lista de membri pentru îngrijire pastorală pentru"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "Perioada de la"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
@@ -9913,7 +9914,7 @@ msgid "Pastoral care members list by classification"
 msgstr "Lista membrilor de îngrijire pastorală pe categorii"
 
 #: v2/routes/people/familylist.php:158
-#: v2/templates/dashboard/maindashboard.php:33
+#: v2/templates/dashboard/maindashboard.php:82
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10246,158 +10247,182 @@ msgstr "Coșul dumneavoastră conține"
 msgid "persons from"
 msgstr "persoane din"
 
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:40
+msgid "Loading in progress"
+msgstr "Încărcare în curs"
+
+#: v2/templates/dashboard/maindashboard.php:45
+msgid "Loading datas for the proper functioning of EcclesiaCRM"
+msgstr "Încărcarea datelor pentru buna funcționare a EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:51
+msgid "Importing data from Mailchimp"
+msgstr "Importarea datelor din Mailchimp"
+
+#: v2/templates/dashboard/maindashboard.php:54
+msgid "EcclesiaCRM data integrity check"
+msgstr "Verificarea integrității datelor EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:57
+msgid ""
+"Verification of the technical data of the hosting for the proper functioning "
+"of EcclesiaCRM"
+msgstr ""
+"Verificarea datelor tehnice ale găzduirii pentru buna funcționare a "
+"EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "Vezi"
 
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "Familii"
 
-#: v2/templates/dashboard/maindashboard.php:83
+#: v2/templates/dashboard/maindashboard.php:132
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "Vezi toți oamenii"
 
-#: v2/templates/dashboard/maindashboard.php:98
+#: v2/templates/dashboard/maindashboard.php:147
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Clasele de școală duminicală"
 
-#: v2/templates/dashboard/maindashboard.php:105
-#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:176
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "Mai multe informații"
 
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:190
 msgid "message for the DPO"
 msgstr "mesaj pentru RPD"
 
-#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/dashboard/maindashboard.php:201
 msgid "person must be deleted from the CRM."
 msgstr "persoana trebuie să fie ștearsă din CRM."
 
-#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:203
 msgid "persons must be deleted from the CRM."
 msgstr "persoanele trebuie să fie șterse din CRM."
 
-#: v2/templates/dashboard/maindashboard.php:159
-#: v2/templates/dashboard/maindashboard.php:184
+#: v2/templates/dashboard/maindashboard.php:208
+#: v2/templates/dashboard/maindashboard.php:233
 msgid "Click the"
 msgstr "Faceți clic pe butonul"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 msgid "link"
 msgstr "link"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "pentru a rezolva problema."
 
-#: v2/templates/dashboard/maindashboard.php:165
+#: v2/templates/dashboard/maindashboard.php:214
 msgid "No Person to remove in the CRM."
 msgstr "Nu există nicio persoană care să fie eliminată din CRM."
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:226
 msgid "family must be deleted from the CRM."
 msgstr "familia trebuie să fie ștearsă din CRM."
 
-#: v2/templates/dashboard/maindashboard.php:179
+#: v2/templates/dashboard/maindashboard.php:228
 msgid "families must be deleted from the CRM."
 msgstr "familiile trebuie să fie șterse din CRM."
 
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:239
 msgid "No Family to remove in the CRM."
 msgstr "Nu este nevoie să eliminați Familia în CRM."
 
-#: v2/templates/dashboard/maindashboard.php:286
+#: v2/templates/dashboard/maindashboard.php:335
 msgid "Birthdates of the day"
 msgstr "Datele de naștere ale zilei"
 
-#: v2/templates/dashboard/maindashboard.php:300
+#: v2/templates/dashboard/maindashboard.php:349
 msgid "Anniversaries of the day"
 msgstr "Aniversările zilei"
 
-#: v2/templates/dashboard/maindashboard.php:347
+#: v2/templates/dashboard/maindashboard.php:396
 msgid "Unclassified birthdates"
 msgstr "Date de naștere neclasificate"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Latest"
 msgstr "Cele mai recente"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Individual Pastoral Care"
 msgstr "Îngrijire pastorală individuală"
 
-#: v2/templates/dashboard/maindashboard.php:489
+#: v2/templates/dashboard/maindashboard.php:539
 msgid "Statistics"
 msgstr "Statistici"
 
-#: v2/templates/dashboard/maindashboard.php:495
+#: v2/templates/dashboard/maindashboard.php:545
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 msgid "Persons not reached"
 msgstr "Persoane neatinse"
 
-#: v2/templates/dashboard/maindashboard.php:499
+#: v2/templates/dashboard/maindashboard.php:549
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Families not reached"
 msgstr "Familii neatinse"
 
-#: v2/templates/dashboard/maindashboard.php:503
+#: v2/templates/dashboard/maindashboard.php:553
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:190
 msgid "Single Persons not reached"
 msgstr "Persoane singure neatinse"
 
-#: v2/templates/dashboard/maindashboard.php:507
+#: v2/templates/dashboard/maindashboard.php:557
 msgid "Retired Persons not reached"
 msgstr "Pensionari Persoane neatinse"
 
-#: v2/templates/dashboard/maindashboard.php:511
+#: v2/templates/dashboard/maindashboard.php:561
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 msgid "Young People"
 msgstr "Tinerii"
 
-#: v2/templates/dashboard/maindashboard.php:514
+#: v2/templates/dashboard/maindashboard.php:564
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:219
 msgid "Young People not reached"
 msgstr "Tineri neatinși"
 
-#: v2/templates/dashboard/maindashboard.php:520
+#: v2/templates/dashboard/maindashboard.php:570
 msgid "Visit/Call your church members"
 msgstr "Vizitați / sunați membrii bisericii dvs."
 
-#: v2/templates/dashboard/maindashboard.php:521
+#: v2/templates/dashboard/maindashboard.php:571
 msgid "Manage Pastoral Care"
 msgstr "Gestionați îngrijirea pastorală"
 
-#: v2/templates/dashboard/maindashboard.php:538
+#: v2/templates/dashboard/maindashboard.php:588
 msgid "Deposit Tracking"
 msgstr "Urmărirea depozitelor"
 
-#: v2/templates/dashboard/maindashboard.php:563
+#: v2/templates/dashboard/maindashboard.php:614
 msgid "Latest Families"
 msgstr "Cele mai recente familii"
 
-#: v2/templates/dashboard/maindashboard.php:571
+#: v2/templates/dashboard/maindashboard.php:623
 msgid "Updated Families"
 msgstr "Familii actualizate"
 
-#: v2/templates/dashboard/maindashboard.php:621
+#: v2/templates/dashboard/maindashboard.php:676
 msgid "Latest Members"
 msgstr "Ultimii membri"
 
-#: v2/templates/dashboard/maindashboard.php:628
+#: v2/templates/dashboard/maindashboard.php:683
 msgid "Updated Members"
 msgstr "Membrii actualizați"
 
@@ -10532,11 +10557,11 @@ msgstr "Ștergeți toți abonații"
 msgid "Modify Properties"
 msgstr "Modificarea proprietăților"
 
-#: v2/templates/email/mailchimp/managelist.php:72
+#: v2/templates/email/mailchimp/managelist.php:65
 msgid "Subscribers"
 msgstr "Abonați"
 
-#: v2/templates/email/mailchimp/managelist.php:76
+#: v2/templates/email/mailchimp/managelist.php:69
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
@@ -10545,51 +10570,51 @@ msgstr ""
 "<b>NewLetter</b> în câmpul de căutare, pentru a adăuga toți membrii CRM, "
 "utilizați <b>*</b>."
 
-#: v2/templates/email/mailchimp/managelist.php:80
+#: v2/templates/email/mailchimp/managelist.php:73
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Creșterea acestei valori este instabilă cu MailChimp API."
 
-#: v2/templates/email/mailchimp/managelist.php:105
+#: v2/templates/email/mailchimp/managelist.php:98
 msgid "Sub/Unsubscribe"
 msgstr "Abonare/Dezabonare"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:106
 msgid "Subscribed"
 msgstr "Abonat"
 
-#: v2/templates/email/mailchimp/managelist.php:116
+#: v2/templates/email/mailchimp/managelist.php:109
 msgid "Unsubscribed"
 msgstr "Dezabonat"
 
-#: v2/templates/email/mailchimp/managelist.php:124
+#: v2/templates/email/mailchimp/managelist.php:117
 msgid "Add/Remove Tag"
 msgstr "Adăugare/eliminare etichetă"
 
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 msgid "Keywords"
 msgstr "Cuvinte cheie"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:158
 msgid "is not configured"
 msgstr "nu este configurat"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "Please update the"
 msgstr "Vă rugăm să actualizați"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "API key in Setting->"
 msgstr "Cheia API în Setting->"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "then update"
 msgstr "apoi actualizați"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "For more info see our "
 msgstr "Pentru mai multe informații, consultați pagina noastră"
 
-#: v2/templates/email/mailchimp/managelist.php:165
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "support docs."
 msgstr "documente de suport."
 
@@ -10816,9 +10841,9 @@ msgstr "Insigne de grup"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:66
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 msgid "Appointment"
 msgstr "Programare"
@@ -11026,6 +11051,18 @@ msgstr "Numele camerei"
 msgid "First create a Jitsi room with the button above !"
 msgstr "Mai întâi creați o cameră Jitsi cu butonul de mai sus !"
 
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
+msgid "Filter by member types"
+msgstr "Filtrare după tipurile de membri"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
+msgid "All persons"
+msgstr "Toate persoanele"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
+msgid "Only the visited/called persons"
+msgstr "Numai persoanele vizitate/apelate"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
 msgstr "Vizită/apel aleatoriu"
@@ -11111,18 +11148,6 @@ msgstr "Întoarceți-vă la tabloul de bord PastoralCare"
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Return To PastoralCare Members List"
 msgstr "Înapoi la lista membrilor PastoralCare"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
-msgid "Filter by member types"
-msgstr "Filtrare după tipurile de membri"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
-msgid "All persons"
-msgstr "Toate persoanele"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
-msgid "Only the visited/called persons"
-msgstr "Numai persoanele vizitate/apelate"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:246
 msgid "Return To Person View"
@@ -11752,222 +11777,6 @@ msgstr "Nu se poate modifica"
 msgid "Management"
 msgstr "Management"
 
-#: queryparameteroptions_qpo.php:5
-msgid "Zip Code"
-msgstr "Cod poștal"
-
-#: queryparameteroptions_qpo.php:9
-msgid "2012/2013"
-msgstr "2012/2013"
-
-#: queryparameteroptions_qpo.php:10
-msgid "2013/2014"
-msgstr "2013/2014"
-
-#: queryparameteroptions_qpo.php:11
-msgid "2014/2015"
-msgstr "2014/2015"
-
-#: queryparameteroptions_qpo.php:12
-msgid "2015/2016"
-msgstr "2015/2016"
-
-#: queryparameteroptions_qpo.php:14
-msgid "WorkEmail"
-msgstr "WorkEmail"
-
-#: queryparameteroptions_qpo.php:16
-msgid "Regular Attender"
-msgstr "Participant regulat"
-
-#: queryparameteroptions_qpo.php:17
-msgid "Guest"
-msgstr "Invitat"
-
-#: queryparameteroptions_qpo.php:18
-msgid "Non-Attender"
-msgstr "Neparticipant"
-
-#: queryparameteroptions_qpo.php:19
-msgid "Non-Attender (staff)"
-msgstr "Neparticipant (personal)"
-
-#: queryparameters_qrp.php:2
-msgid "Minimum Age"
-msgstr "Vârsta minimă"
-
-#: queryparameters_qrp.php:3
-msgid "Maximum Age"
-msgstr "Vârsta maximă"
-
-#: queryparameters_qrp.php:7
-msgid "Beginning Date"
-msgstr "Data de începere"
-
-#: queryparameters_qrp.php:8
-msgid "Ending Date"
-msgstr "Data de încheiere"
-
-#: queryparameters_qrp.php:10
-msgid "Field"
-msgstr "Domeniul"
-
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
-msgid "Registered students"
-msgstr "Studenți înregistrați"
-
-#: queryparameters_qrp.php:14
-msgid "Volunteer opportunities"
-msgstr "Oportunități de voluntariat"
-
-#: queryparameters_qrp.php:15
-msgid "Months"
-msgstr "Luni"
-
-#: queryparameters_qrp.php:16
-msgid "First Fiscal Year"
-msgstr "Primul an fiscal"
-
-#: queryparameters_qrp.php:17
-msgid "Second Fiscal Year"
-msgstr "Al doilea an fiscal"
-
-#: queryparameters_qrp.php:21
-msgid "Custom field"
-msgstr "Câmp personalizat"
-
-#: queryparameters_qrp.php:22
-msgid "Field value"
-msgstr "Valoarea câmpului"
-
-#: queryparameters_qrp.php:23
-msgid "The minimum age for which you want records returned."
-msgstr "Vârsta minimă pentru care doriți să fie returnate înregistrările."
-
-#: queryparameters_qrp.php:24
-msgid "The maximum age for which you want records returned."
-msgstr "Vârsta maximă pentru care doriți să fie returnate înregistrările."
-
-#: queryparameters_qrp.php:25
-msgid "The desired gender to search the database for."
-msgstr "Sexul pe care se dorește să-l caute în baza de date."
-
-#: queryparameters_qrp.php:26
-msgid "Select the desired family role."
-msgstr "Selectați rolul de familie dorit."
-
-#: queryparameters_qrp.php:27
-msgid "The gender for which you would like records returned."
-msgstr "Sexul pentru care doriți să primiți înregistrări."
-
-#: queryparameters_qrp.php:28
-msgid "The property for which you would like person records returned."
-msgstr ""
-"Proprietatea pentru care doriți să vi se returneze înregistrările personale."
-
-#: queryparameters_qrp.php:29
-msgid ""
-"Please select the beginning date to calculate total contributions for each "
-"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
-"donations."
-msgstr ""
-"Vă rugăm să selectați data de început pentru a calcula contribuțiile totale "
-"pentru fiecare membru (de exemplu, AAAA-MM-DD). NOTĂ: Puteți alege doar "
-"datele care conteaza pentru donații."
-
-#: queryparameters_qrp.php:30
-msgid ""
-"Please enter the last date to calculate total contributions for each member "
-"(i.e. YYYY-MM-DD)."
-msgstr ""
-"Vă rugăm să introduceți ultima dată la care se calculează contribuțiile "
-"totale pentru fiecare membru (de exemplu, AAAA-MM-DD)."
-
-#: queryparameters_qrp.php:31
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-"Introduceți orice parte din următoarele: Nume, oraș, stat, cod poștal, "
-"telefon acasă, e-mail sau e-mail de serviciu."
-
-#: queryparameters_qrp.php:32
-msgid "Select field to search for."
-msgstr "Selectați câmpul de căutat."
-
-#: queryparameters_qrp.php:33
-msgid "The birthday month for which you would like records returned."
-msgstr "Luna de naștere pentru care doriți să primiți înregistrări."
-
-#: queryparameters_qrp.php:34
-msgid "The sunday school class for which you would like records returned."
-msgstr "Clasa de școală duminicală pentru care doriți să primiți dosarele."
-
-#: queryparameters_qrp.php:35
-msgid "Group of registered students"
-msgstr "Grupul de studenți înregistrați"
-
-#: queryparameters_qrp.php:36
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr ""
-"Luna de aniversare a calității de membru pentru care doriți să primiți "
-"înregistrările."
-
-#: queryparameters_qrp.php:37
-msgid "Choose a volunteer opportunity"
-msgstr "Alegeți o oportunitate de voluntariat"
-
-#: queryparameters_qrp.php:38
-msgid "Number of months since becoming a friend"
-msgstr "Numărul de luni de când ați devenit prieten"
-
-#: queryparameters_qrp.php:39
-msgid "First fiscal year for comparison"
-msgstr "Primul exercițiu financiar pentru comparație"
-
-#: queryparameters_qrp.php:40
-msgid "Second fiscal year for comparison"
-msgstr "Al doilea an fiscal pentru comparație"
-
-#: queryparameters_qrp.php:41
-msgid "Pledged this year"
-msgstr "Promiși în acest an"
-
-#: queryparameters_qrp.php:42
-msgid "but not this year"
-msgstr "dar nu în acest an"
-
-#: queryparameters_qrp.php:43
-msgid "Fiscal Year."
-msgstr "Anul fiscal."
-
-#: queryparameters_qrp.php:44
-msgid "Member, Regular Attender, etc."
-msgstr "Membru, participant regulat etc."
-
-#: queryparameters_qrp.php:45
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
-"Obțineți toate persoanele care s-au născut înainte de anul pe care l-ați "
-"menționat."
-
-#: queryparameters_qrp.php:46
-msgid "First volunteer opportunity choice"
-msgstr "Alegerea primei oportunități de voluntariat"
-
-#: queryparameters_qrp.php:47
-msgid "Second volunteer opportunity choice"
-msgstr "A doua opțiune de voluntariat"
-
-#: queryparameters_qrp.php:48
-msgid "Choose customer person field"
-msgstr "Alegeți câmpul persoană client"
-
-#: queryparameters_qrp.php:49
-msgid "Match custom field to this value"
-msgstr "Potrivește câmpul personalizat cu această valoare"
-
 #: query_qry.php:2 query_qry.php:47
 msgid "Family With Work Phone"
 msgstr "Familie cu telefon de serviciu"
@@ -11995,6 +11804,10 @@ msgstr "Persoană prin proprietate"
 #: query_qry.php:9 query_qry.php:54
 msgid "Birthdays"
 msgstr "Aniversări"
+
+#: query_qry.php:10 query_qry.php:55 queryparameters_qrp.php:13
+msgid "Registered students"
+msgstr "Studenți înregistrați"
 
 #: query_qry.php:11 query_qry.php:56
 msgid "Membership anniversaries"
@@ -12150,6 +11963,218 @@ msgstr ""
 #: query_qry.php:46 query_qry.php:91
 msgid "Find people with a custom field value"
 msgstr "Găsiți persoane cu o valoare de câmp personalizat"
+
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr "Cod poștal"
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr "2012/2013"
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr "2013/2014"
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr "2014/2015"
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr "2015/2016"
+
+#: queryparameteroptions_qpo.php:14
+msgid "WorkEmail"
+msgstr "WorkEmail"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr "Participant regulat"
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr "Invitat"
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr "Neparticipant"
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr "Neparticipant (personal)"
+
+#: queryparameters_qrp.php:2
+msgid "Minimum Age"
+msgstr "Vârsta minimă"
+
+#: queryparameters_qrp.php:3
+msgid "Maximum Age"
+msgstr "Vârsta maximă"
+
+#: queryparameters_qrp.php:7
+msgid "Beginning Date"
+msgstr "Data de începere"
+
+#: queryparameters_qrp.php:8
+msgid "Ending Date"
+msgstr "Data de încheiere"
+
+#: queryparameters_qrp.php:10
+msgid "Field"
+msgstr "Domeniul"
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr "Oportunități de voluntariat"
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr "Luni"
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr "Primul an fiscal"
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr "Al doilea an fiscal"
+
+#: queryparameters_qrp.php:21
+msgid "Custom field"
+msgstr "Câmp personalizat"
+
+#: queryparameters_qrp.php:22
+msgid "Field value"
+msgstr "Valoarea câmpului"
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr "Vârsta minimă pentru care doriți să fie returnate înregistrările."
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr "Vârsta maximă pentru care doriți să fie returnate înregistrările."
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr "Sexul pe care se dorește să-l caute în baza de date."
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr "Selectați rolul de familie dorit."
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr "Sexul pentru care doriți să primiți înregistrări."
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr ""
+"Proprietatea pentru care doriți să vi se returneze înregistrările personale."
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+"Vă rugăm să selectați data de început pentru a calcula contribuțiile totale "
+"pentru fiecare membru (de exemplu, AAAA-MM-DD). NOTĂ: Puteți alege doar "
+"datele care conteaza pentru donații."
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+"Vă rugăm să introduceți ultima dată la care se calculează contribuțiile "
+"totale pentru fiecare membru (de exemplu, AAAA-MM-DD)."
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+"Introduceți orice parte din următoarele: Nume, oraș, stat, cod poștal, "
+"telefon acasă, e-mail sau e-mail de serviciu."
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr "Selectați câmpul de căutat."
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr "Luna de naștere pentru care doriți să primiți înregistrări."
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr "Clasa de școală duminicală pentru care doriți să primiți dosarele."
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr "Grupul de studenți înregistrați"
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr ""
+"Luna de aniversare a calității de membru pentru care doriți să primiți "
+"înregistrările."
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr "Alegeți o oportunitate de voluntariat"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr "Numărul de luni de când ați devenit prieten"
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr "Primul exercițiu financiar pentru comparație"
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr "Al doilea an fiscal pentru comparație"
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr "Promiși în acest an"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr "dar nu în acest an"
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr "Anul fiscal."
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr "Membru, participant regulat etc."
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+"Obțineți toate persoanele care s-au născut înainte de anul pe care l-ați "
+"menționat."
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr "Alegerea primei oportunități de voluntariat"
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr "A doua opțiune de voluntariat"
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr "Alegeți câmpul persoană client"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr "Potrivește câmpul personalizat cu această valoare"
 
 #: settings-locales.php:2
 msgid "Albanian"

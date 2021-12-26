@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 10:29+0000\n"
+"POT-Creation-Date: 2021-12-26 17:10+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,19 +38,19 @@ msgstr "Person"
 #: ConvertIndividualToAddress.php:61 ConvertIndividualToAddress.php:129
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
-#: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:217
-#: external/templates/registration/family-register-done.php:27
+#: EcclesiaCRM/Service/TimelineService.php:212
+#: EcclesiaCRM/dto/ReportUtilities.php:71 ElectronicPaymentList.php:217
 #: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
-#: members/404.php:16 PersonView.php:905 PledgeEditor.php:588
-#: PrintPastoralCarePerson.php:325 PrintView.php:336
-#: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: v2/routes/sidebar/propertylist.php:36
-#: v2/templates/dashboard/maindashboard.php:456
+#: PersonView.php:905 PledgeEditor.php:588 PrintPastoralCarePerson.php:325
+#: PrintView.php:336 Reports/GDPR/GDPRDataStructureExport.php:123
+#: Reports/PDFLabel.php:174
+#: external/templates/registration/family-register-done.php:27
+#: members/404.php:16 v2/routes/sidebar/propertylist.php:36
+#: v2/templates/dashboard/maindashboard.php:506
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:25
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:32
@@ -79,14 +79,14 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:155
 #: EcclesiaCRM/APIControllers/SearchController.php:163
 #: EcclesiaCRM/APIControllers/SearchController.php:168
-#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:204 EcclesiaCRM/MenuBar/MenuBar.php:276
+#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
-#: eGive.php:345 FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:104 PersonEditor.php:1027 PersonEditor.php:1047
-#: PersonEditor.php:1637 PrintPastoralCarePerson.php:332
-#: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
-#: SelectDelete.php:243 SystemSettings.php:232 v2/routes/group/groups.php:68
+#: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
+#: PersonEditor.php:1027 PersonEditor.php:1047 PersonEditor.php:1637
+#: PrintPastoralCarePerson.php:332 PrintPastoralCarePerson.php:345
+#: PrintView.php:343 PrintView.php:356 SelectDelete.php:243
+#: SystemSettings.php:232 eGive.php:345 v2/routes/group/groups.php:68
 #: v2/templates/fundraiser/donatedItemEditor.php:43
 #: v2/templates/fundraiser/donatedItemEditor.php:97
 #: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
@@ -152,8 +152,8 @@ msgstr "Fond"
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
-#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:427
-#: v2/templates/dashboard/maindashboard.php:482
+#: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
+#: v2/templates/dashboard/maindashboard.php:532
 #: v2/templates/group/groupbadge.php:126
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
@@ -164,10 +164,10 @@ msgid "inactive"
 msgstr "inaktiv"
 
 #: AutoPaymentEditor.php:908 CSVExport.php:76 CSVImport.php:235
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: external/templates/registration/family-register-members.php:76
-#: external/templates/verify/enter-info.php:21 PersonEditor.php:904
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80 PersonEditor.php:904
 #: Reports/MemberEmailExport.php:20
+#: external/templates/registration/family-register-members.php:76
+#: external/templates/verify/enter-info.php:21
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -176,58 +176,59 @@ msgid "First Name"
 msgstr "Förnamn"
 
 #: AutoPaymentEditor.php:916 CSVExport.php:66 CSVImport.php:237
+#: ManageEnvelopes.php:171 PersonEditor.php:926
+#: Reports/MemberEmailExport.php:21
 #: external/templates/registration/family-register-members.php:81
-#: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:171
-#: PersonEditor.php:926 Reports/MemberEmailExport.php:21
+#: external/templates/verify/enter-info.php:25
 #: sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:259
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CartToFamily.php:346
-#: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
-#: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
+#: AutoPaymentEditor.php:924 AutoPaymentEditor.php:932 CSVExport.php:92
+#: CSVExport.php:98 CSVImport.php:241 CSVImport.php:242 CartToFamily.php:346
+#: CartToFamily.php:356 DirectoryReports.php:196 DirectoryReports.php:289
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:156
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
-#: external/templates/registration/family-register-done.php:28
-#: external/templates/registration/family-register.php:47 FamilyEditor.php:734
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:295 GeoPage.php:374 GroupReports.php:148
 #: PersonEditor.php:1087 PersonEditor.php:1093 PersonEditor.php:1227
 #: PersonEditor.php:1251 PersonView.php:566 Reports/PDFLabel.php:859
-#: v2/templates/dashboard/maindashboard.php:585
-#: v2/templates/dashboard/maindashboard.php:599
-#: v2/templates/dashboard/maindashboard.php:642
-#: v2/templates/dashboard/maindashboard.php:657
+#: external/templates/registration/family-register-done.php:28
+#: external/templates/registration/family-register.php:47
+#: v2/templates/dashboard/maindashboard.php:638
+#: v2/templates/dashboard/maindashboard.php:654
+#: v2/templates/dashboard/maindashboard.php:698
+#: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "Adress"
 
-#: AutoPaymentEditor.php:940 CartToFamily.php:366 CSVExport.php:103
-#: CSVImport.php:243 DirectoryReports.php:294
-#: external/templates/registration/family-register.php:58 FamilyEditor.php:746
+#: AutoPaymentEditor.php:940 CSVExport.php:103 CSVImport.php:243
+#: CartToFamily.php:366 DirectoryReports.php:294 FamilyEditor.php:746
 #: PersonEditor.php:1099 PersonEditor.php:1275 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:58
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Staden"
 
-#: AutoPaymentEditor.php:948 CartToFamily.php:375 CSVExport.php:108
-#: CSVImport.php:244 DirectoryReports.php:300
-#: external/templates/registration/family-register.php:62 FamilyEditor.php:755
+#: AutoPaymentEditor.php:948 CSVExport.php:108 CSVImport.php:244
+#: CartToFamily.php:375 DirectoryReports.php:300 FamilyEditor.php:755
 #: PersonEditor.php:1108 PersonEditor.php:1303 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:62
 #: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Stat"
 
-#: AutoPaymentEditor.php:956 CartToFamily.php:393 CSVExport.php:115
-#: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:73
-#: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
+#: AutoPaymentEditor.php:956 CSVExport.php:115 CSVImport.php:245
+#: CartToFamily.php:393 DirectoryReports.php:306 FamilyEditor.php:769
 #: PersonEditor.php:1123 PersonEditor.php:1337 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:73
+#: external/templates/verify/enter-info.php:29
 msgid "Zip"
 msgstr "Zip"
 
-#: AutoPaymentEditor.php:964 CartToFamily.php:402 CSVExport.php:125
-#: CSVImport.php:246 FamilyEditor.php:779 PersonEditor.php:1133
+#: AutoPaymentEditor.php:964 CSVExport.php:125 CSVImport.php:246
+#: CartToFamily.php:402 FamilyEditor.php:779 PersonEditor.php:1133
 #: PersonEditor.php:1367
 msgid "Country"
 msgstr "Land"
@@ -236,32 +237,32 @@ msgstr "Land"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
 #: EcclesiaCRM/Reports/PDF_Directory.php:325
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
-#: EcclesiaCRM/Reports/PDF_Directory.php:456
+#: EcclesiaCRM/Reports/PDF_Directory.php:456 Reports/DirectoryReport.php:317
+#: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
+#: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:114
-#: Reports/DirectoryReport.php:317 Reports/FundRaiserStatement.php:127
-#: Reports/FundRaiserStatement.php:171 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Telefon"
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:343
+#: AutoPaymentEditor.php:980 CSVExport.php:148 CSVImport.php:250
+#: CartToFamily.php:453 EcclesiaCRM/MenuBar/MenuBar.php:343
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:77
-#: EventAttendance.php:206
+#: EventAttendance.php:206 FamilyEditor.php:861 FamilyView.php:376
+#: FamilyView.php:459 FamilyView.php:551 GroupReports.php:152
+#: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:637
+#: PersonView.php:765 PersonView.php:1125 PrintPastoralCarePerson.php:385
+#: PrintView.php:396 Reports/CanvassReports.php:281
+#: Reports/ConfirmReport.php:230 Reports/ConfirmReport.php:250
+#: Reports/DirectoryReport.php:328 Reports/FundRaiserStatement.php:128
+#: Reports/FundRaiserStatement.php:172 Reports/GroupReport.php:138
+#: Reports/MemberEmailExport.php:22
 #: external/templates/registration/family-register-members.php:88
 #: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:376 FamilyView.php:459 FamilyView.php:551
-#: GroupReports.php:152 PersonEditor.php:1511 PersonEditor.php:1515
-#: PersonView.php:637 PersonView.php:765 PersonView.php:1125
-#: PrintPastoralCarePerson.php:385 PrintView.php:396
-#: Reports/CanvassReports.php:281 Reports/ConfirmReport.php:230
-#: Reports/ConfirmReport.php:250 Reports/DirectoryReport.php:328
-#: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
-#: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
+#: external/templates/verify/verify-family-info.php:100
 #: v2/templates/pastoralcare/pastoralcarefamily.php:115
 #: v2/templates/pastoralcare/pastoralcareperson.php:117
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
@@ -321,13 +322,14 @@ msgstr "Spara"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:376 DirectoryReports.php:339 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1805 PersonView.php:1964
-#: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:908
-#: UserEditor.php:1062 v2/templates/fundraiser/donatedItemEditor.php:178
+#: FamilyEditor.php:1297 FamilyView.php:1091 FinancialReports.php:92
+#: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
+#: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1805
+#: PersonView.php:1964 PledgeEditor.php:800 ReminderReport.php:55
+#: SettingsIndividual.php:141 SettingsIndividual.php:407 TaxReport.php:53
+#: UserEditor.php:908 UserEditor.php:1062
+#: external/templates/verify/verify-family-info.php:188
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -359,47 +361,479 @@ msgstr "Pris"
 msgid "Enter Winners"
 msgstr "Ange vinnare"
 
-#: browser/browse.php:31
-msgid "File Manager"
-msgstr "Filhanterare"
+#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
+msgid "CSV Export"
+msgstr "CSV-export"
 
-#: browser/browse.php:43 PersonView.php:1845
-msgid "Upload a file in EDrive"
-msgstr "Ladda upp en fil i EDrive"
+#: CSVExport.php:61
+msgid "Field Selection"
+msgstr "Val av fält"
 
-#: browser/browse.php:50
-msgid "Download"
-msgstr "Ladda ner"
+#: CSVExport.php:67
+msgid "Required"
+msgstr "Krävs"
 
-#: browser/browse.php:58 PersonView.php:1857
-msgid "Create a Folder"
-msgstr "Skapa en mapp"
+#: CSVExport.php:71 CSVImport.php:234 CartToBadge.php:59 CartToBadge.php:62
+#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
+#: Reports/GDPR/GDPRListExport.php:66
+#: v2/templates/email/mailchimp/dashboard.php:21
+#: v2/templates/fundraiser/donatedItemEditor.php:60
+msgid "Title"
+msgstr "Titel"
 
-#: browser/browse.php:66 EditEventAttendees.php:120
-#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
-#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
-#: FindDepositSlip.php:131 ListEvents.php:379 PersonView.php:1866
-#: PersonView.php:1965 v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/email/mailchimp/managelist.php:100
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcarefamily.php:219
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:225
-msgid "Delete"
-msgstr "Ta bort"
+#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
+msgid "Middle Name"
+msgstr "Mellannamn"
 
-#: browser/browse.php:75 PersonView.php:1876
-msgid "Up One Level"
-msgstr "En nivå upp"
+#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
+#: PersonEditor.php:937
+msgid "Suffix"
+msgstr "Suffix"
 
-#: browser/browse.php:82 PersonView.php:1885
-msgid "Actualize files"
-msgstr "Aktualisera filer"
+#: CSVExport.php:120
+msgid "Envelope"
+msgstr "Kuvert"
 
-#: browser/browse.php:99 PersonView.php:1903
-msgid "Preview"
-msgstr "Förhandsgranska"
+#: CSVExport.php:132 CSVImport.php:247 CartToFamily.php:411
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
+#: EditEventAttendees.php:79 EventAttendance.php:207 FamilyEditor.php:819
+#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
+#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
+#: PrintView.php:268 Reports/ConfirmReport.php:168
+#: external/templates/registration/family-register-done.php:29
+#: external/templates/registration/family-register.php:85
+#: external/templates/verify/verify-family-info.php:36
+#: external/templates/verify/verify-family-info.php:85
+#: sundayschool/SundaySchoolClassListExport.php:54
+#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
+#: queryparameteroptions_qpo.php:8
+msgid "Home Phone"
+msgstr "Hemtelefon"
+
+#: CSVExport.php:137 CSVImport.php:248 CartToFamily.php:425
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283 FamilyEditor.php:832
+#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
+#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
+#: PrintView.php:273 Reports/ConfirmReport.php:288
+#: external/templates/verify/verify-family-info.php:90
+msgid "Work Phone"
+msgstr "Arbetstelefon"
+
+#: CSVExport.php:142 CartToFamily.php:439 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
+#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
+#: PrintView.php:278 external/templates/verify/verify-family-info.php:95
+msgid "Mobile Phone"
+msgstr "Mobiltelefon"
+
+#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
+#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
+#: Reports/DirectoryReport.php:331
+msgid "Work/Other Email"
+msgstr "Arbete/annan e-post"
+
+#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
+#: PrintPastoralCarePerson.php:395 PrintView.php:406
+msgid "Membership Date"
+msgstr "Medlemskap Datum"
+
+#: CSVExport.php:165
+msgid "Birth / Anniversary Date"
+msgstr "Födelsedatum / årsdag"
+
+#: CSVExport.php:170
+msgid "Age / Years Married"
+msgstr "Ålder / Antal år som gift"
+
+#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
+#: EcclesiaCRM/APIControllers/SearchController.php:189
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
+#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
+#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcareMembersList.php:22
+#: v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "Klassificering"
+
+#: CSVExport.php:180 CSVExport.php:325
+#: EcclesiaCRM/APIControllers/SearchController.php:190
+#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
+#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
+#: queryparameters_qrp.php:5
+msgid "Family Role"
+msgstr "Familjens roll"
+
+#: CSVExport.php:183
+msgid "Depends whether using person or family output method"
+msgstr "Beror på om man använder person- eller familjeutgångsmetoden"
+
+#: CSVExport.php:196
+msgid "Custom Field Selection"
+msgstr "Val av anpassade fält"
+
+#: CSVExport.php:204
+msgid "Custom Person Fields"
+msgstr "Anpassade personfält"
+
+#: CSVExport.php:229
+msgid "Custom Family Fields"
+msgstr "Anpassade familjefält"
+
+#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
+#: v2/templates/calendar/calendar.php:28
+#: v2/templates/fundraiser/findFundRaiser.php:18
+#: v2/templates/pastoralcare/pastoralcarefamily.php:91
+#: v2/templates/pastoralcare/pastoralcareperson.php:91
+#: v2/templates/people/peoplelist.php:28
+msgid "Filters"
+msgstr "Filter"
+
+#: CSVExport.php:260
+msgid "Ignored if you come from the CartView"
+msgstr "Ignoreras om du kommer från CartView"
+
+#: CSVExport.php:274
+msgid "Records to export"
+msgstr "Uppgifter som ska exporteras"
+
+#: CSVExport.php:286
+msgid "Based on filters below.."
+msgstr "Baserat på filtren nedan.."
+
+#: CSVExport.php:289
+msgid "People in Cart (filters ignored)"
+msgstr "Personer i varukorgen (filter ignoreras)"
+
+#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
+#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
+#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
+msgid "Use Ctrl Key to select multiple"
+msgstr "Använd Ctrl-tangenten för att välja flera"
+
+#: CSVExport.php:355 CSVImport.php:239
+#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
+#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
+#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
+#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
+msgid "Gender"
+msgstr "Genus"
+
+#: CSVExport.php:367
+msgid "Don't Filter"
+msgstr "Filtrera inte"
+
+#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
+#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:66
+#: queryparameteroptions_qpo.php:2
+msgid "Male"
+msgstr "Man"
+
+#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:320
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
+#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
+#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
+#: external/templates/registration/family-register-members.php:67
+#: queryparameteroptions_qpo.php:3
+msgid "Female"
+msgstr "Kvinna"
+
+#: CSVExport.php:377 DirectoryReports.php:113
+msgid "Group Membership"
+msgstr "Gruppens medlemskap"
+
+#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
+msgid "From:"
+msgstr "Från:"
+
+#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
+msgid "To:"
+msgstr "Till:"
+
+#: CSVExport.php:438
+msgid "Birthday Date"
+msgstr "Födelsedag Datum"
+
+#: CSVExport.php:471
+msgid "Anniversary Date:"
+msgstr "Datum för årsdagen:"
+
+#: CSVExport.php:504
+msgid "Date Entered:"
+msgstr "Datum för införande:"
+
+#: CSVExport.php:540 FinancialReports.php:472
+msgid "Output Method:"
+msgstr "Utmatningsmetod:"
+
+#: CSVExport.php:546
+msgid "CSV Individual Records"
+msgstr "CSV enskilda poster"
+
+#: CSVExport.php:547
+msgid "CSV Combine Families"
+msgstr "CSV Kombinera familjer"
+
+#: CSVExport.php:548
+msgid "Add Individuals to Cart"
+msgstr "Lägg till individer i varukorgen"
+
+#: CSVExport.php:552
+msgid "Skip records with incomplete mail address"
+msgstr "Hoppa över poster med ofullständig postadress"
+
+#: CSVExport.php:559
+msgid "Create File"
+msgstr "Skapa en fil"
+
+#: CSVImport.php:121 Include/Footer.php:253
+msgid "CSV Import"
+msgstr "CSV-import"
+
+#: CSVImport.php:126
+msgid "Import Data"
+msgstr "Importera data"
+
+#: CSVImport.php:149
+msgid "No file selected for upload."
+msgstr "Ingen fil har valts för uppladdning."
+
+#: CSVImport.php:176
+msgid "Total number of rows in the CSV file:"
+msgstr "Totalt antal rader i CSV-filen:"
+
+#: CSVImport.php:233
+msgid "Ignore this Field"
+msgstr "Ignorera detta fält"
+
+#: CSVImport.php:240
+msgid "Donation Envelope"
+msgstr "Kuvert för donationer"
+
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
+#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
+#: v2/templates/people/personlist.php:55
+msgid "Cell Phone"
+msgstr "Mobiltelefon"
+
+#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
+#: PrintView.php:401
+msgid "Work / Other Email"
+msgstr "Arbete / annan e-post"
+
+#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
+#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
+#: v2/templates/sundayschool/sundayschooldashboard.php:260
+#: v2/templates/sundayschool/sundayschoolview.php:302
+msgid "Birth Date"
+msgstr "Födelsedatum"
+
+#: CSVImport.php:254 CartToFamily.php:312 DirectoryReports.php:197
+#: FamilyEditor.php:898 FamilyView.php:338
+#: external/templates/verify/verify-family-info.php:45
+msgid "Wedding Date"
+msgstr "Bröllopsdatum"
+
+#: CSVImport.php:266
+msgid ""
+"An error occurs when you import the CSV file. You've to select values above "
+"in the select fields."
+msgstr ""
+"Ett fel inträffar när du importerar CSV-filen. Du måste välja värden ovan i "
+"valfälten."
+
+#: CSVImport.php:275
+msgid "Scroll right to see the other columns"
+msgstr "Bläddra till höger för att se de andra kolumnerna"
+
+#: CSVImport.php:276
+msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
+msgstr "Kontrollera rätt <b>Datumformat</b> och välj det nedan !!!!!"
+
+#: CSVImport.php:277
+msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
+msgstr "<b>VIKTIGT !</b> Koppla <b>genus</b> till en kolumn."
+
+#: CSVImport.php:282
+msgid "Important Options"
+msgstr "Viktiga alternativ"
+
+#: CSVImport.php:287
+msgid "Ignore first CSV row (to exclude a header)"
+msgstr "Ignorera första CSV-raden (för att utesluta en rubrik)"
+
+#: CSVImport.php:299
+msgid "Make Family records based on last name and address"
+msgstr "Gör familjeposter baserat på efternamn och adress"
+
+#: CSVImport.php:324
+msgid "Date Format"
+msgstr "Datumformat"
+
+#: CSVImport.php:324
+msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
+msgstr ""
+"OBS: Separatorer (streck etc.) eller avsaknad av sådana spelar ingen roll."
+
+#: CSVImport.php:334
+msgid ""
+"Put all the persons in the cart, to import them in a group, sundayschool "
+"group, etc...."
+msgstr ""
+"Lägg alla personer i vagnen, för att importera dem i en grupp, "
+"söndagsskolegrupp, etc...."
+
+#: CSVImport.php:341
+msgid "Not usefull options"
+msgstr "Inte användbara alternativ"
+
+#: CSVImport.php:350
+msgid "Patriarch"
+msgstr "Patriark"
+
+#: CSVImport.php:351
+msgid "Matriarch"
+msgstr "Matriark"
+
+#: CSVImport.php:355
+msgid "Family Type: used with Make Family records... option above"
+msgstr "Familjetyp: används med alternativet Make Family records... ovan."
+
+#: CSVImport.php:371
+msgid "Default country if none specified otherwise"
+msgstr "Standardland om inget land har angetts annars"
+
+#: CSVImport.php:404
+msgid "Perform Import"
+msgstr "Utför import"
+
+#: CSVImport.php:772 CSVImport.php:850
+msgid "Imported"
+msgstr "Importerad"
+
+#: CSVImport.php:945
+msgid "ERROR: the uploaded CSV file no longer exists!"
+msgstr "FEL: den uppladdade CSV-filen finns inte längre!"
+
+#: CSVImport.php:955
+msgid "Steps to import users"
+msgstr "Steg för att importera användare"
+
+#: CSVImport.php:958
+msgid "Your CSV file should be prepared like"
+msgstr "Din CSV-fil bör vara förberedd på följande sätt"
+
+#: CSVImport.php:961
+msgid ""
+"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
+"the second one."
+msgstr ""
+"CSV-avgränsare är alltså <b>';'</b> i det första exemplet och <b>','</b> i "
+"det andra."
+
+#: CSVImport.php:964
+msgid "Don't forget the <b>gender</b> and the <b>title</b>"
+msgstr "Glöm inte <b>genus</b> och <b>titel</b>."
+
+#: CSVImport.php:965
+msgid ""
+"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
+"Title column and rename the label header to gender</b>"
+msgstr ""
+"Du kan formatera dina kolumner i Excel LibreOffice Calc och <b>dubblera "
+"kolumnen Titel och byta namn på etikettrubriken till kön</b>."
+
+#: CSVImport.php:966
+msgid ""
+"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
+"a women, girl, female</b> ..."
+msgstr ""
+"Kolumnen kön måste vara <b>1 för en man, pojke, man</b> och <b>2 för en "
+"kvinna, flicka, kvinna</b> ..."
+
+#: CSVImport.php:969
+msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
+msgstr ""
+"Förbered ditt CRM och lägg till tillräckligt många anpassade personfält, för "
+"att göra detta klickar du på"
+
+#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
+#: v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "here"
+msgstr "här"
+
+#: CSVImport.php:972
+msgid ""
+"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
+"7/1/2018"
+msgstr ""
+"Alla datum ska formateras som: 2018-7-1 eller 1/7/2018 eller 7-1-2018 eller "
+"7/1/2018."
+
+#: CSVImport.php:979
+msgid "The next step should be, if not select the other CSV seperator"
+msgstr "Nästa steg bör vara, om inte, att välja en annan CSV-separator."
+
+#: CSVImport.php:985 CSVImport.php:1023
+msgid "Upload CSV File"
+msgstr "Ladda upp CSV-fil"
+
+#: CSVImport.php:991
+msgid ""
+"<b>DON'T FORGET</b>\n"
+"              <br>• your CSV file must have a <b>Title</b> header name "
+"column (with M. Mr. Mlle. etc ...),\n"
+"              <br>• and a <b>gender</b> header name column (with 1 for a "
+"men, 2 for a women)"
+msgstr ""
+"<b>GÅNGELA INTE</b>\n"
+"              <br>- Din CSV-fil måste ha en <b>Title</b>-kolumn med namn i "
+"rubriken (med M. Mr. Mlle. etc ...),\n"
+"              <br>- och en <b>gender</b>-kolumn (med 1 för män och 2 för "
+"kvinnor)."
+
+#: CSVImport.php:996
+msgid "Select <b>NOW</b> your <b>CSV separator</b>"
+msgstr "Välj <b>NOW</b> din <b>CSV-separator</b>"
+
+#: CSVImport.php:1007
+msgid ""
+"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
+"b> ......... "
+msgstr ""
+"- Sista inställningen är korrekt för alla datum som : <b>ÅÅÅÅÅ-MM-DD eller "
+"DD/MM/ÅÅÅÅÅ</b> ........."
+
+#: CSVImport.php:1010
+msgid "This is proposed in the next step, read carefully your table."
+msgstr "Detta föreslås i nästa steg, läs noga din tabell."
+
+#: CSVImport.php:1031
+msgid "Clear Data"
+msgstr "Rensa data"
+
+#: CSVImport.php:1034
+msgid "Clear Persons and Families"
+msgstr "Clear personer och familjer"
+
+#: CSVImport.php:1041
+msgid "Data import successful."
+msgstr "Dataimporten har lyckats."
+
+#: CSVImport.php:1041
+msgid "persons were imported"
+msgstr "personer importerades"
 
 #: CanvassAutomation.php:22 ReportList.php:56
 msgid "Canvass Automation"
@@ -622,14 +1056,6 @@ msgstr "Endast PNG och JPEG hanteras faktiskt !!"
 msgid "Generate Badges"
 msgstr "Generera märken"
 
-#: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:71 CSVImport.php:234
-#: FundRaiserEditor.php:186 ListEvents.php:346 PersonEditor.php:895
-#: Reports/GDPR/GDPRListExport.php:66
-#: v2/templates/email/mailchimp/dashboard.php:21
-#: v2/templates/fundraiser/donatedItemEditor.php:60
-msgid "Title"
-msgstr "Titel"
-
 #: CartToBadge.php:67 CartToBadge.php:70
 msgid "Second Title"
 msgstr "Andra titel"
@@ -699,7 +1125,7 @@ msgid "Badge Type"
 msgstr "Typ av märke"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:65
-#: Reports/PDFBadgeGroup.php:213 Reports/PDFBadge.php:128
+#: Reports/PDFBadge.php:128 Reports/PDFBadgeGroup.php:213
 #: Reports/PDFLabel.php:793 v2/templates/group/groupbadge.php:174
 msgid "default"
 msgstr "standard"
@@ -717,7 +1143,7 @@ msgstr "Lägg till kundvagn till familjen"
 #: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
-#: v2/templates/dashboard/maindashboard.php:492
+#: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
 #: v2/templates/pastoralcare/pastoralcarefamily.php:111
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -737,10 +1163,10 @@ msgstr "Ledamöter"
 #: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
-#: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
+#: Reports/FRBidSheets.php:102 Reports/FamilyPledgeSummary.php:230
 #: Reports/FundRaiserStatement.php:125 Reports/FundRaiserStatement.php:169
-#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:641
-#: v2/templates/dashboard/maindashboard.php:656
+#: Reports/PDFLabel.php:859 v2/templates/dashboard/maindashboard.php:697
+#: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
@@ -773,20 +1199,14 @@ msgstr "Om du lägger till en ny familj, ange uppgifterna nedan."
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151
-#: external/templates/registration/family-register.php:36 FamilyEditor.php:722
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:151 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1076 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
-#: v2/templates/dashboard/maindashboard.php:584
-#: v2/templates/dashboard/maindashboard.php:598
+#: external/templates/registration/family-register.php:36
+#: v2/templates/dashboard/maindashboard.php:637
+#: v2/templates/dashboard/maindashboard.php:653
 msgid "Family Name"
 msgstr "Familjenamn"
-
-#: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
-#: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:338
-msgid "Wedding Date"
-msgstr "Bröllopsdatum"
 
 #: CartToFamily.php:324
 msgid "Use address/contact data from"
@@ -804,45 +1224,12 @@ msgstr "ELLER"
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Använd textrutan för andra länder än USA och Kanada)"
 
-#: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
-#: EditEventAttendees.php:79 EventAttendance.php:207
-#: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:85
-#: external/templates/verify/verify-family-info.php:36
-#: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:352 GroupReports.php:149 PersonEditor.php:1409
-#: PersonEditor.php:1413 PersonView.php:623 PrintPastoralCarePerson.php:257
-#: PrintView.php:268 Reports/ConfirmReport.php:168
-#: sundayschool/SundaySchoolClassListExport.php:54
-#: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
-#: queryparameteroptions_qpo.php:8
-msgid "Home Phone"
-msgstr "Hemtelefon"
-
 #: CartToFamily.php:419 CartToFamily.php:433 CartToFamily.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:433 FamilyEditor.php:829
 #: FamilyEditor.php:843 FamilyEditor.php:856 PersonEditor.php:1430
 #: PersonEditor.php:1460 PersonEditor.php:1489
 msgid "Do not auto-format"
 msgstr "Automatisk formatering får inte ske."
-
-#: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:283
-#: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1438
-#: PersonEditor.php:1442 PersonView.php:651 PrintPastoralCarePerson.php:262
-#: PrintView.php:273 Reports/ConfirmReport.php:288
-msgid "Work Phone"
-msgstr "Arbetstelefon"
-
-#: CartToFamily.php:439 CSVExport.php:142
-#: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1469
-#: PersonEditor.php:1473 PersonView.php:611 PrintPastoralCarePerson.php:267
-#: PrintView.php:278
-msgid "Mobile Phone"
-msgstr "Mobiltelefon"
 
 #: CartToFamily.php:468
 msgid "Your cart is empty!"
@@ -949,7 +1336,7 @@ msgid "Checkin"
 msgstr "Incheckning"
 
 #: Checkin.php:434 Checkin.php:445
-#: v2/templates/email/mailchimp/managelist.php:88
+#: v2/templates/email/mailchimp/managelist.php:81
 #: v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Kontrollera alla"
@@ -989,434 +1376,6 @@ msgstr "Konvertera Nästa"
 #: ConvertIndividualToAddress.php:145
 msgid "Convert All"
 msgstr "Konvertera alla"
-
-#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
-msgid "CSV Export"
-msgstr "CSV-export"
-
-#: CSVExport.php:61
-msgid "Field Selection"
-msgstr "Val av fält"
-
-#: CSVExport.php:67
-msgid "Required"
-msgstr "Krävs"
-
-#: CSVExport.php:82 CSVImport.php:236 PersonEditor.php:915
-msgid "Middle Name"
-msgstr "Mellannamn"
-
-#: CSVExport.php:87 CSVImport.php:238 FamilyEditor.php:1095
-#: PersonEditor.php:937
-msgid "Suffix"
-msgstr "Suffix"
-
-#: CSVExport.php:120
-msgid "Envelope"
-msgstr "Kuvert"
-
-#: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
-#: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:658
-#: Reports/DirectoryReport.php:331
-msgid "Work/Other Email"
-msgstr "Arbete/annan e-post"
-
-#: CSVExport.php:158 CSVExport.php:404 CSVImport.php:253 PersonEditor.php:1654
-#: PrintPastoralCarePerson.php:395 PrintView.php:406
-msgid "Membership Date"
-msgstr "Medlemskap Datum"
-
-#: CSVExport.php:165
-msgid "Birth / Anniversary Date"
-msgstr "Födelsedatum / årsdag"
-
-#: CSVExport.php:170
-msgid "Age / Years Married"
-msgstr "Ålder / Antal år som gift"
-
-#: CSVExport.php:175 CSVExport.php:298 CSVImport.php:400
-#: EcclesiaCRM/APIControllers/SearchController.php:189
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
-#: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
-#: OptionManager.php:109 PersonEditor.php:1635 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
-#: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "Klassificering"
-
-#: CSVExport.php:180 CSVExport.php:325
-#: EcclesiaCRM/APIControllers/SearchController.php:190
-#: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:115
-#: OptionManager.php:102 PrintPastoralCarePerson.php:338 PrintView.php:349
-#: queryparameters_qrp.php:5
-msgid "Family Role"
-msgstr "Familjens roll"
-
-#: CSVExport.php:183
-msgid "Depends whether using person or family output method"
-msgstr "Beror på om man använder person- eller familjeutgångsmetoden"
-
-#: CSVExport.php:196
-msgid "Custom Field Selection"
-msgstr "Val av anpassade fält"
-
-#: CSVExport.php:204
-msgid "Custom Person Fields"
-msgstr "Anpassade personfält"
-
-#: CSVExport.php:229
-msgid "Custom Family Fields"
-msgstr "Anpassade familjefält"
-
-#: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
-#: v2/templates/calendar/calendar.php:28
-#: v2/templates/fundraiser/findFundRaiser.php:18
-#: v2/templates/pastoralcare/pastoralcarefamily.php:91
-#: v2/templates/pastoralcare/pastoralcareperson.php:91
-#: v2/templates/people/peoplelist.php:28
-msgid "Filters"
-msgstr "Filter"
-
-#: CSVExport.php:260
-msgid "Ignored if you come from the CartView"
-msgstr "Ignoreras om du kommer från CartView"
-
-#: CSVExport.php:274
-msgid "Records to export"
-msgstr "Uppgifter som ska exporteras"
-
-#: CSVExport.php:286
-msgid "Based on filters below.."
-msgstr "Baserat på filtren nedan.."
-
-#: CSVExport.php:289
-msgid "People in Cart (filters ignored)"
-msgstr "Personer i varukorgen (filter ignoreras)"
-
-#: CSVExport.php:318 CSVExport.php:346 CSVExport.php:388
-#: DirectoryReports.php:96 DirectoryReports.php:116 DirectoryReports.php:139
-#: DirectoryReports.php:158 DirectoryReports.php:177 FinancialReports.php:357
-msgid "Use Ctrl Key to select multiple"
-msgstr "Använd Ctrl-tangenten för att välja flera"
-
-#: CSVExport.php:355 CSVImport.php:239
-#: EcclesiaCRM/APIControllers/SearchController.php:188 FamilyEditor.php:1096
-#: PersonEditor.php:886 PrintPastoralCarePerson.php:311
-#: PrintPastoralCarePerson.php:448 PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:211
-#: v2/templates/sundayschool/sundayschoolview.php:303 queryparameters_qrp.php:4
-msgid "Gender"
-msgstr "Genus"
-
-#: CSVExport.php:367
-msgid "Don't Filter"
-msgstr "Filtrera inte"
-
-#: CSVExport.php:368 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:113
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:30
-#: external/templates/registration/family-register-members.php:66
-#: FamilyEditor.php:1150 PersonEditor.php:890 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:2
-msgid "Male"
-msgstr "Man"
-
-#: CSVExport.php:369 EcclesiaCRM/APIControllers/SearchController.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:320
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:116
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:33
-#: external/templates/registration/family-register-members.php:67
-#: FamilyEditor.php:1153 PersonEditor.php:891 PrintPastoralCarePerson.php:315
-#: PrintPastoralCarePerson.php:479 PrintView.php:326 PrintView.php:490
-#: queryparameteroptions_qpo.php:3
-msgid "Female"
-msgstr "Kvinna"
-
-#: CSVExport.php:377 DirectoryReports.php:113
-msgid "Group Membership"
-msgstr "Gruppens medlemskap"
-
-#: CSVExport.php:417 CSVExport.php:451 CSVExport.php:484 CSVExport.php:517
-msgid "From:"
-msgstr "Från:"
-
-#: CSVExport.php:422 CSVExport.php:456 CSVExport.php:489 CSVExport.php:522
-msgid "To:"
-msgstr "Till:"
-
-#: CSVExport.php:438
-msgid "Birthday Date"
-msgstr "Födelsedag Datum"
-
-#: CSVExport.php:471
-msgid "Anniversary Date:"
-msgstr "Datum för årsdagen:"
-
-#: CSVExport.php:504
-msgid "Date Entered:"
-msgstr "Datum för införande:"
-
-#: CSVExport.php:540 FinancialReports.php:472
-msgid "Output Method:"
-msgstr "Utmatningsmetod:"
-
-#: CSVExport.php:546
-msgid "CSV Individual Records"
-msgstr "CSV enskilda poster"
-
-#: CSVExport.php:547
-msgid "CSV Combine Families"
-msgstr "CSV Kombinera familjer"
-
-#: CSVExport.php:548
-msgid "Add Individuals to Cart"
-msgstr "Lägg till individer i varukorgen"
-
-#: CSVExport.php:552
-msgid "Skip records with incomplete mail address"
-msgstr "Hoppa över poster med ofullständig postadress"
-
-#: CSVExport.php:559
-msgid "Create File"
-msgstr "Skapa en fil"
-
-#: CSVImport.php:121 Include/Footer.php:253
-msgid "CSV Import"
-msgstr "CSV-import"
-
-#: CSVImport.php:126
-msgid "Import Data"
-msgstr "Importera data"
-
-#: CSVImport.php:149
-msgid "No file selected for upload."
-msgstr "Ingen fil har valts för uppladdning."
-
-#: CSVImport.php:176
-msgid "Total number of rows in the CSV file:"
-msgstr "Totalt antal rader i CSV-filen:"
-
-#: CSVImport.php:233
-msgid "Ignore this Field"
-msgstr "Ignorera detta fält"
-
-#: CSVImport.php:240
-msgid "Donation Envelope"
-msgstr "Kuvert för donationer"
-
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256 GroupReports.php:151
-#: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
-#: v2/templates/people/personlist.php:55
-msgid "Cell Phone"
-msgstr "Mobiltelefon"
-
-#: CSVImport.php:251 PersonEditor.php:1537 PrintPastoralCarePerson.php:390
-#: PrintView.php:401
-msgid "Work / Other Email"
-msgstr "Arbete / annan e-post"
-
-#: CSVImport.php:252 PersonView.php:581 PrintPastoralCarePerson.php:320
-#: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/sundayschool/sundayschooldashboard.php:260
-#: v2/templates/sundayschool/sundayschoolview.php:302
-msgid "Birth Date"
-msgstr "Födelsedatum"
-
-#: CSVImport.php:266
-msgid ""
-"An error occurs when you import the CSV file. You've to select values above "
-"in the select fields."
-msgstr ""
-"Ett fel inträffar när du importerar CSV-filen. Du måste välja värden ovan i "
-"valfälten."
-
-#: CSVImport.php:275
-msgid "Scroll right to see the other columns"
-msgstr "Bläddra till höger för att se de andra kolumnerna"
-
-#: CSVImport.php:276
-msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
-msgstr "Kontrollera rätt <b>Datumformat</b> och välj det nedan !!!!!"
-
-#: CSVImport.php:277
-msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
-msgstr "<b>VIKTIGT !</b> Koppla <b>genus</b> till en kolumn."
-
-#: CSVImport.php:282
-msgid "Important Options"
-msgstr "Viktiga alternativ"
-
-#: CSVImport.php:287
-msgid "Ignore first CSV row (to exclude a header)"
-msgstr "Ignorera första CSV-raden (för att utesluta en rubrik)"
-
-#: CSVImport.php:299
-msgid "Make Family records based on last name and address"
-msgstr "Gör familjeposter baserat på efternamn och adress"
-
-#: CSVImport.php:324
-msgid "Date Format"
-msgstr "Datumformat"
-
-#: CSVImport.php:324
-msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
-msgstr ""
-"OBS: Separatorer (streck etc.) eller avsaknad av sådana spelar ingen roll."
-
-#: CSVImport.php:334
-msgid ""
-"Put all the persons in the cart, to import them in a group, sundayschool "
-"group, etc...."
-msgstr ""
-"Lägg alla personer i vagnen, för att importera dem i en grupp, "
-"söndagsskolegrupp, etc...."
-
-#: CSVImport.php:341
-msgid "Not usefull options"
-msgstr "Inte användbara alternativ"
-
-#: CSVImport.php:350
-msgid "Patriarch"
-msgstr "Patriark"
-
-#: CSVImport.php:351
-msgid "Matriarch"
-msgstr "Matriark"
-
-#: CSVImport.php:355
-msgid "Family Type: used with Make Family records... option above"
-msgstr "Familjetyp: används med alternativet Make Family records... ovan."
-
-#: CSVImport.php:371
-msgid "Default country if none specified otherwise"
-msgstr "Standardland om inget land har angetts annars"
-
-#: CSVImport.php:404
-msgid "Perform Import"
-msgstr "Utför import"
-
-#: CSVImport.php:772 CSVImport.php:850
-msgid "Imported"
-msgstr "Importerad"
-
-#: CSVImport.php:945
-msgid "ERROR: the uploaded CSV file no longer exists!"
-msgstr "FEL: den uppladdade CSV-filen finns inte längre!"
-
-#: CSVImport.php:955
-msgid "Steps to import users"
-msgstr "Steg för att importera användare"
-
-#: CSVImport.php:958
-msgid "Your CSV file should be prepared like"
-msgstr "Din CSV-fil bör vara förberedd på följande sätt"
-
-#: CSVImport.php:961
-msgid ""
-"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
-"the second one."
-msgstr ""
-"CSV-avgränsare är alltså <b>';'</b> i det första exemplet och <b>','</b> i "
-"det andra."
-
-#: CSVImport.php:964
-msgid "Don't forget the <b>gender</b> and the <b>title</b>"
-msgstr "Glöm inte <b>genus</b> och <b>titel</b>."
-
-#: CSVImport.php:965
-msgid ""
-"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
-"Title column and rename the label header to gender</b>"
-msgstr ""
-"Du kan formatera dina kolumner i Excel LibreOffice Calc och <b>dubblera "
-"kolumnen Titel och byta namn på etikettrubriken till kön</b>."
-
-#: CSVImport.php:966
-msgid ""
-"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
-"a women, girl, female</b> ..."
-msgstr ""
-"Kolumnen kön måste vara <b>1 för en man, pojke, man</b> och <b>2 för en "
-"kvinna, flicka, kvinna</b> ..."
-
-#: CSVImport.php:969
-msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
-msgstr ""
-"Förbered ditt CRM och lägg till tillräckligt många anpassade personfält, för "
-"att göra detta klickar du på"
-
-#: CSVImport.php:969 v2/templates/map/MapUsingBing.php:46
-#: v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "here"
-msgstr "här"
-
-#: CSVImport.php:972
-msgid ""
-"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
-"7/1/2018"
-msgstr ""
-"Alla datum ska formateras som: 2018-7-1 eller 1/7/2018 eller 7-1-2018 eller "
-"7/1/2018."
-
-#: CSVImport.php:979
-msgid "The next step should be, if not select the other CSV seperator"
-msgstr "Nästa steg bör vara, om inte, att välja en annan CSV-separator."
-
-#: CSVImport.php:985 CSVImport.php:1023
-msgid "Upload CSV File"
-msgstr "Ladda upp CSV-fil"
-
-#: CSVImport.php:991
-msgid ""
-"<b>DON'T FORGET</b>\n"
-"              <br>• your CSV file must have a <b>Title</b> header name "
-"column (with M. Mr. Mlle. etc ...),\n"
-"              <br>• and a <b>gender</b> header name column (with 1 for a "
-"men, 2 for a women)"
-msgstr ""
-"<b>GÅNGELA INTE</b>\n"
-"              <br>- Din CSV-fil måste ha en <b>Title</b>-kolumn med namn i "
-"rubriken (med M. Mr. Mlle. etc ...),\n"
-"              <br>- och en <b>gender</b>-kolumn (med 1 för män och 2 för "
-"kvinnor)."
-
-#: CSVImport.php:996
-msgid "Select <b>NOW</b> your <b>CSV separator</b>"
-msgstr "Välj <b>NOW</b> din <b>CSV-separator</b>"
-
-#: CSVImport.php:1007
-msgid ""
-"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
-"b> ......... "
-msgstr ""
-"- Sista inställningen är korrekt för alla datum som : <b>ÅÅÅÅÅ-MM-DD eller "
-"DD/MM/ÅÅÅÅÅ</b> ........."
-
-#: CSVImport.php:1010
-msgid "This is proposed in the next step, read carefully your table."
-msgstr "Detta föreslås i nästa steg, läs noga din tabell."
-
-#: CSVImport.php:1031
-msgid "Clear Data"
-msgstr "Rensa data"
-
-#: CSVImport.php:1034
-msgid "Clear Persons and Families"
-msgstr "Clear personer och familjer"
-
-#: CSVImport.php:1041
-msgid "Data import successful."
-msgstr "Dataimporten har lyckats."
-
-#: CSVImport.php:1041
-msgid "persons were imported"
-msgstr "personer importerades"
 
 #: DepositSlipEditor.php:65
 msgid "Deposit Slip Number: "
@@ -1538,10 +1497,10 @@ msgstr "Information som ska ingå"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
-#: EcclesiaCRM/Service/CalendarService.php:30
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
+#: EcclesiaCRM/Service/CalendarService.php:30 FamilyView.php:550
 #: PersonView.php:1124 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
+#: external/templates/verify/verify-family-info.php:107
 #: v2/templates/pastoralcare/pastoralcarefamily.php:114
 #: v2/templates/pastoralcare/pastoralcareperson.php:116
 msgid "Birthday"
@@ -1560,8 +1519,8 @@ msgid "Family Cell Phone"
 msgstr "Familjens mobiltelefon"
 
 #: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:192
-#: external/templates/verify/verify-family-info.php:39
 #: Reports/ConfirmReport.php:189
+#: external/templates/verify/verify-family-info.php:39
 msgid "Family Email"
 msgstr "E-post till familjen"
 
@@ -1858,7 +1817,7 @@ msgstr "Alla familjer"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1870,8 +1829,8 @@ msgstr "Personer"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:54
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/dashboard/maindashboard.php:103
+#: v2/templates/email/mailchimp/managelist.php:134
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -1884,9 +1843,9 @@ msgstr "Familjer"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:200
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:137 PersonView.php:480
+#: PersonView.php:480 external/templates/verify/verify-family-info.php:137
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/people/peopledashboard.php:171
 #: v2/templates/people/peoplelist.php:45
@@ -2294,6 +2253,851 @@ msgstr ""
 "Som en del av återställningen har externa säkerhetskopior inaktiverats.  Om "
 "du vill fortsätta med automatiska säkerhetskopior måste du manuellt "
 "återaktivera inställningen bEnableExternalBackupTarget."
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+msgid "New Person Added"
+msgstr "Ny person läggs till"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+msgid "New Family Added"
+msgstr "En ny familj har lagts till"
+
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+msgid "Church Greeter"
+msgstr "Kyrkans hälsningsbud"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
+msgid "Notification"
+msgstr "Anmälan"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
+msgid "Guardian(s) of"
+msgstr "Förmyndare för"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "A notification was triggered by the classroom teacher at"
+msgstr "En anmälan utlöstes av klassläraren vid"
+
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
+msgid "Please go to this location"
+msgstr "Gå till denna plats"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
+msgid "Your Account was Deleted"
+msgstr "Ditt konto har raderats"
+
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "Ditt EcclesiaCRM-konto har tagits bort."
+
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
+msgid "Email/Username"
+msgstr "E-post/användarnamn"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
+msgid "A Calendar is shared with you"
+msgstr "En kalender delas med dig"
+
+#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
+msgid "I've shared a calendar with you in"
+msgstr "Jag har delat en kalender med dig i"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
+msgid "A document is shared with you"
+msgstr "Ett dokument delas med dig"
+
+#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
+msgid "I've shared a document with you in"
+msgstr "Jag har delat ett dokument med dig i"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
+msgid "Account Locked"
+msgstr "Kontot är låst"
+
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr "Ditt EcclesiaCRM-konto har låsts."
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
+msgid "Your New Account"
+msgstr "Ditt nya konto"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
+msgid "A EcclesiaCRM account was created for you"
+msgstr "Ett EcclesiaCRM-konto har skapats för dig"
+
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: UserPasswordChange.php:214
+msgid "New Password"
+msgstr "Nytt lösenord"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
+msgid "Password Changed"
+msgstr "Lösenordet har ändrats"
+
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr "Ditt EcclesiaCRM-lösenord har ändrats"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
+msgid "Password Reset"
+msgstr "Återställning av lösenord"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "Ditt uppdaterade lösenord för EcclesiaCRM har ändrats."
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
+msgid "Password Reset Link"
+msgstr "Länk för återställning av lösenord"
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr ""
+"Du kan återställa ditt EcclesiaCRM-lösenord genom att klicka på den här "
+"länken."
+
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
+msgid "Reset Password"
+msgstr "Återställ lösenordet"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
+msgid "Account Unlocked"
+msgstr "Kontot är olåst"
+
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "Ditt EcclesiaCRM-konto har låsts upp."
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+msgid "Your Account"
+msgstr "Ditt konto"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
+msgstr "Ditt EcclesiaCRM-konto har uppdaterats"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
+msgid "Status"
+msgstr "Status"
+
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
+msgid "Please verify your family's information"
+msgstr "Kontrollera din familjs uppgifter"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
+#: Include/Header.php:148
+msgid "Private Space"
+msgstr "Privat utrymme"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
+#: external/templates/registration/family-register-members.php:104
+msgid "Home"
+msgstr "Hem"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
+msgid "Change Password"
+msgstr "Ändra lösenord"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
+msgid "Change Settings"
+msgstr "Ändra inställningar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
+msgid "Documents"
+msgstr "Dokument"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
+msgid "EDrive"
+msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:286
+#: v2/routes/email/mailchimp/mailchimp.php:143
+#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/templates/dashboard/maindashboard.php:190
+msgid "GDPR"
+msgstr "GDPR"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:436
+msgid "Dashboard"
+msgstr "Instrumentpanel"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:66
+msgid "Data Structure"
+msgstr "Datastruktur"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
+msgid "View Inactive Persons"
+msgstr "Visa inaktiva personer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
+msgid "View Inactive Families"
+msgstr "Visa inaktiva familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:76
+msgid "Events"
+msgstr "Evenemang"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
+#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
+#: v2/templates/map/MapUsingGoogle.php:77
+#: v2/templates/map/MapUsingGoogle.php:124
+#: v2/templates/map/MapUsingLeaflet.php:66
+#: v2/templates/map/MapUsingLeaflet.php:114
+msgid "Calendar"
+msgstr "Kalender"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
+#: v2/routes/map/map.php:51
+msgid "View on Map"
+msgstr "Visa på kartan"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:88
+msgid "List Church Events"
+msgstr "Lista över kyrkans evenemang"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:89
+msgid "List Event Types"
+msgstr "Lista över händelsetyper"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:99
+#: v2/templates/dashboard/maindashboard.php:125
+#: v2/templates/people/familylist.php:46
+#: v2/templates/people/peopledashboard.php:127
+msgid "People"
+msgstr "Människor"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:115
+msgid "Meta Search Engine"
+msgstr "Meta Sökmotor"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
+msgid "Add New Person"
+msgstr "Lägg till en ny person"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:125
+msgid "View Single Persons"
+msgstr "Visa ensamstående personer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:126
+msgid "View Active Persons"
+msgstr "Visa aktiva personer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:131
+msgid "Add New Family"
+msgstr "Lägg till en ny familj"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:132
+msgid "View Active Families"
+msgstr "Visa aktiva familjer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:136
+msgid "Empty Addresses"
+msgstr "Tomma adresser"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:139
+msgid "Convert Individual to Address"
+msgstr "Konvertera individ till adress"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:151
+msgid "List Groups"
+msgstr "Lista grupper"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
+msgid "Group Assignment Helper"
+msgstr "Hjälpare för gruppuppdrag"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:220
+#: v2/routes/sundayschool/sundayschool.php:110
+msgid "Sunday School"
+msgstr "Söndagsskola"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
+#: Include/Footer.php:173
+msgid "Global Custom Menus"
+msgstr "Globala anpassade menyer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:316
+msgid "Custom Menus"
+msgstr "Anpassade menyer"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:283
+#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: v2/templates/gdpr/gdprdatastructure.php:141
+#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
+msgid "Pastoral Care"
+msgstr "Pastoralvård"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:328
+msgid "By Classifications"
+msgstr "Enligt klassificeringar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:335
+msgid "Meetings"
+msgstr "Möten"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
+msgid "MailChimp"
+msgstr "MailChimp"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
+msgid "Email Lists"
+msgstr "E-postlistor"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/Search/PledgeSearchRes.php:62
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
+#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
+#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
+#: Reports/AdvancedDeposit.php:523
+msgid "Deposit"
+msgstr "Insättning"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:394
+msgid "Current"
+msgstr "Aktuell"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
+msgid "Envelope Manager"
+msgstr "Kuvertansvarig"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:400
+msgid "View All Deposits"
+msgstr "Visa alla insättningar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
+msgid "Electronic Payment Listing"
+msgstr "Lista över elektroniska betalningar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:402
+msgid "Deposit Reports"
+msgstr "Rapporter om insättningar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:403
+msgid "Edit Deposit Slip"
+msgstr "Redigera inbetalningssedel"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
+msgid "Fundraiser"
+msgstr "Insamling"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:416
+msgid "Create New Fundraiser"
+msgstr "Skapa en ny insamling"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:417
+msgid "View All Fundraisers"
+msgstr "Visa alla insamlingar"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:419
+#: v2/templates/fundraiser/donatedItemEditor.php:87
+msgid "Edit Last Fundraiser"
+msgstr "Redigera sista insamlingen"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:478
+msgid "Data/Reports"
+msgstr "Uppgifter/rapporter"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:480
+msgid "Reports Menu"
+msgstr "Menyn Rapporter"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+msgid "Query Menu"
+msgstr "Meny för sökning"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: v2/templates/calendar/calendar.php:79
+msgid "Birthdate"
+msgstr "Födelsedatum"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+#: PrintPastoralCarePerson.php:450 PrintView.php:461
+#: Reports/CanvassReports.php:278
+#: v2/templates/sundayschool/sundayschooldashboard.php:261
+msgid "Age"
+msgstr "Ålder"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Props"
+msgstr "Rekvisita"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
+msgid "Stats"
+msgstr "Statistik"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
+#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:70
+#: v2/templates/sundayschool/sundayschooldashboard.php:38
+#: v2/templates/sundayschool/sundayschooldashboard.php:208
+#: v2/templates/sundayschool/sundayschoolview.php:143
+msgid "Teachers"
+msgstr "Lärare"
+
+#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
+msgid "of"
+msgstr "på"
+
+#: EcclesiaCRM/Reports/PDF_Attendance.php:218
+#: EcclesiaCRM/Reports/PDF_Attendance.php:621
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Totalsumma"
+
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
+msgid "Certificate of Ownership"
+msgstr "Ägarintyg"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: Reports/ConfirmReport.php:163
+msgid "City, State, Zip"
+msgstr "Stad, stat, postnummer"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176 FamilyEditor.php:874
+#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
+#: Reports/ConfirmReport.php:173
+#: external/templates/verify/verify-family-info.php:52
+msgid "Send Newsletter"
+msgstr "Skicka nyhetsbrev"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
+#: Reports/ConfirmReport.php:183
+msgid "Anniversary Date"
+msgstr "Datum för årsdagen"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
+#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
+msgid "Member Name"
+msgstr "Namn på medlemmen"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
+#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
+#: Reports/ConfirmReport.php:248
+msgid "M/F"
+msgstr "M/F"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
+#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
+msgid "Adult/Child"
+msgstr "Vuxen/barn"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
+msgid "Member/Friend"
+msgstr "Medlem/vän"
+
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
+#: Reports/ConfirmReport.php:375
+msgid "Assigned groups for"
+msgstr "Tilldelade grupper för"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:64
+#: EcclesiaCRM/Reports/PDF_Directory.php:100
+msgid "Directory"
+msgstr "Katalog"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
+msgid "Page"
+msgstr "Sidan"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:328
+#: EcclesiaCRM/Reports/PDF_Directory.php:403
+#: EcclesiaCRM/Reports/PDF_Directory.php:460 Reports/DirectoryReport.php:321
+#: Reports/GroupReport.php:129
+#: external/templates/registration/family-register-members.php:105
+msgid "Work"
+msgstr "Arbete"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:331
+#: EcclesiaCRM/Reports/PDF_Directory.php:407
+#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
+#: Reports/GroupReport.php:134
+msgid "Cell"
+msgstr "Cell"
+
+#: EcclesiaCRM/Reports/PDF_Directory.php:337
+#: v2/templates/calendar/calendar.php:97
+msgid "Wedding"
+msgstr "Bröllop"
+
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
+msgid "Group Directory"
+msgstr "Gruppkatalog"
+
+#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
+#: Reports/PDFBadge.php:112 Reports/PDFBadgeGroup.php:197
+#: Reports/PDFLabel.php:779
+msgid "Tractor"
+msgstr "Traktor"
+
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
+#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
+#: v2/templates/sundayschool/sundayschooldashboard.php:49
+#: v2/templates/sundayschool/sundayschooldashboard.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:235
+msgid "Students"
+msgstr "Studenter"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:19
+#: v2/routes/people/familylist.php:160
+msgid "Addresses"
+msgstr "Adresser"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:70
+#: EcclesiaCRM/Search/AddressSearchRes.php:109
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+#: EcclesiaCRM/Search/DepositSearchRes.php:74
+#: EcclesiaCRM/Search/DepositSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
+#: EcclesiaCRM/Search/FamilySearchRes.php:93
+#: EcclesiaCRM/Search/FamilySearchRes.php:128
+#: EcclesiaCRM/Search/FamilySearchRes.php:141
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
+#: EcclesiaCRM/Search/GroupSearchRes.php:78
+#: EcclesiaCRM/Search/GroupSearchRes.php:113
+#: EcclesiaCRM/Search/GroupSearchRes.php:126
+#: EcclesiaCRM/Search/PaymentSearchRes.php:47
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
+#: EcclesiaCRM/Search/PersonSearchRes.php:264
+#: EcclesiaCRM/Search/PersonSearchRes.php:315
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
+#: EcclesiaCRM/Search/PledgeSearchRes.php:69
+#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
+#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
+#: ListEvents.php:365 PersonView.php:509
+msgid "Edit"
+msgstr "Redigera"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:123
+msgid "Addresse"
+msgstr "Adress"
+
+#: EcclesiaCRM/Search/AddressSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
+#: EcclesiaCRM/Search/FamilySearchRes.php:142
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
+#: EcclesiaCRM/Search/PersonSearchRes.php:317
+#: EcclesiaCRM/Search/PersonSearchRes.php:321
+#: EcclesiaCRM/Search/PersonSearchRes.php:322
+#: EcclesiaCRM/Search/PersonSearchRes.php:323
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
+#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
+#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
+#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
+#: v2/templates/people/familylist.php:107
+#: v2/templates/people/familylist.php:108
+#: v2/templates/people/familylist.php:109
+#: v2/templates/people/familylist.php:110
+#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
+#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
+#: v2/templates/people/personlist.php:101
+#: v2/templates/people/personlist.php:102
+#: v2/templates/people/personlist.php:103
+#: v2/templates/sundayschool/sundayschooldashboard.php:296
+#: v2/templates/sundayschool/sundayschooldashboard.php:297
+#: v2/templates/sundayschool/sundayschooldashboard.php:298
+msgid "Private Data"
+msgstr "Privata uppgifter"
+
+#: EcclesiaCRM/Search/DepositSearchRes.php:23
+msgid "Deposits"
+msgstr "Insättningar"
+
+#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
+msgid "Family Custom Field"
+msgstr "Anpassat fält för familjen"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
+msgid "Family Pastoral Cares"
+msgstr "Familjepastoral"
+
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: v2/templates/dashboard/maindashboard.php:486
+msgid "Family Pastoral Care"
+msgstr "Familjepastoral"
+
+#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
+msgid "Families Properties"
+msgstr "Families Properties"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "single"
+msgstr "Enstaka"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:45
+#: EcclesiaCRM/Search/FamilySearchRes.php:53
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+msgid "singles"
+msgstr "Ensamstående personer"
+
+#: EcclesiaCRM/Search/FamilySearchRes.php:143
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
+#: v2/templates/people/peopledashboard.php:91
+#: v2/templates/people/peoplelist.php:45
+msgid "Singles"
+msgstr "Ensamstående personer"
+
+#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
+msgid "Groups Properties"
+msgstr "Egenskaper för grupper"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "group"
+msgstr "grupp"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:30
+msgid "groups"
+msgstr "grupper"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday group"
+msgstr "söndagsgrupp"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:35
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+msgid "sunday groups"
+msgstr "grupper på söndagar"
+
+#: EcclesiaCRM/Search/GroupSearchRes.php:128
+#: v2/templates/people/peoplelist.php:45
+msgid "Sunday Groups"
+msgstr "Söndagsgrupper"
+
+#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
+#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
+msgid "Payments"
+msgstr "Betalningar"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
+msgid "Person Group role assignments"
+msgstr "Persongruppens rollfördelning"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
+msgid "Teacher"
+msgstr "Lärare"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
+msgid "Student"
+msgstr "Studerande"
+
+#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
+msgid "Print"
+msgstr "Skriv ut"
+
+#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
+msgid "Person Custom Field"
+msgstr "Anpassat fält för person"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
+msgid "Group Manager"
+msgstr "Gruppchef"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+#: v2/templates/people/peoplelist.php:45
+msgid "groupmasters"
+msgstr "groupmasters"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
+msgid "groupmaster"
+msgstr "groupmaster"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanagers"
+msgstr "gruppledare"
+
+#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
+msgid "groupmanager"
+msgstr "gruppchef"
+
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
+msgid "Individual Pastoral Cares"
+msgstr "Individuell pastoral omsorg"
+
+#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
+msgid "Person Properties"
+msgstr "Egenskaper för personer"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
+#: Include/Footer.php:143 PersonView.php:942
+msgid "Volunteer Opportunities"
+msgstr "Möjligheter till volontärarbete"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteers"
+msgstr "volontärer"
+
+#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
+msgid "volunteer"
+msgstr "volontär"
+
+#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
+#: Reports/PledgeSummary.php:253
+msgid "Pledges"
+msgstr "Löften"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
+msgid "Signature definition file signature failed validation"
+msgstr "Signaturdefinitionsfilens signatur misslyckades med valideringen"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
+msgid "Signature definition File Missing"
+msgstr "Fil för signaturdefinition saknas"
+
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
+msgid "One or more files failed signature validation"
+msgstr "En eller flera filer misslyckades med signaturvalideringen"
+
+#: EcclesiaCRM/Service/CalendarService.php:29
+msgid "Event"
+msgstr "Evenemang"
+
+#: EcclesiaCRM/Service/CalendarService.php:31
+msgid "Anniversary"
+msgstr "Årsdag"
+
+#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
+msgid "NonDeductible amount can't be greater than total amount."
+msgstr ""
+"Det icke avdragsgilla beloppet kan inte vara större än det totala beloppet."
+
+#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
+msgid "At least one fund must have a non-zero amount."
+msgstr "Minst en fond måste ha ett belopp som inte är noll."
+
+#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
+msgid "Must specify non-zero check number"
+msgstr "Måste ange ett kontrollnummer som inte är noll"
+
+#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
+msgid "Check number not valid for 'CASH' payment"
+msgstr "Kontrollnummer är inte giltigt för kontantbetalning."
+
+#: EcclesiaCRM/Service/PersonService.php:47
+msgid "Part"
+msgstr "Del"
+
+#: EcclesiaCRM/Service/PersonService.php:49
+msgid " of the"
+msgstr " av den"
+
+#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
+msgid "(No assigned family)"
+msgstr "(Ingen tilldelad familj)"
+
+#: EcclesiaCRM/Service/TimelineService.php:216
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
+#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
+#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
+msgid "Unknown"
+msgstr "Okänd"
+
+#: EcclesiaCRM/Service/TimelineService.php:218
+msgid "Self Registration"
+msgstr "Självregistrering"
+
+#: EcclesiaCRM/Service/TimelineService.php:220
+msgid "Self Verification"
+msgstr "Självverifiering"
+
+#: EcclesiaCRM/Service/TimelineService.php:257
+#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
+msgid "by"
+msgstr "av"
+
+#: EcclesiaCRM/Service/TimelineService.php:352
+msgid "Shared by"
+msgstr "Delat av"
+
+#: EcclesiaCRM/Service/UpgradeService.php:64
+msgid "Databse upgrade failed"
+msgstr "Uppgradering av databasen misslyckades"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
+#: Include/Footer.php:131 PledgeEditor.php:646
+msgid "Other"
+msgstr "Övriga"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:140
+msgid "Head of Household"
+msgstr "Hushållschef"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
+#: v2/templates/pastoralcare/pastoralcareperson.php:141
+msgid "Spouse"
+msgstr "Make/maka"
+
+#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
+#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
+#: v2/templates/pastoralcare/pastoralcareperson.php:143
+msgid "Child"
+msgstr "Barn"
 
 #: EcclesiaCRM/data/Countries.php:15
 msgid "Afghanistan (‫افغانستان‬‎)"
@@ -4351,14 +5155,6 @@ msgstr "Inställning av e-post"
 msgid "Map Settings"
 msgstr "Inställningar för kartan"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:326
-#: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
-#: v2/templates/gdpr/gdprdatastructure.php:141
-#: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
-msgid "Pastoral Care"
-msgstr "Pastoralvård"
-
 #: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Närvaro i söndagsskolan"
@@ -4366,13 +5162,6 @@ msgstr "Närvaro i söndagsskolan"
 #: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integration"
-
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:64
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
-#: v2/templates/dashboard/maindashboard.php:141
-msgid "GDPR"
-msgstr "GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
@@ -4403,352 +5192,6 @@ msgstr "Ett ogiltigt konfigurationsnamn har begärts"
 msgid "An invalid configuration id has been requested"
 msgstr "Ett ogiltigt konfigurationsid har begärts"
 
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
-msgid "New Person Added"
-msgstr "Ny person läggs till"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
-msgid "New Family Added"
-msgstr "En ny familj har lagts till"
-
-#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
-msgid "Church Greeter"
-msgstr "Kyrkans hälsningsbud"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
-msgid "Notification"
-msgstr "Anmälan"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
-msgid "Guardian(s) of"
-msgstr "Förmyndare för"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "A notification was triggered by the classroom teacher at"
-msgstr "En anmälan utlöstes av klassläraren vid"
-
-#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
-msgid "Please go to this location"
-msgstr "Gå till denna plats"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
-msgid "Your Account was Deleted"
-msgstr "Ditt konto har raderats"
-
-#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM Account was Deleted."
-msgstr "Ditt EcclesiaCRM-konto har tagits bort."
-
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
-msgid "Email/Username"
-msgstr "E-post/användarnamn"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:23
-msgid "A Calendar is shared with you"
-msgstr "En kalender delas med dig"
-
-#: EcclesiaCRM/Emails/users/CalendarEmail.php:28
-msgid "I've shared a calendar with you in"
-msgstr "Jag har delat en kalender med dig i"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:23
-msgid "A document is shared with you"
-msgstr "Ett dokument delas med dig"
-
-#: EcclesiaCRM/Emails/users/DocumentEmail.php:28
-msgid "I've shared a document with you in"
-msgstr "Jag har delat ett dokument med dig i"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:11
-msgid "Account Locked"
-msgstr "Kontot är låst"
-
-#: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM account was locked."
-msgstr "Ditt EcclesiaCRM-konto har låsts."
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:19
-msgid "Your New Account"
-msgstr "Ditt nya konto"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:24
-msgid "A EcclesiaCRM account was created for you"
-msgstr "Ett EcclesiaCRM-konto har skapats för dig"
-
-#: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: UserPasswordChange.php:214
-msgid "New Password"
-msgstr "Nytt lösenord"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
-msgid "Password Changed"
-msgstr "Lösenordet har ändrats"
-
-#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM password was changed"
-msgstr "Ditt EcclesiaCRM-lösenord har ändrats"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
-msgid "Password Reset"
-msgstr "Återställning av lösenord"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
-msgstr "Ditt uppdaterade lösenord för EcclesiaCRM har ändrats."
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
-msgid "Password Reset Link"
-msgstr "Länk för återställning av lösenord"
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr ""
-"Du kan återställa ditt EcclesiaCRM-lösenord genom att klicka på den här "
-"länken."
-
-#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
-msgid "Reset Password"
-msgstr "Återställ lösenordet"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
-msgid "Account Unlocked"
-msgstr "Kontot är olåst"
-
-#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM account was unlocked."
-msgstr "Ditt EcclesiaCRM-konto har låsts upp."
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
-msgid "Your Account"
-msgstr "Ditt konto"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
-msgid "Your EcclesiaCRM account was updated"
-msgstr "Ditt EcclesiaCRM-konto har uppdaterats"
-
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
-msgid "Status"
-msgstr "Status"
-
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
-msgid "Please verify your family's information"
-msgstr "Kontrollera din familjs uppgifter"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:43 Include/Header.php:92
-#: Include/Header.php:148
-msgid "Private Space"
-msgstr "Privat utrymme"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:400
-#: external/templates/registration/family-register-members.php:104
-msgid "Home"
-msgstr "Hem"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:46 Include/Header.php:150 PersonView.php:780
-msgid "Change Password"
-msgstr "Ändra lösenord"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:47 Include/Header.php:152 PersonView.php:778
-msgid "Change Settings"
-msgstr "Ändra inställningar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:48 FamilyView.php:674 PersonView.php:987
-msgid "Documents"
-msgstr "Dokument"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
-msgid "EDrive"
-msgstr "EDrive"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 EcclesiaCRM/MenuBar/MenuBar.php:317
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 EcclesiaCRM/MenuBar/MenuBar.php:349
-#: EcclesiaCRM/MenuBar/MenuBar.php:436
-msgid "Dashboard"
-msgstr "Instrumentpanel"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:66
-msgid "Data Structure"
-msgstr "Datastruktur"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:67 EcclesiaCRM/MenuBar/MenuBar.php:128
-msgid "View Inactive Persons"
-msgstr "Visa inaktiva personer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:68 EcclesiaCRM/MenuBar/MenuBar.php:134
-msgid "View Inactive Families"
-msgstr "Visa inaktiva familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:76
-msgid "Events"
-msgstr "Evenemang"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 ListEvents.php:348
-#: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
-#: v2/templates/map/MapUsingGoogle.php:77
-#: v2/templates/map/MapUsingGoogle.php:124
-#: v2/templates/map/MapUsingLeaflet.php:66
-#: v2/templates/map/MapUsingLeaflet.php:114
-msgid "Calendar"
-msgstr "Kalender"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:85 EcclesiaCRM/MenuBar/MenuBar.php:117
-#: v2/routes/map/map.php:51
-msgid "View on Map"
-msgstr "Visa på kartan"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:88
-msgid "List Church Events"
-msgstr "Lista över kyrkans evenemang"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:89
-msgid "List Event Types"
-msgstr "Lista över händelsetyper"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:99
-#: v2/templates/dashboard/maindashboard.php:76
-#: v2/templates/people/familylist.php:46
-#: v2/templates/people/peopledashboard.php:127
-msgid "People"
-msgstr "Människor"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
-msgid "Meta Search Engine"
-msgstr "Meta Sökmotor"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 v2/templates/people/personlist.php:23
-msgid "Add New Person"
-msgstr "Lägg till en ny person"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:125
-msgid "View Single Persons"
-msgstr "Visa ensamstående personer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:126
-msgid "View Active Persons"
-msgstr "Visa aktiva personer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:131
-msgid "Add New Family"
-msgstr "Lägg till en ny familj"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:132
-msgid "View Active Families"
-msgstr "Visa aktiva familjer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:136
-msgid "Empty Addresses"
-msgstr "Tomma adresser"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
-msgid "Convert Individual to Address"
-msgstr "Konvertera individ till adress"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:151
-msgid "List Groups"
-msgstr "Lista grupper"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:213 v2/routes/people/people.php:189
-msgid "Group Assignment Helper"
-msgstr "Hjälpare för gruppuppdrag"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:220
-#: v2/routes/sundayschool/sundayschool.php:110
-msgid "Sunday School"
-msgstr "Söndagsskola"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:298 EcclesiaCRM/MenuBar/MenuBar.php:305
-#: Include/Footer.php:173
-msgid "Global Custom Menus"
-msgstr "Globala anpassade menyer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:316
-msgid "Custom Menus"
-msgstr "Anpassade menyer"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:328
-msgid "By Classifications"
-msgstr "Enligt klassificeringar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:335
-msgid "Meetings"
-msgstr "Möten"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
-msgid "MailChimp"
-msgstr "MailChimp"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:356
-msgid "Email Lists"
-msgstr "E-postlistor"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
-#: EcclesiaCRM/Search/PledgeSearchRes.php:62
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
-#: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
-#: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
-#: Reports/AdvancedDeposit.php:523
-msgid "Deposit"
-msgstr "Insättning"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:394
-msgid "Current"
-msgstr "Aktuell"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 ManageEnvelopes.php:25
-msgid "Envelope Manager"
-msgstr "Kuvertansvarig"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:400
-msgid "View All Deposits"
-msgstr "Visa alla insättningar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:401 ElectronicPaymentList.php:55
-msgid "Electronic Payment Listing"
-msgstr "Lista över elektroniska betalningar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:402
-msgid "Deposit Reports"
-msgstr "Rapporter om insättningar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:403
-msgid "Edit Deposit Slip"
-msgstr "Redigera inbetalningssedel"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:414 FundRaiserEditor.php:38
-msgid "Fundraiser"
-msgstr "Insamling"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:416
-msgid "Create New Fundraiser"
-msgstr "Skapa en ny insamling"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:417
-msgid "View All Fundraisers"
-msgstr "Visa alla insamlingar"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:419
-#: v2/templates/fundraiser/donatedItemEditor.php:87
-msgid "Edit Last Fundraiser"
-msgstr "Redigera sista insamlingen"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:478
-msgid "Data/Reports"
-msgstr "Uppgifter/rapporter"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:480
-msgid "Reports Menu"
-msgstr "Menyn Rapporter"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
-msgid "Query Menu"
-msgstr "Meny för sökning"
-
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:100
 msgid "Coin"
 msgstr "Mynt"
@@ -4757,14 +5200,6 @@ msgstr "Mynt"
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:117
 msgid "Counts"
 msgstr "Räknar"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
-#: EcclesiaCRM/Reports/PDF_Attendance.php:218
-#: EcclesiaCRM/Reports/PDF_Attendance.php:621
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Totalsumma"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:110
 msgid "Total Coin"
@@ -4841,16 +5276,16 @@ msgstr "Vittne"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:231
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:282
-#: v2/templates/dashboard/maindashboard.php:586
+#: v2/templates/dashboard/maindashboard.php:639
 #: v2/templates/people/familylist.php:60 v2/templates/people/personlist.php:57
 msgid "Created"
 msgstr "Skapad"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:236
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:287
-#: v2/templates/dashboard/maindashboard.php:600
-#: v2/templates/dashboard/maindashboard.php:643
-#: v2/templates/dashboard/maindashboard.php:658
+#: v2/templates/dashboard/maindashboard.php:655
+#: v2/templates/dashboard/maindashboard.php:699
+#: v2/templates/dashboard/maindashboard.php:715
 msgid "Updated"
 msgstr "Uppdaterad"
 
@@ -4877,17 +5312,6 @@ msgstr "Profilbild uppladdad"
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Ledamot"
-
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:622
-#: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:110
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:124
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:27
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:41
-#: EcclesiaCRM/utils/OutputUtils.php:298 EcclesiaCRM/utils/OutputUtils.php:541
-#: EcclesiaCRM/utils/OutputUtils.php:559 FamilyEditor.php:1177
-msgid "Unknown"
-msgstr "Okänd"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:629
 #: EcclesiaCRM/utils/OutputUtils.php:566
@@ -4961,471 +5385,6 @@ msgstr "Dav flytta kopiera fil"
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:722
 msgid "Dav delete file"
 msgstr "Dav raderar fil"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: v2/templates/calendar/calendar.php:79
-msgid "Birthdate"
-msgstr "Födelsedatum"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-#: PrintPastoralCarePerson.php:450 PrintView.php:461
-#: Reports/CanvassReports.php:278
-#: v2/templates/sundayschool/sundayschooldashboard.php:261
-msgid "Age"
-msgstr "Ålder"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Props"
-msgstr "Rekvisita"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:80
-msgid "Stats"
-msgstr "Statistik"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:99
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:99 Reports/ClassAttendance.php:97
-#: Reports/ClassAttendance.php:256 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:70
-#: v2/templates/sundayschool/sundayschooldashboard.php:38
-#: v2/templates/sundayschool/sundayschooldashboard.php:208
-#: v2/templates/sundayschool/sundayschoolview.php:143
-msgid "Teachers"
-msgstr "Lärare"
-
-#: EcclesiaCRM/Reports/CSV_RealAttendance.php:172
-msgid "of"
-msgstr "på"
-
-#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
-msgid "Certificate of Ownership"
-msgstr "Ägarintyg"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
-#: Reports/ConfirmReport.php:163
-msgid "City, State, Zip"
-msgstr "Stad, stat, postnummer"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:329 PersonEditor.php:1495 PersonView.php:630
-#: Reports/ConfirmReport.php:173
-msgid "Send Newsletter"
-msgstr "Skicka nyhetsbrev"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
-#: Reports/ConfirmReport.php:183
-msgid "Anniversary Date"
-msgstr "Datum för årsdagen"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:233
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:251
-#: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
-msgid "Member Name"
-msgstr "Namn på medlemmen"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:234
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:252
-#: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
-#: Reports/ConfirmReport.php:248
-msgid "M/F"
-msgstr "M/F"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:235
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:253
-#: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
-msgid "Adult/Child"
-msgstr "Vuxen/barn"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
-#: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
-msgid "Member/Friend"
-msgstr "Medlem/vän"
-
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:368
-#: Reports/ConfirmReport.php:375
-msgid "Assigned groups for"
-msgstr "Tilldelade grupper för"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:64
-#: EcclesiaCRM/Reports/PDF_Directory.php:100
-msgid "Directory"
-msgstr "Katalog"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:83 Reports/AdvancedDeposit.php:345
-msgid "Page"
-msgstr "Sidan"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:328
-#: EcclesiaCRM/Reports/PDF_Directory.php:403
-#: EcclesiaCRM/Reports/PDF_Directory.php:460
-#: external/templates/registration/family-register-members.php:105
-#: Reports/DirectoryReport.php:321 Reports/GroupReport.php:129
-msgid "Work"
-msgstr "Arbete"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:331
-#: EcclesiaCRM/Reports/PDF_Directory.php:407
-#: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:325
-#: Reports/GroupReport.php:134
-msgid "Cell"
-msgstr "Cell"
-
-#: EcclesiaCRM/Reports/PDF_Directory.php:337
-#: v2/templates/calendar/calendar.php:97
-msgid "Wedding"
-msgstr "Bröllop"
-
-#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:50
-msgid "Group Directory"
-msgstr "Gruppkatalog"
-
-#: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:91
-#: Reports/PDFBadgeGroup.php:197 Reports/PDFBadge.php:112
-#: Reports/PDFLabel.php:779
-msgid "Tractor"
-msgstr "Traktor"
-
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:191
-#: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
-#: Reports/PhotoBook.php:72
-#: v2/templates/sundayschool/sundayschooldashboard.php:49
-#: v2/templates/sundayschool/sundayschooldashboard.php:209
-#: v2/templates/sundayschool/sundayschoolview.php:235
-msgid "Students"
-msgstr "Studenter"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:19
-#: v2/routes/people/familylist.php:160
-msgid "Addresses"
-msgstr "Adresser"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:70
-#: EcclesiaCRM/Search/AddressSearchRes.php:109
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-#: EcclesiaCRM/Search/DepositSearchRes.php:74
-#: EcclesiaCRM/Search/DepositSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
-#: EcclesiaCRM/Search/FamilySearchRes.php:93
-#: EcclesiaCRM/Search/FamilySearchRes.php:128
-#: EcclesiaCRM/Search/FamilySearchRes.php:141
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:77
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:112
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:125
-#: EcclesiaCRM/Search/GroupSearchRes.php:78
-#: EcclesiaCRM/Search/GroupSearchRes.php:113
-#: EcclesiaCRM/Search/GroupSearchRes.php:126
-#: EcclesiaCRM/Search/PaymentSearchRes.php:47
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:88
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:137
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:138
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:84
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:133
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
-#: EcclesiaCRM/Search/PersonSearchRes.php:264
-#: EcclesiaCRM/Search/PersonSearchRes.php:315
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:87
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:124
-#: EcclesiaCRM/Search/PledgeSearchRes.php:69
-#: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
-#: ListEvents.php:365 PersonView.php:509
-msgid "Edit"
-msgstr "Redigera"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:123
-msgid "Addresse"
-msgstr "Adress"
-
-#: EcclesiaCRM/Search/AddressSearchRes.php:124
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
-#: EcclesiaCRM/Search/FamilySearchRes.php:142
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
-#: EcclesiaCRM/Search/PersonSearchRes.php:317
-#: EcclesiaCRM/Search/PersonSearchRes.php:321
-#: EcclesiaCRM/Search/PersonSearchRes.php:322
-#: EcclesiaCRM/Search/PersonSearchRes.php:323
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
-#: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
-#: FamilyView.php:1065 PersonView.php:698 PersonView.php:1935
-#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
-#: v2/templates/people/familylist.php:107
-#: v2/templates/people/familylist.php:108
-#: v2/templates/people/familylist.php:109
-#: v2/templates/people/familylist.php:110
-#: v2/templates/people/familylist.php:111 v2/templates/people/personlist.php:98
-#: v2/templates/people/personlist.php:99 v2/templates/people/personlist.php:100
-#: v2/templates/people/personlist.php:101
-#: v2/templates/people/personlist.php:102
-#: v2/templates/people/personlist.php:103
-#: v2/templates/sundayschool/sundayschooldashboard.php:296
-#: v2/templates/sundayschool/sundayschooldashboard.php:297
-#: v2/templates/sundayschool/sundayschooldashboard.php:298
-msgid "Private Data"
-msgstr "Privata uppgifter"
-
-#: EcclesiaCRM/Search/DepositSearchRes.php:23
-msgid "Deposits"
-msgstr "Insättningar"
-
-#: EcclesiaCRM/Search/FamilyCustomSearchRes.php:21
-msgid "Family Custom Field"
-msgstr "Anpassat fält för familjen"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:19
-msgid "Family Pastoral Cares"
-msgstr "Familjepastoral"
-
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
-#: v2/templates/dashboard/maindashboard.php:436
-msgid "Family Pastoral Care"
-msgstr "Familjepastoral"
-
-#: EcclesiaCRM/Search/FamilyPropsSearchRes.php:25
-msgid "Families Properties"
-msgstr "Families Properties"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "single"
-msgstr "Enstaka"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:45
-#: EcclesiaCRM/Search/FamilySearchRes.php:53
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-msgid "singles"
-msgstr "Ensamstående personer"
-
-#: EcclesiaCRM/Search/FamilySearchRes.php:143
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/pastoralcare/pastoralcaredashboard.php:95
-#: v2/templates/people/peopledashboard.php:91
-#: v2/templates/people/peoplelist.php:45
-msgid "Singles"
-msgstr "Ensamstående personer"
-
-#: EcclesiaCRM/Search/GroupPropsSearchRes.php:26
-msgid "Groups Properties"
-msgstr "Egenskaper för grupper"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "group"
-msgstr "grupp"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:30
-msgid "groups"
-msgstr "grupper"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday group"
-msgstr "söndagsgrupp"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:35
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-msgid "sunday groups"
-msgstr "grupper på söndagar"
-
-#: EcclesiaCRM/Search/GroupSearchRes.php:128
-#: v2/templates/people/peoplelist.php:45
-msgid "Sunday Groups"
-msgstr "Söndagsgrupper"
-
-#: EcclesiaCRM/Search/PaymentSearchRes.php:19 Reports/PledgeSummary.php:252
-#: Reports/PledgeSummary.php:254 Reports/ReminderReport.php:399
-msgid "Payments"
-msgstr "Betalningar"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:24
-msgid "Person Group role assignments"
-msgstr "Persongruppens rollfördelning"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:32
-msgid "Teacher"
-msgstr "Lärare"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:38
-msgid "Student"
-msgstr "Studerande"
-
-#: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:124
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:183
-msgid "Print"
-msgstr "Skriv ut"
-
-#: EcclesiaCRM/Search/PersonCustomSearchRes.php:24
-msgid "Person Custom Field"
-msgstr "Anpassat fält för person"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:24
-msgid "Group Manager"
-msgstr "Gruppchef"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-#: v2/templates/people/peoplelist.php:45
-msgid "groupmasters"
-msgstr "groupmasters"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:42
-msgid "groupmaster"
-msgstr "groupmaster"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanagers"
-msgstr "gruppledare"
-
-#: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:43
-msgid "groupmanager"
-msgstr "gruppchef"
-
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:23
-msgid "Individual Pastoral Cares"
-msgstr "Individuell pastoral omsorg"
-
-#: EcclesiaCRM/Search/PersonPropsSearchRes.php:28
-msgid "Person Properties"
-msgstr "Egenskaper för personer"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:942
-msgid "Volunteer Opportunities"
-msgstr "Möjligheter till volontärarbete"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteers"
-msgstr "volontärer"
-
-#: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:40
-msgid "volunteer"
-msgstr "volontär"
-
-#: EcclesiaCRM/Search/PledgeSearchRes.php:18 Reports/PledgeSummary.php:251
-#: Reports/PledgeSummary.php:253
-msgid "Pledges"
-msgstr "Löften"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
-msgid "Signature definition file signature failed validation"
-msgstr "Signaturdefinitionsfilens signatur misslyckades med valideringen"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
-msgid "Signature definition File Missing"
-msgstr "Fil för signaturdefinition saknas"
-
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
-msgid "One or more files failed signature validation"
-msgstr "En eller flera filer misslyckades med signaturvalideringen"
-
-#: EcclesiaCRM/Service/CalendarService.php:29
-msgid "Event"
-msgstr "Evenemang"
-
-#: EcclesiaCRM/Service/CalendarService.php:31
-msgid "Anniversary"
-msgstr "Årsdag"
-
-#: EcclesiaCRM/Service/FinancialService.php:488 PledgeEditor.php:324
-msgid "NonDeductible amount can't be greater than total amount."
-msgstr ""
-"Det icke avdragsgilla beloppet kan inte vara större än det totala beloppet."
-
-#: EcclesiaCRM/Service/FinancialService.php:493 PledgeEditor.php:331
-msgid "At least one fund must have a non-zero amount."
-msgstr "Minst en fond måste ha ett belopp som inte är noll."
-
-#: EcclesiaCRM/Service/FinancialService.php:518 PledgeEditor.php:348
-msgid "Must specify non-zero check number"
-msgstr "Måste ange ett kontrollnummer som inte är noll"
-
-#: EcclesiaCRM/Service/FinancialService.php:523 PledgeEditor.php:355
-msgid "Check number not valid for 'CASH' payment"
-msgstr "Kontrollnummer är inte giltigt för kontantbetalning."
-
-#: EcclesiaCRM/Service/PersonService.php:47
-msgid "Part"
-msgstr "Del"
-
-#: EcclesiaCRM/Service/PersonService.php:49
-msgid " of the"
-msgstr " av den"
-
-#: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:553
-msgid "(No assigned family)"
-msgstr "(Ingen tilldelad familj)"
-
-#: EcclesiaCRM/Service/TimelineService.php:218
-msgid "Self Registration"
-msgstr "Självregistrering"
-
-#: EcclesiaCRM/Service/TimelineService.php:220
-msgid "Self Verification"
-msgstr "Självverifiering"
-
-#: EcclesiaCRM/Service/TimelineService.php:257
-#: EcclesiaCRM/Service/TimelineService.php:260 PrintView.php:658
-msgid "by"
-msgstr "av"
-
-#: EcclesiaCRM/Service/TimelineService.php:352
-msgid "Shared by"
-msgstr "Delat av"
-
-#: EcclesiaCRM/Service/UpgradeService.php:64
-msgid "Databse upgrade failed"
-msgstr "Uppgradering av databasen misslyckades"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:119
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
-msgid "Other"
-msgstr "Övriga"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
-msgid "Head of Household"
-msgstr "Hushållschef"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
-msgid "Spouse"
-msgstr "Make/maka"
-
-#: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
-#: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
-msgid "Child"
-msgstr "Barn"
 
 #: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
@@ -5774,6 +5733,20 @@ msgstr "Deltagare"
 msgid "Not Available"
 msgstr "Inte tillgänglig"
 
+#: EditEventAttendees.php:120 ElectronicPaymentList.php:216
+#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
+#: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
+#: ListEvents.php:379 PersonView.php:1866 PersonView.php:1965
+#: browser/browse.php:66 v2/templates/email/mailchimp/campaign.php:35
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/email/mailchimp/managelist.php:93
+#: v2/templates/pastoralcare/pastoralcarefamily.php:209
+#: v2/templates/pastoralcare/pastoralcarefamily.php:219
+#: v2/templates/pastoralcare/pastoralcareperson.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:225
+msgid "Delete"
+msgstr "Ta bort"
+
 #: EditEventAttendees.php:128
 msgid "No Attendees Assigned to Event"
 msgstr "Inga deltagare har tilldelats evenemanget"
@@ -5848,46 +5821,6 @@ msgstr "Lägg till en räknare"
 #: EditEventTypes.php:234
 msgid "Return to Event Types"
 msgstr "Återgå till Händelsetyper"
-
-#: eGive.php:79
-msgid "eGive Import"
-msgstr "eGive Import"
-
-#: eGive.php:267
-msgid "Start Date: "
-msgstr "Startdatum:"
-
-#: eGive.php:269
-msgid "End Date: "
-msgstr "Slutdatum:"
-
-#: eGive.php:356
-msgid "Re-import to selected family"
-msgstr "Återimportera till vald familj"
-
-#: eGive.php:360
-msgid "Data import results: "
-msgstr "Resultat av dataimport:"
-
-#: eGive.php:360
-msgid " gifts were imported, "
-msgstr " gåvor importerades,"
-
-#: eGive.php:360
-msgid " gifts unchanged, and "
-msgstr " gåvor oförändrade, och"
-
-#: eGive.php:360
-msgid " gifts not imported due to problems"
-msgstr " gåvor som inte importeras på grund av problem"
-
-#: eGive.php:361 eGive.php:390
-msgid "Back to Deposit Slip"
-msgstr "Tillbaka till Inbetalningssedel"
-
-#: eGive.php:389
-msgid "Fatal error in eGive API datastream: '"
-msgstr "Fatal fel i eGive API-dataströmmen: '"
 
 #: ElectronicPaymentList.php:63
 msgid "Delete automatic payment for"
@@ -6139,185 +6072,6 @@ msgstr "Skapa evenemang"
 msgid "Add Event Type"
 msgstr "Lägg till händelsetyp"
 
-#: external/routes/password.php:73
-msgid "Unable to reset password"
-msgstr "Det går inte att återställa lösenordet"
-
-#: external/routes/verify.php:31
-msgid "Unable to load verification info"
-msgstr "Kan inte ladda in verifieringsinformation"
-
-#: external/routes/verify.php:45
-msgid "No Changes"
-msgstr "Inga ändringar"
-
-#: external/templates/404.php:4 kiosk/templates/404.php:4
-msgid "Page not fond"
-msgstr "Sidan är inte populär"
-
-#: external/templates/404.php:14 kiosk/templates/404.php:14
-msgid "Oops! Page not found."
-msgstr "Oops! Sidan hittades inte."
-
-#: external/templates/password/enter-username.php:7
-#: external/templates/password/password-check-email.php:7
-#: external/templates/registration/family-register-done.php:6
-#: external/templates/registration/family-register-members.php:8
-#: external/templates/registration/family-register.php:10
-msgid "Family Registration"
-msgstr "Familjeregistrering"
-
-#: external/templates/password/enter-username.php:28
-msgid "Reset your password"
-msgstr "Återställ ditt lösenord"
-
-#: external/templates/password/enter-username.php:32 UserEditor.php:648
-#: UserEditor.php:704
-msgid "Login Name"
-msgstr "Inloggningsnamn"
-
-#: external/templates/password/enter-username.php:41
-#: v2/templates/fundraiser/donatedItemEditor.php:124
-msgid "Go"
-msgstr "Gå till"
-
-#: external/templates/password/enter-username.php:46 Login.php:182
-#: Login.php:233
-msgid "Login"
-msgstr "Inloggning"
-
-#: external/templates/password/enter-username.php:60
-msgid "Check your email for a password reset link"
-msgstr ""
-"Kontrollera ditt e-postmeddelande för en länk för återställning av lösenordet"
-
-#: external/templates/password/enter-username.php:66
-msgid "Sorry, we are unable to process your request at this point in time."
-msgstr "Tyvärr kan vi inte behandla din begäran just nu."
-
-#: external/templates/password/enter-username.php:69
-msgid "Login Name is Required"
-msgstr "Inloggningsnamn krävs"
-
-#: external/templates/password/password-check-email.php:27
-msgid "A new password was sent to you. Please check your email"
-msgstr "Ett nytt lösenord har skickats till dig. Kontrollera din e-post"
-
-#: external/templates/registration/family-register-done.php:18
-msgid "Registration Complete"
-msgstr "Registrering slutförd"
-
-#: external/templates/registration/family-register-done.php:24
-msgid "Thank you for registering your family."
-msgstr "Tack för att du registrerar din familj."
-
-#: external/templates/registration/family-register-done.php:30
-msgid "Member(s)"
-msgstr "Ledamot(er)"
-
-#: external/templates/registration/family-register-done.php:45
-#: Reports/CanvassReports.php:91
-msgid "Done"
-msgstr "Klart"
-
-#: external/templates/registration/family-register-members.php:20
-msgid "Register"
-msgstr "Registrera"
-
-#: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
-#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
-msgid "Family Members"
-msgstr "Familjemedlemmar"
-
-#: external/templates/registration/family-register-members.php:35
-msgid "Family Member"
-msgstr "Familjemedlem"
-
-#: external/templates/registration/family-register-members.php:103
-#: sundayschool/SundaySchoolClassListExport.php:53
-msgid "Mobile"
-msgstr "Mobil"
-
-#: external/templates/registration/family-register-members.php:132
-#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
-#: Reports/ConfirmReport.php:252
-msgid "Hide Age"
-msgstr "Dölj ålder"
-
-#: external/templates/registration/family-register-members.php:156
-#: external/templates/registration/family-register.php:118
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:94
-#: GroupReports.php:103
-msgid "Next"
-msgstr "Nästa"
-
-#: external/templates/registration/family-register.php:30
-msgid "Register your family"
-msgstr "Registrera din familj"
-
-#: external/templates/registration/family-register.php:95
-msgid "How many people are in your family"
-msgstr "Hur många personer är din familj?"
-
-#: external/templates/registration/family-register.php:113
-msgid "This will be my primary church."
-msgstr "Detta kommer att vara min huvudkyrka."
-
-#: external/templates/verify/enter-info.php:17
-msgid "Please enter the following to start your family's verification"
-msgstr "Ange följande för att påbörja verifieringen av din familj"
-
-#: external/templates/verify/verify-family-info.php:10
-msgid "Family Verification"
-msgstr "Kontroll av familjen"
-
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:167 ManageEnvelopes.php:143
-msgid "Confirm"
-msgstr "Bekräfta"
-
-#: external/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-msgid "Home Address"
-msgstr "Hemadress"
-
-#: external/templates/verify/verify-family-info.php:64
-msgid "Family Member(s)"
-msgstr "Familjemedlemmar"
-
-#: external/templates/verify/verify-family-info.php:104
-msgid "Work Email"
-msgstr "E-postadress på jobbet"
-
-#: external/templates/verify/verify-family-info.php:114
-msgid "Age Hidden"
-msgstr "Ålder Dold"
-
-#: external/templates/verify/verify-family-info.php:174
-msgid "Please let us know what information to update if any"
-msgstr ""
-"Låt oss veta vilken information som ska uppdateras, om det finns någon."
-
-#: external/templates/verify/verify-family-info.php:179
-msgid "Your verification request is complete"
-msgstr "Din begäran om verifiering är komplett"
-
-#: external/templates/verify/verify-family-info.php:183
-msgid "We encountered an error submitting with your verification data"
-msgstr "Vi stötte på ett fel vid överföringen av dina verifieringsuppgifter."
-
-#: external/templates/verify/verify-family-info.php:189
-msgid "Verify"
-msgstr "Kontrollera"
-
-#: external/templates/verify/verify-family-info.php:191
-msgid "Visit our Site"
-msgstr "Besök vår webbplats"
-
 #: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "Redaktör för anpassade familjefält"
@@ -6488,6 +6242,14 @@ msgstr "Kuvertnummer"
 msgid "Custom Fields"
 msgstr "Anpassade fält"
 
+#: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1122
+#: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
+#: external/templates/registration/family-register-members.php:20
+#: v2/templates/pastoralcare/pastoralcarefamily.php:101
+#: v2/templates/pastoralcare/pastoralcareperson.php:103
+msgid "Family Members"
+msgstr "Familjemedlemmar"
+
 #: FamilyEditor.php:1084
 msgid ""
 "You may create family members now or add them later.  All entries will "
@@ -6504,7 +6266,7 @@ msgstr "Första"
 msgid "Middle"
 msgstr "Mellanliggande"
 
-#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:436
+#: FamilyEditor.php:1094 v2/templates/dashboard/maindashboard.php:486
 msgid "Last"
 msgstr "Senast"
 
@@ -6838,6 +6600,13 @@ msgstr "Rapport om enskilda insättningar"
 #: FinancialReports.php:82
 msgid "Advanced Deposit Report"
 msgstr "Avancerad insättningsrapport"
+
+#: FinancialReports.php:94 GroupReports.php:103
+#: external/templates/registration/family-register-members.php:156
+#: external/templates/registration/family-register.php:118
+#: external/templates/verify/enter-info.php:38
+msgid "Next"
+msgstr "Nästa"
 
 #: FinancialReports.php:171
 msgid "Add All Classes"
@@ -7388,17 +7157,17 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Gruppspecifika egenskapsfält"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
-msgid "Copyright"
-msgstr "Upphovsrätt"
-
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
-msgid "All rights reserved"
-msgstr "Alla rättigheter förbehållna"
-
 #: Include/Footer.php:27
 msgid "Version"
 msgstr "Version"
+
+#: Include/Footer.php:29 Include/FooterNotLoggedIn.php:7
+msgid "Copyright"
+msgstr "Upphovsrätt"
+
+#: Include/Footer.php:32 Include/FooterNotLoggedIn.php:7
+msgid "All rights reserved"
+msgstr "Alla rättigheter förbehållna"
 
 #: Include/Footer.php:72
 msgid "Family Properties"
@@ -7440,7 +7209,7 @@ msgstr "Pastoralvård Typ"
 msgid "Please contact your admin to change the system settings."
 msgstr "Kontakta din administratör för att ändra systeminställningarna."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:163
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:160
 msgid "Edit General Settings"
 msgstr "Redigera allmänna inställningar"
 
@@ -7715,10 +7484,6 @@ msgstr ""
 "Den föregående integritetskontrollen godkändes.  Alla hashkoder för "
 "systemfiler matchar de förväntade värdena."
 
-#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
-msgid "End Time"
-msgstr "Sluttid"
-
 #: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:220
 msgid "Letters and Mailing Labels"
 msgstr "Brev och postetiketter"
@@ -7872,6 +7637,11 @@ msgstr ""
 msgid "This account has been deactiveted by an administrator."
 msgstr "Det här kontot har avaktiverats av en administratör."
 
+#: Login.php:182 Login.php:233
+#: external/templates/password/enter-username.php:46
+msgid "Login"
+msgstr "Inloggning"
+
 #: Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Vänligen logga in"
@@ -7921,6 +7691,11 @@ msgstr ""
 "Detta kommer att ersätta familjekuverten i databasen med de nummer som valts "
 "på den här sidan.  Fortsätt?"
 
+#: ManageEnvelopes.php:143 external/templates/verify/verify-family-info.php:24
+#: external/templates/verify/verify-family-info.php:167
+msgid "Confirm"
+msgstr "Bekräfta"
+
 #: ManageEnvelopes.php:152
 msgid "Family Select"
 msgstr "Familj Select"
@@ -7940,39 +7715,6 @@ msgstr "Noll"
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
 msgstr "Tilldela med början vid #"
-
-#: members/404.php:22 members/404.php:31
-msgid "Not Found"
-msgstr "Ej funnen"
-
-#: members/404.php:31
-msgid "Oops!"
-msgstr "Oops!"
-
-#: members/404.php:34
-msgid "We could not find the member(s) you were looking for."
-msgstr "Vi hittade inte den eller de medlemmar du letade efter."
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "Meanwhile, you may"
-msgstr "Under tiden kan du"
-
-#: members/404.php:35 v2/templates/error/404.php:21
-msgid "return to member dashboard"
-msgstr "tillbaka till instrumentpanelen för medlemmar"
-
-#: members/online-pending-verify.php:13
-#: v2/templates/people/peopledashboard.php:260
-msgid "Pending Self Verify"
-msgstr "Under pågående självverifiering"
-
-#: members/self-register.php:13
-msgid "Families Self Registration"
-msgstr "Familjer Självregistrering"
-
-#: members/self-verify-updates.php:13
-msgid "Self Verify"
-msgstr "Självverifiering"
 
 #: OptionManager.php:358
 msgid ""
@@ -8126,6 +7868,12 @@ msgstr "Välj dag"
 #: PersonEditor.php:988
 msgid "Birth Year"
 msgstr "Födelseår"
+
+#: PersonEditor.php:1009 Reports/ConfirmReport.php:232
+#: Reports/ConfirmReport.php:252
+#: external/templates/registration/family-register-members.php:132
+msgid "Hide Age"
+msgstr "Dölj ålder"
 
 #: PersonEditor.php:1018
 msgid "Person or Family Info"
@@ -8344,6 +8092,26 @@ msgstr "Senast ändrad av"
 #: PersonView.php:1836
 msgid "All Files"
 msgstr "Alla filer"
+
+#: PersonView.php:1845 browser/browse.php:43
+msgid "Upload a file in EDrive"
+msgstr "Ladda upp en fil i EDrive"
+
+#: PersonView.php:1857 browser/browse.php:58
+msgid "Create a Folder"
+msgstr "Skapa en mapp"
+
+#: PersonView.php:1876 browser/browse.php:75
+msgid "Up One Level"
+msgstr "En nivå upp"
+
+#: PersonView.php:1885 browser/browse.php:82
+msgid "Actualize files"
+msgstr "Aktualisera filer"
+
+#: PersonView.php:1903 browser/browse.php:99
+msgid "Preview"
+msgstr "Förhandsgranska"
 
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
@@ -8661,6 +8429,11 @@ msgstr "Rapport Totalt"
 msgid "Canvass Progress Report"
 msgstr "Lägesrapport om valundersökningar"
 
+#: Reports/CanvassReports.php:91
+#: external/templates/registration/family-register-done.php:45
+msgid "Done"
+msgstr "Klart"
+
 #: Reports/CanvassReports.php:92
 msgid "Assigned"
 msgstr "Tilldelad"
@@ -8742,6 +8515,28 @@ msgstr ""
 msgid "Envelope Numbers for all Families"
 msgstr "Kuvertnummer för alla familjer"
 
+#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
+#: Reports/FRCertificates.php:52
+msgid "Estimated value "
+msgstr "Uppskattat värde"
+
+#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
+#: Reports/FRCertificates.php:55
+msgid "Donated by "
+msgstr "Donerat av"
+
+#: Reports/FRBidSheets.php:103
+msgid "Paddle"
+msgstr "Paddel"
+
+#: Reports/FRBidSheets.php:104
+msgid "Bid"
+msgstr "Anbud"
+
+#: Reports/FRCatalog.php:108
+msgid "Minimum bid "
+msgstr "Lägsta bud"
+
 #: Reports/FamilyPledgeSummary.php:157 Reports/ReminderReport.php:169
 msgid "All Funds"
 msgstr "Alla fonder"
@@ -8769,28 +8564,6 @@ msgstr "Betald"
 #: Reports/FamilyPledgeSummary.php:235
 msgid "Owe"
 msgstr "Skulder"
-
-#: Reports/FRBidSheets.php:89 Reports/FRCatalog.php:111
-#: Reports/FRCertificates.php:52
-msgid "Estimated value "
-msgstr "Uppskattat värde"
-
-#: Reports/FRBidSheets.php:92 Reports/FRCatalog.php:114
-#: Reports/FRCertificates.php:55
-msgid "Donated by "
-msgstr "Donerat av"
-
-#: Reports/FRBidSheets.php:103
-msgid "Paddle"
-msgstr "Paddel"
-
-#: Reports/FRBidSheets.php:104
-msgid "Bid"
-msgstr "Anbud"
-
-#: Reports/FRCatalog.php:108
-msgid "Minimum bid "
-msgstr "Lägsta bud"
 
 #: Reports/FundRaiserStatement.php:96
 msgid "Donated Items:"
@@ -9308,34 +9081,6 @@ msgstr "Förvara dem på en säker plats."
 msgid "Begin Two Factor Authentication Enrollment"
 msgstr "Påbörja registrering av tvåfaktorsautentisering"
 
-#: sundayschool/SundaySchoolClassListExport.php:56
-msgid "Dad Name"
-msgstr "Pappas namn"
-
-#: sundayschool/SundaySchoolClassListExport.php:57
-msgid "Dad Mobile"
-msgstr "Pappa Mobile"
-
-#: sundayschool/SundaySchoolClassListExport.php:58
-msgid "Dad Email"
-msgstr "Pappas e-postadress"
-
-#: sundayschool/SundaySchoolClassListExport.php:59
-msgid "Mom Name"
-msgstr "Mammas namn"
-
-#: sundayschool/SundaySchoolClassListExport.php:60
-msgid "Mom Mobile"
-msgstr "Mamma Mobile"
-
-#: sundayschool/SundaySchoolClassListExport.php:61
-msgid "Mom Email"
-msgstr "E-post till mamma"
-
-#: sundayschool/SundaySchoolClassListExport.php:62
-msgid "Properties"
-msgstr "Egenskaper"
-
 #: SystemDBUpdate.php:31
 msgid "System Upgrade"
 msgstr "Uppgradering av systemet"
@@ -9387,6 +9132,16 @@ msgstr "Skatterapportering"
 #: TaxReport.php:43
 msgid "Calendar Year"
 msgstr "Kalenderår"
+
+#: USISTAddressVerification.php:51
+msgid "US Address Verification"
+msgstr "Verifiering av amerikansk adress"
+
+#: USISTAddressVerification.php:104
+msgid ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
+msgstr ""
+"http://www.intelligentsearch.com/address_verification/verify_address.html"
 
 #: UpdateAllLatLon.php:15
 msgid "Update Latitude & Longitude"
@@ -9517,6 +9272,11 @@ msgstr "Lägg till roll till aktuell användare"
 #: UserEditor.php:629
 msgid "Person to Make User"
 msgstr "Person som ska göra användaren"
+
+#: UserEditor.php:648 UserEditor.php:704
+#: external/templates/password/enter-username.php:32
+msgid "Login Name"
+msgstr "Inloggningsnamn"
 
 #: UserEditor.php:665
 msgid "Note: Changes will not take effect until next logon."
@@ -9737,15 +9497,256 @@ msgstr "Gammalt lösenord"
 msgid "Confirm New Password"
 msgstr "Bekräfta det nya lösenordet"
 
-#: USISTAddressVerification.php:51
-msgid "US Address Verification"
-msgstr "Verifiering av amerikansk adress"
+#: browser/browse.php:31
+msgid "File Manager"
+msgstr "Filhanterare"
 
-#: USISTAddressVerification.php:104
-msgid ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+#: browser/browse.php:50
+msgid "Download"
+msgstr "Ladda ner"
+
+#: eGive.php:79
+msgid "eGive Import"
+msgstr "eGive Import"
+
+#: eGive.php:267
+msgid "Start Date: "
+msgstr "Startdatum:"
+
+#: eGive.php:269
+msgid "End Date: "
+msgstr "Slutdatum:"
+
+#: eGive.php:356
+msgid "Re-import to selected family"
+msgstr "Återimportera till vald familj"
+
+#: eGive.php:360
+msgid "Data import results: "
+msgstr "Resultat av dataimport:"
+
+#: eGive.php:360
+msgid " gifts were imported, "
+msgstr " gåvor importerades,"
+
+#: eGive.php:360
+msgid " gifts unchanged, and "
+msgstr " gåvor oförändrade, och"
+
+#: eGive.php:360
+msgid " gifts not imported due to problems"
+msgstr " gåvor som inte importeras på grund av problem"
+
+#: eGive.php:361 eGive.php:390
+msgid "Back to Deposit Slip"
+msgstr "Tillbaka till Inbetalningssedel"
+
+#: eGive.php:389
+msgid "Fatal error in eGive API datastream: '"
+msgstr "Fatal fel i eGive API-dataströmmen: '"
+
+#: external/routes/password.php:73
+msgid "Unable to reset password"
+msgstr "Det går inte att återställa lösenordet"
+
+#: external/routes/verify.php:31
+msgid "Unable to load verification info"
+msgstr "Kan inte ladda in verifieringsinformation"
+
+#: external/routes/verify.php:45
+msgid "No Changes"
+msgstr "Inga ändringar"
+
+#: external/templates/404.php:4 kiosk/templates/404.php:4
+msgid "Page not fond"
+msgstr "Sidan är inte populär"
+
+#: external/templates/404.php:14 kiosk/templates/404.php:14
+msgid "Oops! Page not found."
+msgstr "Oops! Sidan hittades inte."
+
+#: external/templates/password/enter-username.php:7
+#: external/templates/password/password-check-email.php:7
+#: external/templates/registration/family-register-done.php:6
+#: external/templates/registration/family-register-members.php:8
+#: external/templates/registration/family-register.php:10
+msgid "Family Registration"
+msgstr "Familjeregistrering"
+
+#: external/templates/password/enter-username.php:28
+msgid "Reset your password"
+msgstr "Återställ ditt lösenord"
+
+#: external/templates/password/enter-username.php:41
+#: v2/templates/fundraiser/donatedItemEditor.php:124
+msgid "Go"
+msgstr "Gå till"
+
+#: external/templates/password/enter-username.php:60
+msgid "Check your email for a password reset link"
 msgstr ""
-"http://www.intelligentsearch.com/address_verification/verify_address.html"
+"Kontrollera ditt e-postmeddelande för en länk för återställning av lösenordet"
+
+#: external/templates/password/enter-username.php:66
+msgid "Sorry, we are unable to process your request at this point in time."
+msgstr "Tyvärr kan vi inte behandla din begäran just nu."
+
+#: external/templates/password/enter-username.php:69
+msgid "Login Name is Required"
+msgstr "Inloggningsnamn krävs"
+
+#: external/templates/password/password-check-email.php:27
+msgid "A new password was sent to you. Please check your email"
+msgstr "Ett nytt lösenord har skickats till dig. Kontrollera din e-post"
+
+#: external/templates/registration/family-register-done.php:18
+msgid "Registration Complete"
+msgstr "Registrering slutförd"
+
+#: external/templates/registration/family-register-done.php:24
+msgid "Thank you for registering your family."
+msgstr "Tack för att du registrerar din familj."
+
+#: external/templates/registration/family-register-done.php:30
+msgid "Member(s)"
+msgstr "Ledamot(er)"
+
+#: external/templates/registration/family-register-members.php:20
+msgid "Register"
+msgstr "Registrera"
+
+#: external/templates/registration/family-register-members.php:35
+msgid "Family Member"
+msgstr "Familjemedlem"
+
+#: external/templates/registration/family-register-members.php:103
+#: sundayschool/SundaySchoolClassListExport.php:53
+msgid "Mobile"
+msgstr "Mobil"
+
+#: external/templates/registration/family-register.php:30
+msgid "Register your family"
+msgstr "Registrera din familj"
+
+#: external/templates/registration/family-register.php:95
+msgid "How many people are in your family"
+msgstr "Hur många personer är din familj?"
+
+#: external/templates/registration/family-register.php:113
+msgid "This will be my primary church."
+msgstr "Detta kommer att vara min huvudkyrka."
+
+#: external/templates/verify/enter-info.php:17
+msgid "Please enter the following to start your family's verification"
+msgstr "Ange följande för att påbörja verifieringen av din familj"
+
+#: external/templates/verify/verify-family-info.php:10
+msgid "Family Verification"
+msgstr "Kontroll av familjen"
+
+#: external/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+msgid "Home Address"
+msgstr "Hemadress"
+
+#: external/templates/verify/verify-family-info.php:64
+msgid "Family Member(s)"
+msgstr "Familjemedlemmar"
+
+#: external/templates/verify/verify-family-info.php:104
+msgid "Work Email"
+msgstr "E-postadress på jobbet"
+
+#: external/templates/verify/verify-family-info.php:114
+msgid "Age Hidden"
+msgstr "Ålder Dold"
+
+#: external/templates/verify/verify-family-info.php:174
+msgid "Please let us know what information to update if any"
+msgstr ""
+"Låt oss veta vilken information som ska uppdateras, om det finns någon."
+
+#: external/templates/verify/verify-family-info.php:179
+msgid "Your verification request is complete"
+msgstr "Din begäran om verifiering är komplett"
+
+#: external/templates/verify/verify-family-info.php:183
+msgid "We encountered an error submitting with your verification data"
+msgstr "Vi stötte på ett fel vid överföringen av dina verifieringsuppgifter."
+
+#: external/templates/verify/verify-family-info.php:189
+msgid "Verify"
+msgstr "Kontrollera"
+
+#: external/templates/verify/verify-family-info.php:191
+msgid "Visit our Site"
+msgstr "Besök vår webbplats"
+
+#: kiosk/templates/kioskDevices/sunday-school-class-view.php:32
+msgid "End Time"
+msgstr "Sluttid"
+
+#: members/404.php:22 members/404.php:31
+msgid "Not Found"
+msgstr "Ej funnen"
+
+#: members/404.php:31
+msgid "Oops!"
+msgstr "Oops!"
+
+#: members/404.php:34
+msgid "We could not find the member(s) you were looking for."
+msgstr "Vi hittade inte den eller de medlemmar du letade efter."
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "Meanwhile, you may"
+msgstr "Under tiden kan du"
+
+#: members/404.php:35 v2/templates/error/404.php:21
+msgid "return to member dashboard"
+msgstr "tillbaka till instrumentpanelen för medlemmar"
+
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:260
+msgid "Pending Self Verify"
+msgstr "Under pågående självverifiering"
+
+#: members/self-register.php:13
+msgid "Families Self Registration"
+msgstr "Familjer Självregistrering"
+
+#: members/self-verify-updates.php:13
+msgid "Self Verify"
+msgstr "Självverifiering"
+
+#: sundayschool/SundaySchoolClassListExport.php:56
+msgid "Dad Name"
+msgstr "Pappas namn"
+
+#: sundayschool/SundaySchoolClassListExport.php:57
+msgid "Dad Mobile"
+msgstr "Pappa Mobile"
+
+#: sundayschool/SundaySchoolClassListExport.php:58
+msgid "Dad Email"
+msgstr "Pappas e-postadress"
+
+#: sundayschool/SundaySchoolClassListExport.php:59
+msgid "Mom Name"
+msgstr "Mammas namn"
+
+#: sundayschool/SundaySchoolClassListExport.php:60
+msgid "Mom Mobile"
+msgstr "Mamma Mobile"
+
+#: sundayschool/SundaySchoolClassListExport.php:61
+msgid "Mom Email"
+msgstr "E-post till mamma"
+
+#: sundayschool/SundaySchoolClassListExport.php:62
+msgid "Properties"
+msgstr "Egenskaper"
 
 #: v2/routes/calendar/calendar.php:43
 msgid "Church Calendar"
@@ -9827,14 +9828,14 @@ msgid "Pastoral care list of members for"
 msgstr "Förteckning över medlemmar i pastoralvård för"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "Period från och med"
 
 #: v2/routes/pastoralcare/pastoralcare.php:120
-#: v2/templates/dashboard/maindashboard.php:490
+#: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
@@ -9857,7 +9858,7 @@ msgid "Pastoral care members list by classification"
 msgstr "Förteckning över medlemmar i själavården enligt klassificering"
 
 #: v2/routes/people/familylist.php:158
-#: v2/templates/dashboard/maindashboard.php:33
+#: v2/templates/dashboard/maindashboard.php:82
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10186,158 +10187,181 @@ msgstr "Din varukorg innehåller"
 msgid "persons from"
 msgstr "personer från"
 
-#: v2/templates/dashboard/maindashboard.php:41
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:40
+msgid "Loading in progress"
+msgstr "Lastning pågår"
+
+#: v2/templates/dashboard/maindashboard.php:45
+msgid "Loading datas for the proper functioning of EcclesiaCRM"
+msgstr "Laddning av data för att EcclesiaCRM ska fungera korrekt"
+
+#: v2/templates/dashboard/maindashboard.php:51
+msgid "Importing data from Mailchimp"
+msgstr "Importera data från Mailchimp"
+
+#: v2/templates/dashboard/maindashboard.php:54
+msgid "EcclesiaCRM data integrity check"
+msgstr "Kontroll av dataintegritet i EcclesiaCRM"
+
+#: v2/templates/dashboard/maindashboard.php:57
+msgid ""
+"Verification of the technical data of the hosting for the proper functioning "
+"of EcclesiaCRM"
+msgstr ""
+"Verifiering av värdets tekniska data för att EcclesiaCRM ska fungera korrekt."
+
+#: v2/templates/dashboard/maindashboard.php:90
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "Visa"
 
-#: v2/templates/dashboard/maindashboard.php:63
+#: v2/templates/dashboard/maindashboard.php:112
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "Familjer"
 
-#: v2/templates/dashboard/maindashboard.php:83
+#: v2/templates/dashboard/maindashboard.php:132
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "Se alla människor"
 
-#: v2/templates/dashboard/maindashboard.php:98
+#: v2/templates/dashboard/maindashboard.php:147
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Söndagsskoleklasser"
 
-#: v2/templates/dashboard/maindashboard.php:105
-#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:176
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "Mer information"
 
-#: v2/templates/dashboard/maindashboard.php:141
+#: v2/templates/dashboard/maindashboard.php:190
 msgid "message for the DPO"
 msgstr "meddelande till dataskyddsombudet"
 
-#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/dashboard/maindashboard.php:201
 msgid "person must be deleted from the CRM."
 msgstr "personen måste tas bort från CRM."
 
-#: v2/templates/dashboard/maindashboard.php:154
+#: v2/templates/dashboard/maindashboard.php:203
 msgid "persons must be deleted from the CRM."
 msgstr "personer måste tas bort från CRM."
 
-#: v2/templates/dashboard/maindashboard.php:159
-#: v2/templates/dashboard/maindashboard.php:184
+#: v2/templates/dashboard/maindashboard.php:208
+#: v2/templates/dashboard/maindashboard.php:233
 msgid "Click the"
 msgstr "Klicka på"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 msgid "link"
 msgstr "länk"
 
-#: v2/templates/dashboard/maindashboard.php:160
-#: v2/templates/dashboard/maindashboard.php:185
+#: v2/templates/dashboard/maindashboard.php:209
+#: v2/templates/dashboard/maindashboard.php:234
 #: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "to solve the problem."
 msgstr "för att lösa problemet."
 
-#: v2/templates/dashboard/maindashboard.php:165
+#: v2/templates/dashboard/maindashboard.php:214
 msgid "No Person to remove in the CRM."
 msgstr "Ingen person att ta bort i CRM."
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:226
 msgid "family must be deleted from the CRM."
 msgstr "familjen måste tas bort från CRM."
 
-#: v2/templates/dashboard/maindashboard.php:179
+#: v2/templates/dashboard/maindashboard.php:228
 msgid "families must be deleted from the CRM."
 msgstr "familjer måste tas bort från CRM."
 
-#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:239
 msgid "No Family to remove in the CRM."
 msgstr "Ingen familj att ta bort i CRM."
 
-#: v2/templates/dashboard/maindashboard.php:286
+#: v2/templates/dashboard/maindashboard.php:335
 msgid "Birthdates of the day"
 msgstr "Dagens födelsedatum"
 
-#: v2/templates/dashboard/maindashboard.php:300
+#: v2/templates/dashboard/maindashboard.php:349
 msgid "Anniversaries of the day"
 msgstr "Dagens årsdagar"
 
-#: v2/templates/dashboard/maindashboard.php:347
+#: v2/templates/dashboard/maindashboard.php:396
 msgid "Unclassified birthdates"
 msgstr "Oklassificerade födelsedatum"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Latest"
 msgstr "Senaste"
 
-#: v2/templates/dashboard/maindashboard.php:381
+#: v2/templates/dashboard/maindashboard.php:430
 msgid "Individual Pastoral Care"
 msgstr "Individuell själavård"
 
-#: v2/templates/dashboard/maindashboard.php:489
+#: v2/templates/dashboard/maindashboard.php:539
 msgid "Statistics"
 msgstr "Statistik"
 
-#: v2/templates/dashboard/maindashboard.php:495
+#: v2/templates/dashboard/maindashboard.php:545
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:162
 msgid "Persons not reached"
 msgstr "Personer som inte nåtts"
 
-#: v2/templates/dashboard/maindashboard.php:499
+#: v2/templates/dashboard/maindashboard.php:549
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:175
 msgid "Families not reached"
 msgstr "Familjer som inte nåtts"
 
-#: v2/templates/dashboard/maindashboard.php:503
+#: v2/templates/dashboard/maindashboard.php:553
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:190
 msgid "Single Persons not reached"
 msgstr "Ensamstående personer som inte nås"
 
-#: v2/templates/dashboard/maindashboard.php:507
+#: v2/templates/dashboard/maindashboard.php:557
 msgid "Retired Persons not reached"
 msgstr "Pensionärer som inte nås"
 
-#: v2/templates/dashboard/maindashboard.php:511
+#: v2/templates/dashboard/maindashboard.php:561
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:121
 msgid "Young People"
 msgstr "Ungdomar"
 
-#: v2/templates/dashboard/maindashboard.php:514
+#: v2/templates/dashboard/maindashboard.php:564
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:219
 msgid "Young People not reached"
 msgstr "Ungdomar som inte nåtts"
 
-#: v2/templates/dashboard/maindashboard.php:520
+#: v2/templates/dashboard/maindashboard.php:570
 msgid "Visit/Call your church members"
 msgstr "Besök/samtala med dina kyrkomedlemmar"
 
-#: v2/templates/dashboard/maindashboard.php:521
+#: v2/templates/dashboard/maindashboard.php:571
 msgid "Manage Pastoral Care"
 msgstr "Hantera själavård"
 
-#: v2/templates/dashboard/maindashboard.php:538
+#: v2/templates/dashboard/maindashboard.php:588
 msgid "Deposit Tracking"
 msgstr "Spårning av insättningar"
 
-#: v2/templates/dashboard/maindashboard.php:563
+#: v2/templates/dashboard/maindashboard.php:614
 msgid "Latest Families"
 msgstr "Senaste familjerna"
 
-#: v2/templates/dashboard/maindashboard.php:571
+#: v2/templates/dashboard/maindashboard.php:623
 msgid "Updated Families"
 msgstr "Uppdaterade familjer"
 
-#: v2/templates/dashboard/maindashboard.php:621
+#: v2/templates/dashboard/maindashboard.php:676
 msgid "Latest Members"
 msgstr "Senaste medlemmarna"
 
-#: v2/templates/dashboard/maindashboard.php:628
+#: v2/templates/dashboard/maindashboard.php:683
 msgid "Updated Members"
 msgstr "Uppdaterade medlemmar"
 
@@ -10472,11 +10496,11 @@ msgstr "Ta bort alla prenumeranter"
 msgid "Modify Properties"
 msgstr "Ändra egenskaper"
 
-#: v2/templates/email/mailchimp/managelist.php:72
+#: v2/templates/email/mailchimp/managelist.php:65
 msgid "Subscribers"
 msgstr "Prenumeranter"
 
-#: v2/templates/email/mailchimp/managelist.php:76
+#: v2/templates/email/mailchimp/managelist.php:69
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
@@ -10485,51 +10509,51 @@ msgstr ""
 "<b>NewLetter</b> i sökfältet, om du vill lägga till alla medlemmar i CRM "
 "använder du <b>*</b>."
 
-#: v2/templates/email/mailchimp/managelist.php:80
+#: v2/templates/email/mailchimp/managelist.php:73
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Om du ökar detta värde är det instabilt med MailChimp API."
 
-#: v2/templates/email/mailchimp/managelist.php:105
+#: v2/templates/email/mailchimp/managelist.php:98
 msgid "Sub/Unsubscribe"
 msgstr "Under/avsluta prenumeration"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:106
 msgid "Subscribed"
 msgstr "Prenumererade"
 
-#: v2/templates/email/mailchimp/managelist.php:116
+#: v2/templates/email/mailchimp/managelist.php:109
 msgid "Unsubscribed"
 msgstr "Avregistrerad"
 
-#: v2/templates/email/mailchimp/managelist.php:124
+#: v2/templates/email/mailchimp/managelist.php:117
 msgid "Add/Remove Tag"
 msgstr "Lägg till/ta bort tagg"
 
-#: v2/templates/email/mailchimp/managelist.php:141
+#: v2/templates/email/mailchimp/managelist.php:134
 msgid "Keywords"
 msgstr "Nyckelord"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:158
 msgid "is not configured"
 msgstr "inte är konfigurerad."
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "Please update the"
 msgstr "Vänligen uppdatera"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:159
 msgid "API key in Setting->"
 msgstr "API-nyckel i Inställning->"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "then update"
 msgstr "uppdatera sedan"
 
-#: v2/templates/email/mailchimp/managelist.php:164
+#: v2/templates/email/mailchimp/managelist.php:161
 msgid "For more info see our "
 msgstr "För mer information, se vår"
 
-#: v2/templates/email/mailchimp/managelist.php:165
+#: v2/templates/email/mailchimp/managelist.php:162
 msgid "support docs."
 msgstr "stöddokumentation."
 
@@ -10755,9 +10779,9 @@ msgstr "Gruppmärken"
 
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
 #: v2/templates/pastoralcare/pastoralcarefamily.php:66
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 msgid "Appointment"
 msgstr "Utnämning"
@@ -10960,6 +10984,18 @@ msgstr "Namn på rummet"
 msgid "First create a Jitsi room with the button above !"
 msgstr "Skapa först ett Jitsi-rum med knappen ovan!"
 
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
+msgid "Filter by member types"
+msgstr "Filtrera efter medlemstyper"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
+msgid "All persons"
+msgstr "Alla personer"
+
+#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
+msgid "Only the visited/called persons"
+msgstr "Endast de besökta/uppringda personerna"
+
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:22
 msgid "Visit/Call randomly"
 msgstr "Besök/samtal slumpmässigt"
@@ -11043,18 +11079,6 @@ msgstr "Tillbaka till PastoralCare Dashboard"
 #: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Return To PastoralCare Members List"
 msgstr "Tillbaka till listan över PastoralCare-medlemmar"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:24
-msgid "Filter by member types"
-msgstr "Filtrera efter medlemstyper"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:53
-msgid "All persons"
-msgstr "Alla personer"
-
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:54
-msgid "Only the visited/called persons"
-msgstr "Endast de besökta/uppringda personerna"
 
 #: v2/templates/pastoralcare/pastoralcareperson.php:246
 msgid "Return To Person View"
@@ -11680,216 +11704,6 @@ msgstr "Ej påverkningsbar"
 msgid "Management"
 msgstr "Förvaltning"
 
-#: queryparameteroptions_qpo.php:5
-msgid "Zip Code"
-msgstr "Postnummer"
-
-#: queryparameteroptions_qpo.php:9
-msgid "2012/2013"
-msgstr "2012/2013"
-
-#: queryparameteroptions_qpo.php:10
-msgid "2013/2014"
-msgstr "2013/2014"
-
-#: queryparameteroptions_qpo.php:11
-msgid "2014/2015"
-msgstr "2014/2015"
-
-#: queryparameteroptions_qpo.php:12
-msgid "2015/2016"
-msgstr "2015/2016"
-
-#: queryparameteroptions_qpo.php:14
-msgid "WorkEmail"
-msgstr "WorkEmail"
-
-#: queryparameteroptions_qpo.php:16
-msgid "Regular Attender"
-msgstr "Regelbunden deltagare"
-
-#: queryparameteroptions_qpo.php:17
-msgid "Guest"
-msgstr "Gäst"
-
-#: queryparameteroptions_qpo.php:18
-msgid "Non-Attender"
-msgstr "Icke-deltagare"
-
-#: queryparameteroptions_qpo.php:19
-msgid "Non-Attender (staff)"
-msgstr "Icke-deltagare (personal)"
-
-#: queryparameters_qrp.php:2
-msgid "Minimum Age"
-msgstr "Minimiålder"
-
-#: queryparameters_qrp.php:3
-msgid "Maximum Age"
-msgstr "Högsta ålder"
-
-#: queryparameters_qrp.php:7
-msgid "Beginning Date"
-msgstr "Startdatum"
-
-#: queryparameters_qrp.php:8
-msgid "Ending Date"
-msgstr "Slutdatum"
-
-#: queryparameters_qrp.php:10
-msgid "Field"
-msgstr "Fält"
-
-#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
-msgid "Registered students"
-msgstr "Registrerade studenter"
-
-#: queryparameters_qrp.php:14
-msgid "Volunteer opportunities"
-msgstr "Möjligheter till volontärarbete"
-
-#: queryparameters_qrp.php:15
-msgid "Months"
-msgstr "Månader"
-
-#: queryparameters_qrp.php:16
-msgid "First Fiscal Year"
-msgstr "Första räkenskapsåret"
-
-#: queryparameters_qrp.php:17
-msgid "Second Fiscal Year"
-msgstr "Andra räkenskapsåret"
-
-#: queryparameters_qrp.php:21
-msgid "Custom field"
-msgstr "Anpassat fält"
-
-#: queryparameters_qrp.php:22
-msgid "Field value"
-msgstr "Fältets värde"
-
-#: queryparameters_qrp.php:23
-msgid "The minimum age for which you want records returned."
-msgstr "Den lägsta åldern för vilken du vill ha tillbaka uppgifter."
-
-#: queryparameters_qrp.php:24
-msgid "The maximum age for which you want records returned."
-msgstr "Högsta ålder för vilken du vill ha tillbaka poster."
-
-#: queryparameters_qrp.php:25
-msgid "The desired gender to search the database for."
-msgstr "Det önskade könet som ska sökas i databasen."
-
-#: queryparameters_qrp.php:26
-msgid "Select the desired family role."
-msgstr "Välj önskad familjeroll."
-
-#: queryparameters_qrp.php:27
-msgid "The gender for which you would like records returned."
-msgstr "Det kön för vilket du vill ha tillbaka uppgifter."
-
-#: queryparameters_qrp.php:28
-msgid "The property for which you would like person records returned."
-msgstr "Den fastighet för vilken du vill att personregistren ska återlämnas."
-
-#: queryparameters_qrp.php:29
-msgid ""
-"Please select the beginning date to calculate total contributions for each "
-"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
-"donations."
-msgstr ""
-"Välj startdatum för att beräkna de totala bidragen för varje medlem (dvs. "
-"ÅÅÅÅÅ-MM-DD). OBS: Du kan bara välja datum som innehåller bidrag."
-
-#: queryparameters_qrp.php:30
-msgid ""
-"Please enter the last date to calculate total contributions for each member "
-"(i.e. YYYY-MM-DD)."
-msgstr ""
-"Ange det sista datumet för att beräkna de totala bidragen för varje medlem "
-"(dvs. ÅÅÅÅÅ-MM-DD)."
-
-#: queryparameters_qrp.php:31
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-"Ange en del av följande: Namn, ort, delstat, postnummer, hemtelefon, e-"
-"postadress eller e-postadress för arbete."
-
-#: queryparameters_qrp.php:32
-msgid "Select field to search for."
-msgstr "Välj det fält som du vill söka efter."
-
-#: queryparameters_qrp.php:33
-msgid "The birthday month for which you would like records returned."
-msgstr "Födelsedagsmånad för vilken du vill ha tillbaka uppgifter."
-
-#: queryparameters_qrp.php:34
-msgid "The sunday school class for which you would like records returned."
-msgstr "Den klass i söndagsskolan för vilken du vill ha tillbaka uppgifter."
-
-#: queryparameters_qrp.php:35
-msgid "Group of registered students"
-msgstr "Grupp av registrerade studenter"
-
-#: queryparameters_qrp.php:36
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr "Den månad då du vill ha tillbaka uppgifter om ditt medlemskap."
-
-#: queryparameters_qrp.php:37
-msgid "Choose a volunteer opportunity"
-msgstr "Välj ett volontärtillfälle"
-
-#: queryparameters_qrp.php:38
-msgid "Number of months since becoming a friend"
-msgstr "Antal månader sedan du blev vän"
-
-#: queryparameters_qrp.php:39
-msgid "First fiscal year for comparison"
-msgstr "Första räkenskapsåret för jämförelse"
-
-#: queryparameters_qrp.php:40
-msgid "Second fiscal year for comparison"
-msgstr "Andra räkenskapsåret för jämförelse"
-
-#: queryparameters_qrp.php:41
-msgid "Pledged this year"
-msgstr "Utfästelser i år"
-
-#: queryparameters_qrp.php:42
-msgid "but not this year"
-msgstr "men inte i år"
-
-#: queryparameters_qrp.php:43
-msgid "Fiscal Year."
-msgstr "Budgetår."
-
-#: queryparameters_qrp.php:44
-msgid "Member, Regular Attender, etc."
-msgstr "Medlem, regelbunden deltagare osv."
-
-#: queryparameters_qrp.php:45
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr "Ta fram alla personer som är födda före det år som du nämner."
-
-#: queryparameters_qrp.php:46
-msgid "First volunteer opportunity choice"
-msgstr "Första val av volontärarbete"
-
-#: queryparameters_qrp.php:47
-msgid "Second volunteer opportunity choice"
-msgstr "Andra val av volontärarbete"
-
-#: queryparameters_qrp.php:48
-msgid "Choose customer person field"
-msgstr "Välj fältet för kundperson"
-
-#: queryparameters_qrp.php:49
-msgid "Match custom field to this value"
-msgstr "Matcha det anpassade fältet med det här värdet"
-
 #: query_qry.php:2 query_qry.php:47
 msgid "Family With Work Phone"
 msgstr "Familj med arbetstelefon"
@@ -11917,6 +11731,10 @@ msgstr "Person genom egendom"
 #: query_qry.php:9 query_qry.php:54
 msgid "Birthdays"
 msgstr "Födelsedagar"
+
+#: query_qry.php:10 query_qry.php:55 queryparameters_qrp.php:13
+msgid "Registered students"
+msgstr "Registrerade studenter"
 
 #: query_qry.php:11 query_qry.php:56
 msgid "Membership anniversaries"
@@ -12065,6 +11883,212 @@ msgstr "Hitta volontärer som matchar två specifika koder för möjligheter."
 #: query_qry.php:46 query_qry.php:91
 msgid "Find people with a custom field value"
 msgstr "Hitta personer med ett värde i ett anpassat fält"
+
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr "Postnummer"
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr "2012/2013"
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr "2013/2014"
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr "2014/2015"
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr "2015/2016"
+
+#: queryparameteroptions_qpo.php:14
+msgid "WorkEmail"
+msgstr "WorkEmail"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr "Regelbunden deltagare"
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr "Gäst"
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr "Icke-deltagare"
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr "Icke-deltagare (personal)"
+
+#: queryparameters_qrp.php:2
+msgid "Minimum Age"
+msgstr "Minimiålder"
+
+#: queryparameters_qrp.php:3
+msgid "Maximum Age"
+msgstr "Högsta ålder"
+
+#: queryparameters_qrp.php:7
+msgid "Beginning Date"
+msgstr "Startdatum"
+
+#: queryparameters_qrp.php:8
+msgid "Ending Date"
+msgstr "Slutdatum"
+
+#: queryparameters_qrp.php:10
+msgid "Field"
+msgstr "Fält"
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr "Möjligheter till volontärarbete"
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr "Månader"
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr "Första räkenskapsåret"
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr "Andra räkenskapsåret"
+
+#: queryparameters_qrp.php:21
+msgid "Custom field"
+msgstr "Anpassat fält"
+
+#: queryparameters_qrp.php:22
+msgid "Field value"
+msgstr "Fältets värde"
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr "Den lägsta åldern för vilken du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr "Högsta ålder för vilken du vill ha tillbaka poster."
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr "Det önskade könet som ska sökas i databasen."
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr "Välj önskad familjeroll."
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr "Det kön för vilket du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr "Den fastighet för vilken du vill att personregistren ska återlämnas."
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+"Välj startdatum för att beräkna de totala bidragen för varje medlem (dvs. "
+"ÅÅÅÅÅ-MM-DD). OBS: Du kan bara välja datum som innehåller bidrag."
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+"Ange det sista datumet för att beräkna de totala bidragen för varje medlem "
+"(dvs. ÅÅÅÅÅ-MM-DD)."
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+"Ange en del av följande: Namn, ort, delstat, postnummer, hemtelefon, e-"
+"postadress eller e-postadress för arbete."
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr "Välj det fält som du vill söka efter."
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr "Födelsedagsmånad för vilken du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr "Den klass i söndagsskolan för vilken du vill ha tillbaka uppgifter."
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr "Grupp av registrerade studenter"
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr "Den månad då du vill ha tillbaka uppgifter om ditt medlemskap."
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr "Välj ett volontärtillfälle"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr "Antal månader sedan du blev vän"
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr "Första räkenskapsåret för jämförelse"
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr "Andra räkenskapsåret för jämförelse"
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr "Utfästelser i år"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr "men inte i år"
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr "Budgetår."
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr "Medlem, regelbunden deltagare osv."
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr "Ta fram alla personer som är födda före det år som du nämner."
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr "Första val av volontärarbete"
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr "Andra val av volontärarbete"
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr "Välj fältet för kundperson"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr "Matcha det anpassade fältet med det här värdet"
 
 #: settings-locales.php:2
 msgid "Albanian"
