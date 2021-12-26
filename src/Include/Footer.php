@@ -184,7 +184,7 @@ use EcclesiaCRM\Theme;
             } else {
                 ?>
 
-                <div class="mb-1">
+                <div class="mb-5">
                     <div class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div>
                     </li>
                 </div>
@@ -267,7 +267,7 @@ use EcclesiaCRM\Theme;
                 <?php
             } else {
                 ?>
-                <div class="mb-1">
+                <div class="mb-5">
                     <div
                         class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div>
                 </div>
