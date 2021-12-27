@@ -155,8 +155,128 @@ $(document).ready(function () {
         }
     }
 
+    function loadTableMembers() {
+        // the DataTable
+        var columns = [
+            {
+                width: 'auto',
+                title: "",
+                data: 'id',
+                render: function (data, type, full, meta) {
+                    return '<input type="checkbox" class="checkbox_users checkbox_user_' + full.id + '" name="AddRecords" data-id="' + full.id + '" data-email="' + full.email_address + '">';
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Actions'),
+                data: 'id',
+                render: function (data, type, full, meta) {
+                    return '<a class="edit-subscriber" data-id="' + full.email_address + '"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="' + full.email_address + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Email'),
+                data: 'email_address',
+                render: function (data, type, full, meta) {
+                    if (!window.CRM.canSeePrivacyData) {
+                        return i18next.t('Private Data');
+                    }
+                    return data;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('First Name'),
+                data: 'merge_fields',
+                render: function (data, type, full, meta) {
+                    return data.FNAME;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Last Name'),
+                data: 'merge_fields',
+                render: function (data, type, full, meta) {
+                    return data.LNAME;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Email Marketing'),
+                data: 'status',
+                render: function (data, type, full, meta) {
+                    var res = i18next.t(data);
+                    if (data == 'subscribed') {
+                        res = '<p class="text-green">' + res + '</p>';
+                    } else if (data == 'unsubscribed') {
+                        res = '<p class="text-orange">' + res + '</p>';
+                    } else {
+                        res = '<p class="text-red">' + res + '</p>';
+                    }
+                    return res;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Tags'),
+                data: 'tags',
+                render: function (data, type, full, meta) {
+                    var res = '';
+                    data.forEach(function (element) {
+                        res += element.name + ' ';
+                    });
+                    return res;
+                }
+            }
+        ];
+
+        if (window.CRM.bWithAddressPhone) {
+            columns.push(
+                {
+                    width: 'auto',
+                    title: i18next.t('Address'),
+                    data: 'merge_fields',
+                    render: function (data, type, full, meta) {
+                        return data.ADDRESS.addr1 + ' ' + data.ADDRESS.city + ' ' + data.ADDRESS.zip + ' ' + data.ADDRESS.state + ' ' + data.ADDRESS.state;
+                    }
+                },
+                {
+                    width: 'auto',
+                    title: i18next.t('Phone'),
+                    data: 'merge_fields',
+                    render: function (data, type, full, meta) {
+                        return data.PHONE;
+                    }
+                }
+            );
+        }
+
+        var dataTableConfig = {
+            ajax: {
+                url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
+                type: 'GET',
+                contentType: "application/json",
+                dataSrc: "MailChimpMembers"
+            },
+            columns: columns,
+            responsive: true,
+            pageLength: 50,
+            createdRow: function (row, data, index) {
+                $(row).addClass("duplicateRow");
+            }
+        }
+
+        $.extend(dataTableConfig, window.CRM.plugin.dataTable);
+
+        window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
+    }
+
     render_container();
     addTagsToMainDropdown();
+    loadTableMembers();
+
+
     // render the main page
 
     $(document).on("click", ".delete-tag", function () {
@@ -367,121 +487,6 @@ $(document).ready(function () {
 
     });
 
-// the DataTable
-    var columns = [
-        {
-            width: 'auto',
-            title: "",
-            data: 'id',
-            render: function (data, type, full, meta) {
-                return '<input type="checkbox" class="checkbox_users checkbox_user_' + full.id + '" name="AddRecords" data-id="' + full.id + '" data-email="' + full.email_address + '">';
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('Actions'),
-            data: 'id',
-            render: function (data, type, full, meta) {
-                return '<a class="edit-subscriber" data-id="' + full.email_address + '"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="' + full.email_address + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('Email'),
-            data: 'email_address',
-            render: function (data, type, full, meta) {
-                if (!window.CRM.canSeePrivacyData) {
-                    return i18next.t('Private Data');
-                }
-                return data;
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('First Name'),
-            data: 'merge_fields',
-            render: function (data, type, full, meta) {
-                return data.FNAME;
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('Last Name'),
-            data: 'merge_fields',
-            render: function (data, type, full, meta) {
-                return data.LNAME;
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('Email Marketing'),
-            data: 'status',
-            render: function (data, type, full, meta) {
-                var res = i18next.t(data);
-                if (data == 'subscribed') {
-                    res = '<p class="text-green">' + res + '</p>';
-                } else if (data == 'unsubscribed') {
-                    res = '<p class="text-orange">' + res + '</p>';
-                } else {
-                    res = '<p class="text-red">' + res + '</p>';
-                }
-                return res;
-            }
-        },
-        {
-            width: 'auto',
-            title: i18next.t('Tags'),
-            data: 'tags',
-            render: function (data, type, full, meta) {
-                var res = '';
-                data.forEach(function (element) {
-                    res += element.name + ' ';
-                });
-                return res;
-            }
-        }
-    ];
-
-    if (window.CRM.bWithAddressPhone) {
-        columns.push(
-            {
-                width: 'auto',
-                title: i18next.t('Address'),
-                data: 'merge_fields',
-                render: function (data, type, full, meta) {
-                    return data.ADDRESS.addr1 + ' ' + data.ADDRESS.city + ' ' + data.ADDRESS.zip + ' ' + data.ADDRESS.state + ' ' + data.ADDRESS.state;
-                }
-            },
-            {
-                width: 'auto',
-                title: i18next.t('Phone'),
-                data: 'merge_fields',
-                render: function (data, type, full, meta) {
-                    return data.PHONE;
-                }
-            }
-        );
-    }
-
-
-    var dataTableConfig = {
-        ajax: {
-            url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
-            type: 'GET',
-            contentType: "application/json",
-            dataSrc: "MailChimpMembers"
-        },
-        columns: columns,
-        responsive: true,
-        pageLength: 50,
-        createdRow: function (row, data, index) {
-            $(row).addClass("duplicateRow");
-        }
-    }
-
-    $.extend(dataTableConfig, window.CRM.plugin.dataTable);
-
-    window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
 
     $(document).on("click", ".edit-subscriber", function () {
         var email = $(this).data("id");
@@ -742,7 +747,6 @@ $(document).ready(function () {
         return modal;
     }
 
-
     $(document).on("click", "#modifyList", function () {
         var name = $(this).data('name');
         var subject = $(this).data('subject');
@@ -930,7 +934,6 @@ $(document).ready(function () {
             });
         });
     });
-
 
     $('body').on('click', '.addTagButton', function () {
         var tag = $(this).data("id");
