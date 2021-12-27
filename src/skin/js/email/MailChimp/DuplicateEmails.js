@@ -8,6 +8,7 @@
 
 
 $(document).ready(function () {
+
   window.CRM.dataFundTable = $("#duplicateTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/persons/duplicate/emails",
