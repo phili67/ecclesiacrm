@@ -41,7 +41,7 @@
         "mustache/mustache": "~2.5",
         "nexmo/client": "2.*",
         "slim/http-cache": "^1.1",
-        "sabre/dav": "4.1.*",
+        "sabre/dav": "4.3.*",
         "tuupola/slim-jwt-auth": "3.*",
         "phpoffice/phpword": "0.18.*",
         "defuse/php-encryption": "^2.2",
@@ -55,8 +55,7 @@
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.1",
         "slim/http": "^1.2",
-        "tecnickcom/tcpdf": "^6.4",
-        "robthree/twofactorauth": "^1.8"
+        "tecnickcom/tcpdf": "^6.4"
     },
     "autoload": {
         "classmap": [
