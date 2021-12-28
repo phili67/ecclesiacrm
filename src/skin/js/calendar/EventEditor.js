@@ -908,6 +908,16 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 "alarm": alarm
                             })
                         }).done(function (data) {
+
+
+                            if (data.status == "failed") {
+                                add = false;
+
+                                window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+
+                                return false;
+                            }
+
                             add = true;
                             modal.modal("hide");
 
