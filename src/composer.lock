@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea2c72e74b7256a7550f2c999fecf6a5",
+    "content-hash": "6d15505ab8dc334045d7b45b11f28cc3",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -4056,6 +4056,76 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
+            "name": "robthree/twofactorauth",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobThree/TwoFactorAuth.git",
+                "reference": "5afcb45282f1c75562a48d479ecd1732c9bdb11b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobThree/TwoFactorAuth/zipball/5afcb45282f1c75562a48d479ecd1732c9bdb11b",
+                "reference": "5afcb45282f1c75562a48d479ecd1732c9bdb11b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "@stable"
+            },
+            "suggest": {
+                "bacon/bacon-qr-code": "Needed for BaconQrCodeProvider provider",
+                "endroid/qr-code": "Needed for EndroidQrCodeProvider"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RobThree\\Auth\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Janssen",
+                    "homepage": "http://robiii.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Two Factor Authentication",
+            "homepage": "https://github.com/RobThree/TwoFactorAuth",
+            "keywords": [
+                "Authentication",
+                "MFA",
+                "Multi Factor Authentication",
+                "Two Factor Authentication",
+                "authenticator",
+                "authy",
+                "php",
+                "tfa"
+            ],
+            "support": {
+                "issues": "https://github.com/RobThree/TwoFactorAuth/issues",
+                "source": "https://github.com/RobThree/TwoFactorAuth"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/robiii",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/RobThree",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-10-20T12:19:55+00:00"
+        },
+        {
             "name": "sabre/dav",
             "version": "4.3.0",
             "source": {
@@ -6421,16 +6491,16 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.4.2",
+            "version": "6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "172540dcbfdf8dc983bc2fe78feff48ff7ec1c76"
+                "reference": "3cfc830d70b3783ecfc198fc28c183287bcb1dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/172540dcbfdf8dc983bc2fe78feff48ff7ec1c76",
-                "reference": "172540dcbfdf8dc983bc2fe78feff48ff7ec1c76",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/3cfc830d70b3783ecfc198fc28c183287bcb1dce",
+                "reference": "3cfc830d70b3783ecfc198fc28c183287bcb1dce",
                 "shasum": ""
             },
             "require": {
@@ -6481,7 +6551,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/TCPDF/issues",
-                "source": "https://github.com/tecnickcom/TCPDF/tree/6.4.2"
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.4.3"
             },
             "funding": [
                 {
@@ -6489,7 +6559,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-07-20T14:43:20+00:00"
+            "time": "2021-12-28T12:31:24+00:00"
         },
         {
             "name": "tuupola/callable-handler",
