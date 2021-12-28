@@ -207,7 +207,7 @@ namespace EcclesiaCRM
           self::$serviceContainer->setDefaultDatasource('default');
           self::$bootStrapLogger->debug("Initialized Propel ORM");
 
-          LoggerUtils::getAppLogger()->info(json_encode(self::buildConnectionManagerConfig()));
+          //LoggerUtils::getAppLogger()->info(json_encode(self::buildConnectionManagerConfig()));
       }
       private static function isDatabaseEmpty()
       {
