@@ -48,6 +48,7 @@ class FamilyPastoralCareSearchRes extends BaseSearchRes
                     ->usePastoralCareTypeQuery()
                     ->filterByTitle($searchLikeString, Criteria::LIKE)
                     ->endUse()
+                    ->_or()->filterByPastorName($searchLikeString, Criteria::LIKE)
                     ->orderByDate(Criteria::DESC);
 
                 if (!$this->global_search) {
