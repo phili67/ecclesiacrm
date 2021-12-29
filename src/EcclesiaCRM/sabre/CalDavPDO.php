@@ -10,13 +10,17 @@
 
 namespace EcclesiaCRM\MyPDO;
 
+use EcclesiaCRM\MyVCalendar\VCalendarExtension;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Sabre\CalDAV;
 use Sabre\DAV;
 
+use Sabre\VObject;
+
 use EcclesiaCRM\Bootstrapper;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
+use Sabre\DAV\UUIDUtil;
 
 
 class CalDavPDO extends SabreCalDavBase\PDO
@@ -942,7 +946,7 @@ SQL;
                             $result[] = [
                                 'event_uri' => $row['event_uri'],
                                 'event_start' => $sevent['DTSTART'],
-                                'event_end' => $sevent['DTSTART'],
+                                'event_end' => $sevent['DTEND'],
                                 'calendardata' => $row['event_calendardata']
                             ];
                         }
@@ -960,6 +964,98 @@ SQL;
 
         return $result;
 
+    }
+
+    public function checkIfEventIsInResourceSlotCalendar ($calIDs, $start, $end, $recurrenceValid = false, $recurrenceType = "FREQ=DAILY", $endrecurrence = "2050-12-31")
+    {
+        // 1. we search 6 months before and after, to see any slot collision before
+        $startDate = ((new \DateTime($start))->modify('-6 months'))->format('Y-m')."-01";
+        $endDate = ((new \DateTime($start))->modify('first day of +6 month'))->format('Y-m-d');
+
+        // we've to find if there isn't any event collision !!!
+        $filters = [
+            'name' => 'VCALENDAR',
+            'comp-filters' => [
+                [
+                    'name' => 'VEVENT',
+                    'comp-filters' => [],
+                    'prop-filters' => [],
+                    'is-not-defined' => false,
+                    'time-range' => ['start' => new \DateTime($startDate), 'end' => new \DateTime($endDate)]
+                ],
+            ],
+            'prop-filters' => [],
+            'is-not-defined' => false,
+            'time-range' => null,
+        ];
+
+        // get all the events with the recurring too
+        $calendarEvents = $this->calendarQuery($calIDs, $filters);
+
+        // 2. now we search after in the case we've reccurence type enabled
+        $uuid = strtoupper(UUIDUtil::getUUID());
+
+        $EventDesc = "A desc";
+        $EventTitle = "A title";
+
+        $vevent = [
+            'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
+            'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
+            'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DESCRIPTION' => $EventDesc,
+            'SUMMARY' => $EventTitle,
+            'UID' => $uuid,
+            'RRULE' => $recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
+            'SEQUENCE' => '0',
+            'TRANSP' => 'OPAQUE'
+        ];
+
+        $vcalendar = new VCalendarExtension();
+
+        $realVevent = $vcalendar->add('VEVENT',$vevent);
+
+        $eventSerialized = "BEGIN:VCALENDAR\r\nVERSION:2.0 PRODID:-//EcclesiaCRM.// VObject " . VObject\Version::VERSION ."//EN\r\nCALSCALE:GREGORIAN\r\n".$realVevent->serialize(false)."\r\nEND:VCALENDAR";
+
+        $returnValues = VObjectExtract::calendarData($eventSerialized);
+
+        // it's time to find all the future events
+        $futureEvents = [];
+
+        if ($returnValues['freq'] != 'none') {
+            foreach ($returnValues as $key => $value) {
+                if ($key == 'freqEvents') {
+                    foreach ($value as $sevent) {
+                        $futureEvents[] = [
+                            'event_uri' => $uuid,
+                            'event_start' => $sevent['DTSTART'],
+                            'event_end' => $sevent['DTEND'],
+                            //'calendardata' => $eventSerialized
+                        ];
+                    }
+                }
+            }
+        }
+
+        // 3. we test if all the events as real or not
+        foreach ($calendarEvents as $event_in_calendar) {
+            $event_in_calendar_start = new \DateTime($event_in_calendar['event_start']);
+            $event_in_calendar_end = new \DateTime($event_in_calendar['event_end']);
+
+            foreach ($futureEvents as $future_event) {
+                $future_event_start = new \DateTime($future_event['event_start']);
+                $future_event_end = new \DateTime($future_event['event_end']);
+
+                if (($future_event_start <= $event_in_calendar_start and $future_event_end >= $event_in_calendar_end)
+                    or ($event_in_calendar_start < $future_event_start and $event_in_calendar_end > $future_event_start)
+                    or ($event_in_calendar_start < $future_event_end and $event_in_calendar_end > $future_event_end)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
 
