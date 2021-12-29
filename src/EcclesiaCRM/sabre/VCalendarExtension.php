@@ -12,7 +12,7 @@ namespace EcclesiaCRM\MyVCalendar;
 use Sabre\VObject;
 use Sabre\VObject\Component\VCalendar as VCalendarBase;
 
-class VCalendarExtension extends VCalendarBase { 
+class VCalendarExtension extends VCalendarBase {
     protected function getDefaults() {
         return [
             'VERSION'  => '2.0',
@@ -20,13 +20,15 @@ class VCalendarExtension extends VCalendarBase {
             'CALSCALE' => 'GREGORIAN',
         ];
     }
-    
-    public function serialize()
+
+    public function serialize($suppressCommaGMAP = true)
     {
        $ret = parent::serialize();
-       
-       $ret = str_replace(" commaGMAP ",",",$ret);
-       
+
+       if ($suppressCommaGMAP) {
+           $ret = str_replace(" commaGMAP ", ",", $ret);
+       }
+
        return $ret;
     }
 }
