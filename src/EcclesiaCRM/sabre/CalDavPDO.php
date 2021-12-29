@@ -856,7 +856,6 @@ SQL;
      */
     function calendarQuery($calendarId, array $filters)
     {
-
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
         }
@@ -883,6 +882,8 @@ SQL;
             if ($componentType == 'VEVENT' && isset($filters['comp-filters'][0]['time-range'])) {
                 $timeRange = $filters['comp-filters'][0]['time-range'];
 
+                //LoggerUtils::getAppLogger()->info("coucou".print_r($timeRange,true));
+
                 // If start time OR the end time is not specified, we can do a
                 // 100% accurate mysql query.
                 if (!$filters['prop-filters'] && !$filters['comp-filters'][0]['comp-filters'] && !$filters['comp-filters'][0]['prop-filters'] && (!$timeRange['start'] || !$timeRange['end'])) {
@@ -893,7 +894,8 @@ SQL;
         }
 
         if ($requirePostFilter) {
-            $query = "SELECT event_uri, event_calendardata FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
+            //LoggerUtils::getAppLogger()->info("require post filters");
+            $query = "SELECT event_uri, event_calendardata, event_start, event_end FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
         } else {
             $query = "SELECT event_uri FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
         }
@@ -908,26 +910,52 @@ SQL;
         }
 
         if ($timeRange && $timeRange['start']) {
-            $query .= " AND event_end > :startdate";
-            $values['startdate'] = $timeRange['start']->getTimeStamp();
+            $query .= " AND event_start > :startdate";
+            $values['startdate'] = $timeRange['start']->format('Y-m-d');
         }
         if ($timeRange && $timeRange['end']) {
-            $query .= " AND event_start < :enddate";
-            $values['enddate'] = $timeRange['end']->getTimeStamp();
+            $query .= " AND event_end < :enddate";
+            $values['enddate'] = $timeRange['end']->format('Y-m-d');
         }
+
+        //LoggerUtils::getAppLogger()->info("query : ".$query);
+        //LoggerUtils::getAppLogger()->info("values : ".print_r($values,true));
 
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($values);
 
         $result = [];
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-            if ($requirePostFilter) {
+            /*if ($requirePostFilter) {
                 if (!$this->validateFilterForObject($row, $filters)) {
                     continue;
                 }
-            }
-            $result[] = $row['event_uri'];
+            }*/
 
+            // in the case of a reccuring event
+            $returnValues = VObjectExtract::calendarData($row['event_calendardata']);
+
+            if ($returnValues['freq'] != 'none') {
+                foreach ($returnValues as $key => $value) {
+                    if ($key == 'freqEvents') {
+                        foreach ($value as $sevent) {
+                            $result[] = [
+                                'event_uri' => $row['event_uri'],
+                                'event_start' => $sevent['DTSTART'],
+                                'event_end' => $sevent['DTSTART'],
+                                'calendardata' => $row['event_calendardata']
+                            ];
+                        }
+                    }
+                }
+            } else {
+                $result[] = [
+                    'event_uri' => $row['event_uri'],
+                    'event_start' => $row['event_start'],
+                    'event_end' => $row['event_end'],
+                    'calendardata' => $row['event_calendardata']
+                ];
+            }
         }
 
         return $result;

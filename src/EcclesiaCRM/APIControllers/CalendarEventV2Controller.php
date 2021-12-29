@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -92,7 +93,7 @@ class CalendarEventV2Controller
 
     public function numbersOfEventOfToday(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $response->withJson(MenuEventsCount::getNumberEventsOfToday());
+        return $response->withJson(MenuEventsCount::getNumberEventsOfToday());
     }
 
     public function getEventTypes(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
@@ -338,6 +339,17 @@ class CalendarEventV2Controller
             $calendarId = $calIDs[0];
             $Id = $calIDs[1];
             $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+
+            $fullCalendarInfo = $calendarBackend->getFullCalendar($calIDs);
+
+            $calendar_Type = $fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
+
+            // this part allows to create a resource without being in collision on another one
+            if ($calendar_Type >= 2 or $calendar_Type <= 4) {
+                if ($calendarBackend->checkIfEventIsInResourceSlotCalendar($calIDs, $input->start, $input->end, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence)) {
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                }
+            }
 
             $coordinates = "";
             $location = '';
@@ -1077,5 +1089,7 @@ class CalendarEventV2Controller
 
             return $response->withJson(["status" => "success", "res2" => $calendar->getGroupId()]);
         }
+
+        return $response->withJson(["status" => "failed"]);
     }
 }
