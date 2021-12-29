@@ -344,45 +344,11 @@ class CalendarEventV2Controller
 
             $calendar_Type = $fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
 
+            // this part allows to create a resource without being in collision on another one
             if ($calendar_Type >= 2 or $calendar_Type <= 4) {
-                $startDate = ((new \DateTime($input->start))->modify('-6 months'))->format('Y-m')."-01";
-                $endDate = ((new \DateTime($input->start))->modify('first day of +1 month'))->format('Y-m-d');
-
-                // we've to find if there isn't any event collision !!!
-                $filters = [
-                    'name' => 'VCALENDAR',
-                    'comp-filters' => [
-                        [
-                            'name' => 'VEVENT',
-                            'comp-filters' => [],
-                            'prop-filters' => [],
-                            'is-not-defined' => false,
-                            'time-range' => ['start' => new \DateTime($startDate), 'end' => new \DateTime($endDate)]
-                        ],
-                    ],
-                    'prop-filters' => [],
-                    'is-not-defined' => false,
-                    'time-range' => null,
-                ];
-
-                $res = $calendarBackend->calendarQuery($calIDs, $filters);
-
-                // now we can start the test with the input range by the js formular
-                $realStartDate = new \DateTime($input->start);
-                $realEndDate = new \DateTime($input->end);
-
-                foreach ($res as $event) {
-                    $eventStartDate = new \DateTime($event['event_start']);
-                    $eventEndDate = new \DateTime($event['event_end']);
-
-                    if ( ($realStartDate <= $eventStartDate and $realEndDate >= $eventEndDate)
-                        or ($eventStartDate < $realStartDate and $eventEndDate > $realStartDate)
-                        or ($eventStartDate < $realEndDate and $eventEndDate > $realEndDate))
-                    {
-                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
-                    }
+                if ($calendarBackend->checkIfEventIsInResourceSlotCalendar($calIDs, $input->start, $input->end, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence)) {
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
                 }
-
             }
 
             $coordinates = "";
