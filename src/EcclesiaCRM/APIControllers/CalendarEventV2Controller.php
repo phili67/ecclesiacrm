@@ -344,8 +344,6 @@ class CalendarEventV2Controller
 
             $calendar_Type = (int)$fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
 
-            LoggerUtils::getAppLogger()->info("calendar type : ".$calendar_Type);
-
             // this part allows to create a resource without being in collision on another one
             if ($calendar_Type >= 2 and $calendar_Type <= 4
                 and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
