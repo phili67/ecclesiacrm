@@ -342,13 +342,16 @@ class CalendarEventV2Controller
 
             $fullCalendarInfo = $calendarBackend->getFullCalendar($calIDs);
 
-            $calendar_Type = $fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
+            $calendar_Type = (int)$fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
 
             // this part allows to create a resource without being in collision on another one
-            if ($calendar_Type >= 2 or $calendar_Type <= 4) {
-                if ($calendarBackend->checkIfEventIsInResourceSlotCalendar($calIDs, $input->start, $input->end, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence)) {
-                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
-                }
+            if ($calendar_Type >= 2 and $calendar_Type <= 4
+                and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                    $calIDs, $input->start, $input->end,
+                    $input->recurrenceValid, $input->recurrenceType,
+                    $input->endrecurrence)) {
+
+                return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
             }
 
             $coordinates = "";
