@@ -841,6 +841,15 @@ class CalendarEventV2Controller
                 }
             } else {
 
+                // this part allows to create a resource without being in collision on another one
+                if ($calendarBackend->isCalendarResource($input->calendarID)
+                    and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                        $input->calendarID, $input->start, $input->end)) {
+
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                }
+                // end of collision test
+
                 $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
                 $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
                 $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
