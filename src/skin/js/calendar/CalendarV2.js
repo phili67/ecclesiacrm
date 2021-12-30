@@ -466,6 +466,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd})
                             }).done(function(data) {
                                 // now we can refresh the calendar
+                                if (data.status == "failed") {
+                                    window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+                                }
                                 window.CRM.calendar.refetchEvents();
                                 window.CRM.calendar.unselect();
                             });
@@ -502,6 +505,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                         path: 'events/',
                                         data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                                     }).done(function(data) {
+                                        if (data.status == "failed") {
+                                            window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+                                        }
+
                                         // now we can refresh the calendar
                                         window.CRM.calendar.refetchEvents();
                                         window.CRM.calendar.unselect();
@@ -518,6 +525,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                         path: 'events/',
                                         data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
                                     }).done(function(data) {
+                                        if (data.status == "failed") {
+                                            window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+                                        }
+
                                         // now we can refresh the calendar
                                         window.CRM.calendar.refetchEvents();
                                         window.CRM.calendar.unselect();
@@ -546,6 +557,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                     path: 'events/',
                                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                                 }).done(function(data) {
+                                    if (data.status == "failed") {
+                                        window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
+                                    }
+
                                     // now we can refresh the calendar
                                     window.CRM.calendar.refetchEvents();
                                     window.CRM.calendar.unselect();
