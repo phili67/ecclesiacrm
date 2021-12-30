@@ -966,8 +966,24 @@ SQL;
 
     }
 
-    public function checkIfEventIsInResourceSlotCalendar ($calIDs, $start, $end, $recurrenceValid = false, $recurrenceType = "FREQ=DAILY", $endrecurrence = "2050-12-31")
+    public function isCalendarResource ($calIDs)
     {
+        $fullCalendarInfo = $this->getFullCalendar($calIDs);
+
+        $calendar_Type = (int)$fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
+
+        // this part allows to create a resource without being in collision on another one
+        if ($calendar_Type >= 2 and $calendar_Type <= 4) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function checkIfEventIsInResourceSlotCalendar ($calIDs, $start, $end, $recurrenceType = "", $endrecurrence = "")
+    {
+
+        LoggerUtils::getAppLogger()->info("coucou");
         // 1. we search 6 months before and after, to see any slot collision before
         $startDate = ((new \DateTime($start))->modify('-6 months'))->format('Y-m')."-01";
         $endDate = ((new \DateTime($start))->modify('first day of +6 month'))->format('Y-m-d');
@@ -992,25 +1008,42 @@ SQL;
         // get all the events with the recurring too
         $calendarEvents = $this->calendarQuery($calIDs, $filters);
 
+        LoggerUtils::getAppLogger()->info("calendarEvents : ".print_r($calendarEvents,true));
+
         // 2. now we search after in the case we've reccurence type enabled
         $uuid = strtoupper(UUIDUtil::getUUID());
 
         $EventDesc = "A desc";
         $EventTitle = "A title";
 
-        $vevent = [
-            'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
-            'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-            'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
-            'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
-            'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-            'DESCRIPTION' => $EventDesc,
-            'SUMMARY' => $EventTitle,
-            'UID' => $uuid,
-            'RRULE' => $recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
-            'SEQUENCE' => '0',
-            'TRANSP' => 'OPAQUE'
-        ];
+        if ( $recurrenceType != "" ) {
+            $vevent = [
+                'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $EventDesc,
+                'SUMMARY' => $EventTitle,
+                'UID' => $uuid,
+                'RRULE' => $recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
+                'SEQUENCE' => '0',
+                'TRANSP' => 'OPAQUE'
+            ];
+        } else {
+            $vevent = [
+                'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $EventDesc,
+                'SUMMARY' => $EventTitle,
+                'UID' => $uuid,
+                'SEQUENCE' => '0',
+                'TRANSP' => 'OPAQUE'
+            ];
+        }
 
         $vcalendar = new VCalendarExtension();
 
@@ -1036,7 +1069,17 @@ SQL;
                     }
                 }
             }
+        } else {
+            $futureEvents[] = [
+                'event_uri' => $uuid,
+                'event_start' => $start,
+                'event_end' => $end,
+                //'calendardata' => $eventSerialized
+            ];
         }
+
+        LoggerUtils::getAppLogger()->info("futureEvents : ".print_r($futureEvents,true));
+
 
         // 3. we test if all the events as real or not
         foreach ($calendarEvents as $event_in_calendar) {
