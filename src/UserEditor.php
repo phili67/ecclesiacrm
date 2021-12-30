@@ -140,6 +140,11 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $ManageGroups = 0;
         }
+        if (isset($_POST['ManageCalendarResources'])) {
+            $ManageCalendarResources = 1;
+        } else {
+            $ManageCalendarResources = 0;
+        }
         if (isset($_POST['Finance'])) {
             $Finance = 1;
         } else {
@@ -270,6 +275,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setMenuOptions($MenuOptions);
 
                     $user->setManageGroups($ManageGroups);
+                    $user->setManageCalendarResources($ManageCalendarResources);
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);
 
@@ -325,6 +331,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setEDrive($EDrive);
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
+                    $user->setManageCalendarResources($ManageCalendarResources);
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);
                     $user->setAdmin($Admin);
@@ -397,6 +404,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_EDrive = $user->getEdrive();
             $usr_MenuOptions = $user->getMenuOptions();
             $usr_ManageGroups = $user->getManageGroups();
+            $usr_ManageCalendarResources = $user->getManageCalendarResources();
             $usr_Finance = $user->getFinance();
             $usr_Notes = $user->getNotes();
             $usr_Admin = $user->getAdmin();
@@ -434,6 +442,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_EDrive = 0;
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
+            $usr_ManageCalendarResources = 0;
             $usr_Finance = 0;
             $usr_Notes = 0;
             $usr_Admin = 0;
@@ -465,6 +474,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_EDrive = 0;
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
+        $usr_ManageCalendarResources = 0;
         $usr_Finance = 0;
         $usr_Notes = 0;
         $usr_Admin = 0;
@@ -755,6 +765,12 @@ if ($usr_role_id == null) {
                     <td><?= _('Manage Groups and Roles') ?>:</td>
                     <td><input type="checkbox" class="global_settings" name="ManageGroups"
                                value="1"<?= ($usr_ManageGroups) ? ' checked' : '' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Manage resource reservation schedules (room, computer, projectors)') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="ManageCalendarResources"
+                               value="1"<?= ($usr_ManageCalendarResources) ? ' checked' : '' ?>></td>
                 </tr>
 
                 <tr>

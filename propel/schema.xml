@@ -766,6 +766,7 @@
         <column name="event_size" phpName="Size" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
         <column name="event_componenttype" phpName="Componenttype" type="VARCHAR" size="8" sqlType="varbinary(8)"/>
         <column name="event_uid" phpName="Uid" type="VARCHAR" size="200" sqlType="varbinary(200)"/>
+        <column name="event_creator_user_id" phpName="CreatorUserId" type="SMALLINT" description="For resource slot : the owner is the creator"/>
         <foreign-key foreignTable="group_grp">
             <reference local="event_grpid" foreign="grp_ID"/>
         </foreign-key>
@@ -905,6 +906,7 @@
         <column name="usr_ExportCSV" phpName="ExportCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_ExportSundaySchoolCSV" phpName="ExportSundaySchoolCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_ExportSundaySchoolPDF" phpName="ExportSundaySchoolPDF" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_ManageCalendarResources" phpName="ManageCalendarResources" type="TINYINT" sqlType="tinyint unsigned" required="true" defaultValue="0"/>
         <column name="usr_showSince" phpName="ShowSince" type="DATE" required="true" defaultValue="2018-01-01"/>
         <column name="usr_showTo" phpName="ShowTo" type="DATE" required="true" defaultValue="2019-01-01"/>
         <column name="usr_defaultFY" phpName="DefaultFY" type="SMALLINT" size="9" required="true" defaultValue="10"/>

@@ -31,4 +31,13 @@ class SessionUser
             return 0;
         }
     }
+
+    public static function isManageCalendarResources()
+    {
+        if (self::isActive()) {
+            return (self::getUser()->getManageCalendarResources() or self::getUser()->isAdmin());
+        } else {
+            return 0;
+        }
+    }
 }

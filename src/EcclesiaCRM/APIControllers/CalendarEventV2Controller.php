@@ -324,6 +324,12 @@ class CalendarEventV2Controller
     {
         $input = (object)$request->getParsedBody();
 
+        $the_event = Null;
+
+        if ( isset($input->eventID) ) {
+            $the_event = EventQuery::create()->findOneById($input->eventID);
+        }
+
         if (!strcmp($input->eventAction, 'createEvent')) {
             // new way to manage events
             // We set the BackEnd for sabre Backends
@@ -341,13 +347,15 @@ class CalendarEventV2Controller
             $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
 
             // this part allows to create a resource without being in collision on another one
-            if ($calendarBackend->isCalendarResource($calIDs)
+            $isCalendarResource = $calendarBackend->isCalendarResource($calIDs);
+
+            if ($isCalendarResource
                 and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                     $calIDs, $input->start, $input->end,
                     $input->recurrenceType,
                     $input->endrecurrence)) {
 
-                return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
             }
 
             $coordinates = "";
@@ -453,6 +461,10 @@ class CalendarEventV2Controller
             $event->setTypeName($eventTypeName);
             $event->setInActive($input->eventInActive);
 
+            if ($isCalendarResource) {
+                $event->setCreatorUserId(SessionUser::getId());
+            }
+
             // we set the groupID to manage correctly the attendees : Historical
             $event->setGroupId($calendar->getGroupId());
             $event->setLocation($input->location);
@@ -517,6 +529,11 @@ class CalendarEventV2Controller
             return $response->withJson(["status" => "success"]);
 
         } else if (!strcmp($input->eventAction, 'moveEvent')) {
+
+            // this part allows to create a resource without being in collision on another one
+            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+            }
 
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO();
@@ -609,7 +626,7 @@ class CalendarEventV2Controller
                             $oldRuleFreq,
                             $oldRuleFinishDate->format('Y-m-d'))) {
 
-                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                     }
                     // now we can apply the changes
 
@@ -694,7 +711,7 @@ class CalendarEventV2Controller
                             and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                                 $input->calendarID, $input->start, $input->end)) {
 
-                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                         }
                         // now we can apply the changes
 
@@ -714,7 +731,7 @@ class CalendarEventV2Controller
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                         $input->calendarID, $input->start, $input->end)) {
 
-                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
                 // now we can apply the changes
 
@@ -729,6 +746,12 @@ class CalendarEventV2Controller
 
             return $response->withJson(["status" => "failed"]);
         } else if (!strcmp($input->eventAction, 'resizeEvent')) {
+
+            // this part allows to create a resource without being in collision on another one
+            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+            }
+
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO();
 
@@ -756,7 +779,7 @@ class CalendarEventV2Controller
                         and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                             $input->calendarID, $input->start, $input->end)) {
 
-                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                     }
                     // end of collision test
 
@@ -826,7 +849,7 @@ class CalendarEventV2Controller
                             and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                                 $input->calendarID, $input->start, $input->end)) {
 
-                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                         }
                         // end of collision test
 
@@ -846,7 +869,7 @@ class CalendarEventV2Controller
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                         $input->calendarID, $input->start, $input->end)) {
 
-                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
                 // end of collision test
 
@@ -875,6 +898,12 @@ class CalendarEventV2Controller
 
             return $response->withJson(['status' => "success"]);
         } else if (!strcmp($input->eventAction, 'suppress')) {
+
+            // this part allows to create a resource without being in collision on another one
+            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+            }
+
             // new way to manage events
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO();
@@ -906,6 +935,11 @@ class CalendarEventV2Controller
 
             return $response->withJson(['status' => "success"]);
         } else if (!strcmp($input->eventAction, 'modifyEvent')) {
+
+            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+            }
+
             $old_event = EventQuery::Create()->findOneById($input->eventID);
 
             if (is_null($old_event)) {
@@ -1006,7 +1040,7 @@ class CalendarEventV2Controller
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                         $calIDs, $input->start, $input->end, $input->recurrenceType, $input->endrecurrence)) {
 
-                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
                 // end of collision test
 
@@ -1032,7 +1066,7 @@ class CalendarEventV2Controller
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                         $calIDs, $input->start, $input->end)) {
 
-                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
                 // end of collision test
             }
