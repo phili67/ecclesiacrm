@@ -340,15 +340,11 @@ class CalendarEventV2Controller
             $Id = $calIDs[1];
             $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
 
-            $fullCalendarInfo = $calendarBackend->getFullCalendar($calIDs);
-
-            $calendar_Type = (int)$fullCalendarInfo['cal_type']; // 2, 3, 4 are room, computer or video (there can't be collision
-
             // this part allows to create a resource without being in collision on another one
-            if ($calendar_Type >= 2 and $calendar_Type <= 4
+            if ($calendarBackend->isCalendarResource($calIDs)
                 and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                     $calIDs, $input->start, $input->end,
-                    $input->recurrenceValid, $input->recurrenceType,
+                    $input->recurrenceType,
                     $input->endrecurrence)) {
 
                 return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
@@ -604,6 +600,19 @@ class CalendarEventV2Controller
                         //}
                     }
 
+                    // this part allows to create a resource without being in collision on another one
+                    $calIDs = explode(",", $input->calendarID);
+
+                    if ($calendarBackend->isCalendarResource($calIDs)
+                        and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                            $calIDs, $newStart->format('Ymd\THis'), $newEnd->format('Ymd\THis'),
+                            $oldRuleFreq,
+                            $oldRuleFinishDate->format('Y-m-d'))) {
+
+                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    }
+                    // now we can apply the changes
+
                     // we remove only the first one in the main event.
                     $vcalendar->VEVENT->remove('RECURRENCE-ID');
 
@@ -680,6 +689,15 @@ class CalendarEventV2Controller
                             //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
                         ];
 
+                        // check if there is no slot with another resource event
+                        if ($calendarBackend->isCalendarResource($input->calendarID)
+                            and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                                $input->calendarID, $input->start, $input->end)) {
+
+                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                        }
+                        // now we can apply the changes
+
                         $vcalendar->add('VEVENT', $new_vevent);
 
                         $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
@@ -691,6 +709,14 @@ class CalendarEventV2Controller
                 }
 
             } else {
+                // check if there is no slot with another resource event
+                if ($calendarBackend->isCalendarResource($input->calendarID)
+                    and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                        $input->calendarID, $input->start, $input->end)) {
+
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                }
+                // now we can apply the changes
 
                 $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
                 $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
