@@ -751,6 +751,15 @@ class CalendarEventV2Controller
                     $vcalendar->VEVENT->DTEND = ($oldStart->add($interval))->format('Ymd\THis');
                     $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
+                    // this part allows to create a resource without being in collision on another one
+                    if ($calendarBackend->isCalendarResource($input->calendarID)
+                        and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                            $input->calendarID, $input->start, $input->end)) {
+
+                        return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                    }
+                    // end of collision test
+
                     $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
 
                     return $response->withJson(["status" => "success"]);
@@ -811,6 +820,15 @@ class CalendarEventV2Controller
                             "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
                             //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
                         ];
+
+                        // this part allows to create a resource without being in collision on another one
+                        if ($calendarBackend->isCalendarResource($input->calendarID)
+                            and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                                $input->calendarID, $input->start, $input->end)) {
+
+                            return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                        }
+                        // end of collision test
 
                         $vcalendar->add('VEVENT', $new_vevent);
 
@@ -974,6 +992,15 @@ class CalendarEventV2Controller
                     "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
                 ];
 
+                // this part allows to create a resource without being in collision on another one
+                if ($calendarBackend->isCalendarResource($calIDs)
+                    and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                        $calIDs, $input->start, $input->end, $input->recurrenceType, $input->endrecurrence)) {
+
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                }
+                // end of collision test
+
             } else {
                 $vevent = [
                     'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
@@ -990,16 +1017,16 @@ class CalendarEventV2Controller
                     'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
                     "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
                 ];
+
+                // this part allows to create a resource without being in collision on another one
+                if ($calendarBackend->isCalendarResource($calIDs)
+                    and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                        $calIDs, $input->start, $input->end)) {
+
+                    return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+                }
+                // end of collision test
             }
-
-            if ($calendarBackend->isCalendarResource($calIDs)
-                and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                    $calIDs, $input->start, $input->end)) {
-
-                return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
-            }
-
-
 
             $realVevent = $vcalendar->add('VEVENT', $vevent);
 
