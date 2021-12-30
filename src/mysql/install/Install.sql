@@ -441,7 +441,8 @@ CREATE TABLE `events_event` (
   `event_size` int(11) UNSIGNED NOT NULL,
   `event_componenttype` varbinary(8) DEFAULT NULL,
   `event_uid` varbinary(200) DEFAULT NULL,
-    PRIMARY KEY  (`event_id`),
+  `event_creator_user_id` mediumint(9) DEFAULT NULL COMMENT 'For resource slot : the owner is the creator',
+  PRIMARY KEY  (`event_id`),
     UNIQUE(event_calendarid, event_uri),
     INDEX calendarid_time (event_calendarid)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1;
@@ -1333,6 +1334,7 @@ CREATE TABLE `user_usr` (
   `usr_AddRecords` tinyint(1) unsigned NOT NULL default '0',
   `usr_EditRecords` tinyint(1) unsigned NOT NULL default '0',
   `usr_DeleteRecords` tinyint(1) unsigned NOT NULL default '0',
+  `usr_ManageCalendarResources` tinyint(1) unsigned NOT NULL default '0',
   `usr_MenuOptions` tinyint(1) unsigned NOT NULL default '0',
   `usr_ManageGroups` tinyint(1) unsigned NOT NULL default '0',
   `usr_Finance` tinyint(1) unsigned NOT NULL default '0',
