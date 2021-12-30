@@ -992,6 +992,13 @@ class CalendarEventV2Controller
                 ];
             }
 
+            if ($calendarBackend->isCalendarResource($calIDs)
+                and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                    $calIDs, $input->start, $input->end)) {
+
+                return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same slot.")]);
+            }
+
 
 
             $realVevent = $vcalendar->add('VEVENT', $vevent);
