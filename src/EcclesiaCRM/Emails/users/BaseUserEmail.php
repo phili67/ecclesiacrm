@@ -17,7 +17,6 @@ abstract class BaseUserEmail extends BaseEmail
     public function __construct($user)
     {
         parent::__construct([$user->getEmail()]);
-        $this->isActiv = $user->isEmailToEnabled();// now only a user who has given authorization can receive email notifications
         $this->user = $user;
         $this->mail->Subject = SystemConfig::getValue("sChurchName") . ": " . $this->getSubSubject();
         $this->mail->isHTML(true);
