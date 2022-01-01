@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -538,7 +537,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'moveEvent')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -756,7 +755,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'resizeEvent')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ( $the_event->getCreatorUserId() != 0 and  SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -908,7 +907,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'suppress')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -944,7 +943,7 @@ class CalendarEventV2Controller
             return $response->withJson(['status' => "success"]);
         } else if (!strcmp($input->eventAction, 'modifyEvent')) {
 
-            if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
