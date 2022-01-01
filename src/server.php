@@ -47,7 +47,7 @@ $tree = [
 ];
 
 // we create the server
-$server = new EcclesiaCRM\PersonalServer\EcclesiaCRMServer($tree,$authBackend);
+$server = new EcclesiaCRMServer($tree,$authBackend);
 
 // If your server is not on your webroot, make sure the following line has the
 // correct information
@@ -72,5 +72,3 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
 // All we need to do now, is to fire up the server
 //
 $server->exec();
-
-?>
