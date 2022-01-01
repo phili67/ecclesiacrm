@@ -352,6 +352,7 @@ class CalendarEventV2Controller
             if ($isCalendarResource
                 and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                     $calIDs, $input->start, $input->end,
+                    0,
                     $input->recurrenceType,
                     $input->endrecurrence)) {
 
@@ -413,6 +414,12 @@ class CalendarEventV2Controller
 
             //$res = '';
 
+            if ($isCalendarResource) {
+                // in resource : room, computer and videos we've have to include the organizer, and himself at least
+                $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
+                $realVevent->add('ATTENDEE', 'mailto:' . SessionUser::getUser()->getEmail());
+            }
+
             if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
                 $persons = Person2group2roleP2g2rQuery::create()
                     ->filterByGroupId($calendar->getGroupId())
@@ -422,7 +429,9 @@ class CalendarEventV2Controller
 
                 if ($persons->count() > 0) {
 
-                    $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
+                    if (!$isCalendarResource) { // it's yet done over
+                        $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
+                    }
 
                     //$res .= SessionUser::getUser()->getEmail();
 
@@ -440,8 +449,6 @@ class CalendarEventV2Controller
             if ($input->alarm != _("NONE")) {
                 $realVevent->add('VALARM', ['TRIGGER' => $input->alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
             }
-            //return $response->withJson(["status" => $vcalendar->serialize(),"grpId" => $calendar->getGroupId(), "cocuou" => $input->addGroupAttendees,"res" => $res]);
-
 
             // Now we move to propel, to finish the put extra infos
             $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
@@ -532,7 +539,7 @@ class CalendarEventV2Controller
 
             // this part allows to create a resource without being in collision on another one
             if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
-                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+                return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
             // We set the BackEnd for sabre Backends
@@ -623,6 +630,7 @@ class CalendarEventV2Controller
                     if ($calendarBackend->isCalendarResource($calIDs)
                         and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
                             $calIDs, $newStart->format('Ymd\THis'), $newEnd->format('Ymd\THis'),
+                            $input->eventID,
                             $oldRuleFreq,
                             $oldRuleFinishDate->format('Y-m-d'))) {
 
@@ -709,7 +717,7 @@ class CalendarEventV2Controller
                         // check if there is no slot with another resource event
                         if ($calendarBackend->isCalendarResource($input->calendarID)
                             and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                                $input->calendarID, $input->start, $input->end)) {
+                                $input->calendarID, $input->start, $input->end, $input->eventID)) {
 
                             return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                         }
@@ -729,7 +737,7 @@ class CalendarEventV2Controller
                 // check if there is no slot with another resource event
                 if ($calendarBackend->isCalendarResource($input->calendarID)
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                        $input->calendarID, $input->start, $input->end)) {
+                        $input->calendarID, $input->start, $input->end, $input->eventID)) {
 
                     return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
@@ -749,7 +757,7 @@ class CalendarEventV2Controller
 
             // this part allows to create a resource without being in collision on another one
             if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
-                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+                return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
             // We set the BackEnd for sabre Backends
@@ -777,7 +785,7 @@ class CalendarEventV2Controller
                     // this part allows to create a resource without being in collision on another one
                     if ($calendarBackend->isCalendarResource($input->calendarID)
                         and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                            $input->calendarID, $input->start, $input->end)) {
+                            $input->calendarID, $input->start, $input->end, $input->eventID)) {
 
                         return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                     }
@@ -847,7 +855,7 @@ class CalendarEventV2Controller
                         // this part allows to create a resource without being in collision on another one
                         if ($calendarBackend->isCalendarResource($input->calendarID)
                             and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                                $input->calendarID, $input->start, $input->end)) {
+                                $input->calendarID, $input->start, $input->end, $input->eventID)) {
 
                             return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                         }
@@ -867,7 +875,7 @@ class CalendarEventV2Controller
                 // this part allows to create a resource without being in collision on another one
                 if ($calendarBackend->isCalendarResource($input->calendarID)
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                        $input->calendarID, $input->start, $input->end)) {
+                        $input->calendarID, $input->start, $input->end, $input->eventID)) {
 
                     return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
@@ -901,7 +909,7 @@ class CalendarEventV2Controller
 
             // this part allows to create a resource without being in collision on another one
             if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
-                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+                return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
             // new way to manage events
@@ -937,7 +945,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'modifyEvent')) {
 
             if ( SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
-                return $response->withJson(["status" => "failed", "message" => _("You cannot modify, move or delete a resource that does not belong to you.")]);
+                return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
             $old_event = EventQuery::Create()->findOneById($input->eventID);
@@ -1038,7 +1046,7 @@ class CalendarEventV2Controller
                 // this part allows to create a resource without being in collision on another one
                 if ($calendarBackend->isCalendarResource($calIDs)
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                        $calIDs, $input->start, $input->end, $input->recurrenceType, $input->endrecurrence)) {
+                        $calIDs, $input->start, $input->end, $input->eventID, $input->recurrenceType, $input->endrecurrence)) {
 
                     return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
@@ -1064,7 +1072,7 @@ class CalendarEventV2Controller
                 // this part allows to create a resource without being in collision on another one
                 if ($calendarBackend->isCalendarResource($calIDs)
                     and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                        $calIDs, $input->start, $input->end)) {
+                        $calIDs, $input->start, $input->end, $input->eventID)) {
 
                     return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
                 }
