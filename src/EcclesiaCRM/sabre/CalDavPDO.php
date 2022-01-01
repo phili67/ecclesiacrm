@@ -10,7 +10,9 @@
 
 namespace EcclesiaCRM\MyPDO;
 
+use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\MyVCalendar\VCalendarExtension;
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\LoggerUtils;
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -35,6 +37,13 @@ class CalDavPDO extends SabreCalDavBase\PDO
 
         $this->calendarObjectTableName = 'events_event';
     }
+
+    /**
+     * getFullCalendar
+     *
+     * @param mixed $calendarId
+     * @return array : all the informations relativ to $calendarId
+     */
 
     function getFullCalendar($calendarId)
     {
@@ -675,6 +684,8 @@ SQL;
     /**
      * Creates a new calendar object.
      *
+     * Method : EcclesiaCRM
+     *
      * The object uri is only the basename, or filename and not a full path.
      *
      * It is possible return an etag from this function, which will be used in
@@ -739,6 +750,8 @@ SQL;
     /**
      * Updates an existing calendarobject, based on it's uri.
      *
+     * Method : CALdav sabre
+     *
      * The object uri is only the basename, or filename and not a full path.
      *
      * It is possible return an etag from this function, which will be used in
@@ -761,6 +774,8 @@ SQL;
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
         }
         list($calendarId, $instanceId) = $calendarId;
+
+        LoggerUtils::getAppLogger()->info("updateCalendarObject");
 
         $extraData = VObjectExtract::calendarData($calendarData);
 
@@ -785,6 +800,8 @@ SQL;
     /**
      * Deletes an existing calendar object.
      *
+     * Method : CALDAV sabre
+     *
      * The object uri is only the basename, or filename and not a full path.
      *
      * @param mixed $calendarId
@@ -793,11 +810,25 @@ SQL;
      */
     function deleteCalendarObject($calendarId, $objectUri)
     {
-
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
         }
         list($calendarId, $instanceId) = $calendarId;
+
+        $event = EventQuery::create()->filterByEventCalendarid($calendarId)->findOneByUri($objectUri);
+        //$event = EventQuery::create()->findOneByEventCalendarid($calendarId);
+
+        /*$stmt = $this->pdo->prepare('SELECT event_creator_user_id FROM '. $this->calendarObjectTableName.' WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt->execute([$objectUri]);
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ( $row['event_creator_user_id'] != SessionUser::getId()) {
+            return;
+        }*/
+
+        //LoggerUtils::getAppLogger()->info("deleteCalendarObject : ".$calendarId." ".$objectUri." ". $event->getEtag());//.$row['event_creator_user_id']
+
+        //return;
 
         $stmt = $this->pdo->prepare('DELETE FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarId, $objectUri]);
@@ -808,6 +839,8 @@ SQL;
 
     /**
      * Performs a calendar-query on the contents of this calendar.
+     *
+     * Method : CALDav sabre + EcclesiaCRM
      *
      * The calendar-query is defined in RFC4791 : CalDAV. Using the
      * calendar-query it is possible for a client to request a specific set of
@@ -858,7 +891,7 @@ SQL;
      * @param array $filters
      * @return array
      */
-    function calendarQuery($calendarId, array $filters)
+    function calendarQuery($calendarId, array $filters, $eventId = 0)
     {
         if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
@@ -886,8 +919,6 @@ SQL;
             if ($componentType == 'VEVENT' && isset($filters['comp-filters'][0]['time-range'])) {
                 $timeRange = $filters['comp-filters'][0]['time-range'];
 
-                //LoggerUtils::getAppLogger()->info("coucou".print_r($timeRange,true));
-
                 // If start time OR the end time is not specified, we can do a
                 // 100% accurate mysql query.
                 if (!$filters['prop-filters'] && !$filters['comp-filters'][0]['comp-filters'] && !$filters['comp-filters'][0]['prop-filters'] && (!$timeRange['start'] || !$timeRange['end'])) {
@@ -898,15 +929,26 @@ SQL;
         }
 
         if ($requirePostFilter) {
-            //LoggerUtils::getAppLogger()->info("require post filters");
-            $query = "SELECT event_uri, event_calendardata, event_start, event_end FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
+            $query = "SELECT event_id, event_uri, event_calendardata, event_start, event_end FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
         } else {
-            $query = "SELECT event_uri FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
+            $query = "SELECT event_id, event_uri FROM " . $this->calendarObjectTableName . " WHERE event_calendarid = :calendarid";
         }
 
         $values = [
             'calendarid' => $calendarId,
         ];
+
+        if ($eventId > 0) {
+            $query .= " AND event_id != :eventid";
+
+            $values = array_merge($values, [
+                'eventid' => $eventId
+            ]);
+
+            LoggerUtils::getAppLogger()->info("query : ".$query);
+        }
+
+        LoggerUtils::getAppLogger()->info("query : ".$query);
 
         if ($componentType) {
             $query .= " AND event_componenttype = :componenttype";
@@ -921,9 +963,6 @@ SQL;
             $query .= " AND event_end < :enddate";
             $values['enddate'] = $timeRange['end']->format('Y-m-d');
         }
-
-        //LoggerUtils::getAppLogger()->info("query : ".$query);
-        //LoggerUtils::getAppLogger()->info("values : ".print_r($values,true));
 
         $stmt = $this->pdo->prepare($query);
         $stmt->execute($values);
@@ -966,6 +1005,12 @@ SQL;
 
     }
 
+    /**
+     * Performs a calendar-query on the contents of this calendar.
+     *
+     * Method : EcclesiaCRM
+     *
+     */
     public function isCalendarResource ($calIDs)
     {
         $fullCalendarInfo = $this->getFullCalendar($calIDs);
@@ -980,10 +1025,15 @@ SQL;
         return false;
     }
 
-    public function checkIfEventIsInResourceSlotCalendar ($calIDs, $start, $end, $recurrenceType = "", $endrecurrence = "")
+    /**
+     * Performs : check if a specified $calIDs for $start and $end if
+     *
+     * Method : EcclesiaCRM
+     *
+     */
+    public function checkIfEventIsInResourceSlotCalendar ($calIDs, $start, $end, $eventId = 0, $recurrenceType = "", $endrecurrence = "")
     {
 
-        LoggerUtils::getAppLogger()->info("coucou");
         // 1. we search 6 months before and after, to see any slot collision before
         $startDate = ((new \DateTime($start))->modify('-6 months'))->format('Y-m')."-01";
         $endDate = ((new \DateTime($start))->modify('first day of +6 month'))->format('Y-m-d');
@@ -1006,9 +1056,7 @@ SQL;
         ];
 
         // get all the events with the recurring too
-        $calendarEvents = $this->calendarQuery($calIDs, $filters);
-
-        LoggerUtils::getAppLogger()->info("calendarEvents : ".print_r($calendarEvents,true));
+        $calendarEvents = $this->calendarQuery($calIDs, $filters, $eventId);
 
         // 2. now we search after in the case we've reccurence type enabled
         $uuid = strtoupper(UUIDUtil::getUUID());
@@ -1078,9 +1126,6 @@ SQL;
             ];
         }
 
-        LoggerUtils::getAppLogger()->info("futureEvents : ".print_r($futureEvents,true));
-
-
         // 3. we test if all the events as real or not
         foreach ($calendarEvents as $event_in_calendar) {
             $event_in_calendar_start = new \DateTime($event_in_calendar['event_start']);
@@ -1105,6 +1150,8 @@ SQL;
     /**
      * Searches through all of a users calendars and calendar objects to find
      * an object with a specific UID.
+     *
+     * Method : CALDav + EcclesiaCRM too
      *
      * This method should return the path to this object, relative to the
      * calendar home, so this path usually only contains two parts:
@@ -1151,6 +1198,8 @@ SQL;
     /**
      * The getChanges method returns all the changes that have happened, since
      * the specified syncToken in the specified calendar.
+     *
+     * Method : CALDav
      *
      * This function should return an array, such as the following:
      *
@@ -1275,6 +1324,7 @@ SQL;
     /**
      * The moveCalendarToNewPrincipal
      *
+     * Method : EcclesiaCRM
      *
      * @param int $new_principaluri
      * @return nothing
