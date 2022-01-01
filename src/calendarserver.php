@@ -25,6 +25,7 @@ use Propel\Runtime\Propel;
 use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
+use EcclesiaCRM\PersonalServer\EcclesiaCRMCalendarServer;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -77,7 +78,8 @@ $tree = [
     new Sabre\CalDAV\CalendarRoot($principalBackend, $calendarBackend),
 ];
 
-$server = new Sabre\DAV\Server($tree);
+//$server = new Sabre\DAV\Server($tree);
+$server = new EcclesiaCRMCalendarServer($tree);
 
 $server->setBaseUri(SystemURLs::getRootPath().'/calendarserver.php');
 
@@ -103,7 +105,7 @@ $server->addPlugin(
 );
 
 $server->addPlugin(
-    new Sabre\CalDAV\Schedule\IMipPlugin('philippe.logel@imathgeo.com')
+    new Sabre\CalDAV\Schedule\IMipPlugin(SystemConfig::getValue('sChurchEmail'))
 );
 
 // WebDAV-Sync plugin
@@ -122,7 +124,6 @@ if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
   $browser = new Sabre\DAV\Browser\Plugin();
   $server->addPlugin($browser);
 }
-
 
 // And off we go!*/
 $server->exec();
