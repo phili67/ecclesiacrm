@@ -568,10 +568,8 @@ class MailchimpController
 
             $mailchimp = $this->container->get('MailChimpService');
 
-            if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) && !mb_strpos($input->content, "link itemprop=") ) {
+            if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) && !mb_strpos($input->content, "text/css") ) {
                 $input->content = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('sMailChimpContentsExternalCssFont') . '"/>' . $input->content;
-
-                LoggerUtils::getAppLogger()->info("body : ".$input->content);
             }
 
             $res1 = $mailchimp->setCampaignContent ($input->campaign_id,$input->content);
@@ -596,7 +594,7 @@ class MailchimpController
             }
         }
 
-        return $response->withJson(['success' => false]);
+        return $response->withJson(['success' => false, "error1" => "Problem oldStatus is empty"]);
     }
 
     public function campaignContent(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
