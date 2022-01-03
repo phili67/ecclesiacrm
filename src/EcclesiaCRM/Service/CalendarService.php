@@ -11,15 +11,26 @@
 
 namespace EcclesiaCRM\Service;
 
+use EcclesiaCRM\Base\EventTypesQuery;
+use EcclesiaCRM\CalendarinstancesQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\EventAttend;
+use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\MyVCalendar\VCalendarExtension;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\MyPDO\VObjectExtract;
+use Sabre\DAV\UUIDUtil;
 
 class CalendarService
 {
@@ -81,7 +92,7 @@ class CalendarService
                         $year = $firstYear + 1;
                     }
                     $start = date_create($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
-                    $event = $this->createCalendarItem('birthday', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
                         $person->getFullName() . " " . $person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
                     array_push($events, $event);
                 }
@@ -102,7 +113,7 @@ class CalendarService
                         $year = $year + 1;
                     }
                     $start = $year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay();
-                    $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
                         $anniversary->getName(), $start, '', $anniversary->getViewURI());
                     array_push($events, $event);
                 }
@@ -210,7 +221,7 @@ class CalendarService
                     $end            = $freqValue['DTEND'];
                     $reccurenceID   = $freqValue['RECURRENCE-ID'];
 
-                    $event = $this->createCalendarItem('event',$icon,
+                    $event = $this->createCalendarItemForGetEvents('event',$icon,
                       $title, $start, $end,
                      '',$id,$type,$grpID,
                       $desc,$text,$calID,$calendarColor,
@@ -223,7 +234,7 @@ class CalendarService
               }
 
               if ($fEvnt == false) {
-                $event = $this->createCalendarItem('event',$icon,
+                $event = $this->createCalendarItemForGetEvents('event',$icon,
                   $title, $start, $end,
                  '',$id,$type,$grpID,
                   $desc,$text,$calID,$calendarColor,0,0,0,$rrule,$freq,
@@ -237,7 +248,7 @@ class CalendarService
         return $events;
     }
 
-    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",
+    public function createCalendarItemForGetEvents ($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",
                                        $calendarid=null,$backgroundColor = null,$subid = 0,
                                        $recurrent=0,$reccurenceID = '',$rrule = '',$freq = '',
                                        $writeable=false,$location = "",$latitude = 0,$longitude = 0,$alarm = "",$cal_type="0",
@@ -310,5 +321,218 @@ class CalendarService
         }
 
         return $event;
+    }
+
+    public function createEventForCalendar ($calendarID, $start, $end, $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $inputlocation,
+                                            $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes, $eventInActive, $Fields,
+                                            $EventCountNotes)
+    {
+// new way to manage events
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO();
+
+        $uuid = strtoupper(UUIDUtil::getUUID());
+
+        $vcalendar = new VCalendarExtension();
+
+        if ( is_array( $calendarID ) ) {
+            $calIDs = $calendarID;
+        } else {
+            $calIDs = explode(",", $calendarID);
+        }
+
+        // We move to propel, to find the calendar
+        $calendarId = $calIDs[0];
+        $Id = $calIDs[1];
+        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+
+        // this part allows to create a resource without being in collision on another one
+        $isCalendarResource = $calendarBackend->isCalendarResource($calIDs);
+
+        if ($isCalendarResource
+            and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
+                $calIDs, $start, $end,
+                0,
+                $recurrenceType,
+                $endrecurrence)) {
+
+            return false;
+        }
+
+        $coordinates = "";
+        $location = '';
+
+        if (isset($inputlocation)) {
+            $location = str_replace("\n", " ", $inputlocation);
+            $latLng = GeoUtils::getLatLong($inputlocation);
+            if (!empty($latLng['Latitude']) && !empty($latLng['Longitude'])) {
+                $coordinates = $latLng['Latitude'] . ' commaGMAP ' . $latLng['Longitude'];
+            }
+        }
+
+        // we remove to Sabre
+        if (!empty($recurrenceValid)) {
+
+            $vevent = [
+                'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $EventDesc,
+                'SUMMARY' => $EventTitle,
+                'LOCATION' => $inputlocation,
+                'UID' => $uuid,
+                'RRULE' => $recurrenceType . ';' . 'UNTIL=' . (new \DateTime($endrecurrence))->format('Ymd\THis'),
+                'SEQUENCE' => '0',
+                'TRANSP' => 'OPAQUE',
+                'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+                "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
+            ];
+
+        } else {
+
+            $vevent = [
+                'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $EventDesc,
+                'SUMMARY' => $EventTitle,
+                'LOCATION' => $inputlocation,
+                'UID' => $uuid,
+                'SEQUENCE' => '0',
+                'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+                "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
+                //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
+            ];
+
+        }
+
+        $realVevent = $vcalendar->add('VEVENT', $vevent);
+
+        //$res = '';
+
+        if ($isCalendarResource) {
+            // in resource : room, computer and videos we've have to include the organizer, and himself at least
+            $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
+            $realVevent->add('ATTENDEE', 'mailto:' . SessionUser::getUser()->getEmail());
+        }
+
+        if ($calendar->getGroupId() && $addGroupAttendees) {// add Attendees with sabre connection
+            $persons = Person2group2roleP2g2rQuery::create()
+                ->filterByGroupId($calendar->getGroupId())
+                ->find();
+
+            $res = $persons->count();
+
+            if ($persons->count() > 0) {
+
+                if (!$isCalendarResource) { // it's yet done over
+                    $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
+                }
+
+                //$res .= SessionUser::getUser()->getEmail();
+
+                foreach ($persons as $person) {
+                    $user = UserQuery::Create()->findOneByPersonId($person->getPersonId());
+                    if (!empty($user)) {
+                        $vevent = array_merge($vevent, ['ATTENDEE;CN=' . $user->getFullName() . ';CUTYPE=INDIVIDUAL;EMAIL=' . $user->getEmail() . ';PARTSTAT=ACCEPTED;SCHEDULE-STATUS=3.7:mailto' => $user->getEmail()]);
+                        $realVevent->add('ATTENDEE', 'mailto:' . $user->getEmail());
+                        $res .= " " . $user->getEmail();
+                    }
+                }
+            }
+        }
+
+        if ($alarm != _("NONE")) {
+            $realVevent->add('VALARM', ['TRIGGER' => $alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
+        }
+
+        // Now we move to propel, to finish the put extra infos
+        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
+
+        // we get the real event in th DB
+        $event = \EcclesiaCRM\Base\EventQuery::Create()->findOneByEtag(str_replace('"', "", $etag));
+        $eventTypeName = "";
+
+        if ($eventTypeID) {
+            $type = EventTypesQuery::Create()
+                ->findOneById($eventTypeID);
+            $eventTypeName = $type->getName();
+        }
+
+        $event->setType($eventTypeID);
+        $event->setText($eventNotes);
+        $event->setTypeName($eventTypeName);
+        $event->setInActive($eventInActive);
+
+        if ($isCalendarResource) {
+            $event->setCreatorUserId(SessionUser::getId());
+        }
+
+        // we set the groupID to manage correctly the attendees : Historical
+        $event->setGroupId($calendar->getGroupId());
+        $event->setLocation($inputlocation);
+        $event->setCoordinates($coordinates);
+
+        $event->save();
+
+        if (!empty($Fields)) {
+            foreach ($Fields as $field) {
+                $eventCount = new EventCounts;
+                $eventCount->setEvtcntEventid($event->getID());
+                $eventCount->setEvtcntCountid($field['countid']);
+                $eventCount->setEvtcntCountname($field['name']);
+                $eventCount->setEvtcntCountcount($field['value']);
+                $eventCount->setEvtcntNotes($EventCountNotes);
+                $eventCount->save();
+            }
+        }
+
+        $event->save();
+
+        if ($event->getGroupId() && $addGroupAttendees) {// add Attendees
+            $persons = Person2group2roleP2g2rQuery::create()
+                ->filterByGroupId($event->getGroupId())
+                ->find();
+
+            if ($persons->count() > 0) {
+                foreach ($persons as $person) {
+                    try {
+                        if ($person->getPersonId() > 0) {
+                            $eventAttent = new EventAttend();
+
+                            $eventAttent->setEventId($event->getID());
+                            $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
+
+                            if (SystemConfig::getBooleanValue('bCheckedAttendees') ) {
+                                $date = new \DateTime('now', new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                                $eventAttent->setCheckinDate($date);
+                            } else {
+                                $eventAttent->setCheckinDate(NULL);
+                            }
+                            $eventAttent->setPersonId($person->getPersonId());
+                            $eventAttent->save();
+                        }
+                    } catch (\Exception $ex) {
+                        $errorMessage = $ex->getMessage();
+                        //return $response->withJson(['status' => $errorMessage]);
+                    }
+                }
+
+                //
+                $_SESSION['Action'] = 'Add';
+                $_SESSION['EID'] = $event->getID();
+                $_SESSION['EName'] = $EventTitle;
+                $_SESSION['EDesc'] = $EventDesc;
+                $_SESSION['EDate'] = ( !is_null($date) )?$date->format('Y-m-d H:i:s'):'';
+
+                $_SESSION['EventID'] = $event->getID();
+            }
+        }
+
+        return true;
     }
 }
