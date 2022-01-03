@@ -266,6 +266,8 @@ class SystemConfig
             "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)")),
             "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices())),
             "sMailChimpEmailSender" => new ConfigItem(2090, "sMailChimpEmailSender", "text", "", _("email address of the mailchimp sender.")),
+            "sMailChimpContentsExternalCssFont" => new ConfigItem(2091, "sMailChimpContentsExternalCssFont", "text", "", _("email address of the mailchimp sender.")),
+            "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "text", "", _("email address of the mailchimp sender."))
         );
     }
 
@@ -282,7 +284,7 @@ class SystemConfig
             _('Map Settings') => ["sMapProvider", "sNominatimLink", "sGoogleMapKey", "sBingMapKey", "iMapZoom", "iLittleMapZoom", "sISTusername", "sISTpassword"],
             _('Pastoral Care') => ["sPastoralcarePeriod", "bPastoralcareStats"],
             _('Sundayschool Attendance') => ["bCheckedAttendees", "bCheckedAttendeesCurrentUser"],
-            _('Integration') => ["sMailChimpApiKey", "iMailChimpRequestTimeOut", "bMailChimpWithAddressPhone", "sMailChimpEmailSender", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID", "bEnableGravatarPhotos", "bEnableGooglePhotos", "iRemotePhotoCacheDuration", "sNexmoAPIKey", "sNexmoAPISecret", "sNexmoFromNumber", "sOLPURL", "sOLPUserName", "sOLPPassword", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
+            _('Integration') => ["sMailChimpApiKey", "iMailChimpRequestTimeOut", "bMailChimpWithAddressPhone", "sMailChimpEmailSender", "sMailChimpContentsExternalCssFont", "sMailChimpExtraFont", "sJitsiDomain", "sJitsiDomainScriptPath", "sGoogleTrackingID", "bEnableGravatarPhotos", "bEnableGooglePhotos", "iRemotePhotoCacheDuration", "sNexmoAPIKey", "sNexmoAPISecret", "sNexmoFromNumber", "sOLPURL", "sOLPUserName", "sOLPPassword", "bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
             _('GDPR') => ["bGDPR", "sGdprDpoSigner", "sGdprDpoSignerEmail", "iGdprExpirationDate", "bSearchFinancesGDPR"],
             _('Quick Search') => ["bSearchIncludePersons", "iSearchIncludePersonsMax", "bSearchIncludeAddresses", "iSearchIncludeAddressesMax", "bSearchIncludeFamilies", "iSearchIncludeFamiliesMax", "bSearchIncludeFamilyHOH", "iSearchIncludeFamilyHOHMax", "bSearchIncludeGroups", "iSearchIncludeGroupsMax", "bSearchIncludeDeposits", "iSearchIncludeDepositsMax", "bSearchIncludePledges", "iSearchIncludePledgesMax", "bSearchIncludePayments", "iSearchIncludePaymentsMax", "bSearchIncludePastoralCare", "iSearchIncludePastoralCareMax"],
             _('Report Settings') => ["sQBDTSettings", "sTaxSigner", "sReminderSigner", "leftX", "incrementY", "sTaxReport1", "sTaxReport2", "sTaxReport3", "sReminder1", "sReminderNoPledge", "sReminderNoPayments", "sConfirm1", "sConfirm2", "sConfirm3", "sConfirm4", "sConfirm5", "sConfirm6", "sDear", "sConfirmSincerely", "sConfirmSigner", "sUnsubscribeStart", "sUnsubscribeEnd", "sPledgeSummary1", "sPledgeSummary2", "sDirectoryDisclaimer1", "sDirectoryDisclaimer2", "bDirLetterHead", "sZeroGivers", "sZeroGivers2", "sZeroGivers3", "iPDFOutputType"],
