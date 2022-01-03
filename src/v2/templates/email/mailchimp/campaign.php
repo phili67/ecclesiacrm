@@ -175,6 +175,9 @@ require $sRootDocument . '/Include/Header.php';
     window.CRM.bWithAddressPhone = <?= ($bWithAddressPhone) ? 'true' : 'false' ?>;
     window.CRM.sDateFormatLong = "<?= $sDateFormatLong ?>";
 
+    window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
+    window.CRM.extraFont = '<?= $extraFont ?>';
+
     //Timepicker
     $('.timepicker').datetimepicker({
         format: 'LT',
