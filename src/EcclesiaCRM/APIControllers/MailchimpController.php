@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -488,6 +489,11 @@ class MailchimpController
             $mailchimp = $this->container->get('MailChimpService');
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
+
+                if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) ) {
+                    $input->htmlBody = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('sMailChimpContentsExternalCssFont') . '"/>' . $input->htmlBody;
+                }
+
                 $res = $mailchimp->createCampaign($input->list_id, $input->tagId, $input->subject, $input->title, $input->htmlBody);
 
                 if ( !array_key_exists ('title',$res) ) {
@@ -561,6 +567,12 @@ class MailchimpController
             && isset ($input->oldStatus) ) {
 
             $mailchimp = $this->container->get('MailChimpService');
+
+            if ( !empty(SystemConfig::getValue('sMailChimpContentsExternalCssFont')) && !mb_strpos($input->content, "link itemprop=") ) {
+                $input->content = '<link rel="stylesheet" type="text/css" href="' . SystemConfig::getValue('sMailChimpContentsExternalCssFont') . '"/>' . $input->content;
+
+                LoggerUtils::getAppLogger()->info("body : ".$input->content);
+            }
 
             $res1 = $mailchimp->setCampaignContent ($input->campaign_id,$input->content);
             $res2 = $mailchimp->setCampaignMailSubject ($input->campaign_id,$input->subject);
