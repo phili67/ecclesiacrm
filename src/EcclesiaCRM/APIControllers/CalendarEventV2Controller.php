@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Service\CalendarService;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -330,206 +332,13 @@ class CalendarEventV2Controller
         }
 
         if (!strcmp($input->eventAction, 'createEvent')) {
-            // new way to manage events
-            // We set the BackEnd for sabre Backends
-            $calendarBackend = new CalDavPDO();
+            $calendarService = new CalendarService();
 
-            $uuid = strtoupper(UUIDUtil::getUUID());
-
-            $vcalendar = new VCalendarExtension();
-
-            $calIDs = explode(",", $input->calendarID);
-
-            // We move to propel, to find the calendar
-            $calendarId = $calIDs[0];
-            $Id = $calIDs[1];
-            $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
-
-            // this part allows to create a resource without being in collision on another one
-            $isCalendarResource = $calendarBackend->isCalendarResource($calIDs);
-
-            if ($isCalendarResource
-                and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
-                    $calIDs, $input->start, $input->end,
-                    0,
-                    $input->recurrenceType,
-                    $input->endrecurrence)) {
-
+            if ( !$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
+                $input->recurrenceType, $input->endrecurrence, $input->EventDesc, $input->EventTitle, $input->location,
+                $input->recurrenceValid, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
+                $input->eventInActive, $input->Fields, $input->EventCountNotes) ) {
                 return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
-            }
-
-            $coordinates = "";
-            $location = '';
-
-            if (isset($input->location)) {
-                $location = str_replace("\n", " ", $input->location);
-                $latLng = GeoUtils::getLatLong($input->location);
-                if (!empty($latLng['Latitude']) && !empty($latLng['Longitude'])) {
-                    $coordinates = $latLng['Latitude'] . ' commaGMAP ' . $latLng['Longitude'];
-                }
-            }
-
-            // we remove to Sabre
-            if (!empty($input->recurrenceValid)) {
-
-                $vevent = [
-                    'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
-                    'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
-                    'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DESCRIPTION' => $input->EventDesc,
-                    'SUMMARY' => $input->EventTitle,
-                    'LOCATION' => $input->location,
-                    'UID' => $uuid,
-                    'RRULE' => $input->recurrenceType . ';' . 'UNTIL=' . (new \DateTime($input->endrecurrence))->format('Ymd\THis'),
-                    'SEQUENCE' => '0',
-                    'TRANSP' => 'OPAQUE',
-                    'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
-                    "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
-                ];
-
-            } else {
-
-                $vevent = [
-                    'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
-                    'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
-                    'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                    'DESCRIPTION' => $input->EventDesc,
-                    'SUMMARY' => $input->EventTitle,
-                    'LOCATION' => $input->location,
-                    'UID' => $uuid,
-                    'SEQUENCE' => '0',
-                    'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
-                    "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"" . $location . "\"" => "geo:" . $coordinates
-                    //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
-                ];
-
-            }
-
-            $realVevent = $vcalendar->add('VEVENT', $vevent);
-
-            //$res = '';
-
-            if ($isCalendarResource) {
-                // in resource : room, computer and videos we've have to include the organizer, and himself at least
-                $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
-                $realVevent->add('ATTENDEE', 'mailto:' . SessionUser::getUser()->getEmail());
-            }
-
-            if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
-                $persons = Person2group2roleP2g2rQuery::create()
-                    ->filterByGroupId($calendar->getGroupId())
-                    ->find();
-
-                $res = $persons->count();
-
-                if ($persons->count() > 0) {
-
-                    if (!$isCalendarResource) { // it's yet done over
-                        $realVevent->add('ORGANIZER', 'mailto:' . SessionUser::getUser()->getEmail());
-                    }
-
-                    //$res .= SessionUser::getUser()->getEmail();
-
-                    foreach ($persons as $person) {
-                        $user = UserQuery::Create()->findOneByPersonId($person->getPersonId());
-                        if (!empty($user)) {
-                            $vevent = array_merge($vevent, ['ATTENDEE;CN=' . $user->getFullName() . ';CUTYPE=INDIVIDUAL;EMAIL=' . $user->getEmail() . ';PARTSTAT=ACCEPTED;SCHEDULE-STATUS=3.7:mailto' => $user->getEmail()]);
-                            $realVevent->add('ATTENDEE', 'mailto:' . $user->getEmail());
-                            $res .= " " . $user->getEmail();
-                        }
-                    }
-                }
-            }
-
-            if ($input->alarm != _("NONE")) {
-                $realVevent->add('VALARM', ['TRIGGER' => $input->alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
-            }
-
-            // Now we move to propel, to finish the put extra infos
-            $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
-
-            // we get the real event in th DB
-            $event = EventQuery::Create()->findOneByEtag(str_replace('"', "", $etag));
-            $eventTypeName = "";
-
-            if ($input->eventTypeID) {
-                $type = EventTypesQuery::Create()
-                    ->findOneById($input->eventTypeID);
-                $eventTypeName = $type->getName();
-            }
-
-            $event->setType($input->eventTypeID);
-            $event->setText($input->eventNotes);
-            $event->setTypeName($eventTypeName);
-            $event->setInActive($input->eventInActive);
-
-            if ($isCalendarResource) {
-                $event->setCreatorUserId(SessionUser::getId());
-            }
-
-            // we set the groupID to manage correctly the attendees : Historical
-            $event->setGroupId($calendar->getGroupId());
-            $event->setLocation($input->location);
-            $event->setCoordinates($coordinates);
-
-            $event->save();
-
-            if (!empty($input->Fields)) {
-                foreach ($input->Fields as $field) {
-                    $eventCount = new EventCounts;
-                    $eventCount->setEvtcntEventid($event->getID());
-                    $eventCount->setEvtcntCountid($field['countid']);
-                    $eventCount->setEvtcntCountname($field['name']);
-                    $eventCount->setEvtcntCountcount($field['value']);
-                    $eventCount->setEvtcntNotes($input->EventCountNotes);
-                    $eventCount->save();
-                }
-            }
-
-            $event->save();
-
-            if ($event->getGroupId() && $input->addGroupAttendees) {// add Attendees
-                $persons = Person2group2roleP2g2rQuery::create()
-                    ->filterByGroupId($event->getGroupId())
-                    ->find();
-
-                if ($persons->count() > 0) {
-                    foreach ($persons as $person) {
-                        try {
-                            if ($person->getPersonId() > 0) {
-                                $eventAttent = new EventAttend();
-
-                                $eventAttent->setEventId($event->getID());
-                                $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-
-                                if (SystemConfig::getBooleanValue('bCheckedAttendees') ) {
-                                    $date = new \DateTime('now', new \DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                                    $eventAttent->setCheckinDate($date);
-                                } else {
-                                    $eventAttent->setCheckinDate(NULL);
-                                }
-                                $eventAttent->setPersonId($person->getPersonId());
-                                $eventAttent->save();
-                            }
-                        } catch (\Exception $ex) {
-                            $errorMessage = $ex->getMessage();
-                            //return $response->withJson(['status' => $errorMessage]);
-                        }
-                    }
-
-                    //
-                    $_SESSION['Action'] = 'Add';
-                    $_SESSION['EID'] = $event->getID();
-                    $_SESSION['EName'] = $input->EventTitle;
-                    $_SESSION['EDesc'] = $input->EventDesc;
-                    $_SESSION['EDate'] = ( !is_null($date) )?$date->format('Y-m-d H:i:s'):'';
-
-                    $_SESSION['EventID'] = $event->getID();
-                }
             }
 
             return $response->withJson(["status" => "success"]);
@@ -624,7 +433,11 @@ class CalendarEventV2Controller
                     }
 
                     // this part allows to create a resource without being in collision on another one
-                    $calIDs = explode(",", $input->calendarID);
+                    if ( is_array( $input->calendarID ) ) {
+                        $calIDs = $input->calendarID;
+                    } else {
+                        $calIDs = explode(",", $input->calendarID);
+                    }
 
                     if ($calendarBackend->isCalendarResource($calIDs)
                         and $calendarBackend->checkIfEventIsInResourceSlotCalendar(
@@ -962,32 +775,29 @@ class CalendarEventV2Controller
 
             $vcalendar = VObject\Reader::read($event['calendardata']);
 
-
             if (isset($input->reccurenceID) && $input->reccurenceID != '') {// we're in a recursive event
 
                 $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
 
-                if ($input->reccurenceID != '') {
-                    $date = $input->reccurenceID;
-                }
-
                 try {
                     // we have to delete the old event from the reccurence event
                     $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
-
-                    $i = 0;
-
-                    foreach ($vcalendar->VEVENT as $sevent) {
-                        if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
-                            $vcalendar->remove($vcalendar->VEVENT[$i]);
-                            break;
-                        }
-                        $i++;
-                    }
-
                     $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
                     $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
+
+                    // now we add the new event
+                    $calendarService = new CalendarService();
+
+                    $calendarService->createEventForCalendar (
+                        $input->calendarID, $input->start, $input->end,
+                       "", "", $input->EventDesc, $input->EventTitle, $input->location,
+                        false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
+                        $input->eventInActive, $input->Fields, $input->EventCountNotes
+                    );
+
+                    return $response->withJson(["status" => "success"]);
+
                 } catch (Exception $e) {
                     // in this case we change only the date
                     $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
@@ -1001,7 +811,11 @@ class CalendarEventV2Controller
 
 
             // Now we start to work with the new calendar
-            $calIDs = explode(",", $input->calendarID);
+            if ( is_array( $input->calendarID ) ) {
+                $calIDs = $input->calendarID;
+            } else {
+                $calIDs = explode(",", $input->calendarID);
+            }
 
             $calendarId = $calIDs[0];
             $Id = $calIDs[1];
