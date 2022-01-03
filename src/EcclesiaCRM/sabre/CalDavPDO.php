@@ -775,7 +775,7 @@ SQL;
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        LoggerUtils::getAppLogger()->info("updateCalendarObject");
+        //LoggerUtils::getAppLogger()->info("updateCalendarObject");
 
         $extraData = VObjectExtract::calendarData($calendarData);
 
@@ -944,11 +944,7 @@ SQL;
             $values = array_merge($values, [
                 'eventid' => $eventId
             ]);
-
-            LoggerUtils::getAppLogger()->info("query : ".$query);
         }
-
-        LoggerUtils::getAppLogger()->info("query : ".$query);
 
         if ($componentType) {
             $query .= " AND event_componenttype = :componenttype";
