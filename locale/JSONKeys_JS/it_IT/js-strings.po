@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2010,6 +2010,9 @@ msgstr "Elimina il tag"
 msgid "Loading resources ..."
 msgstr "Caricamento delle risorse ..."
 
+msgid "Email Marketing"
+msgstr "Email Marketing"
+
 msgid "You're about to delete a tag!"
 msgstr "Stai per cancellare un tag!"
 
@@ -2060,9 +2063,6 @@ msgid ""
 msgstr ""
 "Caricare tutte le famiglie prima gli abbonati headpeople da "
 "EcclesiaCRM<br>Questo potrebbe richiedere un po' di tempo!"
-
-msgid "Email Marketing"
-msgstr "Email Marketing"
 
 msgid "Select status for : "
 msgstr "Seleziona lo stato per :"

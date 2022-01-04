@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2001,6 +2001,9 @@ msgstr "Ta bort tagg"
 msgid "Loading resources ..."
 msgstr "Laddar resurser ..."
 
+msgid "Email Marketing"
+msgstr "E-postmarknadsföring"
+
 msgid "You're about to delete a tag!"
 msgstr "Du är på väg att radera en tagg!"
 
@@ -2050,9 +2053,6 @@ msgid ""
 msgstr ""
 "Laddning av alla familjers första headpeople-prenumeranter från "
 "EcclesiaCRM<br>Det här kan ta ett tag!"
-
-msgid "Email Marketing"
-msgstr "E-postmarknadsföring"
 
 msgid "Select status for : "
 msgstr "Välj status för :"

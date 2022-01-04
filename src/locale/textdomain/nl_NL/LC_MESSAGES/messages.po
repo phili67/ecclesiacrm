@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:10+0000\n"
+"POT-Creation-Date: 2022-01-04 17:22+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +117,7 @@ msgstr "Uitschakelen"
 #: EditEventAttendees.php:55 FundRaiserEditor.php:173 Include/Functions.php:88
 #: PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
-#: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:104
+#: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:127
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "Datum"
@@ -315,7 +315,7 @@ msgstr "Privégegevens opslaan bij Vanco"
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:879 PersonEditor.php:1020 PersonEditor.php:1207
 #: PersonEditor.php:1629 PersonEditor.php:1709 PersonEditor.php:1797
-#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:907
+#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:923
 #: UserPasswordChange.php:225 v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Save"
@@ -327,7 +327,7 @@ msgstr "Save"
 #: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1805
 #: PersonView.php:1964 PledgeEditor.php:800 ReminderReport.php:55
 #: SettingsIndividual.php:141 SettingsIndividual.php:407 TaxReport.php:53
-#: UserEditor.php:908 UserEditor.php:1062
+#: UserEditor.php:924 UserEditor.php:1078
 #: external/templates/verify/verify-family-info.php:188
 #: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
@@ -361,7 +361,7 @@ msgstr "Prijs"
 msgid "Enter Winners"
 msgstr "Voer Winnaars"
 
-#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:833 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV-export"
 
@@ -1006,7 +1006,7 @@ msgstr "Canvass Input voor de"
 msgid "family"
 msgstr "familie"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:781
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:797
 msgid "Canvasser"
 msgstr "Kannewasser"
 
@@ -1144,7 +1144,7 @@ msgstr "Winkelwagen aan familie toevoegen"
 
 #: CartToFamily.php:197 EcclesiaCRM/Search/AddressSearchRes.php:123
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
 #: v2/templates/dashboard/maindashboard.php:542
@@ -1501,7 +1501,7 @@ msgstr "Informatie die moet worden opgenomen"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
-#: EcclesiaCRM/Service/CalendarService.php:30 FamilyView.php:550
+#: EcclesiaCRM/Service/CalendarService.php:41 FamilyView.php:550
 #: PersonView.php:1124 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
 #: external/templates/verify/verify-family-info.php:107
@@ -1588,12 +1588,36 @@ msgstr "Naam van de kerk"
 msgid "Disclaimer"
 msgstr "Disclaimer"
 
-#: DirectoryReports.php:338 UserEditor.php:826
+#: DirectoryReports.php:338 UserEditor.php:842
 msgid "Create Directory"
 msgstr "Directory maken"
 
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:421
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:980
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:341
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:449
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:534
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:554
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:602
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:672
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:692
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:864
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:890
+msgid "Two resource reservations cannot be in the same time slot."
+msgstr ""
+"Twee reserveringen van hulpbronnen kunnen niet in hetzelfde tijdslot staan."
+
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:350
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:572
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:724
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:760
+#, fuzzy
+msgid ""
+"This resource reservation was not created by you. You cannot edit, move or "
+"delete a resource that you do not own."
+msgstr ""
+"U kunt een bron die niet van u is niet wijzigen, verplaatsen of verwijderen."
+
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:919
+#: EcclesiaCRM/Service/CalendarService.php:449
 #: EcclesiaCRM/dto/SystemConfig.php:33
 msgid "NONE"
 msgstr "GEEN"
@@ -1790,36 +1814,36 @@ msgstr "Contant"
 msgid "Checks"
 msgstr "Controles"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:50
+#: EcclesiaCRM/APIControllers/MailchimpController.php:51
 msgid "persons"
 msgstr "personen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:50
+#: EcclesiaCRM/APIControllers/MailchimpController.php:51
 msgid "people"
 msgstr "mensen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:58
+#: EcclesiaCRM/APIControllers/MailchimpController.php:59
 #: v2/templates/people/peopledashboard.php:25
 msgid "All People"
 msgstr "Alle mensen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:73
+#: EcclesiaCRM/APIControllers/MailchimpController.php:74
 msgid "newsletter"
 msgstr "nieuwsbrief"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:79
+#: EcclesiaCRM/APIControllers/MailchimpController.php:80
 #: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "families"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:87
+#: EcclesiaCRM/APIControllers/MailchimpController.php:88
 #: FinancialReports.php:406 GeoPage.php:322
 #: v2/templates/people/peopledashboard.php:61
 msgid "All Families"
 msgstr "Alle gezinnen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:122
+#: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
@@ -1830,7 +1854,7 @@ msgstr "Alle gezinnen"
 msgid "Persons"
 msgstr "Personen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:162
+#: EcclesiaCRM/APIControllers/MailchimpController.php:163
 #: EcclesiaCRM/APIControllers/PeopleController.php:157
 #: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
@@ -1847,7 +1871,7 @@ msgstr "Personen"
 msgid "Families"
 msgstr "Families"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:200
+#: EcclesiaCRM/APIControllers/MailchimpController.php:201
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: PersonView.php:480 external/templates/verify/verify-family-info.php:137
@@ -1859,7 +1883,7 @@ msgstr "Families"
 msgid "Groups"
 msgstr "Groepen"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:1110
+#: EcclesiaCRM/APIControllers/MailchimpController.php:1120
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP Host is niet ingesteld, ga naar de instellingen pagina"
 
@@ -2299,7 +2323,7 @@ msgstr "Uw account is verwijderd"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "Uw EcclesiaCRM account is verwijderd."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:216
 msgid "Email/Username"
 msgstr "Email/Gebruikersnaam"
 
@@ -2419,13 +2443,13 @@ msgstr "Instellingen wijzigen"
 msgid "Documents"
 msgstr "Documenten"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:753
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:286
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:288
+#: v2/routes/email/mailchimp/mailchimp.php:147
+#: v2/routes/email/mailchimp/mailchimp.php:148
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
@@ -2536,9 +2560,9 @@ msgstr "Wereldwijde aangepaste menu's"
 msgid "Custom Menus"
 msgstr "Aangepaste menu's"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:285
 #: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:909
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -2552,7 +2576,7 @@ msgstr "Volgens classificaties"
 msgid "Meetings"
 msgstr "Vergaderingen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:891
 msgid "MailChimp"
 msgstr "MailChimp"
 
@@ -2618,7 +2642,7 @@ msgstr "Gegevens/Rapporten"
 msgid "Reports Menu"
 msgstr "Menu Rapporten"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:814
 msgid "Query Menu"
 msgstr "Query Menu"
 
@@ -2776,8 +2800,8 @@ msgstr "Adressen"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:88
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
@@ -2799,8 +2823,8 @@ msgstr "Adressen"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:93
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
 #: EcclesiaCRM/Search/PersonSearchRes.php:264
@@ -2820,13 +2844,13 @@ msgstr "Adres"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:126
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
 #: EcclesiaCRM/Search/FamilySearchRes.php:142
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
 #: EcclesiaCRM/Search/PersonSearchRes.php:317
 #: EcclesiaCRM/Search/PersonSearchRes.php:321
@@ -2864,7 +2888,7 @@ msgstr "Familie aangepast veld"
 msgid "Family Pastoral Cares"
 msgstr "Pastorale zorg voor gezinnen"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: v2/templates/dashboard/maindashboard.php:486
 msgid "Family Pastoral Care"
 msgstr "Pastorale zorg voor gezinnen"
@@ -3008,11 +3032,11 @@ msgstr "Bestand met definitie van handtekening ontbreekt"
 msgid "One or more files failed signature validation"
 msgstr "Een of meer bestanden zijn niet geldig voor handtekeningvalidatie"
 
-#: EcclesiaCRM/Service/CalendarService.php:29
+#: EcclesiaCRM/Service/CalendarService.php:40
 msgid "Event"
 msgstr "Evenement"
 
-#: EcclesiaCRM/Service/CalendarService.php:31
+#: EcclesiaCRM/Service/CalendarService.php:42
 msgid "Anniversary"
 msgstr "Verjaardag"
 
@@ -5143,72 +5167,91 @@ msgstr "Stel het uitvoeradres in)"
 msgid "email address of the mailchimp sender."
 msgstr "e-mail adres van de mailchimp afzender."
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:269
+msgid ""
+"Link to a style sheet for a particular font. This is useful for the font "
+"menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
+"+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
+msgstr ""
+"Link naar een stijlblad voor een bepaald lettertype. Dit is nuttig voor het "
+"lettertype menu van ckeditor : https://fonts.googleapis.com/css?family=Abril"
+"+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
+
+#: EcclesiaCRM/dto/SystemConfig.php:270
+msgid ""
+"Here we put the font in the form fontnametodisplay/yourfontname. It is "
+"useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
+msgstr ""
+"Hier zetten we het lettertype in de vorm fontnametodisplay/yourfontname. Dit "
+"is nuttig voor het lettertype menu van ckeditor, bijvoorbeeld : Abril/Abril "
+"Fatface"
+
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Church Information"
 msgstr "Kerk Informatie"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Enabled Features"
 msgstr "Ingeschakelde functies"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
 msgid "System Settings"
 msgstr "Systeem Instellingen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Localization"
 msgstr "Lokalisatie"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "User setup"
 msgstr "Gebruikersinstellingen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "People Setup"
 msgstr "Mensen Instelling"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Email Setup"
 msgstr "E-mail instellen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Map Settings"
 msgstr "Kaart Instellingen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Sundayschool Attendance"
 msgstr "Zondagschool Aanwezigheid"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Integration"
 msgstr "Integratie"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Quick Search"
 msgstr "Snel zoeken"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Report Settings"
 msgstr "Rapport Instellingen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Financial Settings"
 msgstr "Financiële instellingen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Backup"
 msgstr "Backup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "Users Specific Schedule Tasks"
 msgstr "Gebruikers Specifieke Schema Taken"
 
-#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
-#: EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
+#: EcclesiaCRM/dto/SystemConfig.php:362
 msgid "An invalid configuration name has been requested"
 msgstr "Er is een ongeldige configuratienaam aangevraagd"
 
-#: EcclesiaCRM/dto/SystemConfig.php:375
+#: EcclesiaCRM/dto/SystemConfig.php:377
 msgid "An invalid configuration id has been requested"
 msgstr "Er is een ongeldige configuratie-id opgevraagd"
 
@@ -7598,7 +7641,7 @@ msgid "Active"
 msgstr "Actief"
 
 #: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
-#: UserEditor.php:928
+#: UserEditor.php:944
 msgid "Notes"
 msgstr "Opmerkingen"
 
@@ -8923,8 +8966,8 @@ msgstr "Annuleren en terugkeren naar de persoonsweergave"
 msgid "Move Donations to Selected Person"
 msgstr "Verplaats donaties naar een geselecteerde persoon"
 
-#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:85
-#: v2/templates/email/mailchimp/campaign.php:91
+#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:103
+#: v2/templates/email/mailchimp/campaign.php:109
 msgid "Schedule"
 msgstr "Schema"
 
@@ -8985,17 +9028,17 @@ msgstr "Mijn gebruikersinstellingen"
 msgid "Classic User Profile Settings"
 msgstr "Klassieke gebruikersprofielinstellingen"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:943
 msgid "Current Value"
 msgstr "Huidige waarde"
 
 #: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:926
+#: UserEditor.php:942
 msgid "Variable name"
 msgstr "Naam variabele"
 
 #: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1061
+#: UserEditor.php:1077
 msgid "Save Settings"
 msgstr "Instellingen opslaan"
 
@@ -9003,13 +9046,13 @@ msgstr "Instellingen opslaan"
 msgid "Skin"
 msgstr "Huid"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
-#: UserEditor.php:1013
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:978
+#: UserEditor.php:1029
 msgid "False"
 msgstr "Vals"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
-#: UserEditor.php:1014
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:979
+#: UserEditor.php:1030
 msgid "True"
 msgstr "True"
 
@@ -9270,177 +9313,181 @@ msgstr "Back-up gedownload, kopie op server verwijderd"
 msgid "Login must be a least 3 characters!"
 msgstr "Login moet uit minstens 3 karakters bestaan!"
 
-#: UserEditor.php:302 UserEditor.php:365
+#: UserEditor.php:308 UserEditor.php:372
 msgid "Login already in use, please select a different login!"
 msgstr "Login al in gebruik, kies een andere login!"
 
-#: UserEditor.php:361
+#: UserEditor.php:368
 msgid "The same as before"
 msgstr "Hetzelfde als voorheen"
 
-#: UserEditor.php:569
+#: UserEditor.php:579
 msgid "User Editor"
 msgstr "Gebruiker-editor"
 
-#: UserEditor.php:586
+#: UserEditor.php:596
 msgid "Role management"
 msgstr "Rollenbeheer"
 
-#: UserEditor.php:589
+#: UserEditor.php:599
 msgid "Add Role"
 msgstr "Rol toevoegen"
 
-#: UserEditor.php:590
+#: UserEditor.php:600
 msgid "Manage Roles"
 msgstr "Rollen beheren"
 
-#: UserEditor.php:593
+#: UserEditor.php:603
 msgid "Add Role to Current User"
 msgstr "Rol toevoegen aan huidige gebruiker"
 
-#: UserEditor.php:629
+#: UserEditor.php:639
 msgid "Person to Make User"
 msgstr "Persoon om gebruiker te maken"
 
-#: UserEditor.php:648 UserEditor.php:704
+#: UserEditor.php:658 UserEditor.php:714
 #: external/templates/password/enter-username.php:32
 msgid "Login Name"
 msgstr "Inlognaam"
 
-#: UserEditor.php:665
+#: UserEditor.php:675
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 "Opmerking: Wijzigingen worden pas van kracht bij de volgende aanmelding."
 
-#: UserEditor.php:680
+#: UserEditor.php:690
 msgid "User"
 msgstr "Gebruiker"
 
-#: UserEditor.php:713
+#: UserEditor.php:723
 msgid "Add Records"
 msgstr "Records toevoegen"
 
-#: UserEditor.php:719
+#: UserEditor.php:729
 msgid "Edit Records"
 msgstr "Records bewerken"
 
-#: UserEditor.php:725
+#: UserEditor.php:735
 msgid "Delete Records"
 msgstr "Records verwijderen"
 
-#: UserEditor.php:731
+#: UserEditor.php:741
 msgid "Show Cart"
 msgstr "Toon Winkelwagen"
 
-#: UserEditor.php:737
+#: UserEditor.php:747
 msgid "Show Map"
 msgstr "Kaart tonen"
 
-#: UserEditor.php:749
+#: UserEditor.php:759
 msgid "Manage Properties and Classifications"
 msgstr "Eigenschappen en classificaties beheren"
 
-#: UserEditor.php:755
+#: UserEditor.php:765
 msgid "Manage Groups and Roles"
 msgstr "Groepen en rollen beheren"
 
-#: UserEditor.php:761
+#: UserEditor.php:771
+msgid "Manage resource reservation schedules (room, computer, projectors)"
+msgstr ""
+
+#: UserEditor.php:777
 msgid "Manage Donations and Finance"
 msgstr "Beheer donaties en financiën"
 
-#: UserEditor.php:767
+#: UserEditor.php:783
 msgid "View, Add and Edit Notes"
 msgstr "Notities bekijken, toevoegen en bewerken"
 
-#: UserEditor.php:773
+#: UserEditor.php:789
 msgid "Edit Self"
 msgstr "Zelf bewerken"
 
-#: UserEditor.php:777
+#: UserEditor.php:793
 msgid "Edit own family only."
 msgstr "Alleen eigen familie bewerken."
 
-#: UserEditor.php:785
+#: UserEditor.php:801
 msgid "Canvass volunteer."
 msgstr "Canvass vrijwilliger."
 
-#: UserEditor.php:789
+#: UserEditor.php:805
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:793
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "Verleent alle privileges."
 
-#: UserEditor.php:802
+#: UserEditor.php:818
 msgid "Allow to manage the query menu"
 msgstr "Laat toe om het zoek menu te beheren"
 
-#: UserEditor.php:807
+#: UserEditor.php:823
 msgid "Can Send Email"
 msgstr "Kan e-mail verzenden"
 
-#: UserEditor.php:812
+#: UserEditor.php:828
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Maak het gebruik van de mail functie en knop in het CRM mogelijk"
 
-#: UserEditor.php:821
+#: UserEditor.php:837
 msgid "User permission to export CSV files"
 msgstr "Gebruiker toestemming om CSV bestanden te exporteren"
 
-#: UserEditor.php:830
+#: UserEditor.php:846
 msgid "User permission to create directories"
 msgstr "Toestemming van de gebruiker om mappen aan te maken"
 
-#: UserEditor.php:835
+#: UserEditor.php:851
 msgid "Sunday school PDF"
 msgstr "Zondagsschool PDF"
 
-#: UserEditor.php:840
+#: UserEditor.php:856
 msgid "User permission to export PDF files for the sunday school"
 msgstr ""
 "Gebruikers toestemming om PDF bestanden te exporteren voor de zondagsschool"
 
-#: UserEditor.php:845
+#: UserEditor.php:861
 msgid "Sunday school CSV"
 msgstr "Zondagsschool CSV"
 
-#: UserEditor.php:850
+#: UserEditor.php:866
 msgid "User permission to export CSV files for the sunday school"
 msgstr ""
 "Gebruiker toestemming om CSV bestanden te exporteren voor de zondagsschool"
 
-#: UserEditor.php:855
+#: UserEditor.php:871
 msgid "Main Dashboard"
 msgstr "Hoofddashboard"
 
-#: UserEditor.php:860
+#: UserEditor.php:876
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Hoofddashboard en de geboortedata in de kalender zijn zichtbaar."
 
-#: UserEditor.php:865
+#: UserEditor.php:881
 msgid "See Privacy Data"
 msgstr "Zie Privacygegevens"
 
-#: UserEditor.php:870
+#: UserEditor.php:886
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Sta de gebruiker toe om privacy gegevens van leden te zien, b.v. "
 "geboortejaar, leeftijd."
 
-#: UserEditor.php:879
+#: UserEditor.php:895
 msgid "Allow a user to use MailChimp tool"
 msgstr "Sta een gebruiker toe om MailChimp tool te gebruiken"
 
-#: UserEditor.php:884
+#: UserEditor.php:900
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD Functionaris Gegevensbescherming"
 
-#: UserEditor.php:888
+#: UserEditor.php:904
 msgid "General Data Protection Regulation in UE"
 msgstr "Algemene verordening gegevensbescherming in de EU"
 
-#: UserEditor.php:920
+#: UserEditor.php:936
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9448,7 +9495,7 @@ msgstr ""
 "Stel Permission True in om deze gebruiker de mogelijkheid te geven zijn "
 "huidige waarde te wijzigen."
 
-#: UserEditor.php:925
+#: UserEditor.php:941
 msgid "Permission"
 msgstr "Toestemming"
 
@@ -9801,25 +9848,26 @@ msgid "Debug Email Connection"
 msgstr "Debug e-mail verbinding"
 
 #: v2/routes/email/mailchimp/mailchimp.php:106
+#: v2/routes/email/mailchimp/mailchimp.php:107
 msgid "Email Campaign"
 msgstr "Email Campagne"
 
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/routes/email/mailchimp/mailchimp.php:147
+#: v2/routes/email/mailchimp/mailchimp.php:148
 msgid "Email List"
 msgstr "E-mail lijst"
 
-#: v2/routes/email/mailchimp/mailchimp.php:179
+#: v2/routes/email/mailchimp/mailchimp.php:185
 #: v2/templates/email/mailchimp/dashboard.php:69
 msgid "Find Duplicate Emails"
 msgstr "Duplicaat e-mails vinden"
 
-#: v2/routes/email/mailchimp/mailchimp.php:205
+#: v2/routes/email/mailchimp/mailchimp.php:211
 #: v2/templates/email/mailchimp/dashboard.php:72
 msgid "Persons Not In MailChimp"
 msgstr "Personen niet in MailChimp"
 
-#: v2/routes/email/mailchimp/mailchimp.php:230
+#: v2/routes/email/mailchimp/mailchimp.php:236
 #: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Families Not In MailChimp"
 msgstr "Gezinnen niet in MailChimp"
@@ -10411,39 +10459,56 @@ msgstr "Bewaar Campagne"
 msgid "Send"
 msgstr "Stuur"
 
-#: v2/templates/email/mailchimp/campaign.php:52
+#: v2/templates/email/mailchimp/campaign.php:49
 msgid "Mail Subject"
 msgstr "Post Onderwerp"
 
-#: v2/templates/email/mailchimp/campaign.php:55
+#: v2/templates/email/mailchimp/campaign.php:49
+msgid "Content"
+msgstr "Inhoud"
+
+#: v2/templates/email/mailchimp/campaign.php:54
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: v2/templates/email/mailchimp/campaign.php:57
 msgid "Your Mail Subject"
 msgstr "Onderwerp van uw e-mail"
 
-#: v2/templates/email/mailchimp/campaign.php:67
+#: v2/templates/email/mailchimp/campaign.php:66
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+"U kunt de knop \"Tags samenvoegen\" hieronder gebruiken, om uw inhoud aan te "
+"passen"
+
+#: v2/templates/email/mailchimp/campaign.php:83
 msgid "Tags"
 msgstr "Tags"
 
-#: v2/templates/email/mailchimp/campaign.php:98
+#: v2/templates/email/mailchimp/campaign.php:119
 msgid "You've first to create a content below to schedule a campaign."
 msgstr "Je moet eerst een inhoud hieronder maken om een campagne te plannen."
 
-#: v2/templates/email/mailchimp/campaign.php:132
+#: v2/templates/email/mailchimp/campaign.php:121
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr ""
+"Campagnes kunnen alleen worden gepland om te verzenden op het kwartier "
+"(:00, :15, :30, :45)."
+
+#: v2/templates/email/mailchimp/campaign.php:146
+#, fuzzy
+msgid "Time"
+msgstr "Times"
+
+#: v2/templates/email/mailchimp/campaign.php:162
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
 msgstr ""
 "Om te valideren, slaat u uw campagne op met de <b>\"Save Campaign\"</b> knop "
 "over."
-
-#: v2/templates/email/mailchimp/campaign.php:146
-msgid "Content"
-msgstr "Inhoud"
-
-#: v2/templates/email/mailchimp/campaign.php:152
-msgid "You can use the button \"Merge Tags\" below, to customize your content"
-msgstr ""
-"U kunt de knop \"Tags samenvoegen\" hieronder gebruiken, om uw inhoud aan te "
-"passen"
 
 #: v2/templates/email/mailchimp/dashboard.php:20
 msgid "MailChimp Problem"
@@ -12569,9 +12634,6 @@ msgstr "Groot"
 
 #~ msgid "Show"
 #~ msgstr "Toon"
-
-#~ msgid "Times"
-#~ msgstr "Times"
 
 #~ msgid "Display:"
 #~ msgstr "Laat zien:"

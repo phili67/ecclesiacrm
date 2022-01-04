@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2020,6 +2020,9 @@ msgstr "Ștergeți eticheta"
 msgid "Loading resources ..."
 msgstr "Încărcarea resurselor ..."
 
+msgid "Email Marketing"
+msgstr "Marketing prin e-mail"
+
 msgid "You're about to delete a tag!"
 msgstr "Sunteți pe cale să ștergeți o etichetă!"
 
@@ -2071,9 +2074,6 @@ msgid ""
 msgstr ""
 "Încărcarea tuturor familiilor de abonați din EcclesiaCRM<br>Aceasta ar putea "
 "dura ceva timp!"
-
-msgid "Email Marketing"
-msgstr "Marketing prin e-mail"
 
 msgid "Select status for : "
 msgstr "Selectați starea pentru :"

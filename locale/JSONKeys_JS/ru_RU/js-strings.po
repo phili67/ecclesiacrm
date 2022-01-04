@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2005,6 +2005,9 @@ msgstr "Удалить метку"
 msgid "Loading resources ..."
 msgstr "Загрузка ресурсов ..."
 
+msgid "Email Marketing"
+msgstr "Email-маркетинг"
+
 msgid "You're about to delete a tag!"
 msgstr "Вы собираетесь удалить метку!"
 
@@ -2053,9 +2056,6 @@ msgid ""
 msgstr ""
 "Загрузка всех семейных подписчиков из EcclesiaCRM<br>Это может занять "
 "некоторое время!"
-
-msgid "Email Marketing"
-msgstr "Email-маркетинг"
 
 msgid "Select status for : "
 msgstr "Выберите статус для :"
