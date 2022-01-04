@@ -143,7 +143,7 @@ if ($isMailchimpActiv) {
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="card" id="container"></div>
+            <div class="card card-info" id="container"></div>
         </div>
 
         <br>

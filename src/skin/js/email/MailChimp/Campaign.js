@@ -104,7 +104,7 @@ $(document).ready(function () {
 
             fmt = fmt + ' ' + time_format;
 
-            realScheduleDate = moment(dateStart + ' ' + timeStart, fmt).format('YYYY-MM-DDTH:mm+00:00');
+            realScheduleDate = moment(dateStart + ' ' + timeStart, fmt).utc().format();
         }
 
         window.CRM.dialogLoadingFunction(i18next.t("Saving Campaign ..."));
