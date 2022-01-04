@@ -329,7 +329,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <script
     src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    var window.CRM.twofa = <?= ($twofa)?'true':'false' ?>;
+    window.CRM.twofa = <?= ($twofa)?'true':'false' ?>;
 
     <?php
     if ($_SESSION['iLoginType'] == "Lock") {
