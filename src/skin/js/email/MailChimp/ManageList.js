@@ -93,7 +93,7 @@ $(document).ready(function () {
                     + '            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
                     + '          </table>'
                     + '        </div>'
-                    + '      </div><br/>'
+                    + '      </div><hr/>'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
                     + '           <b><i class="icon fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
@@ -120,7 +120,7 @@ $(document).ready(function () {
 
                 listView += '        </div>';
 
-                listView += '   </div><br/>';
+                listView += '   </div><hr/>';
 
                 var lenTags = data.MailChimpList.tags.length;
 
