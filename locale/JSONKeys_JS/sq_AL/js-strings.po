@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1998,6 +1998,9 @@ msgstr "fshije etiketën"
 msgid "Loading resources ..."
 msgstr "Mbushja e burimeve ..."
 
+msgid "Email Marketing"
+msgstr "marketing e-mail"
+
 msgid "You're about to delete a tag!"
 msgstr "Do ta fshish etiketën!"
 
@@ -2049,9 +2052,6 @@ msgid ""
 msgstr ""
 "Duke mbushur të gjitha familjet e para të rekrutëve të kokave nga "
 "EcclesiaCRM<br>kjo mund të marrë një kohë!"
-
-msgid "Email Marketing"
-msgstr "marketing e-mail"
 
 msgid "Select status for : "
 msgstr "Zgjidh statusin:"

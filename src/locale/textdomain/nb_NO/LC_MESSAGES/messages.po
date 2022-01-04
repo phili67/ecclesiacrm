@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-26 17:10+0000\n"
+"POT-Creation-Date: 2022-01-04 17:22+0000\n"
 "Language: nl-nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +117,7 @@ msgstr "USADE"
 #: EditEventAttendees.php:55 FundRaiserEditor.php:173 Include/Functions.php:88
 #: PledgeEditor.php:599 Reports/ReminderReport.php:323
 #: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
-#: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:104
+#: SelectDelete.php:323 v2/templates/email/mailchimp/campaign.php:127
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
 msgstr "Date"
@@ -315,7 +315,7 @@ msgstr "Lager menig Data på Vanco"
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:879 PersonEditor.php:1020 PersonEditor.php:1207
 #: PersonEditor.php:1629 PersonEditor.php:1709 PersonEditor.php:1797
-#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:907
+#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:923
 #: UserPasswordChange.php:225 v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Redd"
@@ -327,7 +327,7 @@ msgstr "Redd"
 #: LettersAndLabels.php:92 ManageEnvelopes.php:144 PersonEditor.php:1805
 #: PersonView.php:1964 PledgeEditor.php:800 ReminderReport.php:55
 #: SettingsIndividual.php:141 SettingsIndividual.php:407 TaxReport.php:53
-#: UserEditor.php:908 UserEditor.php:1062
+#: UserEditor.php:924 UserEditor.php:1078
 #: external/templates/verify/verify-family-info.php:188
 #: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
@@ -361,7 +361,7 @@ msgstr "Price"
 msgid "Enter Winners"
 msgstr "Kom inn i Winners"
 
-#: CSVExport.php:55 UserEditor.php:817 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:833 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV-eksport"
 
@@ -996,7 +996,7 @@ msgstr "Kryss Input for The"
 msgid "family"
 msgstr "Familie"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:781
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:797
 msgid "Canvasser"
 msgstr "Kanvasser"
 
@@ -1134,7 +1134,7 @@ msgstr "Legg Cart til familien"
 
 #: CartToFamily.php:197 EcclesiaCRM/Search/AddressSearchRes.php:123
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
 #: v2/templates/dashboard/maindashboard.php:542
@@ -1491,7 +1491,7 @@ msgstr "Inkludert informasjon"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
-#: EcclesiaCRM/Service/CalendarService.php:30 FamilyView.php:550
+#: EcclesiaCRM/Service/CalendarService.php:41 FamilyView.php:550
 #: PersonView.php:1124 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
 #: external/templates/verify/verify-family-info.php:107
@@ -1578,12 +1578,36 @@ msgstr "Kirkenavn"
 msgid "Disclaimer"
 msgstr "Disclaimer"
 
-#: DirectoryReports.php:338 UserEditor.php:826
+#: DirectoryReports.php:338 UserEditor.php:842
 msgid "Create Directory"
 msgstr "Skape direktoratet"
 
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:421
-#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:980
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:341
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:449
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:534
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:554
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:602
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:672
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:692
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:864
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:890
+msgid "Two resource reservations cannot be in the same time slot."
+msgstr "To ressurser kan ikke være i samme tidspunkt."
+
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:350
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:572
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:724
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:760
+#, fuzzy
+msgid ""
+"This resource reservation was not created by you. You cannot edit, move or "
+"delete a resource that you do not own."
+msgstr ""
+"Du kan ikke modifisere, bevege deg eller slette en ressurs som ikke tilhører "
+"deg."
+
+#: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:919
+#: EcclesiaCRM/Service/CalendarService.php:449
 #: EcclesiaCRM/dto/SystemConfig.php:33
 msgid "NONE"
 msgstr "NORE"
@@ -1775,36 +1799,36 @@ msgstr "Cash"
 msgid "Checks"
 msgstr "Sjekker"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:50
+#: EcclesiaCRM/APIControllers/MailchimpController.php:51
 msgid "persons"
 msgstr "Persons"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:50
+#: EcclesiaCRM/APIControllers/MailchimpController.php:51
 msgid "people"
 msgstr "Folk"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:58
+#: EcclesiaCRM/APIControllers/MailchimpController.php:59
 #: v2/templates/people/peopledashboard.php:25
 msgid "All People"
 msgstr "Alle mennesker"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:73
+#: EcclesiaCRM/APIControllers/MailchimpController.php:74
 msgid "newsletter"
 msgstr "Nybegynnerbrev"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:79
+#: EcclesiaCRM/APIControllers/MailchimpController.php:80
 #: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "Familier"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:87
+#: EcclesiaCRM/APIControllers/MailchimpController.php:88
 #: FinancialReports.php:406 GeoPage.php:322
 #: v2/templates/people/peopledashboard.php:61
 msgid "All Families"
 msgstr "Alle familier"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:122
+#: EcclesiaCRM/APIControllers/MailchimpController.php:123
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
@@ -1815,7 +1839,7 @@ msgstr "Alle familier"
 msgid "Persons"
 msgstr "Persons"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:162
+#: EcclesiaCRM/APIControllers/MailchimpController.php:163
 #: EcclesiaCRM/APIControllers/PeopleController.php:157
 #: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:130
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
@@ -1832,7 +1856,7 @@ msgstr "Persons"
 msgid "Families"
 msgstr "Familier"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:200
+#: EcclesiaCRM/APIControllers/MailchimpController.php:201
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
 #: EcclesiaCRM/MenuBar/MenuBar.php:149 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: PersonView.php:480 external/templates/verify/verify-family-info.php:137
@@ -1844,7 +1868,7 @@ msgstr "Familier"
 msgid "Groups"
 msgstr "Grupper"
 
-#: EcclesiaCRM/APIControllers/MailchimpController.php:1110
+#: EcclesiaCRM/APIControllers/MailchimpController.php:1120
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP Host er ikke arrangert, vennligst gå til innstillingssiden"
 
@@ -2283,7 +2307,7 @@ msgstr "Kontoen din ble slettet"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr "CRM-kontoen din ble slettet."
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:216
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:216
 msgid "Email/Username"
 msgstr "Sentralbordet"
 
@@ -2401,13 +2425,13 @@ msgstr "Bytt plasser"
 msgid "Documents"
 msgstr "Dokumenter."
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:743
+#: EcclesiaCRM/MenuBar/MenuBar.php:51 PersonView.php:1001 UserEditor.php:753
 msgid "EDrive"
 msgstr "EVERING"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:286
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
+#: EcclesiaCRM/MenuBar/MenuBar.php:64 EcclesiaCRM/dto/SystemConfig.php:288
+#: v2/routes/email/mailchimp/mailchimp.php:147
+#: v2/routes/email/mailchimp/mailchimp.php:148
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
@@ -2518,9 +2542,9 @@ msgstr "Global Tollmenus"
 msgid "Custom Menus"
 msgstr "Tollmenus"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/MenuBar/MenuBar.php:326 EcclesiaCRM/dto/SystemConfig.php:285
 #: FamilyView.php:469 PersonView.php:796 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:893
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:909
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -2534,7 +2558,7 @@ msgstr "Ved klassifiseringer"
 msgid "Meetings"
 msgstr "Møter"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:875
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:891
 msgid "MailChimp"
 msgstr "Mailchimp"
 
@@ -2600,7 +2624,7 @@ msgstr "Data/rapporter"
 msgid "Reports Menu"
 msgstr "Rapporterer Menu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:798
+#: EcclesiaCRM/MenuBar/MenuBar.php:481 UserEditor.php:814
 msgid "Query Menu"
 msgstr "Spørr Menu"
 
@@ -2758,8 +2782,8 @@ msgstr "Adresser"
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:83
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:120
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:87
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:88
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:89
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
@@ -2781,8 +2805,8 @@ msgstr "Adresser"
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:89
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:139
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:92
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:129
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:93
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:96
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:145
 #: EcclesiaCRM/Search/PersonSearchRes.php:264
@@ -2802,13 +2826,13 @@ msgstr "Adresse"
 
 #: EcclesiaCRM/Search/AddressSearchRes.php:124
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:134
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:126
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:138
 #: EcclesiaCRM/Search/FamilySearchRes.php:142
 #: EcclesiaCRM/Search/PersonAssignToGroupSearchRes.php:139
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:134
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:140
-#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:130
+#: EcclesiaCRM/Search/PersonPastoralCareSearchRes.php:131
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:146
 #: EcclesiaCRM/Search/PersonSearchRes.php:317
 #: EcclesiaCRM/Search/PersonSearchRes.php:321
@@ -2846,7 +2870,7 @@ msgstr "Familietollen"
 msgid "Family Pastoral Cares"
 msgstr "Familieprestekrager"
 
-#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:124
+#: EcclesiaCRM/Search/FamilyPastoralCareSearchRes.php:125
 #: v2/templates/dashboard/maindashboard.php:486
 msgid "Family Pastoral Care"
 msgstr "Familiepastoral Care"
@@ -2990,11 +3014,11 @@ msgstr "Underskrift definisjon file mangler"
 msgid "One or more files failed signature validation"
 msgstr "En eller flere filer mislyktes med bekreftelse"
 
-#: EcclesiaCRM/Service/CalendarService.php:29
+#: EcclesiaCRM/Service/CalendarService.php:40
 msgid "Event"
 msgstr "Event"
 
-#: EcclesiaCRM/Service/CalendarService.php:31
+#: EcclesiaCRM/Service/CalendarService.php:42
 msgid "Anniversary"
 msgstr "Anniversary"
 
@@ -5078,72 +5102,90 @@ msgstr "Sett eksportadressen."
 msgid "email address of the mailchimp sender."
 msgstr "- En mailsjimpanses adresse."
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:269
+msgid ""
+"Link to a style sheet for a particular font. This is useful for the font "
+"menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
+"+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
+msgstr ""
+"Link til en stil for en spesiell font. Dette er nyttig for fontmenyen til "
+"førsteditor https://fonts.googleapis.com/css? familie = Abril + "
+"Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
+
+#: EcclesiaCRM/dto/SystemConfig.php:270
+msgid ""
+"Here we put the font in the form fontnametodisplay/yourfontname. It is "
+"useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
+msgstr ""
+"Her har vi skriften i form av fontnavne/fontnavnet ditt. Det er nyttig for "
+"fontmenyen til fontmenyen, for eksempel Abril/Abril Fatface"
+
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Church Information"
 msgstr "Kirkeinformasjonen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Enabled Features"
 msgstr "Forvirret fester"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
 msgid "System Settings"
 msgstr "Systemsetting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Localization"
 msgstr "Lokalisering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "User setup"
 msgstr "Bruker oppsett"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "People Setup"
 msgstr "Folk stiller opp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:283
 msgid "Email Setup"
 msgstr "E-post"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Map Settings"
 msgstr "Kart Settings"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:286
 msgid "Sundayschool Attendance"
 msgstr "Søndagskolonitalitet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Integration"
 msgstr "Integrering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Quick Search"
 msgstr "Fort søk"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Report Settings"
 msgstr "Rapporter setting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Financial Settings"
 msgstr "Finansielle innstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:292
 msgid "Backup"
 msgstr "Forsterkninger."
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:293
 msgid "Users Specific Schedule Tasks"
 msgstr "Bruker Specific Scheplane-baser"
 
-#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
-#: EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
+#: EcclesiaCRM/dto/SystemConfig.php:362
 msgid "An invalid configuration name has been requested"
 msgstr "Et uærlig konfigurasjonsnevne er anmodet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:375
+#: EcclesiaCRM/dto/SystemConfig.php:377
 msgid "An invalid configuration id has been requested"
 msgstr "En invalid konfigurasjon-legitimasjon er anmodet"
 
@@ -7513,7 +7555,7 @@ msgid "Active"
 msgstr "Aktiv"
 
 #: ListEvents.php:398 SettingsIndividual.php:113 SettingsIndividual.php:164
-#: UserEditor.php:928
+#: UserEditor.php:944
 msgid "Notes"
 msgstr "Notater"
 
@@ -8820,8 +8862,8 @@ msgstr "Avlys og returnere til Person View"
 msgid "Move Donations to Selected Person"
 msgstr "Flytt donasjonene til Person"
 
-#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:85
-#: v2/templates/email/mailchimp/campaign.php:91
+#: SelectDelete.php:325 v2/templates/email/mailchimp/campaign.php:103
+#: v2/templates/email/mailchimp/campaign.php:109
 msgid "Schedule"
 msgstr "Scheplan"
 
@@ -8881,17 +8923,17 @@ msgstr "Min User Settings"
 msgid "Classic User Profile Settings"
 msgstr "Klassiske User Profil Settings"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:927
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:943
 msgid "Current Value"
 msgstr "Nåværende Value"
 
 #: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:926
+#: UserEditor.php:942
 msgid "Variable name"
 msgstr "Variabelt navn"
 
 #: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1061
+#: UserEditor.php:1077
 msgid "Save Settings"
 msgstr "Spar plassene"
 
@@ -8899,13 +8941,13 @@ msgstr "Spar plassene"
 msgid "Skin"
 msgstr "Skin"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:962
-#: UserEditor.php:1013
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:978
+#: UserEditor.php:1029
 msgid "False"
 msgstr "Falsk"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:963
-#: UserEditor.php:1014
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:979
+#: UserEditor.php:1030
 msgid "True"
 msgstr "Sant nok."
 
@@ -9157,172 +9199,176 @@ msgstr "Forsterkninger nedlastet, mottatt på server fjernet"
 msgid "Login must be a least 3 characters!"
 msgstr "Login må være minst tre personer!"
 
-#: UserEditor.php:302 UserEditor.php:365
+#: UserEditor.php:308 UserEditor.php:372
 msgid "Login already in use, please select a different login!"
 msgstr "Lörgen er allerede i bruk, vennligst velg en annen innlogging!"
 
-#: UserEditor.php:361
+#: UserEditor.php:368
 msgid "The same as before"
 msgstr "Det samme som før"
 
-#: UserEditor.php:569
+#: UserEditor.php:579
 msgid "User Editor"
 msgstr "Bruker redaktør"
 
-#: UserEditor.php:586
+#: UserEditor.php:596
 msgid "Role management"
 msgstr "Rolleledelse"
 
-#: UserEditor.php:589
+#: UserEditor.php:599
 msgid "Add Role"
 msgstr "Legg til Role"
 
-#: UserEditor.php:590
+#: UserEditor.php:600
 msgid "Manage Roles"
 msgstr "Manage Roles"
 
-#: UserEditor.php:593
+#: UserEditor.php:603
 msgid "Add Role to Current User"
 msgstr "Legg til Role til Current User"
 
-#: UserEditor.php:629
+#: UserEditor.php:639
 msgid "Person to Make User"
 msgstr "Person til å lage User"
 
-#: UserEditor.php:648 UserEditor.php:704
+#: UserEditor.php:658 UserEditor.php:714
 #: external/templates/password/enter-username.php:32
 msgid "Login Name"
 msgstr "Loginnavn"
 
-#: UserEditor.php:665
+#: UserEditor.php:675
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Forandringer vil ikke virke før neste logon."
 
-#: UserEditor.php:680
+#: UserEditor.php:690
 msgid "User"
 msgstr "User"
 
-#: UserEditor.php:713
+#: UserEditor.php:723
 msgid "Add Records"
 msgstr "Legg til plater"
 
-#: UserEditor.php:719
+#: UserEditor.php:729
 msgid "Edit Records"
 msgstr "Edit Records"
 
-#: UserEditor.php:725
+#: UserEditor.php:735
 msgid "Delete Records"
 msgstr "Slett Records"
 
-#: UserEditor.php:731
+#: UserEditor.php:741
 msgid "Show Cart"
 msgstr "Vis Cart"
 
-#: UserEditor.php:737
+#: UserEditor.php:747
 msgid "Show Map"
 msgstr "Vis kartet"
 
-#: UserEditor.php:749
+#: UserEditor.php:759
 msgid "Manage Properties and Classifications"
 msgstr "Befal eiendomsmegling og klassifiseringer"
 
-#: UserEditor.php:755
+#: UserEditor.php:765
 msgid "Manage Groups and Roles"
 msgstr "Ledelsen og Roles"
 
-#: UserEditor.php:761
+#: UserEditor.php:771
+msgid "Manage resource reservation schedules (room, computer, projectors)"
+msgstr ""
+
+#: UserEditor.php:777
 msgid "Manage Donations and Finance"
 msgstr "Manage Donasjons and Finance"
 
-#: UserEditor.php:767
+#: UserEditor.php:783
 msgid "View, Add and Edit Notes"
 msgstr "Se, Add og Edit Notes"
 
-#: UserEditor.php:773
+#: UserEditor.php:789
 msgid "Edit Self"
 msgstr "Edit Self"
 
-#: UserEditor.php:777
+#: UserEditor.php:793
 msgid "Edit own family only."
 msgstr "Edit eier bare familien."
 
-#: UserEditor.php:785
+#: UserEditor.php:801
 msgid "Canvass volunteer."
 msgstr "Kanvass frivillig."
 
-#: UserEditor.php:789
+#: UserEditor.php:805
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:793
+#: UserEditor.php:809
 msgid "Grants all privileges."
 msgstr "Det gir alle privilegier."
 
-#: UserEditor.php:802
+#: UserEditor.php:818
 msgid "Allow to manage the query menu"
 msgstr "Tillat å ta seg av spørremenyen"
 
-#: UserEditor.php:807
+#: UserEditor.php:823
 msgid "Can Send Email"
 msgstr "Kan sende email"
 
-#: UserEditor.php:812
+#: UserEditor.php:828
 msgid "Allow to use the mail function and button in the CRM"
 msgstr "Tillat å bruke post funksjon og knapp i CRM"
 
-#: UserEditor.php:821
+#: UserEditor.php:837
 msgid "User permission to export CSV files"
 msgstr "Bruker tillatelse til å eksportere CSV-filer"
 
-#: UserEditor.php:830
+#: UserEditor.php:846
 msgid "User permission to create directories"
 msgstr "Bruker tillatelse til å lage regissører"
 
-#: UserEditor.php:835
+#: UserEditor.php:851
 msgid "Sunday school PDF"
 msgstr "Søndagsskole PDF"
 
-#: UserEditor.php:840
+#: UserEditor.php:856
 msgid "User permission to export PDF files for the sunday school"
 msgstr "Bruker tillatelse til å eksportere PDF-filer til søndagsskolen"
 
-#: UserEditor.php:845
+#: UserEditor.php:861
 msgid "Sunday school CSV"
 msgstr "Søndagsskolens CSV"
 
-#: UserEditor.php:850
+#: UserEditor.php:866
 msgid "User permission to export CSV files for the sunday school"
 msgstr "Bruker tillatelse til å eksportere CSV-filer til søndagsskolen"
 
-#: UserEditor.php:855
+#: UserEditor.php:871
 msgid "Main Dashboard"
 msgstr "Hoveddashboard"
 
-#: UserEditor.php:860
+#: UserEditor.php:876
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Hoveddashboard og fødselsdatoene i kalenderen er synlige."
 
-#: UserEditor.php:865
+#: UserEditor.php:881
 msgid "See Privacy Data"
 msgstr "Se privat Data"
 
-#: UserEditor.php:870
+#: UserEditor.php:886
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr "Tillat brukeren å se privat data, E.G. Fødselsår, alder."
 
-#: UserEditor.php:879
+#: UserEditor.php:895
 msgid "Allow a user to use MailChimp tool"
 msgstr "La en bruker bruke Mailchimp-verktøy"
 
-#: UserEditor.php:884
+#: UserEditor.php:900
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD Data Beskyttelsesoffiser"
 
-#: UserEditor.php:888
+#: UserEditor.php:904
 msgid "General Data Protection Regulation in UE"
 msgstr "General Data Beskyttelse i UE"
 
-#: UserEditor.php:920
+#: UserEditor.php:936
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9330,7 +9376,7 @@ msgstr ""
 "Tillatelse True for å gi denne brukeren evnen til å endre sin nåværende "
 "verdi."
 
-#: UserEditor.php:925
+#: UserEditor.php:941
 msgid "Permission"
 msgstr "Tillatelse"
 
@@ -9677,25 +9723,26 @@ msgid "Debug Email Connection"
 msgstr "Debug email Connection"
 
 #: v2/routes/email/mailchimp/mailchimp.php:106
+#: v2/routes/email/mailchimp/mailchimp.php:107
 msgid "Email Campaign"
 msgstr "- E-postkampanje"
 
-#: v2/routes/email/mailchimp/mailchimp.php:143
-#: v2/routes/email/mailchimp/mailchimp.php:144
+#: v2/routes/email/mailchimp/mailchimp.php:147
+#: v2/routes/email/mailchimp/mailchimp.php:148
 msgid "Email List"
 msgstr "E-post List"
 
-#: v2/routes/email/mailchimp/mailchimp.php:179
+#: v2/routes/email/mailchimp/mailchimp.php:185
 #: v2/templates/email/mailchimp/dashboard.php:69
 msgid "Find Duplicate Emails"
 msgstr "Finn kopiere emailer"
 
-#: v2/routes/email/mailchimp/mailchimp.php:205
+#: v2/routes/email/mailchimp/mailchimp.php:211
 #: v2/templates/email/mailchimp/dashboard.php:72
 msgid "Persons Not In MailChimp"
 msgstr "Personer ikke i Mailchimp"
 
-#: v2/routes/email/mailchimp/mailchimp.php:230
+#: v2/routes/email/mailchimp/mailchimp.php:236
 #: v2/templates/email/mailchimp/dashboard.php:75
 msgid "Families Not In MailChimp"
 msgstr "Familier ikke i Mailchimp"
@@ -10279,36 +10326,51 @@ msgstr "Spar kampanjen"
 msgid "Send"
 msgstr "Send"
 
-#: v2/templates/email/mailchimp/campaign.php:52
+#: v2/templates/email/mailchimp/campaign.php:49
 msgid "Mail Subject"
 msgstr "Postsubjekt"
 
-#: v2/templates/email/mailchimp/campaign.php:55
+#: v2/templates/email/mailchimp/campaign.php:49
+msgid "Content"
+msgstr "- Ja."
+
+#: v2/templates/email/mailchimp/campaign.php:54
+msgid "Subject"
+msgstr "Subjekt"
+
+#: v2/templates/email/mailchimp/campaign.php:57
 msgid "Your Mail Subject"
 msgstr "Postsubjektet ditt"
 
-#: v2/templates/email/mailchimp/campaign.php:67
+#: v2/templates/email/mailchimp/campaign.php:66
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr "Du kan bruke knappen \"Merge Tags\" under for å spesialisere innholdet"
+
+#: v2/templates/email/mailchimp/campaign.php:83
 msgid "Tags"
 msgstr "Tags"
 
-#: v2/templates/email/mailchimp/campaign.php:98
+#: v2/templates/email/mailchimp/campaign.php:119
 msgid "You've first to create a content below to schedule a campaign."
 msgstr "Du har først som skaper et innhold under for å planlegge en kampanje."
 
-#: v2/templates/email/mailchimp/campaign.php:132
+#: v2/templates/email/mailchimp/campaign.php:121
+msgid ""
+"Campaigns may only be scheduled to send on the quarter-hour "
+"(:00, :15, :30, :45)."
+msgstr "Kampanjer kan bare sendes kvart over halv time."
+
+#: v2/templates/email/mailchimp/campaign.php:146
+#, fuzzy
+msgid "Time"
+msgstr "Tidslinje"
+
+#: v2/templates/email/mailchimp/campaign.php:162
 msgid ""
 "To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
 "over."
 msgstr ""
 "For å bekrefte, spar kampanjen med<b>\"Redd kampanje\"</b>-knappen over."
-
-#: v2/templates/email/mailchimp/campaign.php:146
-msgid "Content"
-msgstr "- Ja."
-
-#: v2/templates/email/mailchimp/campaign.php:152
-msgid "You can use the button \"Merge Tags\" below, to customize your content"
-msgstr "Du kan bruke knappen \"Merge Tags\" under for å spesialisere innholdet"
 
 #: v2/templates/email/mailchimp/dashboard.php:20
 msgid "MailChimp Problem"

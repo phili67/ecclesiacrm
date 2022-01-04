@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-25T08:31:35.797Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1942,6 +1942,9 @@ msgstr "ลบแท็ก"
 msgid "Loading resources ..."
 msgstr "กำลังเติมทรัพยากร"
 
+msgid "Email Marketing"
+msgstr "การตลาดอีเมล"
+
 msgid "You're about to delete a tag!"
 msgstr "คุณกำลังจะลบแท็ก!"
 
@@ -1984,9 +1987,6 @@ msgid ""
 "Loading all families first headpeople subscribers from EcclesiaCRM<br>This "
 "could take a while !"
 msgstr "ปิดครอบครัวทั้งหมดเป็นครั้งแรก ผู้เขียนรายงาน จากปี EcclesiaCRM<br>นี่ต้องใช้เวลาสักพัก"
-
-msgid "Email Marketing"
-msgstr "การตลาดอีเมล"
 
 msgid "Select status for : "
 msgstr "เลือกสถานะให้:"
