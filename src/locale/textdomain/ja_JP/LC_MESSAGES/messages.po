@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-04 17:22+0000\n"
+"POT-Creation-Date: 2022-01-04 19:32+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9300,7 +9300,7 @@ msgstr "グループとロールの管理"
 
 #: UserEditor.php:771
 msgid "Manage resource reservation schedules (room, computer, projectors)"
-msgstr ""
+msgstr "リソースの予約スケジュールの管理（部屋、コンピュータ、プロジェクタ）"
 
 #: UserEditor.php:777
 msgid "Manage Donations and Finance"
