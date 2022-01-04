@@ -76,7 +76,7 @@ $(document).ready(function () {
                 var listView = '<div class="card-header with-border">'
                     + '      <h3 class="card-title"><i class="fa fa-list"></i> ' + i18next.t('Email List') + '   (' + i18next.t('Details') + ')</h3>'
                     + '      <div class="card-tools pull-right">'
-                    + '          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>'
+                    + '          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>'
                     + '      </div>'
                     + '    </div>'
                     + '    <div class="card-body">'
