@@ -117,6 +117,8 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="card-body">
                         <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>
                             <?= _("You've first to create a content below to schedule a campaign.") ?>
+                            <br/>
+                            <i class="fa fa-warning" aria-hidden="true"></i> <?= _("Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, :45).") ?>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
