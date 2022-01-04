@@ -2349,3 +2349,8 @@ msgstr "Vevőszám szerkesztő"
 
 msgid "Select"
 msgstr "Válassza ki a  címet."
+msgid "You're about to delete all the group members ?"
+msgstr "Az összes csoporttagot törölni akarod ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Biztos vagy benne? Ezt nem lehet visszacsinálni."

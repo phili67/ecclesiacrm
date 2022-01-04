@@ -2305,3 +2305,8 @@ msgstr "المشتري محرر التحرير"
 
 msgid "Select"
 msgstr "اختيار"
+msgid "You're about to delete all the group members ?"
+msgstr "أنت على وشك حذف جميع أعضاء المجموعة؟"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "هل أنت متأكد؟ لا يمكن إلغاء هذا"
