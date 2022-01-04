@@ -2316,3 +2316,8 @@ msgstr "Kjøperredaktør"
 
 msgid "Select"
 msgstr "Velg"
+msgid "You're about to delete all the group members ?"
+msgstr "Skal du slette alle gruppemedlemmene?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "Er du sikker? Dette kan ikke gjøres ugjort."

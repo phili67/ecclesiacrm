@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
+"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2269,6 +2269,12 @@ msgstr "ผู้ซื้อหมายเลข"
 
 msgid "Select"
 msgstr "เลือก"
+
+msgid "You're about to delete all the group members ?"
+msgstr "คุณกำลังจะลบสมาชิกกลุ่มทั้งหมดเลยเหรอ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "

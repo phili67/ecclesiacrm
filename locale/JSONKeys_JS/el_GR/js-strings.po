@@ -2364,3 +2364,12 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 
 msgid "Select"
 msgstr "Επιλέξτε"
+msgid "You're about to delete all the group members ?"
+msgstr ""
+"Πρόκειται να διαγράψετε όλα τα μέλη της "
+"ομάδας ?"
+
+msgid "Are you sure ? This can't be undone."
+msgstr ""
+"Είσαι σίγουρος; Αυτό δεν μπορεί να "
+"αναιρεθεί."
