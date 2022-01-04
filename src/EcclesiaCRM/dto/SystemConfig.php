@@ -266,8 +266,8 @@ class SystemConfig
             "bPastoralcareStats" => new ConfigItem(2088, "bPastoralcareStats", "boolean", "0", _("Get the statistics of calls/visits (for each pastors counselors)")),
             "iPersonAddressStyle" => new ConfigItem(2089, "iPersonAddressStyle", "choice", "", _("Set the export address)"), "", json_encode(SystemConfig::getAddressChoices())),
             "sMailChimpEmailSender" => new ConfigItem(2090, "sMailChimpEmailSender", "text", "", _("email address of the mailchimp sender.")),
-            "sMailChimpContentsExternalCssFont" => new ConfigItem(2091, "sMailChimpContentsExternalCssFont", "text", "", _("Link to a style sheet for a particular font. This is useful for the font menu of ckeditor : https://fonts.googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i")),
-            "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "text", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface"))
+            "sMailChimpContentsExternalCssFont" => new ConfigItem(2091, "sMailChimpContentsExternalCssFont", "textarea", "", _("Link to a style sheet for a particular font. This is useful for the font menu of ckeditor : https://fonts.googleapis.com/css?family=Abril+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i")),
+            "sMailChimpExtraFont" => new ConfigItem(2092, "sMailChimpExtraFont", "textarea", "", _("Here we put the font in the form fontnametodisplay/yourfontname. It is useful for the font menu of ckeditor, for example : Abril/Abril Fatface"))
         );
     }
 
