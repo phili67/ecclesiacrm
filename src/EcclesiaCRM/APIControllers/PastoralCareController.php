@@ -165,7 +165,7 @@ class PastoralCareController
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->pastoralCareTypeId) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) {
-            return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
+            return $response->write(PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON());
         }
 
         return $response->withJson(['status' => "failed"]);
