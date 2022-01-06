@@ -14,40 +14,11 @@
  *
  ******************************************************************************/
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\SessionUser;
-
-use Slim\Views\PhpRenderer;
+use EcclesiaCRM\VIEWControllers\VIEWBackupController;
 
 $app->group('/backup', function (RouteCollectorProxy $group) {
-    $group->get('', 'renderBackup');
-    $group->get('/', 'renderBackup');
+    $group->get('', VIEWBackupController::class . ':renderBackup');
+    $group->get('/', VIEWBackupController::class . ':renderBackup');
 });
-
-function renderBackup (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/backup/');
-
-    if ( !( SessionUser::getUser()->isAdmin() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-    }
-
-    return $renderer->render($response, 'backup.php', argumentsBackupArray());
-}
-
-function argumentsBackupArray ()
-{
-   $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
-                        'sRootDocument' => SystemURLs::getDocumentRoot(),
-                        'sPageTitle'  => _('Backup Database'),
-                        'hasGZIP' => SystemConfig::getBooleanValue('bGZIP'),
-                        'hasZIP' => SystemConfig::getBooleanValue('bZIP'),
-                        'encryptionMethod' => SystemConfig::getValue('sPGP')
-                      ];
-
-   return $paramsArguments;
-}
