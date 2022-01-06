@@ -14,38 +14,11 @@
  *
  ******************************************************************************/
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\SessionUser;
-
-use Slim\Views\PhpRenderer;
+use EcclesiaCRM\VIEWControllers\VIEWRestoreController;
 
 $app->group('/restore', function (RouteCollectorProxy $group) {
-    $group->get('', 'renderRestore');
-    $group->get('/', 'renderRestore');
+    $group->get('', VIEWRestoreController::class . ':renderRestore');
+    $group->get('/', VIEWRestoreController::class . ':renderRestore');
 });
-
-function renderRestore (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/backup/');
-
-    if ( !( SessionUser::getUser()->isAdmin() ) ) {
-        return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
-    }
-
-    return $renderer->render($response, 'restore.php', argumentsRestoreArray());
-}
-
-function argumentsRestoreArray ()
-{
-    $paramsArguments = [ 'sRootPath'   => SystemURLs::getRootPath(),
-        'sRootDocument' => SystemURLs::getDocumentRoot(),
-        'sPageTitle'  => _('Restore Database'),
-        'encryptionMethod' => SystemConfig::getValue('sPGP')
-    ];
-
-    return $paramsArguments;
-}

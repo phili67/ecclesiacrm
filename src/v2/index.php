@@ -32,7 +32,7 @@ AppFactory::setContainer($container);
 $app = AppFactory::create();
 
 // Register the http cache middleware.
-//$app->add( new Cache('ApiCache', 0) );
+$app->add( new Cache('ApiCache', 0) );
 
 $app->setBasePath($rootPath . "/v2");
 

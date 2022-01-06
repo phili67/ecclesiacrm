@@ -10,56 +10,10 @@
  *
  ******************************************************************************/
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 
-use EcclesiaCRM\PersonMeetingQuery;
-use EcclesiaCRM\PersonLastMeetingQuery;
-
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\SessionUser;
-
-use Slim\Views\PhpRenderer;
+use EcclesiaCRM\VIEWControllers\VIEWMeetingController;
 
 $app->group('/meeting', function (RouteCollectorProxy $group) {
-    $group->get('/dashboard', 'renderMeetingDashboard');
+    $group->get('/dashboard', VIEWMeetingController::class . ':renderMeetingDashboard');
 });
-
-function renderMeetingDashboard (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/meeting');
-
-    return $renderer->render($response, 'meetingdashboard.php', argumentsMeetingArray());
-}
-
-
-function argumentsMeetingArray ()
-{
-    $sPageTitle = _("Meeting Dashboard");
-
-    $sRootDocument   = SystemURLs::getDocumentRoot();
-    $sCSPNonce       = SystemURLs::getCSPNonce();
-
-    $personId = SessionUser::getUser()->getPersonId();
-
-    $lpm = PersonLastMeetingQuery::create()->findOneByPersonId($personId);
-
-    $roomName = '';
-
-    if (!is_null($lpm)) {
-        $pm = PersonMeetingQuery::create()->findOneById($lpm->getPersonMeetingId());
-
-        $roomName = $pm->getCode();
-    }
-
-    $allRooms = PersonMeetingQuery::create()->findByPersonId($personId);
-
-    $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
-        'sRootDocument'        => $sRootDocument,
-        'sPageTitle'           => $sPageTitle,
-        'sCSPNonce'            => $sCSPNonce,
-        'roomName'             => $roomName,
-        'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null
-    ];
-    return $paramsArguments;
-}
