@@ -86,7 +86,7 @@ class CalendarEventV2Controller
         }
 
         /*if (!is_null($Events)) {
-            return $response->withJson($Events->toJSON());
+            return $response->write($Events->toJSON());
         }*/
 
         return $response->withJson(["Events" =>$return]);

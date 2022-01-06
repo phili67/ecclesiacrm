@@ -187,7 +187,7 @@ class SidebarVolunteerOpportunityController
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->id) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
-            return VolunteerOpportunityQuery::Create()->findOneById($input->id)->toJSON();
+            return $response->write(VolunteerOpportunityQuery::Create()->findOneById($input->id)->toJSON());
         }
 
         return $response->withJson(['success' => false]);
