@@ -48,6 +48,10 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
+use PhpOffice\PhpWord\IOFactory;
+use PhpOffice\PhpWord\PhpWord;
+
+
 class PeoplePersonController
 {
     private $container;
@@ -57,10 +61,7 @@ class PeoplePersonController
         $this->container = $container;
     }
 
-    private function generateRandomString($length = 15)
-    {
-        return substr(sha1(rand()), 0, $length);
-    }
+
 
     public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
@@ -585,38 +586,27 @@ class PeoplePersonController
 
 
             if ( !is_null($user) && !is_null($actualNote) ) {
-                $realNoteDir = $userDir = $user->getUserRootDir();
+                $realNoteDir = $user->getUserRootDir();
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $pw = new \PhpOffice\PhpWord\PhpWord();
-
-                // [THE HTML]
-                $section = $pw->addSection();
-                \PhpOffice\PhpWord\Shared\Html::addHtml($section, $actualNote->getText(), false, false);
-
-                $title = "note_".$this->generateRandomString(5);
-
-                // we set a random title
-
-                // [SAVE FILE ON THE SERVER]
-                $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
-                $pw->save($tmpFile, "Word2007");
+                // first we create the DOMDocument
+                $result = MiscUtils::saveHtmlAsWordFile($userName, $realNoteDir, $currentpath, $actualNote->getText());
 
                 // now we create the note
                 $note = new Note();
                 $note->setPerId($input->personId);
                 $note->setFamId(0);
-                $note->setTitle($tmpFile);
+                $note->setTitle($result['tmpFile']);
                 $note->setPrivate(1);
-                $note->setText($userName . $currentpath . $title.".docx");
+                $note->setText($result['FilePath']);
                 $note->setType('file');
                 $note->setEntered(SessionUser::getUser()->getPersonId());
                 $note->setInfo(_('Create file'));
 
                 $note->save();
 
-                return $response->withJson(['success' => true, 'title' => $title ]);
+                return $response->withJson(['success' => true, 'title' => $result['title'] ]);
             }
         }
 
