@@ -1632,7 +1632,7 @@ CREATE TABLE `note_nte` (
   `nte_per_ID` mediumint(9) unsigned NULL,
   `nte_fam_ID` mediumint(9) unsigned NULL,
   `nte_Private` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Title` varchar(100) DEFAULT '',
+  `nte_Title` varchar(1000) DEFAULT '',
   `nte_Text` text,
   `nte_DateEntered` datetime NOT NULL,
   `nte_DateLastEdited` datetime default NULL,
