@@ -1,3 +1,5 @@
+/* copyright 2018 Philippe Logel */
+
 $(document).ready(function () {
     // Helper function to get parameters from the query string.
     // use to search the ckeditor function to put the right param in the ckeditor image tool
