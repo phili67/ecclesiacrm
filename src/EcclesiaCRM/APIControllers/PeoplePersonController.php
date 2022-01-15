@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -589,19 +588,11 @@ class PeoplePersonController
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $pw = new \PhpOffice\PhpWord\PhpWord();
-
-                // [THE HTML]
-                $section = $pw->addSection();
-                \PhpOffice\PhpWord\Shared\Html::addHtml($section, $actualNote->getText(), false, false);
-
-                $title = "note_".$this->generateRandomString(5);
-
-                // we set a random title
-
-                // [SAVE FILE ON THE SERVER]
-                $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
-                $pw->save($tmpFile, "Word2007");
+                // [SAVE HTML TO Word file FILE ON THE SERVER]
+                $result = MiscUtils::saveHtmlAsWordFilePhpWord( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
+                //$result = MiscUtils::saveHtmlAsWordFile( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
+                $title    = $result['title'];
+                $tmpFile  = $result['tmpFile'];
 
                 // now we create the note
                 $note = new Note();

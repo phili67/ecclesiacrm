@@ -38,7 +38,10 @@ ALTER TABLE `user_usr` ADD `usr_TwoFaRescueDateTime` datetime NOT NULL default '
 
 
 ALTER TABLE `events_event` ADD `event_creator_user_id` mediumint(9) DEFAULT NULL COMMENT 'For resource slot : the owner is the creator';
-
 ALTER TABLE `user_usr` ADD `usr_ManageCalendarResources` tinyint(1) unsigned NOT NULL default '0';
+
+
+-- 2022-01-06
+ALTER TABLE `note_nte` MODIFY `nte_Title` varchar(1000) DEFAULT '';
 
 

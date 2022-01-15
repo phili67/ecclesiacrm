@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -20,6 +22,8 @@ use EcclesiaCRM\CKEditorTemplates;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\SessionUser;
+
+
 
 class DocumentCKEditorController
 {
@@ -144,19 +148,15 @@ CKEDITOR.addTemplates( 'default',
             $user = UserQuery::create()->findPk($input->personID);
 
             if ( !is_null($user) ) {
-                $realNoteDir = $userDir = $user->getUserRootDir();
+                $realNoteDir = $user->getUserRootDir();
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                $pw = new \PhpOffice\PhpWord\PhpWord();
-
-                // [THE HTML]
-                $section = $pw->addSection();
-                \PhpOffice\PhpWord\Shared\Html::addHtml($section, $input->text, false, false);
-
-                // [SAVE FILE ON THE SERVER]
-                $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
-                $pw->save($tmpFile, "Word2007");
+                // [SAVE HTML TO Word file FILE ON THE SERVER]
+                $result = MiscUtils::saveHtmlAsWordFilePhpWord( $userName, $realNoteDir, $currentpath, $input->text, $input->title);
+                //$result = MiscUtils::saveHtmlAsWordFile( $userName, $realNoteDir, $currentpath, $input->text, $input->title);
+                $title    = $result['title'];
+                $tmpFile  = $result['tmpFile'];
 
                 // now we create the note
                 $note = new Note();
