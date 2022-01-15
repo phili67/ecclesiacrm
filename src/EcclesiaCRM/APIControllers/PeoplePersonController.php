@@ -48,10 +48,6 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
-use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\PhpWord;
-
-
 class PeoplePersonController
 {
     private $container;
@@ -590,23 +586,25 @@ class PeoplePersonController
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
-                // first we create the DOMDocument
-                $result = MiscUtils::saveHtmlAsWordFile($userName, $realNoteDir, $currentpath, $actualNote->getText());
+                $result = MiscUtils::saveHtmlAsWordFilePhpWord( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
+                //$result = MiscUtils::saveHtmlAsWordFile( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
+                $title    = $result['title'];
+                $tmpFile  = $result['tmpFile'];
 
                 // now we create the note
                 $note = new Note();
                 $note->setPerId($input->personId);
                 $note->setFamId(0);
-                $note->setTitle($result['tmpFile']);
+                $note->setTitle($tmpFile);
                 $note->setPrivate(1);
-                $note->setText($result['FilePath']);
+                $note->setText($userName . $currentpath . $title.".docx");
                 $note->setType('file');
                 $note->setEntered(SessionUser::getUser()->getPersonId());
                 $note->setInfo(_('Create file'));
 
                 $note->save();
 
-                return $response->withJson(['success' => true, 'title' => $result['title'] ]);
+                return $response->withJson(['success' => true, 'title' => $title ]);
             }
         }
 
