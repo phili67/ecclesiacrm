@@ -889,7 +889,7 @@
         <column name="usr_DeleteRecords" phpName="DeleteRecords" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_MenuOptions" phpName="MenuOptions" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ManageGroups" phpName="ManageGroups" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
-        <column name="usr_HtmlSourceEditor" phpName="HtmlSourceEditor" type="TINYINT" sqlType="tinyint unsigned" required="true" defaultValue="0"/>
+        <column name="usr_HtmlSourceEditor" phpName="HtmlSourceEditor" type="BOOLEAN" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Finance" phpName="Finance" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Notes" phpName="Notes" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Admin" phpName="Admin" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
