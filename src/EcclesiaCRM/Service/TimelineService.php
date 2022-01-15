@@ -317,7 +317,7 @@ class TimelineService
                 $item['slim'] = true;
                 $item['style'] = MiscUtils::FileIcon($text);
                 $item['id'] = $id;
-                $item['header'] = _("Word File");
+                $item['header'] = _("File");
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
