@@ -520,7 +520,7 @@ class User extends BaseUser
 
     public function isHtmlSourceEditorEnabled()
     {
-        return $this->isHtmlSourceEditor();
+        return $this->isAdmin() || $this->isHtmlSourceEditor();
     }
 
     public function isGdrpDpoEnabled()
