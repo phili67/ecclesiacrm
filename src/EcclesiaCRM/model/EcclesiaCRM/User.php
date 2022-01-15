@@ -517,7 +517,8 @@ class User extends BaseUser
         if (!SystemConfig::getBooleanValue('bEnabledEmail'))
           return false;
 
-        return $this->isAdmin() || $this->isMailChimp();
+        // an administrator shouldn't be an mailchimp manager
+        return /*$this->isAdmin() || */$this->isMailChimp();
     }
 
     public function isGdrpDpoEnabled()
