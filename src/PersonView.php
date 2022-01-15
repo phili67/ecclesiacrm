@@ -1072,7 +1072,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                                 <h3 class="timeline-header">
                                                     <?php
-                                                    if (in_array('headerlink', $item)) {
+                                                    if (in_array('headerlink', $item) && $item['type'] != 'file') {
                                                         ?>
                                                         <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                                                         <?php
