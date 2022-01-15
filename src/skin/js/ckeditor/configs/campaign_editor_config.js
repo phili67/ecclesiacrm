@@ -113,8 +113,14 @@ CKEDITOR.editorConfig = function (config) {
         },
     };
 
+    var documentTools = ['Preview', 'Print', '-', 'mergeTagsMailChimp'];
+
+    if (window.CRM.bHtmlSourceEditor != "") {
+        documentTools = ['Source', '-', 'Preview', 'Print', '-', 'mergeTagsMailChimp'];
+    }
+
     config.toolbar = [
-        {name: 'document', items: ['Source', '-', 'Preview', 'Print', '-', 'mergeTagsMailChimp']},
+        {name: 'document', items: documentTools},
         {name: 'export', items: ['export', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')]},
         {name: 'template', items: ['document', 'ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton']},//'source',
         {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
