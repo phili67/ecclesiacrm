@@ -1074,7 +1074,7 @@ if (!empty($person->getDateDeactivated())) {
                                                     <?php
                                                     if (in_array('headerlink', $item)) {
                                                         ?>
-                                                        <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
+                                                        <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>coucou
                                                         <?php
                                                     } else {
                                                         ?>

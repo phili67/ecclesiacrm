@@ -47,24 +47,24 @@ class TimelineService
 
         return $sortedTimeline;
     }
-    
+
     private function notesForFamily($familyID, $noteTypes=null)
     {
         $firstTime = true;
-        
+
         $timeline = [];
         $familyQuery = NoteQuery::create()
             ->filterByFamId($familyID);
-            
+
         if ($noteTypes != null) {
           foreach ($noteTypes as $noteType) {
-            
+
             if ($firstTime) {
                $familyQuery->filterByType($noteType);
-            } else {               
+            } else {
                $familyQuery->_or()->filterByType($noteType);
             }
-            
+
             $firstTime = false;
           }
         }
@@ -77,7 +77,7 @@ class TimelineService
 
         return $timeline;
     }
-    
+
     public function getNotesForFamily($familyID)
     {
         $timeline = $this->notesForFamily($familyID, ['note','video','audio']);
@@ -107,38 +107,38 @@ class TimelineService
     private function notesForPerson($personID, $noteTypes=null)
     {
         $firstTime = true;
-        
+
         $timeline = [];
         $personQuery = NoteQuery::create()
             ->orderByTitle()
             ->filterByPerId($personID);
-            
+
         if ($noteTypes != null) {
           foreach ($noteTypes as $noteType) {
-            if ($firstTime) {            
+            if ($firstTime) {
                $personQuery->filterByType($noteType);
             } else {
                $personQuery->_or()->filterByType($noteType);
             }
-            
+
             $firstTime = false;
           }
         }
-        
+
         foreach ($personQuery->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
             if (!is_null($item)) {
                 $timeline[$item['key']] = $item;
             }
         }
-        
+
         $personShareQuery = NoteShareQuery::create()
             ->joinWithNote()
             ->findBySharePerId($personID);
-        
-        // we only share the file from other users 
+
+        // we only share the file from other users
         $noteTypes[] = 'file';
-            
+
         foreach ($personShareQuery as $dbNoteShare) {
           if (in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
              $item = $this->noteToTimelineItem($dbNoteShare->getNote(),$dbNoteShare->getNote()->getPerson(),$dbNoteShare->getRights(),$dbNoteShare->getEditLink());
@@ -150,7 +150,7 @@ class TimelineService
 
         return $timeline;
     }
-    
+
     private function sortTimeline($timeline)
     {
         krsort($timeline);
@@ -164,7 +164,7 @@ class TimelineService
 
         return $sortedTimeline;
     }
-    
+
 
     public function getNotesForPerson($personID)
     {
@@ -172,7 +172,7 @@ class TimelineService
 
         return $this->sortTimeline($timeline);
     }
-    
+
     public function getFilesForPerson($personID)
     {
         $timeline = $this->notesForPerson($personID, ['folder','file']);
@@ -203,7 +203,7 @@ class TimelineService
         $famID    = $dbNote->getFamId();
         $person   = PersonQuery::create()->findPk($dbNote->getPerId());
         $family   = FamilyQuery::create()->findPk($dbNote->getFamId());
-        
+
         if (!is_null($person)) {
           // in the case of the Person notes
           $userName = $person->getFullName();
@@ -211,7 +211,7 @@ class TimelineService
           // in the case of a family note
           $userName = _('Family').' '.$family->getName();
         }
-        
+
         if ( $this->currentUser->isAdmin() || $dbNote->isVisualableBy ($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
             $displayEditedBy = _('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
@@ -224,22 +224,22 @@ class TimelineService
                   $displayEditedBy = $editor->getFullName();
                 }
             }
-            
+
             if ($dbNote->getType() == 'file' && empty($dbNote->getText()) ) {
               $title = $dbNote->getText();
             } else {
               $title = $dbNote->getTitle();
             }
-            
+
             if ($dbNote->getCurrentEditedBy() > 0) {
               $currentDate = new DateTime();
-            
+
               $since_start = $currentDate->diff($dbNote->getCurrentEditedDate());
-              
+
               $min = $since_start->days * 24 * 60;
               $min += $since_start->h * 60;
               $min += $since_start->i;
-              
+
               if ( $min < SystemConfig::getValue('iDocumentTimeLeft') ) {
                 $editor = PersonQuery::create()->findPk($dbNote->getCurrentEditedBy());
                 if ($editor != null) {
@@ -251,7 +251,7 @@ class TimelineService
                  $dbNote->save();
               }
             }
-            
+
             if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
               // only in this case : the header title in the timeline should be in function of the note owner
               $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $userName;
@@ -259,7 +259,7 @@ class TimelineService
               // in all other cases the header title should be the person who had made the modifications
               $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $displayEditedBy;
             }
-            
+
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
                 $dbNote->getDisplayEditedDate("Y"),$title_message, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
@@ -279,7 +279,9 @@ class TimelineService
         $item['perID']           = $perID;
         $item['famID']           = $famID;
         $item['lastEditedBy']    = $displayEditedBy;
-        
+
+        $item['header'] = $header;
+
         switch ($type) {
             case 'create':
                 $item['style'] = 'fa-plus-circle bg-blue';
@@ -315,6 +317,7 @@ class TimelineService
                 $item['slim'] = true;
                 $item['style'] = MiscUtils::FileIcon($text);
                 $item['id'] = $id;
+                $item['header'] = "Word File";
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
@@ -341,36 +344,36 @@ class TimelineService
                 $item['deleteLink'] = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
         }
-        $item['header'] = $header;
+
         $item['headerLink'] = $headerLink;
-        
+
         if (!is_null($sharePerson)) {
           $item['sharePersonName'] = $sharePerson->getFullName();
           $item['sharePersonID']   = $sharePerson->getId();
           $item['shareRights']     = $shareRights;
           $item['headerLink']      = '';
           $item['header']          = _("Shared by") . ' : ' . $sharePerson->getFullName();
-          
+
           $item['deleteLink']      = '';
-          
+
           if ($shareRights != 2) {
             $item['editLink'] = '';
           }
-          
+
           $item['style2'] = $item['style'];
           $item['style'] = 'fa-share-square-o bg-purple';
         }
-        
+
         if ($info) {
           $item['info'] = $info;
         }
-        
+
         $item['text'] = $text;
 
         $item['datetime'] = OutputUtils::FormatDate($datetime,true);
         $item['year'] = $year;
         $item['key'] = $datetime.'-'.$id;
-        
+
         return $item;
     }
 }

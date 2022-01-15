@@ -23,6 +23,8 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\SessionUser;
 
+
+
 class DocumentCKEditorController
 {
     private $container;
@@ -150,12 +152,11 @@ CKEDITOR.addTemplates( 'default',
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
+                // [SAVE HTML TO Word file FILE ON THE SERVER]
                 $result = MiscUtils::saveHtmlAsWordFilePhpWord( $userName, $realNoteDir, $currentpath, $input->text, $input->title);
                 //$result = MiscUtils::saveHtmlAsWordFile( $userName, $realNoteDir, $currentpath, $input->text, $input->title);
                 $title    = $result['title'];
                 $tmpFile  = $result['tmpFile'];
-
-                LoggerUtils::getAppLogger()->info("Title : ".$title." tmpFile : ".$tmpFile);
 
                 // now we create the note
                 $note = new Note();

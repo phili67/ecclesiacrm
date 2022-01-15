@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -57,7 +56,10 @@ class PeoplePersonController
         $this->container = $container;
     }
 
-
+    private function generateRandomString($length = 15)
+    {
+        return substr(sha1(rand()), 0, $length);
+    }
 
     public function photo (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $response=$this->container->get('CacheProvider')->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
@@ -582,10 +584,11 @@ class PeoplePersonController
 
 
             if ( !is_null($user) && !is_null($actualNote) ) {
-                $realNoteDir = $user->getUserRootDir();
+                $realNoteDir = $userDir = $user->getUserRootDir();
                 $userName    = $user->getUserName();
                 $currentpath = $user->getCurrentpath();
 
+                // [SAVE HTML TO Word file FILE ON THE SERVER]
                 $result = MiscUtils::saveHtmlAsWordFilePhpWord( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
                 //$result = MiscUtils::saveHtmlAsWordFile( $userName, $realNoteDir, $currentpath, $actualNote->getText() );
                 $title    = $result['title'];

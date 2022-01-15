@@ -9,10 +9,10 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PledgeQuery;
 
 use PhpOffice\PhpWord\IOFactory;
-use PhpOffice\PhpWord\PhpWord;
-use PhpOffice\PhpWord\Shared\Html;
 use Propel\Runtime\Propel;
 
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\Html;
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\Style\ListItem;
 use \PhpOffice\PhpWord\Element\AbstractContainer;
@@ -1535,7 +1535,7 @@ class MiscUtils
 
         MiscUtils::createWordImageDir();
 
-        $pw = new \PhpOffice\PhpWord\PhpWord();
+        $pw = new PhpWord();
 
         // [THE HTML]
         $section = $pw->addSection();
@@ -1548,7 +1548,8 @@ class MiscUtils
             'font' =>  ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true]
         ];*/
 
-        \PhpOffice\PhpWord\Shared\Html::addHtml( $section, MiscUtils::replace_img_src($html) , false, false, $options);
+        //PhpWordHTMLExtension::addHtml($section, MiscUtils::replace_img_src($html) , false, false, $options);
+        Html::addHtml( $section, MiscUtils::replace_img_src($html) , false, false, $options);
 
         // we set a random title
         if (is_null($title)) {
@@ -1567,6 +1568,4 @@ class MiscUtils
 
         return ['tmpFile' => $tmpFile, 'FilePath' => $filePath, 'title' => $title];
     }
-
-
 }
