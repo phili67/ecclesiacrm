@@ -10,17 +10,21 @@ use EcclesiaCRM\PledgeQuery;
 
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\Shared\Html;
 use Propel\Runtime\Propel;
 
 use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\Style\ListItem;
+use \PhpOffice\PhpWord\Element\AbstractContainer;
+
+use PhpOffice\PhpWord\Shared\PhpWordHTMLExtension;
 
 use DOMNode;
 
 
 class MiscUtils
 {
-    const types = ["a", "h1", "h2", "h2", "hr", "img", "p", "ul", "ol", "li", "table", "tbody", "theader", "tr", "td"];
+    const types = ["a", "b", "i", "u", "h1", "h2", "h2", "hr", "img", "p", "ul", "ol", "li", "table", "tbody", "theader", "tr", "td", "strong", "em"];
 
     /**
      * Remove the directory and its content (all files and subdirectories), useFull in system upgrade.
@@ -1270,79 +1274,11 @@ class MiscUtils
         return substr(sha1(rand()), 0, $length);
     }
 
-    // Quality is a number between 0 (best compression) and 100 (best quality)
-    public static function png2jpg($originalFile, $outputFile, $quality=100) {
-        $image = imagecreatefrompng($originalFile);
-        imagejpeg($image, $outputFile, $quality);
-        imagedestroy($image);
-    }
-
-    public static function replace_img_src($img_tag) {
-
-        //Vérifier toutes les parties phpWord
-        $wordPath = "/Images/Word_Export_IMG/";
-        $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
-        $rootPath = SystemURLs::getRootPath();
-
-        if ( !empty($rootPath) ) {
-            $rootPath = $rootPath."/";
-        }
-
-        if ( !file_exists($wordImagesDirectory) ) {
-            mkdir($wordImagesDirectory, 0777, true);
-        }
-
-        $doc = new \DOMDocument();
-        $doc->loadHTML($img_tag);
-        $tags = $doc->getElementsByTagName('img');
-
-        $url = 'http'.(isset($_SERVER['HTTPS']) ? 's' : '').'://' . $rootPath . $_SERVER['HTTP_HOST']."$wordPath";
-
-        foreach ($tags as $tag) {
-            $old_src = $tag->getAttribute('src');
-
-            $path = explode("?", $old_src);
-
-            $path_parts = pathinfo($path[0]);
-            $new_file = MiscUtils::generateRandomString(15).".".$path_parts['extension'];
-            //$new_file = MiscUtils::generateRandomString(15).".jpg";
-
-            if ($path_parts['extension'] != 'png') {
-                MiscUtils::png2jpg($old_src, $wordImagesDirectory . $new_file);
-            } else {
-                copy($old_src, $wordImagesDirectory . $new_file);
-            }
-
-            $new_src_url = $url . $new_file;//'website.com/assets/'.$old_src;
-
-            $tag->setAttribute('src', $new_src_url);
-            $tag->setAttribute('alt', "coucou");
-        }
-
-        //MiscUtils::removeDirectory($wordImagesDirectory);
-        $res = $doc->saveHTML();
-
-        $body = $doc->getElementsByTagName('body');
-        if ( $body && 0<$body->length ) {
-            $body = $body->item(0);
-            $res = $doc->savehtml($body);
-
-            $res = str_replace(["<body>", "</body>"], "", $res);
-        }
-
-        return $res;
-    }
-
     public static function createWordImageDir ()
     {
         //Vérifier toutes les parties phpWord
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
-        $rootPath = SystemURLs::getRootPath();
-
-        if ( !empty($rootPath) ) {
-            $rootPath = $rootPath."/";
-        }
 
         if ( !file_exists($wordImagesDirectory) ) {
             mkdir($wordImagesDirectory, 0777, true);
@@ -1354,11 +1290,6 @@ class MiscUtils
         //Vérifier toutes les parties phpWord
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
-        $rootPath = SystemURLs::getRootPath();
-
-        if ( !empty($rootPath) ) {
-            $rootPath = $rootPath."/";
-        }
 
         MiscUtils::removeDirectory($wordImagesDirectory);
     }
@@ -1367,7 +1298,7 @@ class MiscUtils
      *
      * Render an entire \DOMDocument
      *
-     * @param \PhpOffice\PhpWord\Element\Section $section
+     * @param \PhpOffice\PhpWord\Element\AbstractContainer $section
      * @param \DOMNode
      * @param string $extras for ol and ul
      *
@@ -1377,7 +1308,7 @@ class MiscUtils
      *
      */
 
-    public static function RenderDOMNode(Section $section, DOMNode $domNode, $extras = null) {
+    public static function RenderDOMNode(AbstractContainer $section, DOMNode $domNode, $extras = null) {
         $wordPath = "/Images/Word_Export_IMG/";
         $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
 
@@ -1391,12 +1322,18 @@ class MiscUtils
 
                 switch ($node->nodeName) {
                     case 'h1':
-                    case 'p':
                         $extras = null;
                         $section->addText(
                             $node->nodeValue,
-                            array('name' => 'Tahoma', 'size' => ($node->nodeName=='h1')?14:10)
+                            array('name' => 'Tahoma', 'size' => 14)
                         );
+                        break;
+                    case 'p':
+                        $extras = null;
+                        $newElement = $section->addTextRun(array('name' => 'courier', 'size' => 10));
+                        /*if($node->hasChildNodes()) {
+                            self::RenderDOMNode($newElement, $node, $extras);
+                        }*/
                         break;
                     case 'img':
                         $extras = null;
@@ -1441,7 +1378,8 @@ class MiscUtils
                     case 'a':
                         $extras = null;
                         $section->addLink($array['href'], $node->nodeValue,
-                            array('name' => 'Tahoma', 'size' => 10, null, 'color' => '1B2232'));
+                            array('name' => 'courier', 'size' => 10, 'color' => '0000FF')
+                        );
                         break;
                     case 'ul':
                         $extras = 'ul';
@@ -1449,7 +1387,26 @@ class MiscUtils
                     case 'ol':
                         $extras = 'ol';
                         break;
-
+                    case 'strong':
+                    case 'b':
+                        $section->addText(
+                            $node->nodeValue,
+                            array('name' => 'courier', 'size' => 10, 'bold' => true)
+                        );
+                        break;
+                    case 'em':
+                    case 'i':
+                        $section->addText(
+                            $node->nodeValue,
+                            array('name' => 'courier', 'size' => 10, 'italic' => true)
+                        );
+                        break;
+                    case 'u':
+                        $section->addText(
+                            $node->nodeValue,
+                            array('name' => 'courier', 'size' => 10,'underline' => 'single')
+                        );
+                        break;
                 }
             }
 
@@ -1459,14 +1416,32 @@ class MiscUtils
         }
     }
 
-    public static function saveHtmlAsWordFile ($userName, $realNoteDir, $currentpath, $html) {
+    public static function saveHtmlAsWordFile ($userName, $realNoteDir, $currentpath, $html, $title = null) {
+
+        $html = str_replace(array("\n", "\r"), '', $html);
+
+        MiscUtils::removeWordImageDir();
+
         MiscUtils::createWordImageDir();
 
         $doc = new \DOMDocument();
         $doc->loadHTML($html);
 
-        // we create the
+        // we create the phpWord wrapper
         $pw = new PhpWord();
+
+        // the fonts
+        $fontStyleName = 'NormalFontStyle';
+        $pw->addFontStyle(
+            $fontStyleName,
+            array('name' => 'Tahoma', 'size' => 10, 'color' => '1B2232')
+        );
+
+        $fontStyleName = 'BoldFontStyle';
+        $pw->addFontStyle(
+            $fontStyleName,
+            array('name' => 'Tahoma', 'size' => 10, 'color' => '1B2232', 'bold' => true)
+        );
 
         // [THE HTML]
         $section = $pw->addSection();
@@ -1474,7 +1449,9 @@ class MiscUtils
         MiscUtils::RenderDOMNode ($section, $doc);
 
         // we set a random title
-        $title = "note_".MiscUtils::generateRandomString(5);
+        if (is_null($title)) {
+            $title = "note_" . MiscUtils::generateRandomString(5);
+        }
 
         // [SAVE FILE ON THE SERVER]
         $filePath = $userName . $currentpath . $title.".docx";
@@ -1488,4 +1465,108 @@ class MiscUtils
 
         return ['tmpFile' => $tmpFile, 'FilePath' => $filePath, 'title' => $title];
     }
+
+    // Quality is a number between 0 (best compression) and 100 (best quality)
+    public static function png2jpg($originalFile, $outputFile, $quality=100) {
+        $image = imagecreatefrompng($originalFile);
+        imagejpeg($image, $outputFile, $quality);
+        imagedestroy($image);
+    }
+
+    public static function replace_img_src($img_tag) {
+
+        //Vérifier toutes les parties phpWord
+        $wordPath = "/Images/Word_Export_IMG/";
+        $wordImagesDirectory = SystemURLs::getDocumentRoot() . $wordPath;
+        $rootPath = SystemURLs::getRootPath();
+
+        if ( !empty($rootPath) ) {
+            $rootPath = $rootPath."/";
+        }
+
+        $doc = new \DOMDocument('1.0', 'UTF-8');
+        $doc->loadHTML(mb_convert_encoding($img_tag, 'HTML-ENTITIES', 'UTF-8'));
+        $tags = $doc->getElementsByTagName('img');
+
+        $url = 'http'.(isset($_SERVER['HTTPS']) ? 's' : '').'://' . $rootPath . $_SERVER['HTTP_HOST']."$wordPath";
+
+        foreach ($tags as $tag) {
+            $old_src = $tag->getAttribute('src');
+
+            $path = explode("?", $old_src);
+
+            $path_parts = pathinfo($path[0]);
+            $new_file = MiscUtils::generateRandomString(15).".".$path_parts['extension'];
+            //$new_file = MiscUtils::generateRandomString(15).".jpg";
+
+            /*if ($path_parts['extension'] != 'png') {
+                MiscUtils::png2jpg($old_src, $wordImagesDirectory . $new_file);
+            } else {*/
+            copy($old_src, $wordImagesDirectory . $new_file);
+            //}
+
+            $new_src_url = $url . $new_file;//'website.com/assets/'.$old_src;
+
+            $tag->setAttribute('src', $new_src_url);
+            $tag->setAttribute('alt', "coucou");
+        }
+
+        $res = $doc->saveHTML();
+
+        $body = $doc->getElementsByTagName('body');
+        if ( $body && 0<$body->length ) {
+            $body = $body->item(0);
+            $res = $doc->savehtml($body);
+
+            $res = str_replace(["<body>", "</body>"], "", $res);
+        }
+
+        $res = preg_replace("/<img([^>]+)\>/i", "<img $1 />", $res);
+        $res = str_replace(["<hr>", "<br>"], ["<hr/>", "<br/>"], $res);
+
+        LoggerUtils::getAppLogger()->info("code html apres : " . $res);
+
+        return $res;
+    }
+
+    public static function saveHtmlAsWordFilePhpWord ($userName, $realNoteDir, $currentpath, $html, $title = null)
+    {
+        MiscUtils::removeWordImageDir();
+
+        MiscUtils::createWordImageDir();
+
+        $pw = new \PhpOffice\PhpWord\PhpWord();
+
+        // [THE HTML]
+        $section = $pw->addSection();
+
+        $options = null;
+
+        /*$options['styles'] = [
+            'head1' => ['name' => 'Tahoma', 'size' => 14, 'color' => '1B2232', 'bold' => true],
+            'paragraph' => ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true],
+            'font' =>  ['name' => 'courier', 'size' => 10, 'color' => '111111', 'bold' => true]
+        ];*/
+
+        \PhpOffice\PhpWord\Shared\Html::addHtml( $section, MiscUtils::replace_img_src($html) , false, false, $options);
+
+        // we set a random title
+        if (is_null($title)) {
+            $title = "note_".MiscUtils::generateRandomString(5);
+        }
+
+        // we set a random title
+
+        // [SAVE FILE ON THE SERVER]
+        $filePath = $userName . $currentpath . $title.".docx";
+        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$filePath;
+
+        $pw->save($tmpFile, "Word2007");
+
+        MiscUtils::removeWordImageDir();
+
+        return ['tmpFile' => $tmpFile, 'FilePath' => $filePath, 'title' => $title];
+    }
+
+
 }
