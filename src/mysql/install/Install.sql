@@ -1335,6 +1335,7 @@ CREATE TABLE `user_usr` (
   `usr_EditRecords` tinyint(1) unsigned NOT NULL default '0',
   `usr_DeleteRecords` tinyint(1) unsigned NOT NULL default '0',
   `usr_ManageCalendarResources` tinyint(1) unsigned NOT NULL default '0',
+  `usr_HtmlSourceEditor` tinyint(1) unsigned NOT NULL default '0',
   `usr_MenuOptions` tinyint(1) unsigned NOT NULL default '0',
   `usr_ManageGroups` tinyint(1) unsigned NOT NULL default '0',
   `usr_Finance` tinyint(1) unsigned NOT NULL default '0',
