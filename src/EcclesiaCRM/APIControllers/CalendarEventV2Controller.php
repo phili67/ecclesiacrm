@@ -11,7 +11,6 @@
 namespace EcclesiaCRM\APIControllers;
 
 use EcclesiaCRM\Service\CalendarService;
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -801,8 +800,6 @@ class CalendarEventV2Controller
                             false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
                             $input->eventInActive, $input->Fields, $input->EventCountNotes
                         );
-
-                        LoggerUtils::getAppLogger()->info("ici");
 
                         return $response->withJson(["status" => "success"]);
                     } else {
