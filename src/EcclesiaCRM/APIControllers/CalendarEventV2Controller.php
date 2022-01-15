@@ -16,10 +16,6 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use EcclesiaCRM\MyVCalendar\VCalendarExtension;
-
-use Sabre\DAV\UUIDUtil;
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\EventQuery;
 use EcclesiaCRM\Base\EventTypesQuery;
@@ -774,35 +770,65 @@ class CalendarEventV2Controller
             $event = $calendarBackend->getCalendarObjectById($oldCalendarID, $input->eventID);
 
             $vcalendar = VObject\Reader::read($event['calendardata']);
+            $eventFullInfos = VObjectExtract::calendarData($event['calendardata']);
 
-            if (isset($input->reccurenceID) && $input->reccurenceID != '') {// we're in a recursive event
+            $freqEventsCount = 1;
 
-                $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
+            if ( array_key_exists ('freqEvents', $eventFullInfos) ) {
+                $freqEventsCount = count($eventFullInfos['freqEvents']);
+            }
+
+            $calendarService = new CalendarService();
+
+            if ( isset($input->reccurenceID) && $input->reccurenceID != '' ) {// we're in a recursive event
 
                 try {
                     // we have to delete the old event from the reccurence event
-                    $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
-                    $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+                    if ($freqEventsCount > 1) {// in the case of real multiple event
+                        $vcalendar = VObject\Reader::read($event['calendardata']);
 
-                    $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
+                        $calendarBackend->searchAndDeleteOneEvent($vcalendar, $input->reccurenceID);
 
-                    // now we add the new event
-                    $calendarService = new CalendarService();
+                        $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
+                        $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
-                    $calendarService->createEventForCalendar (
-                        $input->calendarID, $input->start, $input->end,
-                       "", "", $input->EventDesc, $input->EventTitle, $input->location,
-                        false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                        $input->eventInActive, $input->Fields, $input->EventCountNotes
-                    );
+                        $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
 
-                    return $response->withJson(["status" => "success"]);
+                        // now we add the new event
+                        $calendarService->createEventForCalendar(
+                            $input->calendarID, $input->start, $input->end,
+                            "", "", $input->EventDesc, $input->EventTitle, $input->location,
+                            false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
+                            $input->eventInActive, $input->Fields, $input->EventCountNotes
+                        );
 
+                        LoggerUtils::getAppLogger()->info("ici");
+
+                        return $response->withJson(["status" => "success"]);
+                    } else {
+                        $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
+                        // now we add the new event
+                        $calendarService->createEventForCalendar(
+                            $input->calendarID, $input->start, $input->end,
+                            "", "", $input->EventDesc, $input->EventTitle, $input->location,
+                            false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
+                            $input->eventInActive, $input->Fields, $input->EventCountNotes
+                        );
+                        return $response->withJson(["status" => "success"]);
+                    }
                 } catch (Exception $e) {
                     // in this case we change only the date
                     $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
                     $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
+
+                    // now we add the new event
+                    $calendarService->createEventForCalendar(
+                        $input->calendarID, $input->start, $input->end,
+                        "", "", $input->EventDesc, $input->EventTitle, $input->location,
+                        false, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
+                        $input->eventInActive, $input->Fields, $input->EventCountNotes
+                    );
                 }
             } /*else {
             // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
@@ -838,7 +864,7 @@ class CalendarEventV2Controller
             $uuid = $vcalendar->VEVENT->UID;
 
             unset($vcalendar->VEVENT);
-            if (!empty($input->recurrenceValid)) {
+            if ( !empty($input->recurrenceValid) ) {
                 $vevent = [
                     'CREATED' => (new \DateTime('Now'))->format('Ymd\THis'),
                     'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
