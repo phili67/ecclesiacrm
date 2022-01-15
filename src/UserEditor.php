@@ -145,6 +145,11 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $ManageCalendarResources = 0;
         }
+        if (isset($_POST['HtmlSourceEditor'])) {
+            $HtmlSourceEditor = 1;
+        } else {
+            $HtmlSourceEditor = 0;
+        }
         if (isset($_POST['Finance'])) {
             $Finance = 1;
         } else {
@@ -276,6 +281,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
                     $user->setManageGroups($ManageGroups);
                     $user->setManageCalendarResources($ManageCalendarResources);
+                    $user->setHtmlSourceEditor($HtmlSourceEditor);
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);
 
@@ -332,6 +338,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setManageCalendarResources($ManageCalendarResources);
+                    $user->setHtmlSourceEditor($HtmlSourceEditor);
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);
                     $user->setAdmin($Admin);
@@ -405,6 +412,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_MenuOptions = $user->getMenuOptions();
             $usr_ManageGroups = $user->getManageGroups();
             $usr_ManageCalendarResources = $user->getManageCalendarResources();
+            $usr_HtmlSourceEditor = $user->getHtmlSourceEditor();
             $usr_Finance = $user->getFinance();
             $usr_Notes = $user->getNotes();
             $usr_Admin = $user->getAdmin();
@@ -443,6 +451,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
             $usr_ManageCalendarResources = 0;
+            $usr_HtmlSourceEditor = 0;
             $usr_Finance = 0;
             $usr_Notes = 0;
             $usr_Admin = 0;
@@ -475,6 +484,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
         $usr_ManageCalendarResources = 0;
+        $usr_HtmlSourceEditor = 0;
         $usr_Finance = 0;
         $usr_Notes = 0;
         $usr_Admin = 0;
@@ -771,6 +781,12 @@ if ($usr_role_id == null) {
                     <td><?= _('Manage resource reservation schedules (room, computer, projectors)') ?>:</td>
                     <td><input type="checkbox" class="global_settings" name="ManageCalendarResources"
                                value="1"<?= ($usr_ManageCalendarResources) ? ' checked' : '' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Right to edit html code') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="HtmlSourceEditor"
+                               value="1"<?= ($usr_HtmlSourceEditor) ? ' checked' : '' ?>></td>
                 </tr>
 
                 <tr>

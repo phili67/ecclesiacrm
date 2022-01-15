@@ -174,6 +174,7 @@ function Header_body_scripts()
             bPastoralcareStats:<?= (SystemConfig::getBooleanValue("bPastoralcareStats"))?"true":"false" ?>,
             sLightDarkMode: "<?= Theme::LightDarkMode() ?>",
             bDarkMode: <?= Theme::isDarkModeEnabled()?'true':'false' ?>,
+            bHtmlSourceEditor: <?= SessionUser::getUser()->isHtmlSourceEditorEnabled()?'true':'false' ?>,
             plugin: {
                 dataTable : {
                    "language": {
