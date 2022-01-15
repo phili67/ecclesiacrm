@@ -484,7 +484,9 @@ class CreateBackup extends JobBase
             $dump = new Mysqldump(Bootstrapper::GetDSN(), Bootstrapper::GetUser(), Bootstrapper::GetPassword(), ['add-drop-table' => true]);
             $dump->start($this->SQLFile);
         } catch (\Exception $e) {
-            throw new \Exception("Unable to create backup archive at " . $this->SQLFile, 500);
+            // this problem came from : email_list and email_count tables
+            // follow : https://docs.ecclesiacrm.com/en/user-guide/doc-admin/doc-tips/doc-restauration-bdd-bug/
+            throw new \Exception("Unable to create backup archive at " . $this->SQLFile . " error : ".$e->getCode(). " message : " . $e->getMessage(), 500);
         }
 
         switch ($this->params->iArchiveType) {
