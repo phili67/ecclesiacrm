@@ -15,11 +15,9 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\EventQuery;
 use EcclesiaCRM\Base\EventTypesQuery;
 use EcclesiaCRM\EventCountsQuery;
-use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\MenuEventsCount;
@@ -28,9 +26,6 @@ use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\UserQuery;
-
-use EcclesiaCRM\CalendarinstancesQuery;
 
 use Sabre\VObject;
 
@@ -47,12 +42,33 @@ class CalendarEventV2Controller
         $this->container = $container;
     }
 
-    public function getAllEvents (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function getAllEvents(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $Events = EventQuery::create()
             ->find();
 
-        return $response->withJson($Events->toArray());
+        $return = [];
+
+        foreach ($Events as $event) {
+            $values = [
+                'Id' => $event->getID(),
+                'Title' => $event->getTitle(),
+                'Type' => $event->getType(),
+                'InActive' => $event->getInActive(),
+                'Text' => $event->getText(),
+                'Start' => $event->getStart(),
+                'End' => $event->getEnd(),
+                'TypeName' => $event->getTypeName(),
+                'GroupId' => $event->getGroupId(),
+                'LastOccurence' => $event->getLastOccurence(),
+                'Location' => $event->getLocation(),
+                'Coordinates' => $event->getCoordinates(),
+            ];
+
+            $return[] = $values;
+        }
+
+        return $response->withJson($return);
     }
 
     public function getNotDoneEvents(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
@@ -84,7 +100,7 @@ class CalendarEventV2Controller
             return $response->write($Events->toJSON());
         }*/
 
-        return $response->withJson(["Events" =>$return]);
+        return $response->withJson(["Events" => $return]);
     }
 
     public function numbersOfEventOfToday(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
@@ -195,7 +211,7 @@ class CalendarEventV2Controller
 
             $eventAttent->setEventId($params->EventID);
             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-            $eventAttent->setCheckinDate( NULL);
+            $eventAttent->setCheckinDate(NULL);
             $eventAttent->setPersonId($params->PersonId);
             $eventAttent->save();
         } catch (\Exception $ex) {
@@ -292,8 +308,8 @@ class CalendarEventV2Controller
                 $values['countID'] = $eventCountName->getId();
                 $values['countName'] = $eventCountName->getName();
                 $values['typeID'] = $params->typeID;
-                $values['startHour'] = sprintf("%02d",$aEventStartHour);
-                $values['startMin'] = sprintf("%02d",$aEventStartMins);
+                $values['startHour'] = sprintf("%02d", $aEventStartHour);
+                $values['startMin'] = sprintf("%02d", $aEventStartMins);
                 $values['DefRecurDOW'] = $aDefRecurDOW;// unusefull actually
                 $values['DefRecurDOM'] = $aDefRecurDOM;// unusefull actually
 
@@ -322,7 +338,7 @@ class CalendarEventV2Controller
 
         $the_event = Null;
 
-        if ( isset($input->eventID) ) {
+        if (isset($input->eventID)) {
             $the_event = EventQuery::create()->findOneById($input->eventID);
         }
 
@@ -330,10 +346,10 @@ class CalendarEventV2Controller
 
         if (!strcmp($input->eventAction, 'createEvent')) {
 
-            if ( !$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
+            if (!$calendarService->createEventForCalendar($input->calendarID, $input->start, $input->end,
                 $input->recurrenceType, $input->endrecurrence, $input->EventDesc, $input->EventTitle, $input->location,
                 $input->recurrenceValid, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes) ) {
+                $input->eventInActive, $input->Fields, $input->EventCountNotes)) {
                 return $response->withJson(["status" => "failed", "message" => _("Two resource reservations cannot be in the same time slot.")]);
             }
 
@@ -342,7 +358,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'moveEvent')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ($the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources()) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -429,7 +445,7 @@ class CalendarEventV2Controller
                     }
 
                     // this part allows to create a resource without being in collision on another one
-                    if ( is_array( $input->calendarID ) ) {
+                    if (is_array($input->calendarID)) {
                         $calIDs = $input->calendarID;
                     } else {
                         $calIDs = explode(",", $input->calendarID);
@@ -564,7 +580,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'resizeEvent')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( $the_event->getCreatorUserId() != 0 and  SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ($the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources()) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -709,7 +725,7 @@ class CalendarEventV2Controller
             $_SESSION['EID'] = $event->getID();
             $_SESSION['EName'] = $event->getTitle();
             $_SESSION['EDesc'] = $event->getDesc();
-            $_SESSION['EDate'] = ( !is_null($event->getStart()) )?$event->getStart()->format('Y-m-d H:i:s'):'';
+            $_SESSION['EDate'] = (!is_null($event->getStart())) ? $event->getStart()->format('Y-m-d H:i:s') : '';
 
             $_SESSION['EventID'] = $event->getID();
 
@@ -718,7 +734,7 @@ class CalendarEventV2Controller
         } else if (!strcmp($input->eventAction, 'suppress')) {
 
             // this part allows to create a resource without being in collision on another one
-            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ($the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources()) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
@@ -730,13 +746,13 @@ class CalendarEventV2Controller
 
         } else if (!strcmp($input->eventAction, 'modifyEvent')) {
 
-            if ( $the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources() ) {
+            if ($the_event->getCreatorUserId() != 0 and SessionUser::getId() != $the_event->getCreatorUserId() and !SessionUser::isManageCalendarResources()) {
                 return $response->withJson(["status" => "failed", "message" => _("This resource reservation was not created by you. You cannot edit, move or delete a resource that you do not own.")]);
             }
 
-            return $response->withJson( $calendarService->modifyEventFromCalendar($input->calendarID, $input->eventID, $input->reccurenceID, $input->start,
+            return $response->withJson($calendarService->modifyEventFromCalendar($input->calendarID, $input->eventID, $input->reccurenceID, $input->start,
                 $input->end, $input->EventTitle, $input->EventDesc, $input->location, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence) );
+                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence));
         }
 
         return $response->withJson(["status" => "failed"]);
