@@ -575,7 +575,7 @@ class CalendarService
 
     public function modifyEventFromCalendar($calendarID, $eventID, $reccurenceID, $start, $end, $EventTitle,
                                             $EventDesc, $location, $addGroupAttendees, $alarm, $eventTypeID,
-                                            $eventNotes, $eventInActive, $Fields, $EventCountNotes, $endrecurrence)
+                                            $eventNotes, $eventInActive, $Fields, $EventCountNotes, $recurrenceValid, $recurrenceType, $endrecurrence)
     {
         $old_event = EventQuery::Create()->findOneById($eventID);
 
@@ -599,9 +599,7 @@ class CalendarService
             $freqEventsCount = count($eventFullInfos['freqEvents']);
         }
 
-        $calendarService = new CalendarService();
-
-        if (isset($reccurenceID) && $reccurenceID != '') {// we're in a recursive event
+        if ( isset($reccurenceID) && $reccurenceID != '' ) {// we're in a recursive event
 
             try {
                 // we have to delete the old event from the reccurence event
@@ -616,7 +614,7 @@ class CalendarService
                     $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
 
                     // now we add the new event
-                    $calendarService->createEventForCalendar(
+                    $this->createEventForCalendar(
                         $calendarID, $start, $end,
                         "", "", $EventDesc, $EventTitle, $location,
                         false, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
@@ -626,11 +624,12 @@ class CalendarService
                     return ["status" => "success"];
                 } else {
                     $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
+
                     // now we add the new event
-                    $calendarService->createEventForCalendar(
+                    $this->createEventForCalendar(
                         $calendarID, $start, $end,
-                        "", "", $EventDesc, $EventTitle, $location,
-                        false, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
+                        $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $location,
+                        $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
                         $eventInActive, $Fields, $EventCountNotes
                     );
                     return ["status" => "success"];
@@ -642,18 +641,29 @@ class CalendarService
                 $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
 
                 // now we add the new event
-                $calendarService->createEventForCalendar(
+                $this->createEventForCalendar(
                     $calendarID, $start, $end,
                     "", "", $EventDesc, $EventTitle, $location,
                     false, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
                     $eventInActive, $Fields, $EventCountNotes
                 );
             }
-        } /*else {
+        } else {
             // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
             $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
-        }*/
 
+            // now we add the new event
+            $this->createEventForCalendar(
+                $calendarID, $start, $end,
+                $recurrenceType, $endrecurrence, $EventDesc, $EventTitle, $location,
+                $recurrenceValid, $addGroupAttendees, $alarm, $eventTypeID, $eventNotes,
+                $eventInActive, $Fields, $EventCountNotes
+            );
+
+            return ["status" => "success"];
+        }
+
+        // this code is normally dead !!!!
 
         // Now we start to work with the new calendar
         if (is_array($calendarID)) {

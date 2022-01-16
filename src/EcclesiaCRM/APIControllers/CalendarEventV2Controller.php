@@ -736,7 +736,7 @@ class CalendarEventV2Controller
 
             return $response->withJson( $calendarService->modifyEventFromCalendar($input->calendarID, $input->eventID, $input->reccurenceID, $input->start,
                 $input->end, $input->EventTitle, $input->EventDesc, $input->location, $input->addGroupAttendees, $input->alarm, $input->eventTypeID, $input->eventNotes,
-                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->endrecurrence) );
+                $input->eventInActive, $input->Fields, $input->EventCountNotes, $input->recurrenceValid, $input->recurrenceType, $input->endrecurrence) );
         }
 
         return $response->withJson(["status" => "failed"]);
