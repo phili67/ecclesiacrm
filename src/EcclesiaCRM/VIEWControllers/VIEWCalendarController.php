@@ -69,4 +69,51 @@ class VIEWCalendarController {
         return $paramsArguments;
     }
 
+    public function renderCalendarEventsList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/calendar/');
+
+        return $renderer->render($response, 'eventslist.php', $this->argumentsCalendarEventsListArray());
+    }
+
+    public function argumentsCalendarEventsListArray ()
+    {
+        $eventTypes = EventTypesQuery::Create()
+            ->orderByName()
+            ->find();
+
+        $lat = OutputUtils::number_dot(ChurchMetaData::getChurchLatitude());
+        $lng = OutputUtils::number_dot(ChurchMetaData::getChurchLongitude());
+
+        $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
+        $sMapProvider   = SystemConfig::getValue('sMapProvider');
+        $sGoogleMapKey  = SystemConfig::getValue('sGoogleMapKey');
+
+        $eType = 'All';
+
+        if ($eType == '0') {
+            $sPageTitle = _('Listing Events of Type = ')._("Personal Calendar");
+        } elseif ($eType != 'All') {
+            $eventType = EventTypesQuery::Create()->findOneById($eType);
+
+            $sPageTitle = _('Listing Events of Type = ').$eventType->GetName();
+        } else {
+            $sPageTitle = _('Listing All Church Events');
+        }
+
+        $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'sPageTitle'  => $sPageTitle,
+            'eventTypes'  => $eventTypes,
+            'coordinates' => [
+                'lat' => $lat,
+                'lng' => $lng
+            ],
+            'iLittleMapZoom' => $iLittleMapZoom,
+            'sGoogleMapKey'  => $sGoogleMapKey,
+            'sMapProvider'   => $sMapProvider,
+            'sessionUsr'     => SessionUser::getUser()
+        ];
+
+        return $paramsArguments;
+    }
 }
