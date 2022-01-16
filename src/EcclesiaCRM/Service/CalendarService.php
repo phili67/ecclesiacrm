@@ -23,6 +23,7 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\MyPDO\CalDavPDO;
@@ -49,6 +50,12 @@ class CalendarService
     {
         $origStart = $start;
         $origEnd = $end;
+
+        $dtOrigStart = new \DateTime($origStart);
+        $dtOrigEnd = new \DateTime($origEnd);
+
+        LoggerUtils::getAppLogger()->info($dtOrigStart->format('Y-m-d')." ". $dtOrigEnd->format('Y-m-d')." ");
+
 
         $events = [];
         $startDate = date_create($start);
@@ -94,10 +101,14 @@ class CalendarService
                     if ($person->getBirthMonth() == 1 && $endsNextYear) {
                         $year = $firstYear + 1;
                     }
-                    $start = date_create($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
-                    $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
-                        $person->getFullName() . " " . $person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
-                    array_push($events, $event);
+
+                    $dtStart = new \DateTime($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
+
+                    if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd) {
+                        $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
+                            $person->getFullName() . " " . $person->getAge(), $dtStart->format(\DateTimeInterface::ATOM), '', $person->getViewURI());
+                        array_push($events, $event);
+                    }
                 }
             }
 
@@ -115,10 +126,14 @@ class CalendarService
                     if ($anniversary->getWeddingMonth() < $curMonth) {
                         $year = $year + 1;
                     }
-                    $start = $year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay();
-                    $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
-                        $anniversary->getName(), $start, '', $anniversary->getViewURI());
-                    array_push($events, $event);
+
+                    $dtStart = new \DateTime($year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay());
+
+                    if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd) {
+                        $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                            $anniversary->getName(), $dtStart->format(\DateTimeInterface::ATOM), '', $anniversary->getViewURI());
+                        array_push($events, $event);
+                    }
                 }
             }
         }
@@ -180,7 +195,6 @@ class CalendarService
 
                     $calObj = $calendarBackend->getCalendarObject($calendar['id'], $eventForCal['uri']);
 
-
                     $cal_category = ($calendar['grpid'] != "0") ? 'group' : 'personal';
 
                     if ($calendar['share-access'] >= 2) {
@@ -224,30 +238,46 @@ class CalendarService
                                 $end = $freqValue['DTEND'];
                                 $reccurenceID = $freqValue['RECURRENCE-ID'];
 
-                                $event = $this->createCalendarItemForGetEvents('event', $icon,
-                                    $title, $start, $end,
-                                    '', $id, $type, $grpID,
-                                    $desc, $text, $calID, $calendarColor,
-                                    $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
-                                    $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+                                $dtStart = new \DateTime($start);
+                                $dtEnd = new \DateTime($end);
 
-                                array_push($events, $event);
+                                if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                                    and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {
+
+                                    $event = $this->createCalendarItemForGetEvents('event', $icon,
+                                        $title, $start, $end,
+                                        '', $id, $type, $grpID,
+                                        $desc, $text, $calID, $calendarColor,
+                                        $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
+                                        $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+
+                                    array_push($events, $event);
+                                }
                             }
                         }
                     }
 
                     if ($fEvnt == false) {
-                        $event = $this->createCalendarItemForGetEvents('event', $icon,
-                            $title, $start, $end,
-                            '', $id, $type, $grpID,
-                            $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
-                            $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
 
-                        array_push($events, $event);
+                        $dtStart = new \DateTime($start);
+                        $dtEnd = new \DateTime($end);
+
+                        if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {
+
+                            $event = $this->createCalendarItemForGetEvents('event', $icon,
+                                $title, $start, $end,
+                                '', $id, $type, $grpID,
+                                $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
+                                $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+
+                            array_push($events, $event);
+                        }
                     }
                 }
             }
         }
+
         return $events;
     }
 
@@ -271,6 +301,7 @@ class CalendarService
 
         $event['title'] = $title;
         $event['start'] = $start;
+        $event['month'] = (int)explode('-',$start)[1];
         $event['origStart'] = $start;
         $event['icon'] = $icon;
         $event['realType'] = $event['type'] = $type;
