@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -39,8 +40,8 @@ class DocumentDocumentController
             $note->setPerId($input->personID);
             $note->setFamId($input->famID);
             $note->setPrivate($input->bPrivate);
-            $note->setTitle($input->title);
-            $note->setText($input->text);
+            $note->setTitle(InputUtils::FilterHTML($input->title));
+            $note->setText(InputUtils::FilterHTML($input->text));
             $note->setType($input->type);
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setDateLastEdited(new \DateTime());
@@ -132,8 +133,8 @@ class DocumentDocumentController
             $note = NoteQuery::Create()->findOneById ($input->docID);
 
             $note->setPrivate($input->bPrivate);
-            $note->setTitle($input->title);
-            $note->setText($input->text);
+            $note->setTitle(InputUtils::FilterHTML($input->title));
+            $note->setText(InputUtils::FilterHTML($input->text));
             $note->setType($input->type);
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setDateLastEdited(new \DateTime());
