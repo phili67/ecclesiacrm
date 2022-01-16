@@ -23,7 +23,6 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\GeoUtils;
-use EcclesiaCRM\Utils\LoggerUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\MyPDO\CalDavPDO;
@@ -53,9 +52,6 @@ class CalendarService
 
         $dtOrigStart = new \DateTime($origStart);
         $dtOrigEnd = new \DateTime($origEnd);
-
-        LoggerUtils::getAppLogger()->info($dtOrigStart->format('Y-m-d')." ". $dtOrigEnd->format('Y-m-d')." ");
-
 
         $events = [];
         $startDate = date_create($start);
