@@ -50,6 +50,14 @@ class CalendarV2Controller
         return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive));;
     }
 
+    public function getallCalendarEventsForEventsList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $params = (object)$request->getParsedBody();
+
+        $CalendarService = $this->container->get('CalendarService');
+
+        return $response->withJson(['EventsListResults' => $CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive)]);;
+    }
+
     public function numberOfCalendars (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         // we get the PDO for the Sabre connection from the Propel connection
         // We set the BackEnd for sabre Backends
