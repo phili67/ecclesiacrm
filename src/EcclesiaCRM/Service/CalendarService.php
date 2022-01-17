@@ -18,6 +18,13 @@ use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\FamilyQuery;
+
+use EcclesiaCRM\Map\EventTableMap;
+use EcclesiaCRM\Map\EventTypesTableMap;
+
+use EcclesiaCRM\Map\GroupTableMap;
+use EcclesiaCRM\Map\CalendarinstancesTableMap;
+
 use EcclesiaCRM\MyVCalendar\VCalendarExtension;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
@@ -185,7 +192,15 @@ class CalendarService
             $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
 
             foreach ($eventsForCal as $eventForCal) {
-                $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
+                $evnt = EventQuery::Create()
+                    ->addJoin(EventTableMap::COL_EVENT_TYPE, EventTypesTableMap::COL_TYPE_ID,Criteria::LEFT_JOIN)
+                    ->addJoin(EventTableMap::COL_EVENT_GRPID, GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
+                    ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::LEFT_JOIN)
+                    ->addAsColumn('EventTypeName',EventTypesTableMap::COL_TYPE_NAME)
+                    ->addAsColumn('GroupName',GroupTableMap::COL_GRP_NAME)
+                    ->addAsColumn('CalendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
+                    ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+                    ->filterByInActive('false')->findOneById($eventForCal['id']);
 
                 if ($evnt != null) {
 
@@ -220,6 +235,15 @@ class CalendarService
                     $alarm = $evnt->getAlarm();
                     $rrule = $evnt->getFreqLastOccurence();
                     $freq = $evnt->getFreq();
+                    $eventTypeName = $evnt->getEventTypeName();
+                    $eventGroupName = $evnt->getGroupName();
+                    $eventCalendarName = $evnt->getCalendarName();
+
+                    if (!(SessionUser::getUser()->isAdmin())) {
+                        $eventRights = ($evnt->getRights() == 1 || $evnt->getRights() == 3)?true:false;
+                    } else {
+                        $eventRights = true;
+                    }
 
                     $fEvnt = false;
                     $subid = 1;
@@ -245,7 +269,8 @@ class CalendarService
                                         '', $id, $type, $grpID,
                                         $desc, $text, $calID, $calendarColor,
                                         $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
-                                        $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+                                        $loc, $lat, $long, $alarm, $cal_type, $cal_category, $eventTypeName,
+                                        $eventGroupName, $eventCalendarName, $eventRights);// only the event id sould be edited and moved and have custom color
 
                                     array_push($events, $event);
                                 }
@@ -265,7 +290,8 @@ class CalendarService
                                 $title, $start, $end,
                                 '', $id, $type, $grpID,
                                 $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
-                                $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+                                $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
+                                $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
                         }
@@ -281,7 +307,7 @@ class CalendarService
                                                    $calendarid = null, $backgroundColor = null, $subid = 0,
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
-                                                   $cal_category = "personal")
+                                                   $cal_category = "personal", $eventTypeName="all", $eventGroupName="None", $eventCalendarName = "None", $eventRights=false)
     {
         $event = [];
         switch ($type) {
@@ -301,6 +327,10 @@ class CalendarService
         $event['origStart'] = $start;
         $event['icon'] = $icon;
         $event['realType'] = $event['type'] = $type;
+        $event['TypeName'] = $eventTypeName;
+        $event['GroupName'] = $eventGroupName;
+        $event['CalendarName'] = $eventCalendarName;
+        $event['Rights'] = $eventRights;
 
         if ($end != '') {
             $event['end'] = $end;
@@ -328,6 +358,18 @@ class CalendarService
             $event['alarm'] = $alarm;
             $event['calType'] = intval($cal_type);
             $event['cal_category'] = $cal_category;
+
+            switch ($cal_category) {
+                case 'personal':
+                    $event['cal_category_translated'] = _("Personal Calendar");
+                    break;
+                case 'group':
+                    $event['cal_category_translated'] = _("Group");
+                    break;
+                case 'share':
+                    $event['cal_category_translated'] = _("Share");
+                    break;
+            }
 
             if ($calendarid != null) {
                 $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;
