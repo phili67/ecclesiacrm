@@ -927,6 +927,11 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
 
                             if ( page.includes("ListEvent.php") ) {
                                 location.reload();
+                            } else if (page.includes("v2/calendar/events/list") ) {
+                                window.CRM.DataEventsListTable.ajax.reload();
+                                window.CRM.DataEventsListTable
+                                    .order( [ 3, 'asc' ] )
+                                    .draw();
                             } else if ( page.includes("Checkin.php") ) {
                                 window.location.href = window.CRM.root + '/Checkin.php';
                             } else if (page.includes("/v2/calendar")) {
