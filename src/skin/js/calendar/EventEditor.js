@@ -908,8 +908,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 "alarm": alarm
                             })
                         }).done(function (data) {
-
-
+                            
                             if (data.status == "failed") {
                                 add = false;
 
@@ -925,9 +924,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 eventCreated = true;
                             }
 
-                            if ( page.includes("ListEvent.php") ) {
-                                location.reload();
-                            } else if (page.includes("v2/calendar/events/list") ) {
+                            if (page.includes("v2/calendar/events/list") ) {
                                 window.CRM.DataEventsListTable.ajax.reload();
                                 window.CRM.DataEventsListTable
                                     .order( [ 3, 'asc' ] )
