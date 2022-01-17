@@ -15,12 +15,21 @@ use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventTypesQuery;
+
+use EcclesiaCRM\Map\EventTypesTableMap;
+use EcclesiaCRM\Map\EventTableMap;
+
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+
+
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 use Slim\Views\PhpRenderer;
 
@@ -78,8 +87,26 @@ class VIEWCalendarController {
     public function argumentsCalendarEventsListArray ()
     {
         $eventTypes = EventTypesQuery::Create()
-            ->orderByName()
+            ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
+            ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
+            ->orderById()
             ->find();
+
+
+        // year selector
+        $eType = 'All';
+
+        if ($eType == 'All') {
+            $years = EventQuery::Create()
+                ->addAsColumn('year', 'YEAR(' . EventTableMap::COL_EVENT_START . ')')
+                ->select('year')
+                ->setDistinct()
+                ->where('YEAR(' . EventTableMap::COL_EVENT_START . ')')
+                ->find();
+
+        }
+
+        $yVal = date('Y');
 
         $lat = OutputUtils::number_dot(ChurchMetaData::getChurchLatitude());
         $lng = OutputUtils::number_dot(ChurchMetaData::getChurchLongitude());
@@ -88,23 +115,15 @@ class VIEWCalendarController {
         $sMapProvider   = SystemConfig::getValue('sMapProvider');
         $sGoogleMapKey  = SystemConfig::getValue('sGoogleMapKey');
 
-        $eType = 'All';
-
-        if ($eType == '0') {
-            $sPageTitle = _('Listing Events of Type = ')._("Personal Calendar");
-        } elseif ($eType != 'All') {
-            $eventType = EventTypesQuery::Create()->findOneById($eType);
-
-            $sPageTitle = _('Listing Events of Type = ').$eventType->GetName();
-        } else {
-            $sPageTitle = _('Listing All Church Events');
-        }
+        $sPageTitle = _('Listing All Church Events');
 
         $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'sPageTitle'  => $sPageTitle,
             'eventTypes'  => $eventTypes,
             'eType'       => $eType,
+            'yVal'        => $yVal,
+            'years'       => $years,
             'coordinates' => [
                 'lat' => $lat,
                 'lng' => $lng
