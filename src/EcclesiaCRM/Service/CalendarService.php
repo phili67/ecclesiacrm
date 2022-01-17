@@ -24,6 +24,7 @@ use EcclesiaCRM\Map\EventTypesTableMap;
 
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\CalendarinstancesTableMap;
+use EcclesiaCRM\Map\PrincipalsTableMap;
 
 use EcclesiaCRM\MyVCalendar\VCalendarExtension;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
@@ -60,6 +61,10 @@ class CalendarService
         $dtOrigStart = new \DateTime($origStart);
         $dtOrigEnd = new \DateTime($origEnd);
 
+        // get the first and the last month
+        $firstMonth = $dtOrigStart->format('m');
+        $endMonth = $dtOrigEnd->format('m');
+
         $events = [];
         $startDate = date_create($start);
         $endDate = date_create($end);
@@ -71,16 +76,11 @@ class CalendarService
         }
         $firstYear = $startDate->format('Y');
 
-
         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
             if ($isBirthdayActive) {
                 $peopleWithBirthDays = PersonQuery::create()
                     ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
                     ->JoinWithFamily();
-
-                // get the first and the last month
-                $firstMonth = $startDate->format('m');
-                $endMonth = $endDate->format('m');
 
                 $month = $firstMonth;
 
@@ -107,19 +107,24 @@ class CalendarService
 
                     $dtStart = new \DateTime($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
 
-                    if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd) {
-                        $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
                             $person->getFullName() . " " . $person->getAge(), $dtStart->format(\DateTimeInterface::ATOM), '', $person->getViewURI());
-                        array_push($events, $event);
-                    }
+                    array_push($events, $event);
                 }
             }
 
             if ($isAnniversaryActive) {
+                $all_months = "'".$firstMonth."'";
+
+                while ($firstMonth != $endMonth) {
+                    $firstMonth = ($firstMonth+1)%12;
+                    $all_months .= ",".$firstMonth;
+                }
+
                 // we search the Anniversaries
                 $Anniversaries = FamilyQuery::create()
-                    ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
                     ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
+                    ->Where('MONTH(fam_WeddingDate) IN (' . $all_months . ')')
                     ->find();
 
                 $curYear = date('Y');
@@ -132,11 +137,9 @@ class CalendarService
 
                     $dtStart = new \DateTime($year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay());
 
-                    if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd) {
-                        $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
                             $anniversary->getName(), $dtStart->format(\DateTimeInterface::ATOM), '', $anniversary->getViewURI());
-                        array_push($events, $event);
-                    }
+                    array_push($events, $event);
                 }
             }
         }
@@ -196,10 +199,12 @@ class CalendarService
                     ->addJoin(EventTableMap::COL_EVENT_TYPE, EventTypesTableMap::COL_TYPE_ID,Criteria::LEFT_JOIN)
                     ->addJoin(EventTableMap::COL_EVENT_GRPID, GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
                     ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::LEFT_JOIN)
+                    ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::LEFT_JOIN)
                     ->addAsColumn('EventTypeName',EventTypesTableMap::COL_TYPE_NAME)
                     ->addAsColumn('GroupName',GroupTableMap::COL_GRP_NAME)
                     ->addAsColumn('CalendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
                     ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+                    ->addAsColumn('login',PrincipalsTableMap::COL_URI)
                     ->filterByInActive('false')->findOneById($eventForCal['id']);
 
                 if ($evnt != null) {
@@ -238,6 +243,7 @@ class CalendarService
                     $eventTypeName = $evnt->getEventTypeName();
                     $eventGroupName = $evnt->getGroupName();
                     $eventCalendarName = $evnt->getCalendarName();
+                    $loginName = $evnt->getLogin();
 
                     if (!(SessionUser::getUser()->isAdmin())) {
                         $eventRights = ($evnt->getRights() == 1 || $evnt->getRights() == 3)?true:false;
@@ -270,7 +276,7 @@ class CalendarService
                                         $desc, $text, $calID, $calendarColor,
                                         $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
                                         $loc, $lat, $long, $alarm, $cal_type, $cal_category, $eventTypeName,
-                                        $eventGroupName, $eventCalendarName, $eventRights);// only the event id sould be edited and moved and have custom color
+                                        $eventGroupName, $eventCalendarName, $eventRights, $loginName);// only the event id sould be edited and moved and have custom color
 
                                     array_push($events, $event);
                                 }
@@ -291,7 +297,7 @@ class CalendarService
                                 '', $id, $type, $grpID,
                                 $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
                                 $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
-                                $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights);// only the event id sould be edited and moved and have custom color
+                                $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
                         }
@@ -307,7 +313,8 @@ class CalendarService
                                                    $calendarid = null, $backgroundColor = null, $subid = 0,
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
-                                                   $cal_category = "personal", $eventTypeName="all", $eventGroupName="None", $eventCalendarName = "None", $eventRights=false)
+                                                   $cal_category = "personal", $eventTypeName="all", $eventGroupName="None", $eventCalendarName = "None",
+                                                   $eventRights=false, $loginName="")
     {
         $event = [];
         switch ($type) {
@@ -331,6 +338,12 @@ class CalendarService
         $event['GroupName'] = $eventGroupName;
         $event['CalendarName'] = $eventCalendarName;
         $event['Rights'] = $eventRights;
+
+        if ( SessionUser::getUser()->isAdmin() ) {
+            $event['Login'] = _("login")." : <b>".str_replace("principals/","",$loginName)."</b>";
+        } else {
+            $event['Login'] = "";
+        }
 
         if ($end != '') {
             $event['end'] = $end;
