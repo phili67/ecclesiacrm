@@ -34,7 +34,7 @@ $(document).ready(function () {
             dataSrc: 'month',
             startRender: function(rows, group) {
                 var oneDate = moment('02-' + group + '-2021', 'DD-MM-YYYY');
-                return rows.count() + ' ' + ((rows.count()>1)?i18next.t('Events for '):i18next.t('Event for ')) + ' : ' + oneDate.format('MMMM');
+                return rows.count() + ' ' + ((rows.count()>1)?i18next.t('Events for'):i18next.t('Event for')) + ' ' + ' : ' + oneDate.format('MMMM');
             }
         },
         "pageLength": 20000,
@@ -42,6 +42,10 @@ $(document).ready(function () {
             "url": window.CRM.plugin.dataTable.language.url
         },
         "searching": true,
+        "initComplete": function( settings, json ) {
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Loading finished...."));
+        },
         //"deferRender": true,
         //orderFixed: [3, 'asc'],
         columns: [
@@ -64,7 +68,7 @@ $(document).ready(function () {
                     //full.backgroundColor
                     return '<table class="table-responsive">\n' +
                         '                <tbody><tr class="no-background-theme">\n' +
-                        '                  <td>\n' +
+                        '                  <td width="50">\n' +
                         '                    <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Edit') + '" '+ ((full.Rights)?'style="color:blue" class="EditEvent"':'disabled') +'>\n' +
                                                 data +
                         '                    </button>\n' +
@@ -72,6 +76,11 @@ $(document).ready(function () {
                         '                  <td>\n' +
                         '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '" ' + ((full.Rights)?'style="color:red" class="DeleteEvent"':'disabled') + '>\n' +
                         '                        <i class="fa fa-trash"></i>\n' +
+                        '                      </button>\n' +
+                        '                  </td>\n' +
+                        '                  <td>\n' +
+                        '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" ' + ((full.Text != "")?'style="color:green" class="EventInfo"':'disabled') + '>\n' +
+                        '                        <i class="fa fa-file"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
                         '                </tr>\n' +
@@ -84,6 +93,16 @@ $(document).ready(function () {
                 data: 'title',
                 render: function (data, type, full, meta) {
                     return data;
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Calendar'),
+                data: 'CalendarName',
+                render: function (data, type, full, meta) {
+                    return i18next.t('Name') + ' : <b>' + data + "</b><br/>"+
+                        full.Login;
+
                 }
             },
             {
@@ -106,15 +125,7 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title: i18next.t('Calendar'),
-                data: 'CalendarName',
-                render: function (data, type, full, meta) {
-                    return data;
-                }
-            },
-            {
-                width: 'auto',
-                title: i18next.t('Type'),
+                title: i18next.t('Event Type'),
                 data: 'TypeName',
                 visible: false,
                 render: function (data, type, full, meta) {
@@ -143,22 +154,27 @@ $(document).ready(function () {
 
     // filter by month correctelly
     window.CRM.DataEventsListTable
-        .order( [ 3, 'asc' ] )
+        .order( [ 4, 'asc' ] )
         .draw();
 
-
+    // the function to reload the datas in the table
     function reloadListEventPage()
     {
-        window.CRM.DataEventsListTable.ajax.reload();
+        window.CRM.DataEventsListTable.ajax.reload(function (){
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+ i18next.t("Loading finished...."));
 
-        window.CRM.DataEventsListTable
-            .order( [ 3, 'asc' ] )
-            .draw();
+            window.CRM.DataEventsListTable
+                .order( [ 3, 'asc' ] )
+                .draw();
+        });
     }
 
     // the actions
     $("#YearSelector").change(function() {
         window.CRM.yVal = $(this).val();
+
+        $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
 
         reloadListEventPage();
     });
@@ -166,16 +182,20 @@ $(document).ready(function () {
     $("#MonthSelector").change(function() {
         if (this.value == 'all') {
             window.CRM.DataEventsListTable.search( "" ).draw();
+            $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
         } else {
             window.CRM.DataEventsListTable.search(this.value).draw();
+            $("#main-Title-events").html(i18next.t('Events in month') + " : " + this.value);
         }
     });
 
     $("#EventTypeSelector").change(function() {
         if (this.value == 'all') {
             window.CRM.DataEventsListTable.search( "" ).draw();
+            $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
         } else {
             window.CRM.DataEventsListTable.search(this.value).draw();
+            $("#main-Title-events").html(i18next.t('Events by Type') + " : " + this.value);
         }
     });
 
@@ -275,7 +295,6 @@ $(document).ready(function () {
         });
     });
 
-
     $(document).on("click", ".DeleteEvent", function () {
         var eventID    = $(this).data("id");
         var calendarID = $(this).data("calendarid").split(',');
@@ -364,16 +383,10 @@ $(document).ready(function () {
                                     }
                                 }
                             });
-
-                            //window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("To add an event, You have to create a calendar or activate one first."));
-
-                            //box.show();
-                        } else {
-                            // the other event type
                         }
                     }
                 },
-                attendance: {
+                cancel: {
                     label: '<i class="fa fa-check"></i> ' + i18next.t('Cancel'),
                     className: 'btn btn-primary',
                     callback: function () {
@@ -385,6 +398,37 @@ $(document).ready(function () {
         box.show();
     });
 
+    function BootboxInfo(data) {
+        var frm_str = data;
+        var object = $('<div/>').html(frm_str).contents();
+        return object
+    }
+
+    $(document).on("click", ".EventInfo", function () {
+        var eventID    = $(this).data("id");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'events/info',
+            data: JSON.stringify({
+                "eventID": eventID
+            })
+        }).done(function (data) {
+            var box = bootbox.dialog({
+                title: i18next.t("Text for Event ID") + "   (" + data.eventID  + ") : " + data.Title,
+                message: BootboxInfo(data.Text),
+                size: 'extra-large',
+                buttons: {
+                    ok: {
+                        label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+                        className: 'btn btn-primary',
+                    }
+                }
+            });
+        });
+    });
+
+    // the main add event button
     $('#add-event').click('focus', function (e) {
         var fmt = 'YYYY-MM-DD HH:mm:ss';
 
