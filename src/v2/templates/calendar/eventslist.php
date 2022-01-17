@@ -20,10 +20,23 @@ use EcclesiaCRM\EventQuery;
 
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\EventTypesQuery;
 
 use EcclesiaCRM\Map\EventTableMap;
+use EcclesiaCRM\Map\EventTypesTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 require $sRootDocument . '/Include/Header.php';
+
+$yVal = date('Y');
+
+$eventTypes = EventTypesQuery::Create()
+    ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
+    ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
+    ->orderById()
+    ->find();
+
 ?>
 
 <div class='text-center'>
@@ -37,15 +50,16 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-sm-4">
         <label><?= _('Select Event Types To Display') ?></label>
-        <select name="WhichType" onchange="javascript:this.form.submit()" class='form-control'>
-            <option value="All" <?= ($eType == 'All')?'selected':'' ?>><?= _('All') ?></option>
+        <select name="WhichType" id="EventTypeSelector" class='form-control'>
+            <option value="all" <?= ($eType == 'All')?'selected':'' ?>><?= _('All') ?></option>
             <?php
             foreach ($eventTypes as $eventType) {
                 if ($eventType->getId() == null) {
                     ?>
-                    <option value="0" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Personal Calendar") ?></option>
+                    <option value="<?= _("Personal Calendar") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Personal Calendar") ?></option>
+                    <option value="<?= _("Group") ?>" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= _("Group") ?></option>
                 <?php } else { ?>
-                    <option value="<?= $eventType->getId() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
+                    <option value="<?= $eventType->getName() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
                     <?php
                 }
             }
@@ -62,39 +76,30 @@ require $sRootDocument . '/Include/Header.php';
                 ->where('YEAR('.EventTableMap::COL_EVENT_START.')')
                 ->find();
 
-        } else {
-            $years = EventQuery::Create()
-                ->filterByType ($eType)
-                ->addAsColumn('year','YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->select('year')
-                ->setDistinct()
-                ->where('YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->find();
-
         }
         ?>
     </div>
     <div class="col-sm-4">
         <label><?= _('Display Events in Month') ?></label>
-        <select name="WhichMonth" onchange="javascript:this.form.submit()" class='form-control'>
-            <option value="0" <?= ($EventMonth == 0)?'selected':'' ?>><?= _("All") ?></option>
+        <select name="WhichMonth" id="MonthSelector" class='form-control'>
+            <option value="all" <?= ($EventMonth == 0)?'selected':'' ?>><?= _("All") ?></option>
             <option value="-1" disabled="disabled">_________________________</option>
-            <option value="1" <?= ($EventMonth == 1)?'selected':'' ?>><?= _("January") ?></option>
-            <option value="2" <?= ($EventMonth == 2)?'selected':'' ?>><?= _("February") ?></option>
-            <option value="3" <?= ($EventMonth == 3)?'selected':'' ?>><?= _("March") ?></option>
-            <option value="4" <?= ($EventMonth == 4)?'selected':'' ?>><?= _("April") ?></option>
-            <option value="5" <?= ($EventMonth == 5)?'selected':'' ?>><?= _("May") ?></option>
-            <option value="6" <?= ($EventMonth == 6)?'selected':'' ?>><?= _("June") ?></option>
-            <option value="7" <?= ($EventMonth == 7)?'selected':'' ?>><?= _("July") ?></option>
-            <option value="8" <?= ($EventMonth == 8)?'selected':'' ?>><?= _("August") ?></option>
-            <option value="9" <?= ($EventMonth == 9)?'selected':'' ?>><?= _("September") ?></option>
-            <option value="10" <?= ($EventMonth == 10)?'selected':'' ?>><?= _("October") ?></option>
-            <option value="11" <?= ($EventMonth == 11)?'selected':'' ?>><?= _("November") ?></option>
-            <option value="12" <?= ($EventMonth == 12)?'selected':'' ?>><?= _("December") ?></option>
+            <option value="<?= _("January") ?>" <?= ($EventMonth == 1)?'selected':'' ?>><?= _("January") ?></option>
+            <option value="<?= _("February") ?>" <?= ($EventMonth == 2)?'selected':'' ?>><?= _("February") ?></option>
+            <option value="<?= _("March") ?>" <?= ($EventMonth == 3)?'selected':'' ?>><?= _("March") ?></option>
+            <option value="<?= _("April") ?>" <?= ($EventMonth == 4)?'selected':'' ?>><?= _("April") ?></option>
+            <option value="<?= _("May") ?>" <?= ($EventMonth == 5)?'selected':'' ?>><?= _("May") ?></option>
+            <option value="<?= _("June") ?>" <?= ($EventMonth == 6)?'selected':'' ?>><?= _("June") ?></option>
+            <option value="<?= _("July") ?>" <?= ($EventMonth == 7)?'selected':'' ?>><?= _("July") ?></option>
+            <option value="<?= _("August") ?>" <?= ($EventMonth == 8)?'selected':'' ?>><?= _("August") ?></option>
+            <option value="<?= _("September") ?>" <?= ($EventMonth == 9)?'selected':'' ?>><?= _("September") ?></option>
+            <option value="<?= _("October") ?>" <?= ($EventMonth == 10)?'selected':'' ?>><?= _("October") ?></option>
+            <option value="<?= _("November") ?>" <?= ($EventMonth == 11)?'selected':'' ?>><?= _("November") ?></option>
+            <option value="<?= _("December") ?>" <?= ($EventMonth == 12)?'selected':'' ?>><?= _("December") ?></option>
         </select>
     </div>
     <div class="col-sm-4"><label><?= _('Display Events in Year') ?></label>
-        <select name="WhichYear" onchange="javascript:this.form.submit()" class='form-control'>
+        <select name="WhichYear" id="YearSelector" class="form-control">
             <?php
             $current_Year = date('Y');
 
@@ -131,7 +136,9 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="card-title"><?= _("Events in Year") ?></h3>
     </div>
     <div class="card-body">
-        <table id="DataEventsListTable" width="100%"></table>
+        <table width="100%" cellpadding="2"
+               class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+            id="DataEventsListTable"></table>
     </div>
 </div>
 
@@ -151,7 +158,6 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/ListEvent.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
 
 <?php
@@ -174,6 +180,7 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.isModifiable  = "true";
+    window.CRM.yVal = '<?= $yVal ?>';
 
     window.CRM.churchloc = {
         lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
