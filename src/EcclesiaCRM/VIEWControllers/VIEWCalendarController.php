@@ -104,6 +104,7 @@ class VIEWCalendarController {
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'sPageTitle'  => $sPageTitle,
             'eventTypes'  => $eventTypes,
+            'eType'       => $eType,
             'coordinates' => [
                 'lat' => $lat,
                 'lng' => $lng
