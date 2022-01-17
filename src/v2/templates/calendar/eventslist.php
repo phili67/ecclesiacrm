@@ -16,26 +16,11 @@
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\EventQuery;
 
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\ChurchMetaData;
-use EcclesiaCRM\EventTypesQuery;
-
-use EcclesiaCRM\Map\EventTableMap;
-use EcclesiaCRM\Map\EventTypesTableMap;
-
-use Propel\Runtime\ActiveQuery\Criteria;
 
 require $sRootDocument . '/Include/Header.php';
-
-$yVal = date('Y');
-
-$eventTypes = EventTypesQuery::Create()
-    ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
-    ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
-    ->orderById()
-    ->find();
 
 ?>
 
@@ -65,19 +50,6 @@ $eventTypes = EventTypesQuery::Create()
             }
             ?>
         </select>
-        <?php
-        // year selector
-
-        if ($eType == 'All') {
-            $years = EventQuery::Create()
-                ->addAsColumn('year','YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->select('year')
-                ->setDistinct()
-                ->where('YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->find();
-
-        }
-        ?>
     </div>
     <div class="col-sm-4">
         <label><?= _('Display Events in Month') ?></label>
@@ -133,7 +105,10 @@ $eventTypes = EventTypesQuery::Create()
 
 <div class="card">
     <div class="card-header with-border">
-        <h3 class="card-title"><?= _("Events in Year") ?></h3>
+        <h3 class="card-title" id="main-Title-events"><?= _("Events in Year") ?> : <?= $yVal ?></h3>
+        <div class="card-tools">
+            <h3 class="in-progress" style="color:red"></h3>
+        </div>
     </div>
     <div class="card-body">
         <table width="100%" cellpadding="2"
@@ -149,6 +124,8 @@ $eventTypes = EventTypesQuery::Create()
         <?= _('Return to Calendar') ?>
     </a>
 </div>
+
+<br/>
 
 <link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
@@ -191,4 +168,3 @@ if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventsList.js"></script>
-
