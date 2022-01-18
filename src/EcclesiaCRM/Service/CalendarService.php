@@ -436,7 +436,7 @@ class CalendarService
                     . '<tr class="no-background-theme">'
                     . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attNumRows'] . '</td>'
                     . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attCheckOut'] . '</td>'
-                    . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attNumRows'] - $realStats['attCheckOut'] . '</td>'
+                    . '  <td style="padding: 7px 2px;border:none;">' . ($realStats['attNumRows'] - $realStats['attCheckOut']) . '</td>'
                     . '</tr>'
                     . '<tr class="no-background-theme">'
                     . '    <td colspan="3" style="padding: 7px 0;border:none;">'
