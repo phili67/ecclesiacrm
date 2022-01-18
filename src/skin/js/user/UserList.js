@@ -114,8 +114,13 @@ $(document).ready(function () {
         });
     });
 
+    window.CRM.fmt = "";
 
-    window.CRM.fmt = window.CRM.datePickerformat.toUpperCase();
+    if (window.CRM.timeEnglish == true) {
+        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' hh:mm a';
+    } else {
+        window.CRM.fmt = window.CRM.datePickerformat.toUpperCase() + ' HH:mm';
+    }
 
     $.fn.dataTable.moment(window.CRM.fmt);
 
