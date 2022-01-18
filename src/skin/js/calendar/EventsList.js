@@ -27,7 +27,8 @@ $(document).ready(function () {
                     "start": window.CRM.yVal + '-01-01',
                     "end" : window.CRM.yVal + '-12-31',
                     "isBirthdayActive": false,
-                    "isAnniversaryActive": false});
+                    "isAnniversaryActive": false,
+                    "forEventslist": true});
             }
         },
         rowGroup: {
@@ -66,19 +67,19 @@ $(document).ready(function () {
                 data: 'icon',
                 render: function (data, type, full, meta) {
                     //full.backgroundColor
-                    return '<table class="table-responsive">\n' +
+                    return '<table class="table-responsive" style="width:120px">\n' +
                         '                <tbody><tr class="no-background-theme">\n' +
-                        '                  <td width="50">\n' +
+                        '                  <td style="width:50px;padding: 7px 2px;border:none;">\n' +
                         '                    <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Edit') + '" '+ ((full.Rights)?'style="color:blue" class="EditEvent"':'disabled') +'>\n' +
                                                 data +
                         '                    </button>\n' +
                         '                  </td>\n' +
-                        '                  <td>\n' +
+                        '                  <td style="padding: 7px 2px;border:none;">\n' +
                         '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '" ' + ((full.Rights)?'style="color:red" class="DeleteEvent"':'disabled') + '>\n' +
                         '                        <i class="fa fa-trash"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
-                        '                  <td>\n' +
+                        '                  <td style="padding: 7px 2px;border:none;">\n' +
                         '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" ' + ((full.Text != "")?'style="color:green" class="EventInfo"':'disabled') + '>\n' +
                         '                        <i class="fa fa-file"></i>\n' +
                         '                      </button>\n' +
@@ -89,10 +90,15 @@ $(document).ready(function () {
             },
             {
                 width: 'auto',
-                title: i18next.t('Title'),
+                title: i18next.t('Title') + ' (' + i18next.t('Desc') + ')',
                 data: 'title',
                 render: function (data, type, full, meta) {
-                    return data;
+                    var ret = data;
+
+                    if ( full.Desc != '') {
+                        ret += "<br/>(" + full.Desc  + ")";
+                    }
+                    return ret;
                 }
             },
             {
@@ -102,6 +108,24 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     return i18next.t('Name') + ' : <b>' + data + "</b><br/>"+
                         full.Login;
+
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Attendance Counts with real Attendees'),
+                data: 'RealStats',
+                render: function (data, type, full, meta) {
+                    return data;
+
+                }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Free Attendance Counts without Attendees'),
+                data: 'FreeStats',
+                render: function (data, type, full, meta) {
+                    return data;
 
                 }
             },
@@ -140,6 +164,15 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     return data;
                 }
+            },
+            {
+                width: 'auto',
+                title: i18next.t('Active'),
+                data: 'Status',
+                visible: true,
+                render: function (data, type, full, meta) {
+                    return data;
+                }
             }
         ]
     };
@@ -154,18 +187,17 @@ $(document).ready(function () {
 
     // filter by month correctelly
     window.CRM.DataEventsListTable
-        .order( [ 4, 'asc' ] )
+        .order( [ 6, 'desc' ] )
         .draw();
 
     // the function to reload the datas in the table
-    function reloadListEventPage()
-    {
+    window.CRM.reloadListEventPage = function() {
         window.CRM.DataEventsListTable.ajax.reload(function (){
             $('.in-progress').css("color", "green");
             $('.in-progress').html("  "+ i18next.t("Loading finished...."));
 
             window.CRM.DataEventsListTable
-                .order( [ 3, 'asc' ] )
+                .order( [ 6, 'desc' ] )
                 .draw();
         });
     }
@@ -176,7 +208,7 @@ $(document).ready(function () {
 
         $("#main-Title-events").html(i18next.t('Events in Year') + " : " + window.CRM.yVal);
 
-        reloadListEventPage();
+        window.CRM.reloadListEventPage();
     });
 
     $("#MonthSelector").change(function() {
@@ -327,7 +359,7 @@ $(document).ready(function () {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                         }
-                                        reloadListEventPage();
+                                        window.CRM.reloadListEventPage();
                                     });
                                 }
                             });
@@ -360,7 +392,7 @@ $(document).ready(function () {
                                                 if (data.status == "failed") {
                                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                 }
-                                                reloadListEventPage();
+                                                window.CRM.reloadListEventPage();
                                             });
                                         }
                                     },
@@ -377,7 +409,7 @@ $(document).ready(function () {
                                                     "eventID": eventID
                                                 })
                                             }).done(function (data) {
-                                                reloadListEventPage();
+                                                window.CRM.reloadListEventPage();
                                             });
                                         }
                                     }

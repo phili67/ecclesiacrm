@@ -908,7 +908,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 "alarm": alarm
                             })
                         }).done(function (data) {
-                            
+
                             if (data.status == "failed") {
                                 add = false;
 
@@ -925,10 +925,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                             }
 
                             if (page.includes("v2/calendar/events/list") ) {
-                                window.CRM.DataEventsListTable.ajax.reload();
-                                window.CRM.DataEventsListTable
-                                    .order( [ 3, 'asc' ] )
-                                    .draw();
+                                window.CRM.reloadListEventPage();
                             } else if ( page.includes("Checkin.php") ) {
                                 window.location.href = window.CRM.root + '/Checkin.php';
                             } else if (page.includes("/v2/calendar")) {
