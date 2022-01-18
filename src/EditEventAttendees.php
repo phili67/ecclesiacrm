@@ -173,7 +173,7 @@ if (isset($_POST['Action'])) {
 </div>
 
 <div>
-    <a href="ListEvents.php" class='btn btn-default'>
+    <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/list" class='btn btn-default'>
         <i class='fa fa-chevron-left'></i>
         <?= _('Return to Events') ?>
     </a>
