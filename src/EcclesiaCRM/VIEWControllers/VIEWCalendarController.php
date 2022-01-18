@@ -103,7 +103,6 @@ class VIEWCalendarController {
                 ->setDistinct()
                 ->where('YEAR(' . EventTableMap::COL_EVENT_START . ')')
                 ->find();
-
         }
 
         $yVal = date('Y');
