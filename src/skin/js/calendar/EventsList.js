@@ -69,18 +69,18 @@ $(document).ready(function () {
                     //full.backgroundColor
                     return '<table class="table-responsive" style="width:120px">\n' +
                         '                <tbody><tr class="no-background-theme">\n' +
-                        '                  <td style="width:50px;padding: 7px 2px;border:none;">\n' +
-                        '                    <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Edit') + '" '+ ((full.Rights)?'style="color:blue" class="EditEvent"':'disabled') +'>\n' +
+                        '                  <td style="width:38px;padding: 7px 2px;border:none;">\n' +
+                        '                    <button type="submit"  name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Edit') + '" style="color:blue" class="EditEvent btn btn-default btn-xs" '+ ((full.Rights)?'':'disabled') +'>\n' +
                                                 data +
                         '                    </button>\n' +
                         '                  </td>\n' +
-                        '                  <td style="padding: 7px 2px;border:none;">\n' +
-                        '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '" ' + ((full.Rights)?'style="color:red" class="DeleteEvent"':'disabled') + '>\n' +
+                        '                  <td style="width:25px;padding: 7px 2px;border:none;">\n' +
+                        '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '"  style="color:red" class="DeleteEvent btn btn-default btn-xs" ' + ((full.Rights)?'':'disabled') + '>\n' +
                         '                        <i class="fa fa-trash"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
-                        '                  <td style="padding: 7px 2px;border:none;">\n' +
-                        '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" ' + ((full.Text != "")?'style="color:green" class="EventInfo"':'disabled') + '>\n' +
+                        '                  <td style="width:30px;padding: 7px 2px;border:none;">\n' +
+                        '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" style="color:green" class="EventInfo btn btn-default btn-xs" ' + ((full.Text != "")?'':'disabled') + '>\n' +
                         '                        <i class="fa fa-file"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
