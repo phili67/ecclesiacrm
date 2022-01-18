@@ -21,6 +21,12 @@ $app->group('/calendar', function (RouteCollectorProxy $group) {
      */
     $group->post('/getallevents', CalendarV2Controller::class . ':getallCalendarEvents' );
     /*
+     * @! Get all events for all calendars for a specified range
+     * #! param: ref->start :: the start date : YYYY-MM-DD
+     * #! param: ref->end   :: the end date : YYYY-MM-DD
+     */
+    $group->post('/getalleventsForEventsList', CalendarV2Controller::class . ':getallCalendarEventsForEventsList' );
+    /*
      * @! get all the number of calendar for the current user
      */
     $group->post('/numberofcalendars', CalendarV2Controller::class . ':numberOfCalendars' );

@@ -85,7 +85,7 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("View on Map"), "fa fa-map-o", "v2/map/-2", true, $menu);
         }
 
-        $menuItem = new Menu (_("List Church Events"), "fa fa-circle-o", "ListEvents.php", true, $menu);
+        $menuItem = new Menu (_("List Church Events"), "fa fa-circle-o", "v2/calendar/events/list", true, $menu);
         $menuItem = new Menu (_("List Event Types"), "fa fa-circle-o", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
         $menuItem = new Menu (_("Call the Register"), "fa fa-circle-o", "Checkin.php", true, $menu);
 

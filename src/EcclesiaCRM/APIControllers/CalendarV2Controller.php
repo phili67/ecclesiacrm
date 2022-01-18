@@ -47,7 +47,15 @@ class CalendarV2Controller
 
         $CalendarService = $this->container->get('CalendarService');
 
-        return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive));;
+        return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive)['EventsListResults']);;
+    }
+
+    public function getallCalendarEventsForEventsList (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $params = (object)$request->getParsedBody();
+
+        $CalendarService = $this->container->get('CalendarService');
+
+        return $response->withJson($CalendarService->getEvents($params->start, $params->end, $params->isBirthdayActive, $params->isAnniversaryActive, $params->forEventslist));
     }
 
     public function numberOfCalendars (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {

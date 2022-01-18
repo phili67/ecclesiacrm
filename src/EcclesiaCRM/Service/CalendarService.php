@@ -13,21 +13,34 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\Base\EventTypesQuery;
 use EcclesiaCRM\CalendarinstancesQuery;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\EventAttend;
-use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\MyVCalendar\VCalendarExtension;
+use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\EventCountsQuery;
+
+use EcclesiaCRM\Map\EventTableMap;
+use EcclesiaCRM\Map\EventTypesTableMap;
+use EcclesiaCRM\Map\GroupTableMap;
+
+use EcclesiaCRM\Map\CalendarinstancesTableMap;
+use EcclesiaCRM\Map\PrincipalsTableMap;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\EventAttend;
+use EcclesiaCRM\EventCounts;
+
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\GeoUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\EventCountsQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
+
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\MyVCalendar\VCalendarExtension;
+
 use EcclesiaCRM\MyPDO\VObjectExtract;
 
 use Sabre\DAV\UUIDUtil;
@@ -45,58 +58,54 @@ class CalendarService
         return $eventTypes;
     }
 
-    public function getEvents($start, $end, $isBirthdayActive, $isAnniversaryActive)
+    public function getEvents($start, $end, $isBirthdayActive, $isAnniversaryActive, $for_events_list = false)
     {
         $origStart = $start;
         $origEnd = $end;
 
+        $dtOrigStart = new \DateTime($origStart);
+        $dtOrigEnd = new \DateTime($origEnd);
+
+        // get the first and the last month
+        $firstMonth = $real_firstMonth = (int)$dtOrigStart->format('m') - 1;
+        $endMonth = (int)$dtOrigEnd->format('m') - 1;
+
+        $all_months = $firstMonth + 1;
+
+        $i = 0;
+        while ($firstMonth != $endMonth and $i < 13) {
+            $firstMonth = ($firstMonth + 1) % 12;
+            $all_months .= "," . ($firstMonth + 1);
+            $i++;
+        }
+
         $events = [];
         $startDate = date_create($start);
         $endDate = date_create($end);
-        $startYear = $endYear = '1900';
         $endsNextYear = false;
         if ($endDate->format('Y') > $startDate->format('Y')) {
-            $endYear = '1901';
             $endsNextYear = true;
         }
         $firstYear = $startDate->format('Y');
-
 
         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
             if ($isBirthdayActive) {
                 $peopleWithBirthDays = PersonQuery::create()
                     ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
-                    ->JoinWithFamily();
+                    ->JoinWithFamily()
+                    ->filterByBirthMonth(explode(",", $all_months))// the event aren't more than a month
+                    ->find();
 
-                // get the first and the last month
-                $firstMonth = $startDate->format('m');
-                $endMonth = $endDate->format('m');
-
-                $month = $firstMonth;
-
-                $peopleWithBirthDays->filterByBirthMonth($firstMonth);// the event aren't more than a month
-
-                while ($month != $endMonth) {// we loop to have all the months from the first in the start to the end
-                    $month += 1;
-                    if ($month == 13) {
-                        $month = 1;
-                    }
-                    if ($month == 0) {
-                        $month = 1;
-                    }
-                    $peopleWithBirthDays->_or()->filterByBirthMonth($month);// the event aren't more than a month
-                }
-
-
-                $peopleWithBirthDays->find();
                 foreach ($peopleWithBirthDays as $person) {
                     $year = $firstYear;
                     if ($person->getBirthMonth() == 1 && $endsNextYear) {
                         $year = $firstYear + 1;
                     }
-                    $start = date_create($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
+
+                    $dtStart = new \DateTime($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
+
                     $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
-                        $person->getFullName() . " " . $person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
+                        $person->getFullName() . " " . $person->getAge(), $dtStart->format(\DateTimeInterface::ATOM), '', $person->getViewURI());
                     array_push($events, $event);
                 }
             }
@@ -104,8 +113,8 @@ class CalendarService
             if ($isAnniversaryActive) {
                 // we search the Anniversaries
                 $Anniversaries = FamilyQuery::create()
-                    ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
                     ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
+                    ->Where('MONTH(fam_WeddingDate) IN (' . $all_months . ')')
                     ->find();
 
                 $curYear = date('Y');
@@ -115,9 +124,11 @@ class CalendarService
                     if ($anniversary->getWeddingMonth() < $curMonth) {
                         $year = $year + 1;
                     }
-                    $start = $year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay();
+
+                    $dtStart = new \DateTime($year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay());
+
                     $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
-                        $anniversary->getName(), $start, '', $anniversary->getViewURI());
+                        $anniversary->getName(), $dtStart->format(\DateTimeInterface::ATOM), '', $anniversary->getViewURI());
                     array_push($events, $event);
                 }
             }
@@ -132,6 +143,24 @@ class CalendarService
         // get all the calendars for the current user
 
         $calendars = $calendarBackend->getCalendarsForUser('principals/' . strtolower(SessionUser::getUser()->getUserName()), "displayname", false);
+
+        // for the globas stats : v2/calendar/events/list
+        // only in case of monthly view
+        // for : $for_events_list
+        $AVG_stats = [
+            '1' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '2' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '3' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '4' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '5' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '6' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '7' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '8' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '9' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '10' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '11' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0],
+            '12' => ['numAVGAtt' => 0, 'numAVG_CheckIn' => 0, 'numAVG_CheckOut' => 0]
+        ];
 
         foreach ($calendars as $calendar) {
             $calendarName = $calendar['{DAV:}displayname'];
@@ -173,13 +202,28 @@ class CalendarService
             // we get all the events for the Cal
             $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
 
+            $criteria = [0];
+            if ( $for_events_list ) {
+                $criteria = [0,1];
+            }
+
             foreach ($eventsForCal as $eventForCal) {
-                $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
+                $evnt = EventQuery::Create()
+                    ->addJoin(EventTableMap::COL_EVENT_TYPE, EventTypesTableMap::COL_TYPE_ID, Criteria::LEFT_JOIN)
+                    ->addJoin(EventTableMap::COL_EVENT_GRPID, GroupTableMap::COL_GRP_ID, Criteria::LEFT_JOIN)
+                    ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID, Criteria::LEFT_JOIN)
+                    ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI, Criteria::LEFT_JOIN)
+                    ->addAsColumn('EventTypeName', EventTypesTableMap::COL_TYPE_NAME)
+                    ->addAsColumn('GroupName', GroupTableMap::COL_GRP_NAME)
+                    ->addAsColumn('CalendarName', CalendarinstancesTableMap::COL_DISPLAYNAME)
+                    ->addAsColumn('rights', CalendarinstancesTableMap::COL_ACCESS)
+                    ->addAsColumn('login', PrincipalsTableMap::COL_URI)
+                    ->filterByInActive($criteria)
+                    ->findOneById($eventForCal['id']);
 
                 if ($evnt != null) {
 
                     $calObj = $calendarBackend->getCalendarObject($calendar['id'], $eventForCal['uri']);
-
 
                     $cal_category = ($calendar['grpid'] != "0") ? 'group' : 'personal';
 
@@ -210,9 +254,78 @@ class CalendarService
                     $alarm = $evnt->getAlarm();
                     $rrule = $evnt->getFreqLastOccurence();
                     $freq = $evnt->getFreq();
+                    $eventTypeName = $evnt->getEventTypeName();
+                    $eventGroupName = $evnt->getGroupName();
+                    $eventCalendarName = $evnt->getCalendarName();
+                    $loginName = $evnt->getLogin();
+                    $status = ($evnt->getInactive() != 0)? _('No') : _('Yes');
+
+                    if (!(SessionUser::getUser()->isAdmin())) {
+                        $eventRights = ($evnt->getRights() == 1 || $evnt->getRights() == 3) ? true : false;
+                    } else {
+                        $eventRights = true;
+                    }
 
                     $fEvnt = false;
                     $subid = 1;
+
+                    // stats for each month
+                    $month = $evnt->getStart()->format('m');
+
+                    // only for v2/calendar/events/list
+                    if ($for_events_list) {
+
+                        $attendees = EventAttendQuery::create()
+                            ->findByEventId($evnt->getId());
+
+                        if (!is_null($attendees)) {
+                            $realStats['attNumRows'] = $attendees->count();
+
+                            $attendees1 = EventAttendQuery::create()
+                                ->filterByCheckoutDate(NULL, Criteria::NOT_EQUAL)
+                                ->findByEventId($evnt->getId());
+
+                            if (!is_null($realStats)) {
+                                $realStats['attCheckOut'] = $attendees1->count();
+                            }
+
+                            $attendees2 = EventAttendQuery::create()
+                                ->filterByCheckoutId(NULL, Criteria::NOT_EQUAL)
+                                ->findByEventId($evnt->getId());
+
+                            if (!is_null($realStats)) {
+                                $realStats['realAttCheckOut'] = $attendees2->count();
+                            }
+
+                            $AVG_stats[$month]['numAVG_CheckIn'] += $realStats['attNumRows'];
+                            $AVG_stats[$month]['numAVG_CheckOut'] += $realStats['attCheckOut'];
+                        }
+
+                        if ($realStats['attNumRows']) {
+                            $AVG_stats[$month]['numAVGAtt']++;
+                        }
+
+                        // RETRIEVE THE list of counts associated with the current event
+                        // Free Attendance Counts without Attendees
+                        $freeStats = [];
+
+                        $eventCounts = EventCountsQuery::Create()
+                            ->filterByEvtcntEventid($evnt->getId())
+                            ->orderByEvtcntCountid(Criteria::ASC)
+                            ->find();
+
+                        // the count is is inside the count of elements of $freeStats
+                        //$aNumCounts = $eventCounts->count();
+                        foreach ($eventCounts as $eventCount) {
+                            $freeStats[] = [
+                                'cCountID' => $eventCount->getEvtcntCountid(),
+                                'cCountName' => $eventCount->getEvtcntCountname(),
+                                'cCount' => $eventCount->getEvtcntCountcount(),
+                                'cCountNotes' => $eventCount->getEvtcntNotes()
+                            ];
+                        }
+
+                    }
 
                     foreach ($freqEvents as $key => $value) {
                         if ($key == 'freq' && $value != 'none') {
@@ -224,38 +337,59 @@ class CalendarService
                                 $end = $freqValue['DTEND'];
                                 $reccurenceID = $freqValue['RECURRENCE-ID'];
 
-                                $event = $this->createCalendarItemForGetEvents('event', $icon,
-                                    $title, $start, $end,
-                                    '', $id, $type, $grpID,
-                                    $desc, $text, $calID, $calendarColor,
-                                    $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
-                                    $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
+                                $dtStart = new \DateTime($start);
+                                $dtEnd = new \DateTime($end);
 
-                                array_push($events, $event);
+                                if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                                    and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {
+
+                                    $event = $this->createCalendarItemForGetEvents('event', $icon,
+                                        $title, $start, $end,
+                                        '', $id, $type, $grpID,
+                                        $desc, $text, $calID, $calendarColor,
+                                        $subid++, 1, $reccurenceID, $rrule, $freq, $writeable,
+                                        $loc, $lat, $long, $alarm, $cal_type, $cal_category, $eventTypeName,
+                                        $eventGroupName, $eventCalendarName, $eventRights, $loginName,
+                                        $realStats, $freeStats, $status);// only the event id sould be edited and moved and have custom color
+
+                                    array_push($events, $event);
+                                }
                             }
                         }
                     }
 
                     if ($fEvnt == false) {
-                        $event = $this->createCalendarItemForGetEvents('event', $icon,
-                            $title, $start, $end,
-                            '', $id, $type, $grpID,
-                            $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
-                            $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category);// only the event id sould be edited and moved and have custom color
 
-                        array_push($events, $event);
+                        $dtStart = new \DateTime($start);
+                        $dtEnd = new \DateTime($end);
+
+                        if ($dtOrigStart <= $dtStart and $dtStart <= $dtOrigEnd
+                            and $dtOrigStart <= $dtEnd and $dtEnd <= $dtOrigEnd) {
+
+                            $event = $this->createCalendarItemForGetEvents('event', $icon,
+                                $title, $start, $end,
+                                '', $id, $type, $grpID,
+                                $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
+                                $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
+                                $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName,
+                                $realStats, $freeStats, $status);// only the event id sould be edited and moved and have custom color
+
+                            array_push($events, $event);
+                        }
                     }
                 }
             }
         }
-        return $events;
+
+        return ['EventsListResults' => $events, 'AVG_stats' => $AVG_stats];
     }
 
     public function createCalendarItemForGetEvents($type, $icon, $title, $start, $end, $uri, $eventID = 0, $eventTypeID = 0, $groupID = 0, $desc = "", $text = "",
                                                    $calendarid = null, $backgroundColor = null, $subid = 0,
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
-                                                   $cal_category = "personal")
+                                                   $cal_category = "personal", $eventTypeName = "all", $eventGroupName = "None", $eventCalendarName = "None",
+                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no')
     {
         $event = [];
         switch ($type) {
@@ -271,9 +405,133 @@ class CalendarService
 
         $event['title'] = $title;
         $event['start'] = $start;
+        $event['month'] = (int)explode('-', $start)[1];
         $event['origStart'] = $start;
         $event['icon'] = $icon;
         $event['realType'] = $event['type'] = $type;
+        $event['TypeName'] = $eventTypeName;
+        $event['GroupName'] = $eventGroupName;
+        $event['CalendarName'] = $eventCalendarName;
+        $event['Rights'] = $eventRights;
+
+        if ($status == _('No')) {
+            $event['Status'] = '<span style="color:red;text-align:center">'.$status.'</span>';
+        } else {
+            $event['Status'] = '<span style="color:green;text-align:center">'.$status.'</span>';
+        }
+
+        // only for v2/calendar/events/list
+        $event['RealStats'] = '';
+
+        if (!empty($realStats)) {
+            $ret = '';
+
+            if ($realStats['attNumRows']) {
+                $ret = '<table width="100%" class="" align="center" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
+                    . '<tr class="no-background-theme">'
+                    . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-in") . '</b></td>'
+                    . '   <td style="padding: 7px 2px;border:none;"><b>' . _("Check-out") . '</b></td>'
+                    . '   <td style="padding: 7px 2px;border:none;" ><b>' . _("Rest") . '</b></td>'
+                    . '</tr>'
+                    . '<tr class="no-background-theme">'
+                    . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attNumRows'] . '</td>'
+                    . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attCheckOut'] . '</td>'
+                    . '  <td style="padding: 7px 2px;border:none;">' . $realStats['attNumRows'] - $realStats['attCheckOut'] . '</td>'
+                    . '</tr>'
+                    . '<tr class="no-background-theme">'
+                    . '    <td colspan="3" style="padding: 7px 0;border:none;">'
+                    . '        <table style="width:330px">'
+                    . '            <tr class="no-background-theme">'
+                    . '                <td style="padding: 7px 0;border:none;">';
+
+                if ($eventRights) {
+                    $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/EditEventAttendees.php" method="POST">';
+                }
+
+                $ret .= '         <input type="hidden" name="EID" value="' . $eventID . '">'
+                    . '       <input type="hidden" name="EName" value="' . $title . '">'
+                    . '       <input type="hidden" name="EDesc" value="' . $desc . '">'
+                    . '       <input type="hidden" name="EDate" value="' . OutputUtils::FormatDate($start, 1) . '">'
+                    . '       <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-info btn-xs ' . (!($eventRights) ? "disabled" : "") . '" >';
+
+                if ($eventRights) {
+                    $ret .= ' </form>';
+                }
+
+                $ret .= '           </td>'
+                    . '           <td style="padding: 7px 0;border:none;">';
+
+
+                if ($eventRights) {
+                    $ret .= '           <form action="' . SystemURLs::getRootPath() . '/Checkin.php" method="POST">';
+                }
+
+                $ret .= '                       <input type="hidden" name="EventID" value="' . $eventID . '">'
+                    . '                             <button type="submit"  title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] == 0) ? "disabled" : "") . '>'
+                    . '                                 <i class="fa fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
+                    . '                         </button>';
+
+                if ($eventRights) {
+                    $ret .= '            </form>';
+                }
+
+                $ret .= '          </td>'
+                    . '         </tr>'
+                    . '     </table>'
+                    . '    </td>'
+                    . '</tr>'
+                    . '</table>';
+            } else {
+                $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/EditEventAttendees.php" method="POST">'
+                    . '  <input type="hidden" name="EID" value="' . $eventID . '">'
+                    . '  <input type="hidden" name="EName" value="' . $title . '">'
+                    . '  <input type="hidden" name="EDesc" value="' . $desc . '">'
+                    . '  <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">'
+                    . '<span style="font-size: 12px;">' ._('No Attendance Recorded') . '</span><br>'
+                    . '  <input type="submit" name="Action" value="' . _('Attendees') . '(' . $realStats['attNumRows'] . ')' . '" class="btn btn-info btn-xs" >'
+                    . '</form>';
+
+            }
+
+            $event['RealStats'] = $ret;
+        }
+
+
+        // only for v2/calendar/events/list
+        $event['FreeStats'] = '';
+
+        if ( !empty($freeStats) ) {
+            $ret = '<table width="100%" class="table-simple-padding" style="font-size: 10px;padding: 0px;border-spacing: 0px;">'
+                . '<tr class="no-background-theme">';
+
+            if ( !empty($freeStats) ) {
+                foreach ($freeStats as $freeStat) {
+                    $ret .= '<td style="padding: 7px 2px;border:none;">'
+                        . '    <div class="text-bold">' . $freeStat['cCountName'] . '</div>'
+                        . '    <div>' . $freeStat['cCount'] . '</div>'
+                        . '</td>';
+                }
+            } else {
+                $ret .= '<td style="padding: 7px 2px;border:none;">'
+                    . '<p class="text-center">'
+                    . _('No Attendance Recorded')
+                    . '</p>'
+                    . '</td>';
+            }
+
+            $ret .= '</tr>'
+                .'</table>';
+
+            $event['FreeStats'] = $ret;
+        }
+
+        // end of : for v2/calendar/events/list only
+
+        if (SessionUser::getUser()->isAdmin()) {
+            $event['Login'] = _("login") . " : <b>" . str_replace("principals/", "", $loginName) . "</b>";
+        } else {
+            $event['Login'] = "";
+        }
 
         if ($end != '') {
             $event['end'] = $end;
@@ -301,6 +559,18 @@ class CalendarService
             $event['alarm'] = $alarm;
             $event['calType'] = intval($cal_type);
             $event['cal_category'] = $cal_category;
+
+            switch ($cal_category) {
+                case 'personal':
+                    $event['cal_category_translated'] = _("Personal Calendar");
+                    break;
+                case 'group':
+                    $event['cal_category_translated'] = _("Group");
+                    break;
+                case 'share':
+                    $event['cal_category_translated'] = _("Share");
+                    break;
+            }
 
             if ($calendarid != null) {
                 $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;
@@ -599,7 +869,7 @@ class CalendarService
             $freqEventsCount = count($eventFullInfos['freqEvents']);
         }
 
-        if ( isset($reccurenceID) && $reccurenceID != '' ) {// we're in a recursive event
+        if (isset($reccurenceID) && $reccurenceID != '') {// we're in a recursive event
 
             try {
                 // we have to delete the old event from the reccurence event

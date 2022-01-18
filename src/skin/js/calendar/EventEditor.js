@@ -909,7 +909,6 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                             })
                         }).done(function (data) {
 
-
                             if (data.status == "failed") {
                                 add = false;
 
@@ -925,8 +924,8 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 eventCreated = true;
                             }
 
-                            if ( page.includes("ListEvent.php") ) {
-                                location.reload();
+                            if (page.includes("v2/calendar/events/list") ) {
+                                window.CRM.reloadListEventPage();
                             } else if ( page.includes("Checkin.php") ) {
                                 window.location.href = window.CRM.root + '/Checkin.php';
                             } else if (page.includes("/v2/calendar")) {
