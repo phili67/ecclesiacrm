@@ -34,7 +34,7 @@ $hasSession = SessionUser::isActive();
 $redirectTo = ($hasSession) ? '/v2/dashboard' : '/login';
 
 // Get the current request path and convert it into a magic filename
-// e.g. /list-events => /ListEvents.php
+// e.g. /list-events => /v2/calendar/events/list
 $shortName = str_replace(SystemURLs::getRootPath().'/', '', $_SERVER['REQUEST_URI']);
 $fileName = dashesToCamelCase($shortName, true).'.php';
 
