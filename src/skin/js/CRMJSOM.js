@@ -189,7 +189,7 @@
       'emptyCartToEvent' : function () {
           window.CRM.cart.emptytoEvent(function(data){
               window.CRM.cart.refresh();
-              location.href = window.CRM.root + '/ListEvents.php';
+              location.href = window.CRM.root + '/v2/calendar/events/list';
           });
       },
       'emptyCartToGroup' : function () {
@@ -1568,7 +1568,7 @@
             if (window.CRM.attendeesPresences == false) {
                 window.CRM.notify('fa  fa-info-circle',
                     "<b><big>" + data.EventCountAttend + "</big></b> " + i18next.t("Attendees Checked In") + ".",
-                    "<br><b>" + i18next.t("More info") + ' <a href="' + window.CRM.root + '/ListEvents.php"><i class="fa fa-arrow-circle-right"></i> </a> ' + '</b>',
+                    "<br><b>" + i18next.t("More info") + ' <a href="' + window.CRM.root + '/v2/calendar/events/list"><i class="fa fa-arrow-circle-right"></i> </a> ' + '</b>',
                     null, "warning", "bottom",
                     Math.min(window.CRM.iDashboardPageServiceIntervalTime * 1000, window.CRM.timeOut),
                     '_blank',
