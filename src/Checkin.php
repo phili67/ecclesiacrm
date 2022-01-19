@@ -119,10 +119,12 @@ if ($searchEventInActivEvent != null) {
     exit;
 }*/
 
-$eventCountNames = EventCountNameQuery::Create()
-    ->leftJoinEventTypes()
-    ->Where('type_id=' . $event->getType())
-    ->find();
+if ($EventID > 0) {
+    $eventCountNames = EventCountNameQuery::Create()
+        ->leftJoinEventTypes()
+        ->Where('type_id=' . $event->getType())
+        ->find();
+}
 
 ?>
 
