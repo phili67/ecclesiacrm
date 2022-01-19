@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
+"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -768,45 +768,6 @@ msgstr "คุณต้องเลือกปฏิทิน"
 msgid "You have to set a Title for your event"
 msgstr "คุณต้องทำให้ทิทเทิลสำหรับงานของคุณ"
 
-msgid "In progress...."
-msgstr "ในความคืบหน้า"
-
-msgid "Events for"
-msgstr "สำหรับ"
-
-msgid "Event for"
-msgstr "ก็ได้"
-
-msgid "Loading finished...."
-msgstr "กำลังจะถูกลบ"
-
-msgid "Month"
-msgstr "เดือน"
-
-msgid "Info"
-msgstr "อินโฟ"
-
-msgid "Attendance Counts with real Attendees"
-msgstr "การยึดมั่นในนับถือ ผู้ที่ต่อต้านการประท้วง"
-
-msgid "Free Attendance Counts without Attendees"
-msgstr "การกระทำฟรีโดยปราศจากความตั้งใจ"
-
-msgid "Calendar Type"
-msgstr "ปฏิทิน"
-
-msgid "Events in Year"
-msgstr "วันที่เกิดปี"
-
-msgid "Events in month"
-msgstr "เกิดเหตุในเดือน"
-
-msgid "Events by Type"
-msgstr "วิชาพิมพ์"
-
-msgid "Text for Event ID"
-msgstr "ข้อความถึง Event ID"
-
 msgid "CKEditor Template Creation"
 msgstr "พวกรัฐเทมเปลสร้าง"
 
@@ -983,6 +944,13 @@ msgstr "ลบ Event Type"
 
 msgid "This action can never be undone !!!!"
 msgstr "การกระทำนี้ไม่สามารถแก้ไขได้ !!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr "การที่ลบเหตุการณ์นั้น ก็จะลบทุกการเข้าเรียนทั้งหมดสำหรับงานนั้นด้วย"
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "คุณแน่ใจนะว่าคุณต้องการจบงานนี้"
 
 msgid "Confirm Delete"
 msgstr "ยืนยันการลบ"
@@ -2179,6 +2147,9 @@ msgstr "ล็อกเพื่อให้ฐานข้อมูลฟื้
 msgid "Restore Error."
 msgstr "ฟื้นฟูความบกพร่อง"
 
+msgid "In progress...."
+msgstr "ในความคืบหน้า"
+
 msgid "Done !"
 msgstr "เสร็จแล้ว!"
 
@@ -2202,6 +2173,9 @@ msgstr "นามสกุลทรัพย์สิน"
 
 msgid "Loading people in cart...."
 msgstr "เอาคนขับรถเข็น..."
+
+msgid "Loading finished...."
+msgstr "กำลังจะถูกลบ"
 
 msgid "Removing people in cart...."
 msgstr "เอารถเข็นออกไป"
@@ -2301,13 +2275,6 @@ msgstr "คุณกำลังจะลบสมาชิกกลุ่มท
 
 msgid "Are you sure ? This can't be undone."
 msgstr "คุณแน่ใจเหรอ? นี่มันไม่สามารถแก้ไขได้"
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr "การที่ลบเหตุการณ์นั้น ก็จะลบทุกการเข้าเรียนทั้งหมดสำหรับงานนั้นด้วย"
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "คุณแน่ใจนะว่าคุณต้องการจบงานนี้"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
+"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -793,45 +793,6 @@ msgstr "Sie müssen einen Kalender auswählen."
 msgid "You have to set a Title for your event"
 msgstr "Sie müssen einen Titel für Ihr Ereignis festlegen"
 
-msgid "In progress...."
-msgstr "Im Gange...."
-
-msgid "Events for"
-msgstr "Veranstaltungen für"
-
-msgid "Event for"
-msgstr "Veranstaltung für"
-
-msgid "Loading finished...."
-msgstr "Laden beendet...."
-
-msgid "Month"
-msgstr "Monat"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Attendance Counts with real Attendees"
-msgstr "Anwesenheit zählt bei echten Teilnehmern"
-
-msgid "Free Attendance Counts without Attendees"
-msgstr "Freie Teilnahme zählt ohne Teilnehmer"
-
-msgid "Calendar Type"
-msgstr "Kalender Typ"
-
-msgid "Events in Year"
-msgstr "Ereignisse im Jahr"
-
-msgid "Events in month"
-msgstr "Ereignisse im Monat"
-
-msgid "Events by Type"
-msgstr "Veranstaltungen nach Typ"
-
-msgid "Text for Event ID"
-msgstr "Text für Ereignis-ID"
-
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Vorlagenerstellung"
 
@@ -1013,6 +974,15 @@ msgstr "Ereignistyp löschen"
 
 msgid "This action can never be undone !!!!"
 msgstr "Diese Aktion kann nicht rückgängig gemacht werden !!!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Wenn Sie eine Veranstaltung löschen, werden auch alle Teilnehmerzahlen für "
+"diese Veranstaltung gelöscht."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Sind Sie sicher, dass Sie das Ereignis LÖSCHEN wollen?"
 
 msgid "Confirm Delete"
 msgstr "Bestätigen Löschen"
@@ -2280,6 +2250,9 @@ msgstr "Anmeldung zur wiederhergestellten Datenbank"
 msgid "Restore Error."
 msgstr "Fehler wiederherstellen."
 
+msgid "In progress...."
+msgstr "Im Gange...."
+
 msgid "Done !"
 msgstr "Erledigt!"
 
@@ -2303,6 +2276,9 @@ msgstr "Name der Immobilie"
 
 msgid "Loading people in cart...."
 msgstr "Verladung von Personen in Cart...."
+
+msgid "Loading finished...."
+msgstr "Laden beendet...."
 
 msgid "Removing people in cart...."
 msgstr "Entfernen von Personen in Cart...."
@@ -2402,15 +2378,6 @@ msgstr "Sie sind dabei, alle Gruppenmitglieder zu löschen?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Sind Sie sicher? Das kann nicht rückgängig gemacht werden."
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr ""
-#~ "Wenn Sie eine Veranstaltung löschen, werden auch alle Teilnehmerzahlen "
-#~ "für diese Veranstaltung gelöscht."
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "Sind Sie sicher, dass Sie das Ereignis LÖSCHEN wollen?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
