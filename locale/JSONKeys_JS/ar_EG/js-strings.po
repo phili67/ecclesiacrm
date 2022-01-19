@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
+"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -781,45 +781,6 @@ msgstr "عليك أن تختار تقويم"
 msgid "You have to set a Title for your event"
 msgstr "عليك أن تضع عنوان لحدثِك"
 
-msgid "In progress...."
-msgstr "جاري..."
-
-msgid "Events for"
-msgstr "الأحداث ل"
-
-msgid "Event for"
-msgstr "مناسبة"
-
-msgid "Loading finished...."
-msgstr "تم تحميل..."
-
-msgid "Month"
-msgstr "الشهر"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Attendance Counts with real Attendees"
-msgstr "الحضور يعد مع حضور حقيقيين"
-
-msgid "Free Attendance Counts without Attendees"
-msgstr "عدد الحضور المجاني بدون حضور"
-
-msgid "Calendar Type"
-msgstr "عنوان الجدول"
-
-msgid "Events in Year"
-msgstr "الأحداث في السنة"
-
-msgid "Events in month"
-msgstr "أحداث في الشهر"
-
-msgid "Events by Type"
-msgstr "الأحداث من النوع"
-
-msgid "Text for Event ID"
-msgstr "رسالة من أجل بطاقة التعريف"
-
 msgid "CKEditor Template Creation"
 msgstr "CKEDITor Templeate Creation"
 
@@ -997,6 +958,13 @@ msgstr "حذف نوع الحدث"
 
 msgid "This action can never be undone !!!!"
 msgstr "هذا العمل لا يمكن أن يُلغى !\""
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr "كما أن حذف الحدث سيحذف جميع حسابات الحضور في هذا الحدث."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "هل أنت متأكد أنك تريد أن تعلن الحدث؟"
 
 msgid "Confirm Delete"
 msgstr "تأكيد حذف"
@@ -2215,6 +2183,9 @@ msgstr "نبقى على قاعدة البيانات"
 msgid "Restore Error."
 msgstr "استعادة الخطأ"
 
+msgid "In progress...."
+msgstr "جاري..."
+
 msgid "Done !"
 msgstr "تم"
 
@@ -2238,6 +2209,9 @@ msgstr "اسم الملكية"
 
 msgid "Loading people in cart...."
 msgstr "تحميل الناس في عربة..."
+
+msgid "Loading finished...."
+msgstr "تم تحميل..."
 
 msgid "Removing people in cart...."
 msgstr "إزالة الناس في عربة..."
@@ -2331,16 +2305,8 @@ msgstr "المشتري محرر التحرير"
 
 msgid "Select"
 msgstr "اختيار"
-
 msgid "You're about to delete all the group members ?"
 msgstr "أنت على وشك حذف جميع أعضاء المجموعة؟"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "هل أنت متأكد؟ لا يمكن إلغاء هذا"
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr "كما أن حذف الحدث سيحذف جميع حسابات الحضور في هذا الحدث."
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "هل أنت متأكد أنك تريد أن تعلن الحدث؟"

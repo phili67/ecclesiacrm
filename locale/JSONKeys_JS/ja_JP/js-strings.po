@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
+"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -780,45 +780,6 @@ msgstr "カレンダーを選ぶ必要があります。"
 msgid "You have to set a Title for your event"
 msgstr "イベントのタイトルを設定する必要があります。"
 
-msgid "In progress...."
-msgstr "進行中...."
-
-msgid "Events for"
-msgstr "のイベントを開催します。"
-
-msgid "Event for"
-msgstr "のイベントを開催します。"
-
-msgid "Loading finished...."
-msgstr "読み込み終了...."
-
-msgid "Month"
-msgstr "月"
-
-msgid "Info"
-msgstr ""
-
-msgid "Attendance Counts with real Attendees"
-msgstr "実際に参加している人の数を数えます。"
-
-msgid "Free Attendance Counts without Attendees"
-msgstr "参加者がいない場合の無料出席数"
-
-msgid "Calendar Type"
-msgstr "カレンダータイプ"
-
-msgid "Events in Year"
-msgstr "年のイベント"
-
-msgid "Events in month"
-msgstr "月のイベント"
-
-msgid "Events by Type"
-msgstr "タイプ別イベント"
-
-msgid "Text for Event ID"
-msgstr "イベントIDのテキスト"
-
 msgid "CKEditor Template Creation"
 msgstr "CKEditorのテンプレート作成"
 
@@ -997,6 +958,13 @@ msgstr "イベントタイプの削除"
 
 msgid "This action can never be undone !!!!"
 msgstr "このアクションは決して元に戻すことはできません !!!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr "イベントを削除すると、そのイベントのすべての出席者数も削除されます。"
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "本当にイベントを削除していいのですか？"
 
 msgid "Confirm Delete"
 msgstr "確認 削除"
@@ -2230,6 +2198,9 @@ msgstr "リストアされたデータベースへのログイン"
 msgid "Restore Error."
 msgstr "リストアエラー。"
 
+msgid "In progress...."
+msgstr "進行中...."
+
 msgid "Done !"
 msgstr "Done!"
 
@@ -2253,6 +2224,9 @@ msgstr "物件名"
 
 msgid "Loading people in cart...."
 msgstr "cart.... での人の読み込み"
+
+msgid "Loading finished...."
+msgstr "読み込み終了...."
 
 msgid "Removing people in cart...."
 msgstr "cart.... の人を削除する。"
@@ -2352,14 +2326,6 @@ msgstr "グループメンバーをすべて削除するところですか？"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "本当にいいの？これは元に戻すことはできません。"
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr ""
-#~ "イベントを削除すると、そのイベントのすべての出席者数も削除されます。"
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "本当にイベントを削除していいのですか？"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "

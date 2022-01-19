@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
+"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -785,45 +785,6 @@ msgstr "Sinun on valittava kalenteri."
 msgid "You have to set a Title for your event"
 msgstr "Sinun on määritettävä tapahtumalle otsikko"
 
-msgid "In progress...."
-msgstr "Käynnissä...."
-
-msgid "Events for"
-msgstr "Tapahtumat"
-
-msgid "Event for"
-msgstr "Tapahtuma"
-
-msgid "Loading finished...."
-msgstr "Lataus valmis...."
-
-msgid "Month"
-msgstr "Kuukausi"
-
-msgid "Info"
-msgstr "Info"
-
-msgid "Attendance Counts with real Attendees"
-msgstr "Osallistujamäärät lasketaan todellisten osallistujien kanssa."
-
-msgid "Free Attendance Counts without Attendees"
-msgstr "Vapaa osallistuminen lasketaan ilman osallistujia"
-
-msgid "Calendar Type"
-msgstr "Kalenterin tyypeittäin"
-
-msgid "Events in Year"
-msgstr "Tapahtumat vuonna"
-
-msgid "Events in month"
-msgstr "Tapahtumat kuukaudessa"
-
-msgid "Events by Type"
-msgstr "Tapahtumat tyypeittäin"
-
-msgid "Text for Event ID"
-msgstr "Tapahtuman ID:n teksti"
-
 msgid "CKEditor Template Creation"
 msgstr "CKEditor-mallin luominen"
 
@@ -1000,6 +961,15 @@ msgstr "Poista tapahtumatyyppi"
 
 msgid "This action can never be undone !!!!"
 msgstr "Tätä toimenpidettä ei voi koskaan perua !!!!"
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Tapahtuman poistaminen poistaa myös kaikki kyseisen tapahtuman "
+"osallistujamäärät."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "Oletko varma, että haluat poistaa tapahtuman?"
 
 msgid "Confirm Delete"
 msgstr "Vahvista Poista"
@@ -2244,6 +2214,9 @@ msgstr "Kirjaudu sisään palautettuun tietokantaan"
 msgid "Restore Error."
 msgstr "Palauta virhe."
 
+msgid "In progress...."
+msgstr "Käynnissä...."
+
 msgid "Done !"
 msgstr "Valmis!"
 
@@ -2267,6 +2240,9 @@ msgstr "Kiinteistön nimi"
 
 msgid "Loading people in cart...."
 msgstr "Ihmisten lataaminen kärryyn...."
+
+msgid "Loading finished...."
+msgstr "Lataus valmis...."
 
 msgid "Removing people in cart...."
 msgstr "Ihmisten poistaminen kärryiltä...."
@@ -2366,15 +2342,6 @@ msgstr "Aiotko poistaa kaikki ryhmän jäsenet ?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Oletko varma? Tätä ei voi perua."
-
-#~ msgid ""
-#~ "Deleting an event will also delete all attendance counts for that event."
-#~ msgstr ""
-#~ "Tapahtuman poistaminen poistaa myös kaikki kyseisen tapahtuman "
-#~ "osallistujamäärät."
-
-#~ msgid "Are you sure you want to DELETE the event ?"
-#~ msgstr "Oletko varma, että haluat poistaa tapahtuman?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
