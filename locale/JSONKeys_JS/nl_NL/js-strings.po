@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
+"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -795,6 +795,45 @@ msgstr "Je moet een kalender kiezen."
 msgid "You have to set a Title for your event"
 msgstr "Je moet een titel instellen voor je evenement"
 
+msgid "In progress...."
+msgstr "In uitvoering...."
+
+msgid "Events for"
+msgstr "Evenementen voor"
+
+msgid "Event for"
+msgstr "Evenement voor"
+
+msgid "Loading finished...."
+msgstr "Laden klaar...."
+
+msgid "Month"
+msgstr "Maand"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Aanwezigheid telt met echte aanwezigen"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Vrije aanwezigheid telt zonder aanwezigen"
+
+msgid "Calendar Type"
+msgstr "Kalender type"
+
+msgid "Events in Year"
+msgstr "Gebeurtenissen in Jaar"
+
+msgid "Events in month"
+msgstr "Gebeurtenissen in maand"
+
+msgid "Events by Type"
+msgstr "Evenementen per Type"
+
+msgid "Text for Event ID"
+msgstr "Tekst voor gebeurtenis-ID"
+
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Sjabloon Creatie"
 
@@ -973,15 +1012,6 @@ msgstr "Type gebeurtenis verwijderen"
 
 msgid "This action can never be undone !!!!"
 msgstr "Deze actie kan nooit ongedaan worden gemaakt !!!!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"Als u een evenement verwijdert, worden ook alle aanwezigheidslijsten voor "
-"dat evenement verwijderd."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Weet je zeker dat je de gebeurtenis wilt VERWIJDEREN?"
 
 msgid "Confirm Delete"
 msgstr "Bevestigen Verwijderen"
@@ -2228,9 +2258,6 @@ msgstr "Inloggen op herstelde Database"
 msgid "Restore Error."
 msgstr "Herstel fout."
 
-msgid "In progress...."
-msgstr "In uitvoering...."
-
 msgid "Done !"
 msgstr "Klaar !"
 
@@ -2254,9 +2281,6 @@ msgstr "Eigendom Naam"
 
 msgid "Loading people in cart...."
 msgstr "Mensen laden in cart...."
-
-msgid "Loading finished...."
-msgstr "Laden klaar...."
 
 msgid "Removing people in cart...."
 msgstr "Mensen verwijderen in cart...."
@@ -2356,6 +2380,15 @@ msgstr "Je staat op het punt om alle groepsleden te verwijderen?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Weet je het zeker ? Dit kan niet ongedaan gemaakt worden."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "Als u een evenement verwijdert, worden ook alle aanwezigheidslijsten voor "
+#~ "dat evenement verwijderd."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Weet je zeker dat je de gebeurtenis wilt VERWIJDEREN?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
