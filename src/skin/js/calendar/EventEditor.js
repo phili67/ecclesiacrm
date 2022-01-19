@@ -316,7 +316,7 @@ function addAttendees(typeID, first_time, eventID) {
 
             var innerHtml = '<input id="countFieldsId" name="countFieldsId" type="hidden" value="' + len + '">';
 
-            innerHtml += '<table>';
+            innerHtml += '<table width="100%">';
 
             var notes = "";
 
@@ -330,10 +330,9 @@ function addAttendees(typeID, first_time, eventID) {
                 notes = eventTypes[i].notes;
             }  //typeID
 
-
             innerHtml += '<tr>'
-                + "<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
-                + '<td><input type="text" id="EventCountNotes" value="' + notes + '" class="form-control input-sm">'
+                + '<td style="vertical-align:top"><label>' + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
+                + '<td><textarea type="text" rows="5" id="EventCountNotes" class="form-control input-sm">' + notes + '</textarea>'
                 + '</td>'
                 + '</tr>';
 
