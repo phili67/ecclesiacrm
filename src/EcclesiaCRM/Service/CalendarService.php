@@ -13,6 +13,7 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\Base\EventTypesQuery;
 use EcclesiaCRM\CalendarinstancesQuery;
+use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\EventAttendQuery;
@@ -316,6 +317,35 @@ class CalendarService
 
                         // the count is is inside the count of elements of $freeStats
                         //$aNumCounts = $eventCounts->count();
+
+                        if ( $eventCounts->count() == 0) {
+                            $eventCountNames = EventCountNameQuery::Create()
+                                ->leftJoinEventTypes()
+                                ->Where('type_id=' . $evnt->getType())
+                                ->find();
+
+                            foreach ($eventCountNames as $eventCountName) {
+                                $eventCount = EventCountsQuery::Create()
+                                    ->filterByEvtcntEventid($evnt->getId())
+                                    ->findOneByEvtcntCountid($eventCountName->getId());
+
+                                if (is_null($eventCount)) {
+                                    $eventCount = new EventCounts;
+                                    $eventCount->setEvtcntEventid($evnt->getId());
+                                    $eventCount->setEvtcntCountid($eventCountName->getId());
+                                    $eventCount->setEvtcntCountname($eventCountName->getName());
+                                    $eventCount->setEvtcntCountcount(0);
+                                    $eventCount->setEvtcntNotes("");
+                                    $eventCount->save();
+                                }
+                            }
+
+                            $eventCounts = EventCountsQuery::Create()
+                                ->filterByEvtcntEventid($evnt->getId())
+                                ->orderByEvtcntCountid(Criteria::ASC)
+                                ->find();
+                        }
+
                         foreach ($eventCounts as $eventCount) {
                             $freeStats[] = [
                                 'cCountID' => $eventCount->getEvtcntCountid(),
@@ -918,7 +948,7 @@ class CalendarService
                     $eventInActive, $Fields, $EventCountNotes
                 );
             }
-        } else {
+        } /*else { // bug whith an old recursive calendar event
             // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
             $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
 
@@ -931,7 +961,7 @@ class CalendarService
             );
 
             return ["status" => "success"];
-        }
+        }*/
 
         // this code is normally dead !!!!
 

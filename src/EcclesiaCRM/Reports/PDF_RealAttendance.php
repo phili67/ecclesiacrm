@@ -12,12 +12,18 @@
 namespace EcclesiaCRM\Reports;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\EventCounts;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\EventCountsQuery;
+
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -185,6 +191,84 @@ class PDF_RealAttendance extends PDF_Attendance
                     }
                 }
             }
+
+
+            // we add now the free attendees
+            $date_count = 0;
+            $evenCountNames = [];
+            $lineRealPresence = 0;
+
+            foreach ($activeEvents as $activeEvent) {
+                $eventCounts = EventCountsQuery::Create()
+                    ->filterByEvtcntEventid($activeEvent->getId())
+                    ->orderByEvtcntCountid(Criteria::ASC)
+                    ->find();
+
+                if ( $eventCounts->count() == 0) {
+                    $eventCountNames = EventCountNameQuery::Create()
+                        ->leftJoinEventTypes()
+                        ->Where('type_id=' . $activeEvent->getType())
+                        ->find();
+
+                    foreach ($eventCountNames as $eventCountName) {
+                        $eventCount = EventCountsQuery::Create()
+                            ->filterByEvtcntEventid($activeEvent->getId())
+                            ->findOneByEvtcntCountid($eventCountName->getId());
+
+                        if (is_null($eventCount)) {
+                            $eventCount = new EventCounts;
+                            $eventCount->setEvtcntEventid($activeEvent->getId());
+                            $eventCount->setEvtcntCountid($eventCountName->getId());
+                            $eventCount->setEvtcntCountname($eventCountName->getName());
+                            $eventCount->setEvtcntCountcount(0);
+                            $eventCount->setEvtcntNotes("");
+                            $eventCount->save();
+                        }
+                    }
+
+                    $eventCounts = EventCountsQuery::Create()
+                        ->filterByEvtcntEventid($activeEvent->getId())
+                        ->orderByEvtcntCountid(Criteria::ASC)
+                        ->find();
+                }
+
+                $lineDates['date' . $date_count] = 0;
+
+                foreach ($eventCounts as $eventCount) {
+                    if (!in_array($eventCount->getEvtcntCountname(),$evenCountNames)) {
+                        $evenCountNames[] = $eventCount->getEvtcntCountname();
+                    }
+                    if ($eventCount->getEvtcntCountcount()) {
+                        $lineDates['date' . $date_count] += $eventCount->getEvtcntCountcount();
+                        $lineRealPresence += $eventCount->getEvtcntCountcount();
+                    }
+                }
+
+                $date_count++;
+
+                $lineNbrEvents++;
+            }
+
+            $lineArr['firstName'] = implode(", ",$evenCountNames);
+            $lineArr['lastName'] = _("None");
+            $lineArr['birthDate'] = "";
+            $lineArr['gender'] = "?";
+            $lineArr['age'] = "?";
+            $lineArr['homePhone'] = "";
+            $lineArr['groupName'] = "";
+            $lineArr['props'] = "";
+            $lineArr['stats'] = $lineRealPresence;
+            $lineArr['photos'] = SessionUser::getUser()->getPerson()->getPhoto()->getThumbnailURI();
+
+            $lineArr = array_merge($lineArr, $lineDates);
+
+            $aStudents[] = $lineArr;
+
+            if ($maxNbrEvents < $lineNbrEvents) {
+                $maxNbrEvents = $lineNbrEvents;
+            }
+
+            // now we finish the work
 
             $y = 0;
 

@@ -64,7 +64,7 @@ $( "#GroupID" ).change(function() {
                 + i18next.t('Extra students')+' :'
               +'</div>'
               +'<div class="col-md-3">'
-                +'<input class="form-control input-sm" type="text" id="ExtraStudents" name="ExtraStudents"  value="0" maxlength="10" id="sel1" size="11">'
+                +'<input id="ExtraStudents"  class="ExtraStudents form-control input-sm" type="text" name="ExtraStudents" value="0" maxlength="10" size="11">'
               +'</div>'
               +'<div class="col-md-6">'
                 +'<input id="withPictures" type="checkbox" checked> '+ i18next.t('export with photos')
@@ -101,7 +101,7 @@ $( "#GroupID" ).change(function() {
                 var modal = bootbox.dialog({
                     title: i18next.t("Set year range to export"),
                     message: BootboxContentPDF(start,end),
-                    size: "large",
+                    size: "extra-large",
                     buttons: [
                         {
                             label: '<i class="fa fa-times"> ' + i18next.t("Cancel"),
@@ -122,10 +122,10 @@ $( "#GroupID" ).change(function() {
                                 var real_start = moment(dateStart,fmt).format('YYYY-MM-DD');
                                 var real_end = moment(dateEnd,fmt).format('YYYY-MM-DD');
 
-                                var withPictures = ($("#withPictures").is(':checked') == true)?1:0;
-                                var ExtraStudents = $("#ExtraStudents").val();
+                                var withPictures = ($("form #withPictures").is(':checked') == true)?1:0;
+                                var ExtraStudents = $("form .ExtraStudents").val();
 
-                                var exportTypePDF   = $("#pdf").is(":checked");
+                                var exportTypePDF   = $("form #pdf").is(":checked");
 
                                 $("#GroupID").each(function(){
                                     var groupID = $(this).val();
