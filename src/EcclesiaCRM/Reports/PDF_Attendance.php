@@ -415,8 +415,10 @@ class PDF_Attendance extends ChurchInfoReportTCPDF
 //
 // add extra blank lines to the array
 //
+        $array_zeros = array_fill(0, count($labels), 0);
+
         for ($i = 0; $i < $extraLines; $i++) {
-            $realList[$aNameCount++] = $labels;
+            $realList[$aNameCount++] = $array_zeros;
         }
 
         $numMembers = count($realList);
@@ -600,6 +602,9 @@ class PDF_Attendance extends ChurchInfoReportTCPDF
                             $this->SetFont('Times', '', $fontTitleNormal - 2);
                             if ($value == 1) {
                                 $this->WriteAt($nameX + 60 + $datePlace + 1, $y + 2.5, "x");
+                                $sizeArray[$positionSize]++;
+                            } elseif ($value > 0) {
+                                $this->WriteAt($nameX + 60 + $datePlace + 1, $y + 2.5, (int)$value);
                                 $sizeArray[$positionSize]++;
                             }
                             $positionSize++;
