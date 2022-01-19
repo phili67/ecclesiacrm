@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
+"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -789,6 +789,45 @@ msgstr "Trebuie să alegi un calendar."
 msgid "You have to set a Title for your event"
 msgstr "Trebuie să setați un titlu pentru evenimentul dvs."
 
+msgid "In progress...."
+msgstr "În curs de desfășurare...."
+
+msgid "Events for"
+msgstr "Evenimente pentru"
+
+msgid "Event for"
+msgstr "Eveniment pentru"
+
+msgid "Loading finished...."
+msgstr "Încărcare finalizată...."
+
+msgid "Month"
+msgstr "Luna"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Prezența contează cu participanți reali"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Participarea gratuită se numără fără participanți"
+
+msgid "Calendar Type"
+msgstr "Tip de calendar"
+
+msgid "Events in Year"
+msgstr "Evenimentele din an"
+
+msgid "Events in month"
+msgstr "Evenimente în luna"
+
+msgid "Events by Type"
+msgstr "Evenimente pe tipuri"
+
+msgid "Text for Event ID"
+msgstr "Text pentru ID-ul evenimentului"
+
 msgid "CKEditor Template Creation"
 msgstr "Crearea de șabloane CKEditor"
 
@@ -969,15 +1008,6 @@ msgstr "Ștergeți tipul de eveniment"
 
 msgid "This action can never be undone !!!!"
 msgstr "Această acțiune nu poate fi anulată niciodată !!!!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"Ștergerea unui eveniment va șterge, de asemenea, toate datele de prezență "
-"pentru acel eveniment."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Sunteți sigur că doriți să ȘTERGEȚI evenimentul?"
 
 msgid "Confirm Delete"
 msgstr "Confirmați Ștergerea"
@@ -2236,9 +2266,6 @@ msgstr "Autentificare la baza de date restaurată"
 msgid "Restore Error."
 msgstr "Eroare de restaurare."
 
-msgid "In progress...."
-msgstr "În curs de desfășurare...."
-
 msgid "Done !"
 msgstr "Gata!"
 
@@ -2262,9 +2289,6 @@ msgstr "Numele proprietății"
 
 msgid "Loading people in cart...."
 msgstr "Încărcare persoane în cart...."
-
-msgid "Loading finished...."
-msgstr "Încărcare finalizată...."
 
 msgid "Removing people in cart...."
 msgstr "Îndepărtarea persoanelor din cart...."
@@ -2364,6 +2388,15 @@ msgstr "Sunteți pe cale să ștergeți toți membrii grupului ?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Ești sigur? Asta nu poate fi anulat."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "Ștergerea unui eveniment va șterge, de asemenea, toate datele de prezență "
+#~ "pentru acel eveniment."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Sunteți sigur că doriți să ȘTERGEȚI evenimentul?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "

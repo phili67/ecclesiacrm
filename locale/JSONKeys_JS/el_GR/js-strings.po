@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T17:22:44.095Z\n"
+"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -791,6 +791,45 @@ msgstr "Πρέπει να επιλέξετε ένα ημερολόγιο."
 msgid "You have to set a Title for your event"
 msgstr "Πρέπει να ορίσετε έναν τίτλο για την εκδήλωσή σας"
 
+msgid "In progress...."
+msgstr "Σε εξέλιξη...."
+
+msgid "Events for"
+msgstr "Εκδηλώσεις για"
+
+msgid "Event for"
+msgstr "Εκδήλωση για"
+
+msgid "Loading finished...."
+msgstr "Φόρτωση τελικού...."
+
+msgid "Month"
+msgstr "Μήνας"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Η συμμετοχή μετράει με πραγματικούς συμμετέχοντες"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Δωρεάν συμμετοχή μετράει χωρίς συμμετέχοντες"
+
+msgid "Calendar Type"
+msgstr "Τίτλος τύπο"
+
+msgid "Events in Year"
+msgstr "Εκδηλώσεις κατά το έτος"
+
+msgid "Events in month"
+msgstr "Εκδηλώσεις του μήνα"
+
+msgid "Events by Type"
+msgstr "Εκδηλώσεις ανά τύπο"
+
+msgid "Text for Event ID"
+msgstr "Κείμενο για το αναγνωριστικό συμβάντος"
+
 msgid "CKEditor Template Creation"
 msgstr "Δημιουργία προτύπου CKEditor"
 
@@ -970,15 +1009,6 @@ msgstr "Διαγραφή τύπου συμβάντος"
 
 msgid "This action can never be undone !!!!"
 msgstr "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί ποτέ !!!!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"Η διαγραφή μιας εκδήλωσης θα διαγράψει επίσης όλες τις μετρήσεις συμμετοχών "
-"για τη συγκεκριμένη εκδήλωση."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Είστε σίγουροι ότι θέλετε να ΔΙΑΓΡΑΨΕΤΕ το συμβάν;"
 
 msgid "Confirm Delete"
 msgstr "Επιβεβαίωση Διαγραφή"
@@ -2242,9 +2272,6 @@ msgstr "Σύνδεση στην αποκατεστημένη βάση δεδομ
 msgid "Restore Error."
 msgstr "Σφάλμα επαναφοράς."
 
-msgid "In progress...."
-msgstr "Σε εξέλιξη...."
-
 msgid "Done !"
 msgstr "Έγινε!"
 
@@ -2268,9 +2295,6 @@ msgstr "Όνομα ακινήτου"
 
 msgid "Loading people in cart...."
 msgstr "Φόρτωση ανθρώπων σε cart...."
-
-msgid "Loading finished...."
-msgstr "Φόρτωση τελικού...."
 
 msgid "Removing people in cart...."
 msgstr "Απομάκρυνση ατόμων στο cart...."
@@ -2364,12 +2388,18 @@ msgstr "Αριθμός αγοραστή Εκδότης"
 
 msgid "Select"
 msgstr "Επιλέξτε"
+
 msgid "You're about to delete all the group members ?"
-msgstr ""
-"Πρόκειται να διαγράψετε όλα τα μέλη της "
-"ομάδας ?"
+msgstr "Πρόκειται να διαγράψετε όλα τα μέλη της ομάδας ?"
 
 msgid "Are you sure ? This can't be undone."
-msgstr ""
-"Είσαι σίγουρος; Αυτό δεν μπορεί να "
-"αναιρεθεί."
+msgstr "Είσαι σίγουρος; Αυτό δεν μπορεί να αναιρεθεί."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "Η διαγραφή μιας εκδήλωσης θα διαγράψει επίσης όλες τις μετρήσεις "
+#~ "συμμετοχών για τη συγκεκριμένη εκδήλωση."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Είστε σίγουροι ότι θέλετε να ΔΙΑΓΡΑΨΕΤΕ το συμβάν;"

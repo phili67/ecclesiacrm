@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
+"POT-Creation-Date: 2022-01-19T15:57:01.832Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -787,6 +787,45 @@ msgstr "Du skal vælge en kalender."
 msgid "You have to set a Title for your event"
 msgstr "Du skal angive en titel for din begivenhed"
 
+msgid "In progress...."
+msgstr "I gang...."
+
+msgid "Events for"
+msgstr "Begivenheder for"
+
+msgid "Event for"
+msgstr "Begivenhed for"
+
+msgid "Loading finished...."
+msgstr "Indlæsning færdig...."
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Deltagelse tæller med rigtige deltagere"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Gratis deltagelse tæller uden deltagere"
+
+msgid "Calendar Type"
+msgstr "Kalender type"
+
+msgid "Events in Year"
+msgstr "Begivenheder i år"
+
+msgid "Events in month"
+msgstr "Begivenheder i måneden"
+
+msgid "Events by Type"
+msgstr "Begivenheder efter type"
+
+msgid "Text for Event ID"
+msgstr "Tekst til hændelses-ID"
+
 msgid "CKEditor Template Creation"
 msgstr "Oprettelse af CKEditor-skabeloner"
 
@@ -964,15 +1003,6 @@ msgstr "Slet hændelsestype"
 
 msgid "This action can never be undone !!!!"
 msgstr "Denne handling kan aldrig gøres om igen !!!!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"Hvis du sletter en begivenhed, slettes også alle optællinger af deltagere "
-"for den pågældende begivenhed."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Er du sikker på, at du ønsker at SLETTE begivenheden?"
 
 msgid "Confirm Delete"
 msgstr "Bekræft Sletning"
@@ -2215,9 +2245,6 @@ msgstr "Log ind på den genoprettede database"
 msgid "Restore Error."
 msgstr "Gendan fejl."
 
-msgid "In progress...."
-msgstr "I gang...."
-
 msgid "Done !"
 msgstr "Færdig!"
 
@@ -2241,9 +2268,6 @@ msgstr "Ejendomsnavn"
 
 msgid "Loading people in cart...."
 msgstr "Indlæsning af personer i vogn...."
-
-msgid "Loading finished...."
-msgstr "Indlæsning færdig...."
 
 msgid "Removing people in cart...."
 msgstr "Fjernelse af personer i kart...."
@@ -2343,6 +2367,15 @@ msgstr "Er du ved at slette alle gruppens medlemmer?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Er du sikker? Dette kan ikke gøres om."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "Hvis du sletter en begivenhed, slettes også alle optællinger af deltagere "
+#~ "for den pågældende begivenhed."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Er du sikker på, at du ønsker at SLETTE begivenheden?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
