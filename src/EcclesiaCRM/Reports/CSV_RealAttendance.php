@@ -11,6 +11,9 @@
 
 namespace EcclesiaCRM\Reports;
 
+use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\EventCounts;
+use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\EventQuery;
@@ -52,6 +55,7 @@ class CSV_RealAttendance
         $eol = "\r\n";
 
         $labelArr = [];
+        $labelArr['groupName'] = InputUtils::translate_special_charset("Group Name");
         $labelArr['firstName'] = InputUtils::translate_special_charset("First Name");
         $labelArr['lastName'] = InputUtils::translate_special_charset("Last Name");
         $labelArr['birthDate'] = InputUtils::translate_special_charset("Birth Date");
@@ -77,7 +81,7 @@ class CSV_RealAttendance
 
             $date_count = 0;
 
-            $buffer = _("Name").$delimiter._("First Name").$delimiter._("Phone").$delimiter._("Birthdate").$delimiter._("Age").$delimiter._("Props").$delimiter._("Stats");
+            $buffer = _("Group Name").$delimiter._("Name").$delimiter._("First Name").$delimiter._("Phone").$delimiter._("Birthdate").$delimiter._("Age").$delimiter._("Props").$delimiter._("Stats");
 
             foreach ($activeEvents as $activeEvent) {// we loop in the events of the year
                 $date = OutputUtils::change_date_for_place_holder($activeEvent->getStart()->format("Y-m-d"));
@@ -163,6 +167,7 @@ class CSV_RealAttendance
                         $buffer2 .= $res.$delimiter;
                     }
 
+                    $buffer .= $group->getName().$delimiter;
                     $buffer .= $person->getLastName().$delimiter;
                     $buffer .= $person->getFirstName().$delimiter;
                     $buffer .= $homePhone.$delimiter;
@@ -171,11 +176,75 @@ class CSV_RealAttendance
                     $buffer .= $props.$delimiter;
                     $buffer .= "\"".$lineRealPresence." "._("of")." ".($date_count)."\"".$delimiter;
                     $buffer .= $buffer2.$eol;
-
-
-
                 }
             }
+
+            /* code for free attendees */
+            // we add now the free attendees
+            $buffer2 = "";
+            $evenCountNames = [];
+            $lineRealPresence = 0;
+
+            foreach ($activeEvents as $activeEvent) {
+                $eventCounts = EventCountsQuery::Create()
+                    ->filterByEvtcntEventid($activeEvent->getId())
+                    ->orderByEvtcntCountid(Criteria::ASC)
+                    ->find();
+
+                if ( $eventCounts->count() == 0) {
+                    $eventCountNames = EventCountNameQuery::Create()
+                        ->leftJoinEventTypes()
+                        ->Where('type_id=' . $activeEvent->getType())
+                        ->find();
+
+                    foreach ($eventCountNames as $eventCountName) {
+                        $eventCount = EventCountsQuery::Create()
+                            ->filterByEvtcntEventid($activeEvent->getId())
+                            ->findOneByEvtcntCountid($eventCountName->getId());
+
+                        if (is_null($eventCount)) {
+                            $eventCount = new EventCounts;
+                            $eventCount->setEvtcntEventid($activeEvent->getId());
+                            $eventCount->setEvtcntCountid($eventCountName->getId());
+                            $eventCount->setEvtcntCountname($eventCountName->getName());
+                            $eventCount->setEvtcntCountcount(0);
+                            $eventCount->setEvtcntNotes("");
+                            $eventCount->save();
+                        }
+                    }
+
+                    $eventCounts = EventCountsQuery::Create()
+                        ->filterByEvtcntEventid($activeEvent->getId())
+                        ->orderByEvtcntCountid(Criteria::ASC)
+                        ->find();
+                }
+
+                $res = 0;
+
+                foreach ($eventCounts as $eventCount) {
+                    if (!in_array($eventCount->getEvtcntCountname(),$evenCountNames)) {
+                        $evenCountNames[] = $eventCount->getEvtcntCountname();
+                    }
+                    if ($eventCount->getEvtcntCountcount()) {
+                        $res += $eventCount->getEvtcntCountcount();
+                        $lineRealPresence += $eventCount->getEvtcntCountcount();
+                    }
+                }
+
+                $buffer2 .= $res.$delimiter;
+            }
+
+            $buffer .= $group->getName().$delimiter;
+            $buffer .= implode(", ",$evenCountNames).$delimiter;
+            $buffer .= _("None").$delimiter;
+            $buffer .= _("None").$delimiter;
+            $buffer .= _("None").$delimiter;
+            $buffer .= _("None").$delimiter;
+            $buffer .= _("None").$delimiter;
+            $buffer .= "\"".$lineRealPresence." "."\"".$delimiter;
+            $buffer .= $buffer2.$eol;
+
+            /* end of free attendees code */
 
             // Export file
             header('Pragma: no-cache');
