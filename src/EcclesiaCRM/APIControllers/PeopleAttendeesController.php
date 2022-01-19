@@ -194,7 +194,7 @@ class PeopleAttendeesController
     {
         $requestValues = (object)$request->getParsedBody();
 
-        if (isset ($requestValues->iChildID) && isset ($requestValues->iAdultID) && isset ($requestValues->eventID)) {
+        if ((isset ($requestValues->iChildID) || isset ($requestValues->iAdultID)) && isset ($requestValues->eventID)) {
             $attendee = EventAttendQuery::create()->filterByEventId($requestValues->eventID)->findOneByPersonId($requestValues->iChildID);
             if ($attendee) {
                 return $response->withJson(['status' => "failed"]);
@@ -202,11 +202,18 @@ class PeopleAttendeesController
                 $attendee = new EventAttend();
                 $attendee->setEventId($requestValues->eventID);
                 $attendee->setPersonId($requestValues->iChildID);
+                $attendee->setCheckinId(SessionUser::getId());
                 $attendee->setCheckinDate(date("Y-m-d H:i:s"));
-                if (isset ($requestValues->iAdultID)) {
-                    $attendee->setCheckinId($requestValues->iAdultID);
-                }
                 $attendee->save();
+
+                if (isset ($requestValues->iAdultID)) {
+                    $attendee = new EventAttend();
+                    $attendee->setEventId($requestValues->eventID);
+                    $attendee->setPersonId($requestValues->iAdultID);
+                    $attendee->setCheckinId(SessionUser::getId());
+                    $attendee->setCheckinDate(date("Y-m-d H:i:s"));
+                    $attendee->save();
+                }
             }
 
             return $response->withJson(['status' => "success"]);
