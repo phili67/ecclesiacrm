@@ -147,9 +147,19 @@ if (SessionUser::getUser()->isAddRecords()) {
         </div>
     </div>
     <!-- /.box-header -->
-    <div class="card-body teachers_container"></div>
-
-
+    <div class="card-body teachers_container">
+        <?php
+        if (!SessionUser::getUser()->isAddRecords()) {
+        ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <label><?=  _("Private Data") ?></label>
+                </div>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
     <?php
     if (SessionUser::getUser()->isAddRecords()) {
         ?>
