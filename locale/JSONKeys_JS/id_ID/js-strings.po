@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
+"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -785,6 +785,45 @@ msgstr "Kau harus memilih kalender."
 msgid "You have to set a Title for your event"
 msgstr "Kau harus mengatur gelar untuk acara Anda"
 
+msgid "In progress...."
+msgstr "Sedang dalam proses..."
+
+msgid "Events for"
+msgstr "Untuk apa?"
+
+msgid "Event for"
+msgstr "Untuk apa?"
+
+msgid "Loading finished...."
+msgstr "Pengisian selesai...."
+
+msgid "Month"
+msgstr "Bulan"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Counts yang sangat penting"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Gratis Counts tanpa pengawasan"
+
+msgid "Calendar Type"
+msgstr "Kalender Tipe"
+
+msgid "Events in Year"
+msgstr "Events in Year"
+
+msgid "Events in month"
+msgstr "Events in bulan"
+
+msgid "Events by Type"
+msgstr "Events by Type"
+
+msgid "Text for Event ID"
+msgstr "SMS untuk KTP Event"
+
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Template Creation"
 
@@ -962,15 +1001,6 @@ msgstr "Hapus Event Tipe"
 
 msgid "This action can never be undone !!!!"
 msgstr "Tindakan ini tidak akan pernah bisa dibatalkan! !\" Ugh!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"Menghapus peristiwa juga akan menghapus semua kehadiran yang dihitung untuk "
-"acara itu."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Apakah Anda yakin Anda ingin DELETE acara?"
 
 msgid "Confirm Delete"
 msgstr "Konfirmasi Hapus"
@@ -2215,9 +2245,6 @@ msgstr "Login untuk mengembalikan Database"
 msgid "Restore Error."
 msgstr "Kembalikan kesalahan."
 
-msgid "In progress...."
-msgstr "Sedang dalam proses..."
-
 msgid "Done !"
 msgstr "Selesai!"
 
@@ -2241,9 +2268,6 @@ msgstr "Nama properti"
 
 msgid "Loading people in cart...."
 msgstr "Memiliki orang di kereta ..."
-
-msgid "Loading finished...."
-msgstr "Pengisian selesai...."
 
 msgid "Removing people in cart...."
 msgstr "Menghapus orang-orang di kereta ...."
@@ -2343,6 +2367,15 @@ msgstr "Kau akan menghapus semua anggota grup?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Apakah Anda yakin? Ini tidak bisa dibatalkan."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "Menghapus peristiwa juga akan menghapus semua kehadiran yang dihitung "
+#~ "untuk acara itu."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Apakah Anda yakin Anda ingin DELETE acara?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
