@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             "eventID": event.extendedProps.eventID
                                         })
                                     }).done(function (data) {
-                                        location.href = window.CRM.root + '/EditEventAttendees.php';
+                                        location.href = window.CRM.root + '/v2/calendar/events/Attendees/Edit';
                                     });
                                 }
                             },
@@ -709,7 +709,7 @@ $(document).ready(function () {
                  label: i18next.t('Add More Attendees'),
                  className: 'btn btn-info',
                  callback: function () {
-                    location.href = window.CRM.root + '/EditEventAttendees.php';
+                    location.href = window.CRM.root + '/v2/calendar/events/Attendees/Edit';
                  }
               },
               confirm: {

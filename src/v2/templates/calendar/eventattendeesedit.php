@@ -1,64 +1,45 @@
 <?php
+
 /*******************************************************************************
  *
- *  filename    : EditEventAttendees.php
- *  last change : 2018-01-08
- *  description : Edit Event Attendees
+ *  filename    : templates/Calendar.php
+ *  last change : 2019-02-5
+ *  description : manage the full Calendar
  *
  *  http://www.ecclesiacrm.com/
- *        copyright 2018 Philippe Logel all right reserved
+ *
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incorporated in another software authorization
  *
  ******************************************************************************/
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
+use EcclesiaCRM\dto\SystemURLs;
+
+use EcclesiaCRM\Utils\OutputUtils;
 
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\OutputUtils;
+
 use EcclesiaCRM\Utils\MiscUtils;
 
-$sPageTitle = _('Event Attendees');
-require 'Include/Header.php';
+require $sRootDocument . '/Include/Header.php';
 
-if (isset($_POST['Action'])) {
-    $sAction = $_POST['Action'];
-    $EventID = $_POST['EID']; // from ListEvents button=Attendees
-    $EvtName = $_POST['EName'];
-    $EvtDesc = $_POST['EDesc'];
-    $EvtDate = $_POST['EDate'];
-
-    $_SESSION['Action'] = $sAction;
-    $_SESSION['EID'] = $EventID;
-    $_SESSION['EName'] = $EvtName;
-    $_SESSION['EDesc'] = $EvtDesc;
-    $_SESSION['EDate'] = $EvtDate;
-} else if (isset($_SESSION['Action'])) {
-    $sAction = $_SESSION['Action'];
-    $EventID = $_SESSION['EID'];
-    $EvtName = $_SESSION['EName'];
-    $EvtDesc = $_SESSION['EDesc'];
-    $EvtDate = $_SESSION['EDate'];
-}
-
-// Construct the form
 ?>
 
-<div class="card">
+<div class="card card-info">
     <div class='card-header'>
-        <h3 class='card-title'><?= _('Event ID:') . ' ' . $EventID ?></h3>
+        <h3 class='card-title'>(<?= _('Event ID:') . ' ' . $EventID ?>)</h3>
     </div>
     <div class="card-body">
         <p style="margin-left:10px">
-            <strong><?= _('Name') ?>:</strong> <?= $EvtName ?><br/>
-            <strong><?= _('Date') ?>:</strong> <?= OutputUtils::FormatDate($EvtDate, 1) ?><br/>
+            <strong><?= _('Date') ?>:</strong> <?= $EvtDate ?><br/>
             <strong><?= _('Description') ?>:</strong> <?= $EvtDesc ?><br/>
         </p>
     </div>
 </div>
 
-<div class='card'>
+<div class='card card-gray'>
     <div class="card-header">
         <div class="card-title">
             <?= _("Attendees") ?>
@@ -116,8 +97,8 @@ if (isset($_POST['Action'])) {
                         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:' . $sEmail . '" title="Send Email">' . $sEmail . '</a>' : _('Not Available') ?></td>
                         <td class="TextColumn"><?= $sHomePhone ? '<a href="tel:' . $sHomePhone . '" title="Phone to">' . $sHomePhone . '</a>' : _('Not Available') ?></td>
                         <td colspan="1" align="center">
-                            <a class="btn btn-danger DeleleAttendees" data-personid="<?= $person->getId() ?>"
-                               data-eventid="<?= $EventID ?>"> <?= _("Delete") ?></a>
+                            <a class="btn btn-danger btn-sm DeleleAttendees" data-personid="<?= $person->getId() ?>"
+                               data-eventid="<?= $EventID ?>"><i class="fa fa-times"></i> <?= _("Delete") ?></a>
                         </td>
                     </tr>
                     <?php
@@ -150,7 +131,7 @@ if (isset($_POST['Action'])) {
             <div class="col-md-2"></div>
             <div class="col-md-3">
                 <a id="DeleleAllAttendees" class="btn btn-danger <?= ($numAttRows == 0) ? "disabled" : "" ?>"
-                   data-eventid="<?= $EventID ?>"><?= _("Delele All Attendees") ?></a>
+                   data-eventid="<?= $EventID ?>"><i class="fa fa-times"></i> <?= _("Delele All Attendees") ?></a>
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-3">
@@ -179,6 +160,8 @@ if (isset($_POST['Action'])) {
     </a>
 </div>
 
+<br/>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     //Added by @saulowulhynek to translation of datatable nav terms
     window.CRM.currentEvent = <?= $EventID ?>;
@@ -203,4 +186,5 @@ if (isset($_POST['Action'])) {
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/event/EditEventAttendees.js"></script>
 
-<?php require 'Include/Footer.php' ?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+

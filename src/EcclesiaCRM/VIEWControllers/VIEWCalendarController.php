@@ -135,4 +135,49 @@ class VIEWCalendarController {
 
         return $paramsArguments;
     }
+
+    public function renderCalendarEventAttendeesEdit (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer('templates/calendar/');
+
+        return $renderer->render($response, 'eventattendeesedit.php', $this->argumentsCalendarEventAttendeesEditListArray());
+    }
+
+    public function argumentsCalendarEventAttendeesEditListArray ()
+    {
+        if (isset($_POST['Action'])) {
+            $sAction = $_POST['Action'];
+            $EventID = $_POST['EID']; // from ListEvents button=Attendees
+            $EvtName = $_POST['EName'];
+            $EvtDesc = $_POST['EDesc'];
+            $EvtDate = $_POST['EDate'];
+
+            $_SESSION['Action'] = $sAction;
+            $_SESSION['EID'] = $EventID;
+            $_SESSION['EName'] = $EvtName;
+            $_SESSION['EDesc'] = $EvtDesc;
+            $_SESSION['EDate'] = $EvtDate;
+        } else if (isset($_SESSION['Action'])) {
+            $sAction = $_SESSION['Action'];
+            $EventID = $_SESSION['EID'];
+            $EvtName = $_SESSION['EName'];
+            $EvtDesc = $_SESSION['EDesc'];
+            $EvtDate = $_SESSION['EDate'];
+        }
+
+        $sPageTitle = _('Event Attendees'). ":" . $EvtName;
+
+        $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
+            'sRootDocument' => SystemURLs::getDocumentRoot(),
+            'sPageTitle'  => $sPageTitle,
+            'sAction'     => $sAction,
+            'EventID'     => $EventID,
+            'EvtName'     => $EvtName,
+            'EvtDesc'     => $EvtDesc,
+            'EvtDate'     => $EvtDate
+        ];
+
+        return $paramsArguments;
+    }
+
+
 }
