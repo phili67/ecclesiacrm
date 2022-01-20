@@ -475,7 +475,7 @@ class CalendarService
                     . '                <td style="padding: 7px 0;border:none;">';
 
                 if ($eventRights) {
-                    $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/EditEventAttendees.php" method="POST">';
+                    $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/v2/calendar/events/Attendees/Edit" method="POST">';
                 }
 
                 $ret .= '         <input type="hidden" name="EID" value="' . $eventID . '">'
@@ -512,7 +512,7 @@ class CalendarService
                     . '</tr>'
                     . '</table>';
             } else {
-                $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/EditEventAttendees.php" method="POST">'
+                $ret .= '<form name="EditAttendees" action="' . SystemURLs::getRootPath() . '/v2/calendar/events/Attendees/Edit" method="POST">'
                     . '  <input type="hidden" name="EID" value="' . $eventID . '">'
                     . '  <input type="hidden" name="EName" value="' . $title . '">'
                     . '  <input type="hidden" name="EDesc" value="' . $desc . '">'
