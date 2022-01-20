@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-04T19:16:11.100Z\n"
+"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -789,6 +789,45 @@ msgstr "Tens de escolher um calendário."
 msgid "You have to set a Title for your event"
 msgstr "Você tem que definir um título para o seu evento"
 
+msgid "In progress...."
+msgstr "Em progresso...."
+
+msgid "Events for"
+msgstr "Eventos para"
+
+msgid "Event for"
+msgstr "Evento para"
+
+msgid "Loading finished...."
+msgstr "Carregamento terminado...."
+
+msgid "Month"
+msgstr "Mês"
+
+msgid "Info"
+msgstr "Informações"
+
+msgid "Attendance Counts with real Attendees"
+msgstr "Presença Conta com Participantes reais"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Livre Presença Conta sem Participantes"
+
+msgid "Calendar Type"
+msgstr "Tipo de Calendário"
+
+msgid "Events in Year"
+msgstr "Eventos no Ano"
+
+msgid "Events in month"
+msgstr "Eventos no mês"
+
+msgid "Events by Type"
+msgstr "Eventos por tipo"
+
+msgid "Text for Event ID"
+msgstr "Texto para identificação do evento"
+
 msgid "CKEditor Template Creation"
 msgstr "Criação do modelo do CKEditor"
 
@@ -967,15 +1006,6 @@ msgstr "Eliminar tipo de evento"
 
 msgid "This action can never be undone !!!!"
 msgstr "Esta acção nunca poderá ser desfeita !!!!"
-
-msgid ""
-"Deleting an event will also delete all attendance counts for that event."
-msgstr ""
-"A eliminação de um evento também eliminará toda a contagem de presenças para "
-"esse evento."
-
-msgid "Are you sure you want to DELETE the event ?"
-msgstr "Tem a certeza que quer APAGAR o evento?"
 
 msgid "Confirm Delete"
 msgstr "Confirmar Eliminar"
@@ -2225,9 +2255,6 @@ msgstr "Login para a base de dados restaurada"
 msgid "Restore Error."
 msgstr "Restaurar erro."
 
-msgid "In progress...."
-msgstr "Em progresso...."
-
 msgid "Done !"
 msgstr "Feito!"
 
@@ -2251,9 +2278,6 @@ msgstr "Nome do Imóvel"
 
 msgid "Loading people in cart...."
 msgstr "Carregando pessoas no carrinho...."
-
-msgid "Loading finished...."
-msgstr "Carregamento terminado...."
 
 msgid "Removing people in cart...."
 msgstr "Removendo pessoas no carrinho...."
@@ -2353,6 +2377,15 @@ msgstr "Estás prestes a apagar todos os membros do grupo?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Tens a certeza? Isto não pode ser desfeito."
+
+#~ msgid ""
+#~ "Deleting an event will also delete all attendance counts for that event."
+#~ msgstr ""
+#~ "A eliminação de um evento também eliminará toda a contagem de presenças "
+#~ "para esse evento."
+
+#~ msgid "Are you sure you want to DELETE the event ?"
+#~ msgstr "Tem a certeza que quer APAGAR o evento?"
 
 #~ msgid ""
 #~ "You can create the event automatically with the students<br> - OR - "
