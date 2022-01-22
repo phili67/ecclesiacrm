@@ -235,6 +235,9 @@ class MailChimpService
         $type = true; //Whether the list supports multiple formats for emails. When set to true, subscribers can choose whether they want to receive HTML or plain-text emails. When set to false, subscribers will receive HTML emails, with a plain-text alternative backup.
         $visibility = $Status; // Whether this list is public or private : pub or prv
 
+        if ($state == "") {
+            $state = $country;
+        }
 
         $data = array( // the information for your new list--not all is required
             "name" => $name,
@@ -842,9 +845,9 @@ class MailChimpService
         }
     }
 
-    public function sendAllMembers($array)
+    public function sendAllMembers($array, $timeout=500)
     {
-        $res = $this->myMailchimp->post("batches", $array);
+        $res = $this->myMailchimp->post("batches", $array, $timeout);
 
         //$this->restoreCache();
 

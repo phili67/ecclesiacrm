@@ -14,6 +14,7 @@ use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 
 // Routes
@@ -418,6 +419,8 @@ class MailchimpController
 
         $input = (object)$request->getParsedBody();
 
+        $res = "";
+
         if ( isset ($input->list_id) && isset ($input->tag_ID) ){
             $mailchimp = $this->container->get('MailChimpService');
 
@@ -429,6 +432,8 @@ class MailchimpController
                 return $response->withJson(['success' => false, "error" => $res]);
             }
         }
+
+        return $response->withJson(['success' => false, "error" => $res]);
     }
 
     public function removeTagForMembers (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -737,7 +742,6 @@ class MailchimpController
 
                 $persons = array_merge ($onlyPersons->toArray(),$onlyFamilyPersons->toArray());
 
-
                 $resError = [];
 
                 $numberOfPerson = 0;
@@ -748,64 +752,17 @@ class MailchimpController
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                        $listID   = $new_List['id'];
-
-                        $numberOfPerson = 0;
-
-                        $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
-
-                        $address = $person->getAddressForMailChimp();
-
-                        if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
-                        }
-
-                        $phone = $person->getHomePhone();
-
-                        if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['PHONE']   = $phone;
-                        }
-
-                        $data = array(
-                            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
-                            "email_address" => $person->getEmail(),
-                            "status"        => "subscribed",
-                            "merge_fields"  => $merge_fields
-                        );
-
-                        $json_data = json_encode($data);
-
-                        $allUsers[] = array(
-                            "method" => "POST",
-                            "path" => "/lists/" . $listID . "/members/",
-                            "body" => $json_data
-                        );
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
                     }
 
                     $count++;
-                }
-
-                $array = array(
-                    "operations" => $allUsers
-                );
-
-                $res = $mailchimp->sendAllMembers($array);
-
-                if ( array_key_exists ('title',$res) ) {
-                    $resError[] = $res;
                 }
 
                 sleep ( (int)($count*3)/10 );
 
                 $mailchimp->reloadMailChimpDatas();
 
-                if ( count($resError) > 0) {
-                    return $response->withJson(['success' => false, "error" => $resError]);
-                } else {
-                    return $response->withJson(['success' => true, "result" => $res]);
-                }
-
+                return $response->withJson(['success' => true, "result" => $res]);
             }
         }
 
@@ -830,77 +787,24 @@ class MailchimpController
                     ->_or()->filterByWorkEmail(null, Criteria::NOT_EQUAL)
                     ->find();
 
-                $resError = [];
-
                 $numberOfPerson = 0;
-                $list           = $mailchimp->getListFromListId($input->list_id);
-                $listID         = $input->list_id;
-
-                $allUsers = [];
-
                 $count = 0;
 
                 foreach ($persons as $person) {
                     if (strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                        $listID   = $new_List['id'];
-                        $numberOfPerson = 0;
-
-                        $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
-
-                        $address = $person->getAddressForMailChimp();
-
-                        if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['ADDRESS'] = $address;
-                        }
-
-                        $phone = $person->getHomePhone();
-
-                        if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['PHONE']   = $address;
-                        }
-
-                        $data = array(
-                            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
-                            "email_address" => $person->getEmail(),
-                            "status"        => "subscribed",
-                            "merge_fields"  => $merge_fields
-                        );
-
-                        $json_data = json_encode($data);
-
-                        $allUsers[] = array(
-                            "method" => "POST",
-                            "path" => "/lists/" . $listID . "/members/",
-                            "body" => $json_data
-                        );
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
 
                         $count++;
                     }
-                }
-
-                $array = array(
-                    "operations" => $allUsers
-                );
-
-                $res = $mailchimp->sendAllMembers($array);
-
-                if ( array_key_exists ('title',$res) ) {
-                    $resError[] = $res;
                 }
 
                 sleep ( (int)($count*3)/10 );
 
                 $mailchimp->reloadMailChimpDatas();
 
-                if ( count($resError) > 0) {
-                    return $response->withJson(['success' => false, "error" => $resError]);
-                } else {
-                    return $response->withJson(['success' => true, "result" => $res]);
-                }
-
+                return $response->withJson(['success' => true, "result" => $res]);
             }
         }
 
@@ -986,7 +890,7 @@ class MailchimpController
             if (!empty($families))
             {
                 $count = 0;
-                $allUsers = [];
+                $count = 0;
 
                 $numberOfPerson = 0;
 
@@ -999,65 +903,22 @@ class MailchimpController
                     if (!is_null ($person) && strlen($person->getEmail()) > 0) {
                         $numberOfPerson++;
 
-                        $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
-                        $listID   = $new_List['id'];
-                        $numberOfPerson = 0;
-
-                        $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
-
-                        $address = $person->getAddressForMailChimp();
-
-                        if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['ADDRESS'] = $address;
-                        }
-
-                        $phone = $person->getHomePhone();
-
-                        if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
-                            $merge_fields['PHONE']   = $address;
-                        }
-
-                        $data = array(
-                            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
-                            "email_address" => $person->getEmail(),
-                            "status"        => "subscribed",
-                            "merge_fields"  => $merge_fields
-                        );
-
-                        $json_data = json_encode($data);
-
-                        $allUsers[] = array(
-                            "method" => "POST",
-                            "path" => "/lists/" . $listID . "/members/",
-                            "body" => $json_data
-                        );
+                        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
 
                         $count++;
                     }
-                }
-
-                $array = array(
-                    "operations" => $allUsers
-                );
-
-                $res = $mailchimp->sendAllMembers($array);
-
-                if ( array_key_exists ('title',$res) ) {
-                    $resError[] = $res;
                 }
 
                 sleep ( (int)($count*3)/10 );
 
                 $mailchimp->reloadMailChimpDatas();
 
-                if ( count($resError) > 0) {
-                    return $response->withJson(['success' => false, "error" => $resError]);
-                } else {
-                    return $response->withJson(['success' => true, "result" => $res]);
-                }
+                return $response->withJson(['success' => true, "result" => $res]);
             }
             return $response->withJson(['success' => false, "error" => "try problem"]);
         }
+
+        return $response->withJson(['success' => false, "error" => "try problem"]);
     }
 
     public function addGroup (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -1073,7 +934,7 @@ class MailchimpController
             $mailchimp = $this->container->get('MailChimpService');
 
             if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-                $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+                $members = Person2group2roleP2g2rQuery::create()
                     ->joinWithPerson()
                     ->usePersonQuery()
                     ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
