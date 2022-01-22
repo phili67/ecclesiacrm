@@ -42,6 +42,10 @@ use EcclesiaCRM\utils\RedirectUtils;
 $EventID = 0;
 $event = null;
 
+// for ckeditor fonts
+$contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
+$extraFont = SystemConfig::getValue("sMailChimpExtraFont");
+
 if (array_key_exists('EventID', $_POST)) {
     // from ListEvents button=Attendees
     $EventID = InputUtils::FilterInt($_POST['EventID']);
@@ -483,6 +487,9 @@ if ($EventID > 0) {
     window.CRM.isModifiable = true;
     window.CRM.EventID = <?= $EventID ?>;
     window.CRM.isSundaySchool = <?= ($bSundaySchool) ? 'true' : 'false' ?>;
+
+    window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
+    window.CRM.extraFont = '<?= $extraFont ?>';
 
     window.CRM.churchloc = {
         lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,

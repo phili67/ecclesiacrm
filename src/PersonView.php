@@ -55,6 +55,9 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\SessionUser;
 
+// for ckeditor fonts
+$contentsExternalCssFont = SystemConfig::getValue("sMailChimpContentsExternalCssFont");
+$extraFont = SystemConfig::getValue("sMailChimpExtraFont");
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -2018,6 +2021,9 @@ if ($sMapProvider == 'OpenStreetMap') {
     window.CRM.normalMail = "<?= $sEmail ?>";
     window.CRM.workMail = "<?= $person->getWorkEmail() ?>";
     window.CRM.browserImage = false;
+
+    window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
+    window.CRM.extraFont = '<?= $extraFont ?>';
 
     if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
         (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)))) {

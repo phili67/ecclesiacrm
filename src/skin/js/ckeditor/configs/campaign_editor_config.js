@@ -6,7 +6,7 @@
 
 CKEDITOR.editorConfig = function (config) {
     config.height = '400px';
-
+    config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
     config.contentsCss = window.CRM.contentsExternalCssFont;
 
     //the next line add the new font to the combobox in CKEditor
@@ -113,19 +113,23 @@ CKEDITOR.editorConfig = function (config) {
         },
     };
 
-    var documentTools = ['Preview', 'Print', '-', 'mergeTagsMailChimp'];
+    var documentTools = ['Preview', 'Print'];
 
     if (window.CRM.bHtmlSourceEditor != "") {
-        documentTools = ['Source', '-', 'Preview', 'Print', '-', 'mergeTagsMailChimp'];
+        documentTools = ['Source', '-', 'Preview', 'Print'];
     }
 
+    var templates = ['-', 'mergeTagsMailChimp', '-','ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton', '-', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')];
+    var clipboard = ['-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'];
+
     config.toolbar = [
-        {name: 'document', items: documentTools},
-        {name: 'export', items: ['export', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')]},
-        {name: 'template', items: ['document', 'ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton']},//'source',
-        {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+        {name: 'document', items: documentTools.concat(templates,clipboard)},
         {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
         //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+        '/',
+        {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
+        {name: 'colors', items: ['TextColor', 'BGColor']},
+        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         '/',
         {
             name: 'basicstyles',
@@ -136,18 +140,13 @@ CKEDITOR.editorConfig = function (config) {
             items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',]
         },
         {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
+        '/',
         {
             name: 'insert',
             items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
         },
-        '/',
-        {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
-        {name: 'colors', items: ['TextColor', 'BGColor']},
-        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         {name: 'about', items: ['About']}
     ];
-
-    config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
     config.plugins =
         'about,' +

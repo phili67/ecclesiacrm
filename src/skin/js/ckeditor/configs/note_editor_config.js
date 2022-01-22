@@ -6,6 +6,15 @@
 CKEDITOR.editorConfig = function (config) {
     config.height = '400px';
 
+    config.contentsCss = window.CRM.contentsExternalCssFont;
+
+    //the next line add the new font to the combobox in CKEditor
+    config.font_names = "Arial/Arial, Helvetica, sans-serif;Comic Sans MS/Comic Sans MS, cursive;Courier New/Courier New, Courier, monospace;Georgia/Georgia, serif;Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;Tahoma/Tahoma, Geneva, sans-serif;Times New Roman/Times New Roman, Times, serif;Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;Verdana/Verdana, Geneva, sans-serif";
+
+    if (window.CRM.extraFont != "") {
+        config.font_names = window.CRM.extraFont + ';' + config.font_names;
+    }
+
     config.dropdownmenumanager = {
         'mergeTagsMailChimp': {
             items: [
@@ -44,14 +53,17 @@ CKEDITOR.editorConfig = function (config) {
         documentTools = ['Source', '-', 'Preview', 'Print'];
     }
 
+    var templates = ['-', 'ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton', '-', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')];
+    var clipboard = ['-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'];
 
     config.toolbar = [
-        {name: 'document', items: documentTools},
-        {name: 'export', items: ['export', ((window.CRM.bEDrive) ? 'SaveAsWordFileButton' : 'none')]},
-        {name: 'template', items: ['document', 'ApplyTemplateButton', 'ManageTemplateButton', 'SaveTemplateButton']},//'source',
-        {name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+        {name: 'document', items: documentTools.concat(templates,clipboard)},
         {name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll']},
         //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+        '/',
+        {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
+        {name: 'colors', items: ['TextColor', 'BGColor']},
+        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         '/',
         {
             name: 'basicstyles',
@@ -71,10 +83,6 @@ CKEDITOR.editorConfig = function (config) {
             name: 'insert',
             items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
         },
-        '/',
-        {name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize']},
-        {name: 'colors', items: ['TextColor', 'BGColor']},
-        {name: 'tools', items: ['Maximize', 'ShowBlocks']},
         {name: 'about', items: ['About']}
     ];
 
