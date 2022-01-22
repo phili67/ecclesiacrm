@@ -65,6 +65,8 @@ class VIEWCalendarController {
             'sRootDocument' => SystemURLs::getDocumentRoot(),
             'sPageTitle'  => _('Church Calendar'),
             'eventTypes'  => $eventTypes,
+            'contentsExternalCssFont' => SystemConfig::getValue("sMailChimpContentsExternalCssFont"),
+            'extraFont' => SystemConfig::getValue("sMailChimpExtraFont"),
             'coordinates' => [
                 'lat' => $lat,
                 'lng' => $lng

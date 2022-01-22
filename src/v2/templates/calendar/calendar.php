@@ -274,6 +274,9 @@ require $sRootDocument . '/Include/Header.php';
   window.CRM.calendarSignature = null;
   window.CRM.calendar = null;
 
+  window.CRM.contentsExternalCssFont = '<?= $contentsExternalCssFont ?>';
+  window.CRM.extraFont = '<?= $extraFont ?>';
+
   window.CRM.churchloc = {
       lat: <?= $coordinates['lat'] ?>,
       lng: <?= $coordinates['lng'] ?>};
