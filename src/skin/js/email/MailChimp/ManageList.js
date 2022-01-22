@@ -21,7 +21,7 @@ $(document).ready(function () {
         }).done(function (data) {
             $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
             $("#allTags").append('<div class="dropdown-divider"></div>');
-            $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"> </i ><i class="fa fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") + '</a>');
+            $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") + '</a>');
             $("#allTags").append('<div class="dropdown-divider"></div>');
 
             $("#addCreateTagsDropAll").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
