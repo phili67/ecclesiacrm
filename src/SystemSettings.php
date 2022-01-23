@@ -251,13 +251,13 @@ require 'Include/Header.php';
                                                     ?>
                                                     <a data-toggle="popover"
                                                        title="<?= gettext($setting->getTooltip()) ?>" target="_blank"><i
-                                                            class="fa fa-fw fa-question-circle"></i></a>
+                                                            class="far  fa-question-circle"></i></a>
                                                     <?php
                                                 }
                                                 if (!empty($setting->getUrl())) {
                                                     ?>
                                                     <a href="<?= $setting->getUrl() ?>" target="_blank"><i
-                                                            class="fa fa-fw fa-link"></i></a>
+                                                            class="fa  fa-link"></i></a>
                                                     <?php
                                                 } ?>
                                                 <?= $display_default ?>

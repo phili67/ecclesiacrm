@@ -21,7 +21,7 @@ use EcclesiaCRM\dto\SystemURLs;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i> <?= _("Families") ?></h3>
+                <h3 class="card-title"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= _("Families") ?></h3>
             </div>
             <div class="card-body">
                 <table id="families" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline" style="width:100%"></table>

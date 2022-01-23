@@ -149,11 +149,11 @@ $(document).ready(function () {
             message: i18next.t("You're about to send your campaign! Are you sure ?"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('Yes'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('Yes'),
                     className: 'btn-success'
                 },
                 cancel: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('No'),
                     className: 'btn-default'
                 }
             },
@@ -181,11 +181,11 @@ $(document).ready(function () {
             message: i18next.t("You're about to delete your campaign! Are you sure ?"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },

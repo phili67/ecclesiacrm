@@ -10,7 +10,7 @@ function addRolesToMainDropdown()
         var len = data.length;
 
         for (i=0; i<len; ++i) {
-          $("#AllRoles").append('<a href="#" class="dropdown-item changeRole" data-id="'+data[i].Id+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].Name+'</a>');
+          $("#AllRoles").append('<a href="#" class="dropdown-item changeRole" data-id="'+data[i].Id+'"><i class="fas fa-arrow-circle-down"></i>'+data[i].Name+'</a>');
           if (i == 0) {
             $("#mainbuttonRole").data("id",data[i].Id);
           }

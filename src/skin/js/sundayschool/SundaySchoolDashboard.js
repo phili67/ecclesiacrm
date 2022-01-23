@@ -5,7 +5,7 @@ $("document").ready(function() {
         {
             $(clickedButton).addClass("RemoveAllStudentsFromCart");
             $(clickedButton).removeClass("AddAllStudentsToCart");
-            $('i',clickedButton).addClass("fa-remove");
+            $('i',clickedButton).addClass("fa-times");
             $('i',clickedButton).removeClass("fa-cart-plus");
             text = $(clickedButton).find("span.cartActionDescription")
             if(text){
@@ -20,7 +20,7 @@ $("document").ready(function() {
         {
             $(clickedButton).addClass("AddAllStudentsToCart");
             $(clickedButton).removeClass("RemoveAllStudentsFromCart");
-            $('i',clickedButton).removeClass("fa-remove");
+            $('i',clickedButton).removeClass("fa-times");
             $('i',clickedButton).addClass("fa-cart-plus");
             text = $(clickedButton).find("span.cartActionDescription")
             if(text){
@@ -35,7 +35,7 @@ $("document").ready(function() {
         {
             $(clickedButton).addClass("RemoveAllTeachersFromCart");
             $(clickedButton).removeClass("AddAllTeachersToCart");
-            $('i',clickedButton).addClass("fa-remove");
+            $('i',clickedButton).addClass("fa-times");
             $('i',clickedButton).removeClass("fa-cart-plus");
             text = $(clickedButton).find("span.cartActionDescription")
             if(text){
@@ -51,7 +51,7 @@ $("document").ready(function() {
         {
             $(clickedButton).addClass("AddAllTeachersToCart");
             $(clickedButton).removeClass("RemoveAllTeachersFromCart");
-            $('i',clickedButton).removeClass("fa-remove");
+            $('i',clickedButton).removeClass("fa-times");
             $('i',clickedButton).addClass("fa-cart-plus");
             text = $(clickedButton).find("span.cartActionDescription")
             if(text){
@@ -68,7 +68,7 @@ $("document").ready(function() {
         if (e.people.length == 0) {
             $("#AddAllTeachersToCart").addClass("AddAllTeachersToCart");
             $("#AddAllTeachersToCart").removeClass("RemoveAllTeachersFromCart");
-            $('i',"#AddAllTeachersToCart").removeClass("fa-remove");
+            $('i',"#AddAllTeachersToCart").removeClass("fa-times");
             $('i',"#AddAllTeachersToCart").addClass("fa-cart-plus");
             text = $("#AddAllTeachersToCart").find("span.cartActionDescription")
             if(text){
@@ -77,7 +77,7 @@ $("document").ready(function() {
 
             $("#AddAllStudentsToCart").addClass("AddAllStudentsToCart");
             $("#AddAllStudentsToCart").removeClass("RemoveAllStudentsFromCart");
-            $('i',"#AddAllStudentsToCart").removeClass("fa-remove");
+            $('i',"#AddAllStudentsToCart").removeClass("fa-times");
             $('i',"#AddAllStudentsToCart").addClass("fa-cart-plus");
             text = $("#AddAllStudentsToCart").find("span.cartActionDescription")
             if(text){
@@ -109,7 +109,7 @@ $("document").ready(function() {
             + '             </div>'
             + '             <div class="input-group col-md-3">'
             + '                 <div class="input-group-prepend">'
-            + '                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+            + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
             + '                 </div>'
             + '                 <input class="form-control date-picker input-sm" type="text" id="dateAttendees" name="dateAttendees"  value="' + dateAttendees + '" '
             + '                 maxlength="10" id="sel1" size="11"'
@@ -120,7 +120,7 @@ $("document").ready(function() {
             + '             </div>'
             + '             <div class="input-group col-md-3">'
             + '                 <div class="input-group-prepend">'
-            + '                     <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
+            + '                     <span class="input-group-text"><i class="fas fa-clock"></i></span>'
             + '                 </div>'
             + '                 <input type="text" class="form-control timepicker input-sm" id="timeAttendees" name="timeAttendees" value="0:00">'
             + '             </div>'
@@ -172,14 +172,14 @@ $("document").ready(function() {
             size: "large",
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                     className: "btn btn-default",
                     callback: function () {
                         console.log("just do something on close");
                     }
                 },
                 {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('OK'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('OK'),
                     className: "btn btn-primary",
                     callback: function () {
                         var dateAttendees = $('form #dateAttendees').val();
@@ -226,8 +226,8 @@ $("document").ready(function() {
             locale: window.CRM.lang,
             icons:
                 {
-                    up: 'fa fa-angle-up',
-                    down: 'fa fa-angle-down'
+                    up: 'fas fa-angle-up',
+                    down: 'fas fa-angle-down'
                 }
         });
 

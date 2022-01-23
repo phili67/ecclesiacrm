@@ -57,10 +57,10 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           var ret = '';
           if (full.ProPrompt != '') {
-            ret += '<a class="edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
+            ret += '<a class="edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
           }
 
-          return ret+'<a class="remove-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return ret+'<a class="remove-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       }
     ],
@@ -370,7 +370,7 @@ function initDataTable() {
           })[0];
 
           if (isShowable) {
-            return ((thisRole != undefined)?i18next.t(thisRole.OptionName):'') + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
+            return ((thisRole != undefined)?i18next.t(thisRole.OptionName):'') + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fas fa-pencil-alt"></i></button>';
           } else {
             return i18next.t("Private Data");
           }
@@ -498,7 +498,7 @@ function initDataTable() {
       {
         $(clickedButton).addClass("RemoveFromGroupCart");
         $(clickedButton).removeClass("AddToGroupCart");
-        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).addClass("fa-times");
         $('i',clickedButton).removeClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -513,7 +513,7 @@ function initDataTable() {
       {
         $(clickedButton).addClass("AddToGroupCart");
         $(clickedButton).removeClass("RemoveFromGroupCart");
-        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-times");
         $('i',clickedButton).addClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -531,7 +531,7 @@ function initDataTable() {
       if (e.people.length == 0) {
         $("#AddToGroupCart").addClass("AddToGroupCart");
         $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
-        $('i',"#AddToGroupCart").removeClass("fa-remove");
+        $('i',"#AddToGroupCart").removeClass("fa-times");
         $('i',"#AddToGroupCart").addClass("fa-cart-plus");
         text = $("#AddToGroupCart").find("span.cartActionDescription")
         if(text){
@@ -561,7 +561,7 @@ function initDataTable() {
           var optionValues = '';
 
           for (i=0; i<len; ++i) {
-            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>, ';
           }
 
           if (optionValues != '') {
@@ -625,7 +625,7 @@ function initDataTable() {
             option.text = data[i].name;
             option.value = data[i].personID;
 
-            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>, ';
 
             elt.appendChild(option);
           }
@@ -659,7 +659,7 @@ function initDataTable() {
                     }).done(function(data) {
                       $("#select-manager-persons option[value='"+personID+"']").remove();
 
-                      var opts = $('#select-manager-persons > option').map(function() { return this.text+'<a class="delete-person-manager" data-personid"'+this.value+'" data-groupid"'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>'; }).get();
+                      var opts = $('#select-manager-persons > option').map(function() { return this.text+'<a class="delete-person-manager" data-personid"'+this.value+'" data-groupid"'+groupID+'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>'; }).get();
 
                       if (opts.length) {
                         $("#Manager-list").html(opts.join(", "));

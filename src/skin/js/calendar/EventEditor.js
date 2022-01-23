@@ -352,8 +352,8 @@ function installAndfinishEventEditorWindow() {
         locale: window.CRM.lang,
         icons:
             {
-                up: 'fa fa-angle-up',
-                down: 'fa fa-angle-down'
+                up: 'fas fa-angle-up',
+                down: 'fas fa-angle-down'
             }
     });
 
@@ -588,7 +588,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '      <div class="col-md-3">' + i18next.t('Location') + ":</div>"
         + '      <div class="col-md-9">'
         + '          <div class="form-group has-warning location_group_warning">'
-        + '              <label class="control-label location_label_warning" for="inputWarning"><i class="fa fa-bell-o location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
+        + '              <label class="control-label location_label_warning" for="inputWarning"><i class="fas fa-bell location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
         + "              <input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
         + '              <span class="help-block location_span_warning">' + i18next.t("To see the Map click this text field.") + '</span>'
         + '          </div>'
@@ -635,7 +635,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              </div>'
         + '              <div class="input-group col-md-4">'
         + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
         + '                  <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
         + '                      maxlength="10" id="sel1" size="11"'
@@ -643,7 +643,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              </div>'
         + '              <div class="input-group col-md-4">'
         + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
+        + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
         + '                  <input type="text" class="form-control timepicker input-sm" id="timeEventStart" name="timeEventStart" value="' + timeStart + '">'
         + '              </div>'
@@ -658,7 +658,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              </div>'
         + '              <div class="input-group col-md-4">'
         + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
         + '                  <input class="form-control date-picker  input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
         + '                      maxlength="10" id="sel1" size="11"'
@@ -666,7 +666,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              </div>'
         + '              <div class="input-group col-md-4">'
         + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fa fa-clock-o"></i></span>'
+        + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
         + '                  <input type="text" class="form-control timepicker input-sm" id="timeEventEnd" name="timeEventEnd" value="' + timeEnd + '">'
         + '              </div>'
@@ -694,7 +694,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '               </div>'
         + '               <div class="input-group col-md-4">'
         + '                  <div class="input-group-prepend">'
-        + '                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+        + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
         + '                  <input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="' + dateStart + '" '
         + '                      maxlength="10" id="sel1" size="11"'
@@ -796,14 +796,14 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
         size: 'large',
         buttons: [
             {
-                label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                 className: "btn btn-default",
                 callback: function () {
                     console.log("just do something on close");
                 }
             },
             {
-                label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                 className: "btn btn-primary",
                 callback: function () {
                     var EventTitle = $('form #EventTitle').val();

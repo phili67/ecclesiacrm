@@ -31,6 +31,7 @@
         "node-sha1": "^1.0.1"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.4",
         "admin-lte": "^3.1.0",
         "bootbox": "^5.5.2",
         "bootstrap": "^4.6.0",
@@ -59,7 +60,6 @@
         "datetime-moment": "^1.0.0",
         "eonasdan-bootstrap-datetimepicker": "^4.17.49",
         "flot": "^4.2.2",
-        "font-awesome": "^4.7.0",
         "fullcalendar": "^5.9.0",
         "grunt-git": "^1.1.1",
         "grunt-http": "^2.3.3",

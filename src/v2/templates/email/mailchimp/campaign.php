@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-9">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><i class="fa fa-newspaper-o"></i> <?= _('Email Campaign Management') ?></h3>
+                <h3 class="card-title"><i class="far fa-newspaper"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
                             class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
@@ -29,15 +29,15 @@ require $sRootDocument . '/Include/Header.php';
                 <p>
                     <button class="btn btn-app bg-blue" id="saveCampaign"
                             data-listid="<?= $list_id ?>" <?= (($campaign['status'] == "sent") ? 'disabled' : '') ?>>
-                        <i class="fa fa-list-alt"></i><?= _("Save Campaign") ?>
+                        <i class="fas fa-list-alt"></i><?= _("Save Campaign") ?>
                     </button>
                     <button id="deleteCampaign" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
-                        <i class="fa fa-trash"></i><?= _("Delete") ?>
+                        <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
                     </button>
                     <button id="sendCampaign"
                             class="btn btn-app align-right bg-green <?= (($campaign['status'] == "sent" || $campaign['status'] == "schedule") ? 'hidden' : '') ?>"
                             data-listid="<?= $list_id ?>">
-                        <i class="fa fa-send-o"></i><?= _("Send") ?>
+                        <i class="far fa-paper-plane"></i><?= _("Send") ?>
                     </button>
                 </p>
             </div>
@@ -46,7 +46,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header with-border">
-                        <h3 class="card-title"><i class="fa fa-file-text-o"></i> <?= _('Mail Subject') ?> & <?= _("Content") ?></h3>
+                        <h3 class="card-title"><i class="far fa-file-alt"></i> <?= _('Mail Subject') ?> & <?= _("Content") ?></h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -62,7 +62,7 @@ require $sRootDocument . '/Include/Header.php';
                         <br/>
                         <div class="row">
                             <div class="col-lg-12" style="padding-left:15px;padding-right:15px;">
-                                <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
+                                <div class="alert alert-info"><i class="fas fa-info" aria-hidden="true"></i>
                                     <?= _("You can use the button \"Merge Tags\" below, to customize your content") ?> : <img
                                         src="<?= $sRootPath ?>/Images/merge_tags.png">.
                                 </div>
@@ -80,9 +80,9 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-md-12">
                 <div class="card card-info">
                     <div class="card-header   with-border">
-                        <h3 class="card-title"><i class="fa fa-tag"></i> <?= _('Tags') ?></h3>
+                        <h3 class="card-title"><i class="fas fa-tags"></i> <?= _('Tags') ?></h3>
                         <div class="card-tools pull-right">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -99,26 +99,26 @@ require $sRootDocument . '/Include/Header.php';
                         if ($campaign['status'] == "schedule") {
                             ?>
                             <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
-                                                          name="checkboxaCampaignSchedule" checked> <i class="fa fa-calendar-check-o"></i> <label
+                                                          name="checkboxaCampaignSchedule" checked> <i class="fas fa-calendar-check"></i> <label
                                     for="checkboxaCampaignSchedule"><?= _('Schedule') ?></label></h3>
                             <?php
                         } else {
                             ?>
                             <h3 class="card-title"><input type="checkbox" id="checkboxaCampaignSchedule"
                                                           name="checkboxaCampaignSchedule" <?= ($campaign['status'] == "sent" && !($campaign['status'] == "schedule")) ? "disabled" : "" ?>>
-                                <i class="fa fa-calendar-times-o"></i> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></label></h3>
+                                <i class="fas fa-calendar-times-o"></i> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></label></h3>
                             <?php
                         }
                         ?>
                         <div class="card-tools pull-right">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>
+                        <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
                             <?= _("You've first to create a content below to schedule a campaign.") ?>
                             <br/>
-                            <i class="fa fa-warning" aria-hidden="true"></i> <?= _("Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, :45).") ?>
+                            <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> <?= _("Campaigns may only be scheduled to send on the quarter-hour (:00, :15, :30, :45).") ?>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -129,7 +129,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <div class="form-group col-md-9">
                                         <div class="input-group mb-2">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                             </div>
                                             <!-- Philippe Logel -->
                                             <input class="form-control date-picker input-sm" type="text" id="dateCampaign"
@@ -148,7 +148,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <div class="form-group col-md-9">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             </div>
                                             <!-- Philippe Logel -->
                                             <input type="text" class="form-control timepicker input-sm" id="timeCampaign"
@@ -196,8 +196,8 @@ require $sRootDocument . '/Include/Header.php';
         locale: window.CRM.lang,
         icons:
             {
-                up: 'fa fa-angle-up',
-                down: 'fa fa-angle-down'
+                up: 'fas fa-angle-up',
+                down: 'fas fa-angle-down'
             }
     });
 </script>

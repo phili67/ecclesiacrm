@@ -12,7 +12,7 @@ require $sRootDocument . '/Include/Header.php';
 
 if ( $isPastoralCareEnabled ) {
 ?>
-    <div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>
+    <div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
       <?= _('Be carefull ! By deleting pastoral care type, the recorded datas for each persons will be lost.') ?>
     </div>
 
@@ -23,7 +23,7 @@ if ( $isPastoralCareEnabled ) {
 }else {
 ?>
     <div class="alert alert-warning">
-      <i class="fa fa-warning" aria-hidden="true"></i>
+      <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
       <?= _('Only an admin can modify or delete this records.') ?>
     </div>
 <?php

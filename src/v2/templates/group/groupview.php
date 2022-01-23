@@ -51,7 +51,7 @@ require $sRootDocument . '/Include/Header.php';
                    data-toggle="tooltip"  data-placement="bottom" title="<?= _("Click to create an addressbook of the Group") ?>">
                     <?= _('Address Book') ?>
                     <span class="badge  bg-white">
-                    <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
+                    <i class="far fa-id-card" aria-hidden="true"></i>
                     </span>
                 </a>
                 <?php
@@ -71,7 +71,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if ( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($iGroupID) ) {
             ?>
-            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/map/<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= _('Map this group') ?></a>
+            <a class="btn btn-app" href="<?= $sRootPath ?>/v2/map/<?= $thisGroup->getId() ?>"><i class="fas fa-map-marker-alt"></i><?= _('Map this group') ?></a>
             <?php
         }
         ?>
@@ -79,11 +79,11 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if (Cart::GroupInCart($iGroupID) && SessionUser::getUser()->isShowCartEnabled()) {
             ?>
-            <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
+            <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fas fa-times"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
             <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()){
             ?>
-            <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
+            <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fas fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
             <?php
         }
         ?>
@@ -91,8 +91,8 @@ require $sRootDocument . '/Include/Header.php';
         if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
             ?>
             <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"
-               data-toggle="tooltip"  data-placement="bottom" title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
-            <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= _("Delete this Group") ?></button>
+               data-toggle="tooltip"  data-placement="bottom" title="<?= _("To add special Group roles or to modify the role by default or to enable Group-specific properties") ?>"><i class="fas fa-pencil-alt"></i><?= _("Edit this Group") ?></a>
+            <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fas fa-trash-alt"></i><?= _("Delete this Group") ?></button>
             <?php
         }
         ?>
@@ -102,12 +102,12 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <form method="POST" action="<?= $sRootPath ?>/GroupReports.php" style="display:inline">
                 <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
-                <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= _("Group reports") ?></button>
+                <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fas fa-file-pdf"></i><?= _("Group reports") ?></button>
             </form>
 
             <a class="btn btn-app bg-purple" id="groupbadge" data-groupid="<?= $iGroupID ?>" data-toggle="tooltip"
                data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
-                    class="fa fa-file-picture-o"></i> <span
+                    class="fas fa-id-badge"></i> <span
                     class="cartActionDescription"><?= _("Group Badges") ?></span></a>
             <?php
         }
@@ -118,7 +118,7 @@ require $sRootDocument . '/Include/Header.php';
         if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled()
             || SessionUser::getUser()->isMenuOptionsEnabled()) {
             ?>
-            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
             <?php
         }
         ?>
@@ -170,7 +170,7 @@ require $sRootDocument . '/Include/Header.php';
                 // Display link
                 ?>
                 <div class="btn-group">
-                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= _("Email Group") ?></a>
+                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="far fa-paper-plane"></i><?= _("Email Group") ?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -181,7 +181,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
 
                 <div class="btn-group">
-                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?= _("Email (BCC)") ?></a>
+                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -228,7 +228,7 @@ require $sRootDocument . '/Include/Header.php';
             if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                 // Display link
                 ?>
-                <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i><?= _('Text Group') ?></a>
+                <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fas fa-mobile"></i><?= _('Text Group') ?></a>
                 <script nonce="<?= $CSPNonce ?>">function allPhonesCommaD() {prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
                 <?php
             }
@@ -247,7 +247,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                 <div class="card-header with-border">
                     <h3 class="card-title"><?= _('Quick Settings') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -266,7 +266,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -284,7 +284,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                                 }
                                 if (!$manager->getPerson()->isDeactivated()) {
                                     ?>
-                                    <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>,
+                                    <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>,
                                     <?php
                                 }
                             }
@@ -316,7 +316,7 @@ if ( $_SESSION['bManageGroups'] ) {
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -374,7 +374,7 @@ if ( $_SESSION['bManageGroups'] ) {
                 <div class="card-header with-border">
                     <h3 class="card-title" data-toggle="tooltip" title="" data-placement="bottom" title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
                     <div class="card-tools pull-right">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -443,7 +443,7 @@ if ( $_SESSION['bManageGroups'] ) {
         <h3 class="card-title"><?= _('Group Members:') ?></h3>
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
         <div style="float:right">
-            <button class="btn btn-danger" id="remove_all_members"><i class="fa fa-trash"></i> <?= _("Remove members") ?></button>
+            <button class="btn btn-danger" id="remove_all_members"><i class="fas fa-trash-alt"></i> <?= _("Remove members") ?></button>
         </div>
         <?php } ?>
     </div>
@@ -459,7 +459,7 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
     ?>
     <div class="card">
         <div class="card-header with-border">
-            <h3 class="card-title"><i class="fa fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
+            <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
         </div>
         <div class="card-body">
             <div class="row">
@@ -525,14 +525,14 @@ if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true
 
     <?php if ( !is_null ($first_manager) ) { ?>
         window.CRM.churchloc = {
-            lat: <?= $first_manager->getFamily()->getLatitude() ?>,
-            lng: <?= $first_manager->getFamily()->getLongitude() ?>};
+            lat: <?= OutputUtils::number_dot($first_manager->getFamily()->getLatitude()) ?>,
+            lng: <?= OutputUtils::number_dot($first_manager->getFamily()->getLongitude()) ?>};
         window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
         window.CRM.address = "<?= $first_manager->getFamily()->getAddress() ?>";
     <?php } else { ?>
         window.CRM.churchloc = {
-            lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-            lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
+            lat: <?= (float)OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+            lng: <?= (float)OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
         window.CRM.mapZoom = <?= SystemConfig::getValue("iLittleMapZoom")?>;
         window.CRM.address = '';
     <?php } ?>

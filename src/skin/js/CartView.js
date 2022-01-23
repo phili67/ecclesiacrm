@@ -58,7 +58,7 @@ $(document).ready(function () {
                 title: i18next.t('Remove'),
                 data: 'personID',
                 render: function (data, type, full, meta) {
-                    return '<a class="RemoveFromPeopleCart" data-personid="' + data + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+                    return '<a class="RemoveFromPeopleCart" data-personid="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
                 }
             },
             {

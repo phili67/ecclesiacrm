@@ -287,7 +287,7 @@ class TimelineService
                 $item['style'] = 'fa-plus-circle bg-blue';
                 break;
             case 'edit':
-                $item['style'] = 'fa-pencil bg-blue';
+                $item['style'] = 'fa-pencil-alt bg-blue';
                 break;
             case 'photo':
                 $item['style'] = 'fa-camera bg-green';
@@ -301,14 +301,14 @@ class TimelineService
                 break;
             case 'video':
                 $item['slim']            = true;
-                $item['style']           = 'fa-video-camera bg-maroon';
+                $item['style']           = 'fa-camera bg-maroon';
                 $item['editLink']        = $editLink;
                 $item['deleteLink']      = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
                 break;
             case 'folder':
                 $item['slim'] = true;
-                $item['style'] = 'fa-folder-o bg-yellow';
+                $item['style'] = 'far fa-folder bg-yellow';
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
@@ -329,10 +329,10 @@ class TimelineService
                 $item['style'] = 'fa-calendar bg-green';
                 break;
             case 'verify':
-                $item['style'] = 'fa-check-circle-o bg-teal';
+                $item['style'] = 'far fa-check-circle bg-teal';
                 break;
             case 'verify-link':
-                $item['style'] = 'fa-check-circle-o bg-teal';
+                $item['style'] = 'far fa-check-circle bg-teal';
                 break;
             case 'user':
                 $item['style'] = 'fa-user-secret bg-gray';
@@ -361,7 +361,7 @@ class TimelineService
           }
 
           $item['style2'] = $item['style'];
-          $item['style'] = 'fa-share-square-o bg-purple';
+          $item['style'] = 'fa-share-square bg-purple';
         }
 
         if ($info) {

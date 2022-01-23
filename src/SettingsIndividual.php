@@ -306,16 +306,16 @@ $numberRow = 0;
                                             </div>
                                         </a>
                                     <?php } else if ($config->getName() == 'sMapExternalProvider') { ?>
-                                        <span class="align-text-bottom"><i class="fa fa-map-o fa-lg"></i></span>
+                                        <span class="align-text-bottom"><i class="far fa-map fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') { ?>
-                                        <span class="align-text-bottom"><i class="fa fa-envelope fa-lg"></i></span>
+                                        <span class="align-text-bottom"><i class="far fa-envelope fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bUSAddressVerification') { ?>
                                         <span class="align-text-bottom"><i class="fa fa-address-card-o fa-lg"></i><i
-                                                class="fa fa-check fa-lg"></i></span>
+                                                class="fas fa-check fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bShowTooltip') { ?>
-                                        <span class="align-text-bottom"><i class="fa fa-info-circle fa-lg"></i></span>
+                                        <span class="align-text-bottom"><i class="fas fa-info-circle fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'sCSVExportDelemiter' || $config->getName() == 'sCSVExportCharset') { ?>
-                                        <span class="align-text-bottom"><i class="fa fa-file-excel-o fa-lg"></i></span>
+                                        <span class="align-text-bottom"><i class="fas fa-file-excel fa-lg"></i></span>
                                     <?php } ?>
                                 </div>
                                 <div class="col-md-10">
@@ -386,7 +386,7 @@ $numberRow = 0;
                         </div>
                         <div class="col-md-2">
                             <a data-toggle="popover" title="<?= $config->getName() ?>" target="_blank"><i
-                                    class="fa fa-fw fa-question-circle"></i></a>
+                                    class="fa  fa-question-circle"></i></a>
                         </div>
                     </div>
                     <br/>
@@ -430,10 +430,10 @@ $numberRow = 0;
                         <p><i class="fa fa-id-card-o"></i> <?= _("When you sign in to EcclesiaCRM, you'll still enter your username and password like normal") ?></p></div>
                     <div class="col-md-4">
 
-                        <p><i class="fa fa-key fa-10x"></i> <?= _("However, you'll also need to supply a one-time code from your authenticator device to complete your login") ?></p></div>
+                        <p><i class="fas fa-key fa-1x"></i> <?= _("However, you'll also need to supply a one-time code from your authenticator device to complete your login") ?></p></div>
                     <div class="col-md-4">
 
-                        <p><i class="fa fa-check-square-o"></i> <?= _("After successfully entering both your credentials, and the one-time code, you'll be logged in as normal") ?></p></div>
+                        <p><i class="fas fa-check-square-o"></i> <?= _("After successfully entering both your credentials, and the one-time code, you'll be logged in as normal") ?></p></div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="callout callout-warning"><p><?= _("To prevent being locked out of your EcclesiaCRM account, please ensure you're ready to complete two factor enrollment before clicking begin") ?></p>

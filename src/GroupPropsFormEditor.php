@@ -62,7 +62,7 @@ $sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->get
 
 require 'Include/Header.php'; ?>
 
-<p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+<p class="alert alert-warning"><span class="fas fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
 <div class="card">
 <div class="card-header with-border">
@@ -336,7 +336,7 @@ if ($numRows == 0) {
   <?php
     if ($bErrorFlag) {
   ?>
-     <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
+     <p class="alert alert-danger"><span class="fas fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
   <?php
     }
   ?>

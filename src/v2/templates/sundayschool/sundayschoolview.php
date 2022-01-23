@@ -39,7 +39,7 @@ if (SessionUser::getUser()->isAddRecords()) {
             // Display link
             ?>
             <div class="btn-group">
-                <a class="btn btn-app" id="sEmailLink" href=""><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+                <a class="btn btn-app" id="sEmailLink" href=""><i class="far fa-paper-plane"></i><?= _('Email') ?></a>
                 <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
@@ -48,7 +48,7 @@ if (SessionUser::getUser()->isAddRecords()) {
             </div>
 
             <div class="btn-group">
-                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                 <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
@@ -58,16 +58,16 @@ if (SessionUser::getUser()->isAddRecords()) {
             <?php
         }
         ?>
-        <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...-->
+        <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fas fa-pencil-alt"></i> Compose Message</a>  This doesn't really work right now...-->
         <a class="btn btn-app bg-yellow" href="<?= $sRootPath ?>/v2/group/<?= $iGroupId ?>/view"><i
-                class="fa fa-info-circle"></i><?= _('Show More Props') ?> </a>
+                class="fas fa-info-circle"></i><?= _('Show More Props') ?> </a>
         <?php
         if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
             <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $iGroupId ?>"><i
-                    class="fa fa-pencil"></i><?= _("Edit this Class") ?></a>
+                    class="fas fa-pencil-alt"></i><?= _("Edit this Class") ?></a>
             <button class="btn btn-app bg-maroon" id="deleteClassButton"><i
-                    class="fa fa-trash"></i><?= _("Delete this Class") ?></button>
+                    class="fas fa-trash-alt"></i><?= _("Delete this Class") ?></button>
             <?php
         }
         ?>
@@ -78,7 +78,7 @@ if (SessionUser::getUser()->isAddRecords()) {
             <a class="btn btn-app bg-orange callRegister disabled" id="callRegister"
                data-callregistergroupid="<?= $iGroupId ?>" data-callregistergroupname="<?= $iGroupName ?>"
                data-toggle="tooltip"  data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate an event of this Sunday school class to call the register.") ?>"> <i
-                    class="fa fa-calendar-check-o"></i> <span
+                    class="fas fa-calendar-check"></i> <span
                     class="cartActionDescription"><?= _('Create Event & Call the register') ?></span></a>
             <?php
         }
@@ -87,19 +87,19 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
             ?>
             <a class="btn btn-app bg-green exportCheckOutCSV disabled" id="exportCheckOutCSV"
-               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fa fa-file-excel-o"></i> <span
+               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fas fa-file-excel"></i> <span
                     class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
             <?php
         }
         if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled()) {
             ?>
             <a class="btn btn-app bg-red exportCheckOutPDF disabled" id="exportCheckOutPDF"
-               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fa fa-file-pdf-o"></i> <span
+               data-callRegistergroupid="<?= $iGroupId ?>"> <i class="fas fa-file-pdf"></i> <span
                     class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
 
             <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>"
                data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create here your badges or QR-Code to call the register with them") ?>"> <i
-                    class="fa fa-file-picture-o"></i> <span
+                    class="fas fa-id-badge"></i> <span
                     class="cartActionDescription"><?= _("Student Badges") ?></span></a>
             <?php
         }
@@ -108,13 +108,13 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (Cart::StudentInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app RemoveStudentsFromGroupCart" id="AddStudentsToGroupCart"
-               data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span
+               data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fas fa-times"></i> <span
                     class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
             <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app AddStudentsToGroupCart disabled" id="AddStudentsToGroupCart"
-               data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span
+               data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fas fa-cart-plus"></i> <span
                     class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
             <?php
         }
@@ -123,13 +123,13 @@ if (SessionUser::getUser()->isAddRecords()) {
         if (Cart::TeacherInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart"
-               data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span
+               data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fas fa-times"></i> <span
                     class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
             <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
             ?>
             <a class="btn btn-app AddToTeacherGroupCart disabled" id="AddToTeacherGroupCart"
-               data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span
+               data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fas fa-cart-plus"></i> <span
                     class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
             <?php
         }
@@ -143,7 +143,7 @@ if (SessionUser::getUser()->isAddRecords()) {
         <h3 class="card-title"><?= _('Teachers') ?></h3>
 
         <div class="card-tools pull-right">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
         </div>
     </div>
     <!-- /.box-header -->
@@ -193,7 +193,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
             <h3 class="card-title"><?= _('Quick Status') ?></h3>
 
             <div class="card-tools pull-right">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                 </button>
             </div>
         </div>
@@ -204,7 +204,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
                     <!-- Bar chart -->
                     <div class="card">
                         <div class="card-header border-0">
-                            <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('Birthdays by Month') ?>
+                            <h3 class="card-title"><i class="fas fa-birthday-cake"></i> <?= _('Birthdays by Month') ?>
                             </h3>
                         </div>
                         <div class="card-body">
@@ -218,7 +218,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
                     <!-- Donut chart -->
                     <div class="card">
                         <div class="card-header border-0">
-                            <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('Gender') ?></h3>
+                            <h3 class="card-title"><i class="fas fa-chart-bar"></i> <?= _('Gender') ?></h3>
                         </div>
                         <div class="card-body">
                             <div id="donut-chart" style="width: 100%; height: 300px;"></div>
@@ -245,7 +245,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right;margin-left: 20px">
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
-            <button class="btn btn-danger" id="remove_all_members"><i class="fa fa-trash"></i> <?= _("Remove members") ?></button>
+            <button class="btn btn-danger" id="remove_all_members"><i class="fas fa-trash-alt"></i> <?= _("Remove members") ?></button>
         <?php } ?>
         </div>
         <div style="float:right">
@@ -261,11 +261,11 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
         <div class="row">
             <div class="col-md-6">
                 <h4 class="birthday-filter text-center" style="display:none;"><?= _('Showing students with birthdays in') ?> : <span
-                        class="month"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+                        class="month"></span> <i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></h4>
             </div>
             <div class="col-md-6">
                 <h4 class="gender-filter text-center" style="display:none;"><?= _('Showing students with gender') ?> : <span
-                        class="type"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+                        class="type"></span> <i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></h4>
             </div>
         </div>
         <div class="row">

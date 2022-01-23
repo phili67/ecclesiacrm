@@ -29,28 +29,28 @@ if ($iNumPersons > 0) {
             <h3 class="card-title"><?= _("Cart Functions") ?></h3>
         </div>
         <div class="card-body">
-            <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= _('Empty Cart') ?>
+            <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fas fa-eraser"></i><?= _('Empty Cart') ?>
             </a>
             <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
                 ?>
                 <a id="emptyCartToGroup" class="btn btn-app"><i
-                        class="fa fa-tag"></i><?= _('Empty Cart to Group') ?></a>
+                        class="fas fa-tag"></i><?= _('Empty Cart to Group') ?></a>
                 <?php
             }
             if (SessionUser::getUser()->isAddRecordsEnabled()) {
                 ?>
                 <a href="<?= $sRootPath ?>/CartToFamily.php" class="btn btn-app"><i
-                        class="fa fa-users"></i><?= _('Empty Cart to Family') ?></a>
+                        class="fas fa-users"></i><?= _('Empty Cart to Family') ?></a>
                 <?php
             } ?>
             <a href="#" id="emptyCartToEvent" class="btn btn-app"><i
-                    class="fa fa-ticket"></i><?= _('Empty Cart to Event') ?></a>
+                    class="fas fa-ticket-alt"></i><?= _('Empty Cart to Event') ?></a>
 
             <?php
             if (SessionUser::getUser()->isShowMapEnabled()) {
                 ?>
                 <a href="<?= $sRootPath ?>/v2/map/0" class="btn btn-app"><i
-                        class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
+                        class="fas fa-map-marker-alt"></i><?= _('Map Cart') ?></a>
                 <?php
             }
             ?>
@@ -59,7 +59,7 @@ if ($iNumPersons > 0) {
             <a class="btn btn-app bg-yellow-gradient"
                data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                href="<?= $sRootPath ?>/api/cart/addressbook/extract"><i
-                    class="fa fa fa-address-card-o">
+                    class="far fa-id-card">
                 </i> <?= _("vCard") ?></a>
             <?php
                     }
@@ -67,23 +67,23 @@ if ($iNumPersons > 0) {
             <?php if (SessionUser::getUser()->isCSVExportEnabled()) {
                 ?>
                 <a href="<?= $sRootPath ?>/CSVExport.php?Source=cart" class="btn btn-app bg-gradient-green"><i
-                        class="fa fa-file-excel-o"></i><?= _('CSV Export') ?></a>
+                        class="fas fa-file-excel"></i><?= _('CSV Export') ?></a>
                 <?php
             } ?>
             <a href="<?= $sRootPath ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36"
                class="btn btn-app bg-gradient-blue"><i
-                    class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>
+                    class="fas fa-file-pdf"></i><?= _('Name Tags') ?></a>
             <a class="btn btn-app bg-gradient-purple" href="<?= $sRootPath ?>/CartToBadge.php"> <i
-                    class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
+                    class="fas fa-id-badge"></i> <span class="cartActionDescription"><?= _("Badges") ?></span></a>
             <?php
 
             if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                 // Display link
                 ?>
                 <a href="mailto:<?= $sEmailLink ?>" class="btn btn-app" id="emailLink"><i
-                        class='fa fa-send-o'></i><?= _('Email Cart') ?></a>
+                        class='far fa-paper-plane'></i><?= _('Email Cart') ?></a>
                 <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app" id="emailCCIlink"><i
-                        class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                        class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                 <?php
             }
 
@@ -93,16 +93,16 @@ if ($iNumPersons > 0) {
                     &nbsp;
                     <div class="btn-group" id="globalSMSLink">
                         <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i
-                                class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></a>
+                                class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
                         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu" role="menu">
                             <a href="javascript:void(0)" onclick="allPhonesCommaD()" class="dropdown-item "><i
-                                        class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a>
+                                        class="fas fa-mobile"></i> <?= _("Copy Paste the Texts") ?></a>
                             <a href="sms:<?= str_replace(' ', '', mb_substr($sPhoneLinkSMS, 0, -2)) ?>"
-                                   class="dropdown-item sPhoneLinkSMS"><i class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></a>
+                                   class="dropdown-item sPhoneLinkSMS"><i class="fas fa-mobile"></i> <?= _("Text Cart") ?></a>
                         </div>
                     </div>
                     <?php
@@ -110,15 +110,15 @@ if ($iNumPersons > 0) {
             } ?>
             <a href="<?= $sRootPath ?>/DirectoryReports.php?cartdir=Cart+Directory"
                class="btn btn-app"><i
-                    class="fa fa-book"></i><?= _('Create Directory From Cart') ?></a>
+                    class="fas fa-book"></i><?= _('Create Directory From Cart') ?></a>
 
             <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
                 ?>
                 <a href="#" id="deleteCart" class="btn btn-app bg-gradient-red"><i
-                        class="fa fa-trash"></i><?= _('Delete Persons From CRM') ?></a>
+                        class="fas fa-trash-alt"></i><?= _('Delete Persons From CRM') ?></a>
 
                 <a href="#" id="deactivateCart" class="btn btn-app bg-gradient-orange"><i
-                        class="fa fa-trash"></i><?= _('Deactivate Persons From Cart') ?></a>
+                        class="fas fa-trash-alt"></i><?= _('Deactivate Persons From Cart') ?></a>
                 <?php
             } ?>
 

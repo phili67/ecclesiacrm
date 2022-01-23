@@ -50,7 +50,7 @@ function doBackup(isRemote)
             .done(function(data) {
                 console.log(data);
                 if (data.result === true) {
-                    var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fa fa-download'></i>  " + data.filename + "</button>";
+                    var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('" + data.filename + "')\"><i class='fas fa-download'></i>  " + data.filename + "</button>";
                     $("#backupstatus").css("color", "green");
                     if (isRemote) {
                         $("#backupstatus").html(i18next.t("Backup Generated and copied to remote server"));

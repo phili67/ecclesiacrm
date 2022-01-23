@@ -50,7 +50,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header border-0">
-        <h3 class="card-title"><i class="fa fa-group"></i> <?= _('Groups') ?></h3>
+        <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Groups') ?></h3>
     </div>
     <div class="card-body">
     <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">

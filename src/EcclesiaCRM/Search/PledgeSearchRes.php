@@ -70,8 +70,8 @@ class PledgeSearchRes extends BaseSearchRes
                                     }
 
                                     $res .= '<span class="fa-stack">'
-                                        .'<i class="fa fa-square fa-stack-2x"></i>'
-                                        .'<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                        .'<i class="fas fa-square fa-stack-2x"></i>'
+                                        .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                         .'</span>';
 
                                     if (SessionUser::getUser()->isShowCartEnabled()) {

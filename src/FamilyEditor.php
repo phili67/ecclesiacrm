@@ -819,7 +819,7 @@ require 'Include/Header.php';
                     <label><?= _('Home Phone') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" Name="HomePhone" value="<?= htmlentities(stripslashes($sHomePhone)) ?>"
                                size="30" maxlength="30" class="form-control input-sm"
@@ -832,7 +832,7 @@ require 'Include/Header.php';
                     <label><?= _('Work Phone') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" name="WorkPhone" value="<?= htmlentities(stripslashes($sWorkPhone)) ?>"
                                size="30" maxlength="30" class="form-control input-sm"
@@ -846,7 +846,7 @@ require 'Include/Header.php';
                     <label><?= _('Mobile Phone') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" name="CellPhone" value="<?= htmlentities(stripslashes($sCellPhone)) ?>"
                                size="30" maxlength="30" class="form-control input-sm"
@@ -862,7 +862,7 @@ require 'Include/Header.php';
                     <label><?= _('Mobile Phone') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" Name="Email" class="form-control input-sm"
                                value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font
@@ -898,7 +898,7 @@ require 'Include/Header.php';
                         <label for="LinkedIn"><?= _('Wedding Date') ?>:</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
                             <input type="text" class="form-control date-picker" Name="WeddingDate"
                                    value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12"

@@ -84,7 +84,7 @@ require $sRootDocument . '/Include/Header.php';
 
                 <div class="col-md-4 col-xs-6">
                     <div class="alert alert-info">
-                      <i class="fa fa-info-circle"></i> <?= _("To add some buyers use the side bar and the menu Item") ?> : "<?= _("Edit Last Fundraiser") ?>"
+                      <i class="fas fa-info-circle"></i> <?= _("To add some buyers use the side bar and the menu Item") ?> : "<?= _("Edit Last Fundraiser") ?>"
                     </div>
 
                     <div class="form-group">
@@ -150,7 +150,7 @@ require $sRootDocument . '/Include/Header.php';
                             <span class="btn btn-primary" id="donatedItemPicture"
                                   data-donateditemid="<?= $iDonatedItemID ?>"
                                   data-toggle="tooltip" data-placement="top" title="<?= _("Use the EDrive to browse or upload a file") ?>"> <i
-                                    class="fa fa-cloud-download"></i></span>
+                                    class="fas fa-cloud-download-alt"></i></span>
                             </div>
                         </div>
                     </div>

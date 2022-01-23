@@ -19,7 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 class Menu {
     private $_title;                // "event"
     private $_uri     = '';         // email/Dashboard.php
-    private $_icon;                 // "fa fa-ticket fa-calendar pull-right"
+    private $_icon;                 // "fas fa-ticket-alt fa-calendar pull-right"
     private $_links   = [];         // all the links from the menu and all the menu items
     private $_sec_grp;              // bAll, bAdmin, ....
     private $_parent  = null;       // the menu or MenuItem, a parent should have all the links of his child
@@ -127,8 +127,8 @@ class Menu {
 
     public function getIcon()
     {
-        if ($this->_icon == "fa fa-families") {
-            return '<i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i>';
+        if ($this->_icon == "fas fa-families") {
+            return '<i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i>';
         }
         return   ' <i class="'.$this->_icon.'"></i>';
     }
@@ -228,7 +228,7 @@ class Menu {
             echo '<li class="nav-item'.(($menu->getClass() != null)?" ".$menu->getClass():"").'">';
             echo '<a href="'.$url."\" ".(($real_link==true)?'target="_blank"':'').' class="nav-link '.$this->is_link_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false).'">'.$menu->getIcon()." <p>"._($menu->getTitle())."</p>";
             if (count($menu->subMenu()) > 0) {
-                echo '<i class="fa fa-angle-left right"></i>';
+                echo '<i class="fas fa-angle-left right"></i>';
             }
 
             echo "</a>\n";
@@ -259,7 +259,7 @@ class Menu {
                 echo '<a href="#" class="nav-link '.$this->is_link_active($menu->getLinks(),false,$menu->getClass()).'">';// the menu keep his link #
                 echo " ".$menu->getIcon()."\n";
                 echo " <p>"._($menu->getTitle());
-                echo ' <i class="fa fa-angle-left right"></i>'."\n";
+                echo ' <i class="fas fa-angle-left right"></i>'."\n";
                 if (count($menu->getBadges()) > 0) {
                     foreach ($menu->getBadges() as $badge) {
                         if ($badge['id'] != ''){

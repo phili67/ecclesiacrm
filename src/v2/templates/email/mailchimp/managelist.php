@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><i class="fa fa-list"></i> <?= _('Manage Email List') ?></h3>
+                <h3 class="card-title"><i class="fas fa-list"></i> <?= _('Manage Email List') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
                             class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
@@ -29,7 +29,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="btn-group">
                     <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>"
                             data-id="-1" data-name="">
-                        <i class="fa fa-list-alt"></i><?= _("Create a Campaign") ?>
+                        <i class="fas fa-list-alt"></i><?= _("Create a Campaign") ?>
                     </button>
                     <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app dropdown-toggle"
                             data-toggle="dropdown" aria-expanded="false">
@@ -39,15 +39,15 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="dropdown-menu" role="menu" id="allCampaignTags"></div>
                 </div>
                 <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
-                    <i class="fa fa-trash-o"></i><?= _("Delete All Subscribers") ?>
+                    <i class="far fa-trash-alt"></i><?= _("Delete All Subscribers") ?>
                 </button>
                 <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $listId ?>">
-                    <i class="fa fa-trash"></i><?= _("Delete") ?>
+                    <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
                 </button>
                 <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>"
                         data-subject="<?= $list['campaign_defaults']['subject'] ?>"
                         data-permissionreminder="<?= $list['permission_reminder'] ?>">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fas fa-pencil-alt"></i>
                     <?= _('Modify Properties') ?>
                 </button>
             </div>
@@ -62,10 +62,10 @@ if ($isMailchimpActiv) {
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header with-border">
-                    <h3 class="card-title"><i class="fa fa-users"></i> <?= _('Subscribers') ?></h3>
+                    <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Subscribers') ?></h3>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-info"><i class="fa fa-info" aria-hidden="true"></i>
+                    <div class="alert alert-info"><i class="fas fa-info" aria-hidden="true"></i>
                         <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?>
                         <br>
                         <ul>
@@ -103,10 +103,10 @@ if ($isMailchimpActiv) {
                                 </button>
                                 <div class="dropdown-menu" role="menu">
                                     <a class="dropdown-item subscribeButton" data-type="subscribed"><i
-                                            class="fa fa-user"></i><i class="fa fa-check"></i> <?= _("Subscribed") ?>
+                                            class="fas fa-user"></i><i class="fas fa-check"></i> <?= _("Subscribed") ?>
                                     </a>
                                     <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i
-                                            class="fa fa-user"></i><i class="fa fa-times"></i> <?= _("Unsubscribed") ?>
+                                            class="fas fa-user"></i><i class="fas fa-times"></i> <?= _("Unsubscribed") ?>
                                     </a>
                                 </div>
                             </div>
@@ -155,7 +155,7 @@ if ($isMailchimpActiv) {
         <div class="col-lg-12">
             <div class="card box-body">
                 <div class="alert alert-danger alert-dismissible">
-                    <h4><i class="fa fa-ban"></i> MailChimp <?= _('is not configured') ?></h4>
+                    <h4><i class="fas fa-ban"></i> MailChimp <?= _('is not configured') ?></h4>
                     <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?><a
                         href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Edit General Settings') ?></a>,
                     <?= _('then update') ?> sMailChimpApiKey. <?= _('For more info see our ') ?><a

@@ -336,21 +336,21 @@ $sPageTitle = _('Person Profile');
 $sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
 if ($previous_id > 0) {
     $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
-<span class="mat-button-wrapper"><i class="fa fa-hand-o-left"></i></span>
+<span class="mat-button-wrapper"><i class="far fa-hand-point-left"></i></span>
 <div class="mat-button-ripple mat-ripple" ></div>
 <div class="mat-button-focus-overlay"></div>
 </button>';
 }
 
 $sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button"  type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/v2/personlist\'">
-<span class="mat-button-wrapper"><i class="fa fa-list-ul"></i></span>
+<span class="mat-button-wrapper"><i class="fas fa-list-ul"></i></span>
 <div class="mat-button-ripple mat-ripple" ></div>
 <div class="mat-button-focus-overlay"></div>
 </button>';
 
 if ($next_id > 0) {
     $sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" type="button" onclick="location.href=\'' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
-<span class="mat-button-wrapper"><i class="fa fa-hand-o-right"></i></span>
+<span class="mat-button-wrapper"><i class="far fa-hand-point-right"></i></span>
 <div class="mat-button-ripple mat-ripple"></div>
 <div class="mat-button-focus-overlay"></div>
 </button>
@@ -403,15 +403,15 @@ if (!empty($person->getDateDeactivated())) {
                                     <div class="buttons">
                                         <a class="hide" id="view-larger-image-btn" href="#"
                                            title="<?= _("View Photo") ?>">
-                                            <i class="fa fa-search-plus"></i>
+                                            <i class="fas fa-search-plus"></i>
                                         </a>&nbsp;
                                         <a href="#" data-toggle="modal" data-target="#upload-image"
                                            title="<?= _("Upload Photo") ?>">
-                                            <i class="fa fa-camera"></i>
+                                            <i class="fas fa-camera"></i>
                                         </a>&nbsp;
                                         <a href="#" data-toggle="modal" data-target="#confirm-delete-image"
                                            title="<?= _("Delete Photo") ?>">
-                                            <i class="fa fa-trash-o"></i>
+                                            <i class="far fa-trash-alt"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -423,11 +423,11 @@ if (!empty($person->getDateDeactivated())) {
                             <?php
                             if ($person->isMale()) {
                                 ?>
-                                <i class="fa fa-male"></i>
+                                <i class="fas fa-male"></i>
                                 <?php
                             } elseif ($person->isFemale()) {
                                 ?>
-                                <i class="fa fa-female"></i>
+                                <i class="fas fa-female"></i>
                                 <?php
                             }
                             ?>
@@ -489,7 +489,7 @@ if (!empty($person->getDateDeactivated())) {
                             ?>
                             <li class="list-group-item">
                                 <b>
-                                    <i class="fa fa-group"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
+                                    <i class="fas fa-users"></i> <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $groupAssigment->getGroupId()?>/view"><?= $groupAssigment->getGroupName() ?>
                                 </b>
 
                                 <div class="float-right">
@@ -523,10 +523,10 @@ if (!empty($person->getDateDeactivated())) {
                 <div class="card card-primary">
                     <div class="card-header with-border">
                         <h3 class="card-title text-center"><i
-                                class="fa fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
+                                class="fas fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
                         <div class="card-tools pull-right">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                    class="fa fa-minus"></i></button>
+                                    class="fas fa-minus"></i></button>
                         </div>
                     </div>
                     <!-- /.box-header -->
@@ -536,8 +536,8 @@ if (!empty($person->getDateDeactivated())) {
                             if ($can_see_privatedata) {
                             if (count($person->getOtherFamilyMembers()) > 0) {
                                 ?>
-                                <li style="left:-28px"><strong><i class="fa fa-male"></i><i class="fa fa-female"></i><i
-                                            class="fa fa-child"></i> <?php echo _('Family:'); ?></strong>
+                                <li style="left:-28px"><strong><i class="fas fa-male"></i><i class="fas fa-female"></i><i
+                                            class="fas fa-child"></i> <?php echo _('Family:'); ?></strong>
                                     <span>
             <?php
             if (!is_null($person->getFamily()) && $person->getFamily()->getId() != '') {
@@ -546,8 +546,8 @@ if (!empty($person->getDateDeactivated())) {
                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>"
                    class="table-link">
                   <span class="fa-stack">
-                    <i class="fa fa-square fa-stack-2x"></i>
-                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-square fa-stack-2x"></i>
+                    <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
                 <?php
@@ -566,7 +566,7 @@ if (!empty($person->getDateDeactivated())) {
                                 ?>
                                 <li>
                                 <strong>
-                                    <i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>:
+                                    <i class="fa-li fas fa-home"></i><?php echo _('Address'); ?>:
                                 </strong>
                                 <span>
                                     <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
@@ -581,7 +581,7 @@ if (!empty($person->getDateDeactivated())) {
                             if ($dBirthDate) {
                                 ?>
                                 <li>
-                                    <strong><i class="fa-li fa fa-calendar"></i><?= _('Birth Date') ?></strong>:
+                                    <strong><i class="fa-li fas fa-calendar"></i><?= _('Birth Date') ?></strong>:
                                     <br>
                                     <p class="text-muted"><?= $dBirthDate ?>
                                         <?php
@@ -611,10 +611,10 @@ if (!empty($person->getDateDeactivated())) {
 
                             if ($sCellPhone) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Mobile Phone') ?>:</strong>
+                                <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Mobile Phone') ?>:</strong>
                                     <span><a
                                             href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
-                                <li><strong><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>:</strong>
+                                <li><strong><i class="fa-li fas fa-mobile"></i><?= _('Text Message') ?>:</strong>
                                     <span><a
                                             href="sms:<?= str_replace(' ', '', $sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span>
                                 </li>
@@ -623,26 +623,26 @@ if (!empty($person->getDateDeactivated())) {
 
                             if ($sHomePhone) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-phone"></i><?= _('Home Phone') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li fas fa-phone"></i><?= _('Home Phone') ?>:</strong> <span><a
                                             href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
                                 <?php
                             }
 
                             if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */
                                 ?>
-                                <li><strong><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:</strong>
+                                <li><strong><i class="fa-li fab fa-hacker-news"></i><?= _("Send Newsletter") ?>:</strong>
                                     <span id="NewsLetterSend"></span>
                                 </li>
                                 <?php
                             }
                             if ($sEmail != '') {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
                                             href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
                                 <?php
                                 if ($isMailChimpActive) {
                                     ?>
-                                    <li><strong><i class="fa-li fa fa-send"></i>MailChimp:</strong> <span
+                                    <li><strong><i class="fa-li fas fa-paper-plane"></i>MailChimp:</strong> <span
                                             id="mailChimpUserNormal"></span>
                                     </li>
                                     <?php
@@ -651,21 +651,21 @@ if (!empty($person->getDateDeactivated())) {
 
                             if ($sWorkPhone) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-phone"></i><?= _('Work Phone') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li fas fa-phone"></i><?= _('Work Phone') ?>:</strong> <span><a
                                             href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
                                 <?php
                             }
 
                             if ($person->getWorkEmail() != '') {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
+                                <li><strong><i class="fa-li far fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
                                     <span><a
                                             href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span>
                                 </li>
                                 <?php
                                 if ($isMailChimpActive) {
                                     ?>
-                                    <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserWork"></span>
+                                    <li><i class="fa-li fas fa-paper-plane"></i>MailChimp: <span id="mailChimpUserWork"></span>
                                     </li>
                                     <?php
                                 }
@@ -690,7 +690,7 @@ if (!empty($person->getDateDeactivated())) {
 
                             if (strlen($person->getLinkedIn()) > 0) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li fas fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
                                             href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
                                 </li>
                                 <?php
@@ -721,7 +721,7 @@ if (!empty($person->getDateDeactivated())) {
                                             $custom_Special = $rowCustomField->getCustomSpecial();
                                         }
 
-                                        echo '<li><strong><i class="fa-li ' . (($rowCustomField->getTypeId() == 11) ? 'fa fa-phone' : 'fa fa-tag') . '"></i>' . $rowCustomField->getCustomName() . ':</strong> <span>';
+                                        echo '<li><strong><i class="fa-li ' . (($rowCustomField->getTypeId() == 11) ? 'fas fa-phone' : 'fas fa-tag') . '"></i>' . $rowCustomField->getCustomName() . ':</strong> <span>';
                                         $temp_string = nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
                                         echo $temp_string;
                                         echo '</span></li>';
@@ -733,7 +733,7 @@ if (!empty($person->getDateDeactivated())) {
                     </div>
                 </div>
                 <div class="alert alert-info alert-dismissable">
-                    <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
+                    <i class="fas  fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
                 </div>
             </div>
         </div>
@@ -747,7 +747,7 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart"
-                           data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span
+                           data-onecartpersonid="<?= $iPersonID ?>"> <i class="fas fa-times"></i> <span
                                 class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
                         <?php
                     } else if (SessionUser::getUser()->isShowCartEnabled()) {
@@ -755,7 +755,7 @@ if (!empty($person->getDateDeactivated())) {
                         ?>
                         <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart"
                            data-onecartpersonid="<?= $iPersonID ?>"><i
-                                class="fa fa-cart-plus"></i><span
+                                class="fas fa-cart-plus"></i><span
                                 class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
                         <?php
                     }
@@ -764,11 +764,11 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app"
-                           href="mailto:<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>", "", $sEmail)) ?>"><i
-                                class="fa fa-send-o"></i><?= _('Email') ?></a>
+                           href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"><i
+                                class="far fa-paper-plane"></i><?= _('Email') ?></a>
                         <a class="btn btn-app"
-                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>", "", $sEmail)) ?>"><i
-                                class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"><i
+                                class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                         <?php
                     }
 
@@ -778,15 +778,15 @@ if (!empty($person->getDateDeactivated())) {
                             $buttons++;
                             ?>
                             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i
-                                    class="fa fa-cog"></i> <?= _("Change Settings") ?></a>
+                                    class="fas fa-cog"></i> <?= _("Change Settings") ?></a>
                             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i
-                                    class="fa fa-key"></i> <?= _("Change Password") ?></a>
+                                    class="fas fa-key"></i> <?= _("Change Password") ?></a>
                             <?php
                         }
                         ?>
                         <a class="btn btn-app"
                            href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i
-                                class="fa fa-print"></i> <?= _("Printable Page") ?></a>
+                                class="fas fa-print"></i> <?= _("Printable Page") ?></a>
                         <?php
                     }
 
@@ -796,7 +796,7 @@ if (!empty($person->getDateDeactivated())) {
                         <a class="btn btn-app bg-gradient-purple"
                            href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/person/<?= $iPersonID ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Add a pastoral care note") ?>"><i
-                                class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
+                                class="far fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
                         <?php
                     }
 
@@ -806,7 +806,7 @@ if (!empty($person->getDateDeactivated())) {
                         <a class="btn btn-app bg-gradient-green" href="#" id="createDocument" data-toggle="tooltip"
                            data-placement="bottom"
                            title="<?= _("Create a document") ?>"><i
-                                class="fa fa-file-o"></i><?= _("Create a document") ?></a>
+                                class="fas fa-file"></i><?= _("Create a document") ?></a>
                         <?php
                     }
                     if (SessionUser::getUser()->isManageGroupsEnabled()) {
@@ -814,13 +814,13 @@ if (!empty($person->getDateDeactivated())) {
                         ?>
                         <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Assign this user to a group") ?>"><i
-                                class="fa fa-users">
+                                class="fas fa-users">
                             </i> <?= _("Assign New Group") ?></a>
 
                         <a class="btn btn-app bg-yellow-gradient <?= (mb_strlen($person->getAddress1()) == 0 || !is_null($person->getFamily()) && mb_strlen($person->getFamily()->getAddress1()) == 0)?'disabled':'' ?>"
                            data-toggle="tooltip" data-placement="bottom" title="<?= _("Get the vCard of the person") ?>"
                            href="<?= SystemURLs::getRootPath() ?>/api/persons/addressbook/extract/<?= $iPersonID ?>"><i
-                                class="fa fa fa-address-card-o">
+                                class="far fa-id-card">
                             </i> <?= _("vCard") ?></a>
                         <?php
                     }
@@ -832,14 +832,14 @@ if (!empty($person->getDateDeactivated())) {
                             <a class="btn btn-app"
                                href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Create a CRM user") ?>"><i
-                                    class="fa fa-user-secret"></i> <?= _('Make User') ?></a>
+                                    class="fas fa-user-secret"></i> <?= _('Make User') ?></a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app"
                                href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"
                                data-toggle="tooltip" data-placement="bottom" title="<?= _("Add rights to this user") ?>"><i
-                                    class="fa fa-user-secret"></i> <?= _('Edit User') ?></a>
+                                    class="fas fa-user-secret"></i> <?= _('Edit User') ?></a>
                             <?php
                         }
                     }
@@ -848,7 +848,7 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
-                            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
+                            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle' : 'fa-check-circle') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " . _(' this Person')); ?>
                         </button>
                         <?php
                     }
@@ -861,14 +861,14 @@ if (!empty($person->getDateDeactivated())) {
                             <a class="btn btn-app bg-gradient-maroon delete-person"
                                data-person_name="<?= $person->getFullName() ?>"
                                data-person_id="<?= $iPersonID ?>"><i
-                                    class="fa fa-trash-o"></i> <?= _("Delete this Record") ?>
+                                    class="far fa-trash-alt"></i> <?= _("Delete this Record") ?>
                             </a>
                             <?php
                         } else {
                             ?>
                             <a class="btn btn-app bg-maroon"
                                href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i
-                                    class="fa fa-trash-o"></i><?= _("Delete this Record") ?></a>
+                                    class="far fa-trash-alt"></i><?= _("Delete this Record") ?></a>
                             <?php
                         }
                     }
@@ -893,7 +893,7 @@ if (!empty($person->getDateDeactivated())) {
                             <li class="nav-item">
                                 <a class="nav-link <?= (!$bDocuments && !$bEDrive && !$bGroup) ? "active" : "" ?>"
                                    href=" #timeline" aria-controls="timeline" role="tab"
-                                   data-toggle="tab"><?= _('Timeline') ?></a></li>
+                                   data-toggle="tab"><i class="fas fa-clock"></i> <?= _('Timeline') ?></a></li>
                             <?php
                         }
                         ?>
@@ -905,7 +905,7 @@ if (!empty($person->getDateDeactivated())) {
                                    href="#family"
                                    aria-controls="family"
                                    role="tab"
-                                   data-toggle="tab"><?= _('Family') ?></a>
+                                   data-toggle="tab"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= _('Family') ?></a>
                             </li>
                             <?php
                             if (empty($activeTab)) {
@@ -922,7 +922,7 @@ if (!empty($person->getDateDeactivated())) {
                                    aria-controls="groups"
                                    role="tab"
                                    data-toggle="tab"><i
-                                        class="fa fa-group"></i> <?= _('Assigned Groups') ?></a></li>
+                                        class="fas fa-users"></i> <?= _('Assigned Groups') ?></a></li>
                             <?php
                             if (empty($activeTab)) {
                                 $activeTab = 'group';
@@ -937,12 +937,12 @@ if (!empty($person->getDateDeactivated())) {
                                    href="#properties"
                                    aria-controls="properties"
                                    role="tab"
-                                   data-toggle="tab"><?= _('Assigned Properties') ?></a>
+                                   data-toggle="tab"><i class="fas fa-user-cog"></i> <?= _('Assigned Properties') ?></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"
                                    href="#volunteer" aria-controls="volunteer" role="tab"
-                                   data-toggle="tab"><?= _('Volunteer Opportunities') ?></a></li>
+                                   data-toggle="tab"><i class="fas fa-hands-helping"></i> <?= _('Volunteer Opportunities') ?></a></li>
                             <?php
                             if (empty($activeTab)) {
                                 $activeTab = 'properties';
@@ -967,7 +967,7 @@ if (!empty($person->getDateDeactivated())) {
                                 <a class="nav-link"
                                    href="#pledges" aria-controls="pledges" role="tab"
                                    data-toggle="tab">
-                                    <i class="fa fa-bank"></i> <?= _("Pledges and Payments") ?>
+                                    <i class="fas fa-bank"></i> <?= _("Pledges and Payments") ?>
                                 </a>
                             </li>
 
@@ -987,7 +987,7 @@ if (!empty($person->getDateDeactivated())) {
                                    aria-controls="notes"
                                    role="tab"
                                    data-toggle="tab" <?= ($bDocuments) ? "aria-expanded=\"true\"" : "" ?>><i
-                                        class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
+                                        class="far fa-copy"></i> <?= _("Documents") ?></a></li>
                             <?php
                         }
                         ?>
@@ -1001,7 +1001,7 @@ if (!empty($person->getDateDeactivated())) {
                                    aria-controls="edrive"
                                    role="tab"
                                    data-toggle="tab" <?= ($bDocuments) ? "aria-expanded=\"true\"" : "" ?>><i
-                                        class="fa fa-cloud"></i> <?= _("EDrive") ?></a></li>
+                                        class="fas fa-cloud"></i> <?= _("EDrive") ?></a></li>
                             <?php
                         }
                         ?>
@@ -1063,7 +1063,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                             <div class="timeline-item">
                   <span class="time">
-                    <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                    <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
                   </span>
                                                 <?php
                                                 if (isset($item['style2'])) {
@@ -1165,8 +1165,8 @@ if (!empty($person->getDateDeactivated())) {
                                                     ?>
                                                     <a class="AddToPeopleCart" data-cartpersonid="<?= $tmpPersonId ?>">
                     <span class="fa-stack">
-                      <i class="fa fa-square fa-stack-2x"></i>
-                      <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
+                      <i class="fas fa-square fa-stack-2x"></i>
+                      <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
                     </span>
                                                     </a>
                                                     <?php
@@ -1176,16 +1176,16 @@ if (!empty($person->getDateDeactivated())) {
                                                     ?>
                                                     <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
                       <span class="fa-stack" style="color:green">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        <i class="fas fa-square fa-stack-2x"></i>
+                        <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
                       </span>
                                                     </a>
                                                     <a class="delete-person"
                                                        data-person_name="<?= $familyMember->getFullName() ?>"
                                                        data-person_id="<?= $tmpPersonId ?>" data-view="family">
                       <span class="fa-stack" style="color:red">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-square fa-stack-2x"></i>
+                          <i class="far fa-trash-alt fa-stack-1x fa-inverse"></i>
                       </span>
                                                     </a>
                                                     <?php
@@ -1212,7 +1212,7 @@ if (!empty($person->getDateDeactivated())) {
                                         ?>
                                         <br>
                                         <div class="alert alert-warning">
-                                            <i class="fa fa-question-circle fa-fw fa-lg"></i>
+                                            <i class="far fa-question-circle  fa-lg"></i>
                                             <span><?= _('No group assignments.') ?></span>
                                         </div>
                                         <?php
@@ -1254,7 +1254,7 @@ if (!empty($person->getDateDeactivated())) {
                                                                 <code>
                                                                     <a href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"
                                                                        class="btn btn-default" role="button"><i
-                                                                            class="fa fa-list"></i>
+                                                                            class="fas fa-list"></i>
                                                                     </a>
                                                                     <div class="btn-group">
                                                                         <button type="button"
@@ -1289,7 +1289,7 @@ if (!empty($person->getDateDeactivated())) {
                                                                             type="button"
                                                                             class="btn btn-danger groupRemove"
                                                                             data-toggle="dropdown"><i
-                                                                                class="fa fa-trash-o"></i>
+                                                                                class="far fa-trash-alt"></i>
                                                                         </button>
                                                                     </div>
                                                                 </code>
@@ -1407,7 +1407,7 @@ if (!empty($person->getDateDeactivated())) {
                             <div class="main-box-body clearfix">
                                 <div class="alert alert-warning"
                                      id="properties-warning" <?= ($ormAssignedProperties->count() > 0) ? 'style="display: none;"' : '' ?>>
-                                    <i class="fa fa-question-circle fa-fw fa-lg"></i>
+                                    <i class="far fa-question-circle  fa-lg"></i>
                                     <span><?= _('No property assignments.') ?></span>
                                 </div>
                                 <?php
@@ -1477,7 +1477,7 @@ if (!empty($person->getDateDeactivated())) {
                                 ?>
                                 <div class="alert alert-warning"
                                      id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0) ? 'style="display: none;"' : '' ?>>
-                                    <i class="fa fa-question-circle fa-fw fa-lg"></i>
+                                    <i class="far fa-question-circle  fa-lg"></i>
                                     <span><?= _('No volunteer opportunity assignments.') ?></span>
                                 </div>
 
@@ -1675,7 +1675,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                         <div class="timeline-item">
                                                 <span class="time">
-                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                     <i class="fas fa-clock"></i> <?= $item['datetime'] ?>
                       &nbsp;
                      <?php
                      if ($item['slim'] && (!isset($item['currentUserName']) || $item['userName'] == $person->getFullName())) {
@@ -1684,7 +1684,7 @@ if (!empty($person->getDateDeactivated())) {
                              <!--<a href="<?= $item['editLink'] ?>">-->
                              <?= $item['editLink'] ?>
                              <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Edit this document") ?>">
-                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fas fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
                         </span>
                              </a>
@@ -1694,8 +1694,8 @@ if (!empty($person->getDateDeactivated())) {
                              ?>
                              <?= $item['deleteLink'] ?>
                              <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Delete this document") ?>">
-                          <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                          <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-square fa-stack-2x" style="color:red"></i>
+                          <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
                         </span>
                              </a>
                              <?php
@@ -1705,9 +1705,9 @@ if (!empty($person->getDateDeactivated())) {
                              <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>"
                                    data-shared="<?= $item['isShared'] ?>"
                                    data-toggle="tooltip" data-placement="bottom" title="<?= _("Share this document to another user") ?>">
-                          <i class="fa fa-square fa-stack-2x"
+                          <i class="fas fa-square fa-stack-2x"
                              style="color:<?= $item['isShared'] ? "green" : "#777" ?>"></i>
-                          <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-share-square fa-stack-1x fa-inverse"></i>
                         </span>
                              <?php
                          }
@@ -1718,8 +1718,8 @@ if (!empty($person->getDateDeactivated())) {
                                                         <span class="fa-stack saveNoteAsWordFile"
                                                               data-id="<?= $item['id'] ?>"
                                                               data-toggle="tooltip" data-placement="bottom" title="<?= _("Export this document to word Format") ?>">
-                          <i class="fa fa-square fa-stack-2x" style="color:#001FFF"></i>
-                          <i class="fa fa-file-word-o fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-square fa-stack-2x" style="color:#001FFF"></i>
+                          <i class="fas fa-file-word fa-stack-1x fa-inverse"></i>
                         </span>
                                                         <?php
                                                     }
@@ -1789,7 +1789,7 @@ if (!empty($person->getDateDeactivated())) {
                                                             ?>
                                                             <?= $item['deleteLink'] ?>
                                                             <button type="button" class="btn btn-danger"><i
-                                                                    class="fa fa-trash"></i></button>
+                                                                    class="fas fa-trash-alt"></i></button>
                                                             </button>
                                                             <?php
                                                         }
@@ -1799,7 +1799,7 @@ if (!empty($person->getDateDeactivated())) {
                                                             <button type="button" data-id="<?= $item['id'] ?>"
                                                                     data-shared="<?= $item['isShared'] ?>"
                                                                     class="btn btn-<?= $item['isShared'] ? "success" : "default"
-                                                                    ?> shareNote"><i class="fa fa-share-square-o"></i>
+                                                                    ?> shareNote"><i class="fas fa-share-square"></i>
                                                             </button>
                                                             <?php
                                                         }
@@ -1807,7 +1807,7 @@ if (!empty($person->getDateDeactivated())) {
                                                         <button type="button" data-id="<?= $item['id'] ?>"
                                                                 data-shared="<?= $item['isShared'] ?>"
                                                                 class="btn btn-<?= $item['isShared'] ? "success" : "default"
-                                                                ?> shareNote"><i class="fa fa-share-square-o"></i>
+                                                                ?> shareNote"><i class="fas fa-share-square"></i>
                                                         </button>
 
                                                         <?php
@@ -1846,8 +1846,8 @@ if (!empty($person->getDateDeactivated())) {
                                                       <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>"
                                                             data-toggle="tooltip" data-placement="top"
                                                             title="<?= _("Upload a file in EDrive") ?>">
-                                                        <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                                                        <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                                                        <i class="fas fa-square fa-stack-2x" style="color:green"></i>
+                                                        <i class="fas fa-cloud-upload-alt fa-stack-1x fa-inverse"></i>
                                                       </span>
                                                     </a>
                                                   <?php
@@ -1858,8 +1858,8 @@ if (!empty($person->getDateDeactivated())) {
                                                       <span class="fa-stack fa-special-icon drag-elements"
                                                             data-toggle="tooltip" data-placement="top"
                                                             title="<?= _("Create a Folder") ?>">
-                                                        <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
-                                                        <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
+                                                        <i class="fas fa-square fa-stack-2x" style="color:blue"></i>
+                                                        <i class="far fa-folder fa-stack-1x fa-inverse"></i>
                                                       </span>
                                                 </a>
 
@@ -1867,8 +1867,8 @@ if (!empty($person->getDateDeactivated())) {
                                                   <span class="fa-stack fa-special-icon drag-elements"
                                                     data-toggle="tooltip" data-placement="top"
                                                     title="<?= _("Delete") ?>">
-                                                    <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                                                    <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                                                    <i class="fas fa-square fa-stack-2x" style="color:red"></i>
+                                                    <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
                                                   </span>
                                                 </a>
 
@@ -1877,8 +1877,8 @@ if (!empty($person->getDateDeactivated())) {
                                                     <span class="fa-stack fa-special-icon drag-elements"
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="<?= _("Up One Level") ?>">
-                                                      <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
-                                                      <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
+                                                      <i class="fas fa-square fa-stack-2x" style="color:navy"></i>
+                                                      <i class="fas fa-level-up-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 </a>
                                                 <a class="filemanager-refresh" data-toggle="tooltip"
@@ -1886,8 +1886,8 @@ if (!empty($person->getDateDeactivated())) {
                                                     <span class="fa-stack fa-special-icon drag-elements"
                                                           data-toggle="tooltip" data-placement="top"
                                                           title="<?= _("Actualize files") ?>">
-                                                      <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
-                                                      <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
+                                                      <i class="fas fa-square fa-stack-2x" style="color:gray"></i>
+                                                      <i class="fas fa-sync-alt fa-stack-1x fa-inverse"></i>
                                                     </span>
                                                 </a>
                                             </td>

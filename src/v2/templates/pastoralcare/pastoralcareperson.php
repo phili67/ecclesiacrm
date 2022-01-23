@@ -42,7 +42,7 @@ $sFamilyEmails = [];
                 <a class="btn btn-app newPastorCare" data-typeid="<?= $ormPastoralTypeCare->getId() ?>"
                    data-visible="<?= ($ormPastoralTypeCare->getVisible()) ? 1 : 0 ?>"
                    data-typeDesc="<?= $type_and_desc ?>"><i
-                        class="fa fa-sticky-note"></i><?= _("Add Pastoral Care Notes") ?></a>
+                        class="fas fa-sticky-note"></i><?= _("Add Pastoral Care Notes") ?></a>
                 <?php
                 break;
             }
@@ -65,12 +65,12 @@ $sFamilyEmails = [];
             </div>
         </div>
         <a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCarePerson.php?PersonID=<?= $currentPersonID ?>"><i
-                class="fa fa-print"></i> <?= _("Printable Page") ?></a>
-        <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+                class="fas fa-print"></i> <?= _("Printable Page") ?></a>
+        <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
 
         <div class="btn-group pull-right">
             <a class="btn btn-app filterByPastor" data-personid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
-                    class="fa fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
+                    class="fas fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
@@ -103,7 +103,7 @@ $sFamilyEmails = [];
                 <?= _("Family Members") ?> : <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $family->getId() ?>"><?= $family->getName()?></a>
             </h3>
             <div class="card-tools pull-right">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
             </div>
         </div>
         <div class="card-body">
@@ -190,10 +190,10 @@ if ($ormPastoralCares->count() > 0) {
         foreach ($ormPastoralCares as $ormPastoralCare) {
             ?>
             <div class="item-<?= $ormPastoralCare->getPastorId() ?> all-items">
-                <i class="fa fa-clock-o bg-blue"></i>
+                <i class="fas fa-clock bg-blue"></i>
                 <div class="timeline-item">
       <span class="time">
-          <i class="fa fa-clock-o"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?>
+          <i class="fas fa-clock"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?>
       </span>
 
                     <h3 class="timeline-header">
@@ -234,7 +234,7 @@ if ($ormPastoralCares->count() > 0) {
         ?>
         <!-- END timeline item -->
         <div>
-            <i class="fa fa-clock-o bg-gray"></i>
+            <i class="fas fa-clock bg-gray"></i>
         </div>
     </div>
 

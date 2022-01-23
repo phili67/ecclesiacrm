@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
         <h3 class="card-title"><?= _('People Functions') ?></h3>
     </div>
     <div class="card-body">
-        <a href="<?= $sRootPath ?>/v2/people/list/person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
+        <a href="<?= $sRootPath ?>/v2/people/list/person" class="btn btn-app"><i class="fas fa-user"></i><?= _('All People') ?></a>
         <?php
         if ($sEmailLink) {
             // Add default email if default email has been set and is not already in string
@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
                 // Display link
                 ?>
                 <div class="btn-group">
-                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= _('Email All')?></a>
+                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="far fa-paper-plane"></i><?= _('Email All')?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -44,7 +44,7 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                 </div>
                 <div class="btn-group">
-                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?=_('Email All (BCC)') ?></a>
+                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fas fa-paper-plane"></i><?=_('Email All (BCC)') ?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -58,13 +58,13 @@ require $sRootDocument . '/Include/Header.php';
         }
         ?>
         <br/>
-        <a href="<?= $sRootPath ?>/v2/people/list/family" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
+        <a href="<?= $sRootPath ?>/v2/people/list/family" class="btn btn-app"><i class="fas fa-users"></i><?= _('All Families') ?></a>
         <?php
         if (SessionUser::getUser()->isShowMapEnabled()) {
             ?>
-            <a href="<?= $sRootPath ?>/GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= _('Family Geographic') ?></a>
-            <a href="<?= $sRootPath ?>/v2/map/-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
-            <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
+            <a href="<?= $sRootPath ?>/GeoPage.php" class="btn btn-app"><i class="fas fa-globe-africa"></i> <?= _('Family Geographic') ?></a>
+            <a href="<?= $sRootPath ?>/v2/map/-1" class="btn btn-app"><i class="far fa-map"></i><?= _('Family Map') ?></a>
+            <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn btn-app"><i class="fas fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
             <?php
         }
         ?>
@@ -84,11 +84,11 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-male"></i>
+                <i class="fas fa-male"></i>
             </div>
             <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('View') ?> <?= _("Singles") ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -105,12 +105,12 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i
-                    class="fa fa-child"></i>
+                <i class="fas fa-male" style="right: 124px"></i><i class="fas fa-female" style="right: 67px"></i><i
+                    class="fas fa-child"></i>
             </div>
             <div class="small-box-footer">
                 <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
-                    <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('View') ?> <?= _("Familles") ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -128,10 +128,10 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-user"></i>
+                <i class="fas fa-user"></i>
             </div>
             <a href="<?= $sRootPath ?>/v2/people/list/person" class="small-box-footer">
-                <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
+                <?= _('See All People') ?> <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
     </div>
@@ -150,10 +150,10 @@ require $sRootDocument . '/Include/Header.php';
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-child"></i>
+                    <i class="fas fa-child"></i>
                 </div>
                 <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
-                    <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -172,10 +172,10 @@ require $sRootDocument . '/Include/Header.php';
                 </p>
             </div>
             <div class="icon">
-                <i class="fa fa-group"></i>
+                <i class="fas fa-users"></i>
             </div>
             <a href="<?= $sRootPath ?>/v2/group/list" class="small-box-footer">
-                <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
     </div>
@@ -188,8 +188,8 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-header with-border">
                 <h3 class="card-title"><?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
             </div>
             <div class="card-body">
@@ -242,8 +242,8 @@ require $sRootDocument . '/Include/Header.php';
             <div class="card-header with-border">
                 <h3 class="card-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
             </div>
             <div class="card-body">
@@ -267,11 +267,11 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header with-border">
-                <h3 class="card-title"> <i class="fa fa-pie-chart"></i> <?= _('Family Roles') ?></h3>
+                <h3 class="card-title"> <i class="fas fa-chart-pie"></i> <?= _('Family Roles') ?></h3>
                 <div class="card-tools pull-right">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
             </div>
             <div class="card-body no-padding">
@@ -304,12 +304,12 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header with-border">
-                <h3 class="card-title"><i class="fa fa-bar-chart-o"></i> <?= _('People Classification') ?></h3>
+                <h3 class="card-title"><i class="fas fa-chart-bar"></i> <?= _('People Classification') ?></h3>
 
                 <div class="card-tools pull-right">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
                 </div>
             </div>
             <table class="table table-condensed">
@@ -357,7 +357,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header with-border">
-                <h3 class="card-title"><i class="fa fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
+                <h3 class="card-title"><i class="fas fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
 
                 <div class="card-tools pull-left">
                     <div id="age-stats-bar-legend" class="chart-legend"></div>

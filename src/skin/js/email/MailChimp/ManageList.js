@@ -19,12 +19,12 @@ $(document).ready(function () {
             path: 'mailchimp/list/getAllTags',
             data: JSON.stringify({"list_id": window.CRM.list_ID})
         }).done(function (data) {
-            $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
+            $("#allTags").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fas fa-plus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
             $("#allTags").append('<div class="dropdown-divider"></div>');
-            $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fa fa-minus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") + '</a>');
+            $("#allTags").append('<a class="dropdown-item deleteTagButton" data-id="-1" data-name=""><i class="fas fa-minus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Delete tag from subscriber(s)") + '</a>');
             $("#allTags").append('<div class="dropdown-divider"></div>');
 
-            $("#addCreateTagsDropAll").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fa fa-plus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
+            $("#addCreateTagsDropAll").append('<a class="dropdown-item addTagButton" data-id="-1" data-name=""></i><i class="fas fa-plus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Add a new tag") + '</a>');
             $("#addCreateTagsDropAll").append('<div class="dropdown-divider"></div>');
 
 
@@ -32,10 +32,10 @@ $(document).ready(function () {
                 var len = data.result.length;
 
                 for (i = 0; i < len; ++i) {
-                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fa fa-tag"></i> ' + data.result[i].name + '</a>');
-                    $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fa fa-tag"></i> ' + data.result[i].name + '</a>');
+                    $("#allTags").append('<a class="dropdown-item addTagButton" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fas fa-tag"></i> ' + data.result[i].name + '</a>');
+                    $("#allCampaignTags").append('<a class="dropdown-item CreateCampaign" data-id="' + data.result[i].id + '" data-name="' + data.result[i].name + '"><i class="fas fa-tag"></i> ' + data.result[i].name + '</a>');
 
-                    $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' + data.result[i].list_id + '"><i class="fa fa-minus"></i> <i class="fa fa-tag"></i> ' + i18next.t("Delete tag") + ' : ' + data.result[i].name + '</a>');
+                    $("#addCreateTagsDropAll").append('<a class="dropdown-item delete-tag" data-id="' + data.result[i].id + '" data-listid="' + data.result[i].list_id + '"><i class="fas fa-minus"></i> <i class="fas fa-tag"></i> ' + i18next.t("Delete tag") + ' : ' + data.result[i].name + '</a>');
                 }
             }
         });
@@ -74,16 +74,16 @@ $(document).ready(function () {
                 var list = data.MailChimpList;
 
                 var listView = '<div class="card-header with-border">'
-                    + '      <h3 class="card-title"><i class="fa fa-list"></i> ' + i18next.t('Email List') + '   (' + i18next.t('Details') + ')</h3>'
+                    + '      <h3 class="card-title"><i class="fas fa-list"></i> ' + i18next.t('Email List') + '   (' + i18next.t('Details') + ')</h3>'
                     + '      <div class="card-tools pull-right">'
-                    + '          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>'
+                    + '          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>'
                     + '      </div>'
                     + '    </div>'
                     + '    <div class="card-body">'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
                     + '          <table width="100%">'
-                    + '            <tr><td><b><i class="fa fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
+                    + '            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
                     + '            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
                     + '            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
                     //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -96,7 +96,7 @@ $(document).ready(function () {
                     + '      </div><hr/>'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
-                    + '           <b><i class="icon fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
+                    + '           <b><i class="icon far fa-newspaper"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
                 var lenCampaigns = data.MailChimpCampaign.length;
 
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 }
 
                 if (lenCampaigns == 0) {
-                    listView += '<tr><td>&nbsp;&nbsp; <i class="icon fa fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
+                    listView += '<tr><td>&nbsp;&nbsp; <i class="icon fas fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
                 }
 
                 listView += '          </table>';
@@ -127,7 +127,7 @@ $(document).ready(function () {
                 if (lenTags) {
                     listView += '    <div class="row">';
                     listView += '        <div class="col-12">'
-                        + '           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                        + '           <b><i class="icon fas fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
 
                     var tags = data.MailChimpList.tags;
 
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
                     if (lenTags) {
                         for (k = 0; k < lenTags; k++) {
-                            tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                            tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>' + tags[k].name + '<br>';
                         }
                     }
 
@@ -148,7 +148,7 @@ $(document).ready(function () {
                 listView += '      </div>'
                     + '    </div>';
 
-                listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>' + list.name + '</a>';
+                listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="far fa-circle"></i>' + list.name + '</a>';
 
                 $("#container").html(listView);
             });
@@ -171,7 +171,7 @@ $(document).ready(function () {
                 title: i18next.t('Actions'),
                 data: 'id',
                 render: function (data, type, full, meta) {
-                    return '<a class="edit-subscriber" data-id="' + full.email_address + '"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="' + full.email_address + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+                    return '<a class="edit-subscriber" data-id="' + full.email_address + '"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-subscriber" data-id="' + full.email_address + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
                 }
             },
             {
@@ -288,11 +288,11 @@ $(document).ready(function () {
             message: i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },
@@ -534,10 +534,10 @@ $(document).ready(function () {
             buttons: {
                 confirm: {
                     label: i18next.t('Yes'),
-                    className: '<i class="fa fa-times"></i> ' + 'btn-danger'
+                    className: '<i class="fas fa-times"></i> ' + 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },
@@ -569,11 +569,11 @@ $(document).ready(function () {
             message: i18next.t("Do you really want to delete this mailing list ?"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },
@@ -602,11 +602,11 @@ $(document).ready(function () {
             message: i18next.t("Are you sure you want to delete all the subscribers"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },
@@ -673,14 +673,14 @@ $(document).ready(function () {
             size: 'large',
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-default",
                     callback: function () {
                         console.log("just do something on close");
                     }
                 },
                 {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
                         var campaignTitle = $('form #CampaignTitle').val();
@@ -708,11 +708,11 @@ $(document).ready(function () {
                                         message: i18next.t("Would like to manage directly this new campaign ?"),
                                         buttons: {
                                             confirm: {
-                                                label: '<i class="fa fa-check"></i> ' + i18next.t('Yes'),
+                                                label: '<i class="fas fa-check"></i> ' + i18next.t('Yes'),
                                                 className: 'btn-primary'
                                             },
                                             cancel: {
-                                                label: '<i class="fa fa-times"></i> ' + i18next.t('No'),
+                                                label: '<i class="fas fa-times"></i> ' + i18next.t('No'),
                                                 className: 'btn-default'
                                             }
                                         },
@@ -779,7 +779,7 @@ $(document).ready(function () {
                         $("#ListTitle").text(name);
 
                         render_container();
-                        $('.listName' + window.CRM.list_ID).html('<i class="fa fa-circle-o"></i>' + name);
+                        $('.listName' + window.CRM.list_ID).html('<i class="far fa-circle"></i>' + name);
                     }
                 });
 
@@ -986,10 +986,10 @@ $(document).ready(function () {
                 message: i18next.t("This will add the tag") + " \"" + name + "\" " + i18next.t("to all the current selected members in the list."),
                 buttons: {
                     cancel: {
-                        label: '<i class="fa fa-times"></i> ' + i18next.t("No")
+                        label: '<i class="fas fa-times"></i> ' + i18next.t("No")
                     },
                     confirm: {
-                        label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                        label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
                     }
                 },
                 callback: function (result) {
@@ -1037,10 +1037,10 @@ $(document).ready(function () {
             buttons: {
                 confirm: {
                     label: i18next.t('Yes'),
-                    className: '<i class="fa fa-times"></i> ' + 'btn-danger'
+                    className: '<i class="fas fa-times"></i> ' + 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('No'),
                     className: 'btn-primary'
                 }
             },

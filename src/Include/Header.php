@@ -86,7 +86,7 @@ Header_system_notifications();
     <nav class="main-header navbar navbar-expand <?= Theme::getCurrentNavBarFontColor() ?> <?= Theme::getCurrentNavBarColor()?>">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="nav-link"><?= _("Private Space") ?></a>
@@ -114,7 +114,7 @@ Header_system_notifications();
                 ?>
                 <li class="nav-item dropdown notifications-menu" id="CartBlock">
                     <a href="#" class="nav-link" data-toggle="dropdown" title="<?= _('Your Cart') ?>">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart"></i>
                         <span id="iconCount" class="badge badge-warning navbar-badge"><?= Cart::CountPeople() ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-lg-left" id="cart-dropdown-menu"></div>
@@ -145,15 +145,15 @@ Header_system_notifications();
                                 <td valign="middle" align="left" style="width:183px">
                                     <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>"
                                        class="dropdown-item main-help-menu">
-                                        <p><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
+                                        <p><i class="fas fa-user"></i> <?= _("Private Space") ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="dropdown-item main-help-menu">
-                                        <p><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
+                                        <p><i class="fas fa-key"></i> <?= _('Change Password') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="dropdown-item main-help-menu">
-                                        <p><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
+                                        <p><i class="fas fa-cog"></i> <?= _('Change Settings') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="dropdown-item main-help-menu">
-                                        <p><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
+                                        <p><i class="fas fa-pause"></i> <?= _('Lock') ?></p></a>
                                     <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="dropdown-item main-help-menu">
-                                        <p><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
+                                        <p><i class="fas fa-sign-out-alt"></i> <?= _('Sign out') ?></p></a>
                                 </td>
                             </tr>
                         </table>
@@ -165,29 +165,29 @@ Header_system_notifications();
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" id="dropdown-toggle" data-toggle="dropdown"
                    title="<?= _('Help & Support') ?>" aria-expanded="true">
-                    <i class="fa fa-support"></i>
+                    <i class="fas fa-life-ring"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <span class="dropdown-item dropdown-header"><?= _("Help Center") ?></span>
                     <div class="dropdown-divider"></div>
                     <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>"
                        class="dropdown-item main-help-menu" class="dropdown-item">
-                        <i class="fa fa-question-circle"></i> <?= _('Help & Manual') ?>
+                        <i class="far fa-question-circle"></i> <?= _('Help & Manual') ?>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" data-toggle="modal" data-target="#IssueReportModal" title="<?= _('Report an issue') ?>"
                        class="dropdown-item">
-                        <i class="fa fa-bug"></i> <?= _('Report an issue') ?>
+                        <i class="fas fa-bug"></i> <?= _('Report an issue') ?>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= _('Developer Chat') ?>"
                        class="dropdown-item">
-                        <i class="fa fa-commenting-o"></i> <?= _('Developer Chat') ?>
+                        <i class="fas fa-comments"></i> <?= _('Developer Chat') ?>
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank"
                        title="<?= _('Contributing') ?>" class="dropdown-item">
-                        <i class="fa fa-github"></i> <?= _('Contributing') ?>
+                        <i class="fab fa-github"></i> <?= _('Contributing') ?>
                     </a>
                 </div>
             </li>
@@ -200,14 +200,14 @@ Header_system_notifications();
             <li class="nav-item">
                 <a href="#" class="nav-link" data-widget="control-sidebar" data-slide="true"
                    title="<?= _('Your tasks') ?>" role="button">
-                    <i class="fa fa-gears"></i>
+                    <i class="fas fa-th-large"></i>
                     <span class="badge badge-danger navbar-badge"><?= $taskSize ?></span>
                 </a>
             </li>
 
             <li class="nav-item d-none d-sm-inline-block">
                 <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fa fa-expand"></i>
+                    <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
         </ul>
@@ -252,6 +252,6 @@ Header_system_notifications();
         <section class="content">
             <div class="main-box-body clearfix" style="display:none" id="globalMessage">
                 <div class="alert alert-success" role="alert">
-                    <i class="fa fa-exclamation-triangle"></i><span id="globalMessageText"></span>
+                    <i class="fas fa-exclamation-triangle"></i><span id="globalMessageText"></span>
                 </div>
             </div>

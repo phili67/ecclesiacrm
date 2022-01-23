@@ -89,7 +89,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                         <div class="input-group-append">
                                             <div class="input-group-text">
                                                 <div class="input-group-addon">
-                                                    <i class="fa fa-envelope"></i>
+                                                    <i class="far fa-envelope"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                                 <div class="input-group-append">
                                                     <div class="input-group-text">
                                                         <div class="input-group-addon">
-                                                            <i class="fa fa-phone"></i>
+                                                            <i class="fas fa-phone"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -139,7 +139,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                                 <div class="input-group-append">
                                                     <div class="input-group-text">
                                                         <div class="input-group-addon">
-                                                            <i class="fa fa-birthday-cake"></i>
+                                                            <i class="fas fa-birthday-cake"></i>
                                                         </div>
                                                     </div>
                                                 </div>

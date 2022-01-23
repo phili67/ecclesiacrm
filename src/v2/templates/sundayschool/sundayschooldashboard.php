@@ -20,7 +20,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-yellow-gradient"><i class="fa fa-gg"></i></span>
+            <span class="info-box-icon bg-yellow-gradient"><i class="fab fa-gg"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Classes') ?></span>
@@ -32,7 +32,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-olive"><i class="fa fa-group"></i></span>
+            <span class="info-box-icon bg-gradient-olive"><i class="fas fa-users"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
@@ -44,7 +44,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-orange"><i class="fa fa-child"></i></span>
+            <span class="info-box-icon bg-gradient-orange"><i class="fas fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
                 <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> 0 </span>
@@ -55,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-lime"><small><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i></small></span>
+            <span class="info-box-icon bg-gradient-lime"><small><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i></small></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
@@ -67,7 +67,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-blue"><i class="fa fa-male"></i></span>
+            <span class="info-box-icon bg-gradient-blue"><i class="fas fa-male"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
@@ -79,7 +79,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
-            <span class="info-box-icon bg-gradient-fuchsia"><i class="fa fa-female"></i></span>
+            <span class="info-box-icon bg-gradient-fuchsia"><i class="fas fa-female"></i></span>
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
@@ -104,7 +104,7 @@ require $sRootDocument . '/Include/Header.php';
             // Display link
             ?>
             <div class="btn-group">
-                <a class="btn btn-app" id="sEmailLink" href=""><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+                <a class="btn btn-app" id="sEmailLink" href=""><i class="far fa-paper-plane"></i><?= _('Email') ?></a>
                 <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
@@ -113,7 +113,7 @@ require $sRootDocument . '/Include/Header.php';
             </div>
 
             <div class="btn-group">
-                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                <a class="btn btn-app" id="sEmailLinkBCC" href=""><i class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                 <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                     <span class="caret"></span>
                     <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
@@ -126,7 +126,7 @@ require $sRootDocument . '/Include/Header.php';
         if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
             <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
-                    class="fa fa-plus-square"></i><?= _('Add New Class') ?></button>
+                    class="fas fa-plus-square"></i><?= _('Add New Class') ?></button>
             <?php
         }
 
@@ -136,7 +136,7 @@ require $sRootDocument . '/Include/Header.php';
             <a class="btn btn-app bg-orange callRegister" id="callRegister"
                data-callRegistergroupid="<?= $iGroupId ?>" data-callRegistergroupname="<?= $iGroupName ?>"
                data-toggle="tooltip"  data-placement="bottom" title="<?= _("Be Careful! You are about to create or recreate all the events of all the Sunday school classes to call the register.") ?>"> <i
-                    class="fa fa-calendar-check-o"></i> <span
+                    class="fas fa-calendar-check"></i> <span
                     class="cartActionDescription"><?= _('Create Events & Call the register') ?></span></a>
             <?php
         }
@@ -145,7 +145,7 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
                title="<?= _('Generate class lists and attendance sheets'); ?>" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To export your attendance, Photobooks, Attendance sheet, and Class list") ?>"><i
-                    class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
+                    class="fas fa-file-pdf"></i><?= _('Reports'); ?></a>
             <?php
         }
 
@@ -153,19 +153,19 @@ require $sRootDocument . '/Include/Header.php';
             ?>
             <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
                title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-                    class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a>
+                    class="fas fa-file-excel"></i><?= _('Export to CSV') ?></a>
             <?php
         }
         ?>
         <?php
             if (Cart::GeneralStudentInCart() && SessionUser::getUser()->isShowCartEnabled()) {
             ?>
-            <a class="btn btn-app RemoveAllStudentsFromCart" id="AddAllStudentsToCart"> <i class="fa fa-remove"></i> <span
+            <a class="btn btn-app RemoveAllStudentsFromCart" id="AddAllStudentsToCart"> <i class="fas fa-times"></i> <span
                     class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
             <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
             ?>
-            <a class="btn btn-app AddAllStudentsToCart" id="AddAllStudentsToCart"><i class="fa fa-cart-plus"></i> <span
+            <a class="btn btn-app AddAllStudentsToCart" id="AddAllStudentsToCart"><i class="fas fa-cart-plus"></i> <span
                     class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
             <?php
         }
@@ -173,12 +173,12 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if (Cart::GeneralTeacherInCart() && SessionUser::getUser()->isShowCartEnabled()) {
             ?>
-            <a class="btn btn-app RemoveAllTeachersFromCart" id="AddAllTeachersToCart"><i class="fa fa-remove"></i> <span
+            <a class="btn btn-app RemoveAllTeachersFromCart" id="AddAllTeachersToCart"><i class="fas fa-times"></i> <span
                     class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
             <?php
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
             ?>
-            <a class="btn btn-app AddAllTeachersToCart" id="AddAllTeachersToCart"><i class="fa fa-cart-plus"></i> <span
+            <a class="btn btn-app AddAllTeachersToCart" id="AddAllTeachersToCart"><i class="fas fa-cart-plus"></i> <span
                     class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
             <?php
         }
@@ -193,9 +193,9 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Sunday School Classes') ?></h3>
         <div class="card-tools pull-right">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
             </button>
         </div>
     </div>
@@ -216,14 +216,14 @@ require $sRootDocument . '/Include/Header.php';
                     <td style="width:80px">
                         <a href="<?= $sRootPath ?>/v2/sundayschool/<?= $class['id'] ?>/view">
             <span class="fa-stack">
-              <i class="fa fa-square fa-stack-2x"></i>
-              <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-square fa-stack-2x"></i>
+              <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
             </span>
                         </a>
                         <a href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $class['id'] ?>">
             <span class="fa-stack">
-              <i class="fa fa-square fa-stack-2x"></i>
-              <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+              <i class="fas fa-square fa-stack-2x"></i>
+              <i class="fa fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
             </span>
                         </a>
                     </td>
@@ -243,9 +243,9 @@ require $sRootDocument . '/Include/Header.php';
     <div class="card-header with-border">
         <h3 class="card-title"><?= _('Students not in a Sunday School Class') ?></h3>
         <div class="card-tools pull-right">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fa fa-times"></i>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
             </button>
         </div>
     </div>
@@ -277,8 +277,8 @@ require $sRootDocument . '/Include/Header.php';
                     <td>
                         <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $kidId ?>">
                 <span class="fa-stack">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                  <i class="fas fa-square fa-stack-2x"></i>
+                  <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
                 </span>
                         </a>
                     </td>

@@ -22,11 +22,11 @@ $('.delete-person').click(function (event) {
         buttons: {
             cancel: {
                 className: 'btn-primary',
-                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+                label: '<i class="fas fa-times"></i>' + i18next.t("Cancel")
             },
             confirm: {
                 className: 'btn-danger',
-                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
+                label: '<i class="far fa-trash-alt"></i>' + i18next.t("Delete")
             }
         },
         callback: function (result) {
@@ -57,11 +57,11 @@ $('.saveNoteAsWordFile').click(function (event) {
         buttons: {
             cancel: {
                 className: 'btn-default',
-                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
             },
             confirm: {
                 className: 'btn-primary',
-                label: '<i class="fa fa-floppy-o"></i> ' + i18next.t("Save")
+                label: '<i class="far fa-save"></i> ' + i18next.t("Save")
             }
         },
         callback: function (result) {
@@ -87,11 +87,11 @@ $(".addGroup").click(function() {
     window.CRM.groups.defaultGroup(function (data) {
       var theGroupID = data;
       var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role, GroupID:theGroupID, Role:window.CRM.groups.selectTypes.Role}, function(data){
-         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID).done(function(){          
+         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID).done(function(){
            window.location.href = window.CRM.root +'/PersonView.php?PersonID=' + personID + '&group=true';
          });
       });
     })
 });
-  
-  
+
+

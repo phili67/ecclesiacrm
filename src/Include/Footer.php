@@ -38,18 +38,18 @@ use EcclesiaCRM\Theme;
         <li class="nav-item">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true" class="nav-link active"
                role="tab">
-                <i class="fa fa-tasks"></i>
+                <i class="fas fa-tasks"></i>
             </a>
         </li>
         <li class="nav-item">
             <a href="#control-sidebar-settings-tab" data-toggle="tab" aria-expanded="false" class="nav-link" role="tab">
-                <i class="fa fa-wrench"></i>
+                <i class="fas fa-wrench"></i>
             </a>
         </li>
         <li class="nav-item">
             <a href="#control-sidebar-settings-other-tab" data-toggle="tab" aria-expanded="false" class="nav-link"
                role="tab">
-                <i class="fa fa-sliders"></i>
+                <i class="fas fa-sliders-h"></i>
             </a>
         </li>
 
@@ -61,47 +61,47 @@ use EcclesiaCRM\Theme;
             <?php
             if (SessionUser::getUser()->isMenuOptionsEnabled()) {
                 ?>
-                <h5><i class="fa fa-cogs"></i> <?= _('Family') ?></h5>
+                <h5><i class="fas fa-cogs"></i> <?= _('Family') ?></h5>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=famroles">
-                        <i class="fa fa-cog"></i> <?= _('Family Roles') ?>
+                        <i class="fas fa-cog"></i> <?= _('Family Roles') ?>
                     </a>
                 </div>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/f">
-                        <i class="fa fa-cog"></i> <?= _('Family Properties') ?>
+                        <i class="fas fa-cog"></i> <?= _('Family Properties') ?>
                     </a>
                 </div>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
-                        <i class="fa fa-cog"></i> <?= _('Edit Custom Family Fields') ?>
+                        <i class="fas fa-cog"></i> <?= _('Edit Custom Family Fields') ?>
                     </a>
                 </div>
                 <br>
-                <h5><i class="fa fa-cogs"></i> <?= _('Person') ?></h5>
+                <h5><i class="fas fa-cogs"></i> <?= _('Person') ?></h5>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes">
-                        <i class="fa fa-cog"></i> <?= _('Classifications Manager') ?>
+                        <i class="fas fa-cog"></i> <?= _('Classifications Manager') ?>
                     </a>
                 </div>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/p">
-                        <i class="fa fa-cog"></i> <?= _('People Properties') ?>
+                        <i class="fas fa-cog"></i> <?= _('People Properties') ?>
                     </a>
                 </div>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
-                        <i class="fa fa-cog"></i> <?= _('Edit Custom Person Fields') ?>
+                        <i class="fas fa-cog"></i> <?= _('Edit Custom Person Fields') ?>
                     </a>
                 </div>
                 <br>
-                <h5><i class="fa fa-cogs"></i> <?= _('Group') ?></h5>
+                <h5><i class="fas fa-cogs"></i> <?= _('Group') ?></h5>
                 <?php
                 if (SessionUser::getUser()->isManageGroupsEnabled()) {
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/g">
-                            <i class="fa fa-cog"></i> <?= _('Group Properties') ?>
+                            <i class="fas fa-cog"></i> <?= _('Group Properties') ?>
                         </a>
                     </div>
                     <?php
@@ -111,7 +111,7 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
-                            <i class="fa fa-cog"></i> <?= _('Group Types') ?>
+                            <i class="fas fa-cog"></i> <?= _('Group Types') ?>
                         </a>
                     </div>
                     <?php
@@ -121,17 +121,17 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypesSundSchool">
-                            <i class="fa fa-cog"></i> <?= _('Sunday School Group Types') ?>
+                            <i class="fas fa-cog"></i> <?= _('Sunday School Group Types') ?>
                         </a>
                     </div>
                     <?php
                 }
                 ?>
                 <br>
-                <h5><i class="fa fa-cogs"></i> <?= _('Other') ?></h5>
+                <h5><i class="fas fa-cogs"></i> <?= _('Other') ?></h5>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/propertytypelist">
-                        <i class="fa fa-cog"></i> <?= _('Property Types') ?>
+                        <i class="fas fa-cog"></i> <?= _('Property Types') ?>
                     </a>
                 </div>
 
@@ -140,7 +140,7 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/volunteeropportunityeditor">
-                            <i class="fa fa-cog"></i> <?= _('Volunteer Opportunities') ?>
+                            <i class="fas fa-cog"></i> <?= _('Volunteer Opportunities') ?>
                         </a>
                     </div>
                     <?php
@@ -150,7 +150,7 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/fundlist">
-                            <i class="fa fa-cog"></i> <?= _('Edit Donation Funds') ?>
+                            <i class="fas fa-cog"></i> <?= _('Edit Donation Funds') ?>
                         </a>
                     </div>
                     <?php
@@ -160,7 +160,7 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcarelist">
-                            <i class="fa fa-cog"></i> <?= _("Pastoral Care Type") ?>
+                            <i class="fas fa-cog"></i> <?= _("Pastoral Care Type") ?>
                         </a>
                     </div>
                     <?php
@@ -170,7 +170,7 @@ use EcclesiaCRM\Theme;
                     ?>
                     <div class="mb-1">
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/menulinklist">
-                            <i class="fa fa-cog"></i> <?= _("Global Custom Menus") ?>
+                            <i class="fas fa-cog"></i> <?= _("Global Custom Menus") ?>
                         </a>
                     </div>
                     <?php
@@ -201,7 +201,7 @@ use EcclesiaCRM\Theme;
                 ?>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
-                        <i class="menu-icon fa fa-gears bg-red"></i>
+                        <i class="menu-icon fas fa-cogs bg-red"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Edit General Settings') ?></h4>
                         </div>
@@ -215,7 +215,7 @@ use EcclesiaCRM\Theme;
                 ?>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/users">
-                        <i class="menu-icon fa fa-user-secret bg-gray"></i>
+                        <i class="menu-icon fas fa-user-secret bg-gray"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('System Users') ?></h4>
                         </div>
@@ -231,7 +231,7 @@ use EcclesiaCRM\Theme;
                 ?>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/restore">
-                        <i class="menu-icon fa fa-database bg-yellow-gradient"></i>
+                        <i class="menu-icon fas fa-database bg-yellow-gradient"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Restore Database') ?></h4>
                         </div>
@@ -239,7 +239,7 @@ use EcclesiaCRM\Theme;
                 </div>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/backup">
-                        <i class="menu-icon fa fa-database bg-green"></i>
+                        <i class="menu-icon fas fa-database bg-green"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Backup Database') ?></h4>
                         </div>
@@ -278,7 +278,7 @@ use EcclesiaCRM\Theme;
                 ?>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
-                        <i class="menu-icon fa fa-download bg-green"></i>
+                        <i class="menu-icon fas fa-download bg-green"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('CSV Export Records') ?></h4>
                         </div>
@@ -306,7 +306,7 @@ use EcclesiaCRM\Theme;
                 <!-- Task item -->
                 <div class="mb-3">
                     <a href="<?= $task['link'] ?>" <?= ($task['title'] == _('Register Software')) ? 'id="registerSoftware"' : '' ?>>
-                        <i class="menu-icon fa fa-fw <?= $taskIcon ?>"></i>
+                        <i class="menu-icon fa  <?= $taskIcon ?>"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"
                                 title="<?= htmlspecialchars($task['desc'], ENT_QUOTES, 'UTF-8') ?>"><?= $task['title'] ?></h4>

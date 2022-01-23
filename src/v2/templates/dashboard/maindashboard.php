@@ -37,12 +37,12 @@ if ($isActive == true) {
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="text-center">
-                    <h2 class="headline text-primary"><i class="fa fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
+                    <h2 class="headline text-primary"><i class="fas fa-spin fa-spinner"></i> <?= _("Loading in progress") ?> ....</h2>
                 </div>
 
                 <div class="error-content">
                     <h3>
-                        <i class="fa fa-warning text-primary"></i> <?= gettext("Loading datas for the proper functioning of EcclesiaCRM") ?>.
+                        <i class="fas fa-exclamation-triangle text-primary"></i> <?= gettext("Loading datas for the proper functioning of EcclesiaCRM") ?>.
                     </h3>
 
                     <p>
@@ -83,11 +83,11 @@ if (!$load_Elements) {
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-male"></i>
+                    <i class="fas fa-male"></i>
                 </div>
                 <div class="small-box-footer">
                     <a href="<?= $sRootPath ?>/v2/people/list/single" style="color:#ffffff">
-                        <?= _('View') ?> <?= _("Singles") ?> <i class="fa fa-arrow-circle-right"></i>
+                        <?= _('View') ?> <?= _("Singles") ?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
@@ -104,12 +104,12 @@ if (!$load_Elements) {
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-male" style="right: 124px"></i><i class="fa fa-female" style="right: 67px"></i><i
-                        class="fa fa-child"></i>
+                    <i class="fas fa-male" style="right: 124px"></i><i class="fas fa-female" style="right: 67px"></i><i
+                        class="fas fa-child"></i>
                 </div>
                 <div class="small-box-footer">
                     <a href="<?= $sRootPath ?>/v2/people/list/family" style="color:#ffffff">
-                        <?= _('View') ?> <?= _("Familles") ?> <i class="fa fa-arrow-circle-right"></i>
+                        <?= _('View') ?> <?= _("Familles") ?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>
@@ -126,10 +126,10 @@ if (!$load_Elements) {
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-user"></i>
+                    <i class="fas fa-user"></i>
                 </div>
                 <a href="<?= $sRootPath ?>/v2/people/list/person" class="small-box-footer">
-                    <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('See All People') ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
@@ -148,10 +148,10 @@ if (!$load_Elements) {
                         </p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-child"></i>
+                        <i class="fas fa-child"></i>
                     </div>
                     <a href="<?= $sRootPath ?>/v2/sundayschool/dashboard" class="small-box-footer">
-                        <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                        <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -170,10 +170,10 @@ if (!$load_Elements) {
                     </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-group"></i>
+                    <i class="fas fa-users"></i>
                 </div>
                 <a href="<?= $sRootPath ?>/v2/group/list" class="small-box-footer">
-                    <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                    <?= _('More info') ?> <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
@@ -332,7 +332,7 @@ if (!$load_Elements) {
 
         if (!empty($classified)) {
             ?>
-            <h5 class="alert-heading"><i class="fa fa-birthday-cake"></i> <?= _("Birthdates of the day") ?></h5>
+            <h5 class="alert-heading"><i class="fas fa-birthday-cake"></i> <?= _("Birthdates of the day") ?></h5>
             <?php
             echo $classified;
             ?>
@@ -346,7 +346,7 @@ if (!$load_Elements) {
                 <?php
             } ?>
 
-            <h5 class="alert-heading"><i class="fa fa-birthday-cake"></i> <?= _("Anniversaries of the day") ?></h5>
+            <h5 class="alert-heading"><i class="fas fa-birthday-cake"></i> <?= _("Anniversaries of the day") ?></h5>
 
             <?php
             $new_row = false;
@@ -427,7 +427,7 @@ if (!$load_Elements) {
                     <?php
                     ?>
                     <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i
-                            class="fa fa-user"></i> <?= _("Latest") . " " . _("Individual Pastoral Care") ?></h5>
+                            class="fas fa-user"></i> <?= _("Latest") . " " . _("Individual Pastoral Care") ?></h5>
                     <?php
                     if ($caresPersons->count() > 0) {
                     $count_care = 0;
@@ -480,10 +480,10 @@ if (!$load_Elements) {
                 ?>
                 <hr style="background-color: <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?>; height: 1px; border: 0;">
 
-                <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i class="fa fa-male"
+                <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i class="fas fa-male"
                                                                              style="right: 124px"></i>
-                    <i class="fa fa-female" style="right: 67px"></i>
-                    <i class="fa fa-child"></i> <?= _("Last") . " " . _("Family Pastoral Care") ?></h5>
+                    <i class="fas fa-female" style="right: 67px"></i>
+                    <i class="fas fa-child"></i> <?= _("Last") . " " . _("Family Pastoral Care") ?></h5>
                 <?php
                 if ($caresFamilies->count() > 0) {
                 $count_care = 0;
@@ -610,8 +610,8 @@ if (!$load_Elements) {
                                href="#custom-tabs-latest-families" role="tab"
                                aria-controls="custom-tabs-latest-families"
                                aria-selected="true">
-                                <i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i><i
-                                    class="fa fa-plus"></i> <?= _('Latest Families') ?>
+                                <i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i><i
+                                    class="fas fa-plus"></i> <?= _('Latest Families') ?>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -619,8 +619,8 @@ if (!$load_Elements) {
                                href="#custom-tabs-updated-families" role="tab"
                                aria-controls="custom-tabs-updated-families"
                                aria-selected="false">
-                                <i class="fa fa-female"></i><i class="fa fa-child"></i><i
-                                    class="fa fa-check"></i> <?= _('Updated Families') ?>
+                                <i class="fas fa-female"></i><i class="fas fa-child"></i><i
+                                    class="fas fa-check"></i> <?= _('Updated Families') ?>
                             </a>
                         </li>
                     </ul>
@@ -673,14 +673,14 @@ if (!$load_Elements) {
                             <a class="nav-link active" id="custom-tabs-latest-members-tab" data-toggle="pill"
                                href="#custom-tabs-latest-members" role="tab" aria-controls="custom-tabs-latest-members"
                                aria-selected="false">
-                                <i class="fa fa-user-plus"></i> <?= _('Latest Members') ?>
+                                <i class="fas fa-user-plus"></i> <?= _('Latest Members') ?>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="custom-tabs-two-settings-tab" data-toggle="pill"
                                href="#custom-tabs-two-settings" role="tab" aria-controls="custom-tabs-two-settings"
                                aria-selected="false">
-                                <i class="fa fa-user"></i><i class="fa fa-check"></i> <?= _('Updated Members') ?>
+                                <i class="fas fa-user"></i><i class="fas fa-check"></i> <?= _('Updated Members') ?>
                             </a>
                         </li>
                     </ul>

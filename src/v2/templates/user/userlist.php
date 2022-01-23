@@ -15,10 +15,10 @@ require $sRootDocument . '/Include/Header.php';
 <!-- Default box -->
 <div class="card">
     <div class="card-header">
-        <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= _('New User') ?></a>
+        <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fas fa-user-plus"></i><?= _('New User') ?></a>
 
       <div class="btn-group pull-right">
-        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Selected User(s)") ?></a>
+        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fas fa-arrow-circle-down"></i><?= _("Add Role to Selected User(s)") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
@@ -27,7 +27,7 @@ require $sRootDocument . '/Include/Header.php';
             <?php
                foreach ($userRoles as $userRole) {
             ?>
-               <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"> </i><?= $userRole->getName() ?></a>
+               <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i class="fas fa-arrow-circle-down"> </i><?= $userRole->getName() ?></a>
             <?php
                }
             ?>
@@ -72,7 +72,7 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
                         ?>
-                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
+                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fas fa-pencil-alt"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
                           } else {
@@ -86,7 +86,7 @@ require $sRootDocument . '/Include/Header.php';
                          ?>
 
                           <a class="webdavkey" data-userid="<?= $user->getId()?>">
-                             <i class="fa fa-eye" aria-hidden="true"></i>
+                             <i class="far fa-eye" aria-hidden="true"></i>
                           </a>
                          <?php
                            }
@@ -95,7 +95,7 @@ require $sRootDocument . '/Include/Header.php';
                           if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) {
                         ?>
                             <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
-                                        class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+                                        class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>
                         <?php
                           }
                         ?>
@@ -134,19 +134,19 @@ require $sRootDocument . '/Include/Header.php';
                         if ($user->getFailedLogins() > 0) {
                       ?>
                             <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
-                                        class="fa fa-eraser" aria-hidden="true"></i></a>
+                                        class="fas fa-eraser" aria-hidden="true"></i></a>
                       <?php
                         }
                       ?>
                     </td>
                     <td>
                         <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
-                                    class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                    class="fas fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
                           if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
                         ?>
                             <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
-                                class="fa fa-send-o" aria-hidden="true"></i></a>
+                                class="far fa-paper-plane" aria-hidden="true"></i></a>
                         <?php
                           }
                         ?>
@@ -154,7 +154,7 @@ require $sRootDocument . '/Include/Header.php';
                     <td>
                         <?php if ($user->getTwoFaSecretConfirm()) { ?>
                             <a href="#" class="two-fa-manage btn btn-secondary" data-userid="<?= $user->getId()?>" data-userName="<?= $user->getPerson()->getFullName() ?>" data-userid="<?= $user->getId()?>">
-                                <i class="fa fa-key" aria-hidden="true"></i> <?= _("Management") ?>
+                                <i class="fas fa-key" aria-hidden="true"></i> <?= _("Management") ?>
                             </a>
                         <?php } else { ?>
                             <?= _("No") ?>

@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
         <label><?= _("Room names") ?></label>
         <div class="btn-group">
             <a class="btn btn-app" id="newRoom" data-toggle="tooltip" data-placement="bottom" title="<?= _("Create first a room and manage theme with the arrow button") ?>"><i
-                    class="fa fa-sticky-note"></i><?= _("Create Room") ?></a>
+                    class="fas fa-sticky-note"></i><?= _("Create Room") ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
@@ -35,10 +35,10 @@ require $sRootDocument . '/Include/Header.php';
                 <?php } ?>
             </div>
             &nbsp;
-            <a class="btn btn-app bg-danger" id="delete-all-rooms" data-toggle="tooltip"  data-placement="bottom" title="<?= _("This action will delete all your rooms") ?>"><i class="fa fa-calendar-plus-o"></i><?= _("Delete all Rooms") ?>
+            <a class="btn btn-app bg-danger" id="delete-all-rooms" data-toggle="tooltip"  data-placement="bottom" title="<?= _("This action will delete all your rooms") ?>"><i class="far fa-calendar-plus"></i><?= _("Delete all Rooms") ?>
             </a>
             &nbsp;
-            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?>
+            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?>
             </a>
         </div>
     </div>

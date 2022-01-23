@@ -40,15 +40,15 @@ class MenuBar extends Menu
     private function addHomeArea()
     {
         // home Area
-        $menu = new Menu (_("Private Space"), "fa fa-home", "", true);
+        $menu = new Menu (_("Private Space"), "fas fa-home", "", true);
 
-        $menuItem = new Menu (_("Home"), "fa fa-user", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId(), true, $menu);
-        $menuItem = new Menu (_("Change Password"), "fa fa-key", "UserPasswordChange.php", true, $menu);
-        $menuItem = new Menu (_("Change Settings"), "fa fa-gear", "SettingsIndividual.php", true, $menu);
-        $menuItem = new Menu (_("Documents"), "fa fa fa-files-o", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&documents=true", true, $menu);
+        $menuItem = new Menu (_("Home"), "fas fa-user", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId(), true, $menu);
+        $menuItem = new Menu (_("Change Password"), "fas fa-key", "UserPasswordChange.php", true, $menu);
+        $menuItem = new Menu (_("Change Settings"), "fas fa-cog", "SettingsIndividual.php", true, $menu);
+        $menuItem = new Menu (_("Documents"), "fas fa-file", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&documents=true", true, $menu);
 
         if (SessionUser::getUser()->isEDrive()) {
-            $menuItem = new Menu (_("EDrive"), "fa fa-cloud", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&edrive=true", true, $menu);
+            $menuItem = new Menu (_("EDrive"), "fas fa-cloud", "PersonView.php?PersonID=" . SessionUser::getUser()->getPersonId() . "&edrive=true", true, $menu);
         }
 
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
@@ -61,11 +61,11 @@ class MenuBar extends Menu
     public function addGDPRMenu()
     {
             // the GDPR Menu
-            $menu = new Menu (_("GDPR"), "fa fa-get-pocket pull-right&quot;", "", true);
-            $menuItem = new Menu (_("Dashboard"), "fa fa-rebel", "v2/gdpr", true, $menu);
-            $menuItem = new Menu (_("Data Structure"), "fa fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
-            $menuItem = new Menu (_("View Inactive Persons"), "fa fa-circle-o", "v2/personlist/GDRP", true, $menu);
-            $menuItem = new Menu (_("View Inactive Families"), "fa fa-circle-o", "v2/familylist/GDRP", true, $menu);
+            $menu = new Menu (_("GDPR"), "fab fa-get-pocket pull-right", "", true);
+            $menuItem = new Menu (_("Dashboard"), "fas fa-circle", "v2/gdpr", true, $menu);
+            $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
+            $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
+            $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
             $this->addMenu($menu);
     }
@@ -73,21 +73,21 @@ class MenuBar extends Menu
     public function addEventMenu()
     {
         // the Events Menu
-        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fa fa-ticket pull-right&quot;", "", true);
+        $menu = new Menu (_("Events") . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "fas fa-ticket-alt pull-right&quot;", "", true);
         // add the badges
         $menu->addBadge('badge badge-warning', 'EventsNumber', 0);
         $menu->addBadge('badge badge-danger', 'BirthdateNumber', 0);
         $menu->addBadge('badge badge-primary', 'AnniversaryNumber', 0);// badge à la place de label
 
-        $menuItem = new Menu (_("Calendar"), "fa fa-calendar fa-calendar pull-left&quot;", "v2/calendar", true, $menu);
+        $menuItem = new Menu (_("Calendar"), "fas fa-calendar fa-calendar pull-left&quot;", "v2/calendar", true, $menu);
 
         if (SessionUser::getUser()->isShowMapEnabled()) {
-            $menuItem = new Menu (_("View on Map"), "fa fa-map-o", "v2/map/-2", true, $menu);
+            $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-2", true, $menu);
         }
 
-        $menuItem = new Menu (_("List Church Events"), "fa fa-circle-o", "v2/calendar/events/list", true, $menu);
-        $menuItem = new Menu (_("List Event Types"), "fa fa-circle-o", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
-        $menuItem = new Menu (_("Call the Register"), "fa fa-circle-o", "Checkin.php", true, $menu);
+        $menuItem = new Menu (_("List Church Events"), "far fa-calendar-alt", "v2/calendar/events/list", true, $menu);
+        $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
+        $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "Checkin.php", true, $menu);
 
         $this->addMenu($menu);
 
@@ -96,9 +96,9 @@ class MenuBar extends Menu
     private function addPeopleMenu()
     {
         // the People menu
-        $menu = new Menu (_("People") . " & " . _("Families"), "fa fa-families", "#", true);
+        $menu = new Menu (_("People") . " & " . _("Families"), "fas fa-families", "#", true);
 
-        $menuItem = new Menu (_("Dashboard"), "fa fa-circle-o", "v2/people/dashboard", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
+        $menuItem = new Menu (_("Dashboard"), "far fa-circle", "v2/people/dashboard", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
 
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
@@ -112,31 +112,31 @@ class MenuBar extends Menu
         $menuItem->addLink("USISTAddressVerification.php");
 
 
-        $menuItem = new Menu (_("Meta Search Engine"), "fa fa-search", "v2/people/list/none", true, $menu);
+        $menuItem = new Menu (_("Meta Search Engine"), "fas fa-search", "v2/people/list/none", true, $menu);
         if (SessionUser::getUser()->isShowMapEnabled()) {
-            $menuItem = new Menu (_("View on Map"), "fa fa-map-o", "v2/map/-1", true, $menu);
+            $menuItem = new Menu (_("View on Map"), "far fa-map", "v2/map/-1", true, $menu);
         }
 
-        $menuItem = new Menu (_("Directory reports"), "fa fa-circle-o", "DirectoryReports.php", true, $menu);
+        $menuItem = new Menu (_("Directory reports"), "fas fa-book", "DirectoryReports.php", true, $menu);
 
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
-            $menuItem = new Menu (_("Persons"), "fa fa-angle-double-right", "#", true, $menu);
-            $menuItemItem = new Menu (_("Add New Person"), "fa fa-circle-o", "PersonEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
-            $menuItemItem = new Menu (_("View Single Persons"), "fa fa-circle-o", "v2/people/list/single", true, $menuItem);
-            $menuItemItem = new Menu (_("View Active Persons"), "fa fa-circle-o", "v2/people/list/person", true, $menuItem);
+            $menuItem = new Menu (_("Persons"), "fas fa-angle-double-right", "#", true, $menu);
+            $menuItemItem = new Menu (_("Add New Person"), "fas fa-circle", "PersonEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
+            $menuItemItem = new Menu (_("View Single Persons"), "fas fa-user", "v2/people/list/single", true, $menuItem);
+            $menuItemItem = new Menu (_("View Active Persons"), "far fa-circle", "v2/people/list/person", true, $menuItem);
             $menuItemItem->addLink("v2/personlist");
-            $menuItemItem = new Menu (_("View Inactive Persons"), "fa fa-circle-o", "v2/personlist/inactive", true, $menuItem);
+            $menuItemItem = new Menu (_("View Inactive Persons"), "fas fa-user-slash", "v2/personlist/inactive", true, $menuItem);
 
-            $menuItem = new Menu (_("Families"), "fa fa-angle-double-right", "#", true, $menu);
-            $menuItemItem = new Menu (_("Add New Family"), "fa fa-circle-o", "FamilyEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
-            $menuItemItem = new Menu (_("View Active Families"), "fa fa-circle-o", "v2/people/list/family", true, $menuItem);
+            $menuItem = new Menu (_("Families"), "fas fa-angle-double-right", "#", true, $menu);
+            $menuItemItem = new Menu (_("Add New Family"), "fas fa-circle", "FamilyEditor.php", SessionUser::getUser()->isAddRecordsEnabled(), $menuItem);
+            $menuItemItem = new Menu (_("View Active Families"), "fas fa-user-friends", "v2/people/list/family", true, $menuItem);
             $menuItemItem->addLink("v2/familylist");
-            $menuItemItem = new Menu (_("View Inactive Families"), "fa fa-circle-o", "v2/familylist/inactive", true, $menuItem);
+            $menuItemItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/inactive", true, $menuItem);
 
-            $menuItem = new Menu (_("Empty Addresses"), "fa fa-angle-double-right", "v2/familylist/empty", true, $menu);
+            $menuItem = new Menu (_("Empty Addresses"), "fas fa-angle-double-right", "v2/familylist/empty", true, $menu);
 
             if (SessionUser::getUser()->isAdmin()) {
-                $menuItem = new Menu (_("Convert Individual to Address"), "fa fa-angle-double-right", "ConvertIndividualToAddress.php", true, $menu);
+                $menuItem = new Menu (_("Convert Individual to Address"), "fas fa-angle-double-right", "ConvertIndividualToAddress.php", true, $menu);
             }
         }
 
@@ -146,9 +146,9 @@ class MenuBar extends Menu
     private function addGroups()
     {
         // the assigned Groups
-        $menu = new Menu (_("Groups"), "fa fa-group", "#", true);
+        $menu = new Menu (_("Groups"), "fas fa-users", "#", true);
 
-        $menuItem = new Menu (_("List Groups"), "fa fa-circle-o", "v2/group/list", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
+        $menuItem = new Menu (_("List Groups"), "far fa-circle", "v2/group/list", SessionUser::getUser()->isAddRecordsEnabled(), $menu);
         $menuItem->addLink("OptionManager.php?mode=grptypes");
         $menuItem->addLink("OptionManager.php?mode=grptypes&ListID=3");
 
@@ -170,7 +170,7 @@ class MenuBar extends Menu
 
             if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
 
-                $menuItem = new Menu ($listOption->getOptionName(), "fa fa-user-o", "#", true, $menu);
+                $menuItem = new Menu ($listOption->getOptionName(), "far fa-user", "#", true, $menu);
 
                 foreach ($groups as $group) {
                     $str = $group->getName();
@@ -178,7 +178,7 @@ class MenuBar extends Menu
                         $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                     }
 
-                    $menuItemItem = new Menu ($str, "fa fa-circle-o", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                    $menuItemItem = new Menu ($str, "far fa-circle", "v2/group/" . $group->getID() . "/view", true, $menuItem);
                     $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/normal");
@@ -201,25 +201,25 @@ class MenuBar extends Menu
             ->find();
 
         if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-            $menuItem = new Menu (_("Unassigned"), "fa fa-user-o", "#", true, $menu);
+            $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
 
             foreach ($groups as $group) {
-                $menuItemItem = new Menu ($group->getName(), "fa fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
+                $menuItemItem = new Menu ($group->getName(), "fas fa-angle-double-right", "v2/group/" . $group->getID() . "/view", true, $menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
             }
         }
 
-        $menuItem = new Menu (_("Group Assignment Helper"), "fa fa-circle-o", "v2/people/list/groupassign", true, $menu);
+        $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
 
         $this->addMenu($menu);
     }
 
     private function addSundaySchoolGroups()
     {
-        $menu = new Menu (_("Sunday School"), "fa fa-child", "#", true);
+        $menu = new Menu (_("Sunday School"), "fas fa-child", "#", true);
 
-        $menuItem = new Menu (_("Dashboard"), "fa fa-circle-o", "v2/sundayschool/dashboard", true, $menu);
+        $menuItem = new Menu (_("Dashboard"), "far fa-circle", "v2/sundayschool/dashboard", true, $menu);
         $menuItem->addLink("v2/sundayschool/reports");
         $menuItem->addLink("OptionManager.php?mode=grptypesSundSchool");
         $menuItem->addLink("OptionManager.php?mode=grptypesSundSchool&ListID=3");
@@ -242,7 +242,7 @@ class MenuBar extends Menu
 
             if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
 
-                $menuItem = new Menu ($listOption->getOptionName(), "fa fa-user-o", "#", true, $menu);
+                $menuItem = new Menu ($listOption->getOptionName(), "fas fa-user", "#", true, $menu);
 
                 foreach ($groups as $group) {
                     $str = $group->getName();
@@ -250,7 +250,7 @@ class MenuBar extends Menu
                         $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                     }
 
-                    $menuItemItem = new Menu ($str, "fa fa-circle-o", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                    $menuItemItem = new Menu ($str, "far fa-circle", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
                     $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                     $menuItemItem->addLink("v2/group/" . $group->getID() . "/badge/1/sundayschool");
@@ -273,7 +273,7 @@ class MenuBar extends Menu
             ->find();
 
         if ($groups->count() > 0) {// only if the groups exist : !empty doesn't work !
-            $menuItem = new Menu (_("Unassigned"), "fa fa-user-o", "#", true, $menu);
+            $menuItem = new Menu (_("Unassigned"), "far fa-user", "#", true, $menu);
 
             foreach ($groups as $group) {
                 $str = _($group->getName());
@@ -281,7 +281,7 @@ class MenuBar extends Menu
                     $str = mb_substr($str, 0, $this->_maxStr - 3) . " …";
                 }
 
-                $menuItemItem = new Menu ($str, "fa fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
+                $menuItemItem = new Menu ($str, "fas fa-angle-double-right", "v2/sundayschool/" . $group->getID() . "/view", true, $menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("v2/group/" . $group->getID() . "/view");
             }
@@ -295,14 +295,14 @@ class MenuBar extends Menu
         $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
 
         if ($menuLinks->count()) {
-            $menu = new Menu (_("Global Custom Menus"), "fa fa-link", "", true, null, "global_custom_menu");
+            $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "", true, null, "global_custom_menu");
             $menu->addLink("v2/menulinklist");
 
             foreach ($menuLinks as $menuLink) {
-                $menuItem = new Menu ($menuLink->getName(), "fa fa-circle-o", $menuLink->getUri(), true, $menu);
+                $menuItem = new Menu ($menuLink->getName(), "far fa-circle", $menuLink->getUri(), true, $menu);
             }
         } else {
-            $menu = new Menu (_("Global Custom Menus"), "fa fa-link", "v2/menulinklist", true, null, "global_custom_menu");
+            $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "v2/menulinklist", true, null, "global_custom_menu");
         }
 
 
@@ -313,26 +313,26 @@ class MenuBar extends Menu
     {
         $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(SessionUser::getUser()->getPersonId());
 
-        $menuItem = new Menu (_("Custom Menus"), "fa fa-link", "#", true, $mainmenu, "personal_custom_menu_" . SessionUser::getUser()->getPersonId());
-        $menuItem1 = new Menu (_("Dashboard"), "fa fa-circle-o", "v2/menulinklist/" . SessionUser::getUser()->getPersonId(), true, $menuItem);
+        $menuItem = new Menu (_("Custom Menus"), "fas fa-link", "#", true, $mainmenu, "personal_custom_menu_" . SessionUser::getUser()->getPersonId());
+        $menuItem1 = new Menu (_("Dashboard"), "far fa-circle", "v2/menulinklist/" . SessionUser::getUser()->getPersonId(), true, $menuItem);
 
         foreach ($menuLinks as $menuLink) {
-            $menuItemItem1 = new Menu ($menuLink->getName(), "fa fa-angle-double-right", $menuLink->getUri(), true, $menuItem);
+            $menuItemItem1 = new Menu ($menuLink->getName(), "fas fa-angle-double-right", $menuLink->getUri(), true, $menuItem);
         }
     }
 
     private function addPastoralCare()
     {
-        $menu = new Menu (_("Pastoral Care"), "fa fa-heartbeat", "#", true, null, "pastoralcare_menu");
-        $menuItem1 = new Menu (_("Dashboard"), "fa fa-circle-o", "v2/pastoralcare/dashboard", true, $menu);
-        $menuItem1 = new Menu (_("By Classifications"), "fa fa-circle-o", "v2/pastoralcare/membersList", true, $menu);
+        $menu = new Menu (_("Pastoral Care"), "fas fa-heartbeat", "#", true, null, "pastoralcare_menu");
+        $menuItem1 = new Menu (_("Dashboard"), "fas fa-binoculars", "v2/pastoralcare/dashboard", true, $menu);
+        $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
         $this->addMenu($menu);
     }
 
     private function addMeeting()
     {
-        $menu = new Menu (_("Meetings"), "fa fa-video-camera", "v2/meeting/dashboard", true);
+        $menu = new Menu (_("Meetings"), "fas fa-video", "v2/meeting/dashboard", true);
 
         $this->addMenu($menu);
     }
@@ -340,36 +340,36 @@ class MenuBar extends Menu
     private function addMailMenu()
     {
         // the Email
-        $menu = new Menu (_("Email"), "fa fa-envelope", "#", true);
+        $menu = new Menu (_("Email"), "fas fa-envelope", "#", true);
 
         $mailchimp = new MailChimpService();
 
-        $menuMain = new Menu (_("MailChimp"), "fa fa-circle-o", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
+        $menuMain = new Menu (_("MailChimp"), "far fa-circle", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
 
-        $menuItem = new Menu (_("Dashboard"), "fa fa-circle-o", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
+        $menuItem = new Menu (_("Dashboard"), "far fa-circle", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
         $menuItem->addLink("v2/mailchimp/duplicateemails");
         $menuItem->addLink("v2/mailchimp/debug");
         $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
         $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
 
-        $menuItemItem = new Menu (_("Email Lists"), "fa fa-circle-o", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
+        $menuItemItem = new Menu (_("Email Lists"), "far fa-circle", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
 
         if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
             $mcLists = $mailchimp->getLists();
 
             foreach ($mcLists as $list) {
-                $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "fa fa-circle-o", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
+                $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/, "far fa-circle", "v2/mailchimp/managelist/" . $list['id'], true, $menuItemItem, "listName" . $list['id']);
 
                 $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
 
                 foreach ($campaigns as $campaign) {
-                    //$menuItemItemItem = new Menu ($campaign['settings']['title'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
+                    //$menuItemItemItem = new Menu ($campaign['settings']['title'],"far fa-circle","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
                     $menuItemItemItem->addLink("v2/mailchimp/campaign/" . $campaign['id']);
                 }
             }
         } else {// we add just a false item
-            $menuItemItemItem = new Menu ("false item", "fa fa-circle-o", "#", true, $menuItemItem, "#");
+            $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
         }
 
         $this->addMenu($menu);
@@ -378,7 +378,7 @@ class MenuBar extends Menu
 
     private function addDepositMenu()
     {
-        $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fa fa-bank", "#", SessionUser::getUser()->isFinanceEnabled());
+        $menu = new Menu (_("Deposit") . "&nbsp;&nbsp;&nbsp;", "fas fa-university", "#", SessionUser::getUser()->isFinanceEnabled());
         // add the badges
         $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
         $deposits = DepositQuery::Create()->find();
@@ -396,11 +396,11 @@ class MenuBar extends Menu
         $menu->addBadge('badge badge-success  count-deposit', '', $numberDeposit);
 
 
-        $menuItem = new Menu (_("Envelope Manager"), "fa fa-circle-o", "ManageEnvelopes.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("View All Deposits"), "fa fa-circle-o", "FindDepositSlip.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Electronic Payment Listing"), "fa fa-circle-o", "ElectronicPaymentList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Deposit Reports"), "fa fa-circle-o", "FinancialReports.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "fa fa-circle-o", "DepositSlipEditor.php?DepositSlipID=" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+        $menuItem = new Menu (_("Envelope Manager"), "far fa-circle", "ManageEnvelopes.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("View All Deposits"), "far fa-circle", "FindDepositSlip.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Electronic Payment Listing"), "far fa-circle", "ElectronicPaymentList.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Deposit Reports"), "far fa-circle", "FinancialReports.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "far fa-circle", "DepositSlipEditor.php?DepositSlipID=" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
 
         $this->addMenu($menu);
 
@@ -411,12 +411,12 @@ class MenuBar extends Menu
         // the menu Fundraisers
         if ( ! SessionUser::getUser()->isFinanceEnabled() ) return;
 
-        $menu = new Menu (_("Fundraiser"), "fa fa-money", "#", SessionUser::getUser()->isFinanceEnabled());
+        $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
 
-        $menuItem = new Menu (_("Create New Fundraiser"), "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=-1", SessionUser::getUser()->isFinanceEnabled(), $menu);
-        $menuItem = new Menu (_("View All Fundraisers"), "fa fa-circle-o", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("Create New Fundraiser"), "far fa-circle", "FundRaiserEditor.php?FundRaiserID=-1", SessionUser::getUser()->isFinanceEnabled(), $menu);
+        $menuItem = new Menu (_("View All Fundraisers"), "far fa-circle", "v2/fundraiser/find", SessionUser::getUser()->isFinanceEnabled(), $menu);
         if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "fa fa-circle-o", "FundRaiserEditor.php?FundRaiserID=" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
+            $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "far fa-circle", "FundRaiserEditor.php?FundRaiserID=" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
         }
         if (isset($_SESSION['iCurrentFundraiser'])) {
             $menuItem->addLink("v2/fundraiser/paddlenum/list/".$_SESSION['iCurrentFundraiser']);
@@ -433,7 +433,7 @@ class MenuBar extends Menu
     private function createMenuBar()
     {
 
-        $menuItem = new Menu (_("Dashboard"), "fa fa-dashboard", "menu", true);
+        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt    ", "menu", true);
         $menuItem->addLink("v2/dashboard");
 
         $this->addMenu($menuItem);
@@ -475,10 +475,10 @@ class MenuBar extends Menu
         }
 
         // the menu report
-        $menu = new Menu (_("Data/Reports"), "fa fa-file-pdf-o", "#", SessionUser::getUser()->isShowMenuQueryEnabled());
+        $menu = new Menu (_("Data/Reports"), "far fa-file-pdf", "#", SessionUser::getUser()->isShowMenuQueryEnabled());
 
-        $menuItem = new Menu (_("Reports Menu"), "fa fa-circle-o", "ReportList.php", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
-        $menuItem = new Menu (_("Query Menu"), "fa fa-circle-o", "QueryList.php", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
+        $menuItem = new Menu (_("Reports Menu"), "far fa-circle", "ReportList.php", SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'), $menu);
+        $menuItem = new Menu (_("Query Menu"), "far fa-circle", "QueryList.php", SessionUser::getUser()->isShowMenuQueryEnabled(), $menu);
 
         if (SessionUser::getUser()->isShowMenuQueryEnabled()) {
             $this->addMenu($menu);

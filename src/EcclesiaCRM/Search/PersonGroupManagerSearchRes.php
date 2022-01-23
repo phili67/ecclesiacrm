@@ -90,8 +90,8 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                             }
 
                             $res .= '<span class="fa-stack">'
-                                . '<i class="fa fa-square fa-stack-2x"></i>'
-                                . '<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>'
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
 
                             if (SessionUser::getUser()->isShowCartEnabled()) {
@@ -103,8 +103,8 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                                     $res .= '<a class="AddToPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
                                 }
                                 $res .= "                <span class=\"fa-stack\">\n"
-                                    . "                <i class=\"fa fa-square fa-stack-2x\"></i>\n"
-                                    . "                <i class=\"fa fa-stack-1x fa-inverse fa-cart-plus\"></i>"
+                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
+                                    . "                <i class=\"fas fa-stack-1x fa-inverse fa-cart-plus\"></i>"
                                     . "                </span>\n";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= "                </a>  ";
@@ -114,8 +114,8 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                                     $res .= '<a class="RemoveFromPeopleCart" data-cartpersonid="' . $per->getPerson()->getId() . '">';
                                 }
                                 $res .= "                <span class=\"fa-stack\">\n"
-                                    . "                <i class=\"fa fa-square fa-stack-2x\"></i>\n"
-                                    . "                <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n"
+                                    . "                <i class=\"fas fa-square fa-stack-2x\"></i>\n"
+                                    . "                <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n"
                                     . "                </span>\n";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= "                </a>  ";
@@ -125,8 +125,8 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                                 $res .= '&nbsp;<a href="' . SystemURLs::getRootPath() . '/PrintView.php?PersonID=' . $per->getPerson()->getId() . '"  data-toggle="tooltip" data-placement="top" title="' . _('Print') . '">';
                             }
                             $res .= '<span class="fa-stack">'
-                                . '<i class="fa fa-square fa-stack-2x"></i>'
-                                . '<i class="fa fa-print fa-stack-1x fa-inverse"></i>'
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-print fa-stack-1x fa-inverse"></i>'
                                 . '</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>';

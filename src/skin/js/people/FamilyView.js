@@ -10,18 +10,18 @@ $(document).ready(function () {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
-          $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-check"></i>');
           if (data.mailChimpActiv) {
             $("#mailChimpUserNormal").text(data.mailingList);
           }
         } else {
           $("#NewsLetterSend").css('color','red');
-          $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
           $("#mailChimpUserNormal").text(i18next.t("None"));
         }
       } else {
         $("#NewsLetterSend").css('color','red');
-        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+        $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
       }
     });
   }
@@ -119,7 +119,7 @@ $(document).ready(function () {
           data:'ProId',
           render: function(data, type, full, meta) {
             if (full.ProPrompt != '') {
-              return '<a href="#" class="edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></a>';
+              return '<a href="#" class="edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-pencil-alt" aria-hidden="true"></a>';
             }
 
             return "";
@@ -138,7 +138,7 @@ $(document).ready(function () {
           title:i18next.t('Action'),
           data:'ProId',
           render: function(data, type, full, meta) {
-            return '<a href="#" class="remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
+            return '<a href="#" class="remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
           }
         },
         {
@@ -379,7 +379,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("RemoveFromFamilyCart");
         $(clickedButton).removeClass("AddToFamilyCart");
-        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).addClass("fa-times");
         $('i',clickedButton).removeClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -394,7 +394,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("AddToFamilyCart");
         $(clickedButton).removeClass("RemoveFromFamilyCart");
-        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-times");
         $('i',clickedButton).addClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -409,7 +409,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("AddToPeopleCart");
         $(clickedButton).removeClass("RemoveFromPeopleCart");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-remove");
+        $('span i:nth-child(2)',clickedButton).removeClass("fa-times");
         $('span i:nth-child(2)',clickedButton).addClass("fa-cart-plus");
       });
     });
@@ -420,7 +420,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("RemoveFromPeopleCart");
         $(clickedButton).removeClass("AddToPeopleCart");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-remove");
+        $('span i:nth-child(2)',clickedButton).addClass("fa-times");
         $('span i:nth-child(2)',clickedButton).removeClass("fa-cart-plus");
       });
     });
@@ -438,8 +438,8 @@ $(document).ready(function () {
             personPresent = true;
             $(personButton).addClass("RemoveFromPeopleCart");
             $(personButton).removeClass("AddToPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
-            $(fa).addClass("fa-remove");
+            fa = $(personButton).find("i.fas.fa-inverse");
+            $(fa).addClass("fa-times");
             $(fa).removeClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
             if(text){
@@ -448,9 +448,9 @@ $(document).ready(function () {
           } else {
             $(personButton).addClass("AddToPeopleCart");
             $(personButton).removeClass("RemoveFromPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
+            fa = $(personButton).find("i.fas.fa-inverse");
 
-            $(fa).removeClass("fa-remove");
+            $(fa).removeClass("fa-times");
             $(fa).addClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
             if(text){
@@ -462,7 +462,7 @@ $(document).ready(function () {
         if (cartPeople.length == 0) {
             $("#AddToFamilyCart").addClass("AddToFamilyCart");
             $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-            $('i',"#AddToFamilyCart").removeClass("fa-remove");
+            $('i',"#AddToFamilyCart").removeClass("fa-times");
             $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
             text = $("#AddToFamilyCart").find("span.cartActionDescription")
             if(text){
@@ -482,7 +482,7 @@ $(document).ready(function () {
                 $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
                 $("#AddToFamilyCart").removeClass("AddToFamilyCart");
                 $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
-                $('i',"#AddToFamilyCart").addClass("fa-remove");
+                $('i',"#AddToFamilyCart").addClass("fa-times");
                 text = $("#AddToFamilyCart").find("span.cartActionDescription")
                 if(text){
                     $(text).text(i18next.t("Remove from Cart"));
@@ -490,7 +490,7 @@ $(document).ready(function () {
             } else {
                 $("#AddToFamilyCart").addClass("AddToFamilyCart");
                 $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
-                $('i',"#AddToFamilyCart").removeClass("fa-remove");
+                $('i',"#AddToFamilyCart").removeClass("fa-times");
                 $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
                 text = $("#AddToFamilyCart").find("span.cartActionDescription")
                 if(text){
@@ -567,8 +567,8 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
-                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return '<a class="" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -733,9 +733,9 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
           if (full.Closed != "1") {
-            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
           }
 
           return ret;

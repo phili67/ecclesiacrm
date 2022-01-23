@@ -262,7 +262,7 @@ require 'Include/Header.php';
                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#OtherFilters"
                         aria-expanded="false" aria-controls="OtherFilters">
                     <i
-                        class="fa fa-plus"></i>
+                        class="fas fa-plus"></i>
                 </button>
             </div>
         </div>
@@ -276,7 +276,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#RecordFilters"
                                         aria-expanded="false" aria-controls="RecordFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -300,7 +300,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#ClassificationFilters"
                                         aria-expanded="false" aria-controls="ClassificationFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -327,7 +327,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#FamilyFilters"
                                         aria-expanded="false" aria-controls="FamilyFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -357,7 +357,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GenderFilters"
                                         aria-expanded="false" aria-controls="GenderFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -379,7 +379,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GroupFilters"
                                         aria-expanded="false" aria-controls="GroupFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -406,7 +406,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#MembershipDateFilters"
                                         aria-expanded="false" aria-controls="MembershipDateFilters">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -440,7 +440,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#BirthdayDateFilter"
                                         aria-expanded="false" aria-controls="BirthdayDateFilter">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -473,7 +473,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#AnniversaryDateFilter"
                                         aria-expanded="false" aria-controls="AnniversaryDateFilter">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
@@ -506,7 +506,7 @@ require 'Include/Header.php';
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#DateEnteredFilter"
                                         aria-expanded="false" aria-controls="DateEnteredFilter">
                                     <i
-                                        class="fa fa-plus"></i>
+                                        class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>

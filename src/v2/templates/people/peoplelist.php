@@ -25,7 +25,7 @@ if ($sMode == 'person') {
 <div
     class="card">
     <div class="card-header with-border">
-        <h3 class="card-title"><i class="fa fa-filter"></i> <?= _('Filters') ?></h3>
+        <h3 class="card-title"><i class="fas fa-filter"></i> <?= _('Filters') ?></h3>
     </div>
     <div class="card-body clearfix">
         <div class="row">

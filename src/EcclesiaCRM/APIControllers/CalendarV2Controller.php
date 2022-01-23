@@ -173,7 +173,7 @@ class CalendarV2Controller
                 $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
                 $values['calendarShareAccess']= $calendar['share-access'];
                 $values['calendarUri']        = $calendar['uri'];
-                $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fa fa-pencil"></i>&nbsp;':'&nbsp;<i class="fa fa-eye"></i>&nbsp;';
+                $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fas fa-pencil-alt"></i>&nbsp;':'&nbsp;<i class="far fa-eye"></i>&nbsp;';
 
                 $id                           = $calendar['id'];
                 $values['calendarID']         = $id[0].",".$id[1];

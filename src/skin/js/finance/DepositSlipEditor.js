@@ -185,11 +185,11 @@ $(document).ready(function () {
                 render: function (data, type, full, meta) {
                     var familyName = data ? data : i18next.t('Anonymous');
                     /*var res = ((is_closed == 0)?'<a href=\'PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=' + depositSlipID +
-                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa '+  (isDepositClosed ? "fa-search-plus": "fa-pencil" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
+                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas '+  (isDepositClosed ? "fa-search-plus": "fa-pencil-alt" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
                     res+=familyName;*/
 
                     var res = '<a href=\'PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=' + depositSlipID +
-                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa ' + (isDepositClosed ? "fa-search-plus" : "fa-pencil") + ' fa-stack-1x fa-inverse"></i></span></a>';
+                        '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas ' + (isDepositClosed ? "fa-search-plus" : "fa-pencil-alt") + ' fa-stack-1x fa-inverse"></i></span></a>';
 
                     res += familyName;
 
@@ -343,12 +343,12 @@ $(document).ready(function () {
                 // This row is already open - close it
                 row.child.hide();
                 tr.removeClass('shown');
-                $(this).html('<i class="fa fa-plus-circle"></i>');
+                $(this).html('<i class="fas fa-plus-circle"></i>');
             } else {
                 // Open this row
                 row.child(format(row.data())).show();
                 tr.addClass('shown');
-                $(this).html('<i class="fa fa-minus-circle"></i>');
+                $(this).html('<i class="fas fa-minus-circle"></i>');
             }
         });
 

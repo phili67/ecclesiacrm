@@ -24,7 +24,7 @@ $('#restoredatabase').submit(function (event) {
     }).done(function (data) {
         if (data.Messages !== undefined && data.Messages.length > 0) {
             $.each(data.Messages, function (index, value) {
-                var inhtml = '<h4><i class="icon fa fa-ban"></i> Alert!</h4>' + value;
+                var inhtml = '<h4><i class="icon fas fa-ban"></i> Alert!</h4>' + value;
                 $("<div>").addClass("alert alert-danger").html(inhtml).appendTo("#restoreMessages");
             });
         }

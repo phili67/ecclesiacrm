@@ -7,11 +7,11 @@ $(document).ready(function () {
             message: i18next.t ("You're about to delete the buyer !!!"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t ('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t ('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t ('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t ('No'),
                     className: 'btn-primary'
                 }
             },
@@ -112,7 +112,7 @@ $(document).ready(function () {
 
         buttons = [
             {
-                label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                 className: "btn btn-primary",
                 callback: function () {
                     var Num = $("#Number").val();
@@ -181,7 +181,7 @@ $(document).ready(function () {
 
         buttons = buttons.concat([
             {
-                label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                 className: "btn btn-default",
                 callback: function () {
                     console.log("just do something on close");
@@ -281,7 +281,7 @@ $(document).ready(function () {
                 data: 'Id',
                 render: function (data, type, full, meta) {
                     return '<a href="#" data-pnid="' + data + '" class="pnDelete">\n' +
-                        '<i class="fa fa-trash-o" aria-hidden="true" style="color:#ff0000"></i></a>'
+                        '<i class="far fa-trash-alt" aria-hidden="true" style="color:#ff0000"></i></a>'
                 }
             }
         ],

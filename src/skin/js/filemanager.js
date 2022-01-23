@@ -78,14 +78,14 @@ $(document).ready(function () {
 
                         ret += '<a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '">'
                             + '<span class="fa-stack">'
-                            + '   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>'
-                            + '   <i class="fa fa-download fa-stack-1x fa-inverse"></i>'
+                            + '   <i class="fas fa-square fa-stack-2x" style="color:blue"></i>'
+                            + '   <i class="fas fa-download fa-stack-1x fa-inverse"></i>'
                             + '</span>'
                             + '</a>';
 
                         ret += '<span class="fa-stack shareFile" data-id="' + data + '" data-shared="' + full.isShared + '">'
-                            + '   <i class="fa fa-square fa-stack-2x" style="color:' + ((full.isShared) ? 'green' : '#777') + '"></i>'
-                            + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
+                            + '   <i class="fas fa-square fa-stack-2x" style="color:' + ((full.isShared) ? 'green' : '#777') + '"></i>'
+                            + '   <i class="fas fa-share-square fa-stack-1x fa-inverse"></i>'
                             + '</span>';
 
                         return ret;
@@ -956,7 +956,7 @@ $(document).ready(function () {
             size: "large",
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
                     className: "btn btn-warning",
                     callback: function () {
                         bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function (result) {
@@ -985,7 +985,7 @@ $(document).ready(function () {
                     }
                 },
                 {
-                    label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
+                    label: '<i class="far fa-stop-circle"></i> ' + i18next.t("Stop sharing"),
                     className: "btn btn-danger",
                     callback: function () {
                         bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function (result) {
@@ -1007,7 +1007,7 @@ $(document).ready(function () {
                     }
                 },
                 {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
                     className: "btn btn-primary",
                     callback: function () {
                         window.CRM.reloadEDriveTable(function () {

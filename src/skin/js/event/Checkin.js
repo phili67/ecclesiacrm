@@ -547,7 +547,7 @@ $(document).ready(function () {
             },
             buttons: [
                 {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Close"),
                     className: "btn btn-primary",
                     callback: function () {
 

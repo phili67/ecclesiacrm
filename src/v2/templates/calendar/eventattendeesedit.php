@@ -98,7 +98,7 @@ require $sRootDocument . '/Include/Header.php';
                         <td class="TextColumn"><?= $sHomePhone ? '<a href="tel:' . $sHomePhone . '" title="Phone to">' . $sHomePhone . '</a>' : _('Not Available') ?></td>
                         <td colspan="1" align="center">
                             <a class="btn btn-danger btn-sm DeleleAttendees" data-personid="<?= $person->getId() ?>"
-                               data-eventid="<?= $EventID ?>"><i class="fa fa-times"></i> <?= _("Delete") ?></a>
+                               data-eventid="<?= $EventID ?>"><i class="fas fa-times"></i> <?= _("Delete") ?></a>
                         </td>
                     </tr>
                     <?php
@@ -131,7 +131,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-md-2"></div>
             <div class="col-md-3">
                 <a id="DeleleAllAttendees" class="btn btn-danger <?= ($numAttRows == 0) ? "disabled" : "" ?>"
-                   data-eventid="<?= $EventID ?>"><i class="fa fa-times"></i> <?= _("Delele All Attendees") ?></a>
+                   data-eventid="<?= $EventID ?>"><i class="fas fa-times"></i> <?= _("Delele All Attendees") ?></a>
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-3">
@@ -142,7 +142,7 @@ require $sRootDocument . '/Include/Header.php';
                     <button type="submit" name="Action" title="<?= _('Make Check-out') ?>"
                             data-tooltip <?= ($numAttRows - $countCheckout > 0) ? 'value="' . _('Make Check-out') . '"' : "" ?>
                             class="btn btn-<?= ($numAttRows - $countCheckout == 0) ? "default disabled" : "success" ?>">
-                        <i class='fa fa-check-circle'></i>
+                        <i class='fas fa-check-circle'></i>
                         <?= _('Make Check-out') ?>
                     </button>
                     <?php if ($numAttRows - $countCheckout > 0) { ?>
@@ -155,7 +155,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div>
     <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/list" class='btn btn-default'>
-        <i class='fa fa-chevron-left'></i>
+        <i class='fas fa-chevron-left'></i>
         <?= _('Return to Events') ?>
     </a>
 </div>

@@ -45,7 +45,7 @@ $(document).ready(function () {
         data: 'Id',
         render: function (data, type, full, meta) {
           if (type === 'display') {
-            return '<a href=\'DepositSlipEditor.php?DepositSlipID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-search-plus fa-stack-1x fa-inverse"></i></span></a>' + full.Id;
+            return '<a href=\'DepositSlipEditor.php?DepositSlipID=' + full.Id + '\'><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-search-plus fa-stack-1x fa-inverse"></i></span></a>' + full.Id;
           }
           else {
             return parseInt(full.Id);
@@ -120,11 +120,11 @@ $(document).ready(function () {
     $("#deleteSelectedRows").prop('disabled', !(selectedRows));
     $("#deleteSelectedRows").text(i18next.t("Delete")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
     $("#exportSelectedRows").prop('disabled', !(selectedRows));
-    $("#exportSelectedRows").html("<i class=\"fa fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (OFX)");
+    $("#exportSelectedRows").html("<i class=\"fas fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (OFX)");
     $("#exportSelectedRowsCSV").prop('disabled', !(selectedRows));
-    $("#exportSelectedRowsCSV").html("<i class=\"fa fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (CSV)");
+    $("#exportSelectedRowsCSV").html("<i class=\"fas fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (CSV)");
     $("#generateDepositSlip").prop('disabled', !(selectedRows));
-    $("#generateDepositSlip").html("<i class=\"fa fa-download\"></i> "+i18next.t("Generate Deposit Slip for Selected")+" (" + selectedRows + ") "+i18next.t("Rows")+" (PDF)");
+    $("#generateDepositSlip").html("<i class=\"fas fa-download\"></i> "+i18next.t("Generate Deposit Slip for Selected")+" (" + selectedRows + ") "+i18next.t("Rows")+" (PDF)");
   });
 
   $('.exportButton').click(function (sender) {

@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
 <?php
 } else {
 ?>
-    <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
+    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
 <?php
 }
 ?>

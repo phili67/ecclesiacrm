@@ -319,13 +319,13 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                       <form name="ProcessEventType" action="EditEventTypes.php" method="POST" class="pull-left">
                         <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
                         <button type="submit" class="btn btn-success btn-sm" name="Action" title="<?= _('Edit') ?>" data-tooltip value="<?= _('Edit') ?>">
-                          <i class='fa fa-pencil'></i>
+                          <i class='fas fa-pencil-alt'></i>
                         </button>
                       </form>
                     </td>
                     <td>
                         <button class="btn btn-danger btn-sm delete-event" title="<?= _('Delete') ?>" data-tooltip name="Action" data-typeid="<?= $aTypeID[$row] ?>">
-                          <i class='fa fa-trash'></i>
+                          <i class='fas fa-trash-alt'></i>
                         </button>
                     </td>
                   </tr>

@@ -230,7 +230,7 @@ print_r($cCountID);*/
 
 <div>
   <a href="EventNames.php" class='btn btn-default'>
-    <i class='fa fa-chevron-left'></i>
+    <i class='fas fa-chevron-left'></i>
     <?= _('Return to Event Types') ?>
   </a>
 </div>

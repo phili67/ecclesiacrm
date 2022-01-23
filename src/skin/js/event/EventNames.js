@@ -69,10 +69,10 @@ $(document).ready(function () {
             message: i18next.t("This action can never be undone !!!!"),
             buttons: {
                 cancel: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
                 },
                 confirm: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
                 }
             },
             callback: function (result) {
