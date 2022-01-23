@@ -256,9 +256,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sCellPhone = InputUtils::LegacyFilterInput($_POST['CellPhone']);
     $sEmail = InputUtils::LegacyFilterInput($_POST['Email']);
     $sWorkEmail = InputUtils::LegacyFilterInput($_POST['WorkEmail']);
-    $iBirthMonth = InputUtils::LegacyFilterInput($_POST['BirthMonth'], 'int');
-    $iBirthDay = InputUtils::LegacyFilterInput($_POST['BirthDay'], 'int');
-    $iBirthYear = InputUtils::LegacyFilterInput($_POST['BirthYear'], 'int');
+
+    $sBirthDayDate = new DateTime(InputUtils::FilterDate($_POST['BirthDayDate']));
+
+    $iBirthMonth = $sBirthDayDate->format('m');
+    $iBirthDay = $sBirthDayDate->format('d');
+    $iBirthYear = $sBirthDayDate->format('Y');
 
     $bHideAge = isset($_POST['HideAge']);
     // Philippe Logel
@@ -808,6 +811,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
 }
 
+if ($iBirthDay != 0 and $iBirthMonth != 0 and $iBirthYear) {
+    $sBirthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
+} else {
+    $sBirthDayDate = '';
+}
+
 //Get Classifications for the drop-down
 // Get Field Security List Matrix
 $ormClassifications = ListOptionQuery::Create()
@@ -943,67 +952,8 @@ require 'Include/Header.php';
                 <p/>
                 <div class="row">
                     <div class="col-md-2">
-                        <label><?= _('Birth Month') ?>:</label>
-                        <select name="BirthMonth" class="form-control input-sm">
-                            <option value="0"
-                                <?= ($iBirthMonth == 0) ? 'selected' : '' ?>><?= _('Select Month') ?></option>
-                            <option value="01" <?= ($iBirthMonth == 1) ? 'selected' : '' ?>><?= _('January') ?></option>
-                            <option value="02"
-                                <?= ($iBirthMonth == 2) ? 'selected' : '' ?>><?= _('February') ?></option>
-                            <option value="03" <?= ($iBirthMonth == 3) ? 'selected' : '' ?>><?= _('March') ?></option>
-                            <option value="04" <?= ($iBirthMonth == 4) ? 'selected' : '' ?>><?= _('April') ?></option>
-                            <option value="05" <?= ($iBirthMonth == 5) ? 'selected' : '' ?>><?= _('May') ?></option>
-                            <option value="06" <?= ($iBirthMonth == 6) ? 'selected' : '' ?>><?= _('June') ?></option>
-                            <option value="07" <?= ($iBirthMonth == 7) ? 'selected' : '' ?>><?= _('July') ?></option>
-                            <option value="08" <?= ($iBirthMonth == 8) ? 'selected' : '' ?>><?= _('August') ?></option>
-                            <option value="09"
-                                <?= ($iBirthMonth == 9) ? 'selected' : '' ?>><?= _('September') ?></option>
-                            <option value="10"
-                                <?= ($iBirthMonth == 10) ? 'selected' : '' ?>><?= _('October') ?></option>
-                            <option value="11"
-                                <?= ($iBirthMonth == 11) ? 'selected' : '' ?>><?= _('November') ?></option>
-                            <option value="12"
-                                <?= ($iBirthMonth == 12) ? 'selected' : '' ?>><?= _('December') ?></option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label><?= _('Birth Day') ?>:</label>
-                        <select name="BirthDay" class="form-control input-sm">
-                            <option value="0"><?= _('Select Day') ?></option>
-                            <?php
-                            for ($x = 1; $x < 32; $x++) {
-                                if ($x < 10) {
-                                    $sDay = '0' . $x;
-                                } else {
-                                    $sDay = $x;
-                                } ?>
-                                <option value="<?= $sDay ?>"
-                                    <?= ($iBirthDay == $x) ? 'selected' : '' ?>><?= $x ?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-                        <label><?= _('Birth Year') ?>:</label>
-                        <input type="text" name="BirthYear" value="<?= $iBirthYear ?>" maxlength="4" size="5"
-                               placeholder="yyyy" class="form-control input-sm">
-                        <?php
-                        if ($sBirthYearError) {
-                            ?>
-                            <font color="red">
-                                <br><?= $sBirthYearError ?>
-                            </font>
-                            <?php
-                        }
-                        ?>
-                        <?php
-                        if ($sBirthDateError) {
-                            ?>
-                            <font color="red"><?= $sBirthDateError ?></font>
-                            <?php
-                        }
-                        ?>
+                        <label><?= _('Birthday Date') ?>:</label>
+                        <input type="text" name="BirthDayDate" class="form-control date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Hide Age') ?></label><br/>
