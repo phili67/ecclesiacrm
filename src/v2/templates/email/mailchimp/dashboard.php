@@ -63,7 +63,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                         <i class="fas fa-list-alt"></i><?= _("Create list") ?>
                     </button>
                     <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
-                        <i class="fa fa fa-table"></i> <?= _('Generate CSV') ?>
+                        <i class="fas fas fa-table"></i> <?= _('Generate CSV') ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app">
                         <i class="fas fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
@@ -75,7 +75,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
                         <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
-                        <i class="fa fa-stethoscope"></i><?= _("Debug") ?>
+                        <i class="fas fa-stethoscope"></i><?= _("Debug") ?>
                     </a>
                 </p>
                 <?= _('You can import the generated CSV file to external email system.') ?>

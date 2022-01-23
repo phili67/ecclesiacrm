@@ -310,7 +310,7 @@ $numberRow = 0;
                                     <?php } else if ($config->getName() == 'bEmailMailto' || $config->getName() == 'sMailtoDelimiter') { ?>
                                         <span class="align-text-bottom"><i class="far fa-envelope fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bUSAddressVerification') { ?>
-                                        <span class="align-text-bottom"><i class="fa fa-address-card-o fa-lg"></i><i
+                                        <span class="align-text-bottom"><i class="far fa-address-card"></i><i
                                                 class="fas fa-check fa-lg"></i></span>
                                     <?php } else if ($config->getName() == 'bShowTooltip') { ?>
                                         <span class="align-text-bottom"><i class="fas fa-info-circle fa-lg"></i></span>
@@ -427,13 +427,13 @@ $numberRow = 0;
                 <div class="row">
                     <div class="col-md-4">
 
-                        <p><i class="fa fa-id-card-o"></i> <?= _("When you sign in to EcclesiaCRM, you'll still enter your username and password like normal") ?></p></div>
+                        <p><i class="far fa-id-card"></i> <?= _("When you sign in to EcclesiaCRM, you'll still enter your username and password like normal") ?></p></div>
                     <div class="col-md-4">
 
                         <p><i class="fas fa-key fa-1x"></i> <?= _("However, you'll also need to supply a one-time code from your authenticator device to complete your login") ?></p></div>
                     <div class="col-md-4">
 
-                        <p><i class="fas fa-check-square-o"></i> <?= _("After successfully entering both your credentials, and the one-time code, you'll be logged in as normal") ?></p></div>
+                        <p><i class="far fa-check-square"></i> <?= _("After successfully entering both your credentials, and the one-time code, you'll be logged in as normal") ?></p></div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="callout callout-warning"><p><?= _("To prevent being locked out of your EcclesiaCRM account, please ensure you're ready to complete two factor enrollment before clicking begin") ?></p>

@@ -443,7 +443,7 @@ if (!empty($person->getDateDeactivated())) {
                                 <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
                                    data-family_role="<?= $person->getFamilyRoleName() ?>"
                                    data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
-                                    <i class="fa fa-edit"></i>
+                                    <i class="fas fa-edit"></i>
                                 </a>
                             </p>
                             <?php
@@ -469,7 +469,7 @@ if (!empty($person->getDateDeactivated())) {
                                                data-person_id="<?= $person->getId() ?>"
                                                data-classification_id="<?= $person->getClassID() ?>"
                                                data-classification_role="<?= $person->getClassName() ?>">
-                                                <i class="fa fa-edit"></i>
+                                                <i class="fas fa-edit"></i>
                                             </a>
                                         </div>
                                     </li>
@@ -497,7 +497,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                     <a class="changeRole btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
-                                            <i class="fa fa-edit"></i>
+                                            <i class="fas fa-edit"></i>
                                     </a>
                                 </div>
                             </li>
@@ -598,7 +598,7 @@ if (!empty($person->getDateDeactivated())) {
                             }
                             if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */
                                 ?>
-                                <li><strong><i class="fa-li fa fa-tasks"></i><?= _('Friend Date') ?>:</strong>
+                                <li><strong><i class="fa-li fas fa-tasks"></i><?= _('Friend Date') ?>:</strong>
                                     <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span>
                                 </li>
                                 <?php
@@ -673,7 +673,7 @@ if (!empty($person->getDateDeactivated())) {
 
                             if ($person->getFacebookID() > 0) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-facebook-official"></i><?= _('Facebook') ?>:</strong>
+                                <li><strong><i class="fa-li fab fa-facebook"></i><?= _('Facebook') ?>:</strong>
                                     <span><a
                                             href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= _('Facebook') ?></a></span>
                                 </li>
@@ -682,7 +682,7 @@ if (!empty($person->getDateDeactivated())) {
 
                             if (strlen($person->getTwitter()) > 0) {
                                 ?>
-                                <li><strong><i class="fa-li fa fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li fas fa-twitter"></i><?= _('Twitter') ?>:</strong> <span><a
                                             href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= _('Twitter') ?></a></span>
                                 </li>
                                 <?php
@@ -690,7 +690,7 @@ if (!empty($person->getDateDeactivated())) {
 
                             if (strlen($person->getLinkedIn()) > 0) {
                                 ?>
-                                <li><strong><i class="fa-li fas fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
+                                <li><strong><i class="fa-li fab fa-linkedin"></i><?= _('LinkedIn') ?>:</strong> <span><a
                                             href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span>
                                 </li>
                                 <?php
@@ -960,7 +960,7 @@ if (!empty($person->getDateDeactivated())) {
                                    aria-controls="finance"
                                    role="tab"
                                    data-toggle="tab"><i
-                                        class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?>
+                                        class="far fa-credit-card"></i> <?= _("Automatic Payments") ?>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -1685,7 +1685,7 @@ if (!empty($person->getDateDeactivated())) {
                              <?= $item['editLink'] ?>
                              <span class="fa-stack" data-toggle="tooltip" data-placement="bottom" title="<?= _("Edit this document") ?>">
                           <i class="fas fa-square fa-stack-2x"></i>
-                          <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
                         </span>
                              </a>
                              <?php
@@ -1780,7 +1780,7 @@ if (!empty($person->getDateDeactivated())) {
                                                             <button type="button" class="btn btn-primary editDocument"
                                                                     data-id="<?= $item['id'] ?>"
                                                                     data-perid="<?= $item['perID'] ?>" data-famid="0"><i
-                                                                    class="fa fa-edit"></i></button>
+                                                                    class="fas fa-edit"></i></button>
                                                             </button>
                                                             <?php
                                                         }

@@ -335,7 +335,7 @@ require 'Include/Header.php';
                         if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */
                             ?>
                             <li>
-                                <strong><i class="fa-li fa fa-magic"></i><?= _("Wedding Date") ?>:</strong>
+                                <strong><i class="fa-li fas fa-magic"></i><?= _("Wedding Date") ?>:</strong>
                                 <span><?= OutputUtils::FormatDate($family->getWeddingdate()->format('Y-m-d'), false) ?></span>
                             </li>
                             <?php
@@ -662,7 +662,7 @@ require 'Include/Header.php';
                                         ?>
                                         <li class="nav-item"><a href="#finance" aria-controls="finance" role="tab"
                                                                 data-toggle="tab" class="nav-link"><i
-                                                    class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
+                                                    class="far fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
                                         <li class="nav-item"><a href="#pledges" aria-controls="pledges" role="tab"
                                                                 data-toggle="tab" class="nav-link"><i
                                                     class="fas fa-university"></i> <?= _("Pledges and Payments") ?></a></li>
@@ -723,7 +723,7 @@ require 'Include/Header.php';
                                 <?= $item["editLink"] ?>
                                 <span class="fa-stack">
                         <i class="fas fa-square fa-stack-2x"></i>
-                        <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                        <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
                       </span>
                                 </a>
                                 <?php
@@ -769,7 +769,7 @@ require 'Include/Header.php';
                                                                     ?>
                                                                     <?= $item["editLink"] ?>
                                                                     <button type="button" class="btn btn-primary"><i
-                                                                            class="fa fa-edit"></i></button>
+                                                                            class="fas fa-edit"></i></button>
                                                                     </a>
                                                                     <?php
                                                                 }
@@ -966,7 +966,7 @@ require 'Include/Header.php';
                                data-famid="<?= $item['famID'] ?>" class="editDocument">
                         <span class="fa-stack">
                           <i class="fas fa-square fa-stack-2x"></i>
-                          <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                          <i class="fas fa-edit fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
                             <?php
@@ -1016,7 +1016,7 @@ require 'Include/Header.php';
                                                                            data-perid="<?= $item['perID'] ?>"
                                                                            data-famid="<?= $item['famID'] ?>" class="editDocument">
                                                                             <button type="button" class="btn btn-primary"><i
-                                                                                    class="fa fa-edit"></i></button>
+                                                                                    class="fas fa-edit"></i></button>
                                                                         </a>
                                                                         <?php
                                                                     }
@@ -1142,7 +1142,7 @@ require 'Include/Header.php';
                 }
                 ?>
                 <button type="button" id="verifyURL"
-                        class="btn btn-default"><i class="fa fa-chain"></i> <?= _("URL") ?></button>
+                        class="btn btn-default"><i class="fas fa-link"></i> <?= _("URL") ?></button>
                 <button type="button" id="verifyDownloadPDF" class="btn btn-info">
                     <i class="fas fa-download"></i>
                     <?= _("PDF Report") ?>

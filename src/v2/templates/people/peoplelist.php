@@ -70,7 +70,7 @@ if ($sMode == 'person') {
         <div class="row">
             <div class="col-sm-10">&nbsp;</div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-success" id="search_OK" class="right"><i class="fa fa-search"></i>  <?= _("Search") ?></button>
+                <button type="button" class="btn btn-success" id="search_OK" class="right"><i class="fas fa-search"></i>  <?= _("Search") ?></button>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@ if ($sMode == 'person') {
 
 <div class="card">
     <div class="card-header with-border">
-        <h3 class="card-title"><i class="fa fa-search"></i> <?= _('Search Results') ?></h3>
+        <h3 class="card-title"><i class="fas fa-search"></i> <?= _('Search Results') ?></h3>
         <div class="card-tools">
             <h3 class="in-progress" style="color:red"></h3>
         </div>

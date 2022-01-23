@@ -267,12 +267,12 @@ $("document").ready(function()
             var sequenceCell = "";
             if(data > 1)
             {
-              sequenceCell += '<button type="button" id="roleUp-' + full.OptionId + '" class="btn btn-sm rollOrder"> <i class="fa fa-arrow-up"></i></button>&nbsp;';
+              sequenceCell += '<button type="button" id="roleUp-' + full.OptionId + '" class="btn btn-sm rollOrder"> <i class="fas fa-arrow-up"></i></button>&nbsp;';
             }
             sequenceCell += data;
             if(data != window.CRM.roleCount)
             {
-              sequenceCell += '&nbsp;<button type="button" id="roleDown-' + full.OptionId + '" class="btn  btn-sm rollOrder"> <i class="fa fa-arrow-down"></i></button>';
+              sequenceCell += '&nbsp;<button type="button" id="roleDown-' + full.OptionId + '" class="btn  btn-sm rollOrder"> <i class="fas fa-arrow-down"></i></button>';
             }
             return sequenceCell;
           }

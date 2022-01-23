@@ -342,7 +342,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-6">
         <div class="card card-default">
             <div class="card-header with-border">
-                <h3 class="card-title"><i class="fa fa-address-card-o"></i> <?= _('Gender Demographics') ?></h3>
+                <h3 class="card-title"><i class="far fa-address-card"></i> <?= _('Gender Demographics') ?></h3>
 
                 <div class="card-tools pull-right">
                     <div id="gender-donut-legend" class="chart-legend"></div>

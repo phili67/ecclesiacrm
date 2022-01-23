@@ -398,14 +398,14 @@ $("document").ready(function () {
                         res += '<a ' + (window.CRM.showCart ? 'class="AddOneStudentToCart"' : '') + ' data-cartpersonid="' + data + '">'
                             + '<span class="fa-stack">'
                             + '  <i class="fas fa-square fa-stack-2x"></i>'
-                            + '  <i class="fa fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-cart-plus' : 'fa-question') + '"></i>'
+                            + '  <i class="fas fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-cart-plus' : 'fa-question') + '"></i>'
                             + '</span>'
                             + '</a>';
                     } else {
                         res += '<a ' + (window.CRM.showCart ? 'class="RemoveOneStudentFromCart"' : '') + ' data-cartpersonid="' + data + '">'
                             + '<span class="fa-stack">'
                             + '  <i class="fas fa-square fa-stack-2x"></i>'
-                            + '  <i class="fa fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-times' : 'fa-question') + '"></i>'
+                            + '  <i class="fas fa-stack-1x fa-inverse ' + (window.CRM.showCart ? 'fa-times' : 'fa-question') + '"></i>'
                             + '</span>'
                         '</a>';
                     }
