@@ -257,11 +257,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sEmail = InputUtils::LegacyFilterInput($_POST['Email']);
     $sWorkEmail = InputUtils::LegacyFilterInput($_POST['WorkEmail']);
 
-    $birthDayDate = new DateTime(InputUtils::FilterDate($_POST['BirthDayDate']));
+    $sBirthDayDate = new DateTime(InputUtils::FilterDate($_POST['BirthDayDate']));
 
-    $iBirthMonth = $birthDayDate->format('m');
-    $iBirthDay = $birthDayDate->format('d');
-    $iBirthYear = $birthDayDate->format('Y');
+    $iBirthMonth = $sBirthDayDate->format('m');
+    $iBirthDay = $sBirthDayDate->format('d');
+    $iBirthYear = $sBirthDayDate->format('Y');
 
     $bHideAge = isset($_POST['HideAge']);
     // Philippe Logel
@@ -812,9 +812,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 }
 
 if ($iBirthDay != 0 and $iBirthMonth != 0 and $iBirthYear) {
-    $birthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
+    $sBirthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
 } else {
-    $birthDayDate = '';
+    $sBirthDayDate = '';
 }
 
 //Get Classifications for the drop-down
@@ -952,8 +952,8 @@ require 'Include/Header.php';
                 <p/>
                 <div class="row">
                     <div class="col-md-2">
-                        <label><?= _('Birthday') ?>:</label>
-                        <input type="text" name="BirthDayDate" class="form-control date-picker" value="<?= OutputUtils::change_date_for_place_holder($birthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <label><?= _('Birthday Date') ?>:</label>
+                        <input type="text" name="BirthDayDate" class="form-control date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Hide Age') ?></label><br/>
