@@ -59,7 +59,7 @@ $(document).ready(function () {
             +'          </table>'
             +'        </div>'
             +'        <div class="col-lg-3">'
-            +'           <b><i class="far fa-newspaper"></i> ' + i18next.t('Campaigns') + '</b><br>';
+            +'           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
             var lenCampaigns = data.MailChimpCampaigns[i].length;
 

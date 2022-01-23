@@ -29,7 +29,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="btn-group">
                     <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>"
                             data-id="-1" data-name="">
-                        <i class="fas fa-list-alt"></i><?= _("Create a Campaign") ?>
+                        <i class="fas fa-envelope-open-text"></i><?= _("Create a Campaign") ?>
                     </button>
                     <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app dropdown-toggle"
                             data-toggle="dropdown" aria-expanded="false">
@@ -90,7 +90,7 @@ if ($isMailchimpActiv) {
                         </div>
                         <div class="col-md-2">
                             <button type="button" id="deleteMembers" class="btn btn-danger"
-                                    disabled><?= _("Delete") ?></button>
+                                    disabled><i class="far fa-trash-alt"></i> <?= _("Delete") ?></button>
                         </div>
                         <div class="col-md-2">
                             <div class="btn-group">
