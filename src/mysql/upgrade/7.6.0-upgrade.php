@@ -6,6 +6,7 @@ require '../../Include/Config.php';*/
 
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\MiscUtils;
 
 $logger = LoggerUtils::getAppLogger();
 
@@ -20,6 +21,8 @@ unlink(SystemURLs::getDocumentRoot()."/GetText.php");
 unlink(SystemURLs::getDocumentRoot()."/skin/js/event/ListEvent.js");
 
 unlink(SystemURLs::getDocumentRoot()."/EditEventAttendees.php");
+
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/external/font-awesome/");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
