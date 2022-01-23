@@ -811,7 +811,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
 }
 
-$birthDayDate = $iBirthDay."-".$iBirthMonth."-". $iBirthYear;
+if ($iBirthDay != 0 and $iBirthMonth != 0 and $iBirthYear) {
+    $birthDayDate = $iBirthDay . "-" . $iBirthMonth . "-" . $iBirthYear;
+} else {
+    $birthDayDate = '';
+}
 
 //Get Classifications for the drop-down
 // Get Field Security List Matrix
