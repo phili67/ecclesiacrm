@@ -61,7 +61,7 @@ class MenuBar extends Menu
     public function addGDPRMenu()
     {
             // the GDPR Menu
-            $menu = new Menu (_("GDPR"), "fab fa-get-pocket pull-right", "", true);
+            $menu = new Menu (_("GDPR"), "fas fa-shield-alt", "", true);
             $menuItem = new Menu (_("Dashboard"), "fas fa-circle", "v2/gdpr", true, $menu);
             $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
             $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
