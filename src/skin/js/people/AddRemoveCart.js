@@ -14,8 +14,8 @@ $(document).ready(function () {
                 personPresent = true;
                 $(personButton).addClass("RemoveFromPeopleCart");
                 $(personButton).removeClass("AddToPeopleCart");
-                fa = $(personButton).find("i.fa.fa-inverse");
-                $(fa).addClass("fa-remove");
+                fa = $(personButton).find("i.fas.fa-inverse");
+                $(fa).addClass("fa-times");
                 $(fa).removeClass("fa-cart-plus");
                 text = $(personButton).find("span.cartActionDescription")
                 if (text) {
@@ -24,9 +24,9 @@ $(document).ready(function () {
             } else {
                 $(personButton).addClass("AddToPeopleCart");
                 $(personButton).removeClass("RemoveFromPeopleCart");
-                fa = $(personButton).find("i.fa.fa-inverse");
+                fa = $(personButton).find("i.fas.fa-inverse");
 
-                $(fa).removeClass("fa-remove");
+                $(fa).removeClass("fa-times");
                 $(fa).addClass("fa-cart-plus");
                 text = $(personButton).find("span.cartActionDescription")
                 if (text) {
@@ -42,8 +42,8 @@ $(document).ready(function () {
                 personPresent = true;
                 $(familyButton).addClass("RemoveFromFamilyCart");
                 $(familyButton).removeClass("AddToFamilyCart");
-                fa = $(familyButton).find("i.fa.fa-inverse");
-                $(fa).addClass("fa-remove");
+                fa = $(familyButton).find("i.fas.fa-inverse");
+                $(fa).addClass("fa-times");
                 $(fa).removeClass("fa-cart-plus");
                 text = $(familyButton).find("span.cartActionDescription")
                 if (text) {
@@ -52,9 +52,9 @@ $(document).ready(function () {
             } else {
                 $(familyButton).addClass("AddToFamilyCart");
                 $(familyButton).removeClass("RemoveFromFamilyCart");
-                fa = $(familyButton).find("i.fa.fa-inverse");
+                fa = $(familyButton).find("i.fas.fa-inverse");
 
-                $(fa).removeClass("fa-remove");
+                $(fa).removeClass("fa-times");
                 $(fa).addClass("fa-cart-plus");
                 text = $(familyButton).find("span.cartActionDescription")
                 if (text) {
@@ -70,8 +70,8 @@ $(document).ready(function () {
                 personPresent = true;
                 $(groupsButtons).addClass("RemoveFromGroupCart");
                 $(groupsButtons).removeClass("AddToGroupCart");
-                fa = $(groupsButtons).find("i.fa.fa-inverse");
-                $(fa).addClass("fa-remove");
+                fa = $(groupsButtons).find("i.fas.fa-inverse");
+                $(fa).addClass("fa-times");
                 $(fa).removeClass("fa-cart-plus");
                 text = $(groupsButtons).find("span.cartActionDescription")
                 if (text) {
@@ -80,9 +80,9 @@ $(document).ready(function () {
             } else {
                 $(groupsButtons).addClass("AddToGroupCart");
                 $(groupsButtons).removeClass("RemoveFromGroupCart");
-                fa = $(groupsButtons).find("i.fa.fa-inverse");
+                fa = $(groupsButtons).find("i.fas.fa-inverse");
 
-                $(fa).removeClass("fa-remove");
+                $(fa).removeClass("fa-times");
                 $(fa).addClass("fa-cart-plus");
                 text = $(groupsButtons).find("span.cartActionDescription")
                 if (text) {
@@ -101,7 +101,7 @@ $(document).ready(function () {
         window.CRM.cart.addPerson([clickedButton.data("cartpersonid")], function () {
             $(clickedButton).addClass("RemoveFromPeopleCart");
             $(clickedButton).removeClass("AddToPeopleCart");
-            $('span i:nth-child(2)', clickedButton).addClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).addClass("fa-times");
             $('span i:nth-child(2)', clickedButton).removeClass("fa-cart-plus");
         });
     });
@@ -111,7 +111,7 @@ $(document).ready(function () {
         window.CRM.cart.removePerson([clickedButton.data("cartpersonid")], function () {
             $(clickedButton).addClass("AddToPeopleCart");
             $(clickedButton).removeClass("RemoveFromPeopleCart");
-            $('span i:nth-child(2)', clickedButton).removeClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).removeClass("fa-times");
             $('span i:nth-child(2)', clickedButton).addClass("fa-cart-plus");
         });
     });
@@ -122,7 +122,7 @@ $(document).ready(function () {
         window.CRM.cart.addFamily(clickedButton.data("cartfamilyid"), function () {
             $(clickedButton).addClass("RemoveFromFamilyCart");
             $(clickedButton).removeClass("AddToFamilyCart");
-            $('span i:nth-child(2)', clickedButton).addClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).addClass("fa-times");
             $('span i:nth-child(2)', clickedButton).removeClass("fa-cart-plus");
         });
     });
@@ -132,7 +132,7 @@ $(document).ready(function () {
         window.CRM.cart.removeFamily(clickedButton.data("cartfamilyid"), function () {
             $(clickedButton).addClass("AddToFamilyCart");
             $(clickedButton).removeClass("RemoveFromFamilyCart");
-            $('span i:nth-child(2)', clickedButton).removeClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).removeClass("fa-times");
             $('span i:nth-child(2)', clickedButton).addClass("fa-cart-plus");
         });
     });
@@ -143,7 +143,7 @@ $(document).ready(function () {
         window.CRM.cart.addGroup(clickedButton.data("cartgroupid"), function () {
             $(clickedButton).addClass("RemoveFromGroupCart");
             $(clickedButton).removeClass("AddToGroupCart");
-            $('span i:nth-child(2)', clickedButton).addClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).addClass("fa-times");
             $('span i:nth-child(2)', clickedButton).removeClass("fa-cart-plus");
         });
     });
@@ -153,7 +153,7 @@ $(document).ready(function () {
         window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"), function () {
             $(clickedButton).addClass("AddToGroupCart");
             $(clickedButton).removeClass("RemoveFromGroupCart");
-            $('span i:nth-child(2)', clickedButton).removeClass("fa-remove");
+            $('span i:nth-child(2)', clickedButton).removeClass("fa-times");
             $('span i:nth-child(2)', clickedButton).addClass("fa-cart-plus");
         });
     });

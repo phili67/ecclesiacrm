@@ -414,19 +414,19 @@ class MiscUtils
         $first = true;
         for ($i = 0; $i < $len; $i++) {
             if ($first == true) {
-                $res = "<i class='fa fa-home text-aqua'></i> " . _("Home");
+                $res = "<i class='fas fa-home text-aqua'></i> " . _("Home");
 
                 if ($len > 2) {
-                    $res .= " <i class='fa fa-caret-right'></i>";
+                    $res .= ' <i class="fas fa-caret-right"></i>';
                 }
                 $first = false;
             }
 
             if (!empty ($items[$i])) {
-                $res .= "&nbsp;&nbsp;<i class='fa fa-folder-o text-yellow'></i> " . $items[$i];
+                $res .= "&nbsp;&nbsp;<i class='far fa-folder text-yellow'></i> " . $items[$i];
 
                 if ($i != $len - 2) {
-                    $res .= "&nbsp;&nbsp;<i class='fa fa-caret-right'></i>";
+                    $res .= "&nbsp;&nbsp;<i class='fas fa-caret-right'></i>";
                 }
             }
         }
@@ -532,29 +532,29 @@ class MiscUtils
             case "doc":
             case "docx":
             case "odt":
-                $icon = 'fa-file-word-o text-blue ';
+                $icon = ' far fa-file-word text-blue ';
                 break;
             case "ics":
-                $icon = 'fa-calendar-o text-red';
+                $icon = ' far fa-calendar text-red';
                 break;
             case "sql":
-                $icon = 'fa-database text-red';
+                $icon = ' fas fa-database text-red';
                 break;
             case "xls":
             case "xlsx":
             case "ods":
             case "csv":
-                $icon = ' fa-file-excel-o text-olive';
+                $icon = ' far fa-file-excel text-olive';
                 break;
             case "xls":
             case "xlsx":
             case "ods":
-                $icon = ' fa-file-powerpoint-o text-red';
+                $icon = ' far fa-file-powerpoint text-red';
                 break;
             case "jpg":
             case "jpeg":
             case "png":
-                $icon = 'fa-file-photo-o text-teal';
+                $icon = ' far fa-file-image text-teal';
                 break;
             case "txt":
             case "ps1":
@@ -574,28 +574,28 @@ class MiscUtils
             case "vbs":
             case "admx":
             case "adml":
-                $icon = 'fa-file-code-o text-black';
+                $icon = 'fas fa-file-code text-black';
                 break;
             case "pdf":
-                $icon = 'fa-file-pdf-o  text-red';
+                $icon = 'far fa-file-pdf  text-red';
                 break;
             case "mp3":
             case "m4a":
             case "oga":
             case "wav":
-                $icon = 'fa-file-sound-o  text-green';
+                $icon = 'fas fa-file-music  text-green';
                 break;
             case  "mp4":
-                $icon = 'fa-file-video-o  text-blue';
+                $icon = 'fas fa-video text-blue';
                 break;
             case  "ogg":
-                $icon = 'fa-file-video-o   text-blue';
+                $icon = 'fas fa-video  text-blue';
                 break;
             case "mov":
-                $icon = 'fa-file-video-o  text-blue';
+                $icon = 'fas fa-video text-blue';
                 break;
             default:
-                $icon = "fa-file-o text-blue";
+                $icon = "far fa-file text-blue";
                 break;
         }
 
@@ -1156,7 +1156,7 @@ class MiscUtils
         }
 
         if ($bFormat && $isFamily) {
-            $finalData = $finalData . "<i class='fa fa-fw fa-tree'></i>";
+            $finalData = $finalData . "<i class='fas  fa-tree'></i>";
         }
 
         return $finalData;

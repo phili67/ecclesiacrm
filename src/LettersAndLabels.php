@@ -77,16 +77,16 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
             </div>
             <div>
                 <button class="btn btn-success" type="submit" name="SubmitNewsLetter" value="delete">
-                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Newsletter labels') ?>
+                    <i class="fas fa-file-pdf"></i> <?= gettext('Newsletter labels') ?>
                 </button>
                 <button class="btn btn-primary" type="submit" name="SubmitConfirmReport" value="delete">
-                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Confirm data letter') ?>
+                    <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data letter') ?>
                 </button>
                 <button class="btn btn-primary" type="submit" name="SubmitConfirmLabels" value="delete">
-                    <i class="fa fa-file-pdf-o"></i> <?= gettext('Confirm data labels') ?>
+                    <i class="fas fa-file-pdf"></i> <?= gettext('Confirm data labels') ?>
                 </button>
                 <button class="btn btn-danger" type="submit" name="SubmitConfirmReportEmail" value="delete">
-                    <i class="fa fa-send"></i> <?= gettext('Confirm data Email') ?>
+                    <i class="fas fa-paper-plane"></i> <?= gettext('Confirm data Email') ?>
                 </button>
 
                 <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'v2/dashboard';">

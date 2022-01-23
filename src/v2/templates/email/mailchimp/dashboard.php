@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 if ($mailChimpStatus['title'] == 'Forbidden') {
     ?>
     <div class="alert alert-danger">
-        <h4><i class="fa fa-ban"></i> <?= _('MailChimp Problem') ?></h4>
+        <h4><i class="fas fa-ban"></i> <?= _('MailChimp Problem') ?></h4>
         <?= _("Mailchimp Status") ?> :<?= _("Title") ?> : <?= $mailChimpStatus['title'] ?> status
         : <?= $mailChimpStatus['status'] ?> detail : <?= $mailChimpStatus['detail'] ?>
         <?php
@@ -42,7 +42,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
 } else {
     ?>
     <div class="alert alert-info">
-        <h4><i class="fa fa-info"></i> <?= _('MailChimp is activated') ?></h4>
+        <h4><i class="fas fa-info"></i> <?= _('MailChimp is activated') ?></h4>
         <?= _('MailChimp is working correctly') ?>
     </div>
     <?php
@@ -52,7 +52,7 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><i class="fa fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
+                <h3 class="card-title"><i class="far fa-envelope"></i> <?= _('MailChimp Management') ?></h3>
                 <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
                         <img class="logo-mailchimp" src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
                 </div>
@@ -60,19 +60,19 @@ if ($mailChimpStatus['title'] == 'Forbidden') {
             <div class="card-body">
                 <p>
                     <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive()) ? '' : 'disabled' ?> data-toggle="tooltip"  data-placement="bottom" title="<?= _("Create an audience or List") ?>">
-                        <i class="fa fa-list-alt"></i><?= _("Create list") ?>
+                        <i class="fas fa-list-alt"></i><?= _("Create list") ?>
                     </button>
                     <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
                         <i class="fa fa fa-table"></i> <?= _('Generate CSV') ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/duplicateemails" class="btn btn-app">
-                        <i class="fa fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
+                        <i class="fas fa-exclamation-triangle"></i> <?= _("Find Duplicate Emails") ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailspersons" class="btn btn-app">
-                        <i class="fa fa-bell-slash"></i><?= _("Persons Not In MailChimp") ?>
+                        <i class="far fa-bell-slash"></i> <?= _("Persons Not In MailChimp") ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/notinmailchimpemailsfamilies" class="btn btn-app">
-                        <i class="fa fa-bell-slash"></i><?= _("Families Not In MailChimp") ?>
+                        <i class="far fa-bell-slash"></i> <?= _("Families Not In MailChimp") ?>
                     </a>
                     <a href="<?= $sRootPath ?>/v2/mailchimp/debug" class="btn btn-app" data-toggle="tooltip"  data-placement="bottom" title="<?= _("To debug your email connection") ?>">
                         <i class="fa fa-stethoscope"></i><?= _("Debug") ?>

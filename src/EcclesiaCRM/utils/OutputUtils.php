@@ -105,7 +105,7 @@ class OutputUtils
     {
         if ($number == NULL) return 0;
 
-        return str_replace(",", ".", $number);
+        return str_replace(",", ".", "'".$number."'");
     }
 
     public static function securityFilter($fieldSec)
@@ -303,7 +303,7 @@ class OutputUtils
                 // code rajouté par Philippe Logel
                 echo '<div class="input-group mb-2">' .
                     '<div class="input-group-prepend">' .
-                    '<span class="input-group-text"> <i class="fa fa-calendar"></i></span>' .
+                    '<span class="input-group-text"> <i class="fas fa-calendar"></i></span>' .
                     '</div>' .
                     '<input class="form-control date-picker" type="text" id="' . $fieldname . '" Name="' . $fieldname . '" value="' . OutputUtils::change_date_for_place_holder($data) . '" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '"> ' .
                     '</div>';
@@ -421,7 +421,7 @@ class OutputUtils
 
                 echo '<div class="input-group mb-2">' .
                     '<div class="input-group-prepend">' .
-                    '<span class="input-group-text"> <i class="fa fa-phone"></i></span>' .
+                    '<span class="input-group-text"> <i class="fas fa-phone"></i></span>' .
                     '</div>' .
                     '<input class="form-control"  type="text" Name="' . $fieldname . '" maxlength="30" size="30" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '" data-inputmask="\'mask\': \'' . SystemConfig::getValue('sPhoneFormat') . '\'" data-mask>' .
                     '</div>' .

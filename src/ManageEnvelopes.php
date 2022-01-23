@@ -124,7 +124,7 @@ if (isset($_POST['PrintReport'])) {
 ?>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEnvelopesModal"><?= _('Update Family Records') ?></button>
-<button type="submit" class="btn btn-success" name="PrintReport"><i class="fa fa-print"></i></button>
+<button type="submit" class="btn btn-success" name="PrintReport"><i class="fas fa-print"></i></button>
 
 <br><br>
 

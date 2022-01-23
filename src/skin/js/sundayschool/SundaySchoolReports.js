@@ -38,7 +38,7 @@ $( "#GroupID" ).change(function() {
                     +'</div>'
                     +'<div class="input-group col-md-3">'
                     +'  <div class="input-group-prepend">'
-                    +'     <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+                    +'     <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
                     +'  </div>'
                     +'  <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
                             +'maxlength="10" id="sel1" size="11"'
@@ -49,7 +49,7 @@ $( "#GroupID" ).change(function() {
                     +'</div>'
                       +'<div class="input-group col-md-3">'
                       +'  <div class="input-group-prepend">'
-                      +'     <span class="input-group-text"><i class="fa fa-calendar"></i></span>'
+                      +'     <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
                       +'  </div>'
                       +'<input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
                       +'maxlength="10" id="sel1" size="11"'
@@ -104,14 +104,14 @@ $( "#GroupID" ).change(function() {
                     size: "extra-large",
                     buttons: [
                         {
-                            label: '<i class="fa fa-times"> ' + i18next.t("Cancel"),
+                            label: '<i class="fas fa-times"> ' + i18next.t("Cancel"),
                             className: "btn btn-default",
                             callback: function() {
                                 console.log("just do something on close");
                             }
                         },
                         {
-                            label: '<i class="fa fa-check"> ' + i18next.t('OK'),
+                            label: '<i class="fas fa-check"> ' + i18next.t('OK'),
                             className: "btn btn-primary",
                             callback: function() {
                                 var dateStart = $('form #dateEventStart').val();

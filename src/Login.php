@@ -249,7 +249,7 @@ require 'Include/HeaderNotLoggedIn.php';
                     <!-- /.col -->
                     <div class="col-12">
                         <a href="<?= SystemURLs::getRootPath() ?>/external/register/" class="btn btn-primary btn-block bg-olive"><i
-                                class="fa fa-user-plus"></i> <?= _('Register a new Family'); ?></a><br>
+                                class="fas fa-user-plus"></i> <?= _('Register a new Family'); ?></a><br>
                     </div>
                 </div>
                 <?php

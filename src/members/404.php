@@ -28,7 +28,7 @@ require '../Include/Header.php';
     <h2 class="headline text-yellow">404</h2>
 
     <div class="error-content">
-        <h3><i class="fa fa-warning text-yellow"></i> <?= gettext("Oops!") . " " . strtoupper($type) . " " . gettext("Not Found") ?></h3>
+        <h3><i class="fas fa-exclamation-triangle text-yellow"></i> <?= gettext("Oops!") . " " . strtoupper($type) . " " . gettext("Not Found") ?></h3>
 
         <p>
             <?= gettext("We could not find the member(s) you were looking for.") ?>

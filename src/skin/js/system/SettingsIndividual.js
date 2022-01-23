@@ -277,7 +277,7 @@ $(document).ready(function () {
             data: JSON.stringify({"code": code})
         }).done(function (data) {
             if (data.status == 'yes') {
-                $("#verifyCode").html('<i class="fa fa-check" style="font-size: 20px;color: green"></i>');
+                $("#verifyCode").html('<i class="fas fa-check" style="font-size: 20px;color: green"></i>');
 
                 message = '<div  class="row">';
                 message += '<div class="col-md-12">';
@@ -294,7 +294,7 @@ $(document).ready(function () {
 
                 $("#two-factor-results").html(message);
             } else {
-                $("#verifyCode").html('<i class="fa fa-ban" style="font-size: 20px;color: red"></i>');
+                $("#verifyCode").html('<i class="fas fa-ban" style="font-size: 20px;color: red"></i>');
                 $("#two-factor-results").html("");
             }
 

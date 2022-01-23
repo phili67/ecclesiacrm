@@ -39,7 +39,7 @@ $(document).ready(function () {
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="edit-menu-links" data-id="'+data+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-menu-links" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return '<a class="edit-menu-links" data-id="'+data+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-menu-links" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -140,16 +140,16 @@ $(document).ready(function () {
 
         if (len == 0) {
           $(".global_custom_menu").html('');
-          $(".global_custom_menu").append('<a href="#"  class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php"><i class="fa fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
+          $(".global_custom_menu").append('<a href="#"  class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php"><i class="fas fa-link"></i> <span>' + i18next.t("Global Custom Menus") + '</span></a>');
         } else {
           $(".global_custom_menu").html('');
-          $(".global_custom_menu").append('<a href="#" class="nav-link active"><i class="fa fa-link"></i> <p>' + i18next.t("Global Custom Menus") + ' <i class="fa fa-angle-left right"></p></a>');
+          $(".global_custom_menu").append('<a href="#" class="nav-link active"><i class="fas fa-link"></i> <p>' + i18next.t("Global Custom Menus") + ' <i class="fas fa-angle-left right"></p></a>');
           $(".global_custom_menu").append('<ul class="nav nav-treeview" style="display: block;">');
 
           var list = $(".global_custom_menu").find('.nav-treeview');
 
           for (i=0;i<len;i++) {
-            list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-circle-o"></i> ' + data.MenuLinks[i].Name + '</a></li>');
+            list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="far fa-circle"></i> ' + data.MenuLinks[i].Name + '</a></li>');
           }
         }
 
@@ -160,7 +160,7 @@ $(document).ready(function () {
       var list = $(".personal_custom_menu_"+window.CRM.personId).parent().find('.nav-treeview');
 
       list.empty()
-      list.append('<li class="nav-item"><a class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php?personId=1"><i class="fa fa-circle-o"></i> ' + i18next.t("Dashboard") + '</a></li>');
+      list.append('<li class="nav-item"><a class="nav-link active" href="' + window.CRM.root + '/MenuLinksList.php?personId=1"><i class="far fa-circle"></i> ' + i18next.t("Dashboard") + '</a></li>');
 
       window.CRM.APIRequest({
         method: 'POST',
@@ -169,7 +169,7 @@ $(document).ready(function () {
         var len = data.MenuLinks.length;
 
         for (i=0;i<len;i++) {
-          list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="fa fa-angle-double-right"></i> ' + data.MenuLinks[i].Name + '</a></li>');
+          list.append('<li class="nav-item"><a class="nav-link" href="' + data.MenuLinks[i].Uri + '"><i class="fas fa-angle-double-right"></i> ' + data.MenuLinks[i].Name + '</a></li>');
         }
 
         window.CRM.dataMenuLinkTable.ajax.reload();

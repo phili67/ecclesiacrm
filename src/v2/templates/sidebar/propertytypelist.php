@@ -18,12 +18,12 @@ if ( $isMenuOption ) {
 <?php
 } else {
 ?>
-    <div class="alert alert-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
+    <div class="alert alert-warning"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Only an admin can modify or delete this records.') ?></div>
 <?php
 }
 ?>
 
-<div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting properties, all persons, families and groups will be affected.') ?></div>
+<div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>   <?= _('Be carefull ! By deleting properties, all persons, families and groups will be affected.') ?></div>
 
 <div class="card card-body">
     <div class="table-responsive" width="100%">

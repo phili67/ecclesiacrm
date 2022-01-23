@@ -12,7 +12,7 @@ $(document).ready(function () {
    {
      if (window.CRM.mailchimpIsActive) {
         // we first empty the container
-        $("#container").html( '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</div>");
+        $("#container").html( '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</div>");
 
         window.CRM.APIRequest({
           method: 'GET',
@@ -42,13 +42,13 @@ $(document).ready(function () {
 
             listViews += '<div class="card card-gray">'
             +'    <div class="card-header   with-border">'
-            +'      <h3 class="card-title"><i class="fa fa-list"></i> '+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
+            +'      <h3 class="card-title"><i class="fas fa-list"></i> '+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
             +'    <div class="card-body">'
             +'      <div class="row" style="100%">'
             +'        <div class="col-lg-5">'
             +'          <table width="350px">'
-            +'            <tr><td><b><i class="fa fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
+            +'            <tr><td><b><i class="far fa-eye"></i> ' + i18next.t('Details') + '</b> </td><td></td></tr>'
             +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
             +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
             //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -59,7 +59,7 @@ $(document).ready(function () {
             +'          </table>'
             +'        </div>'
             +'        <div class="col-lg-3">'
-            +'           <b><i class="fa fa-mail-forward"></i> ' + i18next.t('Campaigns') + '</b><br>';
+            +'           <b><i class="far fa-newspaper"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
             var lenCampaigns = data.MailChimpCampaigns[i].length;
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
                 if (lenTags) {
 
                     listViews += '        <div class="col-lg-3">'
-                        + '           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                        + '           <b><i class="icon fas fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
 
                     var tags = data.MailChimpLists[i].tags;
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
                     if (lenTags) {
                         for (k = 0; k < lenTags; k++) {
-                            tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                            tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>' + tags[k].name + '<br>';
                         }
                     }
 
@@ -101,11 +101,11 @@ $(document).ready(function () {
             listViews += '      </div>' +
                 '</div>'
                 +'<div class="card-footer">'
-            +'<a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fa fa-pencil"></i> ' + i18next.t('Modify') + '</a>'
+            +'<a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fas fa-pencil-alt"></i> ' + i18next.t('Modify') + '</a>'
                 +'</div>'
             +'    </div>';
 
-            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="far fa-circle"></i>'+ list.name + '</a>';
 
           }
 
@@ -117,7 +117,7 @@ $(document).ready(function () {
           +'<div class="col-lg-12">'
           +'  <div class="card card-body">'
           +'    <div class="alert alert-danger alert-dismissible">'
-          +'      <h4><i class="fa fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
+          +'      <h4><i class="fas fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
           +'      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="' + window.CRM.root + '/SystemSettings.php">' + i18next.t('Edit General Settings') + '</a>,'
           +'      ' + i18next.t('then update') + ' sMailChimpApiKey. ' + i18next.t('For more info see our ') + '<a href="' + window.CRM.getSupportURL + '"> MailChimp +' + i18next.t('support docs.') + '</a>'
           +'    </div>'
@@ -188,14 +188,14 @@ $(document).ready(function () {
            message: BootboxContent(),
            buttons: [
             {
-             label: '<i class="fa fa-check"></i> ' + i18next.t("Close"),
+             label: '<i class="fas fa-check"></i> ' + i18next.t("Close"),
              className: "btn btn-default",
              callback: function() {
                 console.log("just do something on close");
              }
             },
             {
-             label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+             label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
              className: "btn btn-primary",
              callback: function() {
                 var ListTitle =  $('form #ListTitle').val();

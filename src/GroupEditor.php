@@ -64,7 +64,7 @@ require 'Include/Header.php';
         <span style="color: red"></span>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> <?= _('Close')?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times"></i> <?= _('Close')?></button>
         <button name="setgroupSpecificProperties" id="setgroupSpecificProperties" type="button" class="btn btn-danger"></button>
       </div>
     </div>
@@ -191,7 +191,7 @@ require 'Include/Header.php';
   </div>
   <div class="card-body">
     <div class="alert alert-info alert-dismissable">
-      <i class="fa fa-info"></i>
+      <i class="fas fa-info"></i>
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
       <strong><?= _('Group role name changes are saved as soon as the box loses focus')?></strong>
     </div>

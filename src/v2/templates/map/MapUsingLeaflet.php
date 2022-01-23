@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="alert alert-info">
-    <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
+    <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fas fa-map-marker-alt"></i> </a>
     <?= _('Missing Families?').'<a href="'.$sRootPath.'/UpdateAllLatLon.php" >'.' '._('Update Family Latitude or Longitude now.') ?></a>
 </div>
 

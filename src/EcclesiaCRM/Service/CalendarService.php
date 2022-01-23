@@ -105,7 +105,7 @@ class CalendarService
 
                     $dtStart = new \DateTime($year . '-' . $person->getBirthMonth() . '-' . $person->getBirthDay());
 
-                    $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('birthday', '<i class="fas fa-birthday-cake"></i>',
                         $person->getFullName() . " " . $person->getAge(), $dtStart->format(\DateTimeInterface::ATOM), '', $person->getViewURI());
                     array_push($events, $event);
                 }
@@ -128,7 +128,7 @@ class CalendarService
 
                     $dtStart = new \DateTime($year . '-' . $anniversary->getWeddingMonth() . '-' . $anniversary->getWeddingDay());
 
-                    $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fa fa-birthday-cake"></i>',
+                    $event = $this->createCalendarItemForGetEvents('anniversary', '<i class="fas fa-birthday-cake"></i>',
                         $anniversary->getName(), $dtStart->format(\DateTimeInterface::ATOM), '', $anniversary->getViewURI());
                     array_push($events, $event);
                 }
@@ -174,26 +174,26 @@ class CalendarService
             $icon = "";
 
             if ($writeable) {
-                $icon = '<i class="fa fa-pencil"></i>';
+                $icon = '<i class="fas fa-pencil-alt"></i>';
             }
 
             if ($groupID > 0) {
-                $icon .= '<i class="fa fa-users"></i>';
+                $icon .= '<i class="fas fa-users"></i>';
             }
 
             if ($calendar['share-access'] == 2 || $calendar['share-access'] == 3) {
                 $icon .= '<i class="fa  fa-share"></i>';
             } else if ($calendar['share-access'] == 1 && $groupID == 0 && $calendar['cal_type'] == 1) {
-                $icon .= '<i class="fa fa-user"></i>';
+                $icon .= '<i class="fas fa-user"></i>';
             }
 
             // we test the resources
             if ($calendar['cal_type'] == 2) {// room
-                $icon .= ' <i class="fa fa-building"></i>&nbsp';
+                $icon .= ' <i class="fas fa-building"></i>&nbsp';
             } else if ($calendar['cal_type'] == 3) {// computer
-                $icon .= ' <i class="fa fa-windows"></i>&nbsp;';
+                $icon .= ' <i class="fab fa-windows"></i>&nbsp;';
             } else if ($calendar['cal_type'] == 4) {// video
-                $icon .= ' <i class="fa fa-video-camera"></i>&nbsp;';
+                $icon .= ' <i class="fas fa-video"></i>&nbsp;';
             }
 
             if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the calendars are present or not
@@ -498,7 +498,7 @@ class CalendarService
 
                 $ret .= '                       <input type="hidden" name="EventID" value="' . $eventID . '">'
                     . '                             <button type="submit"  title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] == 0) ? "disabled" : "") . '>'
-                    . '                                 <i class="fa fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
+                    . '                                 <i class="fas fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
                     . '                         </button>';
 
                 if ($eventRights) {

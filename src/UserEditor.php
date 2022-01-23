@@ -607,10 +607,10 @@ if ($usr_role_id == null) {
     </div>
     <div class="card-body">
         <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= _("Add Role") ?></a>
-        <a href="#" id="manageRole" class="btn btn-app"><i class="fa fa-gear"></i><?= _("Manage Roles") ?></a>
+        <a href="#" id="manageRole" class="btn btn-app"><i class="fas fa-cog"></i><?= _("Manage Roles") ?></a>
         <div class="btn-group">
             <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i
-                    class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Current User") ?></a>
+                    class="fas fa-arrow-circle-down"></i><?= _("Add Role to Current User") ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
@@ -620,7 +620,7 @@ if ($usr_role_id == null) {
                 foreach ($userRoles as $userRole) {
                     ?>
                     <a href="#" class="dropdown-item changeRole" data-id="<?= $userRole->getId() ?>"><i
-                            class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a>
+                            class="fas fa-arrow-circle-down"></i><?= $userRole->getName() ?></a>
                     <?php
                 }
                 ?>

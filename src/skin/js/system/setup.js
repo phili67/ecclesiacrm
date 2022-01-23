@@ -87,7 +87,7 @@ window.CRM.renderPrerequisite = function (name, status) {
     } else if (status == "pending") {
         td = {
             class: 'text-orange',
-            html: '<i class="fa fa-spinner fa-spin"></i>'
+            html: '<i class="fas fa-spinner fa-spin"></i>'
         };
     } else if (status == "fail") {
         td = {

@@ -23,7 +23,7 @@ $(document).ready(function () {
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="edit-pastoral-care" data-id="'+data+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-pastoral-care" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return '<a class="edit-pastoral-care" data-id="'+data+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-pastoral-care" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {

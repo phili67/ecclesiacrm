@@ -76,12 +76,12 @@ $(document).ready(function () {
                         '                  </td>\n' +
                         '                  <td style="width:18px;padding: 7px 2px;border:none;">\n' +
                         '                      <button type="submit" name="Action" data-dateStart="' + full.start + '" data-reccurenceid="' + full.reccurenceID + '" data-recurrent="' + full.recurrent + '" data-calendarid="' + full.calendarID + '" data-id="' + full.eventID+ '" title="' + i18next.t('Delete') + '"  style="color:' + ((full.Rights != "")?'red':'gray') + '" class="DeleteEvent btn btn-default btn-xs" ' + ((full.Rights)?'':'disabled') + '>\n' +
-                        '                        <i class="fa fa-trash"></i>\n' +
+                        '                        <i class="fas fa-trash-alt"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
                         '                  <td style="width:18px;padding: 7px 2px;border:none;text-align: left">\n' +
                         '                      <button type="submit" name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Info') + '" style="color:' + ((full.Text != "" && full.Rights)?'green':'gray') + '" class="EventInfo btn btn-default btn-xs" ' + ((full.Text != "")?'':'disabled') + '>\n' +
-                        '                        <i class="fa fa-file"></i>\n' +
+                        '                        <i class="far fa-file"></i>\n' +
                         '                      </button>\n' +
                         '                  </td>\n' +
                         '                </tr>\n' +
@@ -271,8 +271,8 @@ $(document).ready(function () {
                 locale: window.CRM.lang,
                 icons:
                     {
-                        up: 'fa fa-angle-up',
-                        down: 'fa fa-angle-down'
+                        up: 'fas fa-angle-up',
+                        down: 'fas fa-angle-down'
                     }
             });
 
@@ -341,7 +341,7 @@ $(document).ready(function () {
             size: 'large',
             buttons: {
                 delete: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Delete Event"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Delete Event"),
                     className: 'btn btn-danger',
                     callback: function () {
                         if (recurrent == 0) {
@@ -419,7 +419,7 @@ $(document).ready(function () {
                     }
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t('Cancel'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t('Cancel'),
                     className: 'btn btn-primary',
                     callback: function () {
                     }
@@ -452,7 +452,7 @@ $(document).ready(function () {
                 size: 'extra-large',
                 buttons: {
                     ok: {
-                        label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+                        label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
                         className: 'btn btn-primary',
                     }
                 }

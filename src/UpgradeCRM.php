@@ -32,7 +32,7 @@ Header_body_scripts();
         </span>
     </div>
     <div>
-      <i class="fa fa-database bg-blue"></i>
+      <i class="fas fa-database bg-blue"></i>
       <div class="timeline-item" >
         <h3 class="timeline-header"><?= gettext('Step 1: Backup Database') ?> <span id="status1"></span></h3>
         <div class="timeline-body" id="backupPhase">
@@ -45,7 +45,7 @@ Header_body_scripts();
       </div>
     </div>
     <div>
-      <i class="fa fa-cloud-download bg-blue"></i>
+      <i class="fas fa-cloud-download-alt bg-blue"></i>
       <div class="timeline-item" >
         <h3 class="timeline-header"><?= gettext('Step 2: Fetch Update Package on Server') ?> <span id="status2"></span></h3>
         <div class="timeline-body" id="fetchPhase" style="display: none">
@@ -55,7 +55,7 @@ Header_body_scripts();
       </div>
     </div>
     <div>
-      <i class="fa fa-cogs bg-blue"></i>
+      <i class="fas fa-cogs bg-blue"></i>
       <div class="timeline-item" >
         <h3 class="timeline-header"><?= gettext('Step 3: Apply Update Package on Server') ?> <span id="status3"></span></h3>
         <div class="timeline-body" id="updatePhase" style="display: none">
@@ -85,7 +85,7 @@ Header_body_scripts();
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
  $("#doBackup").click(function(){
-   $("#status1").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+   $("#status1").html('<i class="far fa-circle-notch fa-spin"></i>');
    $.ajax({
       type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
       url         : window.CRM.root +'/api/database/backup', // the url where we want to POST
@@ -97,15 +97,15 @@ Header_body_scripts();
       contentType: "application/json; charset=utf-8"
     })
     .done(function(data) {
-      var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('"+data.filename+"')\"><i class='fa fa-download'></i>  "+data.filename+"</button>";
+      var downloadButton = "<button class=\"btn btn-primary\" id=\"downloadbutton\" role=\"button\" onclick=\"javascript:downloadbutton('"+data.filename+"')\"><i class='fas fa-download'></i>  "+data.filename+"</button>";
       $("#backupstatus").css("color","green");
       $("#backupstatus").html("<?= gettext('Backup Complete, Ready for Download.') ?>");
       $("#resultFiles").html(downloadButton);
-      $("#status1").html('<i class="fa fa-check" style="color:orange"></i>');
+      $("#status1").html('<i class="fas fa-check" style="color:orange"></i>');
       $("#downloadbutton").click(function(){
         $("#fetchPhase").show("slow");
         $("#backupPhase").slideUp();
-        $("#status1").html('<i class="fa fa-check" style="color:green"></i>');
+        $("#status1").html('<i class="fas fa-check" style="color:green"></i>');
       });
     }).fail(function()  {
       $("#backupstatus").css("color","red");
@@ -115,13 +115,13 @@ Header_body_scripts();
  });
 
  $("#fetchUpdate").click(function(){
-    $("#status2").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+    $("#status2").html('<i class="far fa-circle-notch fa-spin"></i>');
     $.ajax({
       type : 'GET',
       url  : window.CRM.root +'/api/systemupgrade/downloadlatestrelease', // the url where we want to POST
       dataType    : 'json' // what type of data do we expect back from the server
     }).done(function(data){
-      $("#status2").html('<i class="fa fa-check" style="color:green"></i>');
+      $("#status2").html('<i class="fas fa-check" style="color:green"></i>');
       window.CRM.updateFile=data;
       $("#updateFileName").text(data.fileName);
       $("#updateFullPath").text(data.fullPath);
@@ -134,7 +134,7 @@ Header_body_scripts();
  });
 
  $("#applyUpdate").click(function(){
-   $("#status3").html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+   $("#status3").html('<i class="far fa-circle-notch fa-spin"></i>');
    $.ajax({
       type : 'POST',
       url  : window.CRM.root +'/api/systemupgrade/doupgrade', // the url where we want to POST
@@ -146,7 +146,7 @@ Header_body_scripts();
       encode      : true,
       contentType: "application/json; charset=utf-8"
     }).done(function(data){
-      $("#status3").html('<i class="fa fa-check" style="color:green"></i>');
+      $("#status3").html('<i class="fas fa-check" style="color:green"></i>');
       $("#updatePhase").slideUp();
       $("#finalPhase").show("slow");
     });

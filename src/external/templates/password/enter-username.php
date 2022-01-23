@@ -32,7 +32,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     <input id="username" type="text" class="form-control" placeholder="<?= gettext('Login Name') ?>"
                        required>
                     <div class="input-group-text">
-                        <span class="fa fa-user"></span>
+                        <span class="fas fa-user"></span>
                     </div>
                 </div>
             </div>

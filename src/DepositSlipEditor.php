@@ -244,7 +244,7 @@ require 'Include/Header.php';
 
 <div>
     <a href="<?= SystemURLs::getRootPath() ?>/FindDepositSlip.php" class="btn btn-default">
-        <i class="fa fa-chevron-left"></i>
+        <i class="fas fa-chevron-left"></i>
         <?= _('Return to Deposit Listing') ?></a>
 </div>
 

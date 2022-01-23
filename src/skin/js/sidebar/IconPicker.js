@@ -90,11 +90,11 @@
          //size: "small",
          buttons: [
           {
-           label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
+           label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
            className: "btn btn-default",
           },
           {
-           label: '<i class="fa fa-check"></i> ' + i18next.t("Validate"),
+           label: '<i class="fas fa-check"></i> ' + i18next.t("Validate"),
            className: "btn btn-primary",
            callback: function() {
               if (callbackRes) {

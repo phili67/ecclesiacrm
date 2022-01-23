@@ -128,11 +128,11 @@ class DocumentFileManagerController
             if (is_dir("$currentNoteDir/$file")) {
                 $item['name'] = "/" . $file;
                 $item['dir'] = true;
-                $item['icon'] = 'fa-folder-o text-yellow';
+                $item['icon'] = 'far fa-folder text-yellow';
                 $item['type'] = gettext("Folder");
             }
 
-            $item['icon'] = "<i class='fa " . $item['icon'] . " fa-2x'></i>";
+            $item['icon'] = "<i class='" . $item['icon'] . " fa-2x'></i>";
 
             $result[] = $item;
         }

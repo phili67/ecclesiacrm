@@ -221,13 +221,13 @@ $(document).ready(function () {
                 '</p>',
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-secondary",
                     callback: function() {
                     }
                 },
                 {
-                    label: '<i class="fa fa-trash"></i> ' + i18next.t("Delete"),
+                    label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Delete"),
                     className: "btn btn-danger",
                     callback: function() {
                         window.CRM.APIRequest({
@@ -240,7 +240,7 @@ $(document).ready(function () {
                     }
                 },
                 {
-                    label: '<i class="fa fa-clock-o"></i> ' + i18next.t("Pending"),
+                    label: '<i class="fas fa-clock"></i> ' + i18next.t("Pending"),
                     className: "btn btn-primary",
                     callback: function() {
                         window.CRM.APIRequest({

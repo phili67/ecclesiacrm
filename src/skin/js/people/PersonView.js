@@ -9,18 +9,18 @@ $(document).ready(function () {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
-          $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-check"></i>');
           if (data.mailChimpActiv) {
             $("#mailChimpUserNormal").text(data.mailingList);
           }
         } else {
           $("#NewsLetterSend").css('color','red');
-          $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
           $("#mailChimpUserNormal").text(i18next.t("None"));
         }
       } else {
         $("#NewsLetterSend").css('color','red');
-        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+        $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
       }
     });
   }
@@ -34,16 +34,16 @@ $(document).ready(function () {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
-          $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-check"></i>');
           $("#mailChimpUserWork").text(data.mailingList);
         } else {
           $("#NewsLetterSend").css('color','red');
-          $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+          $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
           $("#mailChimpUserWork").text(i18next.t("None"));
         }
       } else {
         $("#NewsLetterSend").css('color','red');
-        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+        $("#NewsLetterSend").html('<i class="fas fa-times"></i>');
       }
     });
   }
@@ -67,11 +67,11 @@ $(document).ready(function () {
           buttons: {
               cancel: {
                   className: 'btn-primary',
-                  label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+                  label: '<i class="fas fa-times"></i>' + i18next.t("Cancel")
               },
               confirm: {
                   className: 'btn-danger',
-                  label: '<i class="fa fa-trash-o"></i>' + ((window.CRM.currentActive == true)?i18next.t("Deactivate"):i18next.t("Activate"))
+                  label: '<i class="far fa-trash-alt"></i>' + ((window.CRM.currentActive == true)?i18next.t("Deactivate"):i18next.t("Activate"))
               }
           },
           callback: function (result) {
@@ -165,12 +165,12 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           var ret = '';
           if (full.ProPrompt != '') {
-            ret += '<a href="" class="edit-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
+            ret += '<a href="" class="edit-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
           } else {
             ret += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
           }
 
-          ret += '<a href="" class="remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
+          ret += '<a href="" class="remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
 
           return ret;
         }
@@ -300,7 +300,7 @@ $(document).ready(function () {
        size: "large",
        buttons: [
         {
-         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
+         label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {
             bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){
@@ -329,7 +329,7 @@ $(document).ready(function () {
          }
         },
         {
-         label: '<i class="fa fa-stop-circle-o"></i> ' + i18next.t("Stop sharing"),
+         label: '<i class="far fa-stop-circle"></i> ' + i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
           bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){
@@ -350,7 +350,7 @@ $(document).ready(function () {
          }
         },
         {
-         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+         label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
@@ -679,7 +679,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("RemoveOneFromPeopleCart");
         $(clickedButton).removeClass("AddOneToPeopleCart");
-        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).addClass("fa-times");
         $('i',clickedButton).removeClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -694,7 +694,7 @@ $(document).ready(function () {
       {
         $(clickedButton).addClass("AddOneToPeopleCart");
         $(clickedButton).removeClass("RemoveOneFromPeopleCart");
-        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-times");
         $('i',clickedButton).addClass("fa-cart-plus");
         text = $(clickedButton).find("span.cartActionDescription");
         if(text){
@@ -711,7 +711,7 @@ $(document).ready(function () {
       if (e.people.length == 0) {
         $("#AddPersonToCart").addClass("AddOneToPeopleCart");
         $("#AddPersonToCart").removeClass("RemoveOneFromPeopleCart");
-        $('i',"#AddPersonToCart").removeClass("fa-remove");
+        $('i',"#AddPersonToCart").removeClass("fa-times");
         $('i',"#AddPersonToCart").addClass("fa-cart-plus");
         text = $("#AddPersonToCart").find("span.cartActionDescription")
         if(text){
@@ -748,7 +748,7 @@ $(document).ready(function () {
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a href="#" class="delete-volunteerOpportunityId" data-volunteerOpportunityId="'+full.Id+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
+          return '<a href="#" class="delete-volunteerOpportunityId" data-volunteerOpportunityId="'+full.Id+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></a>';
         }
       },
       {
@@ -892,8 +892,8 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
-                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return '<a href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>'
+                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -1059,10 +1059,10 @@ $(document).ready(function () {
         title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
 
           if (full.Closed != "1") {
-            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
           }
 
           return ret;

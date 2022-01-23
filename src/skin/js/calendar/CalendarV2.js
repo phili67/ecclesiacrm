@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         size: 'large',
                         buttons: {
                             cancel: {
-                                label: '<i class="fa fa-times"></i> ' + i18next.t("Delete Event"),
+                                label: '<i class="fas fa-times"></i> ' + i18next.t("Delete Event"),
                                 className: 'btn btn-danger',
                                 callback: function () {
                                     if (type == "event" && event.extendedProps.recurrent == 0) {
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                             },
                             add: {
-                                label: '<i class="fa fa-plus"></i> ' + i18next.t('Add More Attendees'),
+                                label: '<i class="fas fa-plus"></i> ' + i18next.t('Add More Attendees'),
                                 className: 'btn btn-info',
                                 callback: function () {
                                     window.CRM.APIRequest({
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                             },
                             attendance: {
-                                label: '<i class="fa fa-check"></i> ' + i18next.t('Make Attendance'),
+                                label: '<i class="fas fa-check"></i> ' + i18next.t('Make Attendance'),
                                 className: 'btn btn-primary',
                                 callback: function () {
                                     window.CRM.APIRequest({
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                             },
                             Edit: {
-                                label: '<i class="fa fa-search-plus"></i> ' + i18next.t('Edit'),
+                                label: '<i class="fas fa-search-plus"></i> ' + i18next.t('Edit'),
                                 className: 'btn btn-success',
                                 callback: function () {
                                     if (window.CRM.editor != null) {
@@ -363,10 +363,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be resized."),
                     buttons: {
                         cancel: {
-                            label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                            label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
                         },
                         confirm: {
-                            label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                            label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
                         }
                     },
                     callback: function (result) {
@@ -396,8 +396,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     message: i18next.t("You're about to resize all the events. Would you like to :"),
                     buttons: {
                         cancel: {
-                            label:  '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
-                            className: '<i class="fa fa-check"></i> ' + 'btn btn-default',
+                            label:  '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
+                            className: '<i class="fas fa-check"></i> ' + 'btn btn-default',
                             callback: function () {
                                 info.revert();
                             }
@@ -466,10 +466,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     message: i18next.t("Are you sure about this change?") + ((event.extendedProps.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
                     buttons: {
                         cancel: {
-                            label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                            label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
                         },
                         confirm: {
-                            label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                            label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
                         }
                     },
                     callback: function (result) {
@@ -504,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         message: i18next.t("You're about to move all the events. Would you like to :"),
                         buttons: {
                             cancel: {
-                                label:  '<i class="fa fa-times"></i> ' + i18next.t("Cancel"),
+                                label:  '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                                 className: 'btn btn-default',
                                 callback: function () {
                                     info.revert();
@@ -558,10 +558,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         message: i18next.t("Are you sure about this change?") + ((event.extendedProps.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
                         buttons: {
                             cancel: {
-                                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                                label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
                             },
                             confirm: {
-                                label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+                                label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
                             }
                         },
                         callback: function (result) {
@@ -617,8 +617,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         locale: window.CRM.lang,
                         icons:
                             {
-                                up: 'fa fa-angle-up',
-                                down: 'fa fa-angle-down'
+                                up: 'fas fa-angle-up',
+                                down: 'fas fa-angle-down'
                             }
                     });
 
@@ -702,7 +702,7 @@ $(document).ready(function () {
            size: 'large',
            buttons: {
               cancel: {
-                label:  '<i class="fa fa-times"></i> ' + i18next.t('No'),
+                label:  '<i class="fas fa-times"></i> ' + i18next.t('No'),
                 className: 'btn btn-default'
               },
               add: {
@@ -713,7 +713,7 @@ $(document).ready(function () {
                  }
               },
               confirm: {
-                 label: '<i class="fa fa-check"></i> ' + i18next.t('Make Attendance'),
+                 label: '<i class="fas fa-check"></i> ' + i18next.t('Make Attendance'),
                  className: 'btn btn-success',
                  callback: function () {
                     location.href = window.CRM.root + '/Checkin.php';

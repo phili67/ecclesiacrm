@@ -22,7 +22,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
     <div id="right-buttons" class="btn-group" role="group">
         <button type="button" id="verify" class="btn btn-sm" data-toggle="modal" data-target="#confirm-Verify">
             <div class="btn-txt"><?= _("Confirm") ?></div>
-            <i class="fa fa-check fa-5x"></i></button>
+            <i class="fas fa-check fa-5x"></i></button>
     </div>
 </div>
 <div class="card card-info" id="verifyBox">
@@ -31,24 +31,24 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
         <h2><?= $family->getName() ?></h2>
         <div class="text-muted font-bold m-b-xs">
-            <i class="fa fa-fw fa-map-marker" title="<?= _("Home Address") ?>"></i><?= $family->getAddress() ?><br/>
+            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= $family->getAddress() ?><br/>
             <?php if (!empty($family->getHomePhone())) { ?>
-                <i class="fa fa-fw fa-phone" title="<?= _("Home Phone") ?>"> </i>(H) <?= $family->getHomePhone() ?><br/>
+                <i class="fa  fa-phone" title="<?= _("Home Phone") ?>"> </i>(H) <?= $family->getHomePhone() ?><br/>
             <?php }
             if (!empty($family->getEmail())) { ?>
-            <i class="fa fa-fw fa-envelope" title="<?= _("Family Email") ?>"></i><?= $family->getEmail() ?><br/>
+            <i class="fa  fa-envelope" title="<?= _("Family Email") ?>"></i><?= $family->getEmail() ?><br/>
                 <?php
             }
             if ($family->getWeddingDate() !== null) {
                 ?>
-            <i class="fa fa-fw fa-heart"
+            <i class="fa  fa-heart"
                title="<?= _("Wedding Date") ?>"></i><?= $family->getWeddingDate()->format(SystemConfig::getValue("sDateFormatLong")) ?>
                 <br/>
                 <?php
             }
             ?>
 
-            <i class="fa fa-fw fa-newspaper-o"
+            <i class="fa  fa-newspaper-o"
                title="<?= _("Send Newsletter") ?>"></i><?= _($family->getSendNewsletter()) ?><br/>
         </div>
     </div>
@@ -61,7 +61,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
     </div>
     <div class="card card-solid">
         <div class="card-header">
-            <h3 class="card-title"><i class="fa fa-users"></i> <?= _("Family Member(s)") ?></h3>
+            <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Family Member(s)") ?></h3>
         </div>
         <div class="card-body">
             <div class="row">
@@ -75,43 +75,43 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
                                 <h3 class="profile-username text-center"><?= $person->getFullName() ?></h3>
 
                                 <p class="text-muted text-center"><i
-                                        class="fa fa-fw fa-<?= ($person->isMale() ? "male" : "female") ?>"></i> <?= $person->getFamilyRoleName() ?>
+                                        class="fa  fa-<?= ($person->isMale() ? "male" : "female") ?>"></i> <?= $person->getFamilyRoleName() ?>
                                 </p>
 
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
                                         <?php if (!empty($person->getHomePhone())) { ?>
-                                            <i class="fa fa-fw fa-phone"
+                                            <i class="fa  fa-phone"
                                                title="<?= _("Home Phone") ?>"></i>(H) <?= $person->getHomePhone() ?>
                                             <br/>
                                         <?php }
                                         if (!empty($person->getWorkPhone())) { ?>
-                                            <i class="fa fa-fw fa-briefcase"
+                                            <i class="fa  fa-briefcase"
                                                title="<?= _("Work Phone") ?>"></i>(W) <?= $person->getWorkPhone() ?>
                                             <br/>
                                         <?php }
                                         if (!empty($person->getCellPhone())) { ?>
-                                            <i class="fa fa-fw fa-mobile"
+                                            <i class="fa  fa-mobile"
                                                title="<?= _("Mobile Phone") ?>"></i>(M) <?= $person->getCellPhone() ?>
                                             <br/>
                                         <?php }
                                         if (!empty($person->getEmail())) { ?>
-                                            <i class="fa fa-fw fa-envelope"
+                                            <i class="fa  fa-envelope"
                                                title="<?= _("Email") ?>"></i>(H) <?= $person->getEmail() ?><br/>
                                         <?php }
                                         if (!empty($person->getWorkEmail())) { ?>
-                                            <i class="fa fa-fw fa-envelope-o"
+                                            <i class="fa  fa-envelope-o"
                                                title="<?= _("Work Email") ?>"></i>(W) <?= $person->getWorkEmail() ?>
                                             <br/>
                                         <?php } ?>
-                                        <i class="fa fa-fw fa-birthday-cake" title="<?= _("Birthday") ?>"></i>
+                                        <i class="fa  fa-birthday-cake" title="<?= _("Birthday") ?>"></i>
                                         <?php
 
                                         if ($person->hideAge()) {
                                             $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
                                             ?>
                                             <?= $birthDate ?>
-                                            <i class="fa fa-fw fa-eye-slash" title="<?= _("Age Hidden") ?>"></i>
+                                            <i class="fa  fa-eye-slash" title="<?= _("Age Hidden") ?>"></i>
                                             <?php
                                         } else {
                                             $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);

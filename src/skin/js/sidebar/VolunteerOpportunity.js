@@ -39,7 +39,7 @@ $(document).ready(function () {
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="edit-volunteer-opportunity" data-id="'+data+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-volunteer-opportunity" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return '<a class="edit-volunteer-opportunity" data-id="'+data+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-volunteer-opportunity" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -171,14 +171,14 @@ $(document).ready(function () {
          size: "large",
          buttons: [
           {
-             label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+             label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
              className: "btn btn-default pull-left",
              callback: function() {
                  console.log("just do something on close");
              }
           },
           {
-           label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+           label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
            className: "btn btn-primary pull-left",
            callback: function() {
              var Name         = $("#Name").val();
@@ -219,14 +219,14 @@ $(document).ready(function () {
      size: "large",
      buttons: [
       {
-       label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+       label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
        className: "btn btn-default pull-left",
        callback: function() {
           console.log("just do something on close");
        }
       },
       {
-         label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+         label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
          className: "btn btn-primary pull-left",
          callback: function() {
              var Name         = $("#Name").val();

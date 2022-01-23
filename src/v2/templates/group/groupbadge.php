@@ -40,7 +40,7 @@ if (isset($_GET['typeProblem'])) {
     ?>
 
     <div class="alert alert-danger">
-        <i class="fa fa-ban"></i>
+        <i class="fas fa-ban"></i>
         <?= _("Only PNG and JPEG files are managed actually !!") ?>
     </div>
 
@@ -119,7 +119,7 @@ if (isset($_GET['typeProblem'])) {
                     <?php
                     foreach ($imgs as $img) {
                         $name = str_replace("../Images/background/","",$img);
-                        echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+                        echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>, ';
                     }
 
                     if (count($imgs) == 0) {
@@ -145,7 +145,7 @@ if (isset($_GET['typeProblem'])) {
 
             <div class="row">
                 <div class="col-md-6">
-                    <i class="fa fa-qrcode fa-lg"></i> <?= _('With QR Code') ?>
+                    <i class="fas fa-qrcode fa-lg"></i> <?= _('With QR Code') ?>
                 </div>
                 <div class="col-md-6">
                     <div class="">

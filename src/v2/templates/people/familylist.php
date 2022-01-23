@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
   if ($bNotGDRPNotEmpty) {
 ?>
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/FamilyEditor.php"> <span class="fa fa-plus"
+  <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/FamilyEditor.php"> <span class="fas fa-plus"
                                                                           aria-hidden="true"></span><?= _('Add Family') ?>
   </a>
 </div>
@@ -43,9 +43,9 @@ require $sRootDocument . '/Include/Header.php';
 <div class="card">
     <div class="card-header">
         <?php if ($sMode == 'Single') { ?>
-            <h3 class="card-title"><i class="fa fa-male"></i> <?= _('People') ?></h3>
+            <h3 class="card-title"><i class="fas fa-male"></i> <?= _('People') ?></h3>
         <?php } else { ?>
-            <h3 class="card-title"><i class="fa fa-male"></i><i class="fa fa-female"></i><i class="fa fa-child"></i> <?= _('Families') ?></h3>
+            <h3 class="card-title"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= _('Families') ?></h3>
         <?php } ?>
     </div>
     <div class="card-body">
@@ -81,14 +81,14 @@ require $sRootDocument . '/Include/Header.php';
             <tr>
                 <td><a href='<?= $sRootPath ?>/FamilyView.php?FamilyID=<?= $family->getId() ?>'>
                         <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-square fa-stack-2x"></i>
+                            <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                     <a href='<?= $sRootPath ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>'>
                         <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-square fa-stack-2x"></i>
+                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
                         </span>
                     </a><?= $family->getName() ?></td>
                 <?php

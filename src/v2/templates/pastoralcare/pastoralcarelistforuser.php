@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
             <?= _("Members")." / "._("Families") ?>
         </h3>
         <div class="card-tools pull-right">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
         </div>
     </div>
     <div class="card-body">

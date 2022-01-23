@@ -39,7 +39,7 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
         <div class="col-6">
             <div class="error-content">
                 <div class="row">
-                    <h3><i class="fa fa-warning text-yellow"></i> <?= _('Upgrade Required') ?></h3>
+                    <h3><i class="fas fa-exclamation-triangle text-yellow"></i> <?= _('Upgrade Required') ?></h3>
                     <p>
                         <?= _("Current DB Version" . ": " . SystemService::getDBVersion()) ?> <br/>
                         <?= _("Current Software Version" . ": " . SystemService::getInstalledVersion()) ?> <br/>
@@ -57,7 +57,7 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
                 <form>
                     <input type="hidden" name="upgrade" value="true"/>
                     <button type="submit" class="btn btn-primary btn-block"><i
-                            class="fa fa-database"></i> <?= _('Upgrade database') ?></button>
+                            class="fas fa-database"></i> <?= _('Upgrade database') ?></button>
                 </form>
             </div>
         </div>
@@ -66,7 +66,7 @@ require 'Include/HeaderNotLoggedIn.php'; ?>
         ?>
         <div class="main-box-body clearfix" id="globalMessage">
             <div class="alert alert-danger" id="globalMessageAlert">
-                <i class="fa fa-warning fa-fw fa-lg"></i> <?= $errorMessage ?>
+                <i class="fas fa-exclamation-triangle  fa-lg"></i> <?= $errorMessage ?>
             </div>
         </div>
     <?php

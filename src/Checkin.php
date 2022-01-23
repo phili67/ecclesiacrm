@@ -136,18 +136,18 @@ if ($EventID > 0) {
 
 <div class="row">
     <div class="col-md-7">
-        <a class="btn btn-app" id="add-event"><i class="fa fa-ticket"></i><?= _('Add New Event') ?></a>
+        <a class="btn btn-app" id="add-event"><i class="fas fa-ticket-alt"></i><?= _('Add New Event') ?></a>
         <?php if (!is_null($searchEventInActivEvent)) {
             ?>
-            <a class="btn btn-app" id="qrcode-call"><i class="fa fa-qrcode"></i><?= _("QR Code Call") ?></a>
+            <a class="btn btn-app" id="qrcode-call"><i class="fas fa-qrcode"></i><?= _("QR Code Call") ?></a>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/kioskmanager"><i
-                    class="fa fa-plug"></i><?= _("Kiosk Manager") ?></a>
+                    class="fas fa-plug"></i><?= _("Kiosk Manager") ?></a>
             <?php
         }
         if ($bSundaySchool) {
             ?>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php"><i
-                    class="fa fa-pencil"></i><?= _("Edit Attendees") ?></a>
+                    class="fas fa-pencil-alt"></i><?= _("Edit Attendees") ?></a>
             <?php
         }
         ?>
@@ -168,7 +168,7 @@ if ($EventID > 0) {
                     <div class="inputGroupContainer">
                         <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i
-                                        class="fa fa-calendar-check-o"></i></span></div>
+                                        class="fas fa-calendar-check"></i></span></div>
                             <select name="EventID" class="form-control" onchange="this.form.submit()">
                                 <option value="<?= $EventID; ?>"
                                         disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
@@ -294,7 +294,7 @@ if ($EventID > 0) {
                             </h4>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fa fa-minus"></i>
+                                        class="fas fa-minus"></i>
                                 </button>
                             </div>
                         </div>
@@ -386,7 +386,7 @@ if ($EventID > 0) {
                             </h4>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fa fa-minus"></i>
+                                        class="fas fa-minus"></i>
                                 </button>
                             </div>
                         </div>
@@ -408,7 +408,7 @@ if ($EventID > 0) {
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i
-                                                                    class="fa fa-child"></i></span>
+                                                                    class="fas fa-child"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control" id="child"
                                                                placeholder="<?= _("Person's Name"); ?>" required
@@ -428,7 +428,7 @@ if ($EventID > 0) {
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text"><i
-                                                                    class="fa fa-user"></i></span>
+                                                                    class="fas fa-user"></i></span>
                                                         </div>
                                                         <input type="text" class="form-control" id="adult"
                                                                placeholder="<?= _('Checked in By(Optional)'); ?>"
@@ -475,7 +475,7 @@ if ($EventID > 0) {
 
 <div>
     <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar/events/list" class='btn btn-default'>
-        <i class='fa fa-chevron-left'></i>
+        <i class='fas fa-chevron-left'></i>
         <?= _('Return to Events') ?>
     </a>
 </div>

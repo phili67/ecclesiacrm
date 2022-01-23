@@ -21,7 +21,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row ">
         <div class="col-sm-2" style="vertical-align: middle;">
             <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRListExport.php"><i
-                    class="fa fa-print"></i> <?= _("Printable Page") ?></a>
+                    class="fas fa-print"></i> <?= _("Printable Page") ?></a>
         </div>
         <div class="col-sm-10" style="vertical-align: middle;">
             <table>
@@ -43,7 +43,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="card">
     <div class="card-header with-border">
         <div class="card-title">
-            <h3 class="card-title"><i class="fa fa-user"></i> <?= _("GDPR Person status") ?></h3>
+            <h3 class="card-title"><i class="fas fa-user"></i> <?= _("GDPR Person status") ?></h3>
         </div>
     </div>
     <div class="card-body">

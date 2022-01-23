@@ -105,7 +105,7 @@ require 'Include/Header.php';
 if ($processNews != '') {
     ?>
     <div class="alert alert-warning alert-dismissable">
-        <i class="fa fa-info"></i>
+        <i class="fas fa-info"></i>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong><span style="color: red;"><?= $processNews ?></span></strong>
     </div>

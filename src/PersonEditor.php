@@ -858,7 +858,7 @@ require 'Include/Header.php';
 ?>
 <form method="post" action="PersonEditor.php?PersonID=<?= $iPersonID ?>" name="PersonEditor">
     <div class="alert alert-info alert-dismissable">
-        <i class="fa fa-info"></i>
+        <i class="fas fa-info"></i>
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong><span
                 style="color: red;"><?= _('Red text') ?></span></strong> <?= _('indicates items inherited from the associated family record.') ?>
@@ -866,7 +866,7 @@ require 'Include/Header.php';
     <?php if ($bErrorFlag) {
         ?>
         <div class="alert alert-danger alert-dismissable">
-            <i class="fa fa-ban"></i>
+            <i class="fas fa-ban"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?>
         </div>
@@ -1418,7 +1418,7 @@ require 'Include/Header.php';
                     <div class="input-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
                             </div>
                             <input type="text" name="HomePhone"
                                    value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1447,7 +1447,7 @@ require 'Include/Header.php';
                     <div class="input-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
                             </div>
                             <input type="text" name="WorkPhone"
                                    value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1478,7 +1478,7 @@ require 'Include/Header.php';
                     <div class="input-group">
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-phone"></i></span>
+                                <span class="input-group-text"> <i class="fas fa-phone"></i></span>
                             </div>
                             <input type="text" name="CellPhone"
                                    value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1519,7 +1519,7 @@ require 'Include/Header.php';
                     </label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-envelope"></i></span>
+                            <span class="input-group-text"> <i class="far fa-envelope"></i></span>
                         </div>
                         <input type="text" name="Email"
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1537,7 +1537,7 @@ require 'Include/Header.php';
                     <label for="WorkEmail"><?= _('Work / Other Email') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
                         </div>
                         <input type="text" name="WorkEmail"
                                value="<?= htmlentities(stripslashes($sWorkEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1605,7 +1605,7 @@ require 'Include/Header.php';
                     <label for="LinkedIn"><?= _('LinkedIn') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-linkedin"></i></span>
+                            <span class="input-group-text"><i class="fas fa-linkedin"></i></span>
                         </div>
                         <input type="text" name="LinkedIn"
                                value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1654,7 +1654,7 @@ require 'Include/Header.php';
                     <label ><?= _('Membership Date') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
                         <!-- Philippe Logel -->
                         <input type="text" name="MembershipDate" class="form-control date-picker"
@@ -1677,7 +1677,7 @@ require 'Include/Header.php';
                         <label ><?= _('Friend Date') ?>:</label>
                         <div class="input-group mb-2">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
                             <!-- Philippe Logel -->
                             <input type="text" name="FriendDate" class="form-control date-picker"

@@ -248,8 +248,8 @@ function DoQuery()
                                 <td>
                                     <a class="AddToPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
                          <span class="fa-stack">
-                         <i class="fa fa-square fa-stack-2x"></i>
-                         <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
+                         <i class="fas fa-square fa-stack-2x"></i>
+                         <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
                          </span>
                                     </a>
                                 </td>
@@ -259,8 +259,8 @@ function DoQuery()
                                 <td>
                                     <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
                          <span class="fa-stack">
-                         <i class="fa fa-square fa-stack-2x"></i>
-                         <i class="fa fa-remove fa-stack-1x fa-inverse"></i>
+                         <i class="fas fa-square fa-stack-2x"></i>
+                         <i class="fas fa-times fa-stack-1x fa-inverse"></i>
                          </span>
                                     </a>
                                 </td>
@@ -332,8 +332,8 @@ function DoQuery()
 
                     var link = "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
                         "                         <span class=\"fa-stack\">\n" +
-                        "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                        "                         <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                        "                         <i class=\"fas fa-square fa-stack-2x\"></i>\n" +
+                        "                         <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n" +
                         "                         </span>\n" +
                         "                     </a>"
 
@@ -365,15 +365,15 @@ function DoQuery()
                     if (cartPeople != undefined && cartPeople.length > 0 && cartPeople.includes(personID)) {
                         link = "<a class=\"RemoveFromPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
                             "                         <span class=\"fa-stack\">\n" +
-                            "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                            "                         <i class=\"fa fa-remove fa-stack-1x fa-inverse\"></i>\n" +
+                            "                         <i class=\"fas fa-square fa-stack-2x\"></i>\n" +
+                            "                         <i class=\"fas fa-times fa-stack-1x fa-inverse\"></i>\n" +
                             "                         </span>\n" +
                             "                     </a>";
                     } else {
                         link = "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
                             "                         <span class=\"fa-stack\">\n" +
-                            "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                            "                         <i class=\"fa fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
+                            "                         <i class=\"fas fa-square fa-stack-2x\"></i>\n" +
+                            "                         <i class=\"fas fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
                             "                         </span>\n" +
                             "                     </a>";
                     }
@@ -400,8 +400,8 @@ function DoQuery()
 
                     var link = "<a class=\"AddToPeopleCart\" data-cartpersonid=\"" + personID + "\">\n" +
                         "                         <span class=\"fa-stack\">\n" +
-                        "                         <i class=\"fa fa-square fa-stack-2x\"></i>\n" +
-                        "                         <i class=\"fa fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
+                        "                         <i class=\"fas fa-square fa-stack-2x\"></i>\n" +
+                        "                         <i class=\"fas fa-cart-plus fa-stack-1x fa-inverse\"></i>\n" +
                         "                         </span>\n" +
                         "                     </a>"
 

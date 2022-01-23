@@ -36,7 +36,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                    placeholder="<?= _('Family Name') ?>" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fa fa-user"></span>
+                                    <span class="fas fa-user"></span>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                    placeholder="<?= _('Address') ?>" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fa fa-envelope"></span>
+                                    <span class="far fa-envelope"></span>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fa fa-phone"></span>
+                                    <span class="fas fa-phone"></span>
                                 </div>
                             </div>
                         </div>

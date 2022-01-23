@@ -40,7 +40,7 @@ if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirec
 if (isset($_GET['typeProblem'])) {
 ?>
 <div class="alert alert-danger">
-    <i class="fa fa-ban"></i>
+    <i class="fas fa-ban"></i>
     <?= gettext("Only PNG and JPEG are managed actually !!") ?>
 </div>
 
@@ -127,7 +127,7 @@ if (isset($_GET['typeProblem'])) {
                 <?php
                   foreach ($imgs as $img) {
                     $name = str_replace("Images/background/","",$img);
-                    echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+                    echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>, ';
                   }
 
                   if (count($imgs) == 0) {

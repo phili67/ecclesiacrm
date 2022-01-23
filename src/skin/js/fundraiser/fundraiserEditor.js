@@ -6,11 +6,11 @@ $(document).ready(function () {
             message: i18next.t ("You're about to delete the item !!!"),
             buttons: {
                 confirm: {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t ('Yes'),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t ('Yes'),
                     className: 'btn-danger'
                 },
                 cancel: {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t ('No'),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t ('No'),
                     className: 'btn-primary'
                 }
             },
@@ -47,7 +47,7 @@ $(document).ready(function () {
                 title: i18next.t('Item'),
                 data: 'di_Item',
                 render: function (data, type, full, meta) {
-                    return '<a href="' + window.CRM.root + '/v2/fundraiser/donatedItemEditor/' + full.di_ID + '/' +  window.CRM.fundraiserID +'"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;' + data + '</a>';
+                    return '<a href="' + window.CRM.root + '/v2/fundraiser/donatedItemEditor/' + full.di_ID + '/' +  window.CRM.fundraiserID +'"><i class="fas fa-pencil-alt" aria-hidden="true"></i>&nbsp;' + data + '</a>';
                 }
             },
             {
@@ -154,7 +154,7 @@ $(document).ready(function () {
                 title: i18next.t('Delete'),
                 data: 'di_ID',
                 render: function (data, type, full, meta) {
-                    return '<a href="#" class="deleteDonatedItem" data-donatedid="' + data + '"><i class="fa fa-trash-o" aria-hidden="true" style="color:red" data-donatedid="' + data + '"></i>';
+                    return '<a href="#" class="deleteDonatedItem" data-donatedid="' + data + '"><i class="far fa-trash-alt" aria-hidden="true" style="color:red" data-donatedid="' + data + '"></i>';
                 }
             }
         ],

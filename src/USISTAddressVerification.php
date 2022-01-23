@@ -67,7 +67,7 @@ if ($myISTReturnCode == '4') {
     <div class="col-lg-12 col-md-7 col-sm-3">
       <div class="card card-body">
         <div class="alert alert-danger alert-dismissible">
-          <h4><i class="icon fa fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
+          <h4><i class="icon fas fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
   <?php echo 'getAccountInfo ReturnCode = '.$myISTReturnCode ?>
           Please try again in 30 minutes.
           You may follow the URL below to log in and manage your Intelligent Search ';
@@ -85,7 +85,7 @@ if ($myISTReturnCode == '4') {
     <div class="col-lg-12 col-md-7 col-sm-3">
       <div class="card card-body">
         <div class="alert alert-danger alert-dismissible">
-          <h4><i class="icon fa fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
+          <h4><i class="icon fas fa-ban"></i>The Intelligent Search Technology, Ltd. XML web service is temporarily unavailable.</h4>
           <p><?php echo 'getAccountInfo ReturnCode = '.$myISTReturnCode ?></p>
           <p><?= $myISTSearchesLeft ?></p>
           <p>Please verify that your Intelligent Search Technology, Ltd. username and password are correct</p>

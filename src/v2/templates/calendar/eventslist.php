@@ -26,7 +26,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class='text-center'>
     <a class='btn btn-primary' id="add-event">
-        <i class='fa fa-ticket'></i>
+        <i class='fas fa-ticket-alt'></i>
         <?= _('Add New Event') ?>
     </a>
 </div>
@@ -120,7 +120,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div>
     <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar" class='btn btn-default'>
-        <i class='fa fa-chevron-left'></i>
+        <i class='fas fa-chevron-left'></i>
         <?= _('Return to Calendar') ?>
     </a>
 </div>

@@ -19,8 +19,8 @@ $(document).ready(function () {
           if (window.CRM.menuOptionEnabled == false)
             return '';
 
-          var res = '<a href="#" data-typeid="' + full.ProId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-          res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.ProId + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          var res = '<a href="#" data-typeid="' + full.ProId + '" class="edit-prop"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>';
+          res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.ProId + '" class="delete-prop"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
 
           return res;
         }

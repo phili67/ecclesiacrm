@@ -10,10 +10,10 @@ $("document").ready(function(){
           message: i18next.t("Warning! Do not select this option if you plan to add to an existing database.<br/>") + " <b>" + i18next.t("Use only if unsatisfied with initial import. All person and member data will be destroyed!")+'<br><br><span style="color:black">'+i18next.t("I Understand")+'&nbsp;<input type="checkbox" name="chkClear" id="chkClear"></span>',
           buttons: {
               cancel: {
-                  label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                  label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
               },
               confirm: {
-                  label: '<i class="fa fa-trash"></i> ' + i18next.t("Clear Persons and Families"),
+                  label: '<i class="fas fa-trash-alt"></i> ' + i18next.t("Clear Persons and Families"),
                   className: 'btn-danger'
               }
           },
@@ -42,12 +42,12 @@ $("document").ready(function(){
     var val        = theSelect2.val();
     var selValues  = Number($('#selectedValues').val());
     var error      = false;
-  
+
     for (i=0;i<numCols;i++) {
       if (i == col) continue;
-    
+
       var theColVal = $('#col'+i).val();
-    
+
       if (val == theColVal) {
         window.CRM.DisplayAlert(i18next.t('Duplicate values'),i18next.t("You've selected two times the same name") +" <b>\"" + name + "\"</b> " + i18next.t("for this field. Chose another one."));
         theSelect2.val(null).trigger('change');
@@ -55,7 +55,7 @@ $("document").ready(function(){
         break;
       }
     }
-  
+
     if (val == "0" && selValues > 0) {
       selValues -= 1;
       $('#selectedValues').val(selValues);
@@ -65,7 +65,7 @@ $("document").ready(function(){
         $('#selectedValues').val(selValues);
       }
     }
-  
+
     window.CRM.selectedCol = col;
   });
 

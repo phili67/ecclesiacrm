@@ -39,7 +39,7 @@ $sPageTitle = _('Custom Person Fields Editor');
 require 'Include/Header.php'; ?>
 
   <div class="alert alert-warning">
-    <i class="fa fa-ban"></i>
+    <i class="fas fa-ban"></i>
     <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
   </div>
 

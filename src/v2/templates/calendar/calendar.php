@@ -109,7 +109,7 @@ require $sRootDocument . '/Include/Header.php';
                                 <button class="btn btn-link text-white" data-toggle="collapse"
                                         data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                    <i class="fa fa-user"></i>&nbsp;<?= _("Personals") ?>
+                                    <i class="fas fa-user"></i>&nbsp;<?= _("Personals") ?>
                                 </button>
                             </h3>
                             <div class="card-tools card-tools-calendar">
@@ -148,8 +148,8 @@ require $sRootDocument . '/Include/Header.php';
                                 <button class="btn btn-link btn-link text-white" data-toggle="collapse"
                                         data-target="#collapseTwo"
                                         aria-expanded="true" aria-controls="collapseTwo">
-                                    <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i
-                                        class="fa fa-video-camera"></i>&nbsp;<?= _("Resources") . (!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled()) ? "  (" . _("Shared") . ")" : "") ?>
+                                    <i class="fas fa-building"></i>&nbsp;<i class="fab fa-windows"></i>&nbsp;<i
+                                        class="fas fa-video"></i>&nbsp;<?= _("Resources") . (!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled()) ? "  (" . _("Shared") . ")" : "") ?>
                                 </button>
                             </h3>
                             <div class="card-tools card-tools-calendar">
@@ -193,7 +193,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <button class="btn btn-link btn-link text-white" data-toggle="collapse"
                                             data-target="#collapseThree"
                                             aria-expanded="true" aria-controls="collapseThree">
-                                        <i class="fa fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled()) ? '&nbsp;<i class="fa  fa-share"></i>&nbsp;' : "&nbsp;" ?>
+                                        <i class="fas fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled()) ? '&nbsp;<i class="fa  fa-share"></i>&nbsp;' : "&nbsp;" ?>
                                         <?= _("Groups") . (!($sessionUsr->isAdmin() || $sessionUsr->isManageGroupsEnabled()) ? "  (" . _("Shared") . ")" : "") ?>
                                     </button>
                                 </h3>

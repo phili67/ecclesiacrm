@@ -247,7 +247,7 @@ $("document").ready(function()
         {
           if(full.OptionId == defaultRoleID)
           {
-            return "<strong><i class=\"fa fa-check\"></i>"+ i18next.t("Default")+"</strong>";
+            return "<strong><i class=\"fas fa-check\"></i>"+ i18next.t("Default")+"</strong>";
           }
           else
           {
@@ -289,9 +289,9 @@ $("document").ready(function()
         render: function(data, type, full, meta)
         {
           if (full.OptionName === 'Student' || full.OptionName === 'Teacher' )
-            return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole" disabled><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+            return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole" disabled><i class="far fa-trash-alt" aria-hidden="true"></i></button>';
           else
-            return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
+            return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole"><i class="far fa-trash-alt" aria-hidden="true"></i></button>';
 
         }
       },

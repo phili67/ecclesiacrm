@@ -292,7 +292,7 @@ $families = FamilyQuery::create()
             <div class="card-header with-border">
                 <h3 class="card-title"><?= _('Make Data File') ?></h3>
                 <div class="card-tools pull-right">
-                    <button class="btn btn-tool" data-card-widget="collapse"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                 </div><!-- /.box-tools -->
             </div><!-- /.box-header -->
             <div class="card-body">

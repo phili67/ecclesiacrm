@@ -16,13 +16,13 @@ require $sRootDocument . '/Include/Header.php';
 <div class="card card-primary card-body">
   <div class="row ">
       <div class="col-sm-2" style="vertical-align: middle;">
-         <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRDataStructureExport.php"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
+         <a class="btn btn-app" href="<?= $sRootPath ?>/Reports/GDPR/GDPRDataStructureExport.php"><i class="fas fa-print"></i> <?= _("Printable Page") ?></a>
       </div>
     </div>
 </div>
 
   <div class="alert alert-info">
-    <i class="fa fa-info-circle"></i>
+    <i class="fas fa-info-circle"></i>
     <?= _("To validate each text fields, use the tab or enter key !!!") ?>
   </div>
 

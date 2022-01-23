@@ -135,7 +135,7 @@ $(document).ready(function () {
                         "famID": window.CRM.currentFamily
                     })
                 }).done(function (data) {
-                    message = '<div class="alert alert-danger"><i class="fa fa-warning" aria-hidden="true"></i>' + i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
+                    message = '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>' + i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
 
                     bootbox.confirm({
                         title: i18next.t("Document Delete Confirmation"),
@@ -210,7 +210,7 @@ $(document).ready(function () {
             size: 'large',
             buttons: [
                 {
-                    label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Close"),
                     className: "btn btn-default",
                     callback: function () {
                         window.CRM.APIRequest({
@@ -223,7 +223,7 @@ $(document).ready(function () {
                     }
                 },
                 {
-                    label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
                         var DocumentTitle = $('#documentTitle').val();

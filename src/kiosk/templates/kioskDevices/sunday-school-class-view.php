@@ -35,7 +35,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
         </div>
     </div>
     <div class="container" id="classMemberContainer"></div>
-    <!-- TODO: Add a quick-entry screen for new people <a id="newStudent"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>-->
+    <!-- TODO: Add a quick-entry screen for new people <a id="newStudent"><i class="fas fa-plus-circle" aria-hidden="true"></i></a>-->
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/KioskJSOM.js"></script>

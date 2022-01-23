@@ -35,10 +35,10 @@
       title: i18next.t("Set Calendar Name"),
         buttons: {
             cancel: {
-                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
             },
             confirm: {
-                label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm"),
+                label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm"),
                 className: 'btn-primary'
             }
         },
@@ -92,10 +92,10 @@
                 +'</table>',
           buttons: {
               cancel: {
-                  label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                  label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
               },
               confirm: {
-                  label: '<i class="fa fa-check"></i> ' + i18next.t("OK"),
+                  label: '<i class="fas fa-check"></i> ' + i18next.t("OK"),
                   className: 'btn-primary'
               }
           },
@@ -189,7 +189,7 @@
        message: BootboxContentCalendarPresence(),
        buttons: [
         {
-         label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+         label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
@@ -372,7 +372,7 @@
        size: "large",
        buttons: [
         {
-         label: '<i class="fa fa-times"></i> ' + i18next.t("Delete"),
+         label: '<i class="fas fa-times"></i> ' + i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {
             bootbox.confirm(i18next.t("Are you sure, you want to delete this Share ?"), function(result){
@@ -414,7 +414,7 @@
          }
         },
         {
-         label: '<i class="fa fa-check"></i> ' +  i18next.t("Ok"),
+         label: '<i class="fas fa-check"></i> ' +  i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
            modal.modal("hide");
@@ -583,7 +583,7 @@
 
         var buttonOk = {
           Ok: {
-              label: '<i class="fa fa-check"></i> ' + i18next.t("Ok"),
+              label: '<i class="fas fa-check"></i> ' + i18next.t("Ok"),
               className: 'btn-primary',
               callback: function(){
                   return true;
@@ -738,10 +738,10 @@
                 +'</table>',
           buttons: {
               cancel: {
-                  label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+                  label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
               },
               confirm: {
-                  label: '<i class="fa fa-check"></i> ' + i18next.t("OK"),
+                  label: '<i class="fas fa-check"></i> ' + i18next.t("OK"),
                   className: 'btn-primary'
               }
           },
@@ -793,7 +793,7 @@
             '   </div>' +
             '   <div class="col-1">'+
             '           <div class="calendar-sidebar-info-button">'+
-            '              <i class="fa fa-info-circle" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i>' +
+            '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i>' +
             '           </div>' +
             '   </div>' +
             '</div>' +
@@ -843,7 +843,7 @@
             '   <div class="col-10">'+
             '       <div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'">' +
             '           <div class="editGroupName"  data-id="'+data[i].calendarID+'" data-name="' + data[i].calendarName +'">'+
-            data[i].icon + '<i class="fa fa-group"></i> ' +
+            data[i].icon + '<i class="fas fa-users"></i> ' +
             data[i].calendarName.substring(0, 22) +
             '</div>' +
             '           <div class="input-group-addon">' +
@@ -853,7 +853,7 @@
             '   </div>' +
             '   <div class="col-1">'+
             '           <div class="calendar-sidebar-info-button">'+
-            '              <i class="fa fa-info-circle" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i>' +
+            '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i>' +
             '           </div>' +
             '   </div>' +
             '</div>' +
@@ -900,11 +900,11 @@
         var icon = '';
 
         if (data[i].calType == 2) {
-          icon = '<i class="fa fa-building"></i>';
+          icon = '<i class="fas fa-building"></i>';
         } else if (data[i].calType == 3) {
-          icon = '<i class="fa fa-windows"></i>';
+          icon = '<i class="fab fa-windows"></i>';
         } else if (data[i].calType == 4) {
-          icon = '<i class="fa fa-video-camera"></i>';
+          icon = '<i class="fas fa-video"></i>';
         }
 
           var infoLine = '<li class="list-group-item" style="cursor: pointer;">' +
@@ -927,10 +927,10 @@
               '           <div class="calendar-sidebar-info-button" style="width:40px">';
 
           if (data[i].isAdmin) {
-              infoLine += '<i class="fa fa-gear calendar-sidebar-info-button" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
+              infoLine += '<i class="fas fa-cog calendar-sidebar-info-button" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
           }
 
-          infoLine +=    '              <i class="fa fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>' +
+          infoLine +=    '              <i class="fas fa-info-circle calendar-sidebar-info-button" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>' +
               '           </div>' +
               '   </div>' +
               '</div>' +
@@ -978,11 +978,11 @@
         var icon = '';
 
         if (data[i].calType == 2) {
-          icon = '&nbsp<i class="fa fa-building"></i>&nbsp';
+          icon = '&nbsp<i class="fas fa-building"></i>&nbsp';
         } else if (data[i].calType == 3) {
-          icon = '&nbsp<i class="fa fa-windows"></i>&nbsp;';
+          icon = '&nbsp<i class="fab fa-windows"></i>&nbsp;';
         } else if (data[i].calType == 4) {
-          icon = '&nbsp<i class="fa fa-video-camera"></i>&nbsp;';
+          icon = '&nbsp<i class="fas fa-video"></i>&nbsp;';
         }
 
         $('#share-list').append('<li class="list-group-item" style="cursor: pointer;">' +
@@ -1003,7 +1003,7 @@
             '   </div>' +
             '   <div class="col-1">'+
             '           <div class="calendar-sidebar-info-button">'+
-            '              <i class="fa fa-info-circle" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i>' +
+            '              <i class="fas fa-info-circle" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i>' +
             '           </div>' +
             '   </div>' +
             '</div>' +

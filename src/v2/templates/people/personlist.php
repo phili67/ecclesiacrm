@@ -20,7 +20,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="<?= $sRootPath ?>/PersonEditor.php">
-    <span class="fa fa-plus" aria-hidden="true"></span><?= _('Add New Person') ?>
+    <span class="fas fa-plus" aria-hidden="true"></span><?= _('Add New Person') ?>
   </a>
 </div>
 
@@ -42,7 +42,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title"><i class="fa fa-user"></i> <?= _('Persons') ?></h3>
+        <h3 class="card-title"><i class="fas fa-user"></i> <?= _('Persons') ?></h3>
     </div>
     <div class="card-body">
         <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
@@ -71,14 +71,14 @@ require $sRootDocument . '/Include/Header.php';
             <tr>
                 <td><a href='<?= $sRootPath ?>/PersonView.php?PersonID=<?= $person->getId() ?>'>
                         <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-square fa-stack-2x"></i>
+                            <i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                     <a href='<?= $sRootPath ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>'>
                         <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            <i class="fas fa-square fa-stack-2x"></i>
+                            <i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>
                         </span>
                     </a><?= $person->getLastName() ?>
                 </td>

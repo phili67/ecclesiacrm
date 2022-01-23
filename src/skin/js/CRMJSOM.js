@@ -65,14 +65,14 @@
             for (i=0;i<len;i++) {
               var list = data.MailChimpLists[i];
 
-              listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="fa fa-circle-o"></i> <p>'+ list.name + '</p></a>'
+              listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>'+ list.name + '</p></a>'
                     + '</li>';
             }
 
             real_listMenu.html(listItems);
 
             if ( data.firstLoaded == true ) {
-              window.CRM.notify('fa fa-info-circle',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
+              window.CRM.notify('fas fa-info-circle',i18next.t("Mailchimp"), i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top",50000);
             }
           }
 
@@ -90,7 +90,7 @@
     }
 
     window.CRM.dialogLoadingFunction =  function (message) {
-      window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
+      window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fas fa-spin fa-spinner"></i> ' + message + '</div>' });
    }
 
    window.CRM.closeDialogLoadingFunction = function () {
@@ -115,7 +115,7 @@
         }
 
         if (link != null) {
-            message = message + ' <a href="' + link + '" target="' + target + '"><i class="fa fa-arrow-circle-right"></i></a>';
+            message = message + ' <a href="' + link + '" target="' + target + '"><i class="fas fa-arrow-circle-right"></i></a>';
         }
 
        $(document).Toasts('create', {
@@ -180,7 +180,7 @@
                       personButton = $("a[data-cartpersonid='" + data + "']");
                       $(personButton).addClass("AddToPeopleCart");
                       $(personButton).removeClass("RemoveFromPeopleCart");
-                      $('span i:nth-child(2)',personButton).removeClass("fa-remove");
+                      $('span i:nth-child(2)',personButton).removeClass("fa-times");
                       $('span i:nth-child(2)',personButton).addClass("fa-cart-plus");
                   });
               }
@@ -854,7 +854,7 @@
             path:"register/isRegisterRequired"
           }).done(function(data) {
             if (data.Register) {
-               window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fa fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
+               window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fas fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
             }
           });
 
@@ -891,31 +891,31 @@
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" class="dropdown-item emptyCart" >\
-                        <i class="fa fa-eraser"></i> ' + i18next.t("Empty Cart") + ' \
+                        <i class="fas fa-eraser"></i> ' + i18next.t("Empty Cart") + ' \
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" id="emptyCartToGroup" class="dropdown-item">\
-                        <i class="fa fa-tag text-info"></i> ' + i18next.t("Empty Cart to Group") + '\
+                        <i class="fas fa-tag text-info"></i> ' + i18next.t("Empty Cart to Group") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
-                        <i class="fa fa fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
+                        <i class="fa fas fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" id="emptyCartToEvent" class="dropdown-item">\
-                        <i class="fa fa fa-ticket text-info"></i> ' + i18next.t("Empty Cart to Event") + '\
+                        <i class="fas fa-ticket-alt text-info"></i> ' + i18next.t("Empty Cart to Event") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="' + window.CRM.root+ '/v2/map/0" class="dropdown-item">\
-                        <i class="fa fa-map-marker text-info"></i> ' + i18next.t("Map Cart") + '\
+                        <i class="fas fa-map-marker-alt text-info"></i> ' + i18next.t("Map Cart") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" id="deactivateCart" class="dropdown-item">\
-                       <i class="fa fa-trash text-warning"></i> '+ i18next.t("Deactivate Persons From Cart")+ '\
+                       <i class="fas fa-trash-alt text-warning"></i> '+ i18next.t("Deactivate Persons From Cart")+ '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" id="deleteCart" class="dropdown-item">\
-                       <i class="fa fa-trash text-danger"></i> '+ i18next.t("Delete Persons From the CRM")+ '\
+                       <i class="fas fa-trash-alt text-danger"></i> '+ i18next.t("Delete Persons From the CRM")+ '\
                     </a>\
                     <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
                 </div>'
@@ -1142,11 +1142,11 @@
                   <input type="hidden" id="targetGroupAction">',
              buttons: {
                cancel: {
-                   label: '<i class="fa fa-times"></i>' + i18next.t('Cancel'),
+                   label: '<i class="fas fa-times"></i>' + i18next.t('Cancel'),
                    className: 'btn-default'
                },
                confirm: {
-                     label: '<i class="fa fa-check"></i>' + i18next.t('OK'),
+                     label: '<i class="fas fa-check"></i>' + i18next.t('OK'),
                      className: 'btn-primary'
                }
              }
@@ -1342,7 +1342,7 @@
                   if (alarmLen > 0) {
                       for (i = 0; i < alarmLen; i++) {
                           if (data.Events.alarms[i].diplayAlarm) {
-                              window.CRM.notify('fa fa-bell',i18next.t("Calendar Event")+".",data.Events.alarms[i].summary + "<br><b>", null, "error","top",10000,'_blank',"Left");
+                              window.CRM.notify('far fa-bell',i18next.t("Calendar Event")+".",data.Events.alarms[i].summary + "<br><b>", null, "error","top",10000,'_blank',"Left");
                           }
                       }
                   }
@@ -1549,7 +1549,7 @@
                 for (i = 0; i < len; i++) {
                     var list = data.MailChimpLists[i];
 
-                    listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="fa fa-circle-o"></i> <p>'+ list.name + '</p></a>'
+                    listItems +=  '<li class="nav-item listName' + list.id + '"><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '" class="nav-link "> <i class="far fa-circle"></i> <p>'+ list.name + '</p></a>'
                         + '</li>';
                 }
 
@@ -1568,7 +1568,7 @@
             if (window.CRM.attendeesPresences == false) {
                 window.CRM.notify('fa  fa-info-circle',
                     "<b><big>" + data.EventCountAttend + "</big></b> " + i18next.t("Attendees Checked In") + ".",
-                    "<br><b>" + i18next.t("More info") + ' <a href="' + window.CRM.root + '/v2/calendar/events/list"><i class="fa fa-arrow-circle-right"></i> </a> ' + '</b>',
+                    "<br><b>" + i18next.t("More info") + ' <a href="' + window.CRM.root + '/v2/calendar/events/list"><i class="fas fa-arrow-circle-right"></i> </a> ' + '</b>',
                     null, "warning", "bottom",
                     Math.min(window.CRM.iDashboardPageServiceIntervalTime * 1000, window.CRM.timeOut),
                     '_blank',

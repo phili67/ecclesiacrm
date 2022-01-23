@@ -22,7 +22,7 @@ require $sRootDocument . '/Include/Header.php';
         <label><?= _("Visit/Call randomly") ?></label>
         <div class="btn-group">
             <a class="btn btn-app newPastorCare" data-typeid="2" data-toggle="tooltip"  data-placement="bottom" title="<?= _("Pastoral care with a familly. You can validated all the persons together.") ?>"><i
-                    class="fa fa-sticky-note"></i><?= _("Family") ?></a>
+                    class="fas fa-sticky-note"></i><?= _("Family") ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Menu déroulant</span>
@@ -36,14 +36,14 @@ require $sRootDocument . '/Include/Header.php';
             </div>
             &nbsp;
             &nbsp;
-            <a class="btn btn-app bg-orange" id="add-event"><i class="fa fa-calendar-plus-o"></i><?= _("Appointment") ?></a>
+            <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
             &nbsp;
             &nbsp;
             <?php if ( !(SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) && SessionUser::getId() == $currentPastorId) { ?>
                 <a href="<?= $sRootPath ?>/v2/pastoralcare/listforuser/<?= $currentPastorId ?>"
                    class="btn btn-app bg-success"
                    data-toggle="tooltip" data-placement="bottom"
-                   title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fa fa-list"></i><?= _("Lists") ?></a>
+                   title="<?= _("Pastoral care list of members for")." ".SessionUser::getUser()->getPerson()->getFullName() ?>"><i class="fas fa-list"></i><?= _("Lists") ?></a>
             <?php } ?>
         </div>
     </div>

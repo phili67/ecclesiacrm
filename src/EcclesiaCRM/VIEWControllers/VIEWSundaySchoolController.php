@@ -246,7 +246,7 @@ class VIEWSundaySchoolController {
 
                 RedirectUtils::Redirect($toStr);
             } elseif (!$bAtLeastOneGroup || $aGrpID == 0) {
-                $message = '<p class="alert alert-danger"><span class="fa fa-exclamation-triangle">' ._('At least one group must be selected to make class lists or attendance sheets.') . '</span></p>';
+                $message = '<p class="alert alert-danger"><span class="fas fa-exclamation-triangle">' ._('At least one group must be selected to make class lists or attendance sheets.') . '</span></p>';
             }
         } else {
             $iFYID = $_SESSION['idefaultFY'];

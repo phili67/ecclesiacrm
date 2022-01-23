@@ -58,7 +58,7 @@ window.CRM.kiosk = {
                                 text: " " + i18next.t("Trigger Parent Alert"),
                                 "data-personid": classMember.personId
                             })
-                                .prepend($("<i>", {class: "fa fa-envelope-o", 'aria-hidden': "true"}))
+                                .prepend($("<i>", {class: "far fa-envelope-o", 'aria-hidden': "true"}))
                         )
                     )
                 ));

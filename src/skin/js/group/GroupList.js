@@ -52,7 +52,7 @@ $(document).ready(function () {
         title:i18next.t('Group Name'),
         data: 'Name',
         render: function (data, type, full, meta) {
-            return '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href="' + window.CRM.root + '/GroupEditor.php?GroupID=' + full.Id + '"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>' + data;
+            return '<a href="' + window.CRM.root + '/v2/group/' + full.Id + '/view"><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href="' + window.CRM.root + '/GroupEditor.php?GroupID=' + full.Id + '"><span class="fa-stack"><i class="fas fa-square fa-stack-2x"></i><i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i></span></a>' + data;
         }
       },
       {
