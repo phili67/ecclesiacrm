@@ -230,7 +230,7 @@ Header_system_notifications();
                 <ul class="nav nav-pills nav-sidebar nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="true">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon  fa fa-search"></i>
+                            <i class="nav-icon  fas fa-search"></i>
                             <p>
                                 <!-- search form -->
                                 <select class="form-control multiSearch select2-hidden-accessible" style="width:175px" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>

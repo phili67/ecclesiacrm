@@ -887,7 +887,7 @@
               cartDropdownMenu = '\
                 <div id="showWhenCartNotEmpty">\
                     <a href="' + window.CRM.root+ '/v2/cart/view" class="dropdown-item">\
-                        <i class="fa fa-shopping-cart text-green"></i> ' + i18next.t("View Cart") + '\
+                        <i class="fas fa-shopping-cart text-green"></i> ' + i18next.t("View Cart") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" class="dropdown-item emptyCart" >\

@@ -426,7 +426,7 @@ if (!$load_Elements) {
                 <div class="col-md-9">
                     <?php
                     ?>
-                    <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i
+                    <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <i
                             class="fas fa-user"></i> <?= _("Latest") . " " . _("Individual Pastoral Care") ?></h5>
                     <?php
                     if ($caresPersons->count() > 0) {
@@ -480,7 +480,7 @@ if (!$load_Elements) {
                 ?>
                 <hr style="background-color: <?= $pastoralServiceStats['PastoralcareAlertTypeHR'] ?>; height: 1px; border: 0;">
 
-                <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <i class="fas fa-male"
+                <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <i class="fas fa-male"
                                                                              style="right: 124px"></i>
                     <i class="fas fa-female" style="right: 67px"></i>
                     <i class="fas fa-child"></i> <?= _("Last") . " " . _("Family Pastoral Care") ?></h5>
@@ -536,7 +536,7 @@ if (!$load_Elements) {
         </div>
 
         <div class="col-md-3">
-            <h5 class="alert-heading"><i class="fa fa-heartbeat"></i> <?= _("Statistics") ?></h5>
+            <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <?= _("Statistics") ?></h5>
             <label><?= _("Period  from") . " : " . $pastoralServiceStats['startPeriod'] . " " . _("to") . " " . $pastoralServiceStats['endPeriod'] ?></label>
             <br/>
             <?= _("Members") ?>
@@ -584,7 +584,7 @@ if (!$load_Elements) {
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title"><i class="fa fa-money"
+                        <h3 class="card-title"><i class="fas fa-money-bill"
                                                   style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
                         <div class="card-tools pull-right">
                             <div id="deposit-graph" class="chart-legend"></div>

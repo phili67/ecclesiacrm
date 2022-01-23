@@ -230,7 +230,7 @@ require 'Include/HeaderNotLoggedIn.php';
                     <!-- /.col -->
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary btn-block"><i
-                                class="fa fa-sign-in"></i> <?= _('Login') ?></button>
+                                class="fas fa-sign-in-alt"></i> <?= _('Login') ?></button>
                     </div>
                 </div>
                 <p class="mb-1">
@@ -311,7 +311,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 <input type="password" id="PasswordBox" name="Password" class="form-control"
                        placeholder="<?= _('Password') ?>">
 
-                <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fa fa-arrow-right text-muted"></i></button></div>
+                <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>
             </div>
         </form>
         <!-- /.lockscreen credentials -->

@@ -344,16 +344,16 @@ class MenuBar extends Menu
 
         $mailchimp = new MailChimpService();
 
-        $menuMain = new Menu (_("MailChimp"), "far fa-circle", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
+        $menuMain = new Menu (_("MailChimp"), "fab fa-mailchimp", "#", SessionUser::getUser()->isMailChimpEnabled(), $menu);
 
-        $menuItem = new Menu (_("Dashboard"), "far fa-circle", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
+        $menuItem = new Menu (_("Dashboard"), "fas fa-mail-bulk", "v2/mailchimp/dashboard", SessionUser::getUser()->isMailChimpEnabled(), $menuMain, "lists_class_main_menu");
         $menuItem->addLink("v2/mailchimp/duplicateemails");
         $menuItem->addLink("v2/mailchimp/debug");
         $menuItem->addLink("v2/mailchimp/notinmailchimpemailspersons");
         $menuItem->addLink("v2/mailchimp/notinmailchimpemailsfamilies");
 
 
-        $menuItemItem = new Menu (_("Email Lists"), "far fa-circle", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
+        $menuItemItem = new Menu (_("Email Lists"), "fas fa-list", "#", true, $menuMain, "lists_class_menu " . (($mailchimp->isLoaded()) ? "" : "hidden"));
 
         if ($mailchimp->isLoaded()) {// to accelerate the v2/dashboard the first time
             $mcLists = $mailchimp->getLists();

@@ -248,7 +248,7 @@ use EcclesiaCRM\Theme;
 
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/CSVImport.php">
-                        <i class="menu-icon fa fa-upload bg-yellow-gradient"></i>
+                        <i class="menu-icon fas fa-upload bg-yellow-gradient"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('CSV Import') ?></h4>
                         </div>
@@ -257,7 +257,7 @@ use EcclesiaCRM\Theme;
 
                 <div class="mb-1">
                     <a href="/v2/kioskmanager">
-                        <i class="menu-icon fa fa-laptop bg-blue-gradient"></i>
+                        <i class="menu-icon fas fa-laptop bg-blue-gradient"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('Kiosk Manager') ?></h4>
                         </div>

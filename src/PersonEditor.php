@@ -1519,7 +1519,7 @@ require 'Include/Header.php';
                     </label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-facebook"></i></span>
+                            <span class="input-group-text"><i class="fab fa-facebook"></i></span>
                         </div>
                         <input type="text" name="Facebook"
                                value="<?= htmlentities(stripslashes($iFacebookID), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1537,7 +1537,7 @@ require 'Include/Header.php';
                     <label for="Twitter"><?= _('Twitter') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-twitter"></i></span>
+                            <span class="input-group-text"><i class="fab fa-twitter"></i></span>
                         </div>
                         <input type="text" name="Twitter"
                                value="<?= htmlentities(stripslashes($sTwitter), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
@@ -1555,7 +1555,7 @@ require 'Include/Header.php';
                     <label for="LinkedIn"><?= _('LinkedIn') ?>:</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-linkedin"></i></span>
+                            <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
                         </div>
                         <input type="text" name="LinkedIn"
                                value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
