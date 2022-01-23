@@ -96,7 +96,7 @@ $(document).ready(function () {
                     + '      </div><hr/>'
                     + '      <div class="row">'
                     + '        <div class="col-md-12">'
-                    + '           <b><i class="icon far fa-newspaper"></i> ' + i18next.t('Campaigns') + '</b><br>';
+                    + '           <b><i class="fas fa-envelope-open-text"></i> ' + i18next.t('Campaigns') + '</b><br>';
 
                 var lenCampaigns = data.MailChimpCampaign.length;
 

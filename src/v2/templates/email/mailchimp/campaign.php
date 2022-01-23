@@ -19,7 +19,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="col-lg-9">
         <div class="card">
             <div class="card-header   with-border">
-                <h3 class="card-title"><i class="far fa-newspaper"></i> <?= _('Email Campaign Management') ?></h3>
+                <h3 class="card-title"><i class="fas fa-envelope-open-text"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
                             class="logo-mailchimp"  src="<?= $sRootPath ?>/Images/<?= \EcclesiaCRM\Theme::isDarkModeEnabled()?'Mailchimp_Logo-Horizontal_White.png':'Mailchimp_Logo-Horizontal_Black.png' ?>" height=25/></a>
@@ -29,7 +29,7 @@ require $sRootDocument . '/Include/Header.php';
                 <p>
                     <button class="btn btn-app bg-blue" id="saveCampaign"
                             data-listid="<?= $list_id ?>" <?= (($campaign['status'] == "sent") ? 'disabled' : '') ?>>
-                        <i class="fas fa-list-alt"></i><?= _("Save Campaign") ?>
+                        <i class="fas fa-save"></i> <?= _("Save Campaign") ?>
                     </button>
                     <button id="deleteCampaign" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
                         <i class="fas fa-trash-alt"></i><?= _("Delete") ?>
