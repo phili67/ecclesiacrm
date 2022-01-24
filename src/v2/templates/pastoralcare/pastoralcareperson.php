@@ -69,7 +69,7 @@ $sFamilyEmails = [];
         <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= _("Appointment") ?></a>
 
         <div class="btn-group pull-right">
-            <a class="btn btn-app filterByPastor" data-personid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
+            <a class="btn btn-app filterByPastor" data-pastorid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
                     class="fas fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
@@ -94,7 +94,7 @@ $sFamilyEmails = [];
 </div>
 
 <?php
-    if (!is_null($family) &&count($family->getActivatedPeople()) > 1) {
+    if (!is_null($family) && count($family->getActivatedPeople()) > 1) {
 ?>
 
     <div class="card card-default">
@@ -192,33 +192,30 @@ if ($ormPastoralCares->count() > 0) {
             <div class="item-<?= $ormPastoralCare->getPastorId() ?> all-items">
                 <i class="fas fa-clock bg-blue"></i>
                 <div class="timeline-item">
-      <span class="time">
-          <i class="fas fa-clock"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?>
-      </span>
+                  <span class="time">
+                      <i class="fas fa-clock"></i> <?= $ormPastoralCare->getDate()->format($sDateFormatLong . ' H:i:s') ?>
+                  </span>
 
                     <h3 class="timeline-header">
                         <b><?= $ormPastoralCare->getPastoralCareType()->getTitle() . "</b>  : " ?><a
                                 href="<?= $sRootPath . "/PersonView.php?PersonID=" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
                     </h3>
                     <div class="timeline-body">
-                        <?php if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
-                        echo $ormPastoralCare->getText();
-                        ?>
-                    </div>
-                    <div class="timeline-footer">
-                        <?php
-                        if (SessionUser::getUser()->isAdmin() || $ormPastoralCare->getPastorId() == $currentPastorId) {
-                            ?>
-                            <a class="btn btn-primary btn-xs modify-pastoral"
-                               data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Modify") ?></a>
-                            <a class="btn btn-danger btn-xs delete-pastoral"
-                               data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Delete") ?></a>
-                            <?php
-                        }
-                        ?>
+                        <?php if ($ormPastoralCare->getVisible()): ?>
+                            <?=  $ormPastoralCare->getText() ?>
+                        <?php endif; ?>
                     </div>
                     <?php
-                    } else {
+                    if ( $ormPastoralCare->getPastorId() == $currentPastorId ) {
+                        ?>
+                        <div class="timeline-footer">
+                                <a class="btn btn-primary btn-xs modify-pastoral"
+                                   data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Modify") ?></a>
+                                <a class="btn btn-danger btn-xs delete-pastoral"
+                                   data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Delete") ?></a>
+                        </div>
+                    <?php
+                    } elseif ( SessionUser::isAdmin() ) {
                         ?>
                         <div class="timeline-footer">
                             <a class="btn btn-danger btn-xs delete-pastoral"
