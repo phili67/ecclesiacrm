@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
+"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2367,6 +2367,30 @@ msgstr "Er du ved at slette alle gruppens medlemmer?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Er du sikker? Dette kan ikke gøres om."
+
+msgid "Upload Photo"
+msgstr "Upload foto"
+
+msgid "Upload an existing Photo"
+msgstr "Upload et eksisterende foto"
+
+msgid "Max photo size"
+msgstr "Maksimal fotostørrelse"
+
+msgid "Capture from Webcam"
+msgstr "Optagelse fra webkamera"
+
+msgid "Snap Photo"
+msgstr "Snapfoto"
+
+msgid "Re-Take Photo"
+msgstr "Tag et nyt foto"
+
+msgid "Switch Camera"
+msgstr "Skift kamera"
+
+msgid "Upload Image"
+msgstr "Upload billede"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

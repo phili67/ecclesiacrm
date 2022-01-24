@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
+"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2365,6 +2365,30 @@ msgstr "Ti je gati të fshish të gjithë anëtarët e grupit?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "A je i sigurt? kjo nuk mund të prishet."
+
+msgid "Upload Photo"
+msgstr "ngarkoje fotografinë"
+
+msgid "Upload an existing Photo"
+msgstr "ngarkoni një fotografi ekzistuese"
+
+msgid "Max photo size"
+msgstr "Max përmasa e fotografive"
+
+msgid "Capture from Webcam"
+msgstr "Kape nga kamera e internetit"
+
+msgid "Snap Photo"
+msgstr "Filloni fotografinë"
+
+msgid "Re-Take Photo"
+msgstr "Rimerrni fotografinë"
+
+msgid "Switch Camera"
+msgstr "Ndërro kamerën"
+
+msgid "Upload Image"
+msgstr "ngarkoni imazhin"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."
