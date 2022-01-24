@@ -23,6 +23,7 @@ unlink(SystemURLs::getDocumentRoot()."/skin/js/event/ListEvent.js");
 unlink(SystemURLs::getDocumentRoot()."/EditEventAttendees.php");
 
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/external/font-awesome/");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/external/jquery-photo-uploader/");
 
 $logger->info("End of delete :  all unusefull files");
 ?>
