@@ -69,7 +69,7 @@ $sFamilyEmails = [];
         <!--<a class="btn btn-app" href="<?= $sRootPath ?>/PrintPastoralCare.php?PersonID=<?= $currentFamilyID ?>"><i class="fas fa-print"></i> <?= _("Printable Page") ?></a>-->
 
         <div class="btn-group pull-right">
-            <a class="btn btn-app filterByPastor" data-familyID="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
+            <a class="btn btn-app filterByPastor" data-pastorId="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i
                     class="fas fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName() ?></a>
             <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
@@ -195,24 +195,23 @@ if ($ormPastoralCares->count() > 0) {
                                 href="<?= $sRootPath . "/PersonView.php?PersonID=" . $ormPastoralCare->getPastorId() ?>"><?= $ormPastoralCare->getPastorName() ?></a>
                     </h3>
                     <div class="timeline-body">
-                        <?php if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
-                        echo $ormPastoralCare->getText();
+                        <?php if ( $ormPastoralCare->getVisible() ) {
+                            echo $ormPastoralCare->getText();
+                        }
                         ?>
                     </div>
-                    <div class="timeline-footer">
-                        <?php
-                        if (SessionUser::getUser()->isAdmin() || $ormPastoralCare->getPastorId() == $currentPastorId) {
-                            ?>
+
+                    <?php
+                    if ($ormPastoralCare->getPastorId() == $currentPastorId) {
+                        ?>
+                        <div class="timeline-footer">
                             <a class="btn btn-primary btn-xs modify-pastoral"
                                data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Modify") ?></a>
                             <a class="btn btn-danger btn-xs delete-pastoral"
                                data-id="<?= $ormPastoralCare->getId() ?>"><?= _("Delete") ?></a>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                    <?php
-                    } else {
+                        </div>
+                        <?php
+                    } elseif ( SessionUser::getUser()->isAdmin() ) {
                         ?>
                         <div class="timeline-footer">
                             <a class="btn btn-danger btn-xs delete-pastoral"
