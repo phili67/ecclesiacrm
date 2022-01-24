@@ -1972,7 +1972,7 @@ if (!empty($person->getDateDeactivated())) {
 </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/AddRemoveCart.js"></script>
