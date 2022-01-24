@@ -899,7 +899,7 @@
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="' + window.CRM.root+ '/CartToFamily.php" class="dropdown-item">\
-                        <i class="fa fas fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
+                        <i class="fas fa-users text-info"></i> ' + i18next.t("Empty Cart to Family") + '\
                     </a>\
                     <div class="dropdown-divider"></div>\
                     <a href="#" id="emptyCartToEvent" class="dropdown-item">\
