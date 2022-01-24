@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -151,7 +153,7 @@ class PeopleAttendeesController
             $event = EventQuery::Create()
                 ->findOneById($requestValues->eventID);
 
-            $event->setText($requestValues->noteText);
+            $event->setText(InputUtils::FilterHTML($requestValues->noteText));
 
             $event->save();
 

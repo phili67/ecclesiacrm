@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\InputUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -195,7 +196,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText($input->noteText);
+            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
 
             $pstCare->save();
 
@@ -265,7 +266,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText($input->noteText);
+            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
 
             $pstCare->save();
 
@@ -301,7 +302,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText($input->noteText);
+            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
 
             $pstCare->save();
 
@@ -324,7 +325,7 @@ class PastoralCareController
                     $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
                     $pstCare->setVisible($input->visibilityStatus);
-                    $pstCare->setText($input->noteText);
+                    $pstCare->setText(InputUtils::FilterHTML($input->noteText));
 
                     $pstCare->save();
                 }
@@ -396,7 +397,7 @@ class PastoralCareController
             $pstCare->setDate($date->format('Y-m-d H:i:s'));
 
             $pstCare->setVisible($input->visibilityStatus);
-            $pstCare->setText($input->noteText);
+            $pstCare->setText(InputUtils::FilterHTML($input->noteText));
 
             $pstCare->save();
 
