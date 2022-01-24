@@ -1156,7 +1156,7 @@ require 'Include/Header.php';
     </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 
