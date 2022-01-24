@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
+"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2367,6 +2367,30 @@ msgstr "Ska du radera alla gruppmedlemmar?"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "Är du säker? Detta kan inte göras ogjort."
+
+msgid "Upload Photo"
+msgstr "Ladda upp en bild"
+
+msgid "Upload an existing Photo"
+msgstr "Ladda upp en befintlig bild"
+
+msgid "Max photo size"
+msgstr "Maximal storlek på fotot"
+
+msgid "Capture from Webcam"
+msgstr "Ta bilder från webbkameran"
+
+msgid "Snap Photo"
+msgstr "Snap Photo"
+
+msgid "Re-Take Photo"
+msgstr "Ta ett nytt foto"
+
+msgid "Switch Camera"
+msgstr "Växla kamera"
+
+msgid "Upload Image"
+msgstr "Ladda upp en bild"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

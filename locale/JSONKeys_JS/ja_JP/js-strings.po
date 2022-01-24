@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-19T19:18:14.044Z\n"
+"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2352,6 +2352,30 @@ msgstr "グループメンバーをすべて削除するところですか？"
 
 msgid "Are you sure ? This can't be undone."
 msgstr "本当にいいの？これは元に戻すことはできません。"
+
+msgid "Upload Photo"
+msgstr "写真のアップロード"
+
+msgid "Upload an existing Photo"
+msgstr "既存の写真をアップロードする"
+
+msgid "Max photo size"
+msgstr "最大写真サイズ"
+
+msgid "Capture from Webcam"
+msgstr "ウェブカムからのキャプチャ"
+
+msgid "Snap Photo"
+msgstr "スナップ写真"
+
+msgid "Re-Take Photo"
+msgstr "写真を撮り直す"
+
+msgid "Switch Camera"
+msgstr "スイッチカメラ"
+
+msgid "Upload Image"
+msgstr "画像のアップロード"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."
