@@ -24,7 +24,7 @@
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=7.4.0",
         "propel/propel": "dev-master",
         "drewm/mailchimp-api": "v2.5.4",
         "slim/slim": "4.7.1",
