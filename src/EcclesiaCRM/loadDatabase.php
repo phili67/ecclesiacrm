@@ -1,7 +1,7 @@
 <?php
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
 $serviceContainer->initDatabaseMaps(array (
-  'default' => 
+  'main' => 
   array (
     0 => '\\EcclesiaCRM\\Map\\AddressbookchangesTableMap',
     1 => '\\EcclesiaCRM\\Map\\AddressbooksTableMap',
