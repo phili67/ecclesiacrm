@@ -195,16 +195,16 @@ namespace EcclesiaCRM
           self::$dbClassName = "\\Propel\\Runtime\\Connection\\ConnectionWrapper";
           self::$serviceContainer = Propel::getServiceContainer();
           self::$serviceContainer->checkVersion(2);
-          self::$serviceContainer->setAdapterClass('default', 'mysql');
+          self::$serviceContainer->setAdapterClass('main', 'mysql');
 
           // load DB array map according to the new propel upgrade
           self::getDBArrayMaps();
 
           self::$manager = new ConnectionManagerSingle();
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
-          self::$manager->setName('default');
-          self::$serviceContainer->setConnectionManager('default', self::$manager);
-          self::$serviceContainer->setDefaultDatasource('default');
+          self::$manager->setName('main');
+          self::$serviceContainer->setConnectionManager('main', self::$manager);
+          self::$serviceContainer->setDefaultDatasource('main');
           self::$bootStrapLogger->debug("Initialized Propel ORM");
 
           //LoggerUtils::getAppLogger()->info(json_encode(self::buildConnectionManagerConfig()));

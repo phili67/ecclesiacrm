@@ -1,0 +1,4 @@
+; example in ini format
+propel.generator.targetPackage = EcclesiaCRM
+
+EcclesiaCRM.main package: author

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore" nameSpace="EcclesiaCRM">
+<database package="main" name="main" defaultIdMethod="native" defaultPhpNamingMethod="underscore" nameSpace="EcclesiaCRM">
 
   <table name="addressbooks" idMethod="native" phpName="Addressbooks">
     <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>

@@ -1,0 +1,9 @@
+<!-- in book.schema.xml -->
+<database package="book" name="bookstore" nameSpace="BookStore">
+    <table name="book">
+        <!-- book columns -->
+    </table>
+    <table name="review" package="Review">
+        <!-- review columns -->
+    </table>
+</database>
