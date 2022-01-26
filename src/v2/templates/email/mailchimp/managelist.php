@@ -76,19 +76,16 @@ if ($isMailchimpActiv) {
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2">
-                            <input type="checkbox" class="check_all" id="check_all">
-                            <label for="check_all"><?= _("Check all") ?></label>
-                        </div>
                         <div class="col-md-1">
-                            Ajouter
+                            <input type="checkbox" class="check_all" id="check_all">
+                            <label for="check_all"><?= _("All") ?></label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <select name="person-group-Id-Share" class="person-group-Id-Share"
                                     class="form-control select2" style="width:100%"
                                     data-listid="<?= $list['id'] ?>"></select>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 text-right">
                             <button type="button" id="deleteMembers" class="btn btn-danger"
                                     disabled><i class="far fa-trash-alt"></i> <?= _("Delete") ?></button>
                         </div>
@@ -111,8 +108,8 @@ if ($isMailchimpActiv) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div class="btn-group">
+                        <div class="col-md-3">
+                            &nbsp;&nbsp;&nbsp;<div class="btn-group">
                                 <button type="button" class="addTagButton btn btn-success" data-id="-1" data-name=""
                                         disabled><?= _("Add/Remove Tag") ?></button>
                                 <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle"
@@ -125,12 +122,9 @@ if ($isMailchimpActiv) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2">
-                        </div>
                         <div class="col-md-1">
-
                         </div>
-                        <div class="col-md-3" style="color:orange">
+                        <div class="col-md-4" style="color:orange;font-size: 12px">
                             <?= _("Keywords") ?> : *, <?= _("Persons") ?>, <?= _("Families") ?>, newsletter, etc...<br>
                         </div>
                     </div>
@@ -143,7 +137,7 @@ if ($isMailchimpActiv) {
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="card card-info" id="container"></div>
+            <div class="card card-info shadow" id="container"></div>
         </div>
 
         <br>
