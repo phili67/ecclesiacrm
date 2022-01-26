@@ -497,7 +497,8 @@ class CalendarService
                 }
 
                 $ret .= '                       <input type="hidden" name="EventID" value="' . $eventID . '">'
-                    . '                             <button type="submit"  title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] == 0) ? "disabled" : "") . '>'
+                    //. '                             <button type="submit"  title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] == 0) ? "disabled" : "") . '>'
+                    . '                             <button type="submit"  title="' . _('Make Check-out') . '" data-tooltip value="' . _('Make Check-out') . '" class="btn btn-' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? "danger" : "success") . ' btn-xs" >'
                     . '                                 <i class="fas fa-check-circle"></i> ' . (($realStats['attNumRows'] - $realStats['realAttCheckOut'] > 0) ? _("Make Check-out") : _("Check-out done"))
                     . '                         </button>';
 
