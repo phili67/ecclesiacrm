@@ -363,7 +363,7 @@ $(document).ready(function () {
     $(".person-group-Id-Share").select2({
         language: window.CRM.shortLocale,
         minimumInputLength: 1,
-        placeholder: " -- " + i18next.t("A person name or Family or Group") + " -- ",
+        placeholder: " -- " + i18next.t("Add") + ":" + i18next.t("A person name or Family or Group") + " -- ",
         allowClear: true, // This is for clear get the clear button if wanted
         ajax: {
             url: function (params) {
