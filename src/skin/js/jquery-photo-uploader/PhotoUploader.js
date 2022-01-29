@@ -157,18 +157,20 @@
             return null;
         }
         var capture = $("<div>", {
-            class: "row",
+            class: "",
             id: "capturePane",
             style: "display:none; text-align: center"
         }).append($("<div>", {
-            class: "cold-md-12 text-center",
-            style: "padding-left:" + parameters.photoWidth/2 + "px"
+            class: "cold-md-12 text-center"
         }).append(
             $("<video>", {
                 id: "video",
-                width: parameters.photoWidth,
-                height: parameters.photoHeight,
-                autoplay: true
+                /*width: parameters.photoWidth,
+                height: parameters.photoHeight,*/
+                //style: "margin-left: auto;margin-right: auto;display: block;max-width: " + parameters.photoWidth+"px;max-height:" + parameters.photoHeight+"px",
+                style: "padding: 0;margin: auto;display: block;max-width: " + parameters.photoWidth+"px;max-height:" + parameters.photoHeight+"px;position: relative;top: 0;bottom: 0;left: 0;right: 0;",
+                //autoplay: true,
+                controls: true
             })
         ).append(
             $("<br>")
@@ -187,9 +189,10 @@
 
     function createPreviewPane() {
         var capture = $("<div>", {
-            class: "col-md-12",
+            class: "col-md-12 text-center",
             id: "previewPane",
-            style: "display: none; text-align: center;padding-left:" + parameters.photoWidth/2 + "px"
+            //style: "display: none; text-align: center;width:" + parameters.photoWidth + "px"
+            style: "padding: 0;margin: auto;display: none;max-width: " + parameters.photoWidth+"px;max-height:" + parameters.photoHeight+"px;position: relative;top: 0;bottom: 0;left: 0;right: 0;",
         }).append(
             canvas
         ).append(
@@ -302,7 +305,10 @@
             )
         ).append(
             $("<div>", {class: "row"}).append(
-                $("<div>", {id: "imageArea"})
+                $("<div>", {
+                    id: "imageArea",
+                    style:"width:100%"
+                })
                     .append(createCapturePane())
                     .append(createPreviewPane())
             )
