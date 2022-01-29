@@ -1,13 +1,13 @@
 .filter-note-type {
     margin-top: -5px;
-    margin-left: -10px;
+    padding-left: 5px;
     position: absolute;
     z-index: 1000;
     height: 45px;
-    width: 95%;
-    background-color: white !important;
+    width:98%;
     border-radius: 2%;
     opacity: 0.95;
+    box-shadow: none !important;
 }
 
 .share-type-2 {
