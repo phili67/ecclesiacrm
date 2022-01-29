@@ -1016,7 +1016,7 @@ if (!empty($person->getDateDeactivated())) {
                             ?>
                             <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline') ? "active" : "" ?>"
                                  id="timeline">
-                                <div class="row filter-note-type">
+                                <div class="row filter-note-type card">
                                     <div class="col-md-1" style="line-height:27px">
                                         <table width=400px>
                                             <tr>
@@ -1629,7 +1629,7 @@ if (!empty($person->getDateDeactivated())) {
                     ?>
                     <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'notes') ? "active" : "" ?>"
                          id="notes">
-                        <div class="row filter-note-type">
+                        <div class="row filter-note-type card">
                             <div class="col-md-1" style="line-height:27px">
                                 <table width=370px>
                                     <tr>
@@ -1830,8 +1830,8 @@ if (!empty($person->getDateDeactivated())) {
                         ?>
                         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive') ? "active" : "" ?>"
                              id="edrive">
-                            <div class="row filter-note-type" style="line-height:54px">
-                                <div class="col-md-8" style="line-height:27px">
+                            <div class="row filter-note-type card" style="line-height:54px">
+                                <div class="col-md-12" style="line-height:25px">
                                     <table width=400px>
                                         <tr>
                                             <td>
@@ -1895,8 +1895,9 @@ if (!empty($person->getDateDeactivated())) {
                                     </table>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <br/>
+                            <br/>
+                            <br/>
                             <div class="row">
                                 <div class="col-md-12 filmanager-left">
                                     <table class="table table-striped table-bordered" id="edrive-table"

@@ -59,12 +59,12 @@ $(document).ready(function () {
                     if (full.dir) {
                         var fileName = data.substring(1);
 
-                        return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly>';
+                        return '<input type="text" value="' + fileName + '" class="form-control fileName" data-name="' + data + '" data-type="folder">';
                     } else {
                         var fileName = data;
                         fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
 
-                        return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly>';
+                        return '<input type="text" value="' + fileName + '" class="form-control fileName" data-name="' + data + '" data-type="file">';
                     }
                 }
             },
@@ -279,11 +279,11 @@ $(document).ready(function () {
             // we're on a computer
             if (oldTextField != null) {
                 $(oldTextField).css("background", "transparent");
-                $(oldTextField).attr('readonly');
+                //$(oldTextField).attr('readonly');
             }
 
             $(this).css("background", "white");
-            $(this).removeAttr('readonly');
+            //$(this).removeAttr('readonly');
 
             oldTextField = this;
         }
@@ -327,7 +327,7 @@ $(document).ready(function () {
                     fileName = fileName.substring(1);
                 }
 
-                $(this).attr('readonly');
+                //$(this).attr('readonly');
                 $(this).css("background", "transparent");
                 $(this).val(fileName);
                 oldTextField = null;
