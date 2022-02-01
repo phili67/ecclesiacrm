@@ -118,6 +118,7 @@ if (isset($_POST['SaveChanges'])) {
             $fam_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
             $fam_cus->setCustomSide($temp);
             $fam_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
+            $fam_cus->setCustomComment(' ');
 
             $fam_cus->save();
         }
@@ -210,6 +211,7 @@ if (isset($_POST['SaveChanges'])) {
                 $fam_cus->setCustomSpecial($newSpecial);
                 $fam_cus->setCustomSide($newFieldSide);
                 $fam_cus->setCustomFieldSec($newFieldSec);
+                $fam_cus->setCustomComment(' ');
                 $fam_cus->setTypeId($newFieldType);
 
                 $fam_cus->save();
