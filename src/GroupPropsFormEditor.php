@@ -62,7 +62,7 @@ $sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->get
 
 require 'Include/Header.php'; ?>
 
-<p class="alert alert-warning"><span class="fas fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+<p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
 <div class="card">
 <div class="card-header with-border">
