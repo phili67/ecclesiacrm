@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header   with-border">
+            <div class="card-header with-border">
                 <h3 class="card-title"><i class="fas fa-list"></i> <?= _('Manage Email List') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
@@ -67,63 +67,21 @@ if ($isMailchimpActiv) {
                 <div class="card-body">
                     <div class="alert alert-info"><i class="fas fa-info" aria-hidden="true"></i>
                         <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?>
-                        <br>
-                        <ul>
-                            <li>
-                                <?= _("Increase this value is unstable with MailChimp API.") ?>
-                            </li>
-                        </ul>
                     </div>
 
                     <div class="row">
+                        <div class="col-md-3"></div>
                         <div class="col-md-1">
-                            <input type="checkbox" class="check_all" id="check_all">
-                            <label for="check_all"><?= _("All") ?></label>
+                            <label for="check_all"><?= _("Add") ?></label>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <select name="person-group-Id-Share" class="person-group-Id-Share"
                                     class="form-control select2" style="width:100%"
                                     data-listid="<?= $list['id'] ?>"></select>
                         </div>
-                        <div class="col-md-2 text-right">
-                            <button type="button" id="deleteMembers" class="btn btn-danger"
-                                    disabled><i class="far fa-trash-alt"></i> <?= _("Delete") ?></button>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="btn-group">
-                                <button type="button" class="subscribeButton btn btn-success"
-                                        disabled><?= _("Sub/Unsubscribe") ?></button>
-                                <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle"
-                                        data-toggle="dropdown" aria-expanded="false" disabled>
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item subscribeButton" data-type="subscribed"><i
-                                            class="fas fa-user"></i><i class="fas fa-check"></i> <?= _("Subscribed") ?>
-                                    </a>
-                                    <a class="dropdown-item subscribeButton" data-type="unsubscribed"><i
-                                            class="fas fa-user"></i><i class="fas fa-times"></i> <?= _("Unsubscribed") ?>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            &nbsp;&nbsp;&nbsp;<div class="btn-group">
-                                <button type="button" class="addTagButton btn btn-success" data-id="-1" data-name=""
-                                        disabled><?= _("Add/Remove Tag") ?></button>
-                                <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle"
-                                        data-toggle="dropdown" aria-expanded="false" disabled>
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" role="menu" id="allTags"></div>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-1">
-                        </div>
+                        <div class="col-md-4"></div>
                         <div class="col-md-4" style="color:orange;font-size: 12px">
                             <?= _("Keywords") ?> : *, <?= _("Persons") ?>, <?= _("Families") ?>, newsletter, etc...<br>
                         </div>
@@ -137,7 +95,7 @@ if ($isMailchimpActiv) {
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="card card-info shadow" id="container"></div>
+            <div class="card card-secondary shadow" id="container"></div>
         </div>
 
         <br>
