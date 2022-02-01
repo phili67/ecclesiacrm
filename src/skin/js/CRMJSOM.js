@@ -2,15 +2,36 @@
  * EcclesiaCRM JavaScript Object Model Initialization Script
  */
 
-    window.CRM.APIRequest = function(options) {
-      if (!options.method)
-      {
-        options.method="GET"
-      }
-      options.url=window.CRM.root+"/api/"+options.path;
-      options.dataType = 'json';
-      options.contentType =  "application/json";
-      return $.ajax(options);
+    window.CRM.APIRequest = function (options, callback) {
+        if (!options.method) {
+            options.method = "GET"
+        }
+
+        if (callback == undefined) {
+            options.url = window.CRM.root + "/api/" + options.path;
+            options.dataType = 'json';
+            options.contentType = "application/json";
+            return $.ajax(options);
+        }
+
+        fetch(window.CRM.root + "/api/" + options.path, {
+            method: options.method,
+            headers: {
+                'Content-Type': "application/json",
+            },
+            body: options.data
+        })
+            .then(res => res.json())
+            .then(data => {
+                // enter you logic when the fetch is successful
+                if (callback) {
+                    callback(data);
+                }
+            })
+            .catch(error => {
+                // enter your logic for when there is an error (ex. error toast)
+                console.log(error)
+            });
     }
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
