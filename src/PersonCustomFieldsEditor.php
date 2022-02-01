@@ -113,6 +113,7 @@ require 'Include/Header.php'; ?>
             $per_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
             $per_cus->setCustomSide($temp);
             $per_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
+            $per_cus->setCustomComment(' ');
 
             $per_cus->save();
           }
@@ -203,6 +204,7 @@ require 'Include/Header.php'; ?>
                   $per_cus->setCustomSpecial($newSpecial);
                   $per_cus->setCustomSide($newFieldSide);
                   $per_cus->setCustomFieldSec($newFieldSec);
+                  $per_cus->setCustomComment(' ');
                   $per_cus->setTypeId($newFieldType);
 
                   $per_cus->save();
