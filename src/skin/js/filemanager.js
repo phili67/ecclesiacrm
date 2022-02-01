@@ -59,12 +59,12 @@ $(document).ready(function () {
                     if (full.dir) {
                         var fileName = data.substring(1);
 
-                        return '<input type="text" value="' + fileName + '" class="form-control fileName" data-name="' + data + '" data-type="folder">';
+                        return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly>';
                     } else {
                         var fileName = data;
                         fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
 
-                        return '<input type="text" value="' + fileName + '" class="form-control fileName" data-name="' + data + '" data-type="file">';
+                        return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly>';
                     }
                 }
             },
@@ -279,11 +279,11 @@ $(document).ready(function () {
             // we're on a computer
             if (oldTextField != null) {
                 $(oldTextField).css("background", "transparent");
-                //$(oldTextField).attr('readonly');
+                $(oldTextField).attr('readonly');
             }
 
             $(this).css("background", "white");
-            //$(this).removeAttr('readonly');
+            $(this).removeAttr('readonly');
 
             oldTextField = this;
         }
@@ -327,7 +327,7 @@ $(document).ready(function () {
                     fileName = fileName.substring(1);
                 }
 
-                //$(this).attr('readonly');
+                $(this).attr('readonly');
                 $(this).css("background", "transparent");
                 $(this).val(fileName);
                 oldTextField = null;
@@ -340,17 +340,25 @@ $(document).ready(function () {
             return item['name']
         });
 
+        var title = "";
+
+        if (selected.length > 1) {
+            title = i18next.t("You are about to delete several items together")
+        } else if (selected.length == 1) {
+            title = i18next.t("You're about to remove an item");
+        }
+
         if (selected.length) {
             bootbox.confirm({
-                title: i18next.t("You're about to remove a folder and it's content"),
-                message: i18next.t("This can't be undone !!!!"),
+                title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + title + '</span>',
+                message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
                 buttons: {
-                    confirm: {
-                        label: i18next.t('Yes'),
-                        className: 'btn-success'
-                    },
                     cancel: {
-                        label: i18next.t('No'),
+                        label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                        className: 'btn-primary'
+                    },
+                    confirm: {
+                        label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
                         className: 'btn-danger'
                     }
                 },
@@ -388,15 +396,15 @@ $(document).ready(function () {
 
             if (len > 1) {
                 bootbox.confirm({
-                    title: i18next.t("You're about to remove a folder and it's content"),
-                    message: i18next.t("This can't be undone !!!!"),
+                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You are about to delete several items together") + '</span>',
+                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
                     buttons: {
-                        confirm: {
-                            label: i18next.t('Yes'),
-                            className: 'btn-success'
-                        },
                         cancel: {
-                            label: i18next.t('No'),
+                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                            className: 'btn-primary'
+                        },
+                        confirm: {
+                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
                             className: 'btn-danger'
                         }
                     },
@@ -425,15 +433,15 @@ $(document).ready(function () {
 
             if (type == 'folder') {
                 bootbox.confirm({
-                    title: i18next.t("You're about to remove a folder and it's content"),
-                    message: i18next.t("This can't be undone !!!!"),
+                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You're about to remove a folder and it's content") + '</span>',
+                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + '</span>',
                     buttons: {
-                        confirm: {
-                            label: i18next.t('Yes'),
-                            className: 'btn-success'
-                        },
                         cancel: {
-                            label: i18next.t('No'),
+                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                            className: 'btn-primary'
+                        },
+                        confirm: {
+                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
                             className: 'btn-danger'
                         }
                     },
@@ -455,15 +463,15 @@ $(document).ready(function () {
                 });
             } else {// in the case of a file
                 bootbox.confirm({
-                    title: i18next.t("You're about to remove a file"),
-                    message: i18next.t("This can't be undone !!!!"),
+                    title: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("You're about to remove an item") + "</span>",
+                    message: '<span class="text-danger"><i class="fas fa-exclamation-triangle"></i> ' + i18next.t("This can't be undone !!!!") + "</span>",
                     buttons: {
-                        confirm: {
-                            label: i18next.t('Yes'),
-                            className: 'btn-success'
-                        },
                         cancel: {
-                            label: i18next.t('No'),
+                            label: '<i class="fas fa-times"></i> ' + i18next.t('Cancel'),
+                            className: 'btn-primary'
+                        },
+                        confirm: {
+                            label: '<i class="fas fa-trash-alt"></i> ' + i18next.t('Delete'),
                             className: 'btn-danger'
                         }
                     },

@@ -442,7 +442,7 @@ if (!empty($person->getDateDeactivated())) {
                                 &nbsp;
                                 <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>"
                                    data-family_role="<?= $person->getFamilyRoleName() ?>"
-                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
+                                   data-family_role_id="<?= $person->getFmrId() ?>" class="btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </p>
@@ -465,7 +465,7 @@ if (!empty($person->getDateDeactivated())) {
                                         </b>
 
                                         <div class="float-right">
-                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
+                                            <a id="edit-classification-btn" class="btn  btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
                                                data-person_id="<?= $person->getId() ?>"
                                                data-classification_id="<?= $person->getClassID() ?>"
                                                data-classification_role="<?= $person->getClassName() ?>">
@@ -495,7 +495,7 @@ if (!empty($person->getDateDeactivated())) {
                                 <div class="float-right">
                                     <?= _($groupAssigment->getRoleName()) ?>
 
-                                    <a class="changeRole btn btn-box-tool btn-xs <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
+                                    <a class="changeRole btn btn-box-tool btn-sm <?= Theme::isDarkModeEnabled()?"dark-mode":"" ?>"
                                            data-groupid="<?= $groupAssigment->getGroupId() ?>">
                                             <i class="fas fa-edit"></i>
                                     </a>
@@ -1838,58 +1838,42 @@ if (!empty($person->getDateDeactivated())) {
                                                   <span class="time-line-head-red">
                                                     <?= _("All Files") ?>
                                                   </span>
-                                                                            &nbsp;&nbsp;&nbsp;
+
+                                                &nbsp;&nbsp;&nbsp;
+
+                                                <div class="btn-group">
                                                   <?php
                                                     if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                                                   ?>
-                                                    <a href="#" id="uploadFile">
-                                                      <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="<?= _("Upload a file in EDrive") ?>">
-                                                        <i class="fas fa-square fa-stack-2x" style="color:green"></i>
-                                                        <i class="fas fa-cloud-upload-alt fa-stack-1x fa-inverse"></i>
-                                                      </span>
-                                                    </a>
+                                                        <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
+                                                            &nbsp;&nbsp;<i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;
+                                                        </button>
                                                   <?php
                                                     }
                                                     ?>
 
-                                                <a class="new-folder" data-personid="<?= $iPersonID ?>">
-                                                      <span class="fa-stack fa-special-icon drag-elements"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            title="<?= _("Create a Folder") ?>">
-                                                        <i class="fas fa-square fa-stack-2x" style="color:blue"></i>
-                                                        <i class="far fa-folder fa-stack-1x fa-inverse"></i>
-                                                      </span>
-                                                </a>
+                                                    <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="<?= $iPersonID ?>"
+                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Create a Folder") ?>">
+                                                        &nbsp;&nbsp;<i class="far fa-folder"></i>&nbsp;&nbsp;
+                                                    </button>
 
-                                                <a class="trash-drop" data-personid="<?= $iPersonID ?>">
-                                                  <span class="fa-stack fa-special-icon drag-elements"
-                                                    data-toggle="tooltip" data-placement="top"
-                                                    title="<?= _("Delete") ?>">
-                                                    <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-                                                    <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-                                                  </span>
-                                                </a>
+                                                    <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop" data-personid="<?= $iPersonID ?>"
+                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Delete") ?>">
+                                                        &nbsp;&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;
+                                                    </button>
 
-                                                <a class="folder-back-drop" data-personid="<?= $iPersonID ?>"
-                                                   <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-                                                    <span class="fa-stack fa-special-icon drag-elements"
-                                                          data-toggle="tooltip" data-placement="top"
-                                                          title="<?= _("Up One Level") ?>">
-                                                      <i class="fas fa-square fa-stack-2x" style="color:navy"></i>
-                                                      <i class="fas fa-level-up-alt fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                                </a>
-                                                <a class="filemanager-refresh" data-toggle="tooltip"
-                                                   >
-                                                    <span class="fa-stack fa-special-icon drag-elements"
-                                                          data-toggle="tooltip" data-placement="top"
-                                                          title="<?= _("Actualize files") ?>">
-                                                      <i class="fas fa-square fa-stack-2x" style="color:gray"></i>
-                                                      <i class="fas fa-sync-alt fa-stack-1x fa-inverse"></i>
-                                                    </span>
-                                                </a>
+                                                    <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop" data-personid="<?= $iPersonID ?>"
+                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Up One Level") ?>"
+                                                        <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
+                                                        &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
+                                                    </button>
+
+
+                                                    <button type="button" class="btn btn-default btn-sm drag-elements filemanager-refresh"
+                                                            data-toggle="tooltip" data-placement="top" title="<?= _("Actualize files") ?>">
+                                                        &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
