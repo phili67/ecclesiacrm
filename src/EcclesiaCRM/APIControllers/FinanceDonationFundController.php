@@ -47,7 +47,7 @@ class FinanceDonationFundController
 
         $donation->setName($fund->Name);
         $donation->setDescription($fund->Description);
-        $donation->setActive($fund->Activ);
+        $donation->setActive(($fund->Activ)?1:0);
 
         $donation->save();
 
@@ -72,7 +72,7 @@ class FinanceDonationFundController
 
         $donation->setName($fund->Name);
         $donation->setDescription($fund->Description);
-        $donation->setActive($fund->Activ);
+        $donation->setActive(($fund->Activ)?1:0);
 
         $donation->save();
 
