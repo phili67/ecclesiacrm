@@ -362,16 +362,16 @@ if ($numRows == 0) {
         <?php
           if ($row != 1) {
         ?>
-            <a href="#" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/uparrow.gif" border="0"></a>
+            <img src="Images/uparrow.gif" border="0" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
           if ($row < $numRows) {
         ?>
-            <a href="#" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/downarrow.gif" border="0"></a>
+            <img src="Images/downarrow.gif" border="0" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
         ?>
-            <a href="#" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
+            <img src="Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
       </td>
       <td class="TextColumn" style="font-size:70%;">
           <?= $aPropTypes[$aTypeFields[$row]]; ?>
