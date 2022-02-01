@@ -287,7 +287,7 @@ class OutputUtils
     // Generates an HTML form <input> line for a custom field
     //
 
-    public static function formCustomField($type, $fieldname, $data, $special, $bFirstPassFlag)
+    public static function formCustomField($type, $fieldname, $data, $special, $bFirstPassFlag=true)
     {
         switch ($type) {
             // Handler for boolean fields
