@@ -169,9 +169,9 @@ $(document).ready(function () {
                 data: 'id',
                 render: function (data, type, full, meta) {
                     var status = '';
-                    if (full.checkStatus != undefined && full.checkStatus) {
+                    /*if (full.checkStatus != undefined && full.checkStatus) {
                         status = ' checked'
-                    }
+                    }*/
                     return '<input type="checkbox" class="checkbox_users checkbox_user_' + full.id + '" name="AddRecords" data-id="' + full.id + '" data-email="' + full.email_address + '" ' + status + '>';
                 }
             },
