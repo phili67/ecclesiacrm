@@ -10,14 +10,15 @@
         if (callback == undefined) {
             options.url = window.CRM.root + "/api/" + options.path;
             options.dataType = 'json';
-            options.contentType = "application/json";
+            options.contentType = "application/json; charset=utf-8";
             return $.ajax(options);
         }
+
 
         fetch(window.CRM.root + "/api/" + options.path, {
             method: options.method,
             headers: {
-                'Content-Type': "application/json",
+                'Content-Type': "application/json; charset=utf-8",
             },
             body: options.data
         })
@@ -70,7 +71,7 @@
         window.CRM.APIRequest({
           method: 'GET',
           path: 'mailchimp/lists'
-        }).done(function(data) {
+        },function(data) {
 
           if (data.isActive) {
             var len = data.MailChimpLists.length;
@@ -177,7 +178,7 @@
         window.CRM.APIRequest({
           method: "DELETE",
           path: "cart/"
-        }).done(function (data) {
+        },function (data) {
           if (callback)
           {
             callback(data);
@@ -225,7 +226,7 @@
                   window.CRM.APIRequest({
                       path:"groups/"+GroupID+"/roles",
                       method:"GET"
-                  }).done(function(data) {
+                  },function(data) {
                       var ListOptions = data.ListOptions;
                       $("#GroupRole").empty();
                       var elt = document.getElementById("GroupRole");
@@ -326,7 +327,7 @@
                                       method: 'POST',
                                       path: 'cart/emptyToGroup',
                                       data: JSON.stringify({"groupID":GroupID,"groupRoleID":RoleID})
-                                  }).done(function(data) {
+                                  },function(data) {
                                       window.CRM.cart.refresh();
                                       location.href = window.CRM.root + '/v2/group/' + GroupID + '/view';
                                   });
@@ -351,7 +352,7 @@
                                       method: 'POST',
                                       path: 'cart/emptyToNewGroup',               //call the groups api handler located at window.CRM.root
                                       data: JSON.stringify({'groupName':newGroupName}),                      // stringify the object we created earlier, and add it to the data payload
-                                  }).done(function (data) {                               //yippie, we got something good back from the server
+                                  },function (data) {                               //yippie, we got something good back from the server
                                       window.CRM.cart.refresh();
                                       location.href = window.CRM.root + '/v2/group/'+data.Id+'/view';
                                   });
@@ -406,7 +407,7 @@
               window.CRM.APIRequest({
                   path:"groups/",
                   method:"GET"
-              }).done(function(data) {
+              },function(data) {
                   var Groups = data.Groups;
                   var elt = document.getElementById("PopupGroupID");
                   if (elt != null) {
@@ -454,7 +455,7 @@
                 window.CRM.APIRequest({
                   method: "POST",
                   path: "cart/deactivate"
-                }).done(function (data) {
+                },function (data) {
                   if (callback)
                   {
                     callback(data);
@@ -493,7 +494,7 @@
                 window.CRM.APIRequest({
                   method: "POST",
                   path: "cart/delete"
-                }).done(function (data) {
+                },function (data) {
                   if (callback)
                   {
                     callback(data);
@@ -519,7 +520,7 @@
             method: 'POST',
             path: 'cart/emptyToGroup',
             data: JSON.stringify({"groupID":selectedRole.GroupID,"groupRoleID":selectedRole.RoleID})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -537,7 +538,7 @@
         window.CRM.APIRequest({
           method: 'GET',
           path: 'events/names',
-        }).done(function(eventNames) {
+        },function(eventNames) {
            var lenType = eventNames.length;
            var options = new Array();
 
@@ -567,7 +568,7 @@
                           method: 'POST',
                           path: 'cart/emptyToEvent',
                           data: JSON.stringify({"eventID":EventID})
-                        }).done(function(data) {
+                        },function(data) {
                            if(callback)
                            {
                              callback(data);
@@ -596,7 +597,7 @@
           method: 'POST',
           path: 'cart/',
           data: JSON.stringify({"Persons":Persons})
-        }).done(function(data) {
+        },function(data) {
           window.CRM.cart.refresh();
           if(callback)
           {
@@ -610,7 +611,7 @@
           method: 'POST',
           path: 'cart/interectPerson',
           data: JSON.stringify({"Persons":Persons})
-        }).done(function(data) {
+        },function(data) {
           window.CRM.cart.refresh();
           if(callback)
           {
@@ -624,7 +625,7 @@
           method: 'DELETE',
           path:'cart/',
           data: JSON.stringify({"Persons":Persons})
-        }).done(function(data) {
+        },function(data) {
           window.CRM.cart.refresh();
           if(callback)
           {
@@ -638,7 +639,7 @@
           method: 'POST',
           path:'cart/',
           data: JSON.stringify({"Family":FamilyID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -652,7 +653,7 @@
                 method: 'POST',
                 path:'cart/',
                 data: JSON.stringify({"Families":Families})
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -666,7 +667,7 @@
           method: 'POST',
           path:'cart/',
           data: JSON.stringify({"removeFamily":FamilyID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -680,7 +681,7 @@
                 method: 'POST',
                 path:'cart/',
                 data: JSON.stringify({"removeFamilies":Families})
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -694,7 +695,7 @@
           method: 'POST',
           path: 'cart/',
           data: JSON.stringify({"Group": GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -709,7 +710,7 @@
                 method: 'POST',
                 path: 'cart/',
                 data: JSON.stringify({"Groups": Groups})
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -724,7 +725,7 @@
           method: 'POST',
           path: 'cart/removeGroup',
           data: JSON.stringify({"Group":GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -738,7 +739,7 @@
                 method: 'POST',
                 path: 'cart/removeGroups',
                 data: JSON.stringify({"Groups":Groups})
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -753,7 +754,7 @@
           method: 'POST',
           path: 'cart/',
           data: JSON.stringify({"studentGroup":GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -767,7 +768,7 @@
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'cart/addAllStudents',
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -782,7 +783,7 @@
           method: 'POST',
           path: 'cart/removeStudentGroup',
           data: JSON.stringify({"Group":GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -796,7 +797,7 @@
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'cart/removeAllStudents',
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -811,7 +812,7 @@
           method: 'POST',
           path: 'cart/',
           data: JSON.stringify({"teacherGroup":GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -825,7 +826,7 @@
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'cart/addAllTeachers',
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -840,7 +841,7 @@
           method: 'POST',
           path: 'cart/removeTeacherGroup',
           data: JSON.stringify({"Group":GroupID})
-        }).done(function(data) {
+        },function(data) {
             window.CRM.cart.refresh();
             if(callback)
             {
@@ -854,7 +855,7 @@
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'cart/removeAllTeachers',
-            }).done(function(data) {
+            },function(data) {
                 window.CRM.cart.refresh();
                 if(callback)
                 {
@@ -873,7 +874,7 @@
           window.CRM.APIRequest({
             method: 'POST',
             path:"register/isRegisterRequired"
-          }).done(function(data) {
+          },function(data) {
             if (data.Register) {
                window.CRM.notify('fa  fa-info-circle',i18next.t("Register")+".",i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\"><i class=\"fas fa-arrow-circle-right\"></i></a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"Left");
             }
@@ -882,7 +883,7 @@
           window.CRM.APIRequest({
            method: 'POST',
            path:"systemupgrade/isUpdateRequired"
-          }).done(function(data) {
+          },function(data) {
             if (data.Upgrade) {
                window.CRM.notify('fa  fa-info-circle',i18next.t("New Release")+".",i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",60000,'_blank');
             }
@@ -898,7 +899,7 @@
           window.CRM.APIRequest({
             method: 'GET',
             path:"cart/"
-          }).done(function(data) {
+          },function(data) {
             window.CRM.cart.updatePage(data.PeopleCart,data.FamiliesCart, data.GroupsCart);
             //window.scrollTo(0, 0);
             $("#iconCount").text(data.PeopleCart.length);
@@ -1002,7 +1003,7 @@
         window.CRM.APIRequest({
             method: 'POST',
             path:"register/getRegistredDatas"
-        }).done(function(data) {
+        },function(data) {
             var modal = bootbox.dialog({
                 message: BootboxContentRegister(data),
                 title: i18next.t("Software Registration"),
@@ -1056,7 +1057,7 @@
           window.CRM.APIRequest({
             "path":"kiosks/"+id+"/reloadKiosk",
             "method":"POST"
-          }).done(function(data){
+          },function(data){
             //todo: tell the user the kiosk was reloaded..?  maybe nothing...
           })
         },
@@ -1071,7 +1072,7 @@
            window.CRM.APIRequest({
             "path":"kiosks/"+id+"/acceptKiosk",
             "method":"POST"
-          }).done(function(data){
+          },function(data){
             window.CRM.kioskDataTable.ajax.reload()
           })
         },
@@ -1080,7 +1081,7 @@
            window.CRM.APIRequest({
             "path":"kiosks/"+id+"/identifyKiosk",
             "method":"POST"
-          }).done(function(data){
+          },function(data){
               //do nothing...
                window.CRM.kioskDataTable.ajax.reload();
           })
@@ -1090,7 +1091,7 @@
             window.CRM.APIRequest({
                 "path":"kiosks/"+id,
                 "method":"DELETE"
-            }).done(function(data){
+            },function(data){
                 //do nothing...
                 window.CRM.kioskDataTable.ajax.reload();
             })
@@ -1112,7 +1113,7 @@
             "path":"kiosks/"+id+"/setAssignment",
             "method":"POST",
             "data":JSON.stringify({"assignmentType":assignmentType,"eventId":eventId})
-          }).done(function(data){
+          },function(data){
                window.CRM.kioskDataTable.ajax.reload();
           })
         }
@@ -1125,7 +1126,7 @@
           //populating a window variable with future events that future elements may rely on
           window.CRM.APIRequest({
             "path":"events/notDone"
-          }).done(function(data){
+          },function(data){
             window.CRM.events.futureEventsLoaded = true;
             window.CRM.events.futureEvents=data.Events;
           });
@@ -1143,7 +1144,7 @@
         var res = window.CRM.APIRequest({
           path:"groups/defaultGroup",
           method:"GET"
-        }).done(function(data) {
+        },function(data) {
           callback(data);
         });
       },
@@ -1707,7 +1708,7 @@
         window.CRM.APIRequest({
           method: 'GET',
           path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
-        }).done(function (data) {
+        },function (data) {
           if (data[0].timeOut) {
             window.location.replace(window.CRM.root+'/Login.php?session=Lock');
           } else {
