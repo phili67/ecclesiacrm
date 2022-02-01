@@ -95,7 +95,7 @@ if (isset($_POST['SaveChanges'])) {
       $aNameFields[$row]    = $prop->getName();
 
       if (!is_null($prop->getSpecial())) {
-        if ($type_ID == 9) {
+        if ($prop->getTypeId() == 9) {
           $aSpecialFields[$row] = $group->getID();
         } else {
           $aSpecialFields[$row] = $prop->getSpecial();
@@ -253,7 +253,7 @@ if ($numRows == 0) {
       </td>
       <td class="TextColumn">
          <?php
-            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
+            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row])
          ?>
       </td>
 
