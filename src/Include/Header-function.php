@@ -185,7 +185,7 @@ function Header_body_scripts()
                         }
                     },
                     responsive: true,
-                    "dom": 'Bfrtip',
+                    dom: 'Blfrtip',
                     "buttons": [ <?= ( (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'copy', ":"" ) . ( (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":"" ) . ( (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf', 'print', ":"" ) ?> 'colvis'  ],
                 }
             },
