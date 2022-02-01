@@ -151,7 +151,7 @@ class SidebarVolunteerOpportunityController
 
             $vo->setName($input->Name);
             $vo->setDescription($input->desc);
-            $vo->setActive($input->state);
+            $vo->setActive(($input->state)?1:0);
             $vo->setOrder($place);
 
             $vo->save();
@@ -172,7 +172,7 @@ class SidebarVolunteerOpportunityController
 
             $vo->setName($input->Name);
             $vo->setDescription($input->desc);
-            $vo->setActive($input->state);
+            $vo->setActive(($input->state)?1:0);
 
             $vo->save();
 
