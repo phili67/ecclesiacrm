@@ -284,7 +284,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                                 }
                                 if (!$manager->getPerson()->isDeactivated()) {
                                     ?>
-                                    <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon far fa-trash-alt"></i></a>,
+                                    <button class="delete-person-manager btn btn-danger btn-xs" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i class="icon far fa-trash-alt"></i> <?= _("Delete") ?></button> <?= $manager->getPerson()->getFullName()?> <br/>
                                     <?php
                                 }
                             }
@@ -295,6 +295,8 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
                         }
                         ?>
                     </div>
+                </div>
+                <div class="card-footer">
                     <a class="btn btn-primary" id="add-manager"
                        data-toggle="tooltip"  data-placement="bottom" title="<?= _("Add a specific manager only for this group") ?>"><?= _("Add Manager") ?></a>
                 </div>
