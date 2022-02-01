@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -368,17 +368,23 @@ msgstr "Tamanho"
 msgid "Set a File/Folder name"
 msgstr "Definir um nome de arquivo/pasta"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Você está prestes a remover uma pasta e o seu conteúdo"
+msgid "You are about to delete several items together"
+msgstr "Você está prestes a eliminar vários itens juntos"
+
+msgid "You're about to remove an item"
+msgstr "Você está prestes a remover um item"
 
 msgid "This can't be undone !!!!"
 msgstr "Isto não pode ser desfeito !!!!"
 
+msgid "Delete"
+msgstr "Eliminar"
+
 msgid "You've to select at least one line !!!"
 msgstr "Você tem que selecionar pelo menos uma linha!!!"
 
-msgid "You're about to remove a file"
-msgstr "Você está prestes a remover um arquivo"
+msgid "You're about to remove a folder and it's content"
+msgstr "Você está prestes a remover uma pasta e o seu conteúdo"
 
 msgid "Set your Folder name"
 msgstr "Defina o seu nome de pasta"
@@ -430,9 +436,6 @@ msgstr "Adicionar pessoas/família/grupos"
 
 msgid "Person or Family or Group"
 msgstr "Pessoa ou Família ou Grupo"
-
-msgid "Delete"
-msgstr "Eliminar"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Tens a certeza? Estás prestes a apagar esta Pessoa?"
@@ -2042,6 +2045,15 @@ msgstr "Eliminar etiqueta"
 msgid "Loading resources ..."
 msgstr "Carregamento de recursos ..."
 
+msgid "All"
+msgstr "Todos"
+
+msgid "Subscribed"
+msgstr "Assinado"
+
+msgid "Unsubscribed"
+msgstr "Não inscrito"
+
 msgid "Email Marketing"
 msgstr "Email Marketing"
 
@@ -2097,12 +2109,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Selecione o status para :"
-
-msgid "Subscribed"
-msgstr "Assinado"
-
-msgid "Unsubscribed"
-msgstr "Não inscrito"
 
 msgid "Changing status ..."
 msgstr "Mudança de estado ..."
@@ -2165,6 +2171,9 @@ msgstr "Nome da Lista"
 
 msgid "Changing subscribers state..."
 msgstr "Mudando o estado dos assinantes..."
+
+msgid "Select One"
+msgstr "Selecione uma opção"
 
 msgid "All Tags"
 msgstr "Todas as Tags"
@@ -2401,6 +2410,9 @@ msgstr "Mudar de câmara"
 
 msgid "Upload Image"
 msgstr "Carregar imagem"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Você está prestes a remover um arquivo"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,17 +371,23 @@ msgstr "Méret"
 msgid "Set a File/Folder name"
 msgstr "Fájl/mappa nevének beállítása"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Egy mappát és annak tartalmát készül eltávolítani"
+msgid "You are about to delete several items together"
+msgstr "Több elemet kíván együttesen törölni"
+
+msgid "You're about to remove an item"
+msgstr "Egy elemet készül eltávolítani"
 
 msgid "This can't be undone !!!!"
 msgstr "Ezt nem lehet visszacsinálni !!!!"
 
+msgid "Delete"
+msgstr "Törölje a  címet."
+
 msgid "You've to select at least one line !!!"
 msgstr "Legalább egy sort ki kell választanod !!!"
 
-msgid "You're about to remove a file"
-msgstr "Egy fájl eltávolítása előtt áll"
+msgid "You're about to remove a folder and it's content"
+msgstr "Egy mappát és annak tartalmát készül eltávolítani"
 
 msgid "Set your Folder name"
 msgstr "Állítsa be a mappa nevét"
@@ -433,9 +439,6 @@ msgstr "Személyek/család/csoportok hozzáadása"
 
 msgid "Person or Family or Group"
 msgstr "Személy vagy család vagy csoport"
-
-msgid "Delete"
-msgstr "Törölje a  címet."
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Biztos vagy benne? Törölni akarod ezt a személyt?"
@@ -2045,6 +2048,15 @@ msgstr "Címke törlése"
 msgid "Loading resources ..."
 msgstr "Források betöltése ..."
 
+msgid "All"
+msgstr "Minden"
+
+msgid "Subscribed"
+msgstr "Előfizetett"
+
+msgid "Unsubscribed"
+msgstr "Leiratkozott"
+
 msgid "Email Marketing"
 msgstr "Email marketing"
 
@@ -2099,12 +2111,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Válassza ki az állapotot a :"
-
-msgid "Subscribed"
-msgstr "Előfizetett"
-
-msgid "Unsubscribed"
-msgstr "Leiratkozott"
 
 msgid "Changing status ..."
 msgstr "Változó státusz ..."
@@ -2167,6 +2173,9 @@ msgstr "Lista neve"
 
 msgid "Changing subscribers state..."
 msgstr "Az előfizetők állapotának megváltoztatása..."
+
+msgid "Select One"
+msgstr "Válasszon egyet"
 
 msgid "All Tags"
 msgstr "Minden Címke"
@@ -2403,6 +2412,9 @@ msgstr "Switch kamera"
 
 msgid "Upload Image"
 msgstr "Kép feltöltése"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Egy fájl eltávolítása előtt áll"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

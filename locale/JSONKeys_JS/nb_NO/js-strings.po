@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -364,17 +364,23 @@ msgstr "Størrelse"
 msgid "Set a File/Folder name"
 msgstr "Sett et fil/Folder navn"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Du skal fjerne en mappe, og det er tilfreds"
+msgid "You are about to delete several items together"
+msgstr "Du skal slette flere ting sammen"
+
+msgid "You're about to remove an item"
+msgstr "Du skal til å fjerne en gjenstand"
 
 msgid "This can't be undone !!!!"
 msgstr "Dette kan ikke gjøres ugjort! !"
 
+msgid "Delete"
+msgstr "Slett"
+
 msgid "You've to select at least one line !!!"
 msgstr "Du må velge minst én linje! !"
 
-msgid "You're about to remove a file"
-msgstr "Du skal til å fjerne en fil"
+msgid "You're about to remove a folder and it's content"
+msgstr "Du skal fjerne en mappe, og det er tilfreds"
 
 msgid "Set your Folder name"
 msgstr "Sett Foldernavnet ditt"
@@ -426,9 +432,6 @@ msgstr "Legg til personer og familiegrupper"
 
 msgid "Person or Family or Group"
 msgstr "Person, Family eller Group"
-
-msgid "Delete"
-msgstr "Slett"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Er du sikker? Skal du slette denne Person?"
@@ -2018,6 +2021,15 @@ msgstr "Slett merkelappen"
 msgid "Loading resources ..."
 msgstr "Lader ressurser..."
 
+msgid "All"
+msgstr "Alle"
+
+msgid "Subscribed"
+msgstr "Skrevet"
+
+msgid "Unsubscribed"
+msgstr "Ubekreftet"
+
 msgid "Email Marketing"
 msgstr "- Mailer"
 
@@ -2068,12 +2080,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Velg status for :"
-
-msgid "Subscribed"
-msgstr "Skrevet"
-
-msgid "Unsubscribed"
-msgstr "Ubekreftet"
 
 msgid "Changing status ..."
 msgstr "Endrer status..."
@@ -2135,6 +2141,9 @@ msgstr "Listnavnet"
 
 msgid "Changing subscribers state..."
 msgstr "Forandrer abonnenter stat..."
+
+msgid "Select One"
+msgstr "Velg en"
 
 msgid "All Tags"
 msgstr "Alle Tags"
@@ -2371,6 +2380,9 @@ msgstr "Bytt kamera"
 
 msgid "Upload Image"
 msgstr "Upload Image"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Du skal til å fjerne en fil"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 13:41+0000\n"
+"POT-Creation-Date: 2022-01-30 19:44+0000\n"
 "Language: nl-nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -332,7 +332,7 @@ msgstr "Redd"
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1967
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1952
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
 #: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:940
 #: UserEditor.php:1094 v2/templates/fundraiser/donatedItemEditor.php:178
@@ -379,18 +379,17 @@ msgstr "Last opp en mappe i EDrive"
 msgid "Download"
 msgstr "Last ned våpnene."
 
-#: browser/browse.php:58 PersonView.php:1860
+#: browser/browse.php:58 PersonView.php:1856
 msgid "Create a Folder"
 msgstr "Skape en Folder"
 
 #: browser/browse.php:66 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
-#: PersonView.php:1869 PersonView.php:1968
+#: PersonView.php:1861 PersonView.php:1953
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/email/mailchimp/managelist.php:93
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/pastoralcare/pastoralcarefamily.php:218
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -398,15 +397,15 @@ msgstr "Skape en Folder"
 msgid "Delete"
 msgstr "Slett"
 
-#: browser/browse.php:75 PersonView.php:1879
+#: browser/browse.php:75 PersonView.php:1866
 msgid "Up One Level"
 msgstr "Opp en nivå"
 
-#: browser/browse.php:82 PersonView.php:1888
+#: browser/browse.php:82 PersonView.php:1873
 msgid "Actualize files"
 msgstr "Aktiver filer"
 
-#: browser/browse.php:99 PersonView.php:1906
+#: browser/browse.php:99 PersonView.php:1891
 msgid "Preview"
 msgstr "Preview"
 
@@ -894,9 +893,7 @@ msgstr "Nummer på rad"
 msgid "Checkin"
 msgstr "Sjekkin"
 
-#: Checkin.php:237 Checkin.php:248
-#: v2/templates/email/mailchimp/managelist.php:81
-#: v2/templates/user/userlist.php:182
+#: Checkin.php:237 Checkin.php:248 v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "Sjekk alt"
 
@@ -1625,8 +1622,8 @@ msgstr "Skape direktoratet"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1019
-#: EcclesiaCRM/Service/CalendarService.php:1045
+#: EcclesiaCRM/Service/CalendarService.php:1020
+#: EcclesiaCRM/Service/CalendarService.php:1046
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "To ressurser kan ikke være i samme tidspunkt."
 
@@ -1862,7 +1859,7 @@ msgstr "Alle familier"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1875,7 +1872,7 @@ msgstr "Persons"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:103
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -2102,7 +2099,7 @@ msgstr "Gruppe Type Redaktør"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:598
+#: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:98 OptionManager.php:133
@@ -3401,8 +3398,8 @@ msgid "Invalid Family"
 msgstr "Ugyldig familie"
 
 #: EcclesiaCRM/dto/SystemConfig.php:33
-#: EcclesiaCRM/Service/CalendarService.php:752
-#: EcclesiaCRM/Service/CalendarService.php:1074
+#: EcclesiaCRM/Service/CalendarService.php:753
+#: EcclesiaCRM/Service/CalendarService.php:1075
 msgid "NONE"
 msgstr "NORE"
 
@@ -5167,7 +5164,7 @@ msgstr "Adresse"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
-#: FamilyView.php:1065 PersonView.php:701 PersonView.php:1938
+#: FamilyView.php:1065 PersonView.php:701 PersonView.php:1923
 #: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
 #: v2/templates/people/familylist.php:108
@@ -5362,38 +5359,38 @@ msgid "Rest"
 msgstr "Hvil deg."
 
 #: EcclesiaCRM/Service/CalendarService.php:485
-#: EcclesiaCRM/Service/CalendarService.php:521
+#: EcclesiaCRM/Service/CalendarService.php:522
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Attenties"
 
-#: EcclesiaCRM/Service/CalendarService.php:500
 #: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:502
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Lage sjekk-out"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:502
 msgid "Check-out done"
 msgstr "Utsjekking gjort"
 
-#: EcclesiaCRM/Service/CalendarService.php:520
-#: EcclesiaCRM/Service/CalendarService.php:547
+#: EcclesiaCRM/Service/CalendarService.php:521
+#: EcclesiaCRM/Service/CalendarService.php:548
 msgid "No Attendance Recorded"
 msgstr "Ingen Attenance registrert"
 
-#: EcclesiaCRM/Service/CalendarService.php:561
+#: EcclesiaCRM/Service/CalendarService.php:562
 msgid "login"
 msgstr "LOGNING"
 
-#: EcclesiaCRM/Service/CalendarService.php:595
+#: EcclesiaCRM/Service/CalendarService.php:596
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Personlig kalender"
 
-#: EcclesiaCRM/Service/CalendarService.php:601
+#: EcclesiaCRM/Service/CalendarService.php:602
 msgid "Share"
 msgstr "Del"
 
@@ -6957,22 +6954,22 @@ msgstr "Legg til en ny betaling"
 msgid " Canvass Entry"
 msgstr "Kryss Entry"
 
-#: FamilyView.php:1062 PersonView.php:526 PersonView.php:1935
+#: FamilyView.php:1062 PersonView.php:526 PersonView.php:1920
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 msgid "Informations"
 msgstr "Informasjoner"
 
-#: FamilyView.php:1084 FindDepositSlip.php:121 PersonView.php:1955
+#: FamilyView.php:1084 FindDepositSlip.php:121 PersonView.php:1940
 msgid "Confirm Delete"
 msgstr "Bekreft Slett"
 
-#: FamilyView.php:1087 PersonView.php:1961
+#: FamilyView.php:1087 PersonView.php:1946
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "Du skal slette profilbildet, denne prosedyren er ugjenkallelig."
 
-#: FamilyView.php:1088 PersonView.php:1963
+#: FamilyView.php:1088 PersonView.php:1948
 msgid "Do you want to proceed?"
 msgstr "Vil du fortsette?"
 
@@ -7647,7 +7644,7 @@ msgstr "Pastoral Care-Type"
 msgid "Please contact your admin to change the system settings."
 msgstr "Kontakt administrasjonen din for å endre systeminnstillingene."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:160
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:112
 msgid "Edit General Settings"
 msgstr "Redigere General Settings"
 
@@ -10436,51 +10433,39 @@ msgstr ""
 "av CRM, bruk<b>7899, for å legge til alle medlemmer av CRM, bruk<b>7899, "
 "bruk av CRM, bruk<b>7899, for å"
 
-#: v2/templates/email/mailchimp/managelist.php:73
-msgid "Increase this value is unstable with MailChimp API."
-msgstr "Øk verdien er ustabil med Mailchimp API."
+#: v2/templates/email/mailchimp/managelist.php:75
+#: v2/templates/group/groupview.php:467
+#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschoolview.php:174
+#: v2/templates/sundayschool/sundayschoolview.php:287
+msgid "Add"
+msgstr "Legg til"
 
-#: v2/templates/email/mailchimp/managelist.php:98
-msgid "Sub/Unsubscribe"
-msgstr "Uabonnerer"
-
-#: v2/templates/email/mailchimp/managelist.php:106
-msgid "Subscribed"
-msgstr "Skrevet"
-
-#: v2/templates/email/mailchimp/managelist.php:109
-msgid "Unsubscribed"
-msgstr "Ubekreftet"
-
-#: v2/templates/email/mailchimp/managelist.php:117
-msgid "Add/Remove Tag"
-msgstr "Legg til/fjern Tag"
-
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 msgid "Keywords"
 msgstr "Nøkkelord"
 
-#: v2/templates/email/mailchimp/managelist.php:158
+#: v2/templates/email/mailchimp/managelist.php:110
 msgid "is not configured"
 msgstr "er ikke konfigurert"
 
-#: v2/templates/email/mailchimp/managelist.php:159
+#: v2/templates/email/mailchimp/managelist.php:111
 msgid "Please update the"
 msgstr "Oppdater"
 
-#: v2/templates/email/mailchimp/managelist.php:159
+#: v2/templates/email/mailchimp/managelist.php:111
 msgid "API key in Setting->"
 msgstr "API-nøkkel i Setting-"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "then update"
 msgstr "så oppdatere"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "For more info see our "
 msgstr "For mer info ser oss"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:114
 msgid "support docs."
 msgstr "leger fra støtte."
 
@@ -10814,13 +10799,6 @@ msgstr "Fjern medlemmer"
 #: v2/templates/group/groupview.php:462
 msgid "Manage Group Members"
 msgstr "Manage Group Members"
-
-#: v2/templates/group/groupview.php:467
-#: v2/templates/sundayschool/sundayschooldashboard.php:333
-#: v2/templates/sundayschool/sundayschoolview.php:174
-#: v2/templates/sundayschool/sundayschoolview.php:287
-msgid "Add"
-msgstr "Legg til"
 
 #: v2/templates/group/groupview.php:473
 msgid "Remove Selected Members from group"
@@ -12354,6 +12332,21 @@ msgstr "Liten."
 
 msgid "Large"
 msgstr "Stor"
+
+#~ msgid "Increase this value is unstable with MailChimp API."
+#~ msgstr "Øk verdien er ustabil med Mailchimp API."
+
+#~ msgid "Sub/Unsubscribe"
+#~ msgstr "Uabonnerer"
+
+#~ msgid "Subscribed"
+#~ msgstr "Skrevet"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "Ubekreftet"
+
+#~ msgid "Add/Remove Tag"
+#~ msgstr "Legg til/fjern Tag"
 
 #~ msgid "Birth Month"
 #~ msgstr "Fødselsmåneden"

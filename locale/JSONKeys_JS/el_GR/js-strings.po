@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,17 +369,23 @@ msgstr "Μέγεθος"
 msgid "Set a File/Folder name"
 msgstr "Ορισμός ονόματος αρχείου/φακέλου"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Πρόκειται να αφαιρέσετε έναν φάκελο και το περιεχόμενό του"
+msgid "You are about to delete several items together"
+msgstr "Πρόκειται να διαγράψετε πολλά στοιχεία μαζί"
+
+msgid "You're about to remove an item"
+msgstr "Πρόκειται να αφαιρέσετε ένα στοιχείο"
 
 msgid "This can't be undone !!!!"
 msgstr "Αυτό δεν μπορεί να αναιρεθεί !!!!"
 
+msgid "Delete"
+msgstr "Διαγραφή"
+
 msgid "You've to select at least one line !!!"
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία γραμμή !!!"
 
-msgid "You're about to remove a file"
-msgstr "Πρόκειται να αφαιρέσετε ένα αρχείο"
+msgid "You're about to remove a folder and it's content"
+msgstr "Πρόκειται να αφαιρέσετε έναν φάκελο και το περιεχόμενό του"
 
 msgid "Set your Folder name"
 msgstr "Ορίστε το όνομα του φακέλου σας"
@@ -431,9 +437,6 @@ msgstr "Προσθέστε πρόσωπα/οικογένεια/ομάδες"
 
 msgid "Person or Family or Group"
 msgstr "Άτομο ή οικογένεια ή ομάδα"
-
-msgid "Delete"
-msgstr "Διαγραφή"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Είσαι σίγουρος; Είσαι έτοιμος να διαγράψεις αυτό το άτομο;"
@@ -2054,6 +2057,15 @@ msgstr "Διαγραφή ετικέτας"
 msgid "Loading resources ..."
 msgstr "Φόρτωση πόρων ..."
 
+msgid "All"
+msgstr "Όλα"
+
+msgid "Subscribed"
+msgstr "Συνδρομημένος"
+
+msgid "Unsubscribed"
+msgstr "Μη εγγεγραμμένοι"
+
 msgid "Email Marketing"
 msgstr "Μάρκετινγκ ηλεκτρονικού ταχυδρομείου"
 
@@ -2111,12 +2123,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Επιλέξτε κατάσταση για :"
-
-msgid "Subscribed"
-msgstr "Συνδρομημένος"
-
-msgid "Unsubscribed"
-msgstr "Μη εγγεγραμμένοι"
 
 msgid "Changing status ..."
 msgstr "Αλλαγή κατάστασης ..."
@@ -2179,6 +2185,9 @@ msgstr "Όνομα λίστας"
 
 msgid "Changing subscribers state..."
 msgstr "Αλλαγή κατάστασης συνδρομητών..."
+
+msgid "Select One"
+msgstr "Επιλέξτε ένα"
 
 msgid "All Tags"
 msgstr "Όλες οι ετικέτες"
@@ -2418,6 +2427,9 @@ msgstr "Αλλαγή κάμερας"
 
 msgid "Upload Image"
 msgstr "Ανέβασμα εικόνας"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Πρόκειται να αφαιρέσετε ένα αρχείο"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

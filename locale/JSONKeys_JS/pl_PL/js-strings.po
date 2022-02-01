@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -367,17 +367,23 @@ msgstr "Rozmiar"
 msgid "Set a File/Folder name"
 msgstr "Ustawianie nazwy pliku/folderu"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Zamierzasz usunąć folder wraz z jego zawartością"
+msgid "You are about to delete several items together"
+msgstr "Zamierzasz usunąć kilka elementów razem"
+
+msgid "You're about to remove an item"
+msgstr "Zamierzasz usunąć element"
 
 msgid "This can't be undone !!!!"
 msgstr "Tego nie da się cofnąć !!!!"
 
+msgid "Delete"
+msgstr "Usuń"
+
 msgid "You've to select at least one line !!!"
 msgstr "Musisz wybrać co najmniej jedną linię !!!"
 
-msgid "You're about to remove a file"
-msgstr "Zamierzasz usunąć plik"
+msgid "You're about to remove a folder and it's content"
+msgstr "Zamierzasz usunąć folder wraz z jego zawartością"
 
 msgid "Set your Folder name"
 msgstr "Ustaw nazwę folderu"
@@ -429,9 +435,6 @@ msgstr "Dodaj osoby/rodziny/grupy"
 
 msgid "Person or Family or Group"
 msgstr "Osoba lub rodzina lub grupa"
-
-msgid "Delete"
-msgstr "Usuń"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Czy na pewno? Zamierzasz usunąć tę osobę?"
@@ -2030,6 +2033,15 @@ msgstr "Usuń tag"
 msgid "Loading resources ..."
 msgstr "Ładowanie zasobów ..."
 
+msgid "All"
+msgstr "Wszystkie"
+
+msgid "Subscribed"
+msgstr "Subskrybowany"
+
+msgid "Unsubscribed"
+msgstr "Niezarejestrowany"
+
 msgid "Email Marketing"
 msgstr "Email Marketing"
 
@@ -2084,12 +2096,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Wybierz status dla :"
-
-msgid "Subscribed"
-msgstr "Subskrybowany"
-
-msgid "Unsubscribed"
-msgstr "Niezarejestrowany"
 
 msgid "Changing status ..."
 msgstr "Zmiana statusu ..."
@@ -2152,6 +2158,9 @@ msgstr "Lista Nazwa"
 
 msgid "Changing subscribers state..."
 msgstr "Zmiana stanu subskrybentów..."
+
+msgid "Select One"
+msgstr "Wybierz jeden"
 
 msgid "All Tags"
 msgstr "Wszystkie tagi"
@@ -2388,6 +2397,9 @@ msgstr "Przełącznik Kamera"
 
 msgid "Upload Image"
 msgstr "Prześlij obraz"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Zamierzasz usunąć plik"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,17 +369,23 @@ msgstr "Maat"
 msgid "Set a File/Folder name"
 msgstr "Een bestands-/mapnaam instellen"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
+msgid "You are about to delete several items together"
+msgstr "U staat op het punt om meerdere items tegelijk te verwijderen"
+
+msgid "You're about to remove an item"
+msgstr "Je staat op het punt om een item te verwijderen"
 
 msgid "This can't be undone !!!!"
 msgstr "Dit kan niet ongedaan worden gemaakt !!!!"
 
+msgid "Delete"
+msgstr "Delete"
+
 msgid "You've to select at least one line !!!"
 msgstr "Je moet minstens één lijn kiezen!!!"
 
-msgid "You're about to remove a file"
-msgstr "Je staat op het punt een bestand te verwijderen"
+msgid "You're about to remove a folder and it's content"
+msgstr "Je staat op het punt om een map en zijn inhoud te verwijderen"
 
 msgid "Set your Folder name"
 msgstr "Stel uw mapnaam in"
@@ -431,9 +437,6 @@ msgstr "Personen/familie/groepen toevoegen"
 
 msgid "Person or Family or Group"
 msgstr "Persoon of gezin of groep"
-
-msgid "Delete"
-msgstr "Delete"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Ben je zeker? Ga je deze persoon verwijderen?"
@@ -2045,6 +2048,15 @@ msgstr "Verwijder tag"
 msgid "Loading resources ..."
 msgstr "Hulpbronnen laden ..."
 
+msgid "All"
+msgstr "Alle"
+
+msgid "Subscribed"
+msgstr "Ingeschreven"
+
+msgid "Unsubscribed"
+msgstr "Uitgeschreven"
+
 msgid "Email Marketing"
 msgstr "E-mail Marketing"
 
@@ -2098,12 +2110,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Status kiezen voor :"
-
-msgid "Subscribed"
-msgstr "Ingeschreven"
-
-msgid "Unsubscribed"
-msgstr "Uitgeschreven"
 
 msgid "Changing status ..."
 msgstr "Veranderende status ..."
@@ -2166,6 +2172,9 @@ msgstr "Lijst Naam"
 
 msgid "Changing subscribers state..."
 msgstr "De staat van de abonnees veranderen..."
+
+msgid "Select One"
+msgstr "Kies er een"
 
 msgid "All Tags"
 msgstr "Alle tags"
@@ -2404,6 +2413,9 @@ msgstr "Schakel camera"
 
 msgid "Upload Image"
 msgstr "Afbeelding uploaden"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Je staat op het punt een bestand te verwijderen"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."
