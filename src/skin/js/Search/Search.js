@@ -136,7 +136,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'search/getGroupForTypeID/',
             data: JSON.stringify({"GroupType": real_GroupType})
-        }).done(function (data) {
+        },function (data) {
             if ( real_GroupType >= 0 && $('#group_search_filters').is(":visible") === false ) {
                 // we create the group popup menu
                 group_elements = {};
@@ -165,7 +165,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'search/getGroupRoleForGroupID/',
             data: JSON.stringify({"Group": group})
-        }).done(function (data) {
+        },function (data) {
             // we create the group popup menu
             group_role_elements = {};
             $("#searchComboGroupRole").empty();
@@ -185,7 +185,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'search/comboElements/'
-        }).done(function (data) {
+        },function (data) {
             $.each(data, function (index, value) {
                 var optgroup = $('<optgroup>');
                 optgroup.attr('id', value[0]);
