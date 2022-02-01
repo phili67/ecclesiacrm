@@ -335,6 +335,7 @@ class SidebarPropertiesController
         $property->setProName($data['Name']);
         $property->setProDescription($data['Description']);
         $property->setProPrompt($data['Prompt']);
+        $property->setProComment(' ');
 
         $property->save();
 

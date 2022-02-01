@@ -132,6 +132,7 @@ class PastoralCareController
             $pstCareType->setVisible($input->Visible);
             $pstCareType->setTitle($input->Title);
             $pstCareType->setDesc($input->Description);
+            $pstCareType->setComment(' ');
 
             $pstCareType->save();
 
