@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-24 13:41+0000\n"
+"POT-Creation-Date: 2022-01-30 19:44+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -330,7 +330,7 @@ msgstr "拯救"
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
-#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1967
+#: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1952
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
 #: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:940
 #: UserEditor.php:1094 v2/templates/fundraiser/donatedItemEditor.php:178
@@ -377,18 +377,17 @@ msgstr "在EDrive中上传一个文件"
 msgid "Download"
 msgstr "下载"
 
-#: browser/browse.php:58 PersonView.php:1860
+#: browser/browse.php:58 PersonView.php:1856
 msgid "Create a Folder"
 msgstr "创建一个文件夹"
 
 #: browser/browse.php:66 ElectronicPaymentList.php:216
 #: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
 #: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
-#: PersonView.php:1869 PersonView.php:1968
+#: PersonView.php:1861 PersonView.php:1953
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/email/mailchimp/managelist.php:93
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/pastoralcare/pastoralcarefamily.php:218
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -396,15 +395,15 @@ msgstr "创建一个文件夹"
 msgid "Delete"
 msgstr "删除"
 
-#: browser/browse.php:75 PersonView.php:1879
+#: browser/browse.php:75 PersonView.php:1866
 msgid "Up One Level"
 msgstr "提高一个级别"
 
-#: browser/browse.php:82 PersonView.php:1888
+#: browser/browse.php:82 PersonView.php:1873
 msgid "Actualize files"
 msgstr "实现文件"
 
-#: browser/browse.php:99 PersonView.php:1906
+#: browser/browse.php:99 PersonView.php:1891
 msgid "Preview"
 msgstr "预览"
 
@@ -883,9 +882,7 @@ msgstr "行数"
 msgid "Checkin"
 msgstr "办理登机手续"
 
-#: Checkin.php:237 Checkin.php:248
-#: v2/templates/email/mailchimp/managelist.php:81
-#: v2/templates/user/userlist.php:182
+#: Checkin.php:237 Checkin.php:248 v2/templates/user/userlist.php:182
 msgid "Check all"
 msgstr "检查所有"
 
@@ -1599,8 +1596,8 @@ msgstr "创建目录"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1019
-#: EcclesiaCRM/Service/CalendarService.php:1045
+#: EcclesiaCRM/Service/CalendarService.php:1020
+#: EcclesiaCRM/Service/CalendarService.php:1046
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "两个资源保留不能在同一时间段。"
 
@@ -1834,7 +1831,7 @@ msgstr "所有家庭"
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
 #: EcclesiaCRM/MenuBar/MenuBar.php:123
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
 #: v2/templates/people/personlist.php:45
 msgid "Persons"
@@ -1847,7 +1844,7 @@ msgstr "人数"
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
 #: v2/templates/dashboard/maindashboard.php:103
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/people/familylist.php:48
@@ -2074,7 +2071,7 @@ msgstr "组别类型编辑"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:598
+#: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:98 OptionManager.php:133
@@ -3371,8 +3368,8 @@ msgid "Invalid Family"
 msgstr "无效的家庭"
 
 #: EcclesiaCRM/dto/SystemConfig.php:33
-#: EcclesiaCRM/Service/CalendarService.php:752
-#: EcclesiaCRM/Service/CalendarService.php:1074
+#: EcclesiaCRM/Service/CalendarService.php:753
+#: EcclesiaCRM/Service/CalendarService.php:1075
 msgid "NONE"
 msgstr "无"
 
@@ -5110,7 +5107,7 @@ msgstr "地址"
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:125
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
-#: FamilyView.php:1065 PersonView.php:701 PersonView.php:1938
+#: FamilyView.php:1065 PersonView.php:701 PersonView.php:1923
 #: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
 #: v2/templates/people/familylist.php:108
@@ -5305,38 +5302,38 @@ msgid "Rest"
 msgstr "休息"
 
 #: EcclesiaCRM/Service/CalendarService.php:485
-#: EcclesiaCRM/Service/CalendarService.php:521
+#: EcclesiaCRM/Service/CalendarService.php:522
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "参会人员"
 
-#: EcclesiaCRM/Service/CalendarService.php:500
 #: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:502
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "办理退房手续"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
+#: EcclesiaCRM/Service/CalendarService.php:502
 msgid "Check-out done"
 msgstr "退房完成"
 
-#: EcclesiaCRM/Service/CalendarService.php:520
-#: EcclesiaCRM/Service/CalendarService.php:547
+#: EcclesiaCRM/Service/CalendarService.php:521
+#: EcclesiaCRM/Service/CalendarService.php:548
 msgid "No Attendance Recorded"
 msgstr "没有出勤记录"
 
-#: EcclesiaCRM/Service/CalendarService.php:561
+#: EcclesiaCRM/Service/CalendarService.php:562
 msgid "login"
 msgstr "登录"
 
-#: EcclesiaCRM/Service/CalendarService.php:595
+#: EcclesiaCRM/Service/CalendarService.php:596
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "个人日历"
 
-#: EcclesiaCRM/Service/CalendarService.php:601
+#: EcclesiaCRM/Service/CalendarService.php:602
 msgid "Share"
 msgstr "分享"
 
@@ -6894,22 +6891,22 @@ msgstr "添加一个新的付款"
 msgid " Canvass Entry"
 msgstr "拉票入场"
 
-#: FamilyView.php:1062 PersonView.php:526 PersonView.php:1935
+#: FamilyView.php:1062 PersonView.php:526 PersonView.php:1920
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
 msgid "Informations"
 msgstr "信息"
 
-#: FamilyView.php:1084 FindDepositSlip.php:121 PersonView.php:1955
+#: FamilyView.php:1084 FindDepositSlip.php:121 PersonView.php:1940
 msgid "Confirm Delete"
 msgstr "确认删除"
 
-#: FamilyView.php:1087 PersonView.php:1961
+#: FamilyView.php:1087 PersonView.php:1946
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr "你即将删除个人资料照片，这个过程是不可逆的。"
 
-#: FamilyView.php:1088 PersonView.php:1963
+#: FamilyView.php:1088 PersonView.php:1948
 msgid "Do you want to proceed?"
 msgstr "你想继续吗？"
 
@@ -7580,7 +7577,7 @@ msgstr "牧民关怀类型"
 msgid "Please contact your admin to change the system settings."
 msgstr "请联系你的管理员，以改变系统设置。"
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:160
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:112
 msgid "Edit General Settings"
 msgstr "编辑一般设置"
 
@@ -10327,51 +10324,39 @@ msgstr ""
 "要添加所有的通讯用户，在搜索栏中输入<b>NewLetter</b>，要添加CRM的所有成员，使"
 "用<b>*</b>。"
 
-#: v2/templates/email/mailchimp/managelist.php:73
-msgid "Increase this value is unstable with MailChimp API."
-msgstr "增加这个值在MailChimp API中是不稳定的。"
+#: v2/templates/email/mailchimp/managelist.php:75
+#: v2/templates/group/groupview.php:467
+#: v2/templates/sundayschool/sundayschooldashboard.php:333
+#: v2/templates/sundayschool/sundayschoolview.php:174
+#: v2/templates/sundayschool/sundayschoolview.php:287
+msgid "Add"
+msgstr "添加"
 
-#: v2/templates/email/mailchimp/managelist.php:98
-msgid "Sub/Unsubscribe"
-msgstr "订阅/取消订阅"
-
-#: v2/templates/email/mailchimp/managelist.php:106
-msgid "Subscribed"
-msgstr "订阅了"
-
-#: v2/templates/email/mailchimp/managelist.php:109
-msgid "Unsubscribed"
-msgstr "未订阅"
-
-#: v2/templates/email/mailchimp/managelist.php:117
-msgid "Add/Remove Tag"
-msgstr "添加/删除标签"
-
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:86
 msgid "Keywords"
 msgstr "关键词"
 
-#: v2/templates/email/mailchimp/managelist.php:158
+#: v2/templates/email/mailchimp/managelist.php:110
 msgid "is not configured"
 msgstr "未配置"
 
-#: v2/templates/email/mailchimp/managelist.php:159
+#: v2/templates/email/mailchimp/managelist.php:111
 msgid "Please update the"
 msgstr "请更新"
 
-#: v2/templates/email/mailchimp/managelist.php:159
+#: v2/templates/email/mailchimp/managelist.php:111
 msgid "API key in Setting->"
 msgstr "设置中的API密钥->"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "then update"
 msgstr "然后更新"
 
-#: v2/templates/email/mailchimp/managelist.php:161
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "For more info see our "
 msgstr "更多信息见我们的"
 
-#: v2/templates/email/mailchimp/managelist.php:162
+#: v2/templates/email/mailchimp/managelist.php:114
 msgid "support docs."
 msgstr "支持文档。"
 
@@ -10696,13 +10681,6 @@ msgstr "删除成员"
 #: v2/templates/group/groupview.php:462
 msgid "Manage Group Members"
 msgstr "管理小组成员"
-
-#: v2/templates/group/groupview.php:467
-#: v2/templates/sundayschool/sundayschooldashboard.php:333
-#: v2/templates/sundayschool/sundayschoolview.php:174
-#: v2/templates/sundayschool/sundayschoolview.php:287
-msgid "Add"
-msgstr "添加"
 
 #: v2/templates/group/groupview.php:473
 msgid "Remove Selected Members from group"
@@ -12215,6 +12193,21 @@ msgstr "小型"
 
 msgid "Large"
 msgstr "大型"
+
+#~ msgid "Increase this value is unstable with MailChimp API."
+#~ msgstr "增加这个值在MailChimp API中是不稳定的。"
+
+#~ msgid "Sub/Unsubscribe"
+#~ msgstr "订阅/取消订阅"
+
+#~ msgid "Subscribed"
+#~ msgstr "订阅了"
+
+#~ msgid "Unsubscribed"
+#~ msgstr "未订阅"
+
+#~ msgid "Add/Remove Tag"
+#~ msgstr "添加/删除标签"
 
 #~ msgid "Birth Month"
 #~ msgstr "出生月份"

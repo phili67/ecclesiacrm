@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -365,17 +365,23 @@ msgstr "Ukuran"
 msgid "Set a File/Folder name"
 msgstr "Atur nama File/Folder"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Kau akan menghapus folder dan itu isinya"
+msgid "You are about to delete several items together"
+msgstr "Kau akan menghapus beberapa barang bersama"
+
+msgid "You're about to remove an item"
+msgstr "Kau akan mengeluarkan barang"
 
 msgid "This can't be undone !!!!"
 msgstr "Ini tidak bisa dibatalkan! !\" Ugh!"
 
+msgid "Delete"
+msgstr "Hapus"
+
 msgid "You've to select at least one line !!!"
 msgstr "Kau harus memilih setidaknya satu baris! !"
 
-msgid "You're about to remove a file"
-msgstr "Kau akan menghapus file"
+msgid "You're about to remove a folder and it's content"
+msgstr "Kau akan menghapus folder dan itu isinya"
 
 msgid "Set your Folder name"
 msgstr "Atur nama Folder-mu"
@@ -427,9 +433,6 @@ msgstr "Tambahkan orang-orang/Keluarga/kelompok"
 
 msgid "Person or Family or Group"
 msgstr "Orang atau keluarga atau Grup"
-
-msgid "Delete"
-msgstr "Hapus"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Apakah Anda yakin? Kau akan menghapus orang ini?"
@@ -2033,6 +2036,15 @@ msgstr "Hapus tag"
 msgid "Loading resources ..."
 msgstr "Memiliki sumber daya ..."
 
+msgid "All"
+msgstr "Semua"
+
+msgid "Subscribed"
+msgstr "Dikurangi"
+
+msgid "Unsubscribed"
+msgstr "Tak bisa di-subtitle"
+
 msgid "Email Marketing"
 msgstr "Pemasaran Email"
 
@@ -2088,12 +2100,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Bagi status untuk:"
-
-msgid "Subscribed"
-msgstr "Dikurangi"
-
-msgid "Unsubscribed"
-msgstr "Tak bisa di-subtitle"
 
 msgid "Changing status ..."
 msgstr "Mengubah status ..."
@@ -2156,6 +2162,9 @@ msgstr "Daftar nama"
 
 msgid "Changing subscribers state..."
 msgstr "Mengubah keadaan pelanggan..."
+
+msgid "Select One"
+msgstr "Pilih Satu"
 
 msgid "All Tags"
 msgstr "Semua tanda"
@@ -2391,6 +2400,9 @@ msgstr "Ganti Kamera"
 
 msgid "Upload Image"
 msgstr "Upload Image"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Kau akan menghapus file"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

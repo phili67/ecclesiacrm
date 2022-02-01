@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -366,17 +366,23 @@ msgstr "Storlek"
 msgid "Set a File/Folder name"
 msgstr "Ange ett fil-/mappnamn"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Du är på väg att ta bort en mapp och dess innehåll"
+msgid "You are about to delete several items together"
+msgstr "Du är på väg att radera flera objekt tillsammans"
+
+msgid "You're about to remove an item"
+msgstr "Du är på väg att ta bort ett objekt"
 
 msgid "This can't be undone !!!!"
 msgstr "Detta kan inte göras ogjort !!!!"
 
+msgid "Delete"
+msgstr "Ta bort"
+
 msgid "You've to select at least one line !!!"
 msgstr "Du måste välja minst en rad !!!!"
 
-msgid "You're about to remove a file"
-msgstr "Du är på väg att ta bort en fil"
+msgid "You're about to remove a folder and it's content"
+msgstr "Du är på väg att ta bort en mapp och dess innehåll"
 
 msgid "Set your Folder name"
 msgstr "Ange ditt mappnamn"
@@ -428,9 +434,6 @@ msgstr "Lägg till personer/familjer/grupper"
 
 msgid "Person or Family or Group"
 msgstr "Person, familj eller grupp"
-
-msgid "Delete"
-msgstr "Ta bort"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Är du säker? Ska du radera den här personen?"
@@ -2031,6 +2034,15 @@ msgstr "Ta bort tagg"
 msgid "Loading resources ..."
 msgstr "Laddar resurser ..."
 
+msgid "All"
+msgstr "Alla"
+
+msgid "Subscribed"
+msgstr "Prenumererade"
+
+msgid "Unsubscribed"
+msgstr "Avregistrerad"
+
 msgid "Email Marketing"
 msgstr "E-postmarknadsföring"
 
@@ -2086,12 +2098,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Välj status för :"
-
-msgid "Subscribed"
-msgstr "Prenumererade"
-
-msgid "Unsubscribed"
-msgstr "Avregistrerad"
 
 msgid "Changing status ..."
 msgstr "Ändrad status ..."
@@ -2154,6 +2160,9 @@ msgstr "Namn på listan"
 
 msgid "Changing subscribers state..."
 msgstr "Byte av prenumeranter..."
+
+msgid "Select One"
+msgstr "Välj en"
 
 msgid "All Tags"
 msgstr "Alla taggar"
@@ -2391,6 +2400,9 @@ msgstr "Växla kamera"
 
 msgid "Upload Image"
 msgstr "Ladda upp en bild"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Du är på väg att ta bort en fil"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

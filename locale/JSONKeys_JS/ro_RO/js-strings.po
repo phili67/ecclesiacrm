@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,17 +369,23 @@ msgstr "Dimensiune"
 msgid "Set a File/Folder name"
 msgstr "Setați un nume de fișier/folder"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
+msgid "You are about to delete several items together"
+msgstr "Sunteți pe cale să ștergeți mai multe elemente împreună"
+
+msgid "You're about to remove an item"
+msgstr "Sunteți pe cale să eliminați un element"
 
 msgid "This can't be undone !!!!"
 msgstr "Asta nu poate fi anulat !!!!"
 
+msgid "Delete"
+msgstr "Ștergeți"
+
 msgid "You've to select at least one line !!!"
 msgstr "Trebuie să selectați cel puțin o linie!!!"
 
-msgid "You're about to remove a file"
-msgstr "Sunteți pe cale să eliminați un fișier"
+msgid "You're about to remove a folder and it's content"
+msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
 
 msgid "Set your Folder name"
 msgstr "Setați numele dosarului dvs."
@@ -431,9 +437,6 @@ msgstr "Adăugați persoane/familii/grupuri"
 
 msgid "Person or Family or Group"
 msgstr "Persoană sau familie sau grup"
-
-msgid "Delete"
-msgstr "Ștergeți"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Ești sigur? Ești pe cale să ștergi această persoană?"
@@ -2050,6 +2053,15 @@ msgstr "Ștergeți eticheta"
 msgid "Loading resources ..."
 msgstr "Încărcarea resurselor ..."
 
+msgid "All"
+msgstr "Toate"
+
+msgid "Subscribed"
+msgstr "Abonat"
+
+msgid "Unsubscribed"
+msgstr "Dezabonat"
+
 msgid "Email Marketing"
 msgstr "Marketing prin e-mail"
 
@@ -2107,12 +2119,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Selectați starea pentru :"
-
-msgid "Subscribed"
-msgstr "Abonat"
-
-msgid "Unsubscribed"
-msgstr "Dezabonat"
 
 msgid "Changing status ..."
 msgstr "Schimbarea statutului ..."
@@ -2175,6 +2181,9 @@ msgstr "Nume listă"
 
 msgid "Changing subscribers state..."
 msgstr "Schimbarea stării abonaților..."
+
+msgid "Select One"
+msgstr "Selectați unul"
 
 msgid "All Tags"
 msgstr "Toate etichetele"
@@ -2412,6 +2421,9 @@ msgstr "Comutați camera"
 
 msgid "Upload Image"
 msgstr "Încărcați imaginea"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Sunteți pe cale să eliminați un fișier"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."

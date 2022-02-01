@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-24T13:46:56.597Z\n"
+"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,17 +369,23 @@ msgstr "Размер"
 msgid "Set a File/Folder name"
 msgstr "Задайте имя файла/папки"
 
-msgid "You're about to remove a folder and it's content"
-msgstr "Вы собираетесь удалить папку и ее содержимое"
+msgid "You are about to delete several items together"
+msgstr "Вы собираетесь удалить несколько элементов вместе"
+
+msgid "You're about to remove an item"
+msgstr "Вы собираетесь удалить элемент"
 
 msgid "This can't be undone !!!!"
 msgstr "Этого не отменить !!!!"
 
+msgid "Delete"
+msgstr "Удалить"
+
 msgid "You've to select at least one line !!!"
 msgstr "Вы должны выбрать хотя бы одну линию!!!"
 
-msgid "You're about to remove a file"
-msgstr "Вы собираетесь удалить файл"
+msgid "You're about to remove a folder and it's content"
+msgstr "Вы собираетесь удалить папку и ее содержимое"
 
 msgid "Set your Folder name"
 msgstr "Задайте имя папки"
@@ -431,9 +437,6 @@ msgstr "Добавить людей/семью/группы"
 
 msgid "Person or Family or Group"
 msgstr "Человек, семья или группа"
-
-msgid "Delete"
-msgstr "Удалить"
 
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Вы уверены? Вы собираетесь удалить этого человека?"
@@ -2035,6 +2038,15 @@ msgstr "Удалить метку"
 msgid "Loading resources ..."
 msgstr "Загрузка ресурсов ..."
 
+msgid "All"
+msgstr "Все"
+
+msgid "Subscribed"
+msgstr "Подписчики"
+
+msgid "Unsubscribed"
+msgstr "Без подписки"
+
 msgid "Email Marketing"
 msgstr "Email-маркетинг"
 
@@ -2089,12 +2101,6 @@ msgstr ""
 
 msgid "Select status for : "
 msgstr "Выберите статус для :"
-
-msgid "Subscribed"
-msgstr "Подписчики"
-
-msgid "Unsubscribed"
-msgstr "Без подписки"
 
 msgid "Changing status ..."
 msgstr "Изменение статуса ..."
@@ -2158,6 +2164,9 @@ msgstr "Название списка"
 
 msgid "Changing subscribers state..."
 msgstr "Изменение состояния абонентов..."
+
+msgid "Select One"
+msgstr "Выберите один"
 
 msgid "All Tags"
 msgstr "Все теги"
@@ -2394,6 +2403,9 @@ msgstr "Переключение камеры"
 
 msgid "Upload Image"
 msgstr "Загрузить изображение"
+
+#~ msgid "You're about to remove a file"
+#~ msgstr "Вы собираетесь удалить файл"
 
 #~ msgid ""
 #~ "Deleting an event will also delete all attendance counts for that event."
