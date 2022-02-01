@@ -62,7 +62,7 @@ $sPageTitle = _('Group-Specific Properties Form Editor:').'  : '.$groupInfo->get
 
 require 'Include/Header.php'; ?>
 
-<p class="alert alert-warning"><span class="fas fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+<p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
 <div class="card">
 <div class="card-header with-border">
@@ -362,16 +362,16 @@ if ($numRows == 0) {
         <?php
           if ($row != 1) {
         ?>
-            <a href="#" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/uparrow.gif" border="0"></a>
+            <img src="Images/uparrow.gif" border="0" class="up-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
           if ($row < $numRows) {
         ?>
-            <a href="#" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/downarrow.gif" border="0"></a>
+            <img src="Images/downarrow.gif" border="0" class="down-action" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
         <?php
           }
         ?>
-            <a href="#" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
+            <img src="Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
       </td>
       <td class="TextColumn" style="font-size:70%;">
           <?= $aPropTypes[$aTypeFields[$row]]; ?>
