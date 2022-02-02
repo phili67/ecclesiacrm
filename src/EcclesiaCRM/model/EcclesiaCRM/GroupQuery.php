@@ -25,7 +25,15 @@ class GroupQuery extends BaseGroupQuery
         $this->leftJoinGroupType();
         $this->withColumn('GroupType.ListOptionId','ListOptionId');
         $this->leftJoinPerson2group2roleP2g2r();
-        $this->withColumn('COUNT(person2group2role_p2g2r.PersonId)', 'memberCount');
+
+        $groupTypeJoin1 = new Join();
+        $groupTypeJoin1->addCondition("person2group2role_p2g2r.PersonId", "person_per.per_ID", self::EQUAL );
+        $groupTypeJoin1->setJoinType(Criteria::LEFT_JOIN);
+        $this->addJoinObject($groupTypeJoin1);
+
+        $this->where('person_per.per_datedeactivated is NULL');
+
+        $this->withColumn('COUNT(person_per.per_ID)', 'memberCount');
         $this->groupBy('Group.Id');
         $groupTypeJoin = new Join();
         $groupTypeJoin->addCondition("GroupType.ListOptionId", "list_lst.lst_OptionId", self::EQUAL );
