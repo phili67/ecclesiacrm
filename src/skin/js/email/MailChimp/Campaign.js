@@ -46,7 +46,7 @@ $(document).ready(function () {
     window.CRM.APIRequest({
         method: 'GET',
         path: 'mailchimp/campaign/' + window.CRM.campaign_Id + '/content'
-    }).done(function (data) {
+    },function (data) {
         if (data.success) {
             editor.setData(data.content);
         } else if (data.error) {
@@ -120,7 +120,7 @@ $(document).ready(function () {
                 "isSchedule": isSchedule,
                 "oldStatus": window.CRM.status
             })
-        }).done(function (data) {
+        },function (data) {
             window.CRM.closeDialogLoadingFunction();
 
             if (data.success == true) {
@@ -163,7 +163,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/campaign/actions/send',
                         data: JSON.stringify({"campaign_id": window.CRM.campaign_Id})
-                    }).done(function (data) {
+                    },function (data) {
                         if (data.success) {
                             window.location.href = window.CRM.root + "/v2/mailchimp/managelist/" + window.CRM.list_Id;
                         } else if (data.success == false && data.error) {
@@ -195,7 +195,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'mailchimp/campaign/actions/delete',
                         data: JSON.stringify({"campaign_id": window.CRM.campaign_Id})
-                    }).done(function (data) {
+                    },function (data) {
                         if (data.success) {
                             window.location.href = window.CRM.root + "/v2/mailchimp/managelist/" + window.CRM.list_Id;
                         } else if (data.success == false && data.error) {

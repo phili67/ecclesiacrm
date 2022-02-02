@@ -32,7 +32,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pastoralcare/family/getinfo',
             data: JSON.stringify({"ID": ID})
-        }).done(function (data) {
+        },function (data) {
             var id = data.id;
             var typeid = data.typeid;
             var typeDesc = data.typedesc;
@@ -104,7 +104,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'pastoralcare/family/delete',
                         data: JSON.stringify({"ID": ID})
-                    }).done(function (data) {
+                    },function (data) {
                         location.reload();
                         return true;
                     });
@@ -238,7 +238,7 @@ $(document).ready(function () {
                                     "noteText": NoteText,
                                     "includeFamMembers": includeFamMembers
                                 })
-                            }).done(function (data) {
+                            },function (data) {
                                 location.reload();
                                 return true;
                             });
@@ -255,7 +255,7 @@ $(document).ready(function () {
                                     "visibilityStatus": visibilityStatus,
                                     "noteText": NoteText
                                 })
-                            }).done(function (data) {
+                            },function (data) {
                                 location.reload();
                                 return true;
                             })

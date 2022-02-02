@@ -6,7 +6,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'families/isMailChimpActive',
       data: JSON.stringify({"familyId": window.CRM.currentFamily,"email" : window.CRM.familyMail})
-    }).done(function(data) {
+    },function(data) {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
@@ -200,7 +200,7 @@ $(document).ready(function () {
                 method: 'DELETE',
                 path: 'properties/families/unassign',
                 data: JSON.stringify({"FamilyId": family_id,"PropertyId" : property_id})
-              }).done(function(data) {
+              },function(data) {
                 if (data && data.success) {
                   window.CRM.dataPropertiesTable.ajax.reload()
                 }
@@ -236,7 +236,7 @@ $(document).ready(function () {
               method: 'POST',
               path: 'properties/families/assign',
               data: JSON.stringify({"FamilyId": family_id,"PropertyId" : property_id, "PropertyValue":result})
-            }).done(function(data) {
+            },function(data) {
               if (data && data.success) {
                 window.CRM.dataPropertiesTable.ajax.reload()
               }
@@ -254,7 +254,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'properties/families/assign',
       data: JSON.stringify({"FamilyId": window.CRM.currentFamily,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
-    }).done(function(data) {
+    },function(data) {
       if (data && data.success) {
            window.CRM.dataPropertiesTable.ajax.reload();
            promptBox.removeClass('form-group').html('');
@@ -362,7 +362,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'families/verify/url',
       data: JSON.stringify({"famId": window.CRM.currentFamily})
-    }).done(function(data) {
+    },function(data) {
       $('#confirm-verify').modal('hide');
       bootbox.alert({
         title: i18next.t("Verification URL"),
@@ -613,7 +613,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'payments/delete',
             data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : autoPaymentId})
-          }).done(function(data) {
+          },function(data) {
             automaticPaymentsTable.ajax.reload();
           });
         }
@@ -775,7 +775,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pledges/delete',
             data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : paymentId})
-          }).done(function(data) {
+          },function(data) {
             pledgePaymentTable.ajax.reload();
           });
         }
@@ -827,7 +827,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'users/showsince',
         data: JSON.stringify({"date": min})
-      }).done(function(data) {
+      },function(data) {
       });
     });
 
@@ -841,7 +841,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'users/showto',
         data: JSON.stringify({"date": max})
-      }).done(function(data) {
+      },function(data) {
       });
     });
 

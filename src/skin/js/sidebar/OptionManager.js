@@ -13,8 +13,8 @@ $('.checkOnlyPersonView').click('focus', function (e) {
       method: 'POST',
       path: 'mapicons/checkOnlyPersonView',
       data: JSON.stringify({"lstID":ID,"lstOptionID":optionID,"onlyPersonView" : isChecked})
-  }).done(function(data) {
-     //location.reload();
+  },function(data) {
+     //window.location = window.location.href;
   });
 });
 
@@ -25,14 +25,12 @@ $('.row-action').click('focus', function (e) {
     var ID = $(this).data('id');
     var Action = $(this).data('action');
 
-    $.ajax({
+    window.CRM.APIRequest({
         method: "POST",
-        url: window.CRM.root + '/api/generalrole/action',               //call the groups api handler located at window.CRM.root
-        data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":Action}),                      // stringify the object we created earlier, and add it to the data payload
-        contentType: "application/json; charset=utf-8",
-        dataType: "json"
-    }).done(function (data) {                               //yippie, we got something good back from the server
-        location.reload();
+        path: 'generalrole/action',               //call the groups api handler located at window.CRM.root
+        data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":Action})                      // stringify the object we created earlier, and add it to the data payload
+    },function (data) {                               //yippie, we got something good back from the server
+        window.location = window.location.href;
     });
 });
 
@@ -42,8 +40,8 @@ $('.RemoveClassification').click('focus', function (e) {
   var ListID = $(this).data('listid');
   var ID = $(this).data('id');
   var name = $(this).data('name');
-  
-  
+
+
   bootbox.setDefaults({
     locale: window.CRM.shortLocale}),
     bootbox.confirm({
@@ -57,14 +55,12 @@ $('.RemoveClassification').click('focus', function (e) {
       callback: function (result) {
         if (result)
         {
-            $.ajax({
+            window.CRM.APIRequest({
                 method: "POST",
-                url: window.CRM.root + '/api/generalrole/action',               //call the groups api handler located at window.CRM.root
-                data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":"delete"}),                      // stringify the object we created earlier, and add it to the data payload
-                contentType: "application/json; charset=utf-8",
-                dataType: "json"
-            }).done(function (data) {                               //yippie, we got something good back from the server
-                location.reload();
+                path: 'generalrole/action',               //call the groups api handler located at window.CRM.root
+                data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":"delete"})                      // stringify the object we created earlier, and add it to the data payload
+            },function (data) {                               //yippie, we got something good back from the server
+                window.location = window.location.href;
             });
         }
       }
@@ -75,13 +71,13 @@ $('.RemoveClassification').click('focus', function (e) {
 $('.RemoveImage').click('focus', function (e) {
   var lstID = $(this).data('id');
   var lstOptionID = $(this).data('optionid');
-  
+
   window.CRM.APIRequest({
       method: 'POST',
       path: 'mapicons/removeIcon',
       data: JSON.stringify({"lstID":lstID,"lstOptionID":lstOptionID})
-  }).done(function(data) {
-     location.reload();
+  },function(data) {
+     window.location = window.location.href;
   });
 });
 
@@ -90,7 +86,7 @@ $('.AddImage').click('focus', function (e) {
   var lstID       = $(this).data('id');
   var lstOptionID = $(this).data('optionid');
   var name        = $(this).data('name');
-  
+
   modal = createImagePickerWindow ({
     title:i18next.t("Map Icon GoogleMap"),
     firstLabel:i18next.t("Classification"),
@@ -103,21 +99,21 @@ $('.AddImage').click('focus', function (e) {
         method: 'POST',
         path: 'mapicons/setIconName',
         data: JSON.stringify({"name":selectedName,"lstID":lstID,"lstOptionID":lstOptionID})
-    }).done(function(data) {
-       location.reload();
+    },function(data) {
+       window.location = window.location.href;
     });
   },
   function(directory) {
       window.CRM.APIRequest({
           method: 'POST',
           path: 'mapicons/getall',
-      }).done(function(data) {
+      },function(data) {
         var len = data.length;
-    
+
         $('#here_table').append('<table width=100%></table>');
-        
+
         var table = $('#here_table').children();
-        
+
         for(i=0;i<len;i++){
          if (i%8 == 0) {
              if (i==0) {
@@ -129,7 +125,7 @@ $('.AddImage').click('focus', function (e) {
           }
           buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
         }
-    
+
         if (buff != '') {
           len = len%8;
           for (i=0;i<len;i++) {
@@ -139,5 +135,5 @@ $('.AddImage').click('focus', function (e) {
         }
       });
     }
-  );  
+  );
 });

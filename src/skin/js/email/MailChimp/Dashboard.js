@@ -17,7 +17,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
           method: 'GET',
           path: 'mailchimp/lists'
-        }).done(function(data) {
+        },function(data) {
 
           if (data.MailChimpLists == null) {
             $("#container").html( i18next.t("No list are created with this account ....") );
@@ -210,7 +210,7 @@ $(document).ready(function () {
                       method: 'POST',
                       path: 'mailchimp/createlist',
                       data: JSON.stringify({"ListTitle": ListTitle,"Subject" : Subject, "PermissionReminder":PermReminder,"ArchiveBars":ArchiveBars,"Status":Status})
-                    }).done(function(data) {
+                    },function(data) {
                       if (data.success) {
                          render_container();
                          modal.modal("hide");

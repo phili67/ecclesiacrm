@@ -275,7 +275,7 @@ function addAttendees(typeID, first_time, eventID) {
         method: 'POST',
         path: 'events/attendees',
         data: JSON.stringify({"typeID": typeID, "eventID": eventID})
-    }).done(function (eventTypes) {
+    },function (eventTypes) {
         var len = eventTypes.length;
 
         if (len == 0) {
@@ -461,7 +461,7 @@ function addCalendarEventTypes(typeId, bAddAttendees) {
     window.CRM.APIRequest({
         method: 'GET',
         path: 'events/types',
-    }).done(function (eventTypes) {
+    },function (eventTypes) {
         var elt = document.getElementById("eventType");
         var len = eventTypes.length;
         var passed = false;
@@ -506,7 +506,7 @@ function addCalendars(calendarId, attendees) {
         method: 'POST',
         path: 'calendar/getallforuser',
         data: JSON.stringify({"type": "all", "onlyvisible": true, "allCalendars": false})
-    }).done(function (calendars) {
+    },function (calendars) {
         var elt = document.getElementById("EventCalendar");
         var len = calendars.length;
 
@@ -906,7 +906,7 @@ function createEventEditorWindow(start, end, dialogType, eventID, reccurenceID, 
                                 "location": loc,
                                 "alarm": alarm
                             })
-                        }).done(function (data) {
+                        },function (data) {
 
                             if (data.status == "failed") {
                                 add = false;
@@ -965,7 +965,7 @@ function addEvent(dateStart, dateEnd, windowTitle, title, calendarID, attendees)
     window.CRM.APIRequest({
         method: 'POST',
         path: 'calendar/numberofcalendars',
-    }).done(function(data) {
+    },function(data) {
         if (data.CalendarNumber > 0) {
             if (window.CRM.editor != null) {
                 CKEDITOR.remove(window.CRM.editor);

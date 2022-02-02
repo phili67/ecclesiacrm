@@ -234,7 +234,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'settingsindividual/get2FA'
-        }).done(function (data) {
+        },function (data) {
             var res = '<div class="row">' +
                 '           <div class="col-md-12">';
             res += '            <label>' + i18next.t("2 Factor Authentication Secret") + "</label>";
@@ -275,7 +275,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'settingsindividual/verify2FA',
             data: JSON.stringify({"code": code})
-        }).done(function (data) {
+        },function (data) {
             if (data.status == 'yes') {
                 $("#verifyCode").html('<i class="fas fa-check" style="font-size: 20px;color: green"></i>');
 
@@ -305,7 +305,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'settingsindividual/remove2FA',
-        }).done(function (data) {
+        },function (data) {
             if (data.status == 'yes') {
                 location.reload();
             }

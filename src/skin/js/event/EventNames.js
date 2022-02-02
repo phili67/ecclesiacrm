@@ -14,7 +14,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'calendar/numberofcalendars',
-        }).done(function(data) {
+        },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
                     CKEDITOR.remove(window.CRM.editor);
@@ -82,7 +82,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'events/deleteeventtype',
                         data: JSON.stringify({"typeID": typeID})
-                    }).done(function (data) {
+                    },function (data) {
                         location.reload();
                     });
                 }

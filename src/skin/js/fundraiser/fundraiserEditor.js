@@ -20,7 +20,7 @@ $(document).ready(function () {
                         method: "DELETE",
                         path: "fundraiser/donateditem",
                         data: JSON.stringify({"DonatedItemID":donatedItem,"FundRaiserID": window.CRM.fundraiserID})
-                    }).done(function (data) {
+                    },function (data) {
                         if (data.status == "success") {
                             window.CRM.donatedItemsTable.ajax.reload();
                         }

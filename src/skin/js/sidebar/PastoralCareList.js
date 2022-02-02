@@ -107,7 +107,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pastoralcare/deletetype',
             data: JSON.stringify({"pastoralCareTypeId": pastoralCareTypeId})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.dataPastoralCareTypeTable.ajax.reload();
           });
         }
@@ -122,7 +122,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'pastoralcare/edittype',
         data: JSON.stringify({"pastoralCareTypeId": pastoralCareTypeId})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentPastoralCareTypeList,
          title: i18next.t("Pastoral Care Type Editor"),
@@ -140,7 +140,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'pastoralcare/settype',
                 data: JSON.stringify({"pastoralCareTypeId": pastoralCareTypeId,"Visible":Visible, "Title": Title,"Description": Description})
-             }).done(function(data) {
+             },function(data) {
                 window.CRM.dataPastoralCareTypeTable.ajax.reload();
              });
             }
@@ -185,7 +185,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pastoralcare/createtype',
             data: JSON.stringify({"Visible":Visible, "Title": Title,"Description": Description})
-         }).done(function(data) {
+         },function(data) {
             window.CRM.dataPastoralCareTypeTable.ajax.reload();
          });
         }

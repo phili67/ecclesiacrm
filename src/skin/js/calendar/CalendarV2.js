@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                         "eventAction": 'suppress',
                                                         "eventID": event.extendedProps.eventID
                                                     })
-                                                }).done(function (data) {
+                                                },function (data) {
                                                     if (data.status == "failed") {
                                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                     }
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                                 "dateStart": dateStart,
                                                                 "reccurenceID": reccurenceID
                                                             })
-                                                        }).done(function (data) {
+                                                        },function (data) {
                                                             if (data.status == "failed") {
                                                                 window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                             }
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                                                 "eventAction": 'suppress',
                                                                 "eventID": event.extendedProps.eventID
                                                             })
-                                                        }).done(function (data) {
+                                                        },function (data) {
                                                             window.CRM.calendar.refetchEvents();
                                                             window.CRM.calendar.unselect();
                                                         });
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             "eventAction": 'attendeesCheckinEvent',
                                             "eventID": event.extendedProps.eventID
                                         })
-                                    }).done(function (data) {
+                                    },function (data) {
                                         location.href = window.CRM.root + '/v2/calendar/events/Attendees/Edit';
                                     });
                                 }
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             "eventAction": 'attendeesCheckinEvent',
                                             "eventID": event.extendedProps.eventID
                                         })
-                                    }).done(function (data) {
+                                    },function (data) {
                                         location.href = window.CRM.root + '/Checkin.php';
                                     });
 
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 path: 'calendar/getallevents',
                 data: JSON.stringify({"start":real_start,"end":real_end, 'isBirthdayActive': birthday, 'isAnniversaryActive':anniversary})
-            }).done(function(events) {
+            },function(events) {
                 successCallback(events);
             });
         },
@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 method: 'POST',
                                 path: 'events/',
                                 data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
-                            }).done(function(data) {
+                            },function(data) {
                                 if (data.status == "failed") {
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                 }
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     method: 'POST',
                                     path: 'events/',
                                     data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-                                }).done(function(data) {
+                                },function(data) {
                                     if (data.status == "failed") {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                     }
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     method: 'POST',
                                     path: 'events/',
                                     data: JSON.stringify({"eventAction":'resizeEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
-                                }).done(function(data) {
+                                },function(data) {
                                     if (data.status == "failed") {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                     }
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 method: 'POST',
                                 path: 'events/',
                                 data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd})
-                            }).done(function(data) {
+                            },function(data) {
                                 // now we can refresh the calendar
                                 if (data.status == "failed") {
                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         method: 'POST',
                                         path: 'events/',
                                         data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-                                    }).done(function(data) {
+                                    },function(data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                         }
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         method: 'POST',
                                         path: 'events/',
                                         data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
-                                    }).done(function(data) {
+                                    },function(data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                         }
@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     method: 'POST',
                                     path: 'events/',
                                     data: JSON.stringify({"eventAction":'moveEvent',"calendarID":event.extendedProps.calendarID,"eventID":event.extendedProps.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
-                                }).done(function(data) {
+                                },function(data) {
                                     if (data.status == "failed") {
                                         window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                     }
@@ -597,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function () {
             window.CRM.APIRequest({
                 method: 'POST',
                 path: 'calendar/numberofcalendars',
-            }).done(function(data) {
+            },function(data) {
                 if (data.CalendarNumber > 0){
                     // We create the dialog
                     if (window.CRM.editor != null) {

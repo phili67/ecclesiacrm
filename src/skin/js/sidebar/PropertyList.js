@@ -123,7 +123,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'properties/typelists/delete',
             data: JSON.stringify({"typeId": typeId})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
           });
         }
@@ -138,7 +138,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'properties/typelists/edit',
         data: JSON.stringify({"typeId": typeId})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentPropertyList(data.propertyTypes),
          size: "large",
@@ -156,7 +156,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'properties/typelists/set',
                 data: JSON.stringify({"typeId": typeId,"Name": Name,"Description": Description,"Prompt": Prompt})
-             }).done(function(data) {
+             },function(data) {
                 window.CRM.dataPropertyListTable.ajax.reload();
              });
             }
@@ -202,7 +202,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'properties/typelists/create',
             data: JSON.stringify({"Class":theClass, "Name": Name,"Description": Description, "Prompt": Prompt})
-         }).done(function(data) {
+         },function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
          });
         }

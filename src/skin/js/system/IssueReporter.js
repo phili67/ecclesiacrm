@@ -25,30 +25,28 @@ $("#submitIssue").click(function () {
           "width":$(document).width()
       }
     };
-    $.ajax({
+    window.CRM.APIRequest({
       method: "POST",
-      url: window.CRM.root + "/api/issues",
-      data: JSON.stringify(postData),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json"
-    }).done(function (data) {
+      path: "issues",
+      data: JSON.stringify(postData)
+    },function (data) {
       console.log(data);
-      
+
       $("#issueSubmitSucces" ).text(data.number);
       $("#issueSubmitSuccesLink").prop("href", data.url);
       $("#issueSubmitSuccesLinkText" ).text(data.number);
-      
+
       $("#submitDiaglogStart" ).hide();
-      $("#submitDiaglogFinish" ).show();    
+      $("#submitDiaglogFinish" ).show();
     });
   } else {
     var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Error")+"</span>",message : i18next.t("You have to set a Title and a Description for your issue.")});
-                
+
     setTimeout(function() {
         // be careful not to call box.hide() here, which will invoke jQuery's hide method
         box.modal('hide');
     }, 3000);
-  
+
     return false;
   }
 });
@@ -56,16 +54,16 @@ $("#submitIssue").click(function () {
 $("#submitIssueDone").click(function () {
     $("#IssueReportModal").modal('toggle');
     $("#submitDiaglogStart" ).show();
-    $("#submitDiaglogFinish" ).hide();   
-    $("input:text[name=issueTitle]").val(""); 
-    $("textarea[name=issueDescription]").val(""); 
+    $("#submitDiaglogFinish" ).hide();
+    $("input:text[name=issueTitle]").val("");
+    $("textarea[name=issueDescription]").val("");
 });
 
 
 $("#IssueReportModal .close").click(function(){
   $("#submitDiaglogStart" ).show();
   $("#submitDiaglogFinish" ).hide();
-  
-  $("input:text[name=issueTitle]").val(""); 
-  $("textarea[name=issueDescription]").val(""); 
+
+  $("input:text[name=issueTitle]").val("");
+  $("textarea[name=issueDescription]").val("");
 })

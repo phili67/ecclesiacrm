@@ -82,7 +82,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'volunteeropportunity/upaction',
       data: JSON.stringify({"id": id,"place":place})
-    }).done(function(data) {
+    },function(data) {
       window.CRM.VolunteerOpportunityTable.ajax.reload();
     });
   });
@@ -95,7 +95,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'volunteeropportunity/downaction',
       data: JSON.stringify({"id": id,"place":place})
-    }).done(function(data) {
+    },function(data) {
       window.CRM.VolunteerOpportunityTable.ajax.reload();
     });
   });
@@ -149,7 +149,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'volunteeropportunity/delete',
             data: JSON.stringify({"id": id})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.VolunteerOpportunityTable.ajax.reload();
           });
         }
@@ -164,7 +164,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'volunteeropportunity/edit',
         data: JSON.stringify({"id": id})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentVolunteerOpportunity,
          title: i18next.t("Custom Menu Link Editor"),
@@ -189,7 +189,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'volunteeropportunity/set',
                 data: JSON.stringify({"id": id, "Name": Name,"desc": desc,"state":state})
-             }).done(function(data) {
+             },function(data) {
                 window.CRM.VolunteerOpportunityTable.ajax.reload();
              });
             }
@@ -237,7 +237,7 @@ $(document).ready(function () {
                  method: 'POST',
                  path: 'volunteeropportunity/create',
                  data: JSON.stringify({"Name": Name,"desc": desc,"state":state})
-             }).done(function(data) {
+             },function(data) {
                  window.CRM.VolunteerOpportunityTable.ajax.reload();
              });
          }
