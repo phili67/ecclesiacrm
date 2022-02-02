@@ -21,7 +21,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'groups/emptygroup',
                         data: JSON.stringify({"groupID": groupID})
-                    }).done(function (data) {
+                    },function (data) {
                         window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
                     });
                 }

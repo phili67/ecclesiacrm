@@ -6,7 +6,7 @@ function addRolesToMainDropdown()
       window.CRM.APIRequest({
             method: 'POST',
             path: 'userrole/getall',
-      }).done(function(data) {
+      },function(data) {
         var len = data.length;
 
         for (i=0; i<len; ++i) {
@@ -25,7 +25,7 @@ function addRolesToMainDropdown()
       window.CRM.APIRequest({
             method: 'POST',
             path: 'userrole/getall',
-      }).done(function(data) {
+      },function(data) {
         var elt = document.getElementById("select-userrole");
         var len = data.length;
 
@@ -111,7 +111,7 @@ function addRolesToMainDropdown()
              method: 'POST',
              path: 'userrole/get',
              data: JSON.stringify({"roleID": roleID})
-          }).done(function(data) {
+          },function(data) {
              $('#RoleName').val(data.name);
           });
         });
@@ -138,7 +138,7 @@ function addRolesToMainDropdown()
                          method: 'POST',
                          path: 'userrole/delete',
                          data: JSON.stringify({"roleID": roleID})
-                      }).done(function(data) {
+                      },function(data) {
                         addRoles();
                       });
                     }
@@ -157,7 +157,7 @@ function addRolesToMainDropdown()
                      method: 'POST',
                      path: 'userrole/rename',
                      data: JSON.stringify({"roleID": roleID,"name":name})
-                  }).done(function(data) {
+                  },function(data) {
                     addRoles();
                   });
                   return false;
@@ -185,7 +185,7 @@ function addRolesToMainDropdown()
              method: 'POST',
              path: 'userrole/get',
              data: JSON.stringify({"roleID": roleID})
-          }).done(function(data) {
+          },function(data) {
              var array = data.global.split(";");
 
              array.forEach(function(element) {
@@ -285,7 +285,7 @@ function addRolesToMainDropdown()
                   method: 'POST',
                   path: 'userrole/add',
                   data: JSON.stringify({"name": result,"global" : global_res, "userPerms":user_perm,"userValues":user_value})
-                }).done(function(data) {
+                },function(data) {
                     if (data && data.status=="success") {
                       addRolesToMainDropdown();
                     } else if (data && data.status=="error") {

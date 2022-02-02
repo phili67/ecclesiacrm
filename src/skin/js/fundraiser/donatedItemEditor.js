@@ -18,7 +18,7 @@ $(document).ready(function () {
             method: "POST",
             path: "fundraiser/donateditem/currentpicture",
             data: JSON.stringify({"DonatedItemID": window.CRM.currentDonatedItemID})
-        }).done(function (data) {
+        },function (data) {
             if (data.status == "success" && window.CRM.currentPicture != data.picture) {
                 $("#image").attr("src",data.picture);
                 $("#PictureURL").val(data.picture);
@@ -40,7 +40,7 @@ $(document).ready(function () {
             method: "POST",
             path: "fundraiser/replicate",
             data: JSON.stringify({"DonatedItemID": donatedItem, "count": count})
-        }).done(function (data) {
+        },function (data) {
             if (data.status == "success") {
                 window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + window.CRM.currentFundraiser;
             }
@@ -74,7 +74,7 @@ $(document).ready(function () {
                 "SellPrice": SellPrice, "Description": Description,
                 "PictureURL": PictureURL
             })
-        }).done(function (data) {
+        },function (data) {
             if (data.status == "success") {
                 window.location.href = window.CRM.root + "/FundRaiserEditor.php?FundRaiserID=" + window.CRM.currentFundraiser;
             }
@@ -107,7 +107,7 @@ $(document).ready(function () {
                 "SellPrice": SellPrice, "Description": Description,
                 "PictureURL": PictureURL
             })
-        }).done(function (data) {
+        },function (data) {
             if (data.status == "success") {
                 window.location.href = window.CRM.root + "/v2/fundraiser/donatedItemEditor/0/" + window.CRM.currentFundraiser;
             }

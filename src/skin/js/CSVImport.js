@@ -23,7 +23,7 @@ $("document").ready(function(){
                   window.CRM.APIRequest({
                       method: 'DELETE',
                       path: 'database/people/clear',
-                  }).done(function (data) {
+                  },function (data) {
                       window.CRM.DisplayAlert(i18next.t("Data Cleared Successfully!"), i18next.t("success"));
                       $('.import-users').hide();
                       $('#import-success').html('<br><br>&nbsp;&nbsp;&nbsp;'+i18next.t("Data Cleared Successfully!"));

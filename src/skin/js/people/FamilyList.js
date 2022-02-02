@@ -3,12 +3,12 @@
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //  Updated     : 2018/07/23
 //
-  
-  
+
+
 $(document).ready(function () {
   $('.remove-property-btn').click(function(e) {
     var familyId = $(this).data('family_id');
-    
+
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove this family from the CRM") + "?",
       buttons: {
@@ -29,15 +29,15 @@ $(document).ready(function () {
             method: 'POST',
             path: 'gdrp/removefamily',
             data: JSON.stringify({"familyId":familyId})
-          }).done(function(data) {
+          },function(data) {
             location.reload();
-          }); 
+          });
         }
       }
     });
   });
-  
-  $('#remove-all').click(function(e) {      
+
+  $('#remove-all').click(function(e) {
     bootbox.confirm({
       message: i18next.t("Are you sure you want to remove all families from the CRM") + "?",
       buttons: {
@@ -57,15 +57,15 @@ $(document).ready(function () {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'gdrp/removeallfamilies'
-          }).done(function(data) {
+          },function(data) {
             if (data.status == "failed") {
-              bootbox.alert(i18next.t("Not all the families were DELETED : Some of them have records of donations and may NOT be deleted until these donations are associated with another family."), function(){ 
+              bootbox.alert(i18next.t("Not all the families were DELETED : Some of them have records of donations and may NOT be deleted until these donations are associated with another family."), function(){
                  location.reload();
-              }); 
+              });
             } else {
               location.reload();
             }
-          }); 
+          });
         }
       }
     });

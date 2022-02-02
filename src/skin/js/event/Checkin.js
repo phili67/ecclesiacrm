@@ -14,7 +14,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'calendar/numberofcalendars',
-        }).done(function(data) {
+        },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
                     CKEDITOR.remove(window.CRM.editor);
@@ -61,7 +61,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/addFreeAttendees',
             data: JSON.stringify({"eventID": window.CRM.EventID, "fieldText": fieldText, "counts": counts})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.DisplayAlert(i18next.t("Free Event Attendees"), i18next.t("Successfully Added!"));
         });
     })
@@ -87,7 +87,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/checkin',
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
-        }).done(function (data) {
+        },function (data) {
             if (data.status) {
                 window.CRM.dataT.ajax.reload(null, false);
             }
@@ -103,7 +103,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/checkout',
             data: JSON.stringify({"checked": checked, "personID": personID, "eventID": eventID})
-        }).done(function (data) {
+        },function (data) {
             if (data.status) {
                 window.CRM.dataT.ajax.reload(null, false);
             }
@@ -117,7 +117,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/uncheckAll',
             data: JSON.stringify({"eventID": eventID, "type": 1})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload(null, false);
         });
     });
@@ -129,7 +129,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/checkAll',
             data: JSON.stringify({"eventID": eventID, "type": 1})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload(null, false);
         });
     });
@@ -141,7 +141,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/uncheckAll',
             data: JSON.stringify({"eventID": eventID, "type": 2})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload();
         });
     });
@@ -153,7 +153,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/checkAll',
             data: JSON.stringify({"eventID": eventID, "type": 2})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload();
         });
     });
@@ -165,7 +165,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/checkAll',
             data: JSON.stringify({"eventID": eventID, "type": 2})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload();
         });
     });
@@ -179,7 +179,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/addPerson',
             data: JSON.stringify({"eventID": window.CRM.EventID, "iChildID": childid, "iAdultID": adultid})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload();
             SetPersonHtml($('#childDetails'), null);
             SetPersonHtml($('#adultDetails'), null);
@@ -196,7 +196,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/deletePerson',
             data: JSON.stringify({"eventID": eventId, "personID": personId})
-        }).done(function (data) {
+        },function (data) {
             window.CRM.dataT.ajax.reload();
         });
     });
@@ -209,7 +209,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/validate',
             data: JSON.stringify({"eventID": eventId, "noteText": noteText})
-        }).done(function (data) {
+        },function (data) {
             window.location = window.CRM.root + '/v2/calendar';
         });
     });
@@ -519,7 +519,7 @@ $(document).ready(function () {
                                     method: 'POST',
                                     path: 'attendees/qrcodeCall',
                                     data: JSON.stringify({"groupID": res[0], "personID": res[1]})
-                                }).done(function (data) {
+                                },function (data) {
                                     if (data.status == 'failed') {
                                         alert(i18next.t('Failed') + " : " + i18next.t("No event right now.") + "\n\n" + "• "
                                             + i18next.t("Move one in the right range.")

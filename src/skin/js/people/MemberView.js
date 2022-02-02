@@ -70,7 +70,7 @@ $('.saveNoteAsWordFile').click(function (event) {
                   method: 'POST',
                   path: 'persons/saveNoteAsWordFile',
                   data: JSON.stringify({"personId":window.CRM.iPersonId,"noteId":noteId})
-                }).done(function(data) {
+                },function(data) {
                   // reload toolbar
                   if (window.CRM.dataEDriveTable != undefined) {
                      window.CRM.reloadEDriveTable();

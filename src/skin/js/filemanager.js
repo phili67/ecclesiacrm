@@ -144,7 +144,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'filemanager/getRealLink',
                 data: JSON.stringify({"personID": window.CRM.currentPersonID, "pathFile": value.path})
-            }).done(function (data) {
+            },function (data) {
                 if (data && data.success) {
                     var fileUrl = data.address;
                     if (window.CRM.donatedItemID) {
@@ -152,7 +152,7 @@ $(document).ready(function () {
                             method: 'POST',
                             path: 'fundraiser/donatedItem/submit/picture',
                             data: JSON.stringify({"DonatedItemID": window.CRM.donatedItemID, "pathFile": fileUrl})
-                        }).done(function (data) {
+                        },function (data) {
                             window.close();
                         });
                     } else {
@@ -208,7 +208,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'filemanager/getPreview',
                     data: JSON.stringify({"personID": window.CRM.currentPersonID, "name": id})
-                }).done(function (data) {
+                },function (data) {
                     if (data && data.success) {
                         $('.filmanager-left').removeClass("col-md-12").addClass("col-md-9");
                         $('.filmanager-right').show();
@@ -252,7 +252,7 @@ $(document).ready(function () {
                                 "newName": result,
                                 "type": type
                             })
-                        }).done(function (data) {
+                        },function (data) {
                             if (data && data.success) {
                                 window.CRM.reloadEDriveTable();
                             }
@@ -312,7 +312,7 @@ $(document).ready(function () {
                         "newName": newName,
                         "type": type
                     })
-                }).done(function (data) {
+                },function (data) {
                     if (data && data.success) {
                         window.CRM.reloadEDriveTable();
                     }
@@ -368,7 +368,7 @@ $(document).ready(function () {
                             method: 'POST',
                             path: 'filemanager/deleteFiles',
                             data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": selected})
-                        }).done(function (data) {
+                        },function (data) {
                             if (data && data.success) {
                                 if (data.error.length) {
                                     alert(data.error[0]);
@@ -414,7 +414,7 @@ $(document).ready(function () {
                                 method: 'POST',
                                 path: 'filemanager/deleteFiles',
                                 data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": selected})
-                            }).done(function (data) {
+                            },function (data) {
                                 if (data && data.success) {
                                     window.CRM.reloadEDriveTable(function () {
                                         selected.length = 0;
@@ -451,7 +451,7 @@ $(document).ready(function () {
                                 method: 'POST',
                                 path: 'filemanager/deleteFiles',
                                 data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": [name]})
-                            }).done(function (data) {
+                            },function (data) {
                                 if (data && data.success) {
                                     window.CRM.reloadEDriveTable(function () {
                                         selected.length = 0;
@@ -481,7 +481,7 @@ $(document).ready(function () {
                                 method: 'POST',
                                 path: 'filemanager/deleteFiles',
                                 data: JSON.stringify({"personID": window.CRM.currentPersonID, "files": [name]})
-                            }).done(function (data) {
+                            },function (data) {
                                 if (data && data.success) {
                                     window.CRM.reloadEDriveTable(function () {
                                         selected.length = 0;
@@ -514,7 +514,7 @@ $(document).ready(function () {
                         "folder": folderName,
                         "files": selected
                     })
-                }).done(function (data) {
+                },function (data) {
                     if (data && !data.success) {
                         window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                     }
@@ -532,7 +532,7 @@ $(document).ready(function () {
                         "folder": folderName,
                         "files": [name]
                     })
-                }).done(function (data) {
+                },function (data) {
                     if (data && !data.success) {
                         window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                     }
@@ -572,7 +572,7 @@ $(document).ready(function () {
                             "folder": folderName,
                             "files": selected
                         })
-                    }).done(function (data) {
+                    },function (data) {
                         if (data && !data.success) {
                             window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                         }
@@ -590,7 +590,7 @@ $(document).ready(function () {
                             "folder": folderName,
                             "files": [name]
                         })
-                    }).done(function (data) {
+                    },function (data) {
                         if (data && !data.success) {
                             window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                         }
@@ -609,7 +609,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'filemanager/changeFolder',
             data: JSON.stringify({"personID": personID, "folder": folder})
-        }).done(function (data) {
+        },function (data) {
             if (data && data.success) {
                 window.CRM.reloadEDriveTable(function () {
                     $(".folder-back-drop").show();
@@ -658,7 +658,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'filemanager/newFolder',
                     data: JSON.stringify({"personID": personID, "folder": result})
-                }).done(function (data) {
+                },function (data) {
                     if (data && !data.success) {
                         window.CRM.DisplayAlert(i18next.t("Error"), data.message);
                     }
@@ -678,7 +678,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'filemanager/folderBack',
             data: JSON.stringify({"personID": personID})
-        }).done(function (data) {
+        },function (data) {
             if (data && data.success) {
                 window.CRM.reloadEDriveTable(function () {
                     if (data.isHomeFolder) {
@@ -812,7 +812,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'sharedocument/getallperson',
             data: JSON.stringify({"noteId": noteId})
-        }).done(function (data) {
+        },function (data) {
             var elt = document.getElementById("select-share-persons");
             var len = data.length;
 
@@ -864,7 +864,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'sharedocument/setrights',
                         data: JSON.stringify({"noteId": noteId, "personID": personID, "rightAccess": rightAccess})
-                    }).done(function (data) {
+                    },function (data) {
                         if (rightAccess == 1) {
                             res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
                         } else {
@@ -908,7 +908,7 @@ $(document).ready(function () {
                         "personID": e.params.data.personID,
                         "notification": notification
                     })
-                }).done(function (data) {
+                },function (data) {
                     addPersonsFromNotes(noteId);
                     $(state).css('color', 'green');
                     $(button).data('shared', 1);
@@ -923,7 +923,7 @@ $(document).ready(function () {
                         "groupID": e.params.data.groupID,
                         "notification": notification
                     })
-                }).done(function (data) {
+                },function (data) {
                     addPersonsFromNotes(noteId);
                     $(state).css('color', 'green');
                     $(button).data('shared', 1);
@@ -938,7 +938,7 @@ $(document).ready(function () {
                         "familyID": e.params.data.familyID,
                         "notification": notification
                     })
-                }).done(function (data) {
+                },function (data) {
                     addPersonsFromNotes(noteId);
                     $(state).css('color', 'green');
                     $(button).data('shared', 1);
@@ -976,7 +976,7 @@ $(document).ready(function () {
                                         method: 'POST',
                                         path: 'sharedocument/deleteperson',
                                         data: JSON.stringify({"noteId": noteId, "personID": personID})
-                                    }).done(function (data) {
+                                    },function (data) {
                                         $("#select-share-persons option[value='" + personID + "']").remove();
 
                                         if (data.count == 0) {
@@ -1002,7 +1002,7 @@ $(document).ready(function () {
                                     method: 'POST',
                                     path: 'sharedocument/cleardocument',
                                     data: JSON.stringify({"noteId": noteId})
-                                }).done(function (data) {
+                                },function (data) {
                                     addPersonsFromNotes(noteId);
                                     $(state).css('color', '#777');
                                     $(button).data('shared', 0);

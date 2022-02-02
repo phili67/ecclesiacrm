@@ -22,7 +22,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/deleteAll',
             data: JSON.stringify({"eventID":eventID})
-            }).done(function(data) {
+            },function(data) {
               window.location = window.location.href;
             });
         }
@@ -53,7 +53,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'attendees/delete',
             data: JSON.stringify({"eventID":eventID,"personID":personID})
-            }).done(function(data) {
+            },function(data) {
               window.location = window.location.href;
             });
         }
@@ -92,7 +92,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'events/person',
             data: JSON.stringify({"EventID":window.CRM.currentEvent,"PersonId":e.params.data.personID})
-          }).done(function(data) {
+          },function(data) {
             $(".personSearch").val(null).trigger('change');
             //window.CRM.DataTableEventView.ajax.reload();
             window.location = window.location.href;
@@ -102,7 +102,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'events/group',
             data: JSON.stringify({"EventID":window.CRM.currentEvent,"GroupID":e.params.data.groupID})
-          }).done(function(data) {
+          },function(data) {
             $(".personSearch").val(null).trigger('change');
             //window.CRM.DataTableEventView.ajax.reload();
             window.location = window.location.href;
@@ -112,7 +112,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'events/family',
             data: JSON.stringify({"EventID":window.CRM.currentEvent,"FamilyID":e.params.data.familyID})
-          }).done(function(data) {
+          },function(data) {
             $(".personSearch").val(null).trigger('change');
             //window.CRM.DataTableEventView.ajax.reload();
             window.location = window.location.href;

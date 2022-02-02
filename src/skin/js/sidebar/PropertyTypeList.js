@@ -114,7 +114,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'properties/propertytypelists/delete',
             data: JSON.stringify({"typeId": typeId})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
           });
         }
@@ -129,7 +129,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'properties/propertytypelists/edit',
         data: JSON.stringify({"typeId": typeId})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentPropertyTypeList(data.prtType.PrtClass),
          title: i18next.t("Property Type Editor"),
@@ -146,7 +146,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'properties/propertytypelists/set',
                 data: JSON.stringify({"typeId": typeId,"Name": Name,"Description": Description})
-             }).done(function(data) {
+             },function(data) {
                 window.CRM.dataPropertyListTable.ajax.reload();
              });
             }
@@ -190,7 +190,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'properties/propertytypelists/create',
             data: JSON.stringify({"Class":theClass, "Name": Name,"Description": Description})
-         }).done(function(data) {
+         },function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
          });
         }

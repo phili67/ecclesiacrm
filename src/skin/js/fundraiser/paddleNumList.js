@@ -21,7 +21,7 @@ $(document).ready(function () {
                         method: "DELETE",
                         path: "fundraiser/paddlenum",
                         data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "pnID": pnID})
-                    }).done(function (data) {
+                    },function (data) {
                         if (data.status == "success") {
                             window.CRM.paddleNumListTable.ajax.reload();
                         }
@@ -40,7 +40,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'GET',
             path: 'fundraiser/paddlenum/persons/all/' + window.CRM.fundraiserID,
-        }).done(function (data) {
+        },function (data) {
             var elt = document.getElementById("Buyers");
             var persons = data.persons;
             var len = persons.length;
@@ -125,7 +125,7 @@ $(document).ready(function () {
                         path: 'fundraiser/paddlenum/add',
                         data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
                             "PaddleNumID": iPaddleNumID})
-                    }).done(function (data) {
+                    },function (data) {
                         window.CRM.paddleNumListTable.ajax.reload();
                     });
                 }
@@ -148,7 +148,7 @@ $(document).ready(function () {
                             path: 'fundraiser/paddlenum/add',
                             data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID,
                                 "PaddleNumID": -1})
-                        }).done(function (data) {
+                        },function (data) {
                             $("#Number").val(++Num);
                             window.CRM.paddleNumListTable.ajax.reload();
                         });
@@ -170,7 +170,7 @@ $(document).ready(function () {
                         method: 'POST',
                         path: 'fundraiser/paddlenum/info',
                         data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID, "Num": Num, "PerID": PerID})
-                    }).done(function (data) {
+                    },function (data) {
                         location.href = window.CRM.root + "/Reports/FundRaiserStatement.php?PaddleNumID="+data.iPaddleNumID;
                     });
 
@@ -223,7 +223,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'fundraiser/paddlenum/add/donnors',
             data: JSON.stringify({"fundraiserID": window.CRM.fundraiserID})
-        }).done(function(data) {
+        },function(data) {
             if (data.status == "success") {
                 window.CRM.paddleNumListTable.ajax.reload();
             }

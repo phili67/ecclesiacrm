@@ -82,7 +82,7 @@ function add_ckeditor_buttons(editor) {
                     method: 'POST',
                     path: 'ckeditor/savetemplate',
                     data: JSON.stringify({"personID": window.CRM.iPersonId, "title": title, "desc": desc, "text": text})
-                }).done(function (data) {
+                },function (data) {
                     // reload toolbar
                 });
             }
@@ -124,7 +124,7 @@ function add_ckeditor_buttons(editor) {
                     method: 'POST',
                     path: 'ckeditor/saveAsWordFile',
                     data: JSON.stringify({"personID": window.CRM.iPersonId, "title": title, "text": text})
-                }).done(function (data) {
+                },function (data) {
                     alert(i18next.t('Your note is saved in your EDrive'));
                 });
             }
@@ -143,7 +143,7 @@ function add_ckeditor_buttons(editor) {
                 method: 'POST',
                 path: 'ckeditor/alltemplates',
                 data: JSON.stringify({"personID": window.CRM.iPersonId})
-            }).done(function (b) {
+            },function (b) {
                 if (b.length) {
                     var c = g;
                     c.setHtml("");
@@ -277,7 +277,7 @@ function add_ckeditor_buttons(editor) {
                                 method: 'POST',
                                 path: 'ckeditor/renametemplate',
                                 data: JSON.stringify({"templateID": currentTemplateID, "title": title, "desc": desc})
-                            }).done(function (data) {
+                            },function (data) {
                                 addTemplates(CKEDITOR.dialog.getCurrent());
                             });
                         }
@@ -297,7 +297,7 @@ function add_ckeditor_buttons(editor) {
                                 method: 'POST',
                                 path: 'ckeditor/deletetemplate',
                                 data: JSON.stringify({"templateID": currentTemplateID})
-                            }).done(function (data) {
+                            },function (data) {
                                 addTemplates(CKEDITOR.dialog.getCurrent());
                             });
                         }
@@ -413,7 +413,7 @@ function add_ckeditor_buttons(editor) {
                     method: 'POST',
                     path: 'ckeditor/alltemplates',
                     data: JSON.stringify({"personID": window.CRM.iPersonId})
-                }).done(function (b) {
+                },function (b) {
                     if (b.length) {
                         var c = g;
                         c.setHtml("");

@@ -23,7 +23,7 @@ $(document).ready(function () {
                             method: 'DELETE',
                             path: 'payments/byGroupKey', // the url where we want to POST
                             data: JSON.stringify({"Groupkey": value.Groupkey})
-                        }).done(function (data) {
+                        },function (data) {
                             dataT.rows('.selected').remove().draw(false);
                             window.CRM.deletesRemaining--;
                             if (window.CRM.deletesRemaining == 0) {
@@ -60,7 +60,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'payments/invalidate',
             data: JSON.stringify({"data": newData})
-        }).done(function (data) {
+        },function (data) {
             dataT.ajax.reload();
         });
     });
@@ -78,7 +78,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'payments/validate',
             data: JSON.stringify({"data": newData})
-        }).done(function (data) {
+        },function (data) {
             dataT.ajax.reload();
         });
     });
@@ -91,7 +91,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pledges/detail',
             data: JSON.stringify({"groupKey": gk})
-        }).done(function (data) {
+        },function (data) {
             var len = data.Pledges.length;
             var fmt = window.CRM.datePickerformat.toUpperCase();
             var date = moment(data.Date).format(fmt);
@@ -148,7 +148,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'payments/getchartsarrays',
             data: JSON.stringify({"depositSlipID": depositSlipID})
-        }).done(function (data) {
+        },function (data) {
             fundData = data.fundData;
             pledgeData = data.pledgeData;
             pledgeDataType = data.pledgeTypeData;

@@ -149,7 +149,7 @@ $("document").ready(function() {
         window.CRM.APIRequest({
             method: 'GET',
             path: 'events/types',
-        }).done(function(eventTypes) {
+        },function(eventTypes) {
             var elt = document.getElementById("chosenType");
             var len = eventTypes.length;
 
@@ -203,7 +203,7 @@ $("document").ready(function() {
                             method: 'POST',
                             path: 'attendees/groups',
                             data: JSON.stringify({"dateTime":real_dateTime,"eventTypeID": eventTypeID, "rangeInHours": 2})
-                        }).done(function(data) {
+                        },function(data) {
                             location.href = window.CRM.root + "/Checkin.php";
                         });
                     }

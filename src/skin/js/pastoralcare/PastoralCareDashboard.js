@@ -331,7 +331,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pastoralcare/createRandomly',
             data: JSON.stringify({"typeID":typeID})
-        }).done(function(data) {
+        },function(data) {
             if (data.status == "success") {
                 switch (typeID) {
                     case 1:case 3:case 4:case 5:// person, old person or Young or single

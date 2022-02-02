@@ -19,7 +19,7 @@
 //      window.CRM.APIRequest({
 //          method: 'POST',
 //          path: 'mapicons/getall',
-//      }).done(function(data) {
+//      },function(data) {
 //        var len = data.length;
 //
 //        $('#here_table').append('<table width=100%></table>');

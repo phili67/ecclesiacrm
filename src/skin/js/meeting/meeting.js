@@ -20,7 +20,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'meeting/createMeetingRoom',
                     data: JSON.stringify({"roomName": name})
-                }).done(function (data) {
+                },function (data) {
                     location.reload();
                 });
             }
@@ -34,7 +34,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'meeting/selectMeetingRoom',
             data: JSON.stringify({"roomId": id})
-        }).done(function (data) {
+        },function (data) {
             location.reload();
         });
     });
@@ -56,7 +56,7 @@ $(document).ready(function () {
                     window.CRM.APIRequest({
                         method: 'DELETE',
                         path: 'meeting/deleteAllMeetingRooms'
-                    }).done(function (data) {
+                    },function (data) {
                         location.reload();
                     });
                 }

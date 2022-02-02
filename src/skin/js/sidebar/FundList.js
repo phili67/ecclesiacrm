@@ -102,7 +102,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'donationfunds/delete',
             data: JSON.stringify({"fundId": fundId})
-          }).done(function(data) {
+          },function(data) {
             window.CRM.dataFundTable.ajax.reload();
           });
         }
@@ -117,7 +117,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'donationfunds/edit',
         data: JSON.stringify({"fundId": fundId})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentFundList,
          title: i18next.t("Fund Editor"),
@@ -135,7 +135,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'donationfunds/set',
                 data: JSON.stringify({"fundId": fundId,"Activ":Activ, "Name": Name,"Description": Description})
-             }).done(function(data) {
+             },function(data) {
                 window.CRM.dataFundTable.ajax.reload();
              });
             }
@@ -180,7 +180,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'donationfunds/create',
             data: JSON.stringify({"Activ":Activ, "Name": Name,"Description": Description})
-         }).done(function(data) {
+         },function(data) {
             window.CRM.dataFundTable.ajax.reload();
          });
         }

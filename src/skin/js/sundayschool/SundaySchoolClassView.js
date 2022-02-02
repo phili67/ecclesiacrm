@@ -18,7 +18,7 @@ $("document").ready(function () {
                         window.CRM.APIRequest({
                             method: "DELETE",
                             path: "groups/" + sundayGroupId,
-                        }).done(function (data) {
+                        },function (data) {
                             if (data.status == "success")
                                 window.location.href = window.CRM.root + "/v2/sundayschool/dashboard";
                         });
@@ -41,7 +41,7 @@ $("document").ready(function () {
         window.CRM.APIRequest({
             method: "GET",
             path: "groups/" + sundayGroupId + "/sundayschool"
-        }).done(function (data) {
+        },function (data) {
             var len_teachers = data.teachers.length;
             var res = '<div class="row">';
 
@@ -134,14 +134,14 @@ $("document").ready(function () {
         window.CRM.APIRequest({
             method: "POST",
             path: "sundayschool/getAllGendersForDonut/" + sundayGroupId
-        }).done(function (donutData) {
+        },function (donutData) {
             drawDonut(donutData);
         });
 
         window.CRM.APIRequest({
             method: "POST",
             path: "sundayschool/getAllStudentsForChart/" + sundayGroupId
-        }).done(function (birthDayMonthChart) {
+        },function (birthDayMonthChart) {
             draw_Chart(birthDayMonthChart);
         });
     }
@@ -167,7 +167,7 @@ $("document").ready(function () {
         window.CRM.APIRequest({
             method: "GET",
             path: "cart/"
-        }).done(function (data) {
+        },function (data) {
             if (data.PeopleCart.length > 0) {
                 location.href = window.CRM.root + '/v2/group/' + sundayGroupId + '/badge/1/sundayschool';
             } else {
@@ -208,7 +208,7 @@ $("document").ready(function () {
             method: "POST",
             path: 'groups/' + sundayGroupId + '/addperson/' + e.params.data.objid,
             data: JSON.stringify({"RoleID": 2})// only a student
-        }).done(function (data) {
+        },function (data) {
             dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
             updateGraphs();
         });
@@ -245,7 +245,7 @@ $("document").ready(function () {
             method: "POST",
             path: 'groups/' + sundayGroupId + '/addteacher/' + e.params.data.objid,
             data: JSON.stringify({"RoleID": 1})// only a teacher
-        }).done(function (data) {
+        },function (data) {
             load_SundaySchool(); // we reload the profiles
         });
     });
@@ -274,7 +274,7 @@ $("document").ready(function () {
                     window.CRM.APIRequest({
                         method: "DELETE",
                         path: 'groups/' + sundayGroupId + '/removeperson/' + personId,
-                    }).done(function (data) {
+                    },function (data) {
                         load_SundaySchool(); // we reload the profiles
                     });
                 }
@@ -306,7 +306,7 @@ $("document").ready(function () {
                     window.CRM.APIRequest({
                         method: "DELETE",
                         path: 'groups/' + sundayGroupId + '/removeperson/' + thisLink.data('person_id'),
-                    }).done(function (data) {
+                    },function (data) {
                         dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
                         updateGraphs();
                     });
@@ -934,7 +934,7 @@ $("document").ready(function () {
                     personPresent = true;
                     $(personButton).addClass("RemoveOneStudentFromCart");
                     $(personButton).removeClass("AddOneStudentToCart");
-                    fa = $(personButton).find("i.fa.fa-inverse");
+                    fa = $(personButton).find("i.fas.fa-inverse");
                     $(fa).addClass("fa-times");
                     $(fa).removeClass("fa-cart-plus");
                     text = $(personButton).find("span.cartActionDescription")
@@ -944,7 +944,7 @@ $("document").ready(function () {
                 } else {
                     $(personButton).addClass("AddOneStudentToCart");
                     $(personButton).removeClass("RemoveOneStudentFromCart");
-                    fa = $(personButton).find("i.fa.fa-inverse");
+                    fa = $(personButton).find("i.fas.fa-inverse");
 
                     $(fa).removeClass("fa-times");
                     $(fa).addClass("fa-cart-plus");
@@ -995,7 +995,7 @@ $("document").ready(function () {
         window.CRM.APIRequest({
             method: 'GET',
             path: 'events/types',
-        }).done(function (typeNames) {
+        },function (typeNames) {
             var lenType = typeNames.length;
             var options = new Array();
 
@@ -1030,7 +1030,7 @@ $("document").ready(function () {
                                     "groupID": groupID,
                                     "rangeInHours": 2
                                 })
-                            }).done(function (data) {
+                            },function (data) {
                                 location.href = window.CRM.root + '/Checkin.php';
                             });
                         }

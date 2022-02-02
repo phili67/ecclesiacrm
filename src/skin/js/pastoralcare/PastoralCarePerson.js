@@ -34,7 +34,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'pastoralcare/person/getinfo',
         data: JSON.stringify({"ID":ID})
-    }).done(function(data) {
+    },function(data) {
         var id       = data.id;
         var typeid   = data.typeid;
         var typeDesc = data.typedesc;
@@ -106,7 +106,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'pastoralcare/person/delete',
                 data: JSON.stringify({"ID":ID})
-            }).done(function(data) {
+            },function(data) {
                location.reload();
                return true;
             });
@@ -232,7 +232,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'pastoralcare/person/add',
                   data: JSON.stringify({"typeID":typeID,"personID":currentPersonID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText})
-              }).done(function(data) {
+              },function(data) {
                  location.reload();
                  return true;
               });
@@ -241,7 +241,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'pastoralcare/person/modify',
                   data: JSON.stringify({"ID":id,"typeID":typeID,"personID":currentPersonID,"currentPastorId":currentPastorId,"typeDesc":typeDesc,"visibilityStatus":visibilityStatus,"noteText":NoteText})
-              }).done(function(data) {
+              },function(data) {
                  location.reload();
                  return true;
               })

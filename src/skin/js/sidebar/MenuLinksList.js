@@ -74,7 +74,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'menulinks/upaction',
       data: JSON.stringify({"PersonID":window.CRM.personId,"MenuLinkId": MenuLinkId,"MenuPlace":MenuPlace})
-    }).done(function(data) {
+    },function(data) {
       reconstructMenuLinks();
     });
   });
@@ -87,7 +87,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'menulinks/downaction',
       data: JSON.stringify({"PersonID":window.CRM.personId,"MenuLinkId": MenuLinkId,"MenuPlace":MenuPlace})
-    }).done(function(data) {
+    },function(data) {
       reconstructMenuLinks();
     });
   });
@@ -135,7 +135,7 @@ $(document).ready(function () {
       window.CRM.APIRequest({
         method: 'POST',
         path: 'menulinks/' + window.CRM.personId
-      }).done(function(data) {
+      },function(data) {
         var len = data.MenuLinks.length;
 
         if (len == 0) {
@@ -165,7 +165,7 @@ $(document).ready(function () {
       window.CRM.APIRequest({
         method: 'POST',
         path: 'menulinks/' + window.CRM.personId
-      }).done(function(data) {
+      },function(data) {
         var len = data.MenuLinks.length;
 
         for (i=0;i<len;i++) {
@@ -189,7 +189,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'menulinks/delete',
             data: JSON.stringify({"MenuLinkId": MenuLinkId})
-          }).done(function(data) {
+          },function(data) {
             reconstructMenuLinks();
           });
         }
@@ -204,7 +204,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'menulinks/edit',
         data: JSON.stringify({"MenuLinkId": MenuLinkId})
-      }).done(function(data) {
+      },function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentMenuLinkList,
          title: i18next.t("Custom Menu Link Editor"),
@@ -220,7 +220,7 @@ $(document).ready(function () {
                 method: 'POST',
                 path: 'menulinks/set',
                 data: JSON.stringify({"MenuLinkId": MenuLinkId, "Name": Name,"URI": URI})
-             }).done(function(data) {
+             },function(data) {
                 reconstructMenuLinks();
              });
             }
@@ -262,7 +262,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'menulinks/create',
             data: JSON.stringify({"PersonID":window.CRM.personId, "Name": Name,"URI": URI})
-         }).done(function(data) {
+         },function(data) {
             reconstructMenuLinks();
          });
         }

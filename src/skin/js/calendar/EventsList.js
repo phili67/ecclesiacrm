@@ -238,7 +238,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'events/info',
             data: JSON.stringify({"eventID":eventID})
-        }).done(function(calEvent) {
+        },function(calEvent) {
             if (window.CRM.editor != null) {
                 CKEDITOR.remove(window.CRM.editor);
                 window.CRM.editor = null;
@@ -355,7 +355,7 @@ $(document).ready(function () {
                                             "eventAction": 'suppress',
                                             "eventID": eventID
                                         })
-                                    }).done(function (data) {
+                                    },function (data) {
                                         if (data.status == "failed") {
                                             window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                         }
@@ -388,7 +388,7 @@ $(document).ready(function () {
                                                     "dateStart": dateStart,
                                                     "reccurenceID": reccurenceID
                                                 })
-                                            }).done(function (data) {
+                                            },function (data) {
                                                 if (data.status == "failed") {
                                                     window.CRM.DisplayNormalAlert(i18next.t("Error"), data.message);
                                                 }
@@ -408,7 +408,7 @@ $(document).ready(function () {
                                                     "eventAction": 'suppress',
                                                     "eventID": eventID
                                                 })
-                                            }).done(function (data) {
+                                            },function (data) {
                                                 window.CRM.reloadListEventPage();
                                             });
                                         }
@@ -445,7 +445,7 @@ $(document).ready(function () {
             data: JSON.stringify({
                 "eventID": eventID
             })
-        }).done(function (data) {
+        },function (data) {
             var box = bootbox.dialog({
                 title: i18next.t("Text for Event ID") + "   (" + data.eventID  + ") : " + data.Title,
                 message: BootboxInfo(data.Text),
@@ -470,7 +470,7 @@ $(document).ready(function () {
         window.CRM.APIRequest({
             method: 'POST',
             path: 'calendar/numberofcalendars',
-        }).done(function(data) {
+        },function(data) {
             if (data.CalendarNumber > 0) {
                 if (window.CRM.editor != null) {
                     CKEDITOR.remove(window.CRM.editor);

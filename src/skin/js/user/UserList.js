@@ -43,7 +43,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'users/applyrole',
                     data: JSON.stringify({"userID": userID, "roleID": roleID})
-                }).done(function (data) {
+                },function (data) {
                     if (data.success == true) {
                         // à terminer !!!
                         $('.role' + data.userID).html(data.roleName);
@@ -65,7 +65,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'users/webdavKey',
             data: JSON.stringify({"userID": userID})
-        }).done(function (data) {
+        },function (data) {
             if (data.status == 'success') {
                 var message = i18next.t("The WebDav Key is") + " : ";
                 if (data.token != null) {
@@ -97,7 +97,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'users/lockunlock',
             data: JSON.stringify({"userID": userID})
-        }).done(function (data) {
+        },function (data) {
             if (data.success == true) {
                 if (lock == false) {
                     content.removeClass('fa-unlock');
@@ -146,7 +146,7 @@ $(document).ready(function () {
                     window.CRM.APIRequest({
                         method: "DELETE",
                         path: "users/" + userId
-                    }).done(function (data) {
+                    },function (data) {
                         if (data.status == "success")
                             $("#row-" + userId).remove();
                     });
@@ -234,7 +234,7 @@ $(document).ready(function () {
                             method: 'POST',
                             path: 'users/2fa/remove',
                             data: JSON.stringify({"userID": userID})
-                        }).done(function (data) {
+                        },function (data) {
                             location.reload();
                         });
                     }
@@ -247,7 +247,7 @@ $(document).ready(function () {
                             method: 'POST',
                             path: 'users/2fa/pending',
                             data: JSON.stringify({"userID": userID})
-                        }).done(function (data) {
+                        },function (data) {
                             i18next.t("The user has 60 seconds to use his recovery codes.");
                         });
                     }

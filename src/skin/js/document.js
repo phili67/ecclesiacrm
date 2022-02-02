@@ -62,7 +62,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'document/get',
             data: JSON.stringify({"docID": docID, "personID": perID, "famID": famID})
-        }).done(function (data) {
+        },function (data) {
             if (data.success) {
                 if (window.CRM.editor) {
                     CKEDITOR.remove(window.CRM.editor);
@@ -124,7 +124,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'document/get',
             data: JSON.stringify({"docID": docID, "personID": perID, "famID": famID})
-        }).done(function (data) {
+        },function (data) {
             if (data.success) {
                 window.CRM.APIRequest({
                     method: 'POST',
@@ -134,7 +134,7 @@ $(document).ready(function () {
                         "personID": window.CRM.currentPersonID,
                         "famID": window.CRM.currentFamily
                     })
-                }).done(function (data) {
+                },function (data) {
                     message = '<div class="alert alert-danger"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i>' + i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
 
                     bootbox.confirm({
@@ -147,7 +147,7 @@ $(document).ready(function () {
                                     method: 'POST',
                                     path: 'document/delete',
                                     data: JSON.stringify({"docID": docID})
-                                }).done(function (data) {
+                                },function (data) {
                                     if (window.CRM.docType == 'person') {
                                         location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
                                     } else if (window.CRM.docType == 'family') {
@@ -217,7 +217,7 @@ $(document).ready(function () {
                             method: 'POST',
                             path: 'document/leave',
                             data: JSON.stringify({"docID": docID})
-                        }).done(function (data) {
+                        },function (data) {
                             console.log("we just close the doc ! ");
                         });
                     }
@@ -253,7 +253,7 @@ $(document).ready(function () {
                                         "text": htmlBody,
                                         "bPrivate": Private
                                     })
-                                }).done(function (data) {
+                                },function (data) {
                                     if (data.success) {
                                         if (window.CRM.docType == 'person') {
                                             location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
@@ -273,7 +273,7 @@ $(document).ready(function () {
                                         "text": htmlBody,
                                         "bPrivate": Private
                                     })
-                                }).done(function (data) {
+                                },function (data) {
                                     if (data.success) {
                                         if (window.CRM.docType == 'person') {
                                             location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
@@ -297,7 +297,7 @@ $(document).ready(function () {
                     method: 'POST',
                     path: 'document/leave',
                     data: JSON.stringify({"docID": docID})
-                }).done(function (data) {
+                },function (data) {
                     console.log("we just close the doc ! ");
                     modal.modal("hide");
                 });

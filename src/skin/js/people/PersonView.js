@@ -5,7 +5,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'persons/isMailChimpActive',
       data: JSON.stringify({"personId": window.CRM.currentPersonID,"email" : window.CRM.normalMail})
-    }).done(function(data) {
+    },function(data) {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
@@ -30,7 +30,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'persons/isMailChimpActive',
       data: JSON.stringify({"personId": window.CRM.currentPersonID,"email" : window.CRM.workMail})
-    }).done(function(data) {
+    },function(data) {
       if (data.success) {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
@@ -206,7 +206,7 @@ $(document).ready(function () {
       method: 'POST',
       path: 'properties/persons/assign',
       data: JSON.stringify({"PersonId": window.CRM.currentPersonID,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
-    }).done(function(data) {
+    },function(data) {
       if (data && data.success) {
          window.CRM.dataPropertiesTable.ajax.reload();
          promptBox.removeClass('form-group').html('');
@@ -269,7 +269,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'sharedocument/getallperson',
             data: JSON.stringify({"noteId": noteId})
-      }).done(function(data) {
+      },function(data) {
         var elt = document.getElementById("select-share-persons");
         var len = data.length;
 
@@ -312,7 +312,7 @@ $(document).ready(function () {
                      method: 'POST',
                      path: 'sharedocument/deleteperson',
                      data: JSON.stringify({"noteId":noteId,"personID": personID})
-                  }).done(function(data) {
+                  },function(data) {
                     $("#select-share-persons option[value='"+personID+"']").remove();
 
                     if (data.count == 0) {
@@ -338,7 +338,7 @@ $(document).ready(function () {
                  method: 'POST',
                  path: 'sharedocument/cleardocument',
                  data: JSON.stringify({"noteId":noteId})
-              }).done(function(data) {
+              },function(data) {
                 addPersonsFromNotes(noteId);
                 $(state).css('color', '#777');
                 $(button).data('shared',0);
@@ -557,7 +557,7 @@ $(document).ready(function () {
                   method: 'POST',
                   path: 'properties/persons/assign',
                   data: JSON.stringify({"PersonId": person_id,"PropertyId" : property_id, "PropertyValue":result})
-                  }).done(function(data) {
+                  },function(data) {
                     if (data && data.success) {
                        window.CRM.dataPropertiesTable.ajax.reload();
                     }
@@ -783,7 +783,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'persons/volunteers/delete',
             data: JSON.stringify({"personId": window.CRM.currentPersonID,"volunteerOpportunityId" : volunteerOpportunityId})
-          }).done(function(data) {
+          },function(data) {
             assignedVolunteerTable.ajax.reload();
 
             if (data && data.success) {
@@ -808,7 +808,7 @@ $(document).ready(function () {
               method: 'POST',
               path: 'persons/volunteers/add',
               data: JSON.stringify({"personId": window.CRM.currentPersonID,"volID" : volID})
-            }).done(function(data) {
+            },function(data) {
               assignedVolunteerTable.ajax.reload();
 
               if (data && data.success) {
@@ -938,7 +938,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'payments/delete',
             data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : autoPaymentId})
-          }).done(function(data) {
+          },function(data) {
             automaticPaymentsTable.ajax.reload();
           });
         }
@@ -1102,7 +1102,7 @@ $(document).ready(function () {
             method: 'POST',
             path: 'pledges/delete',
             data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : paymentId})
-          }).done(function(data) {
+          },function(data) {
             pledgePaymentTable.ajax.reload();
           });
         }
@@ -1153,7 +1153,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'users/showsince',
         data: JSON.stringify({"date": min})
-      }).done(function(data) {
+      },function(data) {
       });
     });
 
@@ -1167,7 +1167,7 @@ $(document).ready(function () {
         method: 'POST',
         path: 'users/showto',
         data: JSON.stringify({"date": max})
-      }).done(function(data) {
+      },function(data) {
       });
     });
 
