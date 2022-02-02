@@ -625,7 +625,7 @@ class MailChimpService
 
     public function createCampaign($list_id, $tag_Id, $subject, $title, $htmlBody)
     {
-        $from_name = SessionUser::getUser()->getPerson()->getFullName();
+        $from_name = SystemConfig::getValue('sChurchName');
         $from_email = SystemConfig::getValue("sMailChimpEmailSender");
 
         if (empty($from_email)) {
