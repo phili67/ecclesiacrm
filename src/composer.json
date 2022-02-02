@@ -25,6 +25,7 @@
     },
     "require": {
         "php": ">=7.4.0",
+        "symfony/framework-bundle": "5.3.15",
         "propel/propel": "dev-master",
         "drewm/mailchimp-api": "v2.5.4",
         "slim/slim": "4.7.1",
