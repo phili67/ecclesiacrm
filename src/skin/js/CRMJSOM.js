@@ -1312,13 +1312,11 @@
             {
               var newGroup = {'groupName': result};
 
-              $.ajax({
+              window.CRM.APIRequest({
                 method: "POST",
                 url: window.CRM.root + "/api/groups/",               //call the groups api handler located at window.CRM.root
-                data: JSON.stringify(newGroup),                      // stringify the object we created earlier, and add it to the data payload
-                contentType: "application/json; charset=utf-8",
-                dataType: "json"
-              }).done(function (data) {                               //yippie, we got something good back from the server
+                data: JSON.stringify(newGroup)                      // stringify the object we created earlier, and add it to the data payload
+              }, function (data) {                               //yippie, we got something good back from the server
                   window.CRM.cart.refresh();
                   if(callbackM)
                   {

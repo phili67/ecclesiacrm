@@ -1140,7 +1140,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                method: 'POST',
                path: 'families/info',
                data: JSON.stringify({"familyId":famID})
-            }).done(function(data) {
+            }, function(data) {
                $('#Country').val(data.Country);
                $('#State').val(data.State);
                $('#LastName').val(data.Name);
@@ -1162,7 +1162,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                method: 'POST',
                path: 'payments/info',
                data: JSON.stringify({"autID":iAutID})
-            }).done(function(data) {
+            }, function(data) {
                $('#Country').val(data.Country);
                $('#State').val(data.State);
                $('#FirstName').val(data.FirstName);
