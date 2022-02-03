@@ -104,14 +104,14 @@ $( "#GroupID" ).change(function() {
                     size: "extra-large",
                     buttons: [
                         {
-                            label: '<i class="fas fa-times"> ' + i18next.t("Cancel"),
+                            label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                             className: "btn btn-default",
                             callback: function() {
                                 console.log("just do something on close");
                             }
                         },
                         {
-                            label: '<i class="fas fa-check"> ' + i18next.t('OK'),
+                            label: '<i class="fas fa-check"></i> ' + i18next.t('OK'),
                             className: "btn btn-primary",
                             callback: function() {
                                 var dateStart = $('form #dateEventStart').val();
