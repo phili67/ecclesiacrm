@@ -137,7 +137,7 @@ $donationFunds = DonationFundQuery::Create()->find();
                         window.CRM.APIRequest({
                             method: 'DELETE',
                             path: 'deposits/' + value.Id, // the url where we want to POST
-                        }).done(function (data) {
+                        }, function (data) {
                             dataT.rows('.selected').remove().draw(false);
                             $(".count-deposit").html(dataT.column(0).data().length);
                             if (dataT.column(0).data().length == 0) {
