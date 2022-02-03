@@ -343,16 +343,14 @@ require $sRootDocument . '/Include/Header.php';
                 var groupName = $("#new-class-name").val(); // get the name of the from the textbox
                 if (groupName) // ensure that the user entered a name
                 {
-                    $.ajax({
+                    window.CRM.APIRequest({
                         method: "POST",
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        url: window.CRM.root + "/api/groups/",
+                        path: "groups/",
                         data: JSON.stringify({
                             'groupName': groupName,
                             'isSundaySchool': true
                         })
-                    }).done(function (data) {                               //yippie, we got something good back from the server
+                    }, function (data) {                               //yippie, we got something good back from the server
                         window.location.href = window.CRM.root + "/v2/sundayschool/" + data.Id + "/view";
                     });
                 }
