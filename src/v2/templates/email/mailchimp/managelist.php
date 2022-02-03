@@ -95,7 +95,9 @@ if ($isMailchimpActiv) {
             </div>
         </div>
         <div class="col-lg-3">
-            <div class="card card-secondary shadow" id="container"></div>
+            <div class="sticky-top">
+                <div class="card card-secondary shadow" id="container"></div>
+            </div>
         </div>
 
         <br>
