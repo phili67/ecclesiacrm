@@ -122,7 +122,7 @@ class GroupSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $group['Id'],
-                                "img" => '<img src="/Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => '<i class="fas fa-users fa-2x"></i>',
                                 "searchresult" => '<a href="'.SystemURLs::getRootPath().$group['uri'].'" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group['displayName'].'</a>',
                                 "address" => "",
                                 "type" => " ".((mb_strtolower($qry) == _('sunday group') || mb_strtolower($qry) == _('sunday groups') )?_("Sunday Groups"):_($this->getGlobalSearchType())),
