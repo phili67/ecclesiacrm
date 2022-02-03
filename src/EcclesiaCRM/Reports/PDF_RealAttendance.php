@@ -98,7 +98,7 @@ class PDF_RealAttendance extends PDF_Attendance
             $group = GroupQuery::Create()->findOneById($iGroupID);
 
             if (!is_null($group)) {
-                $reportHeader = str_pad($group->getName(), 95) . $this->iFYID;
+                $reportHeader = str_pad($group->getName(), 95); //. $this->iFYID;
             }
 
             // Build the teacher string- first teachers, then the liaison
@@ -245,8 +245,6 @@ class PDF_RealAttendance extends PDF_Attendance
                 }
 
                 $date_count++;
-
-                $lineNbrEvents++;
             }
 
             $lineArr['firstName'] = implode(", ",$evenCountNames);
@@ -263,10 +261,6 @@ class PDF_RealAttendance extends PDF_Attendance
             $lineArr = array_merge($lineArr, $lineDates);
 
             $aStudents[] = $lineArr;
-
-            if ($maxNbrEvents < $lineNbrEvents) {
-                $maxNbrEvents = $lineNbrEvents;
-            }
 
             // now we finish the work
 

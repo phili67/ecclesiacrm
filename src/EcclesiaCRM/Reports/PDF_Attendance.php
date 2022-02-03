@@ -601,11 +601,11 @@ class PDF_Attendance extends ChurchInfoReportTCPDF
                             // we are in case of dates
                             $this->SetFont('Times', '', $fontTitleNormal - 2);
                             if ($value == 1) {
-                                $this->WriteAt($nameX + 60 + $datePlace + 1, $y + 2.5, "x");
+                                $this->WriteAt($nameX + 60 + $datePlace + 1, $y + 2.5, "1");
                                 $sizeArray[$positionSize]++;
                             } elseif ($value > 0) {
                                 $this->WriteAt($nameX + 60 + $datePlace + 1, $y + 2.5, (int)$value);
-                                $sizeArray[$positionSize]++;
+                                $sizeArray[$positionSize] += (int)$value;
                             }
                             $positionSize++;
                             //$this->TextWithDirection($nameX+56, $y + 2, $value,'D');
