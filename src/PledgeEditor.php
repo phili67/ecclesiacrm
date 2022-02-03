@@ -913,7 +913,7 @@ require 'Include/Header.php';
                 method: "POST",
                 path: "payments/families",
                 data: JSON.stringify({"famId": e.params.data.id, "type": "<?= $dep_Type ?>"})
-            }).done(function (data) {
+            }, function (data) {
                 var my_list = $("[name=AutoPay]").empty();
                 var len = data.length;
 
