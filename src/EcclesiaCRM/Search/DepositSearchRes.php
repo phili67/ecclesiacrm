@@ -83,7 +83,7 @@ class DepositSearchRes extends BaseSearchRes
 
                                 $elt = [
                                     "id" => -1,
-                                    "img" => '<img src="/Images/Money.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "img" => '<i class="fas fa-money-bill-alt fa-2x"></i>',
                                     "searchresult" => '<a href="'.SystemURLs::getRootPath()."/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Deposit->getComment().'</a>',
                                     "address" => "",
                                     "type" => _($this->getGlobalSearchType()),

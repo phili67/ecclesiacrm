@@ -80,7 +80,7 @@ class PledgeSearchRes extends BaseSearchRes
 
                                     $elt = [
                                         'id' => $Pledge->getDepositId(),
-                                        'img' => '<img src="/Images/Bank.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                        'img' => '<i class="fas fa-university fa-2x"></i>',
                                         'searchresult' => '<a href="'.SystemURLs::getRootPath()."/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")".'</a>',
                                         'address' => "",
                                         'type' => " "._($this->getGlobalSearchType()),

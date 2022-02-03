@@ -121,7 +121,7 @@ class GroupPropsSearchRes extends BaseSearchRes
 
                             $elt = [
                                 "id" => $group->getId(),
-                                "img" => '<img src="/Images/Group.png" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                "img" => '<i class="fas fa-users fa-2x"></i>',
                                 "searchresult" => '<a href="'.SystemURLs::getRootPath().'/v2/group/'.$group->getId().'/view" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">'.$group->getName().'</a>',
                                 "address" => "",
                                 "type" => " "._($this->getGlobalSearchType()),

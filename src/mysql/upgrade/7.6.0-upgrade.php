@@ -25,5 +25,9 @@ unlink(SystemURLs::getDocumentRoot()."/EditEventAttendees.php");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/external/font-awesome/");
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/external/jquery-photo-uploader/");
 
+unlink(SystemURLs::getDocumentRoot()."/Images/Bank.png");
+unlink(SystemURLs::getDocumentRoot()."/Images/Group.png");
+unlink(SystemURLs::getDocumentRoot()."/Images/Money.png");
+
 $logger->info("End of delete :  all unusefull files");
 ?>
