@@ -162,3 +162,24 @@ msgstr ""
 
 msgid "Large"
 msgstr ""
+
+msgid "True / False"
+msgstr ""
+
+msgid "Text Field (50 char)"
+msgstr ""
+
+msgid "Text Field (Long)"
+msgstr ""
+
+msgid "Season"
+msgstr ""
+
+msgid "Person from Group"
+msgstr ""
+
+msgid "Money"
+msgstr ""
+
+msgid "Custom Drop-Down List"
+msgstr ""

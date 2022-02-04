@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 19:44+0000\n"
+"POT-Creation-Date: 2022-02-03 21:39+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: Include/Functions.php:149
+#: Include/Functions.php:133
 msgid "Cannot execute query."
 msgstr "Không thể thực hiện câu hỏi."
 
@@ -115,10 +115,9 @@ msgid "Disable "
 msgstr "Vô hiệu hóa"
 
 #: AutoPaymentEditor.php:856 CanvassEditor.php:206 DepositSlipEditor.php:98
-#: FundRaiserEditor.php:173 Include/Functions.php:88 PledgeEditor.php:599
-#: Reports/ReminderReport.php:323 Reports/ReminderReport.php:404
-#: Reports/TaxReport.php:379 SelectDelete.php:323
-#: v2/templates/calendar/eventattendeesedit.php:36
+#: FundRaiserEditor.php:173 PledgeEditor.php:599 Reports/ReminderReport.php:323
+#: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
+#: SelectDelete.php:323 v2/templates/calendar/eventattendeesedit.php:36
 #: v2/templates/email/mailchimp/campaign.php:127
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
@@ -156,7 +155,7 @@ msgstr "Tiền"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:242
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:243
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:253
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:251
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
@@ -390,6 +389,7 @@ msgstr "Tạo một tập nhạc"
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/group/groupview.php:287
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/pastoralcare/pastoralcarefamily.php:218
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -686,9 +686,9 @@ msgstr "Và"
 msgid "Image Position"
 msgstr "Vị trí hình ảnh"
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
-#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
-#: PersonCustomFieldsEditor.php:514 v2/templates/group/groupbadge.php:165
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:434
+#: FamilyCustomFieldsEditor.php:518 PersonCustomFieldsEditor.php:431
+#: PersonCustomFieldsEditor.php:516 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Trái"
 
@@ -696,9 +696,9 @@ msgstr "Trái"
 msgid "Center"
 msgstr "Trung tâm"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
-#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
-#: PersonCustomFieldsEditor.php:515 v2/templates/group/groupbadge.php:167
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:435
+#: FamilyCustomFieldsEditor.php:519 PersonCustomFieldsEditor.php:432
+#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Đúng vậy."
 
@@ -737,11 +737,11 @@ msgstr "Các thành viên."
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:345
-#: FamilyCustomFieldsEditor.php:467 GeoPage.php:373 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
-#: GroupPropsFormEditor.php:476 PersonCustomFieldsEditor.php:341
-#: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:347
+#: FamilyCustomFieldsEditor.php:469 GeoPage.php:373 GroupEditor.php:86
+#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:343
+#: PersonCustomFieldsEditor.php:470 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
@@ -749,7 +749,7 @@ msgstr "Các thành viên."
 #: Reports/PDFLabel.php:859 v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/dashboard/maindashboard.php:697
 #: v2/templates/dashboard/maindashboard.php:713
-#: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
+#: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1752,7 +1752,7 @@ msgid "Minutes left"
 msgstr "Còn vài phút"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:612
+#: EcclesiaCRM/utils/MiscUtils.php:636
 msgid "Folder"
 msgstr "Thư mục"
 
@@ -1850,7 +1850,7 @@ msgid "newsletter"
 msgstr "Tin tức"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:92
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "Gia đình"
@@ -2067,10 +2067,10 @@ msgstr "Biên tập viên cấp cao"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:130
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:138
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
-#: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
-#: GroupPropsFormEditor.php:475 OptionManager.php:117 OptionManager.php:125
-#: PersonCustomFieldsEditor.php:340 PersonCustomFieldsEditor.php:465
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:346
+#: FamilyCustomFieldsEditor.php:466 GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:476 OptionManager.php:117 OptionManager.php:125
+#: PersonCustomFieldsEditor.php:342 PersonCustomFieldsEditor.php:467
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:320
 #: v2/templates/gdpr/gdprdatastructure.php:42
@@ -2197,43 +2197,43 @@ msgstr "Danh sách khách hàng của gia đình"
 msgid "Family Custom List Options Editor"
 msgstr "Biên tập viên danh sách gia đình"
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:358
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:422
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:458
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:508
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:530
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:580
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:359
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:423
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:459
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:509
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:531
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:581
 #: EcclesiaCRM/APIControllers/SidebarRolesController.php:56
 msgid "The record could not be found."
 msgstr "Không thể tìm thấy kỷ lục."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:368
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:468
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:540
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:369
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:469
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:541
 msgid "The property is already assigned."
 msgstr "Tài sản đã được phân công."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:373
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:403
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:473
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:489
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:545
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:561
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:374
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:404
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:474
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:490
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:546
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:562
 msgid "The property is successfully assigned."
 msgstr "Tài sản đã được phân công thành công."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:375
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:386
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:475
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:486
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:547
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:558
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:376
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:387
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:476
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:487
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:548
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:559
 msgid "The property could not be assigned."
 msgstr "Không thể phân công tài sản được."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:441
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:513
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:585
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:442
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:514
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:586
 msgid "The property is successfully unassigned."
 msgstr "Tài sản này đã được chuyển giao thành công."
 
@@ -4564,7 +4564,7 @@ msgstr "Xin hãy xác minh thông tin của gia đình"
 msgid "Private Space"
 msgstr "Vũ trụ tư nhân"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:417
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:441
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "♪ Home ♪"
@@ -4892,7 +4892,7 @@ msgstr "Hình ảnh bị xóa"
 msgid "Profile Image uploaded"
 msgstr "Hình ảnh nhân tạo đã được tải lên"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:177 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:178 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 SelectDelete.php:371
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -5106,7 +5106,7 @@ msgstr "Chỉ huy nhóm"
 msgid "Tractor"
 msgstr "Máy kéo"
 
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:275
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
 #: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
@@ -5459,7 +5459,7 @@ msgid "by"
 msgstr "By"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:612 EcclesiaCRM/utils/MiscUtils.php:715
+#: EcclesiaCRM/utils/MiscUtils.php:636 EcclesiaCRM/utils/MiscUtils.php:739
 msgid "File"
 msgstr "Hồ sơ"
 
@@ -5728,45 +5728,45 @@ msgstr "Bỏ qua<br>địa chỉ"
 msgid "File Type"
 msgstr "Cơn bão"
 
-#: EcclesiaCRM/utils/MiscUtils.php:660
+#: EcclesiaCRM/utils/MiscUtils.php:684
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Bạn phải dùng máy phát PDF hoặc tải tập tin ở đây"
 
-#: EcclesiaCRM/utils/MiscUtils.php:667 EcclesiaCRM/utils/MiscUtils.php:672
-#: EcclesiaCRM/utils/MiscUtils.php:676 EcclesiaCRM/utils/MiscUtils.php:782
+#: EcclesiaCRM/utils/MiscUtils.php:691 EcclesiaCRM/utils/MiscUtils.php:696
+#: EcclesiaCRM/utils/MiscUtils.php:700 EcclesiaCRM/utils/MiscUtils.php:806
 msgid "Your browser does not support the audio element."
 msgstr "trình duyệt của bạn không ủng hộ nguyên tố âm thanh."
 
-#: EcclesiaCRM/utils/MiscUtils.php:682 EcclesiaCRM/utils/MiscUtils.php:689
-#: EcclesiaCRM/utils/MiscUtils.php:698 EcclesiaCRM/utils/MiscUtils.php:792
-#: EcclesiaCRM/utils/MiscUtils.php:803 EcclesiaCRM/utils/MiscUtils.php:818
+#: EcclesiaCRM/utils/MiscUtils.php:706 EcclesiaCRM/utils/MiscUtils.php:713
+#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:816
+#: EcclesiaCRM/utils/MiscUtils.php:827 EcclesiaCRM/utils/MiscUtils.php:842
 msgid "Your browser does not support the video tag."
 msgstr "trình duyệt của bạn không hỗ trợ cho cái thẻ video."
 
-#: EcclesiaCRM/utils/MiscUtils.php:724 EcclesiaCRM/utils/MiscUtils.php:756
-#: EcclesiaCRM/utils/MiscUtils.php:765 EcclesiaCRM/utils/MiscUtils.php:780
-#: EcclesiaCRM/utils/MiscUtils.php:789 EcclesiaCRM/utils/MiscUtils.php:799
-#: EcclesiaCRM/utils/MiscUtils.php:812
+#: EcclesiaCRM/utils/MiscUtils.php:748 EcclesiaCRM/utils/MiscUtils.php:780
+#: EcclesiaCRM/utils/MiscUtils.php:789 EcclesiaCRM/utils/MiscUtils.php:804
+#: EcclesiaCRM/utils/MiscUtils.php:813 EcclesiaCRM/utils/MiscUtils.php:823
+#: EcclesiaCRM/utils/MiscUtils.php:836
 msgid "Expand"
 msgstr "Mở rộng"
 
-#: EcclesiaCRM/utils/MiscUtils.php:860
+#: EcclesiaCRM/utils/MiscUtils.php:884
 msgid "Classic Document"
 msgstr "Tài liệu cổ điển"
 
-#: EcclesiaCRM/utils/MiscUtils.php:863
+#: EcclesiaCRM/utils/MiscUtils.php:887
 msgid "Classic Video"
 msgstr "Video kinh điển"
 
-#: EcclesiaCRM/utils/MiscUtils.php:866
+#: EcclesiaCRM/utils/MiscUtils.php:890
 msgid "Classic File"
 msgstr "Hồ sơ kinh điển"
 
-#: EcclesiaCRM/utils/MiscUtils.php:869
+#: EcclesiaCRM/utils/MiscUtils.php:893
 msgid "Classic Audio"
 msgstr "Âm thanh cổ điển"
 
-#: EcclesiaCRM/utils/MiscUtils.php:976
+#: EcclesiaCRM/utils/MiscUtils.php:1000
 msgid "Select Fiscal Year"
 msgstr "Chọn năm Fiscal đi"
 
@@ -6167,7 +6167,7 @@ msgstr "Vanco Ach"
 msgid "Month"
 msgstr "Tháng."
 
-#: ElectronicPaymentList.php:234 FamilyEditor.php:1100 Include/Functions.php:92
+#: ElectronicPaymentList.php:234 FamilyEditor.php:1100
 #: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Năm"
@@ -6346,9 +6346,9 @@ msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 "Mỗi loại sự kiện bao gồm một số điểm tổng thể, bạn không cần phải tính nó."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:446 GroupPropsEditor.php:302
-#: GroupPropsFormEditor.php:448 OptionManager.php:524
-#: PersonCustomFieldsEditor.php:442
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:448 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:449 OptionManager.php:524
+#: PersonCustomFieldsEditor.php:444
 msgid "Save Changes"
 msgstr "Cứu lấy tiền lẻ"
 
@@ -6572,18 +6572,18 @@ msgstr ""
 "sẽ bị mất nếu bạn không \"Cứu Changes\" trước khi sử dụng một lên, xuống, "
 "xóa hoặc 'thêm nút mới!"
 
-#: FamilyCustomFieldsEditor.php:193 GroupPropsFormEditor.php:220
-#: PersonCustomFieldsEditor.php:186
+#: FamilyCustomFieldsEditor.php:194 GroupPropsFormEditor.php:221
+#: PersonCustomFieldsEditor.php:187
 msgid "Default Option"
 msgstr "Chọn lựa đi"
 
-#: FamilyCustomFieldsEditor.php:328
+#: FamilyCustomFieldsEditor.php:330
 msgid "No custom Family fields have been added yet"
 msgstr "Chưa có cánh đồng gia đình khách hàng nào được thêm vào"
 
-#: FamilyCustomFieldsEditor.php:337 GroupPropsEditor.php:227
-#: GroupPropsFormEditor.php:339 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:330 PersonEditor.php:880
+#: FamilyCustomFieldsEditor.php:339 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:340 OptionManager.php:391
+#: PersonCustomFieldsEditor.php:332 PersonEditor.php:880
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6591,59 +6591,59 @@ msgstr ""
 "Các lĩnh vực bất hợp pháp hoặc chọn lọc. Không có cơ hội cứu được! Xin vui "
 "lòng đúng và thử lại!"
 
-#: FamilyCustomFieldsEditor.php:346 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:351 PersonCustomFieldsEditor.php:342
+#: FamilyCustomFieldsEditor.php:348 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:344
 msgid "Special option"
 msgstr "Lựa chọn đặc biệt"
 
-#: FamilyCustomFieldsEditor.php:347 FamilyCustomFieldsEditor.php:470
-#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:474
+#: FamilyCustomFieldsEditor.php:349 FamilyCustomFieldsEditor.php:472
+#: PersonCustomFieldsEditor.php:345 PersonCustomFieldsEditor.php:476
 msgid "Security Option"
 msgstr "Lựa chọn an ninh"
 
-#: FamilyCustomFieldsEditor.php:348
+#: FamilyCustomFieldsEditor.php:350
 msgid "Family-View Side"
 msgstr "Bên cảnh gia đình"
 
-#: FamilyCustomFieldsEditor.php:378 FamilyCustomFieldsEditor.php:501
-#: FamilyEditor.php:260 GroupPropsFormEditor.php:384
-#: GroupPropsFormEditor.php:500 OptionManager.php:470
-#: PersonCustomFieldsEditor.php:377 PersonCustomFieldsEditor.php:502
+#: FamilyCustomFieldsEditor.php:380 FamilyCustomFieldsEditor.php:503
+#: FamilyEditor.php:260 GroupPropsFormEditor.php:385
+#: GroupPropsFormEditor.php:501 OptionManager.php:470
+#: PersonCustomFieldsEditor.php:379 PersonCustomFieldsEditor.php:504
 msgid "You must enter a name"
 msgstr "Anh phải nhập một cái tên"
 
-#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:130
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:402
-#: PersonCustomFieldsEditor.php:387
+#: FamilyCustomFieldsEditor.php:391 GroupEditor.php:130
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:403
+#: PersonCustomFieldsEditor.php:389
 msgid "Select a group"
 msgstr "Chọn một nhóm đi"
 
-#: FamilyCustomFieldsEditor.php:403 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:419 PersonCustomFieldsEditor.php:401
+#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:403
 msgid "You must select a group."
 msgstr "Anh phải chọn một nhóm."
 
-#: FamilyCustomFieldsEditor.php:409 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:424 PersonCustomFieldsEditor.php:406
+#: FamilyCustomFieldsEditor.php:411 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:408
 msgid "Edit List Options"
 msgstr "Edit List Option"
 
-#: FamilyCustomFieldsEditor.php:473 PersonCustomFieldsEditor.php:471
+#: FamilyCustomFieldsEditor.php:475 PersonCustomFieldsEditor.php:473
 msgid "Side"
 msgstr "Bên này"
 
-#: FamilyCustomFieldsEditor.php:494 GroupPropsFormEditor.php:493
-#: PersonCustomFieldsEditor.php:495
+#: FamilyCustomFieldsEditor.php:496 GroupPropsFormEditor.php:494
+#: PersonCustomFieldsEditor.php:497
 msgid "Help on types.."
 msgstr "Giúp đỡ mọi người. ."
 
-#: FamilyCustomFieldsEditor.php:506 GroupPropsFormEditor.php:505
-#: PersonCustomFieldsEditor.php:507
+#: FamilyCustomFieldsEditor.php:508 GroupPropsFormEditor.php:506
+#: PersonCustomFieldsEditor.php:509
 msgid "That field name already exists."
 msgstr "Tên thực địa đó đã tồn tại."
 
-#: FamilyCustomFieldsEditor.php:521 GroupPropsFormEditor.php:516
-#: PersonCustomFieldsEditor.php:522
+#: FamilyCustomFieldsEditor.php:523 GroupPropsFormEditor.php:517
+#: PersonCustomFieldsEditor.php:524
 msgid "Add New Field"
 msgstr "Thêm Field vào"
 
@@ -6918,8 +6918,8 @@ msgid "Timeline"
 msgstr "Timeline"
 
 #: FamilyView.php:658 PersonView.php:940 PrintPastoralCarePerson.php:594
-#: PrintView.php:603 v2/templates/group/groupview.php:323
-#: v2/templates/group/groupview.php:381
+#: PrintView.php:603 v2/templates/group/groupview.php:325
+#: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Phân biệt tài sản"
 
@@ -6931,7 +6931,7 @@ msgstr "Tiền lương tự động"
 msgid "Pledges and Payments"
 msgstr "Những lời cầu nguyện và tiền bạc"
 
-#: FamilyView.php:811 PersonView.php:1427 v2/templates/group/groupview.php:336
+#: FamilyView.php:811 PersonView.php:1427 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Thay một tài sản mới"
 
@@ -6941,12 +6941,12 @@ msgid "Select"
 msgstr "Chọn đi"
 
 #: FamilyView.php:821 PersonView.php:1435 QueryView.php:458 QueryView.php:475
-#: v2/templates/group/groupview.php:341
+#: v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "chọn lựa đi"
 
 #: FamilyView.php:842 PersonView.php:1456 PersonView.php:1519
-#: v2/templates/group/groupview.php:357
+#: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Điệp viên"
 
@@ -7323,10 +7323,10 @@ msgid "infos"
 msgstr "Insos"
 
 #: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:237
-#: GroupPropsFormEditor.php:350 GroupPropsFormEditor.php:477
+#: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:397
+#: v2/templates/group/groupview.php:399
 msgid "Description"
 msgstr "Mô tả"
 
@@ -7498,7 +7498,7 @@ msgstr "Tổ chức đặc biệt tài sản"
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "Các đặc tính đặc biệt của nhóm có ích để tạo ra một loại vẽ vô định"
 
-#: GroupEditor.php:164 v2/templates/group/groupview.php:428
+#: GroupEditor.php:164 v2/templates/group/groupview.php:430
 msgid "Edit Group-Specific Properties Form"
 msgstr "Edit Group-Specific Propertis Form"
 
@@ -7522,7 +7522,7 @@ msgstr "Role mới"
 msgid "Add New Role"
 msgstr "Thêm Role mới"
 
-#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:61
+#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:62
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Các tổ chức đặc biệt lập nên biên tập:"
 
@@ -7530,7 +7530,7 @@ msgstr "Các tổ chức đặc biệt lập nên biên tập:"
 msgid "for"
 msgstr "Vì"
 
-#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:65
+#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:66
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -7542,7 +7542,7 @@ msgstr ""
 msgid "Group-Person-Specific Properties"
 msgstr "Các tổ chức đặc biệt"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:328
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:329
 msgid "No properties have been added yet"
 msgstr "Chưa có bất động sản nào được bổ sung"
 
@@ -7550,23 +7550,23 @@ msgstr "Chưa có bất động sản nào được bổ sung"
 msgid "Return to Person"
 msgstr "Quay về Person"
 
-#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:375
+#: GroupPropsFormEditor.php:70 v2/templates/group/groupview.php:377
 msgid "Group-Specific Properties"
 msgstr "Các đặc vụ đặc biệt"
 
-#: GroupPropsFormEditor.php:329 GroupPropsFormEditor.php:445
+#: GroupPropsFormEditor.php:330 GroupPropsFormEditor.php:446
 msgid "Return to Group"
 msgstr "Trở về tập đoàn"
 
-#: GroupPropsFormEditor.php:352
+#: GroupPropsFormEditor.php:353
 msgid "Show in"
 msgstr "Vào đi"
 
-#: GroupPropsFormEditor.php:352 PersonView.php:335
+#: GroupPropsFormEditor.php:353 PersonView.php:335
 msgid "Person Profile"
 msgstr "Phân tích nhân sự"
 
-#: GroupPropsFormEditor.php:465
+#: GroupPropsFormEditor.php:466
 msgid "Add Group-Specific Properties"
 msgstr "Cộng thêm các tài sản đặc biệt"
 
@@ -7654,7 +7654,7 @@ msgstr "Những người có tài sản"
 msgid "Edit Custom Person Fields"
 msgstr "Chỉnh lại trường Biên tập trung"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:317
+#: Include/Footer.php:104 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Các tổ chức năng động lực"
 
@@ -7674,7 +7674,7 @@ msgstr "Pastoral Care Type"
 msgid "Please contact your admin to change the system settings."
 msgstr "Xin hãy liên lạc với người quản lý để thay đổi hệ thống thiết lập."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:112
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Chỉnh lại vị trí Đại tướng"
 
@@ -7698,64 +7698,23 @@ msgstr "Anh đã làm"
 msgid "task(s)"
 msgstr "task(S)"
 
-#: Include/Functions.php:87
-msgid "True / False"
-msgstr "Đúng - Sai"
-
-#: Include/Functions.php:89
-msgid "Text Field (50 char)"
-msgstr "Điện thoại (50 char)"
-
-#: Include/Functions.php:90 Reports/GDPR/GDPRDataStructureExport.php:159
-#: v2/templates/gdpr/gdprdatastructure.php:142
-msgid "Text Field (100 char)"
-msgstr "Điện thoại (100 char)"
-
-#: Include/Functions.php:91
-msgid "Text Field (Long)"
-msgstr "Điện tín (Long)"
-
-#: Include/Functions.php:93
-msgid "Season"
-msgstr "Mùa"
-
-#: Include/Functions.php:94 v2/templates/fundraiser/findFundRaiser.php:23
-msgid "Number"
-msgstr "Số"
-
-#: Include/Functions.php:95
-msgid "Person from Group"
-msgstr "Người của tập đoàn"
-
-#: Include/Functions.php:96
-msgid "Money"
-msgstr "Tiền"
-
-#: Include/Functions.php:97
-msgid "Phone Number"
-msgstr "Số điện thoại"
-
-#: Include/Functions.php:98
-msgid "Custom Drop-Down List"
-msgstr "Danh sách \"Custom Drop-Down\""
-
-#: Include/Functions.php:104
+#: Include/Functions.php:88
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Cảm ơn vì đã đăng ký thiết lập CRMEcclesia."
 
-#: Include/Functions.php:108
+#: Include/Functions.php:92
 msgid "PDFs successfully emailed "
 msgstr "PDF đã email thành công"
 
-#: Include/Functions.php:113
+#: Include/Functions.php:97
 msgid "PDF successfully emailed to family members."
 msgstr "PDF thành công gửi email cho các thành viên trong gia đình."
 
-#: Include/Functions.php:115
+#: Include/Functions.php:99
 msgid "Failed to email PDF to family members."
 msgstr "Không gửi email PDF cho các thành viên trong gia đình."
 
-#: Include/Functions.php:135
+#: Include/Functions.php:119
 msgid "item(s) added to the Cart."
 msgstr "cộng vào chiếc Cart."
 
@@ -8186,11 +8145,11 @@ msgstr "với cái tên đó đã tồn tại rồi."
 msgid "Custom Person Fields Editor"
 msgstr "Biên tập viên của Person Fields"
 
-#: PersonCustomFieldsEditor.php:321
+#: PersonCustomFieldsEditor.php:323
 msgid "No custom person fields have been added yet"
 msgstr "Chưa có cánh đồng khách hàng nào được thêm vào"
 
-#: PersonCustomFieldsEditor.php:344
+#: PersonCustomFieldsEditor.php:346
 msgid "Person-View Side"
 msgstr "Bên nhìn thấy"
 
@@ -8970,6 +8929,11 @@ msgstr "Gia đình khách hàng"
 #: v2/templates/gdpr/gdprdatastructure.php:129
 msgid "Family Property"
 msgstr "Tài sản gia đình"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:159
+#: v2/templates/gdpr/gdprdatastructure.php:142
+msgid "Text Field (100 char)"
+msgstr "Điện thoại (100 char)"
 
 #: Reports/GDPR/GDPRListExport.php:65
 msgid "Full Name"
@@ -10485,7 +10449,7 @@ msgstr ""
 "kiếm, để thêm tất cả các thành viên của CRM, sử dụng<b>*</b>"
 
 #: v2/templates/email/mailchimp/managelist.php:75
-#: v2/templates/group/groupview.php:467
+#: v2/templates/group/groupview.php:469
 #: v2/templates/sundayschool/sundayschooldashboard.php:333
 #: v2/templates/sundayschool/sundayschoolview.php:174
 #: v2/templates/sundayschool/sundayschoolview.php:287
@@ -10496,27 +10460,27 @@ msgstr "Thêm"
 msgid "Keywords"
 msgstr "Mấu chốt"
 
-#: v2/templates/email/mailchimp/managelist.php:110
+#: v2/templates/email/mailchimp/managelist.php:112
 msgid "is not configured"
 msgstr "không được cấu hình"
 
-#: v2/templates/email/mailchimp/managelist.php:111
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "Please update the"
 msgstr "Xin hãy cập nhật tình hình"
 
-#: v2/templates/email/mailchimp/managelist.php:111
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "API key in Setting->"
 msgstr "API key in setting-"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "then update"
 msgstr "vậy cập nhật đi"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "For more info see our "
 msgstr "Để có thêm thông tin xem"
 
-#: v2/templates/email/mailchimp/managelist.php:114
+#: v2/templates/email/mailchimp/managelist.php:116
 msgid "support docs."
 msgstr "hỗ trợ bác sĩ."
 
@@ -10587,6 +10551,10 @@ msgstr "Paste an URL"
 #: v2/templates/fundraiser/donatedItemEditor.php:152
 msgid "Use the EDrive to browse or upload a file"
 msgstr "Sử dụng EDrive để xem duyệt hoặc tải lên một tập tin"
+
+#: v2/templates/fundraiser/findFundRaiser.php:23
+msgid "Number"
+msgstr "Số"
 
 #: v2/templates/fundraiser/findFundRaiser.php:32
 msgid "Date Start"
@@ -10799,15 +10767,15 @@ msgstr "Quản lý"
 msgid "No assigned Manager"
 msgstr "Không quản lý nào"
 
-#: v2/templates/group/groupview.php:299
+#: v2/templates/group/groupview.php:301
 msgid "Add a specific manager only for this group"
 msgstr "Thêm một người quản lý cụ thể chỉ cho nhóm này"
 
-#: v2/templates/group/groupview.php:299
+#: v2/templates/group/groupview.php:301
 msgid "Add Manager"
 msgstr "Quản lý cộng"
 
-#: v2/templates/group/groupview.php:317
+#: v2/templates/group/groupview.php:319
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
@@ -10816,7 +10784,7 @@ msgstr ""
 "và điều này có thể được thay đổi trong thanh quản lý quầy bar &apos; các "
 "nhóm tài sản"
 
-#: v2/templates/group/groupview.php:375
+#: v2/templates/group/groupview.php:377
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
@@ -10824,15 +10792,15 @@ msgstr ""
 "Những tài sản khác cho tất cả các thành viên trong nhóm. Các đặc tính này có "
 "thể nhìn thấy trong mỗi tập đoàn phân tích nhân sự"
 
-#: v2/templates/group/groupview.php:389
+#: v2/templates/group/groupview.php:391
 msgid "No member properties have been created"
 msgstr "Không có bất động sản thành viên nào được tạo ra"
 
-#: v2/templates/group/groupview.php:419
+#: v2/templates/group/groupview.php:421
 msgid "Disabled for this group."
 msgstr "Bị mất vì nhóm này."
 
-#: v2/templates/group/groupview.php:419
+#: v2/templates/group/groupview.php:421
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
@@ -10840,32 +10808,32 @@ msgstr ""
 "Anh nên chỉnh sửa nhóm và \"Những khoản tài sản đặc biệt\". Để làm được điều "
 "này, nhấn nút trên : \" Chỉnh sửa tập đoàn này\""
 
-#: v2/templates/group/groupview.php:443
+#: v2/templates/group/groupview.php:445
 msgid "Group Members:"
 msgstr "Các thành viên tập đoàn:"
 
-#: v2/templates/group/groupview.php:446
+#: v2/templates/group/groupview.php:448
 #: v2/templates/sundayschool/sundayschoolview.php:248
 msgid "Remove members"
 msgstr "Dọn hết các thành viên"
 
-#: v2/templates/group/groupview.php:462
+#: v2/templates/group/groupview.php:464
 msgid "Manage Group Members"
 msgstr "Thành viên của tập đoàn Manage"
 
-#: v2/templates/group/groupview.php:473
+#: v2/templates/group/groupview.php:475
 msgid "Remove Selected Members from group"
 msgstr "Giải tán thành viên được chọn ra khỏi nhóm"
 
-#: v2/templates/group/groupview.php:480
+#: v2/templates/group/groupview.php:482
 msgid "Add Selected Members to Cart"
 msgstr "Cộng thành viên đã chọn thành viên Cart"
 
-#: v2/templates/group/groupview.php:486
+#: v2/templates/group/groupview.php:488
 msgid "Add Selected Members to Group"
 msgstr "Cộng thành viên đã chọn thành viên"
 
-#: v2/templates/group/groupview.php:487
+#: v2/templates/group/groupview.php:489
 msgid "Move Selected Members to Group"
 msgstr "Chuyển thành viên được chọn ra tập đoàn"
 
@@ -12397,6 +12365,30 @@ msgstr "Nhỏ"
 
 msgid "Large"
 msgstr "Lớn"
+
+msgid "True / False"
+msgstr "Đúng - Sai"
+
+msgid "Text Field (50 char)"
+msgstr "Điện thoại (50 char)"
+
+msgid "Text Field (Long)"
+msgstr "Điện tín (Long)"
+
+msgid "Season"
+msgstr "Mùa"
+
+msgid "Person from Group"
+msgstr "Người của tập đoàn"
+
+msgid "Money"
+msgstr "Tiền"
+
+msgid "Custom Drop-Down List"
+msgstr "Danh sách \"Custom Drop-Down\""
+
+#~ msgid "Phone Number"
+#~ msgstr "Số điện thoại"
 
 #~ msgid "Increase this value is unstable with MailChimp API."
 #~ msgstr "Tăng giá trị này không ổn định với mailchimp API."

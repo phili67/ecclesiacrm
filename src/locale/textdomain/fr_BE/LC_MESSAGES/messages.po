@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-30 19:44+0000\n"
+"POT-Creation-Date: 2022-02-03 21:39+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: Include/Functions.php:149
+#: Include/Functions.php:133
 msgid "Cannot execute query."
 msgstr "Impossible d'exécuter la requête."
 
@@ -115,10 +115,9 @@ msgid "Disable "
 msgstr "Désactiver "
 
 #: AutoPaymentEditor.php:856 CanvassEditor.php:206 DepositSlipEditor.php:98
-#: FundRaiserEditor.php:173 Include/Functions.php:88 PledgeEditor.php:599
-#: Reports/ReminderReport.php:323 Reports/ReminderReport.php:404
-#: Reports/TaxReport.php:379 SelectDelete.php:323
-#: v2/templates/calendar/eventattendeesedit.php:36
+#: FundRaiserEditor.php:173 PledgeEditor.php:599 Reports/ReminderReport.php:323
+#: Reports/ReminderReport.php:404 Reports/TaxReport.php:379
+#: SelectDelete.php:323 v2/templates/calendar/eventattendeesedit.php:36
 #: v2/templates/email/mailchimp/campaign.php:127
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Date"
@@ -156,7 +155,7 @@ msgstr "Fonds"
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:242
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:243
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:253
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:251
 #: EcclesiaCRM/utils/OutputUtils.php:239 EditEventTypes.php:125
 #: EditEventTypes.php:137 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:66 GroupReports.php:169
@@ -390,6 +389,7 @@ msgstr "Créer un dossier"
 #: v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/group/groupview.php:287
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 #: v2/templates/pastoralcare/pastoralcarefamily.php:218
 #: v2/templates/pastoralcare/pastoralcareperson.php:215
@@ -690,9 +690,9 @@ msgstr "et"
 msgid "Image Position"
 msgstr "Position de l'image"
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
-#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
-#: PersonCustomFieldsEditor.php:514 v2/templates/group/groupbadge.php:165
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:434
+#: FamilyCustomFieldsEditor.php:518 PersonCustomFieldsEditor.php:431
+#: PersonCustomFieldsEditor.php:516 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Gauche"
 
@@ -700,9 +700,9 @@ msgstr "Gauche"
 msgid "Center"
 msgstr "Centrer"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
-#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
-#: PersonCustomFieldsEditor.php:515 v2/templates/group/groupbadge.php:167
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:435
+#: FamilyCustomFieldsEditor.php:519 PersonCustomFieldsEditor.php:432
+#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Droite"
 
@@ -741,11 +741,11 @@ msgstr "Membres"
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:345
-#: FamilyCustomFieldsEditor.php:467 GeoPage.php:373 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
-#: GroupPropsFormEditor.php:476 PersonCustomFieldsEditor.php:341
-#: PersonCustomFieldsEditor.php:468 PrintPastoralCarePerson.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:347
+#: FamilyCustomFieldsEditor.php:469 GeoPage.php:373 GroupEditor.php:86
+#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:343
+#: PersonCustomFieldsEditor.php:470 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
@@ -753,7 +753,7 @@ msgstr "Membres"
 #: Reports/PDFLabel.php:859 v2/templates/calendar/eventattendeesedit.php:56
 #: v2/templates/dashboard/maindashboard.php:697
 #: v2/templates/dashboard/maindashboard.php:713
-#: v2/templates/group/groupview.php:396 v2/templates/people/familylist.php:55
+#: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
 #: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1769,7 +1769,7 @@ msgid "Minutes left"
 msgstr "Minutes restantes"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:612
+#: EcclesiaCRM/utils/MiscUtils.php:636
 msgid "Folder"
 msgstr "Dossier"
 
@@ -1867,7 +1867,7 @@ msgid "newsletter"
 msgstr "newsletter"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:81
-#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:108
+#: EcclesiaCRM/Search/FamilySearchRes.php:44 Include/Functions.php:92
 #: v2/templates/cart/cartview.php:195
 msgid "families"
 msgstr "familles"
@@ -2086,10 +2086,10 @@ msgstr "Gestionnaire de Classifications de Personne"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:130
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:138
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
-#: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
-#: GroupPropsFormEditor.php:475 OptionManager.php:117 OptionManager.php:125
-#: PersonCustomFieldsEditor.php:340 PersonCustomFieldsEditor.php:465
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:346
+#: FamilyCustomFieldsEditor.php:466 GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:476 OptionManager.php:117 OptionManager.php:125
+#: PersonCustomFieldsEditor.php:342 PersonCustomFieldsEditor.php:467
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:320
 #: v2/templates/gdpr/gdprdatastructure.php:42
@@ -2216,43 +2216,43 @@ msgstr "Options de Liste familiale personnalisée"
 msgid "Family Custom List Options Editor"
 msgstr "Gestionnaire des Options de Liste familiale personnalisée"
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:358
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:422
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:458
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:508
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:530
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:580
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:359
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:423
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:459
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:509
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:531
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:581
 #: EcclesiaCRM/APIControllers/SidebarRolesController.php:56
 msgid "The record could not be found."
 msgstr "L'enregistrement n'a pas pu être trouvé."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:368
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:468
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:540
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:369
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:469
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:541
 msgid "The property is already assigned."
 msgstr "Cette propriété est déjà assigné."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:373
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:403
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:473
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:489
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:545
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:561
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:374
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:404
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:474
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:490
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:546
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:562
 msgid "The property is successfully assigned."
 msgstr "Cette propriété a été affectée avec succès."
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:375
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:386
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:475
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:486
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:547
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:558
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:376
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:387
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:476
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:487
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:548
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:559
 msgid "The property could not be assigned."
 msgstr "Cette propriété ne peut pas être assigné"
 
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:441
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:513
-#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:585
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:442
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:514
+#: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:586
 msgid "The property is successfully unassigned."
 msgstr "Cette propriété a été retiré avec succès."
 
@@ -4626,7 +4626,7 @@ msgstr "Veuillez vérifier vos informations familiales"
 msgid "Private Space"
 msgstr "Espace Personnel"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:417
+#: EcclesiaCRM/MenuBar/MenuBar.php:45 EcclesiaCRM/utils/MiscUtils.php:441
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Accueil"
@@ -4954,7 +4954,7 @@ msgstr "Image de Profil Effacée"
 msgid "Profile Image uploaded"
 msgstr "Image de profil téléchargée"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Group.php:177 Reports/CanvassReports.php:279
+#: EcclesiaCRM/model/EcclesiaCRM/Group.php:178 Reports/CanvassReports.php:279
 #: Reports/VotingMembers.php:102 SelectDelete.php:371
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -5168,7 +5168,7 @@ msgstr "Annuaire du Groupe"
 msgid "Tractor"
 msgstr "Classique"
 
-#: EcclesiaCRM/Reports/PDF_RealAttendance.php:275
+#: EcclesiaCRM/Reports/PDF_RealAttendance.php:269
 #: Reports/ClassAttendance.php:244 Reports/ClassList.php:218
 #: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:49
@@ -5522,7 +5522,7 @@ msgid "by"
 msgstr "par"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:612 EcclesiaCRM/utils/MiscUtils.php:715
+#: EcclesiaCRM/utils/MiscUtils.php:636 EcclesiaCRM/utils/MiscUtils.php:739
 msgid "File"
 msgstr "Fichier"
 
@@ -5791,45 +5791,45 @@ msgstr "Ignorez les Adresses<br>Incomplètes"
 msgid "File Type"
 msgstr "Type de fichier"
 
-#: EcclesiaCRM/utils/MiscUtils.php:660
+#: EcclesiaCRM/utils/MiscUtils.php:684
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Vous devez utiliser une visionneuse PDF ou télécharger le fichier ici "
 
-#: EcclesiaCRM/utils/MiscUtils.php:667 EcclesiaCRM/utils/MiscUtils.php:672
-#: EcclesiaCRM/utils/MiscUtils.php:676 EcclesiaCRM/utils/MiscUtils.php:782
+#: EcclesiaCRM/utils/MiscUtils.php:691 EcclesiaCRM/utils/MiscUtils.php:696
+#: EcclesiaCRM/utils/MiscUtils.php:700 EcclesiaCRM/utils/MiscUtils.php:806
 msgid "Your browser does not support the audio element."
 msgstr "Votre navigateur ne supporte pas les éléments audios"
 
-#: EcclesiaCRM/utils/MiscUtils.php:682 EcclesiaCRM/utils/MiscUtils.php:689
-#: EcclesiaCRM/utils/MiscUtils.php:698 EcclesiaCRM/utils/MiscUtils.php:792
-#: EcclesiaCRM/utils/MiscUtils.php:803 EcclesiaCRM/utils/MiscUtils.php:818
+#: EcclesiaCRM/utils/MiscUtils.php:706 EcclesiaCRM/utils/MiscUtils.php:713
+#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:816
+#: EcclesiaCRM/utils/MiscUtils.php:827 EcclesiaCRM/utils/MiscUtils.php:842
 msgid "Your browser does not support the video tag."
 msgstr "Votre navigateur ne supporte pas les tags vidéos"
 
-#: EcclesiaCRM/utils/MiscUtils.php:724 EcclesiaCRM/utils/MiscUtils.php:756
-#: EcclesiaCRM/utils/MiscUtils.php:765 EcclesiaCRM/utils/MiscUtils.php:780
-#: EcclesiaCRM/utils/MiscUtils.php:789 EcclesiaCRM/utils/MiscUtils.php:799
-#: EcclesiaCRM/utils/MiscUtils.php:812
+#: EcclesiaCRM/utils/MiscUtils.php:748 EcclesiaCRM/utils/MiscUtils.php:780
+#: EcclesiaCRM/utils/MiscUtils.php:789 EcclesiaCRM/utils/MiscUtils.php:804
+#: EcclesiaCRM/utils/MiscUtils.php:813 EcclesiaCRM/utils/MiscUtils.php:823
+#: EcclesiaCRM/utils/MiscUtils.php:836
 msgid "Expand"
 msgstr "Développer"
 
-#: EcclesiaCRM/utils/MiscUtils.php:860
+#: EcclesiaCRM/utils/MiscUtils.php:884
 msgid "Classic Document"
 msgstr "Document classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:863
+#: EcclesiaCRM/utils/MiscUtils.php:887
 msgid "Classic Video"
 msgstr "Vidéo classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:866
+#: EcclesiaCRM/utils/MiscUtils.php:890
 msgid "Classic File"
 msgstr "Fichier classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:869
+#: EcclesiaCRM/utils/MiscUtils.php:893
 msgid "Classic Audio"
 msgstr "Audio classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:976
+#: EcclesiaCRM/utils/MiscUtils.php:1000
 msgid "Select Fiscal Year"
 msgstr "Sélectionner l'année fiscale"
 
@@ -6233,7 +6233,7 @@ msgstr "Vanco ACH"
 msgid "Month"
 msgstr "Mois"
 
-#: ElectronicPaymentList.php:234 FamilyEditor.php:1100 Include/Functions.php:92
+#: ElectronicPaymentList.php:234 FamilyEditor.php:1100
 #: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Année"
@@ -6414,9 +6414,9 @@ msgstr ""
 "Chaque type d&#39;événement inclus un nombre total, vous n&#39;êtes pas "
 "obligé de l&#39;inclure."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:446 GroupPropsEditor.php:302
-#: GroupPropsFormEditor.php:448 OptionManager.php:524
-#: PersonCustomFieldsEditor.php:442
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:448 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:449 OptionManager.php:524
+#: PersonCustomFieldsEditor.php:444
 msgid "Save Changes"
 msgstr "Enregistrer les Modifications"
 
@@ -6645,18 +6645,18 @@ msgstr ""
 "Enregistrer les modifications&quot; avant de cliquer sur les boutons haut, "
 "bas, supprimer ou &quot;ajouter un nouveau&quot;!"
 
-#: FamilyCustomFieldsEditor.php:193 GroupPropsFormEditor.php:220
-#: PersonCustomFieldsEditor.php:186
+#: FamilyCustomFieldsEditor.php:194 GroupPropsFormEditor.php:221
+#: PersonCustomFieldsEditor.php:187
 msgid "Default Option"
 msgstr "Option par défaut"
 
-#: FamilyCustomFieldsEditor.php:328
+#: FamilyCustomFieldsEditor.php:330
 msgid "No custom Family fields have been added yet"
 msgstr "Aucun champ famille personnalisé n&#39;a été ajouté pour l&#39;instant"
 
-#: FamilyCustomFieldsEditor.php:337 GroupPropsEditor.php:227
-#: GroupPropsFormEditor.php:339 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:330 PersonEditor.php:880
+#: FamilyCustomFieldsEditor.php:339 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:340 OptionManager.php:391
+#: PersonCustomFieldsEditor.php:332 PersonEditor.php:880
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6664,59 +6664,59 @@ msgstr ""
 "Champ ou sélection invalide. Les modifications n&#39;ont pas été "
 "enregistrées! Veuillez corriger et essayer à nouveau !"
 
-#: FamilyCustomFieldsEditor.php:346 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:351 PersonCustomFieldsEditor.php:342
+#: FamilyCustomFieldsEditor.php:348 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:344
 msgid "Special option"
 msgstr "Option spéciale"
 
-#: FamilyCustomFieldsEditor.php:347 FamilyCustomFieldsEditor.php:470
-#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:474
+#: FamilyCustomFieldsEditor.php:349 FamilyCustomFieldsEditor.php:472
+#: PersonCustomFieldsEditor.php:345 PersonCustomFieldsEditor.php:476
 msgid "Security Option"
 msgstr "Option de sécurité"
 
-#: FamilyCustomFieldsEditor.php:348
+#: FamilyCustomFieldsEditor.php:350
 msgid "Family-View Side"
 msgstr "Vue de famille latérale"
 
-#: FamilyCustomFieldsEditor.php:378 FamilyCustomFieldsEditor.php:501
-#: FamilyEditor.php:260 GroupPropsFormEditor.php:384
-#: GroupPropsFormEditor.php:500 OptionManager.php:470
-#: PersonCustomFieldsEditor.php:377 PersonCustomFieldsEditor.php:502
+#: FamilyCustomFieldsEditor.php:380 FamilyCustomFieldsEditor.php:503
+#: FamilyEditor.php:260 GroupPropsFormEditor.php:385
+#: GroupPropsFormEditor.php:501 OptionManager.php:470
+#: PersonCustomFieldsEditor.php:379 PersonCustomFieldsEditor.php:504
 msgid "You must enter a name"
 msgstr "Vous devez entrer un nom"
 
-#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:130
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:402
-#: PersonCustomFieldsEditor.php:387
+#: FamilyCustomFieldsEditor.php:391 GroupEditor.php:130
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:403
+#: PersonCustomFieldsEditor.php:389
 msgid "Select a group"
 msgstr "Sélectionner un groupe"
 
-#: FamilyCustomFieldsEditor.php:403 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:419 PersonCustomFieldsEditor.php:401
+#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:403
 msgid "You must select a group."
 msgstr "Vous devez sélectionner un groupe."
 
-#: FamilyCustomFieldsEditor.php:409 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:424 PersonCustomFieldsEditor.php:406
+#: FamilyCustomFieldsEditor.php:411 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:408
 msgid "Edit List Options"
 msgstr "Modifier la liste des options"
 
-#: FamilyCustomFieldsEditor.php:473 PersonCustomFieldsEditor.php:471
+#: FamilyCustomFieldsEditor.php:475 PersonCustomFieldsEditor.php:473
 msgid "Side"
 msgstr "Côté"
 
-#: FamilyCustomFieldsEditor.php:494 GroupPropsFormEditor.php:493
-#: PersonCustomFieldsEditor.php:495
+#: FamilyCustomFieldsEditor.php:496 GroupPropsFormEditor.php:494
+#: PersonCustomFieldsEditor.php:497
 msgid "Help on types.."
 msgstr "Aide sur les types.."
 
-#: FamilyCustomFieldsEditor.php:506 GroupPropsFormEditor.php:505
-#: PersonCustomFieldsEditor.php:507
+#: FamilyCustomFieldsEditor.php:508 GroupPropsFormEditor.php:506
+#: PersonCustomFieldsEditor.php:509
 msgid "That field name already exists."
 msgstr "Ce nom de champ existe déjà."
 
-#: FamilyCustomFieldsEditor.php:521 GroupPropsFormEditor.php:516
-#: PersonCustomFieldsEditor.php:522
+#: FamilyCustomFieldsEditor.php:523 GroupPropsFormEditor.php:517
+#: PersonCustomFieldsEditor.php:524
 msgid "Add New Field"
 msgstr "Ajouter un nouveau champ"
 
@@ -6991,8 +6991,8 @@ msgid "Timeline"
 msgstr "Chronologie"
 
 #: FamilyView.php:658 PersonView.php:940 PrintPastoralCarePerson.php:594
-#: PrintView.php:603 v2/templates/group/groupview.php:323
-#: v2/templates/group/groupview.php:381
+#: PrintView.php:603 v2/templates/group/groupview.php:325
+#: v2/templates/group/groupview.php:383
 msgid "Assigned Properties"
 msgstr "Propriétés attribuées"
 
@@ -7004,7 +7004,7 @@ msgstr "Paiements automatiques"
 msgid "Pledges and Payments"
 msgstr "Engagements et paiements"
 
-#: FamilyView.php:811 PersonView.php:1427 v2/templates/group/groupview.php:336
+#: FamilyView.php:811 PersonView.php:1427 v2/templates/group/groupview.php:338
 msgid "Assign a New Property"
 msgstr "Attribuer une nouvelle propriété"
 
@@ -7014,12 +7014,12 @@ msgid "Select"
 msgstr "Sélectionner"
 
 #: FamilyView.php:821 PersonView.php:1435 QueryView.php:458 QueryView.php:475
-#: v2/templates/group/groupview.php:341
+#: v2/templates/group/groupview.php:343
 msgid "select an option"
 msgstr "sélectionner une option"
 
 #: FamilyView.php:842 PersonView.php:1456 PersonView.php:1519
-#: v2/templates/group/groupview.php:357
+#: v2/templates/group/groupview.php:359
 msgid "Assign"
 msgstr "Attribuer"
 
@@ -7401,10 +7401,10 @@ msgid "infos"
 msgstr "infos"
 
 #: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:237
-#: GroupPropsFormEditor.php:350 GroupPropsFormEditor.php:477
+#: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:397
+#: v2/templates/group/groupview.php:399
 msgid "Description"
 msgstr "Description"
 
@@ -7576,7 +7576,7 @@ msgstr "Désactiver les Propriétés Spécifiques du Groupe"
 msgid "Group-specific properties are useful to make a sort of doodle"
 msgstr "Les propriétés spécifiques sont utile pour créer des sortes de Doodle"
 
-#: GroupEditor.php:164 v2/templates/group/groupview.php:428
+#: GroupEditor.php:164 v2/templates/group/groupview.php:430
 msgid "Edit Group-Specific Properties Form"
 msgstr "Modifier formulaire Propriétés spécifiques de groupe"
 
@@ -7602,7 +7602,7 @@ msgstr "Nouveau rôle"
 msgid "Add New Role"
 msgstr "Ajouter un nouveau rôle"
 
-#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:61
+#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:62
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Gestionnaire de formulaire des Propriétés spécifiques du groupe"
 
@@ -7610,7 +7610,7 @@ msgstr "Gestionnaire de formulaire des Propriétés spécifiques du groupe"
 msgid "for"
 msgstr "pour"
 
-#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:65
+#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:66
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -7623,7 +7623,7 @@ msgstr ""
 msgid "Group-Person-Specific Properties"
 msgstr "Propriétés Groupe-Personne-Spécifiques"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:328
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:329
 msgid "No properties have been added yet"
 msgstr "Aucune propriété n&#39;a été ajouté"
 
@@ -7632,24 +7632,24 @@ msgstr "Aucune propriété n&#39;a été ajouté"
 msgid "Return to Person"
 msgstr "Retour à la Personne"
 
-#: GroupPropsFormEditor.php:69 v2/templates/group/groupview.php:375
+#: GroupPropsFormEditor.php:70 v2/templates/group/groupview.php:377
 msgid "Group-Specific Properties"
 msgstr "Propriétés spécifiques du groupe"
 
-#: GroupPropsFormEditor.php:329 GroupPropsFormEditor.php:445
+#: GroupPropsFormEditor.php:330 GroupPropsFormEditor.php:446
 msgid "Return to Group"
 msgstr "Retourner au Groupe"
 
-#: GroupPropsFormEditor.php:352
+#: GroupPropsFormEditor.php:353
 msgid "Show in"
 msgstr "Visualiser dans"
 
-#: GroupPropsFormEditor.php:352 PersonView.php:335
+#: GroupPropsFormEditor.php:353 PersonView.php:335
 msgid "Person Profile"
 msgstr "Profil de la Personne"
 
 #
-#: GroupPropsFormEditor.php:465
+#: GroupPropsFormEditor.php:466
 msgid "Add Group-Specific Properties"
 msgstr "Ajouter Des propriétés spécifiques de groupes"
 
@@ -7737,7 +7737,7 @@ msgstr "Propriétés des Personnes"
 msgid "Edit Custom Person Fields"
 msgstr "Modifier les champs personnalisés des personnes"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:317
+#: Include/Footer.php:104 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Propriétés de Groupe "
 
@@ -7758,7 +7758,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Veuillez contacter votre administrateur pour changer les Réglages du Système."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:112
+#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Modifier les Réglages Généraux"
 
@@ -7782,64 +7782,23 @@ msgstr "Vous avez"
 msgid "task(s)"
 msgstr "Tâche(s)"
 
-#: Include/Functions.php:87
-msgid "True / False"
-msgstr "Vrai / Faux"
-
-#: Include/Functions.php:89
-msgid "Text Field (50 char)"
-msgstr "Champ Texte (50 caractères)"
-
-#: Include/Functions.php:90 Reports/GDPR/GDPRDataStructureExport.php:159
-#: v2/templates/gdpr/gdprdatastructure.php:142
-msgid "Text Field (100 char)"
-msgstr "Champ Texte (100 caractères)"
-
-#: Include/Functions.php:91
-msgid "Text Field (Long)"
-msgstr "Champ Texte (long)"
-
-#: Include/Functions.php:93
-msgid "Season"
-msgstr "Saison"
-
-#: Include/Functions.php:94 v2/templates/fundraiser/findFundRaiser.php:23
-msgid "Number"
-msgstr "Numéro"
-
-#: Include/Functions.php:95
-msgid "Person from Group"
-msgstr "Personne du groupe"
-
-#: Include/Functions.php:96
-msgid "Money"
-msgstr "Argent"
-
-#: Include/Functions.php:97
-msgid "Phone Number"
-msgstr "Numéro de téléphone"
-
-#: Include/Functions.php:98
-msgid "Custom Drop-Down List"
-msgstr "Liste déroulante personnalisée"
-
-#: Include/Functions.php:104
+#: Include/Functions.php:88
 msgid "Thank you for registering your EcclesiaCRM installation."
 msgstr "Merci d'avoir enregistré votre installation de EcclesiaCRM."
 
-#: Include/Functions.php:108
+#: Include/Functions.php:92
 msgid "PDFs successfully emailed "
 msgstr "PDFs envoyés avec succès␣ "
 
-#: Include/Functions.php:113
+#: Include/Functions.php:97
 msgid "PDF successfully emailed to family members."
 msgstr "PDF envoyé avec succès aux membres de la famille."
 
-#: Include/Functions.php:115
+#: Include/Functions.php:99
 msgid "Failed to email PDF to family members."
 msgstr "Échec de l'envoi du PDF aux membres de la famille"
 
-#: Include/Functions.php:135
+#: Include/Functions.php:119
 msgid "item(s) added to the Cart."
 msgstr "article(s) ajouté(s) au Panier."
 
@@ -8273,11 +8232,11 @@ msgstr " par ce nom existe déjà."
 msgid "Custom Person Fields Editor"
 msgstr "Editeur des champs personnalisés de Personne"
 
-#: PersonCustomFieldsEditor.php:321
+#: PersonCustomFieldsEditor.php:323
 msgid "No custom person fields have been added yet"
 msgstr "Aucun champ personnalisé Personne n'a été ajouté"
 
-#: PersonCustomFieldsEditor.php:344
+#: PersonCustomFieldsEditor.php:346
 msgid "Person-View Side"
 msgstr "Personne - Fiche Associée"
 
@@ -9062,6 +9021,11 @@ msgstr "Champs personnalisés de Famille"
 #: v2/templates/gdpr/gdprdatastructure.php:129
 msgid "Family Property"
 msgstr "Propriété de famille"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:159
+#: v2/templates/gdpr/gdprdatastructure.php:142
+msgid "Text Field (100 char)"
+msgstr "Champ Texte (100 caractères)"
 
 #: Reports/GDPR/GDPRListExport.php:65
 msgid "Full Name"
@@ -10614,7 +10578,7 @@ msgstr ""
 "du CRM, utiliser <b>*</b>"
 
 #: v2/templates/email/mailchimp/managelist.php:75
-#: v2/templates/group/groupview.php:467
+#: v2/templates/group/groupview.php:469
 #: v2/templates/sundayschool/sundayschooldashboard.php:333
 #: v2/templates/sundayschool/sundayschoolview.php:174
 #: v2/templates/sundayschool/sundayschoolview.php:287
@@ -10625,27 +10589,27 @@ msgstr "Ajouter"
 msgid "Keywords"
 msgstr "Mot clés"
 
-#: v2/templates/email/mailchimp/managelist.php:110
+#: v2/templates/email/mailchimp/managelist.php:112
 msgid "is not configured"
 msgstr "n'est pas configuré"
 
-#: v2/templates/email/mailchimp/managelist.php:111
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "Please update the"
 msgstr "Veuillez mettre à jour le"
 
-#: v2/templates/email/mailchimp/managelist.php:111
+#: v2/templates/email/mailchimp/managelist.php:113
 msgid "API key in Setting->"
 msgstr "Clé API dans Réglages->"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "then update"
 msgstr "puis mettre à jour"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:115
 msgid "For more info see our "
 msgstr "Pour plus d'infos voir notre "
 
-#: v2/templates/email/mailchimp/managelist.php:114
+#: v2/templates/email/mailchimp/managelist.php:116
 msgid "support docs."
 msgstr "documentations."
 
@@ -10718,6 +10682,10 @@ msgstr "Coller une URL"
 #: v2/templates/fundraiser/donatedItemEditor.php:152
 msgid "Use the EDrive to browse or upload a file"
 msgstr "Utiliser l'EDrive pour sélectionner ou télécharger un fichier"
+
+#: v2/templates/fundraiser/findFundRaiser.php:23
+msgid "Number"
+msgstr "Numéro"
 
 #: v2/templates/fundraiser/findFundRaiser.php:32
 msgid "Date Start"
@@ -10936,15 +10904,15 @@ msgstr "Managers attribués"
 msgid "No assigned Manager"
 msgstr "Acun Manager attribué"
 
-#: v2/templates/group/groupview.php:299
+#: v2/templates/group/groupview.php:301
 msgid "Add a specific manager only for this group"
 msgstr "Ajouter un manager de groupe spécifique à ce groupe"
 
-#: v2/templates/group/groupview.php:299
+#: v2/templates/group/groupview.php:301
 msgid "Add Manager"
 msgstr "Ajouter Manager"
 
-#: v2/templates/group/groupview.php:317
+#: v2/templates/group/groupview.php:319
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
@@ -10953,7 +10921,7 @@ msgstr ""
 "les groupes et peuvent être modifiées via la barre administrateur à droite "
 "&rarr; Propriétés de Groupe"
 
-#: v2/templates/group/groupview.php:375
+#: v2/templates/group/groupview.php:377
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
@@ -10961,15 +10929,15 @@ msgstr ""
 "Ajouter des propriétés pour tous les membres de ce groupe. Ces propriétés "
 "sont visible dans chaque profile utilisaté  &rarr; Groupes attribués"
 
-#: v2/templates/group/groupview.php:389
+#: v2/templates/group/groupview.php:391
 msgid "No member properties have been created"
 msgstr "Aucunes propriétés n'a été créées"
 
-#: v2/templates/group/groupview.php:419
+#: v2/templates/group/groupview.php:421
 msgid "Disabled for this group."
 msgstr "Désactivé pour ce groupe."
 
-#: v2/templates/group/groupview.php:419
+#: v2/templates/group/groupview.php:421
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
@@ -10977,32 +10945,32 @@ msgstr ""
 "Vous pourriez \"Modifier ce groupe\" et \"Activer les Propriétés spécifiques "
 "du groupe\". Pour cela, cliquer : \"Modifier ce Groupe\""
 
-#: v2/templates/group/groupview.php:443
+#: v2/templates/group/groupview.php:445
 msgid "Group Members:"
 msgstr "Membres du Groupe:"
 
-#: v2/templates/group/groupview.php:446
+#: v2/templates/group/groupview.php:448
 #: v2/templates/sundayschool/sundayschoolview.php:248
 msgid "Remove members"
 msgstr "Supprimer les membres"
 
-#: v2/templates/group/groupview.php:462
+#: v2/templates/group/groupview.php:464
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
-#: v2/templates/group/groupview.php:473
+#: v2/templates/group/groupview.php:475
 msgid "Remove Selected Members from group"
 msgstr "Supprimer les membres sélectionnés du groupe"
 
-#: v2/templates/group/groupview.php:480
+#: v2/templates/group/groupview.php:482
 msgid "Add Selected Members to Cart"
 msgstr "Ajouter les membres sélectionnés au panier"
 
-#: v2/templates/group/groupview.php:486
+#: v2/templates/group/groupview.php:488
 msgid "Add Selected Members to Group"
 msgstr "Ajouter les membres sélectionnés au groupe"
 
-#: v2/templates/group/groupview.php:487
+#: v2/templates/group/groupview.php:489
 msgid "Move Selected Members to Group"
 msgstr "Déplacer les membres sélectionnés vers le groupe"
 
@@ -12570,6 +12538,30 @@ msgstr "petite"
 
 msgid "Large"
 msgstr "grande"
+
+msgid "True / False"
+msgstr "Vrai / Faux"
+
+msgid "Text Field (50 char)"
+msgstr "Champ Texte (50 caractères)"
+
+msgid "Text Field (Long)"
+msgstr "Champ Texte (long)"
+
+msgid "Season"
+msgstr "Saison"
+
+msgid "Person from Group"
+msgstr "Personne du groupe"
+
+msgid "Money"
+msgstr "Argent"
+
+msgid "Custom Drop-Down List"
+msgstr "Liste déroulante personnalisée"
+
+#~ msgid "Phone Number"
+#~ msgstr "Numéro de téléphone"
 
 #~ msgid "Increase this value is unstable with MailChimp API."
 #~ msgstr "Augmenter cette valeur peut être instable avec l'API MailChimp."
