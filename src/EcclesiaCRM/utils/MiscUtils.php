@@ -26,6 +26,30 @@ class MiscUtils
 {
     const types = ["a", "b", "i", "u", "h1", "h2", "h2", "hr", "img", "p", "ul", "ol", "li", "table", "tbody", "theader", "tr", "td", "strong", "em"];
 
+    // Constants
+    const aPropTypes = [
+        1  => 'True / False',
+        2  => 'Date',
+        3  => 'Text Field (50 char)',
+        4  => 'Text Field (100 char)',
+        5  => 'Text Field (Long)',
+        6  => 'Year',
+        7  => 'Season',
+        8  => 'Number',
+        9  => 'Person from Group',
+        10 => 'Money',
+        11 => 'Phone Number',
+        12 => 'Custom Drop-Down List'
+    ];
+
+    public static function PropTypes ($type) {
+        return _(self::aPropTypes[$type]);
+    }
+
+    public static function ProTypeCount() {
+        return count(self::aPropTypes);
+    }
+
     /**
      * Remove the directory and its content (all files and subdirectories), useFull in system upgrade.
      * @param string $path the directory name
