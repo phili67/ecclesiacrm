@@ -82,22 +82,6 @@ if (!isset($_SESSION['bHasMagicQuotes'])) {
     }
 }
 
-// Constants
-$aPropTypes = [
-  1  => _('True / False'),
-  2  => _('Date'),
-  3  => _('Text Field (50 char)'),
-  4  => _('Text Field (100 char)'),
-  5  => _('Text Field (Long)'),
-  6  => _('Year'),
-  7  => _('Season'),
-  8  => _('Number'),
-  9  => _('Person from Group'),
-  10 => _('Money'),
-  11 => _('Phone Number'),
-  12 => _('Custom Drop-Down List'),
-];
-
 $sGlobalMessageClass = 'success';
 
 if (isset($_GET['Registered'])) {
