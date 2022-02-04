@@ -29,6 +29,8 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use EcclesiaCRM\Utils\MiscUtils;
+
 
 // Security: user must be administrator to use this page
 if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
@@ -370,7 +372,7 @@ if ($numRows == 0) {
                 <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
             </td>
             <td class="TextColumn">
-                <?= $aPropTypes[$aTypeFields[$row]] ?>
+                <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
             </td>
             <td class="TextColumn" align="center">
                 <input type="text" class="form-control" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
@@ -485,9 +487,9 @@ if ($numRows == 0) {
                         <select name="newFieldType" class="form-control input-sm">
 
                       <?php
-                        for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
+                        for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {
                       ?>
-                            <option value="<?= $iOptionID ?>"><?= $aPropTypes[$iOptionID] ?>
+                            <option value="<?= $iOptionID ?>"><?= MiscUtils::PropTypes($iOptionID) ?>
                       <?php
                         }
                       ?>

@@ -20,7 +20,6 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\GroupQuery;
@@ -30,6 +29,8 @@ use EcclesiaCRM\GroupPropMaster;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
+
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 // Get the Group from the querystring
@@ -88,7 +89,7 @@ if (isset($_POST['SaveChanges'])) {
         $aTypeFields[$row]  = $prop->getTypeId();
 
         if (!is_null ($prop->getSpecial())) {
-          if ($type_ID == 9) {
+          if ($prop->getTypeId() == 9) {
             $aSpecialFields[$row] = $groupInfo->getId();
           } else {
             $aSpecialFields[$row] = $prop->getSpecial();
@@ -303,7 +304,7 @@ if (isset($_POST['SaveChanges'])) {
         $aSpecialFields[$row] = $prop->getSpecial();
         $aFieldFields[$row]   = $prop->getField();
 
-        if ($type_ID == 9) {
+        if ($prop->getTypeId() == 9) {
           $aSpecialFields[$row] = $iGroupID;
         }
 
@@ -374,7 +375,7 @@ if ($numRows == 0) {
             <img src="Images/x.gif" border="0" class="delete-field" data-GroupID="<?= $iGroupID ?>" data-PropID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>">
       </td>
       <td class="TextColumn" style="font-size:70%;">
-          <?= $aPropTypes[$aTypeFields[$row]]; ?>
+          <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
       </td>
       <td class="TextColumn">
          <input type="text" name="<?= $row ?>name" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="25" maxlength="40" class="form-control">
@@ -389,7 +390,7 @@ if ($numRows == 0) {
 
       <td class="TextColumn">
          <?php
-            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
+            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row])
          ?>
       </td>
 
@@ -482,9 +483,9 @@ if ($numRows == 0) {
           <td valign="top">
              <select name="newFieldType" class="form-control input-sm">
           <?php
-              for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
+              for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {
           ?>
-                  <option value="<?= $iOptionID ?>"> <?= $aPropTypes[$iOptionID] ?>
+                  <option value="<?= $iOptionID ?>"> <?= MiscUtils::PropTypes($iOptionID) ?>
           <?php
               }
           ?>

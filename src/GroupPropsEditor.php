@@ -16,14 +16,13 @@ require 'Include/Functions.php';
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -53,7 +52,7 @@ $sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$group->getNam
 
 require 'Include/Header.php'; ?>
 
-<p class="alert alert-warning"><span class="fas fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+<p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
 <div class="card">
 <div class="card-header with-border">
@@ -246,7 +245,7 @@ if ($numRows == 0) {
       <td class="LabelColumn"><b><?= $row ?></b></td>
       <td class="TextColumn" width="5%" nowrap></td>
       <td class="TextColumn">
-          <?= $aPropTypes[$aTypeFields[$row]]; ?>
+          <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
       </td>
       <td class="TextColumn">
          <?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>

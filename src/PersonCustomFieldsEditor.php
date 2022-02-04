@@ -26,6 +26,7 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Map\PersonCustomMasterTableMap;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 // Security: user must be administrator to use this page
@@ -367,7 +368,7 @@ require 'Include/Header.php'; ?>
                 <img class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>" src="Images/x.gif" border="0">
             </td>
             <td class="TextColumnFam">
-              <?= $aPropTypes[$aTypeFields[$row]] ?>
+              <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
             </td>
             <td class="TextColumnFam" align="center">
               <input type="text" name="<?= $row ?>name"
@@ -486,9 +487,9 @@ require 'Include/Header.php'; ?>
                  <select name="newFieldType" class="form-control input-sm">
 
               <?php
-                for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
+                for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {
               ?>
-                    <option value="<?= $iOptionID ?>"><?= $aPropTypes[$iOptionID] ?></option>
+                    <option value="<?= $iOptionID ?>"><?= MiscUtils::PropTypes($iOptionID) ?></option>
               <?php
                 }
               ?>
