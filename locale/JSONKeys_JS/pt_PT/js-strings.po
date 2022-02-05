@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
+"POT-Creation-Date: 2022-02-05T13:15:07.756Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2045,8 +2045,8 @@ msgstr "Eliminar etiqueta"
 msgid "Loading resources ..."
 msgstr "Carregamento de recursos ..."
 
-msgid "All"
-msgstr "Todos"
+msgid "Check all boxes"
+msgstr "Marcar todas as caixas"
 
 msgid "Subscribed"
 msgstr "Assinado"
@@ -2410,6 +2410,9 @@ msgstr "Mudar de câmara"
 
 msgid "Upload Image"
 msgstr "Carregar imagem"
+
+#~ msgid "All"
+#~ msgstr "Todos"
 
 #~ msgid "You're about to remove a file"
 #~ msgstr "Você está prestes a remover um arquivo"

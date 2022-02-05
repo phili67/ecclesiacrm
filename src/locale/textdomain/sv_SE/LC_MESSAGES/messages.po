@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-03 21:39+0000\n"
+"POT-Creation-Date: 2022-02-05 13:36+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,7 +149,7 @@ msgid "Fund"
 msgstr "Fond"
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:185
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:210
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
@@ -178,7 +178,7 @@ msgstr "inaktiv"
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
-#: v2/templates/user/userlist.php:49
+#: v2/templates/user/userlist.php:50
 msgid "First Name"
 msgstr "Förnamn"
 
@@ -269,8 +269,8 @@ msgstr "Telefon"
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/calendar/eventattendeesedit.php:58
-#: v2/templates/pastoralcare/pastoralcarefamily.php:115
-#: v2/templates/pastoralcare/pastoralcareperson.php:117
+#: v2/templates/pastoralcare/pastoralcarefamily.php:194
+#: v2/templates/pastoralcare/pastoralcareperson.php:196
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -327,7 +327,7 @@ msgid "Save"
 msgstr "Spara"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:450 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:460 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -390,10 +390,10 @@ msgstr "Skapa en mapp"
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:211
-#: v2/templates/pastoralcare/pastoralcarefamily.php:218
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:222
+#: v2/templates/pastoralcare/pastoralcarefamily.php:137
+#: v2/templates/pastoralcare/pastoralcarefamily.php:144
+#: v2/templates/pastoralcare/pastoralcareperson.php:137
+#: v2/templates/pastoralcare/pastoralcareperson.php:144
 msgid "Delete"
 msgstr "Ta bort"
 
@@ -686,9 +686,9 @@ msgstr "och"
 msgid "Image Position"
 msgstr "Bildposition"
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:434
-#: FamilyCustomFieldsEditor.php:518 PersonCustomFieldsEditor.php:431
-#: PersonCustomFieldsEditor.php:516 v2/templates/group/groupbadge.php:165
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
+#: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
+#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "Vänster"
 
@@ -696,9 +696,9 @@ msgstr "Vänster"
 msgid "Center"
 msgstr "Centrum"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:435
-#: FamilyCustomFieldsEditor.php:519 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:167
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
+#: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
+#: PersonCustomFieldsEditor.php:518 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "Höger"
 
@@ -727,21 +727,21 @@ msgstr "Lägg till kundvagn till familjen"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
 #: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
-#: v2/templates/pastoralcare/pastoralcarefamily.php:111
+#: v2/templates/pastoralcare/pastoralcarefamily.php:190
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
-#: v2/templates/pastoralcare/pastoralcareperson.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:192
 msgid "Members"
 msgstr "Ledamöter"
 
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:347
-#: FamilyCustomFieldsEditor.php:469 GeoPage.php:373 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:343
-#: PersonCustomFieldsEditor.php:470 PrintPastoralCarePerson.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:349
+#: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
+#: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:344
+#: PersonCustomFieldsEditor.php:471 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
@@ -750,7 +750,7 @@ msgstr "Ledamöter"
 #: v2/templates/dashboard/maindashboard.php:697
 #: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
-#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
+#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:49
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Namn"
@@ -898,71 +898,71 @@ msgstr "Antal rader"
 msgid "Checkin"
 msgstr "Incheckning"
 
-#: Checkin.php:237 Checkin.php:248 v2/templates/user/userlist.php:182
+#: Checkin.php:239 Checkin.php:256
 msgid "Check all"
 msgstr "Kontrollera alla"
 
-#: Checkin.php:241 Checkin.php:253
+#: Checkin.php:243 Checkin.php:261
 msgid "Uncheck all"
 msgstr "Avmarkera alla"
 
-#: Checkin.php:244
+#: Checkin.php:250
 msgid "Checkout"
 msgstr "Kassan"
 
-#: Checkin.php:259
+#: Checkin.php:269
 msgid "Add some notes"
 msgstr "Lägg till några anteckningar"
 
-#: Checkin.php:273
+#: Checkin.php:283
 msgid "Validate Attendance"
 msgstr "Validera närvaro"
 
-#: Checkin.php:293
+#: Checkin.php:303
 msgid "Set your free attendees"
 msgstr "Bestäm dina fria deltagare"
 
-#: Checkin.php:306
+#: Checkin.php:316
 msgid "Set your attendees Event"
 msgstr "Ange dina deltagare Evenemang"
 
-#: Checkin.php:345
+#: Checkin.php:355
 msgid "Your description"
 msgstr "Din beskrivning"
 
-#: Checkin.php:357
+#: Checkin.php:367
 msgid "Add Free Attendees Count"
 msgstr "Lägg till antalet gratis deltagare"
 
-#: Checkin.php:385
+#: Checkin.php:395
 msgid "Add single child/parents Attendees"
 msgstr "Lägg till ett enskilt barn/enstaka föräldrar Deltagare"
 
-#: Checkin.php:398
+#: Checkin.php:408
 msgid "Add Attendees for Event"
 msgstr "Lägg till deltagare för evenemanget"
 
-#: Checkin.php:405 Checkin.php:414
+#: Checkin.php:415 Checkin.php:424
 msgid "Person's Name"
 msgstr "Personens namn"
 
-#: Checkin.php:426
+#: Checkin.php:436
 msgid "Adult Name(Optional)"
 msgstr "Vuxnas namn (valfritt)"
 
-#: Checkin.php:434
+#: Checkin.php:444
 msgid "Checked in By(Optional)"
 msgstr "Incheckad av (frivillig uppgift)"
 
-#: Checkin.php:444
+#: Checkin.php:454
 msgid "Add and Checkin"
 msgstr "Lägg till och checka in"
 
-#: Checkin.php:456
+#: Checkin.php:466
 msgid "Add Visitor"
 msgstr "Lägg till besökare"
 
-#: Checkin.php:479 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:489 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Tillbaka till evenemang"
 
@@ -1031,9 +1031,9 @@ msgstr "Ålder / Antal år som gift"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1585 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:192
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/pastoralcare/pastoralcareperson.php:194
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Klassificering"
@@ -1534,8 +1534,8 @@ msgstr "Information som ska ingå"
 #: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
 #: PersonView.php:1127 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
-#: v2/templates/pastoralcare/pastoralcarefamily.php:114
-#: v2/templates/pastoralcare/pastoralcareperson.php:116
+#: v2/templates/pastoralcare/pastoralcarefamily.php:193
+#: v2/templates/pastoralcare/pastoralcareperson.php:195
 msgid "Birthday"
 msgstr "Födelsedag"
 
@@ -1644,46 +1644,61 @@ msgstr ""
 "Denna resursreservation har inte skapats av dig. Du kan inte redigera, "
 "flytta eller ta bort en resurs som du inte äger."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:241
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:178
+#: v2/templates/calendar/calendar.php:51
+msgid "Room"
+msgstr "Rum"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:181
+#: v2/templates/calendar/calendar.php:52
+msgid "Computer"
+msgstr "Dator"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:184
+#: v2/templates/calendar/calendar.php:53
+msgid "Video"
+msgstr "Video"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:270
 msgid "Owner"
 msgstr "Ägare"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:244
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:246
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
 msgid "Access"
 msgstr "Tillgång"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:244
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
 msgid "Full access in Read and write for all the events of this calendar."
 msgstr "Full tillgång till alla händelser i kalendern, både läs och skriv."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:246
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
 msgid "You can only read the events of this calendar."
 msgstr "Du kan bara läsa händelserna i den här kalendern."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:250
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
 msgid "This address can be used only with a CalDav server."
 msgstr "Den här adressen kan endast användas med en CalDav-server."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:250
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
 msgid "For thunderbird the URL is"
 msgstr "För thunderbird är URL:n följande"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:251
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:280
 msgid "For a share calendar (only in read mode)"
 msgstr "För en delningskalender (endast i läsläge)"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:253
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "Du måste aktivera inställningen \"bEnableExternalCalendarAPI\" i"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:253
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "General Settings/Integration"
 msgstr "Allmänna inställningar/Integration"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:477
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:528
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:579
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:506
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:557
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:608
 msgid "You can visualize it in your account, in the Calendar."
 msgstr "Du kan se det i ditt konto, i kalendern."
 
@@ -1992,7 +2007,7 @@ msgstr "Ja"
 #: EcclesiaCRM/Service/CalendarService.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Ingen"
 
@@ -2035,8 +2050,8 @@ msgstr "Typ av grupp"
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
-#: v2/templates/pastoralcare/pastoralcarefamily.php:112
-#: v2/templates/pastoralcare/pastoralcareperson.php:114
+#: v2/templates/pastoralcare/pastoralcarefamily.php:191
+#: v2/templates/pastoralcare/pastoralcareperson.php:193
 msgid "Role"
 msgstr "Roll"
 
@@ -2068,10 +2083,10 @@ msgstr "Redaktör för personklassificeringar"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:130
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:138
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:346
-#: FamilyCustomFieldsEditor.php:466 GroupPropsFormEditor.php:349
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:348
+#: FamilyCustomFieldsEditor.php:468 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 OptionManager.php:117 OptionManager.php:125
-#: PersonCustomFieldsEditor.php:342 PersonCustomFieldsEditor.php:467
+#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:468
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:320
 #: v2/templates/gdpr/gdprdatastructure.php:42
@@ -4573,7 +4588,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ditt EcclesiaCRM-konto har uppdaterats"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Status"
 
@@ -5504,22 +5519,22 @@ msgstr "Övriga"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:214
+#: v2/templates/pastoralcare/pastoralcareperson.php:219
 msgid "Head of Household"
 msgstr "Hushållschef"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:220
 msgid "Spouse"
 msgstr "Make/maka"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:217
+#: v2/templates/pastoralcare/pastoralcareperson.php:222
 msgid "Child"
 msgstr "Barn"
 
@@ -6370,9 +6385,9 @@ msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 "Alla evenemangstyper innehåller en totalräkning, du behöver inte ange den."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:448 GroupPropsEditor.php:302
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
 #: GroupPropsFormEditor.php:449 OptionManager.php:524
-#: PersonCustomFieldsEditor.php:444
+#: PersonCustomFieldsEditor.php:445
 msgid "Save Changes"
 msgstr "Spara ändringar"
 
@@ -6493,8 +6508,8 @@ msgstr "Registrera"
 #: external/templates/registration/family-register-members.php:20
 #: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1125
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
+#: v2/templates/pastoralcare/pastoralcarefamily.php:180
+#: v2/templates/pastoralcare/pastoralcareperson.php:182
 msgid "Family Members"
 msgstr "Familjemedlemmar"
 
@@ -6584,11 +6599,11 @@ msgstr "Kontrollera"
 msgid "Visit our Site"
 msgstr "Besök vår webbplats"
 
-#: FamilyCustomFieldsEditor.php:39
+#: FamilyCustomFieldsEditor.php:41
 msgid "Custom Family Fields Editor"
 msgstr "Redaktör för anpassade familjefält"
 
-#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:43
+#: FamilyCustomFieldsEditor.php:47 PersonCustomFieldsEditor.php:44
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
@@ -6598,18 +6613,18 @@ msgstr ""
 "Ändringar av fältnamn går förlorade om du inte sparar ändringar innan du "
 "använder en uppåt-, nedåt-, raderings- eller \"lägg till ny\"-knapp!"
 
-#: FamilyCustomFieldsEditor.php:194 GroupPropsFormEditor.php:221
-#: PersonCustomFieldsEditor.php:187
+#: FamilyCustomFieldsEditor.php:196 GroupPropsFormEditor.php:221
+#: PersonCustomFieldsEditor.php:188
 msgid "Default Option"
 msgstr "Standardalternativ"
 
-#: FamilyCustomFieldsEditor.php:330
+#: FamilyCustomFieldsEditor.php:332
 msgid "No custom Family fields have been added yet"
 msgstr "Inga anpassade familjefält har lagts till ännu"
 
-#: FamilyCustomFieldsEditor.php:339 GroupPropsEditor.php:227
+#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:226
 #: GroupPropsFormEditor.php:340 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:332 PersonEditor.php:880
+#: PersonCustomFieldsEditor.php:333 PersonEditor.php:880
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6617,59 +6632,59 @@ msgstr ""
 "Felaktiga fält eller val. Ändringarna har inte sparats! Korrigera och försök "
 "igen!"
 
-#: FamilyCustomFieldsEditor.php:348 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:350 GroupPropsEditor.php:237
+#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:345
 msgid "Special option"
 msgstr "Särskilt alternativ"
 
-#: FamilyCustomFieldsEditor.php:349 FamilyCustomFieldsEditor.php:472
-#: PersonCustomFieldsEditor.php:345 PersonCustomFieldsEditor.php:476
+#: FamilyCustomFieldsEditor.php:351 FamilyCustomFieldsEditor.php:474
+#: PersonCustomFieldsEditor.php:346 PersonCustomFieldsEditor.php:477
 msgid "Security Option"
 msgstr "Säkerhetsalternativ"
 
-#: FamilyCustomFieldsEditor.php:350
+#: FamilyCustomFieldsEditor.php:352
 msgid "Family-View Side"
 msgstr "Familjeutsikt sida"
 
-#: FamilyCustomFieldsEditor.php:380 FamilyCustomFieldsEditor.php:503
+#: FamilyCustomFieldsEditor.php:382 FamilyCustomFieldsEditor.php:505
 #: FamilyEditor.php:260 GroupPropsFormEditor.php:385
 #: GroupPropsFormEditor.php:501 OptionManager.php:470
-#: PersonCustomFieldsEditor.php:379 PersonCustomFieldsEditor.php:504
+#: PersonCustomFieldsEditor.php:380 PersonCustomFieldsEditor.php:505
 msgid "You must enter a name"
 msgstr "Du måste ange ett namn"
 
-#: FamilyCustomFieldsEditor.php:391 GroupEditor.php:130
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:403
-#: PersonCustomFieldsEditor.php:389
+#: FamilyCustomFieldsEditor.php:393 GroupEditor.php:130
+#: GroupPropsEditor.php:265 GroupPropsFormEditor.php:403
+#: PersonCustomFieldsEditor.php:390
 msgid "Select a group"
 msgstr "Välj en grupp"
 
-#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:403
+#: FamilyCustomFieldsEditor.php:407 GroupPropsEditor.php:278
+#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:404
 msgid "You must select a group."
 msgstr "Du måste välja en grupp."
 
-#: FamilyCustomFieldsEditor.php:411 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:408
+#: FamilyCustomFieldsEditor.php:413 GroupPropsEditor.php:282
+#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:409
 msgid "Edit List Options"
 msgstr "Redigera alternativ för listor"
 
-#: FamilyCustomFieldsEditor.php:475 PersonCustomFieldsEditor.php:473
+#: FamilyCustomFieldsEditor.php:477 PersonCustomFieldsEditor.php:474
 msgid "Side"
 msgstr "Sidan"
 
-#: FamilyCustomFieldsEditor.php:496 GroupPropsFormEditor.php:494
-#: PersonCustomFieldsEditor.php:497
+#: FamilyCustomFieldsEditor.php:498 GroupPropsFormEditor.php:494
+#: PersonCustomFieldsEditor.php:498
 msgid "Help on types.."
 msgstr "Hjälp med typer.."
 
-#: FamilyCustomFieldsEditor.php:508 GroupPropsFormEditor.php:506
-#: PersonCustomFieldsEditor.php:509
+#: FamilyCustomFieldsEditor.php:510 GroupPropsFormEditor.php:506
+#: PersonCustomFieldsEditor.php:510
 msgid "That field name already exists."
 msgstr "Det fältnamnet finns redan."
 
-#: FamilyCustomFieldsEditor.php:523 GroupPropsFormEditor.php:517
-#: PersonCustomFieldsEditor.php:524
+#: FamilyCustomFieldsEditor.php:525 GroupPropsFormEditor.php:517
+#: PersonCustomFieldsEditor.php:525
 msgid "Add New Field"
 msgstr "Lägg till ett nytt fält"
 
@@ -7351,7 +7366,7 @@ msgstr "Skapa en ny insamlingskampanj"
 msgid "infos"
 msgstr "information"
 
-#: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:237
+#: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:236
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
@@ -7553,15 +7568,15 @@ msgstr "Ny roll"
 msgid "Add New Role"
 msgstr "Lägg till en ny roll"
 
-#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:62
+#: GroupPropsEditor.php:51 GroupPropsFormEditor.php:62
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Formulärredigeraren för gruppspecifika egenskaper:"
 
-#: GroupPropsEditor.php:52 v2/templates/error/404.php:20
+#: GroupPropsEditor.php:51 v2/templates/error/404.php:20
 msgid "for"
 msgstr "för"
 
-#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:66
+#: GroupPropsEditor.php:55 GroupPropsFormEditor.php:66
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -7569,15 +7584,15 @@ msgstr ""
 "Varning: Fältändringar kommer att gå förlorade om du inte sparar ändringar "
 "innan du använder en uppåt-, nedåt-, raderings- eller \"lägg till ny\"-knapp!"
 
-#: GroupPropsEditor.php:60
+#: GroupPropsEditor.php:59
 msgid "Group-Person-Specific Properties"
 msgstr "Egenskaper för grupper och personer"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:329
+#: GroupPropsEditor.php:215 GroupPropsFormEditor.php:329
 msgid "No properties have been added yet"
 msgstr "Inga egenskaper har lagts till ännu"
 
-#: GroupPropsEditor.php:217 GroupPropsEditor.php:299
+#: GroupPropsEditor.php:216 GroupPropsEditor.php:298
 msgid "Return to Person"
 msgstr "Tillbaka till person"
 
@@ -7992,7 +8007,7 @@ msgid "Your previous session timed out.  Please login again."
 msgstr "Din föregående session tog slut.  Vänligen logga in igen."
 
 #: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
-#: v2/templates/user/userlist.php:54
+#: v2/templates/user/userlist.php:55
 msgid "Password"
 msgstr "Lösenord"
 
@@ -8173,15 +8188,15 @@ msgstr "Fel: A"
 msgid " by that name already exists."
 msgstr " med det namnet redan finns."
 
-#: PersonCustomFieldsEditor.php:37
+#: PersonCustomFieldsEditor.php:38
 msgid "Custom Person Fields Editor"
 msgstr "Redaktör för anpassade personfält"
 
-#: PersonCustomFieldsEditor.php:323
+#: PersonCustomFieldsEditor.php:324
 msgid "No custom person fields have been added yet"
 msgstr "Inga anpassade personfält har lagts till ännu"
 
-#: PersonCustomFieldsEditor.php:346
+#: PersonCustomFieldsEditor.php:347
 msgid "Person-View Side"
 msgstr "Sidan med personvy"
 
@@ -8295,7 +8310,7 @@ msgstr "Nästa person"
 msgid "This Person is Deactivated"
 msgstr "Den här personen är inaktiverad"
 
-#: PersonView.php:441 v2/templates/user/userlist.php:118
+#: PersonView.php:441 v2/templates/user/userlist.php:119
 msgid "Undefined"
 msgstr "Odefinierad"
 
@@ -9146,7 +9161,7 @@ msgstr ""
 "Tyvärr finns det inga uppgifter om donationer från denna familj. Den här "
 "familjen får inte raderas."
 
-#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
+#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:164
 msgid "Return to Family View"
 msgstr "Tillbaka till Family View"
 
@@ -9994,18 +10009,6 @@ msgstr "Enligt typer"
 #: v2/templates/calendar/calendar.php:48
 msgid "Personal"
 msgstr "Personligt"
-
-#: v2/templates/calendar/calendar.php:51
-msgid "Room"
-msgstr "Rum"
-
-#: v2/templates/calendar/calendar.php:52
-msgid "Computer"
-msgstr "Dator"
-
-#: v2/templates/calendar/calendar.php:53
-msgid "Video"
-msgstr "Video"
 
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:152
 #: v2/templates/calendar/calendar.php:197
@@ -11033,20 +11036,20 @@ msgstr "Lägg till anteckningar om själavård"
 msgid "Everyone"
 msgstr "Alla"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcareperson.php:213
+#: v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:135
 msgid "Modify"
 msgstr "Ändra"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:242
+#: v2/templates/pastoralcare/pastoralcarefamily.php:167
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
-#: v2/templates/pastoralcare/pastoralcareperson.php:246
+#: v2/templates/pastoralcare/pastoralcareperson.php:167
 msgid "Return To PastoralCare Dashboard"
 msgstr "Tillbaka till PastoralCare Dashboard"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:245
+#: v2/templates/pastoralcare/pastoralcarefamily.php:170
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
-#: v2/templates/pastoralcare/pastoralcareperson.php:249
+#: v2/templates/pastoralcare/pastoralcareperson.php:170
 msgid "Return To PastoralCare Members List"
 msgstr "Tillbaka till listan över PastoralCare-medlemmar"
 
@@ -11062,7 +11065,7 @@ msgstr "Alla personer"
 msgid "Only the visited/called persons"
 msgstr "Endast de besökta/uppringda personerna"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:243
+#: v2/templates/pastoralcare/pastoralcareperson.php:164
 msgid "Return To Person View"
 msgstr "Tillbaka till personvy"
 
@@ -11655,34 +11658,38 @@ msgid "Apply Roles"
 msgstr "Ansök om roller"
 
 #: v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Kryssa i alla rutor"
+
+#: v2/templates/user/userlist.php:48
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: v2/templates/user/userlist.php:50
+#: v2/templates/user/userlist.php:51
 msgid "User Role"
 msgstr "Användarroll"
 
-#: v2/templates/user/userlist.php:51
+#: v2/templates/user/userlist.php:52
 msgid "Last Login"
 msgstr "Senaste inloggning"
 
-#: v2/templates/user/userlist.php:52
+#: v2/templates/user/userlist.php:53
 msgid "Total Logins"
 msgstr "Totalt antal inloggningar"
 
-#: v2/templates/user/userlist.php:53
+#: v2/templates/user/userlist.php:54
 msgid "Failed Logins"
 msgstr "Misslyckade inloggningar"
 
-#: v2/templates/user/userlist.php:55
+#: v2/templates/user/userlist.php:56
 msgid "2FA authentication"
 msgstr "2FA-autentisering"
 
-#: v2/templates/user/userlist.php:80
+#: v2/templates/user/userlist.php:81
 msgid "Not modifiable"
 msgstr "Ej påverkningsbar"
 
-#: v2/templates/user/userlist.php:157
+#: v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "Förvaltning"
 

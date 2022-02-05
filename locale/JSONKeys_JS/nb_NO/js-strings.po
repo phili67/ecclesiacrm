@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-01-30T19:44:36.586Z\n"
+"POT-Creation-Date: 2022-02-05T13:15:07.756Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2021,8 +2021,8 @@ msgstr "Slett merkelappen"
 msgid "Loading resources ..."
 msgstr "Lader ressurser..."
 
-msgid "All"
-msgstr "Alle"
+msgid "Check all boxes"
+msgstr "Sjekk alle esker"
 
 msgid "Subscribed"
 msgstr "Skrevet"
@@ -2380,6 +2380,9 @@ msgstr "Bytt kamera"
 
 msgid "Upload Image"
 msgstr "Upload Image"
+
+#~ msgid "All"
+#~ msgstr "Alle"
 
 #~ msgid "You're about to remove a file"
 #~ msgstr "Du skal til å fjerne en fil"
