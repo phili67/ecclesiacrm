@@ -322,8 +322,9 @@ $(document).ready(function () {
                     title: i18next.t('Delete'),
                     data: 'Id',
                     render: function (data, type, full, meta) {
-                        return '<input class="btn btn-danger btn-sm DeleteBtn" type="submit" name="DeleteBtn"'
-                            + 'value="' + i18next.t("Delete") + '" data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" ' + (window.CRM.isSundaySchool ? 'disabled' : '') + '>';
+                        return '<button class="btn btn-danger btn-sm DeleteBtn" type="submit" name="DeleteBtn"'
+                            + ' data-id="' + full.Id + '" + data-eventid="' + window.CRM.EventID + '" ' + (window.CRM.isSundaySchool ? 'disabled' : '') + '>'
+                            + '<i class="far fa-trash-alt"></i> ' + i18next.t("Delete") + '</button>';
                     }
                 },
 
