@@ -882,7 +882,7 @@ require 'Include/Header.php';
         <?php
     } ?>
     <div class="card card-info clearfix">
-        <div class="card-header with-border">
+        <div class="card-header border-0">
             <h3 class="card-title"><?= _('Personal Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="PersonSubmit">

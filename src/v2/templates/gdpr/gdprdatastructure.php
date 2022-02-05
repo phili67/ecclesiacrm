@@ -28,7 +28,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <div class="card box-primary">
-  <div class="card-header with-border">
+  <div class="card-header border-0">
     <h3 class="card-title">
       <label><?= _("Informations about the Data Structure for Persons, Families and Pastoral Cares") ?></label>
     </h3>

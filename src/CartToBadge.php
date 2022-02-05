@@ -49,7 +49,7 @@ if (isset($_GET['typeProblem'])) {
 ?>
 
 <div class="card">
-      <div class="card-header with-border">
+      <div class="card-header border-0">
           <h3 class="card-title"><?= gettext('Generate Badges') ?></h3>
       </div>
       <form method="post" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform"  enctype="multipart/form-data">

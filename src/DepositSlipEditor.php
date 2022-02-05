@@ -88,7 +88,7 @@ require 'Include/Header.php';
 <div class="row">
     <div class="col-lg-7">
         <div class="card">
-            <div class="card-header with-border">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Deposit Details: ') ?></h3>
             </div>
             <div class="card-body">
@@ -147,7 +147,7 @@ require 'Include/Header.php';
     </div>
     <div class="col-lg-5">
         <div class="card">
-            <div class="card-header with-border">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Deposit Summary: ') ?></h3>
             </div>
             <div class="card-body">
@@ -177,7 +177,7 @@ require 'Include/Header.php';
     </div>
 </div>
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Payments on this deposit slip:') ?></h3>
         <div class="pull-right">
             <?php

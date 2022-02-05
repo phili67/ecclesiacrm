@@ -44,7 +44,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
     </div>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header  border-0">
             <h3 class="card-title"><?= _("Buyers") ?></h3>
         </div>
         <div class="card-body">

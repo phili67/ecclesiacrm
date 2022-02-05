@@ -24,7 +24,7 @@ if ($sMode == 'person') {
 ?>
 <div
     class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><i class="fas fa-filter"></i> <?= _('Filters') ?></h3>
     </div>
     <div class="card-body clearfix">
@@ -77,7 +77,7 @@ if ($sMode == 'person') {
 </div>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><i class="fas fa-search"></i> <?= _('Search Results') ?></h3>
         <div class="card-tools">
             <h3 class="in-progress" style="color:red"></h3>

@@ -60,7 +60,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <?php } ?>
     </div>
     <div class="card card-solid">
-        <div class="card-header">
+        <div class="card-header  border-0">
             <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Family Member(s)") ?></h3>
         </div>
         <div class="card-body">

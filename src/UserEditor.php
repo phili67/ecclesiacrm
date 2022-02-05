@@ -602,7 +602,7 @@ if ($usr_role_id == null) {
 ?>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _("Role management") ?></h3>
     </div>
     <div class="card-body">

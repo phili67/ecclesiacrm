@@ -92,7 +92,7 @@ require $sRootDocument . '/Include/Header.php';
 </div><!-- /.row -->
 <!-- Small boxes (Stat box) -->
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Functions') ?></h3>
     </div>
     <div class="card-body">
@@ -190,7 +190,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 <!-- on continue -->
 <div class="card card-info">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Sunday School Classes') ?></h3>
         <div class="card-tools pull-right">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>

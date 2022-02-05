@@ -46,7 +46,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <div class="row">
                             <span style="color: red">*</span><?= _("For") ?> &nbsp;&nbsp;

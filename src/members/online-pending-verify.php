@@ -20,7 +20,7 @@ use EcclesiaCRM\dto\SystemURLs;
 <div class="row">
     <div class="col-lg-12">
         <div class="card card-primary">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <h3 class="card-title"><i class="fas fa-male"></i><i class="fas fa-female"></i><i class="fas fa-child"></i> <?= gettext("Families") ?></h3>
             </div>
             <div class="card-body">

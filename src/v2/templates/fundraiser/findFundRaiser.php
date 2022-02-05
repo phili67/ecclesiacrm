@@ -14,7 +14,7 @@ use EcclesiaCRM\dto\SystemURLs;
 require $sRootDocument . '/Include/Header.php';
 ?>
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Filters') ?></h3>
     </div>
     <div class="card-body">
@@ -65,7 +65,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Fundraisers') ?></h3>
     </div>
     <div class="card-body">

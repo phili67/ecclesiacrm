@@ -804,7 +804,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 ?>
 
 <div class="card card-info">
-  <div class="card-header with-border">
+  <div class="card-header border-0">
     <h3 class="card-title"><?= _("For the").' '.(($onePersonFamily == true)?_('Person'):_('Family'))?> : <?=  $fam_Name ?></h3>
   </div>
   <div class="card-text">

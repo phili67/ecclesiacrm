@@ -52,7 +52,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <div
                     class="card-title"><?= _("Period  from") . " : " . $Stats['startPeriod'] . " " . _("to") . " " . $Stats['endPeriod'] ?></div>
             </div>
@@ -135,7 +135,7 @@ require $sRootDocument . '/Include/Header.php';
     <?php if (SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled()) { ?>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Pastoral Care Members") ?>
                         <?php if (SystemConfig::getBooleanValue("bPastoralcareStats")) { ?>
@@ -157,7 +157,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Persons not reached") ?>
                     </div>
@@ -170,7 +170,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Families not reached") ?>
                     </div>
@@ -185,7 +185,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Single Persons not reached") ?>
                     </div>
@@ -198,7 +198,7 @@ require $sRootDocument . '/Include/Header.php';
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Retired not reached") ?>
                     </div>
@@ -214,7 +214,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <?= _("Young People not reached") ?>
                     </div>

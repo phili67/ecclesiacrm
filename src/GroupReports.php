@@ -53,7 +53,7 @@ require 'Include/Header.php';
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-            <div class="card-header with-border">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Select the group you would like to report') ?>:</h3>
             </div>
             <div class="card-body">
@@ -119,7 +119,7 @@ require 'Include/Header.php';
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header with-border">
+                <div class="card-header border-0">
                     <h3 class="card-title"><?= _('Select which information you want to include') ?></h3>
                 </div>
                 <div class="card-body">

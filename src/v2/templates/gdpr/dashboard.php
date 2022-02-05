@@ -41,7 +41,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <div class="card-title">
             <h3 class="card-title"><i class="fas fa-user"></i> <?= _("GDPR Person status") ?></h3>
         </div>
