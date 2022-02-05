@@ -246,7 +246,7 @@ $(document).ready(function () {
             Type: window.CRM.groups.selectTypes.Role,
             GroupID: window.CRM.currentGroup
         }, function (selection) {
-            window.CRM.groups.addPerson(window.CRM.currentGroup, e.params.data.objid, selection.RoleID).done(function (data) {
+            window.CRM.groups.addPerson(window.CRM.currentGroup, e.params.data.objid, selection.RoleID, function (data) {
                 $(".personSearch").val(null).trigger('change');
                 window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
             });
@@ -270,8 +270,7 @@ $(document).ready(function () {
             callback: function (result) {
                 if (result == false) {
                     $.each(deletedRows, function (index, value) {
-                        window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId).done(
-                            function () {
+                        window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId, function () {
                                 window.CRM.DataTableGroupView.row(function (idx, data, node) {
                                     if (data.PersonId == value.PersonId) {
                                         return true;
@@ -314,8 +313,7 @@ $(document).ready(function () {
             $.each(selectedRows, function (index, value) {
                 console.log(data);
                 window.CRM.groups.addPerson(data.GroupID, value.PersonId, data.RoleID);
-                window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId).done(
-                    function () {
+                window.CRM.groups.removePerson(window.CRM.currentGroup, value.PersonId, function () {
                         window.CRM.DataTableGroupView.row(function (idx, data, node) {
                             if (data.PersonId == value.PersonId) {
                                 return true;
@@ -333,7 +331,7 @@ $(document).ready(function () {
             Type: window.CRM.groups.selectTypes.Role,
             GroupID: window.CRM.currentGroup
         }, function (selection) {
-            window.CRM.groups.addPerson(window.CRM.currentGroup, PersonID, selection.RoleID).done(function () {
+            window.CRM.groups.addPerson(window.CRM.currentGroup, PersonID, selection.RoleID, function () {
                 window.CRM.DataTableGroupView.row(function (idx, data, node) {
                     if (data.PersonId == PersonID) {
                         data.RoleId = selection.RoleID;

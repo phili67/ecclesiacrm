@@ -223,10 +223,9 @@ $(document).ready(function () {
   $('.changeRole').click(function(event) {
     var GroupID = $(this).data("groupid");
     window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:GroupID},function(selection){
-      window.CRM.groups.addPerson(GroupID,window.CRM.currentPersonID,selection.RoleID).done(function(){
+      window.CRM.groups.addPerson(GroupID,window.CRM.currentPersonID,selection.RoleID, function(){
         location.reload();
       })
-
     });
   });
 
@@ -250,8 +249,7 @@ $(document).ready(function () {
       {
         if (result)
         {
-          window.CRM.groups.removePerson(targetGroupID,window.CRM.currentPersonID).done(
-            function(){
+          window.CRM.groups.removePerson(targetGroupID,window.CRM.currentPersonID, function(){
               window.location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&group=true';
             }
           );
