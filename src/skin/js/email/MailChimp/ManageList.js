@@ -165,7 +165,7 @@ $(document).ready(function () {
             {
                 width: '20px',
                 orderable: false,
-                title: '<input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="' + i18next.t("Check all") + '">',
+                title: '<input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="' + i18next.t("Check all boxes") + '">',
                 data: 'id',
                 render: function (data, type, full, meta) {
                     var status = '';
