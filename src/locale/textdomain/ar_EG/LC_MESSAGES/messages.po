@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-03 21:39+0000\n"
+"POT-Creation-Date: 2022-02-05 13:36+0000\n"
 "Language: ar-EG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -147,7 +147,7 @@ msgid "Fund"
 msgstr "الصندوق"
 
 #: AutoPaymentEditor.php:894 CartToBadge.php:134
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:185
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:210
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:239
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:240
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:241
@@ -176,7 +176,7 @@ msgstr "غير فعال"
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
-#: v2/templates/user/userlist.php:49
+#: v2/templates/user/userlist.php:50
 msgid "First Name"
 msgstr "الاسم الأول"
 
@@ -267,8 +267,8 @@ msgstr "الهاتف"
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/calendar/eventattendeesedit.php:58
-#: v2/templates/pastoralcare/pastoralcarefamily.php:115
-#: v2/templates/pastoralcare/pastoralcareperson.php:117
+#: v2/templates/pastoralcare/pastoralcarefamily.php:194
+#: v2/templates/pastoralcare/pastoralcareperson.php:196
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -325,7 +325,7 @@ msgid "Save"
 msgstr "أنقذ"
 
 #: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:450 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:460 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -388,10 +388,10 @@ msgstr "خلق فولدر"
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:211
-#: v2/templates/pastoralcare/pastoralcarefamily.php:218
-#: v2/templates/pastoralcare/pastoralcareperson.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:222
+#: v2/templates/pastoralcare/pastoralcarefamily.php:137
+#: v2/templates/pastoralcare/pastoralcarefamily.php:144
+#: v2/templates/pastoralcare/pastoralcareperson.php:137
+#: v2/templates/pastoralcare/pastoralcareperson.php:144
 msgid "Delete"
 msgstr "تحذف"
 
@@ -681,9 +681,9 @@ msgstr "و"
 msgid "Image Position"
 msgstr "موقع الصورة"
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:434
-#: FamilyCustomFieldsEditor.php:518 PersonCustomFieldsEditor.php:431
-#: PersonCustomFieldsEditor.php:516 v2/templates/group/groupbadge.php:165
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:436
+#: FamilyCustomFieldsEditor.php:520 PersonCustomFieldsEditor.php:432
+#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:165
 msgid "Left"
 msgstr "يسار"
 
@@ -691,9 +691,9 @@ msgstr "يسار"
 msgid "Center"
 msgstr "المركز"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:435
-#: FamilyCustomFieldsEditor.php:519 PersonCustomFieldsEditor.php:432
-#: PersonCustomFieldsEditor.php:517 v2/templates/group/groupbadge.php:167
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:437
+#: FamilyCustomFieldsEditor.php:521 PersonCustomFieldsEditor.php:433
+#: PersonCustomFieldsEditor.php:518 v2/templates/group/groupbadge.php:167
 msgid "Right"
 msgstr "صحيح"
 
@@ -722,21 +722,21 @@ msgstr "أضف عربة إلى العائلة"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
 #: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
-#: v2/templates/pastoralcare/pastoralcarefamily.php:111
+#: v2/templates/pastoralcare/pastoralcarefamily.php:190
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
-#: v2/templates/pastoralcare/pastoralcareperson.php:113
+#: v2/templates/pastoralcare/pastoralcareperson.php:192
 msgid "Members"
 msgstr "الأعضاء"
 
 #: CartToFamily.php:229
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84 EventAttendance.php:205
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:347
-#: FamilyCustomFieldsEditor.php:469 GeoPage.php:373 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:343
-#: PersonCustomFieldsEditor.php:470 PrintPastoralCarePerson.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:349
+#: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
+#: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 PersonCustomFieldsEditor.php:344
+#: PersonCustomFieldsEditor.php:471 PrintPastoralCarePerson.php:447
 #: PrintPastoralCarePerson.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:90 Reports/CanvassReports.php:275
 #: Reports/FamilyPledgeSummary.php:230 Reports/FRBidSheets.php:102
@@ -745,7 +745,7 @@ msgstr "الأعضاء"
 #: v2/templates/dashboard/maindashboard.php:697
 #: v2/templates/dashboard/maindashboard.php:713
 #: v2/templates/group/groupview.php:398 v2/templates/people/familylist.php:55
-#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:48
+#: v2/templates/people/personlist.php:51 v2/templates/user/userlist.php:49
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "الاسم"
@@ -893,71 +893,71 @@ msgstr "عدد الصفوف"
 msgid "Checkin"
 msgstr "تحقق"
 
-#: Checkin.php:237 Checkin.php:248 v2/templates/user/userlist.php:182
+#: Checkin.php:239 Checkin.php:256
 msgid "Check all"
 msgstr "تحقق من كل شيء"
 
-#: Checkin.php:241 Checkin.php:253
+#: Checkin.php:243 Checkin.php:261
 msgid "Uncheck all"
 msgstr "فكّي كل شيء"
 
-#: Checkin.php:244
+#: Checkin.php:250
 msgid "Checkout"
 msgstr "تفقد"
 
-#: Checkin.php:259
+#: Checkin.php:269
 msgid "Add some notes"
 msgstr "أضف بعض الملاحظات"
 
-#: Checkin.php:273
+#: Checkin.php:283
 msgid "Validate Attendance"
 msgstr "الحضور"
 
-#: Checkin.php:293
+#: Checkin.php:303
 msgid "Set your free attendees"
 msgstr "ضعوا حضوركم الحر"
 
-#: Checkin.php:306
+#: Checkin.php:316
 msgid "Set your attendees Event"
 msgstr "حدد موعد الحضور"
 
-#: Checkin.php:345
+#: Checkin.php:355
 msgid "Your description"
 msgstr "وصفك"
 
-#: Checkin.php:357
+#: Checkin.php:367
 msgid "Add Free Attendees Count"
 msgstr "أضف الحضور الحر"
 
-#: Checkin.php:385
+#: Checkin.php:395
 msgid "Add single child/parents Attendees"
 msgstr "يضاف إلى حضور طفل واحد/آباء"
 
-#: Checkin.php:398
+#: Checkin.php:408
 msgid "Add Attendees for Event"
 msgstr "أضف حضور للإيجاب"
 
-#: Checkin.php:405 Checkin.php:414
+#: Checkin.php:415 Checkin.php:424
 msgid "Person's Name"
 msgstr "اسم الشخص"
 
-#: Checkin.php:426
+#: Checkin.php:436
 msgid "Adult Name(Optional)"
 msgstr "اسم الكبار (اختياري)"
 
-#: Checkin.php:434
+#: Checkin.php:444
 msgid "Checked in By(Optional)"
 msgstr "تم التحقق منها بواسطة (اختياري)"
 
-#: Checkin.php:444
+#: Checkin.php:454
 msgid "Add and Checkin"
 msgstr "أضف و تفحص"
 
-#: Checkin.php:456
+#: Checkin.php:466
 msgid "Add Visitor"
 msgstr "أضف زائر"
 
-#: Checkin.php:479 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:489 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "عودوا إلى الأحداث"
 
@@ -1026,9 +1026,9 @@ msgstr "عمر/سنوات متزوجة"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1585 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:113
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:192
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:115
+#: v2/templates/pastoralcare/pastoralcareperson.php:194
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "التصنيف"
@@ -1523,8 +1523,8 @@ msgstr "معلومات لتضمينها"
 #: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
 #: PersonView.php:1127 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
-#: v2/templates/pastoralcare/pastoralcarefamily.php:114
-#: v2/templates/pastoralcare/pastoralcareperson.php:116
+#: v2/templates/pastoralcare/pastoralcarefamily.php:193
+#: v2/templates/pastoralcare/pastoralcareperson.php:195
 msgid "Birthday"
 msgstr "عيد الميلاد"
 
@@ -1631,46 +1631,61 @@ msgid ""
 "delete a resource that you do not own."
 msgstr "هذا الحجز المورد لم يتم من قبلك لا يمكنك تحرير أو حذف مورد لا تملكه"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:241
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:178
+#: v2/templates/calendar/calendar.php:51
+msgid "Room"
+msgstr "الغرفة"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:181
+#: v2/templates/calendar/calendar.php:52
+msgid "Computer"
+msgstr "حاسوب"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:184
+#: v2/templates/calendar/calendar.php:53
+msgid "Video"
+msgstr "فيديو"
+
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:270
 msgid "Owner"
 msgstr "المالك"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:244
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:246
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
 msgid "Access"
 msgstr "الوصول"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:244
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:273
 msgid "Full access in Read and write for all the events of this calendar."
 msgstr "الوصول الكامل في (ريد) واكتب لكل أحداث هذا التقويم"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:246
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:275
 msgid "You can only read the events of this calendar."
 msgstr "يمكنك قراءة أحداث هذا التقويم"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:250
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
 msgid "This address can be used only with a CalDav server."
 msgstr "هذا العنوان لا يمكن استخدامه إلا بخادم كالداف."
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:250
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:279
 msgid "For thunderbird the URL is"
 msgstr "بالنسبة لطائر الرعد هو"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:251
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:280
 msgid "For a share calendar (only in read mode)"
 msgstr "يستعاض عن جدول الأسهم (فقط في وضع النصيب)"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:253
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "عليك أن تنشط \"الكندار الخارجي\" الذي سيبدأ"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:253
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:282
 msgid "General Settings/Integration"
 msgstr "General Settings/Integration"
 
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:477
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:528
-#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:579
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:506
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:557
+#: EcclesiaCRM/APIControllers/CalendarV2Controller.php:608
 msgid "You can visualize it in your account, in the Calendar."
 msgstr "يمكنك تصور ذلك في حسابك في الجدول"
 
@@ -1979,7 +1994,7 @@ msgstr "نعم"
 #: EcclesiaCRM/Service/CalendarService.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:160
+#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "لا"
 
@@ -2022,8 +2037,8 @@ msgstr "نوع المجموعة"
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
-#: v2/templates/pastoralcare/pastoralcarefamily.php:112
-#: v2/templates/pastoralcare/pastoralcareperson.php:114
+#: v2/templates/pastoralcare/pastoralcarefamily.php:191
+#: v2/templates/pastoralcare/pastoralcareperson.php:193
 msgid "Role"
 msgstr "الدور"
 
@@ -2055,10 +2070,10 @@ msgstr "Person Classifications Editor"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:130
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:138
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:346
-#: FamilyCustomFieldsEditor.php:466 GroupPropsFormEditor.php:349
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:348
+#: FamilyCustomFieldsEditor.php:468 GroupPropsFormEditor.php:349
 #: GroupPropsFormEditor.php:476 OptionManager.php:117 OptionManager.php:125
-#: PersonCustomFieldsEditor.php:342 PersonCustomFieldsEditor.php:467
+#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:468
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:320
 #: v2/templates/gdpr/gdprdatastructure.php:42
@@ -4527,7 +4542,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "تم تحديث حسابكEcclesia"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:56
+#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "الحالة"
 
@@ -5457,22 +5472,22 @@ msgstr "مسائل أخرى"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:140
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:214
+#: v2/templates/pastoralcare/pastoralcareperson.php:219
 msgid "Head of Household"
 msgstr "رئيس الأسرة"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:136
-#: v2/templates/pastoralcare/pastoralcareperson.php:141
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:215
+#: v2/templates/pastoralcare/pastoralcareperson.php:220
 msgid "Spouse"
 msgstr "زوج"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:138
-#: v2/templates/pastoralcare/pastoralcareperson.php:143
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:217
+#: v2/templates/pastoralcare/pastoralcareperson.php:222
 msgid "Child"
 msgstr "الطفل"
 
@@ -6315,9 +6330,9 @@ msgstr "فصل كل اسم مع فاصلة مثل الأعضاء والزائر�
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr "كل نوع من الأحداث يشمل العد الكلي، لا تحتاج إلى إدراجه."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:448 GroupPropsEditor.php:302
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:450 GroupPropsEditor.php:301
 #: GroupPropsFormEditor.php:449 OptionManager.php:524
-#: PersonCustomFieldsEditor.php:444
+#: PersonCustomFieldsEditor.php:445
 msgid "Save Changes"
 msgstr "وفر التغييرات"
 
@@ -6437,8 +6452,8 @@ msgstr "السجل"
 #: external/templates/registration/family-register-members.php:20
 #: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1125
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:101
-#: v2/templates/pastoralcare/pastoralcareperson.php:103
+#: v2/templates/pastoralcare/pastoralcarefamily.php:180
+#: v2/templates/pastoralcare/pastoralcareperson.php:182
 msgid "Family Members"
 msgstr "أفراد العائلة"
 
@@ -6527,11 +6542,11 @@ msgstr "التحقق"
 msgid "Visit our Site"
 msgstr "زيارة موقعنا"
 
-#: FamilyCustomFieldsEditor.php:39
+#: FamilyCustomFieldsEditor.php:41
 msgid "Custom Family Fields Editor"
 msgstr "محرر حقول العائلة"
 
-#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:43
+#: FamilyCustomFieldsEditor.php:47 PersonCustomFieldsEditor.php:44
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
@@ -6540,76 +6555,76 @@ msgstr ""
 "تحذير: السهم وحذف الأزرار يبدأ نفاذها فورا. سيتم فقدان اسم الميدان إذا لم "
 "تنقذ التغييرات قبل أن تستخدم زر أعلى أو أسفل أو إضافه"
 
-#: FamilyCustomFieldsEditor.php:194 GroupPropsFormEditor.php:221
-#: PersonCustomFieldsEditor.php:187
+#: FamilyCustomFieldsEditor.php:196 GroupPropsFormEditor.php:221
+#: PersonCustomFieldsEditor.php:188
 msgid "Default Option"
 msgstr "خيار انهيار"
 
-#: FamilyCustomFieldsEditor.php:330
+#: FamilyCustomFieldsEditor.php:332
 msgid "No custom Family fields have been added yet"
 msgstr "ولم تضاف بعد أي حقول عائلية حسب الطلب"
 
-#: FamilyCustomFieldsEditor.php:339 GroupPropsEditor.php:227
+#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:226
 #: GroupPropsFormEditor.php:340 OptionManager.php:391
-#: PersonCustomFieldsEditor.php:332 PersonEditor.php:880
+#: PersonCustomFieldsEditor.php:333 PersonEditor.php:880
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
 msgstr "حقول غير صالحة أو اختيارات التغييرات لم تنقذ رجاءً صححْ وحاولْ ثانيةً!"
 
-#: FamilyCustomFieldsEditor.php:348 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:350 GroupPropsEditor.php:237
+#: GroupPropsFormEditor.php:352 PersonCustomFieldsEditor.php:345
 msgid "Special option"
 msgstr "خيار خاص"
 
-#: FamilyCustomFieldsEditor.php:349 FamilyCustomFieldsEditor.php:472
-#: PersonCustomFieldsEditor.php:345 PersonCustomFieldsEditor.php:476
+#: FamilyCustomFieldsEditor.php:351 FamilyCustomFieldsEditor.php:474
+#: PersonCustomFieldsEditor.php:346 PersonCustomFieldsEditor.php:477
 msgid "Security Option"
 msgstr "خيار أمني"
 
-#: FamilyCustomFieldsEditor.php:350
+#: FamilyCustomFieldsEditor.php:352
 msgid "Family-View Side"
 msgstr "جانب العائلة"
 
-#: FamilyCustomFieldsEditor.php:380 FamilyCustomFieldsEditor.php:503
+#: FamilyCustomFieldsEditor.php:382 FamilyCustomFieldsEditor.php:505
 #: FamilyEditor.php:260 GroupPropsFormEditor.php:385
 #: GroupPropsFormEditor.php:501 OptionManager.php:470
-#: PersonCustomFieldsEditor.php:379 PersonCustomFieldsEditor.php:504
+#: PersonCustomFieldsEditor.php:380 PersonCustomFieldsEditor.php:505
 msgid "You must enter a name"
 msgstr "يجب أن تدخل اسماً"
 
-#: FamilyCustomFieldsEditor.php:391 GroupEditor.php:130
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:403
-#: PersonCustomFieldsEditor.php:389
+#: FamilyCustomFieldsEditor.php:393 GroupEditor.php:130
+#: GroupPropsEditor.php:265 GroupPropsFormEditor.php:403
+#: PersonCustomFieldsEditor.php:390
 msgid "Select a group"
 msgstr "اختر مجموعة"
 
-#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:403
+#: FamilyCustomFieldsEditor.php:407 GroupPropsEditor.php:278
+#: GroupPropsFormEditor.php:420 PersonCustomFieldsEditor.php:404
 msgid "You must select a group."
 msgstr "يجب أن تختار مجموعة"
 
-#: FamilyCustomFieldsEditor.php:411 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:408
+#: FamilyCustomFieldsEditor.php:413 GroupPropsEditor.php:282
+#: GroupPropsFormEditor.php:425 PersonCustomFieldsEditor.php:409
 msgid "Edit List Options"
 msgstr "Edit List Options"
 
-#: FamilyCustomFieldsEditor.php:475 PersonCustomFieldsEditor.php:473
+#: FamilyCustomFieldsEditor.php:477 PersonCustomFieldsEditor.php:474
 msgid "Side"
 msgstr "الجانب"
 
-#: FamilyCustomFieldsEditor.php:496 GroupPropsFormEditor.php:494
-#: PersonCustomFieldsEditor.php:497
+#: FamilyCustomFieldsEditor.php:498 GroupPropsFormEditor.php:494
+#: PersonCustomFieldsEditor.php:498
 msgid "Help on types.."
 msgstr "ساعد على الأنواع ."
 
-#: FamilyCustomFieldsEditor.php:508 GroupPropsFormEditor.php:506
-#: PersonCustomFieldsEditor.php:509
+#: FamilyCustomFieldsEditor.php:510 GroupPropsFormEditor.php:506
+#: PersonCustomFieldsEditor.php:510
 msgid "That field name already exists."
 msgstr "هذا الاسم الميداني موجود بالفعل"
 
-#: FamilyCustomFieldsEditor.php:523 GroupPropsFormEditor.php:517
-#: PersonCustomFieldsEditor.php:524
+#: FamilyCustomFieldsEditor.php:525 GroupPropsFormEditor.php:517
+#: PersonCustomFieldsEditor.php:525
 msgid "Add New Field"
 msgstr "أضف حقل جديد"
 
@@ -7288,7 +7303,7 @@ msgstr "أنشئ صندوق جديد ريزر"
 msgid "infos"
 msgstr "المعلومات"
 
-#: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:237
+#: FundRaiserEditor.php:196 GroupEditor.php:92 GroupPropsEditor.php:236
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
@@ -7487,15 +7502,15 @@ msgstr "دور جديد"
 msgid "Add New Role"
 msgstr "أضف دور جديد"
 
-#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:62
+#: GroupPropsEditor.php:51 GroupPropsFormEditor.php:62
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Group-Specific Properts Form Editor:"
 
-#: GroupPropsEditor.php:52 v2/templates/error/404.php:20
+#: GroupPropsEditor.php:51 v2/templates/error/404.php:20
 msgid "for"
 msgstr "ل"
 
-#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:66
+#: GroupPropsEditor.php:55 GroupPropsFormEditor.php:66
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -7503,15 +7518,15 @@ msgstr ""
 "تحذير: التغييرات الميدانية ستضيع إذا لم تنقذ التغييرات قبل أن تستخدم زر أعلى "
 "أو أسفل أو أضيف زر جديد"
 
-#: GroupPropsEditor.php:60
+#: GroupPropsEditor.php:59
 msgid "Group-Person-Specific Properties"
 msgstr "ممتلكات مجموعة الشخصية المحددة"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:329
+#: GroupPropsEditor.php:215 GroupPropsFormEditor.php:329
 msgid "No properties have been added yet"
 msgstr "لم تُضيف أي ممتلكات بعد"
 
-#: GroupPropsEditor.php:217 GroupPropsEditor.php:299
+#: GroupPropsEditor.php:216 GroupPropsEditor.php:298
 msgid "Return to Person"
 msgstr "عودي إلى الشخص"
 
@@ -7919,7 +7934,7 @@ msgid "Your previous session timed out.  Please login again."
 msgstr "دورتك السابقة قد انتهت رجاءً سجل ثانيةً."
 
 #: Login.php:220 Login.php:312 v2/templates/backup/backup.php:67
-#: v2/templates/user/userlist.php:54
+#: v2/templates/user/userlist.php:55
 msgid "Password"
 msgstr "كلمة السر"
 
@@ -8092,15 +8107,15 @@ msgstr "خطأ: أ"
 msgid " by that name already exists."
 msgstr "بهذا الاسم موجود بالفعل"
 
-#: PersonCustomFieldsEditor.php:37
+#: PersonCustomFieldsEditor.php:38
 msgid "Custom Person Fields Editor"
 msgstr "محرر حقول الجمارك"
 
-#: PersonCustomFieldsEditor.php:323
+#: PersonCustomFieldsEditor.php:324
 msgid "No custom person fields have been added yet"
 msgstr "ولم تضاف حقول للشخص حسب الطلب بعد"
 
-#: PersonCustomFieldsEditor.php:346
+#: PersonCustomFieldsEditor.php:347
 msgid "Person-View Side"
 msgstr "الجانب الشخصي"
 
@@ -8214,7 +8229,7 @@ msgstr "الشخص التالي"
 msgid "This Person is Deactivated"
 msgstr "هذا الشخص معطل"
 
-#: PersonView.php:441 v2/templates/user/userlist.php:118
+#: PersonView.php:441 v2/templates/user/userlist.php:119
 msgid "Undefined"
 msgstr "غير محددة"
 
@@ -9064,7 +9079,7 @@ msgid ""
 "be deleted."
 msgstr "آسف، هناك سجلات للتبرعات من هذه العائلة هذه العائلة قد لا تُحذف"
 
-#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:239
+#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:164
 msgid "Return to Family View"
 msgstr "العودة إلى الأسرة"
 
@@ -9879,18 +9894,6 @@ msgstr "بنوع"
 #: v2/templates/calendar/calendar.php:48
 msgid "Personal"
 msgstr "شخصي"
-
-#: v2/templates/calendar/calendar.php:51
-msgid "Room"
-msgstr "الغرفة"
-
-#: v2/templates/calendar/calendar.php:52
-msgid "Computer"
-msgstr "حاسوب"
-
-#: v2/templates/calendar/calendar.php:53
-msgid "Video"
-msgstr "فيديو"
 
 #: v2/templates/calendar/calendar.php:54 v2/templates/calendar/calendar.php:152
 #: v2/templates/calendar/calendar.php:197
@@ -10903,20 +10906,20 @@ msgstr "أضف مذكرات رعاية"
 msgid "Everyone"
 msgstr "الجميع"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:209
-#: v2/templates/pastoralcare/pastoralcareperson.php:213
+#: v2/templates/pastoralcare/pastoralcarefamily.php:135
+#: v2/templates/pastoralcare/pastoralcareperson.php:135
 msgid "Modify"
 msgstr "تعديل"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:242
+#: v2/templates/pastoralcare/pastoralcarefamily.php:167
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
-#: v2/templates/pastoralcare/pastoralcareperson.php:246
+#: v2/templates/pastoralcare/pastoralcareperson.php:167
 msgid "Return To PastoralCare Dashboard"
 msgstr "عودي إلى لوحة القيادة للرعاية"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:245
+#: v2/templates/pastoralcare/pastoralcarefamily.php:170
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
-#: v2/templates/pastoralcare/pastoralcareperson.php:249
+#: v2/templates/pastoralcare/pastoralcareperson.php:170
 msgid "Return To PastoralCare Members List"
 msgstr "عودوا إلى قائمة أعضاء الرعاية"
 
@@ -10932,7 +10935,7 @@ msgstr "جميع الأشخاص"
 msgid "Only the visited/called persons"
 msgstr "فقط الأشخاص الذين زاروا/الذين يُسمون لهم"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:243
+#: v2/templates/pastoralcare/pastoralcareperson.php:164
 msgid "Return To Person View"
 msgstr "عودوا إلى رؤية الشخصية"
 
@@ -11507,34 +11510,38 @@ msgid "Apply Roles"
 msgstr "تطبيق الأدوار"
 
 #: v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "تفقد كل الصناديق"
+
+#: v2/templates/user/userlist.php:48
 msgid "Actions"
 msgstr "الإجراءات"
 
-#: v2/templates/user/userlist.php:50
+#: v2/templates/user/userlist.php:51
 msgid "User Role"
 msgstr "دور المستخدم"
 
-#: v2/templates/user/userlist.php:51
+#: v2/templates/user/userlist.php:52
 msgid "Last Login"
 msgstr "آخر منطقي"
 
-#: v2/templates/user/userlist.php:52
+#: v2/templates/user/userlist.php:53
 msgid "Total Logins"
 msgstr "-أجزاء كاملة"
 
-#: v2/templates/user/userlist.php:53
+#: v2/templates/user/userlist.php:54
 msgid "Failed Logins"
 msgstr "فشل في المواقع"
 
-#: v2/templates/user/userlist.php:55
+#: v2/templates/user/userlist.php:56
 msgid "2FA authentication"
 msgstr "إثبات صحة 2FA"
 
-#: v2/templates/user/userlist.php:80
+#: v2/templates/user/userlist.php:81
 msgid "Not modifiable"
 msgstr "غير قابل للتعديل"
 
-#: v2/templates/user/userlist.php:157
+#: v2/templates/user/userlist.php:158
 msgid "Management"
 msgstr "الإدارة"
 
