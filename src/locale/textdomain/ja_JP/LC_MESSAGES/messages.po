@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-05 13:36+0000\n"
+"POT-Creation-Date: 2022-02-05 20:56+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,6 +160,8 @@ msgstr "ファンド"
 #: PrintPastoralCarePerson.php:664 v2/templates/dashboard/maindashboard.php:476
 #: v2/templates/dashboard/maindashboard.php:532
 #: v2/templates/group/groupbadge.php:126
+#: v2/templates/pastoralcare/pastoralcarefamily.php:376
+#: v2/templates/pastoralcare/pastoralcareperson.php:502
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "なし"
@@ -203,6 +205,8 @@ msgstr "姓名"
 #: v2/templates/dashboard/maindashboard.php:654
 #: v2/templates/dashboard/maindashboard.php:698
 #: v2/templates/dashboard/maindashboard.php:714
+#: v2/templates/pastoralcare/pastoralcarefamily.php:124
+#: v2/templates/pastoralcare/pastoralcareperson.php:218
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "アドレス"
@@ -267,8 +271,8 @@ msgstr "電話"
 #: Reports/FundRaiserStatement.php:128 Reports/FundRaiserStatement.php:172
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/calendar/eventattendeesedit.php:58
-#: v2/templates/pastoralcare/pastoralcarefamily.php:194
-#: v2/templates/pastoralcare/pastoralcareperson.php:196
+#: v2/templates/pastoralcare/pastoralcarefamily.php:205
+#: v2/templates/pastoralcare/pastoralcareperson.php:289
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -388,10 +392,10 @@ msgstr "フォルダの作成"
 #: v2/templates/email/mailchimp/campaign.php:35
 #: v2/templates/email/mailchimp/managelist.php:45
 #: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:137
-#: v2/templates/pastoralcare/pastoralcarefamily.php:144
-#: v2/templates/pastoralcare/pastoralcareperson.php:137
-#: v2/templates/pastoralcare/pastoralcareperson.php:144
+#: v2/templates/pastoralcare/pastoralcarefamily.php:350
+#: v2/templates/pastoralcare/pastoralcarefamily.php:357
+#: v2/templates/pastoralcare/pastoralcareperson.php:476
+#: v2/templates/pastoralcare/pastoralcareperson.php:483
 msgid "Delete"
 msgstr "削除"
 
@@ -723,10 +727,10 @@ msgstr "ファミリーにカートを追加"
 #: EcclesiaCRM/Search/FamilySearchRes.php:141 FamilyView.php:547
 #: v2/templates/dashboard/maindashboard.php:542
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:63
-#: v2/templates/pastoralcare/pastoralcarefamily.php:190
+#: v2/templates/pastoralcare/pastoralcarefamily.php:267
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
-#: v2/templates/pastoralcare/pastoralcareperson.php:192
+#: v2/templates/pastoralcare/pastoralcareperson.php:393
 msgid "Members"
 msgstr "メンバー"
 
@@ -788,7 +792,7 @@ msgstr "姓名"
 
 #: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
 #: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:338
+#: FamilyView.php:338 v2/templates/pastoralcare/pastoralcarefamily.php:167
 msgid "Wedding Date"
 msgstr "挙式日"
 
@@ -819,6 +823,8 @@ msgstr "(アメリカ、カナダ以外の国はテキストボックスを使�
 #: PrintView.php:268 Reports/ConfirmReport.php:168
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
+#: v2/templates/pastoralcare/pastoralcarefamily.php:181
+#: v2/templates/pastoralcare/pastoralcareperson.php:275
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -837,6 +843,8 @@ msgstr "オートフォーマットをしない"
 #: FamilyView.php:358 GroupReports.php:150 PersonEditor.php:1388
 #: PersonEditor.php:1392 PersonView.php:654 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
+#: v2/templates/pastoralcare/pastoralcarefamily.php:187
+#: v2/templates/pastoralcare/pastoralcareperson.php:303
 msgid "Work Phone"
 msgstr "勤務先電話番号"
 
@@ -844,7 +852,8 @@ msgstr "勤務先電話番号"
 #: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
 #: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1419
 #: PersonEditor.php:1423 PersonView.php:614 PrintPastoralCarePerson.php:267
-#: PrintView.php:278
+#: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
+#: v2/templates/pastoralcare/pastoralcareperson.php:263
 msgid "Mobile Phone"
 msgstr "携帯電話"
 
@@ -1006,6 +1015,7 @@ msgstr "封筒"
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:661
 #: Reports/DirectoryReport.php:331
+#: v2/templates/pastoralcare/pastoralcareperson.php:310
 msgid "Work/Other Email"
 msgstr "仕事/その他のEメール"
 
@@ -1027,9 +1037,7 @@ msgstr "年齢／結婚年数"
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:549 FinancialReports.php:153
 #: OptionManager.php:109 PersonEditor.php:1585 PrintPastoralCarePerson.php:400
-#: PrintView.php:411 v2/templates/pastoralcare/pastoralcarefamily.php:192
-#: v2/templates/pastoralcare/pastoralcareMembersList.php:22
-#: v2/templates/pastoralcare/pastoralcareperson.php:194
+#: PrintView.php:411 v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "分類"
@@ -1062,7 +1070,7 @@ msgstr "カスタムファミリーフィールド"
 #: CSVExport.php:260 DirectoryReports.php:39 FinancialReports.php:137
 #: v2/templates/calendar/calendar.php:28
 #: v2/templates/fundraiser/findFundRaiser.php:18
-#: v2/templates/pastoralcare/pastoralcarefamily.php:91
+#: v2/templates/pastoralcare/pastoralcarefamily.php:95
 #: v2/templates/pastoralcare/pastoralcareperson.php:91
 #: v2/templates/people/peoplelist.php:28
 msgid "Filters"
@@ -1211,6 +1219,7 @@ msgstr "仕事/その他のEメール"
 
 #: CSVImport.php:252 PersonView.php:584 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
+#: v2/templates/pastoralcare/pastoralcareperson.php:233
 #: v2/templates/sundayschool/sundayschooldashboard.php:260
 #: v2/templates/sundayschool/sundayschoolview.php:312
 msgid "Birth Date"
@@ -1528,8 +1537,6 @@ msgstr "記載すべき情報"
 #: external/templates/verify/verify-family-info.php:107 FamilyView.php:550
 #: PersonView.php:1127 Reports/ConfirmReport.php:231
 #: Reports/ConfirmReport.php:251
-#: v2/templates/pastoralcare/pastoralcarefamily.php:193
-#: v2/templates/pastoralcare/pastoralcareperson.php:195
 msgid "Birthday"
 msgstr "誕生日"
 
@@ -1906,6 +1913,7 @@ msgstr "ファミリ"
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:169
 #: v2/templates/group/grouplist.php:53
+#: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
 #: v2/templates/people/peoplelist.php:45
 msgid "Groups"
@@ -2044,8 +2052,8 @@ msgstr "グループタイプ"
 #: PrintPastoralCarePerson.php:516 PrintView.php:460 PrintView.php:525
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
-#: v2/templates/pastoralcare/pastoralcarefamily.php:191
-#: v2/templates/pastoralcare/pastoralcareperson.php:193
+#: v2/templates/pastoralcare/pastoralcarefamily.php:268
+#: v2/templates/pastoralcare/pastoralcareperson.php:394
 msgid "Role"
 msgstr "役割"
 
@@ -4699,6 +4707,7 @@ msgid "Meetings"
 msgstr "ミーティング"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:347 FamilyView.php:382 UserEditor.php:907
+#: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
 
@@ -5028,6 +5037,8 @@ msgstr "都市名、州名、郵便番号"
 #: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
 #: FamilyView.php:329 PersonEditor.php:1445 PersonView.php:633
 #: Reports/ConfirmReport.php:173
+#: v2/templates/pastoralcare/pastoralcarefamily.php:158
+#: v2/templates/pastoralcare/pastoralcareperson.php:282
 msgid "Send Newsletter"
 msgstr "ニュースレターの配信"
 
@@ -5161,7 +5172,7 @@ msgstr "アドレス"
 #: EcclesiaCRM/Search/PledgeSearchRes.php:69
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:258 EventNames.php:321 FamilyView.php:283
-#: PersonView.php:512
+#: PersonView.php:512 v2/templates/pastoralcare/pastoralcareperson.php:166
 msgid "Edit"
 msgstr "編集"
 
@@ -5187,7 +5198,10 @@ msgstr "宛先"
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:60
 #: EcclesiaCRM/Synchronize/FamilyDashboardItem.php:89 FamilyView.php:391
 #: FamilyView.php:1065 PersonView.php:701 PersonView.php:1923
-#: PrintPastoralCarePerson.php:654 v2/templates/people/familylist.php:106
+#: PrintPastoralCarePerson.php:654
+#: v2/templates/pastoralcare/pastoralcarefamily.php:220
+#: v2/templates/pastoralcare/pastoralcareperson.php:350
+#: v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
 #: v2/templates/people/familylist.php:108
 #: v2/templates/people/familylist.php:109
@@ -5441,6 +5455,7 @@ msgid " of the"
 msgstr "のです。"
 
 #: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:556
+#: v2/templates/pastoralcare/pastoralcareperson.php:205
 msgid "(No assigned family)"
 msgstr "(割り当てられた家族はいない)"
 
@@ -5480,22 +5495,22 @@ msgstr "その他"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
-#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:214
-#: v2/templates/pastoralcare/pastoralcareperson.php:219
+#: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:288
+#: v2/templates/pastoralcare/pastoralcareperson.php:415
 msgid "Head of Household"
 msgstr "世帯主"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
-#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:215
-#: v2/templates/pastoralcare/pastoralcareperson.php:220
+#: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:289
+#: v2/templates/pastoralcare/pastoralcareperson.php:416
 msgid "Spouse"
 msgstr "配偶者"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
-#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:217
-#: v2/templates/pastoralcare/pastoralcareperson.php:222
+#: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:291
+#: v2/templates/pastoralcare/pastoralcareperson.php:418
 msgid "Child"
 msgstr "子供"
 
@@ -5974,38 +5989,38 @@ msgstr "MailChimpにない家族"
 msgid "Meeting Dashboard"
 msgstr "ミーティングダッシュボード"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:123
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:46
 msgid "Pastoral care list of members for"
 msgstr "のメンバーのパストラルケアリスト"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:123
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
 #: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "Period  from"
 msgstr "期間"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:123
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:144
 #: v2/templates/dashboard/maindashboard.php:540
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:57
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:142
 msgid "to"
 msgstr "にしています。"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:151
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:171
 msgid "Pastoral care Dashboard"
 msgstr "パストラルケアダッシュボード"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:209
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:352
 msgid "Individual Pastoral care"
 msgstr "個別パストラルケア"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:264
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:489
 msgid "Family Pastoral care"
 msgstr "家族のパストラルケア"
 
-#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:304
+#: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "パストラルケアメンバーリスト（分類別"
 
@@ -6468,8 +6483,8 @@ msgstr "登録"
 #: external/templates/registration/family-register-members.php:20
 #: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1125
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
-#: v2/templates/pastoralcare/pastoralcarefamily.php:180
-#: v2/templates/pastoralcare/pastoralcareperson.php:182
+#: v2/templates/pastoralcare/pastoralcarefamily.php:262
+#: v2/templates/pastoralcare/pastoralcareperson.php:388
 msgid "Family Members"
 msgstr "ファミリーメンバー"
 
@@ -6720,7 +6735,7 @@ msgid "Envelope Info"
 msgstr "封筒の情報"
 
 #: FamilyEditor.php:982 FamilyView.php:345 ManageEnvelopes.php:175
-#: PledgeEditor.php:609
+#: PledgeEditor.php:609 v2/templates/pastoralcare/pastoralcarefamily.php:174
 msgid "Envelope Number"
 msgstr "封筒番号"
 
@@ -6845,19 +6860,23 @@ msgstr "写真のアップロード"
 msgid "Delete Photo"
 msgstr "写真の削除"
 
-#: FamilyView.php:309
+#: FamilyView.php:309 v2/templates/pastoralcare/pastoralcarefamily.php:138
 msgid " of church<br>"
 msgstr "of church<br>"
 
-#: FamilyView.php:317
+#: FamilyView.php:317 v2/templates/pastoralcare/pastoralcarefamily.php:146
 msgid "Latitude/Longitude"
 msgstr "緯度・経度"
 
 #: FamilyView.php:367 PersonView.php:617
+#: v2/templates/pastoralcare/pastoralcarefamily.php:196
+#: v2/templates/pastoralcare/pastoralcareperson.php:266
 msgid "Text Message"
 msgstr "テキストメッセージ"
 
 #: FamilyView.php:369 PersonView.php:619
+#: v2/templates/pastoralcare/pastoralcarefamily.php:198
+#: v2/templates/pastoralcare/pastoralcareperson.php:268
 msgid "EcclesiaCRM text message"
 msgstr "EcclesiaCRMのテキストメッセージ"
 
@@ -6985,6 +7004,8 @@ msgstr "キャンバスエントリー"
 #: FamilyView.php:1062 PersonView.php:526 PersonView.php:1920
 #: Reports/GDPR/GDPRDataStructureExport.php:72
 #: v2/templates/gdpr/gdprdatastructure.php:40
+#: v2/templates/pastoralcare/pastoralcarefamily.php:104
+#: v2/templates/pastoralcare/pastoralcareperson.php:175
 msgid "Informations"
 msgstr "インフォメーション"
 
@@ -8227,15 +8248,20 @@ msgstr ""
 "は、このフィールドを空白にします。"
 
 #: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:676
-#: PersonView.php:678
+#: PersonView.php:678 v2/templates/pastoralcare/pastoralcareperson.php:325
+#: v2/templates/pastoralcare/pastoralcareperson.php:327
 msgid "Facebook"
 msgstr "フェイスブック"
 
 #: PersonEditor.php:1537 PersonView.php:685 PersonView.php:686
+#: v2/templates/pastoralcare/pastoralcareperson.php:334
+#: v2/templates/pastoralcare/pastoralcareperson.php:335
 msgid "Twitter"
 msgstr "ツイッター"
 
 #: PersonEditor.php:1555 PersonView.php:693 PersonView.php:694
+#: v2/templates/pastoralcare/pastoralcareperson.php:342
+#: v2/templates/pastoralcare/pastoralcareperson.php:343
 msgid "LinkedIn"
 msgstr "リンクトイン"
 
@@ -8244,6 +8270,7 @@ msgid "Membership Info"
 msgstr "会員情報"
 
 #: PersonEditor.php:1627 PersonView.php:601
+#: v2/templates/pastoralcare/pastoralcareperson.php:250
 msgid "Friend Date"
 msgstr "友達とのデート"
 
@@ -8263,21 +8290,22 @@ msgstr "次の人"
 msgid "This Person is Deactivated"
 msgstr "この人は無効化されています"
 
-#: PersonView.php:441 v2/templates/user/userlist.php:119
+#: PersonView.php:441 v2/templates/pastoralcare/pastoralcareperson.php:114
+#: v2/templates/user/userlist.php:119
 msgid "Undefined"
 msgstr "未定義"
 
-#: PersonView.php:455
+#: PersonView.php:455 v2/templates/pastoralcare/pastoralcareperson.php:122
 msgid "Member Since"
 msgstr "会員登録日"
 
-#: PersonView.php:540
+#: PersonView.php:540 v2/templates/pastoralcare/pastoralcareperson.php:196
 msgid "Family:"
 msgstr "家族ですね。"
 
 #: PersonView.php:789 v2/templates/gdpr/dashboard.php:24
 #: v2/templates/gdpr/gdprdatastructure.php:19
-#: v2/templates/pastoralcare/pastoralcarefamily.php:69
+#: v2/templates/pastoralcare/pastoralcarefamily.php:73
 #: v2/templates/pastoralcare/pastoralcareperson.php:68
 msgid "Printable Page"
 msgstr "印刷用ページ"
@@ -9112,7 +9140,7 @@ msgstr ""
 "申し訳ありませんが、このファミリーからの寄付の記録はありません。このファミ"
 "リーは削除できません。"
 
-#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:164
+#: SelectDelete.php:202 v2/templates/pastoralcare/pastoralcarefamily.php:381
 msgid "Return to Family View"
 msgstr "ファミリービューに戻る"
 
@@ -10703,7 +10731,7 @@ msgstr "グループバッジ"
 #: v2/templates/group/groupview.php:121
 #: v2/templates/meeting/meetingdashboard.php:41
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:39
-#: v2/templates/pastoralcare/pastoralcarefamily.php:66
+#: v2/templates/pastoralcare/pastoralcarefamily.php:70
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:39
 #: v2/templates/pastoralcare/pastoralcareperson.php:69
 msgid "Appointment"
@@ -10958,35 +10986,42 @@ msgstr "パストラルケアメンバー"
 msgid "Retired not reached"
 msgstr "到達していない退職者"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:26
-#: v2/templates/pastoralcare/pastoralcareperson.php:27
+#: v2/templates/pastoralcare/pastoralcarefamily.php:28
+#: v2/templates/pastoralcare/pastoralcareperson.php:25
 msgid "Please add some records with the button below."
 msgstr "下のボタンで記録を追加してください。"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:44
+#: v2/templates/pastoralcare/pastoralcarefamily.php:48
 #: v2/templates/pastoralcare/pastoralcareperson.php:45
 msgid "Add Pastoral Care Notes"
 msgstr "パストラルケアノートの追加"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:79
+#: v2/templates/pastoralcare/pastoralcarefamily.php:83
 #: v2/templates/pastoralcare/pastoralcareperson.php:79
 msgid "Everyone"
 msgstr "みんな"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:135
-#: v2/templates/pastoralcare/pastoralcareperson.php:135
+#: v2/templates/pastoralcare/pastoralcarefamily.php:106
+#: v2/templates/pastoralcare/pastoralcarefamily.php:107
+#: v2/templates/pastoralcare/pastoralcareperson.php:177
+#: v2/templates/pastoralcare/pastoralcareperson.php:178
+msgid "View Family Members"
+msgstr "ファミリーメンバーを見る"
+
+#: v2/templates/pastoralcare/pastoralcarefamily.php:348
+#: v2/templates/pastoralcare/pastoralcareperson.php:474
 msgid "Modify"
 msgstr "モディファイ"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:167
+#: v2/templates/pastoralcare/pastoralcarefamily.php:384
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
-#: v2/templates/pastoralcare/pastoralcareperson.php:167
+#: v2/templates/pastoralcare/pastoralcareperson.php:510
 msgid "Return To PastoralCare Dashboard"
 msgstr "PastoralCareダッシュボードに戻る"
 
-#: v2/templates/pastoralcare/pastoralcarefamily.php:170
+#: v2/templates/pastoralcare/pastoralcarefamily.php:388
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
-#: v2/templates/pastoralcare/pastoralcareperson.php:170
+#: v2/templates/pastoralcare/pastoralcareperson.php:514
 msgid "Return To PastoralCare Members List"
 msgstr "PastoralCareのメンバー一覧へ戻る"
 
@@ -11002,7 +11037,7 @@ msgstr "すべての人"
 msgid "Only the visited/called persons"
 msgstr "訪問した人、呼び出された人のみ"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:164
+#: v2/templates/pastoralcare/pastoralcareperson.php:507
 msgid "Return To Person View"
 msgstr "パーソンビューに戻る"
 
