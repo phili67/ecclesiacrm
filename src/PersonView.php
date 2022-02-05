@@ -520,7 +520,7 @@ if (!empty($person->getDateDeactivated())) {
                 <?php
                 $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
-                <div class="card card-primary">
+                <div class="card">
                     <div class="card-header border-0">
                         <h3 class="card-title text-center"><i
                                 class="fas fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
