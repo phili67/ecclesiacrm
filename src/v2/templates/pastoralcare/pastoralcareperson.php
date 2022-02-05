@@ -98,7 +98,7 @@ $sFamilyEmails = [];
 ?>
 
     <div class="card card-default">
-        <div class="card-header with-border">
+        <div class="card-header border-0">
             <h3 class="card-title">
                 <?= _("Family Members") ?> : <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/family/<?= $family->getId() ?>"><?= $family->getName()?></a>
             </h3>

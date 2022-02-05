@@ -25,7 +25,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card card-secondary">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Report Details')?></h3>
     </div>
     <div class="card-body">

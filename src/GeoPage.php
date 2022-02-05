@@ -207,7 +207,7 @@ $families = FamilyQuery::create()
     ->find(); ?>
 <form class="form-horizontal" method="POST" action="GeoPage.php" name="GeoPage">
     <div class="card card-primary">
-        <div class="card-header">
+        <div class="card-header  border-0">
             <div class="card-title">
                 <h4><?= _("Set your elements") ?></h4>
             </div>
@@ -289,7 +289,7 @@ $families = FamilyQuery::create()
 
         <!--Datafile section -->
         <div class="card card-secondary collapsed-card">
-            <div class="card-header with-border">
+            <div class="card-header border-0">
                 <h3 class="card-title"><?= _('Make Data File') ?></h3>
                 <div class="card-tools pull-right">
                     <button class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -357,7 +357,7 @@ $families = FamilyQuery::create()
             $counter = 0; ?>
             <!-- Column Headings -->
             <div class="car card-success">
-                <div class="card-header">
+                <div class="card-header  border-0">
                     <div class="card-title">
                         <h4><?= _("Results") ?></h4>
                     </div>

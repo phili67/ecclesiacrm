@@ -55,7 +55,7 @@ require 'Include/Header.php'; ?>
 <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
 <div class="card">
-<div class="card-header with-border">
+<div class="card-header border-0">
     <h3 class="card-title"><?= _('Group-Person-Specific Properties') ?></h3>
 </div>
 

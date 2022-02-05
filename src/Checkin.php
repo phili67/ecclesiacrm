@@ -204,7 +204,7 @@ if ($EventID > 0) {
         if ($EventID > 0) {
             ?>
             <div class="card card-success">
-                <div class="card-header  with-border">
+                <div class="card-header  border-0">
                     <h3 class="card-title">
                         <?= _('Listing') ?> :</h3>
                 </div>
@@ -298,7 +298,7 @@ if ($EventID > 0) {
                 <div class="col-md-12">
                     <!-- Add Free Attendees Form -->
                     <div class="card card-secondary">
-                        <div class="card-header">
+                        <div class="card-header  border-0">
                             <h4 class="card-title">
                                 <?= _('Set your free attendees') ?>
                             </h4>
@@ -312,7 +312,7 @@ if ($EventID > 0) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header  border-0">
                                             <h3 class="card-title"><?= _('Set your attendees Event') ?></h3>
                                         </div>
                                         <div class="card-body">
@@ -390,7 +390,7 @@ if ($EventID > 0) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-secondary">
-                        <div class="card-header">
+                        <div class="card-header  border-0">
                             <h4 class="card-title">
                                 <?= _('Add single child/parents Attendees') ?>
                             </h4>
@@ -404,7 +404,7 @@ if ($EventID > 0) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card">
-                                        <div class="card-header">
+                                        <div class="card-header  border-0">
                                             <h3 class="card-title"><?= _('Add Attendees for Event'); ?>
                                                 : <?= $event->getTitle() ?></h3>
                                         </div>

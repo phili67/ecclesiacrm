@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-9">
         <div class="card">
-            <div class="card-header   with-border">
+            <div class="card-header   border-0">
                 <h3 class="card-title"><i class="fas fa-envelope-open-text"></i> <?= _('Email Campaign Management') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
@@ -45,7 +45,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header with-border">
+                    <div class="card-header border-0">
                         <h3 class="card-title"><i class="far fa-file-alt"></i> <?= _('Mail Subject') ?> & <?= _("Content") ?></h3>
                     </div>
                     <div class="card-body">
@@ -79,7 +79,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-info">
-                    <div class="card-header   with-border">
+                    <div class="card-header   border-0">
                         <h3 class="card-title"><i class="fas fa-tags"></i> <?= _('Tags') ?></h3>
                         <div class="card-tools pull-right">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -94,7 +94,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-gray">
-                    <div class="card-header   with-border">
+                    <div class="card-header   border-0">
                         <?php
                         if ($campaign['status'] == "schedule") {
                             ?>

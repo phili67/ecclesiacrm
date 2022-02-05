@@ -96,7 +96,7 @@ $sFamilyEmails = [];
 <?php if (count($family->getActivatedPeople()) > 1) { ?>
 
 <div class="card card-default">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title">
             <?= _("Family Members") ?>
         </h3>

@@ -583,7 +583,7 @@ if (!$load_Elements) {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card card-primary card-outline">
-                    <div class="card-header">
+                    <div class="card-header  border-0">
                         <h3 class="card-title"><i class="fas fa-money-bill"
                                                   style="font-size:26px"></i> <?= _('Deposit Tracking') ?></h3>
                         <div class="card-tools pull-right">

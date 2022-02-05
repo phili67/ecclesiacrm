@@ -12,7 +12,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card">
-    <div class="card-header  with-border">
+    <div class="card-header  border-0">
         <h3 class="card-title"><?= _("Duplicate Emails") ?></h3>
         <div style="float:right">
             <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img

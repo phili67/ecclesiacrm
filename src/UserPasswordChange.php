@@ -185,7 +185,7 @@ if (SessionUser::getUser()->getNeedPasswordChange()) {
     <div class="col-md-12">
         <!-- general form elements -->
         <div class="card card-secondary">
-            <div class="card-header with-border">
+            <div class="card-header border-0">
                 <?php
                   if (!$bAdminOtherUser) {
                 ?>

@@ -47,7 +47,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row" style="height: 100%">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <div
                     class="card-title"><?= _("Room Name") ?> : <?= $roomName ?>
                 </div>

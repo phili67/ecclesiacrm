@@ -966,7 +966,7 @@
                 + '  </div>'
                 + '</div>'
                 + '<div class="card card-primary">'
-                + '  <div class="card-header">'
+                + '  <div class="card-header  border-0">'
                 +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.')
                 + '  '
                 +    i18next.t('This information is used only to track the usage of this software.')

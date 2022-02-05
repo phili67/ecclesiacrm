@@ -104,7 +104,7 @@ require $sRootDocument . '/Include/Header.php';
 
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title" id="main-Title-events"><?= _("Events in Year") ?> : <?= $yVal ?></h3>
         <div class="card-tools">
             <h3 class="in-progress" style="color:red"></h3>

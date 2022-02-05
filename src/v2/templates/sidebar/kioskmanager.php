@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-md-12">
         <div class="card card-primary">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <h3 class="card-title"><?= _('Register new Kiosk') ?></h3>
             </div>
             <div class="card-body">
@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header  border-0">
                 <h3 class="card-title"><?= _('Active Kiosks') ?></h3>
             </div>
             <div class="card-body">

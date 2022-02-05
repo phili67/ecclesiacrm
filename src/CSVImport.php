@@ -122,7 +122,7 @@ $sPageTitle = _('CSV Import');
 require 'Include/Header.php'; ?>
 
 <div class="card import-users" style="display:block;">
-<div class="card-header with-border">
+<div class="card-header border-0">
    <h3 class="card-title"><?= _('Import Data')?></h3>
 </div>
 <div class="card-body">
@@ -1027,7 +1027,7 @@ if ($iStage == 1) {
    </div>
 </div>
 <div class="card">
-  <div class="card-header">
+  <div class="card-header  border-0">
     <h3 class="card-title"><?= _('Clear Data')?></h3>
   </div>
   <div class="card-body">

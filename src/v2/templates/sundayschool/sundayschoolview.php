@@ -30,7 +30,7 @@ if (SessionUser::getUser()->isAddRecords()) {
 ?>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h3 class="card-title"><?= _('Sunday School Class Functions') ?></h3>
     </div>
     <div class="card-body">
@@ -241,7 +241,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 ?>
 
 <div class="card">
-    <div class="card-header with-border">
+    <div class="card-header border-0">
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right;margin-left: 20px">
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
