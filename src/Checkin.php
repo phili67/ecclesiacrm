@@ -232,25 +232,35 @@ if ($EventID > 0) {
                         <div class="col-md-1">
                             <label><?= _("Checkin") ?></label>
                         </div>
-                        <div class="col-sm-2" style="text-align:center">
-                            <input class="btn btn-primary" type="submit" name="checkAllCheckin" id="checkAllCheckin"
-                                   data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
+                        <div class="col-sm-3" style="text-align:center">
+                            <div class="btn-group">
+                                <button class="btn btn-primary" type="submit" name="checkAllCheckin" id="checkAllCheckin"
+                                       data-id="<?= $EventID ?>" value="">
+                                    <i class="far fa-check-square"></i>  <?= _('Check all') ?>
+                                </button>
+                                <button class="btn btn-default" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
+                                       data-id="<?= $EventID ?>" value="">
+                                    <i class="far fa-square"></i> <?= _('Uncheck all') ?>
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-sm-2" style="text-align:center">
-                            <input class="btn btn-default" type="submit" name="uncheckAllCheckin" id="uncheckAllCheckin"
-                                   data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
+                        <div class="col-md-2">
                         </div>
                         <div class="col-md-1">
                             <label><?= _("Checkout") ?></label>
                         </div>
-                        <div class="col-sm-2" style="text-align:center">
-                            <input class="btn btn-success" type="submit" name="checkAllCheckout" id="checkAllCheckout"
-                                   data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
-                        </div>
-                        <div class="col-sm-2" style="text-align:center">
-                            <input class="btn btn-default" type="submit" name="uncheckAllCheckout"
-                                   id="uncheckAllCheckout"
-                                   data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
+                        <div class="col-sm-3" style="text-align:center">
+                            <div class="btn-group">
+                                <button class="btn btn-success" type="submit" name="checkAllCheckout" id="checkAllCheckout"
+                                    data-id="<?= $EventID ?>" >
+                                    <i class="far fa-check-square"></i> <?= _('Check all') ?>
+                                </button>
+                                <button class="btn btn-default" type="submit" name="uncheckAllCheckout"
+                                       id="uncheckAllCheckout"
+                                       data-id="<?= $EventID ?>" >
+                                    <i class="far fa-square"></i> <?= _('Uncheck all') ?>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <hr/>

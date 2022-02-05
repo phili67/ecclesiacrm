@@ -163,9 +163,9 @@ $(document).ready(function () {
         // the DataTable
         var columns = [
             {
-                width: '80px',
+                width: '20px',
                 orderable: false,
-                title: '<input type="checkbox" class="check_all" id="check_all"> <label for="check_all">' + i18next.t("All") + '</label>',
+                title: '<input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="' + i18next.t("Check all") + '">',
                 data: 'id',
                 render: function (data, type, full, meta) {
                     var status = '';
@@ -183,9 +183,9 @@ $(document).ready(function () {
                     + '<div class="btn-group">' +
                     '       <button type="button" id="deleteMembers" class="btn btn-danger btn-sm"'
                     +           'disabled><i class="far fa-trash-alt"></i> </button> ' +
-                    '       <button type="button" class="subscribeButton btn btn-success btn-sm" data-type="subscribed"' +
+                    '       <button type="button" class="subscribeButton btn btn-primary btn-sm" data-type="subscribed"' +
                     '                                        disabled><i class="fas fa-user"></i></button>' +
-                    '                                <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle btn-sm"' +
+                    '                                <button type="button" class="subscribeButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
                     '                                        data-toggle="dropdown" aria-expanded="false" disabled>' +
                     '                                    <span class="caret"></span>' +
                     '                                    <span class="sr-only">Toggle Dropdown</span>' +
@@ -209,9 +209,9 @@ $(document).ready(function () {
                 className: "text-center",
                 //orderable: false,
                 title: i18next.t('Tags') + '<br/><div class="btn-group">\n' +
-                    '                                <button type="button" class="addTagButton btn btn-success btn-sm" data-id="-1" ' +
+                    '                                <button type="button" class="addTagButton btn btn-primary btn-sm" data-id="-1" ' +
                     '                                        disabled><i class="fas fa-tag"></i></button>' +
-                    '                                <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle btn-sm"' +
+                    '                                <button type="button" class="addTagButtonDrop btn btn-primary dropdown-toggle btn-sm"' +
                     '                                        data-toggle="dropdown" aria-expanded="false" disabled>' +
                     '                                    <span class="caret"></span>' +
                     '                                    <span class="sr-only">Toggle Dropdown</span>' +
@@ -306,6 +306,9 @@ $(document).ready(function () {
             order: [[ 3, "asc" ]],
             createdRow: function (row, data, index) {
                 $(row).addClass("duplicateRow");
+            },
+            initComplete: function(settings, json) {
+                $("body").tooltip({ selector: '[data-toggle=tooltip]' });
             }
         }
 

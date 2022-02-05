@@ -519,21 +519,9 @@ function addCalendars(calendarId, attendees) {
         for (i = 0; i < len; ++i) {
             if (calendars[i].calendarShareAccess != 2) {
                 var option = document.createElement("option");
-                var typeSup = "";
 
-                switch (calendars[i].calType) {
-                    case "2":
-                        typeSup = " : " + i18next.t("Room");
-                        break;
-                    case "3":
-                        typeSup = " : " + i18next.t("Computer");
-                        break;
-                    case "4":
-                        typeSup = " : " + i18next.t("Video");
-                        break;
-                }
                 // there is a calendars.type in function of the new plan of schema
-                option.text = "(" + i18next.t(calendars[i].type.charAt(0).toUpperCase() + calendars[i].type.slice(1)) + typeSup + ") " + calendars[i].calendarName;
+                option.text = calendars[i].calendarNameForEventEditor;
                 option.title = calendars[i].type;
                 option.value = calendars[i].calendarID;
                 option.setAttribute("data-calendar-id", calendars[i].grpid);

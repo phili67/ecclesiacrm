@@ -43,7 +43,8 @@ require $sRootDocument . '/Include/Header.php';
         <table class="table table-hover dt-responsive" id="user-listing-table" style="width:100%;">
             <thead>
             <tr>
-                <th align="center"></th>
+                <th align="center" style="width:60px">
+                    <input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Check all") ?>">
                 <th><?= _('Actions') ?></th>
                 <th><?= _('Name') ?></th>
                 <th><?= _('First Name') ?></th>
@@ -177,9 +178,6 @@ require $sRootDocument . '/Include/Header.php';
               ?>
             </tbody>
         </table>
-
-        <input type="checkbox" class="check_all" id="check_all">
-        <label for="check_all"><?= _("Check all") ?></label>
     </div>
     <!-- /.box-body -->
 </div>
