@@ -87,7 +87,7 @@ $(".addGroup").click(function() {
     window.CRM.groups.defaultGroup(function (data) {
       var theGroupID = data;
       var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role, GroupID:theGroupID, Role:window.CRM.groups.selectTypes.Role}, function(data){
-         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID).done(function(){
+         window.CRM.groups.addPerson(data.GroupID,personID,data.RoleID, function(){
            window.location.href = window.CRM.root +'/PersonView.php?PersonID=' + personID + '&group=true';
          });
       });

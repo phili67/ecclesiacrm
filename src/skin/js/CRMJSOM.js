@@ -7,14 +7,6 @@
             options.method = "GET"
         }
 
-        if (callback == undefined) {
-            options.url = window.CRM.root + "/api/" + options.path;
-            options.dataType = 'json';
-            options.contentType = "application/json; charset=utf-8";
-            return $.ajax(options);
-        }
-
-
         fetch(window.CRM.root + "/api/" + options.path, {
             method: options.method,
             headers: {
@@ -1134,11 +1126,11 @@
     };
 
     window.CRM.groups = {
-      'get': function() {
+      'get': function(callback) {
         return  window.CRM.APIRequest({
           path:"groups/",
           method:"GET"
-        });
+        },callback);
       },
       'defaultGroup': function (callback) {
         var res = window.CRM.APIRequest({
@@ -1148,11 +1140,11 @@
           callback(data);
         });
       },
-      'getRoles': function(GroupID) {
+      'getRoles': function(GroupID, callback) {
         return window.CRM.APIRequest({
           path:"groups/"+GroupID+"/roles",
           method:"GET"
-        });
+        }, callback);
       },
       'selectTypes': {
         'Group': 1,
@@ -1207,7 +1199,7 @@
               throw i18next.t("GroupID required for role selection prompt");
             }
             initFunction = function() {
-              window.CRM.groups.getRoles(selectOptions.GroupID).done(function(rdata){
+              window.CRM.groups.getRoles(selectOptions.GroupID, function(rdata){
                  rolesList = $.map(rdata.ListOptions, function (item) {
                     var o = {
                       text: i18next.t(item.OptionName),// to translate the Teacher and Student in localize text
@@ -1239,8 +1231,7 @@
           // this will ensure that image and table can be focused Philippe Logel
           $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
-          window.CRM.groups.get()
-          .done(function(rdata){
+          window.CRM.groups.get(function(rdata){
             groupsList = $.map(rdata.Groups, function (item) {
               var o = {
                 text: item.Name,
@@ -1256,7 +1247,7 @@
                var targetGroupId = $("#targetGroupSelection option:selected").val();
                $parent = $("#targetRoleSelection").parent();
                $("#targetRoleSelection").empty();
-               window.CRM.groups.getRoles(targetGroupId).done(function(rdata){
+               window.CRM.groups.getRoles(targetGroupId, function(rdata){
                  rolesList = $.map(rdata.ListOptions, function (item) {
                     var o = {
                       text: i18next.t(item.OptionName),// this is for the Teacher and Student role
@@ -1271,7 +1262,7 @@
             });
           });
       },
-     'addPerson' : function(GroupID,PersonID,RoleID) {
+      'addPerson' : function(GroupID,PersonID,RoleID, callback) {
         params = {
           method: 'POST', // define the type of HTTP verb we want to use (POST for our form)
           path:'groups/' + GroupID + '/addperson/'+PersonID
@@ -1282,13 +1273,13 @@
             RoleID: RoleID
           });
         }
-        return window.CRM.APIRequest(params);
+        return window.CRM.APIRequest(params, callback);
       },
-      'removePerson' : function(GroupID,PersonID) {
+      'removePerson' : function(GroupID,PersonID, callback) {
         return window.CRM.APIRequest({
           method: 'DELETE', // define the type of HTTP verb we want to use (POST for our form)
           path:'groups/' + GroupID + '/removeperson/' + PersonID,
-        });
+        }, callback);
       },
       'addGroup' : function(callbackM){
         bootbox.prompt({
