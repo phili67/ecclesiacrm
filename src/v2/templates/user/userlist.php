@@ -44,7 +44,7 @@ require $sRootDocument . '/Include/Header.php';
             <thead>
             <tr>
                 <th align="center" style="width:60px">
-                    <input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Check all") ?>">
+                    <input type="checkbox" class="check_all" id="check_all" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?= _("Check all boxes") ?>">
                 <th><?= _('Actions') ?></th>
                 <th><?= _('Name') ?></th>
                 <th><?= _('First Name') ?></th>
