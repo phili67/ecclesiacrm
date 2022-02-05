@@ -169,6 +169,31 @@ class CalendarV2Controller
             $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),($params->type == 'all')?true:false);
 
             foreach ($calendars as $calendar) {
+                $typeSup = "";
+
+                $values['type']               = ($calendar['grpid'] > 0)?'group':'personal';
+
+                switch ((int)$calendar['cal_type']) {
+                    case 2:
+                        $typeSup = _("Room");
+                        break;
+                    case 3:
+                        $typeSup = _("Computer");
+                        break;
+                    case 4:
+                        $typeSup = _("Video");
+                        break;
+                }
+
+                $typeSup = ucfirst($typeSup);
+
+                if ($typeSup != "") {
+                    $calendarType = $typeSup;
+                } else {
+                    $calendarType = _(ucfirst($values['type']));
+                }
+
+                $values['calendarNameForEventEditor']       = "(".$calendarType.") : ".$calendar['{DAV:}displayname'];
                 $values['calendarName']       = $calendar['{DAV:}displayname'];
                 $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
                 $values['calendarShareAccess']= $calendar['share-access'];
@@ -179,7 +204,7 @@ class CalendarV2Controller
                 $values['calendarID']         = $id[0].",".$id[1];
                 $values['present']            = ($calendar['present'] == "1")?true:false;
                 $values['visible']            = ($calendar['visible'] == "1")?true:false;
-                $values['type']               = ($calendar['grpid'] > 0)?'group':'personal';
+
                 $values['grpid']              = $calendar['grpid'];
                 $values['calType']            = $calendar['cal_type'];
                 $values['desc']               = ($calendar['description'] == null)?_("None"):$calendar['description'];
@@ -205,6 +230,10 @@ class CalendarV2Controller
                     array_push($return, $values);
                 }
             }
+
+            usort($return, function ($item1, $item2) {
+                return $item1['calendarNameForEventEditor'] <=> $item2['calendarNameForEventEditor'];
+            });
         }
 
         return $response->withJson($return);
