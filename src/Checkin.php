@@ -22,10 +22,6 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-
-$sPageTitle = _('Call the Register');
-require 'Include/Header.php';
-
 use EcclesiaCRM\EventQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
@@ -37,7 +33,6 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\utils\RedirectUtils;
-
 
 $EventID = 0;
 $event = null;
@@ -105,12 +100,12 @@ $activeEvents = EventQuery::Create()
     ->orderByStart('desc')
     ->find();
 
-$searchEventInActivEvent = EventQuery::Create()
+/*$searchEventInActivEvent = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
-    ->findOneById($EventID);
+    ->findOneById($EventID);*/
 
-if ($searchEventInActivEvent != null) {
+//if ($searchEventInActivEvent != null) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
@@ -118,7 +113,7 @@ if ($searchEventInActivEvent != null) {
     $sTitle = $event->getTitle();
     $sNoteText = $event->getText();
 
-} /*else if ($activeEvents->count() == 0 && is_null($event)) {
+/*} else if ($activeEvents->count() == 0 && is_null($event)) {
     RedirectUtils::Redirect('v2/dashboard');
     exit;
 }*/
@@ -129,6 +124,9 @@ if ($EventID > 0) {
         ->Where('type_id=' . $event->getType())
         ->find();
 }
+
+$sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getId().")";
+require 'Include/Header.php';
 
 ?>
 
