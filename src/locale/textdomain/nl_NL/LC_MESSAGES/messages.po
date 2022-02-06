@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-05 20:56+0000\n"
+"POT-Creation-Date: 2022-02-06 05:59+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -163,7 +163,7 @@ msgstr "Fonds"
 #: v2/templates/dashboard/maindashboard.php:532
 #: v2/templates/group/groupbadge.php:126
 #: v2/templates/pastoralcare/pastoralcarefamily.php:376
-#: v2/templates/pastoralcare/pastoralcareperson.php:502
+#: v2/templates/pastoralcare/pastoralcareperson.php:503
 #: v2/templates/sundayschool/sundayschoolreports.php:41
 msgid "None"
 msgstr "Geen"
@@ -208,7 +208,7 @@ msgstr "Achternaam"
 #: v2/templates/dashboard/maindashboard.php:698
 #: v2/templates/dashboard/maindashboard.php:714
 #: v2/templates/pastoralcare/pastoralcarefamily.php:124
-#: v2/templates/pastoralcare/pastoralcareperson.php:218
+#: v2/templates/pastoralcare/pastoralcareperson.php:220
 #: v2/templates/people/familylist.php:56 v2/templates/people/personlist.php:53
 msgid "Address"
 msgstr "Adres"
@@ -274,7 +274,7 @@ msgstr "Telefoon"
 #: Reports/GroupReport.php:138 Reports/MemberEmailExport.php:22
 #: v2/templates/calendar/eventattendeesedit.php:58
 #: v2/templates/pastoralcare/pastoralcarefamily.php:205
-#: v2/templates/pastoralcare/pastoralcareperson.php:289
+#: v2/templates/pastoralcare/pastoralcareperson.php:291
 #: v2/templates/sundayschool/sundayschooldashboard.php:107
 #: v2/templates/sundayschool/sundayschoolview.php:42
 #: queryparameteroptions_qpo.php:13
@@ -374,42 +374,15 @@ msgstr "Voer Winnaars"
 msgid "File Manager"
 msgstr "Bestandsbeheerder"
 
-#: browser/browse.php:43 PersonView.php:1848
+#: browser/browse.php:42 PersonView.php:1848
 msgid "Upload a file in EDrive"
 msgstr "Een bestand uploaden in EDrive"
 
-#: browser/browse.php:50
+#: browser/browse.php:45
 msgid "Download"
 msgstr "Download"
 
-#: browser/browse.php:58 PersonView.php:1856
-msgid "Create a Folder"
-msgstr "Een map maken"
-
-#: browser/browse.php:66 ElectronicPaymentList.php:216
-#: ElectronicPaymentList.php:260 ElectronicPaymentList.php:318
-#: EventNames.php:327 FamilyView.php:1092 FindDepositSlip.php:131
-#: PersonView.php:1861 PersonView.php:1953
-#: v2/templates/calendar/eventattendeesedit.php:101
-#: v2/templates/email/mailchimp/campaign.php:35
-#: v2/templates/email/mailchimp/managelist.php:45
-#: v2/templates/group/groupview.php:287
-#: v2/templates/pastoralcare/pastoralcarefamily.php:350
-#: v2/templates/pastoralcare/pastoralcarefamily.php:357
-#: v2/templates/pastoralcare/pastoralcareperson.php:476
-#: v2/templates/pastoralcare/pastoralcareperson.php:483
-msgid "Delete"
-msgstr "Delete"
-
-#: browser/browse.php:75 PersonView.php:1866
-msgid "Up One Level"
-msgstr "Een niveau hoger"
-
-#: browser/browse.php:82 PersonView.php:1873
-msgid "Actualize files"
-msgstr "Actualiseer bestanden"
-
-#: browser/browse.php:99 PersonView.php:1891
+#: browser/browse.php:72 PersonView.php:1891
 msgid "Preview"
 msgstr "Voorbeeld"
 
@@ -734,7 +707,7 @@ msgstr "Winkelwagen aan familie toevoegen"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:267
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:31
-#: v2/templates/pastoralcare/pastoralcareperson.php:393
+#: v2/templates/pastoralcare/pastoralcareperson.php:395
 msgid "Members"
 msgstr "Leden"
 
@@ -828,7 +801,7 @@ msgstr "(Gebruik het tekstvak voor andere landen dan VS en Canada)"
 #: sundayschool/SundaySchoolClassListExport.php:54
 #: v2/templates/calendar/eventattendeesedit.php:60
 #: v2/templates/pastoralcare/pastoralcarefamily.php:181
-#: v2/templates/pastoralcare/pastoralcareperson.php:275
+#: v2/templates/pastoralcare/pastoralcareperson.php:277
 #: v2/templates/people/familylist.php:57 v2/templates/people/personlist.php:54
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -848,7 +821,7 @@ msgstr "Niet automatisch formatteren"
 #: PersonEditor.php:1392 PersonView.php:654 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
 #: v2/templates/pastoralcare/pastoralcarefamily.php:187
-#: v2/templates/pastoralcare/pastoralcareperson.php:303
+#: v2/templates/pastoralcare/pastoralcareperson.php:305
 msgid "Work Phone"
 msgstr "Telefoon werk"
 
@@ -857,7 +830,7 @@ msgstr "Telefoon werk"
 #: FamilyEditor.php:862 FamilyView.php:365 PersonEditor.php:1419
 #: PersonEditor.php:1423 PersonView.php:614 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
-#: v2/templates/pastoralcare/pastoralcareperson.php:263
+#: v2/templates/pastoralcare/pastoralcareperson.php:265
 msgid "Mobile Phone"
 msgstr "Mobiele Telefoon"
 
@@ -1019,7 +992,7 @@ msgstr "Envelop"
 #: CSVExport.php:153 EcclesiaCRM/Reports/PDF_Directory.php:413
 #: EcclesiaCRM/Reports/PDF_Directory.php:470 PersonView.php:661
 #: Reports/DirectoryReport.php:331
-#: v2/templates/pastoralcare/pastoralcareperson.php:310
+#: v2/templates/pastoralcare/pastoralcareperson.php:312
 msgid "Work/Other Email"
 msgstr "Werk/andere e-mail"
 
@@ -1222,7 +1195,7 @@ msgstr "Werk / Andere e-mail"
 
 #: CSVImport.php:252 PersonView.php:584 PrintPastoralCarePerson.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:52
-#: v2/templates/pastoralcare/pastoralcareperson.php:233
+#: v2/templates/pastoralcare/pastoralcareperson.php:235
 #: v2/templates/sundayschool/sundayschooldashboard.php:260
 #: v2/templates/sundayschool/sundayschoolview.php:312
 msgid "Birth Date"
@@ -2067,7 +2040,7 @@ msgstr "Groep Type"
 #: Reports/CanvassReports.php:277 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:49
 #: v2/templates/pastoralcare/pastoralcarefamily.php:268
-#: v2/templates/pastoralcare/pastoralcareperson.php:394
+#: v2/templates/pastoralcare/pastoralcareperson.php:396
 msgid "Role"
 msgstr "Rol"
 
@@ -5098,7 +5071,7 @@ msgstr "Stad, Staat, Postcode"
 #: FamilyView.php:329 PersonEditor.php:1445 PersonView.php:633
 #: Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
-#: v2/templates/pastoralcare/pastoralcareperson.php:282
+#: v2/templates/pastoralcare/pastoralcareperson.php:284
 msgid "Send Newsletter"
 msgstr "Nieuwsbrief versturen"
 
@@ -5260,7 +5233,7 @@ msgstr "Adres"
 #: FamilyView.php:1065 PersonView.php:701 PersonView.php:1923
 #: PrintPastoralCarePerson.php:654
 #: v2/templates/pastoralcare/pastoralcarefamily.php:220
-#: v2/templates/pastoralcare/pastoralcareperson.php:350
+#: v2/templates/pastoralcare/pastoralcareperson.php:352
 #: v2/templates/people/familylist.php:106
 #: v2/templates/people/familylist.php:107
 #: v2/templates/people/familylist.php:108
@@ -5515,7 +5488,7 @@ msgid " of the"
 msgstr " van de"
 
 #: EcclesiaCRM/Service/PersonService.php:51 PersonView.php:556
-#: v2/templates/pastoralcare/pastoralcareperson.php:205
+#: v2/templates/pastoralcare/pastoralcareperson.php:207
 msgid "(No assigned family)"
 msgstr "(Geen toegewezen familie)"
 
@@ -5556,21 +5529,21 @@ msgstr "Andere"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:127
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:44
 #: FamilyView.php:572 v2/templates/pastoralcare/pastoralcarefamily.php:288
-#: v2/templates/pastoralcare/pastoralcareperson.php:415
+#: v2/templates/pastoralcare/pastoralcareperson.php:417
 msgid "Head of Household"
 msgstr "Hoofd van het huishouden"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:130
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:47
 #: FamilyView.php:573 v2/templates/pastoralcare/pastoralcarefamily.php:289
-#: v2/templates/pastoralcare/pastoralcareperson.php:416
+#: v2/templates/pastoralcare/pastoralcareperson.php:418
 msgid "Spouse"
 msgstr "Echtgenoot"
 
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:133
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:50
 #: FamilyView.php:575 v2/templates/pastoralcare/pastoralcarefamily.php:291
-#: v2/templates/pastoralcare/pastoralcareperson.php:418
+#: v2/templates/pastoralcare/pastoralcareperson.php:420
 msgid "Child"
 msgstr "Kind"
 
@@ -6214,6 +6187,20 @@ msgstr "Duidelijke rekeningnummers voor"
 msgid "Add a New Electronic Payment Method"
 msgstr "Een nieuwe elektronische betaalmethode toevoegen"
 
+#: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
+#: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1092
+#: FindDepositSlip.php:131 PersonView.php:1861 PersonView.php:1953
+#: v2/templates/calendar/eventattendeesedit.php:101
+#: v2/templates/email/mailchimp/campaign.php:35
+#: v2/templates/email/mailchimp/managelist.php:45
+#: v2/templates/group/groupview.php:287
+#: v2/templates/pastoralcare/pastoralcarefamily.php:350
+#: v2/templates/pastoralcare/pastoralcarefamily.php:357
+#: v2/templates/pastoralcare/pastoralcareperson.php:477
+#: v2/templates/pastoralcare/pastoralcareperson.php:484
+msgid "Delete"
+msgstr "Delete"
+
 #: ElectronicPaymentList.php:220
 msgid "Next Date"
 msgstr "Volgende datum"
@@ -6546,7 +6533,7 @@ msgstr "Registreren"
 #: FamilyEditor.php:1070 FamilyView.php:537 PersonView.php:1125
 #: PrintPastoralCarePerson.php:444 PrintView.php:455 SelectDelete.php:371
 #: v2/templates/pastoralcare/pastoralcarefamily.php:262
-#: v2/templates/pastoralcare/pastoralcareperson.php:388
+#: v2/templates/pastoralcare/pastoralcareperson.php:390
 msgid "Family Members"
 msgstr "Familieleden"
 
@@ -6934,13 +6921,13 @@ msgstr "Breedtegraad/Lengtegraad"
 
 #: FamilyView.php:367 PersonView.php:617
 #: v2/templates/pastoralcare/pastoralcarefamily.php:196
-#: v2/templates/pastoralcare/pastoralcareperson.php:266
+#: v2/templates/pastoralcare/pastoralcareperson.php:268
 msgid "Text Message"
 msgstr "Tekstbericht"
 
 #: FamilyView.php:369 PersonView.php:619
 #: v2/templates/pastoralcare/pastoralcarefamily.php:198
-#: v2/templates/pastoralcare/pastoralcareperson.php:268
+#: v2/templates/pastoralcare/pastoralcareperson.php:270
 msgid "EcclesiaCRM text message"
 msgstr "EcclesiaCRM tekstbericht"
 
@@ -8324,20 +8311,20 @@ msgstr ""
 "veld leeg."
 
 #: PersonEditor.php:1511 PersonEditor.php:1515 PersonView.php:676
-#: PersonView.php:678 v2/templates/pastoralcare/pastoralcareperson.php:325
-#: v2/templates/pastoralcare/pastoralcareperson.php:327
+#: PersonView.php:678 v2/templates/pastoralcare/pastoralcareperson.php:327
+#: v2/templates/pastoralcare/pastoralcareperson.php:329
 msgid "Facebook"
 msgstr "Facebook"
 
 #: PersonEditor.php:1537 PersonView.php:685 PersonView.php:686
-#: v2/templates/pastoralcare/pastoralcareperson.php:334
-#: v2/templates/pastoralcare/pastoralcareperson.php:335
+#: v2/templates/pastoralcare/pastoralcareperson.php:336
+#: v2/templates/pastoralcare/pastoralcareperson.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
 #: PersonEditor.php:1555 PersonView.php:693 PersonView.php:694
-#: v2/templates/pastoralcare/pastoralcareperson.php:342
-#: v2/templates/pastoralcare/pastoralcareperson.php:343
+#: v2/templates/pastoralcare/pastoralcareperson.php:344
+#: v2/templates/pastoralcare/pastoralcareperson.php:345
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
@@ -8346,7 +8333,7 @@ msgid "Membership Info"
 msgstr "Info lidmaatschap"
 
 #: PersonEditor.php:1627 PersonView.php:601
-#: v2/templates/pastoralcare/pastoralcareperson.php:250
+#: v2/templates/pastoralcare/pastoralcareperson.php:252
 msgid "Friend Date"
 msgstr "Vriendinnendate"
 
@@ -8375,7 +8362,7 @@ msgstr "Ongedefinieerd"
 msgid "Member Since"
 msgstr "Lid sinds"
 
-#: PersonView.php:540 v2/templates/pastoralcare/pastoralcareperson.php:196
+#: PersonView.php:540 v2/templates/pastoralcare/pastoralcareperson.php:198
 msgid "Family:"
 msgstr "Familie:"
 
@@ -8509,6 +8496,18 @@ msgstr "Laatste wijziging door"
 #: PersonView.php:1839
 msgid "All Files"
 msgstr "Alle bestanden"
+
+#: PersonView.php:1856
+msgid "Create a Folder"
+msgstr "Een map maken"
+
+#: PersonView.php:1866
+msgid "Up One Level"
+msgstr "Een niveau hoger"
+
+#: PersonView.php:1873
+msgid "Actualize files"
+msgstr "Actualiseer bestanden"
 
 #: PledgeEditor.php:525
 msgid "Pledge Editor"
@@ -11104,25 +11103,25 @@ msgstr "Iedereen"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:106
 #: v2/templates/pastoralcare/pastoralcarefamily.php:107
-#: v2/templates/pastoralcare/pastoralcareperson.php:177
 #: v2/templates/pastoralcare/pastoralcareperson.php:178
+#: v2/templates/pastoralcare/pastoralcareperson.php:179
 msgid "View Family Members"
 msgstr "Bekijk familieleden"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:348
-#: v2/templates/pastoralcare/pastoralcareperson.php:474
+#: v2/templates/pastoralcare/pastoralcareperson.php:475
 msgid "Modify"
 msgstr "Wijzigen"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:384
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:73
-#: v2/templates/pastoralcare/pastoralcareperson.php:510
+#: v2/templates/pastoralcare/pastoralcareperson.php:511
 msgid "Return To PastoralCare Dashboard"
 msgstr "Terug naar PastoralCare Dashboard"
 
 #: v2/templates/pastoralcare/pastoralcarefamily.php:388
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:76
-#: v2/templates/pastoralcare/pastoralcareperson.php:514
+#: v2/templates/pastoralcare/pastoralcareperson.php:515
 msgid "Return To PastoralCare Members List"
 msgstr "Terug naar PastoralCare ledenlijst"
 
@@ -11138,7 +11137,7 @@ msgstr "Alle personen"
 msgid "Only the visited/called persons"
 msgstr "Alleen de bezochte/opgeroepen personen"
 
-#: v2/templates/pastoralcare/pastoralcareperson.php:507
+#: v2/templates/pastoralcare/pastoralcareperson.php:508
 msgid "Return To Person View"
 msgstr "Terug naar persoonsweergave"
 
@@ -12358,6 +12357,14 @@ msgstr "AdminLTE 3.1 Donkere modus"
 msgid "AdminLTE 3.1 Dark Mode color style"
 msgstr "AdminLTE 3.1 Donkere modus kleurstijl"
 
+#: userconfig_ucfg.php:18
+msgid "choice"
+msgstr "keuze"
+
+#: userconfig_ucfg.php:19
+msgid "boolean"
+msgstr "boolean"
+
 msgid "Jan"
 msgstr "Jan"
 
@@ -12637,12 +12644,6 @@ msgstr "Aangepaste vervolgkeuzelijst"
 #~ msgstr ""
 #~ "Het maximum aantal leden kan worden gewijzigd in de \"Systeem Instellingen"
 #~ "\" -> \"Integratie\" -> \"veld\" : iMailChimpApiMaxMembersCount"
-
-#~ msgid "choice"
-#~ msgstr "keuze"
-
-#~ msgid "boolean"
-#~ msgstr "boolean"
 
 #~ msgid "Address Info:"
 #~ msgstr "Adres info:"
