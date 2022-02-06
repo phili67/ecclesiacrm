@@ -23,7 +23,7 @@ if (!(SessionUser::isActive() && SessionUser::getUser()->isEDrive())) {
 
 $donatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID');
 
-if ( $donatedItemID == NULL ) {
+if ($donatedItemID == NULL) {
     $donatedItemID = 0;
 }
 
@@ -38,53 +38,26 @@ $user = SessionUser::getUser();
 
 <div class="row">
     <div class="col-md-12">
-        <a href="#" id="uploadFile">
-    <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $user->getPersonId() ?>"
-          data-toggle="tooltip" data-placement="top" title="<?= _("Upload a file in EDrive") ?>">
-      <i class="fas fa-square fa-stack-2x" style="color:green"></i>
-      <i class="fas fa-cloud-upload-alt fa-stack-1x fa-inverse"></i>
-    </span>
-        </a>
-
-        <a class="filemanager-download" data-toggle="tooltip" data-placement="top"
-           title="<?= _("Download") ?>" style="display: none;">
-  <span class="fa-stack fa-special-icon drag-elements">
-    <i class="fas fa-square fa-stack-2x" style="color:orange"></i>
-    <i class="fas fa-cloud-download-alt fa-stack-1x fa-inverse"></i>
-  </span>
-        </a>
-
-        <a class="new-folder" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top"
-           title="<?= _("Create a Folder") ?>">
-<span class="fa-stack fa-special-icon drag-elements">
-  <i class="fas fa-square fa-stack-2x" style="color:blue"></i>
-  <i class="far fa-folder fa-stack-1x fa-inverse"></i>
-</span>
-        </a>
-
-        <a class="trash-drop" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top"
-           title="<?= _("Delete") ?>">
-<span class="fa-stack fa-special-icon drag-elements">
-  <i class="fas fa-square fa-stack-2x" style="color:red"></i>
-  <i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
-</span>
-        </a>
-
-        <a class="folder-back-drop" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip"
-           data-placement="top"
-           title="<?= _("Up One Level") ?>" <?= (!is_null($user) && $user->getCurrentpath() != "/") ? "" : 'style="display: none;"' ?>>
-  <span class="fa-stack fa-special-icon drag-elements">
-    <i class="fas fa-square fa-stack-2x" style="color:navy"></i>
-    <i class="fas fa-level-up-alt fa-stack-1x fa-inverse"></i>
-  </span>
-        </a>
-        <a class="filemanager-refresh" data-toggle="tooltip" data-placement="top"
-           title="<?= _("Actualize files") ?>">
-  <span class="fa-stack fa-special-icon drag-elements">
-    <i class="fas fa-square fa-stack-2x" style="color:gray"></i>
-    <i class="fas fa-sync-alt fa-stack-1x fa-inverse"></i>
-  </span>
-        </a>
+        <div class="btn-group">
+            <button type="button" id="uploadFile" class="btn btn-success btn-sm drag-elements" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("Upload a file in EDrive") ?>">
+                &nbsp;&nbsp;<i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;
+            </button>
+            <button type="button" class="filemanager-download btn btn-warning btn-sm" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="<?= _("Download") ?>" style="display: none;">
+                &nbsp;&nbsp;<i class="fas fa-cloud-download-alt"></i>&nbsp;&nbsp;
+            </button>
+            <button type="button" class="btn btn-primary btn-sm drag-elements new-folder" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Créer un dossier">
+                &nbsp;&nbsp;<i class="far fa-folder"></i>&nbsp;&nbsp;
+            </button>
+            <button type="button" class="btn btn-danger btn-sm drag-elements trash-drop ui-droppable" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Supprimer">
+                &nbsp;&nbsp;<i class="fas fa-trash-alt"></i>&nbsp;&nbsp;
+            </button>
+            <button type="button" class="btn btn-info btn-sm drag-elements folder-back-drop ui-droppable" data-personid="1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Monter d'un niveau">
+                &nbsp;&nbsp;<i class="fas fa-level-up-alt"></i>&nbsp;&nbsp;
+            </button>
+            <button type="button" class="btn btn-default btn-sm drag-elements filemanager-refresh" data-toggle="tooltip" data-placement="top" title="" data-original-title="Actualiser les fichiers">
+                &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;&nbsp;
+            </button>
+        </div>
     </div>
 </div>
 
