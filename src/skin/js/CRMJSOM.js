@@ -1053,11 +1053,11 @@
             //todo: tell the user the kiosk was reloaded..?  maybe nothing...
           })
         },
-        enableRegistration: function() {
+        enableRegistration: function(callback) {
           return window.CRM.APIRequest({
             "path":"kiosks/allowRegistration",
             "method":"POST"
-          })
+          }, callback)
         },
         accept: function (id)
         {
