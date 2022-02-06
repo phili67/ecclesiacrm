@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     $('#isNewKioskRegistrationActive').change(function() {
         if ($("#isNewKioskRegistrationActive").prop('checked')){
-            window.CRM.kiosks.enableRegistration().done(function(data) {
+            window.CRM.kiosks.enableRegistration(function(data) {
                 window.CRM.secondsLeft = moment(data.visibleUntil.date).unix() - moment().unix();
                 window.CRM.discoverInterval = setInterval(function(){
                     window.CRM.secondsLeft-=1;
