@@ -195,9 +195,9 @@ $(document).ready(function () {
 
             if (window.CRM.browserImage == true) {
                 if (selectedRows) {
-                    $('.filemanager-download').show();
+                    $(".filemanager-download").css("display", "block");
                 } else {
-                    $('.filemanager-download').hide();
+                    $(".filemanager-download").css("display", "none");
                 }
             }
 
