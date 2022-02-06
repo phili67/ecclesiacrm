@@ -282,14 +282,11 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
 if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     include 'Include/VancoConfig.php';
 
-    echo "toto".$VancoUrltoredirect;
-
-
     $customerid = "$iAutID"; // This is an optional value that can be used to indicate a unique customer ID that is used in your system
     // put aut_ID into the $customerid field
     // Create object to preform API calls
 
-    $workingobj = new VancoTools($VancoUserid, $VancoPassword, $VancoClientid, $VancoEnc_key, $VancoTest);
+    $workingobj = new \VancoTools($VancoUserid, $VancoPassword, $VancoClientid, $VancoEnc_key, $VancoTest);
     // Call Login API to receive a session ID to be used in future API calls
     $sessionid = $workingobj->vancoLoginRequest();
     // Create content to be passed in the nvpvar variable for a TransparentRedirect API call
