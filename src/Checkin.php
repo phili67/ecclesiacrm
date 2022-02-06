@@ -100,23 +100,17 @@ $activeEvents = EventQuery::Create()
     ->orderByStart('desc')
     ->find();
 
-/*$searchEventInActivEvent = EventQuery::Create()
+$searchEventInActivEvent = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = ' . date('m') . ' AND YEAR(event_start)=' . date('Y'))// We filter only the events from the current month
-    ->findOneById($EventID);*/
+    ->findOneById($EventID);
 
-//if ($searchEventInActivEvent != null) {
-    //get Event Details
-    $event = EventQuery::Create()
-        ->findOneById($EventID);
+//get Event Details
+$event = EventQuery::Create()
+    ->findOneById($EventID);
 
-    $sTitle = $event->getTitle();
-    $sNoteText = $event->getText();
-
-/*} else if ($activeEvents->count() == 0 && is_null($event)) {
-    RedirectUtils::Redirect('v2/dashboard');
-    exit;
-}*/
+$sTitle = $event->getTitle();
+$sNoteText = $event->getText();
 
 if ($EventID > 0) {
     $eventCountNames = EventCountNameQuery::Create()
@@ -125,7 +119,7 @@ if ($EventID > 0) {
         ->find();
 }
 
-$sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getId().")";
+$sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getStart()->format(SystemConfig::getValue('sDatePickerFormat')).")";
 require 'Include/Header.php';
 
 ?>
