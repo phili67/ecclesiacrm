@@ -767,11 +767,13 @@
     },
     "current": {
         "versions": [
-            "7.5.0"
+            "7.5.0",
+            "7.6.0"
         ],
         "scripts": [
-            "/mysql/upgrade/7.6.0-upgrade.php"
+            "/mysql/upgrade/8.0.0-upgrade.php",
+            "/mysql/upgrade/8.0.0-upgrade.sql"
         ],
-        "dbVersion": "7.6.0"
+        "dbVersion": "8.0.0"
     }
 }
