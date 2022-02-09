@@ -1,0 +1,32 @@
+<!-- in plugin.schema.xml -->
+<database package="MeetingJitsi" name="pluginstore" nameSpace="PluginStore">
+    <table name="personlastjitsimeeting_plm" idMethod="native" phpName="PersonLastJitsiMeeting">
+        <column name="jm_plm_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="jm_plm_person_id" phpName="PersonId" type="SMALLINT" required="true"/>
+        <column name="jm_plm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" required="true"/>
+        <index name="fk_jm_plm_personmeeting_pm_id">
+            <index-column name="jm_plm_personmeeting_pm_id"/>
+        </index>
+        <unique name="jm_lm_ID">
+            <unique-column name="jm_plm_ID"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+    <table name="personjitsimeeting_pm" idMethod="native" phpName="PersonJitsiMeeting">
+        <column name="jm_pm_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="jm_pm_person_id" phpName="PersonId" type="SMALLINT" sqlType="mediumint unsigned"/>
+        <column name="jm_pm_code" phpName="Code" type="VARCHAR" size="255" required="true" defaultValue=""/>
+        <column name="jm_pm_cr_date" phpName="CreationDate" type="TIMESTAMP"/>
+        <index name="fk_jm_pm_person_id">
+            <index-column name="jm_pm_person_id"/>
+        </index>
+        <unique name="jm_pm_ID">
+            <unique-column name="jm_pm_ID"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+</database>
