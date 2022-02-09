@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-05T13:15:07.756Z\n"
+"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2181,25 +2181,6 @@ msgstr "Dere skal slette abonnenter! Er du sikker?"
 msgid "Deleting Subscribers..."
 msgstr "Slette subcribers..."
 
-msgid "Problem"
-msgstr "Problem"
-
-msgid ""
-"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-"webcam<br/>• Sharing your windows<br/> won't work with meeting."
-msgstr ""
-"Safari er ikke støttet av Jitsi, bruk noe annet!<br>, webkamera<br>, "
-"vinduene dine<br>vil ikke fungere med møtet."
-
-msgid "Set a Jitsi room name"
-msgstr "Sett et Jitsis romnavn"
-
-msgid "Delete all Rooms?"
-msgstr "Slette alle rom?"
-
-msgid "You're about to delete all of your rooms."
-msgstr "Dere skal slette alle rommene deres."
-
 msgid "You must enter a password"
 msgstr "Du må skrive inn et passord"
 
@@ -2380,6 +2361,25 @@ msgstr "Bytt kamera"
 
 msgid "Upload Image"
 msgstr "Upload Image"
+
+#~ msgid "Problem"
+#~ msgstr "Problem"
+
+#~ msgid ""
+#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
+#~ msgstr ""
+#~ "Safari er ikke støttet av Jitsi, bruk noe annet!<br>, webkamera<br>, "
+#~ "vinduene dine<br>vil ikke fungere med møtet."
+
+#~ msgid "Set a Jitsi room name"
+#~ msgstr "Sett et Jitsis romnavn"
+
+#~ msgid "Delete all Rooms?"
+#~ msgstr "Slette alle rom?"
+
+#~ msgid "You're about to delete all of your rooms."
+#~ msgstr "Dere skal slette alle rommene deres."
 
 #~ msgid "All"
 #~ msgstr "Alle"

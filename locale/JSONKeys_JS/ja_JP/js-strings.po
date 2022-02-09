@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-05T13:15:07.756Z\n"
+"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2186,25 +2186,6 @@ msgstr "サブスクライバーを削除しようとしています。本当に
 msgid "Deleting Subscribers..."
 msgstr "購読者の削除..."
 
-msgid "Problem"
-msgstr "問題点"
-
-msgid ""
-"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-"webcam<br/>• Sharing your windows<br/> won't work with meeting."
-msgstr ""
-"<br/>- ウェブカメラ<br/>- ウィンドウの共有<br/>はミーティングでは動作しませ"
-"ん。"
-
-msgid "Set a Jitsi room name"
-msgstr "Jitsiのルームネームの設定"
-
-msgid "Delete all Rooms?"
-msgstr "すべての部屋を削除しますか？"
-
-msgid "You're about to delete all of your rooms."
-msgstr "自分の部屋をすべて削除するところです。"
-
 msgid "You must enter a password"
 msgstr "パスワードの入力が必要"
 
@@ -2385,6 +2366,25 @@ msgstr "スイッチカメラ"
 
 msgid "Upload Image"
 msgstr "画像のアップロード"
+
+#~ msgid "Problem"
+#~ msgstr "問題点"
+
+#~ msgid ""
+#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
+#~ msgstr ""
+#~ "<br/>- ウェブカメラ<br/>- ウィンドウの共有<br/>はミーティングでは動作しま"
+#~ "せん。"
+
+#~ msgid "Set a Jitsi room name"
+#~ msgstr "Jitsiのルームネームの設定"
+
+#~ msgid "Delete all Rooms?"
+#~ msgstr "すべての部屋を削除しますか？"
+
+#~ msgid "You're about to delete all of your rooms."
+#~ msgstr "自分の部屋をすべて削除するところです。"
 
 #~ msgid "All"
 #~ msgstr "すべて"
