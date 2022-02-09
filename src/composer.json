@@ -1,6 +1,6 @@
 {
     "name": "ecclesiacrm/crm",
-    "version": "7.6.0",
+    "version": "8.0.0",
     "type": "project",
     "keywords": [
         "church",
@@ -62,11 +62,13 @@
     "autoload": {
         "classmap": [
             "EcclesiaCRM/",
-            "EcclesiaCRM/sabre"
+            "EcclesiaCRM/sabre",
+            "Plugins/"
         ],
         "psr-4": {
             "\\": "bin/",
-            "EcclesiaCRM\\": "EcclesiaCRM/"
+            "EcclesiaCRM\\": "EcclesiaCRM/",
+            "PluginStore\\": "Plugins/"
         }
     },
     "repositories": {

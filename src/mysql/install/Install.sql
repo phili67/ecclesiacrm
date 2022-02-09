@@ -1341,6 +1341,7 @@ CREATE TABLE `user_usr` (
   `usr_Finance` tinyint(1) unsigned NOT NULL default '0',
   `usr_Notes` tinyint(1) unsigned NOT NULL default '0',
   `usr_Admin` tinyint(1) unsigned NOT NULL default '0',
+  `usr_Meeting` tinyint(1) unsigned NOT NULL default '0',
   `usr_PastoralCare` tinyint(1) DEFAULT '0',
   `usr_GDRP_DPO` tinyint(1) DEFAULT '0',
   `usr_MailChimp` tinyint(1) DEFAULT '0',
@@ -1903,44 +1904,44 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 
 
 --
--- Table structure for table `personmeeting_pm`
+-- Table structure for table `plugin`
 --
 
-CREATE TABLE `personmeeting_pm` (
-  `pm_ID` mediumint(9) NOT NULL auto_increment,
-  `pm_person_id` mediumint(9) unsigned NULL,
-  `pm_code` varchar(255) NOT NULL default '',
-  `pm_cr_date` datetime default NULL,
-  PRIMARY KEY  (`pm_ID`),
-  UNIQUE KEY `pm_ID` (`pm_ID`),
-  CONSTRAINT fk_pm_person_id
-    FOREIGN KEY (pm_person_id) REFERENCES person_per(per_ID)
-    ON DELETE CASCADE
+CREATE TABLE `plugin` (
+  `plgn_ID` mediumint(8) unsigned NOT NULL auto_increment,
+  `plgn_Name` varchar(255) DEFAULT '',
+  `plgn_Description` text,
+  `plgn_Category` enum('Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_image` varchar(255) default NULL COMMENT 'Presentation image',
+  `plgn_installation_path` varchar(5000) DEFAULT '' COMMENT 'path of the plugin',
+  `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
+  `plgn_version` varchar(50) NOT NULL default '',
+  `plgn_prefix` varchar(50) NOT NULL default '' COMMENT 'prefix of the database tables, to avoid conflicts',
+  PRIMARY KEY  (`plgn_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `gdpr_infos`
+-- Dumping data for table `plugin`
 --
 
+
 --
--- Table structure for table `lastpersonmeeting_lpm`
+-- Table structure for table `plugin_menu_barre`
 --
 
-CREATE TABLE `personlastmeeting_plm` (
-     `plm_ID` mediumint(9) NOT NULL auto_increment,
-     `plm_person_id` mediumint(9) NOT NULL,
-     `plm_personmeeting_pm_id` mediumint(9) NOT NULL,
-     PRIMARY KEY  (`plm_ID`),
-     UNIQUE KEY `plm_ID` (`plm_ID`),
-     CONSTRAINT fk_plm_personmeeting_pm_id
-         FOREIGN KEY (plm_personmeeting_pm_id) REFERENCES personmeeting_pm(pm_ID)
-             ON DELETE CASCADE
+CREATE TABLE `plugin_menu_barre` (
+  `plgn_mb_ID` mediumint(8) unsigned NOT NULL auto_increment,
+  `plgn_mb_plugin_name` varchar(255) DEFAULT '',
+  `plgn_mb_plugin_Display_name` varchar(255) DEFAULT '',
+  `plgn_mb_url` varchar(255) DEFAULT '' COMMENT 'URL Menubar',
+  `plgn_bm_icon` varchar(255) DEFAULT '' COMMENT 'Icon MenuBar',
+  `plgn_bm_grp_sec` varchar(255) DEFAULT '' COMMENT 'In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare, usr_Meeting',
+  PRIMARY KEY  (`plgn_mb_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `gdpr_infos`
+-- Dumping data for table `plugin_menu_barre`
 --
-
 
 -- method for dup emails
 

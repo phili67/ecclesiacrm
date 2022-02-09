@@ -893,6 +893,7 @@
         <column name="usr_Finance" phpName="Finance" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Notes" phpName="Notes" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Admin" phpName="Admin" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
+        <column name="usr_Meeting" phpName="Meeting" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_PastoralCare" phpName="PastoralCare" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_MailChimp" phpName="MailChimp" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_MainDashboard" phpName="MainDashboard" type="BOOLEAN" size="1" defaultValue="false"/>
@@ -1315,44 +1316,6 @@
         </vendor>
       </table>
 
-
-    <table name="personmeeting_pm" idMethod="native" phpName="PersonMeeting">
-        <column name="pm_ID" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="pm_person_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
-        <column name="pm_code" phpName="Code" type="VARCHAR" size="255" required="true" defaultValue=""/>
-        <column name="pm_cr_date" phpName="CreationDate" type="TIMESTAMP"/>
-        <foreign-key foreignTable="person_per" name="fk_pm_person_id" onDelete="CASCADE">
-            <reference local="pm_person_id" foreign="per_ID"/>
-        </foreign-key>
-        <index name="fk_pm_person_id">
-            <index-column name="pm_person_id"/>
-        </index>
-        <unique name="pm_ID">
-            <unique-column name="pm_ID"/>
-        </unique>
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
-    </table>
-
-    <table name="personlastmeeting_plm" idMethod="native" phpName="PersonLastMeeting">
-        <column name="plm_ID" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="plm_person_id" phpName="PersonId" type="SMALLINT" size="9" required="true"/>
-        <column name="plm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" size="9" required="true"/>
-        <foreign-key foreignTable="personmeeting_pm" name="fk_plm_personmeeting_pm_id" onDelete="CASCADE">
-            <reference local="plm_personmeeting_pm_id" foreign="pm_ID"/>
-        </foreign-key>
-        <index name="fk_plm_personmeeting_pm_id">
-            <index-column name="plm_personmeeting_pm_id"/>
-        </index>
-        <unique name="plm_ID">
-            <unique-column name="plm_ID"/>
-        </unique>
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
-    </table>
-
     <table name="fundraiser_fr" idMethod="native" phpName="FundRaiser">
         <column name="fr_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
                 autoIncrement="true" required="true"/>
@@ -1430,6 +1393,33 @@
         <foreign-key foreignTable="fundraiser_fr" name="fk_paddlenum_pn_fundraiser_id" onDelete="CASCADE">
             <reference local="pn_fr_ID" foreign="fr_ID"/>
         </foreign-key>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="plugin" idMethod="native" phpName="Plugin">
+        <column name="plgn_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="plgn_Name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
+        <column name="plgn_Description" phpName="Description" type="LONGVARCHAR"/>
+        <column name="plgn_Category" phpName="Category" type="CHAR" sqlType="enum('Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu')" description="For the left side menu bar" required="true" defaultValue="Personal"/>
+        <column name="plgn_image" phpName="Image" type="VARCHAR" size="255" description="Presentation image"/>
+        <column name="plgn_installation_path" phpName="InstallationPath" type="VARCHAR" size="5000" description="path of the plugin" defaultValue=""/>
+        <column name="plgn_activ" phpName="Activ" type="BOOLEAN" size="1" description="activation status" required="true" defaultValue="false"/>
+        <column name="plgn_version" phpName="Version" type="VARCHAR" size="50" required="true" defaultValue=""/>
+        <column name="plgn_prefix" phpName="Prefix" type="VARCHAR" size="50" description="prefix of the database tables, to avoid conflicts" required="true" defaultValue=""/>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="plugin_menu_barre" idMethod="native" phpName="PluginMenuBarre">
+        <column name="plgn_mb_ID" phpName="bId" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="plgn_mb_plugin_name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
+        <column name="plgn_mb_plugin_Display_name" phpName="DisplayName" type="VARCHAR" size="255" defaultValue=""/>
+        <column name="plgn_mb_url" phpName="URL" type="VARCHAR" size="255" description="URL Menubar" defaultValue=""/>
+        <column name="plgn_bm_grp_sec" phpName="GrpSec" type="VARCHAR" size="255" description="In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare, usr_Meeting" defaultValue=""/>
+        <column name="plgn_bm_icon" phpName="Icon" type="VARCHAR" size="255" description="Icon MenuBar" defaultValue=""/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>

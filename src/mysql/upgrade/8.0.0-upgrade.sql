@@ -47,4 +47,54 @@ ALTER TABLE `note_nte` MODIFY `nte_Title` varchar(1000) DEFAULT '';
 ALTER TABLE `user_usr` ADD `usr_HtmlSourceEditor` tinyint(1) unsigned NOT NULL default '0';
 
 
+-- 2022-02-07
+DROP TABLE `personlastmeeting_plm`;
+DROP TABLE `personmeeting_pm`;
+
+--
+-- Table structure for table `plugin`
+--
+
+CREATE TABLE `plugin` (
+  `plgn_ID` mediumint(8) unsigned NOT NULL auto_increment,
+  `plgn_Name` varchar(255) DEFAULT '',
+  `plgn_Description` text,
+  `plgn_Category` enum('Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_image` varchar(255) default NULL COMMENT 'Presentation image',
+  `plgn_installation_path` varchar(5000) DEFAULT '' COMMENT 'path of the plugin',
+  `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
+  `plgn_version` varchar(50) NOT NULL default '',
+  `plgn_prefix` varchar(50) NOT NULL default '' COMMENT 'prefix of the database tables, to avoid conflicts',
+  PRIMARY KEY  (`plgn_ID`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `plugin`
+--
+
+
+--
+-- Table structure for table `plugin_menu_barre`
+--
+
+CREATE TABLE `plugin_menu_barre` (
+     `plgn_mb_ID` mediumint(8) unsigned NOT NULL auto_increment,
+     `plgn_mb_plugin_name` varchar(255) DEFAULT '',
+     `plgn_mb_plugin_Display_name` varchar(255) DEFAULT '',
+     `plgn_mb_url` varchar(255) DEFAULT '' COMMENT 'URL Menubar',
+     `plgn_bm_icon` varchar(255) DEFAULT '' COMMENT 'Icon MenuBar',
+     `plgn_bm_grp_sec` varchar(255) DEFAULT '' COMMENT 'In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare, usr_Meeting',
+     PRIMARY KEY  (`plgn_mb_ID`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `plugin_menu_barre`
+--
+
+
+-- -- 2022-02-08
+ALTER TABLE `user_usr` ADD `usr_Meeting` tinyint(1) unsigned NOT NULL default '0';
+
+
+
 

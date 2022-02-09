@@ -29,5 +29,24 @@ unlink(SystemURLs::getDocumentRoot()."/Images/Bank.png");
 unlink(SystemURLs::getDocumentRoot()."/Images/Group.png");
 unlink(SystemURLs::getDocumentRoot()."/Images/Money.png");
 
+// 2022-02-07 now jitsi meeting is now a plugin !
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/PersonLastMeeting.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/PersonLastMeetingQuery.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/PersonMeeting.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/PersonMeetingQuery.php");
+
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Base/PersonLastMeeting.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Base/PersonLastMeetingQuery.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Base/PersonMeeting.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Base/PersonMeetingQuery.php");
+
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Map/PersonLastMeetingTableMap.php");
+unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Map/PersonMeetingTableMap.php");
+
+// now we exclude the
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/meeting/");
+
+exec('composer dump-autoload');
+
 $logger->info("End of delete :  all unusefull files");
 ?>

@@ -1,6 +1,6 @@
 {
     "name": "EcclesiaCRM",
-    "version": "7.6.0",
+    "version": "8.0.0",
     "description": "EcclesiaCRM7 Software",
     "repository": {
         "type": "git",
@@ -93,7 +93,7 @@
         "package": "grunt generateSignatures && grunt compress",
         "demosite": "scripts/demosite.sh",
         "changelog-gen": "scripts/gen-changelogs.sh",
-        "orm-gen": "src/vendor/propel/propel/bin/propel --config-dir=propel model:build && cp generated-conf/loadDatabase.php src/EcclesiaCRM && cd src/ && composer dump-autoload && cd .. && rm -rf generated-conf",
+        "orm-gen": "src/vendor/propel/propel/bin/propel --config-dir=propel model:build && cd propel && python3 relocatePluginfiles.py && cd ../src/ && composer dump-autoload && cd .. && rm -rf generated-conf",
         "clean-datatables-lang-files": "locale/clean-datatables-lang.sh",
         "graph-viz": "src/vendor/propel/propel/bin/propel --config-dir=propel graphviz:generate",
         "datadictionary": "src/vendor/propel/propel/bin/propel --config-dir=propel datadictionary:generate",
