@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-05T13:15:07.756Z\n"
+"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2211,25 +2211,6 @@ msgstr "Você está prestes a excluir assinantes! Você tem certeza?"
 msgid "Deleting Subscribers..."
 msgstr "Eliminar assinantes..."
 
-msgid "Problem"
-msgstr "Problema"
-
-msgid ""
-"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
-"webcam<br/>• Sharing your windows<br/> won't work with meeting."
-msgstr ""
-"O Safari ainda não é suportado com Jitsi, use outra coisa !<br/>- Sua "
-"webcam<br/>- Compartilhar suas janelas<br/> não vai funcionar com reunião."
-
-msgid "Set a Jitsi room name"
-msgstr "Definir um nome de sala Jitsi"
-
-msgid "Delete all Rooms?"
-msgstr "Apagar todos os quartos?"
-
-msgid "You're about to delete all of your rooms."
-msgstr "Estás prestes a apagar todos os teus quartos."
-
 msgid "You must enter a password"
 msgstr "Você deve digitar uma senha"
 
@@ -2410,6 +2391,25 @@ msgstr "Mudar de câmara"
 
 msgid "Upload Image"
 msgstr "Carregar imagem"
+
+#~ msgid "Problem"
+#~ msgstr "Problema"
+
+#~ msgid ""
+#~ "Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+#~ "webcam<br/>• Sharing your windows<br/> won't work with meeting."
+#~ msgstr ""
+#~ "O Safari ainda não é suportado com Jitsi, use outra coisa !<br/>- Sua "
+#~ "webcam<br/>- Compartilhar suas janelas<br/> não vai funcionar com reunião."
+
+#~ msgid "Set a Jitsi room name"
+#~ msgstr "Definir um nome de sala Jitsi"
+
+#~ msgid "Delete all Rooms?"
+#~ msgstr "Apagar todos os quartos?"
+
+#~ msgid "You're about to delete all of your rooms."
+#~ msgstr "Estás prestes a apagar todos os teus quartos."
 
 #~ msgid "All"
 #~ msgstr "Todos"
