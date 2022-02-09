@@ -115,7 +115,7 @@ $sFamilyEmails = [];
             <!-- /.card-header -->
             <div class="card-body">
                 <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages" style="height: 100%">
+                <div class="direct-chat-messages" style="height: 100%;min-height:200px">
 
                     <ul class="fa-ul">
                         <?php
@@ -125,7 +125,7 @@ $sFamilyEmails = [];
                             <span>
                                 <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
                                 <?php if ($location_available) { ?>
-                                    <div id="MyMap" style="width:100%"></div>
+                                    <div id="MyMap" style="height: 100%;min-height:200px"></div>
                                 <?php } ?>
                             </span>
                             <br>
