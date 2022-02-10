@@ -71,7 +71,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
-<script src='<?= SystemConfig::getValue("sJitsiDomainScriptPath") ?>'></script>
+<script src='<?= $domainscriptpath ?>'></script>
 
 <link href="<?= $sRootPath ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= $sCSPNonce ?>">
     <?php if ($roomName != '') { ?>
     // jitsi code
-    const domain = '<?= SystemConfig::getValue("sJitsiDomain") ?>';
+    const domain = '<?= $domain ?>';
     const options = {
         roomName: '<?= $roomName ?>',
         width: '100%',
