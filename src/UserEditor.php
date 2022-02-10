@@ -125,6 +125,11 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $EDrive = 0;
         }
+        if (isset($_POST['Meeting'])) {
+            $Meeting = 1;
+        } else {
+            $Meeting = 0;
+        }
         if (isset($_POST['DeleteRecords'])) {
             $DeleteRecords = 1;
         } else {
@@ -277,6 +282,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
+                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
 
                     $user->setManageGroups($ManageGroups);
@@ -335,6 +341,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
+                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setManageCalendarResources($ManageCalendarResources);
@@ -409,6 +416,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = $user->getShowCart();
             $usr_ShowMap = $user->getShowMap();
             $usr_EDrive = $user->getEdrive();
+            $usr_Meeting = $user->getMeeting();
             $usr_MenuOptions = $user->getMenuOptions();
             $usr_ManageGroups = $user->getManageGroups();
             $usr_ManageCalendarResources = $user->getManageCalendarResources();
@@ -448,6 +456,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = 0;
             $usr_ShowMap = 0;
             $usr_EDrive = 0;
+            $usr_Meeting = 0;
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
             $usr_ManageCalendarResources = 0;
@@ -481,6 +490,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_ShowCart = 0;
         $usr_ShowMap = 0;
         $usr_EDrive = 0;
+        $usr_Meeting = 0;
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
         $usr_ManageCalendarResources = 0;
@@ -763,6 +773,12 @@ if ($usr_role_id == null) {
                     <td><?= _('EDrive') ?>:</td>
                     <td><input type="checkbox" class="global_settings" name="EDrive"
                                value="1"<?= ($usr_EDrive) ? ' checked' : '' ?>></td>
+                </tr>
+
+                <tr>
+                    <td><?= _('Meetings') ?>:</td>
+                    <td><input type="checkbox" class="global_settings" name="Meeting"
+                               value="1"<?= ($usr_Meeting) ? ' checked' : '' ?>></td>
                 </tr>
 
                 <tr>
