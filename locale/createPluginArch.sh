@@ -11,9 +11,7 @@
 #    pluginName="$(basename $plugin)"
 
 
-plugin = "Plugins"
-
-pluginName = $1
+    pluginName=$1
 
     # we work first with locale files
     mkdir "../src/Plugins/${pluginName}"
