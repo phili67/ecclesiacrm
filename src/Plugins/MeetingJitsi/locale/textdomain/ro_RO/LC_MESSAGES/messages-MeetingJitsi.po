@@ -1,0 +1,28 @@
+msgid "Room names"
+msgstr "Numele camerelor"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr ""
+"Creați mai întâi o cameră și gestionați tema cu ajutorul butonului "
+"săgeată"
+
+msgid "Create Room"
+msgstr "Creați o cameră"
+
+msgid "This action will delete all your rooms"
+msgstr "Această acțiune va șterge toate camerele dvs."
+
+msgid "Delete all Rooms"
+msgstr "Ștergeți toate camerele"
+
+msgid "Appointment"
+msgstr "Programare"
+
+msgid "Room Name"
+msgstr "Numele camerei"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "Mai întâi creați o cameră Jitsi cu butonul de mai sus !"
+
+msgid "Meeting Dashboard"
+msgstr "Tabloul de bord al reuniunii"

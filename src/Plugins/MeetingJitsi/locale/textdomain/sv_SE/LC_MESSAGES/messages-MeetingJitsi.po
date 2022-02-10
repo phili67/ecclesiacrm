@@ -1,0 +1,26 @@
+msgid "Room names"
+msgstr "Namn på rum"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "Skapa först ett rum och hantera temat med pilknappen."
+
+msgid "Create Room"
+msgstr "Skapa ett rum"
+
+msgid "This action will delete all your rooms"
+msgstr "Denna åtgärd raderar alla dina rum"
+
+msgid "Delete all Rooms"
+msgstr "Ta bort alla rum"
+
+msgid "Appointment"
+msgstr "Utnämning"
+
+msgid "Room Name"
+msgstr "Namn på rummet"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "Skapa först ett Jitsi-rum med knappen ovan!"
+
+msgid "Meeting Dashboard"
+msgstr "Kontrollpanel för möten"

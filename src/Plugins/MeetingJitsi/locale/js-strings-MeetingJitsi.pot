@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2022-02-09T08:00:31.732Z\n"
+"PO-Revision-Date: 2022-02-09T08:00:31.732Z\n"
+
+msgid "Problem"
+msgstr ""
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+
+msgid "Appointment"
+msgstr ""
+
+msgid "Set a Jitsi room name"
+msgstr ""
+
+msgid "Delete all Rooms?"
+msgstr ""
+
+msgid "You're about to delete all of your rooms."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""

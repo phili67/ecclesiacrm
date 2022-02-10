@@ -1,0 +1,26 @@
+msgid "Room names"
+msgstr "Nomi di camere"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "Crea prima una stanza e gestisci il tema con il tasto freccia"
+
+msgid "Create Room"
+msgstr "Creare una stanza"
+
+msgid "This action will delete all your rooms"
+msgstr "Questa azione cancellerà tutte le tue stanze"
+
+msgid "Delete all Rooms"
+msgstr "Cancellare tutte le stanze"
+
+msgid "Appointment"
+msgstr "Appuntamento"
+
+msgid "Room Name"
+msgstr "Nome della stanza"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "Prima crea una stanza Jitsi con il pulsante qui sopra!"
+
+msgid "Meeting Dashboard"
+msgstr "Cruscotto delle riunioni"

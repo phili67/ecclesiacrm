@@ -1,0 +1,28 @@
+msgid "Room names"
+msgstr "Szobanevek"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr ""
+"Először hozzon létre egy szobát és kezelje a témát a nyíl gomb "
+"segítségével."
+
+msgid "Create Room"
+msgstr "Terem létrehozása"
+
+msgid "This action will delete all your rooms"
+msgstr "Ez a művelet törli az összes szobát"
+
+msgid "Delete all Rooms"
+msgstr "Minden szoba törlése"
+
+msgid "Appointment"
+msgstr "Időpontkérés"
+
+msgid "Room Name"
+msgstr "Szoba neve"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "Először hozzon létre egy Jitsi szobát a fenti gombbal !"
+
+msgid "Meeting Dashboard"
+msgstr "Értekezlet műszerfal"

@@ -1,0 +1,26 @@
+msgid "Room names"
+msgstr "房间名称"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "首先创建一个房间，用箭头按钮管理主题"
+
+msgid "Create Room"
+msgstr "创建房间"
+
+msgid "This action will delete all your rooms"
+msgstr "这一行动将删除你所有的房间"
+
+msgid "Delete all Rooms"
+msgstr "删除所有房间"
+
+msgid "Appointment"
+msgstr "任命"
+
+msgid "Room Name"
+msgstr "房间名称"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "首先用上面的按钮创建一个Jitsi房间 !"
+
+msgid "Meeting Dashboard"
+msgstr "会议仪表板"

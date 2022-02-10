@@ -1,0 +1,26 @@
+msgid "Room names"
+msgstr "Tên phòng"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "Tạo ra một căn phòng và quản lý chủ đề bằng nút mũi tên"
+
+msgid "Create Room"
+msgstr "Tạo phòng"
+
+msgid "This action will delete all your rooms"
+msgstr "Hành động này sẽ xóa hết các phòng của các bạn"
+
+msgid "Delete all Rooms"
+msgstr "Xóa hết phòng đi"
+
+msgid "Appointment"
+msgstr "Đặt biển"
+
+msgid "Room Name"
+msgstr "Tên phòng"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "Đầu tiên hãy tạo một phòng Jitsi với cái nút ở trên!"
+
+msgid "Meeting Dashboard"
+msgstr "Gặp gỡ bảng điều khiển"

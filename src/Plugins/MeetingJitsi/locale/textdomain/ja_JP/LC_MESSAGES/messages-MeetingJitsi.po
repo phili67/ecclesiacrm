@@ -1,0 +1,26 @@
+msgid "Room names"
+msgstr "部屋名"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "最初に部屋を作り、矢印ボタンでテーマを管理する"
+
+msgid "Create Room"
+msgstr "クリエイトルーム"
+
+msgid "This action will delete all your rooms"
+msgstr "このアクションは、あなたのすべての部屋を削除します。"
+
+msgid "Delete all Rooms"
+msgstr "すべての部屋を削除"
+
+msgid "Appointment"
+msgstr "アポイントメント"
+
+msgid "Room Name"
+msgstr "部屋名"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr "まず、上のボタンでJitsiルームを作成してください。"
+
+msgid "Meeting Dashboard"
+msgstr "ミーティングダッシュボード"

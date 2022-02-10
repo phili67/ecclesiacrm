@@ -1,0 +1,30 @@
+msgid "Room names"
+msgstr "ชื่อห้อง"
+
+msgid "Create first a room and manage theme with the arrow button"
+msgstr ""
+"สร้างห้องแรกและห้อง "
+"และจัดการธีมด้วยปุ่มลูกศร"
+
+msgid "Create Room"
+msgstr "สร้างห้อง"
+
+msgid "This action will delete all your rooms"
+msgstr "การกระทำนี้จะลบทุกห้องของคุณ"
+
+msgid "Delete all Rooms"
+msgstr "ลบห้องทั้งหมดด้วย"
+
+msgid "Appointment"
+msgstr "แต่งตั้ง"
+
+msgid "Room Name"
+msgstr "ห้องชื่อ"
+
+msgid "First create a Jitsi room with the button above !"
+msgstr ""
+"ก่อนอื่นสร้างห้อง Jitsi "
+"กับกระดุมข้างบน"
+
+msgid "Meeting Dashboard"
+msgstr "เจอกับแดชบอร์ด"
