@@ -11,14 +11,15 @@
 
 namespace Plugins\VIEWControllers;
 
-use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\Utils\LoggerUtils;
+use PluginStore\PluginPrefJitsiMeetingQuery;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Container\ContainerInterface;
 
 use PluginStore\PersonJitsiMeetingQuery;
 use PluginStore\PersonLastJitsiMeetingQuery;
+
+use PluginStore\PluginPrefJitsiMeeting;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
@@ -66,12 +67,17 @@ class VIEWMeetingController {
 
         $allRooms = PersonJitsiMeetingQuery::create()->findByPersonId($personId);
 
+        // there's only one settings
+        $setting = PluginPrefJitsiMeetingQuery::create()->findOne();
+
         $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
             'sRootDocument'        => $sRootDocument,
             'sPageTitle'           => $sPageTitle,
             'sCSPNonce'            => $sCSPNonce,
             'roomName'             => $roomName,
-            'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null
+            'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null,
+            'domain'               => $setting->getDomain(),
+            'domainscriptpath'     => $setting->getDomainScriptPath()
         ];
         return $paramsArguments;
     }
