@@ -536,6 +536,8 @@ module.exports = function (grunt) {
                     src: [
                         '**/*.php',
                         '**/*.js',
+                        'Plugins/**',
+                        '!EcclesiaCRM/model/PluginStore/**',
                         '!**/.gitignore',
                         '!vendor/**/example/**',
                         '!vendor/**/tests/**',
