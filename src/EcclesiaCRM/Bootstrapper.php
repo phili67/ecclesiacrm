@@ -12,10 +12,12 @@ namespace EcclesiaCRM
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\Utils\RedirectUtils;
+  use EcclesiaCRM\PluginQuery;
 
   class Bootstrapper
   {
       private static $manager;
+      private static $manager2;
       private static $dbClassName;
       private static $databaseServerName;
       private static $databasePort;
@@ -34,6 +36,7 @@ namespace EcclesiaCRM
        */
       private static $bootStrapLogger;
       private static $serviceContainer;
+      private static $serviceContainer2;
 
       public static function init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, $davserver=false)
       {
@@ -123,12 +126,24 @@ namespace EcclesiaCRM
           // this will set the $realLocalInfo unuseffull after
           $realLocaleInfo = Bootstrapper::getRealLocalInfo();
 
-          $domain = 'messages';
+          $domain = 'messages'; // message.mo
           $sLocaleDir = SystemURLs::getDocumentRoot() . '/locale/textdomain';
           self::$bootStrapLogger->debug("Setting local text domain bind to: " . $sLocaleDir);
           bind_textdomain_codeset($domain, 'UTF-8');
           bindtextdomain($domain, $sLocaleDir);
+
+          $plugins = PluginQuery::create()->findByActiv(true);
+          foreach ($plugins as $plugin) {
+              $sLocalePluginDir = SystemURLs::getDocumentRoot() . '/Plugins/'.$plugin->getName().'/locale/textdomain';
+              if (file_exists($sLocalePluginDir)) {// for each plugins the domain is : 'messages-'.$plugin->getName()
+                  $plugin_domain = 'messages-'.$plugin->getName();
+                  bind_textdomain_codeset($plugin_domain, 'UTF-8');
+                  bindtextdomain($plugin_domain, $sLocalePluginDir);
+              }
+          }
+          // the default text domain : messages.mo
           textdomain($domain);
+
           self::$bootStrapLogger->debug("Locale configuration complete");
       }
 
@@ -193,6 +208,8 @@ namespace EcclesiaCRM
           self::$bootStrapLogger->debug("Initializing Propel ORM");
           // ==== ORM
           self::$dbClassName = "\\Propel\\Runtime\\Connection\\ConnectionWrapper";
+
+          // 1. add the first service container
           self::$serviceContainer = Propel::getServiceContainer();
           self::$serviceContainer->checkVersion(2);
           self::$serviceContainer->setAdapterClass('main', 'mysql');
@@ -200,11 +217,27 @@ namespace EcclesiaCRM
           // load DB array map according to the new propel upgrade
           self::getDBArrayMaps();
 
+          // add the first mamanager
           self::$manager = new ConnectionManagerSingle();
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager->setName('main');
           self::$serviceContainer->setConnectionManager('main', self::$manager);
           self::$serviceContainer->setDefaultDatasource('main');
+
+          // 2. add the second service container
+          self::$serviceContainer2 = Propel::getServiceContainer();
+          self::$serviceContainer2->checkVersion(2);
+          self::$serviceContainer2->setAdapterClass('pluginstore', 'mysql');
+
+          // add second manager
+          self::$manager2 = new ConnectionManagerSingle();
+          self::$manager2->setConfiguration(self::buildConnectionManagerConfig());
+          self::$manager2->setName('pluginstore');
+
+          self::$serviceContainer2->setConnectionManager('pluginstore', self::$manager2);
+          self::$serviceContainer2->setDefaultDatasource('pluginstore');
+
+          // we log everything is ok
           self::$bootStrapLogger->debug("Initialized Propel ORM");
 
           //LoggerUtils::getAppLogger()->info(json_encode(self::buildConnectionManagerConfig()));
