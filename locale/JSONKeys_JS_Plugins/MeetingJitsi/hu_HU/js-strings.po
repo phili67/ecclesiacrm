@@ -1,0 +1,28 @@
+msgid "Problem"
+msgstr "Probléma"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"A Safari még nem támogatott Jitsivel, használj valami mást !<br/>- A "
+"webkamerád<br/>- Az ablakok megosztása<br/> nem fog működni a "
+"találkozóval."
+
+msgid "Appointment"
+msgstr "Időpontkérés"
+
+msgid "Set a Jitsi room name"
+msgstr "Jitsi szoba nevének beállítása"
+
+msgid "Delete all Rooms?"
+msgstr "Töröljem az összes szobát?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Az összes szobádat törölni fogod."
+
+msgid "Cancel"
+msgstr "Törölje"
+
+msgid "Confirm"
+msgstr "Megerősítés"

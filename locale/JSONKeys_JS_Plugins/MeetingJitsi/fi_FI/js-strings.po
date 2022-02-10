@@ -1,0 +1,27 @@
+msgid "Problem"
+msgstr "Ongelma"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari ei ole vielä tuettu Jitsin kanssa, käytä jotain muuta !<br/>- "
+"Webbikamerasi<br/>- Ikkunoiden jakaminen<br/> ei toimi kokouksessa."
+
+msgid "Appointment"
+msgstr "Nimitys"
+
+msgid "Set a Jitsi room name"
+msgstr "Aseta Jitsi-huoneen nimi"
+
+msgid "Delete all Rooms?"
+msgstr "Poista kaikki huoneet?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Olet poistamassa kaikki huoneesi."
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Confirm"
+msgstr "Vahvista"

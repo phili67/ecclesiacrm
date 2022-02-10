@@ -1,0 +1,27 @@
+msgid "Problem"
+msgstr "Problem"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari er endnu ikke understøttet af Jitsi, brug noget andet !<br/>- Dit "
+"webcam<br/>- Deling af dine vinduer<br/>- Det virker ikke med meeting."
+
+msgid "Appointment"
+msgstr "Udnævnelse"
+
+msgid "Set a Jitsi room name"
+msgstr "Angiv et Jitsi-rumnavn"
+
+msgid "Delete all Rooms?"
+msgstr "Slet alle værelser?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Du er ved at slette alle dine værelser."
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Confirm"
+msgstr "Bekræft"

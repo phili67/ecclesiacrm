@@ -1,0 +1,28 @@
+msgid "Problem"
+msgstr "Vấn đề"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari vẫn chưa được ủng hộ bởi Jitsi, dùng thứ khác đi!<br>̺ "
+"Trang web<br>\\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 \\8235 ‫ ‫ ‫ "
+"‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ ‫ \\8"
+
+msgid "Appointment"
+msgstr "Đặt biển"
+
+msgid "Set a Jitsi room name"
+msgstr "Đặt tên phòng Jitsi đi"
+
+msgid "Delete all Rooms?"
+msgstr "Xóa hết phòng?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Anh sắp xóa hết phòng của mình rồi."
+
+msgid "Cancel"
+msgstr "Hủy bỏ"
+
+msgid "Confirm"
+msgstr "Xác nhận"

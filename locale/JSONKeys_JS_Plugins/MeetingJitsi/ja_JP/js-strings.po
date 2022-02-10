@@ -1,0 +1,27 @@
+msgid "Problem"
+msgstr "問題点"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"<br/>- ウェブカメラ<br/>- "
+"ウィンドウの共有<br/>はミーティングでは動作しません。"
+
+msgid "Appointment"
+msgstr "アポイントメント"
+
+msgid "Set a Jitsi room name"
+msgstr "Jitsiのルームネームの設定"
+
+msgid "Delete all Rooms?"
+msgstr "すべての部屋を削除しますか？"
+
+msgid "You're about to delete all of your rooms."
+msgstr "自分の部屋をすべて削除するところです。"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Confirm"
+msgstr "確認"
