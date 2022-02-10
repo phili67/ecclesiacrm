@@ -1,19 +1,5 @@
 <!-- in plugin.schema.xml -->
 <database package="MeetingJitsi" name="pluginstore" nameSpace="PluginStore">
-    <table name="personlastjitsimeeting_plm" idMethod="native" phpName="PersonLastJitsiMeeting">
-        <column name="jm_plm_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="jm_plm_person_id" phpName="PersonId" type="SMALLINT" required="true"/>
-        <column name="jm_plm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" required="true"/>
-        <index name="fk_jm_plm_personmeeting_pm_id">
-            <index-column name="jm_plm_personmeeting_pm_id"/>
-        </index>
-        <unique name="jm_lm_ID">
-            <unique-column name="jm_plm_ID"/>
-        </unique>
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
-    </table>
     <table name="personjitsimeeting_pm" idMethod="native" phpName="PersonJitsiMeeting">
         <column name="jm_pm_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="jm_pm_person_id" phpName="PersonId" type="SMALLINT" sqlType="mediumint unsigned"/>
@@ -29,4 +15,36 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
+
+    <table name="personlastjitsimeeting_plm" idMethod="native" phpName="PersonLastJitsiMeeting">
+        <column name="jm_plm_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="jm_plm_person_id" phpName="PersonId" type="SMALLINT" required="true"/>
+        <column name="jm_plm_personmeeting_pm_id" phpName="PersonMeetingId" type="SMALLINT" required="true"/>
+        <index name="fk_jm_plm_personmeeting_pm_id">
+            <index-column name="jm_plm_personmeeting_pm_id"/>
+        </index>
+        <unique name="jm_lm_ID">
+            <unique-column name="jm_plm_ID"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="plugin_pref_jitsimeeting_pjmp" idMethod="native" phpName="PluginPrefJitsiMeeting">
+        <column name="jm_pjmp_ID" phpName="Id" type="SMALLINT" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="jm_pjmp_personmeeting_pm_id" phpName="PersonId" type="SMALLINT" sqlType="mediumint unsigned" required="true"/>
+        <column name="jm_pjmp_domain" phpName="Domain" type="VARCHAR" size="255" required="true" defaultValue="meet.jit.si"/>
+        <column name="jm_pjmp_domainscriptpath" phpName="DomainScriptPath" type="VARCHAR" size="255" required="true" defaultValue="https://meet.jit.si/external_api.js"/>
+        <index name="fk_jm_pjmp_personmeeting_pm_id">
+            <index-column name="jm_pjmp_personmeeting_pm_id"/>
+        </index>
+        <unique name="jm_pjmp_ID">
+            <unique-column name="jm_pjmp_ID"/>
+        </unique>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
 </database>
