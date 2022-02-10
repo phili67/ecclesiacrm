@@ -17,6 +17,8 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Theme;
 
+use EcclesiaCRM\PluginQuery;
+
 ?>
 </section><!-- /.content -->
 
@@ -382,6 +384,17 @@ use EcclesiaCRM\Theme;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/i18next/i18next.min.js"></script>
 <script
     src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+    
+<?php
+$plugins = PluginQuery::create()->findByActiv(true);
+
+foreach ($plugins as $plugin) {
+?>
+<script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+<?php
+}
+?>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-validator/validator.min.js"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/IssueReporter.js"></script>
