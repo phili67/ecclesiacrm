@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-10 09:07+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Для"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Человек"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -851,7 +851,7 @@ msgstr "Вызов QR-кода"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:264
 msgid "Kiosk Manager"
 msgstr "Менеджер киоска"
 
@@ -1156,7 +1156,7 @@ msgstr "Пропуск записей с неполным почтовым ад�
 msgid "Create File"
 msgstr "Создать файл"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:255
 msgid "CSV Import"
 msgstr "Импорт CSV"
 
@@ -2040,7 +2040,7 @@ msgid "Role"
 msgstr "Роль"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Роли семьи"
@@ -2083,7 +2083,7 @@ msgid "Sunday School Group Type"
 msgstr "Тип группы воскресной школы"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Типы групп воскресной школы"
 
@@ -2093,7 +2093,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Редактор типов групп воскресной школы"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Типы групп"
 
@@ -2109,7 +2109,7 @@ msgstr "Редактор типов групп"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4373,7 +4373,7 @@ msgstr "Церковная информация"
 msgid "Enabled Features"
 msgstr "Включенные функции"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Системные настройки"
 
@@ -4707,7 +4707,7 @@ msgid "Sunday School"
 msgstr "Воскресная школа"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Глобальные пользовательские меню"
 
@@ -5320,7 +5320,7 @@ msgstr "Студент"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "Печать"
 
@@ -5358,7 +5358,7 @@ msgid "Person Properties"
 msgstr "Свойства человека"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Возможности для волонтеров"
 
@@ -5502,7 +5502,7 @@ msgstr "Обновление базы данных не удалось"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Другое"
 
@@ -5610,7 +5610,7 @@ msgstr "Отсутствующие данные о ролях некоторых
 msgid "Unmet Application Prerequisites"
 msgstr "Неудовлетворенные предварительные условия приложения"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
 msgid "Register Software"
 msgstr "Регистрационное программное обеспечение"
 
@@ -5847,12 +5847,12 @@ msgid "1 yr old"
 msgstr "1 год"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:246
 msgid "Backup Database"
 msgstr "Резервное копирование базы данных"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:238
 msgid "Restore Database"
 msgstr "Восстановление базы данных"
 
@@ -7682,79 +7682,79 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Поля свойств, относящиеся к конкретной группе"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Авторское право"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Все права защищены"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Версия"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Семейная недвижимость"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Редактирование пользовательских полей семьи"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Менеджер по классификации"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Свойства людей"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Редактирование пользовательских полей персон"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Свойства группы"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Типы недвижимости"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Редактирование фондов пожертвований"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Тип пасторского ухода"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:274
 msgid "Please contact your admin to change the system settings."
 msgstr "Обратитесь к администратору, чтобы изменить настройки системы."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Редактирование общих настроек"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "Пользователи системы"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:285
 msgid "CSV Export Records"
 msgstr "Записи экспорта CSV"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:298
 msgid "Open Tasks"
 msgstr "Открытые задачи"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:299
 msgid "You have"
 msgstr "У вас есть"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:300
 msgid "task(s)"
 msgstr "задача(ы)"
 
@@ -7778,20 +7778,20 @@ msgstr "Не удалось отправить PDF по электронной �
 msgid "item(s) added to the Cart."
 msgstr "товар(ы), добавленный(ые) в корзину."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Отчет о выпуске!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Введите название сообщения об ошибке/функции"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr ""
 "Что вы делали, когда заметили ошибку/возможность использования функции?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7799,11 +7799,11 @@ msgstr ""
 "Когда вы нажмете кнопку \"отправить\", отчет об ошибке будет опубликован в "
 "трекере проблем EcclesiaCRM GitHub."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Пожалуйста, не указывайте конфиденциальную информацию."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7811,7 +7811,7 @@ msgstr ""
 "Вместе с запросом будет передана некоторая общая информация о вашей системе, "
 "например, версия сервера и заголовки браузера."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -7819,27 +7819,27 @@ msgstr ""
 "Никакая информация, позволяющая установить личность, не будет предоставлена, "
 "если вы намеренно не включите ее."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Отправить"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Отчет о выпуске готов!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Успешно подано задание"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Посмотреть выпуск на GitHub"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Изменить столбцы"
 

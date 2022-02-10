@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-10 09:07+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Për"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Person"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -852,7 +852,7 @@ msgstr "Kodi QR"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:264
 msgid "Kiosk Manager"
 msgstr "menaxher kiosk"
 
@@ -1157,7 +1157,7 @@ msgstr "regjistrimet e regjistrimit me adresë poste jo të plotë"
 msgid "Create File"
 msgstr "Krijo dosjen"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:255
 msgid "CSV Import"
 msgstr "Importi CSV"
 
@@ -2042,7 +2042,7 @@ msgid "Role"
 msgstr "rol."
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Familja Roles"
@@ -2085,7 +2085,7 @@ msgid "Sunday School Group Type"
 msgstr "tipi i grupit të shkollës së diel"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Tipat e grupit të shkollës së diel"
 
@@ -2095,7 +2095,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Grupi i shkollës së diel shfaq redaktorin"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Tipa të grupit"
 
@@ -2111,7 +2111,7 @@ msgstr "grupi shkruan redaktorin"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4370,7 +4370,7 @@ msgstr "Informacioni i kishës"
 msgid "Enabled Features"
 msgstr "tipare të mundëshme"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Seksionet e sistemit"
 
@@ -4704,7 +4704,7 @@ msgid "Sunday School"
 msgstr "Shkolla e së dielës"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "manusi global dostom dostom"
 
@@ -5317,7 +5317,7 @@ msgstr "Studente."
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "printoje."
 
@@ -5355,7 +5355,7 @@ msgid "Person Properties"
 msgstr "Person Properties"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Mundësi vullnetare"
 
@@ -5499,7 +5499,7 @@ msgstr "Përmirësimi i të dhënave dështoi"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Tjetri"
 
@@ -5607,7 +5607,7 @@ msgstr "po humbas të dhënat për disa njerëz"
 msgid "Unmet Application Prerequisites"
 msgstr "Parakushte aplikimi i papërshtatshëm"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
 msgid "Register Software"
 msgstr "Regjistri Software"
 
@@ -5844,12 +5844,12 @@ msgid "1 yr old"
 msgstr "1 vjeç"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:246
 msgid "Backup Database"
 msgstr "Databac Backup"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:238
 msgid "Restore Database"
 msgstr "Ristartuar Databaza"
 
@@ -7675,79 +7675,79 @@ msgstr "Grup Role."
 msgid "Group-Specific Property Fields"
 msgstr "fusha e pronës specifike"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "të drejtat e autorit."
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Të gjitha të drejtat e rezervuara"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Versioni"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Familja Properties"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Familja Dogane Edit"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "drejtor i klasifikimit"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Njerëz Properties"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Edit Dost Dost Fields"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Grupi i Pronëve"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Tipat e pronës"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Fondet e Donacionit Edit"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "tipi i \"care\""
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:274
 msgid "Please contact your admin to change the system settings."
 msgstr "Ju lutem kontaktoni admiruesin tuaj për të ndryshuar sistemin."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Seksionet e Gjeneralit Edit"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "përdorues sistemesh"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:285
 msgid "CSV Export Records"
 msgstr "rekordet e eksportit të csv"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:298
 msgid "Open Tasks"
 msgstr "Hapni tasket"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:299
 msgid "You have"
 msgstr "E ke bërë"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:300
 msgid "task(s)"
 msgstr "task(s)"
 
@@ -7771,19 +7771,19 @@ msgstr "nuk i dërgoi postën elektronike pdf anëtarëve të familjes."
 msgid "item(s) added to the Cart."
 msgstr "item(s) i shtuar Kartës."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Raporto çështjesh!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Shkruani një titull për buburrecën tuaj si raport"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Çfarë po bëje kur vure re insektin tënd të mundësive?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7791,11 +7791,11 @@ msgstr ""
 "Kur të klikoni të dorëzoheni, një raport i gabuar do të postohet në "
 "gjurmuesin e GitHub Issue."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Ju lutem mos perfitoni ndonje informacion konfidencial."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7803,7 +7803,7 @@ msgstr ""
 "Disa informacione të përgjithshme për sistemin tuaj do të dërgohen së bashku "
 "me kërkesën si versioni server dhe teleportuesit."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -7811,27 +7811,27 @@ msgstr ""
 "asnjë informacion personalisht nuk do të dërgohet nëse nuk e përfshin me "
 "qëllim."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Submit"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Raporti i çështjes u krye!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Çështje e dorëzuar me sukses"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "shiko çështjet mbi github"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "në rregull."
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Ndrysho kolonat"
 

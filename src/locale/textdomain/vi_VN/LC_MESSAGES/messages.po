@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-10 09:07+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Vì cái này"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Người"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -852,7 +852,7 @@ msgstr "Mã QR Call"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:264
 msgid "Kiosk Manager"
 msgstr "Quản lý Kiosk"
 
@@ -1157,7 +1157,7 @@ msgstr "Hồ sơ bỏ qua với địa chỉ thư chưa hoàn chỉnh"
 msgid "Create File"
 msgstr "Tạo ra File"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:255
 msgid "CSV Import"
 msgstr "Truyền thông CSV"
 
@@ -2036,7 +2036,7 @@ msgid "Role"
 msgstr "Role"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Gia đình Roles"
@@ -2079,7 +2079,7 @@ msgid "Sunday School Group Type"
 msgstr "Tập đoàn học sinh Chủ nhật"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Tập đoàn học hành ngày Chủ nhật"
 
@@ -2089,7 +2089,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Tập đoàn giáo viên loại biên tập chủ nhật"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Nhóm Types"
 
@@ -2105,7 +2105,7 @@ msgstr "Nhóm biên tập"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4345,7 +4345,7 @@ msgstr "Thông tin nhà thờ"
 msgid "Enabled Features"
 msgstr "- Feties được phát triển"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Thiết lập hệ thống"
 
@@ -4679,7 +4679,7 @@ msgid "Sunday School"
 msgstr "Trường học Chủ nhật"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Truyền thông Hải quan toàn cầu"
 
@@ -5292,7 +5292,7 @@ msgstr "Học sinh."
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "In"
 
@@ -5330,7 +5330,7 @@ msgid "Person Properties"
 msgstr "Tài sản cá nhân"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Cơ hội tình nguyện"
 
@@ -5474,7 +5474,7 @@ msgstr "Nâng cấp Databse thất bại"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Người kia"
 
@@ -5582,7 +5582,7 @@ msgstr "Mất dấu Role Data vì vài người"
 msgid "Unmet Application Prerequisites"
 msgstr "Ứng dụng chưa được đáp ứng"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
 msgid "Register Software"
 msgstr "Phần mềm đăng ký"
 
@@ -5819,12 +5819,12 @@ msgid "1 yr old"
 msgstr "1 tuổi"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:246
 msgid "Backup Database"
 msgstr "Dữ liệu dự phòng"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:238
 msgid "Restore Database"
 msgstr "Khôi phục dữ liệu"
 
@@ -7641,79 +7641,79 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Khu vực tài sản đặc biệt"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Rõ."
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Được rồi"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Phiên tòa"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Gia đình có những tài sản gia đình"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Chỉnh lại trường gia đình"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Quản lý kinh điển"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Những người có tài sản"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Chỉnh lại trường Biên tập trung"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Các tổ chức năng động lực"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Loại bất động sản"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Quỹ hiến tặng Edit Donation"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Pastoral Care Type"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:274
 msgid "Please contact your admin to change the system settings."
 msgstr "Xin hãy liên lạc với người quản lý để thay đổi hệ thống thiết lập."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Chỉnh lại vị trí Đại tướng"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "Hệ thống sử dụng"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:285
 msgid "CSV Export Records"
 msgstr "CSV Export Records"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:298
 msgid "Open Tasks"
 msgstr "Mở nhiệm vụ"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:299
 msgid "You have"
 msgstr "Anh đã làm"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:300
 msgid "task(s)"
 msgstr "task(S)"
 
@@ -7737,19 +7737,19 @@ msgstr "Không gửi email PDF cho các thành viên trong gia đình."
 msgid "item(s) added to the Cart."
 msgstr "cộng vào chiếc Cart."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Báo cáo!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Hãy gửi một tờ giấy báo cáo về con bọ"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Anh đã làm gì khi để ý thấy cơ hội bọ?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7757,11 +7757,11 @@ msgstr ""
 "Khi bạn bấm \"nộp đơn\", một báo cáo lỗi sẽ được đăng lên thiết bị theo dõi "
 "CRM GitHub 98."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Xin đừng cho bất kỳ thông tin mật nào."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7769,34 +7769,34 @@ msgstr ""
 "Một số thông tin tổng quát về hệ thống của anh sẽ được gửi cùng với yêu cầu "
 "như phiên bản Server và tiêu đề trình duyệt."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
 msgstr ""
 "Không có thông tin cá nhân nào được gửi nếu anh không có chủ ý bao gồm nó."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Phục tùng"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Báo cáo đã xong!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Subteam supped Issue"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Phát hiện trên GitHub"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "Được rồi."
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Thay đổi cột"
 

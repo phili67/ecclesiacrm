@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-10 09:07+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Για το"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Πρόσωπο"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -855,7 +855,7 @@ msgstr "Κλήση κώδικα QR"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:264
 msgid "Kiosk Manager"
 msgstr "Διαχειριστής περιπτέρου"
 
@@ -1161,7 +1161,7 @@ msgstr "Παράλειψη εγγραφών με ελλιπή διεύθυνση
 msgid "Create File"
 msgstr "Δημιουργία αρχείου"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:255
 msgid "CSV Import"
 msgstr "Εισαγωγή CSV"
 
@@ -2049,7 +2049,7 @@ msgid "Role"
 msgstr "Ρόλος"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Οικογενειακοί ρόλοι"
@@ -2092,7 +2092,7 @@ msgid "Sunday School Group Type"
 msgstr "Τύπος Ομάδας Κυριακάτικου Σχολείου"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Τύποι ομάδων Κυριακάτικου Σχολείου"
 
@@ -2102,7 +2102,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Τύποι Ομάδων Κυριακάτικου Σχολείου Εκδότης"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Τύποι ομάδων"
 
@@ -2118,7 +2118,7 @@ msgstr "Επεξεργαστής τύπων ομάδων"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4428,7 +4428,7 @@ msgstr "Πληροφορίες Εκκλησίας"
 msgid "Enabled Features"
 msgstr "Ενεργοποιημένα χαρακτηριστικά"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Ρυθμίσεις συστήματος"
 
@@ -4764,7 +4764,7 @@ msgid "Sunday School"
 msgstr "Κυριακάτικο Σχολείο"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Παγκόσμια προσαρμοσμένα μενού"
 
@@ -5378,7 +5378,7 @@ msgstr "Φοιτητής"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "Εκτύπωση"
 
@@ -5416,7 +5416,7 @@ msgid "Person Properties"
 msgstr "Ιδιότητες προσώπου"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Ευκαιρίες εθελοντισμού"
 
@@ -5561,7 +5561,7 @@ msgstr "Η αναβάθμιση δεδομένων απέτυχε"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Άλλα"
 
@@ -5670,7 +5670,7 @@ msgstr "Λείπουν δεδομένα ρόλων για ορισμένα άτ�
 msgid "Unmet Application Prerequisites"
 msgstr "Ανεκπλήρωτες προϋποθέσεις εφαρμογής"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
 msgid "Register Software"
 msgstr "Λογισμικό εγγραφής"
 
@@ -5910,12 +5910,12 @@ msgid "1 yr old"
 msgstr "1 έτους"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:246
 msgid "Backup Database"
 msgstr "Δημιουργία αντιγράφων ασφαλείας βάσης δεδομένων"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:238
 msgid "Restore Database"
 msgstr "Επαναφορά βάσης δεδομένων"
 
@@ -7754,81 +7754,81 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Πεδία ιδιοτήτων συγκεκριμένης ομάδας"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Πνευματικά δικαιώματα"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Όλα τα δικαιώματα διατηρούνται"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Έκδοση"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Οικογενειακά ακίνητα"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Επεξεργασία προσαρμοσμένων οικογενειακών πεδίων"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Διαχειριστής ταξινομήσεων"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Ιδιότητες ανθρώπων"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Επεξεργασία προσαρμοσμένων πεδίων προσώπου"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Ιδιότητες ομάδας"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Τύποι ακινήτων"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Επεξεργασία κεφαλαίων δωρεάς"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Τύπος ποιμαντικής φροντίδας"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:274
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Επικοινωνήστε με τον διαχειριστή σας για να αλλάξετε τις ρυθμίσεις του "
 "συστήματος."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Επεξεργασία γενικών ρυθμίσεων"
 
-#: Include/Footer.php:220
+#: Include/Footer.php:222
 msgid "System Users"
 msgstr "Χρήστες συστήματος"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:285
 msgid "CSV Export Records"
 msgstr "Εγγραφές εξαγωγής CSV"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:298
 msgid "Open Tasks"
 msgstr "Άνοιγμα εργασιών"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:299
 msgid "You have"
 msgstr "Έχετε"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:300
 msgid "task(s)"
 msgstr "εργασία(ες)"
 
@@ -7852,20 +7852,20 @@ msgstr "Απέτυχε να στείλει email PDF σε μέλη της οικ
 msgid "item(s) added to the Cart."
 msgstr "αντικείμενο(α) που προστέθηκε(-αν) στο καλάθι."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Αναφορά έκδοσης!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Εισάγετε έναν τίτλο για την αναφορά σφάλματος/χαρακτηριστικού σας"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr ""
 "Τι κάνατε όταν παρατηρήσατε το σφάλμα/την ευκαιρία για ένα χαρακτηριστικό;"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7873,11 +7873,11 @@ msgstr ""
 "Όταν κάνετε κλικ στο κουμπί \"υποβολή\", θα αναρτηθεί μια αναφορά σφάλματος "
 "στην παρακολούθηση προβλημάτων του EcclesiaCRM GitHub."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Παρακαλείστε να μην συμπεριλάβετε εμπιστευτικές πληροφορίες."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7886,7 +7886,7 @@ msgstr ""
 "με το αίτημα, όπως η έκδοση του διακομιστή και οι επικεφαλίδες του "
 "προγράμματος περιήγησης."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -7894,27 +7894,27 @@ msgstr ""
 "Δεν θα υποβληθούν προσωπικά αναγνωρίσιμες πληροφορίες, εκτός εάν τις "
 "συμπεριλάβετε σκόπιμα."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Υποβολή"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Η έκθεση έκδοσης έγινε!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Επιτυχώς υποβληθέν θέμα"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Προβολή θέματος στο GitHub"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Αλλαγή στηλών"
 
