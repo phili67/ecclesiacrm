@@ -14,13 +14,17 @@
 
 namespace EcclesiaCRM\MenuBar;
 
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginMenuBarreQuery;
+
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\MailChimpService;
+
 use EcclesiaCRM\SessionUser;
 
 
@@ -35,6 +39,37 @@ class MenuBar extends Menu
     {
         $this->_title = $title;
         $this->createMenuBar();
+    }
+
+    private function addPluginMenus($type, $main_menu=null) {
+        $plugins = PluginQuery::create()->filterByCategory($type)->findByActiv(true);
+
+        foreach ($plugins as $plugin) {
+            $menuBarItems = PluginMenuBarreQuery::create()->filterByName($plugin->getName())->find();
+            $first_One = true;
+            $menu_count = $menuBarItems->count();
+            foreach ($menuBarItems as $menuBarItem) {
+                $grp_sec = true;
+                if ( $menuBarItem->getGrpSec() != '' and !is_null($menuBarItem->getGrpSec()) ) {
+                    $grp_sec = SessionUser::getUser()->getUserMainSettingByString($menuBarItem->getGrpSec());
+                }
+                if ($first_One) {
+                    if ($grp_sec == false) {
+                        break;
+                    }
+                    $menu = new Menu (_($menuBarItem->getDisplayName()),
+                        $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , $main_menu);
+                    $this->addMenu($menu);
+
+                    if ($menu_count > 1) {
+                        $menuItem = new Menu (_("Dashboard"), "fas fa-circle", $menuBarItem->getURL(), true, $menu);
+                    }
+                    $first_One = false;
+                } else {
+                    $menuItem = new Menu (_($menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
+                }
+            }
+        }
     }
 
     private function addHomeArea()
@@ -55,19 +90,23 @@ class MenuBar extends Menu
             $this->addPersonMenuLinks($menu);
         }
 
+        $this->addPluginMenus('Personal', $menu);
+
         $this->addMenu($menu);
     }
 
     public function addGDPRMenu()
     {
-            // the GDPR Menu
-            $menu = new Menu (_("GDPR"), "fas fa-shield-alt", "", true);
-            $menuItem = new Menu (_("Dashboard"), "fas fa-circle", "v2/gdpr", true, $menu);
-            $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
-            $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
-            $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
+        // the GDPR Menu
+        $menu = new Menu (_("GDPR"), "fas fa-shield-alt", "", true);
+        $menuItem = new Menu (_("Dashboard"), "fas fa-circle", "v2/gdpr", true, $menu);
+        $menuItem = new Menu (_("Data Structure"), "fas fa-user-secret", "v2/gdpr/gdprdatastructure", true, $menu);
+        $menuItem = new Menu (_("View Inactive Persons"), "fas fa-users", "v2/personlist/GDRP", true, $menu);
+        $menuItem = new Menu (_("View Inactive Families"), "fas fa-users-slash", "v2/familylist/GDRP", true, $menu);
 
-            $this->addMenu($menu);
+        $this->addPluginMenus('GDPR', $menu);
+
+        $this->addMenu($menu);
     }
 
     public function addEventMenu()
@@ -89,8 +128,9 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("List Event Types"), "fas fa-cog", "EventNames.php", SessionUser::getUser()->isAdmin(), $menu);
         $menuItem = new Menu (_("Call the Register"), "fas fa-bullhorn", "Checkin.php", true, $menu);
 
-        $this->addMenu($menu);
+        $this->addPluginMenus('Events', $menu);
 
+        $this->addMenu($menu);
     }
 
     private function addPeopleMenu()
@@ -139,6 +179,8 @@ class MenuBar extends Menu
                 $menuItem = new Menu (_("Convert Individual to Address"), "fas fa-angle-double-right", "ConvertIndividualToAddress.php", true, $menu);
             }
         }
+
+        $this->addPluginMenus('PEOPLE', $menu);
 
         $this->addMenu($menu);
     }
@@ -211,6 +253,8 @@ class MenuBar extends Menu
         }
 
         $menuItem = new Menu (_("Group Assignment Helper"), "far fa-circle", "v2/people/list/groupassign", true, $menu);
+
+        $this->addPluginMenus('GROUP', $menu);
 
         $this->addMenu($menu);
     }
@@ -287,6 +331,8 @@ class MenuBar extends Menu
             }
         }
 
+        $this->addPluginMenus('SundaySchool', $menu);
+
         $this->addMenu($menu);
     }
 
@@ -304,7 +350,6 @@ class MenuBar extends Menu
         } else {
             $menu = new Menu (_("Global Custom Menus"), "fas fa-link", "v2/menulinklist", true, null, "global_custom_menu");
         }
-
 
         $this->addMenu($menu);
     }
@@ -327,14 +372,14 @@ class MenuBar extends Menu
         $menuItem1 = new Menu (_("Dashboard"), "fas fa-binoculars", "v2/pastoralcare/dashboard", true, $menu);
         $menuItem1 = new Menu (_("By Classifications"), "fas fa-sort-amount-up-alt", "v2/pastoralcare/membersList", true, $menu);
 
+        $this->addPluginMenus('PastoralCare', $menu);
+
         $this->addMenu($menu);
     }
 
     private function addMeeting()
     {
-        $menu = new Menu (_("Meetings"), "fas fa-video", "v2/meeting/dashboard", true);
-
-        $this->addMenu($menu);
+        $this->addPluginMenus('Meeting');
     }
 
     private function addMailMenu()
@@ -372,8 +417,9 @@ class MenuBar extends Menu
             $menuItemItemItem = new Menu ("false item", "far fa-circle", "#", true, $menuItemItem, "#");
         }
 
-        $this->addMenu($menu);
+        $this->addPluginMenus('Mail', $menu);
 
+        $this->addMenu($menu);
     }
 
     private function addDepositMenu()
@@ -402,14 +448,15 @@ class MenuBar extends Menu
         $menuItem = new Menu (_("Deposit Reports"), "far fa-circle", "FinancialReports.php", SessionUser::getUser()->isFinanceEnabled(), $menu);
         $menuItem = new Menu (_("Edit Deposit Slip") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentDeposit'] . '</small>', "far fa-circle", "DepositSlipEditor.php?DepositSlipID=" . $_SESSION['iCurrentDeposit'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
 
-        $this->addMenu($menu);
+        $this->addPluginMenus('Deposit', $menu);
 
+        $this->addMenu($menu);
     }
 
     private function addFundraiserMenu()
     {
         // the menu Fundraisers
-        if ( ! SessionUser::getUser()->isFinanceEnabled() ) return;
+        if (!SessionUser::getUser()->isFinanceEnabled()) return;
 
         $menu = new Menu (_("Fundraiser"), "fas fa-money-check-alt", "#", SessionUser::getUser()->isFinanceEnabled());
 
@@ -419,13 +466,15 @@ class MenuBar extends Menu
             $menuItem = new Menu (_("Edit Last Fundraiser") . '   : &nbsp;&nbsp;<small class="badge right badge-primary current-deposit-item"> #' . $_SESSION['iCurrentFundraiser'] . '</small>', "far fa-circle", "FundRaiserEditor.php?FundRaiserID=" . $_SESSION['iCurrentFundraiser'], SessionUser::getUser()->isFinanceEnabled(), $menu, "deposit-current-deposit-item");
         }
         if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem->addLink("v2/fundraiser/paddlenum/list/".$_SESSION['iCurrentFundraiser']);
+            $menuItem->addLink("v2/fundraiser/paddlenum/list/" . $_SESSION['iCurrentFundraiser']);
 
         }
 
         if (isset($_SESSION['iCurrentFundraiser'])) {
-            $menuItem->addLink('PaddleNumList.php?FundRaiserID='.$_SESSION['iCurrentFundraiser']);
+            $menuItem->addLink('PaddleNumList.php?FundRaiserID=' . $_SESSION['iCurrentFundraiser']);
         }
+
+        $this->addPluginMenus('Funds', $menu);
 
         $this->addMenu($menu);
     }
@@ -488,5 +537,8 @@ class MenuBar extends Menu
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
             $this->addGlobalMenuLinks();
         }
+
+        // we can all the free menu you want to define
+        $this->addPluginMenus('FreeMenu');
     }
 }
