@@ -1,3 +1,9 @@
+var nss = ['translation'];
+
+for (var ns in window.CRM.all_plugins_i18keys) {
+    nss.push(ns);
+}
+
 i18nextOpt = {
     lng: window.CRM.shortLocale,
     nsSeparator: false,
@@ -5,14 +11,26 @@ i18nextOpt = {
     pluralSeparator: false,
     contextSeparator: false,
     fallbackLng: false,
+    ns: nss,
+    defaultNS: 'translation',
     resources: {}
 };
 
-i18nextOpt.resources[window.CRM.shortLocale] = {
+/*ns: ['common', 'moduleA'],
+  defaultNS: 'moduleA'*/
+
+/*i18nextOpt.resources[window.CRM.shortLocale] = {
     translation: window.CRM.i18keys
-};
+};*/
 
 i18next.init(i18nextOpt);
+
+i18next.addResourceBundle(window.CRM.shortLocale, 'translation', window.CRM.i18keys);
+
+for (var ns in window.CRM.all_plugins_i18keys) {
+    var new_ns_translation =  eval(window.CRM.all_plugins_i18keys[ns]);
+    i18next.addResourceBundle(window.CRM.shortLocale, ns, new_ns_translation);
+}
 
 $("document").ready(function () {
     // all bootbox are now localized
