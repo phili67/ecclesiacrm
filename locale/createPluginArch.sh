@@ -23,6 +23,11 @@
               "copyrights": "",
               "version": "1.0",
               "Description": "",
+              "infos": "Name of your team",
+              "url_infos": "https://team_url",
+              "url_docs": "https://doc_url",
+              "Settings_url": "meeting/settings",
+              "Details": "https://url;iframe=true&amp;width=772&amp;height=549"
           }' >> "../src/Plugins/${pluginName}/config.json"
 
     mkdir "../src/Plugins/${pluginName}/api"
