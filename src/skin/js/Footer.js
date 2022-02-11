@@ -1,7 +1,9 @@
 var nss = ['translation'];
 
-for (var ns in window.CRM.all_plugins_i18keys) {
-    nss.push(ns);
+if ( window.CRM.all_plugins_i18keys !== false) {
+    for (var ns in window.CRM.all_plugins_i18keys) {
+        nss.push(ns);
+    }
 }
 
 i18nextOpt = {
@@ -15,13 +17,6 @@ i18nextOpt = {
     defaultNS: 'translation',
     resources: {}
 };
-
-/*ns: ['common', 'moduleA'],
-  defaultNS: 'moduleA'*/
-
-/*i18nextOpt.resources[window.CRM.shortLocale] = {
-    translation: window.CRM.i18keys
-};*/
 
 i18next.init(i18nextOpt);
 
