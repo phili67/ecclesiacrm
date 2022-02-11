@@ -126,6 +126,8 @@ require_once __DIR__.'/routes/mailchimp.php';
 require_once __DIR__.'/routes/search.php';
 require_once __DIR__.'/routes/sundayschool.php';
 
+require_once __DIR__.'/routes/plugins/plugins.php';
+
 // fundraiser route
 require_once __DIR__.'/routes/fundraiser/fundraiser.php';
 
