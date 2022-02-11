@@ -143,19 +143,19 @@ function Header_modals()
 function Header_body_scripts()
 {
     $localeInfo = Bootstrapper::GetCurrentLocale();
-    
+
     $plugins = PluginQuery::create()->findByActiv(true);
 
-    $pluginNames = "";
+    $pluginNames = "false";
 
     if ( $plugins->count() > 0 ) {
       $pluginNames = "{";
       foreach ($plugins as $plugin) {
           $pluginNames .= "'" . $plugin->getName() . "':'window.CRM." . $plugin->getName() . "_i18keys', ";
       }
-      
+
       $pluginNames = substr($pluginNames, 0, -2);
-      
+
       $pluginNames .= "}";
     }
 ?>
