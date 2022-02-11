@@ -109,6 +109,9 @@ require_once __DIR__ . '/routes/fundraiser/fundraiser.php';
 // errors
 require_once __DIR__ . '/routes/error/error.php';
 
+// plugins routes
+require_once __DIR__ . '/routes/plugins/plugins.php';
+
 $plugins = PluginQuery::create()->findByActiv(true);
 
 foreach ($plugins as $plugin) {
