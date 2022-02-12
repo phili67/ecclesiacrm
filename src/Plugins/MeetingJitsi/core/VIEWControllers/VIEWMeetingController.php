@@ -35,18 +35,17 @@ class VIEWMeetingController {
         $this->container = $container;
     }
 
-    public function renderMeetingDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+    public function renderDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
 
         if ( !( SessionUser::getUser()->isMeetingEnabled() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
-        return $renderer->render($response, 'meetingdashboard.php', $this->argumentsMeetingArray());
+        return $renderer->render($response, 'meetingdashboard.php', $this->argumentDashboard());
     }
 
-
-    public function argumentsMeetingArray ()
+    public function argumentDashboard ()
     {
         $sPageTitle = _("Meeting Dashboard");
 
@@ -82,5 +81,51 @@ class VIEWMeetingController {
         return $paramsArguments;
     }
 
+    public function renderSettings (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
+
+        if ( !( SessionUser::getUser()->isMeetingEnabled() ) ) {
+            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
+        }
+
+        return $renderer->render($response, 'meetingsettings.php', $this->argumentSettings());
+    }
+
+    public function argumentSettings ()
+    {
+        $sPageTitle = dgettext("messages-MeetingJitsi", "Meeting Settings");
+
+        $sRootDocument   = SystemURLs::getDocumentRoot();
+        $sCSPNonce       = SystemURLs::getCSPNonce();
+
+        $personId = SessionUser::getUser()->getPersonId();
+
+        $lpm = PersonLastJitsiMeetingQuery::create()->findOneByPersonId($personId);
+
+        $roomName = '';
+
+        if (!is_null($lpm)) {
+            $pm = PersonJitsiMeetingQuery::create()->findOneById($lpm->getPersonMeetingId());
+
+            $roomName = $pm->getCode();
+        }
+
+        $allRooms = PersonJitsiMeetingQuery::create()->findByPersonId($personId);
+
+        // there's only one setting
+        $setting = PluginPrefJitsiMeetingQuery::create()->findOne();
+
+        $paramsArguments = ['sRootPath'           => SystemURLs::getRootPath(),
+            'sRootDocument'        => $sRootDocument,
+            'sPageTitle'           => $sPageTitle,
+            'sCSPNonce'            => $sCSPNonce,
+            'roomName'             => $roomName,
+            'allRooms'             => (!is_null($allRooms))?$allRooms->toArray():null,
+            'settingId'            => $setting->getId(),
+            'domain'               => $setting->getDomain(),
+            'domainscriptpath'     => $setting->getDomainScriptPath()
+        ];
+        return $paramsArguments;
+    }
 
 }
