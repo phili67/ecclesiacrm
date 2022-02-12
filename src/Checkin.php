@@ -108,9 +108,11 @@ $searchEventInActivEvent = EventQuery::Create()
 //get Event Details
 $event = EventQuery::Create()
     ->findOneById($EventID);
-
-$sTitle = $event->getTitle();
-$sNoteText = $event->getText();
+    
+if (!is_null($event)) {
+    $sTitle = $event->getTitle();
+    $sNoteText = $event->getText();
+}
 
 if ($EventID > 0) {
     $eventCountNames = EventCountNameQuery::Create()
@@ -119,7 +121,12 @@ if ($EventID > 0) {
         ->find();
 }
 
-$sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getStart()->format(SystemConfig::getValue('sDatePickerFormat')).")";
+if (!is_null($event)) {
+    $sPageTitle = _('Call the Register'). " : " . $event->getTitle()." (".$event->getStart()->format(SystemConfig::getValue('sDatePickerFormat')).")";
+} else {
+    $sPageTitle = _('Call the Register');
+}
+
 require 'Include/Header.php';
 
 ?>
