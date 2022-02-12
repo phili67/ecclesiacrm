@@ -25,4 +25,5 @@ $app->group('/meeting', function (RouteCollectorProxy $group) {
     $group->post('/createMeetingRoom', MeetingController::class . ':createMeetingRoom');
     $group->post('/selectMeetingRoom', MeetingController::class . ':selectMeetingRoom');
     $group->delete('/deleteAllMeetingRooms', MeetingController::class . ':deleteAllMeetingRooms');
+    $group->post('/changeSettings' , MeetingController::class . ':changeSettings');
 });
