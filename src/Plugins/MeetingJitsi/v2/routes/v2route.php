@@ -15,5 +15,6 @@ use Slim\Routing\RouteCollectorProxy;
 use Plugins\VIEWControllers\VIEWMeetingController;
 
 $app->group('/meeting', function (RouteCollectorProxy $group) {
-    $group->get('/dashboard', VIEWMeetingController::class . ':renderMeetingDashboard');
+    $group->get('/dashboard', VIEWMeetingController::class . ':renderDashboard');
+    $group->get('/settings', VIEWMeetingController::class . ':renderSettings');
 });
