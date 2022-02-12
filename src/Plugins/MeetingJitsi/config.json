@@ -6,6 +6,6 @@
     "infos": "EcclesiaCRM Team",
     "url_infos": "https://www.ecclesiacrm.com",
     "url_docs": "https://www.docs.ecclesiacrm.com/en/user-guide/doc-visio/doc-visio-introduction/",
-    "Settings_url": "meeting/settings",
+    "Settings_url": "v2/meeting/settings",
     "Details": "https://www.docs.ecclesiacrm.com/en/"
 }
