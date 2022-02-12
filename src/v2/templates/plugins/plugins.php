@@ -48,6 +48,19 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
     </div>
 
     <div class="card-body">
+        <div class="alignleft actions bulkactions">
+            <label for="bulk-action-selector-top" class="screen-reader-text">Sélectionnez l’action groupée</label>
+            <select name="action" id="bulk-action-selector-top" class="plugin-select">
+                <option value="-1">Actions groupées</option>
+                <option value="activate-selected">Activer</option>
+                <option value="deactivate-selected">Désactiver</option>
+                <option value="update-selected">Mettre à jour</option>
+                <option value="delete-selected">Supprimer</option>
+                <option value="enable-auto-update-selected">Activer les mises à jour auto</option>
+                <option value="disable-auto-update-selected">Désactiver les mises à jour auto</option>
+            </select>
+            <input type="submit" id="doaction" class="button-action" value="Appliquer">
+        </div>
         <ul class="subsubsub"
             style="list-style: none;margin: 8px 0 0;padding: 0;font-size: 13px;float: left;color: #646970;">
             <li class="all"><a href="plugins.php?plugin_status=all" class="" aria-current="page">Toutes <span
@@ -61,7 +74,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
             </li>
             <!--<li class="auto-update-disabled"><a href="plugins.php?plugin_status=auto-update-disabled">Mises à jour auto désactivées <span class="count">(22)</span></a></li>-->
         </ul>
-        <table class="table table-hover dt-responsive" id="plugins-listing-table" style="width:100%;">
+        <table class="table table-hover dt-responsive table-bordered" id="plugins-listing-table" style="width:100%;">
             <thead>
             <tr>
                 <th align="center" style="width:60px">
@@ -79,8 +92,8 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                 $string = file_get_contents(__DIR__ . '/../../../Plugins/' . $plugin->getName() . '/config.json');
                 $json_a = json_decode($string, true);
                 ?>
-                <tr id="row-<?= $plugin->getId() ?>">
-                    <td>
+                <tr id="row-<?= $plugin->getId() ?>" <?= $plugin->getActiv()?'class="activate-row"':'' ?>>
+                    <td <?= $plugin->getActiv()?'class="activate-column"':'' ?>>
                         <input type="checkbox" class="checkbox_plugins checkbox_plugin<?= $plugin->getId() ?>"
                                name="CheckPlugins" data-id="<?= $plugin->getId() ?>">
                     </td>
@@ -89,12 +102,12 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                         <div class="row-actions visible">
                             <span class="0"></span>
                             <span class="1"><a href="<?= SystemURLs::getRootPath() ?>/<?= $json_a['Settings_url'] ?>"
-                                               class="js-updraftplus-settings">Réglages</a> | </span>
+                                               class="js-updraftplus-settings"><?= _("Settings") ?></a> | </span>
                             <span class="deactivate"><a href="#" class="<?= $plugin->getActiv()?"Deactivate":"Activate" ?>-plugin"
                                                         data-id="<?= $plugin->getId() ?>"
                                                         aria-label="<?= $plugin->getActiv()?_("Deactivate"):_("Activate") ?> - <?= $json_a['Name'] ?>"><?= $plugin->getActiv()?_("Deactivate"):_("Activate") ?></a> |</span>
                             <span class="<?= $json_a['Name'] ?>_tour"><a href="<?= $json_a['url_docs'] ?>"
-                                                                         class="js-updraftplus-tour">Visite guidée</a>
+                                                                         class="js-updraftplus-tour"><?= _("guided tour") ?></a>
                             </span>
                         </div>
                     </td>
@@ -109,7 +122,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                                 data-title="<?= $json_a['Name'] ?>"><?= _("Details") ?></a></div>
                     </td>
                     <td>
-                        <?= $plugin->getActiv()?_("Deactivated Plugin"):_("Activated Plugin") ?>
+                        <?= $plugin->getActiv()?_("Activated Plugin"):_("Deactivated Plugin") ?>
                     </td>
                     <td>
                         <?= $plugin->getDescription() ?>
@@ -121,9 +134,6 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
             ?>
             </tbody>
         </table>
-    </div>
-    <div class="card-footer">
-        <button class="btn btn-primary"><?= _("Apply") ?></button>
     </div>
 </div>
 
