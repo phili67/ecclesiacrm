@@ -10,6 +10,7 @@
 
 namespace Plugins\APIControllers;
 
+use PluginStore\PluginPrefJitsiMeetingQuery;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -121,5 +122,24 @@ class MeetingController
             ->findByPersonId($personId);
 
         return $response->withJson(['PersonJitsiMeetings' => $meetings->toArray()]);
+    }
+
+
+    public function changeSettings(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset($input->domain) && isset($input->domainscriptpath)) {
+            $setting = PluginPrefJitsiMeetingQuery::create()->findOne();
+
+            $setting->setDomain($input->domain);
+            $setting->setDomainScriptPath($input->domainscriptpath);
+
+            $setting->save();
+
+            return $response->withJson(["status" => "success"]);
+        }
+
+        return $response->withJson(["status" => "failed"]);
     }
 }
