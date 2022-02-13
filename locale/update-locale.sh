@@ -118,7 +118,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
         rm "JSONKeys_JS/${lang}/js_extra.po~"
      fi
    fi
-   
+
 
    # now we update the plugins
    for d in ../src/Plugins/*/ ; do
@@ -126,16 +126,25 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
 
        pluginName="$(basename $plugin)"
 
+       #msgmerge -U "../src/Plugins/${pluginName}/locale/messages-MeetingJitsi.pot"  "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po"
+
        # messages.po for plugin
        msgfmt -o "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.mo" "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po"
-       
+
        # js files for plugin
+       echo "toto : ../src/Plugins/${pluginName}/skin/*.js"
+       echo "toto1 : ../src/Plugins/${pluginName}/locale/js-strings-MeetingJitsi.pot"
+
+       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-MeetingJitsi.pot" --ns="${pluginName}"
+
+       msgmerge -U "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" "../src/Plugins/${pluginName}/locale/js-strings-MeetingJitsi.pot"
+
        i18next-conv -l fr -s "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" -t "JSONKeys_JS_Plugins/${pluginName}/${lang}.json"
-       
+
        echo "try {window.CRM.${pluginName}_i18keys = " > "../src/Plugins/${pluginName}/locale/js/${lang}.js"
        cat "JSONKeys_JS_Plugins/${pluginName}/${lang}.json" >> "../src/Plugins/${pluginName}/locale/js/${lang}.js"
        echo ";} catch(e) {};" >> "../src/Plugins/${pluginName}/locale/js/${lang}.js"
-       
+
        # we delete the new line
        tr -d '\r\n' < "../src/Plugins/${pluginName}/locale/js/${lang}.js" > "../src/Plugins/${pluginName}/locale/js/${lang}1.js"
        mv -f  "../src/Plugins/${pluginName}/locale/js/${lang}1.js" "../src/Plugins/${pluginName}/locale/js/${lang}.js"
