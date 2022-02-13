@@ -132,12 +132,25 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
        msgmerge -U "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po" "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot"
        msgfmt -o "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.mo" "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po"
 
+       if [ -f "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~" ]; then
+          rm "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~"
+       fi
+
        # js files for plugin
        i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
 
        msgmerge -U "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" "../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot"
 
+       if [ -f "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po~" ]; then
+          rm "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po~"
+       fi
+
        i18next-conv -l fr -s "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" -t "JSONKeys_JS_Plugins/${pluginName}/${lang}.json"
+
+       if [ -f "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~" ]; then
+                 rm "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~"
+       fi
+
 
        echo "try {window.CRM.${pluginName}_i18keys = " > "../src/Plugins/${pluginName}/locale/js/${lang}.js"
        cat "JSONKeys_JS_Plugins/${pluginName}/${lang}.json" >> "../src/Plugins/${pluginName}/locale/js/${lang}.js"
