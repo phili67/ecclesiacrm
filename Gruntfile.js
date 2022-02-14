@@ -1,3 +1,4 @@
+const sha1 = require("node-sha1");
 module.exports = function (grunt) {
 
     var poLocales = function() {
@@ -536,7 +537,7 @@ module.exports = function (grunt) {
                     src: [
                         '**/*.php',
                         '**/*.js',
-                        'Plugins/**',
+                        '!Plugins/**',
                         '!EcclesiaCRM/model/PluginStore/**',
                         '!**/.gitignore',
                         '!vendor/**/example/**',
@@ -620,6 +621,37 @@ module.exports = function (grunt) {
         });
         signatures.sha1 = sha1(JSON.stringify(signatures.files));
         grunt.file.write("src/signatures.json", JSON.stringify(signatures));
+    });
+
+    grunt.registerTask('genPluginsSignatures', function () {
+        var sha1 = require('node-sha1');
+
+        grunt.file.expand('src/Plugins/*').forEach(function (plugindir) {
+            var pluginName = plugindir.substring(plugindir.lastIndexOf('/') + 1)
+            var config = grunt.file.readJSON(plugindir + '/config.json');
+
+            //grunt.log.writeln("Plugin Name : " + pluginName);
+
+            var signatures = {
+                "Name": pluginName,
+                "version": config.version,
+                "files": []
+            };
+
+            grunt.file.expand(plugindir + '/**/*.php', plugindir + '/**/*.js').forEach(function (src) {
+                //grunt.log.writeln("file : " + src);
+
+                if (grunt.file.isFile(src)) {
+                    signatures.files.push({
+                        "filename": src.substring(4),
+                        "sha1": sha1(grunt.file.read(src, {encoding: null}))
+                    });
+                }
+            });
+
+            signatures.sha1 = sha1(JSON.stringify(signatures.files));
+            grunt.file.write(plugindir + "/signatures.json", JSON.stringify(signatures));
+        });
     });
 
     grunt.registerTask('updateFromPOeditor', 'Description of the task', function (target) {
