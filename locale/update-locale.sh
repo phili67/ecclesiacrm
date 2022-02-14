@@ -129,7 +129,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
        # messages.po for plugin
        find "../src/Plugins/${pluginName}/" -iname '*.php'  | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot" -L PHP
 
-       #msgmerge -U "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po" "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot"
+       msgmerge -U "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po" "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot"
        msgfmt -o "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.mo" "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po"
 
        if [ -f "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~" ]; then
