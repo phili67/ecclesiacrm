@@ -1,3 +1,14 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-13 22:15+0000\n"
+"Language: el-GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 msgid "Room names"
 msgstr "Ονόματα δωματίων"
 
@@ -30,3 +41,29 @@ msgstr ""
 
 msgid "Meeting Dashboard"
 msgstr "Πίνακας ελέγχου συνεδριάσεων"
+msgid "Plugins managements"
+msgstr "Διαχείριση plugins"
+
+msgid "Add new plugin"
+msgstr "Προσθήκη νέου plugin"
+
+msgid "Upload A Plugin"
+msgstr "Ανεβάστε ένα Plugin"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "guided tour"
+msgstr "ξενάγηση"
+
+msgid "Activated Plugin"
+msgstr "Ενεργοποιημένο Plugin"
+
+msgid "Deactivated Plugin"
+msgstr "Απενεργοποιημένο Plugin"
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Plugin"
+msgstr "Plugin"

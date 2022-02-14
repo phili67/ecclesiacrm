@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:46+0000\n"
+"POT-Creation-Date: 2022-02-13 22:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,38 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: v2/templates/meetingdashboard.php:21
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:50
+msgid "Meeting Dashboard"
+msgstr ""
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:96
+msgid "Meeting Settings"
+msgstr ""
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:21
 msgid "Room names"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:23
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:23
 msgid "Create first a room and manage theme with the arrow button"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:24
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:24
 msgid "Create Room"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:38
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
 msgid "This action will delete all your rooms"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:38
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
 msgid "Delete all Rooms"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:41
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:41
 msgid "Appointment"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:52
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:52
 msgid "Room Name"
 msgstr ""
 
-#: v2/templates/meetingdashboard.php:63
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:63
 msgid "First create a Jitsi room with the button above !"
 msgstr ""
 
-#: VIEWControllers/VIEWMeetingController.php:52
-msgid "Meeting Dashboard"
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
+msgid "Settings"
+msgstr ""
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+msgid "Save Changes"
 msgstr ""

@@ -1,3 +1,14 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-13 22:15+0000\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
 msgid "Room names"
 msgstr "Nomi di camere"
 
@@ -24,3 +35,29 @@ msgstr "Prima crea una stanza Jitsi con il pulsante qui sopra!"
 
 msgid "Meeting Dashboard"
 msgstr "Cruscotto delle riunioni"
+msgid "Plugins managements"
+msgstr "Gestione dei plugin"
+
+msgid "Add new plugin"
+msgstr "Aggiungere un nuovo plugin"
+
+msgid "Upload A Plugin"
+msgstr "Caricare un plugin"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "guided tour"
+msgstr "visita guidata"
+
+msgid "Activated Plugin"
+msgstr "Plugin attivato"
+
+msgid "Deactivated Plugin"
+msgstr "Plugin disattivato"
+
+msgid "Plugins"
+msgstr "Plugin"
+
+msgid "Plugin"
+msgstr "Plugin"

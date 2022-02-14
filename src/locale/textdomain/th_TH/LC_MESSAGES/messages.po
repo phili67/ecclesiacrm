@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 09:07+0000\n"
+"POT-Creation-Date: 2022-02-13 22:15+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -839,7 +839,7 @@ msgstr "รหัสควบคุม"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:264
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "ผู้จัดการคิวส์"
 
@@ -1144,7 +1144,7 @@ msgstr "ข้ามบันทึก ที่อยู่ไม่สมบ�
 msgid "Create File"
 msgstr "สร้างไฟล์"
 
-#: CSVImport.php:121 Include/Footer.php:255
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "CSV"
 
@@ -4222,28 +4222,18 @@ msgstr ""
 "กันยา ถึง จักรวาล"
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "โดเมน jitsi ชื่อ โดย ด้วย หนึ่ง meet.jit.si"
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr "โดยปริมาณ https://meet.jit.si/external_api.js"
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "ได้รับสถิติของการโทร/เยี่ยม (สำหรับทุกๆบรรดา)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "ตั้งที่อยู่ส่งออก)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "ที่อยู่อีเมล์ส่งของ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4253,7 +4243,7 @@ msgstr ""
 "fonts.googleapis.com/css ? ครอบครัว=เอพริล+ Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4261,39 +4251,39 @@ msgstr ""
 "นี่คือสิ่งที่เราใส่ฟอนต์ในรูปแบบ fontnametodisplay/yourfontname. "
 "มันมีประโยชน์สำหรับเมนูโฟนท์ของ ckeditor ตัวอย่างเช่น : เอพริล/เอพริล แฟตเฟฟเฟซ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "ข้อมูลโบสถ์"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "เป็นสิ่งที่ถูกวางนำ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "การตั้งระบบ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "ระบบพื้นที่"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "จัดฉาก"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "ผู้คนตั้งค่า"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "ตั้งค่าอีเมล"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "การตั้งแผนที่"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4301,47 +4291,47 @@ msgstr "การตั้งแผนที่"
 msgid "Pastoral Care"
 msgstr "ภูมิใจบาทหลวง"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "การกระทำอาทิตย์ชั้นสูง"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "ความอึดอัด"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "ค้นให้เร็ว"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "รายงานตัว"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "การตั้งค่าทางการเงิน"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "กำลังเสริม"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "ผู้ใช้เฉพาะกิจประจำการใช้งาน"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "มีชื่อจัดเรียงที่ไม่ได้รับการร้องขอ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "บัตรประชาชนติดตั้งระบบ ได้รับการขอ"
 
@@ -4471,7 +4461,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเดทแล้ว"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "สถานะ"
 
@@ -5503,7 +5494,7 @@ msgstr "สูญพันธุ์โรลดาต้าหายไป"
 msgid "Unmet Application Prerequisites"
 msgstr "ไม่มีใครพบผู้นำ"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "ทะเบียน ซอฟต์แวร์"
 
@@ -5740,12 +5731,12 @@ msgid "1 yr old"
 msgstr "1"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:246
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "ฐานข้อมูลสำรอง"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:238
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "ฐานข้อมูลฟื้นฟู"
 
@@ -5930,6 +5921,11 @@ msgstr "สถานพยาบาลบาทหลวงครอบครั
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "รายชื่อสมาชิกของบาทหลวงโดยการแบ่งเบาะแส"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr ""
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6826,11 +6822,11 @@ msgstr "เอาบัตรผ่าน"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "หยุดการทำงาน"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "เปิดเครื่อง"
 
@@ -7253,7 +7249,7 @@ msgstr "ข้อมูล"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "บรรยาย"
 
@@ -7595,7 +7591,7 @@ msgstr "แก้ไข บริจาค ฟันเงิน"
 msgid "Pastoral Care Type"
 msgstr "พิมพ์ดูแลบาทหลวงพ่อ"
 
-#: Include/Footer.php:190 Include/Footer.php:274
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr "กรุณาติดต่อกับ แอร์เนน เพื่อเปลี่ยนระบบ"
 
@@ -7603,23 +7599,23 @@ msgstr "กรุณาติดต่อกับ แอร์เนน เพ�
 msgid "Edit General Settings"
 msgstr "แก้ไข นายพลตั้งค่า"
 
-#: Include/Footer.php:222
+#: Include/Footer.php:220
 msgid "System Users"
 msgstr "ผู้ใช้ระบบ"
 
-#: Include/Footer.php:285
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "บันทึกการตรวจจับ CSV"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "เปิดเฉพาะกิจ"
 
-#: Include/Footer.php:299
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "คุณมี"
 
-#: Include/Footer.php:300
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "งาน"
 
@@ -11104,6 +11100,58 @@ msgid ""
 "deleted until these donations are associated with another person or Family."
 msgstr "บางคนอาจมีบันทึกการบริจาค"
 
+#: v2/templates/plugins/plugins.php:32
+#, fuzzy
+msgid "Plugins managements"
+msgstr "การจัดการวงกลม"
+
+#: v2/templates/plugins/plugins.php:42
+#, fuzzy
+msgid "Add new plugin"
+msgstr "เพิ่มคำสัญญาใหม่"
+
+#: v2/templates/plugins/plugins.php:44
+#, fuzzy
+msgid "Upload A Plugin"
+msgstr "อัพโหลด ไฟล์"
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "ตรวจดูทุกกล่อง"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:87
+#, fuzzy
+msgid "Update"
+msgstr "อัพเดทแล้ว"
+
+#: v2/templates/plugins/plugins.php:105
+#, fuzzy
+msgid "Settings"
+msgstr "การตั้งแผนที่"
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:122
+#, fuzzy
+msgid "Details"
+msgstr "รายละเอียด:"
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Activated Plugin"
+msgstr "ทำงานได้"
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Deactivated Plugin"
+msgstr "ปลดเคลื่อนไหว"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11409,10 +11457,6 @@ msgstr "บวก Role to Selected User(s)"
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "บทบาทประทับใจ"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "ตรวจดูทุกกล่อง"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12198,6 +12242,14 @@ msgstr "เงิน"
 msgid "Custom Drop-Down List"
 msgstr "ลิสตูม ดร-ดาวน์"
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "โดเมน jitsi ชื่อ โดย ด้วย หนึ่ง meet.jit.si"
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr "โดยปริมาณ https://meet.jit.si/external_api.js"
+
 #~ msgid "Room names"
 #~ msgstr "ชื่อห้อง"
 
@@ -12419,9 +12471,6 @@ msgstr "ลิสตูม ดร-ดาวน์"
 
 #~ msgid "Global Links"
 #~ msgstr "โกลบอล ลิงค์"
-
-#~ msgid "Activated"
-#~ msgstr "ทำงานได้"
 
 #~ msgid "Donation Funds"
 #~ msgstr "บริจาคฟันด์"
