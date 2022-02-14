@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 09:07+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: nl-nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,7 +847,7 @@ msgstr "- QR-kode Call"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:264
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Kiosk-sjefen"
 
@@ -1152,7 +1152,7 @@ msgstr "Skip arkiver med ufullstendig postadresse"
 msgid "Create File"
 msgstr "Skape File"
 
-#: CSVImport.php:121 Include/Footer.php:255
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "CSV Import"
 
@@ -4274,29 +4274,18 @@ msgstr ""
 "september til september."
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "Jitsi-navnet, ved mislighold: meet.jit.si"
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr ""
-"Jitsi domenenavn manus, på en uavhengig: https://meet.jit.si/external_api.js"
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "Få fatt i samtaler og la dem komme i forkjøpet."
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "Sett eksportadressen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "- En mailsjimpanses adresse."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4306,7 +4295,7 @@ msgstr ""
 "førsteditor https://fonts.googleapis.com/css? familie = Abril + "
 "Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4314,39 +4303,39 @@ msgstr ""
 "Her har vi skriften i form av fontnavne/fontnavnet ditt. Det er nyttig for "
 "fontmenyen til fontmenyen, for eksempel Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Kirkeinformasjonen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "Forvirret fester"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Systemsetting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Lokalisering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Bruker oppsett"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Folk stiller opp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "E-post"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Kart Settings"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4354,47 +4343,47 @@ msgstr "Kart Settings"
 msgid "Pastoral Care"
 msgstr "Pastoral Care"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Søndagskolonitalitet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integrering"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Fort søk"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Rapporter setting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Finansielle innstillinger"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Forsterkninger."
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Bruker Specific Scheplane-baser"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Et uærlig konfigurasjonsnevne er anmodet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "En invalid konfigurasjon-legitimasjon er anmodet"
 
@@ -4524,7 +4513,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "CRM-kontoen din ble oppdatert"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Status"
 
@@ -5556,7 +5546,7 @@ msgstr "Savner Role Data for noen"
 msgid "Unmet Application Prerequisites"
 msgstr "Umettelige PR-prequisitter"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "Registreringsprogram"
 
@@ -5793,12 +5783,12 @@ msgid "1 yr old"
 msgstr "En gammel"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:246
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "Reservegenerator"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:238
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "Gjenopprett Database"
 
@@ -5983,6 +5973,11 @@ msgstr "Familieomsorg"
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "Pastorale pleiemedlemmer liste etter klassifisering"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr ""
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6886,11 +6881,11 @@ msgstr "Hent familiens VCard"
 msgid "vCard"
 msgstr "VCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "Deaktiver"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "Aktiver"
 
@@ -7315,7 +7310,7 @@ msgstr "Infos"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "Beskrivelse"
 
@@ -7659,7 +7654,7 @@ msgstr "Edit Donasjons Funds"
 msgid "Pastoral Care Type"
 msgstr "Pastoral Care-Type"
 
-#: Include/Footer.php:190 Include/Footer.php:274
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr "Kontakt administrasjonen din for å endre systeminnstillingene."
 
@@ -7667,23 +7662,23 @@ msgstr "Kontakt administrasjonen din for å endre systeminnstillingene."
 msgid "Edit General Settings"
 msgstr "Redigere General Settings"
 
-#: Include/Footer.php:222
+#: Include/Footer.php:220
 msgid "System Users"
 msgstr "System Users"
 
-#: Include/Footer.php:285
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "CSV Export Records"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "Åpne gruppa"
 
-#: Include/Footer.php:299
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "Det har du"
 
-#: Include/Footer.php:300
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "test."
 
@@ -11226,6 +11221,57 @@ msgstr ""
 "Noen personer kan ha noen dokumenter om donasjoner og kan ikke slettes til "
 "disse donasjonene er knyttet til en annen person eller Familie."
 
+#: v2/templates/plugins/plugins.php:32
+#, fuzzy
+msgid "Plugins managements"
+msgstr "Rolleledelse"
+
+#: v2/templates/plugins/plugins.php:42
+#, fuzzy
+msgid "Add new plugin"
+msgstr "Legg til et nytt løfte"
+
+#: v2/templates/plugins/plugins.php:44
+#, fuzzy
+msgid "Upload A Plugin"
+msgstr "Uploat CSV-fil"
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Sjekk alle esker"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:87
+msgid "Update"
+msgstr "Oppdatering"
+
+#: v2/templates/plugins/plugins.php:105
+#, fuzzy
+msgid "Settings"
+msgstr "Kart Settings"
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:122
+#, fuzzy
+msgid "Details"
+msgstr "Detaljer:"
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Activated Plugin"
+msgstr "Aktivert"
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Deactivated Plugin"
+msgstr "Deaktivert"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11541,10 +11587,6 @@ msgstr "Legg til Role til User."
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "Apple Roles"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "Sjekk alle esker"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12334,6 +12376,16 @@ msgstr "Penger"
 msgid "Custom Drop-Down List"
 msgstr "Tollvesen-nedgang List"
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "Jitsi-navnet, ved mislighold: meet.jit.si"
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr ""
+#~ "Jitsi domenenavn manus, på en uavhengig: https://meet.jit.si/external_api."
+#~ "js"
+
 #~ msgid "Room names"
 #~ msgstr "Romnavn"
 
@@ -12663,9 +12715,6 @@ msgstr "Tollvesen-nedgang List"
 
 #~ msgid "Current Role"
 #~ msgstr "Nåværende Role"
-
-#~ msgid "Update"
-#~ msgstr "Oppdatering"
 
 #~ msgid "See all Families"
 #~ msgstr "Se alle familier"
@@ -13084,9 +13133,6 @@ msgstr "Tollvesen-nedgang List"
 
 #~ msgid "Menu Links List Editor"
 #~ msgstr "Menu Links List Redaktor"
-
-#~ msgid "Activated"
-#~ msgstr "Aktivert"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

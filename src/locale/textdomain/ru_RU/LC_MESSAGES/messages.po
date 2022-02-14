@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 09:07+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -851,7 +851,7 @@ msgstr "Вызов QR-кода"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:264
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Менеджер киоска"
 
@@ -1156,7 +1156,7 @@ msgstr "Пропуск записей с неполным почтовым ад�
 msgid "Create File"
 msgstr "Создать файл"
 
-#: CSVImport.php:121 Include/Footer.php:255
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "Импорт CSV"
 
@@ -4324,30 +4324,18 @@ msgstr ""
 "дней до сейчас, 'Yearly 2' : с сентября по сентябрь."
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "Доменное имя jitsi, по умолчанию: meet.jit.si"
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr ""
-"Путь к скрипту доменного имени jitsi, по умолчанию: https://meet.jit.si/"
-"external_api.js."
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr "Получить статистику звонков/визитов (для каждого пастора-консультанта)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "Установите адрес экспорта)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "адрес электронной почты отправителя mailchimp."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4357,7 +4345,7 @@ msgstr ""
 "шрифтов в ckeditor : https://fonts.googleapis.com/css?family=Abril"
 "+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4365,39 +4353,39 @@ msgstr ""
 "Здесь мы помещаем шрифт в виде fontnametodisplay/yourfontname. Это полезно "
 "для меню шрифтов в ckeditor, например: Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Церковная информация"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "Включенные функции"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Системные настройки"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Локализация"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Настройка пользователя"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Настройка людей"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "Настройка электронной почты"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Настройки карты"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4405,47 +4393,47 @@ msgstr "Настройки карты"
 msgid "Pastoral Care"
 msgstr "Пасторское попечение"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Посещение воскресной школы"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Интеграция"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Быстрый поиск"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Настройки отчета"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Финансовые настройки"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Резервное копирование"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Пользователи конкретные задачи расписания"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Запрошено недопустимое имя конфигурации"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "Запрошен недопустимый идентификатор конфигурации"
 
@@ -4575,7 +4563,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ваш аккаунт в EcclesiaCRM был обновлен"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Статус"
 
@@ -5610,7 +5599,7 @@ msgstr "Отсутствующие данные о ролях некоторых
 msgid "Unmet Application Prerequisites"
 msgstr "Неудовлетворенные предварительные условия приложения"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:310
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "Регистрационное программное обеспечение"
 
@@ -5847,12 +5836,12 @@ msgid "1 yr old"
 msgstr "1 год"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:246
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "Резервное копирование базы данных"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:238
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "Восстановление базы данных"
 
@@ -6037,6 +6026,11 @@ msgstr "Семейная пасторская помощь"
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "Список членов пасторского попечительства по классификации"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr ""
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6949,11 +6943,11 @@ msgstr "Получить vCard семьи"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "Деактивировать"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "Активировать"
 
@@ -7382,7 +7376,7 @@ msgstr "информация"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "Описание"
 
@@ -7730,7 +7724,7 @@ msgstr "Редактирование фондов пожертвований"
 msgid "Pastoral Care Type"
 msgstr "Тип пасторского ухода"
 
-#: Include/Footer.php:190 Include/Footer.php:274
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr "Обратитесь к администратору, чтобы изменить настройки системы."
 
@@ -7738,23 +7732,23 @@ msgstr "Обратитесь к администратору, чтобы изм�
 msgid "Edit General Settings"
 msgstr "Редактирование общих настроек"
 
-#: Include/Footer.php:222
+#: Include/Footer.php:220
 msgid "System Users"
 msgstr "Пользователи системы"
 
-#: Include/Footer.php:285
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "Записи экспорта CSV"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "Открытые задачи"
 
-#: Include/Footer.php:299
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "У вас есть"
 
-#: Include/Footer.php:300
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "задача(ы)"
 
@@ -11352,6 +11346,51 @@ msgstr ""
 "пожертвованиях, которые НЕ могут быть удалены, пока эти пожертвования не "
 "будут связаны с другим лицом или Семьей."
 
+#: v2/templates/plugins/plugins.php:32
+msgid "Plugins managements"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:42
+msgid "Add new plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:44
+msgid "Upload A Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Отметьте все поля"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:87
+msgid "Update"
+msgstr "Обновление"
+
+#: v2/templates/plugins/plugins.php:105
+msgid "Settings"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:122
+#, fuzzy
+msgid "Details"
+msgstr "Подробности:"
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Activated Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Deactivated Plugin"
+msgstr ""
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11674,10 +11713,6 @@ msgstr "Добавить роль выбранному пользователю 
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "Применять роли"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "Отметьте все поля"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12478,6 +12513,16 @@ msgstr "Деньги"
 msgid "Custom Drop-Down List"
 msgstr "Пользовательский выпадающий список"
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "Доменное имя jitsi, по умолчанию: meet.jit.si"
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr ""
+#~ "Путь к скрипту доменного имени jitsi, по умолчанию: https://meet.jit.si/"
+#~ "external_api.js."
+
 #~ msgid "Room names"
 #~ msgstr "Названия комнат"
 
@@ -12854,9 +12899,6 @@ msgstr "Пользовательский выпадающий список"
 
 #~ msgid "Current Role"
 #~ msgstr "Текущая роль"
-
-#~ msgid "Update"
-#~ msgstr "Обновление"
 
 #~ msgid "Add Person to Group"
 #~ msgstr "Добавить человека в группу"

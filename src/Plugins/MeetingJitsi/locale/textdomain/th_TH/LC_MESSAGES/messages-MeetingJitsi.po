@@ -2,40 +2,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-10 09:07+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: th_TH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:50
+msgid "Meeting Dashboard"
+msgstr "เจอกับแดชบอร์ด"
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:96
+msgid "Meeting Settings"
+msgstr ""
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:21
 msgid "Room names"
 msgstr "ชื่อห้อง"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:23
 msgid "Create first a room and manage theme with the arrow button"
-msgstr ""
-"สร้างห้องแรกและห้อง "
-"และจัดการธีมด้วยปุ่มลูกศร"
+msgstr "สร้างห้องแรกและห้อง และจัดการธีมด้วยปุ่มลูกศร"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:24
 msgid "Create Room"
 msgstr "สร้างห้อง"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
 msgid "This action will delete all your rooms"
 msgstr "การกระทำนี้จะลบทุกห้องของคุณ"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
 msgid "Delete all Rooms"
 msgstr "ลบห้องทั้งหมดด้วย"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:41
 msgid "Appointment"
 msgstr "แต่งตั้ง"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:52
 msgid "Room Name"
 msgstr "ห้องชื่อ"
 
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:63
 msgid "First create a Jitsi room with the button above !"
-msgstr ""
-"ก่อนอื่นสร้างห้อง Jitsi "
-"กับกระดุมข้างบน"
+msgstr "ก่อนอื่นสร้างห้อง Jitsi กับกระดุมข้างบน"
 
-msgid "Meeting Dashboard"
-msgstr "เจอกับแดชบอร์ด"
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
+msgid "Settings"
+msgstr ""
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+msgid "Save Changes"
+msgstr ""
