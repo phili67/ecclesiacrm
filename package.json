@@ -90,7 +90,7 @@
         "postinstall": "grunt genLocaleJSFiles",
         "locale-gen": "locale/update-locale.sh",
         "locale-download": "grunt updateFromPOeditor && grunt genLocaleJSFiles",
-        "package": "grunt generateSignatures && grunt compress",
+        "package": "grunt generateSignatures &&  grunt genPluginsSignatures && grunt compress",
         "demosite": "scripts/demosite.sh",
         "changelog-gen": "scripts/gen-changelogs.sh",
         "orm-gen": "src/vendor/propel/propel/bin/propel --config-dir=propel model:build && cd propel && python3 relocatePluginfiles.py && cd ../src/ && composer dump-autoload && cd .. && rm -rf generated-conf",
