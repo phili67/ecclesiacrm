@@ -48,9 +48,3 @@ msgstr "Annuler"
 
 msgid "Confirm"
 msgstr "Confirmer"
-
-msgid "Settings"
-msgstr "Paramètres"
-
-msgid "Saved"
-msgstr "Sauvegardé"

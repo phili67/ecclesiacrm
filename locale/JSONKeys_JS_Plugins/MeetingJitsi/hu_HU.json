@@ -5,6 +5,6 @@
     "Set a Jitsi room name": "Jitsi szoba nevének beállítása",
     "Delete all Rooms?": "Töröljem az összes szobát?",
     "You're about to delete all of your rooms.": "Az összes szobádat törölni fogod.",
-    "Settings": "Beállítások",
-    "Saved": "Megmentett"
+    "Cancel": "Törölje",
+    "Confirm": "Megerősítés"
 }

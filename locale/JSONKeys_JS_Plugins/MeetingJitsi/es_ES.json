@@ -5,6 +5,6 @@
     "Set a Jitsi room name": "Establecer un nombre de sala Jitsi",
     "Delete all Rooms?": "¿Borrar todas las habitaciones?",
     "You're about to delete all of your rooms.": "Estás a punto de borrar todas tus habitaciones.",
-    "Settings": "Ajustes",
-    "Saved": "Guardado"
+    "Cancel": "Cancelar",
+    "Confirm": "Confirmar"
 }

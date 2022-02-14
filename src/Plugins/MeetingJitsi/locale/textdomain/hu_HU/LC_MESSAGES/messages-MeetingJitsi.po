@@ -1,14 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: EcclesiaCRM\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-13 22:15+0000\n"
-"Language: hu_HU\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
-
 msgid "Room names"
 msgstr "Szobanevek"
 
@@ -37,29 +26,3 @@ msgstr "Először hozzon létre egy Jitsi szobát a fenti gombbal !"
 
 msgid "Meeting Dashboard"
 msgstr "Értekezlet műszerfal"
-msgid "Plugins managements"
-msgstr "Pluginok kezelése"
-
-msgid "Add new plugin"
-msgstr "Új plugin hozzáadása"
-
-msgid "Upload A Plugin"
-msgstr "Plugin feltöltése"
-
-msgid "Settings"
-msgstr "Beállítások"
-
-msgid "guided tour"
-msgstr "idegenvezetés"
-
-msgid "Activated Plugin"
-msgstr "Aktivált bővítmény"
-
-msgid "Deactivated Plugin"
-msgstr "Kikapcsolt plugin"
-
-msgid "Plugins"
-msgstr "Plugins"
-
-msgid "Plugin"
-msgstr "Plugin"

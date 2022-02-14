@@ -5,6 +5,6 @@
     "Set a Jitsi room name": "Ορισμός ονόματος δωματίου Jitsi",
     "Delete all Rooms?": "Διαγραφή όλων των δωματίων;",
     "You're about to delete all of your rooms.": "Πρόκειται να διαγράψετε όλα τα δωμάτιά σας.",
-    "Settings": "Ρυθμίσεις",
-    "Saved": "Αποθηκευμένο"
+    "Cancel": "Ακύρωση",
+    "Confirm": "Επιβεβαίωση"
 }
