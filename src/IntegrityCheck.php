@@ -21,8 +21,13 @@ $integrityCheckFile = SystemURLs::getDocumentRoot().'/integrityCheck.json';
 if (file_exists($integrityCheckFile)) {
     $IntegrityCheckDetails = json_decode(file_get_contents($integrityCheckFile));
 } else {
-    $IntegrityCheckDetails->status = 'failure';
-    $IntegrityCheckDetails->message = 'integrityCheck.json file missing';
+    $appIntegrity = AppIntegrityService::verifyApplicationIntegrity();
+    file_put_contents($integrityCheckFile, json_encode($appIntegrity));
+
+    /*$IntegrityCheckDetails->status = 'failure';
+    $IntegrityCheckDetails->message = 'integrityCheck.json file missing';*/
+
+    $IntegrityCheckDetails = json_decode(file_get_contents($integrityCheckFile));
 }
 
 if (AppIntegrityService::arePrerequisitesMet()) {
@@ -58,7 +63,8 @@ if ($IntegrityCheckDetails->status == 'failure') {
         <p><?= gettext('Files failing integrity check') ?>:
         <ul>
           <?php
-          foreach ($IntegrityCheckDetails->files as $file) {
+          foreach ($IntegrityCheckDetails->files as $key => $file) {
+              if ( is_numeric($key) ) {
               ?>
             <li><?= gettext('File Name')?>: <?= $file->filename ?>
               <?php
@@ -78,6 +84,37 @@ if ($IntegrityCheckDetails->status == 'failure') {
               } ?>
             </li>
             <?php
+              } elseif ( is_string($key) and count($file) > 0) {
+                  ?>
+                  <li><?= _("Plugin")." : ". $key ?>
+                      <ul>
+                  <?php
+                  foreach ($file as $plugin_file) {
+                      ?>
+                      <li>
+                      <?= gettext('File Name')?>: <?= $plugin_file->filename ?>
+                      </li>
+                      <?php
+                      if ($file->status == 'File Missing') {
+                          ?>
+                          <ul>
+                              <li><?= gettext('File Missing')?></li>
+                          </ul>
+                          <?php
+                      } else {
+                          ?>
+                          <ul>
+                              <li><?= gettext('Expected Hash')?>: <?= $plugin_file->expectedhash ?></li>
+                              <li><?= gettext('Actual Hash') ?>: <?= $plugin_file->actualhash ?></li>
+                          </ul>
+                          <?php
+                      }
+                  }
+                  ?>
+                      </ul>
+                  </li>
+                  <?php
+              }
           } ?>
         </ul>
         <?php
