@@ -77,16 +77,25 @@ $(document).ready(function () {
                 });
                 break;
             case "delete-selected":
-                $(".checkbox_plugins").each(function () {
-                    if (this.checked) {
-                        var Id = $(this).data("id");
-                        window.CRM.APIRequest({
-                            method: 'DELETE',
-                            path: 'plugins/',
-                            data: JSON.stringify({"Id": Id})
-                        }, function (data) {
-                            location.reload(); // this shouldn't be necessary
-                        });
+                bootbox.confirm({
+                    title: i18next.t("Confirmation of plugin removal"),
+                    message: '<p style="color: red">' +
+                        i18next.t("You are about to delete the selected plugins. This action cannot be undone!") + '</p>',
+                    callback: function (result) {
+                        if (result) {
+                            $(".checkbox_plugins").each(function () {
+                                if (this.checked) {
+                                    var Id = $(this).data("id");
+                                    window.CRM.APIRequest({
+                                        method: 'DELETE',
+                                        path: 'plugins/',
+                                        data: JSON.stringify({"Id": Id})
+                                    }, function (data) {
+                                        location.reload(); // this shouldn't be necessary
+                                    });
+                                }
+                            });
+                        }
                     }
                 });
                 break;
