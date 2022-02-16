@@ -125,6 +125,6 @@ class PluginsController
         }
 
 
-        return $response->withJson(["status" => "failed".print_r($file,true), "status2"=> $backupDir]);
+        return $response->withJson(["status" => "failed"]);
     }
 }

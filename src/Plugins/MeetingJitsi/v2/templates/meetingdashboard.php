@@ -35,7 +35,8 @@ require $sRootDocument . '/Include/Header.php';
                 <?php } ?>
             </div>
             &nbsp;
-            <a class="btn btn-app bg-danger" id="delete-all-rooms" data-toggle="tooltip"  data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi","This action will delete all your rooms") ?>"><i class="far fa-calendar-plus"></i><?= dgettext("messages-MeetingJitsi","Delete all Rooms") ?>
+            <a class="btn btn-app bg-danger" id="delete-all-rooms" data-toggle="tooltip"  data-placement="bottom" title="<?= dgettext("messages-MeetingJitsi","This action will delete all your rooms") ?>">
+                <i class="fas fa-times-circle"></i><?= dgettext("messages-MeetingJitsi","Delete all Rooms") ?>
             </a>
             &nbsp;
             <a class="btn btn-app bg-orange" id="add-event"><i class="far fa-calendar-plus"></i><?= dgettext("messages-MeetingJitsi","Appointment") ?>
