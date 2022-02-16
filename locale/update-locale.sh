@@ -4,7 +4,7 @@
 
 cd src
 # Extract PHP Terms
-find . -iname '*.php' | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o ../locale/messages.pot -L PHP
+find . -iname '*.php' -not -path "./Plugins/*" | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o ../locale/messages.pot -L PHP
 
 # Extract JS Terms
 i18next-extract-gettext --files=skin/js/*.js --output=../locale/js-strings1.pot
@@ -22,9 +22,7 @@ i18next-extract-gettext --files=skin/js/sundayschool/*.js --output=../locale/js-
 i18next-extract-gettext --files=skin/js/system/*.js --output=../locale/js-strings12.pot
 i18next-extract-gettext --files=skin/js/user/*.js --output=../locale/js-strings13.pot
 
-
 i18next-extract-gettext --files=skin/js/email/MailChimp/*.js --output=../locale/js-strings14.pot
-i18next-extract-gettext --files=skin/js/meeting/*.js --output=../locale/js-strings15.pot
 i18next-extract-gettext --files=skin/js/backup/*.js --output=../locale/js-strings16.pot
 i18next-extract-gettext --files=skin/js/Search/*.js --output=../locale/js-strings17.pot
 i18next-extract-gettext --files=skin/js/pastoralcare/*.js --output=../locale/js-strings18.pot
@@ -34,9 +32,9 @@ i18next-extract-gettext --files=skin/js/groupcommon/*.js --output=../locale/js-s
 i18next-extract-gettext --files=skin/js/jquery-photo-uploader/*.js --output=../locale/js-strings21.pot
 
 
-msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot -o ../locale/js-strings.pot
+msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot -o ../locale/js-strings.pot
 
-rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot
 
 cd ../locale
 
@@ -59,7 +57,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
    _jq() {
      echo ${row} | base64 --decode | jq -r ${1}
    }
-
+./
    lang=$(echo $(_jq '.locale'))
 
    echo "Merge '${lang}'"
@@ -108,6 +106,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
 
      echo $mergeJson > "JSONKeys_JS/${lang}.json"
 
+
      # cleanup
      rm "JSONKeys_JS/${lang}/js_extra.json"
 
@@ -120,6 +119,47 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      fi
    fi
 
+
+   # now we update the plugins
+   for d in ../src/Plugins/*/ ; do
+       plugin="$d"
+
+       pluginName="$(basename $plugin)"
+
+       # messages.po for plugin
+       find "../src/Plugins/${pluginName}/" -iname '*.php'  | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot" -L PHP
+
+       msgmerge -U "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po" "../src/Plugins/${pluginName}/locale/messages-${pluginName}.pot"
+       msgfmt -o "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.mo" "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po"
+
+       if [ -f "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~" ]; then
+          rm "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~"
+       fi
+
+       # js files for plugin
+       i18next-extract-gettext --files="../src/Plugins/${pluginName}/skin/*.js" --output="../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot" --ns="${pluginName}"
+
+       msgmerge -U "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" "../src/Plugins/${pluginName}/locale/js-strings-${pluginName}.pot"
+
+       if [ -f "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po~" ]; then
+          rm "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po~"
+       fi
+
+       i18next-conv -l fr -s "JSONKeys_JS_Plugins/${pluginName}/${lang}/js-strings.po" -t "JSONKeys_JS_Plugins/${pluginName}/${lang}.json"
+
+       if [ -f "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~" ]; then
+                 rm "../src/Plugins/${pluginName}/locale/textdomain/${lang}/LC_MESSAGES/messages-${pluginName}.po~"
+       fi
+
+
+       echo "try {window.CRM.${pluginName}_i18keys = " > "../src/Plugins/${pluginName}/locale/js/${lang}.js"
+       cat "JSONKeys_JS_Plugins/${pluginName}/${lang}.json" >> "../src/Plugins/${pluginName}/locale/js/${lang}.js"
+       echo ";} catch(e) {};" >> "../src/Plugins/${pluginName}/locale/js/${lang}.js"
+
+       # we delete the new line
+       tr -d '\r\n' < "../src/Plugins/${pluginName}/locale/js/${lang}.js" > "../src/Plugins/${pluginName}/locale/js/${lang}1.js"
+       mv -f  "../src/Plugins/${pluginName}/locale/js/${lang}1.js" "../src/Plugins/${pluginName}/locale/js/${lang}.js"
+   done
 done
 
 # and the next languages

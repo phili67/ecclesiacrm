@@ -20,6 +20,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 
+use EcclesiaCRM\PluginQuery;
+
 use EcclesiaCRM\Theme;
 
 
@@ -141,6 +143,21 @@ function Header_modals()
 function Header_body_scripts()
 {
     $localeInfo = Bootstrapper::GetCurrentLocale();
+
+    $plugins = PluginQuery::create()->findByActiv(true);
+
+    $pluginNames = "false";
+
+    if ( $plugins->count() > 0 ) {
+      $pluginNames = "{";
+      foreach ($plugins as $plugin) {
+          $pluginNames .= "'" . $plugin->getName() . "':'window.CRM." . $plugin->getName() . "_i18keys', ";
+      }
+
+      $pluginNames = substr($pluginNames, 0, -2);
+
+      $pluginNames .= "}";
+    }
 ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
 
@@ -175,6 +192,7 @@ function Header_body_scripts()
             sLightDarkMode: "<?= Theme::LightDarkMode() ?>",
             bDarkMode: <?= Theme::isDarkModeEnabled()?'true':'false' ?>,
             bHtmlSourceEditor: <?= SessionUser::getUser()->isHtmlSourceEditorEnabled()?'true':'false' ?>,
+            all_plugins_i18keys: <?= $pluginNames ?>,
             plugin: {
                 dataTable : {
                    "language": {

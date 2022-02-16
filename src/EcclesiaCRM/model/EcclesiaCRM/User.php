@@ -430,6 +430,11 @@ class User extends BaseUser
         return false;
     }
 
+    public function isMeetingEnabled()
+    {
+        return $this->isMeeting() || $this->isAdmin();
+    }
+
     public function isShowCartEnabled()
     {
         return $this->isAdmin() || $this->isShowCart();
@@ -870,6 +875,11 @@ class User extends BaseUser
             }
         }
         return false;
+    }
+
+    public function getUserMainSettingByString($value) {
+        $res = ($this->{$value})?true:false;
+        return ($res or $this->isAdmin());
     }
 
     public function getUserConfigString($userConfigName) {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Vì cái này"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Người"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -852,7 +852,7 @@ msgstr "Mã QR Call"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Quản lý Kiosk"
 
@@ -1157,7 +1157,7 @@ msgstr "Hồ sơ bỏ qua với địa chỉ thư chưa hoàn chỉnh"
 msgid "Create File"
 msgstr "Tạo ra File"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "Truyền thông CSV"
 
@@ -2036,7 +2036,7 @@ msgid "Role"
 msgstr "Role"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Gia đình Roles"
@@ -2079,7 +2079,7 @@ msgid "Sunday School Group Type"
 msgstr "Tập đoàn học sinh Chủ nhật"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Tập đoàn học hành ngày Chủ nhật"
 
@@ -2089,7 +2089,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Tập đoàn giáo viên loại biên tập chủ nhật"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Nhóm Types"
 
@@ -2105,7 +2105,7 @@ msgstr "Nhóm biên tập"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4294,30 +4294,19 @@ msgstr ""
 "nay, 'Năm 2' : Từ tháng 9 đến tháng 9 đến tháng 9."
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "Tên miền Jitsi là Default : meet.jit.si "
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr ""
-"Tên miền Jitsi tên là Dòng chữ thập: https://meet.jit.si/external_api.js "
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr ""
 "Hãy lấy số liệu thống kê các cuộc thăm dò/khách (cho mỗi mục sư tư vấn)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "Đặt địa chỉ xuất khẩu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "địa chỉ Email của người gửi mailchimp."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4328,7 +4317,7 @@ msgstr ""
 "đình = Abril + Fatface:400,400i,700,700i,900,900i|"
 "Roboto:400,400i,700,700i,900,900i "
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4337,39 +4326,39 @@ msgstr ""
 "hữu dụng cho thực đơn phô mai font của người xem, ví dụ như : Abril/Abril "
 "Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Thông tin nhà thờ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "- Feties được phát triển"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Thiết lập hệ thống"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Địa phương hóa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Thiết lập người dùng"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Mọi người chuẩn bị"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "Email Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Thiết lập bản đồ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4377,47 +4366,47 @@ msgstr "Thiết lập bản đồ"
 msgid "Pastoral Care"
 msgstr "Mục sư Care"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Sự tham gia của Chool Sundayschool"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Sự tích hợp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Tìm nhanh lên"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Báo cáo thiết lập"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Thiết lập tài chính"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Hỗ trợ"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Người dùng đặc nhiệm Sổ Lịch trình"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Một cái tên tàn tật đã được yêu cầu"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "Một thiết bị vô hiệu nhận dạng đã được yêu cầu"
 
@@ -4547,7 +4536,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Tài khoản CRM Ecclesiacủa anh đã được cập nhật"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Tình hình thế nào?"
 
@@ -4679,7 +4669,7 @@ msgid "Sunday School"
 msgstr "Trường học Chủ nhật"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Truyền thông Hải quan toàn cầu"
 
@@ -5292,7 +5282,7 @@ msgstr "Học sinh."
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "In"
 
@@ -5330,7 +5320,7 @@ msgid "Person Properties"
 msgstr "Tài sản cá nhân"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Cơ hội tình nguyện"
 
@@ -5474,7 +5464,7 @@ msgstr "Nâng cấp Databse thất bại"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Người kia"
 
@@ -5582,7 +5572,7 @@ msgstr "Mất dấu Role Data vì vài người"
 msgid "Unmet Application Prerequisites"
 msgstr "Ứng dụng chưa được đáp ứng"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "Phần mềm đăng ký"
 
@@ -5819,12 +5809,12 @@ msgid "1 yr old"
 msgstr "1 tuổi"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "Dữ liệu dự phòng"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "Khôi phục dữ liệu"
 
@@ -6009,6 +5999,11 @@ msgstr "Chăm sóc mục sư của gia đình"
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "Danh sách các thành viên chăm sóc mục sư bằng phân loại"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr ""
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6914,11 +6909,11 @@ msgstr "Lấy VCard của gia đình"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "Vô hiệu hóa"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "Kích hoạt"
 
@@ -7345,7 +7340,7 @@ msgstr "Insos"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "Mô tả"
 
@@ -7641,59 +7636,59 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Khu vực tài sản đặc biệt"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Rõ."
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Được rồi"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Phiên tòa"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Gia đình có những tài sản gia đình"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Chỉnh lại trường gia đình"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Quản lý kinh điển"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Những người có tài sản"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Chỉnh lại trường Biên tập trung"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Các tổ chức năng động lực"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Loại bất động sản"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Quỹ hiến tặng Edit Donation"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Pastoral Care Type"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr "Xin hãy liên lạc với người quản lý để thay đổi hệ thống thiết lập."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Chỉnh lại vị trí Đại tướng"
 
@@ -7701,19 +7696,19 @@ msgstr "Chỉnh lại vị trí Đại tướng"
 msgid "System Users"
 msgstr "Hệ thống sử dụng"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "CSV Export Records"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "Mở nhiệm vụ"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "Anh đã làm"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "task(S)"
 
@@ -7737,19 +7732,19 @@ msgstr "Không gửi email PDF cho các thành viên trong gia đình."
 msgid "item(s) added to the Cart."
 msgstr "cộng vào chiếc Cart."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Báo cáo!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Hãy gửi một tờ giấy báo cáo về con bọ"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Anh đã làm gì khi để ý thấy cơ hội bọ?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7757,11 +7752,11 @@ msgstr ""
 "Khi bạn bấm \"nộp đơn\", một báo cáo lỗi sẽ được đăng lên thiết bị theo dõi "
 "CRM GitHub 98."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Xin đừng cho bất kỳ thông tin mật nào."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7769,34 +7764,34 @@ msgstr ""
 "Một số thông tin tổng quát về hệ thống của anh sẽ được gửi cùng với yêu cầu "
 "như phiên bản Server và tiêu đề trình duyệt."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
 msgstr ""
 "Không có thông tin cá nhân nào được gửi nếu anh không có chủ ý bao gồm nó."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Phục tùng"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Báo cáo đã xong!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Subteam supped Issue"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Phát hiện trên GitHub"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "Được rồi."
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Thay đổi cột"
 
@@ -11283,6 +11278,56 @@ msgstr ""
 "Một số người có thể có hồ sơ về những khoản quyên góp và không thể bị xóa "
 "cho đến khi những khoản quyên góp này liên quan đến người khác hay gia đình."
 
+#: v2/templates/plugins/plugins.php:32
+#, fuzzy
+msgid "Plugins managements"
+msgstr "Quản lý Role"
+
+#: v2/templates/plugins/plugins.php:42
+#, fuzzy
+msgid "Add new plugin"
+msgstr "Thêm một lời thề mới"
+
+#: v2/templates/plugins/plugins.php:44
+#, fuzzy
+msgid "Upload A Plugin"
+msgstr "Tải hồ sơ CSV"
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Kiểm tra tất cả các hộp"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:87
+msgid "Update"
+msgstr "Cập nhật"
+
+#: v2/templates/plugins/plugins.php:105
+#, fuzzy
+msgid "Settings"
+msgstr "Thiết lập bản đồ"
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr ""
+
+#: v2/templates/plugins/plugins.php:122
+msgid "Details"
+msgstr "Chi tiết"
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Activated Plugin"
+msgstr "Đã kích hoạt."
+
+#: v2/templates/plugins/plugins.php:125
+#, fuzzy
+msgid "Deactivated Plugin"
+msgstr "Vô hiệu hóa"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11602,10 +11647,6 @@ msgstr "Cộng Role để chọn người dùng."
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "Bật Roles"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "Kiểm tra tất cả các hộp"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12399,6 +12440,15 @@ msgstr "Tiền"
 msgid "Custom Drop-Down List"
 msgstr "Danh sách \"Custom Drop-Down\""
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "Tên miền Jitsi là Default : meet.jit.si "
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr ""
+#~ "Tên miền Jitsi tên là Dòng chữ thập: https://meet.jit.si/external_api.js "
+
 #~ msgid "Room names"
 #~ msgstr "Tên phòng"
 
@@ -12851,9 +12901,6 @@ msgstr "Danh sách \"Custom Drop-Down\""
 #~ msgid "Current Role"
 #~ msgstr "Role hiện tại"
 
-#~ msgid "Update"
-#~ msgstr "Cập nhật"
-
 #~ msgid "Add Person to Group"
 #~ msgstr "Thêm người vào nhóm"
 
@@ -13243,9 +13290,6 @@ msgstr "Danh sách \"Custom Drop-Down\""
 #~ msgid "Add Profile"
 #~ msgstr "Thêm hồ sơ vào"
 
-#~ msgid "Activated"
-#~ msgstr "Đã kích hoạt."
-
 #~ msgid "CSV"
 #~ msgstr "CSV"
 
@@ -13504,9 +13548,6 @@ msgstr "Danh sách \"Custom Drop-Down\""
 
 #~ msgid "View all"
 #~ msgstr "Nhìn tất cả"
-
-#~ msgid "Details"
-#~ msgstr "Chi tiết"
 
 #~ msgid "Failed to send verification email"
 #~ msgstr "Không gửi email xác nhận"

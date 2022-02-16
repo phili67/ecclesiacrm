@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: pt-pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Para a"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Pessoa"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -853,7 +853,7 @@ msgstr "Código QR Chamada"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Gestor do quiosque"
 
@@ -1158,7 +1158,7 @@ msgstr "Saltar registros com endereço postal incompleto"
 msgid "Create File"
 msgstr "Criar arquivo"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "CSV Importação"
 
@@ -2039,7 +2039,7 @@ msgid "Role"
 msgstr "Papel"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Papéis de Família"
@@ -2082,7 +2082,7 @@ msgid "Sunday School Group Type"
 msgstr "Tipo de Grupo da Escola Dominical"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Tipos de Grupos da Escola Dominical"
 
@@ -2092,7 +2092,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Editor de Tipos de Grupos da Escola Dominical"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Tipos de Grupo"
 
@@ -2108,7 +2108,7 @@ msgstr "Editor de tipos de grupo"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4320,32 +4320,20 @@ msgstr ""
 "'Anual 2' : de setembro a setembro."
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "O nome de domínio jitsi, por defeito : meet.jit.si"
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr ""
-"O caminho do script do nome de domínio jitsi, por padrão : https://meet.jit."
-"si/external_api.js"
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr ""
 "Obter as estatísticas das chamadas/visitas (para cada conselheiro de "
 "pastores)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "Defina o endereço de exportação)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "endereço de e-mail do remetente do mailchimp sender."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4355,7 +4343,7 @@ msgstr ""
 "menu de fontes do ckeditor : https://fonts.googleapis.com/css?family=Abril"
 "+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4363,39 +4351,39 @@ msgstr ""
 "Aqui colocamos a fonte na forma fontnametodisplay/yourfontname. Ela é útil "
 "para o menu de fontes do ckeditor, por exemplo: Abril/Abril Fatface"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Informação da Igreja"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "Recursos Habilitados"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Configurações do sistema"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Localização"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Configuração do usuário"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Configuração de Pessoas"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "Configuração de e-mail"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Configurações do Mapa"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4403,47 +4391,47 @@ msgstr "Configurações do Mapa"
 msgid "Pastoral Care"
 msgstr "Cuidados pastorais"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Frequência da catequese"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integração"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "PIBR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Pesquisa rápida"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Opções de relatório"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Definições Financeiras"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Cópia de segurança"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Tarefas de Programação Específicas dos Utilizadores"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Foi solicitado um nome de configuração inválido"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "Foi solicitada uma identificação de configuração inválida"
 
@@ -4573,7 +4561,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "A sua conta EcclesiaCRM foi actualizada"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Estado"
 
@@ -4705,7 +4694,7 @@ msgid "Sunday School"
 msgstr "Escola Dominical"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Menus Personalizados Globais"
 
@@ -5318,7 +5307,7 @@ msgstr "Estudante"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "Imprimir"
 
@@ -5356,7 +5345,7 @@ msgid "Person Properties"
 msgstr "Propriedades Pessoais"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Oportunidades de voluntariado"
 
@@ -5500,7 +5489,7 @@ msgstr "Falha na atualização da base de dados"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Outros"
 
@@ -5608,7 +5597,7 @@ msgstr "Dados de papel em falta para algumas pessoas"
 msgid "Unmet Application Prerequisites"
 msgstr "Pré-requisitos da aplicação não atendida"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "Registrar Software"
 
@@ -5846,12 +5835,12 @@ msgid "1 yr old"
 msgstr "1 ano de idade"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "Banco de Dados de Backups"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "Restaurar base de dados"
 
@@ -6036,6 +6025,11 @@ msgstr "Pastoral Familiar"
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "Lista de membros da Pastoral por classificação"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr "Plugins"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6946,11 +6940,11 @@ msgstr "Obtenha o vCard da família"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "Desativar"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "Ativar"
 
@@ -7382,7 +7376,7 @@ msgstr "infos"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "Descrição"
 
@@ -7682,60 +7676,60 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Campos de propriedades específicas do grupo"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Direitos Autorais"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Todos os direitos reservados"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Versão"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Propriedades Familiares"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Editar Campos Familiares Personalizados"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Gestor de Classificações"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Propriedades de Pessoas"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Editar Campos Personalizados de Pessoa"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Propriedades do Grupo"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Tipos de propriedades"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Editar Fundos de Doação"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Tipo de Cuidados Pastorais"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Por favor contacte o seu administrador para alterar as definições do sistema."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Editar Configurações Gerais"
 
@@ -7743,19 +7737,19 @@ msgstr "Editar Configurações Gerais"
 msgid "System Users"
 msgstr "Usuários do sistema"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "CSV Registros de Exportação"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "Tarefas Abertas"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "Você tem"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "tarefa(ões)"
 
@@ -7779,20 +7773,20 @@ msgstr "Falha no envio de PDF para os membros da família."
 msgid "item(s) added to the Cart."
 msgstr "item(s) adicionado(s) ao carrinho."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Emitir Relatório!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Digite um título para o seu relatório de bug / característica"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr ""
 "O que você estava fazendo quando notou o bug / oportunidade de recurso?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7800,11 +7794,11 @@ msgstr ""
 "Quando você clica em \"enviar\", um relatório de erro será publicado no "
 "EcclesiaCRM GitHub Issue tracker."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Por favor, não inclua nenhuma informação confidencial."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7812,7 +7806,7 @@ msgstr ""
 "Algumas informações gerais sobre o seu sistema serão enviadas juntamente com "
 "o pedido, tais como a versão do servidor e os cabeçalhos do navegador."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
@@ -7820,27 +7814,27 @@ msgstr ""
 "Nenhuma informação pessoal identificável será submetida, a menos que você a "
 "inclua propositadamente."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Envie para"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Emitir relatório feito!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Enviado com sucesso Emissão"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Ver Edição no GitHub"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Alterar colunas"
 
@@ -11364,6 +11358,50 @@ msgstr ""
 "AVISO: Algumas pessoas podem ter alguns registros de doações e NÃO podem ser "
 "apagadas até que essas doações sejam associadas a outra pessoa ou Família."
 
+#: v2/templates/plugins/plugins.php:32
+msgid "Plugins managements"
+msgstr "Gestão de Plugins"
+
+#: v2/templates/plugins/plugins.php:42
+msgid "Add new plugin"
+msgstr "Adicionar novo plugin"
+
+#: v2/templates/plugins/plugins.php:44
+msgid "Upload A Plugin"
+msgstr "Carregar um Plugin"
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Marcar todas as caixas"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr "Plugin"
+
+#: v2/templates/plugins/plugins.php:87
+msgid "Update"
+msgstr "Atualização"
+
+#: v2/templates/plugins/plugins.php:105
+msgid "Settings"
+msgstr "Configurações"
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr "visita guiada"
+
+#: v2/templates/plugins/plugins.php:122
+msgid "Details"
+msgstr "Detalhes"
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Activated Plugin"
+msgstr "Plugin activado"
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Deactivated Plugin"
+msgstr "Plugin desativado"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11686,10 +11724,6 @@ msgstr "Adicionar função ao(s) usuário(s) selecionado(s)"
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "Aplicar funções"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "Marcar todas as caixas"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12502,6 +12536,16 @@ msgstr "Dinheiro"
 msgid "Custom Drop-Down List"
 msgstr "Lista de drop-down personalizados"
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "O nome de domínio jitsi, por defeito : meet.jit.si"
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr ""
+#~ "O caminho do script do nome de domínio jitsi, por padrão : https://meet."
+#~ "jit.si/external_api.js"
+
 #~ msgid "Room names"
 #~ msgstr "Nomes dos quartos"
 
@@ -12957,9 +13001,6 @@ msgstr "Lista de drop-down personalizados"
 
 #~ msgid "Current Role"
 #~ msgstr "Papel actual"
-
-#~ msgid "Update"
-#~ msgstr "Atualização"
 
 #~ msgid "Add Person to Group"
 #~ msgstr "Adicionar pessoa ao grupo"
@@ -13620,9 +13661,6 @@ msgstr "Lista de drop-down personalizados"
 
 #~ msgid "View all"
 #~ msgstr "Ver tudo"
-
-#~ msgid "Details"
-#~ msgstr "Detalhes"
 
 #~ msgid "Failed to send verification email"
 #~ msgstr "Falha no envio de e-mail de verificação"

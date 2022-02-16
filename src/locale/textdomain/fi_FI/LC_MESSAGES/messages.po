@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-09 07:44+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Sillä"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: Include/Footer.php:81 PledgeEditor.php:588
+#: Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -47,7 +47,7 @@ msgstr "Henkilö"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:64
+#: FamilyView.php:278 FinancialReports.php:439 Include/Footer.php:66
 #: members/404.php:16 PersonView.php:908 PledgeEditor.php:588
 #: PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -852,7 +852,7 @@ msgstr "QR-koodi Soita"
 
 #: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
-#: Include/Footer.php:262
+#: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Kioskin johtaja"
 
@@ -1157,7 +1157,7 @@ msgstr "Ohita tietueet, joiden postiosoite on epätäydellinen"
 msgid "Create File"
 msgstr "Luo tiedosto"
 
-#: CSVImport.php:121 Include/Footer.php:253
+#: CSVImport.php:121 Include/Footer.php:265
 msgid "CSV Import"
 msgstr "CSV-tuonti"
 
@@ -2041,7 +2041,7 @@ msgid "Role"
 msgstr "Rooli"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:116
-#: Include/Footer.php:67 OptionManager.php:103
+#: Include/Footer.php:69 OptionManager.php:103
 #: v2/templates/people/peopledashboard.php:270
 msgid "Family Roles"
 msgstr "Perheen roolit"
@@ -2084,7 +2084,7 @@ msgid "Sunday School Group Type"
 msgstr "Pyhäkouluryhmän tyyppi"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:132
-#: Include/Footer.php:124 OptionManager.php:119
+#: Include/Footer.php:126 OptionManager.php:119
 msgid "Sunday School Group Types"
 msgstr "Sunnuntaikoulun ryhmätyypit"
 
@@ -2094,7 +2094,7 @@ msgid "Sunday School Group Types Editor"
 msgstr "Sunnuntaikouluryhmän tyypit Toimittaja"
 
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:140
-#: Include/Footer.php:114 OptionManager.php:127
+#: Include/Footer.php:116 OptionManager.php:127
 msgid "Group Types"
 msgstr "Ryhmätyypit"
 
@@ -2110,7 +2110,7 @@ msgstr "Ryhmätyypit-editori"
 #: EcclesiaCRM/Service/CalendarService.php:599
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
-#: Include/Footer.php:98 OptionManager.php:133
+#: Include/Footer.php:100 OptionManager.php:133
 #: v2/templates/calendar/calendar.php:49
 #: v2/templates/calendar/eventslist.php:45
 msgid "Group"
@@ -4319,31 +4319,19 @@ msgstr ""
 "tähän päivään, 'Vuosi 2' : syyskuusta syyskuuhun."
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
-msgid "The jitsi domain name, by default : meet.jit.si"
-msgstr "Jitsi-verkkotunnus, oletusarvoisesti: meet.jit.si."
-
-#: EcclesiaCRM/dto/SystemConfig.php:265
-msgid ""
-"The jitsi domain name script path, by default : https://meet.jit.si/"
-"external_api.js"
-msgstr ""
-"Jitsi-verkkotunnuksen komentosarjan polku, oletusarvoisesti: https://meet."
-"jit.si/external_api.js."
-
-#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Get the statistics of calls/visits (for each pastors counselors)"
 msgstr ""
 "Hanki tilastot puheluista/käynneistä (kunkin pastorin neuvonantajan osalta)."
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:265
 msgid "Set the export address)"
 msgstr "Aseta vientiosoite)"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "email address of the mailchimp sender."
 msgstr "mailchimp-lähettäjän sähköpostiosoite."
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid ""
 "Link to a style sheet for a particular font. This is useful for the font "
 "menu of ckeditor : https://fonts.googleapis.com/css?family=Abril"
@@ -4353,7 +4341,7 @@ msgstr ""
 "fontti-valikossa : https://fonts.googleapis.com/css?family=Abril"
 "+Fatface:400,400i,700,700i,900,900i|Roboto:400,400i,700,700i,700i,900,900i"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid ""
 "Here we put the font in the form fontnametodisplay/yourfontname. It is "
 "useful for the font menu of ckeditor, for example : Abril/Abril Fatface"
@@ -4361,39 +4349,39 @@ msgstr ""
 "Tässä asetamme fontin muodossa fontnametodisplay/yourfontname. Se on "
 "hyödyllinen ckeditorin fontti-valikossa, esimerkiksi : Abril/Abril Fatface."
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Church Information"
 msgstr "Kirkon tiedot"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Enabled Features"
 msgstr "Käytössä olevat ominaisuudet"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 Include/Footer.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:277 Include/Footer.php:199
 msgid "System Settings"
 msgstr "Järjestelmäasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:278
 msgid "Localization"
 msgstr "Lokalisointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "User setup"
 msgstr "Käyttäjän asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "People Setup"
 msgstr "Ihmiset Asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Email Setup"
 msgstr "Sähköpostiasetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:284
+#: EcclesiaCRM/dto/SystemConfig.php:282
 msgid "Map Settings"
 msgstr "Kartta-asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:285 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
 #: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
 #: v2/templates/gdpr/gdprdatastructure.php:141
@@ -4401,47 +4389,47 @@ msgstr "Kartta-asetukset"
 msgid "Pastoral Care"
 msgstr "Sielunhoito"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286
+#: EcclesiaCRM/dto/SystemConfig.php:284
 msgid "Sundayschool Attendance"
 msgstr "Sunnuntaikouluun osallistuminen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:287
+#: EcclesiaCRM/dto/SystemConfig.php:285
 msgid "Integration"
 msgstr "Integrointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:288 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:289
+#: EcclesiaCRM/dto/SystemConfig.php:287
 msgid "Quick Search"
 msgstr "Pikahaku"
 
-#: EcclesiaCRM/dto/SystemConfig.php:290
+#: EcclesiaCRM/dto/SystemConfig.php:288
 msgid "Report Settings"
 msgstr "Raportin asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:289
 msgid "Financial Settings"
 msgstr "Taloudelliset asetukset"
 
-#: EcclesiaCRM/dto/SystemConfig.php:292
+#: EcclesiaCRM/dto/SystemConfig.php:290
 msgid "Backup"
 msgstr "Varmuuskopiointi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:293
+#: EcclesiaCRM/dto/SystemConfig.php:291
 msgid "Users Specific Schedule Tasks"
 msgstr "Käyttäjäkohtaiset aikataulutehtävät"
 
-#: EcclesiaCRM/dto/SystemConfig.php:343 EcclesiaCRM/dto/SystemConfig.php:352
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:341 EcclesiaCRM/dto/SystemConfig.php:350
+#: EcclesiaCRM/dto/SystemConfig.php:360
 msgid "An invalid configuration name has been requested"
 msgstr "Virheellinen konfiguraation nimi on pyydetty"
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:375
 msgid "An invalid configuration id has been requested"
 msgstr "Virheellinen konfiguraatiotunnus on pyydetty"
 
@@ -4571,7 +4559,8 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "EcclesiaCRM-tilisi päivitettiin"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/user/userlist.php:57
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Tila"
 
@@ -4703,7 +4692,7 @@ msgid "Sunday School"
 msgstr "Sunnuntaikoulu"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
-#: Include/Footer.php:173
+#: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Globaalit mukautetut valikot"
 
@@ -5316,7 +5305,7 @@ msgstr "Opiskelija"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:120
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:184
+#: EcclesiaCRM/Search/PersonSearchRes.php:303 Include/Header-function.php:202
 msgid "Print"
 msgstr "Tulosta"
 
@@ -5354,7 +5343,7 @@ msgid "Person Properties"
 msgstr "Henkilön ominaisuudet"
 
 #: EcclesiaCRM/Search/PersonVolunteerOpportunitySearch.php:24
-#: Include/Footer.php:143 PersonView.php:945
+#: Include/Footer.php:145 PersonView.php:945
 msgid "Volunteer Opportunities"
 msgstr "Vapaaehtoistoiminnan mahdollisuudet"
 
@@ -5498,7 +5487,7 @@ msgstr "Databse-päivitys epäonnistui"
 #: EcclesiaCRM/Synchronize/PersonDashboardItem.php:136
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:36
 #: EcclesiaCRM/Synchronize/PersonDemographicDashboardItem.php:53
-#: Include/Footer.php:131 PledgeEditor.php:646
+#: Include/Footer.php:133 PledgeEditor.php:646
 msgid "Other"
 msgstr "Muut"
 
@@ -5606,7 +5595,7 @@ msgstr "Joidenkin henkilöiden puuttuvat roolitiedot"
 msgid "Unmet Application Prerequisites"
 msgstr "Täyttämättömät sovelluksen edellytykset"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:308
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:320
 msgid "Register Software"
 msgstr "Rekisteröi ohjelmisto"
 
@@ -5843,12 +5832,12 @@ msgid "1 yr old"
 msgstr "1-vuotias"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWBackupController.php:46
-#: Include/Footer.php:244
+#: Include/Footer.php:256
 msgid "Backup Database"
 msgstr "Tietokannan varmuuskopiointi"
 
 #: EcclesiaCRM/VIEWControllers/Backup/VIEWRestoreController.php:47
-#: Include/Footer.php:236
+#: Include/Footer.php:248
 msgid "Restore Database"
 msgstr "Palauta tietokanta"
 
@@ -6033,6 +6022,11 @@ msgstr "Perhesielunhoito"
 #: EcclesiaCRM/VIEWControllers/VIEWPastoralCareController.php:543
 msgid "Pastoral care members list by classification"
 msgstr "Sielunhoidon jäsenluettelo luokituksen mukaan"
+
+#: EcclesiaCRM/VIEWControllers/VIEWPLuginsController.php:46
+#: Include/Footer.php:232
+msgid "Plugins"
+msgstr "Liitännäiset"
 
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
 msgid "Sunday School Dashboard"
@@ -6942,11 +6936,11 @@ msgstr "Hanki perheen vCard"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "Deaktivoi"
 
-#: FamilyView.php:514 PersonView.php:851
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "Aktivoi"
 
@@ -7374,7 +7368,7 @@ msgstr "tiedot"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -7673,60 +7667,60 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Ryhmäkohtaiset ominaisuuskentät"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:29
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
 msgstr "Tekijänoikeus"
 
-#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:32
+#: Include/FooterNotLoggedIn.php:7 Include/Footer.php:34
 msgid "All rights reserved"
 msgstr "Kaikki oikeudet pidätetään"
 
-#: Include/Footer.php:27
+#: Include/Footer.php:29
 msgid "Version"
 msgstr "Versio"
 
-#: Include/Footer.php:72
+#: Include/Footer.php:74
 msgid "Family Properties"
 msgstr "Perheen ominaisuudet"
 
-#: Include/Footer.php:77
+#: Include/Footer.php:79
 msgid "Edit Custom Family Fields"
 msgstr "Muokkaa mukautettuja perhekenttiä"
 
-#: Include/Footer.php:84
+#: Include/Footer.php:86
 msgid "Classifications Manager"
 msgstr "Luokituspäällikkö"
 
-#: Include/Footer.php:89
+#: Include/Footer.php:91
 msgid "People Properties"
 msgstr "Ihmiset Kiinteistöt"
 
-#: Include/Footer.php:94
+#: Include/Footer.php:96
 msgid "Edit Custom Person Fields"
 msgstr "Muokkaa mukautettuja henkilökenttiä"
 
-#: Include/Footer.php:104 v2/templates/group/groupview.php:319
+#: Include/Footer.php:106 v2/templates/group/groupview.php:319
 msgid "Group Properties"
 msgstr "Ryhmän ominaisuudet"
 
-#: Include/Footer.php:134
+#: Include/Footer.php:136
 msgid "Property Types"
 msgstr "Kiinteistötyypit"
 
-#: Include/Footer.php:153
+#: Include/Footer.php:155
 msgid "Edit Donation Funds"
 msgstr "Muokkaa lahjoitusrahastoja"
 
-#: Include/Footer.php:163
+#: Include/Footer.php:165
 msgid "Pastoral Care Type"
 msgstr "Sielunhoidon tyyppi"
 
-#: Include/Footer.php:188 Include/Footer.php:272
+#: Include/Footer.php:190 Include/Footer.php:284
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Ota yhteyttä järjestelmänvalvojaan järjestelmän asetusten muuttamiseksi."
 
-#: Include/Footer.php:206 v2/templates/email/mailchimp/managelist.php:114
+#: Include/Footer.php:208 v2/templates/email/mailchimp/managelist.php:114
 msgid "Edit General Settings"
 msgstr "Muokkaa yleisiä asetuksia"
 
@@ -7734,19 +7728,19 @@ msgstr "Muokkaa yleisiä asetuksia"
 msgid "System Users"
 msgstr "Järjestelmän käyttäjät"
 
-#: Include/Footer.php:283
+#: Include/Footer.php:295
 msgid "CSV Export Records"
 msgstr "CSV-vienti tietueet"
 
-#: Include/Footer.php:296
+#: Include/Footer.php:308
 msgid "Open Tasks"
 msgstr "Avoimet tehtävät"
 
-#: Include/Footer.php:297
+#: Include/Footer.php:309
 msgid "You have"
 msgstr "Sinulla on"
 
-#: Include/Footer.php:298
+#: Include/Footer.php:310
 msgid "task(s)"
 msgstr "tehtävä(t)"
 
@@ -7770,19 +7764,19 @@ msgstr "PDF-tiedoston lähettäminen sähköpostitse perheenjäsenille epäonnis
 msgid "item(s) added to the Cart."
 msgstr "ostoskoriin lisätty tuote(t)."
 
-#: Include/Header-function.php:82
+#: Include/Header-function.php:84
 msgid "Issue Report!"
 msgstr "Ilmoitusraportti!"
 
-#: Include/Header-function.php:89
+#: Include/Header-function.php:91
 msgid "Enter a Title for your bug / feature report"
 msgstr "Kirjoita vikailmoituksen/ominaisuusraportin otsikko"
 
-#: Include/Header-function.php:99
+#: Include/Header-function.php:101
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Mitä olit tekemässä, kun huomasit bugin/ominaisuuden mahdollisuuden?"
 
-#: Include/Header-function.php:109
+#: Include/Header-function.php:111
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
@@ -7790,11 +7784,11 @@ msgstr ""
 "Kun napsautat \"lähetä\", virheilmoitus lähetetään EcclesiaCRM:n GitHub "
 "Issue trackeriin."
 
-#: Include/Header-function.php:110
+#: Include/Header-function.php:112
 msgid "Please do not include any confidential information."
 msgstr "Älä sisällytä luottamuksellisia tietoja."
 
-#: Include/Header-function.php:111
+#: Include/Header-function.php:113
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7802,34 +7796,34 @@ msgstr ""
 "Pyynnön mukana toimitetaan joitakin yleisiä tietoja järjestelmästäsi, kuten "
 "palvelimen versio ja selaimen otsikot."
 
-#: Include/Header-function.php:112
+#: Include/Header-function.php:114
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
 msgstr ""
 "Henkilökohtaisia tietoja ei toimiteta, ellet sinä tarkoituksella anna niitä."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:118
 msgid "Submit"
 msgstr "Lähetä"
 
-#: Include/Header-function.php:122
+#: Include/Header-function.php:124
 msgid "Issue Report done!"
 msgstr "Issue Report valmis!"
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:127
 msgid "Successfully submitted Issue"
 msgstr "Onnistuneesti toimitettu Issue"
 
-#: Include/Header-function.php:126
+#: Include/Header-function.php:128
 msgid "View Issue on GitHub"
 msgstr "Näytä ongelma GitHubissa"
 
-#: Include/Header-function.php:128
+#: Include/Header-function.php:130
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:183
+#: Include/Header-function.php:201
 msgid "Change columns"
 msgstr "Vaihda sarakkeita"
 
@@ -11341,6 +11335,50 @@ msgstr ""
 "välttämättä poisteta ennen kuin nämä lahjoitukset liitetään toiseen "
 "henkilöön tai perheeseen."
 
+#: v2/templates/plugins/plugins.php:32
+msgid "Plugins managements"
+msgstr "Liitännäisten hallinta"
+
+#: v2/templates/plugins/plugins.php:42
+msgid "Add new plugin"
+msgstr "Lisää uusi lisäosa"
+
+#: v2/templates/plugins/plugins.php:44
+msgid "Upload A Plugin"
+msgstr "Lataa liitännäinen"
+
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+msgid "Check all boxes"
+msgstr "Rastita kaikki ruudut"
+
+#: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr "Plugin"
+
+#: v2/templates/plugins/plugins.php:87
+msgid "Update"
+msgstr "Päivitys"
+
+#: v2/templates/plugins/plugins.php:105
+msgid "Settings"
+msgstr "Asetukset"
+
+#: v2/templates/plugins/plugins.php:110
+msgid "guided tour"
+msgstr "opastettu kierros"
+
+#: v2/templates/plugins/plugins.php:122
+msgid "Details"
+msgstr "Yksityiskohdat"
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Activated Plugin"
+msgstr "Aktivoitu liitännäinen"
+
+#: v2/templates/plugins/plugins.php:125
+msgid "Deactivated Plugin"
+msgstr "Deaktivoitu liitännäinen"
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11664,10 +11702,6 @@ msgstr "Lisää rooli valituille käyttäjille"
 #: v2/templates/user/userlist.php:37
 msgid "Apply Roles"
 msgstr "Hae rooleja"
-
-#: v2/templates/user/userlist.php:47
-msgid "Check all boxes"
-msgstr "Rastita kaikki ruudut"
 
 #: v2/templates/user/userlist.php:48
 msgid "Actions"
@@ -12467,6 +12501,16 @@ msgstr "Raha"
 msgid "Custom Drop-Down List"
 msgstr "Mukautettu pudotusluettelo"
 
+#~ msgid "The jitsi domain name, by default : meet.jit.si"
+#~ msgstr "Jitsi-verkkotunnus, oletusarvoisesti: meet.jit.si."
+
+#~ msgid ""
+#~ "The jitsi domain name script path, by default : https://meet.jit.si/"
+#~ "external_api.js"
+#~ msgstr ""
+#~ "Jitsi-verkkotunnuksen komentosarjan polku, oletusarvoisesti: https://meet."
+#~ "jit.si/external_api.js."
+
 #~ msgid "Room names"
 #~ msgstr "Huoneiden nimet"
 
@@ -12949,9 +12993,6 @@ msgstr "Mukautettu pudotusluettelo"
 #~ msgid "Current Role"
 #~ msgstr "Nykyinen rooli"
 
-#~ msgid "Update"
-#~ msgstr "Päivitys"
-
 #~ msgid "Add Person to Group"
 #~ msgstr "Lisää henkilö ryhmään"
 
@@ -13423,9 +13464,6 @@ msgstr "Mukautettu pudotusluettelo"
 
 #~ msgid "View all"
 #~ msgstr "Näytä kaikki"
-
-#~ msgid "Details"
-#~ msgstr "Yksityiskohdat"
 
 #~ msgid "Failed to send verification email"
 #~ msgstr "Vahvistussähköpostia ei onnistuttu lähettämään"

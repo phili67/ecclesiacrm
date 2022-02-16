@@ -50,7 +50,12 @@
     window.CRM.DisplayAlert = function(title,message,callback) {
       return bootbox.alert({
         title:  title,
-        message:message
+        message:message,
+        callback: function () {
+            if (callback) {
+                callback()
+            }
+        }
       });
     }
 

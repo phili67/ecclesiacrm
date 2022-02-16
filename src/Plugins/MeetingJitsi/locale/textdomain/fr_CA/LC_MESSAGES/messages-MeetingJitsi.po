@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:50
+msgid "Meeting Dashboard"
+msgstr "Tableau de bord des réunions"
+
+#: ../src/Plugins/MeetingJitsi/core/VIEWControllers/VIEWMeetingController.php:96
+msgid "Meeting Settings"
+msgstr "Paramètres de la réunion"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:21
+msgid "Room names"
+msgstr "Noms des salles"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:23
+msgid "Create first a room and manage theme with the arrow button"
+msgstr "Créez d'abord une pièce et gérez le thème avec le bouton flèche"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:24
+msgid "Create Room"
+msgstr "Créer une salle"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
+msgid "This action will delete all your rooms"
+msgstr "Cette action va supprimer toutes vos pièces"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
+msgid "Delete all Rooms"
+msgstr "Supprimer toutes les pièces"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:41
+msgid "Appointment"
+msgstr "Rendez-vous"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:52
+msgid "Room Name"
+msgstr "Nom de la pièce"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:63
+msgid "First create a Jitsi room with the button above !"
+msgstr "Créez d'abord une pièce Jitsi avec le bouton ci-dessus !"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
+msgid "Save Changes"
+msgstr "Sauvegarder les changements"

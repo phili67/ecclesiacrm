@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14T19:48:37.202Z\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Problem"
+msgstr "Problem"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"Safari nie jest jeszcze obsługiwany z Jitsi, użyj czegoś innego !<br/>- "
+"Twoja kamera internetowa<br/>- Udostępnianie okien<br/> nie będzie działać z "
+"posiedzeniem."
+
+msgid "Appointment"
+msgstr "Powołanie"
+
+msgid "Set a Jitsi room name"
+msgstr "Ustaw nazwę pokoju Jitsi"
+
+msgid "Delete all Rooms?"
+msgstr "Usunąć wszystkie pokoje?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Za chwilę usuniesz wszystkie swoje pokoje."
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Saved"
+msgstr "Zapisane"
+
+#~ msgid "Cancel"
+#~ msgstr "Anuluj"
+
+#~ msgid "Confirm"
+#~ msgstr "Potwierdź"

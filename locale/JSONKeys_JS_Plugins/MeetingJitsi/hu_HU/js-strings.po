@@ -1,0 +1,44 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14T19:48:34.571Z\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+msgid "Problem"
+msgstr "Probléma"
+
+msgid ""
+"Safari isn't yet supported with Jitsi, use something else !<br/>• Your "
+"webcam<br/>• Sharing your windows<br/> won't work with meeting."
+msgstr ""
+"A Safari még nem támogatott Jitsivel, használj valami mást !<br/>- A "
+"webkamerád<br/>- Az ablakok megosztása<br/> nem fog működni a találkozóval."
+
+msgid "Appointment"
+msgstr "Időpontkérés"
+
+msgid "Set a Jitsi room name"
+msgstr "Jitsi szoba nevének beállítása"
+
+msgid "Delete all Rooms?"
+msgstr "Töröljem az összes szobát?"
+
+msgid "You're about to delete all of your rooms."
+msgstr "Az összes szobádat törölni fogod."
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Saved"
+msgstr "Megmentett"
+
+#~ msgid "Cancel"
+#~ msgstr "Törölje"
+
+#~ msgid "Confirm"
+#~ msgstr "Megerősítés"

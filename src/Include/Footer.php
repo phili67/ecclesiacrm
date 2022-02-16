@@ -17,6 +17,8 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Theme;
 
+use EcclesiaCRM\PluginQuery;
+
 ?>
 </section><!-- /.content -->
 
@@ -209,15 +211,25 @@ use EcclesiaCRM\Theme;
                 </div>
                 <?php
             }
-            ?>
-            <?php
             if (SessionUser::getUser()->isAdmin()) {
                 ?>
                 <div class="mb-1">
                     <a href="<?= SystemURLs::getRootPath() ?>/v2/users">
-                        <i class="menu-icon fas fa-user-secret bg-gray"></i>
+                        <i class="menu-icon fas fa-user-secret bg-gradient-indigo"></i>
                         <div class="menu-info">
                             <h4 class="control-sidebar-subheading"><?= _('System Users') ?></h4>
+                        </div>
+                    </a>
+                </div>
+                <?php
+            }
+            if (SessionUser::getUser()->isAdmin()) {
+                ?>
+                <div class="mb-1">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/plugins">
+                        <i class="menu-icon fas fa-plug bg-gradient-primary"></i>
+                        <div class="menu-info">
+                            <h4 class="control-sidebar-subheading"><?= _('Plugins') ?></h4>
                         </div>
                     </a>
                 </div>
@@ -382,6 +394,17 @@ use EcclesiaCRM\Theme;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/i18next/i18next.min.js"></script>
 <script
     src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+
+<?php
+$plugins = PluginQuery::create()->findByActiv(true);
+
+foreach ($plugins as $plugin) {
+?>
+<script src="<?= SystemURLs::getRootPath() ?>/Plugins/<?= $plugin->getName() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
+<?php
+}
+?>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-validator/validator.min.js"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/IssueReporter.js"></script>

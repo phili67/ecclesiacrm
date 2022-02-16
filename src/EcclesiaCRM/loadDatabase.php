@@ -1,74 +1,39 @@
 <?php
+/*
+*  This code is under copyright not under MIT Licence
+*  copyright   : 2022 Philippe Logel all right reserved not MIT licence
+*                Last update 2022-02-08
+*                This code cannot be included in another application without authorization
+*
+*/
+
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
-$serviceContainer->initDatabaseMaps(array (
-  'main' => 
-  array (
-    0 => '\\EcclesiaCRM\\Map\\AddressbookchangesTableMap',
-    1 => '\\EcclesiaCRM\\Map\\AddressbooksTableMap',
-    2 => '\\EcclesiaCRM\\Map\\AddressbookshareTableMap',
-    3 => '\\EcclesiaCRM\\Map\\AutoPaymentTableMap',
-    4 => '\\EcclesiaCRM\\Map\\CKEditorTemplatesTableMap',
-    5 => '\\EcclesiaCRM\\Map\\CalendarchangesTableMap',
-    6 => '\\EcclesiaCRM\\Map\\CalendarinstancesTableMap',
-    7 => '\\EcclesiaCRM\\Map\\CalendarsTableMap',
-    8 => '\\EcclesiaCRM\\Map\\CalendarsubscriptionsTableMap',
-    9 => '\\EcclesiaCRM\\Map\\CanvassDataTableMap',
-    10 => '\\EcclesiaCRM\\Map\\CardsTableMap',
-    11 => '\\EcclesiaCRM\\Map\\ConfigTableMap',
-    12 => '\\EcclesiaCRM\\Map\\DepositTableMap',
-    13 => '\\EcclesiaCRM\\Map\\DonatedItemTableMap',
-    14 => '\\EcclesiaCRM\\Map\\DonationFundTableMap',
-    15 => '\\EcclesiaCRM\\Map\\EgiveTableMap',
-    16 => '\\EcclesiaCRM\\Map\\EmailMessagePendingTableMap',
-    17 => '\\EcclesiaCRM\\Map\\EmailRecipientPendingTableMap',
-    18 => '\\EcclesiaCRM\\Map\\EventAttendTableMap',
-    19 => '\\EcclesiaCRM\\Map\\EventCountNameTableMap',
-    20 => '\\EcclesiaCRM\\Map\\EventCountsTableMap',
-    21 => '\\EcclesiaCRM\\Map\\EventTableMap',
-    22 => '\\EcclesiaCRM\\Map\\EventTypesTableMap',
-    23 => '\\EcclesiaCRM\\Map\\FamilyCustomMasterTableMap',
-    24 => '\\EcclesiaCRM\\Map\\FamilyCustomTableMap',
-    25 => '\\EcclesiaCRM\\Map\\FamilyTableMap',
-    26 => '\\EcclesiaCRM\\Map\\FundRaiserTableMap',
-    27 => '\\EcclesiaCRM\\Map\\GdprInfoTableMap',
-    28 => '\\EcclesiaCRM\\Map\\GroupManagerPersonTableMap',
-    29 => '\\EcclesiaCRM\\Map\\GroupPropMasterTableMap',
-    30 => '\\EcclesiaCRM\\Map\\GroupTableMap',
-    31 => '\\EcclesiaCRM\\Map\\GroupTypeTableMap',
-    32 => '\\EcclesiaCRM\\Map\\GroupmembersTableMap',
-    33 => '\\EcclesiaCRM\\Map\\KioskAssignmentTableMap',
-    34 => '\\EcclesiaCRM\\Map\\KioskDeviceTableMap',
-    35 => '\\EcclesiaCRM\\Map\\ListOptionIconTableMap',
-    36 => '\\EcclesiaCRM\\Map\\ListOptionTableMap',
-    37 => '\\EcclesiaCRM\\Map\\LocksTableMap',
-    38 => '\\EcclesiaCRM\\Map\\MenuLinkTableMap',
-    39 => '\\EcclesiaCRM\\Map\\MultibuyTableMap',
-    40 => '\\EcclesiaCRM\\Map\\NoteShareTableMap',
-    41 => '\\EcclesiaCRM\\Map\\NoteTableMap',
-    42 => '\\EcclesiaCRM\\Map\\PaddleNumTableMap',
-    43 => '\\EcclesiaCRM\\Map\\PastoralCareTableMap',
-    44 => '\\EcclesiaCRM\\Map\\PastoralCareTypeTableMap',
-    45 => '\\EcclesiaCRM\\Map\\Person2group2roleP2g2rTableMap',
-    46 => '\\EcclesiaCRM\\Map\\PersonCustomMasterTableMap',
-    47 => '\\EcclesiaCRM\\Map\\PersonCustomTableMap',
-    48 => '\\EcclesiaCRM\\Map\\PersonLastMeetingTableMap',
-    49 => '\\EcclesiaCRM\\Map\\PersonMeetingTableMap',
-    50 => '\\EcclesiaCRM\\Map\\PersonTableMap',
-    51 => '\\EcclesiaCRM\\Map\\PersonVolunteerOpportunityTableMap',
-    52 => '\\EcclesiaCRM\\Map\\PledgeTableMap',
-    53 => '\\EcclesiaCRM\\Map\\PrincipalsTableMap',
-    54 => '\\EcclesiaCRM\\Map\\PropertyTableMap',
-    55 => '\\EcclesiaCRM\\Map\\PropertyTypeTableMap',
-    56 => '\\EcclesiaCRM\\Map\\PropertystorageTableMap',
-    57 => '\\EcclesiaCRM\\Map\\QueryParametersTableMap',
-    58 => '\\EcclesiaCRM\\Map\\Record2propertyR2pTableMap',
-    59 => '\\EcclesiaCRM\\Map\\SchedulingobjectsTableMap',
-    60 => '\\EcclesiaCRM\\Map\\TokenTableMap',
-    61 => '\\EcclesiaCRM\\Map\\UserConfigChoicesTableMap',
-    62 => '\\EcclesiaCRM\\Map\\UserConfigTableMap',
-    63 => '\\EcclesiaCRM\\Map\\UserRoleTableMap',
-    64 => '\\EcclesiaCRM\\Map\\UserTableMap',
-    65 => '\\EcclesiaCRM\\Map\\VersionTableMap',
-    66 => '\\EcclesiaCRM\\Map\\VolunteerOpportunityTableMap',
-  ),
-));
+
+$files = scandir(__DIR__ . "/model/EcclesiaCRM/Map");
+
+$array = ["main" => [], "pluginstore" => []];
+
+foreach ($files as $file) {
+    if (!in_array($file, [".", ".."])) {
+        $array["main"][] = '\\EcclesiaCRM\\Map\\' . str_replace(".php", "", $file);
+    }
+}
+
+// we loop all the Plugins directory to find map files
+$plugins = scandir(__DIR__ . "/../Plugins/");
+
+foreach ($plugins as $plugin) {
+    if (!in_array($plugin, [".", ".."]) and $plugin != "") {
+        if (file_exists(__DIR__ . "/../Plugins/" . $plugin . "/model/Map/")) {
+            $files = scandir(__DIR__ . "/../Plugins/" . $plugin . "/model/Map/");
+
+            foreach ($files as $file) {
+                if (!in_array($file, [".", ".."])) {
+                    $array["pluginstore"][] = "\\PluginStore\\Map\\" . str_replace(".php", "", $file);
+                }
+            }
+        }
+    }
+}
+
+$serviceContainer->initDatabaseMaps($array);
