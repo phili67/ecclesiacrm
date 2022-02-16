@@ -46,9 +46,7 @@ $(document).ready(function () {
         responsive: true
     });
 
-
-
-    $('#action-selector').change(function(e) {
+    $('#action-selector').change(function (e) {
         switch ($(this).val()) {
             case "activate-selected":
                 $(".checkbox_plugins").each(function () {
@@ -79,11 +77,23 @@ $(document).ready(function () {
                 });
                 break;
             case "delete-selected":
+                $(".checkbox_plugins").each(function () {
+                    if (this.checked) {
+                        var Id = $(this).data("id");
+                        window.CRM.APIRequest({
+                            method: 'DELETE',
+                            path: 'plugins/',
+                            data: JSON.stringify({"Id": Id})
+                        }, function (data) {
+                            location.reload(); // this shouldn't be necessary
+                        });
+                    }
+                });
                 break;
         }
     });
 
-    $('.Deactivate-plugin').click(function(e) {
+    $('.Deactivate-plugin').click(function (e) {
         var Id = $(this).data("id");
 
         window.CRM.APIRequest({
@@ -95,7 +105,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.Activate-plugin').click(function(e) {
+    $('.Activate-plugin').click(function (e) {
         var Id = $(this).data("id");
 
         window.CRM.APIRequest({
@@ -104,6 +114,52 @@ $(document).ready(function () {
             data: JSON.stringify({"Id": Id})
         }, function (data) {
             location.reload(); // this shouldn't be necessary
+        });
+    });
+
+    $('.Activate-plugin').click(function (e) {
+        var Id = $(this).data("id");
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'plugins/activate',
+            data: JSON.stringify({"Id": Id})
+        }, function (data) {
+            location.reload(); // this shouldn't be necessary
+        });
+    });
+
+    function BootboxContent() {
+        var frm_str = '<section class="content">\n' +
+            '<form id="restoredatabase" action="/api/plugins/add" method="POST" enctype="multipart/form-data">\n' +
+            '<div class="card card-gray">\n' +
+            '    <div class="card-header">\n' +
+            '        <h3 class="card-title">' + i18next.t ("Select your zipped plugin file") + '</h3>\n' +
+            '    </div>\n' +
+            '    <div class="card-body">\n' +
+            '            <input type="file" name="pluginFile" id="pluginFile" multiple="">\n' +
+            '    </div>\n' +
+            '    <div class="card-footer"">' +
+            '            <button type="submit" class="btn btn-primary btn-small">' + i18next.t("Download the zipped file of the plugin") + '</button>\n' +
+            '    </div>'
+            '</div>\n' +
+            '</form>\n' +
+            '</section>';
+
+        var object = $('<div/>').html(frm_str).contents();
+
+        return object
+    }
+
+    $('#add-plugin').click(function () {
+        var modal = bootbox.dialog({
+            title:i18next.t("Plugin download manager"),
+            message: BootboxContent(),
+            size: 'large',
+            show: true,
+            onEscape: function () {
+                modal.modal("hide");
+            }
         });
     });
 });

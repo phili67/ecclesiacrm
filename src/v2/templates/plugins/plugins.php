@@ -53,7 +53,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
             <select name="action" id="action-selector" class="plugin-select">
                 <option value="-1"><?= _("Grouped actions") ?></option>
                 <option value="activate-selected" value="activate-selected"><?= _("Activate") ?></option>
-                <option value="deactivate-selected" value="deactivate-selected"><?= _("Disable") ?></option>
+                <option value="deactivate-selected" value="deactivate-selected"><?= _("Deactivate") ?></option>
                 <option value="delete-selected" value="delete-selected"><?= _("Delete") ?></option>
             </select>
             <input type="submit" id="doaction" class="button-action" value="Appliquer">
