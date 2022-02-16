@@ -47,6 +47,42 @@ $(document).ready(function () {
     });
 
 
+
+    $('#action-selector').change(function(e) {
+        switch ($(this).val()) {
+            case "activate-selected":
+                $(".checkbox_plugins").each(function () {
+                    if (this.checked) {
+                        var Id = $(this).data("id");
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'plugins/activate',
+                            data: JSON.stringify({"Id": Id})
+                        }, function (data) {
+                            location.reload(); // this shouldn't be necessary
+                        });
+                    }
+                });
+                break;
+            case "deactivate-selected":
+                $(".checkbox_plugins").each(function () {
+                    if (this.checked) {
+                        var Id = $(this).data("id");
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'plugins/deactivate',
+                            data: JSON.stringify({"Id": Id})
+                        }, function (data) {
+                            location.reload(); // this shouldn't be necessary
+                        });
+                    }
+                });
+                break;
+            case "delete-selected":
+                break;
+        }
+    });
+
     $('.Deactivate-plugin').click(function(e) {
         var Id = $(this).data("id");
 

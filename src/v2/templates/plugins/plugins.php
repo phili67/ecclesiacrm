@@ -31,17 +31,17 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
     <div class="card-header border-0">
         <h3 class="card-title"><?= _('Plugins managements') ?></h3>
         <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-            </button>
             <div class="btn-group">
-                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-wrench"></i>
+                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: lightcoral">
+                    <i class="fas fa-wrench"></i> <?= _("Add a plugin") ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+                    <!--
+                    TODO : plugins remote manage
                     <a href="#" class="dropdown-item"><?= _("Add new plugin") ?></a>
                     <a class="dropdown-divider" style="color: #0c0c0c"></a>
-                    <a href="#" class="dropdown-item"><?= _("Upload A Plugin") ?></a>
+                    -->
+                    <a href="#" class="dropdown-item" id="add-plugin"><?= _("Upload A Plugin") ?></a>
                 </div>
             </div>
         </div>
@@ -50,14 +50,11 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
     <div class="card-body">
         <div class="alignleft actions bulkactions">
             <label for="bulk-action-selector-top" class="screen-reader-text">Sélectionnez l’action groupée</label>
-            <select name="action" id="bulk-action-selector-top" class="plugin-select">
-                <option value="-1">Actions groupées</option>
-                <option value="activate-selected">Activer</option>
-                <option value="deactivate-selected">Désactiver</option>
-                <option value="update-selected">Mettre à jour</option>
-                <option value="delete-selected">Supprimer</option>
-                <option value="enable-auto-update-selected">Activer les mises à jour auto</option>
-                <option value="disable-auto-update-selected">Désactiver les mises à jour auto</option>
+            <select name="action" id="action-selector" class="plugin-select">
+                <option value="-1"><?= _("Grouped actions") ?></option>
+                <option value="activate-selected" value="activate-selected"><?= _("Activate") ?></option>
+                <option value="deactivate-selected" value="deactivate-selected"><?= _("Disable") ?></option>
+                <option value="delete-selected" value="delete-selected"><?= _("Delete") ?></option>
             </select>
             <input type="submit" id="doaction" class="button-action" value="Appliquer">
         </div>
