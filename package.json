@@ -79,7 +79,7 @@
         "jszip": "^3.7.1",
         "leaflet": "^1.7.1",
         "morris.js.so": "^0.5.1",
-        "node-sass": "^6.0.1",
+        "node-sass": "^7.0.1",
         "pace-js": "^1.2.3",
         "package.json": "^2.0.1",
         "popper.js": "^1.16.1",
