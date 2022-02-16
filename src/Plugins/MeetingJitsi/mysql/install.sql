@@ -66,5 +66,5 @@ VALUES (LAST_INSERT_ID(),'meet.jit.si', 'https://meet.jit.si/external_api.js');
 -- insert the menu item
 -- the first one is the main menu !!!
 INSERT INTO `plugin_menu_barre` (`plgn_mb_plugin_name`, `plgn_mb_plugin_Display_name`, `plgn_mb_url`, `plgn_bm_icon`, `plgn_bm_grp_sec`) VALUES
-('MeetingJitsi', 'Meetings', 'v2/meeting/dashboard', 'fas fa-video', 'usr_meeting'),
+('MeetingJitsi', 'Jitsi', 'v2/meeting/dashboard', 'fas fa-video', 'usr_meeting'),
 ('MeetingJitsi', 'Settings', 'v2/meeting/settings', 'fas fa-cogs', 'usr_admin');
