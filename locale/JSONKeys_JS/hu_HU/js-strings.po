@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T15:52:53.699Z\n"
+"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2428,23 +2428,3 @@ msgstr "Kép feltöltése"
 
 #~ msgid "Are you sure you want to DELETE the event ?"
 #~ msgstr "Biztos, hogy törölni akarja az eseményt ?"
-
-#~ msgid ""
-#~ "You are about to delete the selected plugins. This action cannot be "
-#~ "undone!"
-#~ msgstr ""
-#~ "A kiválasztott bővítményeket törölni fogja. Ez a művelet nem vonható "
-#~ "vissza!"
-
-#~ msgid "Download the zipped file of the plugin"
-#~ msgstr "Töltse le a plugin zippelt fájlját"
-
-#~ msgid "Plugin download manager"
-#~ msgstr "Plugin letöltés menedzser"
-msgid "Confirmation of plugin removal"
-msgstr "A plugin eltávolításának megerősítése"
-
-msgid "You are about to delete the selected plugins. This action cannot be undone!"
-msgstr ""
-"A kiválasztott bővítményeket törölni fogja. Ez a művelet nem vonható "
-"vissza!"

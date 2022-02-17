@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-17 15:52+0000\n"
+"POT-Creation-Date: 2022-02-14 19:48+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -329,7 +329,7 @@ msgid "Save"
 msgstr "拯救"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:452 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -822,113 +822,113 @@ msgstr "移动电话"
 msgid "Your cart is empty!"
 msgstr "你的购物车是空的!"
 
-#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:122 EcclesiaCRM/MenuBar/MenuBar.php:129
 msgid "Call the Register"
 msgstr "呼叫登记处"
 
-#: Checkin.php:138 v2/templates/calendar/eventslist.php:30
+#: Checkin.php:131 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "添加新事件"
 
-#: Checkin.php:141
+#: Checkin.php:134
 msgid "QR Code Call"
 msgstr "二维码调用"
 
-#: Checkin.php:143
+#: Checkin.php:136
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
 #: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "售货亭经理"
 
-#: Checkin.php:149
+#: Checkin.php:142
 msgid "Edit Attendees"
 msgstr "编辑参会人员"
 
-#: Checkin.php:159
+#: Checkin.php:152
 msgid "Select Event"
 msgstr "选择事件"
 
-#: Checkin.php:173
+#: Checkin.php:166
 msgid "Select event"
 msgstr "选择事件"
 
-#: Checkin.php:208
+#: Checkin.php:201
 msgid "Listing"
 msgstr "上市"
 
-#: Checkin.php:214
+#: Checkin.php:207
 msgid "Number of rows"
 msgstr "行数"
 
-#: Checkin.php:232
+#: Checkin.php:225
 msgid "Checkin"
 msgstr "办理登机手续"
 
-#: Checkin.php:238 Checkin.php:255
+#: Checkin.php:231 Checkin.php:248
 msgid "Check all"
 msgstr "检查所有"
 
-#: Checkin.php:242 Checkin.php:260
+#: Checkin.php:235 Checkin.php:253
 msgid "Uncheck all"
 msgstr "取消勾选所有"
 
-#: Checkin.php:249
+#: Checkin.php:242
 msgid "Checkout"
 msgstr "结账"
 
-#: Checkin.php:268
+#: Checkin.php:261
 msgid "Add some notes"
 msgstr "添加一些注释"
 
-#: Checkin.php:282
+#: Checkin.php:275
 msgid "Validate Attendance"
 msgstr "验证出勤率"
 
-#: Checkin.php:302
+#: Checkin.php:295
 msgid "Set your free attendees"
 msgstr "设定你的自由出席者"
 
-#: Checkin.php:315
+#: Checkin.php:308
 msgid "Set your attendees Event"
 msgstr "设置您的与会者 活动"
 
-#: Checkin.php:354
+#: Checkin.php:347
 msgid "Your description"
 msgstr "您的描述"
 
-#: Checkin.php:366
+#: Checkin.php:359
 msgid "Add Free Attendees Count"
 msgstr "增加免费参会人数"
 
-#: Checkin.php:394
+#: Checkin.php:387
 msgid "Add single child/parents Attendees"
 msgstr "增加单身儿童/父母的出席者"
 
-#: Checkin.php:407
+#: Checkin.php:400
 msgid "Add Attendees for Event"
 msgstr "为活动添加与会者"
 
-#: Checkin.php:414 Checkin.php:423
+#: Checkin.php:407 Checkin.php:416
 msgid "Person's Name"
 msgstr "人的姓名"
 
-#: Checkin.php:435
+#: Checkin.php:428
 msgid "Adult Name(Optional)"
 msgstr "成人姓名（可选"
 
-#: Checkin.php:443
+#: Checkin.php:436
 msgid "Checked in By(Optional)"
 msgstr "办理入住手续的人（可选"
 
-#: Checkin.php:453
+#: Checkin.php:446
 msgid "Add and Checkin"
 msgstr "添加和报到"
 
-#: Checkin.php:465
+#: Checkin.php:458
 msgid "Add Visitor"
 msgstr "添加访客"
 
-#: Checkin.php:488 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:481 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "返回到活动"
 
@@ -1972,11 +1972,6 @@ msgstr "已停用的人员"
 msgid "Person Activated"
 msgstr "被激活的人"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:124
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
-msgid "Impossible to open"
-msgstr "不可能打开"
-
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
 msgid "Write a message Here !"
 msgstr "请在此写下您的留言!"
@@ -2247,6 +2242,10 @@ msgstr "所选文件超过了本服务器的最大上传尺寸"
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
 msgstr "GPG备份需要一个密码才能工作"
+
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+msgid "Impossible to open"
+msgstr "不可能打开"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -4458,7 +4457,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "您的EcclesiaCRM账户已更新"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
 #: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "状况"
@@ -4466,10 +4465,6 @@ msgstr "状况"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "请核实你的家庭信息"
-
-#: EcclesiaCRM/MenuBar/MenuBar.php:60
-msgid "Meeting"
-msgstr "会议"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
 #: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
@@ -5263,18 +5258,15 @@ msgstr "志愿者"
 msgid "Pledges"
 msgstr "认捐"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:30
-#: EcclesiaCRM/Service/AppIntegrityService.php:74
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
 msgid "Signature definition file signature failed validation"
 msgstr "签名定义文件签名验证失败"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:33
-#: EcclesiaCRM/Service/AppIntegrityService.php:77
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
 msgid "Signature definition File Missing"
 msgstr "签名定义文件缺失"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:42
-#: EcclesiaCRM/Service/AppIntegrityService.php:82
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
 msgid "One or more files failed signature validation"
 msgstr "一个或多个文件没有通过签名验证"
 
@@ -5494,7 +5486,7 @@ msgid "Missing Role Data for Some People"
 msgstr "一些人的角色数据缺失"
 
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
-#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:43
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:38
 msgid "Unmet Application Prerequisites"
 msgstr "未满足的应用先决条件"
 
@@ -6069,7 +6061,6 @@ msgstr "增加一个新的电子支付方式"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:357
 #: v2/templates/pastoralcare/pastoralcareperson.php:477
 #: v2/templates/pastoralcare/pastoralcareperson.php:484
-#: v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "删除"
 
@@ -6828,13 +6819,11 @@ msgstr "获得家庭的VCard"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:56
-#: v2/templates/plugins/plugins.php:105
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Deactivate"
 msgstr "停用"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:55
-#: v2/templates/plugins/plugins.php:105
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
 msgid "Activate"
 msgstr "激活"
 
@@ -7257,7 +7246,7 @@ msgstr "信息"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:82
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
 msgid "Description"
 msgstr "描述"
 
@@ -7755,17 +7744,17 @@ msgstr "你的任务"
 msgid "Integrity Check Results"
 msgstr "完整性检查结果"
 
-#: IntegrityCheck.php:36
+#: IntegrityCheck.php:31
 msgid "All Application Prerequisites Satisfied"
 msgstr "满足所有申请前提条件"
 
-#: IntegrityCheck.php:37
+#: IntegrityCheck.php:32
 msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
 msgstr "EcclesiaCRM所依赖的所有组件都已存在并在该服务器上正确配置。"
 
-#: IntegrityCheck.php:44
+#: IntegrityCheck.php:39
 msgid ""
 "Certain components that EcclesiaCRM relies upon are missing or improperly "
 "configured on this server.  The application may continue to function, but "
@@ -7774,51 +7763,47 @@ msgstr ""
 "EcclesiaCRM所依赖的某些组件在该服务器上缺失或配置不当。  该应用程序可能继续运"
 "行，但可能会产生意想不到的行为。"
 
-#: IntegrityCheck.php:48
+#: IntegrityCheck.php:43
 msgid "Failed"
 msgstr "失败"
 
-#: IntegrityCheck.php:57
+#: IntegrityCheck.php:52
 msgid "Integrity Check Failure"
 msgstr "完整性检查失败"
 
-#: IntegrityCheck.php:58
+#: IntegrityCheck.php:53
 msgid "The previous integrity check failed"
 msgstr "之前的完整性检查失败"
 
-#: IntegrityCheck.php:59
+#: IntegrityCheck.php:54
 msgid "Details:"
 msgstr "细节。"
 
-#: IntegrityCheck.php:63
+#: IntegrityCheck.php:58
 msgid "Files failing integrity check"
 msgstr "完整性检查失败的文件"
 
-#: IntegrityCheck.php:69 IntegrityCheck.php:95
+#: IntegrityCheck.php:63
 msgid "File Name"
 msgstr "文件名称"
 
-#: IntegrityCheck.php:74 IntegrityCheck.php:101
+#: IntegrityCheck.php:68
 msgid "File Missing"
 msgstr "文件缺失"
 
-#: IntegrityCheck.php:80 IntegrityCheck.php:107
+#: IntegrityCheck.php:74
 msgid "Expected Hash"
 msgstr "预期的哈希值"
 
-#: IntegrityCheck.php:81 IntegrityCheck.php:108
+#: IntegrityCheck.php:75
 msgid "Actual Hash"
 msgstr "实际哈希值"
 
-#: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
-msgid "Plugin"
-msgstr "插件"
-
-#: IntegrityCheck.php:127
+#: IntegrityCheck.php:90
 msgid "Integrity Check Passed"
 msgstr "完整性检查通过"
 
-#: IntegrityCheck.php:128
+#: IntegrityCheck.php:91
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -11116,11 +11101,7 @@ msgstr ""
 msgid "Plugins managements"
 msgstr "插件管理"
 
-#: v2/templates/plugins/plugins.php:36
-msgid "Add a plugin"
-msgstr "添加一个插件"
-
-#: v2/templates/plugins/plugins.php:41
+#: v2/templates/plugins/plugins.php:42
 msgid "Add new plugin"
 msgstr "添加新的插件"
 
@@ -11128,36 +11109,36 @@ msgstr "添加新的插件"
 msgid "Upload A Plugin"
 msgstr "上传一个插件"
 
-#: v2/templates/plugins/plugins.php:54
-msgid "Grouped actions"
-msgstr "分组行动"
-
-#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
 msgstr "勾选所有方框"
 
 #: v2/templates/plugins/plugins.php:84
+msgid "Plugin"
+msgstr "插件"
+
+#: v2/templates/plugins/plugins.php:87
 msgid "Update"
 msgstr "更新"
 
-#: v2/templates/plugins/plugins.php:102
+#: v2/templates/plugins/plugins.php:105
 msgid "Settings"
 msgstr "设置"
 
-#: v2/templates/plugins/plugins.php:107
+#: v2/templates/plugins/plugins.php:110
 msgid "guided tour"
 msgstr "导游"
 
-#: v2/templates/plugins/plugins.php:119
+#: v2/templates/plugins/plugins.php:122
 #, fuzzy
 msgid "Details"
 msgstr "细节。"
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Activated Plugin"
 msgstr "激活的插件"
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:125
 msgid "Deactivated Plugin"
 msgstr "停用的插件"
 
