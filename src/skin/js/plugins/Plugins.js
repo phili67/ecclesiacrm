@@ -143,7 +143,7 @@ $(document).ready(function () {
             '<form id="restoredatabase" action="/api/plugins/add" method="POST" enctype="multipart/form-data">\n' +
             '<div class="card card-gray">\n' +
             '    <div class="card-header">\n' +
-            '        <h3 class="card-title">' + i18next.t ("Select your zipped plugin file") + '</h3>\n' +
+            '        <h3 class="card-title">' + i18next.t("Select your zipped plugin file") + '</h3>\n' +
             '    </div>\n' +
             '    <div class="card-body">\n' +
             '            <input type="file" name="pluginFile" id="pluginFile" multiple="">\n' +
