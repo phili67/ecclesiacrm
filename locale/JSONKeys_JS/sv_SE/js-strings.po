@@ -2436,3 +2436,10 @@ msgstr "Ladda upp en bild"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Hanterare för nedladdning av insticksprogram"
+msgid "Confirmation of plugin removal"
+msgstr "Bekräftelse av borttagning av insticksprogram"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Du är på väg att radera de valda plugins. Denna åtgärd kan inte göras "
+"ogjord!"

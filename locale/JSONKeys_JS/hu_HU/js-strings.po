@@ -2441,3 +2441,10 @@ msgstr "Kép feltöltése"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Plugin letöltés menedzser"
+msgid "Confirmation of plugin removal"
+msgstr "A plugin eltávolításának megerősítése"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"A kiválasztott bővítményeket törölni fogja. Ez a művelet nem vonható "
+"vissza!"

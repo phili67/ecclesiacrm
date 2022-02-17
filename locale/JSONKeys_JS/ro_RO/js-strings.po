@@ -2456,3 +2456,10 @@ msgstr "Încărcați imaginea"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Manager de descărcare a plugin-urilor"
+msgid "Confirmation of plugin removal"
+msgstr "Confirmarea eliminării plugin-ului"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Sunteți pe cale să ștergeți pluginurile selectate. Această acțiune nu "
+"poate fi anulată!"

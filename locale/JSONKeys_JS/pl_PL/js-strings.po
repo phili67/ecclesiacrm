@@ -2495,3 +2495,8 @@ msgstr "Prześlij obraz"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Menedżer pobierania wtyczek"
+msgid "Confirmation of plugin removal"
+msgstr "Potwierdzenie usunięcia wtyczki"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Właśnie usuwasz wybrane wtyczki. Tej czynności nie można cofnąć!"

@@ -2424,3 +2424,8 @@ msgstr "上传图片"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "插件下载管理器"
+msgid "Confirmation of plugin removal"
+msgstr "确认删除插件"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "你即将删除所选的插件。这个动作不能撤消!"

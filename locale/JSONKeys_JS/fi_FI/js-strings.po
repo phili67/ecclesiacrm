@@ -2435,3 +2435,8 @@ msgstr "Lataa kuva"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Plugin download manager"
+msgid "Confirmation of plugin removal"
+msgstr "Vahvistus pluginin poistamisesta"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Olet poistamassa valittuja laajennuksia. Tätä toimenpidettä ei voi peruuttaa!"

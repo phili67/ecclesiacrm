@@ -2512,3 +2512,10 @@ msgstr "Carregar imagem"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Gerenciador de download de plugins"
+msgid "Confirmation of plugin removal"
+msgstr "Confirmação da remoção do plugin"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Você está prestes a apagar os plugins selecionados. Esta acção não pode ser "
+"desfeita!"

@@ -2455,3 +2455,11 @@ msgstr "Ανέβασμα εικόνας"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Διαχειριστής λήψης plugin"
+msgid "Confirmation of plugin removal"
+msgstr "Επιβεβαίωση της αφαίρεσης του plugin"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Πρόκειται να διαγράψετε τα επιλεγμένα "
+"πρόσθετα. Αυτή η ενέργεια δεν μπορεί να "
+"αναιρεθεί!"

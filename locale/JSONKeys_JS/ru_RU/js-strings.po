@@ -2438,3 +2438,10 @@ msgstr "Загрузить изображение"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Менеджер загрузки плагинов"
+msgid "Confirmation of plugin removal"
+msgstr "Подтверждение удаления плагина"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Вы собираетесь удалить выбранные плагины. "
+"Это действие нельзя отменить!"

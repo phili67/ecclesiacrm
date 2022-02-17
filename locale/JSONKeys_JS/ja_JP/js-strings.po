@@ -2418,3 +2418,8 @@ msgstr "画像のアップロード"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "プラグインダウンロードマネージャー"
+msgid "Confirmation of plugin removal"
+msgstr "プラグイン削除の確認"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "選択したプラグインを削除しようとしています。この操作は元に戻せません。"

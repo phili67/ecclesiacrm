@@ -2449,3 +2449,10 @@ msgstr "Afbeelding uploaden"
 
 #~ msgid "Plugin download manager"
 #~ msgstr "Plugin download manager"
+msgid "Confirmation of plugin removal"
+msgstr "Bevestiging van plugin verwijdering"
+
+msgid "You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"U staat op het punt om de geselecteerde plugins te verwijderen. Deze actie kan "
+"niet ongedaan worden gemaakt!"
