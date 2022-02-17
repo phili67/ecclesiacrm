@@ -53,7 +53,7 @@ class CartController
     }
 
     public function cartOperation (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+        if ( !( (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() ) && SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -124,7 +124,7 @@ class CartController
     }
 
     public function emptyCartToEvent (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isShowCartEnabled() )) {
             return $response->withStatus(401);
         }
 
@@ -154,7 +154,7 @@ class CartController
     }
 
     public function removeGroupFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -169,7 +169,7 @@ class CartController
     }
 
     public function removeGroupsFromCart(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
-        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isShowCartEnabled())) {
             return $response->withStatus(401);
         }
 
