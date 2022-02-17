@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -386,9 +386,6 @@ msgstr "Bạn sắp lấy một tập tài liệu và nó là nội dung"
 msgid "Set your Folder name"
 msgstr "Đặt tên thư mục của cậu"
 
-msgid "Upload your Files"
-msgstr "Tải hồ sơ lên"
-
 msgid "Files input"
 msgstr "Hồ sơ nhập vào"
 
@@ -397,6 +394,9 @@ msgstr "Tải hồ sơ của cô lên"
 
 msgid "Upload"
 msgstr "Tải lên"
+
+msgid "Upload your Files"
+msgstr "Tải hồ sơ lên"
 
 msgid "Share your File"
 msgstr "Chia sẻ hồ sơ của anh đi"
@@ -2193,6 +2193,24 @@ msgstr "Anh sắp xóa đăng ký rồi! Anh chắc chứ?"
 
 msgid "Deleting Subscribers..."
 msgstr "Xóa các bản vẽ..."
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Anh muốn xóa người này không? Chuyện này không thể hủy được."
+
+#, fuzzy
+msgid "Select your zipped plugin file"
+msgstr "Chọn Role đi"
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
 
 msgid "You must enter a password"
 msgstr "Anh phải nhập mật khẩu"

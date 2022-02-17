@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 18:37+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -331,7 +331,7 @@ msgid "Save"
 msgstr "Spara"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:452 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -838,113 +838,113 @@ msgstr "Mobiltelefon"
 msgid "Your cart is empty!"
 msgstr "Din varukorg är tom!"
 
-#: Checkin.php:122 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
 msgid "Call the Register"
 msgstr "Ring till registret"
 
-#: Checkin.php:131 v2/templates/calendar/eventslist.php:30
+#: Checkin.php:138 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "Lägg till en ny händelse"
 
-#: Checkin.php:134
+#: Checkin.php:141
 msgid "QR Code Call"
 msgstr "QR-kod Samtal"
 
-#: Checkin.php:136
+#: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
 #: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Kioskansvarig"
 
-#: Checkin.php:142
+#: Checkin.php:149
 msgid "Edit Attendees"
 msgstr "Redigera deltagare"
 
-#: Checkin.php:152
+#: Checkin.php:159
 msgid "Select Event"
 msgstr "Välj evenemang"
 
-#: Checkin.php:166
+#: Checkin.php:173
 msgid "Select event"
 msgstr "Välj evenemang"
 
-#: Checkin.php:201
+#: Checkin.php:208
 msgid "Listing"
 msgstr "Lista"
 
-#: Checkin.php:207
+#: Checkin.php:214
 msgid "Number of rows"
 msgstr "Antal rader"
 
-#: Checkin.php:225
+#: Checkin.php:232
 msgid "Checkin"
 msgstr "Incheckning"
 
-#: Checkin.php:231 Checkin.php:248
+#: Checkin.php:238 Checkin.php:255
 msgid "Check all"
 msgstr "Kontrollera alla"
 
-#: Checkin.php:235 Checkin.php:253
+#: Checkin.php:242 Checkin.php:260
 msgid "Uncheck all"
 msgstr "Avmarkera alla"
 
-#: Checkin.php:242
+#: Checkin.php:249
 msgid "Checkout"
 msgstr "Kassan"
 
-#: Checkin.php:261
+#: Checkin.php:268
 msgid "Add some notes"
 msgstr "Lägg till några anteckningar"
 
-#: Checkin.php:275
+#: Checkin.php:282
 msgid "Validate Attendance"
 msgstr "Validera närvaro"
 
-#: Checkin.php:295
+#: Checkin.php:302
 msgid "Set your free attendees"
 msgstr "Bestäm dina fria deltagare"
 
-#: Checkin.php:308
+#: Checkin.php:315
 msgid "Set your attendees Event"
 msgstr "Ange dina deltagare Evenemang"
 
-#: Checkin.php:347
+#: Checkin.php:354
 msgid "Your description"
 msgstr "Din beskrivning"
 
-#: Checkin.php:359
+#: Checkin.php:366
 msgid "Add Free Attendees Count"
 msgstr "Lägg till antalet gratis deltagare"
 
-#: Checkin.php:387
+#: Checkin.php:394
 msgid "Add single child/parents Attendees"
 msgstr "Lägg till ett enskilt barn/enstaka föräldrar Deltagare"
 
-#: Checkin.php:400
+#: Checkin.php:407
 msgid "Add Attendees for Event"
 msgstr "Lägg till deltagare för evenemanget"
 
-#: Checkin.php:407 Checkin.php:416
+#: Checkin.php:414 Checkin.php:423
 msgid "Person's Name"
 msgstr "Personens namn"
 
-#: Checkin.php:428
+#: Checkin.php:435
 msgid "Adult Name(Optional)"
 msgstr "Vuxnas namn (valfritt)"
 
-#: Checkin.php:436
+#: Checkin.php:443
 msgid "Checked in By(Optional)"
 msgstr "Incheckad av (frivillig uppgift)"
 
-#: Checkin.php:446
+#: Checkin.php:453
 msgid "Add and Checkin"
 msgstr "Lägg till och checka in"
 
-#: Checkin.php:458
+#: Checkin.php:465
 msgid "Add Visitor"
 msgstr "Lägg till besökare"
 
-#: Checkin.php:481 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:488 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Tillbaka till evenemang"
 
@@ -2008,6 +2008,11 @@ msgstr "Person inaktiverad"
 msgid "Person Activated"
 msgstr "Aktiverad person"
 
+#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+msgid "Impossible to open"
+msgstr "Omöjligt att öppna"
+
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
 msgid "Write a message Here !"
 msgstr "Skriv ett meddelande här!"
@@ -2280,10 +2285,6 @@ msgstr ""
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
 msgstr "GPG Backup behöver ett lösenord för att fungera"
-
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
-msgid "Impossible to open"
-msgstr "Omöjligt att öppna"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -4557,7 +4558,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ditt EcclesiaCRM-konto har uppdaterats"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
 #: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Status"
@@ -4565,6 +4566,10 @@ msgstr "Status"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "Kontrollera din familjs uppgifter"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:60
+msgid "Meeting"
+msgstr "Möte"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
 #: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
@@ -5358,15 +5363,18 @@ msgstr "volontär"
 msgid "Pledges"
 msgstr "Löften"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:30
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "Signaturdefinitionsfilens signatur misslyckades med valideringen"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:33
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "Fil för signaturdefinition saknas"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
+#: EcclesiaCRM/Service/AppIntegrityService.php:42
+#: EcclesiaCRM/Service/AppIntegrityService.php:82
 msgid "One or more files failed signature validation"
 msgstr "En eller flera filer misslyckades med signaturvalideringen"
 
@@ -5589,7 +5597,7 @@ msgid "Missing Role Data for Some People"
 msgstr "Uppgifter om roller saknas för vissa personer"
 
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
-#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:38
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:43
 msgid "Unmet Application Prerequisites"
 msgstr "Otillfredsställda förutsättningar för tillämpningen"
 
@@ -6165,6 +6173,7 @@ msgstr "Lägg till en ny elektronisk betalningsmetod"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:357
 #: v2/templates/pastoralcare/pastoralcareperson.php:477
 #: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Ta bort"
 
@@ -6934,11 +6943,13 @@ msgstr "Hämta familjens vCard"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:56
+#: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Inaktivera"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Aktivera"
 
@@ -7368,7 +7379,7 @@ msgstr "information"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -7874,11 +7885,11 @@ msgstr "Dina uppgifter"
 msgid "Integrity Check Results"
 msgstr "Resultat av integritetskontrollen"
 
-#: IntegrityCheck.php:31
+#: IntegrityCheck.php:36
 msgid "All Application Prerequisites Satisfied"
 msgstr "Alla förutsättningar för ansökan är uppfyllda"
 
-#: IntegrityCheck.php:32
+#: IntegrityCheck.php:37
 msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
@@ -7886,7 +7897,7 @@ msgstr ""
 "Alla komponenter som EcclesiaCRM är beroende av finns och är korrekt "
 "konfigurerade på den här servern."
 
-#: IntegrityCheck.php:39
+#: IntegrityCheck.php:44
 msgid ""
 "Certain components that EcclesiaCRM relies upon are missing or improperly "
 "configured on this server.  The application may continue to function, but "
@@ -7896,47 +7907,51 @@ msgstr ""
 "konfigurerade på den här servern.  Programmet kan fortsätta att fungera, men "
 "kan ge oväntat beteende."
 
-#: IntegrityCheck.php:43
+#: IntegrityCheck.php:48
 msgid "Failed"
 msgstr "Misslyckad"
 
-#: IntegrityCheck.php:52
+#: IntegrityCheck.php:57
 msgid "Integrity Check Failure"
 msgstr "Bristande integritetskontroll"
 
-#: IntegrityCheck.php:53
+#: IntegrityCheck.php:58
 msgid "The previous integrity check failed"
 msgstr "Den föregående integritetskontrollen misslyckades"
 
-#: IntegrityCheck.php:54
+#: IntegrityCheck.php:59
 msgid "Details:"
 msgstr "Detaljer:"
 
-#: IntegrityCheck.php:58
+#: IntegrityCheck.php:63
 msgid "Files failing integrity check"
 msgstr "Filer som inte klarar integritetskontrollen"
 
-#: IntegrityCheck.php:63
+#: IntegrityCheck.php:69 IntegrityCheck.php:95
 msgid "File Name"
 msgstr "Filnamn"
 
-#: IntegrityCheck.php:68
+#: IntegrityCheck.php:74 IntegrityCheck.php:101
 msgid "File Missing"
 msgstr "Fil saknas"
 
-#: IntegrityCheck.php:74
+#: IntegrityCheck.php:80 IntegrityCheck.php:107
 msgid "Expected Hash"
 msgstr "Förväntad hasch"
 
-#: IntegrityCheck.php:75
+#: IntegrityCheck.php:81 IntegrityCheck.php:108
 msgid "Actual Hash"
 msgstr "Faktiskt Hash"
 
-#: IntegrityCheck.php:90
+#: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
+msgid "Plugin"
+msgstr "Plugin"
+
+#: IntegrityCheck.php:127
 msgid "Integrity Check Passed"
 msgstr "Integritetskontroll godkänd"
 
-#: IntegrityCheck.php:91
+#: IntegrityCheck.php:128
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -11337,7 +11352,11 @@ msgstr ""
 msgid "Plugins managements"
 msgstr "Hantering av insticksprogram"
 
-#: v2/templates/plugins/plugins.php:42
+#: v2/templates/plugins/plugins.php:36
+msgid "Add a plugin"
+msgstr "Lägg till ett insticksprogram"
+
+#: v2/templates/plugins/plugins.php:41
 msgid "Add new plugin"
 msgstr "Lägg till ett nytt insticksprogram"
 
@@ -11345,35 +11364,35 @@ msgstr "Lägg till ett nytt insticksprogram"
 msgid "Upload A Plugin"
 msgstr "Ladda upp en plugin"
 
-#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:54
+msgid "Grouped actions"
+msgstr "Grupperade åtgärder"
+
+#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
 msgstr "Kryssa i alla rutor"
 
 #: v2/templates/plugins/plugins.php:84
-msgid "Plugin"
-msgstr "Plugin"
-
-#: v2/templates/plugins/plugins.php:87
 msgid "Update"
 msgstr "Uppdatera"
 
-#: v2/templates/plugins/plugins.php:105
+#: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "Inställningar"
 
-#: v2/templates/plugins/plugins.php:110
+#: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
 msgstr "guidad tur"
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:119
 msgid "Details"
 msgstr "Detaljer"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 msgid "Activated Plugin"
 msgstr "Aktiverad plugin"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 msgid "Deactivated Plugin"
 msgstr "Inaktiverad plugin"
 

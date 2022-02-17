@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -390,9 +390,6 @@ msgstr "Sunteți pe cale să eliminați un dosar și conținutul acestuia"
 msgid "Set your Folder name"
 msgstr "Setați numele dosarului dvs."
 
-msgid "Upload your Files"
-msgstr "Încărcați fișierele dvs."
-
 msgid "Files input"
 msgstr "Intrarea fișierelor"
 
@@ -401,6 +398,9 @@ msgstr "Încărcați fișierele dvs."
 
 msgid "Upload"
 msgstr "Încărcați"
+
+msgid "Upload your Files"
+msgstr "Încărcați fișierele dvs."
 
 msgid "Share your File"
 msgstr "Partajați fișierul dvs."
@@ -2220,6 +2220,24 @@ msgstr "Sunteți pe cale să ștergeți abonați! Sunteți sigur?"
 
 msgid "Deleting Subscribers..."
 msgstr "Ștergerea abonaților..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Confirmarea eliminării plugin-ului"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Sunteți pe cale să ștergeți pluginurile selectate. Această acțiune nu poate "
+"fi anulată!"
+
+msgid "Select your zipped plugin file"
+msgstr "Selectați fișierul de plugin zippat"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Descărcați fișierul zippat al plugin-ului"
+
+msgid "Plugin download manager"
+msgstr "Manager de descărcare a plugin-urilor"
 
 msgid "You must enter a password"
 msgstr "Trebuie să introduceți o parolă"

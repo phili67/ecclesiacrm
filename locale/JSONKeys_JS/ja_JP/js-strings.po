@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -383,9 +383,6 @@ msgstr "フォルダとその内容を削除しようとしている"
 msgid "Set your Folder name"
 msgstr "フォルダー名の設定"
 
-msgid "Upload your Files"
-msgstr "ファイルのアップロード"
-
 msgid "Files input"
 msgstr "入力ファイル"
 
@@ -394,6 +391,9 @@ msgstr "ファイルのアップロード"
 
 msgid "Upload"
 msgstr "アップロード"
+
+msgid "Upload your Files"
+msgstr "ファイルのアップロード"
 
 msgid "Share your File"
 msgstr "ファイルの共有"
@@ -2185,6 +2185,22 @@ msgstr "サブスクライバーを削除しようとしています。本当に
 
 msgid "Deleting Subscribers..."
 msgstr "購読者の削除..."
+
+msgid "Confirmation of plugin removal"
+msgstr "プラグイン削除の確認"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "選択したプラグインを削除しようとしています。この操作は元に戻せません。"
+
+msgid "Select your zipped plugin file"
+msgstr "zip形式のプラグインファイルを選択"
+
+msgid "Download the zipped file of the plugin"
+msgstr "プラグインのZIPファイルをダウンロードする"
+
+msgid "Plugin download manager"
+msgstr "プラグインダウンロードマネージャー"
 
 msgid "You must enter a password"
 msgstr "パスワードの入力が必要"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -383,9 +383,6 @@ msgstr "أنت على وشك إزالة ملف وهو محتوى"
 msgid "Set your Folder name"
 msgstr "ضع اسمك"
 
-msgid "Upload your Files"
-msgstr "قم بتحميل ملفاتك"
-
 msgid "Files input"
 msgstr "ملفات المدخلات"
 
@@ -394,6 +391,9 @@ msgstr "قم بتحميل ملفاتك"
 
 msgid "Upload"
 msgstr "\"تو بلود\""
+
+msgid "Upload your Files"
+msgstr "قم بتحميل ملفاتك"
 
 msgid "Share your File"
 msgstr "شارك ملفك"
@@ -2171,6 +2171,24 @@ msgstr "أنت على وشك حذف المشتركين هل أنت متأكد؟"
 
 msgid "Deleting Subscribers..."
 msgstr "حذف المشتركين..."
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "هل تريد حذف هذا الشخص؟ لا يمكن أن يتم إلغاء هذا"
+
+#, fuzzy
+msgid "Select your zipped plugin file"
+msgstr "اختر دورك"
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
 
 msgid "You must enter a password"
 msgstr "يجب أن تدخل كلمة السر"

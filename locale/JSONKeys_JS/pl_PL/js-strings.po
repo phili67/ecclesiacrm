@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -388,9 +388,6 @@ msgstr "Zamierzasz usunąć folder wraz z jego zawartością"
 msgid "Set your Folder name"
 msgstr "Ustaw nazwę folderu"
 
-msgid "Upload your Files"
-msgstr "Prześlij swoje pliki"
-
 msgid "Files input"
 msgstr "Wejście plików"
 
@@ -399,6 +396,9 @@ msgstr "Prześlij swoje pliki"
 
 msgid "Upload"
 msgstr "Prześlij"
+
+msgid "Upload your Files"
+msgstr "Prześlij swoje pliki"
 
 msgid "Share your File"
 msgstr "Udostępnij swój plik"
@@ -2197,6 +2197,22 @@ msgstr "Zamierzasz usunąć subskrybentów! Czy jesteś pewien?"
 
 msgid "Deleting Subscribers..."
 msgstr "Usuwanie subskrybentów..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Potwierdzenie usunięcia wtyczki"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Właśnie usuwasz wybrane wtyczki. Tej czynności nie można cofnąć!"
+
+msgid "Select your zipped plugin file"
+msgstr "Wybierz swój spakowany plik wtyczki"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Pobierz zzipowany plik wtyczki"
+
+msgid "Plugin download manager"
+msgstr "Menedżer pobierania wtyczek"
 
 msgid "You must enter a password"
 msgstr "Należy wprowadzić hasło."

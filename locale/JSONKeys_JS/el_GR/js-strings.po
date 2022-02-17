@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -390,9 +390,6 @@ msgstr "Πρόκειται να αφαιρέσετε έναν φάκελο κα�
 msgid "Set your Folder name"
 msgstr "Ορίστε το όνομα του φακέλου σας"
 
-msgid "Upload your Files"
-msgstr "Ανεβάστε τα αρχεία σας"
-
 msgid "Files input"
 msgstr "Εισαγωγή αρχείων"
 
@@ -401,6 +398,9 @@ msgstr "Ανεβάστε τα αρχεία σας"
 
 msgid "Upload"
 msgstr "Ανέβασμα"
+
+msgid "Upload your Files"
+msgstr "Ανεβάστε τα αρχεία σας"
 
 msgid "Share your File"
 msgstr "Μοιραστείτε το αρχείο σας"
@@ -2224,6 +2224,24 @@ msgstr "Πρόκειται να διαγράψετε συνδρομητές! Ε�
 
 msgid "Deleting Subscribers..."
 msgstr "Διαγραφή συνδρομητών..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Επιβεβαίωση της αφαίρεσης του plugin"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Πρόκειται να διαγράψετε τα επιλεγμένα πρόσθετα. Αυτή η ενέργεια δεν μπορεί "
+"να αναιρεθεί!"
+
+msgid "Select your zipped plugin file"
+msgstr "Επιλέξτε το αρχείο του plugin που έχετε συμπιέσει"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Κατεβάστε το αρχείο zipped του plugin"
+
+msgid "Plugin download manager"
+msgstr "Διαχειριστής λήψης plugin"
 
 msgid "You must enter a password"
 msgstr "Πρέπει να εισαγάγετε έναν κωδικό πρόσβασης"

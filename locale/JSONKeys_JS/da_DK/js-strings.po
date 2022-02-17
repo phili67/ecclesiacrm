@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -388,9 +388,6 @@ msgstr "Du er ved at fjerne en mappe og dens indhold"
 msgid "Set your Folder name"
 msgstr "Indstil navnet på din mappe"
 
-msgid "Upload your Files"
-msgstr "Upload dine filer"
-
 msgid "Files input"
 msgstr "Indtastning af filer"
 
@@ -399,6 +396,9 @@ msgstr "Upload dine filer"
 
 msgid "Upload"
 msgstr "Upload"
+
+msgid "Upload your Files"
+msgstr "Upload dine filer"
 
 msgid "Share your File"
 msgstr "Del din fil"
@@ -2201,6 +2201,23 @@ msgstr "Du er ved at slette abonnenter! Er du sikker?"
 
 msgid "Deleting Subscribers..."
 msgstr "Sletning af abonnenter..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Bekræftelse af fjernelse af plugin"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Du er ved at slette de valgte plugins. Denne handling kan ikke fortrydes!"
+
+msgid "Select your zipped plugin file"
+msgstr "Vælg din komprimerede plugin-fil"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Download den komprimerede fil af plugin'et"
+
+msgid "Plugin download manager"
+msgstr "Plugin download manager"
 
 msgid "You must enter a password"
 msgstr "Du skal indtaste en adgangskode"
