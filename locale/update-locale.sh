@@ -23,6 +23,7 @@ i18next-extract-gettext --files=skin/js/system/*.js --output=../locale/js-string
 i18next-extract-gettext --files=skin/js/user/*.js --output=../locale/js-strings13.pot
 
 i18next-extract-gettext --files=skin/js/email/MailChimp/*.js --output=../locale/js-strings14.pot
+i18next-extract-gettext --files=skin/js/plugins/*.js --output=../locale/js-strings15.pot
 i18next-extract-gettext --files=skin/js/backup/*.js --output=../locale/js-strings16.pot
 i18next-extract-gettext --files=skin/js/Search/*.js --output=../locale/js-strings17.pot
 i18next-extract-gettext --files=skin/js/pastoralcare/*.js --output=../locale/js-strings18.pot
@@ -31,10 +32,9 @@ i18next-extract-gettext --files=skin/js/groupcommon/*.js --output=../locale/js-s
 
 i18next-extract-gettext --files=skin/js/jquery-photo-uploader/*.js --output=../locale/js-strings21.pot
 
+msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot -o ../locale/js-strings.pot
 
-msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings33.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot -o ../locale/js-strings.pot
-
-rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings33.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot ../locale/js-strings16.pot ../locale/js-strings17.pot ../locale/js-strings18.pot ../locale/js-strings19.pot ../locale/js-strings20.pot ../locale/js-strings21.pot
 
 cd ../locale
 
