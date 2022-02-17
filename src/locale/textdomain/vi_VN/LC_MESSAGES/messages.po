@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 15:52+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -331,7 +331,7 @@ msgid "Save"
 msgstr "Cứu"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:452 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -838,113 +838,113 @@ msgstr "Điện thoại di động"
 msgid "Your cart is empty!"
 msgstr "Xe của anh trống trơn!"
 
-#: Checkin.php:122 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
 msgid "Call the Register"
 msgstr "Gọi cho Register"
 
-#: Checkin.php:131 v2/templates/calendar/eventslist.php:30
+#: Checkin.php:138 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "Thêm một sự kiện mới"
 
-#: Checkin.php:134
+#: Checkin.php:141
 msgid "QR Code Call"
 msgstr "Mã QR Call"
 
-#: Checkin.php:136
+#: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
 #: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Quản lý Kiosk"
 
-#: Checkin.php:142
+#: Checkin.php:149
 msgid "Edit Attendees"
 msgstr "Edit Attendees"
 
-#: Checkin.php:152
+#: Checkin.php:159
 msgid "Select Event"
 msgstr "Chọn Event đi"
 
-#: Checkin.php:166
+#: Checkin.php:173
 msgid "Select event"
 msgstr "Chọn sự kiện đi"
 
-#: Checkin.php:201
+#: Checkin.php:208
 msgid "Listing"
 msgstr "Lôi kéo"
 
-#: Checkin.php:207
+#: Checkin.php:214
 msgid "Number of rows"
 msgstr "Số hàng"
 
-#: Checkin.php:225
+#: Checkin.php:232
 msgid "Checkin"
 msgstr "Chiếu tướng."
 
-#: Checkin.php:231 Checkin.php:248
+#: Checkin.php:238 Checkin.php:255
 msgid "Check all"
 msgstr "Kiểm tra tất cả"
 
-#: Checkin.php:235 Checkin.php:253
+#: Checkin.php:242 Checkin.php:260
 msgid "Uncheck all"
 msgstr "Không kiểm tra hết"
 
-#: Checkin.php:242
+#: Checkin.php:249
 msgid "Checkout"
 msgstr "Kiểm tra"
 
-#: Checkin.php:261
+#: Checkin.php:268
 msgid "Add some notes"
 msgstr "Thêm vài ghi chú"
 
-#: Checkin.php:275
+#: Checkin.php:282
 msgid "Validate Attendance"
 msgstr "Chương trình bảo đảm"
 
-#: Checkin.php:295
+#: Checkin.php:302
 msgid "Set your free attendees"
 msgstr "Hãy để những người tự do tham gia"
 
-#: Checkin.php:308
+#: Checkin.php:315
 msgid "Set your attendees Event"
 msgstr "Hãy chuẩn bị cho sự tham dự của các vị"
 
-#: Checkin.php:347
+#: Checkin.php:354
 msgid "Your description"
 msgstr "Mô tả của anh"
 
-#: Checkin.php:359
+#: Checkin.php:366
 msgid "Add Free Attendees Count"
 msgstr "Cộng bá tước Free Attendees miễn phí"
 
-#: Checkin.php:387
+#: Checkin.php:394
 msgid "Add single child/parents Attendees"
 msgstr "Thêm một đứa trẻ con vào làm lễ cưới"
 
-#: Checkin.php:400
+#: Checkin.php:407
 msgid "Add Attendees for Event"
 msgstr "Thêm Attendes cho Event"
 
-#: Checkin.php:407 Checkin.php:416
+#: Checkin.php:414 Checkin.php:423
 msgid "Person's Name"
 msgstr "Tên của người"
 
-#: Checkin.php:428
+#: Checkin.php:435
 msgid "Adult Name(Optional)"
 msgstr "Tên người lớn (lựa chọn)"
 
-#: Checkin.php:436
+#: Checkin.php:443
 msgid "Checked in By(Optional)"
 msgstr "Đã kiểm tra bởi(lựa chọn)"
 
-#: Checkin.php:446
+#: Checkin.php:453
 msgid "Add and Checkin"
 msgstr "Cộng và Checkin"
 
-#: Checkin.php:458
+#: Checkin.php:465
 msgid "Add Visitor"
 msgstr "Thêm khách vào"
 
-#: Checkin.php:481 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:488 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Trở về với những khoảnh khắc"
 
@@ -2007,6 +2007,11 @@ msgstr "Người bị vô hiệu hóa"
 msgid "Person Activated"
 msgstr "Đã kích hoạt"
 
+#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+msgid "Impossible to open"
+msgstr "Không thể mở được"
+
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
 msgid "Write a message Here !"
 msgstr "Viết một tin nhắn ở đây!"
@@ -2278,10 +2283,6 @@ msgstr ""
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
 msgstr "Hỗ trợ GPG cần có mật khẩu để làm việc"
-
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
-msgid "Impossible to open"
-msgstr "Không thể mở được"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -4536,7 +4537,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Tài khoản CRM Ecclesiacủa anh đã được cập nhật"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
 #: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Tình hình thế nào?"
@@ -4544,6 +4545,11 @@ msgstr "Tình hình thế nào?"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "Xin hãy xác minh thông tin của gia đình"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:60
+#, fuzzy
+msgid "Meeting"
+msgstr "Họp mặt"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
 #: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
@@ -5337,15 +5343,18 @@ msgstr "Tình nguyện."
 msgid "Pledges"
 msgstr "Pledges"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:30
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "Dữ liệu định nghĩa dấu hiệu đã bị hỏng"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:33
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "Mất định nghĩa ký hiệu"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
+#: EcclesiaCRM/Service/AppIntegrityService.php:42
+#: EcclesiaCRM/Service/AppIntegrityService.php:82
 msgid "One or more files failed signature validation"
 msgstr "Một hoặc nhiều hồ sơ đã thất bại xác nhận dấu hiệu"
 
@@ -5568,7 +5577,7 @@ msgid "Missing Role Data for Some People"
 msgstr "Mất dấu Role Data vì vài người"
 
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
-#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:38
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:43
 msgid "Unmet Application Prerequisites"
 msgstr "Ứng dụng chưa được đáp ứng"
 
@@ -6143,6 +6152,7 @@ msgstr "Thêm một phương pháp luật pháp luật mới"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:357
 #: v2/templates/pastoralcare/pastoralcareperson.php:477
 #: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Xóa"
 
@@ -6909,11 +6919,13 @@ msgstr "Lấy VCard của gia đình"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:56
+#: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Vô hiệu hóa"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Kích hoạt"
 
@@ -7340,7 +7352,7 @@ msgstr "Insos"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "Mô tả"
 
@@ -7843,11 +7855,11 @@ msgstr "Nhiệm vụ của anh"
 msgid "Integrity Check Results"
 msgstr "Kiểm tra trung tâm"
 
-#: IntegrityCheck.php:31
+#: IntegrityCheck.php:36
 msgid "All Application Prerequisites Satisfied"
 msgstr "Tất cả các ứng dụng đều thỏa mãn"
 
-#: IntegrityCheck.php:32
+#: IntegrityCheck.php:37
 msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
@@ -7855,7 +7867,7 @@ msgstr ""
 "Tất cả các thành phần mà EcclesiaCRM phụ thuộc vào hiện tại và được cấu hình "
 "chính xác trên máy chủ này"
 
-#: IntegrityCheck.php:39
+#: IntegrityCheck.php:44
 msgid ""
 "Certain components that EcclesiaCRM relies upon are missing or improperly "
 "configured on this server.  The application may continue to function, but "
@@ -7865,47 +7877,51 @@ msgstr ""
 "định hình trên máy chủ này. Đơn xin có thể tiếp tục hoạt động, nhưng có thể "
 "tạo ra những hành vi bất ngờ."
 
-#: IntegrityCheck.php:43
+#: IntegrityCheck.php:48
 msgid "Failed"
 msgstr "Thất bại"
 
-#: IntegrityCheck.php:52
+#: IntegrityCheck.php:57
 msgid "Integrity Check Failure"
 msgstr "Thất bại hoàn toàn"
 
-#: IntegrityCheck.php:53
+#: IntegrityCheck.php:58
 msgid "The previous integrity check failed"
 msgstr "Kiểm tra toàn vẹn trước đó đã thất bại"
 
-#: IntegrityCheck.php:54
+#: IntegrityCheck.php:59
 msgid "Details:"
 msgstr "Chi tiết:"
 
-#: IntegrityCheck.php:58
+#: IntegrityCheck.php:63
 msgid "Files failing integrity check"
 msgstr "Hồ sơ bị hỏng"
 
-#: IntegrityCheck.php:63
+#: IntegrityCheck.php:69 IntegrityCheck.php:95
 msgid "File Name"
 msgstr "Tên"
 
-#: IntegrityCheck.php:68
+#: IntegrityCheck.php:74 IntegrityCheck.php:101
 msgid "File Missing"
 msgstr "Hồ sơ mất tích"
 
-#: IntegrityCheck.php:74
+#: IntegrityCheck.php:80 IntegrityCheck.php:107
 msgid "Expected Hash"
 msgstr "Tôi mong là sẽ có tin tức"
 
-#: IntegrityCheck.php:75
+#: IntegrityCheck.php:81 IntegrityCheck.php:108
 msgid "Actual Hash"
 msgstr "Đúng là \"Hash\""
 
-#: IntegrityCheck.php:90
+#: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
+msgid "Plugin"
+msgstr ""
+
+#: IntegrityCheck.php:127
 msgid "Integrity Check Passed"
 msgstr "Kiểm tra tính chính trực"
 
-#: IntegrityCheck.php:91
+#: IntegrityCheck.php:128
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -11283,7 +11299,12 @@ msgstr ""
 msgid "Plugins managements"
 msgstr "Quản lý Role"
 
-#: v2/templates/plugins/plugins.php:42
+#: v2/templates/plugins/plugins.php:36
+#, fuzzy
+msgid "Add a plugin"
+msgstr "Thêm một lời thề mới"
+
+#: v2/templates/plugins/plugins.php:41
 #, fuzzy
 msgid "Add new plugin"
 msgstr "Thêm một lời thề mới"
@@ -11293,37 +11314,38 @@ msgstr "Thêm một lời thề mới"
 msgid "Upload A Plugin"
 msgstr "Tải hồ sơ CSV"
 
-#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:54
+#, fuzzy
+msgid "Grouped actions"
+msgstr "Tập đoàn Functions"
+
+#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
 msgstr "Kiểm tra tất cả các hộp"
 
 #: v2/templates/plugins/plugins.php:84
-msgid "Plugin"
-msgstr ""
-
-#: v2/templates/plugins/plugins.php:87
 msgid "Update"
 msgstr "Cập nhật"
 
-#: v2/templates/plugins/plugins.php:105
+#: v2/templates/plugins/plugins.php:102
 #, fuzzy
 msgid "Settings"
 msgstr "Thiết lập bản đồ"
 
-#: v2/templates/plugins/plugins.php:110
+#: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
 msgstr ""
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:119
 msgid "Details"
 msgstr "Chi tiết"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 #, fuzzy
 msgid "Activated Plugin"
 msgstr "Đã kích hoạt."
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 #, fuzzy
 msgid "Deactivated Plugin"
 msgstr "Vô hiệu hóa"
