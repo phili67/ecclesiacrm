@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 15:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,19 +41,19 @@ msgstr ""
 msgid "This action will delete all your rooms"
 msgstr ""
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:39
 msgid "Delete all Rooms"
 msgstr ""
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:41
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:42
 msgid "Appointment"
 msgstr ""
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:52
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:53
 msgid "Room Name"
 msgstr ""
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:63
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:64
 msgid "First create a Jitsi room with the button above !"
 msgstr ""
 

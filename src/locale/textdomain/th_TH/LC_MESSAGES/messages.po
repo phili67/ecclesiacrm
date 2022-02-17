@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 15:52+0000\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -329,7 +329,7 @@ msgid "Save"
 msgstr "ช่วยด้วย"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:452 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -825,113 +825,113 @@ msgstr "โมบีล โทรศัพท์"
 msgid "Your cart is empty!"
 msgstr "รถเข็นของคุณว่างเปล่า!"
 
-#: Checkin.php:122 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
 msgid "Call the Register"
 msgstr "โทรหาเรจิสเตอร์"
 
-#: Checkin.php:131 v2/templates/calendar/eventslist.php:30
+#: Checkin.php:138 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "เพิ่มอีเวนท์"
 
-#: Checkin.php:134
+#: Checkin.php:141
 msgid "QR Code Call"
 msgstr "รหัสควบคุม"
 
-#: Checkin.php:136
+#: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
 #: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "ผู้จัดการคิวส์"
 
-#: Checkin.php:142
+#: Checkin.php:149
 msgid "Edit Attendees"
 msgstr "Edit Attendees"
 
-#: Checkin.php:152
+#: Checkin.php:159
 msgid "Select Event"
 msgstr "เลือกอีเวนท์"
 
-#: Checkin.php:166
+#: Checkin.php:173
 msgid "Select event"
 msgstr "เลือกเหตุการณ์"
 
-#: Checkin.php:201
+#: Checkin.php:208
 msgid "Listing"
 msgstr "กำลังจะ"
 
-#: Checkin.php:207
+#: Checkin.php:214
 msgid "Number of rows"
 msgstr "จำนวนแถว"
 
-#: Checkin.php:225
+#: Checkin.php:232
 msgid "Checkin"
 msgstr "เช็คซิ"
 
-#: Checkin.php:231 Checkin.php:248
+#: Checkin.php:238 Checkin.php:255
 msgid "Check all"
 msgstr "ดูทั้งหมด"
 
-#: Checkin.php:235 Checkin.php:253
+#: Checkin.php:242 Checkin.php:260
 msgid "Uncheck all"
 msgstr "ไม่ต้องเช็คทั้งหมด"
 
-#: Checkin.php:242
+#: Checkin.php:249
 msgid "Checkout"
 msgstr "ตรวจสอบ"
 
-#: Checkin.php:261
+#: Checkin.php:268
 msgid "Add some notes"
 msgstr "บวกโน้ตลงไป"
 
-#: Checkin.php:275
+#: Checkin.php:282
 msgid "Validate Attendance"
 msgstr "การกระทำผิด"
 
-#: Checkin.php:295
+#: Checkin.php:302
 msgid "Set your free attendees"
 msgstr "ตั้งผู้เข้าร่วมงานฟรี"
 
-#: Checkin.php:308
+#: Checkin.php:315
 msgid "Set your attendees Event"
 msgstr "ตั้งแขก"
 
-#: Checkin.php:347
+#: Checkin.php:354
 msgid "Your description"
 msgstr "คำอธิบายของคุณ"
 
-#: Checkin.php:359
+#: Checkin.php:366
 msgid "Add Free Attendees Count"
 msgstr "Add Free Attendees Count"
 
-#: Checkin.php:387
+#: Checkin.php:394
 msgid "Add single child/parents Attendees"
 msgstr "เพิ่ม เด็ก เดียว และ พ่อแม่ ผู้ พิพากษา"
 
-#: Checkin.php:400
+#: Checkin.php:407
 msgid "Add Attendees for Event"
 msgstr "Add Attendees for Event"
 
-#: Checkin.php:407 Checkin.php:416
+#: Checkin.php:414 Checkin.php:423
 msgid "Person's Name"
 msgstr "ชื่อของคุณ"
 
-#: Checkin.php:428
+#: Checkin.php:435
 msgid "Adult Name(Optional)"
 msgstr "ชื่อผู้ใหญ่"
 
-#: Checkin.php:436
+#: Checkin.php:443
 msgid "Checked in By(Optional)"
 msgstr "ตรวจสอบใน โดย(เลือก)"
 
-#: Checkin.php:446
+#: Checkin.php:453
 msgid "Add and Checkin"
 msgstr "แอด และเช็คกิ้น"
 
-#: Checkin.php:458
+#: Checkin.php:465
 msgid "Add Visitor"
 msgstr "เพิ่มเยี่ยม"
 
-#: Checkin.php:481 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:488 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "กลับไปอีเวนส์"
 
@@ -1974,6 +1974,11 @@ msgstr "คนหยุดการทำงาน"
 msgid "Person Activated"
 msgstr "ทำงานบุคคล"
 
+#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+msgid "Impossible to open"
+msgstr "เปิดไม่ได้"
+
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
 msgid "Write a message Here !"
 msgstr "เขียนข้อความที่นี่"
@@ -2244,10 +2249,6 @@ msgstr "ไฟล์ที่ถูกเลือกเกิน เกิน �
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
 msgstr "กองกำลังเสริม ต้องการรหัสผ่าน"
-
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
-msgid "Impossible to open"
-msgstr "เปิดไม่ได้"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -4461,7 +4462,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ecclesiaแอคเค้าท์คุณถูกปรับเดทแล้ว"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
 #: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "สถานะ"
@@ -4469,6 +4470,11 @@ msgstr "สถานะ"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "กรุณาตรวจสอบข้อมูลของครอบครัวคุณด้วย"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:60
+#, fuzzy
+msgid "Meeting"
+msgstr "ประชุม"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
 #: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
@@ -5262,15 +5268,18 @@ msgstr "อาสาสมัคร"
 msgid "Pledges"
 msgstr "มียาง"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:30
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "เอกสารเอกสารเอกสารล้มเหลว"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:33
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "นิยามลายเซ็นต์ที่หายไป"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
+#: EcclesiaCRM/Service/AppIntegrityService.php:42
+#: EcclesiaCRM/Service/AppIntegrityService.php:82
 msgid "One or more files failed signature validation"
 msgstr "เอกสารล้มเหลวเพียงหนึ่งหรือมากกว่านั้น"
 
@@ -5490,7 +5499,7 @@ msgid "Missing Role Data for Some People"
 msgstr "สูญพันธุ์โรลดาต้าหายไป"
 
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
-#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:38
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:43
 msgid "Unmet Application Prerequisites"
 msgstr "ไม่มีใครพบผู้นำ"
 
@@ -6065,6 +6074,7 @@ msgstr "บวกวิธีจ่ายเงินอิเล็กทรอ
 #: v2/templates/pastoralcare/pastoralcarefamily.php:357
 #: v2/templates/pastoralcare/pastoralcareperson.php:477
 #: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "ลบ"
 
@@ -6822,11 +6832,13 @@ msgstr "เอาบัตรผ่าน"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:56
+#: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "หยุดการทำงาน"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "เปิดเครื่อง"
 
@@ -7249,7 +7261,7 @@ msgstr "ข้อมูล"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "บรรยาย"
 
@@ -7747,17 +7759,17 @@ msgstr "งานของคุณ"
 msgid "Integrity Check Results"
 msgstr "ผลการตรวจดูความซื่อสัตย์"
 
-#: IntegrityCheck.php:31
+#: IntegrityCheck.php:36
 msgid "All Application Prerequisites Satisfied"
 msgstr "ทุกคนต้องการพร้อมที่นี่"
 
-#: IntegrityCheck.php:32
+#: IntegrityCheck.php:37
 msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
 msgstr "ส่วนประกอบทั้งหมด EcclesiaCRM พึ่งพา ที่อยู่บนซิฟเวอร์นี้อย่างถูกต้อง"
 
-#: IntegrityCheck.php:39
+#: IntegrityCheck.php:44
 msgid ""
 "Certain components that EcclesiaCRM relies upon are missing or improperly "
 "configured on this server.  The application may continue to function, but "
@@ -7766,47 +7778,51 @@ msgstr ""
 "ส่วนประกอบบางอย่างที่ว่า EcclesiaCRM พึ่งพา มันหายไป หรือจัดเรียงที่อยู่บนเซิร์ฟเวอร์นี้ "
 "การนำไปใช้ยังคงดำเนินการต่อไป แต่อาจสร้างพฤติกรรมที่ไม่คาดคิด"
 
-#: IntegrityCheck.php:43
+#: IntegrityCheck.php:48
 msgid "Failed"
 msgstr "ล้มเหลว"
 
-#: IntegrityCheck.php:52
+#: IntegrityCheck.php:57
 msgid "Integrity Check Failure"
 msgstr "ตรวจสอบความซื่อสัตย์"
 
-#: IntegrityCheck.php:53
+#: IntegrityCheck.php:58
 msgid "The previous integrity check failed"
 msgstr "การตรวจสอบความซื่อสัตย์ก่อนหน้านี้ล้มเหลว"
 
-#: IntegrityCheck.php:54
+#: IntegrityCheck.php:59
 msgid "Details:"
 msgstr "รายละเอียด:"
 
-#: IntegrityCheck.php:58
+#: IntegrityCheck.php:63
 msgid "Files failing integrity check"
 msgstr "ไฟล์ล้มเหลวในการตรวจสอบความซื่อสัตย์"
 
-#: IntegrityCheck.php:63
+#: IntegrityCheck.php:69 IntegrityCheck.php:95
 msgid "File Name"
 msgstr "ชื่อไฟล์"
 
-#: IntegrityCheck.php:68
+#: IntegrityCheck.php:74 IntegrityCheck.php:101
 msgid "File Missing"
 msgstr "ไฟล์หายไป"
 
-#: IntegrityCheck.php:74
+#: IntegrityCheck.php:80 IntegrityCheck.php:107
 msgid "Expected Hash"
 msgstr "คาดว่าแฮช"
 
-#: IntegrityCheck.php:75
+#: IntegrityCheck.php:81 IntegrityCheck.php:108
 msgid "Actual Hash"
 msgstr "จริงๆแล้ว แฮช"
 
-#: IntegrityCheck.php:90
+#: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
+msgid "Plugin"
+msgstr ""
+
+#: IntegrityCheck.php:127
 msgid "Integrity Check Passed"
 msgstr "ผ่านการทดสอบความซื่อสัตย์"
 
-#: IntegrityCheck.php:91
+#: IntegrityCheck.php:128
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -11105,7 +11121,12 @@ msgstr "บางคนอาจมีบันทึกการบริจา
 msgid "Plugins managements"
 msgstr "การจัดการวงกลม"
 
-#: v2/templates/plugins/plugins.php:42
+#: v2/templates/plugins/plugins.php:36
+#, fuzzy
+msgid "Add a plugin"
+msgstr "เพิ่มคำสัญญาใหม่"
+
+#: v2/templates/plugins/plugins.php:41
 #, fuzzy
 msgid "Add new plugin"
 msgstr "เพิ่มคำสัญญาใหม่"
@@ -11115,39 +11136,40 @@ msgstr "เพิ่มคำสัญญาใหม่"
 msgid "Upload A Plugin"
 msgstr "อัพโหลด ไฟล์"
 
-#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:54
+#, fuzzy
+msgid "Grouped actions"
+msgstr "กลุ่มฟังเกม"
+
+#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
 msgstr "ตรวจดูทุกกล่อง"
 
 #: v2/templates/plugins/plugins.php:84
-msgid "Plugin"
-msgstr ""
-
-#: v2/templates/plugins/plugins.php:87
 #, fuzzy
 msgid "Update"
 msgstr "อัพเดทแล้ว"
 
-#: v2/templates/plugins/plugins.php:105
+#: v2/templates/plugins/plugins.php:102
 #, fuzzy
 msgid "Settings"
 msgstr "การตั้งแผนที่"
 
-#: v2/templates/plugins/plugins.php:110
+#: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
 msgstr ""
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:119
 #, fuzzy
 msgid "Details"
 msgstr "รายละเอียด:"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 #, fuzzy
 msgid "Activated Plugin"
 msgstr "ทำงานได้"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 #, fuzzy
 msgid "Deactivated Plugin"
 msgstr "ปลดเคลื่อนไหว"

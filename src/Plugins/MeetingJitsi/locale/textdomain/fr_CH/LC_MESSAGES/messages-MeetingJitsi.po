@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 15:53+0000\n"
 "Language: fr_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,19 +33,19 @@ msgstr "Créer une salle"
 msgid "This action will delete all your rooms"
 msgstr "Cette action va supprimer toutes vos pièces"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:38
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:39
 msgid "Delete all Rooms"
 msgstr "Supprimer toutes les pièces"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:41
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:42
 msgid "Appointment"
 msgstr "Rendez-vous"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:52
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:53
 msgid "Room Name"
 msgstr "Nom de la pièce"
 
-#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:63
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingdashboard.php:64
 msgid "First create a Jitsi room with the button above !"
 msgstr "Créez d'abord une pièce Jitsi avec le bouton ci-dessus !"
 

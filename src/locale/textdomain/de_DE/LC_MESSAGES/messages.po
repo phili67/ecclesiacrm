@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 19:48+0000\n"
+"POT-Creation-Date: 2022-02-17 15:52+0000\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -331,7 +331,7 @@ msgid "Save"
 msgstr "Speichern Sie"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
-#: Checkin.php:452 DirectoryReports.php:339 EventNames.php:261
+#: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
 #: FamilyView.php:1091 FinancialReports.php:92 FundRaiserEditor.php:210
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
@@ -841,113 +841,113 @@ msgstr "Mobiltelefon"
 msgid "Your cart is empty!"
 msgstr "Ihr Warenkorb ist leer!"
 
-#: Checkin.php:122 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
 msgid "Call the Register"
 msgstr "Rufen Sie das Register an"
 
-#: Checkin.php:131 v2/templates/calendar/eventslist.php:30
+#: Checkin.php:138 v2/templates/calendar/eventslist.php:30
 msgid "Add New Event"
 msgstr "Neues Ereignis hinzufügen"
 
-#: Checkin.php:134
+#: Checkin.php:141
 msgid "QR Code Call"
 msgstr "QR-Code Aufruf"
 
-#: Checkin.php:136
+#: Checkin.php:143
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWKioskManagerController.php:45
 #: Include/Footer.php:274
 msgid "Kiosk Manager"
 msgstr "Kiosk-Manager"
 
-#: Checkin.php:142
+#: Checkin.php:149
 msgid "Edit Attendees"
 msgstr "Teilnehmer bearbeiten"
 
-#: Checkin.php:152
+#: Checkin.php:159
 msgid "Select Event"
 msgstr "Ereignis auswählen"
 
-#: Checkin.php:166
+#: Checkin.php:173
 msgid "Select event"
 msgstr "Ereignis auswählen"
 
-#: Checkin.php:201
+#: Checkin.php:208
 msgid "Listing"
 msgstr "Auflistung"
 
-#: Checkin.php:207
+#: Checkin.php:214
 msgid "Number of rows"
 msgstr "Anzahl der Zeilen"
 
-#: Checkin.php:225
+#: Checkin.php:232
 msgid "Checkin"
 msgstr "Einchecken"
 
-#: Checkin.php:231 Checkin.php:248
+#: Checkin.php:238 Checkin.php:255
 msgid "Check all"
 msgstr "Alle prüfen"
 
-#: Checkin.php:235 Checkin.php:253
+#: Checkin.php:242 Checkin.php:260
 msgid "Uncheck all"
 msgstr "Alle abwählen"
 
-#: Checkin.php:242
+#: Checkin.php:249
 msgid "Checkout"
 msgstr "Kasse"
 
-#: Checkin.php:261
+#: Checkin.php:268
 msgid "Add some notes"
 msgstr "Einige Notizen hinzufügen"
 
-#: Checkin.php:275
+#: Checkin.php:282
 msgid "Validate Attendance"
 msgstr "Anwesenheit validieren"
 
-#: Checkin.php:295
+#: Checkin.php:302
 msgid "Set your free attendees"
 msgstr "Legen Sie Ihre freien Teilnehmer fest"
 
-#: Checkin.php:308
+#: Checkin.php:315
 msgid "Set your attendees Event"
 msgstr "Teilnehmer festlegen Veranstaltung"
 
-#: Checkin.php:347
+#: Checkin.php:354
 msgid "Your description"
 msgstr "Ihre Beschreibung"
 
-#: Checkin.php:359
+#: Checkin.php:366
 msgid "Add Free Attendees Count"
 msgstr "Anzahl der freien Teilnehmer hinzufügen"
 
-#: Checkin.php:387
+#: Checkin.php:394
 msgid "Add single child/parents Attendees"
 msgstr "Einzelne Kinder/Eltern hinzufügen Teilnehmer"
 
-#: Checkin.php:400
+#: Checkin.php:407
 msgid "Add Attendees for Event"
 msgstr "Teilnehmer für Veranstaltung hinzufügen"
 
-#: Checkin.php:407 Checkin.php:416
+#: Checkin.php:414 Checkin.php:423
 msgid "Person's Name"
 msgstr "Name der Person"
 
-#: Checkin.php:428
+#: Checkin.php:435
 msgid "Adult Name(Optional)"
 msgstr "Name des Erwachsenen (fakultativ)"
 
-#: Checkin.php:436
+#: Checkin.php:443
 msgid "Checked in By(Optional)"
 msgstr "Eingecheckt von (optional)"
 
-#: Checkin.php:446
+#: Checkin.php:453
 msgid "Add and Checkin"
 msgstr "Hinzufügen und Einchecken"
 
-#: Checkin.php:458
+#: Checkin.php:465
 msgid "Add Visitor"
 msgstr "Besucher hinzufügen"
 
-#: Checkin.php:481 v2/templates/calendar/eventattendeesedit.php:159
+#: Checkin.php:488 v2/templates/calendar/eventattendeesedit.php:159
 msgid "Return to Events"
 msgstr "Zurück zu Veranstaltungen"
 
@@ -2030,6 +2030,11 @@ msgstr "Person Deaktiviert"
 msgid "Person Activated"
 msgstr "Person Aktiviert"
 
+#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
+msgid "Impossible to open"
+msgstr "Unmöglich zu öffnen"
+
 #: EcclesiaCRM/APIControllers/PublicRegisterController.php:86
 msgid "Write a message Here !"
 msgstr "Schreiben Sie hier eine Nachricht!"
@@ -2301,10 +2306,6 @@ msgstr ""
 #: EcclesiaCRM/BackupManager.php:161
 msgid "GPG Backup need a password to work"
 msgstr "GPG-Backup braucht ein Passwort, um zu funktionieren"
-
-#: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
-msgid "Impossible to open"
-msgstr "Unmöglich zu öffnen"
 
 #: EcclesiaCRM/BackupManager.php:255
 msgid "Backup archive does not contain a database"
@@ -4614,7 +4615,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr "Ihr EcclesiaCRM-Konto wurde aktualisiert"
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
-#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:86
+#: v2/templates/group/groupview.php:255 v2/templates/plugins/plugins.php:83
 #: v2/templates/user/userlist.php:57
 msgid "Status"
 msgstr "Status"
@@ -4622,6 +4623,10 @@ msgstr "Status"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "Bitte überprüfen Sie die Angaben zu Ihrer Familie"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:60
+msgid "Meeting"
+msgstr "Treffen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
 #: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
@@ -5415,15 +5420,18 @@ msgstr "Freiwillige"
 msgid "Pledges"
 msgstr "Verpfändungen"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:30
+#: EcclesiaCRM/Service/AppIntegrityService.php:74
 msgid "Signature definition file signature failed validation"
 msgstr "Validierung der Signaturdefinitionsdatei fehlgeschlagen"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:33
+#: EcclesiaCRM/Service/AppIntegrityService.php:77
 msgid "Signature definition File Missing"
 msgstr "Signaturdefinitionsdatei fehlt"
 
-#: EcclesiaCRM/Service/AppIntegrityService.php:35
+#: EcclesiaCRM/Service/AppIntegrityService.php:42
+#: EcclesiaCRM/Service/AppIntegrityService.php:82
 msgid "One or more files failed signature validation"
 msgstr ""
 "Eine oder mehrere Dateien haben die Signaturüberprüfung nicht bestanden"
@@ -5649,7 +5657,7 @@ msgid "Missing Role Data for Some People"
 msgstr "Fehlende Rollendaten für einige Personen"
 
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
-#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:38
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:43
 msgid "Unmet Application Prerequisites"
 msgstr "Unerfüllte Bewerbungsvoraussetzungen"
 
@@ -6227,6 +6235,7 @@ msgstr "Eine neue elektronische Zahlungsmethode hinzufügen"
 #: v2/templates/pastoralcare/pastoralcarefamily.php:357
 #: v2/templates/pastoralcare/pastoralcareperson.php:477
 #: v2/templates/pastoralcare/pastoralcareperson.php:484
+#: v2/templates/plugins/plugins.php:57
 msgid "Delete"
 msgstr "Löschen"
 
@@ -7002,11 +7011,13 @@ msgstr "Holen Sie sich die vCard der Familie"
 msgid "vCard"
 msgstr "vCard"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:56
+#: v2/templates/plugins/plugins.php:105
 msgid "Deactivate"
 msgstr "Deaktivieren Sie"
 
-#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:108
+#: FamilyView.php:514 PersonView.php:851 v2/templates/plugins/plugins.php:55
+#: v2/templates/plugins/plugins.php:105
 msgid "Activate"
 msgstr "Aktivieren Sie"
 
@@ -7443,7 +7454,7 @@ msgstr "informationen"
 #: GroupPropsFormEditor.php:351 GroupPropsFormEditor.php:478
 #: v2/templates/calendar/eventattendeesedit.php:37
 #: v2/templates/fundraiser/donatedItemEditor.php:135
-#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:85
+#: v2/templates/group/groupview.php:399 v2/templates/plugins/plugins.php:82
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -7959,11 +7970,11 @@ msgstr "Ihre Aufgaben"
 msgid "Integrity Check Results"
 msgstr "Ergebnisse der Integritätsprüfung"
 
-#: IntegrityCheck.php:31
+#: IntegrityCheck.php:36
 msgid "All Application Prerequisites Satisfied"
 msgstr "Alle Anwendungsvoraussetzungen erfüllt"
 
-#: IntegrityCheck.php:32
+#: IntegrityCheck.php:37
 msgid ""
 "All components that EcclesiaCRM relies upon are present and correctly "
 "configured on this server"
@@ -7971,7 +7982,7 @@ msgstr ""
 "Alle Komponenten, auf die EcclesiaCRM angewiesen ist, sind auf diesem Server "
 "vorhanden und korrekt konfiguriert."
 
-#: IntegrityCheck.php:39
+#: IntegrityCheck.php:44
 msgid ""
 "Certain components that EcclesiaCRM relies upon are missing or improperly "
 "configured on this server.  The application may continue to function, but "
@@ -7981,47 +7992,51 @@ msgstr ""
 "Server oder sind nicht richtig konfiguriert.  Die Anwendung kann weiterhin "
 "funktionieren, aber möglicherweise ein unerwartetes Verhalten zeigen."
 
-#: IntegrityCheck.php:43
+#: IntegrityCheck.php:48
 msgid "Failed"
 msgstr "Gescheitert"
 
-#: IntegrityCheck.php:52
+#: IntegrityCheck.php:57
 msgid "Integrity Check Failure"
 msgstr "Integritätsprüfung fehlgeschlagen"
 
-#: IntegrityCheck.php:53
+#: IntegrityCheck.php:58
 msgid "The previous integrity check failed"
 msgstr "Die vorherige Integritätsprüfung ist fehlgeschlagen"
 
-#: IntegrityCheck.php:54
+#: IntegrityCheck.php:59
 msgid "Details:"
 msgstr "Einzelheiten:"
 
-#: IntegrityCheck.php:58
+#: IntegrityCheck.php:63
 msgid "Files failing integrity check"
 msgstr "Dateien, die die Integritätsprüfung nicht bestehen"
 
-#: IntegrityCheck.php:63
+#: IntegrityCheck.php:69 IntegrityCheck.php:95
 msgid "File Name"
 msgstr "Datei Name"
 
-#: IntegrityCheck.php:68
+#: IntegrityCheck.php:74 IntegrityCheck.php:101
 msgid "File Missing"
 msgstr "Fehlende Datei"
 
-#: IntegrityCheck.php:74
+#: IntegrityCheck.php:80 IntegrityCheck.php:107
 msgid "Expected Hash"
 msgstr "Erwartetes Hash"
 
-#: IntegrityCheck.php:75
+#: IntegrityCheck.php:81 IntegrityCheck.php:108
 msgid "Actual Hash"
 msgstr "Aktueller Hash"
 
-#: IntegrityCheck.php:90
+#: IntegrityCheck.php:89 v2/templates/plugins/plugins.php:81
+msgid "Plugin"
+msgstr "Plugin"
+
+#: IntegrityCheck.php:127
 msgid "Integrity Check Passed"
 msgstr "Integritätsprüfung bestanden"
 
-#: IntegrityCheck.php:91
+#: IntegrityCheck.php:128
 msgid ""
 "The previous integrity check passed.  All system file hashes match the "
 "expected values."
@@ -11454,7 +11469,11 @@ msgstr ""
 msgid "Plugins managements"
 msgstr "Plugin-Verwaltung"
 
-#: v2/templates/plugins/plugins.php:42
+#: v2/templates/plugins/plugins.php:36
+msgid "Add a plugin"
+msgstr "Ein Plugin hinzufügen"
+
+#: v2/templates/plugins/plugins.php:41
 msgid "Add new plugin"
 msgstr "Neues Plugin hinzufügen"
 
@@ -11462,37 +11481,37 @@ msgstr "Neues Plugin hinzufügen"
 msgid "Upload A Plugin"
 msgstr "Ein Plugin hochladen"
 
-#: v2/templates/plugins/plugins.php:82 v2/templates/user/userlist.php:47
+#: v2/templates/plugins/plugins.php:54
+msgid "Grouped actions"
+msgstr "Gruppierte Aktionen"
+
+#: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
 msgstr "Alle Kästchen ankreuzen"
 
 #: v2/templates/plugins/plugins.php:84
-msgid "Plugin"
-msgstr "Plugin"
-
-#: v2/templates/plugins/plugins.php:87
 #, fuzzy
 msgid "Update"
 msgstr "Aktualisiert"
 
-#: v2/templates/plugins/plugins.php:105
+#: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: v2/templates/plugins/plugins.php:110
+#: v2/templates/plugins/plugins.php:107
 msgid "guided tour"
 msgstr "Besichtigung"
 
-#: v2/templates/plugins/plugins.php:122
+#: v2/templates/plugins/plugins.php:119
 #, fuzzy
 msgid "Details"
 msgstr "Einzelheiten:"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 msgid "Activated Plugin"
 msgstr "Aktiviertes Plugin"
 
-#: v2/templates/plugins/plugins.php:125
+#: v2/templates/plugins/plugins.php:122
 msgid "Deactivated Plugin"
 msgstr "Deaktiviertes Plugin"
 
