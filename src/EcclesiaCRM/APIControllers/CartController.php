@@ -57,6 +57,7 @@ class CartController
             return $response->withStatus(401);
         }
 
+
         $cartPayload = (object)$request->getParsedBody();
 
         if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
