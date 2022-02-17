@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,9 +379,6 @@ msgstr "你要删除一个文件夹和它的内容"
 msgid "Set your Folder name"
 msgstr "设置你的文件夹名称"
 
-msgid "Upload your Files"
-msgstr "上传你的文件"
-
 msgid "Files input"
 msgstr "文件输入"
 
@@ -390,6 +387,9 @@ msgstr "上传你的文件"
 
 msgid "Upload"
 msgstr "上传"
+
+msgid "Upload your Files"
+msgstr "上传你的文件"
 
 msgid "Share your File"
 msgstr "分享您的文件"
@@ -2133,6 +2133,22 @@ msgstr "你要删除订阅者了!你确定吗？"
 
 msgid "Deleting Subscribers..."
 msgstr "删除订阅者..."
+
+msgid "Confirmation of plugin removal"
+msgstr "确认删除插件"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "你即将删除所选的插件。这个动作不能撤消!"
+
+msgid "Select your zipped plugin file"
+msgstr "选择你压缩的插件文件"
+
+msgid "Download the zipped file of the plugin"
+msgstr "下载该插件的压缩文件"
+
+msgid "Plugin download manager"
+msgstr "插件下载管理器"
 
 msgid "You must enter a password"
 msgstr "你必须输入一个密码"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,9 +379,6 @@ msgstr "คุณกำลังจะลบแฟ้มออก และม�
 msgid "Set your Folder name"
 msgstr "ตั้งชื่อพันธุ์ของคุณ"
 
-msgid "Upload your Files"
-msgstr "อัพโหลดไฟล์ของคุณ"
-
 msgid "Files input"
 msgstr "ข้อมูลข้อมูล"
 
@@ -390,6 +387,9 @@ msgstr "อัพโหลดไฟล์ของคุณ"
 
 msgid "Upload"
 msgstr "อัพโหลด"
+
+msgid "Upload your Files"
+msgstr "อัพโหลดไฟล์ของคุณ"
 
 msgid "Share your File"
 msgstr "แบ่งปันไฟล์ของคุณ"
@@ -2135,6 +2135,24 @@ msgstr "คุณกำลังจะลบผู้เขียนทิ้ง
 
 msgid "Deleting Subscribers..."
 msgstr "ลบผู้เขียนที่ถูกลบ"
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "คุณอยากลบคนๆนี้ไหม นี่ไม่สามารถแก้ไขได้"
+
+#, fuzzy
+msgid "Select your zipped plugin file"
+msgstr "เลือกบทบาทของคุณ"
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
 
 msgid "You must enter a password"
 msgstr "คุณต้องเข้าไปในรหัสผ่าน"

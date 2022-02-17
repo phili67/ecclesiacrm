@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -386,9 +386,6 @@ msgstr "Kau akan menghapus folder dan itu isinya"
 msgid "Set your Folder name"
 msgstr "Atur nama Folder-mu"
 
-msgid "Upload your Files"
-msgstr "Upload file Anda"
-
 msgid "Files input"
 msgstr "File masukan"
 
@@ -397,6 +394,9 @@ msgstr "Upload file Anda"
 
 msgid "Upload"
 msgstr "Upload"
+
+msgid "Upload your Files"
+msgstr "Upload file Anda"
 
 msgid "Share your File"
 msgstr "Berbagi file Anda"
@@ -2201,6 +2201,24 @@ msgstr "Kau akan menghapus pelanggan! Apakah Anda yakin?"
 
 msgid "Deleting Subscribers..."
 msgstr "Menghapus Subscribers..."
+
+msgid "Confirmation of plugin removal"
+msgstr ""
+
+#, fuzzy
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr "Kau ingin menghapus orang ini? Ini tidak bisa dibatalkan."
+
+#, fuzzy
+msgid "Select your zipped plugin file"
+msgstr "Pilih Role-mu"
+
+msgid "Download the zipped file of the plugin"
+msgstr ""
+
+msgid "Plugin download manager"
+msgstr ""
 
 msgid "You must enter a password"
 msgstr "Kau harus masukkan kata sandinya"

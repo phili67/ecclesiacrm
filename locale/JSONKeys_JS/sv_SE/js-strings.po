@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -387,9 +387,6 @@ msgstr "Du är på väg att ta bort en mapp och dess innehåll"
 msgid "Set your Folder name"
 msgstr "Ange ditt mappnamn"
 
-msgid "Upload your Files"
-msgstr "Ladda upp dina filer"
-
 msgid "Files input"
 msgstr "Inmatade filer"
 
@@ -398,6 +395,9 @@ msgstr "Ladda upp dina filer"
 
 msgid "Upload"
 msgstr "Ladda upp"
+
+msgid "Upload your Files"
+msgstr "Ladda upp dina filer"
 
 msgid "Share your File"
 msgstr "Dela din fil"
@@ -2199,6 +2199,23 @@ msgstr "Du är på väg att radera prenumeranter! Är du säker?"
 
 msgid "Deleting Subscribers..."
 msgstr "Ta bort prenumeranter..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Bekräftelse av borttagning av insticksprogram"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Du är på väg att radera de valda plugins. Denna åtgärd kan inte göras ogjord!"
+
+msgid "Select your zipped plugin file"
+msgstr "Välj din komprimerade plugin-fil"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Ladda ner den komprimerade filen med insticksprogrammet"
+
+msgid "Plugin download manager"
+msgstr "Hanterare för nedladdning av insticksprogram"
 
 msgid "You must enter a password"
 msgstr "Du måste ange ett lösenord"

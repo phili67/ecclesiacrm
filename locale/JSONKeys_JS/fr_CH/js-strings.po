@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -389,9 +389,6 @@ msgstr "Vous êtes sur le point de supprimer un dossier et son contenu"
 msgid "Set your Folder name"
 msgstr "Sélectionner un nom de dossier"
 
-msgid "Upload your Files"
-msgstr "Télécharger vos fichiers"
-
 msgid "Files input"
 msgstr "Fichiers d'entrées"
 
@@ -400,6 +397,9 @@ msgstr "Télécharger vos fichiers"
 
 msgid "Upload"
 msgstr "Télécharger"
+
+msgid "Upload your Files"
+msgstr "Télécharger vos fichiers"
 
 msgid "Share your File"
 msgstr "Partager votre fichier"
@@ -2222,6 +2222,24 @@ msgstr "Vous êtes sur le point de supprimer des abonnés! Etes-vous certain ?"
 
 msgid "Deleting Subscribers..."
 msgstr "Effacement des abonnés..."
+
+msgid "Confirmation of plugin removal"
+msgstr "Confirmation de la suppression du plugin"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"Vous êtes sur le point de supprimer les plugins sélectionnés. Cette action "
+"ne peut être annulée !"
+
+msgid "Select your zipped plugin file"
+msgstr "Sélectionnez votre fichier de plugin zippé"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Téléchargez le fichier zippé du plugin"
+
+msgid "Plugin download manager"
+msgstr "Gestionnaire de téléchargement de plugins"
 
 msgid "You must enter a password"
 msgstr "Vous devez saisir un mot de passe"

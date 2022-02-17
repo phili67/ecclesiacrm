@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
+"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -392,9 +392,6 @@ msgstr "Egy mappát és annak tartalmát készül eltávolítani"
 msgid "Set your Folder name"
 msgstr "Állítsa be a mappa nevét"
 
-msgid "Upload your Files"
-msgstr "Fájlok feltöltése"
-
 msgid "Files input"
 msgstr "Fájlok bemenet"
 
@@ -403,6 +400,9 @@ msgstr "Fájlok feltöltése"
 
 msgid "Upload"
 msgstr "Feltöltés"
+
+msgid "Upload your Files"
+msgstr "Fájlok feltöltése"
 
 msgid "Share your File"
 msgstr "Fájl megosztása"
@@ -2212,6 +2212,23 @@ msgstr "Hamarosan törölni fogod az előfizetőket! Biztos vagy benne?"
 
 msgid "Deleting Subscribers..."
 msgstr "Előfizetők törlése..."
+
+msgid "Confirmation of plugin removal"
+msgstr "A plugin eltávolításának megerősítése"
+
+msgid ""
+"You are about to delete the selected plugins. This action cannot be undone!"
+msgstr ""
+"A kiválasztott bővítményeket törölni fogja. Ez a művelet nem vonható vissza!"
+
+msgid "Select your zipped plugin file"
+msgstr "Válassza ki a zippelt plugin fájlt"
+
+msgid "Download the zipped file of the plugin"
+msgstr "Töltse le a plugin zippelt fájlját"
+
+msgid "Plugin download manager"
+msgstr "Plugin letöltés menedzser"
 
 msgid "You must enter a password"
 msgstr "Meg kell adnia egy jelszót"
