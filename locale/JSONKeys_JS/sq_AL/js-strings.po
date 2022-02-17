@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T16:03:15.339Z\n"
+"POT-Creation-Date: 2022-02-09T16:01:04.982Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2198,20 +2198,6 @@ msgstr "Do t'i fshish abonentët! A je i sigurt?"
 
 msgid "Deleting Subscribers..."
 msgstr "Po mbledh abreceta..."
-
-msgid "Confirmation of plugin removal"
-msgstr ""
-
-#, fuzzy
-msgid ""
-"You are about to delete the selected plugins. This action cannot be undone!"
-msgstr "Do ta fshish këtë person? Nuk mund të kthehet prapa."
-
-msgid "Download the zipped file of the plugin"
-msgstr ""
-
-msgid "Plugin download manager"
-msgstr ""
 
 msgid "You must enter a password"
 msgstr "duhet të fusësh ndonjë fjalëkalim"
