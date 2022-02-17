@@ -695,20 +695,18 @@ $(document).ready(function () {
 
 
     function BootboxContentUploadFile() {
-        var frm_str = '<h3 style="margin-top:-5px">' + i18next.t("Upload your Files") + '</h3>'
-            + '<div>'
-            + '<div class="row div-title" style="margin-bottom:-80px">'
-            + '  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
-            + '     <p align="center" >'
+        var frm_str = '  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
+            + '  <div class="card">'
+            + '     <div class="card-body">'
             + '       <label for="noteInputFile">' + i18next.t("Files input") + " : " + '</label>'
             + '       <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>'
-            + '       '
             + '       ' + i18next.t('Upload your files')
+            + '     </div>'
+            + '     <div class="card-footer">'
             + '       <input type="submit" class="btn btn-success" name="Submit" value="' + i18next.t("Upload") + '">'
-            + '     </p>'
-            + '  </form>'
-            + '</div>'
-            + '</div>';
+            + '     </div>'
+            + '  </div>'
+            + '  </form>';
 
         var object = $('<div/>').html(frm_str).contents();
 
@@ -717,10 +715,12 @@ $(document).ready(function () {
 
     function CreateUploadFileWindow() {
         var modal = bootbox.dialog({
+            title: i18next.t("Upload your Files"),
             message: BootboxContentUploadFile(),
+            size: "large",
             buttons: [
                 {
-                    label: i18next.t("Cancel"),
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel"),
                     className: "btn btn-default",
                     callback: function () {
                         modal.modal("hide");
