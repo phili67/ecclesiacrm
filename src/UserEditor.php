@@ -684,7 +684,7 @@ if ($usr_role_id == null) {
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <input class="form-control form-control-sm" type="text" name="UserName" value="<?= $sUserName ?>"
-                               class="form-control"
+                               class= "form-control form-control-sm"
                                width="32" <?= (strtolower($sUserName) == "admin") ? "readonly" : "" ?>>
                     </div>
                 </div>
@@ -741,7 +741,7 @@ if ($usr_role_id == null) {
                     <tr>
                         <td><?= _('Login Name') ?>:</td>
                         <td><input class="form-control form-control-sm" type="text" name="UserName" value="<?= $sUserName ?>"
-                                   class="form-control"
+                                   class= "form-control form-control-sm"
                                    width="32" <?= (strtolower($sUserName) == "admin") ? "readonly" : "" ?>></td>
                     </tr>
                     <?php

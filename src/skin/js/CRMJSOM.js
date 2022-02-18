@@ -254,7 +254,7 @@
                   +'<table border=0 cellpadding=2 width="100%">'
                   +'<tr>'
                   +'<td>'+i18next.t('Select the method to add to a group')+'   </td>'
-                  +'<td><select id="GroupSelector" class="form-control">'
+                  +'<td><select id="GroupSelector" class= "form-control form-control-sm">'
                   +'<option>'+i18next.t('Select an existing Group')+'</option>'
                   +'<option>'+i18next.t('or Create a new Group from the Cart')+'</option>'
                   +'</select>'
@@ -268,7 +268,7 @@
                   +'        <tr>'
                   +'          <td class="LabelColumn">'+i18next.t('Select Group')+':</td>'
                   +'          <td class="TextColumn">'
-                  +'            <select id="PopupGroupID" name="PopupGroupID" style="width:100%" class="form-control">'
+                  +'            <select id="PopupGroupID" name="PopupGroupID" style="width:100%" class= "form-control form-control-sm">'
                   +'            </select>'
                   +'          </td>'
                   +'        </tr>'
@@ -276,7 +276,7 @@
                   +'        <tr>'
                   +'          <td class="LabelColumn">'+i18next.t('Select Role')+':</td>'
                   +'          <td class="TextColumn">'
-                  +'            <select name="GroupRole" id="GroupRole" style="width:100%" class="form-control">'
+                  +'            <select name="GroupRole" id="GroupRole" style="width:100%" class= "form-control form-control-sm">'
                   +'                <option>'+i18next.t('None')+'</option>'
                   +'            </select>'
                   +'          </td>'
@@ -289,7 +289,7 @@
                   +'        <table border=0 cellpadding=2 width="100%">'
                   +'        <tr>'
                   +'           <td>'+ i18next.t('Group Name') + ':</td>'
-                  +'           <td><input type="text" id="GroupName" value="" size="30" maxlength="100" class="form-control"  width="100%" style="width: 100%" placeholder="'+i18next.t("Default Name Group")+'" required></td>'
+                  +'           <td><input type="text" id="GroupName" value="" size="30" maxlength="100" class= "form-control form-control-sm"  width="100%" style="width: 100%" placeholder="'+i18next.t("Default Name Group")+'" required></td>'
                   +'        </tr>'
                   +'        </table>'
                   +'      </p>'
@@ -577,7 +577,7 @@
           };
 
           boxOptions.message +='<center>'+i18next.t('You can add the content of the cart to the selected event below<br> - OR - <br>Create first an event and add them after.')+'</center><br>';
-          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="eventChosen">';
+          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control form-control-sm" id="eventChosen">';
           for (i=0;i<lenType;i++) {
              boxOptions.message +='<option value="'+eventNames[i].eventTypeID+'">'+eventNames[i].name+'</option>';
            }
@@ -987,7 +987,7 @@
                 +      i18next.t('Church Email') + ':' + data.ChurchEmail + '<br>'
                 +      'EcclesiaCRM ' + i18next.t('Base URL') + ':' + data.EcclesiaCRMURL + '<br>'
                 +      '<br>' + i18next.t('Message')
-                +      '<textarea class="form-control" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
+                +      '<textarea class= "form-control form-control-sm" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
                 +      '<input type="hidden" name="EcclesiaCRMURL" value="' + data.EcclesiaCRMURL + '"/>'
                 + '  </div>'
                 + '</div>';
@@ -1176,7 +1176,7 @@
           {
             options.title = i18next.t("Select Group");
             options.message +='<div class="row"><div class="col-md-12"><span style="color: red">'+i18next.t('Please select target group for members')+':</span></div></div>\
-                  <div class="row"><div class="col-md-12"><select name="targetGroupSelection" id="targetGroupSelection" class="bootbox-input bootbox-input-select form-control" style="width: 100%"></select></div></div>';
+                  <div class="row"><div class="col-md-12"><select name="targetGroupSelection" id="targetGroupSelection" class="bootbox-input bootbox-input-select form-control form-control-sm" style="width: 100%"></select></div></div>';
             options.buttons.confirm.callback = function(){
                selectionCallback({"GroupID": $("#targetGroupSelection option:selected").val()});
             };
@@ -1185,7 +1185,7 @@
           {
             options.title = i18next.t("Select Role");
             options.message += '<div class="row"><div class="col-md-12"><span style="color: red">'+i18next.t('Please select target Role for members')+':</span></div></div>\
-                  <div class="row"><div class="col-md-12"><select name="targetRoleSelection" id="targetRoleSelection" class="bootbox-input bootbox-input-select form-control"></select></div></div>';
+                  <div class="row"><div class="col-md-12"><select name="targetRoleSelection" id="targetRoleSelection" class="bootbox-input bootbox-input-select form-control form-control-sm"></select></div></div>';
             options.buttons.confirm.callback = function(){
               selectionCallback({"RoleID": $("#targetRoleSelection option:selected").val()});
             };

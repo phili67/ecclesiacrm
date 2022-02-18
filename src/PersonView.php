@@ -1579,7 +1579,7 @@ if (!empty($person->getDateDeactivated())) {
                                                 <label for="ShowSinceDate"><?= _("From") ?>:</label>
                                             </div>
                                             <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class="form-control date-picker" type="text" id="Min"
+                                                <input class=" form-control  form-control-sm date-picker" type="text" id="Min"
                                                        Name="ShowSinceDate"
                                                        value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
                                                        placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -1588,7 +1588,7 @@ if (!empty($person->getDateDeactivated())) {
                                                 <label for="ShowToDate"><?= _("To") ?>:</label>
                                             </div>
                                             <div class="col-lg-2 col-md-2 col-sm-2">
-                                                <input class="form-control date-picker" type="text" id="Max"
+                                                <input class=" form-control  form-control-sm date-picker" type="text" id="Max"
                                                        Name="ShowToDate"
                                                        value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>"
                                                        placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">

@@ -900,7 +900,7 @@ require 'Include/Header.php';
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="text" class="form-control date-picker" Name="WeddingDate"
+                            <input type="text" class=" form-control  form-control-sm date-picker" Name="WeddingDate"
                                    value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12"
                                    id="WeddingDate" size="15"
                                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -926,7 +926,7 @@ require 'Include/Header.php';
                     ?>
                     <div class="form-group col-md-4">
                         <label><?= _('Assign a Canvasser') ?>:</label>
-                        <select name='Canvasser' class="form-control">
+                        <select name='Canvasser' class= "form-control form-control-sm">
                             <option value="0"><?= _('None selected') ?></option>
                             <?php // Display all canvassers
                             foreach ($canvassers as $canvasser) {
@@ -948,7 +948,7 @@ require 'Include/Header.php';
                     <div class="form-group col-md-4">
                         <label><?= _('Assign a Brave Canvasser') ?>: </label>
 
-                        <select name='BraveCanvasser' class="form-control">
+                        <select name='BraveCanvasser' class= "form-control form-control-sm">
                             <option value="0"><?= _('None selected') ?></option>
                             <?php // Display all canvassers
                             foreach ($braveCanvassers as $braveCanvasser) {

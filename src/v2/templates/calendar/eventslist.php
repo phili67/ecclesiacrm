@@ -71,7 +71,7 @@ require $sRootDocument . '/Include/Header.php';
         </select>
     </div>
     <div class="col-sm-4"><label><?= _('Display Events in Year') ?></label>
-        <select name="WhichYear" id="YearSelector" class="form-control">
+        <select name="WhichYear" id="YearSelector" class= "form-control form-control-sm">
             <?php
             $current_Year = date('Y');
 

@@ -132,7 +132,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                             </div>
                                             <!-- Philippe Logel -->
-                                            <input class="form-control date-picker form-control-sm" type="text" id="dateCampaign"
+                                            <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateCampaign"
                                                    name="dateCampaign"
                                                    value="<?= (isset($campaign['send_time'])) ? OutputUtils::change_date_for_place_holder($campaign['send_time']) : "" ?>"
                                                    maxlength="10" id="sel1" size="11"

@@ -415,12 +415,12 @@ require 'Include/Header.php';
                             <table>
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
-                                    <td><input id="MembershipDate1" class="date-picker form-control" type="text"
+                                    <td><input id="MembershipDate1" class="date-picker form-control form-control-sm" type="text"
                                                name="MembershipDate1" size="11" maxlength="10"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
-                                    <td><input id="MembershipDate2" class="date-picker form-control" type="text"
+                                    <td><input id="MembershipDate2" class="date-picker form-control form-control-sm" type="text"
                                                name="MembershipDate2" size="11" maxlength="10"
                                                value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -449,12 +449,12 @@ require 'Include/Header.php';
                             <table>
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
-                                    <td><input type="text" name="BirthDate1" class="date-picker  form-control"
+                                    <td><input type="text" name="BirthDate1" class="date-picker  form-control form-control-sm"
                                                size="11" maxlength="10" id="BirthdayDate1"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
-                                    <td><input type="text" name="BirthDate2" class="date-picker  form-control"
+                                    <td><input type="text" name="BirthDate2" class="date-picker  form-control form-control-sm"
                                                size="11" maxlength="10"
                                                value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
                                                id="BirthdayDate2"
@@ -482,12 +482,12 @@ require 'Include/Header.php';
                             <table>
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
-                                    <td><input type="text" class="date-picker  form-control" name="AnniversaryDate1"
+                                    <td><input type="text" class="date-picker  form-control form-control-sm" name="AnniversaryDate1"
                                                size="11" maxlength="10" id="AnniversaryDate1"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
-                                    <td><input type="text" class="date-picker  form-control" name="AnniversaryDate2"
+                                    <td><input type="text" class="date-picker  form-control form-control-sm" name="AnniversaryDate2"
                                                size="11" maxlength="10"
                                                value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
                                                id="AnniversaryDate2"
@@ -516,14 +516,14 @@ require 'Include/Header.php';
                                 <tr>
                                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                                     <td><input id="EnterDate1" type="text" name="EnterDate1" size="11"
-                                               maxlength="10" class="date-picker  form-control"
+                                               maxlength="10" class="date-picker  form-control form-control-sm"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                                     <td><input id="EnterDate2" type="text" name="EnterDate2" size="11"
                                                maxlength="10"
                                                value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"
-                                               class="date-picker  form-control"
+                                               class="date-picker  form-control form-control-sm"
                                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                                     </td>
                                 </tr>

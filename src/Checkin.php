@@ -168,7 +168,7 @@ require 'Include/Header.php';
                         <div class="input-group">
                             <div class="input-group-prepend"><span class="input-group-text"><i
                                         class="fas fa-calendar-check"></i></span></div>
-                            <select name="EventID" class="form-control" onchange="this.form.submit()">
+                            <select name="EventID" class= "form-control form-control-sm" onchange="this.form.submit()">
                                 <option value="<?= $EventID; ?>"
                                         disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
                                 <?php foreach ($activeEvents as $event) {
@@ -214,7 +214,7 @@ require 'Include/Header.php';
                             <label for="page-length-select"><?= _("Number of rows") ?></label>
                         </div>
                         <div class="col-md-3">
-                            <select name="pets" id="page-length-select" class="form-control">
+                            <select name="pets" id="page-length-select" class= "form-control form-control-sm">
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option value="20">20</option>
@@ -419,7 +419,7 @@ require 'Include/Header.php';
                                                             <span class="input-group-text"><i
                                                                     class="fas fa-child"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" id="child"
+                                                        <input type="text" class= "form-control form-control-sm" id="child"
                                                                placeholder="<?= _("Person's Name"); ?>" required
                                                                tabindex=1>
                                                     </div>
@@ -439,7 +439,7 @@ require 'Include/Header.php';
                                                             <span class="input-group-text"><i
                                                                     class="fas fa-user"></i></span>
                                                         </div>
-                                                        <input type="text" class="form-control" id="adult"
+                                                        <input type="text" class= "form-control form-control-sm" id="adult"
                                                                placeholder="<?= _('Checked in By(Optional)'); ?>"
                                                                tabindex=2>
                                                     </div>

@@ -96,13 +96,13 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-lg-4">
                             <label for="Date"><?= _('Date'); ?>:</label>
-                            <input type="text" class="form-control date-picker" name="Date"
+                            <input type="text" class=" form-control  form-control-sm date-picker" name="Date"
                                    value="<?= $thisDeposit->getDate(SystemConfig::getValue('sDatePickerFormat')); ?>"
                                    id="DepositDate">
                         </div>
                         <div class="col-lg-4">
                             <label for="Comment"><?= _('Comment:') ?></label>
-                            <input type="text" class="form-control" name="Comment" id="Comment"
+                            <input type="text" class= "form-control form-control-sm" name="Comment" id="Comment"
                                    value="<?= $thisDeposit->getComment() ?>"/>
                         </div>
                         <div class="col-lg-4">

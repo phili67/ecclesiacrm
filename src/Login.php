@@ -212,16 +212,16 @@ require 'Include/HeaderNotLoggedIn.php';
 
             <form class="form-signin" role="form" method="post" name="LoginForm" action="Login.php">
                 <div class="form-group has-feedback">
-                    <input type="text" id="UserBox" name="User" class="form-control" value="<?= $urlUserName ?>"
+                    <input type="text" id="UserBox" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>"
                            placeholder="<?= _('Email/Username') ?>" required>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="PasswordBox" name="Password" class="form-control" data-toggle="password"
+                    <input type="password" id="PasswordBox" name="Password" class= "form-control form-control-sm" data-toggle="password"
                            placeholder="<?= _('Password') ?>" required value="<?= $urlPassword ?>">
                 </div>
                 <?php if ($twofa): ?>
                 <div class="form-group has-feedback">
-                    <input type="text" id="TwoFaBox" name="twofafield" class="form-control" data-toggle="TwoFaBox"
+                    <input type="text" id="TwoFaBox" name="twofafield" class= "form-control form-control-sm" data-toggle="TwoFaBox"
                            placeholder="<?= _("2FA : OTP key") ?>" required autofocus style="border: 2px solid red /* red */">
                     <br/>
                 </div>
@@ -306,9 +306,9 @@ require 'Include/HeaderNotLoggedIn.php';
         <!-- lockscreen credentials (contains the form) -->
         <form class="lockscreen-credentials" role="form" method="post" name="LoginForm" action="Login.php">
             <div class="input-group">
-                <input type="hidden" id="UserBox" name="User" class="form-control" value="<?= $urlUserName ?>">
+                <input type="hidden" id="UserBox" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>">
 
-                <input type="password" id="PasswordBox" name="Password" class="form-control"
+                <input type="password" id="PasswordBox" name="Password" class= "form-control form-control-sm"
                        placeholder="<?= _('Password') ?>">
 
                 <div class="input-group-append"><button type="submit" class="btn btn-default"><i class="fas fa-arrow-right text-muted"></i></button></div>

@@ -375,7 +375,7 @@ if ($numRows == 0) {
                 <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
             </td>
             <td class="TextColumn" align="center">
-                <input type="text" class="form-control" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
+                <input type="text" class= "form-control form-control-sm" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
                 <?php
                 if ($aNameErrors[$row]) {
                 ?>
@@ -498,7 +498,7 @@ if ($numRows == 0) {
                     <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
                     </td>
                     <td valign="top">
-                        <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
+                        <input type="text" name="newFieldName" size="30" maxlength="40" class= "form-control form-control-sm">
                         <?php
                             if ($bNewNameError) {
                         ?>

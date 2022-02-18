@@ -1047,7 +1047,7 @@ $("document").ready(function () {
                 '<br/>' +
                 i18next.t("You can create the event automatically with the students<br> " +
                 "- OR - <br>Add the students to the cart and create an event to add them after.") + '</center><br>';
-            boxOptions.message += '<select class="bootbox-input bootbox-input-select form-control" id="chosenType">';
+            boxOptions.message += '<select class="bootbox-input bootbox-input-select form-control form-control-sm" id="chosenType">';
             for (i = 0; i < lenType; i++) {
                 boxOptions.message += '<option value="' + typeNames[i].eventTypeID + '">' + typeNames[i].name + '</option>';
             }
@@ -1079,7 +1079,7 @@ $("document").ready(function () {
             + '                 <div class="input-group-prepend">'
             + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
             + '                 </div>'
-            + '                 <input class="form-control date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
+            + '                 <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
             + '                        maxlength="10" id="sel1" size="11"'
             + '                        placeholder="' + window.CRM.datePickerformat + '">'
             + '            </div>'
@@ -1090,7 +1090,7 @@ $("document").ready(function () {
             + '                 <div class="input-group-prepend">'
             + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
             + '                 </div>'
-            + '                 <input class="form-control date-picker form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
+            + '                 <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
             + '                        maxlength="10" id="sel1" size="11"'
             + '                        placeholder="' + window.CRM.datePickerformat + '">'
             + '            </div>'
@@ -1168,7 +1168,7 @@ $("document").ready(function () {
             + '                 <div class="input-group-prepend">'
             + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
             + '                 </div>'
-            + '                    <input class="form-control date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
+            + '                    <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
             + '                        maxlength="10" id="sel1" size="11"'
             + '                        placeholder="' + window.CRM.datePickerformat + '">'
             + '            </div>'
@@ -1179,7 +1179,7 @@ $("document").ready(function () {
             + '                 <div class="input-group-prepend">'
             + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
             + '                 </div>'
-            + '                    <input class="form-control date-picker form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
+            + '                    <input class=" form-control  form-control-sm date-picker form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
             + '                        maxlength="10" id="sel1" size="11"'
             + '                        placeholder="' + window.CRM.datePickerformat + '">'
             + '            </div>'

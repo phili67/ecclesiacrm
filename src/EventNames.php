@@ -177,7 +177,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
             <?= _('EVENT TYPE NAME') ?>
           </div>
           <div class='col-sm-6'>
-            <input class="form-control" type="text" name="newEvtName" value="<?= $aTypeName[$row] ?>" size="30" maxlength="35" autofocus>
+            <input class= "form-control form-control-sm" type="text" name="newEvtName" value="<?= $aTypeName[$row] ?>" size="30" maxlength="35" autofocus>
           </div>
         </div>
         <!--<div class='row form-group'>
@@ -226,7 +226,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                 <input type="radio" name="newEvtTypeRecur" value="yearly"/> <?= _('Yearly')?>
               </div>
               <div class='col-xs-7'>
-                <input type="text" disabled class="form-control date-picker" name="newEvtRecurDOY"
+                <input type="text" disabled class=" form-control  form-control-sm date-picker" name="newEvtRecurDOY"
                                value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
 
@@ -239,7 +239,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
             <?= _('DEFAULT START TIME') ?>
           </div>
           <div class='col-sm-6'>
-            <select class="form-control" name="newEvtStartTime">
+            <select class= "form-control form-control-sm" name="newEvtStartTime">
               <?php OutputUtils::createTimeDropdown(7, 22, 15, '', ''); ?>
             </select>
           </div>
@@ -249,7 +249,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
             <?= _('ATTENDANCE COUNTS') ?>
           </div>
           <div class='col-sm-6'>
-            <input class="form-control" type="Text" name="newEvtTypeCntLst" value="<?= $cCountList[$row] ?>" Maxlength="50" id="nETCL" size="30" placeholder="<?= _('Optional') ?>">
+            <input class= "form-control form-control-sm" type="Text" name="newEvtTypeCntLst" value="<?= $cCountList[$row] ?>" Maxlength="50" id="nETCL" size="30" placeholder="<?= _('Optional') ?>">
             <div class='text-sm'><?= _('Enter a list of the attendance counts you want to include with this event.')?></div>
             <div class='text-sm'><?= _('Separate each count_name with a comma. e.g. Members, Visitors, Campus, Children'); ?></div>
             <div class='text-sm'><?= _('Every event type includes a Total count, you do not need to include it.') ?></div>

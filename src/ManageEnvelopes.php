@@ -152,7 +152,7 @@ if (isset($_POST['PrintReport'])) {
       <b><?= _('Family Select')?></b> <?= _('with at least one:'); ?>
    </div>
    <div class="col-md-2">
-        <select class="form-control" name="Classification">
+        <select class= "form-control form-control-sm" name="Classification">
           <option value="0"><?= _('All') ?></option>
         <?php
           foreach ($classification as $lst_OptionID => $lst_OptionName) {
@@ -180,7 +180,7 @@ if (isset($_POST['PrintReport'])) {
                  name="ZeroAll">
    </div>
    <div class="col-md-1">
-        <select class="form-control" name="ClassificationFamily">
+        <select class= "form-control form-control-sm" name="ClassificationFamily">
           <option value="0"><?= _('All') ?></option>
         <?php
           foreach ($classification as $lst_OptionID => $lst_OptionName) {
@@ -196,7 +196,7 @@ if (isset($_POST['PrintReport'])) {
                  name="AssignAllFamilies">
    </div>
    <div class="col-md-1">
-        <input type="text" class="form-control" name="AssignStartNum" value="<?= $iAssignStartNum ?>">
+        <input type="text" class= "form-control form-control-sm" name="AssignStartNum" value="<?= $iAssignStartNum ?>">
     </div>
 </div>
 <hr/>
@@ -228,7 +228,7 @@ foreach ($arrayToLoop as $fam_ID => $value) {
     }
     echo $tdTag;
 ?>
-    <input class="form-control" type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
+    <input class= "form-control form-control-sm" type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
   </div>
 </div>
 <br>

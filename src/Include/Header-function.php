@@ -93,7 +93,7 @@ function Header_modals()
                               </div>
                               <div class="row">
                                   <div class="col-xl-12">
-                                      <input class="bootbox-input bootbox-input-text form-control" type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
+                                      <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
                                   </div>
                               </div>
                               <div class="row">
@@ -103,7 +103,7 @@ function Header_modals()
                               </div>
                               <div class="row">
                                   <div class="col-xl-12">
-                                      <textarea class="form-control" rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
+                                      <textarea class= "form-control form-control-sm" rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
                                   </div>
                               </div>
                           </div>

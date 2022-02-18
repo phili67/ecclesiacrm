@@ -904,7 +904,7 @@ require 'Include/Header.php';
                         <label for="Title"><?= _('Title') ?>:</label>
                         <input type="text" name="Title" id="Title"
                                value="<?= htmlentities(stripslashes($sTitle), ENT_NOQUOTES, 'UTF-8') ?>"
-                               class="form-control" placeholder="<?= _('Mr., Mrs., Dr., Rev.') ?>">
+                               class= "form-control form-control-sm" placeholder="<?= _('Mr., Mrs., Dr., Rev.') ?>">
                     </div>
                 </div>
                 <p/>
@@ -913,7 +913,7 @@ require 'Include/Header.php';
                         <label for="FirstName"><?= _('First Name') ?>:</label>
                         <input type="text" name="FirstName" id="FirstName"
                                value="<?= htmlentities(stripslashes($sFirstName), ENT_NOQUOTES, 'UTF-8') ?>"
-                               class="form-control">
+                               class= "form-control form-control-sm">
                         <?php if ($sFirstNameError) {
                             ?><br><font
                                 color="red"><?= $sFirstNameError ?></font><?php
@@ -924,7 +924,7 @@ require 'Include/Header.php';
                         <label for="MiddleName"><?= _('Middle Name') ?>:</label>
                         <input type="text" name="MiddleName" id="MiddleName"
                                value="<?= htmlentities(stripslashes($sMiddleName), ENT_NOQUOTES, 'UTF-8') ?>"
-                               class="form-control">
+                               class= "form-control form-control-sm">
                         <?php if ($sMiddleNameError) {
                             ?><br><font
                                 color="red"><?= $sMiddleNameError ?></font><?php
@@ -935,7 +935,7 @@ require 'Include/Header.php';
                         <label for="LastName"><?= _('Last Name') ?>:</label>
                         <input type="text" name="LastName" id="LastName"
                                value="<?= htmlentities(stripslashes($sLastName), ENT_NOQUOTES, 'UTF-8') ?>"
-                               class="form-control">
+                               class= "form-control form-control-sm">
                         <?php if ($sLastNameError) {
                             ?><br><font
                                 color="red"><?= $sLastNameError ?></font><?php
@@ -946,14 +946,14 @@ require 'Include/Header.php';
                         <label for="Suffix"><?= _('Suffix') ?>:</label>
                         <input type="text" name="Suffix" id="Suffix"
                                value="<?= htmlentities(stripslashes($sSuffix), ENT_NOQUOTES, 'UTF-8') ?>"
-                               placeholder="<?= _('Jr., Sr., III') ?>" class="form-control">
+                               placeholder="<?= _('Jr., Sr., III') ?>" class= "form-control form-control-sm">
                     </div>
                 </div>
                 <p/>
                 <div class="row">
                     <div class="col-md-2">
                         <label><?= _('Birthday Date') ?>:</label>
-                        <input type="text" name="BirthDayDate" class="form-control date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                        <input type="text" name="BirthDayDate" class=" form-control  form-control-sm date-picker" value="<?= OutputUtils::change_date_for_place_holder($sBirthDayDate) ?>" maxlength="10" id="sel2" size="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
                     <div class="col-md-2">
                         <label><?= _('Hide Age') ?></label><br/>
@@ -993,7 +993,7 @@ require 'Include/Header.php';
             <div class="form-group col-md-9"
                 <?= (!SessionUser::getUser()->isEditRecordsEnabled()) ? 'style="display: none;"' : '' ?>>
                 <label><?= _('Person or Family address'); ?>:</label>
-                <select name="Family" size="8" class="form-control" id="optionFamily">
+                <select name="Family" size="8" class= "form-control form-control-sm" id="optionFamily">
                     <option value="0" selected><?= _('Unassigned') ?></option>
                     <option value="-1"><?= _("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
@@ -1026,7 +1026,7 @@ require 'Include/Header.php';
                             <label><?= _('Person Name') ?> <?= _('or') ?> <?= _('Family Name') ?>:</label>
                             <input type="text" id="FamName" name="FamName"
                                    value="<?= htmlentities(stripslashes($sFamName), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
-                                   maxlength="250" class="form-control">
+                                   maxlength="250" class= "form-control form-control-sm">
                         </div>
                         <div class="col-md-6">
                             <b><?= _('A person could have a different name as his family.<br>• In this case set the Family Name in this field.<br>• In the other case, leave this field blank.') ?></b>
@@ -1037,19 +1037,19 @@ require 'Include/Header.php';
                             <label><?= _('Address') ?> 1:</label>
                             <input type="text" id="FamAddress1" name="FamAddress1"
                                    value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   size="50" maxlength="250" class="form-control">
+                                   size="50" maxlength="250" class= "form-control form-control-sm">
                         </div>
                         <div class="col-md-6">
                             <label><?= _('Address') ?> 2:</label>
                             <input type="text" id="FamAddress2" name="FamAddress2"
                                    value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   size="50" maxlength="250" class="form-control">
+                                   size="50" maxlength="250" class= "form-control form-control-sm">
                         </div>
                         <div class="col-md-6">
                             <label><?= _('City') ?>:</label>
                             <input type="text" id="FamCity" name="FamCity"
                                    value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"
-                                   maxlength="50" class="form-control">
+                                   maxlength="50" class= "form-control form-control-sm">
                         </div>
                     </div>
                     <div class="row">
@@ -1064,14 +1064,14 @@ require 'Include/Header.php';
                         <div
                             <?= (SystemConfig::getValue('bStateUnusefull')) ? 'style="display: none;"' : 'class="form-group col-md-3" ' ?>>
                             <label><?= _('None US/CND State') ?>:</label>
-                            <input type="text" class="form-control" id="FamStateTextbox" name="FamStateTextbox"
+                            <input type="text" class= "form-control form-control-sm" id="FamStateTextbox" name="FamStateTextbox"
                                    value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                                        echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
                                    } ?>" size="20" maxlength="30">
                         </div>
                         <div class="form-group col-md-3">
                             <label><?= _('Zip') ?>:</label>
-                            <input type="text" id="FamZip" name="FamZip" class="form-control" <?php
+                            <input type="text" id="FamZip" name="FamZip" class= "form-control form-control-sm" <?php
                             // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                             if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                                 echo 'style="text-transform:uppercase" ';
@@ -1105,7 +1105,7 @@ require 'Include/Header.php';
                         ?>
                         <div class="form-group col-md-4">
                             <label><?= _('Assign a Canvasser') ?>:</label>
-                            <select name='Canvasser' class="form-control">
+                            <select name='Canvasser' class= "form-control form-control-sm">
                                 <option value="0"><?= _('None selected') ?></option>
                                 <?php // Display all canvassers
                                 foreach ($canvassers as $canvasser) {
@@ -1127,7 +1127,7 @@ require 'Include/Header.php';
                         <div class="form-group col-md-4">
                             <label><?= _('Assign a Brave Canvasser') ?>: </label>
 
-                            <select name='BraveCanvasser' class="form-control">
+                            <select name='BraveCanvasser' class= "form-control form-control-sm">
                                 <option value="0"><?= _('None selected') ?></option>
                                 <?php // Display all canvassers
                                 foreach ($braveCanvassers as $braveCanvasser) {
@@ -1186,7 +1186,7 @@ require 'Include/Header.php';
                                 </label>
                                 <input type="text" name="Address1"
                                        value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>"
-                                       size="30" maxlength="50" class="form-control">
+                                       size="30" maxlength="50" class= "form-control form-control-sm">
                             </div>
                             <div class="col-md-4">
                                 <label>
@@ -1210,7 +1210,7 @@ require 'Include/Header.php';
                                 </label>
                                 <input type="text" name="Address2"
                                        value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>"
-                                       size="30" maxlength="50" class="form-control">
+                                       size="30" maxlength="50" class= "form-control form-control-sm">
                             </div>
                             <div class="col-md-4">
                                 <label>
@@ -1234,7 +1234,7 @@ require 'Include/Header.php';
                                 </label>
                                 <input type="text" name="City"
                                        value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>"
-                                       class="form-control">
+                                       class= "form-control form-control-sm">
                             </div>
                         </div>
                     </div>
@@ -1271,7 +1271,7 @@ require 'Include/Header.php';
                                    value="<?php if ($sPhoneCountry != 'United States' && $sPhoneCountry != 'Canada') {
                                        echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
                                    } ?>"
-                                   size="20" maxlength="30" class="form-control">
+                                   size="20" maxlength="30" class= "form-control form-control-sm">
                         </div>
 
                         <div class="form-group col-md-1">
@@ -1294,7 +1294,7 @@ require 'Include/Header.php';
                             }
                             ?>
                             </label>
-                            <input type="text" name="Zip" class="form-control"
+                            <input type="text" name="Zip" class= "form-control form-control-sm"
                                 <?php
                                 // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                                 if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
@@ -1372,7 +1372,7 @@ require 'Include/Header.php';
                             </div>
                             <input type="text" name="HomePhone"
                                    value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                                   maxlength="30" class="form-control"
+                                   maxlength="30" class= "form-control form-control-sm"
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                         </div>
                         <br>
@@ -1401,7 +1401,7 @@ require 'Include/Header.php';
                             </div>
                             <input type="text" name="WorkPhone"
                                    value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                                   maxlength="30" class="form-control"
+                                   maxlength="30" class= "form-control form-control-sm"
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"'
                                    data-mask/>
                         </div>
@@ -1432,7 +1432,7 @@ require 'Include/Header.php';
                             </div>
                             <input type="text" name="CellPhone"
                                    value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                                   maxlength="30" class="form-control"
+                                   maxlength="30" class= "form-control form-control-sm"
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                         </div>
                         <br><input type="checkbox" name="NoFormat_CellPhone" value="1"
@@ -1473,7 +1473,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="Email"
                                value="<?= htmlentities(stripslashes($sEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="100" class="form-control">
+                               maxlength="100" class= "form-control form-control-sm">
                         <?php
                         if ($sEmailError) {
                             ?>
@@ -1491,7 +1491,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="WorkEmail"
                                value="<?= htmlentities(stripslashes($sWorkEmail), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="100" class="form-control">
+                               maxlength="100" class= "form-control form-control-sm">
                         <?php
                         if ($sWorkEmailError) {
                             ?>
@@ -1523,7 +1523,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="Facebook"
                                value="<?= htmlentities(stripslashes($iFacebookID), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="100" class="form-control">
+                               maxlength="100" class= "form-control form-control-sm">
                         <?php
                         if ($sFacebookError) {
                             ?>
@@ -1541,7 +1541,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="Twitter"
                                value="<?= htmlentities(stripslashes($sTwitter), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="100" class="form-control">
+                               maxlength="100" class= "form-control form-control-sm">
                         <?php
                         if ($sTwitterError) {
                             ?>
@@ -1559,7 +1559,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="LinkedIn"
                                value="<?= htmlentities(stripslashes($sLinkedIn), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="100" class="form-control">
+                               maxlength="100" class= "form-control form-control-sm">
                         <?php
                         if ($sLinkedInError) {
                             ?>
@@ -1583,7 +1583,7 @@ require 'Include/Header.php';
             <div class="row">
                 <div class="form-group col-md-3 col-lg-3">
                     <label><?= _('Classification') ?>:</label>
-                    <select name="Classification" class="form-control">
+                    <select name="Classification" class= "form-control form-control-sm">
                         <option value="0"><?= _('Unassigned') ?></option>
                         <option value="0" disabled>-----------------------</option>
 
@@ -1607,7 +1607,7 @@ require 'Include/Header.php';
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
                         <!-- Philippe Logel -->
-                        <input type="text" name="MembershipDate" class="form-control date-picker"
+                        <input type="text" name="MembershipDate" class=" form-control  form-control-sm date-picker"
                                value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10"
                                id="sel1" size="11"
                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -1630,7 +1630,7 @@ require 'Include/Header.php';
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
                             <!-- Philippe Logel -->
-                            <input type="text" name="FriendDate" class="form-control date-picker"
+                            <input type="text" name="FriendDate" class=" form-control  form-control-sm date-picker"
                                    value="<?= OutputUtils::change_date_for_place_holder($dFriendDate) ?>" maxlength="10"
                                    id="sel2" size="10"
                                    placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">

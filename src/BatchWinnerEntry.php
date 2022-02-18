@@ -123,7 +123,7 @@ require 'Include/Header.php';
                 </div>
 
                 <div class="col-md-4"><input type="text" name="SellPrice<?= $row ?>" id="SellPrice" value=""
-                                             class="form-control"></div>
+                                             class= "form-control form-control-sm"></div>
             </div>
             <br/>
             <?php

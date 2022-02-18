@@ -39,7 +39,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                 <div class="form-group has-feedback">
                                     <div class="row">
                                         <div class="col-lg-8">
-                                            <select name="memberRole-<?= $x ?>" class="form-control">
+                                            <select name="memberRole-<?= $x ?>" class= "form-control form-control-sm">
                                                 <?php
                                                 switch ($x) {
                                                     case 1:
@@ -62,7 +62,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                             </select>
                                         </div>
                                         <div class="col-lg-4">
-                                            <select name="memberGender-<?= $x ?>" class="form-control">
+                                            <select name="memberGender-<?= $x ?>" class= "form-control form-control-sm">
                                                 <option value="1"><?= _('Male') ?></option>
                                                 <option value="2"><?= _('Female') ?></option>
                                             </select>
@@ -72,11 +72,11 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                 <div class="form-group has-feedback">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <input name="memberFirstName-<?= $x ?>" class="form-control" maxlength="50"
+                                            <input name="memberFirstName-<?= $x ?>" class= "form-control form-control-sm" maxlength="50"
                                                    placeholder="<?= _('First Name') ?>" required>
                                         </div>
                                         <div class="col-lg-6">
-                                            <input name="memberLastName-<?= $x ?>" class="form-control"
+                                            <input name="memberLastName-<?= $x ?>" class= "form-control form-control-sm"
                                                    value="<?= $family->getName() ?>" maxlength="50"
                                                    placeholder="<?= _('Last Name') ?>" required>
                                         </div>
@@ -84,7 +84,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                 </div>
                                 <div class="form-group has-feedback">
                                     <div class="input-group">
-                                        <input name="memberEmail-<?= $x ?>" class="form-control" maxlength="50"
+                                        <input name="memberEmail-<?= $x ?>" class= "form-control form-control-sm" maxlength="50"
                                                placeholder="<?= _('Email') ?>">
                                         <div class="input-group-append">
                                             <div class="input-group-text">
@@ -99,7 +99,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <div class="input-group">
-                                                <select name="memberPhoneType-<?= $x ?>" class="form-control">
+                                                <select name="memberPhoneType-<?= $x ?>" class= "form-control form-control-sm">
                                                     <option value="mobile"><?= _('Mobile') ?></option>
                                                     <option value="home"><?= _('Home') ?></option>
                                                     <option value="work"><?= _('Work') ?></option>
@@ -108,7 +108,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                         </div>
                                         <div class="col-lg-8">
                                             <div class="input-group">
-                                                <input name="memberPhone-<?= $x ?>" class="form-control" maxlength="30"
+                                                <input name="memberPhone-<?= $x ?>" class= "form-control form-control-sm" maxlength="30"
                                                        data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"'
                                                        data-mask
                                                        placeholder="<?= _('Phone') ?>">

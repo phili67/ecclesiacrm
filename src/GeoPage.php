@@ -239,7 +239,7 @@ $families = FamilyQuery::create()
                 <label for="NumNeighbors"
                        class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3"><?= _('Maximum number of neighbors:') ?></label>
                 <div class="col-xs-12 col-sm-9">
-                    <input type="text" class="form-control" name="NumNeighbors" value="<?= $iNumNeighbors ?>">
+                    <input type="text" class= "form-control form-control-sm" name="NumNeighbors" value="<?= $iNumNeighbors ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -247,7 +247,7 @@ $families = FamilyQuery::create()
                     <?= _('Maximum distance') . ' (' . _(SystemConfig::getValue('sDistanceUnit')) . "): " ?>
                 </label>
                 <div class="col-xs-12 col-sm-9">
-                    <input type="text" class="form-control" name="MaxDistance" value="<?= $nMaxDistance ?>">
+                    <input type="text" class= "form-control form-control-sm" name="MaxDistance" value="<?= $nMaxDistance ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -332,7 +332,7 @@ $families = FamilyQuery::create()
                     <label for="CoordFileName"
                            class="control-label col-xs-12 col-sm-3 col-md-3 col-lg-3"><?= _('Coordinate data base file name:') ?></label>
                     <div class="col-xs-12 col-sm-9">
-                        <input type="text" class="form-control" name="CoordFileName" value="<?= $sCoordFileName ?>">
+                        <input type="text" class= "form-control form-control-sm" name="CoordFileName" value="<?= $sCoordFileName ?>">
                     </div>
                 </div>
                 <div class="form-group">

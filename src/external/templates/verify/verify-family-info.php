@@ -172,7 +172,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
             <div class="modal-body" id="confirm-modal-collect">
                 <p><?= _("Please let us know what information to update if any") ?></p>
-                <textarea id="confirm-info-data" class="form-control" rows="10"></textarea>
+                <textarea id="confirm-info-data" class= "form-control form-control-sm" rows="10"></textarea>
             </div>
 
             <div class="modal-body" id="confirm-modal-done">

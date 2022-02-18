@@ -66,7 +66,7 @@ $("#add-reservation-calendar").click('focus', function (e) {
             + i18next.t("Name") + ':'
             + '</td>'
             + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control" type="text" id="textCalendar"><br>'
+            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="textCalendar"><br>'
             + '</td>'
             + '</tr>'
             + '<tr>'
@@ -86,7 +86,7 @@ $("#add-reservation-calendar").click('focus', function (e) {
             + i18next.t("Description") + ':'
             + '</td>'
             + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control" type="text" id="descCalendar"><br>'
+            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar"><br>'
             + '</td>'
             + '</tr>'
             + '</table>',
@@ -738,7 +738,7 @@ $('body').on('click', '#reservation-info', function () {
             + i18next.t("Description") + ':'
             + '</td>'
             + '<td>'
-            + ' <input class="bootbox-input bootbox-input-text form-control" type="text" id="descCalendar" value="' + content + '"><br>'
+            + ' <input class="bootbox-input bootbox-input-text form-control form-control-sm" type="text" id="descCalendar" value="' + content + '"><br>'
             + '</td>'
             + '</tr>'
             + '</table>',

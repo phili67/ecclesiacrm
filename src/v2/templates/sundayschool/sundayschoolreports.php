@@ -65,61 +65,61 @@ require $sRootDocument . '/Include/Header.php';
 
                 <tr>
                     <td><?= _('First Sunday') ?>:</td>
-                    <td><input type="text" name="FirstSunday" value="<?= $dFirstSunday ?>" maxlength="10" id="FirstSunday" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="FirstSunday" value="<?= $dFirstSunday ?>" maxlength="10" id="FirstSunday" size="11"  class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('Last Sunday') ?>:</td>
-                    <td><input type="text" name="LastSunday" value="<?= $dLastSunday ?>" maxlength="10" id="LastSunday" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="LastSunday" value="<?= $dLastSunday ?>" maxlength="10" id="LastSunday" size="11"  class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool1" value="<?= $dNoSchool1 ?>" maxlength="10" id="NoSchool1" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool1" value="<?= $dNoSchool1 ?>" maxlength="10" id="NoSchool1" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool2" value="<?= $dNoSchool2 ?>" maxlength="10" id="NoSchool2" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool2" value="<?= $dNoSchool2 ?>" maxlength="10" id="NoSchool2" size="11"  class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool3" value="<?= $dNoSchool3 ?>" maxlength="10" id="NoSchool3" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool3" value="<?= $dNoSchool3 ?>" maxlength="10" id="NoSchool3" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool4" value="<?= $dNoSchool4 ?>" maxlength="10" id="NoSchool4" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool4" value="<?= $dNoSchool4 ?>" maxlength="10" id="NoSchool4" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool5" value="<?= $dNoSchool5 ?>" maxlength="10" id="NoSchool5" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool5" value="<?= $dNoSchool5 ?>" maxlength="10" id="NoSchool5" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool6" value="<?= $dNoSchool6 ?>" maxlength="10" id="NoSchool6" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool6" value="<?= $dNoSchool6 ?>" maxlength="10" id="NoSchool6" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool7" value="<?= $dNoSchool7 ?>" maxlength="10" id="NoSchool7" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool7" value="<?= $dNoSchool7 ?>" maxlength="10" id="NoSchool7" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('No Sunday School') ?>:</td>
-                    <td><input type="text" name="NoSchool8" value="<?= $dNoSchool8 ?>" maxlength="10" id="NoSchool8" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                    <td><input type="text" name="NoSchool8" value="<?= $dNoSchool8 ?>" maxlength="10" id="NoSchool8" size="11" class="date-picker form-control form-control-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                 </tr>
 
                 <tr>
                     <td><?= _('Extra Students') ?>:</td>
-                    <td><input type="text" name="ExtraStudents" class="form-control" value="<?= $iExtraStudents ?>" id="ExtraStudents" size="11">&nbsp;</td>
+                    <td><input type="text" name="ExtraStudents" class= "form-control form-control-sm" value="<?= $iExtraStudents ?>" id="ExtraStudents" size="11">&nbsp;</td>
                 </tr>
                 <tr>
                     <td><?= _('Extra Teachers') ?>:</td>
-                    <td><input type="text" name="ExtraTeachers" class="form-control" value="<?= $iExtraTeachers ?>" id="ExtraTeachers" size="11">&nbsp;</td>
+                    <td><input type="text" name="ExtraTeachers" class= "form-control form-control-sm" value="<?= $iExtraTeachers ?>" id="ExtraTeachers" size="11">&nbsp;</td>
                 </tr>
                 <tr>
                     <td><br/></td>

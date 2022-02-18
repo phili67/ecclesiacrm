@@ -18,19 +18,19 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
             <form action="<?= SystemURLs::getRootPath() ?>/external/verify/" method="post">
                 <div class="form-group has-feedback">
-                    <input name="firstName" type="text" class="form-control" placeholder="<?= gettext("First Name") ?>" required>
+                    <input name="firstName" type="text" class= "form-control form-control-sm" placeholder="<?= gettext("First Name") ?>" required>
                     <span class="fas fa-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input name="lastName" type="text" class="form-control" placeholder="<?= gettext("Last Name") ?>" required>
+                    <input name="lastName" type="text" class= "form-control form-control-sm" placeholder="<?= gettext("Last Name") ?>" required>
                     <span class="fas fa-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input name="zip" type="text" class="form-control" placeholder="<?= gettext("Zip") ?>" required>
+                    <input name="zip" type="text" class= "form-control form-control-sm" placeholder="<?= gettext("Zip") ?>" required>
                     <span class="fas fa-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input name="email" type="text" class="form-control" placeholder="<?= gettext("Email") ?>" required>
+                    <input name="email" type="text" class= "form-control form-control-sm" placeholder="<?= gettext("Email") ?>" required>
                     <span class="fas fa-user form-control-feedback"></span>
                 </div>
                 <div class="row">

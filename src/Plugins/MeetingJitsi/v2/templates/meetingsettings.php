@@ -33,7 +33,7 @@ require $sRootDocument . '/Include/Header.php';
                     <!--  Current Value -->
                     <div class="col-sm-4">
                         <input type="text" size="40" maxlength="255" name="domain" id="domain" value="<?= $domain ?>"
-                               class="form-control">
+                               class= "form-control form-control-sm">
                     </div>
                     <div class="col-sm-4">
                         <a data-toggle="popover" title="Le nom de domaine Jitsi, par défaut : meet.jit.si"
@@ -48,7 +48,7 @@ require $sRootDocument . '/Include/Header.php';
                     <!--  Current Value -->
                     <div class="col-sm-4">
                         <input type="text" size="40" maxlength="255" name="domainscriptpath" id="domainscriptpath"
-                               value="<?= $domainscriptpath ?>" class="form-control">
+                               value="<?= $domainscriptpath ?>" class= "form-control form-control-sm">
                     </div>
                     <div class="col-sm-4">
                         <a data-toggle="popover"

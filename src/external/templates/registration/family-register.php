@@ -32,7 +32,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                 <form action="<?= SystemURLs::getRootPath() ?>/external/register/" method="post">
                     <div class="form-group has-feedback">
                         <div class="input-group mb-3">
-                            <input name="familyName" type="text" class="form-control"
+                            <input name="familyName" type="text" class= "form-control form-control-sm"
                                    placeholder="<?= _('Family Name') ?>" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -43,7 +43,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     </div>
                     <div class="form-group has-feedback">
                         <div class="input-group mb-3">
-                            <input name="familyAddress1" type="text" class="form-control"
+                            <input name="familyAddress1" type="text" class= "form-control form-control-sm"
                                    placeholder="<?= _('Address') ?>" required>
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -55,11 +55,11 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     <div class="form-group has-feedback">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input name="familyCity" class="form-control" placeholder="<?= _('City') ?>" required
+                                <input name="familyCity" class= "form-control form-control-sm" placeholder="<?= _('City') ?>" required
                                        value="<?= SystemConfig::getValue('sDefaultCity') ?>">
                             </div>
                             <div class="col-lg-6">
-                                <!--<input name="familyState" class="form-control" placeholder="<?= _('State') ?>" required value="<?= SystemConfig::getValue('sDefaultState') ?>">-->
+                                <!--<input name="familyState" class= "form-control form-control-sm" placeholder="<?= _('State') ?>" required value="<?= SystemConfig::getValue('sDefaultState') ?>">-->
                                 <?php
                                 $statesDDF = new StateDropDown();
                                 echo $statesDDF->getDropDown(SystemConfig::getValue('sDefaultState'), "familyState");
@@ -70,7 +70,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     <div class="form-group has-feedback">
                         <div class="row">
                             <div class="col-lg-4">
-                                <input name="familyZip" class="form-control" placeholder="<?= _('Zip') ?>" required>
+                                <input name="familyZip" class= "form-control form-control-sm" placeholder="<?= _('Zip') ?>" required>
                             </div>
                             <div class="col-lg-8">
                                 <?php
@@ -82,7 +82,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     </div>
                     <div class="form-group has-feedback">
                         <div class="input-group mb-3">
-                            <input name="familyHomePhone" class="form-control" placeholder="<?= _('Home Phone') ?>"
+                            <input name="familyHomePhone" class= "form-control form-control-sm" placeholder="<?= _('Home Phone') ?>"
                                    data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -93,7 +93,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                     </div>
                     <div class="form-group has-feedback">
                         <label><?= _('How many people are in your family') ?></label>
-                        <select name="familyCount" class="form-control">
+                        <select name="familyCount" class= "form-control form-control-sm">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

@@ -229,7 +229,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         for ($col = 0; $col < $numCol; $col++) {
             ?>
             <td>
-            <select name="<?= 'col'.$col ?>" class="columns" class="form-control" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
+            <select name="<?= 'col'.$col ?>" class="columns" class= "form-control form-control-sm" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
                 <option value="0"><?= _('Ignore this Field') ?></option>
                 <option value="1"><?= _('Title') ?></option>
                 <option value="2"><?= _('First Name') ?></option>
