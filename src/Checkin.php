@@ -108,7 +108,7 @@ $searchEventInActivEvent = EventQuery::Create()
 //get Event Details
 $event = EventQuery::Create()
     ->findOneById($EventID);
-    
+
 if (!is_null($event)) {
     $sTitle = $event->getTitle();
     $sNoteText = $event->getText();
@@ -339,7 +339,7 @@ require 'Include/Header.php';
                                                                name="<?= $eventCountName->getId() ?>"
                                                                data-countid="<?= $eventCountName->getId() ?>"
                                                                value="<?= $count ?>"
-                                                               size="8" class="form-control input-sm freeAttendeesCount"
+                                                               size="8" class="form-control form-control-sm freeAttendeesCount"
                                                                width="100%"
                                                                style="width: 100%">
                                                     </div>
@@ -355,7 +355,7 @@ require 'Include/Header.php';
 
                                                     <textarea id="fieldText" name="desc"
                                                               data-countid="<?= $eventCountName->getId() ?>"
-                                                              rows="5" class="form-control input-sm " width="100%"
+                                                              rows="5" class="form-control form-control-sm " width="100%"
                                                               style="width: 100%"><?= $desc ?></textarea>
                                                 </div>
                                             </div>

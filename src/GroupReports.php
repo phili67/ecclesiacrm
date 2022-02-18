@@ -61,7 +61,7 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <label for="GroupID"><?= _('Select Group') ?>:</label>
-                            <select id="GroupID" class="form-control input-sm" name="GroupID" onChange="UpdateRoles();">
+                            <select id="GroupID" class="form-control form-control-sm" name="GroupID" onChange="UpdateRoles();">
                                 // Create the group select drop-down
                                 <option value="0"><?= _('None') ?></option>
                               <?php
@@ -77,7 +77,7 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <label for=""><?= _('Select Role') ?>:</label>
-                            <select name="GroupRole" class="form-control input-sm" id="GroupRole">
+                            <select name="GroupRole" class="form-control form-control-sm" id="GroupRole">
                                 <option><?= _('No Role Selected') ?></option>
                             </select>
                         </div>

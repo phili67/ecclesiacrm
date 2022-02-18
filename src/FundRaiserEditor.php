@@ -176,7 +176,7 @@ require 'Include/Header.php';
                                 <input type="text" name="Date"
                                        value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"
                                        maxlength="10" id="Date" size="11"
-                                       class="date-picker form-control input-sm"><font
+                                       class="date-picker form-control form-control-sm"><font
                                     color="red"><?php echo $sDateError ?></font>
                             </div>
                         </div>
@@ -187,7 +187,7 @@ require 'Include/Header.php';
                             </div>
                             <div class="col-md-5">
                                 <input type="text" name="Title" id="Title" value="<?= $sTitle ?>"
-                                       class="form-control input-sm">
+                                       class="form-control form-control-sm">
                             </div>
                         </div>
                         <br/>
@@ -197,7 +197,7 @@ require 'Include/Header.php';
                             </div>
                             <div class="col-md-5">
                                 <input type="text" name="Description" id="Description"
-                                       value="<?= $sDescription ?>" class="form-control input-sm">
+                                       value="<?= $sDescription ?>" class="form-control form-control-sm">
                             </div>
                         </div>
                     </td>

@@ -239,7 +239,7 @@ require 'Include/Header.php';
                  <b><?= _('WARNING: This action can not be undone and may have legal implications!') ?></b>
                </p>
                <input name=FamilyID value="<?= $iFamilyID ?>" type=hidden>
-               <select name="DonationFamilyID" class="form-control input-sm">
+               <select name="DonationFamilyID" class="form-control form-control-sm">
                   <option value=0 selected><?= _('Unassigned') ?></option>
                 <?php
                   //Get Families for the drop-down

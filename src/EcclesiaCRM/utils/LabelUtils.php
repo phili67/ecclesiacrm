@@ -41,7 +41,7 @@ class LabelUtils {
       <div class="row">
         <div class="col-md-6"><?= gettext('Font') ?>:</div>
         <div class="col-md-6">
-             <select name="<?= $fieldname ?>" class="form-control input-sm">
+             <select name="<?= $fieldname ?>" class="form-control form-control-sm">
              <?php
                 foreach ($fontnames as $n) {
                     $sel = '';
@@ -67,7 +67,7 @@ class LabelUtils {
         <div class="row">
           <div class="col-md-6"><?= gettext('Font Size').(!empty($message)?' '.$message:'') ?>:</div>
           <div class="col-md-6">
-             <select name="<?= $fieldname ?>" class="form-control input-sm">
+             <select name="<?= $fieldname ?>" class="form-control form-control-sm">
              <?php
                 foreach ($sizes as $s) {
                     $sel = '';
@@ -98,7 +98,7 @@ class LabelUtils {
         <div class="row">
           <div class="col-md-6"><?= $title ?>:</div>
           <div class="col-md-6">
-            <select name="<?= $fieldname ?>" class="form-control input-sm">
+            <select name="<?= $fieldname ?>" class="form-control form-control-sm">
             <?php
               foreach ($labels as $l => $name) {
                   $sel = '';
@@ -183,7 +183,7 @@ class LabelUtils {
       <div class="row">
         <div class="col-md-6"><?= gettext('File Type') ?>:</div>
         <div class="col-md-6">
-          <select name="filetype" class="form-control input-sm">
+          <select name="filetype" class="form-control form-control-sm">
             <option value="PDF">PDF</option>
             <option value="CSV">CSV</option>
           </select>

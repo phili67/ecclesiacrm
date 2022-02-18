@@ -138,19 +138,19 @@ $(document).ready(function () {
               +'<div class="row div-title">'
                 +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('List Title') + ":</div>"
                 +'<div class="col-md-9">'
-                  +"<input type='text' id='ListTitle' placeholder=\"" + i18next.t("Your List Title") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                  +"<input type='text' id='ListTitle' placeholder=\"" + i18next.t("Your List Title") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
                 +'</div>'
               +'</div>'
               +'<div class="row div-title">'
                 +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Subject') + ":</div>"
                 +'<div class="col-md-9">'
-                  +"<input type='text' id='Subject' placeholder=\"" + i18next.t("Your Subject") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                  +"<input type='text' id='Subject' placeholder=\"" + i18next.t("Your Subject") + "\" size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
                 +'</div>'
               +'</div>'
               +'<div class="row div-title">'
                 +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Permission Reminder') + ":</div>"
                 +'<div class="col-md-9">'
-                  +"<textarea id='PermissionReminder' rows='3' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder=\"" + i18next.t("Permission Reminder") + "\"></textarea>"
+                  +"<textarea id='PermissionReminder' rows='3' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required placeholder=\"" + i18next.t("Permission Reminder") + "\"></textarea>"
                 +'</div>'
               +'</div>'
               +'<div class="row div-title">'

@@ -722,7 +722,7 @@ require 'Include/Header.php';
                         <label><?= _('Family Name') ?>:</label>
                         <input type="text" Name="Name" id="FamilyName"
                                value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="48"
-                               class="form-control input-sm">
+                               class="form-control form-control-sm">
                         <?php if ($sNameError) {
                             ?><font color="red"><?= $sNameError ?></font><?php
                         } ?>
@@ -734,19 +734,19 @@ require 'Include/Header.php';
                         <label><?= _('Address') ?> 1:</label>
                         <input type="text" Name="Address1"
                                value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
-                               maxlength="250" class="form-control input-sm">
+                               maxlength="250" class="form-control form-control-sm">
                     </div>
                     <div class="col-md-6">
                         <label><?= _('Address') ?> 2:</label>
                         <input type="text" Name="Address2"
                                value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50"
-                               maxlength="250" class="form-control input-sm">
+                               maxlength="250" class="form-control form-control-sm">
                     </div>
                     <div class="col-md-6">
                         <label><?= _('City') ?>:</label>
                         <input type="text" Name="City"
                                value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"
-                               class="form-control input-sm">
+                               class="form-control form-control-sm">
                     </div>
                 </div>
                 <p/>
@@ -760,14 +760,14 @@ require 'Include/Header.php';
                     </div>
                     <div <?= (SystemConfig::getValue('bStateUnusefull')) ? "style=\"display: none;\"" : "class=\"form-group col-md-3\" " ?>>
                         <label><?= _('None US/CND State') ?>:</label>
-                        <input type="text" class="form-control input-sm" name="StateTextbox"
+                        <input type="text" class="form-control form-control-sm" name="StateTextbox"
                                value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                                    echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
                                } ?>" size="20" maxlength="30">
                     </div>
                     <div class="form-group col-md-3">
                         <label><?= _('Zip') ?>:</label>
-                        <input type="text" Name="Zip" class="form-control input-sm" <?php
+                        <input type="text" Name="Zip" class="form-control form-control-sm" <?php
                         // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                         if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                             echo 'style="text-transform:uppercase" ';
@@ -785,12 +785,12 @@ require 'Include/Header.php';
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label><?= _('Latitude') ?>:</label>
-                                <input type="text" class="form-control input-sm" Name="Latitude"
+                                <input type="text" class="form-control form-control-sm" Name="Latitude"
                                        value="<?= $nLatitude ?>" size="30" maxlength="50">
                             </div>
                             <div class="form-group col-md-3">
                                 <label><?= _('Longitude') ?>:</label>
-                                <input type="text" class="form-control input-sm" Name="Longitude"
+                                <input type="text" class="form-control form-control-sm" Name="Longitude"
                                        value="<?= $nLongitude ?>" size="30" maxlength="50">
                             </div>
                         </div>
@@ -822,7 +822,7 @@ require 'Include/Header.php';
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" Name="HomePhone" value="<?= htmlentities(stripslashes($sHomePhone)) ?>"
-                               size="30" maxlength="30" class="form-control input-sm"
+                               size="30" maxlength="30" class="form-control form-control-sm"
                                data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                     </div>
                     <input type="checkbox" name="NoFormat_HomePhone"
@@ -835,7 +835,7 @@ require 'Include/Header.php';
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" name="WorkPhone" value="<?= htmlentities(stripslashes($sWorkPhone)) ?>"
-                               size="30" maxlength="30" class="form-control input-sm"
+                               size="30" maxlength="30" class="form-control form-control-sm"
                                data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"'
                                data-mask/>
                     </div>
@@ -849,7 +849,7 @@ require 'Include/Header.php';
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
                         <input type="text" name="CellPhone" value="<?= htmlentities(stripslashes($sCellPhone)) ?>"
-                               size="30" maxlength="30" class="form-control input-sm"
+                               size="30" maxlength="30" class="form-control form-control-sm"
                                data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                     </div>
                     <input type="checkbox" name="NoFormat_CellPhone"
@@ -864,7 +864,7 @@ require 'Include/Header.php';
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                         </div>
-                        <input type="text" Name="Email" class="form-control input-sm"
+                        <input type="text" Name="Email" class="form-control form-control-sm"
                                value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font
                             color="red"><?= '<BR>' . $sEmailError ?></font>
                     </div>
@@ -1141,7 +1141,7 @@ require 'Include/Header.php';
                                                value="<?= $aSuffix[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control input-sm" name="Gender<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm" name="Gender<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aGenders[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?> ><?= _('Select Gender') ?></option>
@@ -1155,7 +1155,7 @@ require 'Include/Header.php';
                                     </td>
 
                                     <td class="TextColumnFam">
-                                        <select class="form-control input-sm" name="Role<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm" name="Role<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aRoles[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?> ><?= _('Select Role') ?></option>
@@ -1171,7 +1171,7 @@ require 'Include/Header.php';
                                         </select>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control input-sm" name="BirthMonth<?php echo $iCount ?>">
+                                        <select class="form-control form-control-sm" name="BirthMonth<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aBirthMonths[$iCount] == 0) {
                                                 echo 'selected';
                                             } ?>><?= _('Unknown') ?></option>
@@ -1214,7 +1214,7 @@ require 'Include/Header.php';
                                         </select>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <select class="form-control input-sm" name="BirthDay<?= $iCount ?>">
+                                        <select class="form-control form-control-sm" name="BirthDay<?= $iCount ?>">
                                             <option value="0"><?= _('Unk') ?></option>
                                             <?php for ($x = 1; $x < 32; $x++) {
                                                 if ($x < 10) {
@@ -1249,7 +1249,7 @@ require 'Include/Header.php';
                                         ?>
                                     </td>
                                     <td>
-                                        <select class="form-control input-sm"
+                                        <select class="form-control form-control-sm"
                                                 name="Classification<?php echo $iCount ?>">
                                             <option value="0" <?php if ($aClassification[$iCount] == 0) {
                                                 echo 'selected';

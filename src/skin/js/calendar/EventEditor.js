@@ -324,7 +324,7 @@ function addAttendees(typeID, first_time, eventID) {
                 innerHtml += '<tr>'
                     + "<td><label>" + eventTypes[i].countName + ":&nbsp;</label></td>"
                     + '<td>'
-                    + '<input type="text" id="field' + i + '" data-name="' + eventTypes[i].countName + '" data-countid="' + eventTypes[i].countID + '" value="' + eventTypes[i].count + '" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
+                    + '<input type="text" id="field' + i + '" data-name="' + eventTypes[i].countName + '" data-countid="' + eventTypes[i].countID + '" value="' + eventTypes[i].count + '" size="8" class="form-control form-control-sm"  width="100%" style="width: 100%">'
                     + '</td>'
                     + '</tr>'
                 notes = eventTypes[i].notes;
@@ -332,7 +332,7 @@ function addAttendees(typeID, first_time, eventID) {
 
             innerHtml += '<tr>'
                 + '<td style="vertical-align:top"><label>' + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
-                + '<td><textarea type="text" rows="5" id="EventCountNotes" class="form-control input-sm">' + notes + '</textarea>'
+                + '<td><textarea type="text" rows="5" id="EventCountNotes" class="form-control form-control-sm">' + notes + '</textarea>'
                 + '</td>'
                 + '</tr>';
 
@@ -569,7 +569,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '  <div class="row div-title EventTitle">'
         + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Title') + ":</div>"
         + '          <div class="col-md-9">'
-        + "              <input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required " + ((title != undefined) ? ("value='" + title + "'") : "") + ">"
+        + "              <input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required " + ((title != undefined) ? ("value='" + title + "'") : "") + ">"
         + '          </div>'
         + '      </div>'
         + '  <div class="row  div-title EventLocation">'
@@ -577,7 +577,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '      <div class="col-md-9">'
         + '          <div class="form-group has-warning location_group_warning">'
         + '              <label class="control-label location_label_warning" for="inputWarning"><i class="fas fa-bell location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
-        + "              <input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+        + "              <input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
         + '              <span class="help-block location_span_warning">' + i18next.t("To see the Map click this text field.") + '</span>'
         + '          </div>'
         + '      </div>'
@@ -591,13 +591,13 @@ function BootboxContent(start, end, windowtitle, title) {
         + '  <div class="row div-title EventDesc">'
         + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
         + '      <div class="col-md-9">'
-        + "          <textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
+        + "          <textarea id='EventDesc' rows='1' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
         + '      </div>'
         + '  </div>'
         + '  <div class="row div-title ATTENDENCES-title ">'
         + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Type') + ":</div>"
         + '      <div class="col-md-9">'
-        + '          <select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
+        + '          <select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control form-control-sm">'
         //+"<option value='0' >" + i18next.t("Personal") + "</option>"
         + '          </select>'
         + '      </div>'
@@ -625,7 +625,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
-        + '                  <input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
+        + '                  <input class="form-control date-picker form-control-sm" type="text" id="dateEventStart" name="dateEventStart"  value="' + dateStart + '" '
         + '                      maxlength="10" id="sel1" size="11"'
         + '                      placeholder="' + window.CRM.datePickerformat + '">'
         + '              </div>'
@@ -633,7 +633,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
-        + '                  <input type="text" class="form-control timepicker input-sm" id="timeEventStart" name="timeEventStart" value="' + timeStart + '">'
+        + '                  <input type="text" class="form-control timepicker form-control-sm" id="timeEventStart" name="timeEventStart" value="' + timeStart + '">'
         + '              </div>'
         + '          </div>'
         + '      </div>'
@@ -648,7 +648,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
-        + '                  <input class="form-control date-picker  input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
+        + '                  <input class="form-control date-picker  form-control-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="' + dateEnd + '" '
         + '                      maxlength="10" id="sel1" size="11"'
         + '                      placeholder="' + window.CRM.datePickerformat + '">'
         + '              </div>'
@@ -656,7 +656,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-clock"></i></span>'
         + '                  </div>'
-        + '                  <input type="text" class="form-control timepicker input-sm" id="timeEventEnd" name="timeEventEnd" value="' + timeEnd + '">'
+        + '                  <input type="text" class="form-control timepicker form-control-sm" id="timeEventEnd" name="timeEventEnd" value="' + timeEnd + '">'
         + '              </div>'
         + '          </div>'
         + '      </div>'
@@ -668,7 +668,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> ' + i18next.t('Repeat') + ' :'
         + '              </div>'
         + '              <div class="col-md-3">'
-        + '                  <select class="form-control input-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
+        + '                  <select class="form-control form-control-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
         + '                      <option value="FREQ=DAILY">' + i18next.t("Daily") + '</option>'
         + '                      <option value="FREQ=WEEKLY">' + i18next.t("Weekly") + '</option>'
         + '                      <option value="FREQ=MONTHLY">' + i18next.t("Monthly") + '</option>'
@@ -684,7 +684,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '                  <div class="input-group-prepend">'
         + '                      <span class="input-group-text"><i class="fas fa-calendar"></i></span>'
         + '                  </div>'
-        + '                  <input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="' + dateStart + '" '
+        + '                  <input class="form-control date-picker form-control-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="' + dateStart + '" '
         + '                      maxlength="10" id="sel1" size="11"'
         + '                      placeholder="' + window.CRM.datePickerformat + '">'
         + '               </div>'
@@ -693,7 +693,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '              <div class="row">'
         + '                  <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
         + '                  <div class="col-md-9">'
-        + '                    <select class="form-control input-sm" id="EventAlarm" name="EventAlarm">'
+        + '                    <select class="form-control form-control-sm" id="EventAlarm" name="EventAlarm">'
         + '                          <option value="NONE">' + i18next.t("NONE") + '</option>'
         + '                          <option value="PT0S">' + i18next.t("At time of event") + '</option>'
         + '                          <option value="-PT5M">' + i18next.t("5 minutes before") + '</option>'
@@ -713,7 +713,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '  <div class="row  div-title calendar-title">'
         + '      <div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
         + '      <div class="col-md-4">'
-        + '          <select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control input-sm"></select>'
+        + '          <select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control form-control-sm"></select>'
         + '      </div>'
         + '      <div class="col-md-5">'
         + '          <div class="checkbox">'
@@ -730,7 +730,7 @@ function BootboxContent(start, end, windowtitle, title) {
         + '  </div>'
         + '  <div class="row  eventNotes  div-block">'
         + '      <div class="col-md-12" style="margin-top:-15px;padding-left:0px;padding-right:2px;">'
-        + '          <textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea>'
+        + '          <textarea name="EventText" cols="80" class="form-control form-control-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea>'
         + '      </div>'
         + '  </div>'
         + '  <div class="row  div-title">'

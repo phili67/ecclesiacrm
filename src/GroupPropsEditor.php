@@ -261,7 +261,7 @@ if ($numRows == 0) {
 
             if ($aTypeFields[$row] == 9) {
       ?>
-              <select name="<?= $row ?>special"  class="form-control input-sm">
+              <select name="<?= $row ?>special"  class="form-control form-control-sm">
                 <option value="0" selected><?= _("Select a group") ?></option>
       <?php
                 foreach ($groups as $grp) {

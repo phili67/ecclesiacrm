@@ -55,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="CampaignSubject" placeholder="<?= _("Your Mail Subject") ?>" size="30"
-                                       maxlength="100" class="form-control input-sm" style="width: 100%"
+                                       maxlength="100" class="form-control form-control-sm" style="width: 100%"
                                        value="<?= $campaign['settings']['subject_line'] ?>">
                             </div>
                         </div>
@@ -66,7 +66,7 @@ require $sRootDocument . '/Include/Header.php';
                                     <?= _("You can use the button \"Merge Tags\" below, to customize your content") ?> : <img
                                         src="<?= $sRootPath ?>/Images/merge_tags.png">.
                                 </div>
-                                <textarea name="campaignContent" cols="80" class="form-control input-sm campaignContent"
+                                <textarea name="campaignContent" cols="80" class="form-control form-control-sm campaignContent"
                                           id="campaignContent" width="100%"
                                           style="margin-top:0px;width: 100%;height: 14em;"></textarea></div>
                         </div>
@@ -132,7 +132,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                             </div>
                                             <!-- Philippe Logel -->
-                                            <input class="form-control date-picker input-sm" type="text" id="dateCampaign"
+                                            <input class="form-control date-picker form-control-sm" type="text" id="dateCampaign"
                                                    name="dateCampaign"
                                                    value="<?= (isset($campaign['send_time'])) ? OutputUtils::change_date_for_place_holder($campaign['send_time']) : "" ?>"
                                                    maxlength="10" id="sel1" size="11"
@@ -151,7 +151,7 @@ require $sRootDocument . '/Include/Header.php';
                                                 <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                             </div>
                                             <!-- Philippe Logel -->
-                                            <input type="text" class="form-control timepicker input-sm" id="timeCampaign"
+                                            <input type="text" class="form-control timepicker form-control-sm" id="timeCampaign"
                                                    name="timeCampaign"
                                                    value="<?= (isset($campaign['send_time'])) ? OutputUtils::change_time_for_place_holder($campaign['send_time']) : "00:00" ?>" <?= ($campaign['status'] == "schedule") ? "" : "disabled" ?>>
                                         </div>
