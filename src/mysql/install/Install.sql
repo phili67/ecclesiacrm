@@ -1912,6 +1912,7 @@ CREATE TABLE `plugin` (
   `plgn_Name` varchar(255) DEFAULT '',
   `plgn_Description` text,
   `plgn_Category` enum('Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
+  `plgn_position` enum('inside_category_menu', 'after_category_menu') NOT NULL default 'after_category_menu' COMMENT 'Inside category menu or after',
   `plgn_image` varchar(255) default NULL COMMENT 'Presentation image',
   `plgn_installation_path` varchar(5000) DEFAULT '' COMMENT 'path of the plugin',
   `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
