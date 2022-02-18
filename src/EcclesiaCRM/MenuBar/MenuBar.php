@@ -58,7 +58,7 @@ class MenuBar extends Menu
                         break;
                     }
                     $menu = new Menu (_("Meeting"). " : ".$menuBarItem->getDisplayName(),
-                        $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , $main_menu);
+                        $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($plugin->getCategoryPosition() == 'inside_category_menu')?$main_menu:null);
                     $this->addMenu($menu);
 
                     if ($menu_count > 1) {
