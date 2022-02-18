@@ -78,8 +78,7 @@ class PluginsController
             MiscUtils::removeDirectory(SystemURLs::getDocumentRoot(). '/Plugins/' . $plugin->getName() . '/');
             LoggerUtils::getAppLogger()->info($plugin->getName()." directory is removed.");
 
-            exec('cd ../../.. && composer dump-autoload');
-            LoggerUtils::getAppLogger()->info("cd ../.. && composer dump-autoload");
+            exec('cd .. && composer dump-autoload');
 
             return $response->withJson(["status" => "success22"]);
         }
@@ -113,7 +112,7 @@ class PluginsController
                 $json_a = json_decode($string, true);
                 LoggerUtils::getAppLogger()->info("Plugin  ".$json_a['Name']. " is installed");
 
-                exec('cd ../../.. && composer dump-autoload');
+                exec('cd .. && composer dump-autoload');
 
                 // we delete the upload zip
                 unlink($uploadedFileDestination);
