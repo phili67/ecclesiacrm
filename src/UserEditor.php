@@ -664,7 +664,7 @@ if ($usr_role_id == null) {
                         <?= _('Person to Make User') ?>:
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
+                        <select name="PersonID" size="30" id="personSelect" class="form-control form-control-sm">
                             <?php
                             // Loop through all the people
                             foreach ($people as $member) {
@@ -683,7 +683,7 @@ if ($usr_role_id == null) {
                         <?= _('Login Name') ?>:
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3">
-                        <input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>"
+                        <input class="form-control form-control-sm" type="text" name="UserName" value="<?= $sUserName ?>"
                                class="form-control"
                                width="32" <?= (strtolower($sUserName) == "admin") ? "readonly" : "" ?>>
                     </div>
@@ -740,7 +740,7 @@ if ($usr_role_id == null) {
                     ?>
                     <tr>
                         <td><?= _('Login Name') ?>:</td>
-                        <td><input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>"
+                        <td><input class="form-control form-control-sm" type="text" name="UserName" value="<?= $sUserName ?>"
                                    class="form-control"
                                    width="32" <?= (strtolower($sUserName) == "admin") ? "readonly" : "" ?>></td>
                     </tr>
@@ -1140,7 +1140,7 @@ if ($usr_role_id == null) {
                                     ?>
                                     <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
                                         <td>
-                                            <select class="form-control input-sm"
+                                            <select class="form-control form-control-sm"
                                                     name="new_permission[<?= $userConfig->getId() ?>]">
                                                 <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
                                                 <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
@@ -1160,7 +1160,7 @@ if ($usr_role_id == null) {
                                         if ($userConfig->getType() == 'text') {
                                             ?>
                                             <td>
-                                                <input class="form-control input-md" type="text" size="30"
+                                                <input class="form-control form-control-sm" type="text" size="30"
                                                        maxlength="255"
                                                        name="new_value[<?= $userConfig->getId() ?>]"
                                                        value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
@@ -1178,7 +1178,7 @@ if ($usr_role_id == null) {
                                             // todo dates !!!! PL
                                             ?>
                                             <td>
-                                                <input class="form-control input-md" type="text" size="15"
+                                                <input class="form-control form-control-sm" type="text" size="15"
                                                        maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\"
                                                        value="<?= $userConfig->getValue() ?>">
                                             </td>
@@ -1193,7 +1193,7 @@ if ($usr_role_id == null) {
                                             }
                                             ?>
                                             <td>
-                                                <select class="form-control input-sm"
+                                                <select class="form-control form-control-sm"
                                                         name="new_value[<?= $userConfig->getId() ?>]">
                                                     <option value="" <?= $sel1 ?>><?= _('False') ?>
                                                     <option value="1" <?= $sel2 ?>><?= _('True') ?>
@@ -1207,7 +1207,7 @@ if ($usr_role_id == null) {
                                             $choices = explode(",", $userChoices->getChoices());
                                             ?>
                                             <td>
-                                                <select class="form-control input-sm"
+                                                <select class="form-control form-control-sm"
                                                         name="new_value[<?= $userConfig->getId() ?>]">
                                                     <?php
                                                     foreach ($choices
