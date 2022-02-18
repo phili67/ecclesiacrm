@@ -23,7 +23,7 @@ require $sRootDocument . '/Include/Header.php';
                 <?= _('Number') ?>:
             </div>
             <div class="col-lg-2">
-                <input type="text" name="ID" id="ID" value="" class="form-control input-sm">
+                <input type="text" name="ID" id="ID" value="" class="form-control form-control-sm">
             </div>
         </div>
 
@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-lg-2">
                 <input type="text" name="DateStart" maxlength="10" id="DateStart" size="11"
                        value=""
-                       class="date-picker form-control input-sm"
+                       class="date-picker form-control form-control-sm"
                        placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
             </div>
             <div class="col-lg-1">
@@ -51,7 +51,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="col-lg-2">
                 <input type="text" name="DateEnd" maxlength="10" id="DateEnd" size="11"
                        value=""
-                       class="date-picker form-control input-sm"
+                       class="date-picker form-control form-control-sm"
                        placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
             </div>
             <div class="col-lg-1">

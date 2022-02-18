@@ -26,7 +26,7 @@ require $sRootDocument . '/Include/Header.php';
         </label>
     </div>
     <div class="col-lg-3">
-        <select id="table-filter" class="form-control input-sm">
+        <select id="table-filter" class="form-control form-control-sm">
             <option value=""><?= _("All") ?></option>
             <option><?= _("Unassigned") ?></option>
             <?php

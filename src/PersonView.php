@@ -1639,7 +1639,7 @@ if (!empty($person->getDateDeactivated())) {
                                             </span>
                                         </td>
                                         <td>
-                                            <select name="PropertyId" class="filter-timeline form-control input-sm" size="1"
+                                            <select name="PropertyId" class="filter-timeline form-control form-control-sm" size="1"
                                                     style="width:170px" data-placeholder="<?= _("Select") ?> ..."
                                                     data-toggle="tooltip" data-placement="bottom" title="<?= _("Filter your documents by : ") ?>">
                                                 <option value="all"><?= _("All type") ?></option>

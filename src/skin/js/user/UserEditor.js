@@ -94,7 +94,7 @@ function addRolesToMainDropdown()
                   +'<div class="row div-title">'
                     +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Role Name") + ":</div>"
                     +'<div class="col-md-8">'
-                      +"<input type='text' id='RoleName' placeholder='" + i18next.t("Role Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                      +"<input type='text' id='RoleName' placeholder='" + i18next.t("Role Name") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required>"
                     +'</div>'
                   +'</div>'
                 +'</div>';

@@ -66,7 +66,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
             <tr>
               <td class="LabelColumn"><?= gettext("Recipient Naming Method")?>:</td>
               <td class="TextColumn">
-                <select class="form-control input-sm" name="recipientnamingmethod">
+                <select class="form-control form-control-sm" name="recipientnamingmethod">
                   <option value="salutationutility"><?= gettext("Salutation Utility") ?></option>
                   <option value="familyname"><?= gettext("Family Name") ?></option>
                 </select>

@@ -282,7 +282,7 @@ require 'Include/Header.php';
                         </div>
                         <!-- /.box-header -->
                         <div class="card-body no-padding collapse" id="RecordFilters">
-                            <select name="Source" class="form-control input-sm">
+                            <select name="Source" class="form-control form-control-sm">
                                 <option value="filters"><?= _('Based on filters below..') ?></option>
                                 <option
                                     value="cart" <?= (array_key_exists('Source', $_GET) && $_GET['Source'] == 'cart') ? 'selected' : '' ?>>
@@ -305,7 +305,7 @@ require 'Include/Header.php';
                             </div>
                         </div>
                         <div class="card-body no-padding collapse" id="ClassificationFilters">
-                            <select name="Classification[]" size="5" multiple class="form-control input-sm">
+                            <select name="Classification[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($ormClassifications as $rsClassification) {
                                     ?>
@@ -333,7 +333,7 @@ require 'Include/Header.php';
                         </div>
                         <!-- /.box-header -->
                         <div class="card-body no-padding collapse" id="FamilyFilters">
-                            <select name="FamilyRole[]" size="5" multiple class="form-control input-sm">
+                            <select name="FamilyRole[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($ormFamilyRoles as $ormFamilyRole) {
                                     ?>
@@ -363,7 +363,7 @@ require 'Include/Header.php';
                         </div>
                         <!-- /.box-header -->
                         <div class="card-body no-padding collapse" id="GenderFilters">
-                            <select name="Gender" class="form-control input-sm">
+                            <select name="Gender" class="form-control form-control-sm">
                                 <option value="0"><?= _("Don't Filter") ?></option>
                                 <option value="1"><?= _('Male') ?></option>
                                 <option value="2"><?= _('Female') ?></option>
@@ -386,7 +386,7 @@ require 'Include/Header.php';
                         <!-- /.box-header -->
                         <div class="card-body no-padding collapse" id="GroupFilters">
                             <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                            <select name="GroupID[]" size="5" multiple class="form-control input-sm">
+                            <select name="GroupID[]" size="5" multiple class="form-control form-control-sm">
                                 <?php
                                 foreach ($groups as $group) {
                                     ?>
@@ -542,7 +542,7 @@ require 'Include/Header.php';
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-3">
-                    <select name="Format" class="form-control input-sm">
+                    <select name="Format" class="form-control form-control-sm">
                         <option value="Default"><?= _('CSV Individual Records') ?></option>
                         <option value="Rollup"><?= _('CSV Combine Families') ?></option>
                         <option value="AddToCart"><?= _('Add Individuals to Cart') ?></option>

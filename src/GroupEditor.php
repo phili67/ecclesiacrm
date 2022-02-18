@@ -99,7 +99,7 @@ require 'Include/Header.php';
             <div class="row">
               <div class="col-sm-12">
                 <label for="GroupType"><?= _('Type of Group and Menu Category') ?>:</label>
-                <select class="form-control input-small" name="GroupType"
+                <select class="form-control form-control-small" name="GroupType"
                         data-toggle="tooltip"  data-placement="bottom" title="<?= _("This will include the group in a menu item in the left sidebar") ?>">
                   <option value="0"><?= _('Unassigned') ?></option>
                   <option value="0">-----------------------</option>
@@ -126,7 +126,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-sm-3" id="selectGroupIDDiv">
                   <?= _('from group') ?>:
-                  <select class="form-control input-small" name="seedGroupID" id="seedGroupID" >
+                  <select class="form-control form-control-small" name="seedGroupID" id="seedGroupID" >
                     <option value="0"><?php _('Select a group'); ?></option>
 
                   <?php

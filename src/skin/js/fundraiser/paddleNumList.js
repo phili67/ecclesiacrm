@@ -82,13 +82,13 @@ $(document).ready(function () {
             + '  <div class="row NumberTitle">'
             + '      <div class="col-md-3">' + i18next.t('Number') + ":</div>"
             + '      <div class="col-md-9">'
-            + "         <input type='text' id='Number' placeholder='" + i18next.t("Buyer Number") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required " + ((windowtitle != undefined) ? ("value='" + number + "'") : "") + ">"
+            + "         <input type='text' id='Number' placeholder='" + i18next.t("Buyer Number") + "' size='30' maxlength='100' class='form-control form-control-sm'  width='100%' style='width: 100%' required " + ((windowtitle != undefined) ? ("value='" + number + "'") : "") + ">"
             + '      </div>'
             + '  </div><br>'
             + '  <div class="row  buyer-list-title">'
             + '      <div class="col-md-3">' + i18next.t('Buyer') + ":</div>"
             + '      <div class="col-md-9">'
-            + '          <select name="PerID" class="form-control select2  input-sm" id="Buyers" style="width: 100%">></select>'
+            + '          <select name="PerID" class="form-control select2  form-control-sm" id="Buyers" style="width: 100%">></select>'
             + '      </div>'
             + '  </div>'
             + '</div>';

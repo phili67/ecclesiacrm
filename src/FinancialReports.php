@@ -70,7 +70,7 @@ if ($sReportType == '') {
     <tr>
       <td class=LabelColumn><?= _("Report Type:") ?>&nbsp;&nbsp;</td>
       <td class=TextColumn>
-        <select name=ReportType class="form-control input-sm">
+        <select name=ReportType class="form-control form-control-sm">
           <option value=0><?= _("Select Report Type") ?></option>
           <option value='Pledge Summary'><?= _("Pledge Summary") ?></option>
           <option value='Pledge Family Summary'><?= _("Pledge Family Summary") ?></option>

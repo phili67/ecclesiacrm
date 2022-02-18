@@ -156,7 +156,7 @@ if (isset($_GET['typeProblem'])) {
                   <?= gettext("Image Position") ?>
             </div>
             <div class="col-md-6">
-                   <select name="imagePosition" class="form-control input-sm">
+                   <select name="imagePosition" class="form-control form-control-sm">
                      <option value="Left" <?= ($_COOKIE["imagePosition"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
                      <option value="Center" <?= ($_COOKIE["imagePosition"] == 'Center')?'selected':'' ?>><?= gettext('Center') ?></option>
                      <option value="Right" <?= ($_COOKIE["imagePosition"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>

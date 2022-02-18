@@ -67,13 +67,13 @@ require $sRootDocument . '/Include/Header.php';
                         (<?= $encryptionMethod ?>) <?= _("encryption") ?>, <?= _('Password') ?>:
                     </div>
                     <div class="col-lg-2">
-                        <input type="password" name="pw1" class="form-control input-sm">
+                        <input type="password" name="pw1" class="form-control form-control-sm">
                     </div>
                     <div class="col-lg-2">
                         <?= _('Re-type Password') ?>:
                     </div>
                     <div class="col-lg-2">
-                        <input type="password" name="pw2" class="form-control input-sm">
+                        <input type="password" name="pw2" class="form-control form-control-sm">
                     </div>
                 </div>
                 <BR>

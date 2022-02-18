@@ -170,7 +170,7 @@ $(document).ready(function () {
             + '<div>'
             + '<div class="row">'
             + '<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-            + '<textarea name="NoteText" cols="80" class="form-control input-sm NoteText" id="NoteText"  width="100%" style="width: 100%;height: 4em;"></textarea></div>'
+            + '<textarea name="NoteText" cols="80" class="form-control form-control-sm NoteText" id="NoteText"  width="100%" style="width: 100%;height: 4em;"></textarea></div>'
             + '</div>'
             + '</div>'
             + '</div>'

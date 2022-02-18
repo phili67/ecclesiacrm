@@ -295,7 +295,7 @@ require 'Include/Header.php'; ?>
 
   function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
   {
-      $sOptList = '<select name="'.$fld_name.'" class="form-control input-sm">';
+      $sOptList = '<select name="'.$fld_name.'" class="form-control form-control-sm">';
       $grp_Count = count($aSecGrp);
 
       for ($i = 0; $i < $grp_Count; $i++) {
@@ -386,7 +386,7 @@ require 'Include/Header.php'; ?>
               <?php
                 if ($aTypeFields[$row] == 9) {
               ?>
-                <select name="<?= $row ?>special" class="form-control input-sm">
+                <select name="<?= $row ?>special" class="form-control form-control-sm">
                   <option value="0" selected><?= _("Select a group") ?></option>
               <?php
                   $ormGroupList = GroupQuery::Create()->orderByName()->find();
@@ -484,7 +484,7 @@ require 'Include/Header.php'; ?>
             <tr>
               <td width="15%"></td>
               <td valign="top" class="TextColumnFam">
-                 <select name="newFieldType" class="form-control input-sm">
+                 <select name="newFieldType" class="form-control form-control-sm">
 
               <?php
                 for ($iOptionID = 1; $iOptionID <= MiscUtils::ProTypeCount(); $iOptionID++) {

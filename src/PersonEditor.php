@@ -893,7 +893,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-md-2">
                         <label><?= _('Gender') ?>:</label>
-                        <select name="Gender" class="form-control input-sm">
+                        <select name="Gender" class="form-control form-control-sm">
                             <option value="0"><?= _('Select Gender') ?></option>
                             <option value="0" disabled>-----------------------</option>
                             <option value="1" <?= ($iGender == 1) ? 'selected' : '' ?>><?= _('Male') ?></option>
@@ -973,7 +973,7 @@ require 'Include/Header.php';
         <div class="card-body">
             <div class="form-group col-md-3">
                 <label><?= _("Person or Family Role") ?>:</label>
-                <select name="FamilyRole" class="form-control input-sm">
+                <select name="FamilyRole" class="form-control form-control-sm">
                     <option value="0"><?= _("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php

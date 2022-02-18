@@ -34,7 +34,7 @@ if ($sMode == 'person') {
                 <input type="text" id="SearchTerm"
                        placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>"
                        size="30" maxlength="100"
-                       class="form-control input-sm" width="100%" style="width: 100%" required=""
+                       class="form-control form-control-sm" width="100%" style="width: 100%" required=""
                        value="<?= $mode ?>">
             </div>
         </div>

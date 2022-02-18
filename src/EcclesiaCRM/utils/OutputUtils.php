@@ -331,7 +331,7 @@ class OutputUtils
 
             // Handler for season (drop-down selection)
             case 7:
-                echo "<select name=\"$fieldname\" class=\"form-control input-sm\" >";
+                echo "<select name=\"$fieldname\" class=\"form-control form-control-sm\" >";
                 echo '  <option value="none">' . _('Select Season') . '</option>';
                 echo '  <option value="winter"';
                 if ($data == 'winter') {
@@ -377,7 +377,7 @@ class OutputUtils
                     $statement = $connection->prepare($sSQL);
                     $statement->execute();
 
-                    echo '<select name="' . $fieldname . '" class="form-control input-sm" >';
+                    echo '<select name="' . $fieldname . '" class="form-control form-control-sm" >';
                     echo '<option value="0"';
                     if ($data <= 0) {
                         echo ' selected';
@@ -442,7 +442,7 @@ class OutputUtils
                     ->orderByOptionSequence()
                     ->findById($special);
 
-                echo '<select class="form-control input-sm" name="' . $fieldname . '">';
+                echo '<select class="form-control form-control-sm" name="' . $fieldname . '">';
                 echo '<option value="0" selected>' . _('Unassigned') . '</option>';
                 echo '<option value="0">-----------------------</option>';
 

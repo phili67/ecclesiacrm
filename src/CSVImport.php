@@ -295,7 +295,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
              <input type="checkbox" value="1" name="MakeFamilyRecords" checked=true>
           </div>
           <div class="col-lg-3">
-            <select name="MakeFamilyRecordsMode" class="form-control input-sm">
+            <select name="MakeFamilyRecordsMode" class="form-control form-control-sm">
                 <option value="0"><?= _('Make Family records based on last name and address') ?></option>
                 <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
             </select>
@@ -308,7 +308,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <div class="col-lg-1" style="width:10px">
           </div>
           <div class="col-lg-3">
-              <select name="DateMode"  class="form-control input-sm" style="color:red">
+              <select name="DateMode"  class="form-control form-control-sm" style="color:red">
                   <option value="1">YYYY-MM-DD</option>
                   <option value="2">MM-DD-YYYY</option>
                   <option value="3">DD-MM-YYYY</option>
@@ -346,7 +346,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <div class="col-lg-1" style="width:10px">
           </div>
           <div class="col-lg-3">
-            <select name="FamilyMode"  class="form-control input-sm">
+            <select name="FamilyMode"  class="form-control form-control-sm">
                 <option value="0"><?= _('Patriarch') ?></option>
                 <option value="1"><?= _('Matriarch') ?></option>
             </select>
@@ -382,7 +382,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <div class="col-lg-1" style="width:10px">
           </div>
           <div class="col-lg-3">
-            <select name="Classification" class="form-control input-sm">
+            <select name="Classification" class="form-control form-control-sm">
                <option value="0"><?= _('Unassigned') ?></option>
                <option value="0">-----------------------</option>
 
@@ -996,7 +996,7 @@ if ($iStage == 1) {
                   • <?= _("Select <b>NOW</b> your <b>CSV separator</b>") ?>
                 </div>
                 <div class="col-lg-2">
-                  <select name="sSeperator" class="form-control input-sm">
+                  <select name="sSeperator" class="form-control form-control-sm">
                       <option value=",">,</option>
                       <option value=";">;</option>
                   </select>

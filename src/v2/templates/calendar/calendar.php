@@ -33,7 +33,7 @@ require $sRootDocument . '/Include/Header.php';
                         </div>
                         <div class="col-md-9">
                             <select type="text" id="EventTypeFilter" value="0"
-                                    class="form-control input-sm" size=1>
+                                    class="form-control form-control-sm" size=1>
                                 <option value='0'><?= _("All") ?></option>
                                 <option disabled>──────────</option>
                                 <?php

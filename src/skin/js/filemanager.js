@@ -775,7 +775,7 @@ $(document).ready(function () {
             + '<div class="row div-title">'
             + '<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
             + '<div class="col-md-8">'
-            + '<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
+            + '<select name="person-group-Id" id="person-group-rights" class="form-control form-control-sm"'
             + 'style="width:100%" data-placeholder="text to place">'
             + '<option value="0">' + i18next.t("Select your rights") + " [👀  ]" + i18next.t("or") + "[👀 ✐]" + ' -- </option>'
             + '<option value="1">' + i18next.t("[👀  ]") + ' -- ' + i18next.t("[R ]") + '</option>'
