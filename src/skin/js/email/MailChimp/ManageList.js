@@ -6,6 +6,8 @@
 //  Updated : 2020/06/18
 //
 
+var tagButtonsLoaded = false;
+
 $(document).ready(function () {
     window.CRM.editor = null;
 
@@ -207,7 +209,7 @@ $(document).ready(function () {
             {
                 width: 'auto',
                 className: "text-center",
-                //orderable: false,
+                orderable: true,
                 title: i18next.t('Tags') + '<br/><div class="btn-group">\n' +
                     '                                <button type="button" class="addTagButton btn btn-primary btn-sm" data-id="-1" ' +
                     '                                        disabled><i class="fas fa-tag"></i></button>' +
@@ -309,6 +311,10 @@ $(document).ready(function () {
             },
             initComplete: function(settings, json) {
                 $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+                if (tagButtonsLoaded === false) {
+                    addDataTableButtons();
+                    tagButtonsLoaded = true;
+                }
             }
         }
 
@@ -357,6 +363,173 @@ $(document).ready(function () {
     addTagsToMainDropdown();
     loadTableMembers();
 
+    function addDataTableButtons ()
+    {
+        $('.addTagButton').click(function (event) {
+            $(".addTagButtonDrop").dropdown('toggle');
+            event.stopPropagation();
+
+            var tag = $(this).data("id");
+            var name = $(this).data("name");
+
+            var emails = [];
+
+            $(".checkbox_users").each(function () {
+                if (this.checked) {
+                    var email = $(this).data("email");
+
+                    emails.push(email);
+                }
+            });
+
+            if (tag == -1) {
+
+                bootbox.prompt(i18next.t("Add your tag name"), function (name) {
+                    if (name != null && name != "") {
+                        window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
+
+                        window.CRM.APIRequest({
+                            method: 'POST',
+                            path: 'mailchimp/list/addTag',
+                            data: JSON.stringify({
+                                "list_id": window.CRM.list_ID,
+                                "tag": tag,
+                                "name": name,
+                                "emails": emails
+                            })
+                        },function (data) {
+                            if (data.success) {
+                                window.CRM.closeDialogLoadingFunction();
+                                window.CRM.dataListTable.ajax.reload(null, false);
+                                render_container();
+                                addTagsToMainDropdown();
+                                changeState();
+                            } else if (data.success == false && data.error) {
+                                window.CRM.closeDialogLoadingFunction();
+                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                            }
+                        });
+                    } else if (name != null) {
+                        window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("Name is empty !!"));
+                    }
+                });
+            } else {
+                bootbox.confirm({
+                    title: i18next.t("Add tag?"),
+                    message: i18next.t("This will add the tag") + " \"" + name + "\" " + i18next.t("to all the current selected members in the list."),
+                    buttons: {
+                        cancel: {
+                            label: '<i class="fas fa-times"></i> ' + i18next.t("No")
+                        },
+                        confirm: {
+                            label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'mailchimp/list/addTag',
+                                data: JSON.stringify({
+                                    "list_id": window.CRM.list_ID,
+                                    "tag": tag,
+                                    "name": name,
+                                    "emails": emails
+                                })
+                            },function (data) {
+                                if (data.success) {
+                                    window.CRM.closeDialogLoadingFunction();
+                                    window.CRM.dataListTable.ajax.reload(null, false);
+                                    render_container();
+                                } else if (data.success == false && data.error) {
+                                    window.CRM.closeDialogLoadingFunction();
+                                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+        $('.deleteTagButton').click( function (event) {
+            $(".addTagButtonDrop").dropdown('toggle');
+            event.stopPropagation();
+
+            var tag = $(this).data("id");
+            var name = $(this).data("name");
+
+            var emails = [];
+
+            $(".checkbox_users").each(function () {
+                if (this.checked) {
+                    var email = $(this).data("email");
+
+                    emails.push(email);
+                }
+            });
+
+
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/list/getAllTags',
+                data: JSON.stringify({"list_id": window.CRM.list_ID})
+            },function (data) {
+                var len = data.result.length;
+
+                var res = [{text: i18next.t("Select One"), value: ''}];
+
+                res.push({text: i18next.t("All Tags"), value: -1});
+
+                for (i = 0; i < len; ++i) {
+                    res.push({text: data.result[i].name, value: data.result[i].id});
+                }
+
+                bootbox.prompt({
+                    title: i18next.t("Choose the tag you want to delete :"),
+                    inputType: 'select',
+                    inputOptions: res,
+                    callback: function (tag) {
+                        if (tag && tag != -1) {
+                            console.log(tag);
+                            window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'));
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'mailchimp/list/removeTagForMembers',
+                                data: JSON.stringify({
+                                    "list_id": window.CRM.list_ID,
+                                    "tag": tag,
+                                    "name": name,
+                                    "emails": emails
+                                })
+                            },function (data) {
+                                if (data.success) {
+                                    window.CRM.dataListTable.ajax.reload(null, false);
+                                    render_container();
+                                    addTagsToMainDropdown();
+                                    changeState();
+                                } else if (data.success == false && data.error) {
+                                    window.CRM.closeDialogLoadingFunction();
+                                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                }
+                            });
+                        } else if (tag != null) {
+                            window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'));
+
+                            window.CRM.APIRequest({
+                                method: 'POST',
+                                path: 'mailchimp/list/removeAllTagsForMembers',
+                                data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
+                            },function (data) {
+                                window.CRM.dataListTable.ajax.reload(null, false);
+                                render_container();
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    }
 
     // render the main page
 
@@ -963,167 +1136,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    $('body').on('click', '.deleteTagButton', function () {
-        var tag = $(this).data("id");
-        var name = $(this).data("name");
-
-        var emails = [];
-
-        $(".checkbox_users").each(function () {
-            if (this.checked) {
-                var email = $(this).data("email");
-
-                emails.push(email);
-            }
-        });
-
-
-        window.CRM.APIRequest({
-            method: 'POST',
-            path: 'mailchimp/list/getAllTags',
-            data: JSON.stringify({"list_id": window.CRM.list_ID})
-        },function (data) {
-            var len = data.result.length;
-
-            var res = [{text: i18next.t("Select One"), value: ''}];
-
-            res.push({text: i18next.t("All Tags"), value: -1});
-
-            for (i = 0; i < len; ++i) {
-                res.push({text: data.result[i].name, value: data.result[i].id});
-            }
-
-            bootbox.prompt({
-                title: i18next.t("Choose the tag you want to delete :"),
-                inputType: 'select',
-                inputOptions: res,
-                callback: function (tag) {
-                    if (tag && tag != -1) {
-                        console.log(tag);
-                        window.CRM.dialogLoadingFunction(i18next.t('Removing tags...'));
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'mailchimp/list/removeTagForMembers',
-                            data: JSON.stringify({
-                                "list_id": window.CRM.list_ID,
-                                "tag": tag,
-                                "name": name,
-                                "emails": emails
-                            })
-                        },function (data) {
-                            if (data.success) {
-                                window.CRM.dataListTable.ajax.reload(null, false);
-                                render_container();
-                                addTagsToMainDropdown();
-                                changeState();
-                            } else if (data.success == false && data.error) {
-                                window.CRM.closeDialogLoadingFunction();
-                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                            }
-                        });
-                    } else if (tag != null) {
-                        window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'));
-
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'mailchimp/list/removeAllTagsForMembers',
-                            data: JSON.stringify({"list_id": window.CRM.list_ID, "emails": emails})
-                        },function (data) {
-                            window.CRM.dataListTable.ajax.reload(null, false);
-                            render_container();
-                        });
-                    }
-                }
-            });
-        });
-    });
-
-    $('body').on('click', '.addTagButton', function () {
-        var tag = $(this).data("id");
-        var name = $(this).data("name");
-
-        var emails = [];
-
-        $(".checkbox_users").each(function () {
-            if (this.checked) {
-                var email = $(this).data("email");
-
-                emails.push(email);
-            }
-        });
-
-        if (tag == -1) {
-
-            bootbox.prompt(i18next.t("Add your tag name"), function (name) {
-                if (name != null && name != "") {
-                    window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
-
-                    window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'mailchimp/list/addTag',
-                        data: JSON.stringify({
-                            "list_id": window.CRM.list_ID,
-                            "tag": tag,
-                            "name": name,
-                            "emails": emails
-                        })
-                    },function (data) {
-                        if (data.success) {
-                            window.CRM.closeDialogLoadingFunction();
-                            window.CRM.dataListTable.ajax.reload(null, false);
-                            render_container();
-                            addTagsToMainDropdown();
-                            changeState();
-                        } else if (data.success == false && data.error) {
-                            window.CRM.closeDialogLoadingFunction();
-                            window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                        }
-                    });
-                } else if (name != null) {
-                    window.CRM.DisplayAlert(i18next.t("Error"), i18next.t("Name is empty !!"));
-                }
-            });
-        } else {
-            bootbox.confirm({
-                title: i18next.t("Add tag?"),
-                message: i18next.t("This will add the tag") + " \"" + name + "\" " + i18next.t("to all the current selected members in the list."),
-                buttons: {
-                    cancel: {
-                        label: '<i class="fas fa-times"></i> ' + i18next.t("No")
-                    },
-                    confirm: {
-                        label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
-                    }
-                },
-                callback: function (result) {
-                    if (result) {
-                        window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
-                        window.CRM.APIRequest({
-                            method: 'POST',
-                            path: 'mailchimp/list/addTag',
-                            data: JSON.stringify({
-                                "list_id": window.CRM.list_ID,
-                                "tag": tag,
-                                "name": name,
-                                "emails": emails
-                            })
-                        },function (data) {
-                            if (data.success) {
-                                window.CRM.closeDialogLoadingFunction();
-                                window.CRM.dataListTable.ajax.reload(null, false);
-                                render_container();
-                            } else if (data.success == false && data.error) {
-                                window.CRM.closeDialogLoadingFunction();
-                                window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
-                            }
-                        });
-                    }
-                }
-            });
-        }
-    });
-
 
     $(document).on("click","#deleteMembers", function () {
         var emails = [];
