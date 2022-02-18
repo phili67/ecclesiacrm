@@ -378,7 +378,7 @@ if ($numRows == 0) {
           <?= MiscUtils::PropTypes($aTypeFields[$row]) ?>
       </td>
       <td class="TextColumn">
-         <input type="text" name="<?= $row ?>name" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="25" maxlength="40" class="form-control">
+         <input type="text" name="<?= $row ?>name" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="25" maxlength="40" class= "form-control form-control-sm">
         <?php
           if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
         ?>
@@ -494,7 +494,7 @@ if ($numRows == 0) {
           <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
           </td>
           <td valign="top">
-            <input type="text" name="newFieldName" size="25" maxlength="40" class="form-control">
+            <input type="text" name="newFieldName" size="25" maxlength="40" class= "form-control form-control-sm">
             <?php
               if ($bNewNameError) {
             ?>
@@ -510,7 +510,7 @@ if ($numRows == 0) {
             &nbsp;
           </td>
           <td valign="top">
-            <input type="text" name="newFieldDesc" size="30" maxlength="60" class="form-control">
+            <input type="text" name="newFieldDesc" size="30" maxlength="60" class= "form-control form-control-sm">
             &nbsp;
           </td>
           <td valign="top">

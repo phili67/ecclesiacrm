@@ -66,7 +66,7 @@ $(document).ready(function () {
         +'    <label for="depositDate">'+i18next.t("Type")+'</label>'
         +'  </div>'
         +'  <div class="col-lg-9">'
-        +'    <select class="form-control" id="Class" name="Class">'
+        +'    <select class= "form-control form-control-sm" id="Class" name="Class">'
         +'        <option value="p" '+ ((type=='p' || type==-1)?'selected=""':'')+'>'+i18next.t("Person")+'</option>'
         +'        <option value="f" '+ ((type=='f')?'selected=""':'')+'>'+i18next.t("Family")+'</option>'
         +'        <option value="g" '+ ((type=='g')?'selected=""':'')+'>'+i18next.t("Group")+'</option>'

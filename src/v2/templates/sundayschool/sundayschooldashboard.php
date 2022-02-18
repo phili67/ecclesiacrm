@@ -322,7 +322,7 @@ require $sRootDocument . '/Include/Header.php';
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" id="new-class-name" class="form-control" placeholder="<?= _('Enter Name') ?>"
+                        <input type="text" id="new-class-name" class= "form-control form-control-sm" placeholder="<?= _('Enter Name') ?>"
                                maxlength="20" required>
                     </div>
                 </div>

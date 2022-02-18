@@ -99,7 +99,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="ROOT_PATH">Root Path</label>
                 <input type="text" name="ROOT_PATH" id="ROOT_PATH"
-                       value="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>" class="form-control"
+                       value="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>" class= "form-control form-control-sm"
                        aria-describedby="ROOT_PATH_HELP">
                 <small id="ROOT_PATH_HELP" class="form-text text-muted">
                     Root path of your Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?> installation ( THIS MUST BE SET CORRECTLY! )
@@ -123,7 +123,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="URL">Base URL</label>
-                <input type="text" name="URL" id="URL" value="<?= $URL ?>" class="form-control"
+                <input type="text" name="URL" id="URL" value="<?= $URL ?>" class= "form-control form-control-sm"
                        aria-describedby="URL_HELP" required>
                 <small id="URL_HELP" class="form-text text-muted">
                     This is the URL that you prefer most users use when they log in. These are case sensitive.
@@ -134,37 +134,37 @@ require '../Include/HeaderNotLoggedIn.php';
         <section>
             <div class="form-group">
                 <label for="DB_SERVER_NAME">Database Server Name</label>
-                <input type="text" name="DB_SERVER_NAME" id="DB_SERVER_NAME" class="form-control"
+                <input type="text" name="DB_SERVER_NAME" id="DB_SERVER_NAME" class= "form-control form-control-sm"
                        aria-describedby="DB_SERVER_NAME_HELP" required>
                 <small id="DB_SERVER_NAME_HELP" class="form-text text-muted">Use localhost over 127.0.0.1</small>
             </div>
             <div class="form-group">
               <label for="DB_SERVER_PORT">MySQL Database Server Port</label>
-              <input type="text" name="DB_SERVER_PORT" id="DB_SERVER_PORT" class="form-control"
+              <input type="text" name="DB_SERVER_PORT" id="DB_SERVER_PORT" class= "form-control form-control-sm"
                        aria-describedby="DB_SERVER_PORT_HELP" required value="3306">
               <small id="DB_SERVER_PORT_HELP" class="form-text text-muted">Default MySQL Port is 3306</small>
             </div>
             <div class="form-group">
                 <label for="DB_NAME">Database Name</label>
-                <input type="text" name="DB_NAME" id="DB_NAME" placeholder="ecclesiacrm" class="form-control"
+                <input type="text" name="DB_NAME" id="DB_NAME" placeholder="ecclesiacrm" class= "form-control form-control-sm"
                        aria-describedby="DB_NAME_HELP" required>
                 <small id="DB_NAME_HELP" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="DB_USER">Database User</label>
-                <input type="text" name="DB_USER" id="DB_USER" placeholder="ecclesiacrm" class="form-control"
+                <input type="text" name="DB_USER" id="DB_USER" placeholder="ecclesiacrm" class= "form-control form-control-sm"
                        aria-describedby="DB_USER_HELP" required>
                 <small id="DB_USER_HELP" class="form-text text-muted">Must have permissions to create tables and views</small>
             </div>
             <div class="form-group">
                 <label for="DB_PASSWORD">Database Password</label>
-                <input type="password" name="DB_PASSWORD" id="DB_PASSWORD" class="form-control"
+                <input type="password" name="DB_PASSWORD" id="DB_PASSWORD" class= "form-control form-control-sm"
                        aria-describedby="DB_PASSWORD_HELP" required>
                 <small id="DB_PASSWORD_HELP" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="DB_PASSWORD2">Confirm Database Password</label>
-                <input type="password" name="DB_PASSWORD2" id="DB_PASSWORD2" class="form-control"
+                <input type="password" name="DB_PASSWORD2" id="DB_PASSWORD2" class= "form-control form-control-sm"
                        aria-describedby="DB_PASSWORD2_HELP" required>
                 <small id="DB_PASSWORD2_HELP" class="form-text text-muted"></small>
             </div>
@@ -191,27 +191,27 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sChurchName">Church Name</label>
-                <input type="text" name="sChurchName" id="sChurchName" class="form-control"
+                <input type="text" name="sChurchName" id="sChurchName" class= "form-control form-control-sm"
                        aria-describedby="sChurchNameHelp" required>
                 <small id="sChurchNameHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="sChurchAddress">Church Address (1 street Christian)</label>
-                <input type="text" name="sChurchAddress" id="sChurchAddress" class="form-control"
+                <input type="text" name="sChurchAddress" id="sChurchAddress" class= "form-control form-control-sm"
                        aria-describedby="sChurchAddressHelp" required>
                 <small id="sChurchAddressHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
                 <label for="sChurchCity">Church City (New York)</label>
-                <input type="text" name="sChurchCity" id="sChurchCity" class="form-control"
+                <input type="text" name="sChurchCity" id="sChurchCity" class= "form-control form-control-sm"
                        aria-describedby="sChurchCityHelp" required>
                 <small id="sChurchCityHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
                 <label for="sChurchZip">Church Zip</label>
-                <input type="text" name="sChurchZip" id="sChurchZip" class="form-control"
+                <input type="text" name="sChurchZip" id="sChurchZip" class= "form-control form-control-sm"
                        aria-describedby="sChurchZipHelp" required>
                 <small id="sChurchZipHelp" class="form-text text-muted"></small>
             </div>
@@ -236,14 +236,14 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sChurchPhone">Church Phone</label>
-                <input type="text" name="sChurchPhone" id="sChurchPhone" class="form-control"
+                <input type="text" name="sChurchPhone" id="sChurchPhone" class= "form-control form-control-sm"
                        aria-describedby="sChurchPhoneHelp">
                 <small id="sChurchPhoneHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
                 <label for="sChurchEmail">Church email</label>
-                <input type="email" name="sChurchEmail" id="sChurchEmail" class="form-control"
+                <input type="email" name="sChurchEmail" id="sChurchEmail" class= "form-control form-control-sm"
                        aria-describedby="sChurchEmailHelp" required>
                 <small id="sChurchEmailHelp" class="form-text text-muted"></small>
             </div>
@@ -256,7 +256,7 @@ require '../Include/HeaderNotLoggedIn.php';
         <section>
             <div class="form-group">
                 <label for="sChurchName">Confirm Signer</label>
-                <input type="text" name="sConfirmSigner" id="sConfirmSigner" class="form-control"
+                <input type="text" name="sConfirmSigner" id="sConfirmSigner" class= "form-control form-control-sm"
                        aria-describedby="sConfirmSignerHelp" required>
                 <small id="sConfirmSignerHelp" class="form-text text-muted">
                   Database information confirmation and correction report signer
@@ -265,7 +265,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sReminderSigner">Reminder Signer</label>
-                <input type="text" name="sReminderSigner" id="sReminderSigner" class="form-control"
+                <input type="text" name="sReminderSigner" id="sReminderSigner" class= "form-control form-control-sm"
                        aria-describedby="sReminderSignerHelp" required>
                 <small id="sReminderSignerHelp" class="form-text text-muted">
                   Pledge Reminder Signer
@@ -274,7 +274,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sTaxSigner">Tax Signer</label>
-                <input type="text" name="sTaxSigner" id="sTaxSigner" class="form-control"
+                <input type="text" name="sTaxSigner" id="sTaxSigner" class= "form-control form-control-sm"
                        aria-describedby="sTaxSignerHelp">
                 <small id="sTaxSignerHelp" class="form-text text-muted">
                   Tax Report signer
@@ -283,7 +283,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="bGDPR">GDPR Europe</label>
-                <select name="bGDPR" id="bGDPR"  class="form-control" aria-describedby="bGDPRHelp">
+                <select name="bGDPR" id="bGDPR"  class= "form-control form-control-sm" aria-describedby="bGDPRHelp">
                   <option value="1">True</option>
                   <option value="0" selected>False</option>
                 </select>
@@ -294,7 +294,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sGdprDpoSigner">DPO Grpd Signer</label>
-                <input type="text" name="sGdprDpoSigner" id="sGdprDpoSigner" class="form-control"
+                <input type="text" name="sGdprDpoSigner" id="sGdprDpoSigner" class= "form-control form-control-sm"
                        aria-describedby="sGdprDpoSignerHelp">
                 <small id="sGdprDpoSignerHelp" class="form-text text-muted">
                   The DPO administrator for the GDPR.
@@ -303,7 +303,7 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sGdprDpoSignerEmail">DPO Grpd Signer Email</label>
-                <input type="email" name="sGdprDpoSignerEmail" id="sGdprDpoSignerEmail" class="form-control"
+                <input type="email" name="sGdprDpoSignerEmail" id="sGdprDpoSignerEmail" class= "form-control form-control-sm"
                        aria-describedby="sGdprDpoSignerEmailHelp">
                 <small id="sGdprDpoSignerHelp" class="form-text text-muted">
                   The DPO administrator for the GDPR email.
@@ -320,20 +320,20 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sChurchName">Church WebSite</label>
-                <input type="text" name="sChurchWebSite" id="sChurchWebSite" class="form-control"
+                <input type="text" name="sChurchWebSite" id="sChurchWebSite" class= "form-control form-control-sm"
                        aria-describedby="sChurchWebSiteHelp">
                 <small id="sChurchWebSiteHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="sChurchAddress">Church FaceBook</label>
-                <input type="text" name="sChurchFB" id="sChurchFB" class="form-control"
+                <input type="text" name="sChurchFB" id="sChurchFB" class= "form-control form-control-sm"
                        aria-describedby="sChurchFBHelp">
                 <small id="sChurchFBHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
                 <label for="sChurchTwitter">Church Twitter</label>
-                <input type="text" name="sChurchTwitter" id="sChurchTwitter" class="form-control"
+                <input type="text" name="sChurchTwitter" id="sChurchTwitter" class= "form-control form-control-sm"
                        aria-describedby="sChurchTwitterHelp">
                 <small id="sChurchFBHelp" class="form-text text-muted"></small>
             </div>
@@ -351,7 +351,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="sSMTPHost">SMTP Host</label>
-                <input type="text" name="sSMTPHost" id="sSMTPHost" class="form-control"
+                <input type="text" name="sSMTPHost" id="sSMTPHost" class= "form-control form-control-sm"
                        aria-describedby="sSMTPHostHelp">
                 <small id="sSMTPHostHelp" class="form-text text-muted">
                     Either a single hostname, you can also specify a different port by using this format: [hostname:port]<br>
@@ -361,7 +361,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="bSMTPAuth">SMTP Auth</label>
-                <select name="bSMTPAuth" id="bSMTPAuth"  class="form-control" aria-describedby="bSMTPAuthHelp">
+                <select name="bSMTPAuth" id="bSMTPAuth"  class= "form-control form-control-sm" aria-describedby="bSMTPAuthHelp">
                   <option value="1" selected>True</option>
                   <option value="0">False</option>
                 </select>
@@ -371,7 +371,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="sSMTPUser">SMTP Host User</label>
-                <input type="text" name="sSMTPUser" id="sSMTPUser" class="form-control"
+                <input type="text" name="sSMTPUser" id="sSMTPUser" class= "form-control form-control-sm"
                        aria-describedby="sSMTPUserHelp">
                 <small id="sSMTPUserHelp" class="form-text text-muted">
                     SMTP username.
@@ -379,7 +379,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="sSMTPPass">SMTP Host Password</label>
-                <input type="password" name="sSMTPPass" id="sSMTPPass" class="form-control"
+                <input type="password" name="sSMTPPass" id="sSMTPPass" class= "form-control form-control-sm"
                        aria-describedby="sSMTPPassHelp">
                 <small id="sSMTPPassHelp" class="form-text text-muted">
                     SMTP password.
@@ -387,7 +387,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="iSMTPTimeout">SMTP Host Timeout</label>
-                <input type="number" name="iSMTPTimeout" id="iSMTPTimeout" class="form-control"
+                <input type="number" name="iSMTPTimeout" id="iSMTPTimeout" class= "form-control form-control-sm"
                        aria-describedby="iSMTPTimeoutHelp" value="10">
                 <small id="iSMTPTimeoutHelp" class="form-text text-muted">
                     The SMTP server timeout in seconds.
@@ -395,7 +395,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="sToEmailAddress">Send to Email address</label>
-                <input type="email" name="sToEmailAddress" id="sToEmailAddress" class="form-control"
+                <input type="email" name="sToEmailAddress" id="sToEmailAddress" class= "form-control form-control-sm"
                        aria-describedby="sToEmailAddressHelp" value="">
                 <small id="sToEmailAddressHelp" class="form-text text-muted">
                     Default account for receiving a copy of all emails
@@ -403,7 +403,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="bPHPMailerAutoTLS">Mailer Auto TLS</label>
-                <select name="bPHPMailerAutoTLS" id="bPHPMailerAutoTLS"  class="form-control" aria-describedby="bPHPMailerAutoTLSHelp">
+                <select name="bPHPMailerAutoTLS" id="bPHPMailerAutoTLS"  class= "form-control form-control-sm" aria-describedby="bPHPMailerAutoTLSHelp">
                   <option value="0" selected>False</option>
                   <option value="1">True</option>
                 </select>
@@ -413,7 +413,7 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="sPHPMailerSMTPSecure">PHPMailer SMTP Secure</label>
-                <select name="sPHPMailerSMTPSecure" id="sPHPMailerSMTPSecure"  class="form-control" aria-describedby="sPHPMailerSMTPSecureHelp">
+                <select name="sPHPMailerSMTPSecure" id="sPHPMailerSMTPSecure"  class= "form-control form-control-sm" aria-describedby="sPHPMailerSMTPSecureHelp">
                   <option value="" selected>None</option>
                   <option value="tls">TLS</option>
                   <option value="ssl">SSL</option>

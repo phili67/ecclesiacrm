@@ -74,7 +74,7 @@ $(document).ready(function () {
         +'    <label for="depositDate">'+i18next.t("Type")+'</label>'
         +'  </div>'
         +'  <div class="col-lg-8">'
-        +'    <select class="form-control" id="Class" name="Class">'
+        +'    <select class= "form-control form-control-sm" id="Class" name="Class">'
         +       options
         +'    </select>'
         +'  </div>'

@@ -55,7 +55,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= _($personInfo->getName()) ?></td>
                 <td><?= _("Person") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $personInfo->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $personInfo->getComment() ?>" data-id="<?= $personInfo->getId() ?>" data-type="person"></td>
+                <td><input type="text" name="<?= $personInfo->getId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $personInfo->getComment() ?>" data-id="<?= $personInfo->getId() ?>" data-type="person"></td>
             </tr>
 
       <?php
@@ -70,7 +70,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= $personCustMast->getCustomName() ?></td>
                 <td><?= _("Custom Person") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $personCustMast->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $personCustMast->getCustomComment() ?>" data-id="<?= $personCustMast->getId() ?>" data-type="personCustom"></td>
+                <td><input type="text" name="<?= $personCustMast->getId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $personCustMast->getCustomComment() ?>" data-id="<?= $personCustMast->getId() ?>" data-type="personCustom"></td>
             </tr>
       <?php
         }
@@ -84,7 +84,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= $personProperty->getProName()." (".$personProperty->getProDescription().")" ?></td>
                 <td><?= _("Person Property") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $personProperty->getProId() ?>" size="70" maxlength="140" class="form-control" value="<?= $personProperty->getProComment() ?>" data-id="<?= $personProperty->getProId() ?>" data-type="personProperty"></td>
+                <td><input type="text" name="<?= $personProperty->getProId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $personProperty->getProComment() ?>" data-id="<?= $personProperty->getProId() ?>" data-type="personProperty"></td>
             </tr>
 
       <?php
@@ -99,7 +99,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= _($familyInfo->getName()) ?></td>
                 <td><?= _("Family") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $familyInfo->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $familyInfo->getComment() ?>" data-id="<?= $familyInfo->getId() ?>" data-type="family"></td>
+                <td><input type="text" name="<?= $familyInfo->getId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $familyInfo->getComment() ?>" data-id="<?= $familyInfo->getId() ?>" data-type="family"></td>
             </tr>
 
       <?php
@@ -114,7 +114,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= $familyCustMast->getCustomName() ?></td>
                 <td><?= _("Custom Family") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $personCustMast->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $familyCustMast->getCustomComment() ?>" data-id="<?= $familyCustMast->getId() ?>" data-type="familyCustom"></td>
+                <td><input type="text" name="<?= $personCustMast->getId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $familyCustMast->getCustomComment() ?>" data-id="<?= $familyCustMast->getId() ?>" data-type="familyCustom"></td>
             </tr>
       <?php
         }
@@ -128,7 +128,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= $familyProperty->getProName()." (".$familyProperty->getProDescription().")" ?></td>
                 <td><?= _("Family Property") ?></td>
                 <td><?= _($dataType->getOptionName()) ?></td>
-                <td><input type="text" name="<?= $familyProperty->getProId() ?>" size="70" maxlength="140" class="form-control" value="<?= $familyProperty->getProComment() ?>" data-id="<?= $familyProperty->getProId() ?>" data-type="familyProperty"></td>
+                <td><input type="text" name="<?= $familyProperty->getProId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $familyProperty->getProComment() ?>" data-id="<?= $familyProperty->getProId() ?>" data-type="familyProperty"></td>
             </tr>
       <?php
         }
@@ -140,7 +140,7 @@ require $sRootDocument . '/Include/Header.php';
                 <td><?= $pastoralCareType->getTitle() ?> <?= !empty($pastoralCareType->getDesc())?"(".$pastoralCareType->getDesc().")":"" ?></td>
                 <td><?= _("Pastoral Care") ?></td>
                 <td><?= _("Text Field (100 char)") ?></td>
-                <td><input type="text" name="<?= $pastoralCareType->getId() ?>" size="70" maxlength="140" class="form-control" value="<?= $pastoralCareType->getComment() ?>" data-id="<?= $pastoralCareType->getId() ?>" data-type="pastoralCare"></td>
+                <td><input type="text" name="<?= $pastoralCareType->getId() ?>" size="70" maxlength="140" class= "form-control form-control-sm" value="<?= $pastoralCareType->getComment() ?>" data-id="<?= $pastoralCareType->getId() ?>" data-type="pastoralCare"></td>
             </tr>
       <?php
         }

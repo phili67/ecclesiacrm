@@ -174,7 +174,7 @@ require 'Include/Header.php';
           <?= _('Canvasser') ?>:
         </div>
         <div class="col-lg-9">
-           <select name='Canvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
+           <select name='Canvasser' class= "form-control form-control-sm"><option value="0"><?= _('None selected') ?></option>
            <?php
               if (!is_null($braveCanvassers) && $braveCanvassers->count() != 0) {
                   foreach ($braveCanvassers as $braveCanvasser) {
@@ -217,7 +217,7 @@ require 'Include/Header.php';
           <?= _('Positive') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Positive" rows="3" style="width:100%" class="form-control"><?= $tPositive ?></textarea>
+          <textarea name="Positive" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tPositive ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -225,7 +225,7 @@ require 'Include/Header.php';
           <?= _('Critical') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Critical" rows="3" style="width:100%" class="form-control"><?= $tCritical ?></textarea>
+          <textarea name="Critical" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tCritical ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -233,7 +233,7 @@ require 'Include/Header.php';
           <?= _('Insightful') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Insightful" rows="3" style="width:100%" class="form-control"><?= $tInsightful ?></textarea>
+          <textarea name="Insightful" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tInsightful ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -241,7 +241,7 @@ require 'Include/Header.php';
           <?= _('Financial') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Financial" rows="3" style="width:100%" class="form-control"><?= $tFinancial ?></textarea>
+          <textarea name="Financial" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tFinancial ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -249,7 +249,7 @@ require 'Include/Header.php';
           <?= _('Suggestions') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Suggestion" rows="3" style="width:100%" class="form-control"><?= $tSuggestion ?></textarea>
+          <textarea name="Suggestion" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tSuggestion ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -265,7 +265,7 @@ require 'Include/Header.php';
           <?= _('Why Not Interested?') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="WhyNotInterested" rows="3" style="width:100%" class="form-control"><?= $tWhyNotInterested ?></textarea>
+          <textarea name="WhyNotInterested" rows="3" style="width:100%" class= "form-control form-control-sm"><?= $tWhyNotInterested ?></textarea>
         </div>
     </div>
 

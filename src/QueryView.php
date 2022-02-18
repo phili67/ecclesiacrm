@@ -445,7 +445,7 @@ function getQueryFormInput($queryParameters)
     switch ($qrp_Type) {
         //Standard INPUT box
         case 0:
-            $input = '<input size="' . $qrp_InputBoxSize . '" name="' . $qrp_Alias . '" type="text" value="' . $qrp_Default . '" class="form-control">';
+            $input = '<input size="' . $qrp_InputBoxSize . '" name="' . $qrp_Alias . '" type="text" value="' . $qrp_Default . '" class= "form-control form-control-sm">';
             break;
 
         //SELECT box with OPTION tags supplied in the queryparameteroptions_qpo table
@@ -454,7 +454,7 @@ function getQueryFormInput($queryParameters)
             $sSQL = 'SELECT * FROM queryparameteroptions_qpo WHERE qpo_qrp_ID = ' . $qrp_ID;
             $rsParameterOptions = RunQuery($sSQL);
 
-            $input = '<select name="' . $qrp_Alias . '" class="form-control">';
+            $input = '<select name="' . $qrp_Alias . '" class= "form-control form-control-sm">';
             $input .= '<option disabled selected value> -- ' . _("select an option") . ' -- </option>';
 
             //Loop through the parameter options
@@ -471,7 +471,7 @@ function getQueryFormInput($queryParameters)
             //Run the SQL to get the options
             $rsParameterOptions = RunQuery($qrp_OptionSQL);
 
-            $input .= '<select name="' . $qrp_Alias . '" class="form-control">';
+            $input .= '<select name="' . $qrp_Alias . '" class= "form-control form-control-sm">';
             $input .= '<option disabled selected value> -- ' . _('select an option') . ' -- </option>';
 
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {

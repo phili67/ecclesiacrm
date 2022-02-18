@@ -150,14 +150,14 @@ class LabelUtils {
       <div class="row">
         <div class="col-md-6"><?= gettext('Start Row') ?>:</div>
         <div class="col-md-6">
-          <input type="text" name="startrow" id="startrow" maxlength="2" size="3" value="1" class="form-control">
+          <input type="text" name="startrow" id="startrow" maxlength="2" size="3" value="1" class= "form-control form-control-sm">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-md-6"><?= gettext('Start Column') ?>:</div>
         <div class="col-md-6">
-          <input type="text" name="startcol" id="startcol" maxlength="2" size="3" value="1" class="form-control">
+          <input type="text" name="startcol" id="startcol" maxlength="2" size="3" value="1" class= "form-control form-control-sm">
         </div>
       </div>
       <br>

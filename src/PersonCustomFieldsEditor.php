@@ -373,7 +373,7 @@ require 'Include/Header.php'; ?>
             <td class="TextColumnFam" align="center">
               <input type="text" name="<?= $row ?>name"
                      value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35"
-                     maxlength="40" class="form-control">
+                     maxlength="40" class= "form-control form-control-sm">
               <?php
                 if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
               ?>
@@ -498,7 +498,7 @@ require 'Include/Header.php'; ?>
                 <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
               </td>
               <td valign="top">
-                <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
+                <input type="text" name="newFieldName" size="30" maxlength="40" class= "form-control form-control-sm">
                 <?php
                 if ($bNewNameError) {
                 ?>

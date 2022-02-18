@@ -1018,9 +1018,9 @@ $(document).ready(function () {
         var permission_reminder = $(this).data('permissionreminder');
 
         bootbox.confirm('<form id="infos" action="#">'
-            + i18next.t('List Name') + ':<input type="text" class="form-control" id="list_name" value="' + name + '"/><br/>'
-            + i18next.t('Subject') + ':<input type="text" class="form-control" id="list_subject" value="' + subject + '"/><br/>'
-            + i18next.t('Permission Reminder') + ':<input type="text" class="form-control" id="list_permission_reminder" value="' + permission_reminder + '"/>'
+            + i18next.t('List Name') + ':<input type="text" class= "form-control form-control-sm" id="list_name" value="' + name + '"/><br/>'
+            + i18next.t('Subject') + ':<input type="text" class= "form-control form-control-sm" id="list_subject" value="' + subject + '"/><br/>'
+            + i18next.t('Permission Reminder') + ':<input type="text" class= "form-control form-control-sm" id="list_permission_reminder" value="' + permission_reminder + '"/>'
             + '</form>', function (result) {
             if (result) {
                 name = $("#list_name").val();

@@ -247,7 +247,7 @@ echo $sError;
                     if ($ormCartItem->getFamId() == 0) {
                         ?>
                         <select name="role<?= $ormCartItem->getId() ?>"
-                                class="form-control"><?= $sRoleOptionsHTML ?></select>
+                                class= "form-control form-control-sm"><?= $sRoleOptionsHTML ?></select>
                         <?php
                     } else {
                         ?>
@@ -273,7 +273,7 @@ echo $sError;
                     <?= _('Add to Family') ?>:
                 </div>
                 <div class="col-md-6">
-                    <select name="FamilyID" class="form-control" id="FamilyID">
+                    <select name="FamilyID" class= "form-control form-control-sm" id="FamilyID">
                         <option value="0"><?= _('Create new family') ?></option>
                         <option value="—————————————" disabled="disabled">—————————————</option>
                         <?php
@@ -302,7 +302,7 @@ echo $sError;
                     <?= _('Family Name') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class="form-control">
+                    <input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48" class= "form-control form-control-sm">
                     <label color="red"><?= $sNameError ?></label>
                 </div>
             </div>
@@ -324,7 +324,7 @@ echo $sError;
                     <?= _('Use address/contact data from') ?>:
                 </div>
                 <div class="col-md-6">
-                    <select name="PersonAddress" class="form-control">
+                    <select name="PersonAddress" class= "form-control form-control-sm">
                         <option value="0"><?= _('Only the new data below') ?></option>
 
                         <?php
@@ -347,7 +347,7 @@ echo $sError;
                 </div>
                 <div class="col-md-6">
                     <input type="text" Name="Address1" value="<?= $sAddress1 ?>" size="50" maxlength="250"
-                           class="form-control">
+                           class= "form-control form-control-sm">
                 </div>
             </div>
             <br class="family-class" />
@@ -357,7 +357,7 @@ echo $sError;
                 </div>
                 <div class="col-md-6">
                     <input type="text" Name="Address2" value="<?= $sAddress2 ?>" size="50" maxlength="250"
-                           class="form-control">
+                           class= "form-control form-control-sm">
                 </div>
             </div>
             <br class="family-class" />
@@ -366,7 +366,7 @@ echo $sError;
                     <?= _('City') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class="form-control">
+                    <input type="text" Name="City" value="<?= $sCity ?>" maxlength="50" class= "form-control form-control-sm">
                 </div>
             </div>
             <br class="family-class" />
@@ -380,7 +380,7 @@ echo $sError;
                     echo $statesDD->getDropDown($sState);
                     ?>
                     <?= _("OR") ?>
-                    <input class="form-control" type="text" name="StateTextbox"
+                    <input class= "form-control form-control-sm" type="text" name="StateTextbox"
                            value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                                echo $sState;
                            } ?>" size="20" maxlength="30">
@@ -393,7 +393,7 @@ echo $sError;
                     <?= _('Zip') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
+                    <input class= "form-control form-control-sm" type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
                 </div>
             </div>
             <br class="family-class" />
@@ -411,7 +411,7 @@ echo $sError;
                     <?= _('Home Phone') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30"
+                    <input class= "form-control form-control-sm" type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
                     <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
@@ -425,7 +425,7 @@ echo $sError;
                     <?= _('Work Phone') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30"
+                    <input class= "form-control form-control-sm" type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
                     <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?php if ($bNoFormat_WorkPhone) {
@@ -439,7 +439,7 @@ echo $sError;
                     <?= _('Mobile Phone') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30"
+                    <input class= "form-control form-control-sm" type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30"
                            maxlength="30" data-inputmask="'mask': '<?= SystemConfig::getValue('sPhoneFormat') ?>'"
                            data-mask>
                     <input type="checkbox" name="NoFormat_CellPhone" value="1" <?php if ($bNoFormat_CellPhone) {
@@ -453,7 +453,7 @@ echo $sError;
                     <?= _('Email') ?>:
                 </div>
                 <div class="col-md-6">
-                    <input class="form-control" type="text" Name="Email" value="<?= $sEmail ?>" size="30"
+                    <input class= "form-control form-control-sm" type="text" Name="Email" value="<?= $sEmail ?>" size="30"
                            maxlength="50">
                 </div>
             </div>

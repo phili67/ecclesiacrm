@@ -299,7 +299,7 @@ if ($sReportType == '') {
           }
           ?>
         </div>
-        <select name="deposit" class="form-control">
+        <select name="deposit" class= "form-control form-control-sm">
         <?php
         if ($sReportType != 'Individual Deposit Report') {
         ?>
@@ -377,7 +377,7 @@ if ($sReportType == '') {
          <div class=SmallText>
            (<?= _("0 - No Minimum") ?>)
          </div>
-         <input name=minimum type=text value='0' size=8 class="form-control">
+         <input name=minimum type=text value='0' size=8 class= "form-control form-control-sm">
       </td>
     </tr>
   <?php
@@ -454,7 +454,7 @@ if ($sReportType == '') {
   ?>
     <tr>
        <td class=LabelColumn><?= _("Voting members must have made<br> a donation within this many years<br> (0 to not require a donation):")?></td>
-       <td class=TextColumnWithBottomBorder><input name=RequireDonationYears type=text value=0 size=5 class="form-control"></td>
+       <td class=TextColumnWithBottomBorder><input name=RequireDonationYears type=text value=0 size=5 class= "form-control form-control-sm"></td>
     </tr>
   <?php
     }

@@ -64,7 +64,7 @@ if (isset($_GET['typeProblem'])) {
                     <?= _("Sunday School Name") ?>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control" placeholder="<?= _("Sunday School Name") ?>">
+                    <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class= "form-control form-control-sm" placeholder="<?= _("Sunday School Name") ?>">
                 </div>
             </div><br>
             <?php } ?>
@@ -105,7 +105,7 @@ if (isset($_GET['typeProblem'])) {
                     <?php
                     $image = (empty($_COOKIE["imageSC"]))?'scleft1.png':$_COOKIE["imageSC"];
                     ?>
-                    <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= _("Sunday School Name") ?>">
+                    <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class= "form-control form-control-sm" placeholder="<?= _("Sunday School Name") ?>">
                 </div>
             </div>
             <br/>

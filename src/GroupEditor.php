@@ -84,13 +84,13 @@ require 'Include/Header.php';
             <div class="row">
               <div class="col-sm-12">
                 <label for="Name"><?= _('Name') ?>:</label>
-                <input class="form-control" type="text" Name="Name" value="<?= htmlentities(stripslashes($theCurrentGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
+                <input class= "form-control form-control-sm" type="text" Name="Name" value="<?= htmlentities(stripslashes($theCurrentGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <label for="Description"><?= _('Description') ?>:</label>
-                <textarea  class="form-control" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($theCurrentGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea></td>
+                <textarea  class= "form-control form-control-sm" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($theCurrentGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea></td>
               </div>
             </div>
             <br>
@@ -198,7 +198,7 @@ require 'Include/Header.php';
       <div class="table-responsive">
         <table class="table" class="table" id="groupRoleTable"></table>
       </div>
-    <label for="newRole"><?= _('New Role')?>: </label><input type="text" class="form-control" id="newRole" name="newRole">
+    <label for="newRole"><?= _('New Role')?>: </label><input type="text" class= "form-control form-control-sm" id="newRole" name="newRole">
     <br>
     <button type="button" id="addNewRole" class="btn btn-primary"><?= _('Add New Role')?></button>
   </div>

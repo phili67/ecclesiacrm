@@ -586,7 +586,7 @@ require 'Include/Header.php';
 
                     <div class="col-md-12">
                         <label for="FamilyName"><?= _('Family') . " " . _("or") . " " . _("Person") ?></label>
-                        <select class="form-control" id="FamilyName" name="FamilyName" width="100%">
+                        <select class= "form-control form-control-sm" id="FamilyName" name="FamilyName" width="100%">
                             <option selected><?= $sFamilyName ?></option>
                         </select>
                     </div>
@@ -597,7 +597,7 @@ require 'Include/Header.php';
                                 $dDate = $dep_Date;
                             } ?>
                             <label for="Date"><?= _('Date') ?></label>
-                            <input class="form-control" data-provide="datepicker"
+                            <input class= "form-control form-control-sm" data-provide="datepicker"
                                    data-date-format='<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>' type="text"
                                    name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>"><font
                                 color="red"><?= $sDateError ?></font>
@@ -607,11 +607,11 @@ require 'Include/Header.php';
                             <?php if ($dep_Type == 'Bank' && SystemConfig::getValue('bUseDonationEnvelopes')) {
                                 ?>
                                 <label for="Envelope"><?= _('Envelope Number') ?></label>
-                                <input class="form-control" type="number" name="Envelope" size=8 id="Envelope"
+                                <input class= "form-control form-control-sm" type="number" name="Envelope" size=8 id="Envelope"
                                        value="<?= $iEnvelope ?>">
                                 <?php if (!$dep_Closed) {
                                     ?>
-                                    <input class="form-control" type="submit" class="btn btn-default" value="<?= _('Find family->') ?>"
+                                    <input class= "form-control form-control-sm" type="submit" class="btn btn-default" value="<?= _('Find family->') ?>"
                                            name="MatchEnvelope">
                                     <?php
                                 } ?>
@@ -623,7 +623,7 @@ require 'Include/Header.php';
                                 ?>
 
                                 <label for="Schedule"><?= _('Payment Schedule') ?></label>
-                                <select name="Schedule" class="form-control">
+                                <select name="Schedule" class= "form-control form-control-sm">
                                     <option value="0"><?= _('Select Schedule') ?></option>
                                     <option value="Weekly" <?php if ($iSchedule == 'Weekly') {
                                         echo 'selected';
@@ -650,7 +650,7 @@ require 'Include/Header.php';
                                 <?php
                             } ?>
                             <label for="statut"><?= _('Statut') ?></label>
-                            <select name="PledgeOrPayment" id="PledgeOrPaymentSelect" class="form-control">
+                            <select name="PledgeOrPayment" id="PledgeOrPaymentSelect" class= "form-control form-control-sm">
                                 <option
                                     value="Pledge" <?= ($PledgeOrPayment == 'Pledge') ? "selected" : "" ?>><?= _('Pledge') ?></option>
                                 <option
@@ -661,7 +661,7 @@ require 'Include/Header.php';
 
                         <div class="col-md-6">
                             <label for="Method"><?= _('Payment by') ?></label>
-                            <select class="form-control" name="Method" id="Method">
+                            <select class= "form-control form-control-sm" name="Method" id="Method">
                                 <?php if ($dep_Type == 'Bank' || !$iCurrentDeposit) {
                                     ?>
                                     <option value="CHECK" <?php if ($iMethod == 'CHECK') {
@@ -701,12 +701,12 @@ require 'Include/Header.php';
 
                             <div id="checkNumberGroup">
                                 <label for="CheckNo"><?= _('Check') ?><?= _(' #') ?></label>
-                                <input class="form-control" type="number" name="CheckNo" id="CheckNo"
+                                <input class= "form-control form-control-sm" type="number" name="CheckNo" id="CheckNo"
                                        value="<?= $iCheckNo ?>"/><font color="red"><?= $sCheckNoError ?></font>
                             </div>
 
                             <label for="TotalAmount"><?= _('Total') . " " . SystemConfig::getValue('sCurrency') ?></label>
-                            <input class="form-control" type="number" step="any" name="TotalAmount" id="TotalAmount"
+                            <input class= "form-control form-control-sm" type="number" step="any" name="TotalAmount" id="TotalAmount"
                                    disabled/>
 
                         </div>
@@ -722,7 +722,7 @@ require 'Include/Header.php';
                                 <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>">
                                     <label><?= _('Choose online payment method') ?></label></td>
                                 <td class="TextColumnWithBottomBorder">
-                                    <select name="AutoPay" class="form-control">
+                                    <select name="AutoPay" class= "form-control form-control-sm">
                                         <?php
                                         echo '<option value=0';
                                         if ($iAutID == 'CreditCard') {
@@ -846,7 +846,7 @@ require 'Include/Header.php';
                                 if ($bEnableNonDeductible) {
                                     ?>
                                     <td class="TextColumn">
-                                        <input class="form-control" type="number" step="any"
+                                        <input class= "form-control form-control-sm" type="number" step="any"
                                                name="<?= $fun_id ?>_NonDeductible" id="<?= $fun_id ?>_NonDeductible"
                                                value="<?= $nNonDeductible[$fun_id] ?>"/>
                                         <br>
@@ -855,7 +855,7 @@ require 'Include/Header.php';
                                     <?php
                                 } ?>
                                 <td class="TextColumn">
-                                    <input class="form-control" type="text" size=40 name="<?= $fun_id ?>_Comment"
+                                    <input class= "form-control form-control-sm" type="text" size=40 name="<?= $fun_id ?>_Comment"
                                            id="<?= $fun_id ?>_Comment" value="<?= $sComment[$fun_id] ?>">
                                 </td>
                             </tr>

@@ -55,7 +55,7 @@ $donationFunds = DonationFundQuery::Create()->find();
                 </div>
                 <!--<div class="col-lg-3">
             <label for="depositType"><?= gettext('Fund') ?></label>
-            <select class="form-control" id="depositFund" name="depositFund">
+            <select class= "form-control form-control-sm" id="depositFund" name="depositFund">
             <?php
                 foreach ($donationFunds as $donationFund) {
                     ?>
@@ -67,7 +67,7 @@ $donationFunds = DonationFundQuery::Create()->find();
           </div>-->
                 <div class="col-md-3">
                     <label for="depositType"><?= gettext('Deposit Type') ?></label>
-                    <select class="form-control" id="depositType" name="depositType">
+                    <select class= "form-control form-control-sm" id="depositType" name="depositType">
                         <option value="Bank"><?= gettext('Bank') ?></option>
                         <option value="CreditCard"><?= gettext('Credit Card') ?></option>
                         <option value="BankDraft"><?= gettext('Bank Draft') ?></option>
@@ -76,7 +76,7 @@ $donationFunds = DonationFundQuery::Create()->find();
                 </div>
                 <div class="col-md-3">
                     <label for="depositDate"><?= gettext('Deposit Date') ?></label>
-                    <input class="form-control" name="depositDate" id="depositDate" style="width:100%"
+                    <input class= "form-control form-control-sm" name="depositDate" id="depositDate" style="width:100%"
                            class="date-picker">
                 </div>
             </div>

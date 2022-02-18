@@ -996,7 +996,7 @@ class MiscUtils
     // PrintFYIDSelect: make a fiscal year selection menu.
     public static function PrintFYIDSelect($iFYID, $selectName)
     {
-        echo '<select class="form-control" name="' . $selectName . '">';
+        echo '<select class= "form-control form-control-sm" name="' . $selectName . '">';
         echo '<option value="0">' . _('Select Fiscal Year') . '</option>';
 
         for ($fy = 1; $fy < MiscUtils::CurrentFY() + 2; $fy++) {

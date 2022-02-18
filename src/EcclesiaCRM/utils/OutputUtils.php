@@ -305,28 +305,28 @@ class OutputUtils
                     '<div class="input-group-prepend">' .
                     '<span class="input-group-text"> <i class="fas fa-calendar"></i></span>' .
                     '</div>' .
-                    '<input class="form-control date-picker" type="text" id="' . $fieldname . '" Name="' . $fieldname . '" value="' . OutputUtils::change_date_for_place_holder($data) . '" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '"> ' .
+                    '<input class=" form-control  form-control-sm date-picker" type="text" id="' . $fieldname . '" Name="' . $fieldname . '" value="' . OutputUtils::change_date_for_place_holder($data) . '" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '"> ' .
                     '</div>';
                 break;
 
             // Handler for 50 character max. text fields
             case 3:
-                echo '<input class="form-control" type="text" Name="' . $fieldname . '" maxlength="50" size="50" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '">';
+                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="50" size="50" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '">';
                 break;
 
             // Handler for 100 character max. text fields
             case 4:
-                echo '<textarea class="form-control" Name="' . $fieldname . '" cols="40" rows="2" onKeyPress="LimitTextSize(this, 100)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
+                echo '<textarea class= "form-control form-control-sm" Name="' . $fieldname . '" cols="40" rows="2" onKeyPress="LimitTextSize(this, 100)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
                 break;
 
             // Handler for extended text fields (MySQL type TEXT, Max length: 2^16-1)
             case 5:
-                echo '<textarea class="form-control" Name="' . $fieldname . '" cols="60" rows="4" onKeyPress="LimitTextSize(this, 65535)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
+                echo '<textarea class= "form-control form-control-sm" Name="' . $fieldname . '" cols="60" rows="4" onKeyPress="LimitTextSize(this, 65535)">' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '</textarea>';
                 break;
 
             // Handler for 4-digit year
             case 6:
-                echo '<input class="form-control" type="text" Name="' . $fieldname . '" maxlength="4" size="6" value="' . $data . '">';
+                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="4" size="6" value="' . $data . '">';
                 break;
 
             // Handler for season (drop-down selection)
@@ -358,7 +358,7 @@ class OutputUtils
 
             // Handler for integer numbers
             case 8:
-                echo '<input class="form-control" type="text" Name="' . $fieldname . '" maxlength="11" size="15" value="' . $data . '">';
+                echo '<input class= "form-control form-control-sm" type="text" Name="' . $fieldname . '" maxlength="11" size="15" value="' . $data . '">';
                 break;
 
             // Handler for "person from group"
@@ -403,7 +403,7 @@ class OutputUtils
 
             // Handler for money amounts
             case 10:
-                echo '<table width=100%><tr><td><input class="form-control"  type="number" step="any" Name="' . $fieldname . '" maxlength="13" size="16" value="' . $data . '"></td><td>&nbsp;' . SystemConfig::getValue("sCurrency") . "</td></tr></table>";
+                echo '<table width=100%><tr><td><input class= "form-control form-control-sm"  type="number" step="any" Name="' . $fieldname . '" maxlength="13" size="16" value="' . $data . '"></td><td>&nbsp;' . SystemConfig::getValue("sCurrency") . "</td></tr></table>";
                 break;
 
             // Handler for phone numbers
@@ -423,7 +423,7 @@ class OutputUtils
                     '<div class="input-group-prepend">' .
                     '<span class="input-group-text"> <i class="fas fa-phone"></i></span>' .
                     '</div>' .
-                    '<input class="form-control"  type="text" Name="' . $fieldname . '" maxlength="30" size="30" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '" data-inputmask="\'mask\': \'' . SystemConfig::getValue('sPhoneFormat') . '\'" data-mask>' .
+                    '<input class= "form-control form-control-sm"  type="text" Name="' . $fieldname . '" maxlength="30" size="30" value="' . htmlentities(stripslashes($data), ENT_NOQUOTES, 'UTF-8') . '" data-inputmask="\'mask\': \'' . SystemConfig::getValue('sPhoneFormat') . '\'" data-mask>' .
                     '</div>' .
                     '<input type="checkbox" name="' . $fieldname . 'noformat" value="1"';
 

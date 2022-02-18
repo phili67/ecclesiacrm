@@ -26,7 +26,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-md-4 col-md-offset-2 col-xs-6">
                     <div class="form-group">
                         <label><?= _('Item') ?>:</label>
-                        <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class="form-control">
+                        <input type="text" name="Item" id="Item" value="<?= $sItem ?>" class= "form-control form-control-sm">
                     </div>
 
                     <div class="checkbox">
@@ -59,25 +59,25 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="form-group">
                         <label><?= _('Title') ?>:</label>
                         <input type="text" name="Title" id="Title" value="<?= htmlentities($sTitle) ?>"
-                               class="form-control"/>
+                               class= "form-control form-control-sm"/>
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Estimated Price') ?>:</label>
                         <input type="text" name="EstPrice" id="EstPrice"
-                               value="<?= OutputUtils::number_localized($nEstPrice) ?>" class="form-control">
+                               value="<?= OutputUtils::number_localized($nEstPrice) ?>" class= "form-control form-control-sm">
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Material Value') ?>:</label>
                         <input type="text" name="MaterialValue" id="MaterialValue"
-                               value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class="form-control">
+                               value="<?= OutputUtils::number_localized($nMaterialValue) ?>" class= "form-control form-control-sm">
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Minimum Price') ?>:</label>
                         <input type="text" name="MinimumPrice" id="MinimumPrice"
-                               value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class="form-control">
+                               value="<?= OutputUtils::number_localized($nMinimumPrice) ?>" class= "form-control form-control-sm">
                     </div>
 
                 </div>
@@ -93,7 +93,7 @@ require $sRootDocument . '/Include/Header.php';
                             echo _('Multiple');
                         } else {
                         ?>
-                        <select name="Buyer" id="Buyer" class="form-control">
+                        <select name="Buyer" id="Buyer" class= "form-control form-control-sm">
                             <option value="0" selected><?= _('Unassigned') ?></option>
                             <?php
                             foreach ($ormPaddleNum as $buyer) {
@@ -111,14 +111,14 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="form-group">
                         <label><?= _('Final Price') ?>:</label>
                         <input type="text" name="SellPrice" id="SellPrice"
-                               value="<?= OutputUtils::number_localized($nSellPrice) ?>" class="form-control">
+                               value="<?= OutputUtils::number_localized($nSellPrice) ?>" class= "form-control form-control-sm">
                     </div>
 
                     <div class="form-group">
                         <label><?= _('Replicate item') ?></label>
                         <div class="input-group mb-3">
                             <!-- /btn-group -->
-                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class="form-control"
+                            <input type="text" name="NumberCopies" id="NumberCopies" value="0" class= "form-control form-control-sm"
                                    data-toggle="tooltip" data-placement="bottom" title="<?= _("Replicate this item as many times you want") ?>">
                             <div class="input-group-append">
                                 <input type="button" class="btn btn-primary" id="donatedItemGo" value="<?= _('Go') ?>"
@@ -134,7 +134,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="form-group">
                         <label><?= _('Description') ?>:</label>
                         <textarea name="Description" id="Description" rows="5" cols="90"
-                                  class="form-control"
+                                  class= "form-control form-control-sm"
                                   data-toggle="tooltip" data-placement="bottom" title="<?= _("A small description to help us to sell this item") ?>"><?= htmlentities($sDescription) ?></textarea>
                     </div>
 
@@ -143,7 +143,7 @@ require $sRootDocument . '/Include/Header.php';
 
                         <div class="input-group mb-3">
                             <!-- /btn-group -->
-                            <input type="text" name="PictureURL" id="PictureURL" class="form-control"
+                            <input type="text" name="PictureURL" id="PictureURL" class= "form-control form-control-sm"
                                    value="<?= htmlentities($sPictureURL) ?>"
                                    data-toggle="tooltip" data-placement="top" title="<?= _("Paste an URL") ?>">
                             <div class="input-group-append">

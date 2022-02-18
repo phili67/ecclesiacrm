@@ -59,7 +59,7 @@ if (isset($_GET['typeProblem'])) {
               <?= gettext("Title") ?>
             </div>
             <div class="col-md-6">
-               <input type="text" name="mainTitle" id="mainTitle" maxlength="255" size="3" value="<?= $_COOKIE['mainTitle'] ?>" class="form-control" placeholder="<?= gettext("Title") ?>">
+               <input type="text" name="mainTitle" id="mainTitle" maxlength="255" size="3" value="<?= $_COOKIE['mainTitle'] ?>" class= "form-control form-control-sm" placeholder="<?= gettext("Title") ?>">
             </div>
           </div><br>
           <div class="row">
@@ -67,7 +67,7 @@ if (isset($_GET['typeProblem'])) {
               <?= gettext("Second Title") ?>
             </div>
             <div class="col-md-6">
-               <input type="text" name="secondTitle" id="secondTitle" maxlength="255" size="3" value="<?= $_COOKIE['secondTitle'] ?>" class="form-control" placeholder="<?= gettext("Second Title") ?>">
+               <input type="text" name="secondTitle" id="secondTitle" maxlength="255" size="3" value="<?= $_COOKIE['secondTitle'] ?>" class= "form-control form-control-sm" placeholder="<?= gettext("Second Title") ?>">
             </div>
           </div><br>
           <div class="row">
@@ -75,7 +75,7 @@ if (isset($_GET['typeProblem'])) {
                 <?= gettext("Third Title") ?>
             </div>
             <div class="col-md-6">
-               <input type="text" name="thirdTitle" id="thirdTitle" maxlength="255" size="3" value="<?= $_COOKIE['thirdTitle'] ?>" class="form-control" placeholder="<?= gettext("Third Title") ?>">
+               <input type="text" name="thirdTitle" id="thirdTitle" maxlength="255" size="3" value="<?= $_COOKIE['thirdTitle'] ?>" class= "form-control form-control-sm" placeholder="<?= gettext("Third Title") ?>">
             </div>
           </div><br>
           <div class="row">
@@ -114,7 +114,7 @@ if (isset($_GET['typeProblem'])) {
                   <?php
                       $image = (empty($_COOKIE["image"]))?'scleft1.png':$_COOKIE["image"];
                   ?>
-                  <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
+                  <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class= "form-control form-control-sm" placeholder="<?= gettext("Sunday School Name") ?>">
             </div>
           </div>
 

@@ -94,7 +94,7 @@ require 'Include/Header.php';
                     </div>
                     <div class="col-sm-5">
                         <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                        <select name="sDirClassifications[]" size="5" multiple class="form-control">
+                        <select name="sDirClassifications[]" size="5" multiple class= "form-control form-control-sm">
                             <option value="0"><?= _("Unassigned") ?></option>
                             <?php
                             foreach ($ormClassifications as $rsClassification) {
@@ -114,7 +114,7 @@ require 'Include/Header.php';
                     </div>
                     <div class="col-sm-5">
                         <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                        <select name="GroupID[]" size="5" multiple class="form-control">
+                        <select name="GroupID[]" size="5" multiple class= "form-control form-control-sm">
                             <?php
                             foreach ($ormGroups as $group) {
                                 ?>
@@ -137,7 +137,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleHead[]" size="5" multiple class="form-control">
+                    <select name="sDirRoleHead[]" size="5" multiple class= "form-control form-control-sm">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -156,7 +156,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleSpouse[]" size="5" multiple class="form-control">
+                    <select name="sDirRoleSpouse[]" size="5" multiple class= "form-control form-control-sm">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -175,7 +175,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-sm-5">
                     <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
-                    <select name="sDirRoleChild[]" size="5" multiple class="form-control">
+                    <select name="sDirRoleChild[]" size="5" multiple class= "form-control form-control-sm">
                         <?php
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
                             ?>
@@ -283,39 +283,39 @@ require 'Include/Header.php';
                             <td><?= _('Church Name') ?>
                             <td><input type="text" Name="sChurchName"
                                        value="<?= SystemConfig::getValue('sChurchName') ?>"
-                                       class="form-control">
+                                       class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Address') ?>
                             <td><input type="text" Name="sChurchAddress"
-                                       value="<?= SystemConfig::getValue('sChurchAddress') ?>" class="form-control">
+                                       value="<?= SystemConfig::getValue('sChurchAddress') ?>" class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('City') ?>
                             <td><input type="text" Name="sChurchCity"
                                        value="<?= SystemConfig::getValue('sChurchCity') ?>"
-                                       class="form-control">
+                                       class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('State') ?>
                             <td><input type="text" Name="sChurchState"
                                        value="<?= SystemConfig::getValue('sChurchState') ?>"
-                                       class="form-control">
+                                       class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Zip') ?>
                             <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>"
-                                       class="form-control">
+                                       class= "form-control form-control-sm">
                         </tr>
                         <tr>
                             <td><?= _('Phone') ?>
                             <td><input type="text" Name="sChurchPhone"
                                        value="<?= SystemConfig::getValue('sChurchPhone') ?>"
-                                       class="form-control"><br>
+                                       class= "form-control form-control-sm"><br>
                         </tr>
                         <tr>
                             <td><?= _('Disclaimer') ?>
-                            <td><textarea Name="sDirectoryDisclaimer" cols="35" class="form-control"
+                            <td><textarea Name="sDirectoryDisclaimer" cols="35" class= "form-control form-control-sm"
                                           rows="4"><?= SystemConfig::getValue('sDirectoryDisclaimer1') . ' ' . SystemConfig::getValue('sDirectoryDisclaimer2') ?></textarea>
                         </tr>
 

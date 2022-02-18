@@ -178,7 +178,7 @@ print_r($cCountID);*/
       <strong><?= _('Event Type').':'.$aTypeID ?></strong>
     </td>
     <td class="TextColumn" width="35%">
-      <input type="text" class="form-control" name="newEvtName" value="<?= $aTypeName ?>" size="30" maxlength="35" autofocus />
+      <input type="text" class= "form-control form-control-sm" name="newEvtName" value="<?= $aTypeName ?>" size="30" maxlength="35" autofocus />
     </td>
     <td class="TextColumn" width="50%">
       <button type="submit" Name="Action" value="NAME" class="btn btn-primary"><?= _('Save Name') ?></button>
