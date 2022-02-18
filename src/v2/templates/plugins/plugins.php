@@ -56,7 +56,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                 <option value="deactivate-selected" value="deactivate-selected"><?= _("Deactivate") ?></option>
                 <option value="delete-selected" value="delete-selected"><?= _("Delete") ?></option>
             </select>
-            <input type="submit" id="doaction" class="button-action" value="Appliquer">
+            <!--<input type="submit" id="doaction" class="button-action" value="Appliquer">-->
         </div>
         <ul class="subsubsub"
             style="list-style: none;margin: 8px 0 0;padding: 0;font-size: 13px;float: left;color: #646970;">
