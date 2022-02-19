@@ -430,11 +430,6 @@ class User extends BaseUser
         return false;
     }
 
-    public function isMeetingEnabled()
-    {
-        return $this->isMeeting() || $this->isAdmin();
-    }
-
     public function isShowCartEnabled()
     {
         return $this->isAdmin() || $this->isShowCart();
@@ -1007,5 +1002,45 @@ class User extends BaseUser
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
 
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
+    }
+
+    public function isEnableForPlugin($name) {
+        if ( $this->isAdmin() ) {
+            return true;
+        }
+
+        $plugin = PluginQuery::create()->findOneByName($name);
+
+        if (is_null($plugin)) {
+            return false;
+        }
+
+        $role = PluginUserRoleQuery::create()->findOneByPluginId($plugin->getId());
+
+        if (!is_null($role)) {
+            return ($role->getRole() == 'user')?true:false;
+        }
+
+        return false;
+    }
+
+    public function isAdminEnableForPlugin($name) {
+        if ( $this->isAdmin() ) {
+            return true;
+        }
+
+        $plugin = PluginQuery::create()->findOneByName($name);
+
+        if (is_null($plugin)) {
+            return false;
+        }
+
+        $role = PluginUserRoleQuery::create()->findOneByPluginId($plugin->getId());
+
+        if (!is_null($role)) {
+            return ($role->getRole() == 'admin')?true:false;
+        }
+
+        return false;
     }
 }
