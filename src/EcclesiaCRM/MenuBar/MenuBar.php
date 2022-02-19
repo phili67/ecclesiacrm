@@ -21,6 +21,7 @@ use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginMenuBarreQuery;
+use EcclesiaCRM\PluginUserRoleQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\MailChimpService;
@@ -45,6 +46,8 @@ class MenuBar extends Menu
         $plugins = PluginQuery::create()->filterByCategory($type)->findByActiv(true);
 
         foreach ($plugins as $plugin) {
+            if ( ! SessionUser::getUser()->isEnableForPlugin($plugin->getName()) ) break;
+
             $menuBarItems = PluginMenuBarreQuery::create()->filterByName($plugin->getName())->find();
             $first_One = true;
             $menu_count = $menuBarItems->count();
