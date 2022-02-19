@@ -30,7 +30,9 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserRoleQuery;
-use EcclesiaCRM\UserRole;
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginUserRole;
+use EcclesiaCRM\PluginUserRoleQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
@@ -129,11 +131,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $EDrive = 1;
         } else {
             $EDrive = 0;
-        }
-        if (isset($_POST['Meeting'])) {
-            $Meeting = 1;
-        } else {
-            $Meeting = 0;
         }
         if (isset($_POST['DeleteRecords'])) {
             $DeleteRecords = 1;
@@ -287,7 +284,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
-                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
 
                     $user->setManageGroups($ManageGroups);
@@ -346,7 +342,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
-                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setManageCalendarResources($ManageCalendarResources);
@@ -421,7 +416,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = $user->getShowCart();
             $usr_ShowMap = $user->getShowMap();
             $usr_EDrive = $user->getEdrive();
-            $usr_Meeting = $user->getMeeting();
             $usr_MenuOptions = $user->getMenuOptions();
             $usr_ManageGroups = $user->getManageGroups();
             $usr_ManageCalendarResources = $user->getManageCalendarResources();
@@ -461,7 +455,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = 0;
             $usr_ShowMap = 0;
             $usr_EDrive = 0;
-            $usr_Meeting = 0;
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
             $usr_ManageCalendarResources = 0;
@@ -495,7 +488,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_ShowCart = 0;
         $usr_ShowMap = 0;
         $usr_EDrive = 0;
-        $usr_Meeting = 0;
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
         $usr_ManageCalendarResources = 0;
@@ -526,10 +518,29 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
 // Save Settings
 if (isset($_POST['save']) && ($iPersonID > 0)) {
+
+    $plugins = PluginQuery::create()->find();
+    foreach ($plugins as $plugin) {
+        $new_plugin = $_POST['new_plugin'];
+
+        $sel_role = $new_plugin[$plugin->getId()];
+
+        $role = PluginUserRoleQuery::create()
+            ->filterByUserId($iPersonID)
+            ->findOneByPluginId($plugin->getId());
+
+        if (is_null($role)) {
+            $role = new PluginUserRole();
+            $role->setPluginId($plugin->getId());
+            $role->setUserId($iPersonID);
+        }
+        $role->setRole($sel_role);
+        $role->save();
+    }
+
     $new_value = $_POST['new_value'];
     $new_permission = $_POST['new_permission'];
     $type = $_POST['type'];
-
 
     ksort($type);
     reset($type);
@@ -882,15 +893,6 @@ if ($usr_role_id == null) {
                             </div>
                             <div class="row">
                                 <div class="col-md-10">&bullet;
-                                    <?= _('Meetings') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Meeting"
-                                           value="1"<?= ($usr_Meeting) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
                                     <?= _('Right to edit html code') ?>:
                                 </div>
                                 <div class="col-md-2">
@@ -956,7 +958,6 @@ if ($usr_role_id == null) {
                         </div>
                     </div>
                     <!-- View settings -->
-
                 </div>
                 <div class="col-md-3">
                     <!-- Export settings -->
@@ -1090,6 +1091,44 @@ if ($usr_role_id == null) {
                         </div>
                     </div>
                     <!-- Special settings -->
+
+                    <!-- Plugin settings -->
+                    <div class="card card-gray">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <?= _("Plugin settings") ?>
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                                $plugins = PluginQuery::create()->find();
+                                foreach ($plugins as $plugin) {
+                                    $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+
+                                    $role_sel = 'none';
+                                    if (!is_null($role)) {
+                                        $role_sel = $role->getRole();
+                                    }
+                            ?>
+                            <div class="row">
+                                <div class="col-md-7">&bullet;
+                                    <?= $plugin->getName() ?>:
+                                </div>
+                                <div class="col-md-5">
+                                    <select class="form-control form-control-sm"
+                                            name="new_plugin[<?= $plugin->getId() ?>]">
+                                        <option value="none" <?= ($role_sel == 'none')?'SELECTED':'' ?>><?= _('None') ?>
+                                        <option value="user" <?= ($role_sel == 'user')?'SELECTED':'' ?>><?= _('User') ?>
+                                        <option value="admin" <?= ($role_sel == 'admin')?'SELECTED':'' ?>><?= _('Admin') ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                    <!-- Plugin settings -->
                 </div>
                 <div class="col-md-6">
                     <!-- Default box -->
@@ -1169,9 +1208,9 @@ if ($usr_role_id == null) {
                                         } elseif ($userConfig->getType() == 'textarea') {
                                             ?>
                                             <td>
-                      <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
-                            <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
-                      </textarea>
+                                              <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
+                                                    <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
+                                              </textarea>
                                             </td>
                                             <?php
                                         } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
