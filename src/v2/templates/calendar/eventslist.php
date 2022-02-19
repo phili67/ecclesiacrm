@@ -35,7 +35,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-sm-4">
         <label><?= _('Select Event Types To Display') ?></label>
-        <select name="WhichType" id="EventTypeSelector" class='form-control'>
+        <select name="WhichType" id="EventTypeSelector" class="form-control form-control-sm">
             <option value="all" <?= ($eType == 'All')?'selected':'' ?>><?= _('All') ?></option>
             <?php
             foreach ($eventTypes as $eventType) {
@@ -53,7 +53,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-sm-4">
         <label><?= _('Display Events in Month') ?></label>
-        <select name="WhichMonth" id="MonthSelector" class='form-control'>
+        <select name="WhichMonth" id="MonthSelector" class="form-control form-control-sm">
             <option value="all" <?= ($EventMonth == 0)?'selected':'' ?>><?= _("All") ?></option>
             <option value="-1" disabled="disabled">_________________________</option>
             <option value="<?= _("January") ?>" <?= ($EventMonth == 1)?'selected':'' ?>><?= _("January") ?></option>

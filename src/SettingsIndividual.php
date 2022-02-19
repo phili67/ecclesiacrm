@@ -330,7 +330,7 @@ $numberRow = 0;
                             // Current Value
                             if ($config->getType() == 'text') {
                                 ?>
-                                <input class="form-control input-md" type=text size=30 maxlength=255
+                                <input class="form-control form-control-sm" type=text size=30 maxlength=255
                                        name="new_value[<?= $config->getId() ?>]"
                                        value="<?= htmlspecialchars($config->getValue(), ENT_QUOTES) ?>">
                                 <?php

@@ -192,9 +192,9 @@ $("document").ready(function () {
                 render: function (data, type, full, meta) {
                     if (type === 'display') {
                         if (data === 'Student' || data === 'Teacher')
-                            return '<input type="text" class="form-control input-md" id="roleName-' + full.OptionId + '" value="' + i18next.t(data) + '" readonly>';
+                            return '<input type="text" class="form-control form-control-sm" id="roleName-' + full.OptionId + '" value="' + i18next.t(data) + '" readonly>';
                         else
-                            return '<input type="text" class="form-control input-md roleName" id="roleName-' + full.OptionId + '" value="' + data + '">';
+                            return '<input type="text" class="form-control form-control-sm roleName" id="roleName-' + full.OptionId + '" value="' + data + '">';
                     } else
                         return data;
                 }
