@@ -893,7 +893,6 @@
         <column name="usr_Finance" phpName="Finance" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Notes" phpName="Notes" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_Admin" phpName="Admin" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
-        <column name="usr_Meeting" phpName="Meeting" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_PastoralCare" phpName="PastoralCare" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_MailChimp" phpName="MailChimp" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_MainDashboard" phpName="MainDashboard" type="BOOLEAN" size="1" defaultValue="false"/>
@@ -1419,8 +1418,30 @@
         <column name="plgn_mb_plugin_name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
         <column name="plgn_mb_plugin_Display_name" phpName="DisplayName" type="VARCHAR" size="255" defaultValue=""/>
         <column name="plgn_mb_url" phpName="URL" type="VARCHAR" size="255" description="URL Menubar" defaultValue=""/>
-        <column name="plgn_bm_grp_sec" phpName="GrpSec" type="VARCHAR" size="255" description="In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare, usr_Meeting" defaultValue=""/>
+        <column name="plgn_bm_grp_sec" phpName="GrpSec" type="VARCHAR" size="255" description="In lower case : usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_EDrive, usr_MenuOptions, usr_ManageGroups, usr_ManageCalendarResources, usr_HtmlSourceEditor, usr_Finance, usr_Notes, usr_EditSelf, usr_Canvasser, usr_Admin, usr_showMenuQuery, usr_CanSendEmail, usr_ExportCSV, usr_CreateDirectory, usr_ExportSundaySchoolPDF, usr_ExportSundaySchoolCSV, usr_MainDashboard, usr_SeePrivacyData, usr_MailChimp, usr_GDRP_DPO, usr_PastoralCare" defaultValue=""/>
         <column name="plgn_bm_icon" phpName="Icon" type="VARCHAR" size="255" description="Icon MenuBar" defaultValue=""/>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
+    <table name="plugin_user_role" idMethod="native" phpName="PluginUserRole">
+        <column name="plgn_usr_rl_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="plgn_usr_rl_user_id" phpName="UserId" type="SMALLINT" sqlType="mediumint unsigned" required="true" defaultValue="0"/>
+        <column name="plgn_usr_rl_plugin_id" phpName="PluginId" type="SMALLINT" sqlType="mediumint unsigned" required="true" defaultValue="0"/>
+        <column name="plgn_usr_rl_role" phpName="Role" type="CHAR" sqlType="enum('none','user','admin')" description="user role : can be the thee enum parts" required="true" defaultValue="none"/>
+        <foreign-key foreignTable="user_usr" name="fk_plgn_usr_rl_user_id" onDelete="CASCADE">
+            <reference local="plgn_usr_rl_user_id" foreign="usr_per_ID"/>
+        </foreign-key>
+        <foreign-key foreignTable="plugin" name="fkplgn_usr_rl_plugin_id" onDelete="CASCADE">
+            <reference local="plgn_usr_rl_plugin_id" foreign="plgn_ID"/>
+        </foreign-key>
+        <index name="fk_plgn_usr_rl_user_id">
+            <index-column name="plgn_usr_rl_user_id"/>
+        </index>
+        <index name="fkplgn_usr_rl_plugin_id">
+            <index-column name="plgn_usr_rl_plugin_id"/>
+        </index>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
