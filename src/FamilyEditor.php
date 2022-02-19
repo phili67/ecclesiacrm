@@ -1122,22 +1122,22 @@ require 'Include/Header.php';
                                 <input type="hidden" name="PersonID<?= $iCount ?>" value="<?= $aPersonIDs[$iCount] ?>">
                                 <tr>
                                     <td class="TextColumnFam">
-                                        <input class="form-control input-md" name="FirstName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" name="FirstName<?= $iCount ?>" type="text"
                                                value="<?= $aFirstNames[$iCount] ?>" size="10">
                                         <div><font color="red"><?php if (array_key_exists($iCount, $aFirstNameError)) {
                                                     echo $aFirstNameError[$iCount];
                                                 } ?></font></div>
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control input-md" name="MiddleName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" name="MiddleName<?= $iCount ?>" type="text"
                                                value="<?= $aMiddleNames[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control input-md" name="LastName<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" name="LastName<?= $iCount ?>" type="text"
                                                value="<?= $aLastNames[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
-                                        <input class="form-control input-md" name="Suffix<?= $iCount ?>" type="text"
+                                        <input class="form-control form-control-sm" name="Suffix<?= $iCount ?>" type="text"
                                                value="<?= $aSuffix[$iCount] ?>" size="10">
                                     </td>
                                     <td class="TextColumnFam">
@@ -1232,7 +1232,7 @@ require 'Include/Header.php';
                                     <td class="TextColumnFam">
                                         <?php if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                                             $UpdateBirthYear = 1; ?>
-                                            <input class="form-control input-md" name="BirthYear<?= $iCount ?>"
+                                            <input class="form-control form-control-sm" name="BirthYear<?= $iCount ?>"
                                                    type="text" value="<?= $aBirthYears[$iCount] ?>" size="4"
                                                    maxlength="4">
                                             <?php

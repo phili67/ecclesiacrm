@@ -192,7 +192,7 @@ print_r($cCountID);*/
       <?= $recur ?>
     </td>
     <td class="TextColumn" width="50%">
-      <select class='form-control' name="newEvtStartTime" size="1" onchange="javascript:$('#newEvtStartTimeSubmit').click()">
+      <select class="form-control form-control-sm" name="newEvtStartTime" size="1" onchange="javascript:$('#newEvtStartTimeSubmit').click()">
         <?php OutputUtils::createTimeDropdown(7, 18, 15, $aEventStartHour, $aEventStartMins); ?>
       </select>
       <button class='hidden' type="submit" name="Action" value="TIME" id="newEvtStartTimeSubmit"></button>
@@ -218,7 +218,7 @@ print_r($cCountID);*/
      ?>
       <tr>
         <td class="TextColumn" width="35%">
-           <input class='form-control' type="text" name="newCountName" length="20" placeholder="<?= _("New Attendance Count") ?>" />
+           <input class="form-control form-control-sm" type="text" name="newCountName" length="20" placeholder="<?= _("New Attendance Count") ?>" />
         </td>
         <td class="TextColumn" width="50%">
            <button type="submit" name="Action" value="ADD" class="btn btn-success"><?= _('Add counter') ?></button>

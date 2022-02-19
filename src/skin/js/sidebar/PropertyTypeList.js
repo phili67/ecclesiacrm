@@ -78,7 +78,7 @@ $(document).ready(function () {
         +'    <label for="depositDate">'+i18next.t("Name")+'</label>'
         +'  </div>'
         +'  <div class="col-lg-9">'
-        +'    <input class="form-control input-md" name="Name" id="Name" style="width:100%">'
+        +'    <input class="form-control form-control-sm" name="Name" id="Name" style="width:100%">'
         +'  </div>'
         +'</div>'
         +'<div class="row">'
@@ -86,7 +86,7 @@ $(document).ready(function () {
         +'    <label for="depositDate">'+i18next.t("Description")+'</label>'
         +'  </div>'
         +'  <div class="col-lg-9">'
-        +'    <input class="form-control input-md" name="description" id="description" style="width:100%">'
+        +'    <input class="form-control form-control-sm" name="description" id="description" style="width:100%">'
         +'  </div>'
         +'</div>'
       +'</div>';

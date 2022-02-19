@@ -27,12 +27,12 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
 
 ?>
 
-<div class="card card-gray">
+<div class="card">
     <div class="card-header border-0">
-        <h3 class="card-title"><?= _('Plugins managements') ?></h3>
+        <h3 class="card-title"><i class="fas fa-plug"></i> <?= _('Plugins managements') ?></h3>
         <div class="card-tools">
             <div class="btn-group">
-                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: lightcoral">
+                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
                     <i class="fas fa-wrench"></i> <?= _("Add a plugin") ?>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu" style="">

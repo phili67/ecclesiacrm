@@ -158,7 +158,7 @@ require 'Include/Header.php';
                                                 if ($setting->getType() == 'choice') {
                                                     ?>
                                                     <select name='new_value[<?= $setting->getId() ?>]'
-                                                            class="choiceSelectBox form-control form-control-sm" style="width: 100%">
+                                                            class="choiceSelectBox form-control " style="width: 100%">
                                                         <?php
                                                         foreach (json_decode($setting->getData())->Choices as $choice) {
                                                             if (strpos($choice, ":") === false) {
@@ -178,26 +178,26 @@ require 'Include/Header.php';
                                                     <input type=text size=40 maxlength=255
                                                            name='new_value[<?= $setting->getId() ?>]'
                                                            value='<?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?>'
-                                                           class= "form-control form-control-sm">
+                                                           class= "form-control ">
                                                     <?php
                                                 } elseif ($setting->getType() == 'password') {
                                                     ?>
                                                     <input type=password size=40 maxlength=255
                                                            name='new_value[<?= $setting->getId() ?>]'
                                                            value='<?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?>'
-                                                           class= "form-control form-control-sm">
+                                                           class= "form-control ">
                                                     <?php
                                                 } elseif ($setting->getType() == 'textarea') {
                                                     ?>
                                                     <textarea rows=4 cols=40 name='new_value[<?= $setting->getId() ?>]'
-                                                              class= "form-control form-control-sm"><?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?></textarea>
+                                                              class= "form-control "><?= htmlspecialchars($setting->getValue(), ENT_QUOTES) ?></textarea>
                                                     <?php
                                                 } elseif ($setting->getType() == 'number' || $setting->getType() == 'date') {
                                                     ?>
                                                     <input type=text size=40 maxlength=15
                                                            name='new_value[<?= $setting->getId() ?>]'
                                                            value='<?= $setting->getValue() ?>'
-                                                           class= "form-control form-control-sm">
+                                                           class= "form-control ">
                                                     <?php
                                                 } elseif ($setting->getType() == 'boolean') {
                                                     if ($setting->getValue()) {
@@ -208,7 +208,7 @@ require 'Include/Header.php';
                                                         $sel2 = '';
                                                     } ?>
                                                     <select name='new_value[<?= $setting->getId() ?>]'
-                                                            class="choiceSelectBox form-control form-control-sm" style="width: 100%">
+                                                            class="choiceSelectBox form-control " style="width: 100%">
                                                         <option value='' <?= $sel1 ?>><?= gettext('False') ?>
                                                         <option value='1' <?= $sel2 ?>><?= gettext('True') ?>
                                                     </select>
@@ -228,7 +228,7 @@ require 'Include/Header.php';
                                                             name='new_value[<?= $setting->getId() ?>]'
                                                             data-url="<?= $setting->getData() ?>"
                                                             data-value="<?= $setting->getValue() ?>"
-                                                            class="choiceSelectBox form-control form-control-sm" style="width: 100%">
+                                                            class="choiceSelectBox form-control " style="width: 100%">
                                                         <option value=''><?= gettext('Unassigned') ?>
                                                     </select>
                                                     <?php

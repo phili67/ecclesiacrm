@@ -459,7 +459,7 @@ if ($mode == 'classes') {
                     </td>
                     <td class="TextColumn">
                         <span class="SmallText">
-                            <input class="form-control input-md" type="text" name="<?= $row . 'name' ?>"
+                            <input class="form-control form-control-sm" type="text" name="<?= $row . 'name' ?>"
                                    value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                    maxlength="40">
                         </span>
@@ -540,7 +540,7 @@ if ($mode == 'classes') {
     <div class="card-body">
         <?= _('Name for New') . ' ' . $noun ?>:&nbsp;
         <span class="SmallText">
-            <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
+            <input class="form-control form-control form-control-sm" type="text" name="newFieldName" size="30" maxlength="40">
         </span>
         <p></p>
         <input type="submit" class="btn btn-success" value="<?= _('Add New') . ' ' . $adjplusname ?>" Name="AddField">
