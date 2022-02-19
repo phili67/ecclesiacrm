@@ -38,7 +38,7 @@ class VIEWMeetingController {
     public function renderDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
 
-        if ( !( SessionUser::getUser()->isMeetingEnabled() ) ) {
+        if ( !( SessionUser::getUser()->isEnableForPlugin('MeetingJitsi') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
@@ -84,7 +84,7 @@ class VIEWMeetingController {
     public function renderSettings (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer(__DIR__.'/../../v2/templates');
 
-        if ( !( SessionUser::getUser()->isMeetingEnabled() ) ) {
+        if ( !( SessionUser::getUser()->isAdminEnableForPlugin('MeetingJitsi') ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
         }
 
