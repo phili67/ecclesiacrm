@@ -764,7 +764,7 @@ if ($usr_role_id == null) {
             </div>
 
             <div class="row">
-                <div class="col-7 col-sm-9">
+                <div class="col-7 col-sm-9 preferences_pane">
                     <div class="tab-content" id="vert-tabs-right-tabContent">
                         <div class="tab-pane fade active show" id="vert-tabs-right-home" role="tabpanel" aria-labelledby="vert-tabs-right-home-tab">
                             <div class="card card-default">
@@ -1292,7 +1292,7 @@ if ($usr_role_id == null) {
                                             <div class="col-md-5">
                                                 <select class="form-control form-control-sm"
                                                         name="new_plugin[<?= $plugin->getId() ?>]">
-                                                    <option value="none" <?= ($role_sel == 'none')?'SELECTED':'' ?>><?= _('None') ?>
+                                                    <option value="none" <?= ($role_sel == 'none')?'SELECTED':'' ?>><?= _('No') ?>
                                                     <option value="user" <?= ($role_sel == 'user')?'SELECTED':'' ?>><?= _('User') ?>
                                                     <option value="admin" <?= ($role_sel == 'admin')?'SELECTED':'' ?>><?= _('Admin') ?>
                                                 </select>
