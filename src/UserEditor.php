@@ -30,7 +30,9 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserRoleQuery;
-use EcclesiaCRM\UserRole;
+use EcclesiaCRM\PluginQuery;
+use EcclesiaCRM\PluginUserRole;
+use EcclesiaCRM\PluginUserRoleQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
@@ -129,11 +131,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $EDrive = 1;
         } else {
             $EDrive = 0;
-        }
-        if (isset($_POST['Meeting'])) {
-            $Meeting = 1;
-        } else {
-            $Meeting = 0;
         }
         if (isset($_POST['DeleteRecords'])) {
             $DeleteRecords = 1;
@@ -287,7 +284,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
-                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
 
                     $user->setManageGroups($ManageGroups);
@@ -346,7 +342,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setEDrive($EDrive);
-                    $user->setMeeting($Meeting);
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setManageCalendarResources($ManageCalendarResources);
@@ -421,7 +416,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = $user->getShowCart();
             $usr_ShowMap = $user->getShowMap();
             $usr_EDrive = $user->getEdrive();
-            $usr_Meeting = $user->getMeeting();
             $usr_MenuOptions = $user->getMenuOptions();
             $usr_ManageGroups = $user->getManageGroups();
             $usr_ManageCalendarResources = $user->getManageCalendarResources();
@@ -461,7 +455,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ShowCart = 0;
             $usr_ShowMap = 0;
             $usr_EDrive = 0;
-            $usr_Meeting = 0;
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
             $usr_ManageCalendarResources = 0;
@@ -495,7 +488,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_ShowCart = 0;
         $usr_ShowMap = 0;
         $usr_EDrive = 0;
-        $usr_Meeting = 0;
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
         $usr_ManageCalendarResources = 0;
@@ -526,10 +518,29 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
 // Save Settings
 if (isset($_POST['save']) && ($iPersonID > 0)) {
+
+    $plugins = PluginQuery::create()->find();
+    foreach ($plugins as $plugin) {
+        $new_plugin = $_POST['new_plugin'];
+
+        $sel_role = $new_plugin[$plugin->getId()];
+
+        $role = PluginUserRoleQuery::create()
+            ->filterByUserId($iPersonID)
+            ->findOneByPluginId($plugin->getId());
+
+        if (is_null($role)) {
+            $role = new PluginUserRole();
+            $role->setPluginId($plugin->getId());
+            $role->setUserId($iPersonID);
+        }
+        $role->setRole($sel_role);
+        $role->save();
+    }
+
     $new_value = $_POST['new_value'];
     $new_permission = $_POST['new_permission'];
     $type = $_POST['type'];
-
 
     ksort($type);
     reset($type);
@@ -616,8 +627,8 @@ if ($usr_role_id == null) {
 
 ?>
 
-<div class="card">
-    <div class="card-header border-0">
+<div class="card special-card">
+    <div class="card-header">
         <h3 class="card-title"><?= _("Role management") ?></h3>
     </div>
     <div class="card-body">
@@ -645,7 +656,7 @@ if ($usr_role_id == null) {
     <!-- /.box-body -->
 </div><!-- Default box -->
 
-<form method="post" action="UserEditor.php">
+<form method="post" action="<?= SystemURLs::getRootPath() ?>/UserEditor.php">
 
     <input id="roleID" name="roleID" type="hidden" value="<?= $usr_role_id ?>">
     <input type="hidden" name="Action" value="<?= $sAction ?>">
@@ -657,7 +668,7 @@ if ($usr_role_id == null) {
     if ($bShowPersonSelect) {
         //Yes, so display the people drop-down
         ?>
-        <div class="card card-gray">
+        <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3">
@@ -694,7 +705,7 @@ if ($usr_role_id == null) {
     }
     ?>
 
-    <div class="card card-info">
+    <div class="card card-secondary">
         <div class="card-header">
             <h3 class="card-title">
                     <?= _('Note: Changes will not take effect until next logon.') ?>
@@ -753,438 +764,395 @@ if ($usr_role_id == null) {
             </div>
 
             <div class="row">
-                <div class="col-md-3">
-                    <!-- Management settings -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?= _("Management") ?>
-                            </h3>
+                <div class="col-7 col-sm-9">
+                    <div class="tab-content" id="vert-tabs-right-tabContent">
+                        <div class="tab-pane fade active show" id="vert-tabs-right-home" role="tabpanel" aria-labelledby="vert-tabs-right-home-tab">
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <label class="card-title">
+                                        <?= _("Global Permissions") ?>
+                                    </label>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Management settings -->
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <?= _("Management") ?>
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Admin') ?>:<br/>
+                                                            &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="Admin"
+                                                                   value="1"<?= ($usr_Admin) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Add Records') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="AddRecords"
+                                                                   value="1"<?= ($usr_AddRecords) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Edit Records') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="EditRecords"
+                                                                   value="1"<?= ($usr_EditRecords) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Delete Records') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="DeleteRecords"
+                                                                   value="1"<?= ($usr_DeleteRecords) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Manage Properties and Classifications') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="MenuOptions"
+                                                                   value="1"<?= ($usr_MenuOptions) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Manage Groups and Roles') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ManageGroups"
+                                                                   value="1"<?= ($usr_ManageGroups) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Manage resource reservation schedules (room, computer, projectors)') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ManageCalendarResources"
+                                                                   value="1"<?= ($usr_ManageCalendarResources) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('View, Add and Edit Notes') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="Notes"
+                                                                   value="1"<?= ($usr_Notes) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <!-- end of Management settings -->
+
+                                            <!-- user settings -->
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                    <h3 class="card-title"><?= _("User Account Permissions") ?></h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Main Dashboard') ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="MainDashboard"
+                                                                   value="1"<?= ($usr_MainDashboard) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Edit Self') ?>:<br/>
+                                                            <span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="EditSelf"
+                                                                   value="1"<?= ($usr_EditSelf) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('EDrive') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="EDrive"
+                                                                   value="1"<?= ($usr_EDrive) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Right to edit html code') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="HtmlSourceEditor"
+                                                                   value="1"<?= ($usr_HtmlSourceEditor) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Can Send Email') ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('Allow to use the mail function and button in the CRM') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="CanSendEmail"
+                                                                   value="1"<?= ($usr_CanSendEmail) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end of user settings -->
+
+                                            <!-- View settings -->
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <?= _("Permissions To View") ?>
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Show Cart') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ShowCart"
+                                                                   value="1"<?= ($usr_ShowCart) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Show Map') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ShowMap"
+                                                                   value="1"<?= ($usr_ShowMap) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('See Privacy Data') ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="SeePrivacyData"
+                                                                   value="1"<?= ($usr_SeePrivacyData) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- View settings -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Export settings -->
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <?= _("Export Permissions") ?>
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('CSV Export') ?>:<br/>
+                                                            &nbsp;<span
+                                                                class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ExportCSV"
+                                                                   value="1"<?= ($usr_ExportCSV) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Create Directory') ?>:<br/>
+                                                            <span class="SmallText">(<?= _('User permission to create directories') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="CreateDirectory"
+                                                                   value="1"<?= ($usr_CreateDirectory) ? ' checked' : '' ?>>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Sunday school PDF') ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF"
+                                                                   value="1"<?= ($usr_ExportSundaySchoolPDF) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Sunday school CSV') ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV"
+                                                                   value="1"<?= ($usr_ExportSundaySchoolCSV) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <!-- Export settings -->
+
+                                            <!-- Special settings -->
+                                            <div class="card card-default">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">
+                                                        <?= _("Special Permissions") ?>
+                                                    </h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Manage Donations and Finance') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="Finance"
+                                                                   value="1"<?= ($usr_Finance) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Canvasser') ?>:<br/>
+                                                            <span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="Canvasser"
+                                                                   value="1"<?= ($usr_Canvasser) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Query Menu') ?>:<br/>
+                                                            <span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="QueryMenu"
+                                                                   value="1"<?= ($usr_showMenuQuery) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('MailChimp') ?>:<br/>
+                                                            <span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="MailChimp"
+                                                                   value="1"<?= ($usr_MailChimp) ? ' checked' : '' ?>>
+                                                            &nbsp;
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _("GRPD Data Protection Officer") ?>:<br/>
+                                                            <span
+                                                                class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="GdrpDpo"
+                                                                   value="1"<?= ($usr_GDRP_DPO) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">&bullet;
+                                                            <?= _('Pastoral Care') ?>:
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <input type="checkbox" class="global_settings" name="PastoralCare"
+                                                                   value="1"<?= ($usr_PastoralCare) ? ' checked' : '' ?>>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Special settings -->
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Admin') ?>:<br/>
-                                    &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
+                        <div class="tab-pane fade" id="vert-tabs-right-profile" role="tabpanel" aria-labelledby="vert-tabs-right-profile-tab">
+                            <!-- Default box -->
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <label class="card-title">
+                                        <?= _("Modifiable Permissions") ?>
+                                    </label>
                                 </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Admin"
-                                           value="1"<?= ($usr_Admin) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Add Records') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="AddRecords"
-                                           value="1"<?= ($usr_AddRecords) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Edit Records') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="EditRecords"
-                                           value="1"<?= ($usr_EditRecords) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Delete Records') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="DeleteRecords"
-                                           value="1"<?= ($usr_DeleteRecords) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Manage Properties and Classifications') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="MenuOptions"
-                                           value="1"<?= ($usr_MenuOptions) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Manage Groups and Roles') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ManageGroups"
-                                           value="1"<?= ($usr_ManageGroups) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Manage resource reservation schedules (room, computer, projectors)') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ManageCalendarResources"
-                                           value="1"<?= ($usr_ManageCalendarResources) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('View, Add and Edit Notes') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Notes"
-                                           value="1"<?= ($usr_Notes) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <!-- end of Management settings -->
-
-                    <!-- user settings -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title"><?= _("User Account") ?></h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Main Dashboard') ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="MainDashboard"
-                                           value="1"<?= ($usr_MainDashboard) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Edit Self') ?>:<br/>
-                                    <span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="EditSelf"
-                                           value="1"<?= ($usr_EditSelf) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('EDrive') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="EDrive"
-                                           value="1"<?= ($usr_EDrive) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Meetings') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Meeting"
-                                           value="1"<?= ($usr_Meeting) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Right to edit html code') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="HtmlSourceEditor"
-                                           value="1"<?= ($usr_HtmlSourceEditor) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Can Send Email') ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('Allow to use the mail function and button in the CRM') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="CanSendEmail"
-                                           value="1"<?= ($usr_CanSendEmail) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end of user settings -->
-
-                    <!-- View settings -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?= _("View") ?>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Show Cart') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ShowCart"
-                                           value="1"<?= ($usr_ShowCart) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Show Map') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ShowMap"
-                                           value="1"<?= ($usr_ShowMap) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('See Privacy Data') ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="SeePrivacyData"
-                                           value="1"<?= ($usr_SeePrivacyData) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- View settings -->
-
-                </div>
-                <div class="col-md-3">
-                    <!-- Export settings -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?= _("Export") ?>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('CSV Export') ?>:<br/>
-                                    &nbsp;<span
-                                        class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ExportCSV"
-                                           value="1"<?= ($usr_ExportCSV) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Create Directory') ?>:<br/>
-                                    <span class="SmallText">(<?= _('User permission to create directories') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="CreateDirectory"
-                                           value="1"<?= ($usr_CreateDirectory) ? ' checked' : '' ?>>
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Sunday school PDF') ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF"
-                                           value="1"<?= ($usr_ExportSundaySchoolPDF) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Sunday school CSV') ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV"
-                                           value="1"<?= ($usr_ExportSundaySchoolCSV) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <!-- Export settings -->
-
-                    <!-- Special settings -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?= _("Special settings") ?>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Manage Donations and Finance') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Finance"
-                                           value="1"<?= ($usr_Finance) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Canvasser') ?>:<br/>
-                                    <span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="Canvasser"
-                                           value="1"<?= ($usr_Canvasser) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Query Menu') ?>:<br/>
-                                    <span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="QueryMenu"
-                                           value="1"<?= ($usr_showMenuQuery) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('MailChimp') ?>:<br/>
-                                    <span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="MailChimp"
-                                           value="1"<?= ($usr_MailChimp) ? ' checked' : '' ?>>
-                                    &nbsp;
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _("GRPD Data Protection Officer") ?>:<br/>
-                                    <span
-                                        class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="GdrpDpo"
-                                           value="1"<?= ($usr_GDRP_DPO) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">&bullet;
-                                    <?= _('Pastoral Care') ?>:
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="checkbox" class="global_settings" name="PastoralCare"
-                                           value="1"<?= ($usr_PastoralCare) ? ' checked' : '' ?>>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Special settings -->
-                </div>
-                <div class="col-md-6">
-                    <!-- Default box -->
-                    <div class="card  card-warning">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <?= _('Set Permission True to give this user the ability to change their current value.') ?>
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-hover data-person data-table2 no-footer dtr-inline"
-                                   style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th><?= _('Permission') ?></h3></th>
-                                    <th><?= _('Variable name') ?></th>
-                                    <th><?= _('Current Value') ?></h3></th>
-                                    <th><?= _('Notes') ?></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                <?php
-                                //First get default settings, then overwrite with settings from this user
-
-                                // Get default settings
-                                $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId(0);
-
-                                // List Default Settings
-                                foreach ($defaultConfigs as $defaultConfig) {
-                                    $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId($usr_per_ID);
-
-                                    if (is_null($userConfig)) {// when the user is created there isn't any settings: so we load the default one
-                                        $userConfig = $defaultConfig;
-                                    }
-
-                                    // Default Permissions
-                                    $sel1 = '';
-                                    $sel2 = '';
-
-                                    if ($userConfig->getPermission() == 'TRUE') {
-                                        $sel2 = 'SELECTED';
-                                        $sel1 = '';
-                                    } else {
-                                        $sel1 = 'SELECTED';
-                                        $sel2 = '';
-                                    }
-                                    ?>
-                                    <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
-                                        <td>
-                                            <select class="form-control form-control-sm"
-                                                    name="new_permission[<?= $userConfig->getId() ?>]">
-                                                <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
-                                                <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
-                                            </select>
-                                        </td>
+                                <div class="card-body">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle"></i>
+                                        <?= _('Set Permission True to give this user the ability to change their current value.') ?>
+                                    </div>
+                                    <table class="table table-hover data-person data-table2 no-footer dtr-inline"
+                                           style="width:100%">
+                                        <thead>
+                                        <tr>
+                                            <th><?= _('Permission') ?></h3></th>
+                                            <th><?= _('Variable name') ?></th>
+                                            <th><?= _('Current Value') ?></h3></th>
+                                            <th><?= _('Notes') ?></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
 
                                         <?php
-                                        // Variable Name & Type
-                                        ?>
+                                        //First get default settings, then overwrite with settings from this user
 
-                                        <td>
-                                            <?= $userConfig->getName() ?>
-                                        </td>
+                                        // Get default settings
+                                        $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId(0);
 
-                                        <?php
-                                        // Current Value
-                                        if ($userConfig->getType() == 'text') {
-                                            ?>
-                                            <td>
-                                                <input class="form-control form-control-sm" type="text" size="30"
-                                                       maxlength="255"
-                                                       name="new_value[<?= $userConfig->getId() ?>]"
-                                                       value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
-                                            </td>
-                                            <?php
-                                        } elseif ($userConfig->getType() == 'textarea') {
-                                            ?>
-                                            <td>
-                      <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
-                            <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
-                      </textarea>
-                                            </td>
-                                            <?php
-                                        } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
-                                            // todo dates !!!! PL
-                                            ?>
-                                            <td>
-                                                <input class="form-control form-control-sm" type="text" size="15"
-                                                       maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\"
-                                                       value="<?= $userConfig->getValue() ?>">
-                                            </td>
-                                            <?php
-                                        } elseif ($userConfig->getType() == 'boolean') {
-                                            if ($userConfig->getValue()) {
+                                        // List Default Settings
+                                        foreach ($defaultConfigs as $defaultConfig) {
+                                            $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId($usr_per_ID);
+
+                                            if (is_null($userConfig)) {// when the user is created there isn't any settings: so we load the default one
+                                                $userConfig = $defaultConfig;
+                                            }
+
+                                            // Default Permissions
+                                            $sel1 = '';
+                                            $sel2 = '';
+
+                                            if ($userConfig->getPermission() == 'TRUE') {
                                                 $sel2 = 'SELECTED';
                                                 $sel1 = '';
                                             } else {
@@ -1192,57 +1160,165 @@ if ($usr_role_id == null) {
                                                 $sel2 = '';
                                             }
                                             ?>
-                                            <td>
-                                                <select class="form-control form-control-sm"
-                                                        name="new_value[<?= $userConfig->getId() ?>]">
-                                                    <option value="" <?= $sel1 ?>><?= _('False') ?>
-                                                    <option value="1" <?= $sel2 ?>><?= _('True') ?>
-                                                </select>
-                                            </td>
-                                            <?php
-                                        } elseif ($userConfig->getType() == 'choice') {
-                                            // we seach ever the default settings
-                                            $userChoices = UserConfigChoicesQuery::create()->findOneById(($defaultConfig->getChoicesId() == null) ? 0 : $defaultConfig->getChoicesId());
+                                            <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
+                                                <td>
+                                                    <select class="form-control form-control-sm"
+                                                            name="new_permission[<?= $userConfig->getId() ?>]">
+                                                        <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
+                                                        <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
+                                                    </select>
+                                                </td>
 
-                                            $choices = explode(",", $userChoices->getChoices());
-                                            ?>
-                                            <td>
-                                                <select class="form-control form-control-sm"
-                                                        name="new_value[<?= $userConfig->getId() ?>]">
-                                                    <?php
-                                                    foreach ($choices
+                                                <?php
+                                                // Variable Name & Type
+                                                ?>
 
-                                                    as $choice) {
+                                                <td>
+                                                    <?= $userConfig->getName() ?>
+                                                </td>
+
+                                                <?php
+                                                // Current Value
+                                                if ($userConfig->getType() == 'text') {
                                                     ?>
-                                                    <option
-                                                        value="<?= $choice ?>" <?= (($userConfig->getValue() == $choice) ? ' selected' : '') ?>> <?= $choice ?>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                </select>
-                                            </td>
+                                                    <td>
+                                                        <input class="form-control form-control-sm" type="text" size="30"
+                                                               maxlength="255"
+                                                               name="new_value[<?= $userConfig->getId() ?>]"
+                                                               value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
+                                                    </td>
+                                                    <?php
+                                                } elseif ($userConfig->getType() == 'textarea') {
+                                                    ?>
+                                                    <td>
+                                              <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
+                                                    <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
+                                              </textarea>
+                                                    </td>
+                                                    <?php
+                                                } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
+                                                    // todo dates !!!! PL
+                                                    ?>
+                                                    <td>
+                                                        <input class="form-control form-control-sm" type="text" size="15"
+                                                               maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\"
+                                                               value="<?= $userConfig->getValue() ?>">
+                                                    </td>
+                                                    <?php
+                                                } elseif ($userConfig->getType() == 'boolean') {
+                                                    if ($userConfig->getValue()) {
+                                                        $sel2 = 'SELECTED';
+                                                        $sel1 = '';
+                                                    } else {
+                                                        $sel1 = 'SELECTED';
+                                                        $sel2 = '';
+                                                    }
+                                                    ?>
+                                                    <td>
+                                                        <select class="form-control form-control-sm"
+                                                                name="new_value[<?= $userConfig->getId() ?>]">
+                                                            <option value="" <?= $sel1 ?>><?= _('False') ?>
+                                                            <option value="1" <?= $sel2 ?>><?= _('True') ?>
+                                                        </select>
+                                                    </td>
+                                                    <?php
+                                                } elseif ($userConfig->getType() == 'choice') {
+                                                    // we seach ever the default settings
+                                                    $userChoices = UserConfigChoicesQuery::create()->findOneById(($defaultConfig->getChoicesId() == null) ? 0 : $defaultConfig->getChoicesId());
+
+                                                    $choices = explode(",", $userChoices->getChoices());
+                                                    ?>
+                                                    <td>
+                                                        <select class="form-control form-control-sm"
+                                                                name="new_value[<?= $userConfig->getId() ?>]">
+                                                            <?php
+                                                            foreach ($choices
+
+                                                            as $choice) {
+                                                            ?>
+                                                            <option
+                                                                value="<?= $choice ?>" <?= (($userConfig->getValue() == $choice) ? ' selected' : '') ?>> <?= $choice ?>
+                                                                <?php
+                                                                }
+                                                                ?>
+                                                        </select>
+                                                    </td>
+                                                    <?php
+                                                }
+
+                                                // Notes
+                                                ?>
+                                                <td>
+                                                    <input type="hidden" name="type[<?= $userConfig->getId() ?>]\"
+                                                           value="<?= $userConfig->getType() ?>">
+                                                    <?= _($userConfig->getTooltip()) ?>
+                                                </td>
+                                            </tr>
                                             <?php
                                         }
 
-                                        // Notes
+                                        // Cancel, Save Buttons
                                         ?>
-                                        <td>
-                                            <input type="hidden" name="type[<?= $userConfig->getId() ?>]\"
-                                                   value="<?= $userConfig->getType() ?>">
-                                            <?= _($userConfig->getTooltip()) ?>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
-
-                                // Cancel, Save Buttons
-                                ?>
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
                         </div>
-                        <!-- /.box-body -->
+                        <div class="tab-pane fade" id="vert-tabs-right-messages" role="tabpanel" aria-labelledby="vert-tabs-right-messages-tab">
+                            <!-- Plugin settings -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <label class="card-title">
+                                        <?= _("Plugin permissions") ?>
+                                    </label>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    $plugins = PluginQuery::create()->find();
+                                    foreach ($plugins as $plugin) {
+                                        $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+
+                                        $role_sel = 'none';
+                                        if (!is_null($role)) {
+                                            $role_sel = $role->getRole();
+                                        }
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-7">&bullet;
+                                                <?= $plugin->getName() ?>:
+                                            </div>
+                                            <div class="col-md-5">
+                                                <select class="form-control form-control-sm"
+                                                        name="new_plugin[<?= $plugin->getId() ?>]">
+                                                    <option value="none" <?= ($role_sel == 'none')?'SELECTED':'' ?>><?= _('None') ?>
+                                                    <option value="user" <?= ($role_sel == 'user')?'SELECTED':'' ?>><?= _('User') ?>
+                                                    <option value="admin" <?= ($role_sel == 'admin')?'SELECTED':'' ?>><?= _('Admin') ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <!-- Plugin settings -->
+                        </div>
                     </div>
-                    <!-- /.box -->
+                </div>
+                <div class="col-5 col-sm-3">
+                    <div class="nav flex-column nav-tabs nav-tabs-right h-100" id="vert-tabs-right-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="vert-tabs-right-home-tab" data-toggle="pill" href="#vert-tabs-right-home" role="tab" aria-controls="vert-tabs-right-home" aria-selected="true"><?= _("Global Permissions") ?></a>
+                        <a class="nav-link" id="vert-tabs-right-profile-tab" data-toggle="pill" href="#vert-tabs-right-profile" role="tab" aria-controls="vert-tabs-right-profile" aria-selected="false"><?= _("Modifiable Permissions") ?></a>
+                        <a class="nav-link" id="vert-tabs-right-messages-tab" data-toggle="pill" href="#vert-tabs-right-messages" role="tab" aria-controls="vert-tabs-right-messages" aria-selected="false"><?= _("Plugin permissions") ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/7.6.0-upgrade.php
+// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/8.0.0-upgrade.php
 // et il faut décommenter
 /*define("webdav", "1");
 require '../../Include/Config.php';*/
@@ -46,7 +46,7 @@ unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Map/PersonM
 // now we exclude the
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/meeting/");
 
-exec('composer dump-autoload');
+exec('cd ../.. && composer dump-autoload');
 
 $logger->info("End of delete :  all unusefull files");
 ?>
