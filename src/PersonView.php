@@ -844,7 +844,7 @@ if (!empty($person->getDateDeactivated())) {
                         }
                     }
 
-                    if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
+                    if ($bOkToEdit && SessionUser::getUser()->isGdrpDpoEnabled() && $iPersonID != 1) {// the super user can't be deactivated
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">

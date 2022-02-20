@@ -507,7 +507,7 @@ require 'Include/Header.php';
                         <?php
                     }
 
-                    if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
+                    if ($bOkToEdit && SessionUser::getUser()->isGdrpDpoEnabled()) {
                         $buttons++;
                         ?>
                         <button class="btn btn-app bg-gradient-orange" id="activateDeactivate">
