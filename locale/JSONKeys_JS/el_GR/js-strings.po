@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2069,6 +2069,39 @@ msgstr "Μη εγγεγραμμένοι"
 msgid "Email Marketing"
 msgstr "Μάρκετινγκ ηλεκτρονικού ταχυδρομείου"
 
+msgid "Add your tag name"
+msgstr "Προσθέστε το όνομα της ετικέτας σας"
+
+msgid "Adding tag..."
+msgstr "Προσθήκη ετικέτας..."
+
+msgid "Name is empty !!"
+msgstr "Το όνομα είναι άδειο !!"
+
+msgid "Add tag?"
+msgstr "Προσθήκη ετικέτας;"
+
+msgid "This will add the tag"
+msgstr "Αυτό θα προσθέσει την ετικέτα"
+
+msgid "to all the current selected members in the list."
+msgstr "σε όλα τα τρέχοντα επιλεγμένα μέλη της λίστας."
+
+msgid "Select One"
+msgstr "Επιλέξτε ένα"
+
+msgid "All Tags"
+msgstr "Όλες οι ετικέτες"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Επιλέξτε την ετικέτα που θέλετε να διαγράψετε :"
+
+msgid "Removing tags..."
+msgstr "Αφαίρεση ετικετών..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Διαγραφή όλων των ετικετών για τα επιλεγμένα μέλη στη λίστα..."
+
 msgid "You're about to delete a tag!"
 msgstr "Πρόκειται να διαγράψετε μια ετικέτα!"
 
@@ -2185,39 +2218,6 @@ msgstr "Όνομα λίστας"
 
 msgid "Changing subscribers state..."
 msgstr "Αλλαγή κατάστασης συνδρομητών..."
-
-msgid "Select One"
-msgstr "Επιλέξτε ένα"
-
-msgid "All Tags"
-msgstr "Όλες οι ετικέτες"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Επιλέξτε την ετικέτα που θέλετε να διαγράψετε :"
-
-msgid "Removing tags..."
-msgstr "Αφαίρεση ετικετών..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Διαγραφή όλων των ετικετών για τα επιλεγμένα μέλη στη λίστα..."
-
-msgid "Add your tag name"
-msgstr "Προσθέστε το όνομα της ετικέτας σας"
-
-msgid "Adding tag..."
-msgstr "Προσθήκη ετικέτας..."
-
-msgid "Name is empty !!"
-msgstr "Το όνομα είναι άδειο !!"
-
-msgid "Add tag?"
-msgstr "Προσθήκη ετικέτας;"
-
-msgid "This will add the tag"
-msgstr "Αυτό θα προσθέσει την ετικέτα"
-
-msgid "to all the current selected members in the list."
-msgstr "σε όλα τα τρέχοντα επιλεγμένα μέλη της λίστας."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Πρόκειται να διαγράψετε συνδρομητές! Είσαι σίγουρος;"

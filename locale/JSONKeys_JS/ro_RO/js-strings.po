@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2065,6 +2065,39 @@ msgstr "Dezabonat"
 msgid "Email Marketing"
 msgstr "Marketing prin e-mail"
 
+msgid "Add your tag name"
+msgstr "Adăugați numele etichetei dvs."
+
+msgid "Adding tag..."
+msgstr "Adăugarea etichetei..."
+
+msgid "Name is empty !!"
+msgstr "Numele este gol !!"
+
+msgid "Add tag?"
+msgstr "Adăugați eticheta?"
+
+msgid "This will add the tag"
+msgstr "Acest lucru va adăuga eticheta"
+
+msgid "to all the current selected members in the list."
+msgstr "la toți membrii selectați în prezent din listă."
+
+msgid "Select One"
+msgstr "Selectați unul"
+
+msgid "All Tags"
+msgstr "Toate etichetele"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Alegeți eticheta pe care doriți să o ștergeți :"
+
+msgid "Removing tags..."
+msgstr "Îndepărtarea etichetelor..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
+
 msgid "You're about to delete a tag!"
 msgstr "Sunteți pe cale să ștergeți o etichetă!"
 
@@ -2181,39 +2214,6 @@ msgstr "Nume listă"
 
 msgid "Changing subscribers state..."
 msgstr "Schimbarea stării abonaților..."
-
-msgid "Select One"
-msgstr "Selectați unul"
-
-msgid "All Tags"
-msgstr "Toate etichetele"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Alegeți eticheta pe care doriți să o ștergeți :"
-
-msgid "Removing tags..."
-msgstr "Îndepărtarea etichetelor..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Ștergerea tuturor etichetelor pentru membrii selectați în listă..."
-
-msgid "Add your tag name"
-msgstr "Adăugați numele etichetei dvs."
-
-msgid "Adding tag..."
-msgstr "Adăugarea etichetei..."
-
-msgid "Name is empty !!"
-msgstr "Numele este gol !!"
-
-msgid "Add tag?"
-msgstr "Adăugați eticheta?"
-
-msgid "This will add the tag"
-msgstr "Acest lucru va adăuga eticheta"
-
-msgid "to all the current selected members in the list."
-msgstr "la toți membrii selectați în prezent din listă."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Sunteți pe cale să ștergeți abonați! Sunteți sigur?"

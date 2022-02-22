@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-17 18:37+0000\n"
+"POT-Creation-Date: 2022-02-22 14:36+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:163
 #: EcclesiaCRM/APIControllers/SearchController.php:168
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:246 EcclesiaCRM/MenuBar/MenuBar.php:320
+#: EcclesiaCRM/MenuBar/MenuBar.php:253 EcclesiaCRM/MenuBar/MenuBar.php:327
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
@@ -255,7 +255,7 @@ msgid "Phone"
 msgstr "Telepon"
 
 #: AutoPaymentEditor.php:977 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:388
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
@@ -325,8 +325,8 @@ msgstr "Toko Private Data di Vanco"
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:888 PersonEditor.php:970 PersonEditor.php:1157
 #: PersonEditor.php:1579 PersonEditor.php:1659 PersonEditor.php:1747
-#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:955
-#: UserPasswordChange.php:225 v2/templates/fundraiser/donatedItemEditor.php:167
+#: PledgeEditor.php:793 SystemSettings.php:107 UserPasswordChange.php:225
+#: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Selamatkan"
 
@@ -337,8 +337,8 @@ msgstr "Selamatkan"
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1952
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:956
-#: UserEditor.php:1110 v2/templates/fundraiser/donatedItemEditor.php:178
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:1335
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -551,7 +551,7 @@ msgstr "Input Canvass untuk itu"
 msgid "family"
 msgstr "Keluarga"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:829
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1053
 msgid "Canvasser"
 msgstr "Canvasser"
 
@@ -836,7 +836,7 @@ msgstr "Ponsel Phone"
 msgid "Your cart is empty!"
 msgstr "Keretamu kosong!"
 
-#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:136
 msgid "Call the Register"
 msgstr "Panggil si Pembuat Umum"
 
@@ -962,7 +962,7 @@ msgstr "Convert Next"
 msgid "Convert All"
 msgstr "Mengurus semua"
 
-#: CSVExport.php:55 UserEditor.php:865 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:984 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "CSV Export"
 
@@ -1499,7 +1499,7 @@ msgstr "Pledge"
 msgid "Return to Deposit Listing"
 msgstr "Kembali ke Deposit Listing"
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:160
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:167
 msgid "Directory reports"
 msgstr "Laporan Direktori"
 
@@ -1614,7 +1614,7 @@ msgstr "Nama Gereja"
 msgid "Disclaimer"
 msgstr "Disclaimer"
 
-#: DirectoryReports.php:338 UserEditor.php:874
+#: DirectoryReports.php:338 UserEditor.php:995
 msgid "Create Directory"
 msgstr "Buat Direktori"
 
@@ -1877,7 +1877,7 @@ msgstr "Semua keluarga"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:124
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
-#: EcclesiaCRM/MenuBar/MenuBar.php:163
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
@@ -1887,7 +1887,7 @@ msgstr "Orang-orang"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:164
 #: EcclesiaCRM/APIControllers/PeopleController.php:157
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:170
+#: EcclesiaCRM/MenuBar/MenuBar.php:146 EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -1904,7 +1904,7 @@ msgstr "Keluarga"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:202
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
-#: EcclesiaCRM/MenuBar/MenuBar.php:191 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:198 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:137 PersonView.php:483
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:169
@@ -2005,7 +2005,8 @@ msgstr "Ya"
 #: EcclesiaCRM/Service/CalendarService.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:161
+#: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
+#: v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Tidak"
 
@@ -2025,7 +2026,7 @@ msgstr "Orang dinonaktifkan"
 msgid "Person Activated"
 msgstr "Orang diaktifkan"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/APIControllers/PluginsController.php:123
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "Mustahil untuk membuka"
@@ -4390,9 +4391,9 @@ msgstr "Email Setup"
 msgid "Map Settings"
 msgstr "Peta Setting"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:378
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1095
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4406,7 +4407,7 @@ msgstr "Minggu ATtendance"
 msgid "Integration"
 msgstr "Integrasi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:108
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
@@ -4577,61 +4578,61 @@ msgstr "Status"
 msgid "Please verify your family's information"
 msgstr "Tolong pastikan informasi keluargamu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:60
+#: EcclesiaCRM/MenuBar/MenuBar.php:67
 #, fuzzy
 msgid "Meeting"
 msgstr "Rapat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
-#: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
-#: EcclesiaCRM/MenuBar/MenuBar.php:362 EcclesiaCRM/MenuBar/MenuBar.php:372
-#: EcclesiaCRM/MenuBar/MenuBar.php:394 EcclesiaCRM/MenuBar/MenuBar.php:485
+#: EcclesiaCRM/MenuBar/MenuBar.php:72 EcclesiaCRM/MenuBar/MenuBar.php:109
+#: EcclesiaCRM/MenuBar/MenuBar.php:148 EcclesiaCRM/MenuBar/MenuBar.php:273
+#: EcclesiaCRM/MenuBar/MenuBar.php:369 EcclesiaCRM/MenuBar/MenuBar.php:379
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 EcclesiaCRM/MenuBar/MenuBar.php:492
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:78 Include/Header.php:92
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 Include/Header.php:92
 #: Include/Header.php:148
 msgid "Private Space"
 msgstr "Ruang pribadi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:80 EcclesiaCRM/utils/MiscUtils.php:441
+#: EcclesiaCRM/MenuBar/MenuBar.php:87 EcclesiaCRM/utils/MiscUtils.php:441
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Rumah"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:81 Include/Header.php:150 PersonView.php:783
+#: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:150 PersonView.php:783
 msgid "Change Password"
 msgstr "Ganti kata sandi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 Include/Header.php:152 PersonView.php:781
+#: EcclesiaCRM/MenuBar/MenuBar.php:89 Include/Header.php:152 PersonView.php:781
 msgid "Change Settings"
 msgstr "Mengubah peraturan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:83 FamilyView.php:674 PersonView.php:990
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 FamilyView.php:674 PersonView.php:990
 msgid "Documents"
 msgstr "Dokumen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:86 PersonView.php:1004 UserEditor.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 PersonView.php:1004 UserEditor.php:898
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103
+#: EcclesiaCRM/MenuBar/MenuBar.php:110
 msgid "Data Structure"
 msgstr "Struktur Data"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:168
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/MenuBar/MenuBar.php:175
 msgid "View Inactive Persons"
 msgstr "Lihat orang Inaktif"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/MenuBar/MenuBar.php:174
+#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:181
 msgid "View Inactive Families"
 msgstr "Lihat Keluarga Inaktif"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
+#: EcclesiaCRM/MenuBar/MenuBar.php:122
 msgid "Events"
 msgstr "Events"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 v2/templates/map/MapUsingBing.php:75
+#: EcclesiaCRM/MenuBar/MenuBar.php:128 v2/templates/map/MapUsingBing.php:75
 #: v2/templates/map/MapUsingBing.php:121 v2/templates/map/MapUsingGoogle.php:77
 #: v2/templates/map/MapUsingGoogle.php:124
 #: v2/templates/map/MapUsingLeaflet.php:66
@@ -4639,95 +4640,95 @@ msgstr "Events"
 msgid "Calendar"
 msgstr "Kalender"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 EcclesiaCRM/MenuBar/MenuBar.php:157
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:164
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Lihat Peta"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 msgid "List Church Events"
 msgstr "Peristiwa Gereja List"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:135
 msgid "List Event Types"
 msgstr "Tipe Event List"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
+#: EcclesiaCRM/MenuBar/MenuBar.php:146
 #: v2/templates/dashboard/maindashboard.php:125
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
 msgstr "Orang-orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:162
 msgid "Meta Search Engine"
 msgstr "Mesin pencarian Meta"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:164 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:171 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Tambahkan orang baru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
+#: EcclesiaCRM/MenuBar/MenuBar.php:172
 msgid "View Single Persons"
 msgstr "Lihat satu orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:166
+#: EcclesiaCRM/MenuBar/MenuBar.php:173
 msgid "View Active Persons"
 msgstr "Lihat orang aktif"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:171
+#: EcclesiaCRM/MenuBar/MenuBar.php:178
 msgid "Add New Family"
 msgstr "Tambahkan keluarga baru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:172
+#: EcclesiaCRM/MenuBar/MenuBar.php:179
 msgid "View Active Families"
 msgstr "Lihat keluarga Aktif"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:176
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 msgid "Empty Addresses"
 msgstr "Alamat kosong"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:179
+#: EcclesiaCRM/MenuBar/MenuBar.php:186
 msgid "Convert Individual to Address"
 msgstr "Convert Individual untuk Alamat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "List Groups"
 msgstr "Grup List"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:255
+#: EcclesiaCRM/MenuBar/MenuBar.php:262
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
 msgid "Group Assignment Helper"
 msgstr "Pemerintah kelompok pembantu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:264
+#: EcclesiaCRM/MenuBar/MenuBar.php:271
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:110
 msgid "Sunday School"
 msgstr "Sekolah Minggu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
+#: EcclesiaCRM/MenuBar/MenuBar.php:351 EcclesiaCRM/MenuBar/MenuBar.php:358
 #: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Global Custom Menus"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361
+#: EcclesiaCRM/MenuBar/MenuBar.php:368
 msgid "Custom Menus"
 msgstr "Custom Menus"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:373
+#: EcclesiaCRM/MenuBar/MenuBar.php:380
 msgid "By Classifications"
 msgstr "Oleh klasifikasi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392 FamilyView.php:382 UserEditor.php:923
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 FamilyView.php:382 UserEditor.php:1073
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:401
+#: EcclesiaCRM/MenuBar/MenuBar.php:408
 msgid "Email Lists"
 msgstr "Email Lists"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:427
+#: EcclesiaCRM/MenuBar/MenuBar.php:434
 #: EcclesiaCRM/Search/PledgeSearchRes.php:62
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4736,56 +4737,56 @@ msgstr "Email Lists"
 msgid "Deposit"
 msgstr "Deposit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:440
+#: EcclesiaCRM/MenuBar/MenuBar.php:447
 msgid "Current"
 msgstr "Saat ini"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:445 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:452 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Manajer amplop"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:446
+#: EcclesiaCRM/MenuBar/MenuBar.php:453
 msgid "View All Deposits"
 msgstr "Lihat semua Deposits"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:447 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:454 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr "Listrik Pembayaran listrik"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:448
+#: EcclesiaCRM/MenuBar/MenuBar.php:455
 msgid "Deposit Reports"
 msgstr "Laporan tabungan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:449
+#: EcclesiaCRM/MenuBar/MenuBar.php:456
 msgid "Edit Deposit Slip"
 msgstr "Edit Deposit Slip"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:461 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:468 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr "Fundraiser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:470
 msgid "Create New Fundraiser"
 msgstr "Buat New Fundraiser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:464
+#: EcclesiaCRM/MenuBar/MenuBar.php:471
 msgid "View All Fundraisers"
 msgstr "Lihat All Fundraisers"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:473
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Edit Fundraiser terakhir"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:527
+#: EcclesiaCRM/MenuBar/MenuBar.php:534
 msgid "Data/Reports"
 msgstr "Data/Laporan"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:529
+#: EcclesiaCRM/MenuBar/MenuBar.php:536
 msgid "Reports Menu"
 msgstr "Laporan Menu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:530 UserEditor.php:846
+#: EcclesiaCRM/MenuBar/MenuBar.php:537 UserEditor.php:1063
 msgid "Query Menu"
 msgstr "Query Menu"
 
@@ -4954,51 +4955,51 @@ msgstr "tua mu"
 msgid "EcclesiaCRM export"
 msgstr "Ekspor EcclesiacRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:674
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user created"
 msgstr "pengguna sistem diciptakan"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:677
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user updated"
 msgstr "pengguna sistem diperbarui"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:680
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user deleted"
 msgstr "pengguna sistem dihapus"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:683
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user password reset"
 msgstr "reset password pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:686
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user changed password"
 msgstr "pengguna sistem mengubah password"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:689
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user password changed by admin"
 msgstr "password pengguna sistem yang diubah oleh admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:692
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
 msgid "system user login reset"
 msgstr "reset pengguna sistem"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:698
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:693
 msgid "Dav create file"
 msgstr "Dav menciptakan file"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:704
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:699
 msgid "Dav create directory"
 msgstr "Dav membuat direktori"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:710
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:705
 msgid "Dav update file"
 msgstr "Berkas pembaruan Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:723
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
 msgid "Dav move copy file"
 msgstr "Dav memindahkan file copy"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:725
 msgid "Dav delete file"
 msgstr "Dav menghapus file"
 
@@ -6459,8 +6460,8 @@ msgstr "Pendaftaran keluarga"
 msgid "Reset your password"
 msgstr "Atur ulang kata sandimu"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:678
-#: UserEditor.php:734
+#: external/templates/password/enter-username.php:32 UserEditor.php:694
+#: UserEditor.php:753
 msgid "Login Name"
 msgstr "Nama yang bagus"
 
@@ -9327,21 +9328,21 @@ msgstr "Pecundang"
 msgid "Classic User Profile Settings"
 msgstr "Pecundang klasik Profil Profil"
 
-#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:976
+#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:1132
 msgid "Notes"
 msgstr "Catatan"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:975
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:1131
 msgid "Current Value"
 msgstr "Sekarang Value"
 
 #: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:974
+#: UserEditor.php:1130
 msgid "Variable name"
 msgstr "Nama yang bisa diperoleh"
 
 #: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1109
+#: UserEditor.php:1332
 msgid "Save Settings"
 msgstr "Simpan Setting"
 
@@ -9349,13 +9350,13 @@ msgstr "Simpan Setting"
 msgid "Skin"
 msgstr "Kulit"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1010
-#: UserEditor.php:1061
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1167
+#: UserEditor.php:1220
 msgid "False"
 msgstr "Salah"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1011
-#: UserEditor.php:1062
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1168
+#: UserEditor.php:1221
 msgid "True"
 msgstr "Benar"
 
@@ -9628,11 +9629,11 @@ msgstr "Pemberontakan cadangan."
 msgid "Backup Downloaded, Copy on server removed"
 msgstr "Backup Download, Copy on server dihapus"
 
-#: UserEditor.php:91 UserEditor.php:94
+#: UserEditor.php:98 UserEditor.php:101
 msgid "Login must be a least 3 characters!"
 msgstr "Login harus menjadi sedikit 3 karakter!"
 
-#: UserEditor.php:320 UserEditor.php:386
+#: UserEditor.php:321 UserEditor.php:386
 msgid "Login already in use, please select a different login!"
 msgstr "Login sudah di gunakan, silahkan pilih login yang berbeda!"
 
@@ -9640,172 +9641,202 @@ msgstr "Login sudah di gunakan, silahkan pilih login yang berbeda!"
 msgid "The same as before"
 msgstr "Sama seperti sebelumnya"
 
-#: UserEditor.php:599
+#: UserEditor.php:615
 msgid "User Editor"
 msgstr "Pengguna Editor"
 
-#: UserEditor.php:616
+#: UserEditor.php:632
 msgid "Role management"
 msgstr "Manajemen Role"
 
-#: UserEditor.php:619
+#: UserEditor.php:635
 msgid "Add Role"
 msgstr "Tambahkan Role"
 
-#: UserEditor.php:620
+#: UserEditor.php:636
 msgid "Manage Roles"
 msgstr "Manage Roles"
 
-#: UserEditor.php:623
+#: UserEditor.php:639
 msgid "Add Role to Current User"
 msgstr "Tambahkan Role ke User saat ini"
 
-#: UserEditor.php:659
+#: UserEditor.php:675
 msgid "Person to Make User"
 msgstr "Orang untuk membuat User"
 
-#: UserEditor.php:695
+#: UserEditor.php:711
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Catatan: perubahan tidak akan berlaku sampai logon berikutnya."
 
-#: UserEditor.php:710
+#: UserEditor.php:730 UserEditor.php:1296
 msgid "User"
 msgstr "Pengguna"
 
-#: UserEditor.php:743
-msgid "Add Records"
-msgstr "Tambahkan Records"
+#: UserEditor.php:773 UserEditor.php:1312
+#, fuzzy
+msgid "Global Permissions"
+msgstr "Izin"
 
-#: UserEditor.php:749
-msgid "Edit Records"
-msgstr "Edit Records"
+#: UserEditor.php:783 v2/templates/user/userlist.php:158
+msgid "Management"
+msgstr "Manajemen"
 
-#: UserEditor.php:755
-msgid "Delete Records"
-msgstr "Hapus Records"
-
-#: UserEditor.php:761
-msgid "Show Cart"
-msgstr "Tunjukkan pada Cart"
-
-#: UserEditor.php:767
-msgid "Show Map"
-msgstr "Perlihatkan Peta"
-
-#: UserEditor.php:779
-msgid "Meetings"
-msgstr "Rapat"
-
-#: UserEditor.php:785
-msgid "Manage Properties and Classifications"
-msgstr "Manage Properties dan Klasifikasi"
-
-#: UserEditor.php:791
-msgid "Manage Groups and Roles"
-msgstr "Manage Groups and Roles"
-
-#: UserEditor.php:797
-msgid "Manage resource reservation schedules (room, computer, projectors)"
-msgstr "Jadwal reservasi sumber daya (ruang, komputer, proyektor)"
-
-#: UserEditor.php:803
-msgid "Right to edit html code"
-msgstr "Hak untuk mengedit kode HTML"
-
-#: UserEditor.php:809
-msgid "Manage Donations and Finance"
-msgstr "Manage Donations dan Keuangan"
-
-#: UserEditor.php:815
-msgid "View, Add and Edit Notes"
-msgstr "Lihat, Add dan Edit Notes"
-
-#: UserEditor.php:821
-msgid "Edit Self"
-msgstr "Edit Self"
-
-#: UserEditor.php:825
-msgid "Edit own family only."
-msgstr "Edit sendiri keluarga saja."
-
-#: UserEditor.php:833
-msgid "Canvass volunteer."
-msgstr "Canvass relawan."
-
-#: UserEditor.php:837
+#: UserEditor.php:789 UserEditor.php:1297
 msgid "Admin"
 msgstr "Admin"
 
-#: UserEditor.php:841
+#: UserEditor.php:790
 msgid "Grants all privileges."
 msgstr "Grant semua hak istimewa."
 
-#: UserEditor.php:850
-msgid "Allow to manage the query menu"
-msgstr "Izinkan untuk mengelola menu query"
+#: UserEditor.php:800
+msgid "Add Records"
+msgstr "Tambahkan Records"
 
-#: UserEditor.php:855
-msgid "Can Send Email"
-msgstr "Bisa kirim Email"
+#: UserEditor.php:809
+msgid "Edit Records"
+msgstr "Edit Records"
 
-#: UserEditor.php:860
-msgid "Allow to use the mail function and button in the CRM"
-msgstr "Izinkan untuk menggunakan fungsi surat dan tombol di CRM"
+#: UserEditor.php:818
+msgid "Delete Records"
+msgstr "Hapus Records"
 
-#: UserEditor.php:869
-msgid "User permission to export CSV files"
-msgstr "Izin pengguna untuk mengekspor file CSV"
+#: UserEditor.php:827
+msgid "Manage Properties and Classifications"
+msgstr "Manage Properties dan Klasifikasi"
 
-#: UserEditor.php:878
-msgid "User permission to create directories"
-msgstr "Izin pengguna untuk membuat direktori"
+#: UserEditor.php:836
+msgid "Manage Groups and Roles"
+msgstr "Manage Groups and Roles"
 
-#: UserEditor.php:883
-msgid "Sunday school PDF"
-msgstr "PDF sekolah Minggu"
+#: UserEditor.php:845
+msgid "Manage resource reservation schedules (room, computer, projectors)"
+msgstr "Jadwal reservasi sumber daya (ruang, komputer, proyektor)"
 
-#: UserEditor.php:888
-msgid "User permission to export PDF files for the sunday school"
-msgstr "Izin pengguna untuk mengekspor file PDF untuk sekolah Minggu"
+#: UserEditor.php:854
+msgid "View, Add and Edit Notes"
+msgstr "Lihat, Add dan Edit Notes"
 
-#: UserEditor.php:893
-msgid "Sunday school CSV"
-msgstr "CSV sekolah Minggu"
+#: UserEditor.php:870
+#, fuzzy
+msgid "User Account Permissions"
+msgstr "Jelas Account Nomor"
 
-#: UserEditor.php:898
-msgid "User permission to export CSV files for the sunday school"
-msgstr "Izin pengguna untuk mengekspor file CSV untuk sekolah Minggu"
-
-#: UserEditor.php:903
+#: UserEditor.php:875
 msgid "Main Dashboard"
 msgstr "Dashboard utama"
 
-#: UserEditor.php:908
+#: UserEditor.php:877
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr "Main Dashboard dan tanggal lahir di kalender terlihat."
 
-#: UserEditor.php:913
+#: UserEditor.php:887
+msgid "Edit Self"
+msgstr "Edit Self"
+
+#: UserEditor.php:888
+msgid "Edit own family only."
+msgstr "Edit sendiri keluarga saja."
+
+#: UserEditor.php:907
+msgid "Right to edit html code"
+msgstr "Hak untuk mengedit kode HTML"
+
+#: UserEditor.php:916
+msgid "Can Send Email"
+msgstr "Bisa kirim Email"
+
+#: UserEditor.php:918
+msgid "Allow to use the mail function and button in the CRM"
+msgstr "Izinkan untuk menggunakan fungsi surat dan tombol di CRM"
+
+#: UserEditor.php:934
+#, fuzzy
+msgid "Permissions To View"
+msgstr "Izin"
+
+#: UserEditor.php:940
+msgid "Show Cart"
+msgstr "Tunjukkan pada Cart"
+
+#: UserEditor.php:949
+msgid "Show Map"
+msgstr "Perlihatkan Peta"
+
+#: UserEditor.php:958
 msgid "See Privacy Data"
 msgstr "Lihat Privacy Data"
 
-#: UserEditor.php:918
+#: UserEditor.php:960
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Izinkan pengguna untuk melihat data privasi anggota, E.G. Birth Year, Umur."
 
-#: UserEditor.php:927
+#: UserEditor.php:978
+#, fuzzy
+msgid "Export Permissions"
+msgstr "Izin"
+
+#: UserEditor.php:986
+msgid "User permission to export CSV files"
+msgstr "Izin pengguna untuk mengekspor file CSV"
+
+#: UserEditor.php:996
+msgid "User permission to create directories"
+msgstr "Izin pengguna untuk membuat direktori"
+
+#: UserEditor.php:1006
+msgid "Sunday school PDF"
+msgstr "PDF sekolah Minggu"
+
+#: UserEditor.php:1008
+msgid "User permission to export PDF files for the sunday school"
+msgstr "Izin pengguna untuk mengekspor file PDF untuk sekolah Minggu"
+
+#: UserEditor.php:1018
+msgid "Sunday school CSV"
+msgstr "CSV sekolah Minggu"
+
+#: UserEditor.php:1020
+msgid "User permission to export CSV files for the sunday school"
+msgstr "Izin pengguna untuk mengekspor file CSV untuk sekolah Minggu"
+
+#: UserEditor.php:1038
+#, fuzzy
+msgid "Special Permissions"
+msgstr "Izin"
+
+#: UserEditor.php:1044
+msgid "Manage Donations and Finance"
+msgstr "Manage Donations dan Keuangan"
+
+#: UserEditor.php:1054
+msgid "Canvass volunteer."
+msgstr "Canvass relawan."
+
+#: UserEditor.php:1064
+msgid "Allow to manage the query menu"
+msgstr "Izinkan untuk mengelola menu query"
+
+#: UserEditor.php:1074
 msgid "Allow a user to use MailChimp tool"
 msgstr "Izinkan pengguna untuk menggunakan alat MailChimp"
 
-#: UserEditor.php:932
+#: UserEditor.php:1084
 msgid "GRPD Data Protection Officer"
 msgstr "Petugas Perlindungan GRPD"
 
-#: UserEditor.php:936
+#: UserEditor.php:1086
 msgid "General Data Protection Regulation in UE"
 msgstr "Umum Perlindungan Perlindungan UE"
 
-#: UserEditor.php:968
+#: UserEditor.php:1117 UserEditor.php:1313
+#, fuzzy
+msgid "Modifiable Permissions"
+msgstr "Izin"
+
+#: UserEditor.php:1123
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9813,8 +9844,13 @@ msgstr ""
 "Atur Izin True untuk memberikan pengguna ini kemampuan untuk mengubah nilai "
 "mereka saat ini."
 
-#: UserEditor.php:973
+#: UserEditor.php:1129
 msgid "Permission"
+msgstr "Izin"
+
+#: UserEditor.php:1274 UserEditor.php:1314
+#, fuzzy
+msgid "Plugin permissions"
 msgstr "Izin"
 
 #: UserPasswordChange.php:58
@@ -11749,10 +11785,6 @@ msgstr "2FA otentikasi"
 msgid "Not modifiable"
 msgstr "Tidak bisa dimodifikasi"
 
-#: v2/templates/user/userlist.php:158
-msgid "Management"
-msgstr "Manajemen"
-
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
 msgstr "Kode Zip"
@@ -12516,6 +12548,9 @@ msgstr "Uang"
 
 msgid "Custom Drop-Down List"
 msgstr "Custom Drop-Down List"
+
+#~ msgid "Meetings"
+#~ msgstr "Rapat"
 
 #~ msgid "The jitsi domain name, by default : meet.jit.si"
 #~ msgstr "Nama Jitsi, dengan default: meet.jit.si"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-17 18:37+0000\n"
+"POT-Creation-Date: 2022-02-22 14:36+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: EcclesiaCRM/APIControllers/SearchController.php:163
 #: EcclesiaCRM/APIControllers/SearchController.php:168
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:246 EcclesiaCRM/MenuBar/MenuBar.php:320
+#: EcclesiaCRM/MenuBar/MenuBar.php:253 EcclesiaCRM/MenuBar/MenuBar.php:327
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
@@ -255,7 +255,7 @@ msgid "Phone"
 msgstr "Τηλέφωνο"
 
 #: AutoPaymentEditor.php:977 CartToFamily.php:453 CSVExport.php:148
-#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:388
+#: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:395
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
@@ -325,8 +325,8 @@ msgstr "Αποθήκευση ιδιωτικών δεδομένων στη Vanco"
 #: FamilyEditor.php:1290 FundRaiserEditor.php:208 GroupEditor.php:181
 #: PersonEditor.php:888 PersonEditor.php:970 PersonEditor.php:1157
 #: PersonEditor.php:1579 PersonEditor.php:1659 PersonEditor.php:1747
-#: PledgeEditor.php:793 SystemSettings.php:107 UserEditor.php:955
-#: UserPasswordChange.php:225 v2/templates/fundraiser/donatedItemEditor.php:167
+#: PledgeEditor.php:793 SystemSettings.php:107 UserPasswordChange.php:225
+#: v2/templates/fundraiser/donatedItemEditor.php:167
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -337,8 +337,8 @@ msgstr "Αποθήκευση"
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1952
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
-#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:956
-#: UserEditor.php:1110 v2/templates/fundraiser/donatedItemEditor.php:178
+#: SettingsIndividual.php:407 TaxReport.php:53 UserEditor.php:1335
+#: v2/templates/fundraiser/donatedItemEditor.php:178
 #: v2/templates/sundayschool/sundayschooldashboard.php:331
 #: v2/templates/sundayschool/sundayschoolreports.php:152
 msgid "Cancel"
@@ -555,7 +555,7 @@ msgstr "Συλλογή εισροών για το"
 msgid "family"
 msgstr "οικογένεια"
 
-#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:829
+#: CanvassEditor.php:174 Reports/CanvassReports.php:197 UserEditor.php:1053
 msgid "Canvasser"
 msgstr "Εξερευνητής"
 
@@ -841,7 +841,7 @@ msgstr "Κινητό τηλέφωνο"
 msgid "Your cart is empty!"
 msgstr "Το καλάθι σας είναι άδειο!"
 
-#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:129
+#: Checkin.php:125 Checkin.php:127 EcclesiaCRM/MenuBar/MenuBar.php:136
 msgid "Call the Register"
 msgstr "Καλέστε το Μητρώο"
 
@@ -967,7 +967,7 @@ msgstr "Μετατροπή Επόμενο"
 msgid "Convert All"
 msgstr "Μετατροπή όλων"
 
-#: CSVExport.php:55 UserEditor.php:865 v2/templates/cart/cartview.php:70
+#: CSVExport.php:55 UserEditor.php:984 v2/templates/cart/cartview.php:70
 msgid "CSV Export"
 msgstr "Εξαγωγή CSV"
 
@@ -1490,7 +1490,7 @@ msgstr "Υπόσχεση"
 msgid "Return to Deposit Listing"
 msgstr "Επιστροφή στη λίστα καταθέσεων"
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:160
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:167
 msgid "Directory reports"
 msgstr "Αναφορές καταλόγου"
 
@@ -1605,7 +1605,7 @@ msgstr "Όνομα Εκκλησίας"
 msgid "Disclaimer"
 msgstr "Αποποίηση ευθύνης"
 
-#: DirectoryReports.php:338 UserEditor.php:874
+#: DirectoryReports.php:338 UserEditor.php:995
 msgid "Create Directory"
 msgstr "Δημιουργία καταλόγου"
 
@@ -1870,7 +1870,7 @@ msgstr "Όλες οι οικογένειες"
 #: EcclesiaCRM/APIControllers/MailchimpController.php:124
 #: EcclesiaCRM/APIControllers/PeopleController.php:72
 #: EcclesiaCRM/APIControllers/PeopleController.php:121
-#: EcclesiaCRM/MenuBar/MenuBar.php:163
+#: EcclesiaCRM/MenuBar/MenuBar.php:170
 #: EcclesiaCRM/Search/PersonSearchRes.php:38
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:69
@@ -1880,7 +1880,7 @@ msgstr "Άτομα"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:164
 #: EcclesiaCRM/APIControllers/PeopleController.php:157
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:170
+#: EcclesiaCRM/MenuBar/MenuBar.php:146 EcclesiaCRM/MenuBar/MenuBar.php:177
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
@@ -1897,7 +1897,7 @@ msgstr "Οικογένειες"
 
 #: EcclesiaCRM/APIControllers/MailchimpController.php:202
 #: EcclesiaCRM/APIControllers/PeopleController.php:192
-#: EcclesiaCRM/MenuBar/MenuBar.php:191 EcclesiaCRM/Search/GroupSearchRes.php:21
+#: EcclesiaCRM/MenuBar/MenuBar.php:198 EcclesiaCRM/Search/GroupSearchRes.php:21
 #: external/templates/verify/verify-family-info.php:137 PersonView.php:483
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:169
@@ -2000,7 +2000,8 @@ msgstr "Ναι"
 #: EcclesiaCRM/Service/CalendarService.php:447
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
-#: Reports/GDPR/GDPRListExport.php:88 v2/templates/user/userlist.php:161
+#: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
+#: v2/templates/user/userlist.php:161
 msgid "No"
 msgstr "Όχι"
 
@@ -2020,7 +2021,7 @@ msgstr "Άτομο απενεργοποιημένο"
 msgid "Person Activated"
 msgstr "Άτομο που ενεργοποιήθηκε"
 
-#: EcclesiaCRM/APIControllers/PluginsController.php:124
+#: EcclesiaCRM/APIControllers/PluginsController.php:123
 #: EcclesiaCRM/BackupManager.php:224 EcclesiaCRM/BackupManager.php:405
 msgid "Impossible to open"
 msgstr "Αδύνατο να ανοίξει"
@@ -4441,9 +4442,9 @@ msgstr "Ρύθμιση email"
 msgid "Map Settings"
 msgstr "Ρυθμίσεις χάρτη"
 
-#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/dto/SystemConfig.php:283 EcclesiaCRM/MenuBar/MenuBar.php:378
 #: FamilyView.php:469 PersonView.php:799 PrintPastoralCarePerson.php:639
-#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:941
+#: Reports/GDPR/GDPRDataStructureExport.php:158 UserEditor.php:1095
 #: v2/templates/gdpr/gdprdatastructure.php:141
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:32
 msgid "Pastoral Care"
@@ -4457,7 +4458,7 @@ msgstr "Κυριακάτικο σχολείο Παρακολούθηση"
 msgid "Integration"
 msgstr "Ενσωμάτωση"
 
-#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:286 EcclesiaCRM/MenuBar/MenuBar.php:108
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
 #: v2/templates/dashboard/maindashboard.php:190
@@ -4630,60 +4631,60 @@ msgstr "Κατάσταση"
 msgid "Please verify your family's information"
 msgstr "Παρακαλούμε επαληθεύστε τα στοιχεία της οικογένειάς σας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:60
+#: EcclesiaCRM/MenuBar/MenuBar.php:67
 msgid "Meeting"
 msgstr "Συνάντηση"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:65 EcclesiaCRM/MenuBar/MenuBar.php:102
-#: EcclesiaCRM/MenuBar/MenuBar.php:141 EcclesiaCRM/MenuBar/MenuBar.php:266
-#: EcclesiaCRM/MenuBar/MenuBar.php:362 EcclesiaCRM/MenuBar/MenuBar.php:372
-#: EcclesiaCRM/MenuBar/MenuBar.php:394 EcclesiaCRM/MenuBar/MenuBar.php:485
+#: EcclesiaCRM/MenuBar/MenuBar.php:72 EcclesiaCRM/MenuBar/MenuBar.php:109
+#: EcclesiaCRM/MenuBar/MenuBar.php:148 EcclesiaCRM/MenuBar/MenuBar.php:273
+#: EcclesiaCRM/MenuBar/MenuBar.php:369 EcclesiaCRM/MenuBar/MenuBar.php:379
+#: EcclesiaCRM/MenuBar/MenuBar.php:401 EcclesiaCRM/MenuBar/MenuBar.php:492
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:78 Include/Header.php:92
+#: EcclesiaCRM/MenuBar/MenuBar.php:85 Include/Header.php:92
 #: Include/Header.php:148
 msgid "Private Space"
 msgstr "Ιδιωτικός χώρος"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:80 EcclesiaCRM/utils/MiscUtils.php:441
+#: EcclesiaCRM/MenuBar/MenuBar.php:87 EcclesiaCRM/utils/MiscUtils.php:441
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Αρχική σελίδα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:81 Include/Header.php:150 PersonView.php:783
+#: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:150 PersonView.php:783
 msgid "Change Password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:82 Include/Header.php:152 PersonView.php:781
+#: EcclesiaCRM/MenuBar/MenuBar.php:89 Include/Header.php:152 PersonView.php:781
 msgid "Change Settings"
 msgstr "Αλλαγή ρυθμίσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:83 FamilyView.php:674 PersonView.php:990
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 FamilyView.php:674 PersonView.php:990
 msgid "Documents"
 msgstr "Έγγραφα"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:86 PersonView.php:1004 UserEditor.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:93 PersonView.php:1004 UserEditor.php:898
 msgid "EDrive"
 msgstr "EDrive"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:103
+#: EcclesiaCRM/MenuBar/MenuBar.php:110
 msgid "Data Structure"
 msgstr "Δομή δεδομένων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:168
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 EcclesiaCRM/MenuBar/MenuBar.php:175
 msgid "View Inactive Persons"
 msgstr "Προβολή ανενεργών ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:105 EcclesiaCRM/MenuBar/MenuBar.php:174
+#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:181
 msgid "View Inactive Families"
 msgstr "Προβολή ανενεργών οικογενειών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
+#: EcclesiaCRM/MenuBar/MenuBar.php:122
 msgid "Events"
 msgstr "Εκδηλώσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:121 v2/templates/map/MapUsingBing.php:75
+#: EcclesiaCRM/MenuBar/MenuBar.php:128 v2/templates/map/MapUsingBing.php:75
 #: v2/templates/map/MapUsingBing.php:121 v2/templates/map/MapUsingGoogle.php:77
 #: v2/templates/map/MapUsingGoogle.php:124
 #: v2/templates/map/MapUsingLeaflet.php:66
@@ -4691,95 +4692,95 @@ msgstr "Εκδηλώσεις"
 msgid "Calendar"
 msgstr "Ημερολόγιο"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:124 EcclesiaCRM/MenuBar/MenuBar.php:157
+#: EcclesiaCRM/MenuBar/MenuBar.php:131 EcclesiaCRM/MenuBar/MenuBar.php:164
 #: EcclesiaCRM/VIEWControllers/VIEWMapController.php:65
 msgid "View on Map"
 msgstr "Προβολή στο χάρτη"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:127
+#: EcclesiaCRM/MenuBar/MenuBar.php:134
 msgid "List Church Events"
 msgstr "Λίστα Εκκλησιαστικών Εκδηλώσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:135
 msgid "List Event Types"
 msgstr "Λίστα τύπων συμβάντων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139
+#: EcclesiaCRM/MenuBar/MenuBar.php:146
 #: v2/templates/dashboard/maindashboard.php:125
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
 msgstr "Άνθρωποι"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:155
+#: EcclesiaCRM/MenuBar/MenuBar.php:162
 msgid "Meta Search Engine"
 msgstr "Μηχανή αναζήτησης Meta"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:164 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:171 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Προσθήκη νέου ατόμου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:165
+#: EcclesiaCRM/MenuBar/MenuBar.php:172
 msgid "View Single Persons"
 msgstr "Προβολή μεμονωμένων ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:166
+#: EcclesiaCRM/MenuBar/MenuBar.php:173
 msgid "View Active Persons"
 msgstr "Προβολή ενεργών ατόμων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:171
+#: EcclesiaCRM/MenuBar/MenuBar.php:178
 msgid "Add New Family"
 msgstr "Προσθήκη νέας οικογένειας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:172
+#: EcclesiaCRM/MenuBar/MenuBar.php:179
 msgid "View Active Families"
 msgstr "Προβολή ενεργών οικογενειών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:176
+#: EcclesiaCRM/MenuBar/MenuBar.php:183
 msgid "Empty Addresses"
 msgstr "Κενές διευθύνσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:179
+#: EcclesiaCRM/MenuBar/MenuBar.php:186
 msgid "Convert Individual to Address"
 msgstr "Μετατροπή Ατομικό σε Διεύθυνση"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:193
+#: EcclesiaCRM/MenuBar/MenuBar.php:200
 msgid "List Groups"
 msgstr "Λίστα ομάδων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:255
+#: EcclesiaCRM/MenuBar/MenuBar.php:262
 #: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
 msgid "Group Assignment Helper"
 msgstr "Βοηθός ανάθεσης ομάδας"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:264
+#: EcclesiaCRM/MenuBar/MenuBar.php:271
 #: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:110
 msgid "Sunday School"
 msgstr "Κυριακάτικο Σχολείο"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 EcclesiaCRM/MenuBar/MenuBar.php:351
+#: EcclesiaCRM/MenuBar/MenuBar.php:351 EcclesiaCRM/MenuBar/MenuBar.php:358
 #: Include/Footer.php:175
 msgid "Global Custom Menus"
 msgstr "Παγκόσμια προσαρμοσμένα μενού"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361
+#: EcclesiaCRM/MenuBar/MenuBar.php:368
 msgid "Custom Menus"
 msgstr "Προσαρμοσμένα μενού"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:373
+#: EcclesiaCRM/MenuBar/MenuBar.php:380
 msgid "By Classifications"
 msgstr "Ανά ταξινομήσεις"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392 FamilyView.php:382 UserEditor.php:923
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 FamilyView.php:382 UserEditor.php:1073
 #: v2/templates/pastoralcare/pastoralcarefamily.php:211
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:401
+#: EcclesiaCRM/MenuBar/MenuBar.php:408
 msgid "Email Lists"
 msgstr "Λίστες ηλεκτρονικού ταχυδρομείου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:427
+#: EcclesiaCRM/MenuBar/MenuBar.php:434
 #: EcclesiaCRM/Search/PledgeSearchRes.php:62
 #: EcclesiaCRM/Search/PledgeSearchRes.php:84 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
@@ -4788,56 +4789,56 @@ msgstr "Λίστες ηλεκτρονικού ταχυδρομείου"
 msgid "Deposit"
 msgstr "Κατάθεση"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:440
+#: EcclesiaCRM/MenuBar/MenuBar.php:447
 msgid "Current"
 msgstr "Τρέχον"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:445 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:452 ManageEnvelopes.php:25
 msgid "Envelope Manager"
 msgstr "Διαχειριστής φακέλου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:446
+#: EcclesiaCRM/MenuBar/MenuBar.php:453
 msgid "View All Deposits"
 msgstr "Προβολή όλων των καταθέσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:447 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:454 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr "Κατάλογος ηλεκτρονικών πληρωμών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:448
+#: EcclesiaCRM/MenuBar/MenuBar.php:455
 msgid "Deposit Reports"
 msgstr "Αναφορές καταθέσεων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:449
+#: EcclesiaCRM/MenuBar/MenuBar.php:456
 msgid "Edit Deposit Slip"
 msgstr "Επεξεργασία αποδεικτικού κατάθεσης"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:461 FundRaiserEditor.php:38
+#: EcclesiaCRM/MenuBar/MenuBar.php:468 FundRaiserEditor.php:38
 msgid "Fundraiser"
 msgstr "Εράνος"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:470
 msgid "Create New Fundraiser"
 msgstr "Δημιουργία νέου έρανου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:464
+#: EcclesiaCRM/MenuBar/MenuBar.php:471
 msgid "View All Fundraisers"
 msgstr "Προβολή όλων των εράνων"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:466
+#: EcclesiaCRM/MenuBar/MenuBar.php:473
 #: v2/templates/fundraiser/donatedItemEditor.php:87
 msgid "Edit Last Fundraiser"
 msgstr "Επεξεργασία τελευταίου Εράνου"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:527
+#: EcclesiaCRM/MenuBar/MenuBar.php:534
 msgid "Data/Reports"
 msgstr "Δεδομένα/αναφορές"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:529
+#: EcclesiaCRM/MenuBar/MenuBar.php:536
 msgid "Reports Menu"
 msgstr "Μενού αναφορών"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:530 UserEditor.php:846
+#: EcclesiaCRM/MenuBar/MenuBar.php:537 UserEditor.php:1063
 msgid "Query Menu"
 msgstr "Μενού ερωτήσεων"
 
@@ -5006,52 +5007,52 @@ msgstr "ετών"
 msgid "EcclesiaCRM export"
 msgstr "Εξαγωγή EcclesiaCRM"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:674
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
 msgid "system user created"
 msgstr "χρήστης του συστήματος που δημιουργήθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:677
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:672
 msgid "system user updated"
 msgstr "χρήστης του συστήματος ενημερώθηκε"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:680
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:675
 msgid "system user deleted"
 msgstr "Διαγραφή χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:683
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:678
 msgid "system user password reset"
 msgstr "επαναφορά κωδικού πρόσβασης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:686
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:681
 msgid "system user changed password"
 msgstr "ο χρήστης του συστήματος άλλαξε τον κωδικό πρόσβασης"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:689
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:684
 msgid "system user password changed by admin"
 msgstr ""
 "ο κωδικός πρόσβασης του χρήστη του συστήματος άλλαξε από τον διαχειριστή"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:692
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
 msgid "system user login reset"
 msgstr "επαναφορά σύνδεσης χρήστη συστήματος"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:698
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:693
 msgid "Dav create file"
 msgstr "Dav δημιουργήστε αρχείο"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:704
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:699
 msgid "Dav create directory"
 msgstr "Dav create directory"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:710
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:705
 msgid "Dav update file"
 msgstr "Αρχείο ενημέρωσης Dav"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:723
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
 msgid "Dav move copy file"
 msgstr "Dav μετακίνηση αντιγραφή αρχείου"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:725
 msgid "Dav delete file"
 msgstr "Dav delete file"
 
@@ -6523,8 +6524,8 @@ msgstr "Οικογενειακή εγγραφή"
 msgid "Reset your password"
 msgstr "Επαναφέρετε τον κωδικό πρόσβασής σας"
 
-#: external/templates/password/enter-username.php:32 UserEditor.php:678
-#: UserEditor.php:734
+#: external/templates/password/enter-username.php:32 UserEditor.php:694
+#: UserEditor.php:753
 msgid "Login Name"
 msgstr "Όνομα σύνδεσης"
 
@@ -9420,21 +9421,21 @@ msgstr "Οι ρυθμίσεις χρήστη μου"
 msgid "Classic User Profile Settings"
 msgstr "Κλασικές ρυθμίσεις προφίλ χρήστη"
 
-#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:976
+#: SettingsIndividual.php:113 SettingsIndividual.php:164 UserEditor.php:1132
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:975
+#: SettingsIndividual.php:114 SettingsIndividual.php:165 UserEditor.php:1131
 msgid "Current Value"
 msgstr "Τρέχουσα αξία"
 
 #: SettingsIndividual.php:115 SettingsIndividual.php:166 SystemSettings.php:143
-#: UserEditor.php:974
+#: UserEditor.php:1130
 msgid "Variable name"
 msgstr "Όνομα μεταβλητής"
 
 #: SettingsIndividual.php:142 SettingsIndividual.php:408 SystemSettings.php:283
-#: UserEditor.php:1109
+#: UserEditor.php:1332
 msgid "Save Settings"
 msgstr "Αποθήκευση ρυθμίσεων"
 
@@ -9442,13 +9443,13 @@ msgstr "Αποθήκευση ρυθμίσεων"
 msgid "Skin"
 msgstr "Δέρμα"
 
-#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1010
-#: UserEditor.php:1061
+#: SettingsIndividual.php:359 SystemSettings.php:212 UserEditor.php:1167
+#: UserEditor.php:1220
 msgid "False"
 msgstr "Ψευδές"
 
-#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1011
-#: UserEditor.php:1062
+#: SettingsIndividual.php:360 SystemSettings.php:213 UserEditor.php:1168
+#: UserEditor.php:1221
 msgid "True"
 msgstr "Αλήθεια"
 
@@ -9727,11 +9728,11 @@ msgstr "Σφάλμα δημιουργίας αντιγράφων ασφαλεί�
 msgid "Backup Downloaded, Copy on server removed"
 msgstr "Λήψη αντιγράφου ασφαλείας, αντίγραφο στον διακομιστή αφαιρεθεί"
 
-#: UserEditor.php:91 UserEditor.php:94
+#: UserEditor.php:98 UserEditor.php:101
 msgid "Login must be a least 3 characters!"
 msgstr "Η είσοδος πρέπει να είναι τουλάχιστον 3 χαρακτήρες!"
 
-#: UserEditor.php:320 UserEditor.php:386
+#: UserEditor.php:321 UserEditor.php:386
 msgid "Login already in use, please select a different login!"
 msgstr ""
 "Η σύνδεση χρησιμοποιείται ήδη, παρακαλούμε επιλέξτε μια διαφορετική σύνδεση!"
@@ -9740,177 +9741,201 @@ msgstr ""
 msgid "The same as before"
 msgstr "Το ίδιο όπως και πριν"
 
-#: UserEditor.php:599
+#: UserEditor.php:615
 msgid "User Editor"
 msgstr "Συντάκτης χρήστη"
 
-#: UserEditor.php:616
+#: UserEditor.php:632
 msgid "Role management"
 msgstr "Διαχείριση ρόλων"
 
-#: UserEditor.php:619
+#: UserEditor.php:635
 msgid "Add Role"
 msgstr "Προσθήκη ρόλου"
 
-#: UserEditor.php:620
+#: UserEditor.php:636
 msgid "Manage Roles"
 msgstr "Διαχείριση ρόλων"
 
-#: UserEditor.php:623
+#: UserEditor.php:639
 msgid "Add Role to Current User"
 msgstr "Προσθήκη ρόλου στον τρέχοντα χρήστη"
 
-#: UserEditor.php:659
+#: UserEditor.php:675
 msgid "Person to Make User"
 msgstr "Πρόσωπο για να κάνει χρήστη"
 
-#: UserEditor.php:695
+#: UserEditor.php:711
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Σημείωση: Οι αλλαγές δεν θα τεθούν σε ισχύ μέχρι την επόμενη σύνδεση."
 
-#: UserEditor.php:710
+#: UserEditor.php:730 UserEditor.php:1296
 msgid "User"
 msgstr "Χρήστης"
 
-#: UserEditor.php:743
+#: UserEditor.php:773 UserEditor.php:1312
+msgid "Global Permissions"
+msgstr "Παγκόσμια δικαιώματα"
+
+#: UserEditor.php:783 v2/templates/user/userlist.php:158
+msgid "Management"
+msgstr "Διαχείριση"
+
+#: UserEditor.php:789 UserEditor.php:1297
+msgid "Admin"
+msgstr "Διαχειριστής"
+
+#: UserEditor.php:790
+msgid "Grants all privileges."
+msgstr "Χορηγεί όλα τα προνόμια."
+
+#: UserEditor.php:800
 msgid "Add Records"
 msgstr "Προσθήκη εγγραφών"
 
-#: UserEditor.php:749
+#: UserEditor.php:809
 msgid "Edit Records"
 msgstr "Επεξεργασία εγγραφών"
 
-#: UserEditor.php:755
+#: UserEditor.php:818
 msgid "Delete Records"
 msgstr "Διαγραφή εγγραφών"
 
-#: UserEditor.php:761
-msgid "Show Cart"
-msgstr "Εμφάνιση καλαθιού"
-
-#: UserEditor.php:767
-msgid "Show Map"
-msgstr "Εμφάνιση χάρτη"
-
-#: UserEditor.php:779
-msgid "Meetings"
-msgstr "Συναντήσεις"
-
-#: UserEditor.php:785
+#: UserEditor.php:827
 msgid "Manage Properties and Classifications"
 msgstr "Διαχείριση ιδιοτήτων και ταξινομήσεων"
 
-#: UserEditor.php:791
+#: UserEditor.php:836
 msgid "Manage Groups and Roles"
 msgstr "Διαχείριση ομάδων και ρόλων"
 
-#: UserEditor.php:797
+#: UserEditor.php:845
 msgid "Manage resource reservation schedules (room, computer, projectors)"
 msgstr ""
 "Διαχείριση χρονοδιαγραμμάτων κράτησης πόρων (αίθουσα, υπολογιστές, προβολείς)"
 
-#: UserEditor.php:803
-msgid "Right to edit html code"
-msgstr "Δικαίωμα επεξεργασίας κώδικα html"
-
-#: UserEditor.php:809
-msgid "Manage Donations and Finance"
-msgstr "Διαχείριση δωρεών και οικονομικών"
-
-#: UserEditor.php:815
+#: UserEditor.php:854
 msgid "View, Add and Edit Notes"
 msgstr "Προβολή, προσθήκη και επεξεργασία σημειώσεων"
 
-#: UserEditor.php:821
-msgid "Edit Self"
-msgstr "Επεξεργασία του εαυτού"
+#: UserEditor.php:870
+msgid "User Account Permissions"
+msgstr "Δικαιώματα λογαριασμού χρήστη"
 
-#: UserEditor.php:825
-msgid "Edit own family only."
-msgstr "Επεξεργαστείτε μόνο τη δική σας οικογένεια."
-
-#: UserEditor.php:833
-msgid "Canvass volunteer."
-msgstr "Εθελόντρια."
-
-#: UserEditor.php:837
-msgid "Admin"
-msgstr "Διαχειριστής"
-
-#: UserEditor.php:841
-msgid "Grants all privileges."
-msgstr "Χορηγεί όλα τα προνόμια."
-
-#: UserEditor.php:850
-msgid "Allow to manage the query menu"
-msgstr "Επιτρέψτε τη διαχείριση του μενού ερωτημάτων"
-
-#: UserEditor.php:855
-msgid "Can Send Email"
-msgstr "Μπορεί να στείλει email"
-
-#: UserEditor.php:860
-msgid "Allow to use the mail function and button in the CRM"
-msgstr ""
-"Επιτρέψτε τη χρήση της λειτουργίας αλληλογραφίας και του κουμπιού στο CRM"
-
-#: UserEditor.php:869
-msgid "User permission to export CSV files"
-msgstr "Άδεια χρήστη για εξαγωγή αρχείων CSV"
-
-#: UserEditor.php:878
-msgid "User permission to create directories"
-msgstr "Δικαίωμα χρήστη για τη δημιουργία καταλόγων"
-
-#: UserEditor.php:883
-msgid "Sunday school PDF"
-msgstr "Κυριακάτικο σχολείο PDF"
-
-#: UserEditor.php:888
-msgid "User permission to export PDF files for the sunday school"
-msgstr "Άδεια χρήστη για εξαγωγή αρχείων PDF για το κατηχητικό σχολείο"
-
-#: UserEditor.php:893
-msgid "Sunday school CSV"
-msgstr "Κυριακάτικο σχολείο CSV"
-
-#: UserEditor.php:898
-msgid "User permission to export CSV files for the sunday school"
-msgstr "Άδεια χρήστη για εξαγωγή αρχείων CSV για το κατηχητικό σχολείο"
-
-#: UserEditor.php:903
+#: UserEditor.php:875
 msgid "Main Dashboard"
 msgstr "Κύριο ταμπλό"
 
-#: UserEditor.php:908
+#: UserEditor.php:877
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr ""
 "Ο κύριος πίνακας ελέγχου και οι ημερομηνίες γέννησης στο ημερολόγιο είναι "
 "ορατές."
 
-#: UserEditor.php:913
+#: UserEditor.php:887
+msgid "Edit Self"
+msgstr "Επεξεργασία του εαυτού"
+
+#: UserEditor.php:888
+msgid "Edit own family only."
+msgstr "Επεξεργαστείτε μόνο τη δική σας οικογένεια."
+
+#: UserEditor.php:907
+msgid "Right to edit html code"
+msgstr "Δικαίωμα επεξεργασίας κώδικα html"
+
+#: UserEditor.php:916
+msgid "Can Send Email"
+msgstr "Μπορεί να στείλει email"
+
+#: UserEditor.php:918
+msgid "Allow to use the mail function and button in the CRM"
+msgstr ""
+"Επιτρέψτε τη χρήση της λειτουργίας αλληλογραφίας και του κουμπιού στο CRM"
+
+#: UserEditor.php:934
+msgid "Permissions To View"
+msgstr "Δικαιώματα προβολής"
+
+#: UserEditor.php:940
+msgid "Show Cart"
+msgstr "Εμφάνιση καλαθιού"
+
+#: UserEditor.php:949
+msgid "Show Map"
+msgstr "Εμφάνιση χάρτη"
+
+#: UserEditor.php:958
 msgid "See Privacy Data"
 msgstr "Βλέπε Δεδομένα απορρήτου"
 
-#: UserEditor.php:918
+#: UserEditor.php:960
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Επιτρέψτε στο χρήστη να βλέπει τα προσωπικά δεδομένα των μελών, π.χ. Έτος "
 "γέννησης, ηλικία."
 
-#: UserEditor.php:927
+#: UserEditor.php:978
+msgid "Export Permissions"
+msgstr "Άδειες εξαγωγής"
+
+#: UserEditor.php:986
+msgid "User permission to export CSV files"
+msgstr "Άδεια χρήστη για εξαγωγή αρχείων CSV"
+
+#: UserEditor.php:996
+msgid "User permission to create directories"
+msgstr "Δικαίωμα χρήστη για τη δημιουργία καταλόγων"
+
+#: UserEditor.php:1006
+msgid "Sunday school PDF"
+msgstr "Κυριακάτικο σχολείο PDF"
+
+#: UserEditor.php:1008
+msgid "User permission to export PDF files for the sunday school"
+msgstr "Άδεια χρήστη για εξαγωγή αρχείων PDF για το κατηχητικό σχολείο"
+
+#: UserEditor.php:1018
+msgid "Sunday school CSV"
+msgstr "Κυριακάτικο σχολείο CSV"
+
+#: UserEditor.php:1020
+msgid "User permission to export CSV files for the sunday school"
+msgstr "Άδεια χρήστη για εξαγωγή αρχείων CSV για το κατηχητικό σχολείο"
+
+#: UserEditor.php:1038
+msgid "Special Permissions"
+msgstr "Ειδικές άδειες"
+
+#: UserEditor.php:1044
+msgid "Manage Donations and Finance"
+msgstr "Διαχείριση δωρεών και οικονομικών"
+
+#: UserEditor.php:1054
+msgid "Canvass volunteer."
+msgstr "Εθελόντρια."
+
+#: UserEditor.php:1064
+msgid "Allow to manage the query menu"
+msgstr "Επιτρέψτε τη διαχείριση του μενού ερωτημάτων"
+
+#: UserEditor.php:1074
 msgid "Allow a user to use MailChimp tool"
 msgstr "Επιτρέψτε σε έναν χρήστη να χρησιμοποιήσει το εργαλείο MailChimp"
 
-#: UserEditor.php:932
+#: UserEditor.php:1084
 msgid "GRPD Data Protection Officer"
 msgstr "Υπεύθυνος προστασίας δεδομένων GRPD"
 
-#: UserEditor.php:936
+#: UserEditor.php:1086
 msgid "General Data Protection Regulation in UE"
 msgstr "Γενικός κανονισμός για την προστασία δεδομένων στην ΕΕ"
 
-#: UserEditor.php:968
+#: UserEditor.php:1117 UserEditor.php:1313
+msgid "Modifiable Permissions"
+msgstr "Τροποποιήσιμα δικαιώματα"
+
+#: UserEditor.php:1123
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9918,9 +9943,13 @@ msgstr ""
 "Ορίστε Permission True για να δώσετε σε αυτόν τον χρήστη τη δυνατότητα να "
 "αλλάξει την τρέχουσα τιμή του."
 
-#: UserEditor.php:973
+#: UserEditor.php:1129
 msgid "Permission"
 msgstr "Άδεια"
+
+#: UserEditor.php:1274 UserEditor.php:1314
+msgid "Plugin permissions"
+msgstr "Δικαιώματα plugin"
 
 #: UserPasswordChange.php:58
 msgid "You must enter a password in both boxes"
@@ -11883,10 +11912,6 @@ msgstr "Πιστοποίηση 2FA"
 msgid "Not modifiable"
 msgstr "Δεν μπορεί να τροποποιηθεί"
 
-#: v2/templates/user/userlist.php:158
-msgid "Management"
-msgstr "Διαχείριση"
-
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"
 msgstr "Ταχυδρομικός κώδικας"
@@ -12663,6 +12688,9 @@ msgstr "Χρήματα"
 
 msgid "Custom Drop-Down List"
 msgstr "Προσαρμοσμένη αναπτυσσόμενη λίστα"
+
+#~ msgid "Meetings"
+#~ msgstr "Συναντήσεις"
 
 #~ msgid "The jitsi domain name, by default : meet.jit.si"
 #~ msgstr "Το όνομα τομέα jitsi, από προεπιλογή : meet.jit.si"

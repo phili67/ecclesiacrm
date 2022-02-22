@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2050,6 +2050,39 @@ msgstr "Без подписки"
 msgid "Email Marketing"
 msgstr "Email-маркетинг"
 
+msgid "Add your tag name"
+msgstr "Добавьте название своей метки"
+
+msgid "Adding tag..."
+msgstr "Добавление тега..."
+
+msgid "Name is empty !!"
+msgstr "Имя пустое!!!"
+
+msgid "Add tag?"
+msgstr "Добавить метку?"
+
+msgid "This will add the tag"
+msgstr "Это добавит тег"
+
+msgid "to all the current selected members in the list."
+msgstr "всем текущим выбранным членам списка."
+
+msgid "Select One"
+msgstr "Выберите один"
+
+msgid "All Tags"
+msgstr "Все теги"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Выберите тег, который нужно удалить :"
+
+msgid "Removing tags..."
+msgstr "Удаление меток..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Удаление всех тегов для выбранных членов в списке..."
+
 msgid "You're about to delete a tag!"
 msgstr "Вы собираетесь удалить метку!"
 
@@ -2164,39 +2197,6 @@ msgstr "Название списка"
 
 msgid "Changing subscribers state..."
 msgstr "Изменение состояния абонентов..."
-
-msgid "Select One"
-msgstr "Выберите один"
-
-msgid "All Tags"
-msgstr "Все теги"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Выберите тег, который нужно удалить :"
-
-msgid "Removing tags..."
-msgstr "Удаление меток..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Удаление всех тегов для выбранных членов в списке..."
-
-msgid "Add your tag name"
-msgstr "Добавьте название своей метки"
-
-msgid "Adding tag..."
-msgstr "Добавление тега..."
-
-msgid "Name is empty !!"
-msgstr "Имя пустое!!!"
-
-msgid "Add tag?"
-msgstr "Добавить метку?"
-
-msgid "This will add the tag"
-msgstr "Это добавит тег"
-
-msgid "to all the current selected members in the list."
-msgstr "всем текущим выбранным членам списка."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Вы собираетесь удалить подписчиков! Вы уверены?"

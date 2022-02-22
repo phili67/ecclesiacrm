@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2043,6 +2043,39 @@ msgstr "E papërshkruara"
 msgid "Email Marketing"
 msgstr "marketing e-mail"
 
+msgid "Add your tag name"
+msgstr "shto emrin e etiketës"
+
+msgid "Adding tag..."
+msgstr "Shtimi i etiketave..."
+
+msgid "Name is empty !!"
+msgstr "emri është bosh!"
+
+msgid "Add tag?"
+msgstr "Shtoni etiketën?"
+
+msgid "This will add the tag"
+msgstr "Kjo do të shtojë etiketën"
+
+msgid "to all the current selected members in the list."
+msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
+
+msgid "Select One"
+msgstr "Zgjedhja një"
+
+msgid "All Tags"
+msgstr "Të gjitha taket"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Zgjidh etiketën që do ta fshish :"
+
+msgid "Removing tags..."
+msgstr "Hiqja etiketat..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
+
 msgid "You're about to delete a tag!"
 msgstr "Do ta fshish etiketën!"
 
@@ -2159,39 +2192,6 @@ msgstr "emri i listes"
 
 msgid "Changing subscribers state..."
 msgstr "Ndryshimi i abonentëve shtet..."
-
-msgid "Select One"
-msgstr "Zgjedhja një"
-
-msgid "All Tags"
-msgstr "Të gjitha taket"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Zgjidh etiketën që do ta fshish :"
-
-msgid "Removing tags..."
-msgstr "Hiqja etiketat..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Po mbledh të gjitha etiketat për anëtarët e zgjedhur në listë..."
-
-msgid "Add your tag name"
-msgstr "shto emrin e etiketës"
-
-msgid "Adding tag..."
-msgstr "Shtimi i etiketave..."
-
-msgid "Name is empty !!"
-msgstr "emri është bosh!"
-
-msgid "Add tag?"
-msgstr "Shtoni etiketën?"
-
-msgid "This will add the tag"
-msgstr "Kjo do të shtojë etiketën"
-
-msgid "to all the current selected members in the list."
-msgstr "për të gjithë anëtarët e tanishëm të zgjedhur në listë."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Do t'i fshish abonentët! A je i sigurt?"

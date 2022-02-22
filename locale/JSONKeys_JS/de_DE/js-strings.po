@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2081,6 +2081,39 @@ msgstr "Abbestellt"
 msgid "Email Marketing"
 msgstr "E-Mail-Marketing"
 
+msgid "Add your tag name"
+msgstr "Fügen Sie Ihren Tag-Namen hinzu"
+
+msgid "Adding tag..."
+msgstr "Tag hinzufügen..."
+
+msgid "Name is empty !!"
+msgstr "Der Name ist leer!"
+
+msgid "Add tag?"
+msgstr "Tag hinzufügen?"
+
+msgid "This will add the tag"
+msgstr "Dadurch wird das Tag"
+
+msgid "to all the current selected members in the list."
+msgstr "auf alle aktuell ausgewählten Mitglieder in der Liste."
+
+msgid "Select One"
+msgstr "Wählen Sie eine"
+
+msgid "All Tags"
+msgstr "Alle Tags"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Wählen Sie den Tag aus, den Sie löschen möchten:"
+
+msgid "Removing tags..."
+msgstr "Entfernen von Tags..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Löschen aller Tags für die ausgewählten Mitglieder in der Liste..."
+
 msgid "You're about to delete a tag!"
 msgstr "Sie sind dabei, einen Tag zu löschen!"
 
@@ -2195,39 +2228,6 @@ msgstr "Liste Name"
 
 msgid "Changing subscribers state..."
 msgstr "Ändern des Teilnehmerstatus..."
-
-msgid "Select One"
-msgstr "Wählen Sie eine"
-
-msgid "All Tags"
-msgstr "Alle Tags"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Wählen Sie den Tag aus, den Sie löschen möchten:"
-
-msgid "Removing tags..."
-msgstr "Entfernen von Tags..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Löschen aller Tags für die ausgewählten Mitglieder in der Liste..."
-
-msgid "Add your tag name"
-msgstr "Fügen Sie Ihren Tag-Namen hinzu"
-
-msgid "Adding tag..."
-msgstr "Tag hinzufügen..."
-
-msgid "Name is empty !!"
-msgstr "Der Name ist leer!"
-
-msgid "Add tag?"
-msgstr "Tag hinzufügen?"
-
-msgid "This will add the tag"
-msgstr "Dadurch wird das Tag"
-
-msgid "to all the current selected members in the list."
-msgstr "auf alle aktuell ausgewählten Mitglieder in der Liste."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Sie sind dabei, Abonnenten zu löschen! Sind Sie sicher?"
