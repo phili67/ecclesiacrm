@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2033,6 +2033,39 @@ msgstr "Ubekreftet"
 msgid "Email Marketing"
 msgstr "- Mailer"
 
+msgid "Add your tag name"
+msgstr "Legg på navnet"
+
+msgid "Adding tag..."
+msgstr "Adding tag..."
+
+msgid "Name is empty !!"
+msgstr "Navnet er tomt!"
+
+msgid "Add tag?"
+msgstr "Legge merke?"
+
+msgid "This will add the tag"
+msgstr "Dette vil gi oss merkelappen"
+
+msgid "to all the current selected members in the list."
+msgstr "til alle de nåværende medlemmene på listen."
+
+msgid "Select One"
+msgstr "Velg en"
+
+msgid "All Tags"
+msgstr "Alle Tags"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Velg merket du vil slette:"
+
+msgid "Removing tags..."
+msgstr "Fjerne merker..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Slette alle merker til de utvalgte medlemmene på listen..."
+
 msgid "You're about to delete a tag!"
 msgstr "Du skal slette en lapp!"
 
@@ -2141,39 +2174,6 @@ msgstr "Listnavnet"
 
 msgid "Changing subscribers state..."
 msgstr "Forandrer abonnenter stat..."
-
-msgid "Select One"
-msgstr "Velg en"
-
-msgid "All Tags"
-msgstr "Alle Tags"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Velg merket du vil slette:"
-
-msgid "Removing tags..."
-msgstr "Fjerne merker..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Slette alle merker til de utvalgte medlemmene på listen..."
-
-msgid "Add your tag name"
-msgstr "Legg på navnet"
-
-msgid "Adding tag..."
-msgstr "Adding tag..."
-
-msgid "Name is empty !!"
-msgstr "Navnet er tomt!"
-
-msgid "Add tag?"
-msgstr "Legge merke?"
-
-msgid "This will add the tag"
-msgstr "Dette vil gi oss merkelappen"
-
-msgid "to all the current selected members in the list."
-msgstr "til alle de nåværende medlemmene på listen."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Dere skal slette abonnenter! Er du sikker?"

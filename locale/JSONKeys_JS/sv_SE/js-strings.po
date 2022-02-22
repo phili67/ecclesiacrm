@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2046,6 +2046,39 @@ msgstr "Avregistrerad"
 msgid "Email Marketing"
 msgstr "E-postmarknadsföring"
 
+msgid "Add your tag name"
+msgstr "Lägg till ditt taggnamn"
+
+msgid "Adding tag..."
+msgstr "Lägg till tagg..."
+
+msgid "Name is empty !!"
+msgstr "Namnet är tomt!!"
+
+msgid "Add tag?"
+msgstr "Lägg till en tagg?"
+
+msgid "This will add the tag"
+msgstr "Detta kommer att lägga till taggen"
+
+msgid "to all the current selected members in the list."
+msgstr "till alla de markerade medlemmarna i listan."
+
+msgid "Select One"
+msgstr "Välj en"
+
+msgid "All Tags"
+msgstr "Alla taggar"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Välj den tagg som du vill ta bort :"
+
+msgid "Removing tags..."
+msgstr "Ta bort taggar..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Ta bort alla taggar för de valda medlemmarna i listan..."
+
 msgid "You're about to delete a tag!"
 msgstr "Du är på väg att radera en tagg!"
 
@@ -2160,39 +2193,6 @@ msgstr "Namn på listan"
 
 msgid "Changing subscribers state..."
 msgstr "Byte av prenumeranter..."
-
-msgid "Select One"
-msgstr "Välj en"
-
-msgid "All Tags"
-msgstr "Alla taggar"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Välj den tagg som du vill ta bort :"
-
-msgid "Removing tags..."
-msgstr "Ta bort taggar..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Ta bort alla taggar för de valda medlemmarna i listan..."
-
-msgid "Add your tag name"
-msgstr "Lägg till ditt taggnamn"
-
-msgid "Adding tag..."
-msgstr "Lägg till tagg..."
-
-msgid "Name is empty !!"
-msgstr "Namnet är tomt!!"
-
-msgid "Add tag?"
-msgstr "Lägg till en tagg?"
-
-msgid "This will add the tag"
-msgstr "Detta kommer att lägga till taggen"
-
-msgid "to all the current selected members in the list."
-msgstr "till alla de markerade medlemmarna i listan."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Du är på väg att radera prenumeranter! Är du säker?"

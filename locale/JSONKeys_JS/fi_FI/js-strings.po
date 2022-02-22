@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2047,6 +2047,39 @@ msgstr "Tilaukset poistettu"
 msgid "Email Marketing"
 msgstr "Sähköpostimarkkinointi"
 
+msgid "Add your tag name"
+msgstr "Lisää tagin nimi"
+
+msgid "Adding tag..."
+msgstr "Tagin lisääminen..."
+
+msgid "Name is empty !!"
+msgstr "Nimi on tyhjä !!"
+
+msgid "Add tag?"
+msgstr "Lisää tagi?"
+
+msgid "This will add the tag"
+msgstr "Tämä lisää tunnisteen"
+
+msgid "to all the current selected members in the list."
+msgstr "kaikille luettelon nykyisille valituille jäsenille."
+
+msgid "Select One"
+msgstr "Valitse yksi"
+
+msgid "All Tags"
+msgstr "Kaikki tunnisteet"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Valitse tagi, jonka haluat poistaa :"
+
+msgid "Removing tags..."
+msgstr "Tunnisteiden poistaminen..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
+
 msgid "You're about to delete a tag!"
 msgstr "Olet poistamassa tunnisteen!"
 
@@ -2161,39 +2194,6 @@ msgstr "Luettelon nimi"
 
 msgid "Changing subscribers state..."
 msgstr "Tilaajien tilan muuttaminen..."
-
-msgid "Select One"
-msgstr "Valitse yksi"
-
-msgid "All Tags"
-msgstr "Kaikki tunnisteet"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Valitse tagi, jonka haluat poistaa :"
-
-msgid "Removing tags..."
-msgstr "Tunnisteiden poistaminen..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Kaikkien valittujen jäsenten tunnisteiden poistaminen luettelosta..."
-
-msgid "Add your tag name"
-msgstr "Lisää tagin nimi"
-
-msgid "Adding tag..."
-msgstr "Tagin lisääminen..."
-
-msgid "Name is empty !!"
-msgstr "Nimi on tyhjä !!"
-
-msgid "Add tag?"
-msgstr "Lisää tagi?"
-
-msgid "This will add the tag"
-msgstr "Tämä lisää tunnisteen"
-
-msgid "to all the current selected members in the list."
-msgstr "kaikille luettelon nykyisille valituille jäsenille."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Olet poistamassa tilaajia! Oletko varma?"

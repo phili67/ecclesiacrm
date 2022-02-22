@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1988,6 +1988,39 @@ msgstr "未订阅"
 msgid "Email Marketing"
 msgstr "电子邮件营销"
 
+msgid "Add your tag name"
+msgstr "添加你的标签名称"
+
+msgid "Adding tag..."
+msgstr "添加标签..."
+
+msgid "Name is empty !!"
+msgstr "名字是空的！!"
+
+msgid "Add tag?"
+msgstr "添加标签？"
+
+msgid "This will add the tag"
+msgstr "这将添加标签"
+
+msgid "to all the current selected members in the list."
+msgstr "到列表中所有当前选中的成员。"
+
+msgid "Select One"
+msgstr "选择一个"
+
+msgid "All Tags"
+msgstr "所有标签"
+
+msgid "Choose the tag you want to delete :"
+msgstr "选择你要删除的标签 。"
+
+msgid "Removing tags..."
+msgstr "移除标签..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "删除列表中选定成员的所有标签..."
+
 msgid "You're about to delete a tag!"
 msgstr "你要删除一个标签!"
 
@@ -2094,39 +2127,6 @@ msgstr "列表名称"
 
 msgid "Changing subscribers state..."
 msgstr "改变订阅者的状态..."
-
-msgid "Select One"
-msgstr "选择一个"
-
-msgid "All Tags"
-msgstr "所有标签"
-
-msgid "Choose the tag you want to delete :"
-msgstr "选择你要删除的标签 。"
-
-msgid "Removing tags..."
-msgstr "移除标签..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "删除列表中选定成员的所有标签..."
-
-msgid "Add your tag name"
-msgstr "添加你的标签名称"
-
-msgid "Adding tag..."
-msgstr "添加标签..."
-
-msgid "Name is empty !!"
-msgstr "名字是空的！!"
-
-msgid "Add tag?"
-msgstr "添加标签？"
-
-msgid "This will add the tag"
-msgstr "这将添加标签"
-
-msgid "to all the current selected members in the list."
-msgstr "到列表中所有当前选中的成员。"
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "你要删除订阅者了!你确定吗？"

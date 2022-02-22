@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2042,6 +2042,39 @@ msgstr "Không đăng ký"
 msgid "Email Marketing"
 msgstr "Email Marketing"
 
+msgid "Add your tag name"
+msgstr "Thêm tên vào"
+
+msgid "Adding tag..."
+msgstr "Thêm thẻ..."
+
+msgid "Name is empty !!"
+msgstr "Tên không có ai!"
+
+msgid "Add tag?"
+msgstr "Thêm thẻ?"
+
+msgid "This will add the tag"
+msgstr "Cái này sẽ thêm cái thẻ"
+
+msgid "to all the current selected members in the list."
+msgstr "tất cả các thành viên hiện tại đã chọn ra trong danh sách."
+
+msgid "Select One"
+msgstr "Chọn 1 đi"
+
+msgid "All Tags"
+msgstr "Tất cả các thẻ"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Chọn cái thẻ mà bạn muốn xóa:"
+
+msgid "Removing tags..."
+msgstr "Thẻ tháo..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
+
 msgid "You're about to delete a tag!"
 msgstr "Anh sắp xóa một cái thẻ!"
 
@@ -2154,39 +2187,6 @@ msgstr "Danh sách tên"
 
 msgid "Changing subscribers state..."
 msgstr "Thay đổi bang đăng ký..."
-
-msgid "Select One"
-msgstr "Chọn 1 đi"
-
-msgid "All Tags"
-msgstr "Tất cả các thẻ"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Chọn cái thẻ mà bạn muốn xóa:"
-
-msgid "Removing tags..."
-msgstr "Thẻ tháo..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "Xóa hết các thẻ cho những thành viên được chọn trong danh sách..."
-
-msgid "Add your tag name"
-msgstr "Thêm tên vào"
-
-msgid "Adding tag..."
-msgstr "Thêm thẻ..."
-
-msgid "Name is empty !!"
-msgstr "Tên không có ai!"
-
-msgid "Add tag?"
-msgstr "Thêm thẻ?"
-
-msgid "This will add the tag"
-msgstr "Cái này sẽ thêm cái thẻ"
-
-msgid "to all the current selected members in the list."
-msgstr "tất cả các thành viên hiện tại đã chọn ra trong danh sách."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Anh sắp xóa đăng ký rồi! Anh chắc chứ?"

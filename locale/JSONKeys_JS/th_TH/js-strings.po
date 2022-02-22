@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1989,6 +1989,39 @@ msgstr "ไม่ได้รับการยอมรับ"
 msgid "Email Marketing"
 msgstr "การตลาดอีเมล"
 
+msgid "Add your tag name"
+msgstr "ใส่ชื่อแท็กของเธอ"
+
+msgid "Adding tag..."
+msgstr "เพิ่ม..."
+
+msgid "Name is empty !!"
+msgstr "ชื่อว่างเปล่า!"
+
+msgid "Add tag?"
+msgstr "ป้ายทะเบียนด้วยหรอ?"
+
+msgid "This will add the tag"
+msgstr "นี่จะเพิ่มเลขที่"
+
+msgid "to all the current selected members in the list."
+msgstr "ที่เป็นสมาชิกที่เลือกทั้งหมดในรายชื่อ"
+
+msgid "Select One"
+msgstr "เลือกหนึ่ง"
+
+msgid "All Tags"
+msgstr "ทุกแท็กส์"
+
+msgid "Choose the tag you want to delete :"
+msgstr "เลือกป้ายทะเบียนที่คุณต้องการลบ:"
+
+msgid "Removing tags..."
+msgstr "ถอดป้ายทะเบียน..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "ลบป้ายทะเบียนทุกสำหรับ สมาชิกที่ถูกเลือกในรายการ"
+
 msgid "You're about to delete a tag!"
 msgstr "คุณกำลังจะลบแท็ก!"
 
@@ -2096,39 +2129,6 @@ msgstr "ลิซชื่อ"
 
 msgid "Changing subscribers state..."
 msgstr "การเปลี่ยนแปลงสภาวะผู้เขียนวิชาการ"
-
-msgid "Select One"
-msgstr "เลือกหนึ่ง"
-
-msgid "All Tags"
-msgstr "ทุกแท็กส์"
-
-msgid "Choose the tag you want to delete :"
-msgstr "เลือกป้ายทะเบียนที่คุณต้องการลบ:"
-
-msgid "Removing tags..."
-msgstr "ถอดป้ายทะเบียน..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "ลบป้ายทะเบียนทุกสำหรับ สมาชิกที่ถูกเลือกในรายการ"
-
-msgid "Add your tag name"
-msgstr "ใส่ชื่อแท็กของเธอ"
-
-msgid "Adding tag..."
-msgstr "เพิ่ม..."
-
-msgid "Name is empty !!"
-msgstr "ชื่อว่างเปล่า!"
-
-msgid "Add tag?"
-msgstr "ป้ายทะเบียนด้วยหรอ?"
-
-msgid "This will add the tag"
-msgstr "นี่จะเพิ่มเลขที่"
-
-msgid "to all the current selected members in the list."
-msgstr "ที่เป็นสมาชิกที่เลือกทั้งหมดในรายชื่อ"
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "คุณกำลังจะลบผู้เขียนทิ้ง คุณแน่ใจเหรอ?"

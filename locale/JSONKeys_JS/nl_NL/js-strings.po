@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2060,6 +2060,40 @@ msgstr "Uitgeschreven"
 msgid "Email Marketing"
 msgstr "E-mail Marketing"
 
+msgid "Add your tag name"
+msgstr "Voeg uw tag naam toe"
+
+msgid "Adding tag..."
+msgstr "Tag toevoegen..."
+
+msgid "Name is empty !!"
+msgstr "Naam is leeg !!"
+
+msgid "Add tag?"
+msgstr "Tag toevoegen?"
+
+msgid "This will add the tag"
+msgstr "Dit zal de tag toevoegen"
+
+msgid "to all the current selected members in the list."
+msgstr "naar alle huidige geselecteerde leden in de lijst."
+
+msgid "Select One"
+msgstr "Kies er een"
+
+msgid "All Tags"
+msgstr "Alle tags"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Kies de tag die u wilt verwijderen :"
+
+msgid "Removing tags..."
+msgstr "Verwijderen van tags..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+"Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
+
 msgid "You're about to delete a tag!"
 msgstr "Je staat op het punt om een tag te verwijderen!"
 
@@ -2172,40 +2206,6 @@ msgstr "Lijst Naam"
 
 msgid "Changing subscribers state..."
 msgstr "De staat van de abonnees veranderen..."
-
-msgid "Select One"
-msgstr "Kies er een"
-
-msgid "All Tags"
-msgstr "Alle tags"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Kies de tag die u wilt verwijderen :"
-
-msgid "Removing tags..."
-msgstr "Verwijderen van tags..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr ""
-"Het verwijderen van alle tags voor de geselecteerde leden in de lijst..."
-
-msgid "Add your tag name"
-msgstr "Voeg uw tag naam toe"
-
-msgid "Adding tag..."
-msgstr "Tag toevoegen..."
-
-msgid "Name is empty !!"
-msgstr "Naam is leeg !!"
-
-msgid "Add tag?"
-msgstr "Tag toevoegen?"
-
-msgid "This will add the tag"
-msgstr "Dit zal de tag toevoegen"
-
-msgid "to all the current selected members in the list."
-msgstr "naar alle huidige geselecteerde leden in de lijst."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Je staat op het punt om abonnees te verwijderen! Ben je zeker ?"

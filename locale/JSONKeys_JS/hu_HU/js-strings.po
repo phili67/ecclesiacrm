@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-17T19:57:02.768Z\n"
+"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2060,6 +2060,39 @@ msgstr "Leiratkozott"
 msgid "Email Marketing"
 msgstr "Email marketing"
 
+msgid "Add your tag name"
+msgstr "Adja hozzá a címke nevét"
+
+msgid "Adding tag..."
+msgstr "Címke hozzáadása..."
+
+msgid "Name is empty !!"
+msgstr "A név üres !!"
+
+msgid "Add tag?"
+msgstr "Címke hozzáadása?"
+
+msgid "This will add the tag"
+msgstr "Ez hozzáadja a címkét"
+
+msgid "to all the current selected members in the list."
+msgstr "a lista összes aktuálisan kiválasztott tagjára."
+
+msgid "Select One"
+msgstr "Válasszon egyet"
+
+msgid "All Tags"
+msgstr "Minden Címke"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Válassza ki a törölni kívánt címkét :"
+
+msgid "Removing tags..."
+msgstr "Címkék eltávolítása..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "A listában kiválasztott tagok összes címkéjének törlése..."
+
 msgid "You're about to delete a tag!"
 msgstr "Éppen törölni készülsz egy címkét!"
 
@@ -2173,39 +2206,6 @@ msgstr "Lista neve"
 
 msgid "Changing subscribers state..."
 msgstr "Az előfizetők állapotának megváltoztatása..."
-
-msgid "Select One"
-msgstr "Válasszon egyet"
-
-msgid "All Tags"
-msgstr "Minden Címke"
-
-msgid "Choose the tag you want to delete :"
-msgstr "Válassza ki a törölni kívánt címkét :"
-
-msgid "Removing tags..."
-msgstr "Címkék eltávolítása..."
-
-msgid "Deleting all tags for the selected members in the list..."
-msgstr "A listában kiválasztott tagok összes címkéjének törlése..."
-
-msgid "Add your tag name"
-msgstr "Adja hozzá a címke nevét"
-
-msgid "Adding tag..."
-msgstr "Címke hozzáadása..."
-
-msgid "Name is empty !!"
-msgstr "A név üres !!"
-
-msgid "Add tag?"
-msgstr "Címke hozzáadása?"
-
-msgid "This will add the tag"
-msgstr "Ez hozzáadja a címkét"
-
-msgid "to all the current selected members in the list."
-msgstr "a lista összes aktuálisan kiválasztott tagjára."
 
 msgid "You're about to delete subscribers! Are you sure ?"
 msgstr "Hamarosan törölni fogod az előfizetőket! Biztos vagy benne?"
