@@ -36,7 +36,7 @@ require $sRootDocument . '/Include/Header.php';
                                class= "form-control form-control-sm">
                     </div>
                     <div class="col-sm-4">
-                        <a data-toggle="popover" title="Le nom de domaine Jitsi, par défaut : meet.jit.si"
+                        <a data-toggle="popover" title="<?= dgettext("messages-MeetingJitsi", "The Jitsi domain name, by default") ?> : meet.jit.si"
                            target="_blank">
                             <i class="far  fa-question-circle"></i>
                         </a>
@@ -52,7 +52,7 @@ require $sRootDocument . '/Include/Header.php';
                     </div>
                     <div class="col-sm-4">
                         <a data-toggle="popover"
-                           title="Le chemin d'accès pour le script du associé au nom de domaine : https://meet.jit.si/external_api.js"
+                           title="<?= dgettext("messages-MeetingJitsi", "The path for the script associated with the domain name") ?> : https://meet.jit.si/external_api.js"
                            target="_blank">
                             <i class="far  fa-question-circle"></i>
                         </a>
