@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-17 18:37+0000\n"
+"POT-Creation-Date: 2022-02-22 19:07+0000\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,6 +52,14 @@ msgstr "Créez d'abord une pièce Jitsi avec le bouton ci-dessus !"
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:24
 msgid "Settings"
 msgstr "Paramètres"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:39
+msgid "The Jitsi domain name, by default"
+msgstr "Le nom de domaine Jitsi, par défaut"
+
+#: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:55
+msgid "The path for the script associated with the domain name"
+msgstr "Le chemin pour le script associé au nom de domaine"
 
 #: ../src/Plugins/MeetingJitsi/v2/templates/meetingsettings.php:65
 msgid "Save Changes"
