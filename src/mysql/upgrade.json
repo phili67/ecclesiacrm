@@ -771,8 +771,9 @@
             "7.6.0"
         ],
         "scripts": [
-            "/mysql/upgrade/8.0.0-upgrade.php",
-            "/mysql/upgrade/8.0.0-upgrade.sql"
+            "/mysql/upgrade/8.0.0-upgrade.sql",
+            "/Plugins/MeetingJitsi/mysql/install.sql",
+            "/mysql/upgrade/8.0.0-upgrade.php"
         ],
         "dbVersion": "8.0.0"
     }
