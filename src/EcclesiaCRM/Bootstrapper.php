@@ -132,13 +132,15 @@ namespace EcclesiaCRM
           bind_textdomain_codeset($domain, 'UTF-8');
           bindtextdomain($domain, $sLocaleDir);
 
-          $plugins = PluginQuery::create()->findByActiv(true);
-          foreach ($plugins as $plugin) {
-              $sLocalePluginDir = SystemURLs::getDocumentRoot() . '/Plugins/'.$plugin->getName().'/locale/textdomain';
-              if (file_exists($sLocalePluginDir)) {// for each plugins the domain is : 'messages-'.$plugin->getName()
-                  $plugin_domain = 'messages-'.$plugin->getName();
-                  bind_textdomain_codeset($plugin_domain, 'UTF-8');
-                  bindtextdomain($plugin_domain, $sLocalePluginDir);
+          if (self::isDBCurrent()) {// we avoid plugins in upgrade : only the main translation are used
+              $plugins = PluginQuery::create()->findByActiv(true);
+              foreach ($plugins as $plugin) {
+                  $sLocalePluginDir = SystemURLs::getDocumentRoot() . '/Plugins/' . $plugin->getName() . '/locale/textdomain';
+                  if (file_exists($sLocalePluginDir)) {// for each plugins the domain is : 'messages-'.$plugin->getName()
+                      $plugin_domain = 'messages-' . $plugin->getName();
+                      bind_textdomain_codeset($plugin_domain, 'UTF-8');
+                      bindtextdomain($plugin_domain, $sLocalePluginDir);
+                  }
               }
           }
           // the default text domain : messages.mo
@@ -266,6 +268,7 @@ namespace EcclesiaCRM
           $version->setVersion(SystemService::getInstalledVersion());
           $version->setUpdateStart(new \DateTime());
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/mysql/Install.sql', $connection);
           $version->setUpdateEnd(new \DateTime());
           $version->save();
           self::$bootStrapLogger->info("Installed EcclesiaCRM Schema version: " . SystemService::getInstalledVersion());
