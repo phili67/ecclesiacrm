@@ -770,9 +770,12 @@
             "7.5.0",
             "7.6.0"
         ],
+        "prescripts": [
+            "/mysql/upgrade/8.0.0-upgrade.php"
+        ],
         "scripts": [
-            "/mysql/upgrade/8.0.0-upgrade.php",
-            "/mysql/upgrade/8.0.0-upgrade.sql"
+            "/mysql/upgrade/8.0.0-upgrade.sql",
+            "/Plugins/MeetingJitsi/mysql/Install.sql"
         ],
         "dbVersion": "8.0.0"
     }

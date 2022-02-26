@@ -100,6 +100,13 @@ $app->group('/', function (RouteCollectorProxy $group) {
 
         SQLUtils::sqlImport($filename, $pdo);
 
+        $logger->info("Step2' Plugins MeetingJitsi: Install.sql\n");
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/Plugins/MeetingJitsi/mysql/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+
+        SQLUtils::sqlImport($filename, $pdo);
+
         $logger->info("Step3 : Version\n");
 
         // now we install the version

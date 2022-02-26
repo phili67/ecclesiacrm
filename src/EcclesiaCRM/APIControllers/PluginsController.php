@@ -72,7 +72,7 @@ class PluginsController
             $plugin = PluginQuery::create()->findOneById($pluginPayload->Id);
 
             $connection = Propel::getConnection();
-            SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/' . $plugin->getName() . '/mysql/uninstall.sql', $connection);
+            SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/' . $plugin->getName() . '/mysql/Uninstall.sql', $connection);
             LoggerUtils::getAppLogger()->info($plugin->getName()." DB is uninstalled");
 
             MiscUtils::removeDirectory(SystemURLs::getDocumentRoot(). '/Plugins/' . $plugin->getName() . '/');
@@ -105,7 +105,7 @@ class PluginsController
 
                 $folder = basename($file['name'], '.zip');
 
-                SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/mysql/install.sql', $connection);
+                SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/mysql/Install.sql', $connection);
                 LoggerUtils::getAppLogger()->info($folder." DB is installed");
 
                 $string = file_get_contents(SystemURLs::getDocumentRoot() . '/Plugins/' . $folder . '/config.json');
