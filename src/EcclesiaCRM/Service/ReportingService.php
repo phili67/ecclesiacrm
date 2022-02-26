@@ -67,7 +67,7 @@ class ReportingService
     {
         MiscUtils::requireUserGroupMembership('bAdmin');
         $sSQL = 'SELECT qry_SQL FROM query_qry where qry_ID='.InputUtils::LegacyFilterInput($qry_ID, 'int');
-        $rsQueries = RunQuery($sSQL);
+        $rsQueries = MiscUtils::RunQuery($sSQL);
         $query = mysqli_fetch_assoc($rsQueries);
         $sql = $query['qry_SQL'];
         foreach ($qry_Parameters as $parameter) {
@@ -82,7 +82,7 @@ class ReportingService
         MiscUtils::requireUserGroupMembership('bAdmin');
         if ($qry_ID == null) {
             $sSQL = 'SELECT qry_ID,qry_Name,qry_Description FROM query_qry ORDER BY qry_Name';
-            $rsQueries = RunQuery($sSQL);
+            $rsQueries = MiscUtils::RunQuery($sSQL);
             $result = [];
             while ($row = mysqli_fetch_assoc($rsQueries)) {
                 array_push($result, $row);
@@ -92,7 +92,7 @@ class ReportingService
         } else {
             if ($qry_Args == null) {
                 $sSQL = 'SELECT qry_ID,qry_Name,qry_Description FROM query_qry where qry_ID='.InputUtils::LegacyFilterInput($qry_ID, 'int');
-                $rsQueries = RunQuery($sSQL);
+                $rsQueries = MiscUtils::RunQuery($sSQL);
                 $result = [];
                 while ($row = mysqli_fetch_assoc($rsQueries)) {
                     array_push($result, $row);
@@ -108,12 +108,12 @@ class ReportingService
     {
         MiscUtils::requireUserGroupMembership('bAdmin');
         $sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID='.InputUtils::LegacyFilterInput($qry_ID, 'int');
-        $rsQueries = RunQuery($sSQL);
+        $rsQueries = MiscUtils::RunQuery($sSQL);
         $result = [];
         while ($row = mysqli_fetch_assoc($rsQueries)) {
             if ($row['qrp_OptionSQL']) {
                 $optionSQLResultArray = [];
-                $optionSQLResults = RunQuery($row['qrp_OptionSQL']);
+                $optionSQLResults = MiscUtils::RunQuery($row['qrp_OptionSQL']);
                 while ($r2 = mysqli_fetch_assoc($optionSQLResults)) {
                     array_push($optionSQLResultArray, $r2);
                 }

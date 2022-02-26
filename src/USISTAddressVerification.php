@@ -19,7 +19,7 @@ use EcclesiaCRM\ISTAddressLookup;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\SQLUtils;
-
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 function XMLparseIST($xmlstr, $xmlfield)
@@ -136,7 +136,7 @@ if ($myISTReturnCode == '4') {
         // moves to another country)
 
         $sSQL = 'SELECT lu_fam_ID FROM istlookup_lu ';
-        $rsIST = RunQuery($sSQL);
+        $rsIST = MiscUtils::RunQuery($sSQL);
         $iOrphanCount = 0;
         while ($aRow = mysqli_fetch_array($rsIST)) {
             extract($aRow);
@@ -145,11 +145,11 @@ if ($myISTReturnCode == '4') {
             $sSQL = 'SELECT count(fam_ID) as idexists FROM family_fam ';
             $sSQL .= "WHERE fam_ID='$lu_fam_ID' ";
             $sSQL .= "AND fam_Country='United States'";
-            $rsExists = RunQuery($sSQL);
+            $rsExists = MiscUtils::RunQuery($sSQL);
             extract(mysqli_fetch_array($rsExists));
             if ($idexists == '0') {
                 $sSQL = "DELETE FROM istlookup_lu WHERE lu_fam_ID='$lu_fam_ID'";
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
                 $iOrphanCount++;
             }
         }
@@ -170,7 +170,7 @@ if ($myISTReturnCode == '4') {
         $sSQL .= 'ON family_fam.fam_ID = istlookup_lu.lu_fam_ID ';
         $sSQL .= 'WHERE fam_DateLastEdited > lu_LookupDateTime ';
         $sSQL .= 'AND fam_DateLastEdited IS NOT NULL';
-        $rsUpdated = RunQuery($sSQL);
+        $rsUpdated = MiscUtils::RunQuery($sSQL);
         $iUpdatedCount = 0;
         while ($aRow = mysqli_fetch_array($rsUpdated)) {
             extract($aRow);
@@ -184,7 +184,7 @@ if ($myISTReturnCode == '4') {
             if (strtoupper($sFamilyAddress) != strtoupper($sLookupAddress)) {
                 // only delete mismatches from lookup table
                 $sSQL = "DELETE FROM istlookup_lu WHERE lu_fam_ID='$fam_ID'";
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
                 $iUpdatedCount++;
             }
         }
@@ -200,12 +200,12 @@ if ($myISTReturnCode == '4') {
 
         $sSQL = 'SELECT lu_fam_ID FROM istlookup_lu ';
         $sSQL .= "WHERE '$twoYearsAgo' > lu_LookupDateTime";
-        $rsResult = RunQuery($sSQL);
+        $rsResult = MiscUtils::RunQuery($sSQL);
         $iOutdatedCount = 0;
         while ($aRow = mysqli_fetch_array($rsResult)) {
             extract($aRow);
             $sSQL = "DELETE FROM istlookup_lu WHERE lu_fam_ID='$lu_fam_ID'";
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
             $iOutdatedCount++;
         }
         if ($iOutdatedCount) {
@@ -216,7 +216,7 @@ if ($myISTReturnCode == '4') {
         // Get count of non-US addresses
         $sSQL = 'SELECT count(fam_ID) AS nonustotal FROM family_fam ';
         $sSQL .= "WHERE fam_Country NOT IN ('United States')";
-        $rsResult = RunQuery($sSQL);
+        $rsResult = MiscUtils::RunQuery($sSQL);
         extract(mysqli_fetch_array($rsResult));
         $iNonUSCount = intval($nonustotal);
         if ($iNonUSCount) {
@@ -226,7 +226,7 @@ if ($myISTReturnCode == '4') {
         // Get count of US addresses
         $sSQL = 'SELECT count(fam_ID) AS ustotal FROM family_fam ';
         $sSQL .= "WHERE fam_Country IN ('United States')";
-        $rsResult = RunQuery($sSQL);
+        $rsResult = MiscUtils::RunQuery($sSQL);
         extract(mysqli_fetch_array($rsResult));
         $iUSCount = intval($ustotal);
         if ($iUSCount) {
@@ -235,7 +235,7 @@ if ($myISTReturnCode == '4') {
 
         // Get count of US addresses that do not require a fresh lookup
         $sSQL = 'SELECT count(lu_fam_ID) AS usokay FROM istlookup_lu';
-        $rsResult = RunQuery($sSQL);
+        $rsResult = MiscUtils::RunQuery($sSQL);
         extract(mysqli_fetch_array($rsResult));
         $iUSOkay = intval($usokay);
         if ($iUSOkay) {
@@ -246,7 +246,7 @@ if ($myISTReturnCode == '4') {
         $sSQL = 'SELECT count(fam_ID) AS newcount FROM family_fam ';
         $sSQL .= "WHERE fam_Country IN ('United States') AND fam_ID NOT IN (";
         $sSQL .= 'SELECT lu_fam_ID from istlookup_lu)';
-        $rs = RunQuery($sSQL);
+        $rs = MiscUtils::RunQuery($sSQL);
         extract(mysqli_fetch_array($rs));
         $iEligible = intval($newcount);
         if ($iEligible) {
@@ -269,7 +269,7 @@ if ($myISTReturnCode == '4') {
             $sSQL .= 'FROM family_fam LEFT JOIN istlookup_lu ';
             $sSQL .= 'ON fam_id = lu_fam_id ';
             $sSQL .= 'WHERE lu_fam_id IS NULL ';
-            $rsResult = RunQuery($sSQL);
+            $rsResult = MiscUtils::RunQuery($sSQL);
 
             $bNormalFinish = true;
             while ($aRow = mysqli_fetch_array($rsResult)) {
@@ -342,7 +342,7 @@ if ($myISTReturnCode == '4') {
 
                     //echo $sSQL . "<br>";
 
-                    RunQuery($sSQL);
+                    MiscUtils::RunQuery($sSQL);
                 }
 
                 if ($iSearchesLeft < 30) {

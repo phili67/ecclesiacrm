@@ -46,12 +46,12 @@ require 'Include/Header.php';
 
 //Get the query information
 $sSQL = 'SELECT * FROM query_qry WHERE qry_ID = ' . $iQueryID;
-$rsSQL = RunQuery($sSQL);
+$rsSQL = MiscUtils::RunQuery($sSQL);
 extract(mysqli_fetch_array($rsSQL));
 
 //Get the parameters for this query
 $sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID = ' . $iQueryID . ' ORDER BY qrp_ID';
-$rsParameters = RunQuery($sSQL);
+$rsParameters = MiscUtils::RunQuery($sSQL);
 
 //If the form was submitted or there are no parameters, run the query
 if (isset($_POST['Submit']) || mysqli_num_rows($rsParameters) == 0) {
@@ -199,7 +199,7 @@ function DoQuery()
     global $qry_Count;
 
     //Run the SQL
-    $rsQueryResults = RunQuery($qry_SQL); ?>
+    $rsQueryResults = MiscUtils::RunQuery($qry_SQL); ?>
     <div class="card card-primary">
 
         <div class="card-body">
@@ -247,10 +247,10 @@ function DoQuery()
                                 ?>
                                 <td>
                                     <a class="AddToPeopleCart" data-cartpersonid="<?= $aRow[$iCount] ?>">
-                         <span class="fa-stack">
-                         <i class="fas fa-square fa-stack-2x"></i>
-                         <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
-                         </span>
+                                         <span class="fa-stack">
+                                         <i class="fas fa-square fa-stack-2x"></i>
+                                         <i class="fas fa-cart-plus fa-stack-1x fa-inverse"></i>
+                                         </span>
                                     </a>
                                 </td>
                                 <?php
@@ -288,7 +288,6 @@ function DoQuery()
             <p>
                 <?php if (count($aAddToCartIDs)) { ?>
             <div class="col-sm-offset-1">
-                <input type="hidden" value="<?= implode(',', $aAddToCartIDs) ?>" name="BulkAddToCart">
                 <button type="button" id="addResultsToCart"
                         class="btn btn-success btn-sm"> <?= _('Add To Cart') ?></button>
                 <button type="button" id="intersectResultsToCart"
@@ -452,7 +451,7 @@ function getQueryFormInput($queryParameters)
         case 1:
             //Get the query parameter options for this parameter
             $sSQL = 'SELECT * FROM queryparameteroptions_qpo WHERE qpo_qrp_ID = ' . $qrp_ID;
-            $rsParameterOptions = RunQuery($sSQL);
+            $rsParameterOptions = MiscUtils::RunQuery($sSQL);
 
             $input = '<select name="' . $qrp_Alias . '" class= "form-control form-control-sm">';
             $input .= '<option disabled selected value> -- ' . _("select an option") . ' -- </option>';
@@ -469,7 +468,7 @@ function getQueryFormInput($queryParameters)
         //SELECT box with OPTION tags provided via a SQL query
         case 2:
             //Run the SQL to get the options
-            $rsParameterOptions = RunQuery($qrp_OptionSQL);
+            $rsParameterOptions = MiscUtils::RunQuery($qrp_OptionSQL);
 
             $input .= '<select name="' . $qrp_Alias . '" class= "form-control form-control-sm">';
             $input .= '<option disabled selected value> -- ' . _('select an option') . ' -- </option>';

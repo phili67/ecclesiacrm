@@ -203,7 +203,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         fclose($pFile);
 
         $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
-        $rsCustomFields = RunQuery($sSQL);
+        $rsCustomFields = MiscUtils::RunQuery($sSQL);
 
         $sPerCustomFieldList = '';
         while ($aRow = mysqli_fetch_array($rsCustomFields)) {
@@ -215,7 +215,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         }
 
         $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-        $rsfamCustomFields = RunQuery($sSQL);
+        $rsfamCustomFields = MiscUtils::RunQuery($sSQL);
 
         $sFamCustomFieldList = '';
         while ($aRow = mysqli_fetch_array($rsfamCustomFields)) {
@@ -374,7 +374,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
       <?php
         $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL);
+        $rsClassifications = MiscUtils::RunQuery($sSQL);
       ?>
         <BR>
 
@@ -469,7 +469,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
 
         if ($bHasCustom) {
             $sSQL = 'SELECT * FROM person_custom_master';
-            $rsCustomFields = RunQuery($sSQL);
+            $rsCustomFields = MiscUtils::RunQuery($sSQL);
 
             while ($aRow = mysqli_fetch_array($rsCustomFields)) {
                 extract($aRow);
@@ -477,7 +477,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             }
 
             $sSQL = 'SELECT * FROM family_custom_master';
-            $rsfamCustomFields = RunQuery($sSQL);
+            $rsfamCustomFields = MiscUtils::RunQuery($sSQL);
 
             while ($aRow = mysqli_fetch_array($rsfamCustomFields)) {
                 extract($aRow);
@@ -590,7 +590,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                                 $iEnvelope = 0;
                             } else {
                                 $sSQL = "SELECT '' FROM person_per WHERE per_Envelope = ".$iEnv;
-                                $rsTemp = RunQuery($sSQL);
+                                $rsTemp = MiscUtils::RunQuery($sSQL);
                                 if (mysqli_num_rows($rsTemp) == 0) {
                                     $iEnvelope = $iEnv;
                                 } else {
@@ -685,15 +685,15 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $sSQLpersonFields .= ')';
             $sSQLperson = $sSQLpersonFields.$sSQLpersonData;
 
-            RunQuery($sSQLperson);
+            MiscUtils::RunQuery($sSQLperson);
 
             // Make a one-person family if requested
             if (isset($_POST['MakeFamilyRecords'])) {
                 $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
-                $rsPersonID = RunQuery($sSQL);
+                $rsPersonID = MiscUtils::RunQuery($sSQL);
                 extract(mysqli_fetch_array($rsPersonID));
                 $sSQL = 'SELECT * FROM person_per WHERE per_ID = '.$iPersonID;
-                $rsNewPerson = RunQuery($sSQL);
+                $rsNewPerson = MiscUtils::RunQuery($sSQL);
                 extract(mysqli_fetch_array($rsNewPerson));
 
                 // see if there is a family...
@@ -715,7 +715,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $sSQL = 'SELECT f.fam_ID FROM family_fam f, family_custom c
                              WHERE f.fam_ID = c.fam_ID AND c.'.addslashes(mb_substr($field, 1))." = '".addslashes($field_value)."'";
                 }
-                $rsExistingFamily = RunQuery($sSQL);
+                $rsExistingFamily = MiscUtils::RunQuery($sSQL);
                 $famid = 0;
                 if (mysqli_num_rows($rsExistingFamily) > 0) {
                     extract(mysqli_fetch_array($rsExistingFamily));
@@ -761,10 +761,10 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                                      '"'.SessionUser::getUser()->getPersonId().'", '.
                                      '"0", '.
                                      '"0");';
-                    RunQuery($sSQL);
+                    MiscUtils::RunQuery($sSQL);
 
                     $sSQL = 'SELECT LAST_INSERT_ID()';
-                    $rsFid = RunQuery($sSQL);
+                    $rsFid = MiscUtils::RunQuery($sSQL);
                     $aFid = mysqli_fetch_array($rsFid);
                     $famid = $aFid[0];
                     $note = new Note();
@@ -774,7 +774,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
                     $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
-                    RunQuery($sSQL);
+                    MiscUtils::RunQuery($sSQL);
 
                     $fFamily = new Family(InputUtils::LegacyFilterInput($_POST['FamilyMode'], 'int'));
                     $fFamily->AddMember($per_ID,
@@ -786,15 +786,15 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $Families[$famid] = $fFamily;
                 }
                 $sSQL = 'UPDATE person_per SET per_fam_ID = '.$famid.' WHERE per_ID = '.$per_ID;
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
 
                 if ($bHasFamCustom) {
                     // Check if family_custom record exists
                     $sSQL = "SELECT fam_id FROM family_custom WHERE fam_id = $famid";
-                    $rsFamCustomID = RunQuery($sSQL);
+                    $rsFamCustomID = MiscUtils::RunQuery($sSQL);
                     if (mysqli_num_rows($rsFamCustomID) == 0) {
                         $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
-                        RunQuery($sSQL);
+                        MiscUtils::RunQuery($sSQL);
                     }
 
                     // Build the family_custom SQL
@@ -832,13 +832,13 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     // Finalize and run the update for the person_custom table.
                     $sSQLFamCustom = mb_substr($sSQLFamCustom, 0, -2);
                     $sSQLFamCustom .= ' WHERE fam_ID = '.$famid;
-                    RunQuery($sSQLFamCustom);
+                    MiscUtils::RunQuery($sSQLFamCustom);
                 }
             }
 
             // Get the last inserted person ID and insert a dummy row in the person_custom table
             $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
-            $rsPersonID = RunQuery($sSQL);
+            $rsPersonID = MiscUtils::RunQuery($sSQL);
             extract(mysqli_fetch_array($rsPersonID));
 
             if ($iPutInCart == 1) {
@@ -853,7 +853,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $note->save();
             if ($bHasCustom) {
                 $sSQL = "INSERT INTO `person_custom` (`per_ID`) VALUES ('".$iPersonID."')";
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
 
                 // Build the person_custom SQL
                 for ($col = 0; $col < $numCol; $col++) {
@@ -888,7 +888,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                 // Finalize and run the update for the person_custom table.
                 $sSQLcustom = mb_substr($sSQLcustom, 0, -2);
                 $sSQLcustom .= ' WHERE per_ID = '.$iPersonID;
-                RunQuery($sSQLcustom);
+                MiscUtils::RunQuery($sSQLcustom);
             }
 
             $importCount++;
@@ -922,7 +922,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                         $iRole = 0;
                 }
                 $sSQL = 'UPDATE person_per SET per_fmr_ID = '.$iRole.' WHERE per_ID = '.$member['personid'];
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
             }
 
             $sSQL = 'UPDATE family_fam SET fam_WeddingDate = '."'".$family->WeddingDate."'";
@@ -936,7 +936,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             }
 
             $sSQL .= ' WHERE fam_ID = '.$fid;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         }
 
         $iStage = 3;
