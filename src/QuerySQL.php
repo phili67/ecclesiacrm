@@ -81,7 +81,7 @@ function ExportQueryResults()
     $sCSVstring = '';
 
     //Run the SQL
-    $rsQueryResults = RunQuery($sSQL);
+    $rsQueryResults = MiscUtils::RunQuery($sSQL);
 
     if (mysqli_error($cnInfoCentral) != '') {
         $sCSVstring = _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
@@ -133,7 +133,7 @@ function RunFreeQuery()
     global $iQueryID;
 
     //Run the SQL
-    $rsQueryResults = RunQuery($sSQL);
+    $rsQueryResults = MiscUtils::RunQuery($sSQL);
 
     if (mysqli_error($cnInfoCentral) != '') {
         echo _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);

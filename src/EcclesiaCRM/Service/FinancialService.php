@@ -107,10 +107,10 @@ class FinancialService
         if ($response->approved) {
             // Push the authorized transaction date forward by the interval
       $sSQL = "UPDATE autopayment_aut SET aut_NextPayDate=DATE_ADD('".$authDate."', INTERVAL ".$aut_Interval.' MONTH) WHERE aut_ID = '.$aut_ID.' AND aut_Amount = '.$plg_amount;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
       // Update the serial number in any case, even if this is not the scheduled payment
       $sSQL = 'UPDATE autopayment_aut SET aut_Serial=aut_Serial+1 WHERE aut_ID = '.$aut_ID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         }
 
         if (!($response->approved)) {
@@ -118,7 +118,7 @@ class FinancialService
         }
 
         $sSQL = 'UPDATE pledge_plg SET plg_aut_Cleared='.$response->approved.' WHERE plg_plgID='.$plg_plgID;
-        RunQuery($sSQL);
+        MiscUtils::RunQuery($sSQL);
 
         if ($plg_aut_ResultID) {
             // Already have a result record, update it.
@@ -131,7 +131,7 @@ class FinancialService
         "res_reference    ='".$response->avs_response."',".
         "res_status    ='".$response->transaction_id."'".
         ' WHERE res_ID='.$plg_aut_ResultID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         } else {
             // Need to make a new result record
       $sSQL = 'INSERT INTO result_res (
@@ -150,17 +150,17 @@ class FinancialService
         "'".mysqli_real_escape_string($cnInfoCentral, $response->authorization_code)."',".
         "'".mysqli_real_escape_string($cnInfoCentral, $response->avs_response)."',".
         "'".mysqli_real_escape_string($cnInfoCentral, $response->transaction_id)."')";
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
 
       // Now get the ID for the newly created record
       $sSQL = 'SELECT MAX(res_ID) AS iResID FROM result_res';
-            $rsLastEntry = RunQuery($sSQL);
+            $rsLastEntry = MiscUtils::RunQuery($sSQL);
             extract(mysqli_fetch_array($rsLastEntry));
             $plg_aut_ResultID = $iResID;
 
       // Poke the ID of the new result record back into this pledge (payment) record
       $sSQL = 'UPDATE pledge_plg SET plg_aut_ResultID='.$plg_aut_ResultID.' WHERE plg_plgID='.$plg_plgID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         }
     }
 
@@ -233,34 +233,34 @@ class FinancialService
         if ($bApproved) {
             // Push the authorized transaction date forward by the interval
       $sSQL = "UPDATE autopayment_aut SET aut_NextPayDate=DATE_ADD('".$authDate."', INTERVAL ".$aut_Interval.' MONTH) WHERE aut_ID = '.$aut_ID.' AND aut_Amount = '.$plg_amount;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
       // Update the serial number in any case, even if this is not the scheduled payment
       $sSQL = 'UPDATE autopayment_aut SET aut_Serial=aut_Serial+1 WHERE aut_ID = '.$aut_ID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         }
 
         $sSQL = "UPDATE pledge_plg SET plg_aut_Cleared='".$bApproved."' WHERE plg_plgID=".$plg_plgID;
-        RunQuery($sSQL);
+        MiscUtils::RunQuery($sSQL);
 
         if ($plg_aut_ResultID) {
             // Already have a result record, update it.
 
       $sSQL = "UPDATE result_res SET res_echotype2='".mysqli_real_escape_string($cnInfoCentral, $errStr)."' WHERE res_ID=".$plg_aut_ResultID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         } else {
             // Need to make a new result record
       $sSQL = "INSERT INTO result_res (res_echotype2) VALUES ('".mysqli_real_escape_string($cnInfoCentral, $errStr)."')";
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
 
       // Now get the ID for the newly created record
       $sSQL = 'SELECT MAX(res_ID) AS iResID FROM result_res';
-            $rsLastEntry = RunQuery($sSQL);
+            $rsLastEntry = MiscUtils::RunQuery($sSQL);
             extract(mysqli_fetch_array($rsLastEntry));
             $plg_aut_ResultID = $iResID;
 
       // Poke the ID of the new result record back into this pledge (payment) record
       $sSQL = 'UPDATE pledge_plg SET plg_aut_ResultID='.$plg_aut_ResultID.' WHERE plg_plgID='.$plg_plgID;
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         }
     }
 
@@ -279,7 +279,7 @@ class FinancialService
       $routeAndAccount = $micrObj->FindRouteAndAccount($tScanString); // use routing and account number for matching
       if ($routeAndAccount) {
           $sSQL = 'SELECT fam_ID, fam_Name FROM family_fam WHERE fam_scanCheck="'.$routeAndAccount.'"';
-          $rsFam = RunQuery($sSQL);
+          $rsFam = MiscUtils::RunQuery($sSQL);
           extract(mysqli_fetch_array($rsFam));
           $iCheckNo = $micrObj->FindCheckNo($tScanString);
 
@@ -300,15 +300,15 @@ class FinancialService
             if ($depositClosed && ($depositType == 'CreditCard' || $depositType == 'BankDraft')) {
                 // Delete any failed transactions on this deposit slip now that it is closing
         $q = 'DELETE FROM pledge_plg WHERE plg_depID = '.$iDepositSlipID.' AND plg_PledgeOrPayment="Payment" AND plg_aut_Cleared=0';
-                RunQuery($q);
+                MiscUtils::RunQuery($q);
             }
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
         } else {
             $sSQL = "INSERT INTO deposit_dep (dep_Date, dep_Comment, dep_EnteredBy,  dep_Type)
             VALUES ('".$depositDate."','".$depositComment."',".SessionUser::getUser()->getPersonId().",'".$depositType."')";
-            RunQuery($sSQL);
+            MiscUtils::RunQuery($sSQL);
             $sSQL = 'SELECT MAX(dep_ID) AS iDepositSlipID FROM deposit_dep';
-            $rsDepositSlipID = RunQuery($sSQL);
+            $rsDepositSlipID = MiscUtils::RunQuery($sSQL);
             $iDepositSlipID = mysqli_fetch_array($rsDepositSlipID)[0];
         }
         $_SESSION['iCurrentDeposit'] = $iDepositSlipID;
@@ -325,7 +325,7 @@ class FinancialService
         }
     // Get deposit total
     $sSQL = "SELECT SUM(plg_amount) AS deposit_total FROM pledge_plg WHERE plg_depID = '$id' AND plg_PledgeOrPayment = 'Payment' ".$sqlClause;
-        $rsDepositTotal = RunQuery($sSQL);
+        $rsDepositTotal = MiscUtils::RunQuery($sSQL);
         list($deposit_total) = mysqli_fetch_row($rsDepositTotal);
 
         return $deposit_total;
@@ -352,7 +352,7 @@ class FinancialService
         if ($depID) {
             $sSQL .= ' WHERE plg_depID = '.$depID;
         }
-        $rsDep = RunQuery($sSQL);
+        $rsDep = MiscUtils::RunQuery($sSQL);
 
         $payments = [];
         while ($aRow = mysqli_fetch_array($rsDep)) {
@@ -409,7 +409,7 @@ class FinancialService
             plg_CheckNo LIKE \'%'.$searchTerm.'%\'
             LIMIT 15';
 
-        $result = RunQuery($fetch);
+        $result = MiscUtils::RunQuery($fetch);
         $deposits = [];
         while ($row = mysqli_fetch_array($result)) {
             $row_array['id'] = $row['dep_ID'];
@@ -434,7 +434,7 @@ class FinancialService
             plg_CheckNo LIKE \'%'.$searchTerm.'%\'
             LIMIT 15';
 
-        $result = RunQuery($fetch);
+        $result = MiscUtils::RunQuery($fetch);
 
         $deposits = [];
         while ($row = mysqli_fetch_array($result)) {
@@ -503,7 +503,7 @@ class FinancialService
         $sSQL = 'SELECT count(plg_FamID) from pledge_plg
                  WHERE plg_CheckNo = '.$checkNumber.' AND
                  plg_FamID = '.$fam_ID;
-        $rCount = RunQuery($sSQL);
+        $rCount = MiscUtils::RunQuery($sSQL);
 
         return mysqli_fetch_array($rCount)[0];
     }
@@ -535,7 +535,7 @@ class FinancialService
             $sSQL = "INSERT INTO pledge_denominations_pdem (pdem_plg_GroupKey, plg_depID, pdem_denominationID, pdem_denominationQuantity)
       VALUES ('".$groupKey."','".$payment->DepositID."','".$cdom->currencyID."','".$cdom->Count."')";
             if (isset($sSQL)) {
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
                 unset($sSQL);
             }
         }
@@ -605,7 +605,7 @@ class FinancialService
           $sGroupKey."')";
 
                 if (isset($sSQL)) {
-                    RunQuery($sSQL);
+                    MiscUtils::RunQuery($sSQL);
                     unset($sSQL);
 
                     return $sGroupKey;
@@ -630,7 +630,7 @@ class FinancialService
         MiscUtils::requireUserGroupMembership('bFinance');
         $total = 0;
         $sSQL = 'SELECT plg_plgID, plg_FamID, plg_date, plg_fundID, plg_amount, plg_NonDeductible,plg_comment, plg_FYID, plg_method, plg_EditedBy from pledge_plg where plg_GroupKey="'.$GroupKey.'"';
-        $rsKeys = RunQuery($sSQL);
+        $rsKeys = MiscUtils::RunQuery($sSQL);
         $payment = new \stdClass();
         $payment->funds = [];
         while ($aRow = mysqli_fetch_array($rsKeys)) {
@@ -894,7 +894,7 @@ class FinancialService
                  where  plg_depID = '.$depositID.'
                  AND
                  pdem_denominationID = '.$currencyID;
-        $rscurrencyDenomination = RunQuery($sSQL);
+        $rscurrencyDenomination = MiscUtils::RunQuery($sSQL);
 
         return mysqli_fetch_array($rscurrencyDenomination)[0];
     }
@@ -904,7 +904,7 @@ class FinancialService
         $currencies = [];
     // Get the list of Currency denominations
     $sSQL = 'SELECT * FROM currency_denominations_cdem';
-        $rscurrencyDenomination = RunQuery($sSQL);
+        $rscurrencyDenomination = MiscUtils::RunQuery($sSQL);
         mysqli_data_seek($rscurrencyDenomination, 0);
         while ($row = mysqli_fetch_array($rscurrencyDenomination)) {
             $currency = new \stdClass();
@@ -923,7 +923,7 @@ class FinancialService
         $funds = [];
         $sSQL = 'SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun';
         $sSQL .= " WHERE fun_Active = 'true'"; // New donations should show only active funds.
-    $rsFunds = RunQuery($sSQL);
+    $rsFunds = MiscUtils::RunQuery($sSQL);
         mysqli_data_seek($rsFunds, 0);
         while ($aRow = mysqli_fetch_array($rsFunds)) {
             $fund = new \stdClass();

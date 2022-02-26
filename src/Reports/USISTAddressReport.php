@@ -15,6 +15,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_AddressReport;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\MiscUtils;
+
 
 // If user does not have permission redirect to the menu.
 if (!SessionUser::getUser()->isUSAddressVerificationEnabled()) {
@@ -41,7 +43,7 @@ $sSQL = 'SELECT * FROM family_fam ';
 $sSQL .= $sWhere;
 $sSQL .= 'ORDER BY fam_Name';
 
-$rsFamilies = RunQuery($sSQL);
+$rsFamilies = MiscUtils::RunQuery($sSQL);
 
 while ($aRow = mysqli_fetch_array($rsFamilies)) {
     extract($aRow);
@@ -49,7 +51,7 @@ while ($aRow = mysqli_fetch_array($rsFamilies)) {
     $sSQL = 'SELECT count(lu_fam_ID) AS idexists FROM istlookup_lu ';
     $sSQL .= "WHERE lu_fam_ID IN ($fam_ID)";
 
-    $rsLookup = RunQuery($sSQL);
+    $rsLookup = MiscUtils::RunQuery($sSQL);
     extract(mysqli_fetch_array($rsLookup));
     if ($idexists == '0') {
         $lu_DeliveryLine1 = $sMissing;
@@ -60,7 +62,7 @@ while ($aRow = mysqli_fetch_array($rsFamilies)) {
     } else {
         $sSQL = 'SELECT * FROM istlookup_lu ';
         $sSQL .= "WHERE lu_fam_ID IN ($fam_ID)";
-        $rsLookup = RunQuery($sSQL);
+        $rsLookup = MiscUtils::RunQuery($sSQL);
         extract(mysqli_fetch_array($rsLookup));
     }
 

@@ -37,7 +37,7 @@ $familySelectHtml = MiscUtils::buildFamilySelect(0, 0, 0);
 // if a family is deleted, and donations are found, the egive_egv table is updated at the same time that donations are transferred.  But if there aren't donations at the time, and there's still and egive ID, we need to get that changed.  So, we'll build an array of all the family IDs here, and then NOT cache the egiveID to familyID association in the loop below.  There's probably a nicer way to do this with an SQL join,  but this seems more explicit.
 
 $sSQL = 'SELECT fam_ID FROM family_fam';
-$rsFamIDs = RunQuery($sSQL);
+$rsFamIDs = MiscUtils::RunQuery($sSQL);
 while ($aRow = mysqli_fetch_array($rsFamIDs)) {
     extract($aRow);
     $famIDs[] = $fam_ID;
@@ -45,7 +45,7 @@ while ($aRow = mysqli_fetch_array($rsFamIDs)) {
 
 // get array of all existing payments into a 'cache' so we don't have to keep querying the DB
 $sSQL = 'SELECT egv_egiveID, egv_famID from egive_egv';
-$egiveIDs = RunQuery($sSQL);
+$egiveIDs = MiscUtils::RunQuery($sSQL);
 while ($aRow = mysqli_fetch_array($egiveIDs)) {
     extract($aRow);
     if (in_array($egv_famID, $famIDs)) { // make sure the family still exists
@@ -55,7 +55,7 @@ while ($aRow = mysqli_fetch_array($egiveIDs)) {
 
 // get array of all existing donation/fund ids to names so we don't have to keep querying the DB
 $sSQL = 'SELECT fun_ID, fun_Name, fun_Description from donationfund_fun';
-$fundData = RunQuery($sSQL);
+$fundData = MiscUtils::RunQuery($sSQL);
 while ($aRow = mysqli_fetch_array($fundData)) {
     extract($aRow);
     $fundID2Name[$fun_ID] = $fun_Name;
@@ -67,7 +67,7 @@ while ($aRow = mysqli_fetch_array($fundData)) {
 
 $sSQL = 'SELECT plg_date, plg_amount, plg_CheckNo, plg_fundID, plg_FamID, plg_comment, plg_GroupKey from pledge_plg where plg_method="EGIVE" AND plg_PledgeOrPayment="Payment";';
 
-$rsPlgIDs = RunQuery($sSQL);
+$rsPlgIDs = MiscUtils::RunQuery($sSQL);
 while ($aRow = mysqli_fetch_array($rsPlgIDs)) {
     extract($aRow);
 
@@ -233,7 +233,7 @@ if (isset($_POST['ApiGet'])) {
         if ($famID) {
             if ($doUpdate) {
                 $sSQL = "INSERT INTO egive_egv (egv_egiveID, egv_famID, egv_DateEntered, egv_EnteredBy) VALUES ('".$egiveID."','".$famID."','".date('YmdHis')."','".SessionUser::getUser()->getPersonId()."');";
-                RunQuery($sSQL);
+                MiscUtils::RunQuery($sSQL);
             }
 
             foreach ($giftDataMissingEgiveID as $data) {
@@ -290,7 +290,7 @@ function updateDB($famID, $transId, $date, $name, $amount, $fundId, $comment, $f
     } elseif ($famID) { //  insert a new record
         $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_NonDeductible, plg_GroupKey) VALUES ('".$famID."','".$iFYID."','".$date."','".$amount."','".$frequency."','EGIVE','".$comment."','".date('YmdHis')."',".SessionUser::getUser()->getPersonId().",'Payment',".$fundId.",'".$iDepositSlipID."','".$transId."','0','".$groupKey."')";
         ++$importCreated;
-        RunQuery($sSQL);
+        MiscUtils::RunQuery($sSQL);
     }
 }
 
