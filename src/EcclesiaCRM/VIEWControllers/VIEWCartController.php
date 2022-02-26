@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Container\ContainerInterface;
@@ -36,6 +37,27 @@ class VIEWCartController {
 
     public function renderCarView (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
         $renderer = new PhpRenderer('templates/cart/');
+
+        $params = (object)$request->getParsedBody();
+
+        if (isset($params->BulkAddToCart)) {// for the QueryView.php
+            $aItemsToProcess = explode(',', $params->BulkAddToCart);
+
+            if (isset($params->AndToCartSubmit)) {
+                if (isset($_SESSION['aPeopleCart'])) {
+                    $_SESSION['aPeopleCart'] = array_intersect($_SESSION['aPeopleCart'], $aItemsToProcess);
+                }
+            } elseif (isset($params->NotToCartSubmit)) {
+                if (isset($_SESSION['aPeopleCart'])) {
+                    $_SESSION['aPeopleCart'] = array_diff($_SESSION['aPeopleCart'], $aItemsToProcess);
+                }
+            } else {
+                $aItemsToProcess = array_filter($aItemsToProcess);
+                for ($iCount = 0; $iCount < count($aItemsToProcess); $iCount++) {
+                    Cart::AddPerson(str_replace(',', '', $aItemsToProcess[$iCount]));
+                }
+            }
+        }
 
         if ( !( SessionUser::getUser()->isShowCartEnabled() && Cart::HasPeople() ) ) {
             return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/v2/dashboard');
