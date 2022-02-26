@@ -20,4 +20,5 @@ use EcclesiaCRM\VIEWControllers\VIEWCartController;
 
 $app->group('/cart', function (RouteCollectorProxy $group) {
     $group->get('/view', VIEWCartController::class . ':renderCarView');
+    $group->post('/view', VIEWCartController::class . ':renderCarView');
 });
