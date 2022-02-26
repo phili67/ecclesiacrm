@@ -12,6 +12,7 @@ namespace EcclesiaCRM
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\Utils\RedirectUtils;
+  use EcclesiaCRM\Service\UpgradeService;
   use EcclesiaCRM\PluginQuery;
 
   class Bootstrapper
@@ -70,6 +71,12 @@ namespace EcclesiaCRM
           }
 
           self::initMySQLI();
+
+          if (!self::isDBCurrent()) {
+              // in this case we can clean before some files in the model folder : map base
+              UpgradeService::preUpgradePHPScriptFrom(self::getDBVersion());
+          }
+
           self::initPropel();
 
           if (self::$DavServer == false) {
@@ -368,6 +375,19 @@ namespace EcclesiaCRM
           }
       }
 
+      private static function getDBVersion()
+      {
+          global $cnInfoCentral;
+
+          $sSQL = 'SELECT `ver_version` FROM `version_ver` ORDER BY `ver_version` DESC LIMIT 1;';
+          $rsVersion = mysqli_query($cnInfoCentral, $sSQL);     // Can't use RunQuery -- not defined yet
+          if ($rsVersion) {
+              $version = mysqli_fetch_row($rsVersion)[0];
+          }
+
+          return $version;
+      }
+
       private static function system_failure($message, $header = 'Setup failure')
       {
           $sPageTitle = $header;
@@ -388,11 +408,12 @@ namespace EcclesiaCRM
 
       public static function isDBCurrent()
       {
-          if (SystemService::getDBVersion() == SystemService::getInstalledVersion()) {
-              self::$bootStrapLogger->debug("Database version matches installed version: " . SystemService::getDBVersion(). " == " .SystemService::getInstalledVersion());
+          $dbVersion = self::getDBVersion();
+          if ($dbVersion == SystemService::getInstalledVersion()) {
+              self::$bootStrapLogger->debug("Database version matches installed version: " . $dbVersion . " == " .SystemService::getInstalledVersion());
               return true;
           } else {
-              self::$bootStrapLogger->debug("Database version does not match installed version: " . SystemService::getDBVersion(). " == " .SystemService::getInstalledVersion());
+              self::$bootStrapLogger->debug("Database version does not match installed version: " . $dbVersion. " == " .SystemService::getInstalledVersion());
               return false;
           }
       }
