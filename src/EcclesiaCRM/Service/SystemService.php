@@ -255,6 +255,11 @@ class SystemService
             if ($zip->open($zipFilename) == true) {
                 $zip->extractTo(SystemURLs::getDocumentRoot() . '/Upgrade');
                 $zip->close();
+                /*
+                 * delete the Plugins content folder during an upgrade
+                 */
+                MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/Upgrade/ecclesiacrm/Plugins/");
+
                 $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
             }
 
