@@ -1592,4 +1592,21 @@ class MiscUtils
 
         return ['tmpFile' => $tmpFile, 'FilePath' => $filePath, 'title' => $title];
     }
+
+    public static function RunQuery($sSQL, $bStopOnError = true)
+    {
+        global $cnInfoCentral;
+        mysqli_query($cnInfoCentral, "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
+        if ($result = mysqli_query($cnInfoCentral, $sSQL)) {
+            return $result;
+        } elseif ($bStopOnError) {
+            if (SystemConfig::getValue('sLogLevel') == "100") { // debug level
+                die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error());
+            } else {
+                die('Database error or invalid data');
+            }
+        } else {
+            return false;
+        }
+    }
 }

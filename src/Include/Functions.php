@@ -99,22 +99,3 @@ if (isset($_GET['PDFEmailed'])) {
         $sGlobalMessage = _('Failed to email PDF to family members.');
     }
 }
-
-// Runs an SQL query.  Returns the result resource.
-// By default stop on error, unless a second (optional) argument is passed as false.
-function RunQuery($sSQL, $bStopOnError = true)
-{
-    global $cnInfoCentral;
-    mysqli_query($cnInfoCentral, "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
-    if ($result = mysqli_query($cnInfoCentral, $sSQL)) {
-        return $result;
-    } elseif ($bStopOnError) {
-        if (SystemConfig::getValue('sLogLevel') == "100") { // debug level
-            die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error());
-        } else {
-            die('Database error or invalid data');
-        }
-    } else {
-        return false;
-    }
-}
