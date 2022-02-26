@@ -2,8 +2,6 @@
 
 namespace EcclesiaCRM\Service;
 
-use EcclesiaCRM\PluginQuery;
-
 use EcclesiaCRM\dto\SystemURLs;
 
 class AppIntegrityService
@@ -47,34 +45,36 @@ class AppIntegrityService
 
   public static function verifyPluginsIntegrity($signatureFailures = [])
   {
-      // we check all the plugins active or inactive
-      $plugins = PluginQuery::create()->find();
+      $plugins = new \DirectoryIterator(SystemURLs::getDocumentRoot() . '/Plugins/');
 
       foreach ($plugins as $plugin) {
-          $signatureFile = SystemURLs::getDocumentRoot() . '/Plugins/' . $plugin->getName() . '/signatures.json';
+          if ($plugin->isDir() && !$plugin->isDot()) {
+              $pluginName = $plugin->getFilename();
+              $signatureFile = SystemURLs::getDocumentRoot() . '/Plugins/' . $pluginName . '/signatures.json';
 
-          if (file_exists($signatureFile)) {
-              $signatureData = json_decode(file_get_contents($signatureFile));
-              if (sha1(json_encode($signatureData->files, JSON_UNESCAPED_SLASHES)) == $signatureData->sha1) {
-                  foreach ($signatureData->files as $file) {
-                      $currentFile = SystemURLs::getDocumentRoot() . '/' . $file->filename;
-                      if (file_exists($currentFile)) {
-                          $actualHash = sha1_file($currentFile);
-                          if ($actualHash != $file->sha1) {
-                              if ( !array_key_exists($plugin->getName(), $signatureFailures)) {
-                                  $signatureFailures[$plugin->getName()] = [];
+              if (file_exists($signatureFile)) {
+                  $signatureData = json_decode(file_get_contents($signatureFile));
+                  if (sha1(json_encode($signatureData->files, JSON_UNESCAPED_SLASHES)) == $signatureData->sha1) {
+                      foreach ($signatureData->files as $file) {
+                          $currentFile = SystemURLs::getDocumentRoot() . '/' . $file->filename;
+                          if (file_exists($currentFile)) {
+                              $actualHash = sha1_file($currentFile);
+                              if ($actualHash != $file->sha1) {
+                                  if ( !array_key_exists($pluginName, $signatureFailures)) {
+                                      $signatureFailures[$pluginName] = [];
+                                  }
+                                  array_push($signatureFailures[$pluginName], ['filename' => $file->filename, 'status' => 'Hash Mismatch', 'expectedhash' => $file->sha1, 'actualhash' => $actualHash]);
                               }
-                              array_push($signatureFailures[$plugin->getName()], ['filename' => $file->filename, 'status' => 'Hash Mismatch', 'expectedhash' => $file->sha1, 'actualhash' => $actualHash]);
+                          } else {
+                              array_push($signatureFailures[$pluginName], ['filename' => $file->filename, 'status' => 'File Missing']);
                           }
-                      } else {
-                          array_push($signatureFailures[$plugin->getName()], ['filename' => $file->filename, 'status' => 'File Missing']);
                       }
+                  } else {
+                      return ['status' => 'failure', 'message' => gettext('Signature definition file signature failed validation')];
                   }
               } else {
-                  return ['status' => 'failure', 'message' => gettext('Signature definition file signature failed validation')];
+                  return ['status' => 'failure', 'message' => gettext('Signature definition File Missing')];
               }
-          } else {
-              return ['status' => 'failure', 'message' => gettext('Signature definition File Missing')];
           }
       }
 
