@@ -100,26 +100,6 @@ if (isset($_GET['PDFEmailed'])) {
     }
 }
 
-if (isset($_POST['BulkAddToCart'])) {// for the QueryView.php
-    $aItemsToProcess = explode(',', $_POST['BulkAddToCart']);
-
-    if (isset($_POST['AndToCartSubmit'])) {
-        if (isset($_SESSION['aPeopleCart'])) {
-            $_SESSION['aPeopleCart'] = array_intersect($_SESSION['aPeopleCart'], $aItemsToProcess);
-        }
-    } elseif (isset($_POST['NotToCartSubmit'])) {
-        if (isset($_SESSION['aPeopleCart'])) {
-            $_SESSION['aPeopleCart'] = array_diff($_SESSION['aPeopleCart'], $aItemsToProcess);
-        }
-    } else {
-        $aItemsToProcess = array_filter($aItemsToProcess);
-        for ($iCount = 0; $iCount < count($aItemsToProcess); $iCount++) {
-            Cart::AddPerson(str_replace(',', '', $aItemsToProcess[$iCount]));
-        }
-        $sGlobalMessage = $iCount.' '._('item(s) added to the Cart.');
-    }
-}
-
 // Runs an SQL query.  Returns the result resource.
 // By default stop on error, unless a second (optional) argument is passed as false.
 function RunQuery($sSQL, $bStopOnError = true)
