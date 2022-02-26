@@ -16,6 +16,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemURLs;
 
 //Set the page title
 $sPageTitle = _('Free-Text Query');
@@ -39,7 +40,7 @@ if (isset($_POST['CSV'])) {
     exit;
 }
 
-$rsQueryResults = "";
+$rsQueryResults = false;
 
 require 'Include/Header.php';
 ?>
@@ -118,7 +119,9 @@ function ExportQueryResults()
 
 //Display the count of the recordset
     echo '<p align="center">';
-    echo mysqli_num_rows($rsQueryResults)._(' record(s) returned');
+    if ($rsQueryResults != false) {
+        echo mysqli_num_rows($rsQueryResults) . _(' record(s) returned');
+    }
     echo '</p>';
 
 function RunFreeQuery()
@@ -137,7 +140,7 @@ function RunFreeQuery()
     } else {
         $sRowClass = 'RowColorA';
 
-        echo '<table align="center" cellpadding="5" cellspacing="0">';
+        echo '<table align="center" cellpadding="5" cellspacing="0" class="table table-striped table-bordered data-table dataTable no-footer dtr-inline">';
 
         echo '<tr class="'.$sRowClass.'">';
 
@@ -196,5 +199,4 @@ function RunFreeQuery()
 }
 
 require 'Include/Footer.php';
-
 ?>
