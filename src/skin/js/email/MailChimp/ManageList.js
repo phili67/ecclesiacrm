@@ -383,7 +383,6 @@ $(document).ready(function () {
             });
 
             if (tag == -1) {
-
                 bootbox.prompt(i18next.t("Add your tag name"), function (name) {
                     if (name != null && name != "") {
                         window.CRM.dialogLoadingFunction(i18next.t('Adding tag...'));
@@ -446,7 +445,10 @@ $(document).ready(function () {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
                                 }
+                                event.startPropagation();
                             });
+                        } else {
+                        	event.startPropagation();
                         }
                     }
                 });
@@ -512,6 +514,7 @@ $(document).ready(function () {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
                                 }
+                                event.startPropagation();
                             });
                         } else if (tag != null) {
                             window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'));
@@ -523,10 +526,13 @@ $(document).ready(function () {
                             },function (data) {
                                 window.CRM.dataListTable.ajax.reload(null, false);
                                 render_container();
+                                event.startPropagation();
                             });
                         }
                     }
                 });
+                
+                event.startPropagation();
             });
         });
     }
