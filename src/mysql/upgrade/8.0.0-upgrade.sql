@@ -113,5 +113,10 @@ CREATE TABLE `plugin_user_role` (
 --
 
 
+-- 2022-02-28
+ALTER TABLE `group_grp` ADD `grp_parent_id` mediumint(8) unsigned DEFAULT NULL COMMENT 'parent group id';
+
+ALTER TABLE `group_grp`
+    ADD CONSTRAINT fk_grp_parent_id FOREIGN KEY (grp_parent_id) REFERENCES group_grp(grp_ID);
 
 

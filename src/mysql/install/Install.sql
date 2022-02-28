@@ -609,9 +609,11 @@ CREATE TABLE `group_grp` (
   `grp_hasSpecialProps` BOOLEAN NOT NULL default 0,
   `grp_active` BOOLEAN NOT NULL default 1,
   `grp_include_email_export` BOOLEAN NOT NULL default 1,
+  `grp_parent_id` mediumint(8) unsigned DEFAULT NULL COMMENT 'parent group id',
   PRIMARY KEY  (`grp_ID`),
   UNIQUE KEY `grp_ID` (`grp_ID`),
-  KEY `grp_ID_2` (`grp_ID`)
+  KEY `grp_ID_2` (`grp_ID`),
+  CONSTRAINT fk_grp_parent_id FOREIGN KEY (grp_parent_id) REFERENCES group_grp(grp_ID)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
