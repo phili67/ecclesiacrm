@@ -107,7 +107,7 @@ require $sRootDocument . '/Include/Header.php';
                 $famID = $person->getFamId();
                 $pledges  = PledgeQuery::Create()->findByFamId($famID);
               ?>
-                  <td> <?= date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td> <?= (!is_null($person->getDateDeactivated())?date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')):"") ?></td>
                   <td><a class="btn btn-danger remove-property-btn <?= ($pledges->count() > 0)?"disabled":"" ?>" data-person_id="<?= $person->getId() ?>"><?= _("Remove") ?></a></td>
               <?php
                 }
