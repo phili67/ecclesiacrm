@@ -138,8 +138,8 @@ class VIEWPastoralCareController {
             ->endUse()
             ->findByPastorId($UserID);
 
-        $realStart = (new DateTime($startPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
-        $realEnd = (new DateTime($endPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
+        $realStart = (new \DateTime($startPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
+        $realEnd = (new \DateTime($endPeriod))->format(SystemConfig::getValue('sDateFormatLong'));
 
         $sPageTitle = _("Pastoral care list of members for")." : ".$user->getPerson()->getFullName()."<br/>". _("Period  from") . " : " . $realStart . " " . _("to") . " " . $realEnd;
 
