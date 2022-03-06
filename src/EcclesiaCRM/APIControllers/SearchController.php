@@ -35,6 +35,7 @@ use EcclesiaCRM\Search\PersonGroupManagerSearchRes;
 use EcclesiaCRM\Search\FamilyPropsSearchRes;
 use EcclesiaCRM\Search\GroupPropsSearchRes;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Search\SearchLevel;
 
 class SearchController
 {
@@ -43,6 +44,83 @@ class SearchController
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
+    }
+
+
+    public function getSearchResultByName (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $query = $args['query'];
+
+        $resultsArray = [];
+
+        if ($query == "*") {
+            $resultsArray[] =
+                ['id' => 'person-id-1',
+                    'text' => "*",
+                    'uri' => ""];
+        } else {
+            if ( str_starts_with(mb_strtolower(_("Families")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("Families"),
+                        'uri' => ""];
+            } elseif ( str_starts_with(mb_strtolower(_("Singles")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("Singles"),
+                        'uri' => ""];
+            } elseif ( str_starts_with(mb_strtolower(_("Volunteers")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("Volunteers"),
+                        'uri' => ""];
+            } elseif ( str_starts_with(mb_strtolower(_("Groups")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("Groups"),
+                        'uri' => ""];
+            } elseif ( str_starts_with(mb_strtolower(_("Sunday Groups")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("Sunday Groups"),
+                        'uri' => ""];
+            } elseif ( str_starts_with(mb_strtolower(_("groupmasters")), mb_strtolower($query)) ) {
+                $resultsArray[] =
+                    ['id' => 'search-id-1',
+                        'text' => _("groupmasters"),
+                        'uri' => ""];
+            }
+
+            $resMethods = [
+                new PersonSearchRes(SearchLevel::STRING_RETURN),
+                new AddressSearchRes(SearchLevel::STRING_RETURN),
+                new PersonPropsSearchRes(SearchLevel::STRING_RETURN),
+                new PersonCustomSearchRes(SearchLevel::STRING_RETURN),
+                new PersonAssignToGroupSearchRes(SearchLevel::STRING_RETURN),
+                new PersonPastoralCareSearchRes(SearchLevel::STRING_RETURN),
+                new PersonGroupManagerSearchRes (SearchLevel::STRING_RETURN),
+                new FamilySearchRes(SearchLevel::STRING_RETURN),
+                new FamilyCustomSearchRes(SearchLevel::STRING_RETURN),
+                new FamilyPropsSearchRes(SearchLevel::STRING_RETURN),
+                new FamilyPastoralCareSearchRes(SearchLevel::STRING_RETURN),
+                new GroupSearchRes(SearchLevel::STRING_RETURN),
+                new GroupPropsSearchRes(SearchLevel::STRING_RETURN),
+                new DepositSearchRes(SearchLevel::STRING_RETURN),
+                new PaymentSearchRes(SearchLevel::STRING_RETURN),
+                new PledgeSearchRes(SearchLevel::STRING_RETURN),
+                new PersonVolunteerOpportunitySearchRes(SearchLevel::STRING_RETURN)
+            ];
+        }
+
+        foreach ($resMethods as $resMethod) {
+            $res = $resMethod->getRes($query);
+
+            if ( !is_array($res) ) {
+                $res = $res->jsonSerialize();
+            }
+            $resultsArray = array_merge($resultsArray,$res);
+        }
+
+        return $response->withJson($resultsArray);
     }
 
     public function getSearchResult (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -60,28 +138,28 @@ class SearchController
 
         if (mb_strlen($query) > 0 && $query != "*") {
             $resMethods = [
-                new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements),
-                new AddressSearchRes(true),
-                new PersonPropsSearchRes(true),
-                new PersonCustomSearchRes(true),
-                new PersonGroupManagerSearchRes (true),
-                new PersonPastoralCareSearchRes(true),
-                new PersonAssignToGroupSearchRes( true),
-                new FamilySearchRes(true),
-                new FamilyCustomSearchRes(true),
-                new FamilyPastoralCareSearchRes(true),
-                new FamilyPropsSearchRes(true),
-                new GroupSearchRes( true),
-                new GroupPropsSearchRes(true),
-                new DepositSearchRes(true),
-                new PaymentSearchRes(true),
-                new PledgeSearchRes( true),
-                new PersonVolunteerOpportunitySearchRes( true)
+                new PersonSearchRes(SearchLevel::GLOBAL_SEARCH, $query_elements, $group_elements, $group_role_elements),
+                new AddressSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PersonPropsSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PersonCustomSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PersonGroupManagerSearchRes (SearchLevel::GLOBAL_SEARCH),
+                new PersonPastoralCareSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PersonAssignToGroupSearchRes( SearchLevel::GLOBAL_SEARCH),
+                new FamilySearchRes(SearchLevel::GLOBAL_SEARCH),
+                new FamilyCustomSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new FamilyPastoralCareSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new FamilyPropsSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new GroupSearchRes( SearchLevel::GLOBAL_SEARCH),
+                new GroupPropsSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new DepositSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PaymentSearchRes(SearchLevel::GLOBAL_SEARCH),
+                new PledgeSearchRes( SearchLevel::GLOBAL_SEARCH),
+                new PersonVolunteerOpportunitySearchRes( SearchLevel::GLOBAL_SEARCH)
             ];
         } elseif ($query == "*" || count($query_elements) > 0) {
             $query = "";
             $resMethods = [
-                new PersonSearchRes(true, $query_elements, $group_elements, $group_role_elements)
+                new PersonSearchRes(SearchLevel::GLOBAL_SEARCH, $query_elements, $group_elements, $group_role_elements)
             ];
         }
 
@@ -98,23 +176,23 @@ class SearchController
         $resultsArray = [];
 
         $resMethods = [
-            new PersonSearchRes(),
-            new AddressSearchRes(),
-            new PersonPropsSearchRes(),
-            new PersonCustomSearchRes(),
-            new PersonAssignToGroupSearchRes(),
-            new PersonPastoralCareSearchRes(),
-            new PersonGroupManagerSearchRes (),
-            new FamilySearchRes(),
-            new FamilyCustomSearchRes(),
-            new FamilyPropsSearchRes(),
-            new FamilyPastoralCareSearchRes(),
-            new GroupSearchRes(),
-            new GroupPropsSearchRes(),
-            new DepositSearchRes(),
-            new PaymentSearchRes(),
-            new PledgeSearchRes(),
-            new PersonVolunteerOpportunitySearchRes()
+            new PersonSearchRes(SearchLevel::QUICK_SEARCH),
+            new AddressSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonPropsSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonCustomSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonAssignToGroupSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonPastoralCareSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonGroupManagerSearchRes (SearchLevel::QUICK_SEARCH),
+            new FamilySearchRes(SearchLevel::QUICK_SEARCH),
+            new FamilyCustomSearchRes(SearchLevel::QUICK_SEARCH),
+            new FamilyPropsSearchRes(SearchLevel::QUICK_SEARCH),
+            new FamilyPastoralCareSearchRes(SearchLevel::QUICK_SEARCH),
+            new GroupSearchRes(SearchLevel::QUICK_SEARCH),
+            new GroupPropsSearchRes(SearchLevel::QUICK_SEARCH),
+            new DepositSearchRes(SearchLevel::QUICK_SEARCH),
+            new PaymentSearchRes(SearchLevel::QUICK_SEARCH),
+            new PledgeSearchRes(SearchLevel::QUICK_SEARCH),
+            new PersonVolunteerOpportunitySearchRes(SearchLevel::QUICK_SEARCH)
         ];
 
         foreach ($resMethods as $resMethod) {
