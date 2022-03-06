@@ -5,6 +5,75 @@ $(document).ready(function () {
     var available_search_type = [];
     var buildMenu = false;
     var cart = [];
+    var search_Term = window.CRM.mode;
+
+    if (search_Term != "*") {
+        $(".person-filters").hide();
+    }
+
+    $("#SearchTerm").select2({
+        language: window.CRM.shortLocale,
+        minimumInputLength: 1,
+        allowClear: true, // This is for clear get the clear button if wanted
+        placeholder: i18next.t("Search terms like : name, first name, phone number, property, group name, etc ..."),
+        ajax: {
+            url: function (params) {
+                // in all the case everything is hidden and empty
+                $("#searchComboGroup").empty();
+                $("#searchComboGroupRole").empty();
+                $("#group_search_filters").hide();
+                $('#SearchTerm').empty();
+
+                if (params.term === "*") {
+                    $(".person-filters").show();
+                } else {
+                    $(".person-filters").hide();
+                }
+                return window.CRM.root + "/api/search/getresultbyname/" + params.term;
+            },
+            dataType: 'json',
+            delay: 250,
+            data: "",
+            processResults: function (data, params) {
+                return {results: data};
+            },
+            cache: true
+        }
+    });
+
+    $("#SearchTerm").on("select2:select", function (e) {
+        search_Term = e.params.data.text;
+
+        cart = [];
+
+        $('.in-progress').css("color", "red");
+        $('.in-progress').html("  "+ i18next.t("In progress...."));
+        window.CRM.dataSearchTable.ajax.reload(function ( json ) {
+            $('.in-progress').css("color", "green");
+            $('.in-progress').html("  "+i18next.t("Done !"));
+            loadAllPeople();
+        }, false);
+    });
+
+    /*$('#SearchTerm').on('input', function() {
+        if ($(this).val() === "*") {
+            $(".person-filters").show();
+        } else {
+            $(".person-filters").hide();
+        }
+    });*/
+
+
+    if (search_Term != '') {
+      var data = {
+          id: 1,
+          text: search_Term
+      };
+
+      var newOption = new Option(data.text, data.id, true, true);
+      $('#SearchTerm').append(newOption).trigger('change');
+    }
+
 
     if (window.CRM.gender !== -1) {
         elements['Gender']=window.CRM.gender;
@@ -22,13 +91,6 @@ $(document).ready(function () {
     $("#searchComboGroup").select2();
     $("#searchComboGroupRole").select2();
 
-    $('#SearchTerm').on('input', function() {
-        if ($(this).val() === "*") {
-            $(".person-filters").show();
-        } else {
-            $(".person-filters").hide();
-        }
-    });
 
     $("#searchCombo").select2().on("change", function (e) {
         if (buildMenu == true) {
@@ -221,9 +283,7 @@ $(document).ready(function () {
             contentType: "application/json",
             dataSrc: "SearchResults",
             data: function (json) {
-                var search_Term = $("#SearchTerm").val();
-
-                if (search_Term !='') {
+                if (search_Term != '') {
                     $('.in-progress').css("color", "red");
                     $('.in-progress').html("  "+ i18next.t("In progress...."));
                 }
