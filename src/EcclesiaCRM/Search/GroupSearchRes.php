@@ -46,7 +46,7 @@ class GroupSearchRes extends BaseSearchRes
                         ->select(['displayName', 'uri', 'Id']);
                 }
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
@@ -62,7 +62,7 @@ class GroupSearchRes extends BaseSearchRes
                             'text'=>$group['displayName'],
                             'uri'=>$group['uri']];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $members = Person2group2roleP2g2rQuery::create()->findByGroupId($group['Id']);
 
                             $res_members = [];

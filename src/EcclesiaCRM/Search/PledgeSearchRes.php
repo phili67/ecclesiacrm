@@ -47,7 +47,7 @@ class PledgeSearchRes extends BaseSearchRes
                         ->withColumn('Deposit.Id', 'DepositId')
                         ->groupByDepositId();
 
-                    if (!$this->global_search) {
+                    if (!$this->isGlobalSearch()) {
                         $Pledges->limit(SystemConfig::getValue("iSearchIncludePledgesMax"));
                     }
 
@@ -63,7 +63,7 @@ class PledgeSearchRes extends BaseSearchRes
                                 'uri'=> SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey()];
 
                             if (!is_null($Pledge->getDepositId())) {
-                                if ($this->global_search) {
+                                if ($this->isGlobalSearch()) {
                                     $res = "";
                                     if (SessionUser::getUser()->isShowCartEnabled()) {
                                         $res = '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';

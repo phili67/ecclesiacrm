@@ -55,7 +55,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                         ->endUse();
                 }
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $pers->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
@@ -70,7 +70,7 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                             'text' => $per->getTitle() . " : " . $per->getLastName(). " ".$per->getFirstName(),
                             'uri' => SystemURLs::getRootPath() . "/PersonView.php?PersonID=" . $per->getId()];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $fam = $per->getFamily();
 
                             $address = "";

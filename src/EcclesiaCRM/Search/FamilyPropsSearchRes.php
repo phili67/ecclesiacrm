@@ -32,7 +32,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
             try {
                 $families = FamilyQuery::create();
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
                 }
 
@@ -71,7 +71,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
                             "uri" => $family->getViewURI()
                         ];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $members = $family->getPeopleSorted();
 
                             $res_members = [];

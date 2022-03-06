@@ -52,7 +52,7 @@ class PersonCustomSearchRes extends BaseSearchRes
                         $personsCustom->_or();
                     }
 
-                    if (!$this->global_search) {
+                    if (!$this->isGlobalSearch()) {
                         $personsCustom->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
                             ->find();
                     }
@@ -67,7 +67,7 @@ class PersonCustomSearchRes extends BaseSearchRes
                             ];
 
 
-                            if ($this->global_search) {
+                            if ($this->isGlobalSearch()) {
                                 $fam = $per->getPerson()->getFamily();
 
                                 $address = "";

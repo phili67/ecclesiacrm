@@ -38,7 +38,7 @@ class AddressSearchRes extends BaseSearchRes
                 _or()->filterByZip($searchLikeString, Criteria::LIKE)->
                 _or()->filterByState($searchLikeString, Criteria::LIKE);
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $addresses->limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
                 }
 
@@ -52,7 +52,7 @@ class AddressSearchRes extends BaseSearchRes
                             'uri'=>$address->getViewURI()
                         ];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $members = $address->getPeopleSorted();
 
                             $res_members = [];

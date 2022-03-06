@@ -53,7 +53,7 @@ class DepositSearchRes extends BaseSearchRes
                         ->leftJoinPledge()
                         ->where( DepositTableMap::COL_DEP_COMMENT." LIKE  '".$searchLikeString."' OR ".DepositTableMap::COL_DEP_ID." = '".$qry."' OR ".PledgeTableMap::COL_PLG_CHECKNO." LIKE  '".$searchLikeString."'");
 
-                    if (!$this->global_search) {
+                    if (!$this->isGlobalSearch()) {
                         $Deposits->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
                     }
 
@@ -68,7 +68,7 @@ class DepositSearchRes extends BaseSearchRes
                                 'text'=>$Deposit->getComment(),
                                 'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId()];
 
-                            if ($this->global_search) {
+                            if ($this->isGlobalSearch()) {
                                 $res = "";
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';

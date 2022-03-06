@@ -61,7 +61,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                     ->addAscendingOrderByColumn('ProName')
                     ->addAscendingOrderByColumn('ProTypeName');
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $person_Props->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
@@ -78,7 +78,7 @@ class PersonPropsSearchRes extends BaseSearchRes
                             'uri' => $per->getViewURI()
                         ];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $fam = $per->getFamily();
 
                             $address = "";

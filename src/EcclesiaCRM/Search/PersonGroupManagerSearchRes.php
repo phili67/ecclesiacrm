@@ -55,7 +55,7 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                 }
 
 
-                if ( !$this->global_search ) {
+                if ( !$this->isGlobalSearch() ) {
                     $persons->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
                         ->find();
                 } else {
@@ -72,7 +72,7 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                             'uri' => "/v2/group/".$per->getGroup()->getId()."/view"
                         ];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $fam = $per->getPerson()->getFamily();
 
                             $address = "";

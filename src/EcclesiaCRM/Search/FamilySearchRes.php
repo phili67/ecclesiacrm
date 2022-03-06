@@ -54,7 +54,7 @@ class FamilySearchRes extends BaseSearchRes
                     $compareOp = "=";
                 }
 
-                if (!$this->global_search) {
+                if ( !($this->isGlobalSearch() or $this->isStringSearch()) ) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
                         ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
                 } else {
@@ -75,7 +75,7 @@ class FamilySearchRes extends BaseSearchRes
                             "uri" => $family->getViewURI()
                         ];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $members = $family->getPeopleSorted();
 
                             $res_members = [];

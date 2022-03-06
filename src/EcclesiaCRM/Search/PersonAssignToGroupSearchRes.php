@@ -54,7 +54,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                     ->addAsColumn('hasSpecialProps', GroupTableMap::COL_GRP_HASSPECIALPROPS)
                     ->Where(ListOptionTableMap::COL_LST_OPTIONNAME . " LIKE '" . $searchLikeString . "' ORDER BY grp_Name");
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $ormAssignedGroups->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
@@ -71,7 +71,7 @@ class PersonAssignToGroupSearchRes extends BaseSearchRes
                         ];
 
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $fam = $per->getPerson()->getFamily();
 
                             $address = "";

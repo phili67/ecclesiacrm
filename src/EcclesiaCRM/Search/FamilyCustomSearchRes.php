@@ -49,7 +49,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                         $familiesCustom->_or();
                     }
 
-                    if (!$this->global_search) {
+                    if (!$this->isGlobalSearch()) {
                         $familiesCustom->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
                     }
 
@@ -65,7 +65,7 @@ class FamilyCustomSearchRes extends BaseSearchRes
                                 "uri" => $fam->getFamily()->getViewURI()
                             ];
 
-                            if ($this->global_search) {
+                            if ($this->isGlobalSearch()) {
                                 $members = $fam->getFamily()->getPeopleSorted();
 
                                 $res_members = [];

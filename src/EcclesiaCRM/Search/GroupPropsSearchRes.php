@@ -33,7 +33,7 @@ class GroupPropsSearchRes extends BaseSearchRes
             try {
                 $groups = GroupQuery::create();
 
-                if (!$this->global_search) {
+                if (!$this->isGlobalSearch()) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
@@ -61,7 +61,7 @@ class GroupPropsSearchRes extends BaseSearchRes
                             'text'=>$group->getName(),
                             'uri'=> "/v2/group/" . $group->getId() . "/view"];
 
-                        if ($this->global_search) {
+                        if ($this->isGlobalSearch()) {
                             $members = Person2group2roleP2g2rQuery::create()->findByGroupId($group->getId());
 
                             $res_members = [];
