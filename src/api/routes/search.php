@@ -23,11 +23,12 @@ use EcclesiaCRM\APIControllers\SearchController;
 
 $app->group('/search', function (RouteCollectorProxy $group) {
     $group->get('/{query}', SearchController::class . ':quickSearch' );
+    $group->get('/getresultbyname/{query}', SearchController::class . ':getSearchResultByName' );
     $group->post('/comboElements/', SearchController::class . ':comboElements' );
     $group->post('/getGroupForTypeID/', SearchController::class . ':getGroupForTypeID' );
     $group->post('/getGroupRoleForGroupID/', SearchController::class . ':getGroupRoleForGroupID' );
     $group->post('/getresult/', SearchController::class . ':getSearchResult' );
-    $group->get('/getresult/', SearchController::class . ':getSearchResult' );// for test
+    //$group->get('/getresult/', SearchController::class . ':getSearchResult' );// for test
 });
 
 
