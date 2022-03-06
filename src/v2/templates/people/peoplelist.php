@@ -31,11 +31,10 @@ if ($sMode == 'person') {
         <div class="row">
             <div class="col-sm-3"><?= _("Enter the search term") ?> :</div>
             <div class="col-sm-9">
-                <input type="text" id="SearchTerm"
+                <select type="text" id="SearchTerm"
                        placeholder="<?= _("Search terms like : name, first name, phone number, property, group name, etc ...") ?>"
-                       size="30" maxlength="100"
-                       class="form-control form-control-sm" width="100%" style="width: 100%" required=""
-                       value="<?= $mode ?>">
+                       size="1" maxlength="100"
+                        class="SearchTerm form-control form-control-sm" width="100%" style="width: 100%"></select>
             </div>
         </div>
         <br/>
@@ -50,7 +49,7 @@ if ($sMode == 'person') {
         <div class="row person-filters">
             <div class="col-sm-3"><?= _("Choose your person filters") ?> :</div>
             <div class="col-sm-9">
-                <select name="search[]" multiple="" id="searchCombo" style="width:100%"
+                <select name="search[]" multiple="" id="searchCombo" style="width:100%" size="1"
                         data-select2-id="searchList" tabindex="-1" aria-hidden="true"></select>
             </div>
         </div>
@@ -58,11 +57,11 @@ if ($sMode == 'person') {
         <div class="row" id="group_search_filters">
             <div class="col-sm-3"><?= _("Group filters") ?> :</div>
             <div class="col-md-4">
-                <select name="searchGroup[]" id="searchComboGroup" style="width:100%"
+                <select name="searchGroup[]" id="searchComboGroup" style="width:100%" size="1"
                         data-select2-id="searchListGroups" tabindex="-1" aria-hidden="true"></select>
             </div>
             <div class="col-md-4">
-                <select name="searchGroupRole[]" id="searchComboGroupRole" style="width:100%"
+                <select name="searchGroupRole[]" id="searchComboGroupRole" style="width:100%" size="1"
                         data-select2-id="searchComboGroupRole" tabindex="-1" aria-hidden="true"></select>
             </div>
         </div>
@@ -123,6 +122,7 @@ if ($sMode == 'person') {
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script nonce="<?= $sCSPNonce ?>">
+    window.CRM.mode = "<?= $mode ?>",
     window.CRM.listPeople = [];
     window.CRM.gender = <?= $iGender ?>;
     window.CRM.familyRole = <?= $iFamilyRole ?>;
