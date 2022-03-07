@@ -47,23 +47,23 @@ class PledgeSearchRes extends BaseSearchRes
                         ->withColumn('Deposit.Id', 'DepositId')
                         ->groupByDepositId();
 
-                    if (!$this->isGlobalSearch()) {
+                    if ( $this->isQuickSearch() ) {
                         $Pledges->limit(SystemConfig::getValue("iSearchIncludePledgesMax"));
                     }
 
                     $Pledges->find();
 
-                    if (!is_null($Pledges))
+                    if ( $Pledges->count() > 0 )
                     {
                         $id=1;
 
                         foreach ($Pledges as $Pledge) {
-                            $elt = ['id'=>'pledges-'.$id++,
-                                'text'=>$Pledge->getFamily()->getName()." ("._("Deposit")." #".$Pledge->getDepositId().")",
-                                'uri'=> SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=".$Pledge->getDepositId()."&GroupKey=".$Pledge->getGroupkey()];
-
-                            if (!is_null($Pledge->getDepositId())) {
-                                if ($this->isGlobalSearch()) {
+                            if ( $this->isQuickSearch() ) {
+                                $elt = ['id' => 'pledges-' . $id++,
+                                    'text' => $Pledge->getFamily()->getName() . " (" . _("Deposit") . " #" . $Pledge->getDepositId() . ")",
+                                    'uri' => SystemURLs::getRootPath() . "/PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=" . $Pledge->getDepositId() . "&GroupKey=" . $Pledge->getGroupkey()];
+                            } else {
+                                if (!is_null($Pledge->getDepositId())) {
                                     $res = "";
                                     if (SessionUser::getUser()->isShowCartEnabled()) {
                                         $res = '<a href="' . $elt['uri'] . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
@@ -93,9 +93,9 @@ class PledgeSearchRes extends BaseSearchRes
                                         'actions' => $res
                                     ];
                                 }
-
-                                array_push($this->results, $elt);
                             }
+
+                            array_push($this->results, $elt);
                         }
                     }
                 } catch (Exception $e) {

@@ -38,21 +38,28 @@ class AddressSearchRes extends BaseSearchRes
                 _or()->filterByZip($searchLikeString, Criteria::LIKE)->
                 _or()->filterByState($searchLikeString, Criteria::LIKE);
 
-                if (!$this->isGlobalSearch()) {
+                $isStringSearch = $this->isStringSearch();
+                $isQuickSearch  = $this->isQuickSearch();
+
+
+                if ( $isQuickSearch ) {
                     $addresses->limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
                 }
 
-                if (!is_null($addresses))
+                if ( $addresses->count() > 0 )
                 {
                     $id=1;
+                    $res_buffer = [];
 
                     foreach ($addresses as $address) {
-                        $elt = ['id' => 'address-id-'.$id++,
-                            'text'=>$address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH"),false),
-                            'uri'=>$address->getViewURI()
-                        ];
+                        if ( $isQuickSearch ) {
+                            $elt = ['id' => 'address-id-' . $id++,
+                                'text' => $address->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH"), false),
+                                'uri' => $address->getViewURI()
+                            ];
 
-                        if ($this->isGlobalSearch()) {
+                            array_push($this->results, $elt);
+                        } else {
                             $members = $address->getPeopleSorted();
 
                             $res_members = [];
@@ -117,23 +124,37 @@ class AddressSearchRes extends BaseSearchRes
                                 $res .= '</a>&nbsp;';
                             }
 
-                            $elt = [
-                                "id" => $address->getId(),
-                                "img" => '<img src="/api/families/'.$address->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => _("Addresse").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$address->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$address->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$address->getAddress(),
-                                "type" => _($this->getGlobalSearchType()),
-                                "realType" => $this->getGlobalSearchType(),
-                                "Gender" => "",
-                                "Classification" => "",
-                                "ProNames" => "",
-                                "FamilyRole" => "",
-                                "members" => $res_members,
-                                "actions" => $res
-                            ];
-                        }
+                            if ($isStringSearch) {
+                                $tableOfRes = [$address->getName(), $address->getState(),
+                                    $address->getAddress1(), $address->getAddress2(), $address->getCountry(), $address->getCity(), $address->getZip()];
 
-                        array_push($this->results, $elt);
+                                foreach ($tableOfRes as $item) {
+                                    if (mb_strpos(mb_strtolower($item), mb_strtolower($qry)) !== false and !in_array(mb_strtolower($item), $res_buffer)) {
+                                        $elt = ['id' => 'searchname-address-id-' . $id++,
+                                            'text' => $item,
+                                            'uri' => ""];
+                                        array_push($this->results, $elt);
+                                        array_push($res_buffer, mb_strtolower($item));
+                                    }
+                                }
+                            } else {
+                                $elt = [
+                                    "id" => $address->getId(),
+                                    "img" => '<img src="/api/families/' . $address->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "searchresult" => _("Addresse") . ' : <a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $address->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $address->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                    "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $address->getAddress(),
+                                    "type" => _($this->getGlobalSearchType()),
+                                    "realType" => $this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => "",
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => $res_members,
+                                    "actions" => $res
+                                ];
+                                array_push($this->results, $elt);
+                            }
+                        }
                     }
                 }
             } catch (Exception $e) {

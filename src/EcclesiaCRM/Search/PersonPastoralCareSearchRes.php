@@ -56,7 +56,7 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                     ->_or()->filterByPastorName($searchLikeString, Criteria::LIKE)
                     ->orderByDate(Criteria::DESC);
 
-                if (!$this->isGlobalSearch()) {
+                if ( $this->isQuickSearch() ) {
                     $cares->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
                 }
 
@@ -67,15 +67,15 @@ class PersonPastoralCareSearchRes extends BaseSearchRes
                     $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
                 }
 
-                if (!is_null($cares)) {
+                if ( $cares->count() > 0 ) {
                     $id=1;
 
                     foreach ($cares as $care) {
-                        $elt = ['id' => "person-pastoralcare-id-".$id++,
-                            'text' => $care->getPastoralCareType()->getTitle() . " : " . $care->getPersonRelatedByPersonId()->getFullName(),
-                            'uri' => SystemURLs::getRootPath() . "/v2/pastoralcare/person/" . $care->getPersonId()];
-
-                        if ($this->isGlobalSearch()) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => "person-pastoralcare-id-" . $id++,
+                                'text' => $care->getPastoralCareType()->getTitle() . " : " . $care->getPersonRelatedByPersonId()->getFullName(),
+                                'uri' => SystemURLs::getRootPath() . "/v2/pastoralcare/person/" . $care->getPersonId()];
+                        } else {
                             $per = $care->getPersonRelatedByPersonId();
                             $fam = $per->getFamily();
 

@@ -5,9 +5,9 @@ namespace EcclesiaCRM\Search;
 use EcclesiaCRM\Search\SearchRes;
 
 class SearchLevel {
-    public const QUICK_SEARCH   =   0;
-    public const GLOBAL_SEARCH  =   1;
-    public const STRING_RETURN  =   2;
+    public const QUICK_SEARCH   =   1;
+    public const GLOBAL_SEARCH  =   2;
+    public const STRING_RETURN  =   3;
 }
 
 abstract class BaseSearchRes {
@@ -25,6 +25,11 @@ abstract class BaseSearchRes {
             } else {
                 $this->search_type = "normal";
             }
+    }
+
+    public function isQuickSearch()
+    {
+        return ($this->search_Level == SearchLevel::QUICK_SEARCH);
     }
 
     public function isGlobalSearch()
@@ -47,7 +52,7 @@ abstract class BaseSearchRes {
     public function getRes (string $qry) {
         $this->buildSearch($qry);
         if (!empty($this->results)) {
-            if ($this->isGlobalSearch()) {
+            if ( $this->isGlobalSearch() or $this->isStringSearch() ) {
                 return $this->results;
             } else {
                 return new SearchRes($this->name, $this->results, $this->search_type);

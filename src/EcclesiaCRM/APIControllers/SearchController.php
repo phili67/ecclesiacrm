@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\VolunteerOpportunityQuery;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -73,6 +75,17 @@ class SearchController
                     ['id' => 'search-id-1',
                         'text' => _("Volunteers"),
                         'uri' => ""];
+
+                $volunteerOpportunities = VolunteerOpportunityQuery::create()->find();
+
+                $id = 2;
+                if ( $volunteerOpportunities->count() > 0 ) {
+                    foreach ($volunteerOpportunities as $volunteerOpportunity) {
+                        $resultsArray[] = ['id' => 'search-id-'.$id++,
+                            'text' => $volunteerOpportunity->getName(),
+                            'uri' => ""];
+                    }
+                }
             } elseif ( str_starts_with(mb_strtolower(_("Groups")), mb_strtolower($query)) ) {
                 $resultsArray[] =
                     ['id' => 'search-id-1',
@@ -93,17 +106,8 @@ class SearchController
             $resMethods = [
                 new PersonSearchRes(SearchLevel::STRING_RETURN),
                 new AddressSearchRes(SearchLevel::STRING_RETURN),
-                new PersonPropsSearchRes(SearchLevel::STRING_RETURN),
-                new PersonCustomSearchRes(SearchLevel::STRING_RETURN),
-                new PersonAssignToGroupSearchRes(SearchLevel::STRING_RETURN),
-                new PersonPastoralCareSearchRes(SearchLevel::STRING_RETURN),
-                new PersonGroupManagerSearchRes (SearchLevel::STRING_RETURN),
                 new FamilySearchRes(SearchLevel::STRING_RETURN),
-                new FamilyCustomSearchRes(SearchLevel::STRING_RETURN),
-                new FamilyPropsSearchRes(SearchLevel::STRING_RETURN),
-                new FamilyPastoralCareSearchRes(SearchLevel::STRING_RETURN),
                 new GroupSearchRes(SearchLevel::STRING_RETURN),
-                new GroupPropsSearchRes(SearchLevel::STRING_RETURN),
                 new DepositSearchRes(SearchLevel::STRING_RETURN),
                 new PaymentSearchRes(SearchLevel::STRING_RETURN),
                 new PledgeSearchRes(SearchLevel::STRING_RETURN),
@@ -114,13 +118,20 @@ class SearchController
         foreach ($resMethods as $resMethod) {
             $res = $resMethod->getRes($query);
 
+            if ($res[0] == null)
+                continue;
+
             if ( !is_array($res) ) {
                 $res = $res->jsonSerialize();
             }
-            $resultsArray = array_merge($resultsArray,$res);
+            $resultsArray = array_merge($resultsArray, $res);
         }
 
-        return $response->withJson($resultsArray);
+        $resultsArray[] = ['id' => 'search-extra-id-1',
+            'text' => $query,
+            'uri' => ""];
+
+        return $response->withJson(($resultsArray));
     }
 
     public function getSearchResult (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {

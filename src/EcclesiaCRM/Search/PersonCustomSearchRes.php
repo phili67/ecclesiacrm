@@ -52,22 +52,21 @@ class PersonCustomSearchRes extends BaseSearchRes
                         $personsCustom->_or();
                     }
 
-                    if (!$this->isGlobalSearch()) {
+                    if ( $this->isQuickSearch() ) {
                         $personsCustom->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
                             ->find();
                     }
 
-                    if (!is_null($personsCustom)) {
+                    if ( $personsCustom->count() > 0 ) {
                         $id = 1;
 
                         foreach ($personsCustom as $per) {
-                            $elt = ['id' => 'person-custom-id-' . $id++,
-                                'text' => $per->getPerson()->getFullName(),
-                                'uri' => $per->getPerson()->getViewURI()
-                            ];
-
-
-                            if ($this->isGlobalSearch()) {
+                            if ( $this->isQuickSearch() ) {
+                                $elt = ['id' => 'person-custom-id-' . $id++,
+                                    'text' => $per->getPerson()->getFullName(),
+                                    'uri' => $per->getPerson()->getViewURI()
+                                ];
+                            } else  {
                                 $fam = $per->getPerson()->getFamily();
 
                                 $address = "";

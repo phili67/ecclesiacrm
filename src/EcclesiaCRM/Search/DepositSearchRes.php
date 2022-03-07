@@ -53,13 +53,13 @@ class DepositSearchRes extends BaseSearchRes
                         ->leftJoinPledge()
                         ->where( DepositTableMap::COL_DEP_COMMENT." LIKE  '".$searchLikeString."' OR ".DepositTableMap::COL_DEP_ID." = '".$qry."' OR ".PledgeTableMap::COL_PLG_CHECKNO." LIKE  '".$searchLikeString."'");
 
-                    if (!$this->isGlobalSearch()) {
+                    if ( $this->isQuickSearch() ) {
                         $Deposits->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
                     }
 
                     $Deposits->find();
 
-                    if (!is_null($Deposits))
+                    if ( $Deposits->count() > 0)
                     {
                         $id=1;
 

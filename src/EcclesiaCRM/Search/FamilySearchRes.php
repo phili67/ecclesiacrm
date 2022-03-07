@@ -46,7 +46,8 @@ class FamilySearchRes extends BaseSearchRes
                     $families->filterByName("%$qry%", Criteria::LIKE)
                         ->_or()->filterByHomePhone($searchLikeString, Criteria::LIKE)
                         ->_or()->filterByCellPhone($searchLikeString, Criteria::LIKE)
-                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE);
+                        ->_or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)
+                        ->_or()->filterByEmail($searchLikeString, Criteria::LIKE);
                 }
 
                 $compareOp = ">";
@@ -54,7 +55,11 @@ class FamilySearchRes extends BaseSearchRes
                     $compareOp = "=";
                 }
 
-                if ( !($this->isGlobalSearch() or $this->isStringSearch()) ) {
+                $isGlobalSearch = $this->isGlobalSearch();
+                $isStringSearch = $this->isStringSearch();
+                $isQuickSearch  = $this->isQuickSearch();
+
+                if ( $isQuickSearch ) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
                         ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
                 } else {
@@ -62,20 +67,22 @@ class FamilySearchRes extends BaseSearchRes
                         ->where('res.cnt'.$compareOp.'1 AND Family.Id=res.FamId')->find();
                 }
 
-
-                if (!is_null($families))
+                if ( $families->count() > 0 )
                 {
                     $id=1;
+                    $res_buffer = [];
 
                     foreach ($families as $family)
                     {
-                        $elt=[
-                            "id" => 'family-id-'.$id++,
-                            "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                            "uri" => $family->getViewURI()
-                        ];
+                        if ( $isQuickSearch ) {
+                          $elt=[
+                              "id" => 'family-id-'.$id++,
+                              "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                              "uri" => $family->getViewURI()
+                          ];
 
-                        if ($this->isGlobalSearch()) {
+                          array_push($this->results,$elt);
+                        } else {
                             $members = $family->getPeopleSorted();
 
                             $res_members = [];
@@ -83,7 +90,7 @@ class FamilySearchRes extends BaseSearchRes
 
                             foreach ($members as $member) {
                                 $res_members[] = $member->getId();
-                                $globalMembers .= '• <a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$member->getId().'">'.$member->getFirstName()." ".$member->getLastName()."</a><br>";
+                                $globalMembers .= '• <a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $member->getId() . '">' . $member->getFirstName() . " " . $member->getLastName() . "</a><br>";
                             }
 
                             $inCart = Cart::FamilyInCart($family->getId());
@@ -93,9 +100,9 @@ class FamilySearchRes extends BaseSearchRes
                                 $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyEditor.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
-                                .'<i class="fas fa-square fa-stack-2x"></i>'
-                                .'<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
-                                .'</span>';
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-pencil-alt fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>&nbsp;';
                             }
@@ -105,9 +112,9 @@ class FamilySearchRes extends BaseSearchRes
                                     $res .= '<a class="AddToFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
-                                    .'                </span>';
+                                    . '                <i class="fas fa-square fa-stack-2x"></i>'
+                                    . '                <i class="fas fa-stack-1x fa-inverse fa-cart-plus"></i>'
+                                    . '                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= '                </a>';
                                 }
@@ -116,9 +123,9 @@ class FamilySearchRes extends BaseSearchRes
                                     $res .= '<a class="RemoveFromFamilyCart" data-cartfamilyid="' . $family->getId() . '">';
                                 }
                                 $res .= '                <span class="fa-stack">'
-                                    .'                <i class="fas fa-square fa-stack-2x"></i>'
-                                    .'                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
-                                    .'                </span>';
+                                    . '                <i class="fas fa-square fa-stack-2x"></i>'
+                                    . '                <i class="fas fa-times fa-stack-1x fa-inverse"></i>'
+                                    . '                </span>';
                                 if (SessionUser::getUser()->isShowCartEnabled()) {
                                     $res .= '               </a>';
                                 }
@@ -128,30 +135,49 @@ class FamilySearchRes extends BaseSearchRes
                                 $res .= '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">';
                             }
                             $res .= '<span class="fa-stack">'
-                                .'<i class="fas fa-square fa-stack-2x"></i>'
-                                .'<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
-                                .'</span>';
+                                . '<i class="fas fa-square fa-stack-2x"></i>'
+                                . '<i class="fas fa-search-plus fa-stack-1x fa-inverse"></i>'
+                                . '</span>';
                             if (SessionUser::getUser()->isShowCartEnabled()) {
                                 $res .= '</a>&nbsp;';
                             }
 
-                            $elt = [
-                                "id" => $family->getId(),
-                                "img" => '<img src="/api/families/'.$family->getId().'/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
-                                "searchresult" => _("Family").' : <a href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID='.$family->getId().'" data-toggle="tooltip" data-placement="top" title="'._('Edit').'">'.$family->getName().'</a>'." "._("Members")." : <br>".$globalMembers,
-                                "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled())?_('Private Data'):$family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                                "type" => (mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles')))?_("Singles"):_($this->getGlobalSearchType()),
-                                "realType" => $this->getGlobalSearchType(),
-                                "Gender" => "",
-                                "Classification" => "",
-                                "ProNames" => "",
-                                "FamilyRole" => "",
-                                "members" => $res_members,
-                                "actions" => $res
-                            ];
-                        }
+                            if ( $isStringSearch ) {
+                                $tableOfRes = [$family->getName(), $family->getEmail(),
+                                    $family->getHomePhone(), $family->getCellPhone(), $family->getWorkPhone(), $family->getState()];
 
-                        array_push($this->results,$elt);
+                                if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+                                    array_merge($tableOfRes, [_($family->getFamilyString())]);
+                                }
+
+                                foreach ($tableOfRes as $item) {
+                                    if (mb_strpos(mb_strtolower($item), mb_strtolower($qry)) !== false and !in_array($item, $res_buffer)) {
+                                        $elt = ['id' => 'searchname-family-id-' . ($id++),
+                                            'text' => $item,
+                                            'uri' => ""];
+                                        array_push($this->results, $elt);
+                                        array_push($res_buffer, $item);
+                                    }
+                                }
+                            } elseif ( $isGlobalSearch ) {
+                                $elt = [
+                                    "id" => $family->getId(),
+                                    "img" => '<img src="/api/families/' . $family->getId() . '/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px">',
+                                    "searchresult" => _("Family") . ' : <a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $family->getId() . '" data-toggle="tooltip" data-placement="top" title="' . _('Edit') . '">' . $family->getName() . '</a>' . " " . _("Members") . " : <br>" . $globalMembers,
+                                    "address" => (!SessionUser::getUser()->isSeePrivacyDataEnabled()) ? _('Private Data') : $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                    "type" => (mb_strtolower($qry) == mb_strtolower(_('single')) || mb_strtolower($qry) == mb_strtolower(_('singles'))) ? _("Singles") : _($this->getGlobalSearchType()),
+                                    "realType" => $this->getGlobalSearchType(),
+                                    "Gender" => "",
+                                    "Classification" => "",
+                                    "ProNames" => "",
+                                    "FamilyRole" => "",
+                                    "members" => $res_members,
+                                    "actions" => $res
+                                ];
+
+                                array_push($this->results,$elt);
+                            }
+                        }
                     }
                 }
             } catch (Exception $e) {

@@ -46,23 +46,23 @@ class GroupSearchRes extends BaseSearchRes
                         ->select(['displayName', 'uri', 'Id']);
                 }
 
-                if (!$this->isGlobalSearch()) {
+                if ( $this->isQuickSearch() ) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
                 $groups->find();
 
 
-                if (!is_null($groups))
+                if ( $groups->count() > 0 )
                 {
                     $id=1;
 
                     foreach ($groups as $group) {
-                        $elt = ['id'=>'group-'.$id++,
-                            'text'=>$group['displayName'],
-                            'uri'=>$group['uri']];
-
-                        if ($this->isGlobalSearch()) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => 'group-' . $id++,
+                                'text' => $group['displayName'],
+                                'uri' => $group['uri']];
+                        } else {
                             $members = Person2group2roleP2g2rQuery::create()->findByGroupId($group['Id']);
 
                             $res_members = [];

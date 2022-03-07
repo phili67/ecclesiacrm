@@ -227,7 +227,7 @@ class PersonSearchRes extends BaseSearchRes
 
                     $people->find();
 
-                    if (!is_null($people)) {
+                    if ( $people->count() > 0 ) {
                         $id = 1;
                         $res_buffer = [];
 
@@ -319,7 +319,7 @@ class PersonSearchRes extends BaseSearchRes
 
                                 foreach ($tableOfRes as $item){
                                     if (mb_strpos( mb_strtolower($item),mb_strtolower($qry)) !== false and !in_array($item, $res_buffer)){
-                                        $elt = ['id' => 'searchname-id-' . $id++,
+                                        $elt = ['id' => 'searchname-person-id-' . ($id++),
                                             'text' => $item,
                                             'uri' => ""];
                                         array_push($this->results, $elt);
