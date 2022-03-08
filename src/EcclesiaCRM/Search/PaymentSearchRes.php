@@ -10,6 +10,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Service\FinancialService;
+use EcclesiaCRM\Search\SearchLevel;
 
 
 class PaymentSearchRes extends BaseSearchRes
@@ -40,7 +41,7 @@ class PaymentSearchRes extends BaseSearchRes
                                 'text'=>$Payment['displayName'],
                                 'uri'=>$Payment['uri']];
 
-                            if ($this->global_search) {
+                            if ($this->isGlobalSearch()) {
                                 $elt = [
                                     "id" => -1,
                                     "img" => '<i class="fas fa-university fa-2x"></i>',

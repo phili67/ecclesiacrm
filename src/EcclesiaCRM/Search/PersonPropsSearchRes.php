@@ -61,24 +61,24 @@ class PersonPropsSearchRes extends BaseSearchRes
                     ->addAscendingOrderByColumn('ProName')
                     ->addAscendingOrderByColumn('ProTypeName');
 
-                if (!$this->global_search) {
+                if ( $this->isQuickSearch() ) {
                     $person_Props->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
                 $person_Props->find();
 
 
-                if (!is_null($person_Props))
+                if ( $person_Props->count() > 0 )
                 {
                     $id=1;
 
                     foreach ($person_Props as $per) {
-                        $elt = ['id' => 'person-props-id-'.$id++,
-                            'text' => $per->getFullName()." (".$per->getProName().")",
-                            'uri' => $per->getViewURI()
-                        ];
-
-                        if ($this->global_search) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => 'person-props-id-' . $id++,
+                                'text' => $per->getFullName() . " (" . $per->getProName() . ")",
+                                'uri' => $per->getViewURI()
+                            ];
+                        } else {
                             $fam = $per->getFamily();
 
                             $address = "";

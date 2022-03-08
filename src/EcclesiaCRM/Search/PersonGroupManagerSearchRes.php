@@ -55,24 +55,24 @@ class PersonGroupManagerSearchRes extends BaseSearchRes
                 }
 
 
-                if ( !$this->global_search ) {
+                if ( $this->isQuickSearch() ) {
                     $persons->limit(SystemConfig::getValue("iSearchIncludePersonsMax"))
                         ->find();
                 } else {
                     $persons->find();
                 }
 
-                if ( !is_null($persons) ) {
+                if ( $persons->count() > 0 ) {
 
                     $id = 1;
 
                     foreach ($persons as $per) {
-                        $elt = ['id' => 'person-group-manager-id-' . $id++,
-                            'text' => $per->getPerson()->getFullName(),
-                            'uri' => "/v2/group/".$per->getGroup()->getId()."/view"
-                        ];
-
-                        if ($this->global_search) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => 'person-group-manager-id-' . $id++,
+                                'text' => $per->getPerson()->getFullName(),
+                                'uri' => "/v2/group/" . $per->getGroup()->getId() . "/view"
+                            ];
+                        } else  {
                             $fam = $per->getPerson()->getFamily();
 
                             $address = "";

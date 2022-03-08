@@ -55,22 +55,22 @@ class PersonVolunteerOpportunitySearchRes extends BaseSearchRes
                         ->endUse();
                 }
 
-                if (!$this->global_search) {
+                if ( $this->isQuickSearch() ) {
                     $pers->limit(SystemConfig::getValue("iSearchIncludePersonsMax"));
                 }
 
                 $pers->find();
 
 
-                if (!is_null($pers)) {
+                if ( $pers->count() > 0) {
                     $id=1;
 
                     foreach ($pers as $per) {
-                        $elt = ['id' => "person-vol-id-".$id++,
-                            'text' => $per->getTitle() . " : " . $per->getLastName(). " ".$per->getFirstName(),
-                            'uri' => SystemURLs::getRootPath() . "/PersonView.php?PersonID=" . $per->getId()];
-
-                        if ($this->global_search) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => "person-vol-id-" . $id++,
+                                'text' => $per->getTitle() . " : " . $per->getLastName() . " " . $per->getFirstName(),
+                                'uri' => SystemURLs::getRootPath() . "/PersonView.php?PersonID=" . $per->getId()];
+                        } else {
                             $fam = $per->getFamily();
 
                             $address = "";

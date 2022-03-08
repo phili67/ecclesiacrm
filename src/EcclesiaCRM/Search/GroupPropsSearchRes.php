@@ -33,7 +33,7 @@ class GroupPropsSearchRes extends BaseSearchRes
             try {
                 $groups = GroupQuery::create();
 
-                if (!$this->global_search) {
+                if ( $this->isQuickSearch() ) {
                     $groups->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"));
                 }
 
@@ -53,15 +53,15 @@ class GroupPropsSearchRes extends BaseSearchRes
 
                 $groups->find();
 
-                if (!is_null($groups)) {
+                if ( $groups->count() > 0 ) {
                     $id = 1;
 
                     foreach ($groups as $group) {
-                        $elt = ['id'=>'group-props-'.$id++,
-                            'text'=>$group->getName(),
-                            'uri'=> "/v2/group/" . $group->getId() . "/view"];
-
-                        if ($this->global_search) {
+                        if ( $this->isQuickSearch() ) {
+                            $elt = ['id' => 'group-props-' . $id++,
+                                'text' => $group->getName(),
+                                'uri' => "/v2/group/" . $group->getId() . "/view"];
+                        } else  {
                             $members = Person2group2roleP2g2rQuery::create()->findByGroupId($group->getId());
 
                             $res_members = [];

@@ -32,7 +32,7 @@ class FamilyPropsSearchRes extends BaseSearchRes
             try {
                 $families = FamilyQuery::create();
 
-                if (!$this->global_search) {
+                if ( $this->isQuickSearch() ) {
                     $families->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
                 }
 
@@ -54,10 +54,9 @@ class FamilyPropsSearchRes extends BaseSearchRes
                     //->addAsColumn('ProTypeName', PropertyTypeTableMap::COL_PRT_NAME)
                     ->where(PropertyTableMap::COL_PRO_CLASS . "='f' AND (" . PropertyTableMap::COL_PRO_NAME . " LIKE '%".$qry."%' OR " . Record2propertyR2pTableMap::COL_R2P_VALUE . " LIKE '%".$qry."%' )");
 
-
                 $families->find();
 
-                if (!is_null($families)) {
+                if ( $families->count() > 0 ) {
                     $id = 1;
 
                     foreach ($families as $family) {
@@ -65,13 +64,14 @@ class FamilyPropsSearchRes extends BaseSearchRes
                             continue;
                         }
 
-                        $elt = [
-                            "id" => 'family-props-id-' . $id++,
-                            "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                            "uri" => $family->getViewURI()
-                        ];
+                        if ( $this->isQuickSearch() ) {
+                            $elt = [
+                                "id" => 'family-props-id-' . $id++,
+                                "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                "uri" => $family->getViewURI()
+                            ];
 
-                        if ($this->global_search) {
+                        } else {
                             $members = $family->getPeopleSorted();
 
                             $res_members = [];

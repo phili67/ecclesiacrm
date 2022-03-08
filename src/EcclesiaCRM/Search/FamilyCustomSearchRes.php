@@ -49,23 +49,23 @@ class FamilyCustomSearchRes extends BaseSearchRes
                         $familiesCustom->_or();
                     }
 
-                    if (!$this->global_search) {
+                    if ( $this->isQuickSearch() ) {
                         $familiesCustom->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"));
                     }
 
                     $familiesCustom->find();
 
-                    if (!is_null($familiesCustom))
+                    if ( $familiesCustom->count() > 0)
                     {
                         $id=1;
 
                         foreach ($familiesCustom as $fam) {
-                            $elt = ['id' => 'family-custom-id-'.$id++,
-                                "text" => $fam->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
-                                "uri" => $fam->getFamily()->getViewURI()
-                            ];
-
-                            if ($this->global_search) {
+                            if ( $this->isQuickSearch() ) {
+                                $elt = ['id' => 'family-custom-id-' . $id++,
+                                    "text" => $fam->getFamily()->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
+                                    "uri" => $fam->getFamily()->getViewURI()
+                                ];
+                            } else {
                                 $members = $fam->getFamily()->getPeopleSorted();
 
                                 $res_members = [];
