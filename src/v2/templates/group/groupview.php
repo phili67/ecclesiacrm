@@ -451,7 +451,7 @@ if ( $_SESSION['bManageGroups'] ) {
     </div>
     <div class="card-body">
         <!-- START GROUP MEMBERS LISTING  -->
-        <table class="table" id="membersTable"></table>
+        <table class="table" id="membersTable" style="width: 100%;"></table>
         <!-- END GROUP MEMBERS LISTING -->
     </div>
 </div>
