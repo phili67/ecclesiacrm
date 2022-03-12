@@ -64,7 +64,7 @@ class MenuBar extends Menu
                     if ($grp_sec == false) {
                         break;
                     }
-                    $menu = new Menu (_("Meeting"). " : ".$menuBarItem->getDisplayName(),
+                    $menu = new Menu ($menuBarItem->getDisplayName(),
                         $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($plugin->getCategoryPosition() == 'inside_category_menu')?$main_menu:null);
                     $this->addMenu($menu);
 
