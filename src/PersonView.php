@@ -638,7 +638,7 @@ if (!empty($person->getDateDeactivated())) {
                             if ($sEmail != '') {
                                 ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
-                                            href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
+                                            href="mailto:<?= $sUnformattedEmail ?>" target="_blank"><?= $sEmail ?></a></span></li>
                                 <?php
                                 if ($isMailChimpActive) {
                                     ?>
@@ -660,7 +660,7 @@ if (!empty($person->getDateDeactivated())) {
                                 ?>
                                 <li><strong><i class="fa-li far fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
                                     <span><a
-                                            href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span>
+                                            href="mailto:<?= $person->getWorkEmail() ?>"  target="_blank"><?= $person->getWorkEmail() ?></a></span>
                                 </li>
                                 <?php
                                 if ($isMailChimpActive) {
@@ -764,10 +764,10 @@ if (!empty($person->getDateDeactivated())) {
                         $buttons++;
                         ?>
                         <a class="btn btn-app"
-                           href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"><i
+                           href="mailto:<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"  target="_blank"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
                         <a class="btn btn-app"
-                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"><i
+                           href="mailto:?bcc=<?= urlencode(str_replace("<i class='fas  fa-tree'></i>", "", $sEmail)) ?>"  target="_blank"><i
                                 class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                         <?php
                     }
@@ -1154,7 +1154,7 @@ if (!empty($person->getDateDeactivated())) {
 
                                                 if ($tmpEmail != '') {
                                                     ?>
-                                                    <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
+                                                    <a href="mailto:<?= $tmpEmail ?>"  target="_blank"><?= $tmpEmail ?></a>
                                                     <?php
                                                 }
                                                 ?>

@@ -203,7 +203,7 @@ $sFamilyEmails = [];
                         if ($family->getEmail() != "") {
                             ?>
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _("Email") ?>:</strong>
-                                <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
+                                <a href="mailto:<?= $family->getEmail() ?>" target="_blank"><span><?= $family->getEmail() ?></span></a>
                             </li>
                             <?php
                             if ($mailchimp->isActive()) {

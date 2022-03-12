@@ -170,7 +170,7 @@ require $sRootDocument . '/Include/Header.php';
                 // Display link
                 ?>
                 <div class="btn-group">
-                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="far fa-paper-plane"></i><?= _("Email Group") ?></a>
+                    <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="far fa-paper-plane"></i><?= _("Email Group") ?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
@@ -181,7 +181,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
 
                 <div class="btn-group">
-                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
+                    <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>" target="_blank"><i class="fas fa-paper-plane"></i><?= _("Email (BCC)") ?></a>
                     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>

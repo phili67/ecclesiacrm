@@ -68,7 +68,7 @@ $("document").ready(function () {
                     res += '<p></p>';
                 }
                 res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-success btn-sm btn-block"><i' +
-                    '      class="far fa-envelope"></i> ' + i18next.t('Send Message') + '</a>' +
+                    '      class="far fa-envelope" target="_blank"></i> ' + i18next.t('Send Message') + '</a>' +
                     '        <a href="' + window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" ' +
                     '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fas fa-user"></i> ' + i18next.t('View Profile') + '</a>' +
                     '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" ' +
@@ -490,7 +490,7 @@ $("document").ready(function () {
                     if (!canSeePrivacyData) {
                         return i18next.t('Private Data');
                     }
-                    return '<a href="mailto:' + data + '">' + data + '</a>';
+                    return '<a href="mailto:' + data + '" target="_blank">' + data + '</a>';
                 }
             },
             {
@@ -570,7 +570,7 @@ $("document").ready(function () {
                     }
 
                     if (data != null) {
-                        return '<a href="mailto:' + data + '">' + data + '</a>';
+                        return '<a href="mailto:' + data + '" target="_blank">' + data + '</a>';
                     }
 
                     return '';
@@ -618,7 +618,7 @@ $("document").ready(function () {
                     }
 
                     if (data != null) {
-                        return '<a href="mailto:' + data + '">' + data + '</a>';
+                        return '<a href="mailto:' + data + '" target="_blank">' + data + '</a>';
                     }
 
                     return '';

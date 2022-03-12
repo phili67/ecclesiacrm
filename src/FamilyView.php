@@ -374,7 +374,7 @@ require 'Include/Header.php';
                         if ($family->getEmail() != "") {
                             ?>
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _("Email") ?>:</strong>
-                                <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
+                                <a href="mailto:<?= $family->getEmail() ?>" target="_blank"><span><?= $family->getEmail() ?></span></a>
                             </li>
                             <?php
                             if ($mailchimp->isActive()) {
@@ -455,9 +455,9 @@ require 'Include/Header.php';
 
                         $emails = mb_substr($emails, 0, -1)
                         ?>
-                        <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i
+                        <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>" target="_blank"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
-                        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i
+                        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>" target="_blank"><i
                                 class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                         <?php
                     }
@@ -590,7 +590,7 @@ require 'Include/Header.php';
                                         if ($tmpEmail != "") {
                                             array_push($sFamilyEmails, $tmpEmail);
                                             ?>
-                                            <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
+                                            <a href="mailto:<?= $tmpEmail ?>" target="_blank"><?= $tmpEmail ?></a>
                                             <?php
                                         }
                                         ?>

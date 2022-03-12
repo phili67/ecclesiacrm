@@ -220,7 +220,7 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
          ?>
          <tr class="<?= $sRowClass ?>">
            <td class="TextColumn"><?= OutputUtils::FormatFullName($aTitle[$row], $aFistName[$row], $aMiddleName[$row], $aLastName[$row], $aSuffix[$row], 3) ?></td>
-           <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email">'.$aEmail[$row].'</a>' : _('Not Available') ?></td>
+           <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email" target="_blank">'.$aEmail[$row].'</a>' : _('Not Available') ?></td>
            <td class="TextColumn"><?= $aHomePhone[$row] ? $aHomePhone[$row] : _('Not Available') ?></td>
 <?php
 // AddToCart call to go here
