@@ -21,7 +21,6 @@ use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\PluginMenuBarreQuery;
-use EcclesiaCRM\PluginUserRoleQuery;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\MailChimpService;
@@ -52,6 +51,7 @@ class MenuBar extends Menu
             $menuBarItems = PluginMenuBarreQuery::create()->filterByName($plugin->getName())->find();
             $first_One = true;
             $menu_count = $menuBarItems->count();
+            $menu = null;
             foreach ($menuBarItems as $menuBarItem) {
                 $grp_sec = true;
                 if ( SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName()) ) {
@@ -64,9 +64,12 @@ class MenuBar extends Menu
                     if ($grp_sec == false) {
                         break;
                     }
-                    $menu = new Menu (_("Meeting"). " : ".$menuBarItem->getDisplayName(),
+                    $menu = new Menu (_($menuBarItem->getDisplayName()),
                         $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec , ($plugin->getCategoryPosition() == 'inside_category_menu')?$main_menu:null);
-                    $this->addMenu($menu);
+
+                    if ($plugin->getCategoryPosition() == 'after_category_menu') {
+                        $this->addMenu($menu);
+                    }
 
                     if ($menu_count > 1) {
                         $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", $menuBarItem->getURL(), true, $menu);

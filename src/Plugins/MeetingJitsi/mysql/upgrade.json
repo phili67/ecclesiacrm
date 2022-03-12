@@ -1,11 +1,11 @@
 {
-          "current": {
-                   "versions": [
-                   ],
-                   "prescripts": [
-                   ],
-                   "scripts": [
-                   ],
-                   "dbVersion": "1.0.0"
-               }
-           }
+    "current": {
+        "versions": [
+        ],
+        "prescripts": [
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "1.0.0"
+    }
+}
