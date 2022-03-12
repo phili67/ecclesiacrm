@@ -80,9 +80,9 @@ if ($iNumPersons > 0) {
             if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                 // Display link
                 ?>
-                <a href="mailto:<?= $sEmailLink ?>" class="btn btn-app" id="emailLink"><i
+                <a href="mailto:<?= $sEmailLink ?>" class="btn btn-app" id="emailLink" target="_blank"><i
                         class='far fa-paper-plane'></i><?= _('Email Cart') ?></a>
-                <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app" id="emailCCIlink"><i
+                <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app" id="emailCCIlink" target="_blank"><i
                         class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                 <?php
             }

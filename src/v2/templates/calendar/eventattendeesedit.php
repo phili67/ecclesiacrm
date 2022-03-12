@@ -94,7 +94,7 @@ require $sRootDocument . '/Include/Header.php';
                     $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), (!empty($fam)) ? $fam->getEmail() : "", false); ?>
                     <tr>
                         <td class="TextColumn"><?= OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) ?></td>
-                        <td class="TextColumn"><?= $sEmail ? '<a href="mailto:' . $sEmail . '" title="Send Email">' . $sEmail . '</a>' : _('Not Available') ?></td>
+                        <td class="TextColumn"><?= $sEmail ? '<a href="mailto:' . $sEmail . '" title="Send Email" target="_blank">' . $sEmail . '</a>' : _('Not Available') ?></td>
                         <td class="TextColumn"><?= $sHomePhone ? '<a href="tel:' . $sHomePhone . '" title="Phone to">' . $sHomePhone . '</a>' : _('Not Available') ?></td>
                         <td colspan="1" align="center">
                             <a class="btn btn-danger btn-sm DeleleAttendees" data-personid="<?= $person->getId() ?>"

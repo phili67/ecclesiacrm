@@ -289,7 +289,7 @@ $sFamilyEmails = [];
                         if ($sEmail != '') {
                             ?>
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _('Email') ?>:</strong> <span><a
-                                        href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
+                                        href="mailto:<?= $sUnformattedEmail ?>" target="_blank"><?= $sEmail ?></a></span></li>
                             <?php
                             if ($isMailChimpActive) {
                                 ?>
@@ -311,7 +311,7 @@ $sFamilyEmails = [];
                             ?>
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _('Work/Other Email') ?>:</strong>
                                 <span><a
-                                        href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span>
+                                        href="mailto:<?= $person->getWorkEmail() ?>" target="_blank"><?= $person->getWorkEmail() ?></a></span>
                             </li>
                             <?php
                             if ($isMailChimpActive) {
