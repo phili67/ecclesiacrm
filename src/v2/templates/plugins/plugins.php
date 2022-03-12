@@ -110,7 +110,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                     </td>
                     <td>
                         <div class="plugin-description">
-                            <p><?= $json_a['Description'] ?></p>
+                            <p><?= $json_a['Description'] ?> (<?= $json_a['copyrights'] ?>)</p>
                         </div>
                         <div class="active second plugin-version-author-uri">Version <?= $json_a['version'] ?> | By <a
                                 href="<?= $json_a['url_infos'] ?>"><?= $json_a['infos'] ?></a> | <a
@@ -122,7 +122,11 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
                         <?= $plugin->getActiv()?_("Activated Plugin"):_("Deactivated Plugin") ?>
                     </td>
                     <td>
-                        <?= $plugin->getDescription() ?>
+                        <!--
+                        TODO : plugins remote manage
+                        <a href="#" class="dropdown-item"><?= _("Add new plugin") ?></a>
+                        <a class="dropdown-divider" style="color: #0c0c0c"></a>
+                        -->
                     </td>
 
                 </tr>
