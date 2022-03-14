@@ -837,7 +837,7 @@ class CalendarService
             }
         }
 
-        return true;
+        return $event->getId();
     }
 
     public function removeEventFromCalendar($calendarID, $eventID, $reccurenceID = null)
