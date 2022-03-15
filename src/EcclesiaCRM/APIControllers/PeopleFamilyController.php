@@ -113,6 +113,8 @@ class PeopleFamilyController
             $family = FamilyQuery::create()->findPk($values->familyId);
             return $response->write($family->toJSON());
         }
+
+        return $response;
     }
 
     public function numbersOfAnniversaries (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
@@ -248,6 +250,8 @@ class PeopleFamilyController
             $family->createTimeLineNote("verify-URL");
             return $response->withJSON(["url" => "external/verify/" . $token->getToken()]);
         }
+
+        return $response;
     }
 
     public function familyActivateStatus (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
