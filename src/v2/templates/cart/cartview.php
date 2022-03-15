@@ -25,7 +25,7 @@ require $sRootDocument . '/Include/Header.php';
 if ($iNumPersons > 0) {
     ?>
     <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _("Cart Functions") ?></h3>
         </div>
         <div class="card-body">
@@ -128,7 +128,7 @@ if ($iNumPersons > 0) {
     <!-- /.card -->
     <!-- Default card -->
     <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Generate Labels') ?></h3>
         </div>
         <form method="get" action="<?= $sRootPath ?>/Reports/PDFLabel.php" name="labelform">
@@ -190,7 +190,7 @@ if ($iNumPersons > 0) {
 <!-- BEGIN CART LISTING -->
 <?php if (isset($iNumPersons) && $iNumPersons > 0): ?>
     <div class="card card-primary">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title">
                 <?= _('Your cart contains') . ' ' . $iNumPersons . ' ' . _('persons from') . ' ' . $iNumFamilies . ' ' . _('families') ?>
                 .</h3>

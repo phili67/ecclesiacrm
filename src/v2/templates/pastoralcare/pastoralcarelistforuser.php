@@ -16,7 +16,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card card-default">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title">
             <?= _("Members")." / "._("Families") ?>
         </h3>

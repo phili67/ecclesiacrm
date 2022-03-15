@@ -305,7 +305,7 @@ function DoQuery()
     </div>
 
     <div class="card card-info">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <div class="card-title">Query</div>
         </div>
         <div class="card-body">

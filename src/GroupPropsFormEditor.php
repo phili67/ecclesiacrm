@@ -66,7 +66,7 @@ require 'Include/Header.php'; ?>
 <p class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></p>
 
 <div class="card">
-<div class="card-header border-0">
+<div class="card-header border-1">
     <h3 class="card-title"><?= _('Group-Specific Properties') ?></h3>
 </div>
 
@@ -462,7 +462,7 @@ if ($numRows == 0) {
 </center>
 </div>
 <div class="card">
-<div class="card-header border-0">
+<div class="card-header border-1">
   <h3 class="card-title"><?= _("Add Group-Specific Properties") ?></h3>
 </div>
 

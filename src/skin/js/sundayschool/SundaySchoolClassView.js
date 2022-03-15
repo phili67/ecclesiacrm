@@ -54,7 +54,7 @@ $("document").ready(function () {
                 res += '<div class="col-md-3">' +
                     '        <!-- Begin user profile -->' +
                     '        <div class="card text-center user-profile-2">' +
-                    '            <div class="card-header border-0">' +
+                    '            <div class="card-header border-1">' +
                     '               <h4 class="card-title-sundayschool-view" style="float:center !important">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>' +
                     '            </div>' +
                     '            <div class="card-body">';

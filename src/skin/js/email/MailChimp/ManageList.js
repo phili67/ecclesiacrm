@@ -75,7 +75,7 @@ $(document).ready(function () {
 
                 var list = data.MailChimpList;
 
-                var listView = '<div class="card-header border-0">'
+                var listView = '<div class="card-header border-1">'
                     + '      <h3 class="card-title"><i class="fas fa-list"></i> ' + i18next.t('Email List') + '   (' + i18next.t('Details') + ')</h3>'
                     + '      <div class="card-tools pull-right">'
                     + '          <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>'
@@ -531,7 +531,7 @@ $(document).ready(function () {
                         }
                     }
                 });
-                
+
                 event.startPropagation();
             });
         });

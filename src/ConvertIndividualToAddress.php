@@ -57,7 +57,7 @@ $iFamilyID = $lastEntry->getiFamilyID();
 ?>
 
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  border-1">
         <h3 class="card-title"><?= _("Family")." ID" ?></h3>
     </div>
     <div class="card-body">

@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="col-md-3">
             <div class="sticky-top">
                 <div class="card card-lightblue">
-                    <div class="card-header border-0">
+                    <div class="card-header border-1">
                         <h3 class="card-title"><?= _("Filters") ?></h3>
                     </div>
                     <div class="row" style="padding:5px">

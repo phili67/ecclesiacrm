@@ -41,7 +41,7 @@ $(document).ready(function () {
             var list = data.MailChimpLists[i];
 
             listViews += '<div class="card card-gray">'
-            +'    <div class="card-header   border-0">'
+            +'    <div class="card-header   border-1">'
             +'      <h3 class="card-title"><i class="fas fa-list"></i> '+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
             +'    <div class="card-body">'

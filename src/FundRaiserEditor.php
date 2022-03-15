@@ -155,7 +155,7 @@ require 'Include/Header.php';
 
 ?>
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('infos') ?></h3>
     </div>
     <div class="card-body">
@@ -241,7 +241,7 @@ require 'Include/Header.php';
 
 <?php if ($iFundRaiserID != -1) { ?>
     <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Donated items for this fundraiser') ?></h3>
         </div>
         <div class="card-body">

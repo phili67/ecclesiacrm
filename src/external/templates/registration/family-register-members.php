@@ -16,7 +16,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
 
         <div class="register-box-body">
             <div class="card card-primary">
-                <div class="card-header border-0">
+                <div class="card-header border-1">
                     <h3 class="card-title"><?= _('Register') . ' <b>"' . $family->getName() . '"</b> ' . $familyCount . ' ' . _('Family Members') ?></h3>
                     <input id="famId" name="famId" type="hidden" value="<?= $family->getId() ?>">
                     <input id="familyCount" name="familyCount" type="hidden" value="<?= $familyCount ?>">
@@ -30,7 +30,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                                $x++) {
                         ?>
                         <div class="card card-secondary">
-                            <div class="card-header border-0">
+                            <div class="card-header border-1">
                                 <h4 class="card-title">
                                     <?= _("Family Member") . " #" . $x ?>
                                 </h4>
