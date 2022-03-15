@@ -40,7 +40,7 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <div class='card card-gray'>
-    <div class="card-header  border-0">
+    <div class="card-header  border-1">
         <div class="card-title">
             <?= _("Attendees") ?>
         </div>

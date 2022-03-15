@@ -19,7 +19,7 @@ require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");
                 </div>
 
                 <div class="card card-success">
-                    <div class="card-header border-0">
+                    <div class="card-header border-1">
                         <h3
                             class="card-title"><?= _('Thank you for registering your family.'); ?></h3>
                     </div>

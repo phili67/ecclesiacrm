@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('This tool will assist you in manually backing up the EcclesiaCRM database.') ?></h3>
     </div>
     <div class="card-body">
@@ -99,7 +99,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  border-1">
         <h1 class="card-title"><?= _('Backup Status:') ?> </h1>&nbsp;<h1 class="card-title" id="backupstatus"
                                                                         style="color:red"> <?= _('No Backup Running') ?></h1>
     </div>

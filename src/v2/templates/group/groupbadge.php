@@ -51,7 +51,7 @@ if (isset($_GET['typeProblem'])) {
 
 
 <div class="card card-secondary">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('Generate Badges') ?></h3>
     </div>
     <form method="post" action="<?= $sRootPath ?>/Reports/PDFBadgeGroup.php" name="labelform" enctype="multipart/form-data">

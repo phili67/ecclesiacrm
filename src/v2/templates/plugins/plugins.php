@@ -28,7 +28,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><i class="fas fa-plug"></i> <?= _('Plugins managements') ?></h3>
         <div class="card-tools">
             <div class="btn-group">

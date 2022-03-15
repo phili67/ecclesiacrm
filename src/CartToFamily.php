@@ -193,7 +193,7 @@ echo $sError;
 ?>
 <form method="post">
     <div class="card">
-        <div class="card-header  border-0">
+        <div class="card-header  border-1">
             <h3 class="card-title"><label><?= _("Members") ?></label></h3>
         </div>
         <?php
@@ -264,7 +264,7 @@ echo $sError;
     </div>
 
     <div class="card">
-        <div class="card-header  border-0">
+        <div class="card-header  border-1">
             <h3 class="card-title"><label><?= _("Choose or create a family") ?></label></h3>
         </div>
         <div class="card-body">

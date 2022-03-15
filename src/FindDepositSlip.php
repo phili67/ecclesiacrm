@@ -43,7 +43,7 @@ $donationFunds = DonationFundQuery::Create()->find();
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?php echo gettext('Add New Deposit: '); ?></h3>
     </div>
     <div class="card-body">
@@ -94,7 +94,7 @@ $donationFunds = DonationFundQuery::Create()->find();
 </div>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?php echo gettext('Deposits: '); ?></h3>
     </div>
     <div class="card-body">

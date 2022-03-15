@@ -41,7 +41,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  border-1">
         <h3 class="card-title"><i class="fas fa-user"></i> <?= _('Persons') ?></h3>
     </div>
     <div class="card-body">

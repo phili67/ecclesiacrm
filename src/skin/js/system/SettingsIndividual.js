@@ -282,7 +282,7 @@ $(document).ready(function () {
                 message = '<div  class="row">';
                 message += '<div class="col-md-12">';
                 message += '<div class="card card-success">';
-                message += '<div class="card-header  border-0">';
+                message += '<div class="card-header  border-1">';
                 message += '<h1 class="card-title">' + i18next.t("Keep these backup passwords in a safe place, in case you lose the OTP credentials.") + '</h1>';
                 message += '</div>';
                 message += '<div class="card-body">';

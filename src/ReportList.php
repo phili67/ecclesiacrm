@@ -42,7 +42,7 @@ require 'Include/Header.php';
 <div class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
           <h3 class="card-title"><?= _('Financial Reports') ?></h3>
         </div>
         <div class="card-body">
@@ -74,7 +74,7 @@ if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
       ?>
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
           <h3 class="card-title"><?= _('Event Attendance Reports') ?></h3>
         </div>
         <div class="card-body">

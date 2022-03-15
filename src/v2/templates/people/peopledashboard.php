@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <!-- Default box -->
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('People Functions') ?></h3>
     </div>
     <div class="card-body">
@@ -185,7 +185,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-6">
         <div class="card">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -239,7 +239,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg-6">
         <div class="card">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
                 <div class="card-tools pull-right">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -266,7 +266,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"> <i class="fas fa-chart-pie"></i> <?= _('Family Roles') ?></h3>
                 <div class="card-tools pull-right">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -303,7 +303,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-chart-bar"></i> <?= _('People Classification') ?></h3>
 
                 <div class="card-tools pull-right">
@@ -341,7 +341,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><i class="far fa-address-card"></i> <?= _('Gender Demographics') ?></h3>
 
                 <div class="card-tools pull-right">
@@ -356,7 +356,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
     <div class="col-lg-6">
         <div class="card card-default">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-birthday-cake"></i> <?= _('# Age Histogram')?></h3>
 
                 <div class="card-tools pull-left">

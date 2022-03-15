@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><i class="fas fa-list"></i> <?= _('Manage Email List') ?></h3>
                 <div style="float:right">
                     <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img
@@ -61,7 +61,7 @@ if ($isMailchimpActiv) {
     <div class="row">
         <div class="col-lg-9">
             <div class="card">
-                <div class="card-header border-0">
+                <div class="card-header border-1">
                     <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Subscribers') ?></h3>
                 </div>
                 <div class="card-body">

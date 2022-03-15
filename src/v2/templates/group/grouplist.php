@@ -49,7 +49,7 @@ require $sRootDocument . '/Include/Header.php';
 <br>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><i class="fas fa-users"></i> <?= _('Groups') ?></h3>
     </div>
     <div class="card-body">

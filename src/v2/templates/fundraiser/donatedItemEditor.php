@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
 
 <div class="card card-primary">
     <div class="card">
-        <div class="card-header  border-0">
+        <div class="card-header  border-1">
             <div class="card-title"><label><?= _("Infos") ?></label></div>
         </div>
         <div class="card-body">

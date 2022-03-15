@@ -709,7 +709,7 @@ require 'Include/Header.php';
     <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
     <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
     <div class="card card-info clearfix">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Family Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
@@ -807,7 +807,7 @@ require 'Include/Header.php';
         });
     </script>
     <div class="card card-info clearfix">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Contact Info') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
@@ -882,7 +882,7 @@ require 'Include/Header.php';
         </div>
     </div>
     <div class="card card-info clearfix">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Other Info') ?>:</h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
@@ -970,7 +970,7 @@ require 'Include/Header.php';
     </div>
     <?php if (SystemConfig::getValue('bUseDonationEnvelopes')) { /* Donation envelopes can be hidden - General Settings */ ?>
         <div class="card card-info clearfix">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3><?= _('Envelope Info') ?></h3>
                 <div class="pull-right">
                     <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
@@ -992,7 +992,7 @@ require 'Include/Header.php';
     if ($numCustomFields > 0) {
         ?>
         <div class="card card-info clearfix">
-            <div class="card-header border-0">
+            <div class="card-header border-1">
                 <h3 class="card-title"><?= _('Custom Fields') ?></h3>
                 <div class="pull-right">
                     <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">
@@ -1066,7 +1066,7 @@ require 'Include/Header.php';
         <?php
     } ?>
     <div class="card card-info clearfix">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Family Members') ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="FamilySubmit">

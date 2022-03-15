@@ -30,7 +30,7 @@ if (SessionUser::getUser()->isAddRecords()) {
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('Sunday School Class Functions') ?></h3>
     </div>
     <div class="card-body">
@@ -139,7 +139,7 @@ if (SessionUser::getUser()->isAddRecords()) {
 </div>
 
 <div class="card card-primary teachers">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h3 class="card-title"><?= _('Teachers') ?></h3>
 
         <div class="card-tools pull-right">
@@ -189,7 +189,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
     ?>
 
     <div class="card quick-status">
-        <div class="card-header border-0">
+        <div class="card-header border-1">
             <h3 class="card-title"><?= _('Quick Status') ?></h3>
 
             <div class="card-tools pull-right">
@@ -203,7 +203,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
                 <div class="col-md-8">
                     <!-- Bar chart -->
                     <div class="card">
-                        <div class="card-header border-0">
+                        <div class="card-header border-1">
                             <h3 class="card-title"><i class="fas fa-birthday-cake"></i> <?= _('Birthdays by Month') ?>
                             </h3>
                         </div>
@@ -217,7 +217,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
                 <div class="col-md-4">
                     <!-- Donut chart -->
                     <div class="card">
-                        <div class="card-header border-0">
+                        <div class="card-header border-1">
                             <h3 class="card-title"><i class="fas fa-chart-bar"></i> <?= _('Gender') ?></h3>
                         </div>
                         <div class="card-body">
@@ -241,7 +241,7 @@ if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header border-1">
         <h4 class="card-title"><?= _('Students') ?></h4>
         <div style="float:right;margin-left: 20px">
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>

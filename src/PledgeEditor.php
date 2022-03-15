@@ -577,7 +577,7 @@ require 'Include/Header.php';
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header border-0">
+                <div class="card-header border-1">
                     <h3 class="card-title"><?= _("Payment Details") ?></h3>
                 </div>
                 <div class="card-body">
@@ -811,7 +811,7 @@ require 'Include/Header.php';
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header border-0">
+                <div class="card-header border-1">
                     <h3 class="card-title"><?= _("Fund Split") ?></h3>
                 </div>
                 <div class="card-body">
