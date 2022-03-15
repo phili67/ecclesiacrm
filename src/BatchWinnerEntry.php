@@ -80,7 +80,7 @@ require 'Include/Header.php';
       action="<?= SystemURLs::getRootPath() ?>/BatchWinnerEntry.php?<?= 'CurrentFundraiser=' . '&linkBack=' . $linkBack ?>"
       name="BatchWinnerEntry">
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  ">
         <div class="card-title"><?= _("Articles") ?></div>
     </div>
     <div class="card-body">

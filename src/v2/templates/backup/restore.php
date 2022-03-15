@@ -17,7 +17,7 @@
 require $sRootDocument . '/Include/Header.php';
 ?>
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  ">
         <h3 class="card-title"><?= _('Select Database Files') ?></h3>
     </div>
     <div class="card-body">
@@ -43,7 +43,7 @@ require $sRootDocument . '/Include/Header.php';
     </div>
 </div>
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  ">
         <h3 class="card-title"><?= _('Restore Status:') ?></h3>&nbsp;<h3 class="card-title" id="restorestatus"
                                                                         style="color:red"><?= _('No Restore Running') ?></h3>
         <div id="restoreMessages"></div>

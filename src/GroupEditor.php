@@ -73,7 +73,7 @@ require 'Include/Header.php';
 <!-- END GROUP SPECIFIC PROPERTIES MODAL-->
 
 <div class="card">
-  <div class="card-header  border-0">
+  <div class="card-header  ">
     <h3 class="card-title"><?= (($theCurrentGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
   </div>
   <div class="card-body">
@@ -186,7 +186,7 @@ require 'Include/Header.php';
   </div>
 </div>
 <div class="card">
-  <div class="card-header  border-0">
+  <div class="card-header  ">
     <h3 class="card-title"><?= _('Group Roles') ?>:</h3>
   </div>
   <div class="card-body">

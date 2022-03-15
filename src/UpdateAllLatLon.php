@@ -21,7 +21,7 @@ if ($families->count() > 0) {
 ?>
 <div class="card card-body box-info">
 
-  <div class="card-header border-0">
+  <div class="card-header ">
     <h3 class="card-title"><?= _('Families without Geo Info') ?> : <?= $families->count()  ?></h3>
     <div class="card-tools pull-right">
       <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -52,7 +52,7 @@ if ($families->count() > 0) {
   if ($families->count() > 0) {
 ?>
     <div class=card card-warning">
-        <div class="card-header  border-0">
+        <div class="card-header  ">
             <h3 class="card-title"><?= _('No coordinates found') ?></h3>
             <div class="card-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fas fa-minus"></i></button>

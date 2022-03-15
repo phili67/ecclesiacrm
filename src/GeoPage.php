@@ -207,7 +207,7 @@ $families = FamilyQuery::create()
     ->find(); ?>
 <form class="form-horizontal" method="POST" action="GeoPage.php" name="GeoPage">
     <div class="card card-primary">
-        <div class="card-header  border-0">
+        <div class="card-header  ">
             <div class="card-title">
                 <h4><?= _("Set your elements") ?></h4>
             </div>

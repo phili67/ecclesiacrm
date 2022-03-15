@@ -64,7 +64,7 @@ require $sRootDocument . '/Include/Header.php';
 <br/>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header ">
         <h3 class="card-title"><?= _('Group Functions') ?></h3>
     </div>
     <div class="card-body">
@@ -244,7 +244,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
     <div class="row">
         <div class="col-lg-6">
             <div class="card collapsed-card">
-                <div class="card-header border-0">
+                <div class="card-header ">
                     <h3 class="card-title"><?= _('Quick Settings') ?></h3>
                     <div class="card-tools pull-right">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -263,7 +263,7 @@ if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
         </div>
         <div class="col-lg-6">
             <div class="card collapsed-card">
-                <div class="card-header border-0">
+                <div class="card-header ">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
                     <div class="card-tools pull-right">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -315,7 +315,7 @@ if ( $_SESSION['bManageGroups'] ) {
     <div class="row">
         <div class="col-lg-6">
             <div class="card collapsed-card">
-                <div class="card-header border-0">
+                <div class="card-header ">
                     <h3 class="card-title" data-toggle="tooltip"  title="" data-placement="bottom" title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
                     <div class="card-tools pull-right">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -373,7 +373,7 @@ if ( $_SESSION['bManageGroups'] ) {
         </div>
         <div class="col-lg-6">
             <div class="card collapsed-card">
-                <div class="card-header border-0">
+                <div class="card-header ">
                     <h3 class="card-title" data-toggle="tooltip" title="" data-placement="bottom" title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
                     <div class="card-tools pull-right">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -441,7 +441,7 @@ if ( $_SESSION['bManageGroups'] ) {
 ?>
 
 <div class="card">
-    <div class="card-header border-0">
+    <div class="card-header ">
         <h3 class="card-title"><?= _('Group Members:') ?></h3>
         <?php if (SessionUser::getUser()->isManageGroupsEnabled()) { ?>
         <div style="float:right">
@@ -460,7 +460,7 @@ if ( $_SESSION['bManageGroups'] ) {
 if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) {
     ?>
     <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header ">
             <h3 class="card-title"><i class="fas fa-users"></i> <?= _("Manage Group Members") ?>:</h3>
         </div>
         <div class="card-body">

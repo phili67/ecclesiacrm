@@ -521,7 +521,7 @@ if (!empty($person->getDateDeactivated())) {
                 $can_see_privatedata = ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isEditRecordsEnabled()) ? true : false;
                 ?>
                 <div class="card">
-                    <div class="card-header border-0">
+                    <div class="card-header ">
                         <h3 class="card-title text-center"><i
                                 class="fas fa-info-circle"></i> <?php echo _('Informations'); ?></h3>
                         <div class="card-tools pull-right">
@@ -880,7 +880,7 @@ if (!empty($person->getDateDeactivated())) {
             if (SessionUser::getUser()->isManageGroupsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled())) {
             ?>
             <div class="card">
-                <div class="card-header  border-0">
+                <div class="card-header  ">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills">
                         <?php
@@ -1233,7 +1233,7 @@ if (!empty($person->getDateDeactivated())) {
                                             <div class="col-md-4">
                                                 <!-- Info box -->
                                                 <div class="card card-info">
-                                                    <div class="card-header  border-0">
+                                                    <div class="card-header  ">
                                                         <h3 class="card-title" style="font-size:small"><a
                                                                 href="<?= SystemURLs::getRootPath() ?>/v2/group/<?= $ormAssignedGroup->getGroupID() ?>/view"><?= $ormAssignedGroup->getGroupName() ?></a>
                                                         </h3>

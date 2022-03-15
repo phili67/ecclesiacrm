@@ -105,7 +105,7 @@ $numberRow = 0;
     <div class="row">
         <div class="col-md-6"><!-- begin a card col-md-6 -->
             <div class="card">
-                <div class="card-header  border-0">
+                <div class="card-header  ">
                     <h3 class="card-title"><?= _("Classic User Profile Settings") ?></h3>
                 </div>
                 <div class="card-body">
@@ -156,7 +156,7 @@ $numberRow = 0;
         ?>
         <div class="col-md-6"><!-- begin a card col-md-6 -->
             <div class="card">
-                <div class="card-header  border-0">
+                <div class="card-header  ">
                     <h3 class="card-title"><?= ($config->getName() == "bSidebarCollapse") ? _("Skin") : _("Other Settings") ?></h3>
                 </div>
                 <div class="card-body">
@@ -417,7 +417,7 @@ $numberRow = 0;
 <div class="row">
     <div class="col-md-6">
         <div class="card card-primary">
-            <div class="card-header  border-0">
+            <div class="card-header  ">
                 <div class="card-title"><?= _("Two-factor authentication (2fa)") ?> </div>
             </div>
             <div class="card-body" id="TwoFAEnrollmentSteps">

@@ -50,7 +50,7 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
 <div class="row">
   <div class="col-lg-12">
     <div class="card card-secondary">
-      <div class="card-header border-0">
+      <div class="card-header ">
         <h3 class="card-title"><?= gettext('People Reports')?></h3>
       </div>
       <div class="card-body">

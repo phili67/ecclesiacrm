@@ -14,7 +14,7 @@ require $sRootDocument . '/Include/Header.php';
 ?>
 <!-- Default box -->
 <div class="card">
-    <div class="card-header  border-0">
+    <div class="card-header  ">
         <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fas fa-user-plus"></i><?= _('New User') ?></a>
 
       <div class="btn-group pull-right">

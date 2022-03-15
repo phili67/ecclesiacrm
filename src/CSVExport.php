@@ -57,7 +57,7 @@ require 'Include/Header.php';
 ?>
 <form method="post" action="<?= SystemURLs::getRootPath() ?>/CSVCreateFile.php">
     <div class="card">
-        <div class="card-header border-0">
+        <div class="card-header ">
             <h3 class="card-title"><?= _('Field Selection') ?></h3>
         </div>
         <div class="card-body">
@@ -192,7 +192,7 @@ require 'Include/Header.php';
     if ($numCustomFields > 0 || $numFamCustomFields > 0) {
         ?>
         <div class="card">
-            <div class="card-header border-0">
+            <div class="card-header ">
                 <h3 class="card-title"><?= _('Custom Field Selection') ?></h3>
             </div>
             <div class="card-body">
@@ -256,7 +256,7 @@ require 'Include/Header.php';
     ?>
 
     <div class="card card-warning">
-        <div class="card-header border-0">
+        <div class="card-header ">
             <h3 class="card-title"><?= _('Filters') . ' (' . _('Ignored if you come from the CartView') . ')' ?></h3>
             <div class="card-tools pull-right">
                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#OtherFilters"
@@ -270,7 +270,7 @@ require 'Include/Header.php';
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Records to export') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#RecordFilters"
@@ -294,7 +294,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Classification') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#ClassificationFilters"
@@ -321,7 +321,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Family Role') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#FamilyFilters"
@@ -351,7 +351,7 @@ require 'Include/Header.php';
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Gender') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GenderFilters"
@@ -373,7 +373,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Group Membership') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#GroupFilters"
@@ -400,7 +400,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Membership Date') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#MembershipDateFilters"
@@ -434,7 +434,7 @@ require 'Include/Header.php';
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Birthday Date') ?>:</h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#BirthdayDateFilter"
@@ -467,7 +467,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Anniversary Date:') ?></h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#AnniversaryDateFilter"
@@ -500,7 +500,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="col-lg-4">
                     <div class="card  collapsed-box">
-                        <div class="card-header border-0">
+                        <div class="card-header ">
                             <h3 class="card-title"><?= _('Date Entered:') ?></h3>
                             <div class="card-tools pull-right">
                                 <button class="btn btn-card-tool" type="button" data-toggle="collapse" data-target="#DateEnteredFilter"
@@ -536,7 +536,7 @@ require 'Include/Header.php';
     </div>
 
     <div class="card card-success">
-        <div class="card-header border-0">
+        <div class="card-header ">
             <h3 class="card-title"><?= _('Output Method:') ?></h3>
         </div>
         <div class="card-body">
