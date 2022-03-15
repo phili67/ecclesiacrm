@@ -138,6 +138,9 @@ class EmailUsers
         $dataWid = 65;
 
 // Loop through families
+
+        $count_email = 1;
+
         foreach ($ormFamilies as $fam) {
             // Instantiate the directory class and build the report.
             $pdf = new EmailPDF_ConfirmReport();
@@ -390,20 +393,50 @@ class EmailUsers
                 $subject = $fam->getName() . ' Family Information Review';
 
                 if ($_GET['updated']) {
-                    $subject = $subject . ' ** Updated **';
+                    $subject .= $subject . ' ** Updated **';
                 }
 
-                $mail = new FamilyVerificationEmail($emaillist, $fam->getName());
-                $filename = 'ConfirmReportEmail-' . $fam->getName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
-                $mail->addStringAttachment($doc, $filename);
+                /* this part is for google condition : https://support.google.com/mail/answer/81126 */
 
-                if ( ( $familyEmailSent = $mail->send() ) ) {
-                    $this->familiesEmailed = $this->familiesEmailed + 1;
+                if ($count_email >= 0 and $count_email < 30) {
+                    $sleepTime = 5;
+                } elseif ($count_email >= 30 and $count_email < 60) {
+                    $sleepTime = 4;
+                } elseif ($count_email >= 60 and $count_email < 90) {
+                    $sleepTime = 3;
+                } elseif ($count_email >= 90 and $count_email < 120) {
+                    $sleepTime = 2;
+                } elseif ($count_email >= 120 and $count_email < 150) {
+                    $sleepTime = 1;
                 } else {
-                    LoggerUtils::getAppLogger()->error($mail->getError());
+                    $sleepTime = 0;
                 }
+
+                $count_email++;
+
+                sleep($sleepTime);
+
+                /* end of part : https://support.google.com/mail/answer/81126 */
+
+                /*if ($fam->getID() == 274) {*/
+                    LoggerUtils::getAppLogger()->info("fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
+
+                    $mail = new FamilyVerificationEmail($emaillist, $fam->getName());
+                    $filename = 'ConfirmReportEmail-' . $fam->getName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
+                    $mail->addStringAttachment($doc, $filename);
+
+                    if (($familyEmailSent = $mail->send())) {
+                        $this->familiesEmailed = $this->familiesEmailed + 1;
+                    } else {
+                        LoggerUtils::getAppLogger()->error($mail->getError());
+                    }
+                /*} else {
+                    LoggerUtils::getAppLogger()->info("No fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
+                }*/
             }
         }
+
+        LoggerUtils::getAppLogger()->info("terminé ");
 
         return $familyEmailSent;
     }
