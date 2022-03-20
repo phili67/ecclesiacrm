@@ -6,38 +6,16 @@ $(document).ready(function () {
       contentType: "application/json",
       dataSrc: "VolunteerOpportunities"
     },
+    "order": [[ 1, "asc" ]],
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
-    bSort : false,
     columns: [
-      {
-        width: 'auto',
-        title:"",
-        data:'realplace',
-        render: function(data, type, full, meta) {
-          return data;
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Place'),
-        data:'Order',
-        render: function(data, type, full, meta) {
-          var res = "<center>";
-          if (full.place == "first" || full.place == "intermediate") {
-            res += '<a href="#" class="down_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/downarrow.gif" border="0"></a>';
-          }
-          if (full.place == "last" || full.place == "intermediate") {
-            res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="' + window.CRM.root + '/Images/uparrow.gif" border="0"></a>';
-          }
-          return res+"</center>";
-        }
-      },
       {
         width: 'auto',
         title:i18next.t('Actions'),
         data:'Id',
+        searchable: false,
         render: function(data, type, full, meta) {
           return '<a class="edit-volunteer-opportunity" data-id="'+data+'"><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;<a class="delete-volunteer-opportunity" data-id="'+data+'"><i class="far fa-trash-alt" aria-hidden="true" style="color:red"></i></a>';
         }
@@ -62,8 +40,18 @@ $(document).ready(function () {
         width: 'auto',
         title:i18next.t('Activ'),
         data:'Active',
+        searchable: false,
         render: function(data, type, full, meta) {
           return (data == "true")?i18next.t('Yes'):i18next.t('No');
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Parent (hierarchy)'),
+        data:'Menu',
+        searchable: false,
+        render: function(data, type, full, meta) {
+            return data;
         }
       }
     ],
@@ -71,33 +59,6 @@ $(document).ready(function () {
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
     }
-  });
-
-
-  $(document).on("click",".up_action", function(){
-    var place = $(this).data('order');
-    var id    = $(this).data('id');
-
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'volunteeropportunity/upaction',
-      data: JSON.stringify({"id": id,"place":place})
-    },function(data) {
-      window.CRM.VolunteerOpportunityTable.ajax.reload();
-    });
-  });
-
-  $(document).on("click",".down_action", function(){
-    var place = $(this).data('order');
-    var id    = $(this).data('id');
-
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'volunteeropportunity/downaction',
-      data: JSON.stringify({"id": id,"place":place})
-    },function(data) {
-      window.CRM.VolunteerOpportunityTable.ajax.reload();
-    });
   });
 
 
@@ -252,4 +213,16 @@ $(document).ready(function () {
    modal.modal("show");
   });
 
+    $(document).on("change",".selectHierarchy",function() {
+        var parentId = this.value;
+        var voldId = $(this).data('id');
+
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'volunteeropportunity/changeParent',
+            data: JSON.stringify({"voldId": voldId, "parentId": parentId})
+        },function(data) {
+            window.CRM.VolunteerOpportunityTable.ajax.reload();
+        });
+    });
 });
