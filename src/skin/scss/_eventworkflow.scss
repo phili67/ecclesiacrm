@@ -1,13 +1,31 @@
 .card-header-workflow {
-    padding: 0.25rem 0.25rem !important;
+    padding: 0.18rem 0.18rem !important;
+    font-size: 12px !important;
 }
 
 .card-title-workflow {
     margin-top: 3px !important;
     margin-left: 5px !important;
+    font-size: 14px !important;
 }
 
 
 .card-body-workflow {
-    padding: 0.1rem !important;
+    padding: 0.3rem !important;
+}
+
+
+.card-header-workflow {
+    font-size: 9px !important;
+    height: 32px !important;
+}
+
+.icon-workflow-button {
+    margin-right: -10px;
+}
+
+.well-max-height {
+    max-height: 125px !important;
+    overflow: auto !important;
+    padding: 0px !important;
 }
