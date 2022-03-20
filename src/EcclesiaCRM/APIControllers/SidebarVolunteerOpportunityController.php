@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\APIControllers;
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -28,43 +29,54 @@ class SidebarVolunteerOpportunityController
         $this->container = $container;
     }
 
+    private function selectMenu($menus, $volID, $parentId = NULL)
+    {
+        $res = '<select class="form-control selectHierarchy" data-id="'.$volID.'">\n';
+        $res .= '<option value="-1">--'._("None").'--</option>';
+
+        LoggerUtils::getAppLogger()->info(print_r($menus, true));
+
+        foreach ($menus as $menu) {
+            if ($menu['vol_ID'] != $volID) {
+                $res .= '<option value="' . $menu['vol_ID'] . '" '.(($parentId != NULL and $parentId == $menu['vol_ID'])?'selected':''). '>' . $menu['vol_Name'] . '</option>';
+            }
+        }
+        $res .= '</select>';
+
+        return $res;
+    }
+
     public function getAllVolunteerOpportunities(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         if (!(SessionUser::getUser()->isCanvasserEnabled() && SessionUser::getUser()->isMenuOptionsEnabled())) {
             return $response->withStatus(401);
         }
 
-        $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByOrder(Criteria::ASC)->find();
+        $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByName(Criteria::ASC)->find();
 
-        $arr = $volunteerOpportunities->toArray();
+        $volunteerOpportunitiesMenu = VolunteerOpportunityQuery::Create()
+            ->select(['vol_ID', 'vol_Name'])
+            ->orderByName(Criteria::ASC)->find();
 
-        $res = "";
-        $place = 0;
+        $menus = $volunteerOpportunitiesMenu->toArray();
 
-        $count = count($arr);
+        $res = [];
 
-        foreach ($arr as $elt) {
-            $new_elt = "{";
-            foreach ($elt as $key => $value) {
-                $new_elt .= "\"" . $key . "\":" . json_encode($value) . ",";
-            }
+        foreach ($volunteerOpportunities as $volunteerOpportunity) {
+            $elt = [
+                'Id' => $volunteerOpportunity->getId(),
+                'Active' => $volunteerOpportunity->getActive(),
+                'Name' => $volunteerOpportunity->getName(),
+                'Description' => $volunteerOpportunity->getDescription(),
+                'ParentId' => $volunteerOpportunity->getParentId(),
+                'Menu' => $this->selectMenu($menus, $volunteerOpportunity->getId(), $volunteerOpportunity->getParentId())
+            ];
 
-            $place++;
-
-            if ($place == 1 && $count != 1) {
-                $position = "first";
-            } else if ($place == $count && $count != 1) {
-                $position = "last";
-            } else if ($count != 1) {
-                $position = "intermediate";
-            } else {
-                $position = "none";
-            }
-
-            $res .= $new_elt . "\"place\":\"" . $position . "\",\"realplace\":\"" . $place . "\"},";
+            $res[] = $elt;
         }
 
-        return $response->write('{"VolunteerOpportunities":[' . substr($res, 0, -1) . "]}");
+
+        return $response->withJson(["VolunteerOpportunities" => $res]);
     }
 
     public function deleteVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
@@ -73,61 +85,13 @@ class SidebarVolunteerOpportunityController
 
         if (isset ($input->id) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
             $vo = VolunteerOpportunityQuery::Create()->findOneById($input->id);
-            $place = $vo->getOrder();
 
             if (!is_null($vo)) {
                 $vo->delete();
             }
 
-            $vos = VolunteerOpportunityQuery::Create()->find();
-            $count = $vos->count();
-
-            for ($i = $place + 1; $i <= $count + 1; $i++) {
-                $vo = VolunteerOpportunityQuery::Create()->findOneByOrder($i);
-                if (!is_null($vo)) {
-                    $vo->setOrder($i - 1);
-                    $vo->save();
-                }
-            }
-
-            return $response->withJson(['success' => $count]);
-
-        }
-
-        return $response->withJson(['success' => false]);
-    }
-
-    public function upActionVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $input = (object)$request->getParsedBody();
-
-        if (isset ($input->id) && isset ($input->place) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
-            // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-            $firstVO = VolunteerOpportunityQuery::Create()->findOneByOrder($input->place - 1);
-            $firstVO->setOrder($input->place)->save();
-
-            $secondVO = VolunteerOpportunityQuery::Create()->findOneById($input->id);
-            $secondVO->setOrder($input->place - 1)->save();
-
             return $response->withJson(['success' => true]);
-        }
 
-        return $response->withJson(['success' => false]);
-    }
-
-    public function downActionVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $input = (object)$request->getParsedBody();
-
-        if (isset ($input->id) && isset ($input->place) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
-            // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-            $firstVO = VolunteerOpportunityQuery::Create()->findOneByOrder($input->place + 1);
-            $firstVO->setOrder($input->place)->save();
-
-            $secondVO = VolunteerOpportunityQuery::Create()->findOneById($input->id);
-            $secondVO->setOrder($input->place + 1)->save();
-
-            return $response->withJson(['success' => true]);
         }
 
         return $response->withJson(['success' => false]);
@@ -138,21 +102,11 @@ class SidebarVolunteerOpportunityController
         $input = (object)$request->getParsedBody();
 
         if (isset ($input->Name) && isset ($input->desc) && isset ($input->state) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
-            $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByOrder(Criteria::DESC)->find();
-
-            $place = 1;
-
-            foreach ($volunteerOpportunities as $volunteerOpportunity) {// get the last Order !!!
-                $place = $volunteerOpportunity->getOrder() + 1;
-                break;
-            }
-
             $vo = new VolunteerOpportunity();
 
             $vo->setName($input->Name);
             $vo->setDescription($input->desc);
             $vo->setActive(($input->state)?1:0);
-            $vo->setOrder($place);
 
             $vo->save();
 
@@ -192,4 +146,25 @@ class SidebarVolunteerOpportunityController
 
         return $response->withJson(['success' => false]);
     }
+
+    public function changeParentVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->voldId) && isset($input->parentId) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
+            $vo = VolunteerOpportunityQuery::Create()->findOneById($input->voldId);
+
+            if ($input->parentId == -1) {
+                $vo->setParentId(NULL);
+            } else {
+                $vo->setParentId($input->parentId);
+            }
+
+            $vo->save();
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+
 }

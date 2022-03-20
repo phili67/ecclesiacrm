@@ -21,10 +21,9 @@ $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
 
   $group->post('/', SidebarVolunteerOpportunityController::class . ':getAllVolunteerOpportunities' );
   $group->post('/delete', SidebarVolunteerOpportunityController::class . ':deleteVolunteerOpportunity' );
-  $group->post('/upaction', SidebarVolunteerOpportunityController::class . ':upActionVolunteerOpportunity' );
-  $group->post('/downaction', SidebarVolunteerOpportunityController::class . ':downActionVolunteerOpportunity' );
   $group->post('/create', SidebarVolunteerOpportunityController::class . ':createVolunteerOpportunity' );
   $group->post('/set', SidebarVolunteerOpportunityController::class . ':setVolunteerOpportunity' );
   $group->post('/edit', SidebarVolunteerOpportunityController::class . ':editVolunteerOpportunity' );
+  $group->post('/changeParent', SidebarVolunteerOpportunityController::class . ':changeParentVolunteerOpportunity' );
 
 });

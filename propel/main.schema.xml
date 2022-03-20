@@ -992,12 +992,18 @@
         </vendor>
     </table>
 
-    <table name="volunteeropportunity_vol" idMethod="native" phpName="VolunteerOpportunity" description="This contains the names and descriptions of volunteer opportunities">
-        <column name="vol_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-        <column name="vol_Order" phpName="Order" type="INTEGER" size="3" required="true" defaultValue="0"/>
+    <table name="volunteeropportunity_vol" idMethod="native" phpName="VolunteerOpportunity">
+        <column name="vol_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="vol_Active" phpName="Active" type="CHAR" sqlType="enum('true','false')" required="true" defaultValue="true"/>
         <column name="vol_Name" phpName="Name" type="VARCHAR" size="30"/>
         <column name="vol_Description" phpName="Description" type="VARCHAR" size="100"/>
+        <column name="vol_parent_ID" phpName="ParentId" type="SMALLINT" sqlType="mediumint unsigned" description="parent volunteeropportunity_vol id"/>
+        <foreign-key foreignTable="volunteeropportunity_vol" name="fk_vol_parent_ID">
+            <reference local="vol_parent_ID" foreign="vol_ID"/>
+        </foreign-key>
+        <index name="fk_vol_parent_ID">
+            <index-column name="vol_parent_ID"/>
+        </index>
         <unique name="vol_ID">
             <unique-column name="vol_ID"/>
         </unique>

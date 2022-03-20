@@ -237,7 +237,7 @@ $ormAssignedVolunteerOpps = VolunteerOpportunityQuery::Create()
     ->find();
 
 // Get all the volunteer opportunities
-$ormVolunteerOpps = VolunteerOpportunityQuery::Create()->orderByOrder()->find();
+$ormVolunteerOpps = VolunteerOpportunityQuery::Create()->orderByName()->find();
 
 //Get all the properties
 $ormProperties = PropertyQuery::Create()

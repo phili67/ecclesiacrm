@@ -112,6 +112,18 @@ CREATE TABLE `plugin_user_role` (
 -- Dumping data for table `plugin_user_role`
 --
 
+-- 2022-03-20
+
+ALTER TABLE `volunteeropportunity_vol` ADD `vol_parent_ID` mediumint(8) unsigned DEFAULT NULL COMMENT 'parent volunteeropportunity_vol id';
+
+ALTER TABLE `volunteeropportunity_vol`
+    ADD CONSTRAINT fk_vol_parent_ID
+        FOREIGN KEY (vol_parent_ID)
+            REFERENCES volunteeropportunity_vol(vol_ID)
+            ON DELETE SET NULL;
+
+ALTER TABLE `volunteeropportunity_vol`
+    DROP COLUMN vol_Order;
 
 
 
