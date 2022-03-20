@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="col-md-3">
             <div class="sticky-top">
                 <div class="card card-lightblue">
-                    <div class="card-header border-1">
+                    <div class="card-header border-0">
                         <h3 class="card-title"><?= _("Filters") ?></h3>
                     </div>
                     <div class="row" style="padding:5px">
@@ -106,7 +106,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="card card-primary card-calendar">
                         <div class="card-header card-header-calendar" id="headingOne">
                             <h3 class="card-title">
-                                <button class="btn btn-link text-white" data-toggle="collapse"
+                                <button class="btn btn-link text-white sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
                                     <i class="fas fa-user"></i>&nbsp;<?= _("Personals") ?>
@@ -114,12 +114,12 @@ require $sRootDocument . '/Include/Header.php';
                             </h3>
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
-                                        class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
+                                        class="fas pull-right fa-cog icon-calendar-button" data-toggle="tooltip" data-placement="right"
                                         title="<?= _("Exclude/include Calendars") ?>"
                                         id="manage-all-calendars"></i>
                                 </button>
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
-                                        class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
+                                        class="fa pull-right fa-plus icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                         title="<?= _("Add New Calendar") ?>"
                                         id="add-calendar"></i>
                                 </button>
@@ -145,7 +145,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="card card-primary card-calendar">
                         <div class="card-header card-header-calendar" id="headingTwo">
                             <h3 class="card-title">
-                                <button class="btn btn-link btn-link text-white" data-toggle="collapse"
+                                <button class="btn btn-link btn-link text-white sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseTwo"
                                         aria-expanded="true" aria-controls="collapseTwo">
                                     <i class="fas fa-building"></i>&nbsp;<i class="fab fa-windows"></i>&nbsp;<i
@@ -154,7 +154,7 @@ require $sRootDocument . '/Include/Header.php';
                             </h3>
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget=""><i
-                                        class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
+                                        class="fa pull-right fa-cog icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                         title="<?= _("Exclude/include Resource") ?>"
                                         id="manage-all-reservation"></i>
                                 </button>
@@ -162,9 +162,9 @@ require $sRootDocument . '/Include/Header.php';
                                 if ($sessionUsr->isAdmin()) {
                                     ?>
                                     <button type="button" class="btn btn-tool" data-card-widget=""><i
-                                            class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
+                                            class="fas pull-right fa-plus icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                             title="<?= _("Add New Calendar") ?>"
-                                        <i class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left"
+                                        <i class="fas pull-right fa-plus icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                            title="<?= _("Add New Resource Calendar") ?>"
                                            id="add-reservation-calendar"></i>
                                     </button>
@@ -190,7 +190,7 @@ require $sRootDocument . '/Include/Header.php';
                         <div class="card-header card-header-calendar" id="headingThree">
                             <h5 class="mb-0">
                                 <h3 class="card-title">
-                                    <button class="btn btn-link btn-link text-white" data-toggle="collapse"
+                                    <button class="btn btn-link btn-link text-white sidebar-calendar-button" data-toggle="collapse"
                                             data-target="#collapseThree"
                                             aria-expanded="true" aria-controls="collapseThree">
                                         <i class="fas fa-users"></i><?= !($sessionUsr->isManageGroupsEnabled()) ? '&nbsp;<i class="fa  fa-share"></i>&nbsp;' : "&nbsp;" ?>
@@ -199,7 +199,7 @@ require $sRootDocument . '/Include/Header.php';
                                 </h3>
                                 <div class="card-tools card-tools-calendar">
                                     <button type="button" class="btn btn-tool" data-card-widget="">
-                                        <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="right"
+                                        <i class="fa pull-right fa-cog icon-calendar-button" data-toggle="tooltip" data-placement="right"
                                            title="<?= _("Add New Calendar") ?>"
                                            id="manage-all-groups"></i>
                                     </button>
@@ -223,7 +223,7 @@ require $sRootDocument . '/Include/Header.php';
                     <div class="card card-primary card-calendar">
                         <div class="card-header card-header-calendar" id="headingFour">
                             <h3 class="card-title">
-                                <button class="btn btn-link text-white collapsed" data-toggle="collapse"
+                                <button class="btn btn-link text-white collapsed sidebar-calendar-button" data-toggle="collapse"
                                         data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <i class="fa  fa-share"></i>&nbsp;<?= _("Shared") . "  (" . _("Users") . ")" ?>
                                 </button>
@@ -231,7 +231,7 @@ require $sRootDocument . '/Include/Header.php';
 
                             <div class="card-tools card-tools-calendar">
                                 <button type="button" class="btn btn-tool" data-card-widget="">
-                                    <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left"
+                                    <i class="fa pull-right fa-cog icon-calendar-button" data-toggle="tooltip" data-placement="left"
                                        title="<?= _("Exclude/include the Shared") ?>"
                                        id="manage-all-shared"></i>&nbsp;
                                 </button>
