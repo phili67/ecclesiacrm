@@ -1423,12 +1423,16 @@ VALUES
 
 CREATE TABLE `volunteeropportunity_vol` (
   `vol_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `vol_Order` int(3) NOT NULL default '0',
   `vol_Active` enum('true','false') NOT NULL default 'true',
   `vol_Name` varchar(30) default NULL,
   `vol_Description` varchar(100) default NULL,
+  'vol_parent_ID' mediumint(8) unsigned DEFAULT NULL COMMENT 'parent volunteeropportunity_vol id',
   PRIMARY KEY  (`vol_ID`),
-  UNIQUE KEY `vol_ID` (`vol_ID`)
+  UNIQUE KEY `vol_ID` (`vol_ID`),
+  CONSTRAINT fk_vol_parent_ID
+      FOREIGN KEY (vol_parent_ID)
+          REFERENCES volunteeropportunity_vol(vol_ID)
+          ON DELETE SET NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
