@@ -487,7 +487,6 @@ function createShareWindow(calIDs) {
         $("#person-group-rights").val(0);
     });
 
-
     $("#person-group-Id-Share").on("select2:select", function (e) {
         var notification = ($("#sendEmail").is(':checked')) ? 1 : 0;
 
