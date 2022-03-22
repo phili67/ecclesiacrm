@@ -19,11 +19,13 @@ use EcclesiaCRM\APIControllers\SidebarVolunteerOpportunityController;
 
 $app->group('/volunteeropportunity', function (RouteCollectorProxy $group) {
 
-  $group->post('/', SidebarVolunteerOpportunityController::class . ':getAllVolunteerOpportunities' );
-  $group->post('/delete', SidebarVolunteerOpportunityController::class . ':deleteVolunteerOpportunity' );
-  $group->post('/create', SidebarVolunteerOpportunityController::class . ':createVolunteerOpportunity' );
-  $group->post('/set', SidebarVolunteerOpportunityController::class . ':setVolunteerOpportunity' );
-  $group->post('/edit', SidebarVolunteerOpportunityController::class . ':editVolunteerOpportunity' );
-  $group->post('/changeParent', SidebarVolunteerOpportunityController::class . ':changeParentVolunteerOpportunity' );
+    $group->post('/', SidebarVolunteerOpportunityController::class . ':getAllVolunteerOpportunities');
+    $group->post('/delete', SidebarVolunteerOpportunityController::class . ':deleteVolunteerOpportunity');
+    $group->post('/create', SidebarVolunteerOpportunityController::class . ':createVolunteerOpportunity');
+    $group->post('/set', SidebarVolunteerOpportunityController::class . ':setVolunteerOpportunity');
+    $group->post('/edit', SidebarVolunteerOpportunityController::class . ':editVolunteerOpportunity');
+    $group->post('/changeParent', SidebarVolunteerOpportunityController::class . ':changeParentVolunteerOpportunity');
+    $group->post('/changeColor', SidebarVolunteerOpportunityController::class . ':changeColorVolunteerOpportunity');
+    $group->post('/changeIcon', SidebarVolunteerOpportunityController::class . ':changeIconVolunteerOpportunity');
 
 });
