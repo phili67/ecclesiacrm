@@ -68,7 +68,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'node_modules/@fortawesome/fontawesome-free',
-                        src: ['{css,webfonts,less,scss}/**'],
+                        src: ['*.*','css/**/*','js/**/*','less/**/*','metadata/**/*','scss/**/*', 'sprites/**/*','svgs/**/*', 'webfonts/**/*' ],
                         dest: 'src/skin/external/font-awesome-new/'
                     },
                     {
