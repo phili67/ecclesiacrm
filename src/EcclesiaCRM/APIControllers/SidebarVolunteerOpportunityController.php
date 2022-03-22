@@ -10,7 +10,6 @@
 
 namespace EcclesiaCRM\APIControllers;
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -19,6 +18,9 @@ use EcclesiaCRM\VolunteerOpportunityQuery;
 use EcclesiaCRM\VolunteerOpportunity;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
+
+use Propel\Runtime\Propel;
+use PDO;
 
 class SidebarVolunteerOpportunityController
 {
@@ -29,16 +31,56 @@ class SidebarVolunteerOpportunityController
         $this->container = $container;
     }
 
-    private function selectMenu($menus, $volID, $parentId = NULL)
+    private function selectMenuParents($menus, $volID, $parentId = NULL)
     {
-        $res = '<select class="form-control selectHierarchy" data-id="'.$volID.'">\n';
+        $res = '<select class="form-control form-control-sm selectHierarchy" data-id="'.$volID.'">\n';
         $res .= '<option value="-1">--'._("None").'--</option>';
-
-        LoggerUtils::getAppLogger()->info(print_r($menus, true));
 
         foreach ($menus as $menu) {
             if ($menu['vol_ID'] != $volID) {
                 $res .= '<option value="' . $menu['vol_ID'] . '" '.(($parentId != NULL and $parentId == $menu['vol_ID'])?'selected':''). '>' . $menu['vol_Name'] . '</option>';
+            }
+        }
+        $res .= '</select>';
+
+        return $res;
+    }
+
+    private function selectMenuIcons($volID, $icon)
+    {
+        $connection = Propel::getConnection();
+
+        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_icon'");
+
+        $res = '<select class="form-control form-control-sm selectIcon" data-id="'.$volID.'">\n';
+
+        if ($result) {
+            $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
+            $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
+
+            foreach ($option_array as $item) {
+                $res .= '<option value="' . $item . '" '.($icon == $item?'selected':''). '>' . $item . '</option>';
+            }
+        }
+        $res .= '</select>';
+
+        return $res;
+    }
+
+    private function selectMenuColors($volID, $icon)
+    {
+        $connection = Propel::getConnection();
+
+        $result = $connection->query("SHOW COLUMNS FROM `volunteeropportunity_vol` LIKE 'vol_color'");
+
+        $res = '<select class="form-control form-control-sm selectColor" data-id="'.$volID.'">\n';
+
+        if ($result) {
+            $arr = $result->fetch(PDO::FETCH_ASSOC)['Type'];
+            $option_array = explode("','", preg_replace("/(enum|set)\('(.+?)'\)/", "\\2", $arr));
+
+            foreach ($option_array as $item) {
+                $res .= '<option value="' . $item . '" '.($icon == $item?'selected':''). '>' . $item . '</option>';
             }
         }
         $res .= '</select>';
@@ -69,7 +111,9 @@ class SidebarVolunteerOpportunityController
                 'Name' => $volunteerOpportunity->getName(),
                 'Description' => $volunteerOpportunity->getDescription(),
                 'ParentId' => $volunteerOpportunity->getParentId(),
-                'Menu' => $this->selectMenu($menus, $volunteerOpportunity->getId(), $volunteerOpportunity->getParentId())
+                'MenuParents' => $this->selectMenuParents($menus, $volunteerOpportunity->getId(), $volunteerOpportunity->getParentId()),
+                'MenuIcons' => $this->selectMenuIcons( $volunteerOpportunity->getId(), $volunteerOpportunity->getIcon() ),
+                'MenuColors' => $this->selectMenuColors( $volunteerOpportunity->getId(), $volunteerOpportunity->getColor() )
             ];
 
             $res[] = $elt;
@@ -159,6 +203,36 @@ class SidebarVolunteerOpportunityController
             } else {
                 $vo->setParentId($input->parentId);
             }
+
+            $vo->save();
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function changeIconVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->voldId) && isset($input->iconId) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
+            $vo = VolunteerOpportunityQuery::Create()->findOneById($input->voldId);
+
+            $vo->setIcon($input->iconId);
+
+            $vo->save();
+        }
+
+        return $response->withJson(['success' => false]);
+    }
+
+    public function changeColorVolunteerOpportunity(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    {
+        $input = (object)$request->getParsedBody();
+
+        if (isset ($input->voldId) && isset($input->colId) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()) {
+            $vo = VolunteerOpportunityQuery::Create()->findOneById($input->voldId);
+
+            $vo->setColor($input->colId);
 
             $vo->save();
         }
