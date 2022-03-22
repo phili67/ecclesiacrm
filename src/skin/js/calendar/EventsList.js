@@ -300,7 +300,7 @@ $(document).ready(function () {
                         customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
                         language : window.CRM.lang,
                         width : '100%',
-                        extraPlugins : 'uploadfile,uploadimage,filebrowser',
+                        extraPlugins : 'uploadfile,uploadimage,filebrowser,html5video',
                         uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
                         imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
                         filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',

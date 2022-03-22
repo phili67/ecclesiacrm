@@ -39,7 +39,7 @@ CKEDITOR.editorConfig = function (config) {
         {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
         {
             name: 'insert',
-            items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
+            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
         },
         {name: 'about', items: ['About']}
     ];
@@ -89,5 +89,6 @@ CKEDITOR.editorConfig = function (config) {
         'tabletools,' +
         'undo,' +
         'wysiwygarea,' +
-        'mathjax';
+        'mathjax,' +
+        'html5video';
 };

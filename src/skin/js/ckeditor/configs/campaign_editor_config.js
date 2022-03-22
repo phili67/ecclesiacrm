@@ -143,7 +143,7 @@ CKEDITOR.editorConfig = function (config) {
         '/',
         {
             name: 'insert',
-            items: ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
+            items: ['Image', 'Html5video', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', '-', 'mathjax']
         },
         {name: 'about', items: ['About']}
     ];
@@ -193,5 +193,6 @@ CKEDITOR.editorConfig = function (config) {
         'undo,' +
         'wysiwygarea,' +
         'mathjax,' +
-        'dropdownmenumanager';
+        'dropdownmenumanager,' +
+        'html5video';
 };
