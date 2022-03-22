@@ -83,7 +83,7 @@ $(document).ready(function () {
                             customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
                             language: window.CRM.lang,
                             width: '100%',
-                            extraPlugins: 'uploadfile,uploadimage,filebrowser',
+                            extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
                             uploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',
                             imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateImages',
                             filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=privateDocuments',

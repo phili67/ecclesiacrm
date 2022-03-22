@@ -351,7 +351,7 @@ $(document).ready(function () {
             var editor = CKEDITOR.replace('NoteText', {
                 customConfig: window.CRM.root + '/skin/js/ckeditor/configs/note_editor_config.js',
                 language: window.CRM.lang,
-                extraPlugins: 'uploadfile,uploadimage,filebrowser',
+                extraPlugins: 'uploadfile,uploadimage,filebrowser,html5video',
                 uploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
                 imageUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicImages',
                 filebrowserUploadUrl: window.CRM.root + '/uploader/upload.php?type=publicDocuments',
