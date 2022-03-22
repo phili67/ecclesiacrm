@@ -125,5 +125,12 @@ ALTER TABLE `volunteeropportunity_vol`
 ALTER TABLE `volunteeropportunity_vol`
     DROP COLUMN vol_Order;
 
+-- 2022-03-22
+
+ALTER TABLE `volunteeropportunity_vol` ADD `vol_color` enum('bg-blue text-white', 'bg-indigo text-white', 'bg-navy text-white', 'bg-maroon text-white', 'bg-purple text-white', 'bg-pink text-white', 'bg-red text-white', 'bg-orange text-black', 'bg-yellow text-white', 'bg-lime text-white', 'bg-green text-white', 'bg-teal text-white', 'bg-cyan text-white', 'bg-gray text-black') NOT NULL default 'bg-blue text-white' COMMENT 'Color for a volunteer opportunity';
+ALTER TABLE `volunteeropportunity_vol` ADD `vol_icon` enum('fas fa-layer-group','fas fa-users','fas fa-desktop','fas fa-file','fas fa-comment','fas fa-music','fas fa-photo-video','fas fa-envelope','fas fa-headset', 'fas fa-book-reader' ) NOT NULL default 'fas fa-file' COMMENT 'icon of the volunteer opportunity';
+
+
+
 
 
