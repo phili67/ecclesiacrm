@@ -64,28 +64,49 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
             $code = '<div class="card card-primary">
                             <div class="card-body box-profile">
-                                <div class="text-center">
+                                <div class="text-left">
                                     <img class="profile-user-img img-responsive img-circle initials-image"
                                      src="data:image/png;base64,'. base64_encode($person->getPhoto()->getThumbnailBytes()) .'">
                                 </div>
                                 <br/>
-                                <p class="text-center">';
-            $code .= '<input type="text" name="FirstName" id="FirstName"
-                               value="'. htmlentities(stripslashes($person->getFirstName()), ENT_NOQUOTES, 'UTF-8') .'"
-                               class= "" placeholder="' . _("First Name") . '">';
+                                <div class="text-left">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="FirstName">'.  _('First Name') .'</label>
+                                        </div>
+                                        <div class="col-md-6">';
+                $code .= '<input type="text" name="FirstName" id="FirstName"
+                                   value="'. htmlentities(stripslashes($person->getFirstName()), ENT_NOQUOTES, 'UTF-8') .'"
+                                   class= "" placeholder="' . _("First Name") . '">';
 
-            $code .= '<br/>';
-            $code .= '<input type="text" name="MiddleName" id="MiddleName"
-                               value="'. htmlentities(stripslashes($person->getMiddleName()), ENT_NOQUOTES, 'UTF-8') .'"
-                               class= "" placeholder="' . _("Middle Name") . '">';
+                $code .= '
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="FirstName">'.  _('Middle Name') .'</label>
+                                        </div>
+                                        <div class="col-md-6">';
+                $code .= '<input type="text" name="MiddleName" id="MiddleName"
+                                   value="'. htmlentities(stripslashes($person->getMiddleName()), ENT_NOQUOTES, 'UTF-8') .'"
+                                   class= "" placeholder="' . _("Middle Name") . '">';
 
-            $code .= '<br/>';
-            $code .= '<input type="text" name="LastName" id="LastName"
-                               value="'. htmlentities(stripslashes($person->getLastName()), ENT_NOQUOTES, 'UTF-8') .'"
-                               class= "" placeholder="' . _("Last Name") . '">';
+                $code .= '              </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <label for="FirstName">'.  _('Last Name') .'</label>
+                                        </div>
+                                        <div class="col-md-6">';
+                $code .= '<input type="text" name="LastName" id="LastName"
+                                   value="'. htmlentities(stripslashes($person->getLastName()), ENT_NOQUOTES, 'UTF-8') .'"
+                                   class= "" placeholder="' . _("Last Name") . '">';
 
-            $code .= '</p>
-                                <p class="text-muted text-center"><i
+                $code .= '
+                                        </div>
+                                    </div>
+                               </p>
+                                <p class="text-muted text-left"><i
                                         class="fa  fa-'. ($person->isMale() ? "male" : "female") .'"></i> '. $person->getFamilyRoleName().'
                                 </p>
                                 <ul class="list-group list-group-unbordered">
@@ -185,6 +206,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                                     }
                                 $code .= '</ul>
                                 <br/>
+                            <!-- /.box-body -->
                         </div>';
 
             return $response->withJson(["Status" => "success", "html" => $code]);
