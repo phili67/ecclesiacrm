@@ -20,7 +20,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
 <div class="row">
     <div id="right-buttons" class="btn-group" role="group">
-        <button type="button" id="verify" class="btn btn-sm" data-toggle="modal" data-target="#confirm-Verify">
+        <button type="button" id="verify" class="btn btn-sm" data-toggle="modal" data-target="#confirm-Verify" style="margin-top: -40px">
             <div class="btn-txt"><?= _("Confirm") ?></div>
             <i class="fas fa-check fa-5x"></i></button>
     </div>
@@ -266,6 +266,8 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
     window.CRM.iLittleMapZoom = <?= $iLittleMapZoom ?>;
     window.CRM.token = '<?= $realToken ?>';
+
+    $('body,html').css('margin-top','20px');
 
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
 <?php } ?>
