@@ -35,7 +35,7 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
     ?>
 
 </head>
-<body class="hold-transition login-page text-sm" style="margin-top: 40px;">
+<body class="hold-transition login-page text-sm">
 
   <script nonce="<?= SystemURLs::getCSPNonce() ?>"  >
       window.CRM = {
