@@ -278,7 +278,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                                                title="' . _("Work Email") . '"></i>(W)
                                              </div>
                                             <div class="col-md-6">';
-                $code .= '<input type="text" name="workemail" class="" value="' . $person->getWorkEmail() . '" id="workemail" size="30" placeholder="' . _("Email") . '">';
+                $code .= '<input type="text" name="workemail" class="" value="' . $person->getWorkEmail() . '" id="workemail" size="30" placeholder="' . _("Work Email") . '">';
                 $code .= '
                                             </div>
                                        </div>
