@@ -9,24 +9,22 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
     <div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock") ? "" : 'style="display: none;"' ?>>
         <!-- /.login-logo -->
-        <div class="card login-box-body card card-outline card-primary">
+        <div class="card login-box-body card card-outline card-success">
             <div class="card-header login-logo">
-                Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
+                Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?><br>
+                <b><?= _('Members') ?></b>
             </div>
             <div class="card-body login-card-body">
 
                 <p class="login-box-msg">
                     <b><?= ChurchMetaData::getChurchName() ?></b><br/>
-                    <?= _('Please Login') ?>
+                    <?= _('Please Login') ?><br/>
                 </p>
 
                 <?php
                 // output warning and error messages
                 if (isset($sErrorText)) {
-                    echo '<div class="alert alert-error">' . $sErrorText . '</div>';
-                }
-                if (isset($loginPageMsg)) {
-                    echo '<div class="alert alert-warning">' . $loginPageMsg . '</div>';
+                    echo '<div class="alert alert-warning">' . $sErrorText . '</div>';
                 }
                 ?>
 
@@ -42,7 +40,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
                     <div class="row  mb-3">
                         <!-- /.col -->
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block"><i
+                            <button type="submit" class="btn btn-success btn-block"><i
                                     class="fas fa-sign-in-alt"></i> <?= _('Login') ?></button>
                         </div>
                     </div>
