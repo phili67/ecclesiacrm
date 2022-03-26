@@ -69,7 +69,6 @@ $(document).ready(function () {
         var personId = $(this).data("id");
 
         $.post(window.CRM.root + '/ident/my-profile/getPersonInfo/', {"token": window.CRM.token, "personId": personId}, function (data) {
-
             var modal = PersonWindow(data.html);
             modal.modal("show");
 
@@ -80,7 +79,16 @@ $(document).ready(function () {
     $(".deletePerson").click(function () {
         var personId = $(this).data("id");
 
-        alert('delete in progress');
+        bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
+            if (confirmed) {
+                $.post(window.CRM.root + '/ident/my-profile/deletePerson/', {
+                    "token": window.CRM.token,
+                    "personId": personId
+                }, function (data) {
+                    $(".person-container-" + personId).html('');
+                });
+            }
+        });
     });
 
     function FamilyWindow(data) {
@@ -131,6 +139,21 @@ $(document).ready(function () {
     $(".deleteFamily").click(function () {
         var familyId = $(this).data("id");
 
-        alert('delete in progress');
+        bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
+            if (confirmed) {
+                $.post(window.CRM.root + '/ident/my-profile/deleteFamily/', {
+                    "token": window.CRM.token,
+                    "familyId": familyId
+                }, function (data) {
+                    location.reload();
+                });
+            }
+        });
+    });
+
+    $(".exitSession").click(function (){
+        $.post(window.CRM.root + '/ident/my-profile/exitSession/', {"token": window.CRM.token}, function (data) {
+            window.location = window.location.href;
+        });
     });
 });
