@@ -1,6 +1,13 @@
 <?php
 
-use EcclesiaCRM\SessionUser;
+/*******************************************************************************
+ *
+ *  filename    : verify.php
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2022 Philippe Logel
+ *
+ ******************************************************************************/
+
 use Slim\Http\Response as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;

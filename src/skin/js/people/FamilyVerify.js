@@ -1,3 +1,11 @@
+/*******************************************************************************
+ *
+ *  filename    : verify.php
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2022 Philippe Logel
+ *
+ ******************************************************************************/
+
 $(document).ready(function () {
     $('#onlineVerifySiteBtn').hide();
     $("#confirm-modal-done").hide();
