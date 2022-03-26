@@ -1101,6 +1101,22 @@
         </vendor>
     </table>
 
+    <table name="tokens_password" idMethod="native" phpName="TokensPassword">
+        <column name="tok_pwd_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="tok_pwd_token_ID" phpName="TokenId" type="VARCHAR" size="99" required="true"/>
+        <column name="tok_pwd_must_change_PWD" phpName="MustChangePwd" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+        <column name="tok_pwd_password" phpName="Password" type="VARCHAR" size="255" required="true" defaultValue=""/>
+        <foreign-key foreignTable="tokens" name="fk_tok_pwd_token_ID" onDelete="CASCADE">
+            <reference local="tok_pwd_token_ID" foreign="token"/>
+        </foreign-key>
+        <index name="fk_tok_pwd_token_ID">
+            <index-column name="tok_pwd_token_ID"/>
+        </index>
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+    </table>
+
     <table name="record2property_r2p" idMethod="native" phpName="Record2propertyR2p">
       <column name="r2p_id" phpName="R2pId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="r2p_pro_ID" phpName="R2pProId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true"/>
