@@ -1106,6 +1106,7 @@
         <column name="tok_pwd_token_ID" phpName="TokenId" type="VARCHAR" size="99" required="true"/>
         <column name="tok_pwd_must_change_PWD" phpName="MustChangePwd" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
         <column name="tok_pwd_password" phpName="Password" type="VARCHAR" size="255" required="true" defaultValue=""/>
+        <column name="tok_pwd_ip" phpName="IPAddress" type="VARCHAR" size="255" required="true" defaultValue=""/>
         <foreign-key foreignTable="tokens" name="fk_tok_pwd_token_ID" onDelete="CASCADE">
             <reference local="tok_pwd_token_ID" foreign="token"/>
         </foreign-key>
