@@ -595,6 +595,139 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
+    $group->post('/modifyPersonInfo/', function (Request $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->personId) and isset($input->FirstName) and isset($input->MiddleName)
+            and isset($input->LastName) and isset($input->FamilyRole) and isset($input->homePhone)
+            and isset($input->workPhone) and isset($input->cellPhone) and isset($input->email)
+            and isset($input->workemail) and isset($input->BirthDayDate)) {
+
+            $person = PersonQuery::create()->findOneById($input->personId);
+
+            if ( !is_null($person) ) {
+                $photo = base64_encode($person->getPhoto()->getThumbnailBytes());
+
+                $person->setFirstName($input->FirstName);
+                $person->setMiddleName($input->MiddleName);
+                $person->setLastName($input->LastName);
+
+                $person->setFmrId($input->FamilyRole);
+
+                $person->setHomePhone($input->homePhone);
+                $person->setWorkPhone($input->workPhone);
+                $person->setCellPhone($input->cellPhone);
+
+                $person->setEmail($input->email);
+                $person->setWorkEmail($input->workemail);
+
+                $sBirthDayDate = new DateTime($input->BirthDayDate);
+
+                $iBirthMonth = $sBirthDayDate->format('m');
+                $iBirthDay = $sBirthDayDate->format('d');
+                $iBirthYear = $sBirthDayDate->format('Y');
+
+                $person->setBirthDay($iBirthDay);
+                $person->setBirthMonth($iBirthMonth);
+                $person->setBirthYear($iBirthYear);
+
+                $person->save();
+
+                $res = '<div class="card card-primary">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="profile-user-img img-responsive img-circle initials-image"
+                                     src="data:image/png;base64,' . $photo . '">
+                                </div>
+
+                                <h3 class="profile-username text-center">' . $person->getFullName() . '</h3>
+
+                                <p class="text-muted text-center"><i
+                                        class="fa  fa-' . ($person->isMale() ? "male" : "female") .'"></i> '. $person->getFamilyRoleName() .'
+                                </p>
+
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">';
+
+
+                     if (!empty($person->getHomePhone())) {
+                         $res .= '<i class="fa  fa-phone"
+                                               title="'. _("Home Phone") .'"></i>(H) '. $person->getHomePhone() .'
+                                            <br/>';
+                     }
+                     if (!empty($person->getWorkPhone())) {
+                        $res .= '<i class="fa  fa-briefcase"
+                                               title="' . _("Work Phone") . '"></i>(W) '. $person->getWorkPhone() .'
+                                            <br/>';
+                     }
+                     if (!empty($person->getCellPhone())) {
+                         $res .= '<i class="fa  fa-mobile"
+                                               title="'. _("Mobile Phone") .'"></i>(M) '.  $person->getCellPhone() .'
+                                            <br/>';
+                     }
+
+                     if (!empty($person->getEmail())) {
+                         $res .=  '<i class="fa  fa-envelope"
+                                               title="'. _("Email") . '"></i>(H) ' .  $person->getEmail() . '<br/>';
+                     }
+                     if (!empty($person->getWorkEmail())) {
+                         $res .= '<i class="fa  fa-envelope-o"
+                                               title="' . _("Work Email") .'"></i>(W) '. $person->getWorkEmail() . '
+                                            <br/>';
+                     }
+
+                     $res .= '<i class="fa  fa-birthday-cake" title="' . _("Birthday") .'"></i>';
+
+                     $birthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', 0);
+                     $res .= $birthDate;
+                     $res .= '<br/>
+                                    </li>
+                                    <li class="list-group-item">';
+
+                     $classification = "";
+                     $cls = ListOptionQuery::create()->filterById(1)->filterByOptionId($person->getClsId())->findOne();
+                     if (!empty($cls)) {
+                        $classification = $cls->getOptionName();
+                     }
+                     $res .= '<b>Classification:</b> '. $classification .'
+                                    </li>';
+                     if (count($person->getPerson2group2roleP2g2rs()) > 0) {
+                         $res .= '<li class="list-group-item">
+                                            <h4>' . _("Groups") . '</h4>';
+
+                     foreach ($person->getPerson2group2roleP2g2rs() as $groupMembership) {
+                         if ($groupMembership->getGroup() != null) {
+                            $listOption = ListOptionQuery::create()->filterById($groupMembership->getGroup()->getRoleListId())->filterByOptionId($groupMembership->getRoleId())->findOne()->getOptionName();
+
+                            $res .= '<b>'. $groupMembership->getGroup()->getName() . '</b>: <span
+                                                        class="pull-right">'. _($listOption) .'</span><br/>';
+
+                         }
+                     }
+
+                     $res.= '                  </li>';
+                     }
+                     $res.= '          </ul>
+                                <br/>
+                                <div class="text-center">
+                                    <button class="btn btn-danger btn-sm deletePerson" data-id="'. $person->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
+                                    <button class="btn btn-sm modifyPerson" data-id="' . $person->getId() . '" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>';
+
+
+            }
+
+            return $response->withJson(["Status" => "success", 'content' => $res]);
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
+
+
+
 
 
 
