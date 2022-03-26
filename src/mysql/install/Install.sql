@@ -1596,6 +1596,7 @@ CREATE TABLE `tokens_password` (
    `tok_pwd_token_ID` VARCHAR(99) NOT NULL,
    `tok_pwd_must_change_PWD` BOOLEAN NOT NULL default 1,
    `tok_pwd_password` varchar(255) NOT NULL default '',
+   `tok_pwd_ip` varchar(255) NOT NULL default '',
    PRIMARY KEY (`tok_pwd_ID`),
    CONSTRAINT fk_tok_pwd_token_ID
        FOREIGN KEY (tok_pwd_token_ID) REFERENCES tokens(token)
