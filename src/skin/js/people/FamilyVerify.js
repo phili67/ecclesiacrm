@@ -59,6 +59,11 @@ $(document).ready(function () {
                         var workemail = $('form #workemail').val();
                         var BirthDayDate = $('form #BirthDayDate').val();
 
+                        var fmt = window.CRM.datePickerformat.toUpperCase();;
+
+                        var real_dateTime = moment(BirthDayDate,fmt).format('YYYY-MM-DD');
+
+
                         $.post(window.CRM.root + '/ident/my-profile/modifyPersonInfo/', {
                             "token": window.CRM.token,
                             "personId": personId,
@@ -71,9 +76,9 @@ $(document).ready(function () {
                             "cellPhone": cellPhone,
                             "email": email,
                             "workemail": workemail,
-                            "BirthDayDate": BirthDayDate
+                            "BirthDayDate": real_dateTime
                         }, function (data) {
-                            // TODO : update in live the view !!! or reload the view via api
+                            $(".person-container-" + personId).html(data.content);
                         });
                     }
                 }
@@ -91,7 +96,7 @@ $(document).ready(function () {
         return modal;
     }
 
-    $(".modifyPerson").click(function () {
+    $(document).on("click", ".modifyPerson", function () {
         var personId = $(this).data("id");
 
         $.post(window.CRM.root + '/ident/my-profile/getPersonInfo/', {"token": window.CRM.token, "personId": personId}, function (data) {
@@ -102,7 +107,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".deletePerson").click(function () {
+    $(document).on("click", ".deletePerson", function () {
         var personId = $(this).data("id");
 
         bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
@@ -150,7 +155,7 @@ $(document).ready(function () {
         return modal;
     }
 
-    $(".modifyFamily").click(function () {
+    $(document).on("click", ".modifyFamily", function () {
         var familyId = $(this).data("id");
 
         $.post(window.CRM.root + '/ident/my-profile/getFamilyInfo/', {"token": window.CRM.token, "familyId": familyId}, function (data) {
@@ -162,7 +167,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".deleteFamily").click(function () {
+    $(document).on("click", ".deleteFamily", function () {
         var familyId = $(this).data("id");
 
         bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
@@ -177,7 +182,7 @@ $(document).ready(function () {
         });
     });
 
-    $(".exitSession").click(function (){
+    $(document).on("click", ".exitSession", function () {
         $.post(window.CRM.root + '/ident/my-profile/exitSession/', {"token": window.CRM.token}, function (data) {
             window.location = window.location.href;
         });
