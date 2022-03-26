@@ -1,6 +1,7 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\dto\SystemConfig;
 
 $bSuppressSessionTests = true;
 require_once 'Header-function.php';
@@ -43,5 +44,6 @@ $localeInfo = Bootstrapper::GetCurrentLocale();
           lang: "<?= $localeInfo->getLanguageCode() ?>",
           locale: "<?= $localeInfo->getLocale() ?>",
           shortLocale: "<?= $localeInfo->getShortLocale() ?>",
+          datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>"
       };
   </script>
