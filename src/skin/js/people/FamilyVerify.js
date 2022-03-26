@@ -33,7 +33,7 @@ $(document).ready(function () {
         return object;
     }
 
-    function PersonWindow(data) {
+    function PersonWindow(data, personId) {
 
         var modal = bootbox.dialog({
             message: BootboxContent(data),
@@ -48,7 +48,33 @@ $(document).ready(function () {
                     label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
+                        var FirstName = $('form #FirstName').val();
+                        var MiddleName = $('form #MiddleName').val();
+                        var LastName = $('form #LastName').val();
+                        var FamilyRole = $('form #FamilyRole').val();
+                        var homePhone = $('form #homePhone').val();
+                        var workPhone = $('form #workPhone').val();
+                        var cellPhone = $('form #cellPhone').val();
+                        var email = $('form #email').val();
+                        var workemail = $('form #workemail').val();
+                        var BirthDayDate = $('form #BirthDayDate').val();
 
+                        $.post(window.CRM.root + '/ident/my-profile/modifyPersonInfo/', {
+                            "token": window.CRM.token,
+                            "personId": personId,
+                            "FirstName": FirstName,
+                            "MiddleName": MiddleName,
+                            "LastName": LastName,
+                            "FamilyRole": FamilyRole,
+                            "homePhone": homePhone,
+                            "workPhone": workPhone,
+                            "cellPhone": cellPhone,
+                            "email": email,
+                            "workemail": workemail,
+                            "BirthDayDate": BirthDayDate
+                        }, function (data) {
+                            // TODO : update in live the view !!! or reload the view via api
+                        });
                     }
                 }
             ],
@@ -69,7 +95,7 @@ $(document).ready(function () {
         var personId = $(this).data("id");
 
         $.post(window.CRM.root + '/ident/my-profile/getPersonInfo/', {"token": window.CRM.token, "personId": personId}, function (data) {
-            var modal = PersonWindow(data.html);
+            var modal = PersonWindow(data.html, personId);
             modal.modal("show");
 
             $('.date-picker').datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang});
