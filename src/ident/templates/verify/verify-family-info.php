@@ -285,6 +285,7 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/moment/moment-with-locales.min.js"></script>
 
 <?php
 // Add the page footer
