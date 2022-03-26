@@ -1,5 +1,6 @@
 <?php
 
+use EcclesiaCRM\SessionUser;
 use Slim\Http\Response as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
@@ -16,13 +17,14 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\TokensPasswordQuery;
-use EcclesiaCRM\TokensPassword;
 
 $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
     $group->get('/{token}', function (Request $request, Response $response, array $args) {
         $renderer = new PhpRenderer("templates/verify/");
         $token = TokenQuery::create()->findPk($args['token']);
+
+        session_destroy();
 
         $haveFamily = false;
         $loginWindow = false;
@@ -33,6 +35,10 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             if ($token->getRemainingUses() > 0) {
                 $token->setRemainingUses($token->getRemainingUses() - 1);
                 $token->save();
+            }
+
+            if ($family->getDateDeactivated() != null) {
+                return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
             }
         }
 
@@ -49,12 +55,13 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
         $token = TokenQuery::create()->findPk($args['token']);
 
-        if ($_POST['User'] && $_POST['Password']) {
-            // post data from : login-info.php
+        $realToken = $args['token'];
 
+        if ( isset($_POST['User']) && isset($_POST['Password'])
+            or isset($_SESSION['username']) && isset($_SESSION['password']) ) {
+            // post data from : login-info.php
             $renderer = new PhpRenderer("templates/verify/");
 
-            # TODO : add the checkin of the login
             $tokenPassword = TokensPasswordQuery::create()->findOneByTokenId($args['token']);
 
             if (is_null($tokenPassword)) {
@@ -66,19 +73,56 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             $emails = [$family->getEmail()];
             $emails = array_merge($emails, $family->getEmails());
 
-            \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("password : ".$tokenPassword->getPassword(). " ".$_POST['Password']);
-            \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("User : ".$_POST['User']. " ".print_r($emails, true));
-
-            if ( !in_array($_POST['User'], $emails) or $_POST['Password'] != $tokenPassword->getPassword() ) {
+            if ( !( in_array($_POST['User'], $emails) and $_POST['Password'] == $tokenPassword->getPassword()
+                or in_array($_SESSION['username'], $emails) and $_SESSION['password'] == $tokenPassword->getPassword() ) ) {
+                session_destroy();
                 return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token,
-                    "realToken" => $args['token'], "sErrorText" => _("Wrong email or password")));
+                    "realToken" => $realToken, "sErrorText" => _("Wrong email or password")));
             }
 
-            session_start();
-            $_SESSION['username'] = $_POST['User'];
-            $_SESSION['password'] = $_POST['Password'];
+            // session can now start
+            if ( !isset($_SESSION['username']) || !isset($_SESSION['password']) ) {
+                session_start();
+                $_SESSION['username'] = $_POST['User'];
+                $_SESSION['password'] = $_POST['Password'];
+                $_SESSION['realToken'] = $realToken;
+            }
 
-            return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
+            if ( isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['confirmPassword']) ) {
+
+                if ( $_POST['oldPassword'] != $tokenPassword->getPassword() ) {
+                    return $renderer->render($response, "change-password.php", array( "token" => $token,
+                        "realToken" => $realToken, "sErrorText" => _("Wrong old password")) );
+                }
+
+                if ( $_POST['newPassword'] != $_POST['confirmPassword'] ) {
+                    return $renderer->render($response, "change-password.php", array( "token" => $token,
+                        "realToken" => $realToken, "sErrorText" => _("The two passwords must be identical.")) );
+                }
+
+                // now we get the ip address to retrieve the real person who logged in
+                if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                    $ip = $_SERVER['HTTP_CLIENT_IP'];
+                } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                } else {
+                    $ip = $_SERVER['REMOTE_ADDR'];
+                }
+
+                // now everything is done
+                $tokenPassword->setMustChangePwd(0);
+                $tokenPassword->setPassword($_POST['newPassword']);
+                $tokenPassword->setIPAddress($ip);
+                $tokenPassword->save();
+
+                $_SESSION['password'] = $_POST['newPassword'];
+            }
+
+            if ( $tokenPassword->getMustChangePwd() ) {
+                return $renderer->render($response, "change-password.php", array("message" => gettext("Unable to load verification info")));
+            }
+
+            return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $realToken));
         } elseif ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
             $family = FamilyQuery::create()->findPk($token->getReferenceId());
             if ($family != null) {
@@ -92,6 +136,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $note->setText($body->message);
                 }
                 $note->save();
+
 
 
             }
@@ -477,6 +522,80 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
         return $response->withStatus(200);
     });
+
+
+
+    $group->post('/exitSession/', function (Request $request, Response $response, array $args) {
+        session_destroy();
+
+        return $response->withJson(["Status" => "success"]);
+    });
+
+    $group->post('/deletePerson/', function (Request $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->personId) ) {
+
+            $person = PersonQuery::create()->findOneById($input->personId);
+
+            if (!is_null($person)) {
+                $person->setDateDeactivated(date('YmdHis'));
+                $person->save();
+
+                // Create a note to record the status change
+                //Create a note to record the status change
+                $note = new Note();
+                $note->setPerId($person->getId());
+                $note->setText(_('Account Deactivated'));
+                $note->setType('edit');
+                $note->setEntered($person->getId());
+                $note->save();
+            }
+
+            return $response->withJson(["Status" => "success"]);
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
+
+    $group->post('/deleteFamily/', function (Request $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->familyId) ) {
+
+            $family = FamilyQuery::create()->findOneById($input->familyId);
+
+            if (!is_null($family)) {
+                $family->setDateDeactivated(date('YmdHis'));
+                $family->save();
+
+                //Create a note to record the status change
+                $persons = $family->getPeople();
+
+                // all person from the family should be deactivated too
+                // one person of the family deactivate the other !!!
+                $id = 0;
+                foreach ($persons as $person) {
+                    if ($person->getDateDeactivated() == NULL) {
+                        $id = $person->getId();
+                        break;
+                    }
+                }
+                $note = new Note();
+                $note->setFamId($family->getId());
+                $note->setText(_('Family Deactivated'));
+                $note->setType('edit');
+                $note->setEntered($id);
+                $note->save();
+            }
+
+            return $response->withJson(["Status" => "success"]);
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
+
+
 
 
 
