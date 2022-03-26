@@ -52,8 +52,9 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
                title="<?= _("Send Newsletter") ?>"></i><?= _($family->getSendNewsletter()) ?><br/>
 
             <div class="text-left">
-                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><?= _("Delete") ?></button>
-                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><?= _("Modify") ?></button>
+                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
+                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
+                <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> <?= _("Exit") ?></button>
             </div>
         </div>
     </div>
@@ -71,7 +72,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <div class="card-body">
             <div class="row">
                 <?php foreach ($family->getPeopleSorted() as $person) { ?>
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-md-3 col-sm-4 person-container-<?= $person->getId() ?>">
                         <div class="card card-primary">
                             <div class="card-body box-profile">
                                 <div class="text-center">
@@ -157,8 +158,8 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
                                 </ul>
                                 <br/>
                                 <div class="text-center">
-                                    <button class="btn btn-danger btn-sm deletePerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><?= _("Delete") ?></button>
-                                    <button class="btn btn-sm modifyPerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;"><?= _("Modify") ?></button>
+                                    <button class="btn btn-danger btn-sm deletePerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
+                                    <button class="btn btn-sm modifyPerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
                                 </div>
                             </div>
                             <!-- /.box-body -->
