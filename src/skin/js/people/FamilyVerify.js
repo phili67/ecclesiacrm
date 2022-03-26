@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#confirm-modal-error").hide();
 
     $("#onlineVerifyBtn").click(function () {
-        $.post(window.CRM.root + '/ident/my-profile/' + token,
+        $.post(window.CRM.root + '/ident/my-profile/' + window.CRM.token,
             {
                 message: $("#confirm-info-data").val()
             },
