@@ -27,8 +27,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         $haveFamily = false;
         $loginWindow = false;
 
-        if ($token != null && $token->isVerifyFamilyToken() && $token->isValid()
-            && isset($_SESSION['username']) && isset($_SESSION['password'])) {
+        if ( $token != null && $token->isVerifyFamilyToken() && $token->isValid() ) {
             $family = FamilyQuery::create()->findPk($token->getReferenceId());
             $haveFamily = ($family != null);
             if ($token->getRemainingUses() > 0) {
@@ -37,7 +36,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             }
         }
 
-        if ($loginWindow == false) {
+        if ($loginWindow == false && $haveFamily == true) {
             return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
         } elseif ($haveFamily) {
             return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
@@ -52,14 +51,33 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
         if ($_POST['User'] && $_POST['Password']) {
             // post data from : login-info.php
-            session_start();
-            $_SESSION['username'] = $_POST['User'];
-            $_SESSION['password'] = $_POST['Password'];
+
             $renderer = new PhpRenderer("templates/verify/");
 
             # TODO : add the checkin of the login
+            $tokenPassword = TokensPasswordQuery::create()->findOneByTokenId($args['token']);
+
+            if (is_null($tokenPassword)) {
+                return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
+            }
 
             $family = FamilyQuery::create()->findPk($token->getReferenceId());
+
+            $emails = [$family->getEmail()];
+            $emails = array_merge($emails, $family->getEmails());
+
+            \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("password : ".$tokenPassword->getPassword(). " ".$_POST['Password']);
+            \EcclesiaCRM\Utils\LoggerUtils::getAppLogger()->info("User : ".$_POST['User']. " ".print_r($emails, true));
+
+            if ( !in_array($_POST['User'], $emails) or $_POST['Password'] != $tokenPassword->getPassword() ) {
+                return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token,
+                    "realToken" => $args['token'], "sErrorText" => _("Wrong email or password")));
+            }
+
+            session_start();
+            $_SESSION['username'] = $_POST['User'];
+            $_SESSION['password'] = $_POST['Password'];
+
             return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $args['token']));
         } elseif ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
             $family = FamilyQuery::create()->findPk($token->getReferenceId());
@@ -74,6 +92,8 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $note->setText($body->message);
                 }
                 $note->save();
+
+
             }
         }
         return $response->withStatus(200);
