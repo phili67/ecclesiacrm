@@ -112,7 +112,7 @@ CREATE TABLE `plugin_user_role` (
 -- Dumping data for table `plugin_user_role`
 --
 
--- 2022-03-20
+-- 2022-03-20  B22
 
 ALTER TABLE `volunteeropportunity_vol` ADD `vol_parent_ID` mediumint(8) unsigned DEFAULT NULL COMMENT 'parent volunteeropportunity_vol id';
 
@@ -131,6 +131,14 @@ ALTER TABLE `volunteeropportunity_vol` ADD `vol_color` enum('bg-blue text-white'
 ALTER TABLE `volunteeropportunity_vol` ADD `vol_icon` enum('fas fa-layer-group','fas fa-users','fas fa-desktop','fas fa-file','fas fa-comment','fas fa-music','fas fa-photo-video','fas fa-envelope','fas fa-headset', 'fas fa-book-reader' ) NOT NULL default 'fas fa-file' COMMENT 'icon of the volunteer opportunity';
 
 
-
-
+CREATE TABLE `tokens_password` (
+   `tok_pwd_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+   `tok_pwd_token_ID` VARCHAR(99) NOT NULL,
+   `tok_pwd_must_change_PWD` BOOLEAN NOT NULL default 1,
+   `tok_pwd_password` varchar(255) NOT NULL default '',
+   PRIMARY KEY (`tok_pwd_ID`),
+   CONSTRAINT fk_tok_pwd_token_ID
+       FOREIGN KEY (tok_pwd_token_ID) REFERENCES tokens(token)
+           ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
