@@ -21,10 +21,6 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
                 </p>
 
                 <?php
-                if (isset($_GET['Timeout'])) {
-                    $loginPageMsg = _('Your previous session timed out.  Please login again.');
-                }
-
                 // output warning and error messages
                 if (isset($sErrorText)) {
                     echo '<div class="alert alert-error">' . $sErrorText . '</div>';
@@ -37,7 +33,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
                 <form class="form-signin" role="form" method="post" name="LoginForm" action="<?= SystemURLs::getRootPath() ?>/ident/my-profile/<?= $realToken ?>">
                     <div class="form-group has-feedback">
                         <input type="text" id="UserBox" name="User" class= "form-control form-control-sm" value="<?= $urlUserName ?>"
-                               placeholder="<?= _('Email/Username') ?>" required>
+                               placeholder="<?= _('Email') ?>" required>
                     </div>
                     <div class="form-group has-feedback">
                         <input type="password" id="PasswordBox" name="Password" class= "form-control form-control-sm" data-toggle="password"
