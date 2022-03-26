@@ -28,6 +28,10 @@ class Family extends BaseFamily implements iPhoto
 
     public function preDelete(ConnectionInterface $con = NULL)
     {
+      $token = TokenQuery::create()->findByReferenceId($this->getId());
+      if ( !is_null($token)) {
+            $token->delete();
+        }
       $persons = PersonQuery::Create()->findByFamId($this->getId());
 
       if ($persons->count() > 0) {
