@@ -50,6 +50,11 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
             <i class="fas fa-newspaper"
                title="<?= _("Send Newsletter") ?>"></i><?= _($family->getSendNewsletter()) ?><br/>
+
+            <div class="text-left">
+                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><?= _("Delete") ?></button>
+                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><?= _("Modify") ?></button>
+            </div>
         </div>
     </div>
     <div class="border-right border-left">
@@ -237,6 +242,10 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         z-index: 888;
     }
 
+    body {
+        margin-top: 45px;
+    }
+
 </style>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyVerify.js"></script>
@@ -271,7 +280,7 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
 
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
 <?php } ?>
-    var token = '<?= $token->getToken()?>';
+    window.CRM.token = '<?= $token->getToken()?>';
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
