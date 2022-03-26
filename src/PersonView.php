@@ -384,6 +384,14 @@ if (!empty($person->getDateDeactivated())) {
     </div>
     <?php
 }
+
+
+$persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iFamilyID);
+
+$singlePerson = false;
+if (!is_null($persons) && $persons->count() == 1) {
+    $singlePerson = true;
+}
 ?>
 
 <div class="container-fluid">
@@ -787,6 +795,14 @@ if (!empty($person->getDateDeactivated())) {
                         <a class="btn btn-app"
                            href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i
                                 class="fas fa-print"></i> <?= _("Printable Page") ?></a>
+                        <?php
+                    }
+
+                    if (SessionUser::getUser()->isAdmin()) {
+                        $buttons++;
+                        ?>
+                        <a class="btn btn-app bg-gradient-info" href="#" data-toggle="modal" data-target="#confirm-verify"><i
+                                class="fas fa-check-square"></i> <?= _("Verify Info") ?></a>
                         <?php
                     }
 
@@ -1955,6 +1971,68 @@ if (!empty($person->getDateDeactivated())) {
         </div>
     </div>
 </div>
+</div>
+
+
+<div class="modal fade" id="confirm-verify" tabindex="-1" role="dialog" aria-labelledby="confirm-verify-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="confirm-verify-label"><?= _("Request Family Info Verification") ?></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <b><?= _("Select how do you want to request the family information to be verified") ?></b>
+                </p>
+                <?php
+                if (count($sFamilyEmails) > 0) {
+                    ?>
+                    <?= _("You are about to email copy of the family information in pdf to the following emails") ?>
+
+                    <ul>
+                        <?php
+                        foreach ($sFamilyEmails as $tmpEmail) {
+                            ?>
+                            <li><?= $tmpEmail ?></li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+                }
+                ?>
+
+            </div>
+            <div class="modal-footer text-center">
+                <?php
+                if (count($sFamilyEmails) > 0 && !empty(SystemConfig::getValue('sSMTPHost'))) {
+                    ?>
+                    <button type="button" id="onlineVerify" class="btn btn-warning warning">
+                        <i class="far fa-envelope"></i>
+                        <?= _("Online Verification") ?>
+                    </button>
+                    <button type="button" id="onlineVerifyPDF" class="btn btn-danger danger">
+                        <i class="far fa-envelope"></i> <i class="fas fa-file-pdf"></i>
+                        <?= _("Online Verification") ?>
+                    </button>
+                    <?php
+                }
+                ?>
+                <button type="button" id="verifyURL"
+                        class="btn btn-default"><i class="fas fa-link"></i> <?= _("URL") ?></button>
+                <button type="button" id="verifyDownloadPDF" class="btn btn-info">
+                    <i class="fas fa-download"></i>
+                    <?= _("PDF Report") ?>
+                </button>
+                <button type="button" id="verifyNow" class="btn btn-success">
+                    <i class="fas fa-check"></i>
+                    <?= _("Verified In Person") ?>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/jquery-photo-uploader/PhotoUploader.js"></script>
