@@ -12,7 +12,7 @@ class CountryDropDown extends Countries
 
       $res = "";
 
-      $res .= '<select name="'.$country.'" class="form-control form-control-sm select2" id="'.$id_input.'" style="width:100%">';
+      $res .= '<select name="'.$country.'" id="'.$country.'" class="form-control form-control-sm select2" id="'.$id_input.'" style="width:100%">';
       $res .= '<option value="">'.gettext('Unassigned').'</option>';
       $res .= '<option value="" disabled>--------------------</option>';
         foreach (self::getNames() as $county) {

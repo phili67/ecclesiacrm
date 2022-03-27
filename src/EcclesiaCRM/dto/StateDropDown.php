@@ -15,7 +15,7 @@
       $id_input = strtolower($state)."-input";
 
       $res = "";
-      $res .= '<select name="'.$state.'" class="form-control form-control-sm select2" id="'.$id_input.'" style="width:100%">';
+      $res .= '<select name="'.$state.'" id="'.$state.'" class="form-control form-control-sm select2" id="'.$id_input.'" style="width:100%">';
       $res .= '<option value="">'.gettext('Unassigned').'</option>';
 
       $arr = $this->getAll();
