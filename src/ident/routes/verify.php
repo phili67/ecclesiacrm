@@ -23,7 +23,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\TokensPasswordQuery;
+use EcclesiaCRM\TokenPasswordQuery;
 
 $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
@@ -69,7 +69,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             // post data from : login-info.php
             $renderer = new PhpRenderer("templates/verify/");
 
-            $tokenPassword = TokensPasswordQuery::create()->findOneByTokenId($args['token']);
+            $tokenPassword = TokenPasswordQuery::create()->findOneByTokenId($args['token']);
 
             if (is_null($tokenPassword)) {
                 return $renderer->render($response, "/../404.php", array("message" => gettext("Unable to load verification info")));
