@@ -30,8 +30,8 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <img class="img-circle center-block pull-right img-responsive initials-image" width="200" height="200"
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
         <h2><?= $family->getName() ?></h2>
-        <div class="text-muted font-bold m-b-xs">
-            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= $family->getAddress() ?><br/>
+        <div class="text-muted font-bold m-b-xs family-info">
+            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>', $family->getAddress()) ?><br/>
             <?php if (!empty($family->getHomePhone())) { ?>
                 <i class="fa  fa-phone" title="<?= _("Home Phone") ?>"> </i>(H) <?= $family->getHomePhone() ?><br/>
             <?php }
