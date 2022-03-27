@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1360,18 +1360,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Familie foto"
 
-msgid "Verification email sent"
-msgstr "Verificatie e-mail verzonden"
-
-msgid "Failed to send verification email"
-msgstr "Mislukt om verificatie e-mail te verzenden"
-
-msgid "Failed to add verification"
-msgstr "Kan geen verificatie toevoegen"
-
-msgid "Verification URL"
-msgstr "Verificatie URL"
-
 msgid "Bank Draft"
 msgstr "Bankwissel"
 
@@ -1422,6 +1410,21 @@ msgstr "Bewaar uw notitie"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Wilt u uw notitie opslaan als een Word-bestand in uw EDrive?"
+
+msgid "Verification URL"
+msgstr "Verificatie URL"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Failed to add verification"
+msgstr "Kan geen verificatie toevoegen"
+
+msgid "Verification email sent"
+msgstr "Verificatie e-mail verzonden"
+
+msgid "Failed to send verification email"
+msgstr "Mislukt om verificatie e-mail te verzenden"
 
 msgid "Family Id"
 msgstr "Familie Id"
@@ -1632,6 +1635,12 @@ msgstr "Een nieuw eigendomstype toevoegen"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr "Ouder (hiërarchie)"
+
+msgid "Color"
+msgstr "Kleur"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Nieuwe Vrijwilligers Mogelijkheid Toevoegen"
@@ -2265,6 +2274,11 @@ msgstr "Inloggen op herstelde Database"
 
 msgid "Restore Error."
 msgstr "Herstel fout."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Klaar !"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1347,18 +1347,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Foto keluarga"
 
-msgid "Verification email sent"
-msgstr "Email verifikasi dikirim"
-
-msgid "Failed to send verification email"
-msgstr "Gagal untuk mengirim email verifikasi"
-
-msgid "Failed to add verification"
-msgstr "Gagal untuk menambahkan verifikasi"
-
-msgid "Verification URL"
-msgstr "Verifikasi URL"
-
 msgid "Bank Draft"
 msgstr "Bank Draft"
 
@@ -1410,6 +1398,22 @@ msgstr "Simpan catatanmu"
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr ""
 "Apakah Anda ingin menyimpan catatan Anda sebagai File kata dalam EDrive Anda?"
+
+msgid "Verification URL"
+msgstr "Verifikasi URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "Password reset untuk"
+
+msgid "Failed to add verification"
+msgstr "Gagal untuk menambahkan verifikasi"
+
+msgid "Verification email sent"
+msgstr "Email verifikasi dikirim"
+
+msgid "Failed to send verification email"
+msgstr "Gagal untuk mengirim email verifikasi"
 
 msgid "Family Id"
 msgstr "Identitas keluarga"
@@ -1621,6 +1625,12 @@ msgstr "Tambahkan tipe Properti baru"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr ""
+
+msgid "Color"
+msgstr ""
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Tambahkan peluang Volunteer baru"
@@ -2252,6 +2262,11 @@ msgstr "Login untuk mengembalikan Database"
 
 msgid "Restore Error."
 msgstr "Kembalikan kesalahan."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Selesai!"

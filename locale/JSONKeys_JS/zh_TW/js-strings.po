@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1317,18 +1317,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "家庭照片"
 
-msgid "Verification email sent"
-msgstr "发送验证邮件"
-
-msgid "Failed to send verification email"
-msgstr "发送验证邮件失败"
-
-msgid "Failed to add verification"
-msgstr "添加验证失败"
-
-msgid "Verification URL"
-msgstr "验证网址"
-
 msgid "Bank Draft"
 msgstr "银行汇票"
 
@@ -1379,6 +1367,21 @@ msgstr "保存你的笔记"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "你想把你的笔记保存为EDrive中的Word文件吗？"
+
+msgid "Verification URL"
+msgstr "验证网址"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Failed to add verification"
+msgstr "添加验证失败"
+
+msgid "Verification email sent"
+msgstr "发送验证邮件"
+
+msgid "Failed to send verification email"
+msgstr "发送验证邮件失败"
 
 msgid "Family Id"
 msgstr "家庭身份"
@@ -1578,6 +1581,12 @@ msgstr "添加一个新的财产类型"
 
 msgid "Activ"
 msgstr "激活"
+
+msgid "Parent (hierarchy)"
+msgstr "母体（等级制度）"
+
+msgid "Color"
+msgstr "颜色"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "添加新的志愿者机会"
@@ -2182,6 +2191,11 @@ msgstr "登录恢复的数据库"
 
 msgid "Restore Error."
 msgstr "复原错误。"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "完成了!"

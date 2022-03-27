@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1355,18 +1355,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Foto de familia"
 
-msgid "Verification email sent"
-msgstr "Envío de correo electrónico de verificación"
-
-msgid "Failed to send verification email"
-msgstr "No se ha podido enviar el correo electrónico de verificación"
-
-msgid "Failed to add verification"
-msgstr "No se ha podido añadir la verificación"
-
-msgid "Verification URL"
-msgstr "URL de verificación"
-
 msgid "Bank Draft"
 msgstr "Giro bancario"
 
@@ -1417,6 +1405,21 @@ msgstr "Guarda tu nota"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "¿Quieres guardar tu nota como un archivo de Word en tu EDrive?"
+
+msgid "Verification URL"
+msgstr "URL de verificación"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Failed to add verification"
+msgstr "No se ha podido añadir la verificación"
+
+msgid "Verification email sent"
+msgstr "Envío de correo electrónico de verificación"
+
+msgid "Failed to send verification email"
+msgstr "No se ha podido enviar el correo electrónico de verificación"
 
 msgid "Family Id"
 msgstr "Identificación de la familia"
@@ -1626,6 +1629,12 @@ msgstr "Añadir un nuevo tipo de propiedad"
 
 msgid "Activ"
 msgstr "Activar"
+
+msgid "Parent (hierarchy)"
+msgstr "Padre (jerarquía)"
+
+msgid "Color"
+msgstr "Color"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Añadir nueva oportunidad de voluntariado"
@@ -2265,6 +2274,11 @@ msgstr "Acceder a la base de datos restaurada"
 
 msgid "Restore Error."
 msgstr "Error de restauración."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Hecho."

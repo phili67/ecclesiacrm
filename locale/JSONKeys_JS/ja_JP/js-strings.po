@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1344,18 +1344,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "家族写真"
 
-msgid "Verification email sent"
-msgstr "検証メールの送信"
-
-msgid "Failed to send verification email"
-msgstr "検証メールの送信に失敗しました"
-
-msgid "Failed to add verification"
-msgstr "検証の追加に失敗しました。"
-
-msgid "Verification URL"
-msgstr "検証用URL"
-
 msgid "Bank Draft"
 msgstr "銀行手形"
 
@@ -1406,6 +1394,21 @@ msgstr "ノートの保存"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "メモをWordファイルとしてEDriveに保存しますか？"
+
+msgid "Verification URL"
+msgstr "検証用URL"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Failed to add verification"
+msgstr "検証の追加に失敗しました。"
+
+msgid "Verification email sent"
+msgstr "検証メールの送信"
+
+msgid "Failed to send verification email"
+msgstr "検証メールの送信に失敗しました"
 
 msgid "Family Id"
 msgstr "ファミリーID"
@@ -1613,6 +1616,12 @@ msgstr "新しいプロパティタイプの追加"
 
 msgid "Activ"
 msgstr "アクティヴ"
+
+msgid "Parent (hierarchy)"
+msgstr "親（階層）"
+
+msgid "Color"
+msgstr "カラー"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "新しいボランティアの機会を追加する"
@@ -2235,6 +2244,11 @@ msgstr "リストアされたデータベースへのログイン"
 
 msgid "Restore Error."
 msgstr "リストアエラー。"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Done!"

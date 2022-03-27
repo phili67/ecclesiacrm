@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1351,18 +1351,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Familjefoto"
 
-msgid "Verification email sent"
-msgstr "E-post för verifiering skickas"
-
-msgid "Failed to send verification email"
-msgstr "E-postmeddelandet för verifiering misslyckades"
-
-msgid "Failed to add verification"
-msgstr "Kontrollen kunde inte läggas till"
-
-msgid "Verification URL"
-msgstr "URL för verifiering"
-
 msgid "Bank Draft"
 msgstr "Bankutdrag"
 
@@ -1413,6 +1401,21 @@ msgstr "Spara din anteckning"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Vill du spara din anteckning som en Word-fil i din EDrive?"
+
+msgid "Verification URL"
+msgstr "URL för verifiering"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Failed to add verification"
+msgstr "Kontrollen kunde inte läggas till"
+
+msgid "Verification email sent"
+msgstr "E-post för verifiering skickas"
+
+msgid "Failed to send verification email"
+msgstr "E-postmeddelandet för verifiering misslyckades"
 
 msgid "Family Id"
 msgstr "Familjebeteckning"
@@ -1618,6 +1621,12 @@ msgstr "Lägg till en ny egenskapstyp"
 
 msgid "Activ"
 msgstr "Aktivera"
+
+msgid "Parent (hierarchy)"
+msgstr "Förälder (hierarki)"
+
+msgid "Color"
+msgstr "Färg"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Lägg till ett nytt volontärtillfälle"
@@ -2251,6 +2260,11 @@ msgstr "Logga in på den återställda databasen"
 
 msgid "Restore Error."
 msgstr "Återställningsfel."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Klart!"
