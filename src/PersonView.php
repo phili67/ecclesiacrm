@@ -39,6 +39,7 @@ use EcclesiaCRM\VolunteerOpportunityQuery;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\FamilyQuery;
 
 
 use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
@@ -391,6 +392,18 @@ $persons = PersonQuery::Create()->filterByDateDeactivated(null)->findByFamId($iF
 $singlePerson = false;
 if (!is_null($persons) && $persons->count() == 1) {
     $singlePerson = true;
+}
+
+$sFamilyEmails = [];
+$family = FamilyQuery::create()->findOneById($iFamilyID);
+
+if (!is_null($family)) {
+    foreach ($family->getActivatedPeople() as $per) {
+        $tmpEmail = $per->getEmail();
+        if ($tmpEmail != "") {
+            $sFamilyEmails[] = $tmpEmail;
+        }
+    }
 }
 ?>
 
