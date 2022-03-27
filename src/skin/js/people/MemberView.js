@@ -103,7 +103,7 @@ $("#verifyURL").click(function () {
         $('#confirm-verify').modal('hide');
         bootbox.alert({
             title: i18next.t("Verification URL"),
-            message: "<a href='" + window.CRM.root + "/" + data.url+"'>" + window.CRM.root + "/" + data.url+"</a>"
+            message: i18next.t("Password") + ': ' + data.password + "<br>url : <a href='" + window.CRM.root + "/" + data.url+"'>" + window.CRM.root + "/" + data.url+"</a>"
         });
     });
 });
