@@ -130,7 +130,7 @@ $(document).ready(function () {
         });
     });
 
-    function FamilyWindow(data) {
+    function FamilyWindow(data, familyId) {
 
         var modal = bootbox.dialog({
             message: BootboxContent(data),
@@ -146,7 +146,44 @@ $(document).ready(function () {
                     label: '<i class="fas fa-check"></i> ' + i18next.t("Save"),
                     className: "btn btn-primary",
                     callback: function () {
+                        var FamilyName = $('form #FamilyName').val();
+                        var Address1 = $('form #Address1').val();
+                        var Address2 = $('form #Address2').val();
+                        var City = $('form #City').val();
+                        var Zip = $('form #Zip').val();
+                        var State = $('form #State').val();
+                        var Country = $('form #Country').val();
+                        var homePhone = $('form #homePhone').val();
+                        var workPhone = $('form #workPhone').val();
+                        var cellPhone = $('form #cellPhone').val();
+                        var email = $('form #email').val();
+                        var WeddingDate = $('form #WeddingDate').val();
+                        var SendNewsLetter = $('form #SendNewsLetter').is(':checked'); ;
 
+                        var fmt = window.CRM.datePickerformat.toUpperCase();;
+
+                        var real_dateTime = moment(WeddingDate,fmt).format('YYYY-MM-DD');
+
+
+                        $.post(window.CRM.root + '/ident/my-profile/modifyFamilyInfo/', {
+                            "token": window.CRM.token,
+                            "familyId": familyId,
+                            "FamilyName": FamilyName,
+                            "Address1": Address1,
+                            "Address2": Address2,
+                            "City": City,
+                            "Zip": Zip,
+                            "Country": Country,
+                            "State": State,
+                            "homePhone": homePhone,
+                            "workPhone": workPhone,
+                            "cellPhone": cellPhone,
+                            "email": email,
+                            "WeddingDate": real_dateTime,
+                            "SendNewsLetter": SendNewsLetter
+                        }, function (data) {
+                            $(".family-info").html(data.content);
+                        });
                     }
                 }
             ],
@@ -168,7 +205,7 @@ $(document).ready(function () {
 
         $.post(window.CRM.root + '/ident/my-profile/getFamilyInfo/', {"token": window.CRM.token, "familyId": familyId}, function (data) {
 
-            var modal = FamilyWindow(data.html);
+            var modal = FamilyWindow(data.html, familyId);
             modal.modal("show");
 
             $('.date-picker').datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang});
