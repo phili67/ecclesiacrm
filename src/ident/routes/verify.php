@@ -80,8 +80,9 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             $emails = [$family->getEmail()];
             $emails = array_merge($emails, $family->getEmails());
 
-            if ( !( in_array($_POST['User'], $emails) and $_POST['Password'] == $tokenPassword->getPassword()
-                or in_array($_SESSION['username'], $emails) and $_SESSION['password'] == $tokenPassword->getPassword() ) ) {
+
+            if ( !( in_array($_POST['User'], $emails) and md5($_POST['Password']) == $tokenPassword->getPassword()
+                or in_array($_SESSION['username'], $emails) and md5($_SESSION['password']) == $tokenPassword->getPassword() ) ) {
                 session_destroy();
                 return $renderer->render($response, "login-info.php", array("family" => $family, "token" => $token,
                     "realToken" => $realToken, "sErrorText" => _("Wrong email or password")));
@@ -97,7 +98,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
             if ( isset($_POST['oldPassword']) && isset($_POST['newPassword']) && isset($_POST['confirmPassword']) ) {
 
-                if ( $_POST['oldPassword'] != $tokenPassword->getPassword() ) {
+                if ( md5($_POST['oldPassword']) != $tokenPassword->getPassword() ) {
                     return $renderer->render($response, "change-password.php", array( "token" => $token,
                         "realToken" => $realToken, "sErrorText" => _("Wrong old password")) );
                 }
@@ -118,7 +119,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
                 // now everything is done
                 $tokenPassword->setMustChangePwd(0);
-                $tokenPassword->setPassword($_POST['newPassword']);
+                $tokenPassword->setPassword(md5($_POST['newPassword']));
                 $tokenPassword->setIPAddress($ip);
                 $tokenPassword->save();
 
@@ -143,9 +144,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     $note->setText($body->message);
                 }
                 $note->save();
-
-
-
             }
         }
         return $response->withStatus(200);
@@ -529,8 +527,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withStatus(200);
     });
 
-
-
     $group->post('/exitSession/', function (Request $request, Response $response, array $args) {
         session_destroy();
 
@@ -731,8 +727,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
         return $response->withJson(["Status" => "failed"]);
     });
-
-
 
     $group->post('/modifyFamilyInfo/', function (Request $request, Response $response, array $args) {
         $input = (object)$request->getParsedBody();
