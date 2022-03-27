@@ -33,7 +33,7 @@ abstract class BaseEmail
             'loader' => new Mustache_Loader_FilesystemLoader(SystemURLs::getDocumentRoot() . '/views/email', $options),
         ));
     }
-    
+
     private function setConnection()
     {
 
@@ -86,7 +86,7 @@ abstract class BaseEmail
 
     protected function getCommonTokens() {
         return [
-          "toEmails" => $this->mail->getToAddresses(),
+            "toEmails" => $this->mail->getToAddresses(),
             "churchName" => ChurchMetaData::getChurchName(),
             "churchAddress" => ChurchMetaData::getChurchFullAddress(),
             "churchPhone" => ChurchMetaData::getChurchPhone(),
