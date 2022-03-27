@@ -291,10 +291,14 @@ require 'Include/Header.php';
                     <ul class="fa-ul">
                         <?php
                         if ($can_see_privatedata) {
+                            $adresses = explode('<br>',$family->getAddress());
+                            $count = count($adresses);
                         ?>
-                        <li><strong><i class="fa-li fas fa-home"></i><?= _("Address") ?>:</strong>
+                        <li><strong><i class="fa-li fas fa-home"></i><?= _("Address") ?>:<?= $count>1?'<br>':'' ?></strong>
                             <span>
-                                <?= OutputUtils::GetLinkMapFromAddress($family->getAddress()) ?>
+                                <?php foreach ($adresses as $adress) { ?>
+                                    <?= $count>1?'•':'' ?> <?= OutputUtils::GetLinkMapFromAddress($adress) ?><br>
+                                <?php } ?>
                                 <?php if ($location_available) { ?>
                                     <div id="MyMap" style="width:100%"></div>
                                 <?php } ?>
@@ -374,7 +378,7 @@ require 'Include/Header.php';
                         if ($family->getEmail() != "") {
                             ?>
                             <li><strong><i class="fa-li far fa-envelope"></i><?= _("Email") ?>:</strong>
-                                <a href="mailto:<?= $family->getEmail() ?>" target="_blank"><span><?= $family->getEmail() ?></span></a>
+                                <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
                             </li>
                             <?php
                             if ($mailchimp->isActive()) {
@@ -455,9 +459,9 @@ require 'Include/Header.php';
 
                         $emails = mb_substr($emails, 0, -1)
                         ?>
-                        <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>" target="_blank"><i
+                        <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i
                                 class="far fa-paper-plane"></i><?= _('Email') ?></a>
-                        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>" target="_blank"><i
+                        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i
                                 class="fas fa-paper-plane"></i><?= _('Email (BCC)') ?></a>
                         <?php
                     }
@@ -532,7 +536,7 @@ require 'Include/Header.php';
             if ($iCurrentUserFamID == $iFamilyID || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
                 <div class="card card-default">
-                    <div class="card-header border-1">
+                    <div class="card-header border-0">
                         <h3 class="card-title">
                             <?= _("Family Members") ?>
                         </h3>
@@ -590,7 +594,7 @@ require 'Include/Header.php';
                                         if ($tmpEmail != "") {
                                             array_push($sFamilyEmails, $tmpEmail);
                                             ?>
-                                            <a href="mailto:<?= $tmpEmail ?>" target="_blank"><?= $tmpEmail ?></a>
+                                            <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
                                             <?php
                                         }
                                         ?>
@@ -646,7 +650,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header  border-1">
+                            <div class="card-header  border-0">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills">
                                     <li class="nav-item">
@@ -1058,7 +1062,7 @@ require 'Include/Header.php';
             } else {
                 ?>
                 <div class="card  card-primary">
-                    <div class="card-header  border-1">
+                    <div class="card-header  border-0">
                         <h3 class="card-title"><?= _("Informations") ?></h3>
                     </div>
                     <div class="card-body">

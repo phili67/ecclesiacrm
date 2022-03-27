@@ -571,13 +571,17 @@ if (!is_null($persons) && $persons->count() == 1) {
                             }
 
                             if (!empty($formattedMailingAddress)) {
+                                $adresses = explode('<br>',$plaintextMailingAddress);
+                                $count = count($adresses);
                                 ?>
                                 <li>
                                 <strong>
-                                    <i class="fa-li fas fa-home"></i><?php echo _('Address'); ?>:
+                                    <i class="fa-li fas fa-home"></i><?php echo _('Address'); ?>:<?= $count>1?'<br>':'' ?>
                                 </strong>
                                 <span>
-                                    <?= OutputUtils::GetLinkMapFromAddress($plaintextMailingAddress) ?>
+                                    <?php foreach ($adresses as $adress) { ?>
+                                        <?= $count>1?'•':'' ?> <?= OutputUtils::GetLinkMapFromAddress($adress) ?><br>
+                                    <?php } ?>
                                 </span>
                                 <?php if ($location_available) { ?>
                                     <div id="MyMap" style="width:100%"></div>

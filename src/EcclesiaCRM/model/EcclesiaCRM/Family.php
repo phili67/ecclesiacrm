@@ -46,9 +46,6 @@ class Family extends BaseFamily implements iPhoto
         $address = [];
         if (!empty($this->getAddress1())) {
             $tmp = $this->getAddress1();
-            if (!empty($this->getAddress2())) {
-                $tmp = $tmp.' '.$this->getAddress2();
-            }
             array_push($address, $tmp);
         }
 
@@ -65,6 +62,10 @@ class Family extends BaseFamily implements iPhoto
         }
         if (!empty($this->getCountry())) {
             array_push($address, $this->getCountry());
+        }
+
+        if (!empty($this->getAddress2())) {
+            array_push($address, '<br>'.$this->getAddress2());
         }
 
         return implode(' ', $address);
