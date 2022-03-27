@@ -425,7 +425,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $statesDD = new StateDropDown();
                 $code .= $statesDD->getDropDown($sState);
 
-
                 $code .= '        </div>
                     <div ' . (SystemConfig::getValue('bStateUnusefull') ? 'style="display: none;"' : 'class="form-group col-md-3"') . '>
                         <label>' . _('None US/CND State') . ':</label>
@@ -435,7 +434,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     </div>
                     <div class="form-group col-md-3">
                         <label>' . _('Zip') . ':</label>
-                        <input type="text" Name="Zip" class="form-control form-control-sm"';
+                        <input type="text" Name="Zip" id="Zip" class="form-control form-control-sm"';
 
                 // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                 if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
@@ -518,8 +517,8 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                             <label>' . _('Send Newsletter') . ':</label>
                        </div>
                        <div class="col-md-3">
-                                <input type="checkbox" Name="SendNewsLetter"
-                                       value="1" ' . ($bSendNewsLetter ? ' checked' : '') . '>
+                                <input type="checkbox" Name="SendNewsLetter" id="SendNewsLetter"
+                                       value="'. (($bSendNewsLetter == "TRUE" or $bSendNewsLetter == 1)?"TRUE":"FALSE").'" ' . (($bSendNewsLetter == "TRUE") ? ' checked' : '') . '>
                         </div>
                     </div>';
 
@@ -735,9 +734,68 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
 
 
+    $group->post('/modifyFamilyInfo/', function (Request $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
 
+        if (isset ($input->familyId) and isset($input->FamilyName) and isset($input->Address1)
+            and isset($input->Address2) and isset($input->City) and isset($input->Zip)
+            and isset($input->Country) and isset($input->State) and isset($input->homePhone)
+            and isset($input->workPhone) and isset($input->cellPhone) and isset($input->email)
+            and isset($input->WeddingDate) and isset($input->SendNewsLetter)) {
 
+            $family = FamilyQuery::create()->findOneById($input->familyId);
 
+            if ( !is_null($family) ) {
+                $family->setName($input->FamilyName);
+                $family->setAddress1($input->Address1);
+                $family->setAddress2($input->Address2);
+
+                $family->setCity($input->City);
+                $family->setZip($input->Zip);
+                $family->setCountry($input->Country);
+                $family->setState($input->State);
+
+                $family->setHomePhone($input->homePhone);
+                $family->setWorkPhone($input->workPhone);
+                $family->setCellPhone($input->cellPhone);
+
+                $family->setEmail($input->email);
+
+                $family->setWeddingdate($input->WeddingDate);
+
+                $family->setSendNewsletter(($input->SendNewsLetter)?"TRUE":"FALSE");
+
+                $family->save();
+
+                $res = '<i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>'. str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>', $family->getAddress()) .'<br/>';
+                if (!empty($family->getHomePhone())) {
+                    $res .= '<i class="fa  fa-phone" title="'. _("Home Phone") .'"> </i>(H) '. $family->getHomePhone() .'<br/>';
+                }
+                if (!empty($family->getEmail())) {
+                    $res.= '<i class="fa  fa-envelope" title="'. _("Family Email") .'"></i>'. $family->getEmail() .'<br/>';
+
+                }
+                if ($family->getWeddingDate() !== null) {
+                    $res .= '<i class="fa  fa-heart"
+                        title="'. _("Wedding Date") .'"></i>'. $family->getWeddingDate()->format(SystemConfig::getValue("sDateFormatLong")) .'
+                            <br/>';
+                }
+
+                $res .= '<i class="fas fa-newspaper"
+                    title="'. _("Send Newsletter") .'"></i>'. $family->getSendNewsletter() .'<br/>
+
+                    <div class="text-left">
+                        <button class="btn btn-danger btn-sm deleteFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> '. _("Delete") .'</button>
+                        <button class="btn btn-sm modifyFamily" data-id="'. $family->getId() .'" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> '. _("Modify") .'</button>
+                        <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> '. _("Exit") .'</button>
+                    </div>';
+
+                return $response->withJson(["Status" => "success", 'content' => $res]);
+            }
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
 
     /*$group->post('/', function (Request $request, Response $response, array $args) {
         $body = $request->getParsedBody();
