@@ -41,12 +41,12 @@
             </p>
             <p>
                 {{body}}<br><br>
-                {{# message}}
-                {{message}}.<br>
-                {{endmessage}}
-                <br>
-                {{/ message}}
             </p>
+            {{# verificationValidation}}
+            <p>
+                <a href="{{churchCRMURL}}FamilyView.php?FamilyID={{familyId}}" target="_blank">{{churchCRMURL}}FamilyView.php?FamilyID={{familyId}}</a><br/><br/>
+            </p>
+            {{/ verificationValidation}}
             {{# userName}}
             <p>
                 {{userNameText}}: <a href="{{churchCRMURL}}Login.php?username={{userName}}" target="_blank">{{userName}}</a><br/>
