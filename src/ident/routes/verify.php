@@ -8,7 +8,6 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\Utils\LoggerUtils;
 use Slim\Http\Response as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
@@ -26,6 +25,7 @@ use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\TokenPasswordQuery;
 use EcclesiaCRM\Emails\FamilyVerificationValidation;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
@@ -370,7 +370,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $code .= '<input type="text" name="FamilyName" class="" id="FamilyName" value="' . $sName . '" maxlength="15" id="BirthDayDate" size="50" placeholder="' . SystemConfig::getValue("sDatePickerPlaceHolder") . '">';
 
                 $code .= '</div>
-                    </div>';
+                    </div><hr/>';
 
                 $code .= '<div class="row">
                     <div class="col-md-2">
@@ -379,16 +379,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                     <div class="col-md-9">
                         <input type="text" Name="Address1" id="Address1"
                                value="' . htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') . '" size="50"
-                               maxlength="250" class="">
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-2">
-                        <i class="fa  fa-map-marker" title="' . _("Home Address") . '"></i>  <label>' . _('Address') . ' 2:</label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text" Name="Address2" id="Address2"
-                               value="' . htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') . '" size="50"
                                maxlength="250" class="">
                     </div>
                     </div>
@@ -435,7 +425,18 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 $code .= CountryDropDown::getDropDown($sCountry);
 
                 $code .= '</div>
-                </div>';
+                </div><hr/>';
+
+                $code .= '<div class="row">
+                    <div class="col-md-2">
+                        <i class="fa  fa-map-marker" title="' . _("Home Address") . '"></i>  <label>' . _('Address') . ' 2:</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" Name="Address2" id="Address2"
+                               value="' . htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') . '" size="50"
+                               maxlength="250" class="">
+                    </div>
+                    </div><hr/>';
 
                 $code .= '<br/>
 
