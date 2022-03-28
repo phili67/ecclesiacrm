@@ -8,6 +8,7 @@
  *
  ******************************************************************************/
 
+use EcclesiaCRM\Utils\LoggerUtils;
 use Slim\Http\Response as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
@@ -24,6 +25,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\TokenPasswordQuery;
+use EcclesiaCRM\Emails\FamilyVerificationValidation;
 
 $app->group('/my-profile', function (RouteCollectorProxy $group) {
 
@@ -131,20 +133,6 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             }
 
             return $renderer->render($response, "verify-family-info.php", array("family" => $family, "token" => $token, "realToken" => $realToken));
-        } elseif ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
-            $family = FamilyQuery::create()->findPk($token->getReferenceId());
-            if ($family != null) {
-                $body = (object)$request->getParsedBody();
-                $note = new Note();
-                $note->setFamily($family);
-                $note->setType("verify");
-                $note->setEntered(Person::SELF_VERIFY);
-                $note->setText(gettext("No Changes"));
-                if (!empty($body->message)) {
-                    $note->setText($body->message);
-                }
-                $note->save();
-            }
         }
         return $response->withStatus(200);
     });
@@ -791,12 +779,40 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
         return $response->withJson(["Status" => "failed"]);
     });
 
-    /*$group->post('/', function (Request $request, Response $response, array $args) {
-        $body = $request->getParsedBody();
-        $renderer = new PhpRenderer("templates/verify/");
-        $family = PersonQuery::create()->findByEmail($body["email"]);
-        return $renderer->render($response, "view-info.php", array("family" => $family));
-    });*/
+    $group->post('/onlineVerificationFinished/', function (Request $request, Response $response, array $args) {
+        $input = (object)$request->getParsedBody();
+
+        if ( isset ($input->token) and isset($input->message) ) {
+            $token = TokenQuery::create()->findPk($input->token);
+            if ($token != null && $token->isVerifyFamilyToken() && $token->isValid()) {
+                $family = FamilyQuery::create()->findPk($token->getReferenceId());
+                if ($family != null) {
+                    $note = new Note();
+                    $note->setFamily($family);
+                    $note->setType("verify");
+                    $note->setEntered(Person::SELF_VERIFY);
+                    $message = gettext("No Changes");
+                    if (!empty($input->message)) {
+                        $message = $input->message;
+                    }
+                    $note->setText($message);
+                    $note->save();
+
+                    $mail = new FamilyVerificationValidation([SystemConfig::getValue("sChurchEmail")], $family->getName(), $token->getToken(), $message, $family->getId());
+
+                    if (($familyEmailSent = $mail->send())) {
+                        $this->familiesEmailed = $this->familiesEmailed + 1;
+                    } else {
+                        LoggerUtils::getAppLogger()->error($mail->getError());
+                    }
+
+                    return $response->withJson(["Status" => "success", 'familyEmailSent' => $familyEmailSent]);
+                }
+            }
+        }
+
+        return $response->withJson(["Status" => "failed"]);
+    });
 });
 
 
