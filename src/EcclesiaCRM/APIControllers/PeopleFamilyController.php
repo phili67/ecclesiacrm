@@ -208,9 +208,20 @@ class PeopleFamilyController
 
             $tokenPassword->save();
 
-            $emails = $family->getEmails();
+            // we search the headPeople
+            $headPeople = $family->getHeadPeople();
 
-            $email = new FamilyVerificationEmail($family->getEmails(), $family->getName(), $token->getToken(), $emails,  $password);
+            $emails = [];
+
+            foreach ($headPeople as $headPerson) {
+                $emails[] = $headPerson->getEmail();
+            }
+
+            if (count($emails) == 0) {
+                $emails = $family->getEmails();
+            }
+
+            $email = new FamilyVerificationEmail($emails, $family->getName(), $token->getToken(), $emails,  $password);
             if ($email->send()) {
                 $family->createTimeLineNote("verify-link");
                 $response = $response->withStatus(200);
