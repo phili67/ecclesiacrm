@@ -204,7 +204,7 @@ class PeopleFamilyController
 
             $tokenPassword->setTokenId($token->getPrimaryKey());
             $tokenPassword->setPassword(md5($password));
-            $tokenPassword->setMustChangePwd(true);
+            $tokenPassword->setMustChangePwd(false);
 
             $tokenPassword->save();
 
@@ -274,7 +274,7 @@ class PeopleFamilyController
 
             $tokenPassword->setTokenId($token->getPrimaryKey());
             $tokenPassword->setPassword(md5($password));
-            $tokenPassword->setMustChangePwd(true);
+            $tokenPassword->setMustChangePwd(false);
 
             $tokenPassword->save();
 

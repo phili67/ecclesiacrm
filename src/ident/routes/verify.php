@@ -118,7 +118,7 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 }
 
                 // now everything is done
-                $tokenPassword->setMustChangePwd(0);
+                $tokenPassword->setMustChangePwd(false);
                 $tokenPassword->setPassword(md5($_POST['newPassword']));
                 $tokenPassword->setIPAddress($ip);
                 $tokenPassword->save();
