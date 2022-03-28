@@ -16,6 +16,10 @@ namespace EcclesiaCRM\Reports;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenPassword;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
 
@@ -103,6 +107,7 @@ class EmailUsers
 
     public function renderAndSend()
     {
+        LoggerUtils::getAppLogger()->info("fam start");
         $familyEmailSent = false;
 
         // Get the list of custom person fields
@@ -421,7 +426,24 @@ class EmailUsers
                 if ($fam->getID() == 274) {
                     LoggerUtils::getAppLogger()->info("fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
 
-                    $mail = new FamilyVerificationEmail($emaillist, $fam->getName());
+                    TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($fam->getId())->delete();
+                    $token = new Token();
+                    $token->build("verifyFamily", $fam->getId());
+                    $token->save();
+
+                    $tokenPassword = new TokenPassword();
+
+                    $password = MiscUtils::random_password(8);
+
+                    $tokenPassword->setTokenId($token->getPrimaryKey());
+                    $tokenPassword->setPassword(md5($password));
+                    $tokenPassword->setMustChangePwd(false);
+
+                    $tokenPassword->save();
+
+                    $emails = $fam->getEmails();
+
+                    $mail = new FamilyVerificationEmail($fam->getEmails(), $fam->getName(), $token->getToken(), $emails, $password);
                     $filename = 'ConfirmReportEmail-' . $fam->getName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
                     $mail->addStringAttachment($doc, $filename);
 
