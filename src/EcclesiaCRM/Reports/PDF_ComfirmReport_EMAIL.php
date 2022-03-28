@@ -426,9 +426,7 @@ class EmailUsers
                 }
 
                 /* end of part : https://support.google.com/mail/answer/81126 */
-
                 if ($fam->getID() == 274) {
-                    LoggerUtils::getAppLogger()->info("family ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
 
                     TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($fam->getId())->delete();
                     $token = new Token();
@@ -445,9 +443,23 @@ class EmailUsers
 
                     $tokenPassword->save();
 
-                    $emails = $fam->getEmails();
+                    // we search the headPeople
+                    $headPeople = $fam->getHeadPeople();
 
-                    $mail = new FamilyVerificationEmail($fam->getEmails(), $fam->getName(), $token->getToken(), $emails, $password);
+                    $emails = [];
+
+                    foreach ($headPeople as $headPerson) {
+                        $emails[] = $headPerson->getEmail();
+                    }
+
+                    // in the case there isn't any headPeople
+                    if (count($emails) == 0) {
+                        $emails = $fam->getEmails();
+                    }
+
+                    LoggerUtils::getAppLogger()->info("family ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime . "mail : ".$emails[0]);
+
+                    $mail = new FamilyVerificationEmail($emails, $fam->getName(), $token->getToken(), $emails, $password);
                     $filename = 'ConfirmReportEmail-' . $fam->getName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
                     $mail->addStringAttachment($doc, $filename);
 
