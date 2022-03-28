@@ -9,19 +9,19 @@ class FamilyVerificationEmail extends BaseEmail
 {
     private $token;
     protected $familyName;
-    protected $login;
+    protected $logins;
     protected $password;
 
-    public function __construct($emails, $familyName, $token = "", $login = "",$password = "" )
+    public function __construct($emails, $familyName, $token = "", $logins = [],$password = "")
     {
         $this->familyName = $familyName;
         $this->token = $token;
-        $this->mail->Subject = $familyName . ": " . gettext("Please verify your family's information");
-        $this->login = $login;
+        $this->logins = $logins;
         $this->password = $password;
 
         parent::__construct($emails);
 
+        $this->mail->Subject = _("Family"). " : ". $familyName . " (" . gettext("Please verify your family's information").")";
         $this->mail->isHTML(true);
         $this->mail->msgHTML($this->buildMessage());
     }
@@ -31,7 +31,7 @@ class FamilyVerificationEmail extends BaseEmail
         $myTokens = ["toName" => $this->familyName . " " . gettext("Family"),
             "verificationToken" => $this->token,
             "body" => SystemConfig::getValue("sConfirm1"),
-            "login" => _("Login") .' : '. $this->login,
+            "login" => _("Login") .' : '. $this->logins[0],
             "password" => _("Password") .' : '. $this->password
         ];
         return array_merge($this->getCommonTokens(), $myTokens);
