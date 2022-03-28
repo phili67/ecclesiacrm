@@ -198,8 +198,8 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
             <div class="modal-footer">
                 <button id="onlineVerifyCancelBtn" type="button" class="btn btn-default"
-                        data-dismiss="modal"><?= _("Cancel") ?></button>
-                <button id="onlineVerifyBtn" class="btn btn-success"><?= _("Verify") ?></button>
+                        data-dismiss="modal"><i class="fas fa-times"></i> <?= _("Cancel") ?></button>
+                <button id="onlineVerifyBtn" class="btn btn-success"><i class="fas fa-paper-plane"></i> <?= _("Send") ?></button>
                 <a href="<?= ChurchMetaData::getChurchWebSite() ?>" id="onlineVerifySiteBtn"
                    class="btn btn-success"><?= _("Visit our Site") ?></a>
             </div>
