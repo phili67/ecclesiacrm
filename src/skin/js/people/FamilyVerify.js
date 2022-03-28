@@ -12,21 +12,21 @@ $(document).ready(function () {
     $("#confirm-modal-error").hide();
 
     $("#onlineVerifyBtn").click(function () {
-        $.post(window.CRM.root + '/ident/my-profile/' + window.CRM.token,
-            {
-                message: $("#confirm-info-data").val()
-            },
-            function (data, status) {
-                $('#confirm-modal-collect').hide();
-                $("#onlineVerifyCancelBtn").hide();
-                $("#onlineVerifyBtn").hide();
-                $("#onlineVerifySiteBtn").show();
-                if (status == "success") {
-                    $("#confirm-modal-done").show();
-                } else {
-                    $("#confirm-modal-error").show();
-                }
-            });
+
+        $.post(window.CRM.root + '/ident/my-profile/onlineVerificationFinished/', {
+            "token": window.CRM.token,
+            "message" : $("#confirm-info-data").val()
+        }, function (data) {
+            $('#confirm-modal-collect').hide();
+            $("#onlineVerifyCancelBtn").hide();
+            $("#onlineVerifyBtn").hide();
+            $("#onlineVerifySiteBtn").show();
+            if (data.Status == "success") {
+                $("#confirm-modal-done").show();
+            } else {
+                $("#confirm-modal-error").show();
+            }
+        });
     });
 
     function BootboxContent(data) {
