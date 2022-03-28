@@ -1576,13 +1576,10 @@ CREATE TABLE `kioskassginment_kasm` (
   `kasm_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
   `kasm_kdevId` mediumint(9) DEFAULT NULL,
   `kasm_AssignmentType` mediumint(9) DEFAULT NULL,
-`kasm_EventId` mediumint(9) DEFAULT 0,
-
+  `kasm_EventId` mediumint(9) DEFAULT 0,
   PRIMARY KEY  (`kasm_ID`),
   UNIQUE KEY `kasm_ID` (`kasm_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
-
 
 CREATE TABLE `tokens` (
   `token` VARCHAR(99) NOT NULL,
@@ -1592,6 +1589,18 @@ CREATE TABLE `tokens` (
   `remainingUses` INT(2) NULL,
   `Comment` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`token`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+CREATE TABLE `tokens_password` (
+   `tok_pwd_ID` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+   `tok_pwd_token_ID` VARCHAR(99) NOT NULL,
+   `tok_pwd_must_change_PWD` BOOLEAN NOT NULL default 1,
+   `tok_pwd_password` varchar(255) NOT NULL default '',
+   `tok_pwd_ip` varchar(255) NOT NULL default '',
+   PRIMARY KEY (`tok_pwd_ID`),
+   CONSTRAINT fk_tok_pwd_token_ID
+       FOREIGN KEY (tok_pwd_token_ID) REFERENCES tokens(token)
+           ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE `church_location` (

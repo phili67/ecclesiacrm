@@ -28,6 +28,10 @@ class Family extends BaseFamily implements iPhoto
 
     public function preDelete(ConnectionInterface $con = NULL)
     {
+      $token = TokenQuery::create()->findByReferenceId($this->getId());
+      if ( !is_null($token)) {
+            $token->delete();
+        }
       $persons = PersonQuery::Create()->findByFamId($this->getId());
 
       if ($persons->count() > 0) {
@@ -42,9 +46,6 @@ class Family extends BaseFamily implements iPhoto
         $address = [];
         if (!empty($this->getAddress1())) {
             $tmp = $this->getAddress1();
-            if (!empty($this->getAddress2())) {
-                $tmp = $tmp.' '.$this->getAddress2();
-            }
             array_push($address, $tmp);
         }
 
@@ -61,6 +62,10 @@ class Family extends BaseFamily implements iPhoto
         }
         if (!empty($this->getCountry())) {
             array_push($address, $this->getCountry());
+        }
+
+        if (!empty($this->getAddress2())) {
+            array_push($address, '<br>'.$this->getAddress2());
         }
 
         return implode(' ', $address);

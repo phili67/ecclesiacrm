@@ -36,7 +36,6 @@ require __DIR__ . '/../Include/slim/error-handler.php';
 require __DIR__ . '/routes/calendar.php';
 require __DIR__ . '/routes/register.php';
 require __DIR__ . '/routes/password.php';
-require __DIR__ . '/routes/verify.php';
 
 // Run app
 $app->run();

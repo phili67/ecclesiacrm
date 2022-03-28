@@ -20,7 +20,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
 <div class="row">
     <div id="right-buttons" class="btn-group" role="group">
-        <button type="button" id="verify" class="btn btn-sm" data-toggle="modal" data-target="#confirm-Verify">
+        <button type="button" id="verify" class="btn btn-sm" data-toggle="modal" data-target="#confirm-Verify" style="margin-top: -40px">
             <div class="btn-txt"><?= _("Confirm") ?></div>
             <i class="fas fa-check fa-5x"></i></button>
     </div>
@@ -30,8 +30,8 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <img class="img-circle center-block pull-right img-responsive initials-image" width="200" height="200"
              src="data:image/png;base64,<?= base64_encode($family->getPhoto()->getThumbnailBytes()) ?>">
         <h2><?= $family->getName() ?></h2>
-        <div class="text-muted font-bold m-b-xs">
-            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= $family->getAddress() ?><br/>
+        <div class="text-muted font-bold m-b-xs family-info">
+            <i class="fa  fa-map-marker" title="<?= _("Home Address") ?>"></i><?= str_replace("<br>", '<br><i class="fa  fa-map-marker" title="'. _("Home Address") .'"></i>', $family->getAddress()) ?><br/>
             <?php if (!empty($family->getHomePhone())) { ?>
                 <i class="fa  fa-phone" title="<?= _("Home Phone") ?>"> </i>(H) <?= $family->getHomePhone() ?><br/>
             <?php }
@@ -48,8 +48,14 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
             }
             ?>
 
-            <i class="fa  fa-newspaper-o"
+            <i class="fas fa-newspaper"
                title="<?= _("Send Newsletter") ?>"></i><?= _($family->getSendNewsletter()) ?><br/>
+
+            <div class="text-left">
+                <button class="btn btn-danger btn-sm deleteFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
+                <button class="btn btn-sm modifyFamily" data-id="<?= $family->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
+                <button class="btn btn-success btn-sm exitSession" style="height: 30px;padding-top: 5px;background-color: green"><i class="fas fa-sign-out-alt"></i> <?= _("Exit") ?></button>
+            </div>
         </div>
     </div>
     <div class="border-right border-left">
@@ -66,11 +72,13 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         <div class="card-body">
             <div class="row">
                 <?php foreach ($family->getPeopleSorted() as $person) { ?>
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-md-3 col-sm-4 person-container-<?= $person->getId() ?>">
                         <div class="card card-primary">
                             <div class="card-body box-profile">
-                                <img class="profile-user-img img-responsive img-circle initials-image"
+                                <div class="text-center">
+                                    <img class="profile-user-img img-responsive img-circle initials-image"
                                      src="data:image/png;base64,<?= base64_encode($person->getPhoto()->getThumbnailBytes()) ?>">
+                                </div>
 
                                 <h3 class="profile-username text-center"><?= $person->getFullName() ?></h3>
 
@@ -148,6 +156,11 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
                                         </li>
                                     <?php } ?>
                                 </ul>
+                                <br/>
+                                <div class="text-center">
+                                    <button class="btn btn-danger btn-sm deletePerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;background-color: red"><i class="fas fa-trash"></i> <?= _("Delete") ?></button>
+                                    <button class="btn btn-sm modifyPerson" data-id="<?= $person->getId() ?>" style="height: 30px;padding-top: 5px;"><i class="fas fa-edit"></i> <?= _("Modify") ?></button>
+                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -185,8 +198,8 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
 
             <div class="modal-footer">
                 <button id="onlineVerifyCancelBtn" type="button" class="btn btn-default"
-                        data-dismiss="modal"><?= _("Cancel") ?></button>
-                <button id="onlineVerifyBtn" class="btn btn-success"><?= _("Verify") ?></button>
+                        data-dismiss="modal"><i class="fas fa-times"></i> <?= _("Cancel") ?></button>
+                <button id="onlineVerifyBtn" class="btn btn-success"><i class="fas fa-paper-plane"></i> <?= _("Send") ?></button>
                 <a href="<?= ChurchMetaData::getChurchWebSite() ?>" id="onlineVerifySiteBtn"
                    class="btn btn-success"><?= _("Visit our Site") ?></a>
             </div>
@@ -230,6 +243,10 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
         z-index: 888;
     }
 
+    body {
+        margin-top: 45px;
+    }
+
 </style>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyVerify.js"></script>
@@ -258,11 +275,17 @@ $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
     };
     window.CRM.mapZoom = <?= $iLittleMapZoom ?>;
     window.CRM.iLittleMapZoom = <?= $iLittleMapZoom ?>;
+    window.CRM.token = '<?= $realToken ?>';
+
+    $('body,html').css('margin-top','20px');
 
     initMap(window.CRM.churchloc.lng, window.CRM.churchloc.lat, '<?= $family->getName() ?>', '', '');
 <?php } ?>
-    var token = '<?= $token->getToken()?>';
-</script
+    window.CRM.token = '<?= $token->getToken()?>';
+</script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/moment/moment-with-locales.min.js"></script>
 
 <?php
 // Add the page footer

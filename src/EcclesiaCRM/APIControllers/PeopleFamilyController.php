@@ -29,6 +29,7 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenPassword;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -196,7 +197,31 @@ class PeopleFamilyController
             $token = new Token();
             $token->build("verifyFamily", $family->getId());
             $token->save();
-            $email = new FamilyVerificationEmail($family->getEmails(), $family->getName(), $token->getToken());
+
+            $tokenPassword = new TokenPassword();
+
+            $password = MiscUtils::random_password(8);
+
+            $tokenPassword->setTokenId($token->getPrimaryKey());
+            $tokenPassword->setPassword(md5($password));
+            $tokenPassword->setMustChangePwd(false);
+
+            $tokenPassword->save();
+
+            // we search the headPeople
+            $headPeople = $family->getHeadPeople();
+
+            $emails = [];
+
+            foreach ($headPeople as $headPerson) {
+                $emails[] = $headPerson->getEmail();
+            }
+
+            if (count($emails) == 0) {
+                $emails = $family->getEmails();
+            }
+
+            $email = new FamilyVerificationEmail($emails, $family->getName(), $token->getToken(), $emails,  $password);
             if ($email->send()) {
                 $family->createTimeLineNote("verify-link");
                 $response = $response->withStatus(200);
@@ -243,12 +268,30 @@ class PeopleFamilyController
 
         if ( isset ($input->famId) ) {
             $family = FamilyQuery::create()->findOneById($input->famId);
-            TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($family->getId())->delete();
+            $token = TokenQuery::create()
+                ->filterByType("verifyFamily")
+                ->findOneByReferenceId($family->getId());
+            if (!is_null($token)) {
+                $token->delete();
+            }
             $token = new Token();
             $token->build("verifyFamily", $family->getId());
+            $token->setRemainingUses(100);
             $token->save();
+
+            $tokenPassword = new TokenPassword();
+
+            $password = MiscUtils::random_password(8);
+
+            $tokenPassword->setTokenId($token->getPrimaryKey());
+            $tokenPassword->setPassword(md5($password));
+            $tokenPassword->setMustChangePwd(false);
+
+            $tokenPassword->save();
+
+
             $family->createTimeLineNote("verify-URL");
-            return $response->withJSON(["url" => "external/verify/" . $token->getToken()]);
+            return $response->withJSON(["url" => "ident/my-profile/" . $token->getToken(), 'password' => $password]);
         }
 
         return $response;

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1360,18 +1360,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Οικογενειακή φωτογραφία"
 
-msgid "Verification email sent"
-msgstr "Αποστολή email επαλήθευσης"
-
-msgid "Failed to send verification email"
-msgstr "Απέτυχε να στείλει email επαλήθευσης"
-
-msgid "Failed to add verification"
-msgstr "Αποτυχία προσθήκης επαλήθευσης"
-
-msgid "Verification URL"
-msgstr "URL επαλήθευσης"
-
 msgid "Bank Draft"
 msgstr "Τραπεζική επιταγή"
 
@@ -1422,6 +1410,21 @@ msgstr "Αποθηκεύστε τη σημείωσή σας"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Θέλετε να αποθηκεύσετε τη σημείωσή σας ως αρχείο Word στο EDrive σας;"
+
+msgid "Verification URL"
+msgstr "URL επαλήθευσης"
+
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "Failed to add verification"
+msgstr "Αποτυχία προσθήκης επαλήθευσης"
+
+msgid "Verification email sent"
+msgstr "Αποστολή email επαλήθευσης"
+
+msgid "Failed to send verification email"
+msgstr "Απέτυχε να στείλει email επαλήθευσης"
 
 msgid "Family Id"
 msgstr "Οικογενειακή ταυτότητα"
@@ -1636,6 +1639,12 @@ msgstr "Προσθήκη νέου τύπου ιδιοκτησίας"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr "Γονέας (ιεραρχία)"
+
+msgid "Color"
+msgstr "Χρώμα"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Προσθήκη νέας ευκαιρίας εθελοντισμού"
@@ -2278,6 +2287,11 @@ msgstr "Σύνδεση στην αποκατεστημένη βάση δεδομ
 
 msgid "Restore Error."
 msgstr "Σφάλμα επαναφοράς."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Έγινε!"

@@ -16,6 +16,10 @@ namespace EcclesiaCRM\Reports;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReportTCPDF;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenPassword;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\LoggerUtils;
 
@@ -103,6 +107,7 @@ class EmailUsers
 
     public function renderAndSend()
     {
+        LoggerUtils::getAppLogger()->info("start : mailing to families");
         $familyEmailSent = false;
 
         // Get the list of custom person fields
@@ -133,6 +138,8 @@ class EmailUsers
         }
 
         $ormFamilies->find();
+
+        $count_families = $ormFamilies->count();
 
         $dataCol = 55;
         $dataWid = 65;
@@ -414,14 +421,45 @@ class EmailUsers
 
                 $count_email++;
 
-                sleep($sleepTime);
+                if ($count_families > 1) {
+                    sleep($sleepTime);
+                }
 
                 /* end of part : https://support.google.com/mail/answer/81126 */
+                if ($fam->getID() == 274) {
 
-                /*if ($fam->getID() == 274) {*/
-                    LoggerUtils::getAppLogger()->info("fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
+                    TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($fam->getId())->delete();
+                    $token = new Token();
+                    $token->build("verifyFamily", $fam->getId());
+                    $token->save();
 
-                    $mail = new FamilyVerificationEmail($emaillist, $fam->getName());
+                    $tokenPassword = new TokenPassword();
+
+                    $password = MiscUtils::random_password(8);
+
+                    $tokenPassword->setTokenId($token->getPrimaryKey());
+                    $tokenPassword->setPassword(md5($password));
+                    $tokenPassword->setMustChangePwd(false);
+
+                    $tokenPassword->save();
+
+                    // we search the headPeople
+                    $headPeople = $fam->getHeadPeople();
+
+                    $emails = [];
+
+                    foreach ($headPeople as $headPerson) {
+                        $emails[] = $headPerson->getEmail();
+                    }
+
+                    // in the case there isn't any headPeople
+                    if (count($emails) == 0) {
+                        $emails = $fam->getEmails();
+                    }
+
+                    LoggerUtils::getAppLogger()->info("family ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime . "mail : ".$emails[0]);
+
+                    $mail = new FamilyVerificationEmail($emails, $fam->getName(), $token->getToken(), $emails, $password);
                     $filename = 'ConfirmReportEmail-' . $fam->getName() . '-' . date(SystemConfig::getValue("sDateFilenameFormat")) . '.pdf';
                     $mail->addStringAttachment($doc, $filename);
 
@@ -430,13 +468,13 @@ class EmailUsers
                     } else {
                         LoggerUtils::getAppLogger()->error($mail->getError());
                     }
-                /*} else {
+                } else {
                     LoggerUtils::getAppLogger()->info("No fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
-                }*/
+                }
             }
         }
 
-        LoggerUtils::getAppLogger()->info("terminé ");
+        LoggerUtils::getAppLogger()->info("end : mailing to families ");
 
         return $familyEmailSent;
     }

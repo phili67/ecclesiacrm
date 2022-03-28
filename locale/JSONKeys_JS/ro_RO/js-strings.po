@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1356,18 +1356,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Fotografie de familie"
 
-msgid "Verification email sent"
-msgstr "E-mail de verificare trimis"
-
-msgid "Failed to send verification email"
-msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
-
-msgid "Failed to add verification"
-msgstr "Nu s-a reușit adăugarea verificării"
-
-msgid "Verification URL"
-msgstr "URL de verificare"
-
 msgid "Bank Draft"
 msgstr "Cec bancar"
 
@@ -1418,6 +1406,21 @@ msgstr "Salvează-ți nota"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Doriți să vă salvați nota ca fișier Word în EDrive?"
+
+msgid "Verification URL"
+msgstr "URL de verificare"
+
+msgid "Password"
+msgstr "Parola"
+
+msgid "Failed to add verification"
+msgstr "Nu s-a reușit adăugarea verificării"
+
+msgid "Verification email sent"
+msgstr "E-mail de verificare trimis"
+
+msgid "Failed to send verification email"
+msgstr "Nu s-a reușit trimiterea e-mailului de verificare"
 
 msgid "Family Id"
 msgstr "Id. de familie"
@@ -1632,6 +1635,12 @@ msgstr "Adăugați un nou tip de proprietate"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr "Părinte (ierarhie)"
+
+msgid "Color"
+msgstr "Culoare"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Adăugați o nouă oportunitate de voluntariat"
@@ -2273,6 +2282,11 @@ msgstr "Autentificare la baza de date restaurată"
 
 msgid "Restore Error."
 msgstr "Eroare de restaurare."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Gata!"

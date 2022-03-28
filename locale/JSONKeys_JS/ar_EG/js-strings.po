@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1339,18 +1339,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "صورة عائلية"
 
-msgid "Verification email sent"
-msgstr "أرسلت رسالة التحقق"
-
-msgid "Failed to send verification email"
-msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
-
-msgid "Failed to add verification"
-msgstr "ولم يضيف التحقق"
-
-msgid "Verification URL"
-msgstr "التحقق من URL"
-
 msgid "Bank Draft"
 msgstr "بنك درافت"
 
@@ -1401,6 +1389,22 @@ msgstr "وفر ملاحظتك"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "هل تريد أن تحتفظ بملاحظتك كملفف كلمات في محرك الأقراص؟"
+
+msgid "Verification URL"
+msgstr "التحقق من URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "إعادة ضبط كلمة السر"
+
+msgid "Failed to add verification"
+msgstr "ولم يضيف التحقق"
+
+msgid "Verification email sent"
+msgstr "أرسلت رسالة التحقق"
+
+msgid "Failed to send verification email"
+msgstr "فشلت في إرسال بريد إلكتروني للتحقق"
 
 msgid "Family Id"
 msgstr "Id family Id"
@@ -1605,6 +1609,12 @@ msgstr "أضف نموذج جديد للملكية"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr ""
+
+msgid "Color"
+msgstr ""
 
 msgid "Add New Volunteer Opportunity"
 msgstr "أضف فرصة متطوعين جديدين"
@@ -2222,6 +2232,11 @@ msgstr "نبقى على قاعدة البيانات"
 
 msgid "Restore Error."
 msgstr "استعادة الخطأ"
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "تم"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1343,18 +1343,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Familiefoto"
 
-msgid "Verification email sent"
-msgstr "Bekreft e-post sendt"
-
-msgid "Failed to send verification email"
-msgstr "- Du sendte ikke verifisering e-post"
-
-msgid "Failed to add verification"
-msgstr "- Det ville ikke bekrefte det"
-
-msgid "Verification URL"
-msgstr "Bekreft URL"
-
 msgid "Bank Draft"
 msgstr "Banksaksjon"
 
@@ -1405,6 +1393,22 @@ msgstr "Spar lappen"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Vil du spare lappen din som en Ordseløp i EDrive?"
+
+msgid "Verification URL"
+msgstr "Bekreft URL"
+
+#, fuzzy
+msgid "Password"
+msgstr "Passordet er tilbakestilt"
+
+msgid "Failed to add verification"
+msgstr "- Det ville ikke bekrefte det"
+
+msgid "Verification email sent"
+msgstr "Bekreft e-post sendt"
+
+msgid "Failed to send verification email"
+msgstr "- Du sendte ikke verifisering e-post"
 
 msgid "Family Id"
 msgstr "Familieidentitet"
@@ -1612,6 +1616,12 @@ msgstr "Legg til en ny eiendoms-type"
 
 msgid "Activ"
 msgstr "Aktiv"
+
+msgid "Parent (hierarchy)"
+msgstr ""
+
+msgid "Color"
+msgstr ""
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Legg til ny frivillig mulighet"
@@ -2232,6 +2242,11 @@ msgstr "Login til gjenopprettet Database"
 
 msgid "Restore Error."
 msgstr "Gjenopprett feil."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Avtale!"

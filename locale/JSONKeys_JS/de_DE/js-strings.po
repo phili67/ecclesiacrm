@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1367,18 +1367,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Familienfoto"
 
-msgid "Verification email sent"
-msgstr "Verifizierungs-E-Mail gesendet"
-
-msgid "Failed to send verification email"
-msgstr "Bestätigungs-E-Mail konnte nicht gesendet werden"
-
-msgid "Failed to add verification"
-msgstr "Überprüfung fehlgeschlagen"
-
-msgid "Verification URL"
-msgstr "Verifizierungs-URL"
-
 msgid "Bank Draft"
 msgstr "Bankscheck"
 
@@ -1430,6 +1418,21 @@ msgstr "Speichern Sie Ihre Notiz"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Möchten Sie Ihre Notiz als Word-Datei in Ihrem EDrive speichern?"
+
+msgid "Verification URL"
+msgstr "Verifizierungs-URL"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Failed to add verification"
+msgstr "Überprüfung fehlgeschlagen"
+
+msgid "Verification email sent"
+msgstr "Verifizierungs-E-Mail gesendet"
+
+msgid "Failed to send verification email"
+msgstr "Bestätigungs-E-Mail konnte nicht gesendet werden"
 
 msgid "Family Id"
 msgstr "Familienname"
@@ -1644,6 +1647,12 @@ msgstr "Einen neuen Eigenschaftstyp hinzufügen"
 
 msgid "Activ"
 msgstr "Aktiv"
+
+msgid "Parent (hierarchy)"
+msgstr "Elternteil (Hierarchie)"
+
+msgid "Color"
+msgstr "Farbe"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Neue Freiwilligengelegenheit hinzufügen"
@@ -2286,6 +2295,11 @@ msgstr "Anmeldung zur wiederhergestellten Datenbank"
 
 msgid "Restore Error."
 msgstr "Fehler wiederherstellen."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Erledigt!"

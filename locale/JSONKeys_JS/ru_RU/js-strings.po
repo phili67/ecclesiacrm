@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-22T15:05:32.853Z\n"
+"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1353,18 +1353,6 @@ msgstr ""
 msgid "Family Photo"
 msgstr "Семейная фотография"
 
-msgid "Verification email sent"
-msgstr "Электронное письмо с подтверждением отправлено"
-
-msgid "Failed to send verification email"
-msgstr "Не удалось отправить письмо с подтверждением"
-
-msgid "Failed to add verification"
-msgstr "Не удалось добавить проверку"
-
-msgid "Verification URL"
-msgstr "URL-адрес проверки"
-
 msgid "Bank Draft"
 msgstr "Банковский перевод"
 
@@ -1415,6 +1403,21 @@ msgstr "Сохраните свою заметку"
 
 msgid "Do you want to save your note as a Word File in your EDrive?"
 msgstr "Вы хотите сохранить заметку как файл Word в EDrive?"
+
+msgid "Verification URL"
+msgstr "URL-адрес проверки"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Failed to add verification"
+msgstr "Не удалось добавить проверку"
+
+msgid "Verification email sent"
+msgstr "Электронное письмо с подтверждением отправлено"
+
+msgid "Failed to send verification email"
+msgstr "Не удалось отправить письмо с подтверждением"
 
 msgid "Family Id"
 msgstr "Семейные иды"
@@ -1620,6 +1623,12 @@ msgstr "Добавить новый тип недвижимости"
 
 msgid "Activ"
 msgstr "Activ"
+
+msgid "Parent (hierarchy)"
+msgstr "Родитель (иерархия)"
+
+msgid "Color"
+msgstr "Цвет"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Добавить новую возможность для волонтера"
@@ -2253,6 +2262,11 @@ msgstr "Вход в восстановленную базу данных"
 
 msgid "Restore Error."
 msgstr "Ошибка восстановления."
+
+msgid ""
+"Search terms like : name, first name, phone number, property, group name, "
+"etc ..."
+msgstr ""
 
 msgid "Done !"
 msgstr "Готово!"

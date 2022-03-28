@@ -40,13 +40,13 @@
                 {{dear}} {{toName}},
             </p>
             <p>
-                {{body}}
-                {{# message}}
-                {{message}}.<br>
-                {{endmessage}}
-                <br>
-                {{/ message}}
+                {{body}}<br><br>
             </p>
+            {{# verificationValidation}}
+            <p>
+                <a href="{{churchCRMURL}}FamilyView.php?FamilyID={{familyId}}" target="_blank">{{churchCRMURL}}FamilyView.php?FamilyID={{familyId}}</a><br/><br/>
+            </p>
+            {{/ verificationValidation}}
             {{# userName}}
             <p>
                 {{userNameText}}: <a href="{{churchCRMURL}}Login.php?username={{userName}}" target="_blank">{{userName}}</a><br/>
@@ -63,7 +63,11 @@
             {{/ userName}}
             {{# verificationToken}}
             <p>
-                <a href="{{churchCRMURL}}external/verify/{{verificationToken}}" target="_blank">{{churchCRMURL}}external/verify/{{verificationToken}}</a>
+                <a href="{{churchCRMURL}}ident/my-profile/{{verificationToken}}" target="_blank">{{churchCRMURL}}ident/my-profile/{{verificationToken}}</a><br/><br/>
+                {{login}}<br>
+                {{password}}<br>
+                <br/>
+                <br/>
             </p>
             {{/ verificationToken}}
             {{# passwordToken}}
@@ -97,7 +101,7 @@
         {{unsubscribeStart}} {{churchName}} {{unsubscribeEnd}}.
         </p>
         <hr width="50%"/>
-        <p>Ecclesia<b>CRM</b> 2017-2021</p>
+        <p>Ecclesia<b>CRM</b> 2017-2022</p>
     </footer>
 
 </div> <!-- /container -->

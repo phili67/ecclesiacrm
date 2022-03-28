@@ -94,4 +94,68 @@ $(".addGroup").click(function() {
     })
 });
 
+$("#verifyURL").click(function () {
+    window.CRM.APIRequest({
+        method: 'POST',
+        path: 'families/verify/url',
+        data: JSON.stringify({"famId": window.CRM.currentFamily})
+    },function(data) {
+        $('#confirm-verify').modal('hide');
+        bootbox.alert({
+            title: i18next.t("Verification URL"),
+            message: i18next.t("Password") + ': ' + data.password + "<br>url : <a href='" + window.CRM.root + "/" + data.url+"'>" + window.CRM.root + "/" + data.url+"</a>"
+        });
+    });
+});
+
+$("#verifyNow").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: window.CRM.root + '/api/families/verify/' + window.CRM.currentFamily + '/now'
+    })
+        .done(function(data, textStatus, xhr) {
+            $('#confirm-verify').modal('hide');
+            if (xhr.status == 200) {
+                location.reload();
+            } else {
+                window.CRM.showGlobalMessage(i18next.t("Failed to add verification"), "danger")
+            }
+        });
+});
+
+$("#verifyDownloadPDF").click(function () {
+    location.href = window.CRM.root + '/Reports/ConfirmReport.php?familyId=' + window.CRM.currentFamily;
+    $('#confirm-verify').modal('hide');
+});
+
+$("#onlineVerify").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verify'
+    })
+        .done(function(data, textStatus, xhr) {
+            $('#confirm-verify').modal('hide');
+            if (xhr.status == 200) {
+                window.CRM.showGlobalMessage(i18next.t("Verification email sent"), "success")
+            } else {
+                window.CRM.showGlobalMessage(i18next.t("Failed to send verification email"), "danger")
+            }
+        });
+});
+
+$("#onlineVerifyPDF").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/verifyPDF'
+    })
+        .done(function(data, textStatus, xhr) {
+            $('#confirm-verify').modal('hide');
+            if (xhr.status == 200) {
+                window.CRM.showGlobalMessage(i18next.t("Verification email sent") + ' (PDF)', "success")
+            } else {
+                window.CRM.showGlobalMessage(i18next.t("Failed to send verification email") + ' (PDF)', "danger")
+            }
+        });
+});
+
 
