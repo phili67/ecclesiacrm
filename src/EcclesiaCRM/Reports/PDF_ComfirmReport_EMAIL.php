@@ -107,7 +107,7 @@ class EmailUsers
 
     public function renderAndSend()
     {
-        LoggerUtils::getAppLogger()->info("fam start");
+        LoggerUtils::getAppLogger()->info("start : mailing to families");
         $familyEmailSent = false;
 
         // Get the list of custom person fields
@@ -138,6 +138,8 @@ class EmailUsers
         }
 
         $ormFamilies->find();
+
+        $count_families = $ormFamilies->count();
 
         $dataCol = 55;
         $dataWid = 65;
@@ -419,12 +421,14 @@ class EmailUsers
 
                 $count_email++;
 
-                sleep($sleepTime);
+                if ($count_families > 1) {
+                    sleep($sleepTime);
+                }
 
                 /* end of part : https://support.google.com/mail/answer/81126 */
 
                 if ($fam->getID() == 274) {
-                    LoggerUtils::getAppLogger()->info("fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
+                    LoggerUtils::getAppLogger()->info("family ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
 
                     TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($fam->getId())->delete();
                     $token = new Token();
@@ -458,7 +462,7 @@ class EmailUsers
             }
         }
 
-        LoggerUtils::getAppLogger()->info("terminé ");
+        LoggerUtils::getAppLogger()->info("end : mailing to families ");
 
         return $familyEmailSent;
     }
