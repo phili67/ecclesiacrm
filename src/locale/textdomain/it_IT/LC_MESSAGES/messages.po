@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-27 19:46+0000\n"
+"POT-Creation-Date: 2022-03-28 10:28+0000\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,6 +39,7 @@ msgstr "Persona"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:73
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:224
 #: EcclesiaCRM/dto/ReportUtilities.php:71
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:31
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
@@ -201,8 +202,8 @@ msgstr "Nome"
 #: AutoPaymentEditor.php:921 AutoPaymentEditor.php:929 CartToFamily.php:346
 #: CartToFamily.php:356 CSVExport.php:92 CSVExport.php:98 CSVImport.php:241
 #: CSVImport.php:242 DirectoryReports.php:196 DirectoryReports.php:289
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:159
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:164
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:166
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:171
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
@@ -264,8 +265,8 @@ msgstr "Telefono"
 
 #: AutoPaymentEditor.php:977 CartToFamily.php:453 CSVExport.php:148
 #: CSVImport.php:250 EcclesiaCRM/MenuBar/MenuBar.php:398
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:239
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:257
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:246
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:264
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EventAttendance.php:206
@@ -773,7 +774,7 @@ msgstr "Se aggiungi una nuova famiglia, inserisci i dati qui sotto."
 
 #: CartToFamily.php:302
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:154
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:161
 #: external/templates/registration/family-register.php:36 FamilyEditor.php:722
 #: LettersAndLabels.php:71 PersonEditor.php:1026 Reports/ConfirmReport.php:148
 #: SelectDelete.php:234 SelectDelete.php:366
@@ -807,7 +808,7 @@ msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Utilizzare la casella di testo per i paesi diversi da USA e Canada)"
 
 #: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:174 EventAttendance.php:207
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:181 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:85
 #: external/templates/verify/verify-family-info.php:36
@@ -835,7 +836,7 @@ msgid "Do not auto-format"
 msgstr "Non auto-formattare"
 
 #: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:286
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:293
 #: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
 #: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:253
 #: ident/routes/verify.php:256 ident/routes/verify.php:468
@@ -1208,8 +1209,8 @@ msgstr "Ignora questo campo"
 msgid "Donation Envelope"
 msgstr "Busta per le donazioni"
 
-#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:241
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:259 GroupReports.php:151
+#: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:266 GroupReports.php:151
 #: ident/routes/verify.php:265 ident/routes/verify.php:460
 #: ident/routes/verify.php:480 ident/routes/verify.php:490
 #: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
@@ -1541,8 +1542,8 @@ msgstr "Quale ruolo è un bambino?"
 msgid "Information to Include"
 msgstr "Informazioni da includere"
 
-#: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:240
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:258
+#: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:247
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
 #: EcclesiaCRM/Service/CalendarService.php:57
 #: external/templates/verify/verify-family-info.php:107 FamilyView.php:554
 #: ident/routes/verify.php:292 ident/routes/verify.php:681
@@ -1563,7 +1564,7 @@ msgstr "Telefono di lavoro della famiglia"
 msgid "Family Cell Phone"
 msgstr "Telefono cellulare di famiglia"
 
-#: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:195
+#: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:202
 #: external/templates/verify/verify-family-info.php:39
 #: ident/routes/verify.php:487 ident/routes/verify.php:769
 #: ident/templates/verify/verify-family-info.php:39
@@ -4644,7 +4645,7 @@ msgstr "Il tuo account EcclesiaCRM è stato aggiornato"
 msgid "Status"
 msgstr "Stato"
 
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:19
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 msgid "Please verify your family's information"
 msgstr "Verifica le informazioni della tua famiglia"
 
@@ -5118,12 +5119,12 @@ msgstr "di"
 msgid "Certificate of Ownership"
 msgstr "Certificato di proprietà"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:169
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:176
 #: Reports/ConfirmReport.php:163
 msgid "City, State, Zip"
 msgstr "Città, Stato, CAP"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:179
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
 #: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
 #: FamilyView.php:333 ident/routes/verify.php:515 ident/routes/verify.php:779
 #: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
@@ -5133,37 +5134,37 @@ msgstr "Città, Stato, CAP"
 msgid "Send Newsletter"
 msgstr "Inviare newsletter"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:189
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:196
 #: Reports/ConfirmReport.php:183
 msgid "Anniversary Date"
 msgstr "Data dell'anniversario"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:236
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:254
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:243
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:261
 #: Reports/ConfirmReport.php:227 Reports/ConfirmReport.php:247
 msgid "Member Name"
 msgstr "Nome del membro"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:237
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:255
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:244
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:262
 #: Reports/CanvassReports.php:276 Reports/ConfirmReport.php:228
 #: Reports/ConfirmReport.php:248
 msgid "M/F"
 msgstr "M/F"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:238
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:256
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:245
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:263
 #: Reports/ConfirmReport.php:229 Reports/ConfirmReport.php:249
 msgid "Adult/Child"
 msgstr "Adulto/bambino"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:242
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:260
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:249
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:267
 #: Reports/ConfirmReport.php:234 Reports/ConfirmReport.php:254
 msgid "Member/Friend"
 msgstr "Membro/amico"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:371
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:378
 #: Reports/ConfirmReport.php:375
 msgid "Assigned groups for"
 msgstr "Gruppi assegnati per"
