@@ -34,6 +34,11 @@ abstract class BaseEmail
         ));
     }
 
+    private function setSubject($text)
+    {
+        $this->mail->Subject = $text;
+    }
+
     private function setConnection()
     {
 
