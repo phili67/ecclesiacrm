@@ -210,7 +210,7 @@ class PeopleFamilyController
 
             $emails = $family->getEmails();
 
-            $email = new FamilyVerificationEmail($family->getEmails(), $family->getName(), $token->getToken(), $emails[0], $password);
+            $email = new FamilyVerificationEmail($family->getEmails(), $family->getName(), $token->getToken(), $emails,  $password);
             if ($email->send()) {
                 $family->createTimeLineNote("verify-link");
                 $response = $response->withStatus(200);
