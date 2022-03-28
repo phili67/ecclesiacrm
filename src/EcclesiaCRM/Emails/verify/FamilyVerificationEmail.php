@@ -12,7 +12,7 @@ class FamilyVerificationEmail extends BaseEmail
     protected $logins;
     protected $password;
 
-    public function __construct($emails, $familyName, $token = "", $logins = [],$password = "")
+    public function __construct($emails, $familyName, $token = "", $logins = [], $password = "")
     {
         $this->familyName = $familyName;
         $this->token = $token;
