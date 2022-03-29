@@ -1015,7 +1015,9 @@ class User extends BaseUser
             return false;
         }
 
-        $role = PluginUserRoleQuery::create()->findOneByPluginId($plugin->getId());
+        $role = PluginUserRoleQuery::create()
+            ->filterByUserId($this->getId())
+            ->findOneByPluginId($plugin->getId());
 
         if (!is_null($role)) {
             return ($role->getRole() == 'user')?true:false;
@@ -1035,7 +1037,9 @@ class User extends BaseUser
             return false;
         }
 
-        $role = PluginUserRoleQuery::create()->findOneByPluginId($plugin->getId());
+        $role = PluginUserRoleQuery::create()
+            ->filterByUserId($this->getId())
+            ->findOneByPluginId($plugin->getId());
 
         if (!is_null($role)) {
             return ($role->getRole() == 'admin')?true:false;
