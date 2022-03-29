@@ -1,6 +1,6 @@
 /*******************************************************************************
  *
- *  filename    : verify.php
+ *  filename    : FamilyVerify.js
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2022 Philippe Logel
  *
