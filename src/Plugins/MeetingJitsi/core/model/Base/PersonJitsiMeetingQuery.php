@@ -341,10 +341,9 @@ abstract class PersonJitsiMeetingQuery extends ModelCriteria
      * <code>
      * $query->filterByCode('fooValue');   // WHERE jm_pm_code = 'fooValue'
      * $query->filterByCode('%fooValue%', Criteria::LIKE); // WHERE jm_pm_code LIKE '%fooValue%'
-     * $query->filterByCode(['foo', 'bar']); // WHERE jm_pm_code IN ('foo', 'bar')
      * </code>
      *
-     * @param     string|string[] $code The value to use as filter.
+     * @param     string $code The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPersonJitsiMeetingQuery The current query, for fluid interface

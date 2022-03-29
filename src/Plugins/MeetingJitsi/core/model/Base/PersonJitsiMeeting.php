@@ -1028,7 +1028,7 @@ abstract class PersonJitsiMeeting implements ActiveRecordInterface
      * Builds a Criteria object containing the primary key for this object.
      *
      * Unlike buildCriteria() this method includes the primary key values regardless
-     * of whether they have been modified.
+     * of whether or not they have been modified.
      *
      * @throws LogicException if no primary key is defined
      *
