@@ -7,6 +7,6 @@ if [ -z ${githubToken} ]; then
     read githubToken
 fi
 
-sudo npm install github-release-notes@0.13.0 -g
+npm install github-release-notes -g
 
 gren changelog --generate --override --token=${githubToken}
