@@ -39,7 +39,7 @@ src/locale/datatables
 src/locale/js
 
 # the documenation sh files
-Documentation/doc-fr/mkdoc.sh 
+Documentation/doc-fr/mkdoc.sh
 Documentation/doc-en/mkdoc.sh
 
 # Configuration files with passwords
@@ -90,3 +90,7 @@ upload-imathgeo.com
 # ignore the body_archive.txt
 body_archive.txt
 
+# ignore
+src/Plugins/EventWorkflow
+locale/JSONKeys_JS_Plugins/EventWorkflow
+propel/eventworkflow.schema.xml
