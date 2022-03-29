@@ -276,7 +276,6 @@ class PeopleFamilyController
             }
             $token = new Token();
             $token->build("verifyFamily", $family->getId());
-            $token->setRemainingUses(100);
             $token->save();
 
             $tokenPassword = new TokenPassword();
