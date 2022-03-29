@@ -16,4 +16,6 @@ npm run clean-datatables-lang-files
 
 chown -R www-data:www-data src
 
+cp -Rf ckeditorExtraPlugins/html5video src/skin/external/ckeditor/plugins
+
 
