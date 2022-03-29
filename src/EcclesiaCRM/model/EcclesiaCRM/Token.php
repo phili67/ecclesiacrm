@@ -30,8 +30,8 @@ class Token extends BaseToken
         $this->setToken(uniqid());
         switch ($type) {
             case "verifyFamily":
-                $this->setValidUntilDate(strtotime("+1 week"));
-                $this->setRemainingUses(5);
+                $this->setValidUntilDate(strtotime("+2 week"));
+                $this->setRemainingUses(20);
                 break;
             case "password":
                 $this->setValidUntilDate(strtotime("+1 day"));

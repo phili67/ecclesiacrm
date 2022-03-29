@@ -630,7 +630,7 @@ module.exports = function (grunt) {
             var pluginName = plugindir.substring(plugindir.lastIndexOf('/') + 1)
             var config = grunt.file.readJSON(plugindir + '/config.json');
 
-            //grunt.log.writeln("Plugin Name : " + pluginName);
+            grunt.log.writeln("Plugin Name : " + pluginName);
 
             var signatures = {
                 "Name": pluginName,

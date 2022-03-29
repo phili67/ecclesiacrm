@@ -46,6 +46,9 @@ unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Map/PersonM
 // now we exclude the
 MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/meeting/");
 
+unlink(SystemURLs::getDocumentRoot()."/external/routes/verify.php");
+MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/external/templates/verify/");
+
 //exec('cd ../.. && composer dump-autoload');
 
 $logger->info("End of delete :  all unusefull files");

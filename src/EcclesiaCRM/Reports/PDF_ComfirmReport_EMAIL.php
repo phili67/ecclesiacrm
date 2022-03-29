@@ -426,7 +426,7 @@ class EmailUsers
                 }
 
                 /* end of part : https://support.google.com/mail/answer/81126 */
-                if ($fam->getID() == 274) {
+                //if ($fam->getID() == 274) {
 
                     TokenQuery::create()->filterByType("verifyFamily")->filterByReferenceId($fam->getId())->delete();
                     $token = new Token();
@@ -468,9 +468,9 @@ class EmailUsers
                     } else {
                         LoggerUtils::getAppLogger()->error($mail->getError());
                     }
-                } else {
+                /*} else {
                     LoggerUtils::getAppLogger()->info("No fam ".$count_email. " : ".$fam->getName()." STime : ".$sleepTime);
-                }
+                }*/
             }
         }
 
