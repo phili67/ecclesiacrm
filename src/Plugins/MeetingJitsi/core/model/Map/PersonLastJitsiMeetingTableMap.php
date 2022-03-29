@@ -174,8 +174,6 @@ class PersonLastJitsiMeetingTableMap extends TableMap
 
     /**
      * Build the RelationMap objects for this table relationships
-     *
-     * @return void
      */
     public function buildRelations()
     {
@@ -233,7 +231,7 @@ class PersonLastJitsiMeetingTableMap extends TableMap
      * relative to a location on the PHP include_path.
      * (e.g. path.to.MyClass -> 'path/to/MyClass.php')
      *
-     * @param boolean $withPrefix Whether to return the path with the class name
+     * @param boolean $withPrefix Whether or not to return the path with the class name
      * @return string path.to.ClassName
      */
     public static function getOMClass($withPrefix = true)

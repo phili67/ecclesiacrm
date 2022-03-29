@@ -341,10 +341,9 @@ abstract class PluginPrefJitsiMeetingQuery extends ModelCriteria
      * <code>
      * $query->filterByDomain('fooValue');   // WHERE jm_pjmp_domain = 'fooValue'
      * $query->filterByDomain('%fooValue%', Criteria::LIKE); // WHERE jm_pjmp_domain LIKE '%fooValue%'
-     * $query->filterByDomain(['foo', 'bar']); // WHERE jm_pjmp_domain IN ('foo', 'bar')
      * </code>
      *
-     * @param     string|string[] $domain The value to use as filter.
+     * @param     string $domain The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPluginPrefJitsiMeetingQuery The current query, for fluid interface
@@ -367,10 +366,9 @@ abstract class PluginPrefJitsiMeetingQuery extends ModelCriteria
      * <code>
      * $query->filterByDomainScriptPath('fooValue');   // WHERE jm_pjmp_domainscriptpath = 'fooValue'
      * $query->filterByDomainScriptPath('%fooValue%', Criteria::LIKE); // WHERE jm_pjmp_domainscriptpath LIKE '%fooValue%'
-     * $query->filterByDomainScriptPath(['foo', 'bar']); // WHERE jm_pjmp_domainscriptpath IN ('foo', 'bar')
      * </code>
      *
-     * @param     string|string[] $domainScriptPath The value to use as filter.
+     * @param     string $domainScriptPath The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildPluginPrefJitsiMeetingQuery The current query, for fluid interface
