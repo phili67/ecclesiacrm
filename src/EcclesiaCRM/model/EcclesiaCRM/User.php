@@ -1020,7 +1020,7 @@ class User extends BaseUser
             ->findOneByPluginId($plugin->getId());
 
         if (!is_null($role)) {
-            return ($role->getRole() == 'user')?true:false;
+            return ( $role->getRole() == 'user' or $role->getRole() == 'admin' )?true:false;
         }
 
         return false;

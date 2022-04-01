@@ -246,6 +246,60 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
         }
     }
 
+    /**
+     * Returns the calendar
+     *
+     * Every project is an array with the following keys:
+     *  * id, a unique id that will be used by other functions to modify the
+     *    calendar. This can be the same as the uri or a database key.
+     *  * uri. This is just the 'base uri' or 'filename' of the calendar.
+     *  * principaluri. The owner of the calendar. Almost always the same as
+     *    principalUri passed to this method.
+     *
+     * Furthermore it can contain webdav properties in clark notation. A very
+     * common one is '{DAV:}displayname'.
+     *
+     * Many clients also require:
+     * {urn:ietf:params:xml:ns:caldav}supported-calendar-component-set
+     * For this property, you can just return an instance of
+     * Sabre\CalDAV\Xml\Property\SupportedCalendarComponentSet.
+     *
+     * If you return {http://sabredav.org/ns}read-only and set the value to 1,
+     * ACL will automatically be put in read-only mode.
+     *
+     * @param string $principalUri
+     * @param bool $all (for all the calendar : order by type)
+     * @return array
+     */
+
+    function getCalendarForUserByCalendarId ($calendarId, $principalUserName)
+    {
+        $calendars = $this->getCalendarsForUser( $principalUserName, true);
+
+        foreach ($calendars as $calendar) {
+            if ($calendarId == $calendar['id'][0]) {
+                LoggerUtils::getAppLogger()->info('calendarId : '.calendarId." ".print_r($calendar['id'],true));
+                $calendarName = $calendar['{DAV:}displayname'];
+                $calendarColor = $calendar['{http://apple.com/ns/ical/}calendar-color'];
+                $writeable = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3) ? true : false;
+                $calendarUri = $calendar['uri'];
+                $calendarID = $calendar['id'];
+                $groupID = $calendar['grpid'];
+
+                return [
+                    'calendarID' => $calendarID,
+                    'calendarUri' => $calendarUri,
+                    'calendarName' => $calendarName,
+                    'groupID' => $groupID,
+                    'calendarColor' => $calendarColor,
+                    'writeable' => $writeable
+                ];
+            }
+        }
+
+        return false;
+    }
+
 
     /**
      * Returns a list of calendars for a principal.
