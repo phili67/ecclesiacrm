@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "d2473295404ad801654593f7e06e1ef8",
     "content-hash": "93c7dbca9bb62dd62680cce0a6a9f340",
     "packages": [
         {
@@ -83,7 +82,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2018-08-10 18:56:51"
+            "time": "2018-08-10T18:56:51+00:00"
         },
         {
             "name": "behat/gherkin",
@@ -142,7 +141,7 @@
                 "gherkin",
                 "parser"
             ],
-            "time": "2019-01-16 14:22:17"
+            "time": "2019-01-16T14:22:17+00:00"
         },
         {
             "name": "behat/mink",
@@ -200,7 +199,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2016-03-05 08:26:18"
+            "time": "2016-03-05T08:26:18+00:00"
         },
         {
             "name": "behat/mink-browserkit-driver",
@@ -256,7 +255,7 @@
                 "browser",
                 "testing"
             ],
-            "time": "2018-05-02 09:25:31"
+            "time": "2018-05-02T09:25:31+00:00"
         },
         {
             "name": "behat/mink-extension",
@@ -315,7 +314,7 @@
                 "test",
                 "web"
             ],
-            "time": "2018-02-06 15:36:30"
+            "time": "2018-02-06T15:36:30+00:00"
         },
         {
             "name": "behat/mink-goutte-driver",
@@ -370,7 +369,7 @@
                 "headless",
                 "testing"
             ],
-            "time": "2016-03-05 09:04:22"
+            "time": "2016-03-05T09:04:22+00:00"
         },
         {
             "name": "behat/mink-selenium2-driver",
@@ -428,7 +427,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2014-09-29 13:12:12"
+            "time": "2014-09-29T13:12:12+00:00"
         },
         {
             "name": "behat/symfony2-extension",
@@ -489,7 +488,7 @@
                 "framework",
                 "symfony"
             ],
-            "time": "2018-04-20 15:48:23"
+            "time": "2018-04-20T15:48:23+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -533,7 +532,7 @@
                 "slug",
                 "transliterator"
             ],
-            "time": "2017-04-04 11:38:05"
+            "time": "2017-04-04T11:38:05+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -564,7 +563,8 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
-            "time": "2017-02-14 19:40:03"
+            "abandoned": "psr/container",
+            "time": "2017-02-14T19:40:03+00:00"
         },
         {
             "name": "fabpot/goutte",
@@ -619,7 +619,7 @@
             "keywords": [
                 "scraper"
             ],
-            "time": "2018-06-29 15:13:57"
+            "time": "2018-06-29T15:13:57+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -684,7 +684,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-04-22 15:46:56"
+            "time": "2018-04-22T15:46:56+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -713,12 +713,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -735,46 +735,50 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20 10:07:11"
+            "time": "2016-12-20T10:07:11+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.5.2",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
                 "psr/http-message": "~1.0",
-                "ralouphie/getallheaders": "^2.0.5"
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+                "ext-zlib": "*",
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
+            },
+            "suggest": {
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -782,12 +786,33 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
                 }
             ],
@@ -802,7 +827,21 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-12-04 20:46:45"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "instaclick/php-webdriver",
@@ -861,7 +900,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2017-06-30 04:02:48"
+            "time": "2017-06-30T04:02:48+00:00"
         },
         {
             "name": "novaway/common-contexts",
@@ -910,7 +949,7 @@
                 "select2",
                 "symfony"
             ],
-            "time": "2017-12-20 06:07:51"
+            "time": "2017-12-20T06:07:51+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -955,7 +994,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-07-02 15:55:56"
+            "time": "2018-07-02T15:55:56+00:00"
         },
         {
             "name": "psr/cache",
@@ -1001,7 +1040,7 @@
                 "psr",
                 "psr-6"
             ],
-            "time": "2016-08-06 20:24:11"
+            "time": "2016-08-06T20:24:11+00:00"
         },
         {
             "name": "psr/container",
@@ -1050,7 +1089,7 @@
                 "container-interop",
                 "psr"
             ],
-            "time": "2017-02-14 16:28:37"
+            "time": "2017-02-14T16:28:37+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1100,7 +1139,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -1147,7 +1186,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20 15:27:04"
+            "time": "2018-11-20T15:27:04+00:00"
         },
         {
             "name": "psr/simple-cache",
@@ -1195,28 +1234,28 @@
                 "psr-16",
                 "simple-cache"
             ],
-            "time": "2017-10-23 01:57:42"
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
-            "version": "2.0.5",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ralouphie/getallheaders.git",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7.0",
-                "satooshi/php-coveralls": ">=1.0"
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
             },
             "type": "library",
             "autoload": {
@@ -1235,7 +1274,7 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "time": "2016-02-11 07:05:27"
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -1292,7 +1331,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 09:39:14"
+            "time": "2019-01-16T09:39:14+00:00"
         },
         {
             "name": "symfony/cache",
@@ -1362,7 +1401,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-01-16 13:27:11"
+            "time": "2019-01-16T13:27:11+00:00"
         },
         {
             "name": "symfony/class-loader",
@@ -1418,7 +1457,7 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 09:39:14"
+            "time": "2019-01-16T09:39:14+00:00"
         },
         {
             "name": "symfony/config",
@@ -1482,7 +1521,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-30 11:33:42"
+            "time": "2019-01-30T11:33:42+00:00"
         },
         {
             "name": "symfony/console",
@@ -1554,7 +1593,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25 10:42:12"
+            "time": "2019-01-25T10:42:12+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -1607,7 +1646,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 09:39:14"
+            "time": "2019-01-16T09:39:14+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1663,7 +1702,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25 10:19:25"
+            "time": "2019-01-25T10:19:25+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -1734,7 +1773,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-30 17:48:51"
+            "time": "2019-01-30T17:48:51+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -1791,7 +1830,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 13:27:11"
+            "time": "2019-01-16T13:27:11+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1854,7 +1893,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 13:27:11"
+            "time": "2019-01-16T13:27:11+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1904,7 +1943,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 13:27:11"
+            "time": "2019-01-16T13:27:11+00:00"
         },
         {
             "name": "symfony/finder",
@@ -1953,7 +1992,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 13:43:35"
+            "time": "2019-01-16T13:43:35+00:00"
         },
         {
             "name": "symfony/framework-bundle",
@@ -2067,7 +2106,7 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-01-28 14:09:38"
+            "time": "2019-01-28T14:09:38+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -2121,7 +2160,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-27 09:04:14"
+            "time": "2019-01-27T09:04:14+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2210,7 +2249,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-03 12:22:50"
+            "time": "2019-02-03T12:22:50+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -2236,12 +2275,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Apcu\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Apcu\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2266,7 +2305,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06 14:22:27"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2295,12 +2334,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Ctype\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2324,7 +2363,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06 14:22:27"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2353,12 +2392,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2383,7 +2422,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21 13:07:52"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -2410,12 +2449,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php70\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -2442,7 +2481,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21 06:26:08"
+            "time": "2018-09-21T06:26:08+00:00"
         },
         {
             "name": "symfony/routing",
@@ -2519,7 +2558,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-01-29 08:47:12"
+            "time": "2019-01-29T08:47:12+00:00"
         },
         {
             "name": "symfony/translation",
@@ -2587,7 +2626,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-25 10:00:44"
+            "time": "2019-01-25T10:00:44+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2646,7 +2685,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16 10:59:17"
+            "time": "2019-01-16T10:59:17+00:00"
         }
     ],
     "packages-dev": [],
@@ -2658,5 +2697,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
