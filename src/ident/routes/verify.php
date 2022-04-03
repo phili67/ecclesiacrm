@@ -8,6 +8,7 @@
  *
  ******************************************************************************/
 
+use EcclesiaCRM\UserQuery;
 use Slim\Http\Response as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
@@ -530,6 +531,18 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
             $person = PersonQuery::create()->findOneById($input->personId);
 
             if (!is_null($person)) {
+                $user = UserQuery::create()
+                    ->findOneByPersonId($input->personId);
+
+                // note : When a user is deactivated the associated person is deactivated too
+                //        but when a person is deactivated the user is deactivated too.
+                //        Important : a person re-activated don't reactivate the user
+
+                if (!is_null($user)) {
+                    $user->setIsDeactivated(true);
+                    $user->save();
+                }
+
                 $person->setDateDeactivated(date('YmdHis'));
                 $person->save();
 
@@ -567,6 +580,17 @@ $app->group('/my-profile', function (RouteCollectorProxy $group) {
                 // one person of the family deactivate the other !!!
                 $id = 0;
                 foreach ($persons as $person) {
+                    $user = UserQuery::create()
+                        ->findOneByPersonId($person->getId());
+
+                    // note : When a user is deactivated the associated person is deactivated too
+                    //        but when a person is deactivated the user is deactivated too.
+                    //        Important : a person re-activated don't reactivate the user
+
+                    if (!is_null($user)) {
+                        $user->setIsDeactivated(true);
+                        $user->save();
+                    }
                     if ($person->getDateDeactivated() == NULL) {
                         $id = $person->getId();
                         break;
