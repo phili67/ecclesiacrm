@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-28 10:28+0000\n"
+"POT-Creation-Date: 2022-04-02 13:36+0000\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Для"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:70
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:221
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:46
-#: ident/routes/verify.php:167 Include/Footer.php:83 PledgeEditor.php:588
+#: ident/routes/verify.php:156 Include/Footer.php:83 PledgeEditor.php:588
 #: Reports/GDPR/GDPRDataStructureExport.php:84 Reports/NewsLetterLabels.php:54
 #: v2/templates/gdpr/gdprdatastructure.php:56
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:31
@@ -41,6 +41,8 @@ msgstr "Человек"
 #: EcclesiaCRM/dto/ReportUtilities.php:71
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:31
+#: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
+#: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:31
 #: EcclesiaCRM/Search/FamilyCustomSearchRes.php:133
 #: EcclesiaCRM/Search/FamilyPropsSearchRes.php:137
 #: EcclesiaCRM/Search/FamilySearchRes.php:166
@@ -48,7 +50,7 @@ msgstr "Человек"
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:50
 #: ElectronicPaymentList.php:217
 #: external/templates/registration/family-register-done.php:27
-#: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:356
+#: FamilyView.php:278 FinancialReports.php:439 ident/routes/verify.php:345
 #: Include/Footer.php:66 members/404.php:16 PersonView.php:941
 #: PledgeEditor.php:588 PrintPastoralCarePerson.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
@@ -85,7 +87,7 @@ msgstr ""
 #: EcclesiaCRM/utils/OutputUtils.php:385 EcclesiaCRM/utils/OutputUtils.php:446
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:79 eGive.php:345
 #: FamilyEditor.php:1256 GeoPage.php:100 GeoPage.php:112 GroupEditor.php:104
-#: ident/routes/verify.php:224 PersonEditor.php:977 PersonEditor.php:997
+#: ident/routes/verify.php:213 PersonEditor.php:977 PersonEditor.php:997
 #: PersonEditor.php:1587 PrintPastoralCarePerson.php:332
 #: PrintPastoralCarePerson.php:345 PrintView.php:343 PrintView.php:356
 #: SelectDelete.php:243 SystemSettings.php:232
@@ -177,9 +179,8 @@ msgstr "неактивный"
 #: AutoPaymentEditor.php:905 CSVExport.php:76 CSVImport.php:235
 #: EcclesiaCRM/Reports/CSV_RealAttendance.php:84
 #: external/templates/registration/family-register-members.php:76
-#: external/templates/verify/enter-info.php:21 ident/routes/verify.php:179
-#: ident/routes/verify.php:184 ident/templates/verify/enter-info.php:21
-#: PersonEditor.php:913 Reports/MemberEmailExport.php:20
+#: ident/routes/verify.php:168 ident/routes/verify.php:173 PersonEditor.php:913
+#: Reports/MemberEmailExport.php:20
 #: sundayschool/SundaySchoolClassListExport.php:50
 #: v2/templates/people/personlist.php:52
 #: v2/templates/sundayschool/sundayschooldashboard.php:258
@@ -189,8 +190,7 @@ msgstr "Имя"
 
 #: AutoPaymentEditor.php:913 CSVExport.php:66 CSVImport.php:237
 #: external/templates/registration/family-register-members.php:81
-#: external/templates/verify/enter-info.php:25 ident/routes/verify.php:202
-#: ident/routes/verify.php:207 ident/templates/verify/enter-info.php:25
+#: ident/routes/verify.php:191 ident/routes/verify.php:196
 #: ManageEnvelopes.php:171 PersonEditor.php:935
 #: Reports/MemberEmailExport.php:21
 #: sundayschool/SundaySchoolClassListExport.php:51
@@ -206,7 +206,7 @@ msgstr "Фамилия"
 #: external/templates/registration/family-register-done.php:28
 #: external/templates/registration/family-register.php:47 FamilyEditor.php:734
 #: FamilyEditor.php:740 FamilyView.php:297 GeoPage.php:374 GroupReports.php:148
-#: ident/routes/verify.php:389 ident/routes/verify.php:399
+#: ident/routes/verify.php:378 ident/routes/verify.php:433
 #: PersonEditor.php:1037 PersonEditor.php:1043 PersonEditor.php:1177
 #: PersonEditor.php:1201 PersonView.php:592 Reports/PDFLabel.php:859
 #: v2/templates/dashboard/maindashboard.php:638
@@ -222,7 +222,7 @@ msgstr "Адрес"
 #: AutoPaymentEditor.php:937 CartToFamily.php:366 CSVExport.php:103
 #: CSVImport.php:243 DirectoryReports.php:294
 #: external/templates/registration/family-register.php:58 FamilyEditor.php:746
-#: ident/routes/verify.php:409 PersonEditor.php:1049 PersonEditor.php:1225
+#: ident/routes/verify.php:388 PersonEditor.php:1049 PersonEditor.php:1225
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Город"
@@ -230,22 +230,21 @@ msgstr "Город"
 #: AutoPaymentEditor.php:945 CartToFamily.php:375 CSVExport.php:108
 #: CSVImport.php:244 DirectoryReports.php:300
 #: external/templates/registration/family-register.php:62 FamilyEditor.php:755
-#: ident/routes/verify.php:421 PersonEditor.php:1058 PersonEditor.php:1253
+#: ident/routes/verify.php:400 PersonEditor.php:1058 PersonEditor.php:1253
 #: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Государство"
 
 #: AutoPaymentEditor.php:953 CartToFamily.php:393 CSVExport.php:115
 #: CSVImport.php:245 DirectoryReports.php:306
-#: external/templates/registration/family-register.php:73
-#: external/templates/verify/enter-info.php:29 FamilyEditor.php:769
-#: ident/routes/verify.php:434 ident/templates/verify/enter-info.php:29
-#: PersonEditor.php:1073 PersonEditor.php:1287 Reports/PDFLabel.php:859
+#: external/templates/registration/family-register.php:73 FamilyEditor.php:769
+#: ident/routes/verify.php:413 PersonEditor.php:1073 PersonEditor.php:1287
+#: Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "Zip"
 
 #: AutoPaymentEditor.php:961 CartToFamily.php:402 CSVExport.php:125
-#: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:446
+#: CSVImport.php:246 FamilyEditor.php:779 ident/routes/verify.php:425
 #: PersonEditor.php:1083 PersonEditor.php:1317
 msgid "Country"
 msgstr "Страна"
@@ -256,7 +255,7 @@ msgstr "Страна"
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
 #: external/templates/registration/family-register-members.php:114
-#: ident/routes/verify.php:457 Reports/DirectoryReport.php:317
+#: ident/routes/verify.php:447 Reports/DirectoryReport.php:317
 #: Reports/FundRaiserStatement.php:127 Reports/FundRaiserStatement.php:171
 #: Reports/GroupReport.php:124
 msgid "Phone"
@@ -270,11 +269,9 @@ msgstr "Телефон"
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EventAttendance.php:206
 #: external/templates/registration/family-register-members.php:88
-#: external/templates/verify/enter-info.php:33
-#: external/templates/verify/verify-family-info.php:100 FamilyEditor.php:861
-#: FamilyView.php:380 FamilyView.php:463 FamilyView.php:555
-#: GroupReports.php:152 ident/routes/verify.php:273 ident/routes/verify.php:276
-#: ident/routes/verify.php:673 ident/templates/verify/enter-info.php:33
+#: FamilyEditor.php:861 FamilyView.php:380 FamilyView.php:463
+#: FamilyView.php:555 GroupReports.php:152 ident/routes/verify.php:262
+#: ident/routes/verify.php:265 ident/routes/verify.php:686
 #: ident/templates/verify/login-info.php:34
 #: ident/templates/verify/verify-family-info.php:108 PersonEditor.php:1461
 #: PersonEditor.php:1465 PersonView.php:665 PersonView.php:793
@@ -344,9 +341,8 @@ msgstr "Сохранить"
 
 #: AutoPaymentEditor.php:1093 BatchWinnerEntry.php:141 CanvassEditor.php:274
 #: Checkin.php:459 DirectoryReports.php:339 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:188 FamilyEditor.php:1297
-#: FamilyView.php:1095 FinancialReports.php:92 FundRaiserEditor.php:210
-#: GroupReports.php:104 GroupReports.php:178
+#: FamilyEditor.php:1297 FamilyView.php:1095 FinancialReports.php:92
+#: FundRaiserEditor.php:210 GroupReports.php:104 GroupReports.php:178
 #: ident/templates/verify/verify-family-info.php:201 LettersAndLabels.php:92
 #: ManageEnvelopes.php:144 PersonEditor.php:1755 PersonView.php:1985
 #: PledgeEditor.php:800 ReminderReport.php:55 SettingsIndividual.php:141
@@ -731,7 +727,7 @@ msgstr "Члены"
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:349
 #: FamilyCustomFieldsEditor.php:471 GeoPage.php:373 GroupEditor.php:86
 #: GroupPropsEditor.php:235 GroupPropsFormEditor.php:350
-#: GroupPropsFormEditor.php:477 ident/routes/verify.php:376
+#: GroupPropsFormEditor.php:477 ident/routes/verify.php:365
 #: PersonCustomFieldsEditor.php:344 PersonCustomFieldsEditor.php:471
 #: PrintPastoralCarePerson.php:447 PrintPastoralCarePerson.php:612
 #: PrintView.php:458 PrintView.php:621 Reports/CanvassReports.php:90
@@ -783,9 +779,8 @@ msgid "Family Name"
 msgstr "Имя семьи"
 
 #: CartToFamily.php:312 CSVImport.php:254 DirectoryReports.php:197
-#: external/templates/verify/verify-family-info.php:45 FamilyEditor.php:898
-#: FamilyView.php:342 ident/routes/verify.php:497 ident/routes/verify.php:774
-#: ident/templates/verify/verify-family-info.php:45
+#: FamilyEditor.php:898 FamilyView.php:342 ident/routes/verify.php:487
+#: ident/routes/verify.php:787 ident/templates/verify/verify-family-info.php:45
 #: v2/templates/pastoralcare/pastoralcarefamily.php:167
 msgid "Wedding Date"
 msgstr "Дата свадьбы"
@@ -809,12 +804,10 @@ msgstr "(Используйте текстовое поле для стран, �
 #: CartToFamily.php:411 CSVExport.php:132 CSVImport.php:247
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:181 EventAttendance.php:207
 #: external/templates/registration/family-register-done.php:29
-#: external/templates/registration/family-register.php:85
-#: external/templates/verify/verify-family-info.php:36
-#: external/templates/verify/verify-family-info.php:85 FamilyEditor.php:819
-#: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:242
-#: ident/routes/verify.php:245 ident/routes/verify.php:657
-#: ident/routes/verify.php:766 ident/templates/verify/verify-family-info.php:36
+#: external/templates/registration/family-register.php:85 FamilyEditor.php:819
+#: FamilyView.php:356 GroupReports.php:149 ident/routes/verify.php:231
+#: ident/routes/verify.php:234 ident/routes/verify.php:670
+#: ident/routes/verify.php:779 ident/templates/verify/verify-family-info.php:36
 #: ident/templates/verify/verify-family-info.php:93 PersonEditor.php:1359
 #: PersonEditor.php:1363 PersonView.php:651 PrintPastoralCarePerson.php:257
 #: PrintView.php:268 Reports/ConfirmReport.php:168
@@ -835,11 +828,10 @@ msgid "Do not auto-format"
 msgstr "Не использовать автоформат"
 
 #: CartToFamily.php:425 CSVExport.php:137 CSVImport.php:248
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:293
-#: external/templates/verify/verify-family-info.php:90 FamilyEditor.php:832
-#: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:253
-#: ident/routes/verify.php:256 ident/routes/verify.php:468
-#: ident/routes/verify.php:471 ident/routes/verify.php:662
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:293 FamilyEditor.php:832
+#: FamilyView.php:362 GroupReports.php:150 ident/routes/verify.php:242
+#: ident/routes/verify.php:245 ident/routes/verify.php:458
+#: ident/routes/verify.php:461 ident/routes/verify.php:675
 #: ident/templates/verify/verify-family-info.php:98 PersonEditor.php:1388
 #: PersonEditor.php:1392 PersonView.php:679 PrintPastoralCarePerson.php:262
 #: PrintView.php:273 Reports/ConfirmReport.php:288
@@ -848,10 +840,9 @@ msgstr "Не использовать автоформат"
 msgid "Work Phone"
 msgstr "Рабочий телефон"
 
-#: CartToFamily.php:439 CSVExport.php:142
-#: external/templates/verify/verify-family-info.php:95 FamilyEditor.php:846
-#: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:262
-#: ident/routes/verify.php:477 ident/routes/verify.php:667
+#: CartToFamily.php:439 CSVExport.php:142 FamilyEditor.php:846
+#: FamilyEditor.php:862 FamilyView.php:369 ident/routes/verify.php:251
+#: ident/routes/verify.php:467 ident/routes/verify.php:680
 #: ident/templates/verify/verify-family-info.php:103 PersonEditor.php:1419
 #: PersonEditor.php:1423 PersonView.php:639 PrintPastoralCarePerson.php:267
 #: PrintView.php:278 v2/templates/pastoralcare/pastoralcarefamily.php:194
@@ -1001,8 +992,8 @@ msgstr "Выбор поля"
 msgid "Required"
 msgstr "Требуется"
 
-#: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:191
-#: ident/routes/verify.php:196 PersonEditor.php:924
+#: CSVExport.php:82 CSVImport.php:236 ident/routes/verify.php:180
+#: ident/routes/verify.php:185 PersonEditor.php:924
 msgid "Middle Name"
 msgstr "Среднее имя"
 
@@ -1039,7 +1030,7 @@ msgstr "Возраст / годы в браке"
 #: EcclesiaCRM/APIControllers/SearchController.php:278
 #: EcclesiaCRM/APIControllers/SidebarGeneralRolesController.php:122
 #: FamilyEditor.php:1101 FamilyView.php:553 FinancialReports.php:153
-#: ident/routes/verify.php:316 OptionManager.php:109 PersonEditor.php:1585
+#: ident/routes/verify.php:305 OptionManager.php:109 PersonEditor.php:1585
 #: PrintPastoralCarePerson.php:400 PrintView.php:411
 #: v2/templates/pastoralcare/pastoralcareMembersList.php:22
 #: v2/templates/people/peopledashboard.php:317 queryparameters_qrp.php:19
@@ -1210,8 +1201,8 @@ msgstr "Конверт для пожертвований"
 
 #: CSVImport.php:249 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:248
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:266 GroupReports.php:151
-#: ident/routes/verify.php:265 ident/routes/verify.php:460
-#: ident/routes/verify.php:480 ident/routes/verify.php:490
+#: ident/routes/verify.php:254 ident/routes/verify.php:450
+#: ident/routes/verify.php:470 ident/routes/verify.php:480
 #: Reports/CanvassReports.php:280 v2/templates/people/familylist.php:58
 #: v2/templates/people/personlist.php:55
 msgid "Cell Phone"
@@ -1542,9 +1533,8 @@ msgstr "Информация для включения"
 
 #: DirectoryReports.php:198 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:247
 #: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:265
-#: EcclesiaCRM/Service/CalendarService.php:57
-#: external/templates/verify/verify-family-info.php:107 FamilyView.php:554
-#: ident/routes/verify.php:292 ident/routes/verify.php:681
+#: EcclesiaCRM/Service/CalendarService.php:57 FamilyView.php:554
+#: ident/routes/verify.php:281 ident/routes/verify.php:694
 #: ident/templates/verify/verify-family-info.php:115 PersonView.php:1160
 #: Reports/ConfirmReport.php:231 Reports/ConfirmReport.php:251
 msgid "Birthday"
@@ -1563,8 +1553,7 @@ msgid "Family Cell Phone"
 msgstr "Семейный мобильный телефон"
 
 #: DirectoryReports.php:203 EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:202
-#: external/templates/verify/verify-family-info.php:39
-#: ident/routes/verify.php:487 ident/routes/verify.php:769
+#: ident/routes/verify.php:477 ident/routes/verify.php:782
 #: ident/templates/verify/verify-family-info.php:39
 #: Reports/ConfirmReport.php:189
 msgid "Family Email"
@@ -1928,8 +1917,7 @@ msgstr "Семьи"
 #: EcclesiaCRM/APIControllers/SearchController.php:89
 #: EcclesiaCRM/APIControllers/SearchController.php:92
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/Search/GroupSearchRes.php:21
-#: external/templates/verify/verify-family-info.php:137
-#: ident/routes/verify.php:320 ident/routes/verify.php:698
+#: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
 #: v2/templates/dashboard/maindashboard.php:169
@@ -1995,12 +1983,12 @@ msgstr "POST в корзину требует идентификатор соб�
 msgid "POST to cart requires an EventID"
 msgstr "POST в корзину требует идентификатор события"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:321
-#: ident/routes/verify.php:588
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:331
+#: ident/routes/verify.php:601
 msgid "Family Deactivated"
 msgstr "Семья деактивирована"
 
-#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:323
+#: EcclesiaCRM/APIControllers/PeopleFamilyController.php:333
 msgid "Family Activated"
 msgstr "Семья активирована"
 
@@ -2041,7 +2029,7 @@ msgstr "Нет"
 #: EcclesiaCRM/APIControllers/UserUsersController.php:136
 #: EcclesiaCRM/APIControllers/UserUsersController.php:142
 #: EcclesiaCRM/dto/Cart.php:337 EcclesiaCRM/dto/Cart.php:343
-#: ident/routes/verify.php:551
+#: ident/routes/verify.php:553
 msgid "Account Deactivated"
 msgstr "Аккаунт деактивирован"
 
@@ -4657,6 +4645,11 @@ msgstr "Вход в систему"
 msgid "Password"
 msgstr "Пароль"
 
+#: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
+#, fuzzy
+msgid "informations"
+msgstr "Информация"
+
 #: EcclesiaCRM/MenuBar/MenuBar.php:75 EcclesiaCRM/MenuBar/MenuBar.php:112
 #: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:276
 #: EcclesiaCRM/MenuBar/MenuBar.php:372 EcclesiaCRM/MenuBar/MenuBar.php:382
@@ -5120,9 +5113,8 @@ msgstr "Свидетельство о праве собственности"
 msgid "City, State, Zip"
 msgstr "Город, штат, почтовый индекс"
 
-#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186
-#: external/templates/verify/verify-family-info.php:52 FamilyEditor.php:874
-#: FamilyView.php:333 ident/routes/verify.php:515 ident/routes/verify.php:779
+#: EcclesiaCRM/Reports/PDF_ComfirmReport_EMAIL.php:186 FamilyEditor.php:874
+#: FamilyView.php:333 ident/routes/verify.php:505 ident/routes/verify.php:792
 #: ident/templates/verify/verify-family-info.php:52 PersonEditor.php:1445
 #: PersonView.php:658 Reports/ConfirmReport.php:173
 #: v2/templates/pastoralcare/pastoralcarefamily.php:158
@@ -6235,8 +6227,8 @@ msgstr "Добавить новый электронный способ опла
 
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:1096
-#: FindDepositSlip.php:131 ident/routes/verify.php:715
-#: ident/routes/verify.php:782 ident/templates/verify/verify-family-info.php:55
+#: FindDepositSlip.php:131 ident/routes/verify.php:728
+#: ident/routes/verify.php:795 ident/templates/verify/verify-family-info.php:55
 #: ident/templates/verify/verify-family-info.php:161 PersonView.php:1894
 #: PersonView.php:1986 v2/templates/calendar/eventattendeesedit.php:101
 #: v2/templates/email/mailchimp/campaign.php:35
@@ -6498,16 +6490,6 @@ msgstr "Добавить тип события"
 msgid "Unable to reset password"
 msgstr "Невозможно сбросить пароль"
 
-#: external/routes/verify.php:31 ident/routes/verify.php:48
-#: ident/routes/verify.php:57 ident/routes/verify.php:75
-#: ident/routes/verify.php:130
-msgid "Unable to load verification info"
-msgstr "Невозможно загрузить информацию о проверке"
-
-#: external/routes/verify.php:45 ident/routes/verify.php:142
-msgid "No Changes"
-msgstr "Без изменений"
-
 #: external/templates/404.php:4 ident/templates/404.php:4
 #: kiosk/templates/404.php:4
 msgid "Page not fond"
@@ -6603,8 +6585,7 @@ msgstr "Скрыть возраст"
 
 #: external/templates/registration/family-register-members.php:156
 #: external/templates/registration/family-register.php:118
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:94
-#: GroupReports.php:103 ident/templates/verify/enter-info.php:38
+#: FinancialReports.php:94 GroupReports.php:103
 msgid "Next"
 msgstr "Следующий"
 
@@ -6619,76 +6600,6 @@ msgstr "Сколько человек в вашей семье"
 #: external/templates/registration/family-register.php:113
 msgid "This will be my primary church."
 msgstr "Это будет моя основная церковь."
-
-#: external/templates/verify/enter-info.php:17
-#: ident/templates/verify/enter-info.php:17
-msgid "Please enter the following to start your family's verification"
-msgstr "Пожалуйста, введите следующее, чтобы начать проверку вашей семьи"
-
-#: external/templates/verify/verify-family-info.php:10
-#: ident/templates/verify/verify-family-info.php:10
-msgid "Family Verification"
-msgstr "Семейная верификация"
-
-#: external/templates/verify/verify-family-info.php:24
-#: external/templates/verify/verify-family-info.php:167
-#: ident/templates/verify/verify-family-info.php:24
-#: ident/templates/verify/verify-family-info.php:180 ManageEnvelopes.php:143
-msgid "Confirm"
-msgstr "Подтвердить"
-
-#: external/templates/verify/verify-family-info.php:34
-#: ident/routes/verify.php:389 ident/routes/verify.php:399
-#: ident/routes/verify.php:409 ident/routes/verify.php:764
-#: ident/templates/verify/verify-family-info.php:34
-#: sundayschool/SundaySchoolClassListExport.php:55
-#: v2/templates/sundayschool/sundayschooldashboard.php:262
-msgid "Home Address"
-msgstr "Домашний адрес"
-
-#: external/templates/verify/verify-family-info.php:64
-#: ident/templates/verify/verify-family-info.php:70
-msgid "Family Member(s)"
-msgstr "Член(ы) семьи"
-
-#: external/templates/verify/verify-family-info.php:104
-#: ident/routes/verify.php:283 ident/routes/verify.php:286
-#: ident/routes/verify.php:677
-#: ident/templates/verify/verify-family-info.php:112
-msgid "Work Email"
-msgstr "Рабочая электронная почта"
-
-#: external/templates/verify/verify-family-info.php:114
-#: ident/templates/verify/verify-family-info.php:122
-msgid "Age Hidden"
-msgstr "Скрытый возраст"
-
-#: external/templates/verify/verify-family-info.php:174
-#: ident/templates/verify/verify-family-info.php:187
-msgid "Please let us know what information to update if any"
-msgstr ""
-"Пожалуйста, сообщите нам, какую информацию необходимо обновить, если таковая "
-"имеется"
-
-#: external/templates/verify/verify-family-info.php:179
-#: ident/templates/verify/verify-family-info.php:192
-msgid "Your verification request is complete"
-msgstr "Ваш запрос на проверку завершен"
-
-#: external/templates/verify/verify-family-info.php:183
-#: ident/templates/verify/verify-family-info.php:196
-msgid "We encountered an error submitting with your verification data"
-msgstr "Мы столкнулись с ошибкой при отправке ваших данных для верификации"
-
-#: external/templates/verify/verify-family-info.php:189
-#: ident/templates/verify/verify-family-info.php:202
-msgid "Verify"
-msgstr "Проверить"
-
-#: external/templates/verify/verify-family-info.php:191
-#: ident/templates/verify/verify-family-info.php:204
-msgid "Visit our Site"
-msgstr "Посетите наш сайт"
 
 #: FamilyCustomFieldsEditor.php:41
 msgid "Custom Family Fields Editor"
@@ -6816,7 +6727,7 @@ msgstr "Обновлено через Семью"
 msgid "Family Info"
 msgstr "Информация о семье"
 
-#: FamilyEditor.php:762 ident/routes/verify.php:428 PersonEditor.php:1066
+#: FamilyEditor.php:762 ident/routes/verify.php:407 PersonEditor.php:1066
 #: PersonEditor.php:1269
 msgid "None US/CND State"
 msgstr "Нет Государство США/КНД"
@@ -7771,19 +7682,38 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Поля свойств, относящиеся к конкретной группе"
 
-#: ident/routes/verify.php:88
+#: ident/routes/verify.php:51 ident/routes/verify.php:60
+#: ident/routes/verify.php:78 ident/routes/verify.php:133
+msgid "Unable to load verification info"
+msgstr "Невозможно загрузить информацию о проверке"
+
+#: ident/routes/verify.php:91
 msgid "Wrong email or password"
 msgstr "Неправильный адрес электронной почты или пароль"
 
-#: ident/routes/verify.php:103
+#: ident/routes/verify.php:106
 msgid "Wrong old password"
 msgstr "Неправильный старый пароль"
 
-#: ident/routes/verify.php:108
+#: ident/routes/verify.php:111
 msgid "The two passwords must be identical."
 msgstr "Оба пароля должны быть одинаковыми."
 
-#: ident/routes/verify.php:716 ident/routes/verify.php:783
+#: ident/routes/verify.php:272 ident/routes/verify.php:275
+#: ident/routes/verify.php:690
+#: ident/templates/verify/verify-family-info.php:112
+msgid "Work Email"
+msgstr "Рабочая электронная почта"
+
+#: ident/routes/verify.php:378 ident/routes/verify.php:388
+#: ident/routes/verify.php:433 ident/routes/verify.php:777
+#: ident/templates/verify/verify-family-info.php:34
+#: sundayschool/SundaySchoolClassListExport.php:55
+#: v2/templates/sundayschool/sundayschooldashboard.php:262
+msgid "Home Address"
+msgstr "Домашний адрес"
+
+#: ident/routes/verify.php:729 ident/routes/verify.php:796
 #: ident/templates/verify/verify-family-info.php:56
 #: ident/templates/verify/verify-family-info.php:162
 #: v2/templates/pastoralcare/pastoralcarefamily.php:348
@@ -7791,11 +7721,15 @@ msgstr "Оба пароля должны быть одинаковыми."
 msgid "Modify"
 msgstr "Изменить"
 
-#: ident/routes/verify.php:784 ident/templates/verify/verify-family-info.php:57
+#: ident/routes/verify.php:797 ident/templates/verify/verify-family-info.php:57
 #: OptionManager.php:527 OptionManager.php:532
 #: v2/templates/sundayschool/sundayschoolview.php:26
 msgid "Exit"
 msgstr "Выход"
+
+#: ident/routes/verify.php:819
+msgid "No Changes"
+msgstr "Без изменений"
 
 #: ident/templates/verify/change-password.php:17 UserPasswordChange.php:177
 msgid "Alert"
@@ -7832,6 +7766,46 @@ msgstr "Подтверждение нового пароля"
 #: ident/templates/verify/login-info.php:21 Login.php:196 Login.php:271
 msgid "Please Login"
 msgstr "Пожалуйста, войдите"
+
+#: ident/templates/verify/verify-family-info.php:10
+msgid "Family Verification"
+msgstr "Семейная верификация"
+
+#: ident/templates/verify/verify-family-info.php:24
+#: ident/templates/verify/verify-family-info.php:180 ManageEnvelopes.php:143
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: ident/templates/verify/verify-family-info.php:70
+msgid "Family Member(s)"
+msgstr "Член(ы) семьи"
+
+#: ident/templates/verify/verify-family-info.php:122
+msgid "Age Hidden"
+msgstr "Скрытый возраст"
+
+#: ident/templates/verify/verify-family-info.php:187
+msgid "Please let us know what information to update if any"
+msgstr ""
+"Пожалуйста, сообщите нам, какую информацию необходимо обновить, если таковая "
+"имеется"
+
+#: ident/templates/verify/verify-family-info.php:192
+msgid "Your verification request is complete"
+msgstr "Ваш запрос на проверку завершен"
+
+#: ident/templates/verify/verify-family-info.php:196
+msgid "We encountered an error submitting with your verification data"
+msgstr "Мы столкнулись с ошибкой при отправке ваших данных для верификации"
+
+#: ident/templates/verify/verify-family-info.php:202
+#: v2/templates/email/mailchimp/campaign.php:40
+msgid "Send"
+msgstr "Отправить"
+
+#: ident/templates/verify/verify-family-info.php:204
+msgid "Visit our Site"
+msgstr "Посетите наш сайт"
 
 #: Include/FooterNotLoggedIn.php:7 Include/Footer.php:31
 msgid "Copyright"
@@ -10528,10 +10502,6 @@ msgstr "Управление кампаниями по электронной п
 msgid "Save Campaign"
 msgstr "Кампания по спасению"
 
-#: v2/templates/email/mailchimp/campaign.php:40
-msgid "Send"
-msgstr "Отправить"
-
 #: v2/templates/email/mailchimp/campaign.php:49
 msgid "Mail Subject"
 msgstr "Тема письма"
@@ -12642,6 +12612,12 @@ msgstr "Деньги"
 
 msgid "Custom Drop-Down List"
 msgstr "Пользовательский выпадающий список"
+
+#~ msgid "Please enter the following to start your family's verification"
+#~ msgstr "Пожалуйста, введите следующее, чтобы начать проверку вашей семьи"
+
+#~ msgid "Verify"
+#~ msgstr "Проверить"
 
 #~ msgid "Meeting"
 #~ msgstr "Встреча"
