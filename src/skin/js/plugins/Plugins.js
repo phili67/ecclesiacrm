@@ -140,7 +140,7 @@ $(document).ready(function () {
 
     function BootboxContent() {
         var frm_str = '<section class="content">\n' +
-            '<form id="restoredatabase" action="/api/plugins/add" method="POST" enctype="multipart/form-data">\n' +
+            '<form id="restoredatabase" action="' + window.CRM.root + '/api/plugins/add" method="POST" enctype="multipart/form-data">\n' +
             '<div class="card card-gray">\n' +
             '    <div class="card-header">\n' +
             '        <h3 class="card-title">' + i18next.t("Select your zipped plugin file") + '</h3>\n' +

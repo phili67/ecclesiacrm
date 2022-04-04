@@ -117,7 +117,7 @@ class PluginsController
                 // we delete the upload zip
                 unlink($uploadedFileDestination);
 
-                return $response->withHeader('Location', '/v2/plugins')->withStatus(302);
+                return $response->withHeader('Location', SystemURLs::getRootPath() . '/v2/plugins')->withStatus(302);
             }
         } else {
             throw new \Exception(_("Impossible to open") . $uploadedFileDestination);
