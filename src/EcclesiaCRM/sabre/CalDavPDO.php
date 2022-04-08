@@ -278,7 +278,6 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
 
         foreach ($calendars as $calendar) {
             if ($calendarId == $calendar['id'][0]) {
-                LoggerUtils::getAppLogger()->info('calendarId : '.calendarId." ".print_r($calendar['id'],true));
                 $calendarName = $calendar['{DAV:}displayname'];
                 $calendarColor = $calendar['{http://apple.com/ns/ical/}calendar-color'];
                 $writeable = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3) ? true : false;
