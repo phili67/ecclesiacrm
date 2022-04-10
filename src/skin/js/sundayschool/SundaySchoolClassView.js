@@ -67,7 +67,7 @@ $("document").ready(function () {
                 } else {
                     res += '<p></p>';
                 }
-                res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn btn-success btn-sm btn-block"><i' +
+                res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" class="btn primary btn-sm btn-block"><i' +
                     '      class="far fa-envelope" target="_blank"></i> ' + i18next.t('Send Message') + '</a>' +
                     '        <a href="' + window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" ' +
                     '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fas fa-user"></i> ' + i18next.t('View Profile') + '</a>' +
@@ -446,11 +446,11 @@ $("document").ready(function () {
                 render: function (data, type, full, meta) {
                     var gender = i18next.t("Unknown");
 
-                    switch (full.kidGender) {
-                        case "1":
+                    switch (parseInt(full.kidGender)) {
+                        case 1:
                             gender = i18next.t("Boy");
                             break;
-                        case "2":
+                        case 2:
                             gender = i18next.t("Girl");
                             break;
                     }
@@ -651,7 +651,7 @@ $("document").ready(function () {
 
     var birthDayFilter = $('.birthday-filter');
     var birthDayMonth = birthDayFilter.find('.month');
-    birthDayFilter.find('i.fa-close')
+    birthDayFilter.find('i.fa-trash-alt')
         .bind('click', hideBirthDayFilter);
 
     $("#bar-chart").bind("plotclick", function (event, pos, item) {
@@ -771,7 +771,7 @@ $("document").ready(function () {
     var genderType = genderFilter.find('.type');
     ;
 
-    genderFilter.find('i.fa-close')
+    genderFilter.find('i.fa-trash-alt')
         .bind('click', hideGenderFilter);
 
 
