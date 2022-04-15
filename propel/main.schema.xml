@@ -767,6 +767,7 @@
         <column name="event_componenttype" phpName="Componenttype" type="VARCHAR" size="8" sqlType="varbinary(8)"/>
         <column name="event_uid" phpName="Uid" type="VARCHAR" size="200" sqlType="varbinary(200)"/>
         <column name="event_creator_user_id" phpName="CreatorUserId" type="SMALLINT" description="For resource slot : the owner is the creator"/>
+        <column name="event_link" phpName="Link" type="VARCHAR" size="255"/>
         <foreign-key foreignTable="group_grp">
             <reference local="event_grpid" foreign="grp_ID"/>
         </foreign-key>

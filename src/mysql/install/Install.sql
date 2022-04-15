@@ -442,6 +442,7 @@ CREATE TABLE `events_event` (
   `event_componenttype` varbinary(8) DEFAULT NULL,
   `event_uid` varbinary(200) DEFAULT NULL,
   `event_creator_user_id` mediumint(9) DEFAULT NULL COMMENT 'For resource slot : the owner is the creator',
+  `event_link` varchar(255) default NULL,
   PRIMARY KEY  (`event_id`),
     UNIQUE(event_calendarid, event_uri),
     INDEX calendarid_time (event_calendarid)
