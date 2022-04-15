@@ -143,3 +143,5 @@ CREATE TABLE `tokens_password` (
            ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+-- 2022-04-15
+ALTER TABLE `events_event` ADD `event_link` varchar(255) default NULL;
