@@ -367,12 +367,13 @@ $(document).ready(function () {
 
     function initCharts(fundChartData, pledgeChartData) {
         var pieOptions = {
-            animation: {animateRotate: true, animateScale: false},
-            circumference: 6.283185307179586,
             cutoutPercentage: 50,
-            hover: {mode: "single"},
-            rotation: -1.5707963267948966
+            rotation: -1.5707963267948966,
+            circumference: 6.283185307179586,
+            animation: {animateRotate: true, animateScale: false},
         };
+
+        //pieOptions = Chart.defaults.doughnut;
 
         var len = fundChartData.datasets[0].data.length;
 
@@ -385,8 +386,8 @@ $(document).ready(function () {
             options: pieOptions
         });
 
-        var legend = pieChart.generateLegend();
-        $('#type-donut-legend').append(legend);
+        /*var legend = pieChart.generateLegend();
+        $('#type-donut-legend').append(legend);*/
 
         var pieChartCanvas = $("#fund-donut").get(0).getContext("2d");
         var pieChart = new Chart(pieChartCanvas, {
