@@ -444,11 +444,11 @@ $(document).ready(function () {
                                 } else if (data.success == false && data.error) {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
+                                    //event.startPropagation();
                                 }
-                                event.startPropagation();
                             });
                         } else {
-                        	event.startPropagation();
+                            //event.startPropagation();
                         }
                     }
                 });
@@ -514,7 +514,6 @@ $(document).ready(function () {
                                     window.CRM.closeDialogLoadingFunction();
                                     window.CRM.DisplayAlert(i18next.t("Error"), i18next.t(data.error.detail));
                                 }
-                                event.startPropagation();
                             });
                         } else if (tag != null) {
                             window.CRM.dialogLoadingFunction(i18next.t('Deleting all tags for the selected members in the list...'));
@@ -526,13 +525,11 @@ $(document).ready(function () {
                             },function (data) {
                                 window.CRM.dataListTable.ajax.reload(null, false);
                                 render_container();
-                                event.startPropagation();
+                                //event.startPropagation();
                             });
                         }
                     }
                 });
-
-                event.startPropagation();
             });
         });
     }
