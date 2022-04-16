@@ -216,6 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 label: '<i class="fas fa-search-plus"></i> ' + i18next.t('Edit'),
                                 className: 'btn btn-success',
                                 callback: function () {
+                                    if (event.extendedProps.Link != null) {
+                                        window.location.href = window.CRM.root + '/' + event.extendedProps.Link;
+                                        return;
+                                    }
                                     if (window.CRM.editor != null) {
                                         CKEDITOR.remove(window.CRM.editor);
                                         window.CRM.editor = null;

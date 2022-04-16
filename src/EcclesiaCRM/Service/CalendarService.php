@@ -255,6 +255,7 @@ class CalendarService
                     $alarm = $evnt->getAlarm();
                     $rrule = $evnt->getFreqLastOccurence();
                     $freq = $evnt->getFreq();
+                    $link = $evnt->getLink();
                     $eventTypeName = $evnt->getEventTypeName();
                     $eventGroupName = $evnt->getGroupName();
                     $eventCalendarName = $evnt->getCalendarName();
@@ -402,7 +403,7 @@ class CalendarService
                                 $desc, $text, $calID, $calendarColor, 0, 0, 0, $rrule, $freq,
                                 $writeable, $loc, $lat, $long, $alarm, $cal_type, $cal_category,
                                 $eventTypeName, $eventGroupName, $eventCalendarName, $eventRights, $loginName,
-                                $realStats, $freeStats, $status);// only the event id sould be edited and moved and have custom color
+                                $realStats, $freeStats, $status, $link);// only the event id sould be edited and moved and have custom color
 
                             array_push($events, $event);
                         }
@@ -419,7 +420,7 @@ class CalendarService
                                                    $recurrent = 0, $reccurenceID = '', $rrule = '', $freq = '',
                                                    $writeable = false, $location = "", $latitude = 0, $longitude = 0, $alarm = "", $cal_type = "0",
                                                    $cal_category = "personal", $eventTypeName = "all", $eventGroupName = "None", $eventCalendarName = "None",
-                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no')
+                                                   $eventRights = false, $loginName = "", $realStats = [], $freeStats = [], $status='no', $link = null)
     {
         $event = [];
         switch ($type) {
@@ -437,12 +438,18 @@ class CalendarService
         $event['start'] = $start;
         $event['month'] = (int)explode('-', $start)[1];
         $event['origStart'] = $start;
+
+        if ( !is_null($link) ) {
+            $icon .= ' <i class="fas fa-link"></i>';
+        }
+
         $event['icon'] = $icon;
         $event['realType'] = $event['type'] = $type;
         $event['TypeName'] = $eventTypeName;
         $event['GroupName'] = $eventGroupName;
         $event['CalendarName'] = $eventCalendarName;
         $event['Rights'] = $eventRights;
+        $event['Link'] = $link;
 
         if ($status == _('No')) {
             $event['Status'] = '<span style="color:red;text-align:center">'.$status.'</span>';
