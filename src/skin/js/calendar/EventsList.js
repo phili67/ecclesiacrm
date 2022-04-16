@@ -70,7 +70,7 @@ $(document).ready(function () {
                     return '<table class="table-responsive" style="width:120px">\n' +
                         '                <tbody><tr class="no-background-theme">\n' +
                         '                  <td style="width:48px;padding: 7px 2px;border:none;text-align: right">\n' +
-                        '                    <button type="submit"  name="Action" data-id="' + full.eventID+ '" title="' + i18next.t('Edit') + '" style="color:' + ((full.Rights != "")?'blue':'gray') + '" class="EditEvent btn btn-default btn-xs" '+ ((full.Rights)?'':'disabled') +'>\n' +
+                        '                    <button type="submit"  name="Action" data-link="' + full.Link +'" data-id="' + full.eventID + '" title="' + i18next.t('Edit') + '" style="color:' + ((full.Rights != "")?'blue':'gray') + '" class="EditEvent btn btn-default btn-xs" '+ ((full.Rights)?'':'disabled') +'>\n' +
                                                 data +
                         '                    </button>\n' +
                         '                  </td>\n' +
@@ -233,6 +233,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".EditEvent", function () {
         var eventID    = $(this).data("id");
+        var link    = $(this).data("link");
+
+        if (link !== null) {
+            window.location.href = window.CRM.root + '/' + link;
+            return;
+        }
+
 
         window.CRM.APIRequest({
             method: 'POST',
