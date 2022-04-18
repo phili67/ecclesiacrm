@@ -39,3 +39,10 @@
     font-size: 11px;
     margin-bottom: 3px;
 }
+
+@media screen and (min-width: 800px) {
+    .event-infos-sidebar {
+        min-width: 300px;
+        max-width: 300px;
+    }
+}
