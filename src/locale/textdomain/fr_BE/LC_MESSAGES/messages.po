@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 13:36+0000\n"
+"POT-Creation-Date: 2022-04-21 17:55+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1639,8 +1639,8 @@ msgstr "Créer un annuaire"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1020
-#: EcclesiaCRM/Service/CalendarService.php:1046
+#: EcclesiaCRM/Service/CalendarService.php:1027
+#: EcclesiaCRM/Service/CalendarService.php:1053
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr ""
 "Deux réservations de ressources ne peuvent pas se trouver dans le même "
@@ -2020,7 +2020,7 @@ msgstr "Ajouté au groupe"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:144
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:262
+#: EcclesiaCRM/Service/CalendarService.php:263
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88
@@ -2030,8 +2030,8 @@ msgstr "Oui"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:157
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:166
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:262
-#: EcclesiaCRM/Service/CalendarService.php:447
+#: EcclesiaCRM/Service/CalendarService.php:263
+#: EcclesiaCRM/Service/CalendarService.php:454
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
@@ -2186,7 +2186,7 @@ msgstr "Gestionnaire des types de groupe"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:599
+#: EcclesiaCRM/Service/CalendarService.php:606
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:100 OptionManager.php:133
@@ -3485,8 +3485,8 @@ msgid "Invalid Family"
 msgstr "Mauvaise famille"
 
 #: EcclesiaCRM/dto/SystemConfig.php:33
-#: EcclesiaCRM/Service/CalendarService.php:753
-#: EcclesiaCRM/Service/CalendarService.php:1075
+#: EcclesiaCRM/Service/CalendarService.php:760
+#: EcclesiaCRM/Service/CalendarService.php:1082
 msgid "NONE"
 msgstr "AUCUN(E)"
 
@@ -4684,13 +4684,6 @@ msgstr "Mot de Passe"
 msgid "informations"
 msgstr "Informations"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:75 EcclesiaCRM/MenuBar/MenuBar.php:112
-#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/MenuBar/MenuBar.php:372 EcclesiaCRM/MenuBar/MenuBar.php:382
-#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:495
-msgid "Dashboard"
-msgstr "Tableau de bord"
-
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:148
 msgid "Private Space"
@@ -4716,6 +4709,13 @@ msgstr "Documents"
 #: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:898
 msgid "EDrive"
 msgstr "EDrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:276 EcclesiaCRM/MenuBar/MenuBar.php:372
+#: EcclesiaCRM/MenuBar/MenuBar.php:382 EcclesiaCRM/MenuBar/MenuBar.php:404
+#: EcclesiaCRM/MenuBar/MenuBar.php:495
+msgid "Dashboard"
+msgstr "Tableau de bord"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:113
 msgid "Data Structure"
@@ -5482,51 +5482,51 @@ msgstr "Evénement"
 msgid "Anniversary"
 msgstr "Anniversaire de mariage"
 
-#: EcclesiaCRM/Service/CalendarService.php:462
+#: EcclesiaCRM/Service/CalendarService.php:469
 msgid "Check-in"
 msgstr "Vérification à l'arrivée"
 
-#: EcclesiaCRM/Service/CalendarService.php:463
+#: EcclesiaCRM/Service/CalendarService.php:470
 msgid "Check-out"
 msgstr "Vérification à la sortie"
 
-#: EcclesiaCRM/Service/CalendarService.php:464
+#: EcclesiaCRM/Service/CalendarService.php:471
 msgid "Rest"
 msgstr "Différence"
 
-#: EcclesiaCRM/Service/CalendarService.php:485
-#: EcclesiaCRM/Service/CalendarService.php:522
+#: EcclesiaCRM/Service/CalendarService.php:492
+#: EcclesiaCRM/Service/CalendarService.php:529
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "Les participants"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
-#: EcclesiaCRM/Service/CalendarService.php:502
+#: EcclesiaCRM/Service/CalendarService.php:508
+#: EcclesiaCRM/Service/CalendarService.php:509
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Appel à valider"
 
-#: EcclesiaCRM/Service/CalendarService.php:502
+#: EcclesiaCRM/Service/CalendarService.php:509
 msgid "Check-out done"
 msgstr "Appel validé"
 
-#: EcclesiaCRM/Service/CalendarService.php:521
-#: EcclesiaCRM/Service/CalendarService.php:548
+#: EcclesiaCRM/Service/CalendarService.php:528
+#: EcclesiaCRM/Service/CalendarService.php:555
 msgid "No Attendance Recorded"
 msgstr "Aucune participation enregistrée"
 
-#: EcclesiaCRM/Service/CalendarService.php:562
+#: EcclesiaCRM/Service/CalendarService.php:569
 msgid "login"
 msgstr "Connexion"
 
-#: EcclesiaCRM/Service/CalendarService.php:596
+#: EcclesiaCRM/Service/CalendarService.php:603
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Calendrier personnel"
 
-#: EcclesiaCRM/Service/CalendarService.php:602
+#: EcclesiaCRM/Service/CalendarService.php:609
 msgid "Share"
 msgstr "Partager"
 
@@ -12704,6 +12704,15 @@ msgstr "Argent"
 
 msgid "Custom Drop-Down List"
 msgstr "Liste déroulante personnalisée"
+
+msgid "Event Workflow"
+msgstr "Flux d'événements"
+
+msgid "One Day"
+msgstr "Un jour"
+
+msgid "Several days"
+msgstr "Plusieurs jours"
 
 #~ msgid "Please enter the following to start your family's verification"
 #~ msgstr ""
