@@ -142,7 +142,7 @@ $(document).ready(function () {
                 width: 'auto',
                 title: i18next.t('End Date'),
                 visible: true,
-                data: 'start',
+                data: 'end',
                 render: function (data, type, full, meta) {
                     return moment(data).format(window.CRM.fmt);
                 }
