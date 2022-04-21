@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 13:36+0000\n"
+"POT-Creation-Date: 2022-04-21 17:55+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1631,8 +1631,8 @@ msgstr "Krijo drejtuesin"
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:614
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:684
 #: EcclesiaCRM/APIControllers/CalendarEventV2Controller.php:704
-#: EcclesiaCRM/Service/CalendarService.php:1020
-#: EcclesiaCRM/Service/CalendarService.php:1046
+#: EcclesiaCRM/Service/CalendarService.php:1027
+#: EcclesiaCRM/Service/CalendarService.php:1053
 msgid "Two resource reservations cannot be in the same time slot."
 msgstr "Dy rezerva burimesh nuk mund të jenë në të njëjtën vend."
 
@@ -2007,7 +2007,7 @@ msgstr "Grupi i shtuar"
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:144
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:164
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:262
+#: EcclesiaCRM/Service/CalendarService.php:263
 #: EcclesiaCRM/utils/OutputUtils.php:196 EcclesiaCRM/utils/OutputUtils.php:296
 #: FinancialReports.php:425 Reports/ConfirmReport.php:276
 #: Reports/GDPR/GDPRListExport.php:88
@@ -2017,8 +2017,8 @@ msgstr "po."
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:157
 #: EcclesiaCRM/APIControllers/PeoplePersonController.php:166
 #: EcclesiaCRM/APIControllers/SystemGDRPController.php:72
-#: EcclesiaCRM/Service/CalendarService.php:262
-#: EcclesiaCRM/Service/CalendarService.php:447
+#: EcclesiaCRM/Service/CalendarService.php:263
+#: EcclesiaCRM/Service/CalendarService.php:454
 #: EcclesiaCRM/utils/OutputUtils.php:198 EcclesiaCRM/utils/OutputUtils.php:297
 #: FinancialReports.php:426 Reports/ConfirmReport.php:278
 #: Reports/GDPR/GDPRListExport.php:88 UserEditor.php:1295
@@ -2173,7 +2173,7 @@ msgstr "grupi shkruan redaktorin"
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:76
 #: EcclesiaCRM/APIControllers/SidebarPropertiesController.php:227
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:138
-#: EcclesiaCRM/Service/CalendarService.php:599
+#: EcclesiaCRM/Service/CalendarService.php:606
 #: EcclesiaCRM/VIEWControllers/Sidebar/VIEWPropertyListController.php:54
 #: EcclesiaCRM/VIEWControllers/VIEWGroupController.php:111
 #: Include/Footer.php:100 OptionManager.php:133
@@ -3474,8 +3474,8 @@ msgid "Invalid Family"
 msgstr "familja invalide"
 
 #: EcclesiaCRM/dto/SystemConfig.php:33
-#: EcclesiaCRM/Service/CalendarService.php:753
-#: EcclesiaCRM/Service/CalendarService.php:1075
+#: EcclesiaCRM/Service/CalendarService.php:760
+#: EcclesiaCRM/Service/CalendarService.php:1082
 msgid "NONE"
 msgstr "NJË"
 
@@ -4647,13 +4647,6 @@ msgstr "fjalëkalimi"
 msgid "informations"
 msgstr "informacione"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:75 EcclesiaCRM/MenuBar/MenuBar.php:112
-#: EcclesiaCRM/MenuBar/MenuBar.php:151 EcclesiaCRM/MenuBar/MenuBar.php:276
-#: EcclesiaCRM/MenuBar/MenuBar.php:372 EcclesiaCRM/MenuBar/MenuBar.php:382
-#: EcclesiaCRM/MenuBar/MenuBar.php:404 EcclesiaCRM/MenuBar/MenuBar.php:495
-msgid "Dashboard"
-msgstr "Dorëzimi."
-
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:148
 msgid "Private Space"
@@ -4679,6 +4672,13 @@ msgstr "dokumente"
 #: EcclesiaCRM/MenuBar/MenuBar.php:96 PersonView.php:1037 UserEditor.php:898
 msgid "EDrive"
 msgstr "Edrive"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:112 EcclesiaCRM/MenuBar/MenuBar.php:151
+#: EcclesiaCRM/MenuBar/MenuBar.php:276 EcclesiaCRM/MenuBar/MenuBar.php:372
+#: EcclesiaCRM/MenuBar/MenuBar.php:382 EcclesiaCRM/MenuBar/MenuBar.php:404
+#: EcclesiaCRM/MenuBar/MenuBar.php:495
+msgid "Dashboard"
+msgstr "Dorëzimi."
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:113
 msgid "Data Structure"
@@ -5444,51 +5444,51 @@ msgstr "ngjarja"
 msgid "Anniversary"
 msgstr "përvjetori"
 
-#: EcclesiaCRM/Service/CalendarService.php:462
+#: EcclesiaCRM/Service/CalendarService.php:469
 msgid "Check-in"
 msgstr "Kontrollo"
 
-#: EcclesiaCRM/Service/CalendarService.php:463
+#: EcclesiaCRM/Service/CalendarService.php:470
 msgid "Check-out"
 msgstr "Kontrollo"
 
-#: EcclesiaCRM/Service/CalendarService.php:464
+#: EcclesiaCRM/Service/CalendarService.php:471
 msgid "Rest"
 msgstr "Pusho."
 
-#: EcclesiaCRM/Service/CalendarService.php:485
-#: EcclesiaCRM/Service/CalendarService.php:522
+#: EcclesiaCRM/Service/CalendarService.php:492
+#: EcclesiaCRM/Service/CalendarService.php:529
 #: v2/templates/calendar/eventattendeesedit.php:45
 msgid "Attendees"
 msgstr "të pranishmit"
 
-#: EcclesiaCRM/Service/CalendarService.php:501
-#: EcclesiaCRM/Service/CalendarService.php:502
+#: EcclesiaCRM/Service/CalendarService.php:508
+#: EcclesiaCRM/Service/CalendarService.php:509
 #: v2/templates/calendar/eventattendeesedit.php:142
 #: v2/templates/calendar/eventattendeesedit.php:143
 #: v2/templates/calendar/eventattendeesedit.php:146
 msgid "Make Check-out"
 msgstr "Bëj kontrollën"
 
-#: EcclesiaCRM/Service/CalendarService.php:502
+#: EcclesiaCRM/Service/CalendarService.php:509
 msgid "Check-out done"
 msgstr "- Po, është e kryer"
 
-#: EcclesiaCRM/Service/CalendarService.php:521
-#: EcclesiaCRM/Service/CalendarService.php:548
+#: EcclesiaCRM/Service/CalendarService.php:528
+#: EcclesiaCRM/Service/CalendarService.php:555
 msgid "No Attendance Recorded"
 msgstr "pa regjistrim"
 
-#: EcclesiaCRM/Service/CalendarService.php:562
+#: EcclesiaCRM/Service/CalendarService.php:569
 msgid "login"
 msgstr "Logji"
 
-#: EcclesiaCRM/Service/CalendarService.php:596
+#: EcclesiaCRM/Service/CalendarService.php:603
 #: v2/templates/calendar/eventslist.php:44
 msgid "Personal Calendar"
 msgstr "Kalendari personal"
 
-#: EcclesiaCRM/Service/CalendarService.php:602
+#: EcclesiaCRM/Service/CalendarService.php:609
 msgid "Share"
 msgstr "Ndahuni."
 
@@ -12630,6 +12630,16 @@ msgstr "Paratë"
 msgid "Custom Drop-Down List"
 msgstr "Lista e poshtme"
 
+#, fuzzy
+msgid "Event Workflow"
+msgstr "Sermon i provave"
+
+msgid "One Day"
+msgstr ""
+
+msgid "Several days"
+msgstr ""
+
 #~ msgid "Please enter the following to start your family's verification"
 #~ msgstr "Ju lutem futni në vijim për të filluar verifikimin e familjes suaj"
 
@@ -13395,9 +13405,6 @@ msgstr "Lista e poshtme"
 
 #~ msgid "Attendance Notes: "
 #~ msgstr "Notes e pranimeve:"
-
-#~ msgid "Event Sermon"
-#~ msgstr "Sermon i provave"
 
 #~ msgid "Edit Value"
 #~ msgstr "Vlera e Edit"
