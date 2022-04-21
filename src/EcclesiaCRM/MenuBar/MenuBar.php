@@ -71,9 +71,9 @@ class MenuBar extends Menu
                         $this->addMenu($menu);
                     }
 
-                    if ($menu_count > 1) {
-                        $menuItem = new Menu (_("Dashboard"), "fas fa-tachometer-alt", $menuBarItem->getURL(), true, $menu);
-                    }
+                    /*if ($menu_count > 1 and $plugin->getCategoryPosition() != 'after_category_menu') {
+                        $menuItem = new Menu (_($menuBarItem->getDisplayName()), "fas fa-tachometer-alt", $menuBarItem->getURL(), true, $menu);
+                    }*/
                     $first_One = false;
                 } else {
                     $menuItem = new Menu (_($menuBarItem->getDisplayName()), $menuBarItem->getIcon(), $menuBarItem->getURL(), $grp_sec, $menu);
