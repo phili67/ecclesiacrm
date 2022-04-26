@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,6 +36,18 @@ msgstr "Die Rolle der Familie"
 
 msgid "You have no more items in your cart."
 msgstr "Sie haben keine weiteren Artikel in Ihrem Warenkorb."
+
+msgid "Compose New Message"
+msgstr "Neue Nachricht verfassen"
+
+msgid "Subject:"
+msgstr "Thema:"
+
+msgid "Close"
+msgstr "Schließen Sie"
+
+msgid "Send"
+msgstr "Senden Sie"
 
 msgid "Error making API Call to"
 msgstr "Fehler beim API-Aufruf an"
@@ -103,9 +115,6 @@ msgstr "Sie müssen eine Gruppe und eine Gruppenrolle auswählen, wenn Sie"
 
 msgid "You have to set a Group Name"
 msgstr "Sie müssen einen Gruppennamen festlegen"
-
-msgid "Close"
-msgstr "Schließen Sie"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Wollen Sie die Personen wirklich deaktivieren?"
@@ -248,9 +257,6 @@ msgstr "Nachricht"
 
 msgid "Software Registration"
 msgstr "Software-Registrierung"
-
-msgid "Send"
-msgstr "Senden Sie"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "Ihre Software ist nun registriert. Wir danken Ihnen!"

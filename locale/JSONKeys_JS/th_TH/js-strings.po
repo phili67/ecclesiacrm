@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,19 @@ msgstr "วงกลมของครอบครัว"
 
 msgid "You have no more items in your cart."
 msgstr "คุณไม่มีของชิ้นส่วนในเครื่อง"
+
+msgid "Compose New Message"
+msgstr ""
+
+#, fuzzy
+msgid "Subject:"
+msgstr "เป้าหมาย"
+
+msgid "Close"
+msgstr "ใกล้เคียง"
+
+msgid "Send"
+msgstr "ส่ง"
 
 msgid "Error making API Call to"
 msgstr "ความบกพร่องทางการเข้ามา API"
@@ -101,9 +114,6 @@ msgstr "คุณต้องเลือกกลุ่มหนึ่ง แ�
 
 msgid "You have to set a Group Name"
 msgstr "คุณต้องตั้งชื่อกลุ่ม"
-
-msgid "Close"
-msgstr "ใกล้เคียง"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "คุณอยากปิดคนจริงๆเหรอ"
@@ -239,9 +249,6 @@ msgstr "ข้อความ"
 
 msgid "Software Registration"
 msgstr "ซอฟต์แวร์"
-
-msgid "Send"
-msgstr "ส่ง"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "ซอฟแวร์ของคุณถูกจดทะเบียนแล้ว ขอบคุณ!"

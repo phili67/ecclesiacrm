@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,18 @@ msgstr "Perheen rooli"
 
 msgid "You have no more items in your cart."
 msgstr "Sinulla ei ole enää tuotteita ostoskorissasi."
+
+msgid "Compose New Message"
+msgstr "Uuden viestin laatiminen"
+
+msgid "Subject:"
+msgstr "Aihe:"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Send"
+msgstr "Lähetä"
 
 msgid "Error making API Call to"
 msgstr "Virhe API-kutsun tekemisessä osoitteeseen"
@@ -101,9 +113,6 @@ msgstr "Sinun on valittava yksi ryhmä ja ryhmärooli, jos haluat, että"
 
 msgid "You have to set a Group Name"
 msgstr "Sinun on määritettävä ryhmän nimi"
-
-msgid "Close"
-msgstr "Sulje"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Haluatko todella poistaa henkilöt käytöstä?"
@@ -242,9 +251,6 @@ msgstr "Viesti"
 
 msgid "Software Registration"
 msgstr "Ohjelmiston rekisteröinti"
-
-msgid "Send"
-msgstr "Lähetä"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "Ohjelmistosi on nyt rekisteröity. Kiitos !"

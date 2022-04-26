@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,6 +35,19 @@ msgstr "Gia đình Role"
 
 msgid "You have no more items in your cart."
 msgstr "Anh không còn đồ trong xe nữa."
+
+msgid "Compose New Message"
+msgstr ""
+
+#, fuzzy
+msgid "Subject:"
+msgstr "Đối tượng"
+
+msgid "Close"
+msgstr "Gần đúng."
+
+msgid "Send"
+msgstr "Gửi"
 
 msgid "Error making API Call to"
 msgstr "Lỗi đã kêu API"
@@ -102,9 +115,6 @@ msgstr "Bạn phải chọn một nhóm và vai trò nhóm nếu bạn muốn"
 
 msgid "You have to set a Group Name"
 msgstr "Anh phải lập ra tên nhóm"
-
-msgid "Close"
-msgstr "Gần đúng."
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Anh có thực sự muốn vô hiệu hóa những người này không?"
@@ -242,9 +252,6 @@ msgstr "Tin nhắn"
 
 msgid "Software Registration"
 msgstr "Đăng ký phần mềm"
-
-msgid "Send"
-msgstr "Gửi"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "Phần mềm của anh đã được đăng ký. Cảm ơn!"
