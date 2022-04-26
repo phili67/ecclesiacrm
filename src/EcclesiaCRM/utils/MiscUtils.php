@@ -13,11 +13,9 @@ use Propel\Runtime\Propel;
 
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\Shared\Html;
-use PhpOffice\PhpWord\Element\Section;
 use PhpOffice\PhpWord\Style\ListItem;
 use \PhpOffice\PhpWord\Element\AbstractContainer;
-
-use PhpOffice\PhpWord\Shared\PhpWordHTMLExtension;
+use EcclesiaCRM\PluginQuery;
 
 use DOMNode;
 
@@ -1630,5 +1628,29 @@ class MiscUtils
         } else {
             return false;
         }
+    }
+
+    public function pluginInformations ()
+    {
+        $plugins = PluginQuery::create()->findByActiv(true);
+
+        $pluginNames = "false";
+        $isMailerAvalaible = "false";
+
+        if ( $plugins->count() > 0 ) {
+            $pluginNames = "{";
+            foreach ($plugins as $plugin) {
+                $pluginNames .= "'" . $plugin->getName() . "':'window.CRM." . $plugin->getName() . "_i18keys', ";
+                if ( $plugin->isMailer() and SessionUser::getUser()->isAdminEnableForPlugin($plugin->getName() )) {
+                    $isMailerAvalaible = "true";
+                }
+            }
+
+            $pluginNames = substr($pluginNames, 0, -2);
+
+            $pluginNames .= "}";
+        }
+
+        return ["pluginNames" => $pluginNames, "isMailerAvalaible" => $isMailerAvalaible];
     }
 }
