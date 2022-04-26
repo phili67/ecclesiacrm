@@ -49,7 +49,7 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
 
     <div class="card-body">
         <div class="alignleft actions bulkactions">
-            <label for="bulk-action-selector-top" class="screen-reader-text">Sélectionnez l’action groupée</label>
+            <label for="bulk-action-selector-top" class="screen-reader-text"><?= _("Select the grouped action") ?></label>
             <select name="action" id="action-selector" class="plugin-select">
                 <option value="-1"><?= _("Grouped actions") ?></option>
                 <option value="activate-selected" value="activate-selected"><?= _("Activate") ?></option>
@@ -60,13 +60,13 @@ $nbr_deactivated = $plugins->count() - $nbr_activated;
         </div>
         <ul class="subsubsub"
             style="list-style: none;margin: 8px 0 0;padding: 0;font-size: 13px;float: left;color: #646970;">
-            <li class="all"><a href="plugins.php?plugin_status=all" class="" aria-current="page">Toutes <span
+            <li class="all"><a href="plugins.php?plugin_status=all" class="" aria-current="page"><?= _("All") ?> <span
                         class="count">(<?= $plugins->count() ?>)</span></a> |
             </li>
-            <li class="active"><a href="plugins.php?plugin_status=active">Activées <span
+            <li class="active"><a href="plugins.php?plugin_status=active"><?= _("Activated") ?> <span
                         class="count">(<?= $nbr_activated ?>)</span></a> |
             </li>
-            <li class="inactive"><a href="plugins.php?plugin_status=inactive">Désactivées <span
+            <li class="inactive"><a href="plugins.php?plugin_status=inactive"> <?= _("Deactivated")  ?><span
                         class="count">(<?= $nbr_deactivated ?>)</span></a>
             </li>
             <!--<li class="auto-update-disabled"><a href="plugins.php?plugin_status=auto-update-disabled">Mises à jour auto désactivées <span class="count">(22)</span></a></li>-->
