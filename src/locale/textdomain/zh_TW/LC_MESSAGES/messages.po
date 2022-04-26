@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 17:55+0000\n"
+"POT-Creation-Date: 2022-04-26 09:09+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1626
+#: EcclesiaCRM/utils/MiscUtils.php:1624
 msgid "Cannot execute query."
 msgstr "无法执行查询。"
 
@@ -1736,7 +1736,7 @@ msgid "Minutes left"
 msgstr "还剩几分钟"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:658
+#: EcclesiaCRM/utils/MiscUtils.php:656
 msgid "Folder"
 msgstr "文件夹"
 
@@ -4549,7 +4549,7 @@ msgstr "信息"
 msgid "Private Space"
 msgstr "私人空间"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "首页"
@@ -5268,7 +5268,7 @@ msgstr "学生"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:202
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
 msgid "Print"
 msgstr "印刷品"
 
@@ -5432,7 +5432,7 @@ msgid "by"
 msgstr "由"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
+#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
 msgid "File"
 msgstr "文件"
 
@@ -5699,45 +5699,45 @@ msgstr "忽略不完整的<br>地址"
 msgid "File Type"
 msgstr "文件类型"
 
-#: EcclesiaCRM/utils/MiscUtils.php:706
+#: EcclesiaCRM/utils/MiscUtils.php:704
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "你必须使用PDF浏览器或在此下载该文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
-#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
+#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
+#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
 msgid "Your browser does not support the audio element."
 msgstr "您的浏览器不支持音频元素。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
-#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
+#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
+#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
+#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
 msgid "Your browser does not support the video tag."
 msgstr "您的浏览器不支持视频标签。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
-#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
-#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
-#: EcclesiaCRM/utils/MiscUtils.php:858
+#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
+#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
+#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
+#: EcclesiaCRM/utils/MiscUtils.php:856
 msgid "Expand"
 msgstr "拓展"
 
-#: EcclesiaCRM/utils/MiscUtils.php:906
+#: EcclesiaCRM/utils/MiscUtils.php:904
 msgid "Classic Document"
 msgstr "经典文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:909
+#: EcclesiaCRM/utils/MiscUtils.php:907
 msgid "Classic Video"
 msgstr "经典视频"
 
-#: EcclesiaCRM/utils/MiscUtils.php:912
+#: EcclesiaCRM/utils/MiscUtils.php:910
 msgid "Classic File"
 msgstr "经典文件"
 
-#: EcclesiaCRM/utils/MiscUtils.php:915
+#: EcclesiaCRM/utils/MiscUtils.php:913
 msgid "Classic Audio"
 msgstr "经典音频"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1022
+#: EcclesiaCRM/utils/MiscUtils.php:1020
 msgid "Select Fiscal Year"
 msgstr "选择财政年度"
 
@@ -7815,7 +7815,7 @@ msgstr "在GitHub上查看问题"
 msgid "OK"
 msgstr "认可"
 
-#: Include/Header-function.php:201
+#: Include/Header-function.php:191
 msgid "Change columns"
 msgstr "更改栏目"
 
@@ -8036,6 +8036,7 @@ msgstr "至少有一个。"
 #: v2/templates/calendar/calendar.php:37
 #: v2/templates/calendar/eventslist.php:39
 #: v2/templates/calendar/eventslist.php:57 v2/templates/group/grouplist.php:30
+#: v2/templates/plugins/plugins.php:63
 msgid "All"
 msgstr "全部"
 
@@ -8986,7 +8987,7 @@ msgstr "最后编辑日期"
 msgid "Edited By Name"
 msgstr "按名称编辑"
 
-#: Reports/GDPR/GDPRListExport.php:72
+#: Reports/GDPR/GDPRListExport.php:72 v2/templates/plugins/plugins.php:69
 msgid "Deactivated"
 msgstr "已停用"
 
@@ -11213,9 +11214,18 @@ msgstr "添加新的插件"
 msgid "Upload A Plugin"
 msgstr "上传一个插件"
 
+#: v2/templates/plugins/plugins.php:52
+#, fuzzy
+msgid "Select the grouped action"
+msgstr "选择一个组"
+
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"
 msgstr "分组行动"
+
+#: v2/templates/plugins/plugins.php:66
+msgid "Activated"
+msgstr "已激活"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
@@ -13053,9 +13063,6 @@ msgstr "数天"
 
 #~ msgid "Menu Links List Editor"
 #~ msgstr "菜单链接列表编辑器"
-
-#~ msgid "Activated"
-#~ msgstr "已激活"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 17:55+0000\n"
+"POT-Creation-Date: 2022-04-26 09:09+0000\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1626
+#: EcclesiaCRM/utils/MiscUtils.php:1624
 msgid "Cannot execute query."
 msgstr "Tidak boleh mengeksekusi pertanyaan."
 
@@ -1788,7 +1788,7 @@ msgid "Minutes left"
 msgstr "Menit tersisa"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:658
+#: EcclesiaCRM/utils/MiscUtils.php:656
 msgid "Folder"
 msgstr "Folder"
 
@@ -4659,7 +4659,7 @@ msgstr "Informasi"
 msgid "Private Space"
 msgstr "Ruang pribadi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Rumah"
@@ -5378,7 +5378,7 @@ msgstr "Siswa"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:202
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
 msgid "Print"
 msgstr "Cetak."
 
@@ -5542,7 +5542,7 @@ msgid "by"
 msgstr "By"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
+#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
 msgid "File"
 msgstr "Berkas"
 
@@ -5809,45 +5809,45 @@ msgstr "Abaikan Inlengkap dan alamat BR"
 msgid "File Type"
 msgstr "Berkas tipe"
 
-#: EcclesiaCRM/utils/MiscUtils.php:706
+#: EcclesiaCRM/utils/MiscUtils.php:704
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Kau harus menggunakan PDF penonton atau download file di sini"
 
-#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
-#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
+#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
+#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
 msgid "Your browser does not support the audio element."
 msgstr "Browser Anda tidak mendukung elemen audio."
 
-#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
-#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
+#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
+#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
+#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
 msgid "Your browser does not support the video tag."
 msgstr "Browser Anda tidak mendukung tag video."
 
-#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
-#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
-#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
-#: EcclesiaCRM/utils/MiscUtils.php:858
+#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
+#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
+#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
+#: EcclesiaCRM/utils/MiscUtils.php:856
 msgid "Expand"
 msgstr "Perluasan"
 
-#: EcclesiaCRM/utils/MiscUtils.php:906
+#: EcclesiaCRM/utils/MiscUtils.php:904
 msgid "Classic Document"
 msgstr "Dokumen klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:909
+#: EcclesiaCRM/utils/MiscUtils.php:907
 msgid "Classic Video"
 msgstr "Video klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:912
+#: EcclesiaCRM/utils/MiscUtils.php:910
 msgid "Classic File"
 msgstr "File klasik"
 
-#: EcclesiaCRM/utils/MiscUtils.php:915
+#: EcclesiaCRM/utils/MiscUtils.php:913
 msgid "Classic Audio"
 msgstr "Klasik Audio"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1022
+#: EcclesiaCRM/utils/MiscUtils.php:1020
 msgid "Select Fiscal Year"
 msgstr "Pilih Fiscal Tahun"
 
@@ -7955,7 +7955,7 @@ msgstr "Lihat issue di GitHub"
 msgid "OK"
 msgstr "Oke."
 
-#: Include/Header-function.php:201
+#: Include/Header-function.php:191
 msgid "Change columns"
 msgstr "Ganti kolom"
 
@@ -8185,6 +8185,7 @@ msgstr "dengan setidaknya satu:"
 #: v2/templates/calendar/calendar.php:37
 #: v2/templates/calendar/eventslist.php:39
 #: v2/templates/calendar/eventslist.php:57 v2/templates/group/grouplist.php:30
+#: v2/templates/plugins/plugins.php:63
 msgid "All"
 msgstr "Semua"
 
@@ -9148,7 +9149,7 @@ msgstr "Kencan Edited lalu"
 msgid "Edited By Name"
 msgstr "Diedit oleh nama"
 
-#: Reports/GDPR/GDPRListExport.php:72
+#: Reports/GDPR/GDPRListExport.php:72 v2/templates/plugins/plugins.php:69
 msgid "Deactivated"
 msgstr "Ditolak"
 
@@ -11455,10 +11456,20 @@ msgstr "Tambahkan janji baru"
 msgid "Upload A Plugin"
 msgstr "Upload CSV File"
 
+#: v2/templates/plugins/plugins.php:52
+#, fuzzy
+msgid "Select the grouped action"
+msgstr "Pilih sebuah kelompok"
+
 #: v2/templates/plugins/plugins.php:54
 #, fuzzy
 msgid "Grouped actions"
 msgstr "Functions grup"
+
+#: v2/templates/plugins/plugins.php:66
+#, fuzzy
+msgid "Activated"
+msgstr "Aktifkan"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"

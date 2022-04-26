@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,19 @@ msgstr "دور العائلة"
 
 msgid "You have no more items in your cart."
 msgstr "ليس لديك المزيد من المواد في عربتك"
+
+msgid "Compose New Message"
+msgstr ""
+
+#, fuzzy
+msgid "Subject:"
+msgstr "الساعة"
+
+msgid "Close"
+msgstr "قريب"
+
+msgid "Send"
+msgstr "أرسل"
 
 msgid "Error making API Call to"
 msgstr "خطأ في جعل API نداء ل"
@@ -101,9 +114,6 @@ msgstr "عليك أن تختار مجموعة واحدة ودور جماعي إ�
 
 msgid "You have to set a Group Name"
 msgstr "عليك أن تضع اسم جماعي"
-
-msgid "Close"
-msgstr "قريب"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "هل تريد حقاً تعطيل الأشخاص؟"
@@ -240,9 +250,6 @@ msgstr "الرسالة"
 
 msgid "Software Registration"
 msgstr "تسجيل البرمجيات"
-
-msgid "Send"
-msgstr "أرسل"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "برنامجك مسجل الآن شكراً لك"

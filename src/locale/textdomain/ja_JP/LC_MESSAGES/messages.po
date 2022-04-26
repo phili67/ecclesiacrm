@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 17:55+0000\n"
+"POT-Creation-Date: 2022-04-26 09:09+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1626
+#: EcclesiaCRM/utils/MiscUtils.php:1624
 msgid "Cannot execute query."
 msgstr "クエリを実行できません。"
 
@@ -1766,7 +1766,7 @@ msgid "Minutes left"
 msgstr "残り時間"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:658
+#: EcclesiaCRM/utils/MiscUtils.php:656
 msgid "Folder"
 msgstr "フォルダ"
 
@@ -4611,7 +4611,7 @@ msgstr "インフォメーション"
 msgid "Private Space"
 msgstr "プライベートスペース"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "ホーム"
@@ -5330,7 +5330,7 @@ msgstr "学生"
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:202
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
 msgid "Print"
 msgstr "プリント"
 
@@ -5494,7 +5494,7 @@ msgid "by"
 msgstr "によるものです。"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
+#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
 msgid "File"
 msgstr "ファイル"
 
@@ -5763,45 +5763,45 @@ msgstr "無視する不完全な<br>アドレス"
 msgid "File Type"
 msgstr "ファイルタイプ"
 
-#: EcclesiaCRM/utils/MiscUtils.php:706
+#: EcclesiaCRM/utils/MiscUtils.php:704
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "PDFビューアーをご利用いただくか、こちらからダウンロードしてください。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
-#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
+#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
+#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
 msgid "Your browser does not support the audio element."
 msgstr "あなたのブラウザはaudio elementに対応していません。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
-#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
+#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
+#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
+#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
 msgid "Your browser does not support the video tag."
 msgstr "お使いのブラウザはvideoタグに対応していません。"
 
-#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
-#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
-#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
-#: EcclesiaCRM/utils/MiscUtils.php:858
+#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
+#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
+#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
+#: EcclesiaCRM/utils/MiscUtils.php:856
 msgid "Expand"
 msgstr "拡大"
 
-#: EcclesiaCRM/utils/MiscUtils.php:906
+#: EcclesiaCRM/utils/MiscUtils.php:904
 msgid "Classic Document"
 msgstr "クラシックドキュメント"
 
-#: EcclesiaCRM/utils/MiscUtils.php:909
+#: EcclesiaCRM/utils/MiscUtils.php:907
 msgid "Classic Video"
 msgstr "クラシックビデオ"
 
-#: EcclesiaCRM/utils/MiscUtils.php:912
+#: EcclesiaCRM/utils/MiscUtils.php:910
 msgid "Classic File"
 msgstr "クラシックファイル"
 
-#: EcclesiaCRM/utils/MiscUtils.php:915
+#: EcclesiaCRM/utils/MiscUtils.php:913
 msgid "Classic Audio"
 msgstr "クラシックオーディオ"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1022
+#: EcclesiaCRM/utils/MiscUtils.php:1020
 msgid "Select Fiscal Year"
 msgstr "年度の選択"
 
@@ -7900,7 +7900,7 @@ msgstr "課題をGitHubで見る"
 msgid "OK"
 msgstr "OK"
 
-#: Include/Header-function.php:201
+#: Include/Header-function.php:191
 msgid "Change columns"
 msgstr "列の変更"
 
@@ -8132,6 +8132,7 @@ msgstr "を少なくとも1つは持っています。"
 #: v2/templates/calendar/calendar.php:37
 #: v2/templates/calendar/eventslist.php:39
 #: v2/templates/calendar/eventslist.php:57 v2/templates/group/grouplist.php:30
+#: v2/templates/plugins/plugins.php:63
 msgid "All"
 msgstr "すべて"
 
@@ -9090,7 +9091,7 @@ msgstr "最終編集日"
 msgid "Edited By Name"
 msgstr "名前で編集"
 
-#: Reports/GDPR/GDPRListExport.php:72
+#: Reports/GDPR/GDPRListExport.php:72 v2/templates/plugins/plugins.php:69
 msgid "Deactivated"
 msgstr "機能停止中"
 
@@ -11385,9 +11386,18 @@ msgstr "新規プラグインの追加"
 msgid "Upload A Plugin"
 msgstr "プラグインのアップロード"
 
+#: v2/templates/plugins/plugins.php:52
+#, fuzzy
+msgid "Select the grouped action"
+msgstr "グループの選択"
+
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"
 msgstr "グループ化されたアクション"
+
+#: v2/templates/plugins/plugins.php:66
+msgid "Activated"
+msgstr "活性化"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
@@ -13422,9 +13432,6 @@ msgstr "数日"
 
 #~ msgid "Add Profile"
 #~ msgstr "プロフィールの追加"
-
-#~ msgid "Activated"
-#~ msgstr "活性化"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

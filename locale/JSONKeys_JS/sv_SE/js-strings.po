@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,6 +34,18 @@ msgstr "Familjens roll"
 
 msgid "You have no more items in your cart."
 msgstr "Du har inga fler artiklar i din varukorg."
+
+msgid "Compose New Message"
+msgstr "Skapa ett nytt meddelande"
+
+msgid "Subject:"
+msgstr "Ämne:"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Send"
+msgstr "Skicka"
 
 msgid "Error making API Call to"
 msgstr "Fel vid API-samtal till"
@@ -101,9 +113,6 @@ msgstr "Du måste välja en grupp och en grupproll om du vill"
 
 msgid "You have to set a Group Name"
 msgstr "Du måste ange ett gruppnamn"
-
-msgid "Close"
-msgstr "Stäng"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Vill du verkligen avaktivera personerna?"
@@ -243,9 +252,6 @@ msgstr "Meddelande"
 
 msgid "Software Registration"
 msgstr "Registrering av programvara"
-
-msgid "Send"
-msgstr "Skicka"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "Din programvara är nu registrerad. Tack!"

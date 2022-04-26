@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-03-27T19:27:46.281Z\n"
+"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,6 +36,18 @@ msgstr "Οικογενειακός ρόλος"
 
 msgid "You have no more items in your cart."
 msgstr "Δεν έχετε άλλα αντικείμενα στο καλάθι σας."
+
+msgid "Compose New Message"
+msgstr "Σύνταξη νέου μηνύματος"
+
+msgid "Subject:"
+msgstr "Θέμα:"
+
+msgid "Close"
+msgstr "Κλείστε το"
+
+msgid "Send"
+msgstr "Στείλτε"
 
 msgid "Error making API Call to"
 msgstr "Σφάλμα κατά την κλήση API σε"
@@ -103,9 +115,6 @@ msgstr "Πρέπει να επιλέξετε μια ομάδα και έναν �
 
 msgid "You have to set a Group Name"
 msgstr "Πρέπει να ορίσετε ένα όνομα ομάδας"
-
-msgid "Close"
-msgstr "Κλείστε το"
 
 msgid "Do you really want to deactivate the persons?"
 msgstr "Θέλετε πραγματικά να απενεργοποιήσετε τα πρόσωπα;"
@@ -246,9 +255,6 @@ msgstr "Μήνυμα"
 
 msgid "Software Registration"
 msgstr "Εγγραφή λογισμικού"
-
-msgid "Send"
-msgstr "Στείλτε"
 
 msgid "Your software is now registered. Thank you !"
 msgstr "Το λογισμικό σας έχει πλέον καταχωρηθεί. Σας ευχαριστούμε !"

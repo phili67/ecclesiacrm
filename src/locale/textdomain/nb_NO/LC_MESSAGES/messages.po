@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 17:55+0000\n"
+"POT-Creation-Date: 2022-04-26 09:09+0000\n"
 "Language: nl-nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: EcclesiaCRM/utils/MiscUtils.php:1626
+#: EcclesiaCRM/utils/MiscUtils.php:1624
 msgid "Cannot execute query."
 msgstr "Kan ikke utføre spørsmål."
 
@@ -1764,7 +1764,7 @@ msgid "Minutes left"
 msgstr "Minutter til venstre"
 
 #: EcclesiaCRM/APIControllers/DocumentFileManagerController.php:132
-#: EcclesiaCRM/utils/MiscUtils.php:658
+#: EcclesiaCRM/utils/MiscUtils.php:656
 msgid "Folder"
 msgstr "Folder"
 
@@ -4605,7 +4605,7 @@ msgstr "Informasjoner"
 msgid "Private Space"
 msgstr "Privat rom"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:463
+#: EcclesiaCRM/MenuBar/MenuBar.php:90 EcclesiaCRM/utils/MiscUtils.php:461
 #: external/templates/registration/family-register-members.php:104
 msgid "Home"
 msgstr "Hjem"
@@ -5324,7 +5324,7 @@ msgstr "Student."
 #: EcclesiaCRM/Search/PersonCustomSearchRes.php:119
 #: EcclesiaCRM/Search/PersonGroupManagerSearchRes.php:125
 #: EcclesiaCRM/Search/PersonPropsSearchRes.php:132
-#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:202
+#: EcclesiaCRM/Search/PersonSearchRes.php:304 Include/Header-function.php:192
 msgid "Print"
 msgstr "Skriv ut"
 
@@ -5488,7 +5488,7 @@ msgid "by"
 msgstr "Av"
 
 #: EcclesiaCRM/Service/TimelineService.php:320
-#: EcclesiaCRM/utils/MiscUtils.php:658 EcclesiaCRM/utils/MiscUtils.php:761
+#: EcclesiaCRM/utils/MiscUtils.php:656 EcclesiaCRM/utils/MiscUtils.php:759
 msgid "File"
 msgstr "Fil"
 
@@ -5755,45 +5755,45 @@ msgstr "Ignorer Incomply<br>Adresser"
 msgid "File Type"
 msgstr "- Film-typen"
 
-#: EcclesiaCRM/utils/MiscUtils.php:706
+#: EcclesiaCRM/utils/MiscUtils.php:704
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Du må bruke en PDF-seer eller laste ned filen her"
 
-#: EcclesiaCRM/utils/MiscUtils.php:713 EcclesiaCRM/utils/MiscUtils.php:718
-#: EcclesiaCRM/utils/MiscUtils.php:722 EcclesiaCRM/utils/MiscUtils.php:828
+#: EcclesiaCRM/utils/MiscUtils.php:711 EcclesiaCRM/utils/MiscUtils.php:716
+#: EcclesiaCRM/utils/MiscUtils.php:720 EcclesiaCRM/utils/MiscUtils.php:826
 msgid "Your browser does not support the audio element."
 msgstr "Browseren støtter ikke lydelementet."
 
-#: EcclesiaCRM/utils/MiscUtils.php:728 EcclesiaCRM/utils/MiscUtils.php:735
-#: EcclesiaCRM/utils/MiscUtils.php:744 EcclesiaCRM/utils/MiscUtils.php:838
-#: EcclesiaCRM/utils/MiscUtils.php:849 EcclesiaCRM/utils/MiscUtils.php:864
+#: EcclesiaCRM/utils/MiscUtils.php:726 EcclesiaCRM/utils/MiscUtils.php:733
+#: EcclesiaCRM/utils/MiscUtils.php:742 EcclesiaCRM/utils/MiscUtils.php:836
+#: EcclesiaCRM/utils/MiscUtils.php:847 EcclesiaCRM/utils/MiscUtils.php:862
 msgid "Your browser does not support the video tag."
 msgstr "- Den støtter ikke videomerket."
 
-#: EcclesiaCRM/utils/MiscUtils.php:770 EcclesiaCRM/utils/MiscUtils.php:802
-#: EcclesiaCRM/utils/MiscUtils.php:811 EcclesiaCRM/utils/MiscUtils.php:826
-#: EcclesiaCRM/utils/MiscUtils.php:835 EcclesiaCRM/utils/MiscUtils.php:845
-#: EcclesiaCRM/utils/MiscUtils.php:858
+#: EcclesiaCRM/utils/MiscUtils.php:768 EcclesiaCRM/utils/MiscUtils.php:800
+#: EcclesiaCRM/utils/MiscUtils.php:809 EcclesiaCRM/utils/MiscUtils.php:824
+#: EcclesiaCRM/utils/MiscUtils.php:833 EcclesiaCRM/utils/MiscUtils.php:843
+#: EcclesiaCRM/utils/MiscUtils.php:856
 msgid "Expand"
 msgstr "Utvid"
 
-#: EcclesiaCRM/utils/MiscUtils.php:906
+#: EcclesiaCRM/utils/MiscUtils.php:904
 msgid "Classic Document"
 msgstr "Klassisk dokument"
 
-#: EcclesiaCRM/utils/MiscUtils.php:909
+#: EcclesiaCRM/utils/MiscUtils.php:907
 msgid "Classic Video"
 msgstr "Klassisk Video"
 
-#: EcclesiaCRM/utils/MiscUtils.php:912
+#: EcclesiaCRM/utils/MiscUtils.php:910
 msgid "Classic File"
 msgstr "Klassisk File"
 
-#: EcclesiaCRM/utils/MiscUtils.php:915
+#: EcclesiaCRM/utils/MiscUtils.php:913
 msgid "Classic Audio"
 msgstr "Klassisk Audio"
 
-#: EcclesiaCRM/utils/MiscUtils.php:1022
+#: EcclesiaCRM/utils/MiscUtils.php:1020
 msgid "Select Fiscal Year"
 msgstr "Velg finansår"
 
@@ -7889,7 +7889,7 @@ msgstr "View Issue på GitHub"
 msgid "OK"
 msgstr "Ok."
 
-#: Include/Header-function.php:201
+#: Include/Header-function.php:191
 msgid "Change columns"
 msgstr "Bytt spalter"
 
@@ -8117,6 +8117,7 @@ msgstr "med minst ett:"
 #: v2/templates/calendar/calendar.php:37
 #: v2/templates/calendar/eventslist.php:39
 #: v2/templates/calendar/eventslist.php:57 v2/templates/group/grouplist.php:30
+#: v2/templates/plugins/plugins.php:63
 msgid "All"
 msgstr "Alle"
 
@@ -9070,7 +9071,7 @@ msgstr "Siste date utdannet"
 msgid "Edited By Name"
 msgstr "Utdannet av Navn"
 
-#: Reports/GDPR/GDPRListExport.php:72
+#: Reports/GDPR/GDPRListExport.php:72 v2/templates/plugins/plugins.php:69
 msgid "Deactivated"
 msgstr "Deaktivert"
 
@@ -11351,10 +11352,20 @@ msgstr "Legg til et nytt løfte"
 msgid "Upload A Plugin"
 msgstr "Uploat CSV-fil"
 
+#: v2/templates/plugins/plugins.php:52
+#, fuzzy
+msgid "Select the grouped action"
+msgstr "Velg en gruppe"
+
 #: v2/templates/plugins/plugins.php:54
 #, fuzzy
 msgid "Grouped actions"
 msgstr "Gruppe Functions"
+
+#: v2/templates/plugins/plugins.php:66
+#, fuzzy
+msgid "Activated"
+msgstr "Aktiver"
 
 #: v2/templates/plugins/plugins.php:79 v2/templates/user/userlist.php:47
 msgid "Check all boxes"
