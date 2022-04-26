@@ -1434,6 +1434,7 @@
         <column name="plgn_activ" phpName="Activ" type="BOOLEAN" size="1" description="activation status" required="true" defaultValue="false"/>
         <column name="plgn_version" phpName="Version" type="VARCHAR" size="50" required="true" defaultValue=""/>
         <column name="plgn_prefix" phpName="Prefix" type="VARCHAR" size="50" description="prefix of the database tables, to avoid conflicts" required="true" defaultValue=""/>
+        <column name="plgn_mailer" phpName="IsMailer" type="BOOLEAN" size="1" description="is a plugin mailer" required="true" defaultValue="false"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>

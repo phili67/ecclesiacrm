@@ -66,6 +66,7 @@ CREATE TABLE `plugin` (
   `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
   `plgn_version` varchar(50) NOT NULL default '',
   `plgn_prefix` varchar(50) NOT NULL default '' COMMENT 'prefix of the database tables, to avoid conflicts',
+  `plgn_mailer` BOOLEAN NOT NULL default 0 COMMENT 'is a plugin mailer',
   PRIMARY KEY  (`plgn_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
@@ -145,3 +146,5 @@ CREATE TABLE `tokens_password` (
 
 -- 2022-04-15
 ALTER TABLE `events_event` ADD `event_link` varchar(255) default NULL;
+
+

@@ -1934,6 +1934,7 @@ CREATE TABLE `plugin` (
   `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
   `plgn_version` varchar(50) NOT NULL default '',
   `plgn_prefix` varchar(50) NOT NULL default '' COMMENT 'prefix of the database tables, to avoid conflicts',
+  `plgn_mailer` BOOLEAN NOT NULL default 0,
   PRIMARY KEY  (`plgn_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
