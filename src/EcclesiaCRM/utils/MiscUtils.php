@@ -1630,7 +1630,7 @@ class MiscUtils
         }
     }
 
-    public function pluginInformations ()
+    public static function pluginInformations ()
     {
         $plugins = PluginQuery::create()->findByActiv(true);
 
