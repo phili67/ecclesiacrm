@@ -92,7 +92,7 @@ class CalDavPDO extends SabreCalDavBase\PDO
         list($calendarId, $instanceId) = $calendarId;
 
         $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->calendarInstancesTableName . " WHERE calendarid = ? AND share_href = ? AND access IN (2,3)");
-        $updateStmt = $this->pdo->prepare("UPDATE " . $this->calendarInstancesTableName . " SET access = ?, share_displayname = ?, share_invitestatus = ? WHERE calendarid = ? AND share_href = ?");
+        $updateStmt = $this->pdo->prepare("UPDATE " . $this->calendarInstancesTableName . " SET access = ?, share_displayname = ?, share_invitestatus = ?, share_href = ? WHERE calendarid = ? AND principaluri = ?");
 
         $insertStmt = $this->pdo->prepare('
 INSERT INTO ' . $this->calendarInstancesTableName . '
@@ -152,7 +152,7 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
 
             foreach ($currentInvites as $oldSharee) {
 
-                if ($oldSharee->href === $sharee->href) {
+                if ($oldSharee->href === $sharee->href or $oldSharee->principal === $sharee->principal) {
                     // This is an update
                     $sharee->properties = array_merge(
                         $oldSharee->properties,
@@ -162,8 +162,9 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
                         $sharee->access,
                         isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
                         $sharee->inviteStatus ?: $oldSharee->inviteStatus,
+                        $sharee->href,
                         $calendarId,
-                        $sharee->href
+                        $sharee->principal
                     ]);
                     continue 2;
                 }
