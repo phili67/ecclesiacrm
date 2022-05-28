@@ -76,7 +76,7 @@ if (!$load_Elements) {
             <div class="small-box bg-gradient-lime">
                 <div class="inner">
                     <h3 id="singleCNT">
-                        0
+                        <?= $dashboardCounts['singleCount'] ?>
                     </h3>
                     <p>
                         <?= _('Single Persons') ?>
@@ -97,7 +97,7 @@ if (!$load_Elements) {
             <div class="small-box bg-gradient-blue">
                 <div class="inner">
                     <h3 id="realFamilyCNT">
-                        0
+                        <?= $dashboardCounts['familyCount'] ?>
                     </h3>
                     <p>
                         <?= _("Families") ?>
@@ -119,7 +119,7 @@ if (!$load_Elements) {
             <div class="small-box bg-purple">
                 <div class="inner">
                     <h3 id="peopleStatsDashboard">
-                        0
+                        <?= $dashboardCounts['personCount'] ?>
                     </h3>
                     <p>
                         <?= _('People') ?>
@@ -141,7 +141,7 @@ if (!$load_Elements) {
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3 id="groupStatsSundaySchool">
-                            0
+                            <?= $dashboardCounts['SundaySchoolCount'] ?>
                         </h3>
                         <p>
                             <?= _('Sunday School Classes') ?>
@@ -163,7 +163,7 @@ if (!$load_Elements) {
             <div class="small-box bg-maroon">
                 <div class="inner">
                     <h3 id="groupsCountDashboard">
-                        0
+                        <?= $dashboardCounts['groupsCount'] ?>
                     </h3>
                     <p>
                         <?= _('Groups') ?>

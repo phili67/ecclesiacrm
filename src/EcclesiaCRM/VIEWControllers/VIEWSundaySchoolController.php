@@ -21,6 +21,7 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\Service\DashboardItemService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupQuery;
@@ -50,6 +51,7 @@ class VIEWSundaySchoolController {
     public function argumentsSundayschoolDashboardArray ()
     {
         $sundaySchoolService = new SundaySchoolService();
+        $dsiS = new DashboardItemService();
 
         $kidsWithoutClasses = $sundaySchoolService->getKidsWithoutClasses();
         $classStats         = $sundaySchoolService->getClassStats();
@@ -66,6 +68,7 @@ class VIEWSundaySchoolController {
             'sPageTitle'                => $sPageTitle,
             'classStats'                => $classStats,
             'kidsWithoutClasses'        => $kidsWithoutClasses,
+            'sundaySchoolCountStats'    => $dsiS->getAllItems()['sundaySchoolCountStats'],
             'isVolunteerOpportunityEnabled' => SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()
         ];
 

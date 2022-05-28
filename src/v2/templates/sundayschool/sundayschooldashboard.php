@@ -24,7 +24,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Classes') ?></span>
-                <span class="info-box-number" id="sundaySchoolClassesDasBoard"> 0 <br/></span>
+                <span class="info-box-number" id="sundaySchoolClassesDasBoard"> <?= $sundaySchoolCountStats['sundaySchoolClasses'] ?> <br/></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -36,7 +36,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
-                <span class="info-box-number" id="sundaySchoolTeachersCNTDasBoard"> 0 </span>
+                <span class="info-box-number" id="sundaySchoolTeachersCNTDasBoard"> <?= $sundaySchoolCountStats['teachersCNT'] ?> </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -47,7 +47,7 @@ require $sRootDocument . '/Include/Header.php';
             <span class="info-box-icon bg-gradient-orange"><i class="fas fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
-                <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> 0 </span>
+                <span class="info-box-number" id="sundaySchoolKidsCNTDasBoard"> <?= $sundaySchoolCountStats['kidsCNT'] ?> </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
-                <span class="info-box-number" id="sundaySchoolFamiliesCNTDasBoard"> 0 </span>
+                <span class="info-box-number" id="sundaySchoolFamiliesCNTDasBoard"> <?= $sundaySchoolCountStats['SundaySchoolFamiliesCNT'] ?> </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -71,7 +71,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
-                <span class="info-box-number" id="sundaySchoolMaleKidsCNTDasBoard"> 0 </span>
+                <span class="info-box-number" id="sundaySchoolMaleKidsCNTDasBoard"> <?= $sundaySchoolCountStats['maleKidsCNT'] ?> </span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -83,7 +83,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
-                <span class="info-box-number" id="sundaySchoolFemaleKidsCNTDasBoard"> 0 </span>
+                <span class="info-box-number" id="sundaySchoolFemaleKidsCNTDasBoard"> <?= $sundaySchoolCountStats['femaleKidsCNT'] ?> </span>
             </div>
             <!-- /.info-box-content -->
         </div>

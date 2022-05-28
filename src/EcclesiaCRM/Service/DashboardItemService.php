@@ -1,38 +1,22 @@
 <?php
 
-namespace EcclesiaCRM\Synchronize;
+namespace EcclesiaCRM\Service;
 
-use EcclesiaCRM\Synchronize\DashboardItemInterface;
-use Propel\Runtime\Propel;
-use EcclesiaCRM\Service\SundaySchoolService;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
 
-use EcclesiaCRM\Service\DashboardItemService;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Synchronize\DropDownEmailsClass;
+use EcclesiaCRM\Synchronize\EmailRoleClass;
+use EcclesiaCRM\Utils\MiscUtils;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
 
-class DropDownEmailsClass {
-    public $allNormal;
-    public $allNormalBCC;
-}
 
-
-class EmailRoleClass {
-    public $Parents;
-    public $Teachers;
-    public $Kids;
-}
-
-class SundaySchoolDashboardItem implements DashboardItemInterface
+class DashboardItemService
 {
-
-    public static function getDashboardItemName()
-    {
-        return "SundaySchoolDisplay";
-    }
-
     protected static function getDetails ($classStats)
     {
         $sundaySchoolService = new SundaySchoolService();
@@ -138,16 +122,103 @@ class SundaySchoolDashboardItem implements DashboardItemInterface
 
         return ["emailLink" => $emailLink, "dropDown" => $dropDown, "cart" => ["parentIds" => $ParentsIds, "KidIds" => $KidsIds, "TeacherIds" => $TeachersIds]];
     }
+    public function getAllItems() {
+        $personCount = PersonQuery::Create('per')
+            ->filterByDateDeactivated(null)
+            ->useFamilyQuery('fam','left join')
+            ->filterByDateDeactivated(null)
+            ->endUse()
+            ->count();
 
-    public static function getDashboardItemValue()
-    {
-        $dsiS = new DashboardItemService();
+        $pcS = new PastoralCareService();
 
-        return $dsiS->getAllItems()['sundaySchoolCountStats'];
-    }
+        $allSingleCNT = $pcS->getAllSingle()->count();
 
-    public static function shouldInclude($PageName)
-    {
-        return $PageName == "/v2/sundayschool/dashboard" or $PageName == "/menu";
+        $allRealFamilyleCNT =  $pcS->getAllRealFamilies()->count();
+
+        $SundaySchoolCount =  GroupQuery::create()
+            ->filterByType(4)
+            ->count();
+
+        $groupsCount =  GroupQuery::create()
+            ->filterByType(4, Criteria::NOT_EQUAL)
+            ->count();
+
+
+        // sundayschoool infos
+        $sSQL = 'select
+        (select count(*) from group_grp) as AllGroups,
+        (select count(*) from group_grp where grp_Type = 4 ) as SundaySchoolClasses,
+        (Select count(*) from person_per
+          INNER JOIN person2group2role_p2g2r ON p2g2r_per_ID = per_ID
+          INNER JOIN group_grp ON grp_ID = p2g2r_grp_ID
+          LEFT JOIN family_fam ON fam_ID = per_fam_ID
+          where fam_DateDeactivated is null and person_per.per_DateDeactivated is null and
+              p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount,
+        (select count(*) as cnt from
+              (
+              Select per_fam_ID from person_per
+                        INNER JOIN person2group2role_p2g2r ON p2g2r_per_ID = per_ID
+                        INNER JOIN group_grp ON grp_ID = p2g2r_grp_ID
+                        LEFT JOIN family_fam ON fam_ID = per_fam_ID
+                        where fam_DateDeactivated is null and person_per.per_DateDeactivated is null and
+                            p2g2r_rle_ID = 2 and grp_Type = 4 and per_fam_ID!= 0 GROUP BY per_fam_ID
+              ) as tpm1
+            ) as SundaySchoolFamiliesCount
+        from dual ;
+        ';
+
+        $connection = Propel::getConnection();
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        $groupsAndSundaySchoolStats = $statement->fetch(\PDO::FETCH_ASSOC);
+
+        // now we get the sundayschool group stats
+        $sundaySchoolService = new SundaySchoolService();
+
+        $kidsWithoutClasses = $sundaySchoolService->getKidsWithoutClasses();
+        $classStats = $sundaySchoolService->getClassStats();
+        $teachersCNT = 0;
+        $kidsCNT = 0;
+        $maleKidsCNT = 0;
+        $femaleKidsCNT = 0;
+
+        foreach ($classStats as $class) {
+            $kidsCNT = $kidsCNT + $class['kids'];
+            $teachersCNT = $teachersCNT + $class['teachers'];
+            $classKids = $sundaySchoolService->getKidsFullDetails($class['id']);
+            foreach ($classKids as $kid) {
+                if ($kid['kidGender'] == '1') {
+                    $maleKidsCNT++;
+                } elseif ($kid['kidGender'] == '2') {
+                    $femaleKidsCNT++;
+                }
+            }
+        }
+
+        $details = self::getDetails($classStats);
+
+        $data = ['sundaySchoolClasses' => intval($groupsAndSundaySchoolStats['SundaySchoolClasses']),
+            'sundaySchoolkids' => intval($groupsAndSundaySchoolStats['SundaySchoolKidsCount']),
+            'SundaySchoolFamiliesCNT' => intval($groupsAndSundaySchoolStats['SundaySchoolFamiliesCount']),
+            'kidsWithoutClasses' => $kidsWithoutClasses,
+            'classStats' => $classStats,
+            'teachersCNT' => $teachersCNT,
+            'kidsCNT' => $kidsCNT,
+            'maleKidsCNT' => $maleKidsCNT,
+            'femaleKidsCNT' => $femaleKidsCNT,
+            'emailLink' => $details['emailLink'],
+            'dropDown' => $details['dropDown'],
+            'cart' => $details['cart']
+        ];
+
+        return [
+            'personCount' => $personCount,
+            'familyCount' => $allRealFamilyleCNT,
+            'singleCount' => $allSingleCNT,
+            'groupsCount' => $groupsCount,
+            'SundaySchoolCount' => $SundaySchoolCount,
+            'sundaySchoolCountStats' => $data
+        ];
     }
 }

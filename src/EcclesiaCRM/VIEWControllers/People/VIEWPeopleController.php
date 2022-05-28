@@ -10,6 +10,7 @@
 
 namespace EcclesiaCRM\VIEWControllers;
 
+use EcclesiaCRM\Service\DashboardItemService;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Container\ContainerInterface;
@@ -114,6 +115,8 @@ class VIEWPeopleController {
             }
         }
 
+        $dsiS = new DashboardItemService();
+
         // Set the page title
         $sPageTitle = _('People Dashboard');
 
@@ -132,7 +135,8 @@ class VIEWPeopleController {
             'adultsGender'         => $adultsGender,
             'classifications'      => $classifications,
             'sEmailLink'           => $sEmailLink,
-            'roleEmails'           => $roleEmails
+            'roleEmails'           => $roleEmails,
+            'PeopleAndSundaySchoolCountStats' => $dsiS->getAllItems(),
         ];
 
         return $paramsArguments;
