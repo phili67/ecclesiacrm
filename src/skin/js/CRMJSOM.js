@@ -1700,7 +1700,7 @@
           return;
         }
         window.CRM.APIRequest({
-          method: 'GET',
+          method: 'POST',
           path: 'synchronize/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
         },function (data) {
           if (data[0].timeOut) {
@@ -1708,7 +1708,7 @@
           } else {
             for (var key in data[1]) {
                 try {
-                  window["CRM"]["synchronize"]["renderers"][key](data[1][key]);
+                  window.CRM.synchronize.renderers[key](data[1][key]);
                 } catch (e) {
                   console.log(e);
                 }
@@ -1716,6 +1716,21 @@
           }
         });
       }
+    }
+
+    /*
+        function : ElementListener
+        element  : id or class (ie : '.myclass' or '#myid')
+        type     : 'click'
+        callback : the function to target
+     */
+    window.CRM.ElementListener = function(element, type, callback) {
+        // this is pure vanillia code ;-)
+        document.querySelectorAll(element).forEach(el=>{
+            el.addEventListener(type, (event) => {
+                callback(event);
+            });
+        });
     }
 
     $(document).ajaxError(function (evt, xhr, settings,errortext) {
@@ -1740,6 +1755,3 @@
         var id = day.getTime();
         eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=yes,location=0,statusbar=0,menubar=0,resizable=yes,width=600,height=400,left = 100,top = 50');");
     }
-
-
-
