@@ -7,14 +7,14 @@ class SynchronizeService
 
   public static function getDashboardItems($PageName) {
      $DashboardItems = array (
-       "EcclesiaCRM\Synchronize\EventsDashboardItem",
-       "EcclesiaCRM\Synchronize\ClassificationDashboardItem",
        "EcclesiaCRM\Synchronize\FamilyDashboardItem",
        "EcclesiaCRM\Synchronize\GroupsDashboardItem",
        "EcclesiaCRM\Synchronize\PersonDashboardItem",
        "EcclesiaCRM\Synchronize\PersonDemographicDashboardItem",
-       "EcclesiaCRM\Synchronize\MailchimpDashboardItem",
        "EcclesiaCRM\Synchronize\SundaySchoolDashboardItem",
+       "EcclesiaCRM\Synchronize\EventsDashboardItem",
+       "EcclesiaCRM\Synchronize\ClassificationDashboardItem",
+       "EcclesiaCRM\Synchronize\MailchimpDashboardItem",
        "EcclesiaCRM\Synchronize\CalendarPageItem",
        "EcclesiaCRM\Synchronize\EDrivePageItem",
        "EcclesiaCRM\Synchronize\AttendeesPageItem"
@@ -26,7 +26,6 @@ class SynchronizeService
       }
     }
     return $ReturnValues;
-
   }
   public static function getValues($PageName) {
     $ReturnValues = array ();
