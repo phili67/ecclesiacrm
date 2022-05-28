@@ -21,12 +21,14 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\GroupQuery;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Service\PastoralCareService;
+use EcclesiaCRM\Service\DashboardItemService;
 
 use Slim\Views\PhpRenderer;
 
@@ -63,10 +65,18 @@ class VIEWDashboardController {
 
         $showBanner = SystemConfig::getBooleanValue("bEventsOnDashboardPresence");
 
+        // MenuEventCounts
         $peopleWithBirthDays = MenuEventsCount::getBirthDates();
         $Anniversaries = MenuEventsCount::getAnniversaries();
         $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
         $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
+
+        // Dashboard People and so on event count
+        $dshiS = new DashboardItemService();
+
+        $dashboardCounts = $dshiS->getAllItems();
+
+        // end of Dashboard people count
 
         $families = null;
         $persons = null;
@@ -148,6 +158,7 @@ class VIEWDashboardController {
             'deposits' => $deposits,
             'depositData' => $depositData,
             'showBanner' => $showBanner,
+            'dashboardCounts' => $dashboardCounts,
             'peopleWithBirthDays' => $peopleWithBirthDays,
             'Anniversaries' => $Anniversaries,
             'peopleWithBirthDaysCount' => $peopleWithBirthDaysCount,
