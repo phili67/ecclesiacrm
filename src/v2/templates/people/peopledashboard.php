@@ -77,7 +77,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="small-box bg-gradient-lime">
             <div class="inner">
                 <h3 id="singleCNT">
-                    0
+                    <?= $PeopleAndSundaySchoolCountStats['singleCount'] ?>
                 </h3>
                 <p>
                     <?= _('Single Persons') ?>
@@ -98,7 +98,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="small-box bg-gradient-blue">
             <div class="inner">
                 <h3 id="realFamilyCNT">
-                    0
+                    <?= $PeopleAndSundaySchoolCountStats['familyCount'] ?>
                 </h3>
                 <p>
                     <?= _("Families") ?>
@@ -120,7 +120,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="small-box bg-purple">
             <div class="inner">
                 <h3 id="peopleStatsDashboard">
-                    0
+                    <?= $PeopleAndSundaySchoolCountStats['personCount'] ?>
                 </h3>
 
                 <p>
@@ -142,7 +142,7 @@ require $sRootDocument . '/Include/Header.php';
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3 id="groupStatsSundaySchoolKids">
-                        0
+                        <?= $PeopleAndSundaySchoolCountStats['sundaySchoolCountStats']['sundaySchoolkids'] ?>
                     </h3>
 
                     <p>
@@ -164,7 +164,7 @@ require $sRootDocument . '/Include/Header.php';
         <div class="small-box bg-maroon">
             <div class="inner">
                 <h3 id="groupsCountDashboard">
-                    0
+                    <?= $PeopleAndSundaySchoolCountStats['groupsCount'] ?>
                 </h3>
 
                 <p>
