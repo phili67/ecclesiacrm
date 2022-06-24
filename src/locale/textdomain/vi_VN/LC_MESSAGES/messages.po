@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 09:09+0000\n"
+"POT-Creation-Date: 2022-06-24 07:12+0000\n"
 "Language: vi-vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4737,12 +4737,12 @@ msgid "List Groups"
 msgstr "Tập đoàn"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
 msgid "Group Assignment Helper"
 msgstr "Giúp đỡ nhóm"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:274
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Trường học Chủ nhật"
 
@@ -5895,16 +5895,16 @@ msgstr "Người độc thân"
 msgid "Family List"
 msgstr "Danh sách gia đình"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:118
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
 msgid "People Dashboard"
 msgstr "Mọi người đều ở trên bảng"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:187
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
 #: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr "Tìm kiếm tiến bộ"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:189
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
 msgid "Person Listing"
 msgstr "Listing cá nhân"
 
@@ -5962,7 +5962,7 @@ msgstr "Event Attendees"
 msgid "View Your Cart"
 msgstr "Nhìn xe của anh đi"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:147
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:157
 msgid "Welcome to"
 msgstr "Chào mừng đến với"
 
@@ -6069,16 +6069,16 @@ msgstr "Danh sách các thành viên chăm sóc mục sư bằng phân loại"
 msgid "Plugins"
 msgstr ""
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
 msgid "Sunday School Dashboard"
 msgstr "Bảng điều khiển trường Chủ nhật"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:249
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:252
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr "Ít nhất một nhóm phải được chọn để làm danh sách lớp hoặc tham dự."
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:303
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:306
 msgid "Sunday School Reports"
 msgstr "Báo cáo trường học Chủ nhật"
 

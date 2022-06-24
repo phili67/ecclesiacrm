@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 09:09+0000\n"
+"POT-Creation-Date: 2022-06-24 07:12+0000\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4761,12 +4761,12 @@ msgid "List Groups"
 msgstr "grupi i list"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
 msgid "Group Assignment Helper"
 msgstr "Ndihmës i grupit"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:274
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Shkolla e së dielës"
 
@@ -5919,16 +5919,16 @@ msgstr "Persona të vetëm"
 msgid "Family List"
 msgstr "lista e familjes"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:118
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
 msgid "People Dashboard"
 msgstr "njerëz të shoqërueshëm"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:187
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
 #: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr "Kërkim i përparuar"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:189
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
 msgid "Person Listing"
 msgstr "Listimi i personit"
 
@@ -5986,7 +5986,7 @@ msgstr "në të njëjtin ngjarje"
 msgid "View Your Cart"
 msgstr "Shikoje karrocën tënde"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:147
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:157
 msgid "Welcome to"
 msgstr "mirë se erdhët"
 
@@ -6093,18 +6093,18 @@ msgstr "Anëtarët e kujdesit pastor listojnë me klasifikim"
 msgid "Plugins"
 msgstr ""
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
 msgid "Sunday School Dashboard"
 msgstr "Dashabordi i së dielës"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:249
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:252
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr ""
 "Të paktën një grup duhet zgjedhur për të bërë lista klase ose fletë të "
 "ndjekjes."
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:303
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:306
 msgid "Sunday School Reports"
 msgstr "Njoftimet e së dielës"
 
