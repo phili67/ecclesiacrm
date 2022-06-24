@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-26 09:09+0000\n"
+"POT-Creation-Date: 2022-06-24 07:12+0000\n"
 "Language: el_GR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4821,12 +4821,12 @@ msgid "List Groups"
 msgstr "Λίστα ομάδων"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:265
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:195
 msgid "Group Assignment Helper"
 msgstr "Βοηθός ανάθεσης ομάδας"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:274
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:110
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:113
 msgid "Sunday School"
 msgstr "Κυριακάτικο Σχολείο"
 
@@ -5985,16 +5985,16 @@ msgstr "Άτομα που είναι μόνοι τους"
 msgid "Family List"
 msgstr "Οικογενειακός κατάλογος"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:118
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:121
 msgid "People Dashboard"
 msgstr "People Dashboard"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:187
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:191
 #: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr "Σύνθετη αναζήτηση"
 
-#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:189
+#: EcclesiaCRM/VIEWControllers/People/VIEWPeopleController.php:193
 msgid "Person Listing"
 msgstr "Κατάλογος προσώπων"
 
@@ -6052,7 +6052,7 @@ msgstr "Συμμετέχοντες στην εκδήλωση"
 msgid "View Your Cart"
 msgstr "Δείτε το καλάθι σας"
 
-#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:147
+#: EcclesiaCRM/VIEWControllers/VIEWDashboardController.php:157
 msgid "Welcome to"
 msgstr "Καλώς ήρθατε στην"
 
@@ -6159,18 +6159,18 @@ msgstr "Κατάλογος μελών ποιμαντικής μέριμνας α
 msgid "Plugins"
 msgstr "Plugins"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:58
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:60
 msgid "Sunday School Dashboard"
 msgstr "Ταμπλό Κυριακάτικου Σχολείου"
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:249
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:252
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr ""
 "Τουλάχιστον μία ομάδα πρέπει να επιλεγεί για να φτιάξει λίστες τάξης ή "
 "παρουσιολόγια."
 
-#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:303
+#: EcclesiaCRM/VIEWControllers/VIEWSundaySchoolController.php:306
 msgid "Sunday School Reports"
 msgstr "Αναφορές του Κατηχητικού Σχολείου"
 
