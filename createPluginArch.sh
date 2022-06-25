@@ -74,6 +74,13 @@
 
     new_dir="src/Plugins/${pluginName}/locale/textdomain/"
 
+    # now we manage the localisation files
+    # this files are required to avoid a bug while opening page
+    touch "src/Plugins/${pluginName}/locale/js/en_US.js"
+    touch "src/Plugins/${pluginName}/locale/js/en_CA.js"
+    touch "src/Plugins/${pluginName}/locale/js/en_AU.js"
+    touch "src/Plugins/${pluginName}/locale/js/en_GB.js"
+
     for row in $(cat "src/locale/locales.json" | jq -r '.[] | @base64'); do
        _jq() {
          echo ${row} | base64 --decode | jq -r ${1}
