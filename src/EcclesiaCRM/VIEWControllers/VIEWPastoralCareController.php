@@ -329,7 +329,7 @@ class VIEWPastoralCareController {
             $sMapProvider = SystemConfig::getValue('sMapProvider');
             $sGoogleMapKey = SystemConfig::getValue('sGoogleMapKey');
 
-            if ($lat != 0 && $lng != 0) {
+            if ( !empty($lat) && !empty($lng) ) {
                 $location_available = true;
             }
         }
