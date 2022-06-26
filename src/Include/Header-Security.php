@@ -28,4 +28,4 @@ if (SystemConfig::getBooleanValue("bHSTSEnable")) {
 }
 header('X-Frame-Options: SAMEORIGIN');
 header("Content-Security-Policy-Report-Only:".join(";", $csp));
-header("Access-Control-Allow-Origin", "*");
+header("Access-Control-Allow-Origin: *");
