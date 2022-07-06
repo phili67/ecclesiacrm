@@ -31,7 +31,7 @@ class SystemConfig
         $familyRoles = ListOptionQuery::create()->getFamilyRoles();
         $roles = [];
         foreach ($familyRoles as $familyRole) {
-            array_push($roles, $familyRole->getOptionName().":".$familyRole->getOptionId());
+            $roles[] = $familyRole->getOptionName().":".$familyRole->getOptionId();
         }
         return ["Choices" => $roles];
     }
