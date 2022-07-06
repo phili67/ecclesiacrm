@@ -17,8 +17,6 @@ use EcclesiaCRM\Service\SystemService;
 
 use DateTime;
 use DateTimeZone;
-use EcclesiaCRM\TokenQuery;
-use EcclesiaCRM\Token;
 
 
 /**
@@ -746,6 +744,8 @@ class User extends BaseUser
     public function getWebDavKeyUUID()
     {
       if ($this->getWebdavkey() == null) {
+        $old_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
+
         $this->createWebDavUUID();
 
         // the new destination
@@ -787,6 +787,8 @@ class User extends BaseUser
     public function getWebDavKeyPublicUUID()
     {
       if ($this->getWebdavPublickey() == null) {
+        $old_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
+
         $this->createWebDavPublicUUID();
 
         // the new destination
@@ -809,8 +811,12 @@ class User extends BaseUser
       }
 
       // now we can create the symlink in the real home folder
-      symlink(dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey()."/", dirname(__FILE__)."/../../../".$this->getUserDir()."/public");
-
+      $public_dir = dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey();
+      $public_dir_target_link = dirname(__FILE__)."/../../../".$this->getUserDir()."/public";
+      if ( !is_link($public_dir_target_link) or is_dir($public_dir_target_link) or !is_dir($public_dir_target_link) ) {
+          MiscUtils::delTree($public_dir_target_link);
+          symlink($public_dir."/", $public_dir_target_link);
+      }
 
       return $this->getWebdavPublickey();
     }
