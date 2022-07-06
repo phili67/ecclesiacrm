@@ -90,47 +90,50 @@ require 'Include/Header.php';
 // Get settings
 ?>
 
-<div id="JSONSettingsModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"><?= gettext('Edit JSON Settings') ?></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="JSONSettingsDiv">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext("Close") ?></button>
-                <button type="button" class="btn btn-primary jsonSettingsClose"><?= gettext("Save") ?></button>
+<form method=post action=SystemSettings.php>
+
+<div class="card">
+    <div class="card-body">
+        <div id="JSONSettingsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><?= gettext('Edit JSON Settings') ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="JSONSettingsDiv">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext("Close") ?></button>
+                        <button type="button" class="btn btn-primary jsonSettingsClose"><?= gettext("Save") ?></button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<form method=post action=SystemSettings.php>
-    <div class="row">
-        <div class="col-12 col-sm-12">
-            <div class="card card-info card-tabs">
-                <div class="card-header p-0 pt-1 border-bottom-0">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <?php foreach (SystemConfig::getCategories() as $category => $settings) {
-                            ?>
-                            <li class="nav-item">
-                                <a class="nav-link <?= ($category == 'Church Information') ? 'active' : "" ?>"
-                                   href="#<?= str_replace(" ", '', $category) ?>"
-                                   data-toggle="pill" role="tab" aria-controls="custom-tabs-three-messages"
-                                   aria-selected="<?= ($category == 'Church Information') ? 'true' : "false" ?>">
-                                    <?= gettext($category) ?>
-                                </a>
-                            </li>
-                            <?php
-                        } ?>
-                    </ul>
+        <div class="row">
+            <div class="col-5 col-sm-3">
+                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                    <?php foreach (SystemConfig::getCategories() as $category => $settings) {
+                        ?>
+                            <a class="nav-link <?= ($category == 'Church Information') ? 'active' : "" ?>"
+                               href="#<?= str_replace(" ", '', $category) ?>"
+                               data-toggle="pill" role="tab" aria-controls="custom-tabs-three-messages"
+                               aria-selected="<?= ($category == 'Church Information') ? 'true' : "false" ?>">
+                                <?= gettext($category) ?>
+                            </a>
+                        <?php
+                    } ?>
+                    <hr>
+                    <input type="submit" class="btn btn-primary" name="save" id="save"
+                           value="<?= gettext("Save Settings") ?>" style="margin:20px">
                 </div>
-                <div class="tab-content">
+            </div>
+            <div class="col-7 col-sm-9">
+                <div class="tab-content" id="vert-tabs-tabContent">
                     <?php
                     // Build Category Pages
                     foreach (SystemConfig::getCategories() as $category => $settings) {
@@ -276,14 +279,8 @@ require 'Include/Header.php';
             </div>
         </div>
     </div>
-    <div class="mb-3">
-        <div class="row">
-            <div class="col-12">
-                <input type="submit" class="btn btn-primary" name="save" id="save"
-                       value="<?= gettext("Save Settings") ?>">
-            </div>
-        </div>
-    </div>
+</div>
+
 </form>
 
 
