@@ -117,6 +117,11 @@ nav:
       - 'Overview': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
       - 'Activation & Management': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
+
+  - "Manual : Visio (plugin)":
+      - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
+      - 'Management': 'user-guide/doc-visio/doc-visio-management.md'
+
   - "Manual: Pastor & Advisor":
       - "Dashboard": 'user-guide/doc-pastoral-care/doc-pastoral-care-dashboard.md'
       - "Enable for an User": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'

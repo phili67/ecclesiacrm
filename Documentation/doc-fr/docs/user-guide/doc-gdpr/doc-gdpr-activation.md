@@ -8,6 +8,7 @@ Il est également possible de le fair plus tard. Pour cela aller dans :
 
 ![Screenshot](../../img/rgpd/gdpr_setting1.png)
 
+
 On choisira l'onglet RGPD
 
 ![Screenshot](../../img/rgpd/gdpr_setting2.png)
@@ -26,11 +27,11 @@ Une fois la fonction activée, un nouveau menu apparaitra
 
 - Au niveau Suivi : Chaque action sur chaque utilisateur est enregistrée, afin de tracer au mieux toute modification faite par un superviseur.
 
-    ![Screenshot](../../img/rgpd/gdpr_tracking.png)
+  ![Screenshot](../../img/rgpd/gdpr_tracking.png)
 
 - Structure de données
 
-    ![Screenshot](../../img/rgpd/gdpr_why.png)
+  ![Screenshot](../../img/rgpd/gdpr_why.png)
 
 Chaque partie de la structure de données doit être justifiée via les commentaires.
 
@@ -42,4 +43,3 @@ Pour valider le commentaire, il suffit de faire un entré avec son clavier.
 Ceci n'est valable qu'au bout de la période fixée : iGdprExpirationDate vu ci-dessus.
 
 **Attention** : une personne ayant fait des dons ne doit pas être purgé du système, pour des raisons fiscales.
-

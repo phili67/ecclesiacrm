@@ -46,6 +46,32 @@ markdown_extensions:
 site_name: EcclesiaCRM
 nav:
 - "Accueil": 'index.md'
+
+- "Manuel : Utilisateur":
+    - "Gérer son profile":
+        - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
+        - 'Réglages personnels': 'user-guide/doc-person/doc-person-settings.md'
+    - "Calendriers":
+        - 'Ajouter supprimer': 'user-guide/doc-person/doc-person-calendar.md'
+        - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
+        - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
+        - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
+    - "Documents":
+        - 'Créer-Gérer': 'user-guide/doc-person/doc-person-document-creation.md'
+        - 'Images et Fichiers': 'user-guide/doc-person/doc-person-document-images-files.md'
+        - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
+        - 'Export sous Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
+        - "Documents & Modèles": 'user-guide/doc-person/doc-person-document-templates.md'
+    - "EDrive":
+        - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
+        - 'EDrive en dehors du CRM':
+            - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
+            - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
+    - 'Astuces':
+        - 'Problème Export de Tableau (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
+        - 'Barre de Menu': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
+        - 'Visualiser les addresses dans AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
+
 - "Manuel : Administrateur":
     - 'Mise en place du CRM':
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
@@ -87,39 +113,14 @@ nav:
         - "Intégration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
     - 'Astuces':
         - "Bugs à la restauration d'une BDD": 'user-guide/doc-admin/doc-tips/doc-restauration-bdd-bug.md'
-#    - 'Personalisation du CRM':
+  #    - 'Personalisation du CRM':
 
-
-- "Manuel : Utilisateur":
-    - "Gérer son profile":
-        - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
-        - 'Réglages personnels': 'user-guide/doc-person/doc-person-settings.md'
-    - "calendriers":
-        - 'Ajouter supprimer': 'user-guide/doc-person/doc-person-calendar.md'
-        - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
-        - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
-        - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
-    - "Documents":
-        - 'Créer-Gérer': 'user-guide/doc-person/doc-person-document-creation.md'
-        - 'Images et Fichiers': 'user-guide/doc-person/doc-person-document-images-files.md'
-        - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
-        - 'Export sous Word (BETA)': 'user-guide/doc-person/doc-person-document-word-export.md'
-        - "Documents & Modèles": 'user-guide/doc-person/doc-person-document-templates.md'
-    - "EDrive":
-        - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
-        - 'EDrive en dehors du CRM':
-            - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
-            - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
-    - 'Astuces':
-        - 'Problème Export de Tableau (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
-        - 'Barre de Menu': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
-        - 'Visualiser les addresses dans AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
 
 - "Manuel : DPO & RGPD":
     - 'Introduction': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
     - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
 
-- "Manuel : Visio":
+- "Manuel : Visio (plugin)":
       - 'Introduction': 'user-guide/doc-visio/doc-visio-introduction.md'
       - 'Gestion': 'user-guide/doc-visio/doc-visio-management.md'
 
@@ -139,6 +140,10 @@ nav:
     - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
     - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
 
+- "Manuel : Flux d'événement (plugin)":
+    - "Présentation": 'user-guide/doc-plugins/eventworkflow/introduction.md'
+    - "Créer/gérer (une journée)": 'user-guide/doc-plugins/eventworkflow/createmanage.md'
+
 - "Manuel : Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
@@ -151,6 +156,11 @@ nav:
     - "Email": 'user-guide/doc-tools/doc-email.md'
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
     - "Import/export de personnes et familles": 'user-guide/doc-tools/doc-import.md'
+
+
+- "Plugins":
+    - "Présentation": 'user-guide/doc-plugins/introduction.md'
+    - "Installation/mise à jour": 'user-guide/doc-plugins/installation-upgrade.md'
 
 - "Manuel : développeur":
     - 'API': 'user-guide/doc-dev/api.md'
