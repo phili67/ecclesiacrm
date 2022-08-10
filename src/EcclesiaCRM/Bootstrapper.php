@@ -227,7 +227,7 @@ namespace EcclesiaCRM
           self::getDBArrayMaps();
 
           // add the first mamanager
-          self::$manager = new ConnectionManagerSingle();
+          self::$manager = new ConnectionManagerSingle('main');
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager->setName('main');
           self::$serviceContainer->setConnectionManager('main', self::$manager);
@@ -239,7 +239,7 @@ namespace EcclesiaCRM
           self::$serviceContainer2->setAdapterClass('pluginstore', 'mysql');
 
           // add second manager
-          self::$manager2 = new ConnectionManagerSingle();
+          self::$manager2 = new ConnectionManagerSingle('pluginstore');
           self::$manager2->setConfiguration(self::buildConnectionManagerConfig());
           self::$manager2->setName('pluginstore');
 
