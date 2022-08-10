@@ -253,7 +253,7 @@ END:VCARD';
             // Now a group is binded to a calendar !!!
 
             // We set the BackEnd for sabre Backends
-            $calendarBackend = new CalDavPDO();
+            /*$calendarBackend = new CalDavPDO();
             $carddavBackend = new CardDavPDO();
 
             $calendarID = $calendarBackend->getByGroupid($this->getId());
@@ -278,7 +278,7 @@ END:VCARD';
                 $this->getId()
             );
 
-            LoggerUtils::getAppLogger()->info("really finished");
+            LoggerUtils::getAppLogger()->info("really finished");*/
         }
     }
 
