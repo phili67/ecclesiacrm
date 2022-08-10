@@ -4,7 +4,7 @@
 #cp -rf propel/vendor/* src/vendor/propel
 
 
-npm install --unsafe-perm
+npm install --unsafe-perm --legacy-peer-deps
 
 npm run install
 npm run postinstall
