@@ -1090,6 +1090,46 @@ class User extends BaseUser
         $plugin = PluginQuery::create()->findOneByName($name);
 
         if ($plugin->getSecurities() & $sec) {// when the bit sec is activated
+            switch($sec) {
+                case 1: // bAdmin
+                    return $this->isAdmin();
+                case 2: // bPastoralCare
+                    return $this->isPastoralCareEnabled();
+                case 4: // see : SecurityOptions
+                    return $this->isMailChimpEnabled();
+                case 8:
+                    return $this->isGdrpDpoEnabled();
+                case 16:
+                    return $this->isMainDashboardEnabled();
+                case 32:
+                    return $this->isSeePrivacyData();
+                case 64:
+                    return $this->isAddRecordsEnabled();
+                case 128:
+                    return $this->isEditRecordsEnabled();
+                case 256:
+                    return $this->isDeleteRecordsEnabled();
+                case 512:
+                    return $this->isMenuOptionsEnabled();
+                case 1024:
+                    return $this->isManageGroupsEnabled();
+                case 2048:
+                    return $this->isFinanceEnabled();
+                case 4096:
+                    return $this->isNotesEnabled();
+                case 8192:
+                    return $this->isCanvasserEnabled();
+                case 16384:
+                    return $this->isEditSelf();
+                case 32768:
+                    return $this->isShowCartEnabled();
+                case 65536:
+                    return $this->isShowMapEnabled();
+                case 131072:
+                    return $this->isEDriveEnabled();
+                case 262144:
+                    return $this->isShowMenuQueryEnabled();
+            }
             return true;
         }
 
