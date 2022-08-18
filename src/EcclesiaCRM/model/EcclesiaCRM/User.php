@@ -18,6 +18,30 @@ use EcclesiaCRM\Service\SystemService;
 use DateTime;
 use DateTimeZone;
 
+abstract class SecurityOptions
+{
+    const bAdmin = 1; // 2^0
+    const bPastoralCare = 2;
+    const bMailChimp = 4;
+    const bGdrpDpo = 8;
+    const bMainDashboard = 16;
+    const bSeePrivacyData = 32;
+    const bAddRecords = 64;
+    const bEditRecords = 128;
+    const bDeleteRecords = 256;
+    const bMenuOptions = 512;
+    const bManageGroups = 1024;
+    const bFinance = 2048;
+    const bNotes = 4096;
+    const bCanvasser = 9192;
+    const bEditSelf = 16384;
+    const bShowCart = 32768;
+    const bShowMap = 65536;
+    const bEDrive = 131072;
+    const bShowMenuQuery = 262144; // 2^18
+    const bNone = 1073741824; // 2^30
+}
+
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -1049,6 +1073,22 @@ class User extends BaseUser
 
         if (!is_null($role)) {
             return ($role->getRole() == 'admin')?true:false;
+        }
+
+        return false;
+    }
+
+    public function isSecurityEnableForPlugin ($name, $sec = 1073741824) {
+        //$sec = SecurityOptions::bNone => 1073741824; by default
+
+        if ( $this->isAdmin() ) {
+            return true;
+        }
+
+        $plugin = PluginQuery::create()->findOneByName($name);
+
+        if ($plugin->getSecurities() & $sec) {// when the bit sec is activated
+            return true;
         }
 
         return false;
