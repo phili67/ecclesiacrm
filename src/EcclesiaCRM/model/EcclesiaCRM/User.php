@@ -18,6 +18,8 @@ use EcclesiaCRM\Service\SystemService;
 use DateTime;
 use DateTimeZone;
 
+// to define new plugin add the securities to : 2+4=6 for example to have pastoral + mailchimp security options
+
 abstract class SecurityOptions
 {
     const bAdmin = 1; // 2^0
