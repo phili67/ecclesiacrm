@@ -1459,7 +1459,7 @@
         <column name="plgn_usr_rl_plugin_id" phpName="PluginId" type="SMALLINT" sqlType="mediumint unsigned" required="true" defaultValue="0"/>
         <column name="plgn_usr_rl_role" phpName="Role" type="CHAR" sqlType="enum('none','user','admin')" description="user role : can be the thee enum parts" required="true" defaultValue="none"/>
         <column name="plgn_usr_rl_visible" phpName="Visible" type="BOOLEAN" size="1" description="visible on dashboard (only for dashboard plugins" required="true" defaultValue="true"/>
-        <column name="plgn_usr_rl_orientation" phpName="Orientation" type="CHAR" sqlType="enum('left','right')" description="only for dashboard plugins" required="true" defaultValue="left"/>
+        <column name="plgn_usr_rl_orientation" phpName="Orientation" type="CHAR" sqlType="enum('left','center','right')" description="only for dashboard plugins" required="true" defaultValue="left"/>
         <column name="plgn_usr_rl_position" phpName="Position" type="SMALLINT" sqlType="mediumint unsigned" description="position on the dashboard" required="true" defaultValue="0"/>
         <foreign-key foreignTable="user_usr" name="fk_plgn_usr_rl_user_id" onDelete="CASCADE">
             <reference local="plgn_usr_rl_user_id" foreign="usr_per_ID"/>

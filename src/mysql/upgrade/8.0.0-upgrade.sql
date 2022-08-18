@@ -106,7 +106,7 @@ CREATE TABLE `plugin_user_role` (
     `plgn_usr_rl_plugin_id` mediumint(8) unsigned NOT NULL default '0',
     `plgn_usr_rl_role` enum('none', 'user', 'admin') NOT NULL default 'none' COMMENT 'user role : can be the thee enum parts',
     `plgn_usr_rl_visible` BOOLEAN NOT NULL default 1 COMMENT 'visible on dashboard (only for dashboard plugins)',
-    `plgn_usr_rl_orientation` enum('left', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
+    `plgn_usr_rl_orientation` enum('left', 'center', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
     `plgn_usr_rl_position` mediumint(9) unsigned NOT NULL default '0' COMMENT 'position on the dashboard (only for dashboard plugins)',
     PRIMARY KEY  (`plgn_usr_rl_ID`),
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,
