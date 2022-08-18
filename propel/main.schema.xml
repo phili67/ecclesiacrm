@@ -1427,7 +1427,8 @@
         <column name="plgn_ID" phpName="Id" type="SMALLINT" sqlType="mediumint unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="plgn_Name" phpName="Name" type="VARCHAR" size="255" defaultValue=""/>
         <column name="plgn_Description" phpName="Description" type="LONGVARCHAR"/>
-        <column name="plgn_Category" phpName="Category" type="CHAR" sqlType="enum('Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu')" description="For the left side menu bar" required="true" defaultValue="Personal"/>
+        <column name="plgn_Category" phpName="Category" type="CHAR" sqlType="enum('Dashboard', 'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu')" description="For the left side menu bar" required="true" defaultValue="Personal"/>
+        <column name="plgn_securities" phpName="Securities" type="INTEGER" description="See for this point EcclesiaCRM/User.php model class in : SecurityOptions" defaultValue="1073741824"/>
         <column name="plgn_position" phpName="CategoryPosition" type="CHAR" sqlType="enum('inside_category_menu','after_category_menu')" description="Inside category menu or after" required="true" defaultValue="after_category_menu"/>
         <column name="plgn_image" phpName="Image" type="VARCHAR" size="255" description="Presentation image"/>
         <column name="plgn_installation_path" phpName="InstallationPath" type="VARCHAR" size="5000" description="path of the plugin" defaultValue=""/>
