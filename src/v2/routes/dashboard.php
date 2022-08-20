@@ -22,4 +22,5 @@ use EcclesiaCRM\VIEWControllers\VIEWDashboardController;
 $app->group('/dashboard', function (RouteCollectorProxy $group) {
     $group->get('', VIEWDashboardController::class . ':renderDashboard');
     $group->get('/', VIEWDashboardController::class . ':renderDashboard');
+    $group->get('/new', VIEWDashboardController::class . ':renderDashboardNew');
 });
