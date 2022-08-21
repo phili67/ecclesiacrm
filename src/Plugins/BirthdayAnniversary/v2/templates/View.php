@@ -104,7 +104,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     if ( !empty($classified) ) {
         $global_body .= '<h5 class="card-title"><i class="fas fa-birthday-cake"></i> '. _("Birthdates of the day") . '</h5>';
         $global_body .= '<div class="card-tools">
-            <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+            <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
                             <i class="fas fa-times"></i>
                         </button>
             <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
@@ -126,7 +126,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
         if ($peopleWithBirthDaysCount == 0) {
             $global_body .= '<div class="card-tools">
-            <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+            <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
                             <i class="fas fa-times"></i>
                         </button>
             <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
@@ -134,7 +134,8 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             </button>
         </div>
 
-    </div>';
+    </div>
+    <div class="card-body">';
         }
 
         $new_row = false;
@@ -175,7 +176,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
         if ($peopleWithBirthDaysCount == 0) {
             $global_body .= '<div class="card-tools">
-            <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+            <button type="button" class="btn btn-primary btn-sm" data-card-widget="remove">
                             <i class="fas fa-times"></i>
                         </button>
             <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
@@ -183,7 +184,8 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             </button>
         </div>
 
-    </div>';
+    </div>
+    <div class="card-body">';
         }
 
         $global_body .= '<div class="row">';
@@ -193,7 +195,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
         $global_body .= '</div>';
 
     }
-    $global_body .= '</div>';
+    $global_body .= '</div></div>';
 
     echo $global_body;
 }
