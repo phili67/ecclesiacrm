@@ -109,7 +109,7 @@ CREATE TABLE `plugin_user_role` (
     `plgn_usr_rl_role` enum('none', 'user', 'admin') NOT NULL default 'none' COMMENT 'user role : can be the thee enum parts',
     `plgn_usr_rl_visible` BOOLEAN NOT NULL default 1 COMMENT 'visible on dashboard (only for dashboard plugins)',
     `plgn_usr_rl_orientation` enum('left', 'center', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
-    `plgn_usr_rl_position` mediumint(9) unsigned NOT NULL default '0' COMMENT 'position on the dashboard (only for dashboard plugins)',
+    `plgn_usr_rl_place` mediumint(9) unsigned NOT NULL default '0' COMMENT 'position on the dashboard',
     `plgn_usr_rl_color` enum('bg-gradient-blue text-white', 'bg-gradient-indigo text-white', 'bg-gradient-navy text-white', 'bg-gradient-maroon text-white', 'bg-gradient-purple text-white', 'bg-gradient-pink text-white', 'bg-gradient-red text-white', 'bg-gradient-orange text-white', 'bg-gradient-yellow text-white', 'bg-gradient-lime text-white', 'bg-gradient-green text-white', 'bg-gradient-teal text-white', 'bg-gradient-cyan text-white', 'bg-gradient-gray text-black') NOT NULL default 'bg-gradient-blue text-white' COMMENT 'Background dashboard color',
     PRIMARY KEY  (`plgn_usr_rl_ID`),
     CONSTRAINT fk_plgn_usr_rl_user_id FOREIGN KEY (plgn_usr_rl_user_id) REFERENCES user_usr(usr_per_ID) ON DELETE CASCADE,

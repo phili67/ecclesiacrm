@@ -31,6 +31,30 @@ $load_Elements = false;
 
 $securityBits = SessionUser::getUser()->allSecuritiesBits();
 
+// we first force every dashboard plugin to have a user settings in function of the default values
+$plugins = PluginQuery::create()
+    ->filterByActiv(1)
+    ->filterByCategory('Dashboard')
+    ->find();
+
+foreach ($plugins as $plugin) {
+    $plgnRole = PluginUserRoleQuery::create()
+        ->filterByPluginId($plugin->getId())
+        ->findOneByUserId(SessionUser::getId());
+
+    if (is_null($plgnRole)) {
+        $plgnRole = new PluginUserRole();
+
+        $plgnRole->setPluginId($plugin->getId());
+
+        $plgnRole->setUserId(SessionUser::getId());
+        $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
+        $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
+
+        $plgnRole->save();
+    }
+}
+
 if ($isActive == true) {
     $isLoaded = $mailchimp->isLoaded();
 
@@ -192,24 +216,13 @@ if (!$load_Elements) {
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
                 ->filterByCategory('Dashboard')
+                ->usePluginUserRoleExistsQuery()
+                    ->filterByDashboardOrientation('top')
+                    ->orderByDashboardPlace()
+                ->endUse()
                 ->find();
 
             foreach ($plugins as $plugin) {
-                $plgnRole = PluginUserRoleQuery::create()
-                    ->filterByPluginId($plugin->getId())
-                    ->findOneByUserId(SessionUser::getId());
-
-                if ( is_null($plgnRole) ) {
-                    $plgnRole = new PluginUserRole();
-
-                    $plgnRole->setPluginId($plugin->getId());
-
-                    $plgnRole->setUserId(SessionUser::getId());
-                    $plgnRole->setDashboardColor($plugin->getDashboardDefaultColor());
-                    $plgnRole->setDashboardOrientation($plugin->getDashboardDefaultOrientation());
-
-                    $plgnRole->save();
-                }
 
                 echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
                     'sRootPath'     => $sRootPath,
