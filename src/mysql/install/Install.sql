@@ -1930,6 +1930,7 @@ CREATE TABLE `plugin` (
   `plgn_Category` enum('Dashboard', 'Personal', 'GDPR', 'Events','PEOPLE','GROUP', 'SundaySchool', 'Meeting', 'PastoralCare', 'Mail', 'Deposit', 'Funds', 'FreeMenu') NOT NULL default 'Personal' COMMENT 'For the left side menu bar',
   `plgn_position` enum('inside_category_menu', 'after_category_menu') NOT NULL default 'after_category_menu' COMMENT 'Inside category menu or after',
   `plgn_securities` INT(40) DEFAULT 1073741824 COMMENT 'See for this point EcclesiaCRM/User.php model class in : SecurityOptions',
+  `plgn_default_orientation` enum('left', 'center', 'right') NOT NULL default 'left' COMMENT 'only for dashboard plugins',
   `plgn_image` varchar(255) default NULL COMMENT 'Presentation image',
   `plgn_installation_path` varchar(5000) DEFAULT '' COMMENT 'path of the plugin',
   `plgn_activ` BOOLEAN NOT NULL default 0 COMMENT 'activation status',
