@@ -212,7 +212,6 @@ if (!$load_Elements) {
     <div class="row">
         <section class="col-lg-12 connectedSortable ui-sortable">
             <?php
-
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
                 ->filterByCategory('Dashboard')
@@ -235,11 +234,30 @@ if (!$load_Elements) {
         </section>
     </div>
 
-    <!-- we add the left rigt plugins -->
+    <!-- we add the left right plugins -->
     <div class="row">
 
         <section class="col-lg-6 connectedSortable ui-sortable">
+            <?php
+            $plugins = PluginQuery::create()
+                ->filterByActiv(1)
+                ->filterByCategory('Dashboard')
+                ->usePluginUserRoleExistsQuery()
+                ->filterByDashboardOrientation('left')
+                ->orderByDashboardPlace()
+                ->endUse()
+                ->find();
 
+            foreach ($plugins as $plugin) {
+
+                echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
+                    'sRootPath'     => $sRootPath,
+                    'sRootDocument' => $sRootDocument,
+                    'CSPNonce'      => $CSPNonce,
+                    'PluginId'      => $plugin->getId()
+                ])
+                ?>
+            <?php } ?>
 
             <div class="card">
                 <div class="card-header ui-sortable-handle" style="cursor: move;">
@@ -373,6 +391,27 @@ if (!$load_Elements) {
 
 
         <section class="col-lg-6 connectedSortable ui-sortable">
+
+            <?php
+            $plugins = PluginQuery::create()
+                ->filterByActiv(1)
+                ->filterByCategory('Dashboard')
+                ->usePluginUserRoleExistsQuery()
+                ->filterByDashboardOrientation('right')
+                ->orderByDashboardPlace()
+                ->endUse()
+                ->find();
+
+            foreach ($plugins as $plugin) {
+
+                echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
+                    'sRootPath'     => $sRootPath,
+                    'sRootDocument' => $sRootDocument,
+                    'CSPNonce'      => $CSPNonce,
+                    'PluginId'      => $plugin->getId()
+                ])
+                ?>
+            <?php } ?>
 
             <div class="card bg-gradient-primary">
                 <div class="card-header border-0 ui-sortable-handle" style="cursor: move;">
