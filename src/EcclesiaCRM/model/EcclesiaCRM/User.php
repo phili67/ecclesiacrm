@@ -22,6 +22,7 @@ use DateTimeZone;
 
 abstract class SecurityOptions
 {
+    const bNotDashBord = 0;
     const bAdmin = 1; // 2^0
     const bPastoralCare = 2;
     const bMailChimp = 4;
@@ -41,7 +42,7 @@ abstract class SecurityOptions
     const bShowMap = 65536;
     const bEDrive = 131072;
     const bShowMenuQuery = 262144; // 2^18
-    const bNone = 1073741824; // 2^30
+    const bDashBoardUser = 1073741824; // 2^30
 }
 
 
@@ -1078,6 +1079,68 @@ class User extends BaseUser
         }
 
         return false;
+    }
+
+    public function allSecuritiesBits ()
+    {
+        $bits = 0;
+
+        if ($this->isPastoralCareEnabled()) {
+            $bits |= SecurityOptions::bPastoralCare;
+        }
+        if ($this->isMailChimpEnabled()) {
+            $bits |= SecurityOptions::bMailChimp;
+        }
+        if ($this->isGdrpDpoEnabled()) {
+            $bits |= SecurityOptions::bGdrpDpo;
+        }
+        if ($this->isMainDashboardEnabled()) {
+            $bits |= SecurityOptions::bMainDashboard;
+        }
+        if ($this->isSeePrivacyData()) {
+            $bits |= SecurityOptions::bSeePrivacyData;
+        }
+        if ($this->isAddRecordsEnabled()) {
+            $bits |= SecurityOptions::bAddRecords;
+        }
+        if ($this->isEditRecordsEnabled()) {
+            $bits |= SecurityOptions::bEditRecords;
+        }
+        if ($this->isDeleteRecordsEnabled()) {
+            $bits |= SecurityOptions::bDeleteRecords;
+        }
+        if ($this->isMenuOptionsEnabled()) {
+            $bits |= SecurityOptions::bMenuOptions;
+        }
+        if ($this->isManageGroupsEnabled()) {
+            $bits |= SecurityOptions::bManageGroups;
+        }
+        if ($this->isFinanceEnabled()) {
+            $bits |= SecurityOptions::bFinance;
+        }
+        if ($this->isNotesEnabled()) {
+            $bits |= SecurityOptions::bNotes;
+        }
+        if ($this->isCanvasserEnabled()) {
+            $bits |= SecurityOptions::bCanvasser;
+        }
+        if ($this->isEditSelf()) {
+            $bits |= SecurityOptions::bEditSelf;
+        }
+        if ($this->isShowCartEnabled()) {
+            $bits |= SecurityOptions::bShowCart;
+        }
+        if ($this->isShowMapEnabled()) {
+            $bits |= SecurityOptions::bShowMap;
+        }
+        if ($this->isEDriveEnabled()) {
+            $bits |= SecurityOptions::bEDrive;
+        }
+        if ($this->isShowMenuQueryEnabled()) {
+            $bits |= SecurityOptions::bShowMenuQuery;
+        }
+
+        return $bits;
     }
 
     public function isSecurityEnableForPlugin ($name, $sec = 1073741824) {
