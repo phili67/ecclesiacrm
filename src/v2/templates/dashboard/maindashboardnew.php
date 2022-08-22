@@ -222,6 +222,11 @@ if (!$load_Elements) {
                 ->find();
 
             foreach ($plugins as $plugin) {
+                $security = $plugin->getSecurities();
+
+                if ( !(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) )
+                    continue;
+
 
                 echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
                     'sRootPath'     => $sRootPath,
@@ -249,6 +254,10 @@ if (!$load_Elements) {
                 ->find();
 
             foreach ($plugins as $plugin) {
+                $security = $plugin->getSecurities();
+
+                if ( !(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) )
+                    continue;
 
                 echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
                     'sRootPath'     => $sRootPath,
@@ -403,6 +412,10 @@ if (!$load_Elements) {
                 ->find();
 
             foreach ($plugins as $plugin) {
+                $security = $plugin->getSecurities();
+
+                if ( !(SessionUser::getUser()->isSecurityEnableForPlugin($plugin->getName(), $security)) )
+                    continue;
 
                 echo $this->fetch("../../../Plugins/" . $plugin->getName() . "/v2/templates/View.php",[
                     'sRootPath'     => $sRootPath,
