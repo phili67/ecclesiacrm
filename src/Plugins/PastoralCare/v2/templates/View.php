@@ -63,7 +63,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 
     ?>
 
-    <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?>"yle="position: relative; left: 0px; top: 0px;">
+    <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
         <div class="card-header border-0 ui-sortable-handle">
             <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= _("Pastoral Care") ?></h5>
             <div class="card-tools">
