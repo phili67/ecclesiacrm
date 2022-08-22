@@ -210,7 +210,7 @@ if (!$load_Elements) {
 
     <!-- we start the plugin parts : center plugins -->
     <div class="row">
-        <section class="col-lg-12 connectedSortable ui-sortable">
+        <section class="col-lg-12 connectedSortable ui-sortable center-plugins" data-name="center">
             <?php
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
@@ -242,7 +242,7 @@ if (!$load_Elements) {
     <!-- we add the left right plugins -->
     <div class="row">
 
-        <section class="col-lg-6 connectedSortable ui-sortable">
+        <section class="col-lg-6 connectedSortable ui-sortable left-plugins" data-name="left">
             <?php
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
@@ -399,7 +399,7 @@ if (!$load_Elements) {
         </section>
 
 
-        <section class="col-lg-6 connectedSortable ui-sortable">
+        <section class="col-lg-6 connectedSortable ui-sortable right-plugins" data-name="right">
 
             <?php
             $plugins = PluginQuery::create()
@@ -576,27 +576,39 @@ if (!$load_Elements) {
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 
-    $('.connectedSortable').sortable({placeholder:'sort-highlight',connectWith:'.connectedSortable',handle:'.card-header, .nav-tabs',forcePlaceholderSize:true,zIndex:999999})
+    $('.connectedSortable').sortable({
+        placeholder:'sort-highlight',
+        connectWith:'.connectedSortable',
+        handle:'.card-header, .nav-tabs',
+        forcePlaceholderSize:true,
+        zIndex:999999,
+        stop: function( ev ) {
+            var getChild_Left = $('.left-plugins').children();
+
+            var res = [];
+
+            getChild_Left.each(function(i,v){
+                // push in fruits array, an array of data-fruit
+                res.push(['left', i , $(v).data('name')])
+            });
+
+            var getChild_right = $('.right-plugins').children();
+
+            getChild_right.each(function(i,v){
+                res.push(['right', i , $(v).data('name')])
+            })
+
+            var getChild_center = $('.center-plugins').children();
+
+            getChild_center.each(function(i,v){
+                res.push(['center', i , $(v).data('name')])
+            })
+
+            alert (res);
+        }})
     $('.connectedSortable .card-header').css('cursor','move');
 
-
-    $( ".connectedSortable" ).droppable(
-        {
-            drop :function()
-            {
-                //alert("I am dropped");
-            }
-        } );
-
     $('.todo-list').sortable({placeholder:'sort-highlight',handle:'.handle',forcePlaceholderSize:true,zIndex:999999});
-
-    $( ".todo-list" ).droppable(
-        {
-            drop :function()
-            {
-                //alert("To do list : I am dropped");
-            }
-        } );
 
 </script>
 
