@@ -38,7 +38,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     $new_row = false;
     $count_people = 0;
 
-    $global_body = '    <div class="card '. $plugin->getPlgnColor() .'" id="Menu_Banner" style="position: relative; left: 0px; top: 0px;">
+    $global_body = '    <div class="card '. $plugin->getPlgnColor() .'" id="Menu_Banner1" style="position: relative; left: 0px; top: 0px;" data-name="'. $plugin->getName() .'">
         <div class="card-header border-0 ui-sortable-handle">
 ';
 
