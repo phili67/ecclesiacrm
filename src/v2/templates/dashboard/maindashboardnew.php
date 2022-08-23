@@ -215,10 +215,12 @@ if (!$load_Elements) {
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
                 ->filterByCategory('Dashboard')
-                ->usePluginUserRoleExistsQuery()
+                ->usePluginUserRoleQuery()
                     ->filterByDashboardOrientation('top')
-                    ->orderByDashboardPlace()
                 ->endUse()
+                ->leftJoinPluginUserRole()
+                ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                ->orderBy('place')
                 ->find();
 
             foreach ($plugins as $plugin) {
@@ -247,10 +249,12 @@ if (!$load_Elements) {
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
                 ->filterByCategory('Dashboard')
-                ->usePluginUserRoleExistsQuery()
-                ->filterByDashboardOrientation('left')
-                ->orderByDashboardPlace()
+                ->usePluginUserRoleQuery()
+                    ->filterByDashboardOrientation('left')
                 ->endUse()
+                ->leftJoinPluginUserRole()
+                ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                ->orderBy('place')
                 ->find();
 
             foreach ($plugins as $plugin) {
@@ -405,10 +409,12 @@ if (!$load_Elements) {
             $plugins = PluginQuery::create()
                 ->filterByActiv(1)
                 ->filterByCategory('Dashboard')
-                ->usePluginUserRoleExistsQuery()
-                ->filterByDashboardOrientation('right')
-                ->orderByDashboardPlace()
+                ->usePluginUserRoleQuery()
+                    ->filterByDashboardOrientation('right')
                 ->endUse()
+                ->leftJoinPluginUserRole()
+                ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
+                ->orderBy('place')
                 ->find();
 
             foreach ($plugins as $plugin) {
@@ -598,13 +604,19 @@ if (!$load_Elements) {
                 res.push(['right', i , $(v).data('name')])
             })
 
-            var getChild_center = $('.center-plugins').children();
+            var getChild_top = $('.center-plugins').children();
 
-            getChild_center.each(function(i,v){
-                res.push(['center', i , $(v).data('name')])
+            getChild_top.each(function(i,v){
+                res.push(['top', i , $(v).data('name')])
             })
 
-            alert (res);
+            window.CRM.APIRequest({
+                method: 'POST',
+                path: 'plugins/addDashboardPlaces',
+                data: JSON.stringify({"dashBoardItems":res})
+            },function (data) {
+                window.CRM.DisplayAlert(i18next.t("Dashboard Item"), i18next.t("Moved!"));
+            });
         }})
     $('.connectedSortable .card-header').css('cursor','move');
 

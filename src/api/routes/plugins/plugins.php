@@ -10,6 +10,7 @@ $app->group('/plugins', function (RouteCollectorProxy $group) {
     $group->post('/deactivate', PluginsController::class . ':deactivate' );
     $group->delete('/', PluginsController::class . ':remove' );
     $group->post('/add', PluginsController::class . ':add' );
+    $group->post('/addDashboardPlaces', PluginsController::class . ':addDashboardPlaces' );
 
 });
 
