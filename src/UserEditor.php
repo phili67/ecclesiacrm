@@ -519,7 +519,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 // Save Settings
 if (isset($_POST['save']) && ($iPersonID > 0)) {
 
-    $plugins = PluginQuery::create()->find();
+    $plugins = PluginQuery::create()
+        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
+        ->find();
     foreach ($plugins as $plugin) {
         $new_plugin = $_POST['new_plugin'];
 
@@ -1276,7 +1278,9 @@ if ($usr_role_id == null) {
                                 </div>
                                 <div class="card-body">
                                     <?php
-                                    $plugins = PluginQuery::create()->find();
+                                    $plugins = PluginQuery::create()
+                                        ->filterByCategory('Dashboard', Criteria::NOT_EQUAL)
+                                        ->find();
                                     foreach ($plugins as $plugin) {
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
 
