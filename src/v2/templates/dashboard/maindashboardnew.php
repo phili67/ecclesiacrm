@@ -209,6 +209,24 @@ if (!$load_Elements) {
     </div><!-- /.row -->
 
     <!-- we start the plugin parts : center plugins -->
+    <div class="float-right">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="color: red">
+                <i class="fas fa-wrench"></i> <?= _("Plugins managements" ) ?></button>
+            <div class="dropdown-menu dropdown-menu-right" role="menu" style="">
+                <!--
+                TODO : plugins remote manage
+                <a href="#" class="dropdown-item">Ajouter un nouveau plugin</a>
+                <a class="dropdown-divider" style="color: #0c0c0c"></a>
+                -->
+                <a href="<?= $sRootPath?>/SettingsIndividual.php" class="dropdown-item" id="add-plugin"><?= _("Settings") ?></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12"><br></div>
+    </div>
+    <br/>
     <div class="row">
         <section class="col-lg-12 connectedSortable ui-sortable center-plugins" data-name="center">
             <?php
