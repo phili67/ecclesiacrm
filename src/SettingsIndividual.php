@@ -100,8 +100,10 @@ if (isset($_POST['save'])) {
         ->find();
     foreach ($plugins as $plugin) {
         $new_plugin = $_POST['new_plugin'];
+        $new_plugin_place = $_POST['new_plugin_place'];
 
         $sel_role = $new_plugin[$plugin->getId()];
+        $position = $new_plugin_place[$plugin->getId()];
 
         $role = PluginUserRoleQuery::create()
             ->filterByUserId($iPersonID)
@@ -115,14 +117,8 @@ if (isset($_POST['save'])) {
 
         $plugin = $role->getPlugin();
 
-        if ($plugin->getCategory() == 'Dashboard') {
-            $new_plugin_place = $_POST['new_plugin_place'];
-            $position = $new_plugin_place[$plugin->getId()];
-            $role->setDashboardVisible(($sel_role)?true:false);
-            $role->setDashboardOrientation($position);
-        } else {
-            $role->setRole($sel_role);
-        }
+        $role->setDashboardVisible(($sel_role)?true:false);
+        $role->setDashboardOrientation($position);
         $role->save();
     }
 
