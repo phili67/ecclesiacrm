@@ -446,75 +446,12 @@ $numberRow = 0;
         </div><!-- end a card col-md-6 -->
     </div>
 <br/>
-<hr/>
-<br/>
+    <hr/>
+    <section class="content-header">
+        <h1><?= _("Specific settings") ?></h1>
+    </section>
 
 <div class="row">
-    <div class="col-md-4">
-        <!-- Dashboard Plugin settings -->
-        <div class="card">
-            <div class="card-header">
-                <label class="card-title">
-                    <?= _("Visibilities of the dashboard plugins") ?>
-                </label>
-            </div>
-            <div class="card-body">
-                <?php
-                $allRights = SessionUser::getUser()->allSecuritiesBits();
-
-                $plugins = PluginQuery::create()
-                    ->filterByCategory('Dashboard', Criteria::EQUAL)
-                    ->find();
-                foreach ($plugins as $plugin) {
-                    $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
-                    $securities = $plugin->getSecurities();
-
-                    if (($securities & $allRights) == 0) continue;
-
-                    $visible = 0;
-                    $place = 'top';
-                    if ( !is_null($role) ) {
-                        $visible = $role->getDashboardVisible();
-                        $place = $role->getDashboardOrientation();
-                    }
-                    ?>
-                    <div class="row">
-                        <div class="col-md-7">&bullet;
-                            <?= $plugin->getName() ?>:
-                        </div>
-                        <div class="col-md-2">
-                            <select class="form-control form-control-sm"
-                                    name="new_plugin[<?= $plugin->getId() ?>]">
-                                <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
-                                <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-control form-control-sm"
-                                    name="new_plugin_place[<?= $plugin->getId() ?>]">
-                                <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
-                                <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
-                                <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
-                            </select>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-md-2">
-                    </div>
-                    <div class="col-md-6">
-                        <input type=submit class='btn btn-default' name=cancel value="<?= _('Cancel') ?>">
-                        <input type=submit class='btn btn-primary' name=save value="<?= _('Save Settings') ?>">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Dashboard Plugin settings -->
-    </div>
     <div class="col-md-5">
 
         <!-- 2fa -->
@@ -564,6 +501,73 @@ $numberRow = 0;
         <!-- 2fa -->
     </div>
     <div class="col-md-3" id="two-factor-results">
+    </div>
+
+    <div class="col-md-4">
+        <!-- Dashboard Plugin settings -->
+        <div class="card">
+            <div class="card-header">
+                <label class="card-title">
+                    <?= _("Visibilities of the dashboard plugins") ?>
+                </label>
+            </div>
+            <div class="card-body">
+                <?php
+                $allRights = SessionUser::getUser()->allSecuritiesBits();
+
+                $plugins = PluginQuery::create()
+                    ->filterByCategory('Dashboard', Criteria::EQUAL)
+                    ->find();
+                foreach ($plugins as $plugin) {
+                    $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
+                    $securities = $plugin->getSecurities();
+
+                    if (($securities & $allRights) == 0) continue;
+
+                    $visible = 0;
+                    $place = 'top';
+                    if ( !is_null($role) ) {
+                        $visible = $role->getDashboardVisible();
+                        $place = $role->getDashboardOrientation();
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="col-md-6">&bullet;
+                            <?= $plugin->getName() ?>:
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control form-control-sm"
+                                    name="new_plugin[<?= $plugin->getId() ?>]">
+                                <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
+                                <option value="1" <?= ($visible == true)?'SELECTED':'' ?>><?= _('Yes') ?>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-control form-control-sm"
+                                    name="new_plugin_place[<?= $plugin->getId() ?>]">
+                                <option value="top" <?= ($place == 'top')?'SELECTED':'' ?>><?= _('Top') ?>
+                                <option value="left" <?= ($place == 'left')?'SELECTED':'' ?>><?= _('Left') ?>
+                                <option value="right" <?= ($place == 'right')?'SELECTED':'' ?>><?= _('Right') ?>
+                            </select>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-2">
+                        <input type=submit class='btn btn-default' name=cancel value="<?= _('Cancel') ?>">
+                    </div>
+                    <div class="col-md-4">
+                        <input type=submit class='btn btn-primary' name=save value="<?= _('Save Settings') ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dashboard Plugin settings -->
     </div>
 </div>
 </form>
