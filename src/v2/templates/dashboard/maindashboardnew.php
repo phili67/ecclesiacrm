@@ -217,6 +217,8 @@ if (!$load_Elements) {
                 ->filterByCategory('Dashboard')
                 ->usePluginUserRoleQuery()
                     ->filterByDashboardOrientation('top')
+                    ->filterByUserId(SessionUser::getId())
+                    ->filterByDashboardVisible(true)
                 ->endUse()
                 ->leftJoinPluginUserRole()
                 ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
@@ -251,6 +253,8 @@ if (!$load_Elements) {
                 ->filterByCategory('Dashboard')
                 ->usePluginUserRoleQuery()
                     ->filterByDashboardOrientation('left')
+                    ->filterByDashboardVisible(true)
+                    ->filterByUserId(SessionUser::getId())
                 ->endUse()
                 ->leftJoinPluginUserRole()
                 ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
@@ -411,6 +415,8 @@ if (!$load_Elements) {
                 ->filterByCategory('Dashboard')
                 ->usePluginUserRoleQuery()
                     ->filterByDashboardOrientation('right')
+                    ->filterByUserId(SessionUser::getId())
+                    ->filterByDashboardVisible(true)
                 ->endUse()
                 ->leftJoinPluginUserRole()
                 ->addAsColumn('place', \EcclesiaCRM\Map\PluginUserRoleTableMap::COL_PLGN_USR_RL_PLACE)
@@ -572,10 +578,6 @@ if (!$load_Elements) {
         window.CRM.timeOut = <?= SystemConfig::getValue("iEventsOnDashboardPresenceTimeOut") * 1000 ?>;
     </script>
 
-    <script src="<?= $sRootPath ?>/skin/js/menu.js"></script>
-
-<?php require $sRootDocument . '/Include/Footer.php'; ?>
-
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"
         type="text/javascript"></script>
 
@@ -622,5 +624,45 @@ if (!$load_Elements) {
 
     $('.todo-list').sortable({placeholder:'sort-highlight',handle:'.handle',forcePlaceholderSize:true,zIndex:999999});
 
+   /*
+    * Add remove events to boxes
+    */
+    $("[data-card-widget='remove']").click(function() {
+        //Find the box parent
+        var box = $(this).parents(".card").first();
+        //Find the body and the footer
+        var name = box.data("name");
+
+        bootbox.confirm({
+            title: i18next.t("Remove Plugin") + "?",
+            message: i18next.t("You're about to remove the plugin from yout dashboard !!!"),
+            buttons: {
+                cancel: {
+                    label: '<i class="fas fa-times"></i> ' + i18next.t("Cancel")
+                },
+                confirm: {
+                    label: '<i class="fas fa-check"></i> ' + i18next.t("Confirm")
+                }
+            },
+            callback: function (result) {
+                if (result == true)// only event can be drag and drop, not anniversary or birthday
+                {
+                    window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'plugins/removeFromDashboard',
+                        data: JSON.stringify({"name": name})
+                    },function (data) {
+                        window.CRM.DisplayAlert(i18next.t("Dashboard Item"), i18next.t("Removed from your dashboard !"));
+                    });
+                }
+            }
+        });
+    });
+
 </script>
+
+<script src="<?= $sRootPath ?>/skin/js/menu.js"></script>
+
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
+
 

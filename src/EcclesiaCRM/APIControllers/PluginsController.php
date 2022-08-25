@@ -135,8 +135,6 @@ class PluginsController
         if ( isset ($pluginPayload->dashBoardItems) ) {
 
             foreach ($pluginPayload->dashBoardItems as $dashBoardItem) {
-                LoggerUtils::getAppLogger()->info(print_r($dashBoardItem, true));
-
                 $plugin = PluginQuery::create()->findOneByName($dashBoardItem[2]);
 
                 if ( !is_null($plugin) ) {
@@ -150,6 +148,28 @@ class PluginsController
                         $plgnRole->save();
                     }
                 }
+            }
+
+            return $response->withJson(["status" => "success"]);
+        }
+
+        return $response->withJson(["status" => "failed"]);
+    }
+
+    public function removeFromDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface {
+        $pluginPayload = (object)$request->getParsedBody();
+
+        if ( isset ($pluginPayload->name) ) {
+
+            $plugin = PluginQuery::create()->findOneByName($pluginPayload->name);
+
+            if ( !is_null($plugin)) {
+                $plgnRole = PluginUserRoleQuery::create()
+                    ->filterByPluginId($plugin->getId())
+                    ->findOneByUserId(SessionUser::getId());
+
+                $plgnRole->setDashboardVisible(false);
+                $plgnRole->save();
             }
 
             return $response->withJson(["status" => "success"]);
