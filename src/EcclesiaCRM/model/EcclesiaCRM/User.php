@@ -1158,43 +1158,43 @@ class User extends BaseUser
 
         if ($plugin->getSecurities() & $sec) {// when the bit sec is activated
             switch($sec) {
-                case 1: // bAdmin
+                case 1: // bAdmin bit 0
                     return $this->isAdmin();
-                case 2: // bPastoralCare
+                case 2: // bPastoralCare bit 1
                     return $this->isPastoralCareEnabled();
-                case 4: // see : SecurityOptions
+                case 4: // see : SecurityOptions bit 2
                     return $this->isMailChimpEnabled();
-                case 8:
+                case 8: // bit 3
                     return $this->isGdrpDpoEnabled();
-                case 16:
+                case 16:// bit 4
                     return $this->isMainDashboardEnabled();
-                case 32:
+                case 32:// bit 5
                     return $this->isSeePrivacyData();
-                case 64:
+                case 64:// bit 6
                     return $this->isAddRecordsEnabled();
-                case 128:
+                case 128:// bit 7
                     return $this->isEditRecordsEnabled();
-                case 256:
+                case 256:// bit 8
                     return $this->isDeleteRecordsEnabled();
-                case 512:
+                case 512:// bit 9
                     return $this->isMenuOptionsEnabled();
-                case 1024:
+                case 1024:// bit 10
                     return $this->isManageGroupsEnabled();
-                case 2048:
+                case 2048:// bit 11
                     return $this->isFinanceEnabled();
-                case 4096:
+                case 4096:// bit 12
                     return $this->isNotesEnabled();
-                case 8192:
+                case 8192:// bit 13
                     return $this->isCanvasserEnabled();
-                case 16384:
+                case 16384:// bit 14
                     return $this->isEditSelf();
-                case 32768:
+                case 32768:// bit 15
                     return $this->isShowCartEnabled();
-                case 65536:
+                case 65536:// bit 16
                     return $this->isShowMapEnabled();
-                case 131072:
+                case 131072:// bit 17
                     return $this->isEDriveEnabled();
-                case 262144:
+                case 262144:// bit 18
                     return $this->isShowMenuQueryEnabled();
             }
             return true;
