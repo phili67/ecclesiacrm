@@ -22,27 +22,27 @@ use DateTimeZone;
 
 abstract class SecurityOptions
 {
-    const bNotDashBord = 0;
-    const bAdmin = 1; // 2^0
-    const bPastoralCare = 2;
-    const bMailChimp = 4;
-    const bGdrpDpo = 8;
-    const bMainDashboard = 16;
-    const bSeePrivacyData = 32;
-    const bAddRecords = 64;
-    const bEditRecords = 128;
-    const bDeleteRecords = 256;
-    const bMenuOptions = 512;
-    const bManageGroups = 1024;
-    const bFinance = 2048;
-    const bNotes = 4096;
-    const bCanvasser = 9192;
-    const bEditSelf = 16384;
-    const bShowCart = 32768;
-    const bShowMap = 65536;
-    const bEDrive = 131072;
-    const bShowMenuQuery = 262144; // 2^18
-    const bDashBoardUser = 1073741824; // 2^30
+    const bNoDashBordItem = 0;
+    const bAdmin = 1; // bit 0
+    const bPastoralCare = 2;// bit 1
+    const bMailChimp = 4;// bit 2
+    const bGdrpDpo = 8;// bit 3
+    const bMainDashboard = 16;// bit 4
+    const bSeePrivacyData = 32;// bit 5
+    const bAddRecords = 64;// bit 6
+    const bEditRecords = 128;// bit 7
+    const bDeleteRecords = 256;// bit 8
+    const bMenuOptions = 512;// bit 9
+    const bManageGroups = 1024;// bit 10
+    const bFinance = 2048;// bit 11
+    const bNotes = 4096;// bit 12
+    const bCanvasser = 8192;// bit 13
+    const bEditSelf = 16384;// bit 14
+    const bShowCart = 32768;// bit 15
+    const bShowMap = 65536;// bit 16
+    const bEDrive = 131072;// bit 17
+    const bShowMenuQuery = 262144; // bit 18
+    const bDashBoardUser = 1073741824; // bit 30
 }
 
 
@@ -1083,60 +1083,64 @@ class User extends BaseUser
 
     public function allSecuritiesBits ()
     {
-        $bits = 0;
+        $bits = SecurityOptions::bNoDashBordItem;
 
-        if ($this->isPastoralCareEnabled()) {
+        if ($this->isAdmin()) { // bit 0
+            $bits |= SecurityOptions::bAdmin;
+        }
+        if ($this->isPastoralCareEnabled()) { // bit 1
             $bits |= SecurityOptions::bPastoralCare;
         }
-        if ($this->isMailChimpEnabled()) {
+        if ($this->isMailChimpEnabled()) { // bit 2
             $bits |= SecurityOptions::bMailChimp;
         }
-        if ($this->isGdrpDpoEnabled()) {
+        if ($this->isGdrpDpoEnabled()) { // bit 3
             $bits |= SecurityOptions::bGdrpDpo;
         }
-        if ($this->isMainDashboardEnabled()) {
+        if ($this->isMainDashboardEnabled()) { // bit 4
             $bits |= SecurityOptions::bMainDashboard;
         }
-        if ($this->isSeePrivacyData()) {
+        if ($this->isSeePrivacyDataEnabled()) { // bit 5
             $bits |= SecurityOptions::bSeePrivacyData;
         }
-        if ($this->isAddRecordsEnabled()) {
+        if ($this->isAddRecordsEnabled()) {// bit 6
             $bits |= SecurityOptions::bAddRecords;
         }
-        if ($this->isEditRecordsEnabled()) {
+        if ($this->isEditRecordsEnabled()) {// bit 7
             $bits |= SecurityOptions::bEditRecords;
         }
-        if ($this->isDeleteRecordsEnabled()) {
+        if ($this->isDeleteRecordsEnabled()) {// bit 8
             $bits |= SecurityOptions::bDeleteRecords;
         }
-        if ($this->isMenuOptionsEnabled()) {
+        if ($this->isMenuOptionsEnabled()) {// bit 9
             $bits |= SecurityOptions::bMenuOptions;
         }
-        if ($this->isManageGroupsEnabled()) {
+
+        if ($this->isManageGroupsEnabled()) {// bit 10
             $bits |= SecurityOptions::bManageGroups;
         }
-        if ($this->isFinanceEnabled()) {
+        if ($this->isFinanceEnabled()) {// bit 11
             $bits |= SecurityOptions::bFinance;
         }
-        if ($this->isNotesEnabled()) {
+        if ($this->isNotesEnabled()) {// bit 12
             $bits |= SecurityOptions::bNotes;
         }
-        if ($this->isCanvasserEnabled()) {
+        if ($this->isCanvasserEnabled()) {// bit 13
             $bits |= SecurityOptions::bCanvasser;
         }
-        if ($this->isEditSelf()) {
+        if ($this->isEditSelf()) {// bit 14
             $bits |= SecurityOptions::bEditSelf;
         }
-        if ($this->isShowCartEnabled()) {
+        if ($this->isShowCartEnabled()) {// bit 15
             $bits |= SecurityOptions::bShowCart;
         }
-        if ($this->isShowMapEnabled()) {
+        if ($this->isShowMapEnabled()) {// bit 16
             $bits |= SecurityOptions::bShowMap;
         }
-        if ($this->isEDriveEnabled()) {
+        if ($this->isEDriveEnabled()) {// bit 17
             $bits |= SecurityOptions::bEDrive;
         }
-        if ($this->isShowMenuQueryEnabled()) {
+        if ($this->isShowMenuQueryEnabled()) {// bit 18
             $bits |= SecurityOptions::bShowMenuQuery;
         }
 
