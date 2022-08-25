@@ -3,7 +3,6 @@
 use EcclesiaCRM\PluginQuery;
 use EcclesiaCRM\Map\PluginUserRoleTableMap;
 
-use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\PastoralCareService;
 use EcclesiaCRM\SessionUser;
