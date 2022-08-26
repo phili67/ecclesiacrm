@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 09:30+0000\n"
+"POT-Creation-Date: 2022-08-26 21:47+0000\n"
 "Language: fr_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4670,9 +4670,8 @@ msgid "Password"
 msgstr "Mot de Passe"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-#, fuzzy
 msgid "informations"
-msgstr "Informations"
+msgstr "informations"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:148
@@ -9504,9 +9503,8 @@ msgid "True"
 msgstr "Vrai"
 
 #: SettingsIndividual.php:451
-#, fuzzy
 msgid "Specific settings"
-msgstr "Enregistrer les réglages"
+msgstr "Paramètres spécifiques"
 
 #: SettingsIndividual.php:460
 msgid "Two-factor authentication (2fa)"
@@ -9611,12 +9609,11 @@ msgstr "Commencer l'inscription à l'authentification à deux facteurs"
 
 #: SettingsIndividual.php:511 UserEditor.php:1325
 msgid "Visibilities of the dashboard plugins"
-msgstr ""
+msgstr "Visibilités des plugins du tableau de bord"
 
 #: SettingsIndividual.php:549 UserEditor.php:1358
-#, fuzzy
 msgid "Top"
-msgstr "À"
+msgstr "Haut"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11443,9 +11440,8 @@ msgid "Upload A Plugin"
 msgstr "Télécharger un plugin"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "Sélectionner un groupe"
+msgstr "Sélectionnez l'action groupée"
 
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"

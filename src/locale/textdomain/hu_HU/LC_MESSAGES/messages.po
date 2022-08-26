@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 09:30+0000\n"
+"POT-Creation-Date: 2022-08-26 21:47+0000\n"
 "Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4660,9 +4660,8 @@ msgid "Password"
 msgstr "Jelszó"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationValidation.php:24
-#, fuzzy
 msgid "informations"
-msgstr "Információk"
+msgstr "információk"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:88 Include/Header.php:92
 #: Include/Header.php:148
@@ -9479,9 +9478,8 @@ msgid "True"
 msgstr "Igaz"
 
 #: SettingsIndividual.php:451
-#, fuzzy
 msgid "Specific settings"
-msgstr "Beállítások mentése"
+msgstr "Speciális beállítások"
 
 #: SettingsIndividual.php:460
 msgid "Two-factor authentication (2fa)"
@@ -9585,12 +9583,11 @@ msgstr "Kétfaktoros hitelesítés regisztrációjának megkezdése"
 
 #: SettingsIndividual.php:511 UserEditor.php:1325
 msgid "Visibilities of the dashboard plugins"
-msgstr ""
+msgstr "A műszerfal bővítmények láthatósága"
 
 #: SettingsIndividual.php:549 UserEditor.php:1358
-#, fuzzy
 msgid "Top"
-msgstr "A  címre."
+msgstr "Top"
 
 #: sundayschool/SundaySchoolClassListExport.php:56
 msgid "Dad Name"
@@ -11401,9 +11398,8 @@ msgid "Upload A Plugin"
 msgstr "Plugin feltöltése"
 
 #: v2/templates/plugins/plugins.php:52
-#, fuzzy
 msgid "Select the grouped action"
-msgstr "Válasszon ki egy csoportot"
+msgstr "Válassza ki a csoportosított műveletet"
 
 #: v2/templates/plugins/plugins.php:54
 msgid "Grouped actions"

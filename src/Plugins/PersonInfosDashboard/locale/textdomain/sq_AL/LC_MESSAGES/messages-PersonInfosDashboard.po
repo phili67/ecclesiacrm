@@ -7,25 +7,16 @@ msgid "Updated Members"
 msgstr ""
 
 #: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
-msgid "Family Name"
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:65
+msgid "Name"
 msgstr ""
 
 #: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:69
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:85
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:66
 msgid "Address"
 msgstr ""
 
 #: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:52
-msgid "Created"
-msgstr ""
-
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:68
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:84
-msgid "Name"
-msgstr ""
-
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:70
-#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:86
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:67
 msgid "Updated"
 msgstr ""
