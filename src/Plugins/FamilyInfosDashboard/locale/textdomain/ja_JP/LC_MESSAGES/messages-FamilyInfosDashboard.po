@@ -1,0 +1,36 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26 11:46+0000\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:23
+msgid "Latest Families"
+msgstr "最新の家族"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:32
+msgid "Updated Families"
+msgstr "アップデートされた家族"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:54
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:70
+msgid "Family Name"
+msgstr "ファミリーネーム"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:55
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:71
+msgid "Address"
+msgstr "住所"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:56
+msgid "Created"
+msgstr "作成"
+
+#: ../src/Plugins/FamilyInfosDashboard/v2/templates/View.php:72
+msgid "Updated"
+msgstr "更新情報"
