@@ -40,60 +40,36 @@ $plugin = PluginQuery::create()
     </div>
     <div class="card-body">
         <div class="tab-content" id="custom-tabs-two-tabContent">
-            <div class="tab-pane fade  active show" id="custom-tabs-latest-families" role="tabpanel"
-                 aria-labelledby="custom-tabs-latest-families-tab">
-                <table class="table table-striped table-bordered data-table dataTable no-footer dtr-inline"
-                       id="latestFamiliesDashboardItem"
+            <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
+                 aria-labelledby="custom-tabs-latest-members-tab">
+                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+                       id="latestPersonsDashboardItem"
                        style="width:100%">
                     <thead>
                     <tr>
-                        <th data-field="name"><?= dgettext("messages-FamilyInfosDashboard",'Family Name') ?></th>
-                        <th data-field="address"><?= dgettext("messages-FamilyInfosDashboard",'Address') ?></th>
-                        <th data-field="city"><?= dgettext("messages-FamilyInfosDashboard",'Created') ?></th>
+                        <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
+                        <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
+                        <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
                     </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
-            <div class="card-body">
-                <div class="tab-content" id="custom-tabs-two-tabContent">
-                    <div class="tab-pane fade   active show" id="custom-tabs-latest-members" role="tabpanel"
-                         aria-labelledby="custom-tabs-latest-members-tab">
-                        <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
-                               id="latestPersonsDashboardItem"
-                               style="width:100%">
-                            <thead>
-                            <tr>
-                                <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
-                                <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
-                                <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel"
-                         aria-labelledby="custom-tabs-two-settings-tab">
-                        <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
-                               id="updatedPersonsDashboardItem"
-                               style="width:100%">
-                            <thead>
-                            <tr>
-                                <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
-                                <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
-                                <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="tab-pane fade" id="custom-tabs-two-settings" role="tabpanel"
+                 aria-labelledby="custom-tabs-two-settings-tab">
+                <table class=" table table-striped table-bordered data-table dataTable no-footer dtr-inline"
+                       id="updatedPersonsDashboardItem"
+                       style="width:100%">
+                    <thead>
+                    <tr>
+                        <th data-field="lastname"><?= dgettext("messages-PersonInfosDashboard",'Name') ?></th>
+                        <th data-field="address"><?= dgettext("messages-PersonInfosDashboard",'Address') ?></th>
+                        <th data-field="city"><?= dgettext("messages-PersonInfosDashboard",'Updated') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
-            <!-- /.card -->
-        </div>
-        </div>
     </div>
     <!-- /.card -->
 </div>
