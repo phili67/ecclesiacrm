@@ -102,7 +102,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     }
 
     if ( !empty($classified) ) {
-        $global_body .= '<h5 class="card-title"><i class="fas fa-birthday-cake"></i> '. _("Birthdates of the day") . '</h5>';
+        $global_body .= '<h5 class="card-title"><i class="fas fa-birthday-cake"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Birthdates of the day") . '</h5>';
         $global_body .= '<div class="card-tools">
             <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
                             <i class="fas fa-times"></i>
@@ -122,7 +122,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             $global_body .= '<hr style="background-color: green; height: 1px; border: 0;">';
         }
 
-        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><i class="fas fa-birthday-cake"></i> '. _("Anniversaries of the day") . '</h5>';
+        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><i class="fas fa-birthday-cake"></i> '. dgettext("messages-BirthdayAnniversaryDashboard","Anniversaries of the day") . '</h5>';
 
         if ($peopleWithBirthDaysCount == 0) {
             $global_body .= '<div class="card-tools">
@@ -172,7 +172,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
             $global_body .= '<hr style="background-color: green; height: 1px; border: 0;">';
         }
 
-        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><?= _("Unclassified birthdates") ?></h5>';
+        $global_body .= '<h5 class="' .(($peopleWithBirthDaysCount > 0)?'alert-heading':'card-title') .'"><?= dgettext("messages-BirthdayAnniversaryDashboard","Unclassified birthdates") ?></h5>';
 
         if ($peopleWithBirthDaysCount == 0) {
             $global_body .= '<div class="card-tools">
