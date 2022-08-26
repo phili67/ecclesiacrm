@@ -517,6 +517,7 @@ $numberRow = 0;
 
                 $plugins = PluginQuery::create()
                     ->filterByCategory('Dashboard', Criteria::EQUAL)
+                    ->orderByName()
                     ->find();
                 foreach ($plugins as $plugin) {
                     $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
@@ -532,10 +533,10 @@ $numberRow = 0;
                     }
                     ?>
                     <div class="row">
-                        <div class="col-md-6">&bullet;
+                        <div class="col-md-7">&bullet;
                             <?= $plugin->getName() ?>:
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select class="form-control form-control-sm"
                                     name="new_plugin[<?= $plugin->getId() ?>]">
                                 <option value="0" <?= ($visible == false)?'SELECTED':'' ?>><?= _('No') ?>
@@ -557,13 +558,14 @@ $numberRow = 0;
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-1"></div>
                     <div class="col-md-2">
                         <input type=submit class='btn btn-default' name=cancel value="<?= _('Cancel') ?>">
                     </div>
                     <div class="col-md-4">
                         <input type=submit class='btn btn-primary' name=save value="<?= _('Save Settings') ?>">
                     </div>
+                    <div class="col-md-6"></div>
                 </div>
             </div>
         </div>
