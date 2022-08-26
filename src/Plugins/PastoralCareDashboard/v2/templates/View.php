@@ -64,7 +64,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 
     <div class="card <?= $plugin->getPlgnColor() ?> <?= $pastoralServiceStats['PastoralcareAlertType'] ?> <?= $plugin->getName() ?>" style="position: relative; left: 0px; top: 0px;" data-name="<?= $plugin->getName() ?>">
         <div class="card-header border-0 ui-sortable-handle">
-            <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= _("Pastoral Care") ?></h5>
+            <h5 class="card-title"><i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard","Pastoral Care") ?></h5>
             <div class="card-tools">
                 <button type="button" class="btn bg-danger btn-sm" data-card-widget="remove">
                     <i class="fas fa-times"></i>
@@ -81,7 +81,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                     <?php
                     ?>
                     <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <i
-                            class="fas fa-user"></i> <?= _("Latest") . " " . _("Individual Pastoral Care") ?></h5>
+                            class="fas fa-user"></i> <?= dgettext("messages-PastoralCareDashboard","Latest") . " " . dgettext("messages-PastoralCareDashboard","Individual Pastoral Care") ?></h5>
                     <?php
                     if ($caresPersons->count() > 0) {
                     $count_care = 0;
@@ -127,7 +127,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                 }
                 } else {
                     ?>
-                    <p><?= _("None") ?></p>
+                    <p><?= dgettext("messages-PastoralCareDashboard","None") ?></p>
                     <?php
                 }
 
@@ -137,7 +137,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                 <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <i class="fas fa-male"
                                                                               style="right: 124px"></i>
                     <i class="fas fa-female" style="right: 67px"></i>
-                    <i class="fas fa-child"></i> <?= _("Last") . " " . _("Family Pastoral Care") ?></h5>
+                    <i class="fas fa-child"></i> <?= dgettext("messages-PastoralCareDashboard","Last") . " " . dgettext("messages-PastoralCareDashboard","Family Pastoral Care") ?></h5>
                 <?php
                 if ($caresFamilies->count() > 0) {
                 $count_care = 0;
@@ -157,7 +157,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                     <div class="col-sm-3">
                         <label class="checkbox-inline">
                             <a href="<?= $sRootPath . "/v2/pastoralcare/family/" . $care->getFamilyId() ?>"
-                               class="btn btn-link-menu" style="text-decoration: none;"><?= _("Family") ?>
+                               class="btn btn-link-menu" style="text-decoration: none;"><?= dgettext("messages-PastoralCareDashboard","Family") ?>
                                 : <?= $care->getFamily()->getName() ?>
                                 (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong')) ?>)</a>
                         </label>
@@ -183,46 +183,46 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             }
             } else {
                 ?>
-                <p><?= _("None") ?></p>
+                <p><?= dgettext("messages-PastoralCareDashboard","None") ?></p>
                 <?php
             }
             ?>
         </div>
 
         <div class="col-md-5">
-            <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <?= _("Statistics") ?></h5>
-            <label><?= _("Period  from") . " : " . $pastoralServiceStats['startPeriod'] . " " . _("to") . " " . $pastoralServiceStats['endPeriod'] ?></label>
+            <h5 class="alert-heading"><i class="fas fa-heartbeat"></i> <?= dgettext("messages-PastoralCareDashboard","Statistics") ?></h5>
+            <label><?= dgettext("messages-PastoralCareDashboard","Period  from") . " : " . $pastoralServiceStats['startPeriod'] . " " . dgettext("messages-PastoralCareDashboard","to") . " " . $pastoralServiceStats['endPeriod'] ?></label>
             <br/>
-            <?= _("Members") ?>
+            <?= dgettext("messages-PastoralCareDashboard","Members") ?>
             <ul>
                 <li>
-                    <b><?= $pastoralServiceStats['CountNotViewPersons'] ?></b> : <?= _("Persons not reached") ?>
+                    <b><?= $pastoralServiceStats['CountNotViewPersons'] ?></b> : <?= dgettext("messages-PastoralCareDashboard","Persons not reached") ?>
                     (<b><?= $pastoralServiceStats['PercentNotViewPersons'] ?> %</b>).
                 </li>
                 <li>
-                    <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= _("Families not reached") ?>
+                    <b><?= $pastoralServiceStats['CountNotViewFamilies'] ?></b> : <?= dgettext("messages-PastoralCareDashboard","Families not reached") ?>
                     (<b><?= $pastoralServiceStats['PercentViewFamilies'] ?> %</b>).
                 </li>
                 <li>
-                    <b><?= $pastoralServiceStats['CountPersonSingle'] ?></b> : <?= _("Single Persons not reached") ?>
+                    <b><?= $pastoralServiceStats['CountPersonSingle'] ?></b> : <?= dgettext("messages-PastoralCareDashboard","Single Persons not reached") ?>
                     (<b><?= $pastoralServiceStats['PercentPersonSingle'] ?> %</b>).
                 </li>
                 <li>
-                    <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b> : <?= _("Retired Persons not reached") ?>
+                    <b><?= $pastoralServiceStats['CountNotViewRetired'] ?></b> : <?= dgettext("messages-PastoralCareDashboard","Retired Persons not reached") ?>
                     (<b><?= $pastoralServiceStats['PercentRetiredViewPersons'] ?> %</b>).
                 </li>
             </ul>
-            <?= _("Young People") ?>
+            <?= dgettext("messages-PastoralCareDashboard","Young People") ?>
             <ul>
                 <li>
-                    <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b> : <?= _("Young People not reached") ?>
+                    <b><?= $pastoralServiceStats['CountNotViewYoung'] ?></b> : <?= dgettext("messages-PastoralCareDashboard","Young People not reached") ?>
                     (<b><?= $pastoralServiceStats['PercentViewYoung'] ?> %</b>).
                 </li>
             </ul>
             <p class="text-center">
                 <a class="btn btn-light align-center" href="<?= $sRootPath ?>/v2/pastoralcare/dashboard"
-                   data-toggle="tooltip" data-placement="top" title="<?= _("Visit/Call your church members") ?>"
-                   style="color:black;text-decoration: none" role="button"><?= _("Manage Pastoral Care") ?></a>
+                   data-toggle="tooltip" data-placement="top" title="<?= dgettext("messages-PastoralCareDashboard","Visit/Call your church members") ?>"
+                   style="color:black;text-decoration: none" role="button"><?= dgettext("messages-PastoralCareDashboard","Manage Pastoral Care") ?></a>
             </p>
         </div>
         </div>
