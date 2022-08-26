@@ -26,7 +26,7 @@ $(document).ready(function () {
 
             lineData.datasets[0].backgroundColor = 'rgba(115, 159, 205, 1)';
             lineData.datasets[0].borderColor = 'rgba(95, 139, 185, 1)';
-            lineData.datasets[0].label = i18next.t("Tracking");
+            lineData.datasets[0].label = i18next.t("Tracking", {ns: 'FinanceDashboard'});
 
             options = {
                 responsive: true,
