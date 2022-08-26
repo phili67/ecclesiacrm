@@ -1,0 +1,31 @@
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:21
+msgid "Latest Members"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:28
+msgid "Updated Members"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:50
+msgid "Family Name"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:51
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:69
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:85
+msgid "Address"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:52
+msgid "Created"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:68
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:84
+msgid "Name"
+msgstr ""
+
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:70
+#: ../src/Plugins/PersonInfosDashboard/v2/templates/View.php:86
+msgid "Updated"
+msgstr ""
