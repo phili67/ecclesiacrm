@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26 13:10+0000\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:62
+msgid "GDPR"
+msgstr "GDPR"
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:62
+msgid "message for the DPO"
+msgstr "messaggio per il DPO"
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:83
+msgid "person must be deleted from the CRM."
+msgstr "deve essere eliminato dal CRM."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:85
+msgid "persons must be deleted from the CRM."
+msgstr "le persone devono essere cancellate dal CRM."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:90
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:115
+msgid "Click the"
+msgstr "Fare clic sul pulsante"
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:91
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:116
+msgid "link"
+msgstr "link"
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:91
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:116
+msgid "to solve the problem."
+msgstr "per risolvere il problema."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:96
+msgid "No Person to remove in the CRM."
+msgstr "Nessuna persona da rimuovere nel CRM."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:108
+msgid "family must be deleted from the CRM."
+msgstr "La famiglia deve essere eliminata dal CRM."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:110
+msgid "families must be deleted from the CRM."
+msgstr "Le famiglie devono essere eliminate dal CRM."
+
+#: ../src/Plugins/GDPRDashboard/v2/templates/View.php:121
+msgid "No Family to remove in the CRM."
+msgstr "Nessuna famiglia da rimuovere nel CRM."
+
+#~ msgid "Tracking"
+#~ msgstr "Tracciamento"
