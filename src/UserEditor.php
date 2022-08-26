@@ -1329,6 +1329,7 @@ if ($usr_role_id == null) {
                                     <?php
                                     $plugins = PluginQuery::create()
                                         ->filterByCategory('Dashboard', Criteria::EQUAL)
+                                        ->orderByName()
                                         ->find();
                                     foreach ($plugins as $plugin) {
                                         $role = PluginUserRoleQuery::create()->filterByUserId($iPersonID)->findOneByPluginId($plugin->getId());
