@@ -1348,7 +1348,7 @@
 
     window.CRM.synchronize = {
       renderers: {
-          EventsCounters: function (data) {
+        EventsCounters: function (data) {
               if (document.getElementById('BirthdateNumber') != null) {
                   document.getElementById('BirthdateNumber').innerText = data.Birthdays;
                   document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
@@ -1368,90 +1368,203 @@
             var dashBoardFamReal = document.getElementById('realFamilyCNT');
             var dashBoardSingleP = document.getElementById('singleCNT');
 
-            if (dashBoardFamReal) { // we have to test if we are on the dashboard or not
+            if (dashBoardFamReal != undefined && dashBoardSingleP != undefined) { // we have to test if we are on the dashboard or not
                 dashBoardFamReal.innerText = data.familyCount[1];
                 dashBoardSingleP.innerText = data.familyCount[2];
-                latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
-                    retrieve: true,
-                    responsive: true,
-                    paging: false,
-                    ordering: false,
-                    searching: false,
-                    scrollX: false,
-                    info: false,
-                    'columns': [
-                        {
-                            data: 'Name',
-                            render: function (data, type, row, meta) {
-                                if (window.CRM.bThumbnailIconPresence) {
-                                    return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
-                                } else {
-                                    return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
-                                }
-                            }
-                        },
-                        {
-                            data: 'Address1',
-                            render: function (data, type, row, meta) {
-                                return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                            }
-                        },
-                        {
-                            data: 'DateEntered',
-                            render: function (data, type, row, meta) {
-                                if (window.CRM.timeEnglish == true) {
-                                    return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                                } else {
-                                    return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                                }
-                            }
-                        }
-                    ]
-            });
-            latestFamiliesTable.clear();
-            latestFamiliesTable.rows.add(data.LatestFamilies);
-            latestFamiliesTable.draw(true);
 
-            updatedFamiliesTable = $('#updatedFamiliesDashboardItem').DataTable({
-              retrieve: true,
-              responsive: true,
-              paging: false,
-              ordering: false,
-              searching: false,
-              scrollX: false,
-              info: false,
-              'columns': [
-                {
-                  data: 'Name',
-                  render: function (data, type, row, meta) {
-                      if (window.CRM.bThumbnailIconPresence) {
-                          return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
-                      } else {
-                          return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
-                      }
-                  }
-                },
-                {
-                  data: 'Address1',
-                  render: function (data, type, row, meta) {
-                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                  }
-                },
-                {
-                  data: 'DateLastEdited',
-                  render: function (data, type, row, meta) {
-                    if (window.CRM.timeEnglish == true) {
-                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm a');
-                    } else {
-                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' HH:mm');
-                    }
-                  }
+                var latestFamiliesTable = document.getElementById('latestFamiliesDashboardItem');
+                if (latestFamiliesTable != undefined) {
+                    latestFamiliesTable = $('#latestFamiliesDashboardItem').DataTable({
+                        retrieve: true,
+                        responsive: true,
+                        paging: false,
+                        ordering: false,
+                        searching: false,
+                        scrollX: false,
+                        info: false,
+                        'columns': [
+                            {
+                                data: 'Name',
+                                render: function (data, type, row, meta) {
+                                    if (window.CRM.bThumbnailIconPresence) {
+                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                    } else {
+                                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                    }
+                                }
+                            },
+                            {
+                                data: 'Address1',
+                                render: function (data, type, row, meta) {
+                                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                                }
+                            },
+                            {
+                                data: 'DateEntered',
+                                render: function (data, type, row, meta) {
+                                    if (window.CRM.timeEnglish == true) {
+                                        return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                                    } else {
+                                        return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                                    }
+                                }
+                            }
+                        ]
+                    });
+                    latestFamiliesTable.clear();
+                    latestFamiliesTable.rows.add(data.LatestFamilies);
+                    latestFamiliesTable.draw(true);
                 }
-              ]
-            });
-            updatedFamiliesTable.clear();
-            updatedFamiliesTable.rows.add(data.UpdatedFamilies);
-            updatedFamiliesTable.draw(true);
+
+                var updatedFamiliesTable = document.getElementById('updatedFamiliesDashboardItem');
+                if (updatedFamiliesTable != undefined) {
+                    updatedFamiliesTable = $('#updatedFamiliesDashboardItem').DataTable({
+                        retrieve: true,
+                        responsive: true,
+                        paging: false,
+                        ordering: false,
+                        searching: false,
+                        scrollX: false,
+                        info: false,
+                        'columns': [
+                            {
+                                data: 'Name',
+                                render: function (data, type, row, meta) {
+                                    if (window.CRM.bThumbnailIconPresence) {
+                                        return '<img src="/api/families/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                    } else {
+                                        return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
+                                    }
+                                }
+                            },
+                            {
+                                data: 'Address1',
+                                render: function (data, type, row, meta) {
+                                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                                }
+                            },
+                            {
+                                data: 'DateLastEdited',
+                                render: function (data, type, row, meta) {
+                                    if (window.CRM.timeEnglish == true) {
+                                        return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                                    } else {
+                                        return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                                    }
+                                }
+                            }
+                        ]
+                    });
+                    updatedFamiliesTable.clear();
+                    updatedFamiliesTable.rows.add(data.UpdatedFamilies);
+                    updatedFamiliesTable.draw(true);
+                }
+          }
+        },
+        PersonCount: function (data) {
+          var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
+          if (dashBoardPeopleStats != undefined) {
+              dashBoardPeopleStats.innerText = data.personCount;
+
+              var latestPersonsTable = document.getElementById('latestPersonsDashboardItem');
+              if (latestPersonsTable != undefined) {
+                  latestPersonsTable = $('#latestPersonsDashboardItem').DataTable({
+                      retrieve: true,
+                      responsive: true,
+                      paging: false,
+                      ordering: false,
+                      searching: false,
+                      scrollX: false,
+                      info: false,
+                      'columns': [
+                          {
+                              data: 'LastName',
+                              render: function (data, type, row, meta) {
+                                  if (window.CRM.bThumbnailIconPresence) {
+                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                  } else {
+                                      return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                  }
+                              }
+                          },
+                          {
+                              data: 'Address1',
+                              render: function (data, type, row, meta) {
+                                  if (data === null) {
+                                      return '';
+                                  }
+                                  return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                              }
+                          },
+                          {
+                              data: 'DateLastEdited',
+                              render: function (data, type, row, meta) {
+                                  if (data === null) {
+                                      data = row.DateEntered;
+                                  }
+                                  if (window.CRM.timeEnglish == true) {
+                                      return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                                  } else {
+                                      return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                                  }
+                              }
+                          }
+                      ]
+                  });
+                  latestPersonsTable.clear();
+                  latestPersonsTable.rows.add(data.LatestPersons);
+                  latestPersonsTable.draw(true);
+              }
+
+              var updatedPersonsTable = document.getElementById('updatedPersonsDashboardItem');
+              if (updatedPersonsTable != undefined) {
+                  updatedPersonsTable = $('#updatedPersonsDashboardItem').DataTable({
+                      retrieve: true,
+                      responsive: true,
+                      paging: false,
+                      ordering: false,
+                      searching: false,
+                      scrollX: false,
+                      info: false,
+                      'columns': [
+                          {
+                              data: 'LastName',
+                              render: function (data, type, row, meta) {
+                                  if (window.CRM.bThumbnailIconPresence) {
+                                      return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                  } else {
+                                      return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
+                                  }
+                              }
+                          },
+                          {
+                              data: 'Address1',
+                              render: function (data, type, row, meta) {
+                                  if (data === null) {
+                                      return '';
+                                  }
+                                  return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                              }
+                          },
+                          {
+                              data: 'DateLastEdited',
+                              render: function (data, type, row, meta) {
+                                  if (data === null) {
+                                      data = row.DateEntered;
+                                  }
+                                  if (window.CRM.timeEnglish == true) {
+                                      return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
+                                  } else {
+                                      return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
+                                  }
+                              }
+                          }
+                      ]
+                  });
+                  updatedPersonsTable.clear();
+                  updatedPersonsTable.rows.add(data.UpdatedPerson);
+                  updatedPersonsTable.draw(true);
+              }
           }
         },
         CalendarDisplay: function (data) {
@@ -1591,108 +1704,6 @@
                     "Right");
                 window.CRM.attendeesPresences = true;
             }
-        },
-        PersonCount: function (data) {
-          var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
-          if (dashBoardPeopleStats) {
-              dashBoardPeopleStats.innerText = data.personCount;
-
-              latestPersonsTable = $('#latestPersonsDashboardItem').DataTable({
-                  retrieve: true,
-                  responsive: true,
-                  paging: false,
-                  ordering: false,
-                  searching: false,
-                  scrollX: false,
-                  info: false,
-                  'columns': [
-                      {
-                          data: 'LastName',
-                          render: function (data, type, row, meta) {
-                              if (window.CRM.bThumbnailIconPresence) {
-                                  return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                              } else {
-                                  return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                              }
-                          }
-                      },
-                      {
-                          data: 'Address1',
-                          render: function (data, type, row, meta) {
-                              if (data === null) {
-                                  return '';
-                              }
-                              return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                          }
-                      },
-                      {
-                          data: 'DateLastEdited',
-                          render: function (data, type, row, meta) {
-                              if (data === null){
-                                  data = row.DateEntered;
-                              }
-                              if (window.CRM.timeEnglish == true) {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                              } else {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                              }
-                          }
-                      }
-                  ]
-              });
-              latestPersonsTable.clear();
-              latestPersonsTable.rows.add(data.LatestPersons);
-              latestPersonsTable.draw(true);
-
-              updatedPersonsTable = $('#updatedPersonsDashboardItem').DataTable({
-                  retrieve: true,
-                  responsive: true,
-                  paging: false,
-                  ordering: false,
-                  searching: false,
-                  scrollX: false,
-                  info: false,
-                  'columns': [
-                      {
-                          data: 'LastName',
-                          render: function (data, type, row, meta) {
-                              if (window.CRM.bThumbnailIconPresence) {
-                                  return '<img src="/api/persons/' + row.Id + '/thumbnail" alt="User Image" class="user-image initials-image" width="35" height="35"> <a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                              } else {
-                                  return '<a href=' + window.CRM.root + '/PersonView.php?PersonID=' + row.Id + '>' + data + ' ' + row.FirstName + '</a>';
-                              }
-                          }
-                      },
-                      {
-                          data: 'Address1',
-                          render: function (data, type, row, meta) {
-                              if (data === null) {
-                                  return '';
-                              }
-                              return data.replace(/\\(.)/mg, "$1");// we strip the slashes
-                          }
-                      },
-                      {
-                          data: 'DateLastEdited',
-                          render: function (data, type, row, meta) {
-                              if (data === null){
-                                  data = row.DateEntered;
-                              }
-                              if (window.CRM.timeEnglish == true) {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' hh:mm a');
-                              } else {
-                                  return moment(data).format(window.CRM.datePickerformat.toUpperCase() + ' HH:mm');
-                              }
-                          }
-                      }
-                  ]
-              });
-              updatedPersonsTable.clear();
-              updatedPersonsTable.rows.add(data.UpdatedPerson);
-              updatedPersonsTable.draw(true);
-
-
-          }
         }
       },
       refresh: function () {
