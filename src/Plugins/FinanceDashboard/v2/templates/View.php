@@ -31,7 +31,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="card-header  border-1">
             <h3 class="card-title">
                 <i class="fas fa-money-bill"
-                                      style="font-size:26px"></i> <?= _('Deposit Tracking') ?>
+                                      style="font-size:26px"></i> <?= dgettext("messages-FinanceDashboard",'Deposit Tracking') ?>
             </h3>
         <div class="card-tools">
             <button type="button" class="btn btn-default btn-sm" data-card-widget="remove">
