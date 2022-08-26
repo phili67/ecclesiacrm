@@ -41,26 +41,9 @@ class VIEWDashboardController {
         $this->container = $container;
     }
 
-    public function renderDashboardNew (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
-    {
-        $renderer = new PhpRenderer('templates/dashboard/');
-
-        if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled()) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . SessionUser::getUser()->getPersonId());
-        }
-
-        return $renderer->render($response, 'maindashboardnew.php', $this->argumentsFashboardArray());
-
-    }
-
-
     public function renderDashboard (ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
         $renderer = new PhpRenderer('templates/dashboard/');
-
-        if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled()) ) {
-            return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . SessionUser::getUser()->getPersonId());
-        }
 
         return $renderer->render($response, 'maindashboard.php', $this->argumentsFashboardArray());
     }
