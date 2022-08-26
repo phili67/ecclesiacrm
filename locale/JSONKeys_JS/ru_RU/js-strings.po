@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,6 +324,29 @@ msgstr "Вы выбрали два раза одно и то же имя"
 msgid "for this field. Chose another one."
 msgstr "для этого поля. Выберите другую."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Приборная панель"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Переместить"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Удалить все"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Вы собираетесь удалить свою кампанию! Вы уверены?"
+
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Удалить из корзины"
+
 msgid "Please confirm deletion of this document"
 msgstr "Пожалуйста, подтвердите удаление этого документа"
 
@@ -476,9 +499,6 @@ msgstr "Неправильный формат адреса."
 
 msgid "Set Calendar Name"
 msgstr "Установить имя календаря"
-
-msgid "Confirm"
-msgstr "Подтвердить"
 
 msgid "Set Resource Name"
 msgstr "Установить имя ресурса"

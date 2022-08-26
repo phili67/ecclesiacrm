@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26 10:06+0000\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
+msgid "Pastoral Care"
+msgstr "Ποιμαντική φροντίδα"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
+msgid "Latest"
+msgstr "Τελευταία"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
+msgid "Individual Pastoral Care"
+msgstr "Ατομική ποιμαντική φροντίδα"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:130
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:186
+msgid "None"
+msgstr "Κανένα"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
+msgid "Last"
+msgstr "Τελευταία"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
+msgid "Family Pastoral Care"
+msgstr "Οικογενειακή ποιμαντική φροντίδα"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:160
+msgid "Family"
+msgstr "Οικογένεια"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:193
+msgid "Statistics"
+msgstr "Στατιστικά στοιχεία"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
+msgid "Period  from"
+msgstr "Περίοδος από"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
+msgid "to"
+msgstr "στο"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:196
+msgid "Members"
+msgstr "Μέλη"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:199
+msgid "Persons not reached"
+msgstr "Άτομα που δεν προσεγγίστηκαν"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:203
+msgid "Families not reached"
+msgstr "Οικογένειες που δεν προσεγγίστηκαν"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:207
+msgid "Single Persons not reached"
+msgstr "Ενιαία άτομα που δεν προσεγγίστηκαν"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:211
+msgid "Retired Persons not reached"
+msgstr "Συνταξιούχοι που δεν προσεγγίστηκαν"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:215
+msgid "Young People"
+msgstr "Νέοι άνθρωποι"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:218
+msgid "Young People not reached"
+msgstr "Νέοι που δεν προσεγγίστηκαν"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:224
+msgid "Visit/Call your church members"
+msgstr "Επισκεφθείτε/καλέστε τα μέλη της εκκλησίας σας"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:225
+msgid "Manage Pastoral Care"
+msgstr "Διαχείριση ποιμαντικής φροντίδας"

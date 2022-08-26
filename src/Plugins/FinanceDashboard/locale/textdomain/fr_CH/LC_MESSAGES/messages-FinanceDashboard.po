@@ -1,0 +1,3 @@
+#: ../src/Plugins/FinanceDashboard/v2/templates/View.php:34
+msgid "Deposit Tracking"
+msgstr ""

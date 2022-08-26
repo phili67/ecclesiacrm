@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -320,6 +320,29 @@ msgstr "Du har valgt to ganger samme navn"
 msgid "for this field. Chose another one."
 msgstr "for denne banen. Velg en annen."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Flytt deg."
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Fjern alle"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Du skal slette kampanjen din! Er du sikker?"
+
+msgid "Confirm"
+msgstr "Bekreft"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Fjern deg fra Cart"
+
 msgid "Please confirm deletion of this document"
 msgstr "Vennligst bekreft sletting av dette dokumentet"
 
@@ -472,9 +495,6 @@ msgstr "Feil adresse format."
 
 msgid "Set Calendar Name"
 msgstr "Sett kalenderen name"
-
-msgid "Confirm"
-msgstr "Bekreft"
 
 msgid "Set Resource Name"
 msgstr "Sett Ressurs navn"

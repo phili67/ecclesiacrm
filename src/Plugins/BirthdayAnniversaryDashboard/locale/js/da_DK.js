@@ -1,0 +1,1 @@
+try {window.CRM.BirthdayAnniversaryDashboard_i18keys = {};} catch(e) {};

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -322,6 +322,29 @@ msgstr "Hai selezionato due volte lo stesso nome"
 msgid "for this field. Chose another one."
 msgstr "per questo campo. Sceglietene un altro."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Spostare"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Rimuovere tutti"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Stai per cancellare la tua campagna! Sei sicuro?"
+
+msgid "Confirm"
+msgstr "Confermare"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Rimuovi dal carrello"
+
 msgid "Please confirm deletion of this document"
 msgstr "Si prega di confermare la cancellazione di questo documento"
 
@@ -474,9 +497,6 @@ msgstr "Formato di indirizzo errato."
 
 msgid "Set Calendar Name"
 msgstr "Imposta nome del calendario"
-
-msgid "Confirm"
-msgstr "Confermare"
 
 msgid "Set Resource Name"
 msgstr "Imposta il nome della risorsa"

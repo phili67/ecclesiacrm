@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-26 10:06+0000\n"
+"Language: fr_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:67
+msgid "Pastoral Care"
+msgstr "Suivis pastoraux"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
+msgid "Latest"
+msgstr "Les plus récents"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:84
+msgid "Individual Pastoral Care"
+msgstr "Suivi Pastoral individuelle"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:130
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:186
+msgid "None"
+msgstr "Aucun"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
+msgid "Last"
+msgstr "Dernier"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:140
+msgid "Family Pastoral Care"
+msgstr "Suivi Pastoral familiale"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:160
+msgid "Family"
+msgstr "Famille"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:193
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
+msgid "Period  from"
+msgstr "Période du"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:194
+msgid "to"
+msgstr "au"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:196
+msgid "Members"
+msgstr "Membres"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:199
+msgid "Persons not reached"
+msgstr "Personnes non suivis"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:203
+msgid "Families not reached"
+msgstr "Familles non suivies"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:207
+msgid "Single Persons not reached"
+msgstr "Personnes seules non suivies"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:211
+msgid "Retired Persons not reached"
+msgstr "Retraités non suivies"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:215
+msgid "Young People"
+msgstr "Les jeunes"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:218
+msgid "Young People not reached"
+msgstr "Jeunes non suivis"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:224
+msgid "Visit/Call your church members"
+msgstr "Visitez/appellez les membres de votre église"
+
+#: ../src/Plugins/PastoralCareDashboard/v2/templates/View.php:225
+msgid "Manage Pastoral Care"
+msgstr "Gérer le Suivi Pastorale"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,6 +321,29 @@ msgstr "Kau telah memilih dua kali nama yang sama"
 msgid "for this field. Chose another one."
 msgstr "untuk bidang ini. Pilih yang lain."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Bergerak"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Hapus semua"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Kau akan menghapus kampanyemu! Apakah Anda yakin?"
+
+msgid "Confirm"
+msgstr "Konfirmasi"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Lepaskan dari Cart"
+
 msgid "Please confirm deletion of this document"
 msgstr "Tolong konfirmasi hapus dokumen ini"
 
@@ -473,9 +496,6 @@ msgstr "Salah alamat format."
 
 msgid "Set Calendar Name"
 msgstr "Atur nama kalender"
-
-msgid "Confirm"
-msgstr "Konfirmasi"
 
 msgid "Set Resource Name"
 msgstr "Atur nama sumber daya"

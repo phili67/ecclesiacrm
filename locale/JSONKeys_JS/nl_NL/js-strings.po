@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,6 +324,29 @@ msgstr "Je hebt twee keer dezelfde naam gekozen"
 msgid "for this field. Chose another one."
 msgstr "voor dit veld. Kies een andere."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Verplaats"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Verwijder alle"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Je staat op het punt om je campagne te verwijderen! Ben je zeker ?"
+
+msgid "Confirm"
+msgstr "Bevestig"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Verwijderen uit winkelwagen"
+
 msgid "Please confirm deletion of this document"
 msgstr "Bevestig de verwijdering van dit document"
 
@@ -476,9 +499,6 @@ msgstr "Verkeerd adres formaat."
 
 msgid "Set Calendar Name"
 msgstr "Kalendernaam instellen"
-
-msgid "Confirm"
-msgstr "Bevestig"
 
 msgid "Set Resource Name"
 msgstr "Ingestelde bronnaam"

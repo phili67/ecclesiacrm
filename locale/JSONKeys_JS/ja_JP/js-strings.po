@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,6 +317,29 @@ msgstr "同じ名前を2回選択している"
 msgid "for this field. Chose another one."
 msgstr "このフィールドの別のものを選択してください。"
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "ダッシュボード"
+
+#, fuzzy
+msgid "Moved!"
+msgstr "移動"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "すべて削除"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "キャンペーンを削除しようとしています。本当ですか？"
+
+msgid "Confirm"
+msgstr "確認"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "カートから削除"
+
 msgid "Please confirm deletion of this document"
 msgstr "この文書の削除を確認してください"
 
@@ -469,9 +492,6 @@ msgstr "誤ったアドレス形式です。"
 
 msgid "Set Calendar Name"
 msgstr "カレンダー名の設定"
-
-msgid "Confirm"
-msgstr "確認"
 
 msgid "Set Resource Name"
 msgstr "リソース名の設定"

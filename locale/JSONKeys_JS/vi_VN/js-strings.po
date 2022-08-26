@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-26T09:09:35.010Z\n"
+"POT-Creation-Date: 2022-08-26T09:30:06.616Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -321,6 +321,29 @@ msgstr "Bạn đã chọn hai lần cùng tên"
 msgid "for this field. Chose another one."
 msgstr "cho lĩnh vực này. Chọn cái khác đi."
 
+#, fuzzy
+msgid "Dashboard Item"
+msgstr "Dashboard."
+
+#, fuzzy
+msgid "Moved!"
+msgstr "Đi"
+
+#, fuzzy
+msgid "Remove Plugin"
+msgstr "Loại bỏ tất cả"
+
+#, fuzzy
+msgid "You're about to remove the plugin from yout dashboard !!!"
+msgstr "Anh sắp xóa chiến dịch của mình rồi! Anh chắc chứ?"
+
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#, fuzzy
+msgid "Removed from your dashboard !"
+msgstr "Rời khỏi Cart"
+
 msgid "Please confirm deletion of this document"
 msgstr "Xin hãy xác nhận đã xóa tài liệu này"
 
@@ -473,9 +496,6 @@ msgstr "Sai địa chỉ rồi."
 
 msgid "Set Calendar Name"
 msgstr "Đặt tên lên lịch"
-
-msgid "Confirm"
-msgstr "Xác nhận"
 
 msgid "Set Resource Name"
 msgstr "Thiết lập tên Nội lực"
