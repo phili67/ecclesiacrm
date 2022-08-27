@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:47+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1882,7 +1882,7 @@ msgstr "人"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1901,7 +1901,7 @@ msgstr "ファミリ"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:199
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -2035,7 +2035,7 @@ msgstr "メッセージはこちらから"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -4412,6 +4412,7 @@ msgstr "インテグレーション"
 #: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -4666,7 +4667,7 @@ msgid "List Event Types"
 msgstr "イベントタイプ一覧"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:155
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -5849,7 +5850,7 @@ msgid "Restore Database"
 msgstr "データベースの復元"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10256,41 +10257,86 @@ msgid ""
 "of EcclesiaCRM"
 msgstr "EcclesiaCRMの適切な機能のためのホスティングの技術データの検証"
 
-#: v2/templates/dashboard/maindashboard.php:120
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:108
+msgid "message for the DPO"
+msgstr "DPOへのメッセージ"
+
+#: v2/templates/dashboard/maindashboard.php:119
+msgid "person must be deleted from the CRM."
+msgstr "の人をCRMから削除する必要があります。"
+
+#: v2/templates/dashboard/maindashboard.php:121
+msgid "persons must be deleted from the CRM."
+msgstr "の人をCRMから削除する必要があります。"
+
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
+msgid "Click the"
+msgstr "をクリックします。"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+msgid "link"
+msgstr "リンク"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "to solve the problem."
+msgstr "を解決することができました。"
+
+#: v2/templates/dashboard/maindashboard.php:132
+msgid "No Person to remove in the CRM."
+msgstr "No Person to remove in CRM."
+
+#: v2/templates/dashboard/maindashboard.php:144
+msgid "family must be deleted from the CRM."
+msgstr "のファミリーをCRMから削除する必要があります。"
+
+#: v2/templates/dashboard/maindashboard.php:146
+msgid "families must be deleted from the CRM."
+msgstr "のファミリーをCRMから削除する必要があります。"
+
+#: v2/templates/dashboard/maindashboard.php:157
+msgid "No Family to remove in the CRM."
+msgstr "CRMで削除する家族はいません。"
+
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "ビュー"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "家族"
 
-#: v2/templates/dashboard/maindashboard.php:162
+#: v2/templates/dashboard/maindashboard.php:232
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "すべての人を見る"
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:247
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "日曜学校クラス"
 
-#: v2/templates/dashboard/maindashboard.php:184
-#: v2/templates/dashboard/maindashboard.php:206
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "詳細はこちら"
 
-#: v2/templates/dashboard/maindashboard.php:217
+#: v2/templates/dashboard/maindashboard.php:287
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "プラグインの管理"
 
-#: v2/templates/dashboard/maindashboard.php:224
+#: v2/templates/dashboard/maindashboard.php:294
 #: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "設定"
@@ -10877,11 +10923,6 @@ msgstr "行方不明者マップの分類アイコンを"
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr "Clik"
-
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "to solve the problem."
-msgstr "を解決することができました。"
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
 #: v2/templates/map/MapUsingGoogle.php:65
@@ -12436,33 +12477,6 @@ msgstr "ある日のこと"
 
 msgid "Several days"
 msgstr "数日"
-
-#~ msgid "message for the DPO"
-#~ msgstr "DPOへのメッセージ"
-
-#~ msgid "person must be deleted from the CRM."
-#~ msgstr "の人をCRMから削除する必要があります。"
-
-#~ msgid "persons must be deleted from the CRM."
-#~ msgstr "の人をCRMから削除する必要があります。"
-
-#~ msgid "Click the"
-#~ msgstr "をクリックします。"
-
-#~ msgid "link"
-#~ msgstr "リンク"
-
-#~ msgid "No Person to remove in the CRM."
-#~ msgstr "No Person to remove in CRM."
-
-#~ msgid "family must be deleted from the CRM."
-#~ msgstr "のファミリーをCRMから削除する必要があります。"
-
-#~ msgid "families must be deleted from the CRM."
-#~ msgstr "のファミリーをCRMから削除する必要があります。"
-
-#~ msgid "No Family to remove in the CRM."
-#~ msgstr "CRMで削除する家族はいません。"
 
 #~ msgid "Birthdates of the day"
 #~ msgstr "今日の誕生日"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:47+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1888,7 +1888,7 @@ msgstr "Personer"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1907,7 +1907,7 @@ msgstr "Familjer"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:199
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -2041,7 +2041,7 @@ msgstr "Skriv ett meddelande här!"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -4448,6 +4448,7 @@ msgstr "Integration"
 #: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -4704,7 +4705,7 @@ msgid "List Event Types"
 msgstr "Lista över händelsetyper"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:155
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -5888,7 +5889,7 @@ msgid "Restore Database"
 msgstr "Återställa databas"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10318,41 +10319,86 @@ msgid ""
 msgstr ""
 "Verifiering av värdets tekniska data för att EcclesiaCRM ska fungera korrekt."
 
-#: v2/templates/dashboard/maindashboard.php:120
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:108
+msgid "message for the DPO"
+msgstr "meddelande till dataskyddsombudet"
+
+#: v2/templates/dashboard/maindashboard.php:119
+msgid "person must be deleted from the CRM."
+msgstr "personen måste tas bort från CRM."
+
+#: v2/templates/dashboard/maindashboard.php:121
+msgid "persons must be deleted from the CRM."
+msgstr "personer måste tas bort från CRM."
+
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
+msgid "Click the"
+msgstr "Klicka på"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+msgid "link"
+msgstr "länk"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "to solve the problem."
+msgstr "för att lösa problemet."
+
+#: v2/templates/dashboard/maindashboard.php:132
+msgid "No Person to remove in the CRM."
+msgstr "Ingen person att ta bort i CRM."
+
+#: v2/templates/dashboard/maindashboard.php:144
+msgid "family must be deleted from the CRM."
+msgstr "familjen måste tas bort från CRM."
+
+#: v2/templates/dashboard/maindashboard.php:146
+msgid "families must be deleted from the CRM."
+msgstr "familjer måste tas bort från CRM."
+
+#: v2/templates/dashboard/maindashboard.php:157
+msgid "No Family to remove in the CRM."
+msgstr "Ingen familj att ta bort i CRM."
+
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "Visa"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "Familjer"
 
-#: v2/templates/dashboard/maindashboard.php:162
+#: v2/templates/dashboard/maindashboard.php:232
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "Se alla människor"
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:247
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Söndagsskoleklasser"
 
-#: v2/templates/dashboard/maindashboard.php:184
-#: v2/templates/dashboard/maindashboard.php:206
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "Mer information"
 
-#: v2/templates/dashboard/maindashboard.php:217
+#: v2/templates/dashboard/maindashboard.php:287
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "Hantering av insticksprogram"
 
-#: v2/templates/dashboard/maindashboard.php:224
+#: v2/templates/dashboard/maindashboard.php:294
 #: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "Inställningar"
@@ -10940,11 +10986,6 @@ msgstr "Klassificeringsikon för kartan över saknade personer för"
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr "Clik"
-
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "to solve the problem."
-msgstr "för att lösa problemet."
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
 #: v2/templates/map/MapUsingGoogle.php:65
@@ -12505,33 +12546,6 @@ msgstr "En dag"
 
 msgid "Several days"
 msgstr "Flera dagar"
-
-#~ msgid "message for the DPO"
-#~ msgstr "meddelande till dataskyddsombudet"
-
-#~ msgid "person must be deleted from the CRM."
-#~ msgstr "personen måste tas bort från CRM."
-
-#~ msgid "persons must be deleted from the CRM."
-#~ msgstr "personer måste tas bort från CRM."
-
-#~ msgid "Click the"
-#~ msgstr "Klicka på"
-
-#~ msgid "link"
-#~ msgstr "länk"
-
-#~ msgid "No Person to remove in the CRM."
-#~ msgstr "Ingen person att ta bort i CRM."
-
-#~ msgid "family must be deleted from the CRM."
-#~ msgstr "familjen måste tas bort från CRM."
-
-#~ msgid "families must be deleted from the CRM."
-#~ msgstr "familjer måste tas bort från CRM."
-
-#~ msgid "No Family to remove in the CRM."
-#~ msgstr "Ingen familj att ta bort i CRM."
 
 #~ msgid "Birthdates of the day"
 #~ msgstr "Dagens födelsedatum"

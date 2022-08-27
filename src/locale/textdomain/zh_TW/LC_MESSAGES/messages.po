@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:47+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1852,7 +1852,7 @@ msgstr "人数"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1871,7 +1871,7 @@ msgstr "家庭"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:199
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -2005,7 +2005,7 @@ msgstr "请在此写下您的留言!"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -4350,6 +4350,7 @@ msgstr "融合"
 #: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -4604,7 +4605,7 @@ msgid "List Event Types"
 msgstr "列出事件类型"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:155
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -5785,7 +5786,7 @@ msgid "Restore Database"
 msgstr "恢复数据库"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10115,41 +10116,86 @@ msgid ""
 "of EcclesiaCRM"
 msgstr "为EcclesiaCRM的正常运行验证主机的技术数据"
 
-#: v2/templates/dashboard/maindashboard.php:120
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:108
+msgid "message for the DPO"
+msgstr "给DPO的信息"
+
+#: v2/templates/dashboard/maindashboard.php:119
+msgid "person must be deleted from the CRM."
+msgstr "必须从CRM中删除该人。"
+
+#: v2/templates/dashboard/maindashboard.php:121
+msgid "persons must be deleted from the CRM."
+msgstr "必须从CRM中删除这些人。"
+
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
+msgid "Click the"
+msgstr "点击"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+msgid "link"
+msgstr "链接"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "to solve the problem."
+msgstr "来解决这个问题。"
+
+#: v2/templates/dashboard/maindashboard.php:132
+msgid "No Person to remove in the CRM."
+msgstr "在CRM中没有人可以删除。"
+
+#: v2/templates/dashboard/maindashboard.php:144
+msgid "family must be deleted from the CRM."
+msgstr "家庭必须从CRM中删除。"
+
+#: v2/templates/dashboard/maindashboard.php:146
+msgid "families must be deleted from the CRM."
+msgstr "家庭必须从CRM中删除。"
+
+#: v2/templates/dashboard/maindashboard.php:157
+msgid "No Family to remove in the CRM."
+msgstr "在客户关系管理中没有家庭可供删除。"
+
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "查看"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "家庭"
 
-#: v2/templates/dashboard/maindashboard.php:162
+#: v2/templates/dashboard/maindashboard.php:232
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "查看所有人员"
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:247
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "主日学课程"
 
-#: v2/templates/dashboard/maindashboard.php:184
-#: v2/templates/dashboard/maindashboard.php:206
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "更多信息"
 
-#: v2/templates/dashboard/maindashboard.php:217
+#: v2/templates/dashboard/maindashboard.php:287
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "插件管理"
 
-#: v2/templates/dashboard/maindashboard.php:224
+#: v2/templates/dashboard/maindashboard.php:294
 #: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "设置"
@@ -10713,11 +10759,6 @@ msgstr "失踪人员地图分类图标为"
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr "夾克"
-
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "to solve the problem."
-msgstr "来解决这个问题。"
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
 #: v2/templates/map/MapUsingGoogle.php:65
@@ -12244,33 +12285,6 @@ msgstr "一天"
 
 msgid "Several days"
 msgstr "数天"
-
-#~ msgid "message for the DPO"
-#~ msgstr "给DPO的信息"
-
-#~ msgid "person must be deleted from the CRM."
-#~ msgstr "必须从CRM中删除该人。"
-
-#~ msgid "persons must be deleted from the CRM."
-#~ msgstr "必须从CRM中删除这些人。"
-
-#~ msgid "Click the"
-#~ msgstr "点击"
-
-#~ msgid "link"
-#~ msgstr "链接"
-
-#~ msgid "No Person to remove in the CRM."
-#~ msgstr "在CRM中没有人可以删除。"
-
-#~ msgid "family must be deleted from the CRM."
-#~ msgstr "家庭必须从CRM中删除。"
-
-#~ msgid "families must be deleted from the CRM."
-#~ msgstr "家庭必须从CRM中删除。"
-
-#~ msgid "No Family to remove in the CRM."
-#~ msgstr "在客户关系管理中没有家庭可供删除。"
 
 #~ msgid "Birthdates of the day"
 #~ msgstr "当天的出生日期"

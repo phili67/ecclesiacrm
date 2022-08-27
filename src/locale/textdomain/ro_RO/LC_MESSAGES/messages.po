@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:47+0000\n"
+"POT-Creation-Date: 2022-08-27 08:18+0000\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1899,7 +1899,7 @@ msgstr "Persoane"
 #: EcclesiaCRM/Search/FamilySearchRes.php:21
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24
-#: v2/templates/dashboard/maindashboard.php:133
+#: v2/templates/dashboard/maindashboard.php:203
 #: v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:82
 #: v2/templates/pastoralcare/pastoralcarelistforuser.php:21
@@ -1918,7 +1918,7 @@ msgstr "Familii"
 #: ident/routes/verify.php:309 ident/routes/verify.php:711
 #: ident/templates/verify/verify-family-info.php:145 PersonView.php:504
 #: v2/templates/calendar/calendar.php:197
-#: v2/templates/dashboard/maindashboard.php:199
+#: v2/templates/dashboard/maindashboard.php:269
 #: v2/templates/group/grouplist.php:53
 #: v2/templates/pastoralcare/pastoralcareperson.php:142
 #: v2/templates/people/peopledashboard.php:171
@@ -2052,7 +2052,7 @@ msgstr "Scrie un mesaj aici !"
 #: EcclesiaCRM/APIControllers/SearchController.php:68
 #: EcclesiaCRM/APIControllers/SearchController.php:71
 #: EcclesiaCRM/Search/FamilySearchRes.php:168
-#: v2/templates/dashboard/maindashboard.php:120
+#: v2/templates/dashboard/maindashboard.php:190
 #: v2/templates/pastoralcare/pastoralcaredashboard.php:95
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peoplelist.php:44
@@ -4479,6 +4479,7 @@ msgstr "Integrare"
 #: EcclesiaCRM/dto/SystemConfig.php:296 EcclesiaCRM/MenuBar/MenuBar.php:111
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:154
 #: EcclesiaCRM/VIEWControllers/VIEWMailchimpController.php:155
+#: v2/templates/dashboard/maindashboard.php:108
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -4733,7 +4734,7 @@ msgid "List Event Types"
 msgstr "Lista tipurilor de evenimente"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:149
-#: v2/templates/dashboard/maindashboard.php:155
+#: v2/templates/dashboard/maindashboard.php:225
 #: v2/templates/people/familylist.php:46
 #: v2/templates/people/peopledashboard.php:127
 msgid "People"
@@ -5919,7 +5920,7 @@ msgid "Restore Database"
 msgstr "Restaurarea bazei de date"
 
 #: EcclesiaCRM/VIEWControllers/People/VIEWFamilyListController.php:160
-#: v2/templates/dashboard/maindashboard.php:112
+#: v2/templates/dashboard/maindashboard.php:182
 #: v2/templates/people/peopledashboard.php:83
 #: v2/templates/people/peoplelist.php:22
 msgid "Single Persons"
@@ -10376,41 +10377,86 @@ msgstr ""
 "Verificarea datelor tehnice ale găzduirii pentru buna funcționare a "
 "EcclesiaCRM"
 
-#: v2/templates/dashboard/maindashboard.php:120
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:108
+msgid "message for the DPO"
+msgstr "mesaj pentru RPD"
+
+#: v2/templates/dashboard/maindashboard.php:119
+msgid "person must be deleted from the CRM."
+msgstr "persoana trebuie să fie ștearsă din CRM."
+
+#: v2/templates/dashboard/maindashboard.php:121
+msgid "persons must be deleted from the CRM."
+msgstr "persoanele trebuie să fie șterse din CRM."
+
+#: v2/templates/dashboard/maindashboard.php:126
+#: v2/templates/dashboard/maindashboard.php:151
+msgid "Click the"
+msgstr "Faceți clic pe butonul"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+msgid "link"
+msgstr "link"
+
+#: v2/templates/dashboard/maindashboard.php:127
+#: v2/templates/dashboard/maindashboard.php:152
+#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
+#: v2/templates/map/MapUsingLeaflet.php:37
+msgid "to solve the problem."
+msgstr "pentru a rezolva problema."
+
+#: v2/templates/dashboard/maindashboard.php:132
+msgid "No Person to remove in the CRM."
+msgstr "Nu există nicio persoană care să fie eliminată din CRM."
+
+#: v2/templates/dashboard/maindashboard.php:144
+msgid "family must be deleted from the CRM."
+msgstr "familia trebuie să fie ștearsă din CRM."
+
+#: v2/templates/dashboard/maindashboard.php:146
+msgid "families must be deleted from the CRM."
+msgstr "familiile trebuie să fie șterse din CRM."
+
+#: v2/templates/dashboard/maindashboard.php:157
+msgid "No Family to remove in the CRM."
+msgstr "Nu este nevoie să eliminați Familia în CRM."
+
+#: v2/templates/dashboard/maindashboard.php:190
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:91
 #: v2/templates/people/peopledashboard.php:113
 msgid "View"
 msgstr "Vezi"
 
-#: v2/templates/dashboard/maindashboard.php:142
+#: v2/templates/dashboard/maindashboard.php:212
 #: v2/templates/people/peopledashboard.php:113
 msgid "Familles"
 msgstr "Familii"
 
-#: v2/templates/dashboard/maindashboard.php:162
+#: v2/templates/dashboard/maindashboard.php:232
 #: v2/templates/people/peopledashboard.php:134
 msgid "See All People"
 msgstr "Vezi toți oamenii"
 
-#: v2/templates/dashboard/maindashboard.php:177
+#: v2/templates/dashboard/maindashboard.php:247
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Sunday School Classes"
 msgstr "Clasele de școală duminicală"
 
-#: v2/templates/dashboard/maindashboard.php:184
-#: v2/templates/dashboard/maindashboard.php:206
+#: v2/templates/dashboard/maindashboard.php:254
+#: v2/templates/dashboard/maindashboard.php:276
 #: v2/templates/people/peopledashboard.php:156
 #: v2/templates/people/peopledashboard.php:178
 msgid "More info"
 msgstr "Mai multe informații"
 
-#: v2/templates/dashboard/maindashboard.php:217
+#: v2/templates/dashboard/maindashboard.php:287
 #: v2/templates/plugins/plugins.php:32
 msgid "Plugins managements"
 msgstr "Gestionarea plugin-urilor"
 
-#: v2/templates/dashboard/maindashboard.php:224
+#: v2/templates/dashboard/maindashboard.php:294
 #: v2/templates/plugins/plugins.php:102
 msgid "Settings"
 msgstr "Setări"
@@ -11003,11 +11049,6 @@ msgstr "Icoana de clasificare a hărții persoanelor dispărute pentru"
 #: v2/templates/map/MapUsingLeaflet.php:37
 msgid "Clik"
 msgstr "Clik"
-
-#: v2/templates/map/MapUsingBing.php:46 v2/templates/map/MapUsingGoogle.php:41
-#: v2/templates/map/MapUsingLeaflet.php:37
-msgid "to solve the problem."
-msgstr "pentru a rezolva problema."
 
 #: v2/templates/map/MapUsingBing.php:65 v2/templates/map/MapUsingBing.php:108
 #: v2/templates/map/MapUsingGoogle.php:65
@@ -12592,33 +12633,6 @@ msgstr "O zi"
 
 msgid "Several days"
 msgstr "Câteva zile"
-
-#~ msgid "message for the DPO"
-#~ msgstr "mesaj pentru RPD"
-
-#~ msgid "person must be deleted from the CRM."
-#~ msgstr "persoana trebuie să fie ștearsă din CRM."
-
-#~ msgid "persons must be deleted from the CRM."
-#~ msgstr "persoanele trebuie să fie șterse din CRM."
-
-#~ msgid "Click the"
-#~ msgstr "Faceți clic pe butonul"
-
-#~ msgid "link"
-#~ msgstr "link"
-
-#~ msgid "No Person to remove in the CRM."
-#~ msgstr "Nu există nicio persoană care să fie eliminată din CRM."
-
-#~ msgid "family must be deleted from the CRM."
-#~ msgstr "familia trebuie să fie ștearsă din CRM."
-
-#~ msgid "families must be deleted from the CRM."
-#~ msgstr "familiile trebuie să fie șterse din CRM."
-
-#~ msgid "No Family to remove in the CRM."
-#~ msgstr "Nu este nevoie să eliminați Familia în CRM."
 
 #~ msgid "Birthdates of the day"
 #~ msgstr "Datele de naștere ale zilei"
