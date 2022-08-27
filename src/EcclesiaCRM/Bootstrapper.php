@@ -274,8 +274,20 @@ namespace EcclesiaCRM
           $version = new Version();
           $version->setVersion(SystemService::getInstalledVersion());
           $version->setUpdateStart(new \DateTime());
+
+          // default database installation
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
+
+          // we install all the default plugins
           SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/MeetingJitsi/mysql/Install.sql', $connection);
+
+          // dashboard plugins
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/BirthdayAnniversaryDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FamilyInfosDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/FinanceDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PastoralCareDashboard/mysql/Install.sql', $connection);
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/Plugins/PersonInfosDashboard/mysql/Install.sql', $connection);
+
           $version->setUpdateEnd(new \DateTime());
           $version->save();
           self::$bootStrapLogger->info("Installed EcclesiaCRM Schema version: " . SystemService::getInstalledVersion());
