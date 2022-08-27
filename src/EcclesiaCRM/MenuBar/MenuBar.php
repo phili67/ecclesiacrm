@@ -548,7 +548,7 @@ class MenuBar extends Menu
             $this->addGlobalMenuLinks();
         }
 
-        // we can all the free menu you want to define
+        // we can add all the free menu you want to define
         $this->addPluginMenus('FreeMenu');
     }
 }
